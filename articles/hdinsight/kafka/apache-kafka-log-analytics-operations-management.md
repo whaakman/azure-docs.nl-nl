@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317276"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608542"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Logboeken voor Apache Kafka in HDInsight analyseren
 
@@ -30,7 +30,7 @@ De stappen voor het inschakelen van Log Analytics voor HDInsight zijn hetzelfde 
 
 3. Configureer de Kafka-cluster voor het gebruik van Log Analytics. Zie voor meer informatie de [met Log Analytics voor het bewaken van HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
-    > [!NOTE]
+    > [!NOTE]  
     > U kunt ook configureren met het cluster voor het gebruik van Log Analytics met behulp van de `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Deze cmdlet vereist de volgende gegevens:
     >
     > * De naam van het HDInsight-cluster.
@@ -38,7 +38,7 @@ De stappen voor het inschakelen van Log Analytics voor HDInsight zijn hetzelfde 
     > * De primaire sleutel voor de verbinding met Log Analytics. Als u zoekt de primaire sleutel, open de werkruimte in Azure portal, selecteert u __geavanceerde instellingen__ in het menu links. Selecteer in de geavanceerde instellingen __verbonden bronnen__>__Linux-Servers__.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Het kan ongeveer 20 minuten duren voordat gegevens beschikbaar voor Log Analytics zijn.
 
 ## <a name="query-logs"></a>Logboeken voor query 's
@@ -57,12 +57,12 @@ De stappen voor het inschakelen van Log Analytics voor HDInsight zijn hetzelfde 
 
     * Uitgaande bytes per seconde: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vervang de querywaarden met de specifieke gegevens van uw cluster. Bijvoorbeeld, `ClusterName_s` moet worden ingesteld op de naam van uw cluster. `HostName_s` moet worden ingesteld op de domeinnaam van een worker-knooppunt in het cluster.
 
     U kunt ook opgeven `*` om te zoeken naar alle typen in het logboek geregistreerd. De volgende logboeken zijn momenteel beschikbaar voor query's:
 
-    | Logboektype | Beschrijving |
+    | Logboektype | Description |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka-broker server.log |
     | log\_kafkacontroller\_CL | Kafka-broker controller.log |

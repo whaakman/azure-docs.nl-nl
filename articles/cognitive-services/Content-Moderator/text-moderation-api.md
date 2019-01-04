@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0948251c18ad8eece974914ee33dff18b5930553
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226565"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535800"
 ---
 # <a name="text-moderation"></a>Beheer van tekst
 
@@ -149,7 +149,7 @@ Als u om automatische correctie vraagt, bevat het antwoord de gecorrigeerde vers
 Terwijl de standaardinstelling, globale lijst met voorwaarden ideaal voor de meeste gevallen werkt, kunt u op het scherm met de termen die specifiek voor uw bedrijfsbehoeften zijn. Bijvoorbeeld, kunt u uit een concurrerende merken van berichten door gebruikers te filteren.
 
 > [!NOTE]
-> Er is een maximumlimiet van **geeft een lijst van 5 term** met elke lijst **niet meer dan 10.000 voorwaarden**.
+> Er is een maximumlimiet van **5 terminologielijsten** waarbij elke lijst **niet meer dan 10.000 termen mag bevatten**.
 >
 
 Het volgende voorbeeld ziet u de bijbehorende lijst-ID:

@@ -1,7 +1,7 @@
 ---
 title: Detecteren van afbeeldingstypen - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot het detecteren van afbeeldingstypen met behulp van de Computer Vision-API.
+description: Concepten met betrekking tot de installatiekopie type detectie-functie van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341995"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583099"
 ---
-# <a name="detecting-image-types"></a>Afbeeldingstypen detecteren
+# <a name="detecting-image-types-with-computer-vision"></a>Detecteren van afbeeldingstypen met Computer Vision
 
 Computer Vision kunt het inhoudstype van installatiekopieën analyseren door die aangeeft of een afbeelding illustraties, is de kans op een schaal, of een lijntekening waardering.
 
@@ -27,7 +28,7 @@ Computer Vision analyseert een installatiekopie en classificeert de kans van de 
 
 | Waarde | Betekenis |
 |-------|---------|
-| 0 | Niet-illustraties |
+| 0 | Non-clip-art (geen illustratie) |
 | 1 | niet-eenduidige |
 | 2 | Normaal illustraties |
 | 3 | goede illustraties |
@@ -36,7 +37,7 @@ Computer Vision analyseert een installatiekopie en classificeert de kans van de 
 
 De volgende JSON-antwoorden ziet u wat Computer Vision geretourneerd bij het beoordelen van de kans van de voorbeeld-installatiekopieën wordt illustraties.
 
-![Vision kaas illustraties analyseren](./Images/cheese_clipart.png)
+![Een afbeelding van een segment van kaas](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ De volgende JSON-antwoorden ziet u wat Computer Vision geretourneerd bij het beo
 }
 ```
 
-![Vision House Yard analyseren](./Images/house_yard.png)
+![Een blauwe huis en de voorste yard](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Computer Vision analyseert een installatiekopie en retourneert een Booleaanse wa
 
 Computer Vision retourneert wanneer die aangeeft of de installatiekopieën van het voorbeeld regel tekeningen zijn ziet u de volgende JSON-antwoorden.
 
-![Vision Lion tekening analyseren](./Images/lion_drawing.png)
+![Een lijntekening-installatiekopie van een lion](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ Computer Vision retourneert wanneer die aangeeft of de installatiekopieën van h
 }
 ```
 
-![Vision bloem analyseren](./Images/flower.png)
+![Een wit bloem met een groene achtergrond](./Images/flower.png)
 
 ```json
 {

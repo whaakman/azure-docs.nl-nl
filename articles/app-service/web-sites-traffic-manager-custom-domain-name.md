@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340046"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720456"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Een aangepaste domeinnaam voor een web-app configureren in Azure App Service met Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-In dit artikel vindt u algemene instructies voor het gebruik van een aangepaste domeinnaam met een [App Service](app-service-web-overview.md) app die is geïntegreerd met [Traffic Manager](../traffic-manager/traffic-manager-overview.md) voor de taakverdeling.
+In dit artikel vindt u algemene instructies voor het gebruik van een aangepaste domeinnaam met een [App Service](overview.md) app die is geïntegreerd met [Traffic Manager](../traffic-manager/traffic-manager-overview.md) voor de taakverdeling.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -47,7 +47,7 @@ In dit artikel vindt u algemene instructies voor het gebruik van een aangepaste 
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Een DNS-record voor uw aangepaste domein toevoegen
 > [!NOTE]
-> Als u hebt aangeschaft domein door middel van Azure App Service Web Apps en vervolgens overslaat stappen te volgen en naar de laatste stap van verwijzen [domein voor Web-Apps kopen](custom-dns-web-site-buydomains-web-app.md) artikel.
+> Als u hebt aangeschaft domein door middel van Azure App Service Web Apps en vervolgens overslaat stappen te volgen en naar de laatste stap van verwijzen [domein voor Web-Apps kopen](manage-custom-dns-buy-domain.md) artikel.
 > 
 > 
 

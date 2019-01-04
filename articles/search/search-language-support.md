@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313323"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631546"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Een index voor documenten in meerdere talen in Azure Search maken
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Hieronder ziet u schermafbeeldingen van de Azure Portal-blades voor Azure Search
 ![][2]
 *Selecteer een van de ondersteunde analyzers voor elk veld*
 
-Standaard wordt gebruikt voor alle doorzoekbare velden de [Standard Lucene analyzer](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) welke taalneutraal is. De volledige lijst met ondersteunde analyzers Zie [taalondersteuning in Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Standaard wordt gebruikt voor alle doorzoekbare velden de [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) welke taalneutraal is. De volledige lijst met ondersteunde analyzers Zie [taalondersteuning in Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 Nadat de taal-analysefunctie voor een veld is geselecteerd, wordt deze elke aanvraag indexeren en zoeken voor dat veld gebruikt. Wanneer een query is uitgegeven voor meerdere velden met behulp van verschillende analyzers, wordt de query onafhankelijk worden verwerkt door de juiste analyzers voor elk veld.
 
@@ -81,7 +81,7 @@ Soms de taal van de agent een query uitvoert niet bekend is, in welk geval de qu
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-Als u een .NET-ontwikkelaar bent, houd er rekening mee dat u kunt taalanalyse met behulp van de [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search). De nieuwste versie bevat ondersteuning voor de taalanalyse Microsoft.
+Als u een .NET-ontwikkelaar bent, houd er rekening mee dat u kunt taalanalyse met behulp van de [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search). De nieuwste versie bevat ondersteuning voor de taalanalyse Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

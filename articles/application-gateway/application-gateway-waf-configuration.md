@@ -7,19 +7,16 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036714"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752721"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Web application firewall-aanvraaglimieten grootte- en uitsluitingsbeleid geeft een lijst van (openbare Preview)
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web application firewall-aanvraaglimieten grootte en uitsluitingslijsten
 
 De Azure Application Gateway web application firewall (WAF) biedt beveiliging voor webtoepassingen. Dit artikel wordt beschreven WAF grootte aanvraaglimieten en uitsluiting geeft een lijst van de configuratie.
-
-> [!IMPORTANT]
-> Configuratie van de grootte van WAF aanvraaglimieten en uitsluitingslijsten is momenteel in openbare preview. Deze preview wordt aangeboden zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="waf-request-size-limits"></a>Maximale grootte van WAF-aanvraag
 
@@ -52,10 +49,10 @@ U kunt opgeven van een exacte aanvraagheader body cookie of query-tekenreeksover
 
 Hier volgen de ondersteunde overeenkomst criteria operators:
 
-- **Is gelijk aan**: deze operator wordt gebruikt voor een exacte overeenkomst. Een voorbeeld: voor het selecteren van een koptekst met de naam **bearerToken**, gebruikt u de operator is gelijk aan met de selector instellen als **bearerToken**.
-- **Begint met**: deze operator komt overeen met alle velden die met de selectie van de opgegeven waarde beginnen.
-- **Eindigt met**: deze operator komt overeen met alle velden op aanvraag die met de selectie van de opgegeven waarde eindigen.
-- **Bevat**: deze operator komt overeen met alle velden op aanvraag die de opgegeven selector waarde bevatten.
+- **Is gelijk aan**:  Deze operator wordt gebruikt voor een exacte overeenkomst. Een voorbeeld: voor het selecteren van een koptekst met de naam **bearerToken**, gebruikt u de operator is gelijk aan met de selector instellen als **bearerToken**.
+- **Begint met**: Deze operator komt overeen met alle velden die met de selectie van de opgegeven waarde beginnen.
+- **Eindigt met**:  Deze operator komt overeen met alle velden op aanvraag die met de selectie van de opgegeven waarde eindigen.
+- **Bevat**: Deze operator komt overeen met alle velden op aanvraag die de opgegeven selector waarde bevatten.
 
 In alle gevallen wordt onderscheid en reguliere expressies zijn niet toegestaan als het selectoren.
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833309"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974361"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -20,6 +20,7 @@ Als de beveiligde virtuele machine een Windows virtuele machine is, moet u een W
 
 > [!IMPORTANT]
 > Vanaf versie van de 9.10.0 hoofddoelserver, de meest recente hoofddoelserver kan alleen worden geïnstalleerd op een Ubuntu 16.04-server. Nieuwe installaties zijn niet toegestaan voor CentOS6.6 servers. U kunt echter doorgaan naar de oude hoofdsleutel doelservers bijwerken met behulp van de 9.10.0 versie.
+> Masterdoelserver op LVM wordt niet ondersteund.
 
 ## <a name="overview"></a>Overzicht
 In dit artikel bevat instructies voor het installeren van een Linux-hoofddoelserver.
@@ -38,7 +39,7 @@ Opmerkingen of vragen plaatsen aan het einde van dit artikel of op de [Azure Rec
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Aanbevelingen voor voor het maken van de hoofddoelserver
 
 Maak het hoofddoel in overeenstemming met de volgende richtlijnen voor de grootte:
-- **RAM-geheugen**: 6 GB of meer
+- **RAM-GEHEUGEN**: 6 GB of meer
 - **Grootte besturingssysteemschijf**: 100 GB of meer (om te installeren besturingssysteem)
 - **Aanvullende schijfgrootte voor bewaarstation**: 1 TB
 - **CPU-kernen**: 4 kernen of meer
@@ -59,7 +60,7 @@ De volgende ondersteunde Ubuntu-kernels worden ondersteund.
 
 Met het volgende de stappen voor het installeren van de Ubuntu 16.04.2 64-bits besturingssysteem.
 
-1.   Ga naar de [downloadkoppeling](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64), kies de dichtstbijzijnde mirror anddownload een Ubuntu 16.04.2 minimaal 64-bit ISO.
+1.   Ga naar de [downloadkoppeling](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), kies de dichtstbijzijnde mirror anddownload een Ubuntu 16.04.2 minimaal 64-bit ISO.
 Een Ubuntu 16.04.2 minimaal 64-bit ISO behouden in het DVD-station en start het systeem.
 
 1.  Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.

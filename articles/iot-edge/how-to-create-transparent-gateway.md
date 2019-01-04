@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094352"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556217"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren
 
@@ -41,7 +41,7 @@ De volgende stappen helpen u bij het proces van het maken van de certificaten en
 ## <a name="prerequisites"></a>Vereisten
 
 Een Azure IoT Edge-apparaat configureren als een gateway. U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een IoT Edge-apparaat met de stappen voor de volgende besturingssystemen:
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -60,9 +60,9 @@ OpenSSL voor Windows installeren op de computer die u gebruikt voor het generere
    >[!NOTE]
    >Als u al OpenSSL geïnstalleerd op uw Windows-apparaat hebt, kunt u deze stap overslaan maar ervoor te zorgen dat openssl.exe is beschikbaar in uw padomgevingsvariabele bevindt.
 
-* **Eenvoudiger:** downloaden en installeren van een [OpenSSL binaire bestanden van derden](https://wiki.openssl.org/index.php/Binaries), bijvoorbeeld van [dit project op SourceForge](https://sourceforge.net/projects/openssl/). Het volledige pad toevoegen aan openssl.exe aan de omgevingsvariabele PATH. 
+* **Eenvoudiger:** Download en installeer een [OpenSSL binaire bestanden van derden](https://wiki.openssl.org/index.php/Binaries), bijvoorbeeld van [dit project op SourceForge](https://sourceforge.net/projects/openssl/). Het volledige pad toevoegen aan openssl.exe aan de omgevingsvariabele PATH. 
    
-* **Aanbevolen:** de OpenSSL-broncode downloaden en bouwen van de binaire bestanden op uw computer zelf of via [vcpkg](https://github.com/Microsoft/vcpkg). De onderstaande instructies gebruiken vcpkg broncode, compileren en OpenSSL installeren op uw Windows-computer met eenvoudige stappen downloadt.
+* **Aanbevolen:** De OpenSSL-broncode downloaden en bouwen van de binaire bestanden op uw computer zelf of via [vcpkg](https://github.com/Microsoft/vcpkg). De onderstaande instructies gebruiken vcpkg broncode, compileren en OpenSSL installeren op uw Windows-computer met eenvoudige stappen downloadt.
 
    1. Ga naar een map waar u vcpkg installeren. Verwijzen we naar deze map als  *\<VCPKGDIR >*. Volg de instructies voor het downloaden en installeren [vcpkg](https://github.com/Microsoft/vcpkg).
    

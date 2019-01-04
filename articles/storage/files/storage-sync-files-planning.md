@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335177"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630322"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
 
 Dit artikel wordt beschreven belangrijke overwegingen voor de implementatie van Azure File Sync. Het is raadzaam dat u ook lezen [Planning voor de implementatie van Azure Files](storage-files-planning.md). 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="azure-file-sync-terminology"></a>Azure File Sync-terminologie
 Voordat u de details van de planning voor de implementatie van een Azure File Sync, is het belangrijk dat u de terminologie begrijpt.
@@ -34,8 +36,8 @@ De geregistreerde server-object vertegenwoordigt een vertrouwensrelatie tussen u
 
 ### <a name="azure-file-sync-agent"></a>Azure File Sync-agent
 De Azure File Sync-agent is een downloadbaar pakket waardoor Windows Server met een Azure-bestandsshare kan worden gesynchroniseerd. De Azure File Sync-agent heeft drie belangrijke onderdelen: 
-- **FileSyncSvc.exe**: de achtergrond Windows-service die verantwoordelijk is voor het bewaken van wijzigingen op de servereindpunten, en voor het starten van synchronisatiesessies voor Azure.
-- **StorageSync.sys**: de Azure File Sync bestandssysteemfilter, die verantwoordelijk is voor cloudlagen bestanden naar Azure Files (wanneer cloud tiering is ingeschakeld).
+- **FileSyncSvc.exe**: De achtergrond van Windows-service die verantwoordelijk is voor het bewaken van wijzigingen op de servereindpunten, en voor het starten van synchronisatiesessies voor Azure.
+- **StorageSync.sys**: De Azure File Sync bestandssysteemfilter, die verantwoordelijk is voor cloudlagen bestanden naar Azure Files (wanneer cloud tiering is ingeschakeld).
 - **PowerShell-cmdlets voor beheer**: PowerShell-cmdlets die u gebruiken om te communiceren met de Microsoft.StorageSync Azure resourceprovider. U vindt deze op de volgende (standaard)-locaties:
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
@@ -68,7 +70,7 @@ Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte
 In deze sectie bevat informatie over systeemvereisten voor Azure File Sync-agent en -interoperabiliteit met Windows Server-functies en rollen en -oplossingen van derden.
 
 ### <a name="evaluation-tool"></a>Hulpprogramma voor het evalueren
-Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is met het systeem met behulp van het hulpprogramma voor het evalueren van Azure File Sync. Dit hulpprogramma is een AzureRM PowerShell-cmdlet waarmee wordt gecontroleerd op mogelijke problemen met het bestandssysteem en de gegevensset, zoals niet-ondersteunde tekens of een niet-ondersteunde versie van het besturingssysteem. Houd er rekening mee dat de controles betrekking hebben op meest, maar niet alle functies die worden vermeld onder; het wordt aangeraden om dat u via de rest van deze sectie zorgvuldig om te controleren of dat uw implementatie vlot te lezen. 
+Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is met het systeem met behulp van het hulpprogramma voor het evalueren van Azure File Sync. Dit hulpprogramma is een Azure PowerShell-cmdlet waarmee wordt gecontroleerd op mogelijke problemen met het bestandssysteem en de gegevensset, zoals niet-ondersteunde tekens of een niet-ondersteunde versie van het besturingssysteem. Houd er rekening mee dat de controles betrekking hebben op meest, maar niet alle functies die worden vermeld onder; het wordt aangeraden om dat u via de rest van deze sectie zorgvuldig om te controleren of dat uw implementatie vlot te lezen. 
 
 #### <a name="download-instructions"></a>Instructies downloaden
 1. Zorg ervoor dat u de nieuwste versie van PackageManagement hebt en PowerShellGet geïnstalleerd (dit kunt u preview-modules installeren)
@@ -82,29 +84,29 @@ Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is m
 3. De modules installeren
     
     ```PowerShell
-        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### <a name="usage"></a>Gebruik  
 U kunt het hulpprogramma voor het evalueren aanroepen in een aantal verschillende manieren: u kunt de systeemcontroles en/of de gegevensset controles uitvoeren. Als u wilt uitvoeren van het systeem en de gegevensset wordt gecontroleerd: 
 
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Om te testen alleen uw gegevensset:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Om te testen alleen systeemvereisten:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+    Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 De resultaten weergeven in CSV:
 ```PowerShell
-    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
@@ -113,7 +115,7 @@ De resultaten weergeven in CSV:
 
     | Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
     |---------|----------------|------------------------------|
-    | WindowsServer 2019 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
+    | Windows Server 2019 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
     | Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
     | Windows Server 2012 R2 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
 
@@ -172,7 +174,7 @@ Azure File Sync biedt ondersteuning voor samenwerking met DFS-naamruimten (DFS-N
 
 **DFS-naamruimten (DFS-N)**: Azure File Sync wordt volledig ondersteund voor DFS-N-servers. U kunt de Azure File Sync-agent installeren op een of meer leden DFS-N gegevens synchroniseren tussen de servereindpunten en de cloudeindpunt. Zie voor meer informatie, [DFS-naamruimten overzicht](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS-replicatie (DFS-R)**: omdat DFS-R- en Azure File Sync zijn beide replicatieoplossingen in de meeste gevallen, het is raadzaam DFS-R vervangen door Azure File Sync. Er zijn echter enkele scenario's waarbij u zou willen DFS-R- en Azure File Sync samen gebruiken:
+**DFS-replicatie (DFS-R)**: Omdat de DFS-R- en Azure File Sync beide replicatieoplossingen in de meeste gevallen zijn wordt afgeraden om DFS-R vervangen door Azure File Sync. Er zijn echter enkele scenario's waarbij u zou willen DFS-R- en Azure File Sync samen gebruiken:
 
 - U migreert vanaf een DFS-R-implementatie naar een Azure File Sync-implementatie. Zie voor meer informatie, [migreren van een DFS-replicatie (DFS-R)-implementatie naar Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Niet elke on-premises server die een kopie van uw gegevens uit een bestand moet kan rechtstreeks met internet worden verbonden.

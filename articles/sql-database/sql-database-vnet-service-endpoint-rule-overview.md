@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438588"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728122"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL
 
 *Regels voor virtueel netwerk* zijn een functie van de firewall beveiliging die bepaalt of uw Azure [SQL-Database](sql-database-technical-overview.md) of [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepteert communicatie die zijn verzonden vanaf server specifieke subnetten in virtuele netwerken. In dit artikel wordt uitgelegd waarom de functie van de regel virtueel netwerk is het soms de beste optie voor het veilig toestaan van communicatie met uw Azure SQL Database en SQL Data Warehouse.
 
-> [!NOTE]
-> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+> [!IMPORTANT]
+> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. In dit artikel biedt *niet* zijn van toepassing op **Azure SQL Database Managed Instance**.
 
 Het maken van een regel voor virtuele netwerken, er moet eerst worden een [service-eindpunt voor virtueel netwerk] [ vm-virtual-network-service-endpoints-overview-649d] voor de regel om te verwijzen naar.
 
@@ -64,9 +64,8 @@ U kunt de IP-optie restwaarde door het verkrijgen van een *statische* IP-adres v
 
 Echter, de statische IP-aanpak kan het lastig om te beheren, en is kostbare wanneer u klaar bent op schaal. Virtual network-regels zijn gemakkelijker te maken en te beheren.
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. Kan niet nog SQL-Database op een subnet
-
-Als uw Azure SQL Database-server een knooppunt in een subnet van het virtuele netwerk is, worden alle knooppunten in het virtuele netwerk kunnen communiceren met uw SQL-Database. In dit geval kunnen uw virtuele machines communiceren met de SQL-Database zonder dat u hoeft geen virtueel netwerkregels of IP-regels.
+> [!NOTE]
+> U kunt de SQL-Database nog geen op een subnet. Als uw Azure SQL Database-server een knooppunt in een subnet van het virtuele netwerk is, worden alle knooppunten in het virtuele netwerk kunnen communiceren met uw SQL-Database. In dit geval kunnen uw virtuele machines communiceren met de SQL-Database zonder dat u hoeft geen virtueel netwerkregels of IP-regels.
 
 Vanaf September 2017, de Azure SQL Database-service is echter niet nog tussen de services die kunnen worden toegewezen aan een subnet.
 
@@ -133,7 +132,7 @@ Wanneer u service-eindpunten voor Azure SQL Database, bekijk de volgende punten:
 
 ### <a name="expressroute"></a>ExpressRoute
 
-Als u [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) vanuit uw on-premises voor openbare peering of Microsoft-peering, moet u de NAT IP-adressen die worden gebruikt. Voor openbare peering gebruikt elk ExpressRoute-circuit standaard twee NAT IP-adressen. Deze worden toegepast op Azure-serviceverkeer wanneer het verkeer het Microsoft Azure-backbone-netwerk binnenkomt. Voor Microsoft-peering worden de NAT IP-adressen die worden gebruikt opgegeven door de klant of de serviceprovider. Voor toegang tot uw serviceresources moet u deze openbare IP-adressen toestaan in de instelling voor IP-firewall voor de resource. Wanneer u op zoek bent naar de IP-adressen van uw ExpressRoute-circuit, opent u [een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via de Azure Portal. Meer informatie over [NAT voor openbare peering en Microsoft-peering met ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+Als u [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) gebruikt vanuit uw on-premises netwerk voor openbare peering of Microsoft-peering, moet u de NAT IP-adressen opgeven die worden gebruikt. Voor openbare peering gebruikt elk ExpressRoute-circuit standaard twee NAT IP-adressen. Deze worden toegepast op Azure-serviceverkeer wanneer het verkeer het Microsoft Azure-backbone-netwerk binnenkomt. Voor Microsoft-peering worden de NAT IP-adressen die worden gebruikt opgegeven door de klant of de serviceprovider. Voor toegang tot uw serviceresources moet u deze openbare IP-adressen toestaan in de instelling voor IP-firewall voor de resource. Wanneer u op zoek bent naar de IP-adressen van uw ExpressRoute-circuit, opent u [een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via de Azure Portal. Meer informatie over [NAT voor openbare peering en Microsoft-peering met ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
   
 Als u wilt toestaan dat communicatie tussen uw circuit en Azure SQL Database, moet u IP-netwerkregels voor openbare IP-adressen van uw NAT bevinden.
 

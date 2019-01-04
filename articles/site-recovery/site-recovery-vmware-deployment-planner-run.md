@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 9dec4314bb99b2cb32d62f40b76591ecb03e4d56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/28/2018
+ms.author: mayg
+ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838738"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811559"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>De Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -65,7 +65,7 @@ Als u de lijst met te profileren virtuele machines hebt opgesteld, kunt u het hu
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameternaam | Beschrijving |
+| Parameternaam | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | De FQDN-naam of het IP-adres van de vCenter-server of vSphere ESXi-host waarvan de virtuele machines moeten worden geprofileerd.|
@@ -108,23 +108,23 @@ De configuraties van de virtuele machines worden eenmaal aan het begin van de pr
 
 Met de profileringsopdracht worden meerdere bestanden gegenereerd in de directory voor profilering. Verwijder deze bestanden niet, aangezien dit gevolgen heeft voor het genereren van de rapporten.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Voorbeeld 1: virtuele machines 30 dagen profileren en de doorvoer van on-premises naar Azure bepalen
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Voorbeeld 1: VM’s gedurende 30 dagen profileren en de doorvoer van on-premises naar Azure bepalen
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### <a name="example-2-profile-vms-for-15-days"></a>Voorbeeld 2: virtuele machines 15 dagen profileren
+#### <a name="example-2-profile-vms-for-15-days"></a>Voorbeeld 2: VM’s gedurende 15 dagen profileren
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Voorbeeld 3: virtuele machines 60 minuten profileren om het hulpprogramma kort te testen
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Voorbeeld 3: VM’s gedurende 60 minuten profileren om het hulpprogramma kort te testen
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
 
-#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Voorbeeld 4: virtuele machines 2 uur profileren om het hulpprogramma kort aan een concepttest te onderwerpen
+#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Voorbeeld 4: VM’s gedurende 2 uur profileren om het concept te testen
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
@@ -138,11 +138,14 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ## <a name="generate-report"></a>Rapport genereren
 Het hulpprogramma genereert een Microsoft Excel-bestand met ingeschakelde macro's (XLSM-bestand) als de rapportuitvoer, met daarin een overzicht van alle aanbevelingen voor de implementatie. Het rapport heeft de naam DeploymentPlannerReport_<unique numeric identifier>.xlsm en wordt in de opgegeven directory geplaatst.
 
+>[!NOTE]
+>Het rapport is geconfigureerd als decimaalteken vereist '. ' voor het produceren van kostenramingen op de server waarop u de deployment planner. In geval hebt u instellen ',' als decimaalteken op een Windows-machine, Ga naar 'Wijziging datum, tijd of getalnotaties' in het Configuratiescherm en gaat u naar 'Extra instellingen ' te wijzigen van het decimaalteken aan'.'.
+
 Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus voor het genereren van een rapport. Hieronder ziet u een tabel met verplichte en optionele parameters van het hulpprogramma die u kunt uitvoeren in de profileringsmodus.
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternaam | Beschrijving |
+|Parameternaam | Description |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  De FQDN-naam of het IP-adres van de vCenter- of vSphere-server (gebruik dezelfde naam of hetzelfde IP-adres als op het moment van profilering) waar de geprofileerde virtuele machines zich bevinden waarvan een rapport wordt gegenereerd. Let op: als u ten tijde van de profilering een vCenter-server hebt gebruikt, kunt u geen vSphere-server gebruiken voor het genereren van rapporten en omgekeerd.|
@@ -160,7 +163,7 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 | -EndDate | (Optioneel) De einddatum en -tijd in de notatie MM-DD-JJJJ:UU:MM (in 24 uursindeling). Als u *EndDate* opgeeft, moet u ook *StartDate* opgeven. Het rapport wordt dan gegenereerd voor de geprofileerde gegevens die zijn verzameld tussen StartDate en EndDate. |
 | -GrowthFactor | (Optioneel) De groeifactor, uitgedrukt als een percentage. De standaardwaarde is 30 procent. |
 | -UseManagedDisks | (Optioneel) UseManagedDisks - Ja/Nee. Standaard is Ja. Het aantal virtuele machines dat kan worden ondergebracht in een enkel opslagaccount, wordt berekend afgaande op het feit of de Failover/Test-testfailover van virtuele machines is uitgevoerd op een beheerde schijf in plaats van op een niet-beheerde schijf. |
-|-SubscriptionId |(Optioneel) De abonnement-GUID. Gebruik deze parameter om het kostenramingsrapport te genereren met de meest recente prijzen op basis van uw abonnement, de aanbieding die aan uw abonnement is gekoppeld en voor de opgegeven Azure-doelregio in de opgegeven valuta.|
+|-SubscriptionId |(Optioneel) De abonnement-GUID. Houd er rekening mee dat deze parameter is vereist wanneer u nodig hebt voor het genereren van het rapport met kostenramingen met de meest recente prijzen op basis van uw abonnement, het product dat is gekoppeld aan uw abonnement en voor de opgegeven Azure-regio's in de **opgegeven valuta**.|
 |-TargetRegion|(Optioneel) De Azure-regio waarop de replicatie is gericht. Omdat er voor Azure verschillende kosten per regio worden berekend, moet u voor het genereren van dit rapport deze parameter met een specifieke Azure-doelregio gebruiken.<br>De standaardwaarde is WestUS2, of de laatst gebruikte doelregio.<br>Raadpleeg de lijst met [ondersteunde doelregio's](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Optioneel) De aanbieding is gekoppeld aan het vermelde abonnement. De standaardwaarde is MS-AZR-0003P (betalen naar gebruik).|
 |-Currency|(Optioneel) De valuta waarin de kosten in het gegenereerde rapport worden weergegeven. Standaard is Amerikaanse Dollar ($) of de laatst gebruikte valuta.<br>Raadpleeg de lijst met [ondersteunde valuta's](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
@@ -171,39 +174,41 @@ Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Voorbeeld 1: een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Voorbeeld 1: Een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Voorbeeld 2: een rapport genereren wanneer de geprofileerde gegevens zich op een externe server bevinden
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Voorbeeld 2: Een rapport genereren wanneer de geprofileerde gegevens zich op een externe server bevinden
 De gebruiker moet lees-/schrijftoegang hebben voor de externe directory.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Voorbeeld 3: een rapport genereren met specifieke bandbreedte en het doel IR te voltooien binnen de opgegeven periode
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Voorbeeld 3: Een rapport genereren met specifieke bandbreedte en het doel IR te voltooien binnen de opgegeven periode
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Voorbeeld 4: een rapport genereren met een groeifactor van 5% in plaats van de standaardwaarde 30%
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Voorbeeld 4: Een rapport genereren met een groeifactor van 5% in plaats van de standaardwaarde van 30%
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Voorbeeld 5: een rapport genereren met een subset geprofileerde gegevens
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Voorbeeld 5: Een rapport genereren met een subset geprofileerde gegevens
 U hebt gedurende 30 dagen gegevens geprofileerd en u wilt een rapport genereren voor slechts 20 van de 30 dagen.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Voorbeeld 6: een rapport genereren voor 5 minuten RPO
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Voorbeeld 6: Een rapport genereren voor 5 minuten RPO
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Voorbeeld 7: een rapport genereren voor de Azure-regio India - zuid met de Indiase roepie en een specifieke aanbiedings-ID
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Voorbeeld 7: Een rapport genereren voor Zuid-India-Azure-regio met Indiase roepie en specifieke aanbiedings-ID
+
+Houd er rekening mee dat de abonnements-ID is vereist voor het genereren van het rapport in een specifieke valuta.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -252,7 +257,7 @@ Open een opdrachtregelconsole en ga naar de map met het hulpprogramma voor de Si
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Parameternaam | Beschrijving |
+|Parameternaam | Description |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Geef het type virtualisatie op (VMware of Hyper-V).|

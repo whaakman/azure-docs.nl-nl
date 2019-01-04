@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965390"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714845"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Leer hoe u verkeer naar specifieke eindpunten op basis van verschillende metrische gegevens met behulp van het patroon geografisch gedistribueerde apps. Het maken van een Traffic Manager-profiel met geografische gebaseerde routering en het eindpunt configuratie zorgt ervoor dat informatie wordt doorgestuurd naar eindpunten op basis van regionale vereisten, zakelijke en internationale regelgeving en uw behoeften voor gegevens.
 
@@ -59,15 +59,15 @@ Net als met aandachtspunten voor schaalbaarheid, verband geen beschikbaarheid re
 
 Voordat het opzetten van een distributed app footprint kunt zo u het volgende beschikken:
 
--   **Het aangepaste domein voor de app:** wat is de naam van het aangepaste domein dat klanten toegang tot de app wordt gebruikt? Voor de voorbeeld-app de aangepaste domeinnaam is *www.scalableasedemo.com.*
+-   **Het aangepaste domein voor de app:** Wat is de aangepaste domeinnaam dat klanten toegang tot de app wordt gebruikt? Voor de voorbeeld-app de aangepaste domeinnaam is *www.scalableasedemo.com.*
 
--   **Traffic Manager-domein:** een domeinnaam moet worden gekozen bij het maken van een [Azure Traffic Manager-profiel](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Deze naam wordt gecombineerd met de *trafficmanager.net* achtervoegsel voor het registreren van een domein-item dat wordt beheerd door Traffic Manager. Voor de voorbeeld-app, is het de naam van de gekozen *schaalbare-as-omgeving-demo*. Als gevolg hiervan de volledige domeinnaam die wordt beheerd door Traffic Manager is *schaalbare-as-omgeving-demo.trafficmanager.net*.
+-   **Traffic Manager-domein:** De naam van een domein moet worden gekozen bij het maken van een [Azure Traffic Manager-profiel](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Deze naam wordt gecombineerd met de *trafficmanager.net* achtervoegsel voor het registreren van een domein-item dat wordt beheerd door Traffic Manager. Voor de voorbeeld-app, is het de naam van de gekozen *schaalbare-as-omgeving-demo*. Als gevolg hiervan de volledige domeinnaam die wordt beheerd door Traffic Manager is *schaalbare-as-omgeving-demo.trafficmanager.net*.
 
--   **Strategie voor het schalen van de app-voetafdruk:** wordt de voetafdruk van de toepassing worden verdeeld over meerdere App Service-omgevingen in één regio? Meerdere regio's? Een combinatie van beide methoden? De beslissing moet worden gebaseerd op de verwachtingen van waaruit klantenverkeer wordt uitgevoerd, evenals hoe goed de rest van de back-endinfrastructuur voor ondersteuning van van een app kunt schalen. Bijvoorbeeld, met een 100% staatloze toepassingen, kan een app worden zeer geschaald met behulp van een combinatie van meerdere App Service-omgevingen per Azure-regio, vermenigvuldigd met App Service-omgevingen in meerdere Azure-regio's. Klanten met 15 + globale Azure-regio's beschikbaar om de verkeersbelasting, kunnen echt een footprint wereldwijd grootschalige toepassingen bouwen. Voor de voorbeeldapp die wordt gebruikt voor dit artikel, zijn drie App Service-omgevingen gemaakt in één Azure-regio (Zuid-centraal VS).
+-   **Strategie voor het schalen van de app-voetafdruk:** De footprint van de toepassing worden verdeeld over meerdere App Service-omgevingen in één regio? Meerdere regio's? Een combinatie van beide methoden? De beslissing moet worden gebaseerd op de verwachtingen van waaruit klantenverkeer wordt uitgevoerd, evenals hoe goed de rest van de back-endinfrastructuur voor ondersteuning van van een app kunt schalen. Bijvoorbeeld, met een 100% staatloze toepassingen, kan een app worden zeer geschaald met behulp van een combinatie van meerdere App Service-omgevingen per Azure-regio, vermenigvuldigd met App Service-omgevingen in meerdere Azure-regio's. Klanten met 15 + globale Azure-regio's beschikbaar om de verkeersbelasting, kunnen echt een footprint wereldwijd grootschalige toepassingen bouwen. Voor de voorbeeldapp die wordt gebruikt voor dit artikel, zijn drie App Service-omgevingen gemaakt in één Azure-regio (Zuid-centraal VS).
 
--   **Naamgevingsregels voor de App Service-omgevingen:** voor elke App Service-omgeving moet een unieke naam. Meer dan één of twee App Service-omgevingen is het handig om een naamconventie gebruikt voor het identificeren van elke App Service-omgeving. Een eenvoudige naamconventie is voor de voorbeeld-app gebruikt. De namen van de drie App Service-omgevingen zijn *fe1ase*, *fe2ase*, en *fe3ase*.
+-   **De naamconventie voor de App Service-omgevingen:** Elke App Service-omgeving moet een unieke naam. Meer dan één of twee App Service-omgevingen is het handig om een naamconventie gebruikt voor het identificeren van elke App Service-omgeving. Een eenvoudige naamconventie is voor de voorbeeld-app gebruikt. De namen van de drie App Service-omgevingen zijn *fe1ase*, *fe2ase*, en *fe3ase*.
 
--   **Naamgevingsregels voor de apps:** omdat meerdere exemplaren van de app worden geïmplementeerd, een naam is vereist voor elk exemplaar van de geïmplementeerde app. Met App Service-omgevingen kan dezelfde app-naam worden gebruikt voor meerdere App Service-omgevingen. Omdat elke App Service-omgeving een unieke domeinachtervoegsel heeft, kunt ontwikkelaars exact dezelfde naam van de app in elke omgeving opnieuw gebruiken. Een ontwikkelaar kan bijvoorbeeld apps met de naam als volgt: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, enzovoort. Voor de app in dit scenario heeft elke app-exemplaar een unieke naam. De namen van de app-exemplaar gebruikt *webfrontend1*, *webfrontend2*, en *webfrontend3*.
+-   **De naamconventie voor de apps:** Omdat meerdere exemplaren van de app worden geïmplementeerd, wordt een naam vereist voor elk exemplaar van de geïmplementeerde app. Met App Service-omgevingen kan dezelfde app-naam worden gebruikt voor meerdere App Service-omgevingen. Omdat elke App Service-omgeving een unieke domeinachtervoegsel heeft, kunt ontwikkelaars exact dezelfde naam van de app in elke omgeving opnieuw gebruiken. Een ontwikkelaar kan bijvoorbeeld apps met de naam als volgt: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, enzovoort. Voor de app in dit scenario heeft elke app-exemplaar een unieke naam. De namen van de app-exemplaar gebruikt *webfrontend1*, *webfrontend2*, en *webfrontend3*.
 
 > [!Tip]  
 > ![hybride-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -240,9 +240,9 @@ Azure DevOps en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden g
 > [!Note]  
 >  Sommige instellingen voor de taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) tijdens het maken van een release-definitie van een sjabloon. Deze instellingen kunnen niet worden gewijzigd in de taakinstellingen. in plaats daarvan moet u het hoofdartikel voor de omgeving om deze instellingen te bewerken.
 
-## <a name="part-2-update-web-app-options"></a>Deel 2: Opties voor web-app het bijwerken
+## <a name="part-2-update-web-app-options"></a>Deel 2: Opties voor web-app bijwerken
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. 
 
 ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +255,7 @@ Azure DevOps en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden g
 > [!Note]  
 >  Gebruik een CNAME voor alle aangepaste DNS-namen, behalve een hoofddomein (voor example,northwind.com).
 
-Zie voor het migreren van een live site en de DNS-domeinnaam naar App Service, [Een actieve DNS-naam migreren naar Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+Zie voor het migreren van een live site en de DNS-domeinnaam naar App Service, [Een actieve DNS-naam migreren naar Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### <a name="prerequisites"></a>Vereisten
 
@@ -276,7 +276,7 @@ Werk de DNS-zonebestand voor het domein. Azure AD wordt eigenaar van de aangepas
 Bijvoorbeeld, om toe te voegen DNS-vermeldingen fornorthwindcloud.comand www.northwindcloud.com, DNS-instellingen voor het hoofddomein thenorthwindcloud.com configureren.
 
 > [!Note]  
->  De naam van een domein kan worden gekocht met de [Azure-portal](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  De naam van een domein kan worden gekocht met de [Azure-portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > Om een aangepaste DNS-naam toe te wijzen aan een web-app, moet het [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) van de web-app een betaalde categorie zijn (**Shared**, **Basic**, **Standard** of  **Premium**).
 
 
@@ -359,7 +359,7 @@ Nadat de CNAME zijn toegevoegd, lijkt de pagina met DNS-records in het volgende 
 
 Blader naar de DNS-namen die eerder hebt geconfigureerd (bijvoorbeeld `northwindcloud.com`, www.northwindcloud.com.
 
-## <a name="part-3-bind-a-custom-ssl-cert"></a>Deel 3: Afhankelijk van een aangepaste SSL-certificaat
+## <a name="part-3-bind-a-custom-ssl-cert"></a>Deel 3: Een aangepaste SSL-certificaat binden
 
 In dit gedeelte:
 

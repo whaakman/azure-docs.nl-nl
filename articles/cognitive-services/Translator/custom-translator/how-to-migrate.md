@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077117"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718721"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
@@ -85,9 +85,9 @@ Voor het migreren van een werkruimte:
 
 4.  Selecteer een van deze twee opties op de volgende pagina:
 
-    a.  U kunt alleen geïmplementeerd: deze optie alleen uw geïmplementeerde systemen en gerelateerde documenten worden gemigreerd.
+    a.  Alleen geïmplementeerde trainingen: Als u deze optie selecteert, wordt alleen uw geïmplementeerde systemen en gerelateerde documenten migreren.
 
-    b.  U kunt alle geslaagde: Deze optie selecteert, worden gemigreerd alle geslaagde trainingen en gerelateerde documenten.
+    b.  U kunt alle geslaagde: Als u deze optie selecteert, worden alle geslaagde trainingen en gerelateerde documenten gemigreerd.
 
     c.  Voer uw bestemming werkruimte-ID in aangepaste Translator.
 
@@ -111,13 +111,13 @@ Als u de migratiegeschiedenis, de volgende stappen uit:
 
 Migratie geschiedenispagina bevat de volgende informatie als overzicht voor elke migratie die u hebt aangevraagd.
 
-1.  Gemigreerde door: Naam en e-mailadres van de gebruiker deze migratieaanvraag ingediend
+1.  Gemigreerd door: Naam en e-mailadres van de gebruiker deze migratieaanvraag heeft ingediend
 
-2.  Op gemigreerd: Datum en tijd stempel van de migratie
+2.  Op gemigreerd: Datum en een tijdstempel van de migratie
 
 3.  Projecten: Aantal projecten aangevraagd voor migratie v/s aantal projecten is gemigreerd.
 
-4.  U kunt: Aantal trainingen aangevraagd voor migratie v/s aantal trainingen gemigreerd.
+4.  U kunt: Het aantal trainingen aangevraagd voor migratie v/s aantal trainingen gemigreerd.
 
 5.  Documents: Het aantal documenten die zijn aangevraagd voor migratie v/s aantal documenten is gemigreerd.
 
@@ -130,7 +130,7 @@ Als u dat meer gedetailleerde migratierapport over uw projecten, trainingen en d
 * Alleen is toegestaan voor het migreren van één keer per project.  Als u herhalen van een migratie van een project wilt, neem dan contact met ons.
 * Op dit moment de aangepaste Translator ondersteunt 36 talen vertalen van en naar het Engels en we werken er hard aan extra talen toevoegen.  Hub vereist geen basislijn modellen en daarom enkele duizenden talen worden ondersteund.  Maar we alleen de migratie van documenten en definities van project, kunt u een sleutelpaar met een niet-ondersteunde taal migreren.  Er is niet mogelijk naar het nieuwe model te trainen.  Bovendien deze documenten en projecten worden weergegeven als inactief om aan te geven dat ze op dit moment niet worden gebruikt. Als er is ondersteuning toegevoegd voor deze projecten en/of de documenten, worden ze actief is en trainable.
 * Aangepaste Translator ondersteunt momenteel geen ééntalig trainingsgegevens.  Als niet-ondersteunde taal paren, kunt u ééntalig documenten migreren, maar ze worden weergegeven als inactief totdat ééntalig wordt ondersteund.  
-* Aangepaste Translator vereist 10 k parallelle zinnen om te kunnen trainen.  Microsoft Hub kunnen trainen op een kleiner aantal gegevens.  Als een training is gemigreerd die niet aan deze vereiste voldoen, kunt u deze wordt getraind.
+* Aangepaste Translator vereist 10 k parallelle zinnen om te kunnen trainen.  Microsoft Hub kunnen trainen op een kleiner aantal gegevens. Als een training is gemigreerd die niet aan deze vereiste voldoet, wordt deze niet getraind.
 
 
 ## <a name="custom-translator-versus-hub"></a>Aangepaste Translator ten opzichte van de Hub

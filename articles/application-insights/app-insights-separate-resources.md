@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fe9c33f5a872c60ad30faf7cc5074004f5d6fc50
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012467"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973791"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Het scheiden van telemetrie van ontwikkeling, testen en productie
 
 Wanneer u de volgende versie van een web-App ontwikkelt, u niet wilt combineren om de [Application Insights](app-insights-overview.md) telemetrie van de nieuwe versie en de reeds uitgebrachte versie. Om verwarring te voorkomen, door de telemetrie van de ontwikkeling van de verschillende fasen voor het scheiden van Application Insights-resources, met afzonderlijke instrumentatiesleutels (ikeys) te verzenden. Als u wilt maken het gemakkelijker om te wijzigen van de instrumentatiesleutel als u een versie van één fase worden verplaatst naar een andere, kan het nuttig zijn om in te stellen de ikey in code in plaats van in het configuratiebestand. 
 
-(Als uw systeem een Azure-Cloud-Service is, wordt er [een andere methode van het instellen van afzonderlijke ikeys](app-insights-cloudservices.md).)
+(Als uw systeem een Azure-Cloud-Service is, wordt er [een andere methode van het instellen van afzonderlijke ikeys](../azure-monitor/app/cloudservices.md).)
 
 ## <a name="about-resources-and-instrumentation-keys"></a>Over resources en instrumentatiesleutels
 
@@ -32,7 +32,7 @@ Bij het instellen van Application Insights-bewaking voor uw web-app, maakt u een
 Doorgaans wilt u afzonderlijke resources of één gedeelde resource gebruiken in verschillende scenario's:
 
 * Andere, onafhankelijke toepassingen - gebruik een afzonderlijke resource en de ikey voor elke app.
-* Meerdere onderdelen of functies van een zakelijke toepassing - gebruiken een [één gedeelde resource](app-insights-app-map.md) voor alle apps in de component. Telemetrie kan worden gefilterd of door de eigenschap cloud_RoleName gesegmenteerd.
+* Meerdere onderdelen of functies van een zakelijke toepassing - gebruiken een [één gedeelde resource](../azure-monitor/app/app-map.md) voor alle apps in de component. Telemetrie kan worden gefilterd of door de eigenschap cloud_RoleName gesegmenteerd.
 * Ontwikkelings-, Test- en Release - gebruik van een afzonderlijke resource en de ikey voor versies van het systeem in 'stempel' of fase van de productie.
 * EEN | B-tests - gebruik van één resource. Maak een TelemetryInitializer als u wilt een eigenschap toevoegen aan de telemetrie die de varianten identificeert.
 
@@ -56,7 +56,7 @@ Stel de sleutel in een initialiseringsmethode, zoals global.aspx.cs in een ASP.N
 In dit voorbeeld worden de ikeys voor de andere resources in verschillende versies van het webconfiguratiebestand geplaatst. Wisselen van het webconfiguratiebestand - die u kunt dit doen als onderdeel van het script release -, wordt de doelresource wisselen.
 
 ### <a name="web-pages"></a>Webpagina's
-De iKey ook in webpagina's van uw app wordt gebruikt in de [script die u hebt verkregen via de blade snel starten](app-insights-javascript.md). In plaats van coding te letterlijk in het script, kunt u het genereren van de status van de server. Bijvoorbeeld in een ASP.NET-app:
+De iKey ook in webpagina's van uw app wordt gebruikt in de [script die u hebt verkregen via de blade snel starten](../azure-monitor/app/javascript.md). In plaats van coding te letterlijk in het script, kunt u het genereren van de status van de server. Bijvoorbeeld in een ASP.NET-app:
 
 *JavaScript in de Razor*
 
@@ -98,7 +98,7 @@ U moet de instrumentatiesleutels van alle resources waarop uw app de gegevens wo
 ## <a name="filter-on-build-number"></a>Filteren op build-nummer
 Wanneer u een nieuwe versie van uw app publiceert, moet u mogelijk het scheiden van de telemetrie van verschillende builds.
 
-U kunt de eigenschap toepassingsversie instellen, zodat u kunt filteren [zoeken](app-insights-diagnostic-search.md) en [metric explorer](app-insights-metrics-explorer.md) resultaten.
+U kunt de eigenschap toepassingsversie instellen, zodat u kunt filteren [zoeken](../azure-monitor/app/diagnostic-search.md) en [metric explorer](app-insights-metrics-explorer.md) resultaten.
 
 ![Filteren op een eigenschap](./media/app-insights-separate-resources/050-filter.png)
 
@@ -107,7 +107,7 @@ Er zijn verschillende methoden van het instellen van de toepassingsversie-eigens
 * Rechtstreeks worden ingesteld:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Teruglopen van die regel in een [telemetrische initializer](app-insights-api-custom-events-metrics.md#defaults) om ervoor te zorgen dat alle exemplaren van de TelemetryClient consistent zijn ingesteld.
+* Teruglopen van die regel in een [telemetrische initializer](../azure-monitor/app/api-custom-events-metrics.md#defaults) om ervoor te zorgen dat alle exemplaren van de TelemetryClient consistent zijn ingesteld.
 * [ASP.NET] Instellen van de versie in `BuildInfo.config`. De versie van het knooppunt BuildLabel haalt de webmodule. Dit bestand opnemen in uw project en vergeet niet om in te stellen de eigenschap altijd kopiëren in Solution Explorer.
 
     ```XML
@@ -148,15 +148,15 @@ Als u de toepassingsversie wilt bijhouden, zorgt u ervoor dat `buildinfo.config`
     </PropertyGroup>
 ```
 
-Wanneer de buildgegevens beschikbaar zijn, voegt de Application Insights-webmodule automatisch **Toepassingsversie** als eigenschap toe aan elk telemetrie-item. Dit biedt de mogelijkheid om op versie te filteren wanneer u [diagnostische zoekopdrachten](app-insights-diagnostic-search.md) uitvoert of [metrische gegevens verkent](app-insights-metrics-explorer.md).
+Wanneer de buildgegevens beschikbaar zijn, voegt de Application Insights-webmodule automatisch **Toepassingsversie** als eigenschap toe aan elk telemetrie-item. Dit biedt de mogelijkheid om op versie te filteren wanneer u [diagnostische zoekopdrachten](../azure-monitor/app/diagnostic-search.md) uitvoert of [metrische gegevens verkent](app-insights-metrics-explorer.md).
 
 Let er echter op dat het buildversienummer alleen wordt gegenereerd door Microsoft Build Engine en niet door de ontwikkelaarsbuild in Visual Studio.
 
 ### <a name="release-annotations"></a>Release-aantekeningen
-Als u met Azure DevOps, kunt u [ophalen van de markering van een aantekening](app-insights-annotations.md) toegevoegd aan uw grafieken wanneer u een nieuwe versie. De volgende afbeelding toont hoe deze markering wordt weergegeven.
+Als u met Azure DevOps, kunt u [ophalen van de markering van een aantekening](../azure-monitor/app/annotations.md) toegevoegd aan uw grafieken wanneer u een nieuwe versie. De volgende afbeelding toont hoe deze markering wordt weergegeven.
 
 ![Schermopname van aantekening bij voorbeeldrelease in een grafiek](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Gedeelde bronnen voor meerdere functies](app-insights-monitor-multi-role-apps.md)
-* [Een telemetrische Initializer om een onderscheid te maken | B-varianten](app-insights-api-filtering-sampling.md#add-properties)
+* [Gedeelde bronnen voor meerdere functies](../azure-monitor/app/app-map.md)
+* [Een telemetrische Initializer om een onderscheid te maken | B-varianten](../azure-monitor/app/api-filtering-sampling.md#add-properties)

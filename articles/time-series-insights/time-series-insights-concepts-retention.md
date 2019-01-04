@@ -1,5 +1,5 @@
 ---
-title: Bewaren van gegevens voor Azure Time Series Insights - inzicht in Gegevensretentie in uw Azure Time Series Insights-omgeving | Microsoft Docs
+title: Inzicht in Gegevensretentie in uw Azure Time Series Insights-omgeving | Microsoft Docs
 description: Dit artikel beschrijft de twee instellingen voor bewaren van gegevens in uw Azure Time Series Insights-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c44b09e15a227e11426d2798fc071778ca47ebd3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272147"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557460"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Inzicht in Gegevensretentie in Time Series Insights
 

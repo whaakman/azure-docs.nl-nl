@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739274"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791044"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ontwerpoverwegingen voor Schaalsets
 Dit artikel worden besproken ontwerpoverwegingen voor Schaalsets voor virtuele machines. Raadpleeg voor informatie over wat er in Virtual Machine Scale Sets zijn [Virtual Machine Scale Sets overzicht](virtual-machine-scale-sets-overview.md).
@@ -71,7 +71,7 @@ Een schaalset die is gebouwd op een Marketplace-installatiekopie (ook wel bekend
 
 Een schaalset die is geconfigureerd met de gebruiker beheerde opslagaccounts is momenteel beperkt tot 100 virtuele machines (en 5 opslagaccounts worden aanbevolen voor deze).
 
-Een schaalset die is gebouwd op een aangepaste installatiekopie (één die door u zijn gebouwd) hebben een capaciteit van maximaal 300 virtuele machines wanneer geconfigureerd met Azure Managed disks. Als de schaalset is geconfigureerd met de opslagaccounts die door de gebruiker wordt beheerd, moet deze alle OS VHD's met gegevensschijven binnen een opslagaccount maken. Als gevolg hiervan het maximale aantal virtuele machines in een schaalset die is gebouwd op een aangepaste installatiekopie aanbevolen en de gebruiker beheerde opslag is 20. Als u overmatige inrichting uitschakelt, kunt u maximaal 40 gaan.
+Een schaalset die is gebouwd op een aangepaste installatiekopie (één die door u zijn gebouwd) hebben een capaciteit van maximaal 600 virtuele machines wanneer geconfigureerd met Azure Managed disks. Als de schaalset is geconfigureerd met de opslagaccounts die door de gebruiker wordt beheerd, moet deze alle OS VHD's met gegevensschijven binnen een opslagaccount maken. Als gevolg hiervan het maximale aantal virtuele machines in een schaalset die is gebouwd op een aangepaste installatiekopie aanbevolen en de gebruiker beheerde opslag is 20. Als u overmatige inrichting uitschakelt, kunt u maximaal 40 gaan.
 
 Voor meer virtuele machines dan deze limieten, toestaan, moet u meerdere schaalsets implementeren zoals wordt weergegeven in [deze sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

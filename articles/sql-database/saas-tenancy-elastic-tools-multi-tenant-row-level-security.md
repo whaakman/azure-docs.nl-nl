@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242905"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601522"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau
 
@@ -41,7 +41,7 @@ Het doel is om de elastische database-clientbibliotheek gebruiken [gegevensafhan
 
 - Gebruik Visual Studio (2012 of hoger)
 - Drie Azure SQL-databases maken
-- Download voorbeeldproject: [elastische DB-hulpprogramma's voor Azure SQL - Multitenant Shards](https://go.microsoft.com/?linkid=9888163)
+- Download het voorbeeldproject: [Hulpprogramma's voor elastische database voor Azure SQL - Multitenant Shards](https://go.microsoft.com/?linkid=9888163)
   - Vul de gegevens voor uw databases aan het begin van **Program.cs** 
 
 Dit project wordt uitgebreid beschreven in een [elastische DB-hulpprogramma's voor Azure SQL - integratie met Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) door het toevoegen van ondersteuning voor multitenant shard-databases. Het project bouwt een eenvoudige consoletoepassing voor het maken van blogs en berichten. Het project omvat vier tenants, plus twee multitenant shard-databases. Deze configuratie wordt weergegeven in het voorgaande diagram. 
@@ -54,10 +54,10 @@ Ontwikkel en voer de toepassing. Deze uitvoering bootstrapt de hulpmiddelen voor
 
 U ziet dat omdat beveiliging op Rijniveau is nog niet ingeschakeld in de shard-databases, elk van deze tests een probleem opgetreden blijkt: tenants zijn blogs die niet tot deze behoren zien en de toepassing wordt niet voorkomen dat een blog invoegen voor de verkeerde tenant. De rest van dit artikel wordt beschreven hoe u deze problemen oplossen door het afdwingen van tenantisolatie beveiliging op rijniveau. Er zijn twee stappen: 
 
-1. **Toepassingslaag**: wijzigen van de toepassingscode om in te stellen altijd de huidige tenant-id in de sessie\_CONTEXT na het openen van een verbinding. Het voorbeeldproject wordt de tenant-id al ingesteld op deze manier. 
-2. **Gegevenslaag**: maken van een beveiligingsbeleid voor beveiliging op Rijniveau in elke shard-database rijen filteren op basis van de tenant-id die zijn opgeslagen in de sessie\_CONTEXT. Maak een beleid voor elk van de shard-databases, anders rijen in multitenant shards worden niet gefilterd. 
+1. **Toepassingslaag**: Wijzigen van de toepassingscode om in te stellen altijd de huidige tenant-id in de sessie\_CONTEXT na het openen van een verbinding. Het voorbeeldproject wordt de tenant-id al ingesteld op deze manier. 
+2. **Gegevenslaag**: Maken van een beveiligingsbeleid voor beveiliging op Rijniveau in elke shard-database rijen filteren op basis van de tenant-id die zijn opgeslagen in de sessie\_CONTEXT. Maak een beleid voor elk van de shard-databases, anders rijen in multitenant shards worden niet gefilterd. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Toepassingslaag: Set-tenant-id in de sessie\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Toepassingslaag: Tenant-id instellen in de sessie\_CONTEXT
 
 Eerst verbinding u met een shard-database met behulp van de API's gegevensafhankelijke routering van de clientbibliotheek van elastische database. De toepassing nog steeds moet op de hoogte de database die tenant-id maakt gebruik van de verbinding. De tenant-id wordt het beveiligingsbeleid voor beveiliging op Rijniveau aangegeven welke rijen moeten worden gefilterd als behorend tot andere tenants. De huidige tenant-id in Store de [sessie\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) van de verbinding.
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Onderhoud
 
-- **Toevoegen van nieuwe shards**: de T-SQL-script waarmee u beveiliging op Rijniveau op alle nieuwe shards uitvoeren, anders query's in deze shards worden niet gefilterd.
-- **Nieuwe tabellen toe te voegen**: een FILTEREN en BLOCK-predicaat toevoegen aan het beveiligingsbeleid op alle shards worden gewijzigd wanneer er een nieuwe tabel wordt gemaakt. Query's op de nieuwe tabel zijn anders niet gefilterd. Deze toevoeging kan worden geautomatiseerd met behulp van een DDL-trigger, zoals beschreven in [toepassen Row-Level Security automatisch naar de zojuist gemaakte tabellen (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Toevoegen van nieuwe shards**: Voer het T-SQL-script voor het inschakelen van beveiliging op Rijniveau op alle nieuwe shards, anders query's in deze shards worden niet gefilterd.
+- **Nieuwe tabellen toe te voegen**: Toevoegen aan het beveiligingsbeleid op alle shards een predicaat FILTEREN en blokkeren wanneer er een nieuwe tabel wordt gemaakt. Query's op de nieuwe tabel zijn anders niet gefilterd. Deze toevoeging kan worden geautomatiseerd met behulp van een DDL-trigger, zoals beschreven in [toepassen Row-Level Security automatisch naar de zojuist gemaakte tabellen (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Samenvatting
 

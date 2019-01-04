@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec1343f85216171adac22f873f9be2e72bb4c282
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892216"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995147"
 ---
-# <a name="add-a-heat-map-layer"></a>Een kaartLaag heatmap toevoegen
+# <a name="add-a-heat-map-layer"></a>Een heatmap-laag toevoegen
 
 Warmte kaarten, ook wel bekend als dichtheid maps verwijzen, zijn een vorm van gegevensvisualisatie vertegenwoordigt de dichtheid van gegevens met behulp van een serie kleuren. Ze worden vaak gebruikt om de gegevens van "hotspots" op een kaart weer te geven en zijn een uitstekende manier om het renderen van grote gegevenssets verwijzen.  Bijvoorbeeld, rendering tienduizenden punten in de overzichtsweergave zoals symbolen van het kaartgebied beslaat en zou leiden tot veel symbolen wordt gedekt door anderen, waardoor het moeilijk zijn te veel inzicht in de gegevens krijgen. Echter, visualiseren van deze dezelfde gegevensset als een heatmap kunt u eenvoudig om te zien waar de gegevens van de densest en de relatieve dichtheid naar andere gebieden. Er zijn veel scenario's in welke heatmap maps, worden gebruikt. Hier volgen enkele voorbeelden.
 
 * Temperatuurgegevens doorgaans weergegeven als heatmap omdat deze benaderingen voor wat de temperatuur tussen de twee gegevenspunten biedt.
-* Rendering van gegevens voor ruis sensoren als een heatmap niet alleen de insanity van de ruis staan waar de sensor is, maar ook inzicht kan geven in de dissipatie over een afstand. Het niveau van de ruis op één locatie kan niet worden hoog, maar als de dekkingsgebied ruis van meerdere sensoren overlapt, het is mogelijk dat dit overlappende gebied hogere niveaus van de ruis kan optreden, en daarom zou wel zichtbaar in de heatmap.
+* Rendering van gegevens voor ruis sensoren als een heatmap niet alleen de intensiteit van de ruis staan waar de sensor is, maar ook inzicht kan geven in de dissipatie over een afstand. Het niveau van de ruis op één locatie kan niet worden hoog, maar als de dekkingsgebied ruis van meerdere sensoren overlapt, het is mogelijk dat dit overlappende gebied hogere niveaus van de ruis kan optreden, en daarom zou wel zichtbaar in de heatmap.
 * Een GPS visualiseren is tracering met de snelheid als een gewicht hoogte kaart, waarbij de intensiteit van elk gegevenspunt is gebaseerd op de snelheid een uitstekende manier om snel zien waar het voertuig is versnellen.
 
 > [!TIP]
-> Bel lagen standaard worden de coördinaten van alle geometrie in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen punt geometrie wordt weergegeven de `filter` eigenschap van de laag `['==', '$type', 'Point']`
+> Bel lagen standaard worden de coördinaten van alle geometrie in een gegevensbron weergegeven. Om te beperken van de laag zodat deze alleen renders geometrie-functies, stel de `filter` eigenschap van de laag `['==', '$type', 'Point']`
 
-## <a name="add-a-heat-map-layer"></a>Een kaartLaag heatmap toevoegen
+## <a name="add-a-heat-map-layer"></a>Een heatmap-laag toevoegen
 
 Om weer te geven van een bron van de punten als een eenvoudige heatmap doorgeven van de gegevensbron in een exemplaar van de klasse HeatMapLayer en toevoegen aan de kaart zoals hier wordt weergegeven.
 
@@ -50,8 +50,8 @@ De heatmap in het vorige voorbeeld aangepast door het instellen van de RADIUS- e
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpoleren'<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['lineaire'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-dichtheid'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, "transparant'<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, 'paarse',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'stap'<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-dichtheid'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparant'<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, 'marineschepen',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, 'marineschepen',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "groen",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, 'geel',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1,00, "rood"<br/>\] |   
 
 * `opacity`: Hiermee geeft u op hoe ondoorzichtig of doorzichtig de heatmap kaartLaag is.
-* `intensity`: Een vermenigvuldiger geldt voor het gewicht van elk gegevenspunt te verhogen van de algehele intensiteit van de heatmap. Dit helpt om te maken van de kleine verschillen in het gewicht van gegevenspunten steeds gemakkelijker te visualiseren.
-* `weight`: Alle gegevenspunten hebben een gewicht van 1 standaard, dus alle gegevenspunten worden gewogen. De optie gewicht fungeert als een vermenigvuldiger en kan worden ingesteld als een getal of een expressie. Als een getal is ingesteld als getal, bijvoorbeeld 2 is, het is het equivalent van het plaatsen van elk gegevenspunt op de kaart twee keer, dus verdubbeling van de dichtheid. De optie gewicht instelt op een getal de heatmap wordt weergegeven op een soortgelijke manier voor het gebruik van de optie intensiteit genereren. Echter, als een expressie wordt gebruikt, het gewicht van elk gegevenspunt kan worden gebaseerd op verschillende en op basis van bepaalde metrische gegevens in de eigenschappen van het punt. Gegevens van aardbeving nemen een voorbeeld: elk gegevenspunt vertegenwoordigt een aardbeving en een belangrijke metrische die elke aardbeving heeft magnitude is. Aardbevingen gebeurt altijd, maar de meeste hebben een lage magnitude en nog niet zijn ervaren. De belangrijker aardbevingen moet de waarde van de magnitude gebruiken in een expressie voor het toewijzen van de optie gewicht kunt toename beter worden weergegeven in de heatmap.
+* `intensity`: Geldt een vermenigvuldiger voor het gewicht van elk gegevenspunt te verhogen van de algehele intensiteit van de heatmap. Dit helpt om te maken van de kleine verschillen in het gewicht van gegevenspunten steeds gemakkelijker te visualiseren.
+* `weight`: Standaard alle gegevenspunten hebben een gewicht van 1, dus alle gegevenspunten worden gewogen. De optie gewicht fungeert als een vermenigvuldiger en kan worden ingesteld als een getal of een expressie. Als een getal is ingesteld als getal, bijvoorbeeld 2 is, het is het equivalent van het plaatsen van elk gegevenspunt op de kaart twee keer, dus verdubbeling van de dichtheid. De optie gewicht instelt op een getal de heatmap wordt weergegeven op een soortgelijke manier voor het gebruik van de optie intensiteit genereren. Echter, als een expressie wordt gebruikt, het gewicht van elk gegevenspunt kan worden gebaseerd op verschillende en op basis van bepaalde metrische gegevens in de eigenschappen van het punt. Gegevens van aardbeving nemen een voorbeeld: elk gegevenspunt vertegenwoordigt een aardbeving en een belangrijke metrische die elke aardbeving heeft magnitude is. Aardbevingen gebeurt altijd, maar de meeste hebben een lage magnitude en nog niet zijn ervaren. De belangrijker aardbevingen moet de waarde van de magnitude gebruiken in een expressie voor het toewijzen van de optie gewicht kunt toename beter worden weergegeven in de heatmap.
 * Naast de opties van de basislaag. min./Max. inzoomen, zichtbaar en filteren, er is ook een `source` optie als u wilt bijwerken van de gegevensbron en `source-layer` optie als uw gegevensbron een bron van de tegel vector is.
 
 Hier is een hulpprogramma voor het testen van de opties voor verschillende heatmap koppelen laag.

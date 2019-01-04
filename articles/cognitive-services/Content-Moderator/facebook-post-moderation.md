@@ -62,7 +62,7 @@ Meld u aan bij de [Azure-beheerportal](https://portal.azure.com/) om Azure-funct
 
 > [!NOTE]
 > De waarde voor **cm: Region** moet bestaan uit de naam van de regio (zonder spaties).
-> dus bijvoorbeeld **westeurope**, niet West Europa, **westcentralus**, niet West Central US, enzovoort.
+> Dus bijvoorbeeld **westeurope**, niet Europa - west, **westcentralus**, niet US - west-centraal, enzovoort.
 >
 
 | App-instelling | Beschrijving   | 

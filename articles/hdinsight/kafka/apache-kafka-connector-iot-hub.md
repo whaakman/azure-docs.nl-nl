@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315424"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608627"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Gebruik Apache Kafka in HDInsight met Azure IoT Hub
 
@@ -48,7 +48,7 @@ Zie voor meer informatie over de API verbinding [ https://kafka.apache.org/docum
 
 2. Als u wilt het JAR-bestand uploaden naar het edge-knooppunt van uw Kafka op HDInsight-cluster, moet u de volgende opdracht gebruiken:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vervang `sshuser` met de SSH-gebruikersaccount voor uw HDInsight-cluster. Vervang `new-edgenode` met de naam van het edge-knooppunt. Vervang `clustername` met de naam van het cluster. Zie voor meer informatie over het SSH-eindpunt voor het edge-knooppunt de [edge-knooppunten gebruikt met HDInsight](../hdinsight-apps-use-edge-node.md#access-an-edge-node) document.
 
     ```bash
@@ -69,10 +69,10 @@ Zie voor meer informatie over de API verbinding [ https://kafka.apache.org/docum
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]
+> [!TIP]  
 > Als u problemen met de rest van de stappen in dit document ondervindt bij het gebruik van een vooraf gemaakte JAR-bestand, probeert u het bouwen van het pakket vanuit de bron.
 >
-> Voor het bouwen van de connector, moet u een Scala-ontwikkelomgeving met de [Scala bouwen hulpprogramma](http://www.scala-sbt.org/).
+> Voor het bouwen van de connector, moet u een Scala-ontwikkelomgeving met de [Scala bouwen hulpprogramma](https://www.scala-sbt.org/).
 >
 > 1. Downloaden van de bron voor de connector via [ https://github.com/Azure/toketi-kafka-connect-iothub/ ](https://github.com/Azure/toketi-kafka-connect-iothub/) naar uw ontwikkelomgeving.
 >
@@ -132,7 +132,7 @@ Gebruik de volgende stappen om te configureren van Kafka voor het uitvoeren van 
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Deze wijziging kunt u test met behulp van de console-producent opgenomen met Kafka. U moet mogelijk verschillende conversieprogramma's voor andere producenten en consumenten. Zie voor meer informatie over het gebruik van andere waarden converter [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
     * Voeg een regel toe aan het einde van het bestand met de volgende tekst:
@@ -141,7 +141,7 @@ Gebruik de volgende stappen om te configureren van Kafka voor het uitvoeren van 
         consumer.max.poll.records=10
         ```
 
-        > [!TIP]
+        > [!TIP]  
         > Deze wijziging is om te voorkomen dat time-outs in de sink-connector door het beperken tot 10 records tegelijk. Zie voor meer informatie, [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 6. Gebruiken om het bestand hebt opgeslagen, __Ctrl + X__, __Y__, en vervolgens __Enter__.
@@ -178,7 +178,7 @@ Om op te halen van IoT Hubgegevens die door de connector gebruikt, gebruikt u de
             * __Event Hub-compatibele eindpunt__
             * __Partities__
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > De eindpuntwaarde vanuit de portal bevat mogelijk extra tekst die in dit voorbeeld niet nodig is. De tekst die overeenkomt met dit patroon extraheren `sb://<randomnamespace>.servicebus.windows.net/`.
 
     * __Uit de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, gebruikt u de volgende opdracht:
@@ -239,14 +239,14 @@ Voor het configureren van de bron om te werken met uw IoT-Hub, moet u de volgend
 
     Zoek in de editor en wijzigen van de volgende vermeldingen:
 
-    * `Kafka.Topic=PLACEHOLDER`: Vervang `PLACEHOLDER` met `iotin`. Berichten ontvangen van IoT hub worden geplaatst de `iotin` onderwerp.
+    * `Kafka.Topic=PLACEHOLDER`: Vervang  door `iotin`. Berichten ontvangen van IoT hub worden geplaatst de `iotin` onderwerp.
     * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Vervang `PLACEHOLDER` met de naam van de Event Hub-compatibele.
     * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Vervang `PLACEHOLDER` met het Event Hub-compatibele eindpunt.
     * `IotHub.Partitions=PLACEHOLDER`: Vervang `PLACEHOLDER` met het aantal partities uit de vorige stap.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: Vervang `PLACEHOLDER` met `service`.
+    * `IotHub.AccessKeyName=PLACEHOLDER`: Vervang  door `service`.
     * `IotHub.AccessKeyValue=PLACEHOLDER`: Vervang `PLACEHOLDER` met de primaire sleutel van de `service` beleid.
     * `IotHub.StartType=PLACEHOLDER`: Vervang `PLACEHOLDER` met een UTC-datum. Deze datum wordt wanneer de connector wordt gestart met het controleren of er berichten. De datumnotatie is `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`: Vervang `100` met `5`. Deze wijziging zorgt ervoor dat de connector om berichten te lezen in Kafka zodra er vijf nieuwe berichten in IoT hub zijn.
+    * `BatchSize=100`: Vervang  door `5`. Deze wijziging zorgt ervoor dat de connector om berichten te lezen in Kafka zodra er vijf nieuwe berichten in IoT hub zijn.
 
     Zie voor een voorbeeldconfiguratie [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
@@ -272,7 +272,7 @@ Voor het configureren van de sink-verbinding met het werken met uw IoT-Hub, moet
 
     Zoek in de editor en wijzigen van de volgende vermeldingen:
 
-    * `topics=PLACEHOLDER`: Vervang `PLACEHOLDER` met `iotout`. Berichten die worden geschreven naar `iotout` onderwerp worden doorgestuurd naar de IoT-hub.
+    * `topics=PLACEHOLDER`: Vervang  door `iotout`. Berichten die worden geschreven naar `iotout` onderwerp worden doorgestuurd naar de IoT-hub.
     * `IotHub.ConnectionString=PLACEHOLDER`: Vervang `PLACEHOLDER` met de verbindingsreeks voor de `service` beleid.
 
     Zie voor een voorbeeldconfiguratie [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
@@ -298,7 +298,7 @@ nnect.IotHubSourceTask:39)
 org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Mogelijk ziet u enkele waarschuwingen als de connector wordt gestart. Deze waarschuwingen veroorzaken geen problemen met het ontvangen van berichten uit IoT hub.
 
 Voor het beëindigen van de connector gebruikt __Ctrl + C__.
@@ -320,7 +320,7 @@ IotHubSinkTask:47)
 t.runtime.WorkerSinkTask:262)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > U merkt wellicht meerdere waarschuwingen als de connector wordt gestart. U kunt deze gewoon negeren.
 
 Voor het verzenden van berichten via de connector, gebruikt u de volgende stappen uit:
@@ -332,7 +332,7 @@ Voor het verzenden van berichten via de connector, gebruikt u de volgende stappe
     ```
 2. Berichten verzenden naar de `iotout` onderwerp, gebruikt u de volgende opdracht:
 
-    > [!WARNING]
+    > [!WARNING]  
     > Aangezien dit een nieuwe SSH-verbinding, het `$KAFKABROKERS` variabele geen gegevens bevat. Als u wilt instellen, moet u een van de volgende methoden gebruiken:
     >
     > * Gebruik de eerste drie stappen in de [configureren van Apache Kafka](#configure-apache-kafka) sectie.
@@ -346,7 +346,7 @@ Voor het verzenden van berichten via de connector, gebruikt u de volgende stappe
 
 3. Voor het verzenden van een bericht naar uw apparaat, plakt u een JSON-document in de SSH-sessie voor de `kafka-console-producer`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > U moet de waarde van de `"deviceId"` vermelding voor de ID van uw apparaat. In het volgende voorbeeld wordt het apparaat met de naam `fakepi`:
 
     ```text

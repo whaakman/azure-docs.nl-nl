@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082234"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994127"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -25,9 +25,9 @@ De onderstaande tabel bevat een overzicht van de typen inhoud en bestandsindelin
 
 |Brontype|Inhoudstype| Voorbeelden|
 |--|--|--|
-|URL|Veelgestelde vragen (vaste, met de secties of met een startpagina onderwerpen)|[Veelgestelde vragen over de gewone](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [Veelgestelde vragen over met koppelingen](https://www.microsoft.com/software-download/faq), [Veelgestelde vragen over met onderwerpen startpagina](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOC-BESTAND|Veelgestelde vragen over handmatige Product, Brochures, document, Folder-beleid, ondersteuning handleiding gestructureerde QnA, enzovoort.|[Gestructureerd QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [voorbeeld Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [voorbeeld semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [wit paper.pdf voorbeeld](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Gestructureerd QnA-bestand (met inbegrip van RTF, HTML ondersteuning)|[Voorbeeld QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|URL|Veelgestelde vragen<br> (Vast, met secties of met een startpagina onderwerpen)<br>Ondersteuning voor pagina 's <br> (Één pagina artikelen met procedures, het oplossen van artikelen enz.)|[Veelgestelde vragen over de gewone](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Veelgestelde vragen over met koppelingen](https://www.microsoft.com/software-download/faq),<br> [Veelgestelde vragen over met onderwerpen startpagina](https://support.microsoft.com/products/windows?os=windows-10)<br>[Support-artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF / DOC-BESTAND|Veelgestelde vragen,<br> Handleiding voor product<br> Brochures<br> Papier<br> Beleid voor Folder<br> Ondersteuningshandleiding voor<br> Gestructureerde QnA<br> Enzovoort.|[Gestructureerd QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Voorbeeld van een Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Voorbeeld van semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Voorbeeld van een wit paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Gestructureerd QnA-bestand<br> (met inbegrip van RTF, HTML ondersteuning)|[Voorbeeld QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Gestructureerd QnA-bestand|[Voorbeeld chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="data-source-locations"></a>Gegevensbronnen
@@ -36,7 +36,7 @@ Alleen openbare URL's zijn geldig voor alle gegevensbronnen. Niet inzendt gegeve
 
 ## <a name="faq-urls"></a>Veelgestelde vragen over URL 's
 
-Veelgestelde vragen over webpagina's in 3 verschillende vormen kunt ondersteuning voor QnA Maker: Plain Veelgestelde vragen over pagina's, veelgestelde vragen over pagina's met koppelingen, veelgestelde vragen over pagina's met een startpagina onderwerpen.
+QnA Maker kunt webpagina's voor veelgestelde vragen over ondersteuning in 3 verschillende vormen: Plain Veelgestelde vragen over pagina's, veelgestelde vragen over pagina's met koppelingen, veelgestelde vragen over pagina's met een startpagina onderwerpen.
 
 ### <a name="plain-faq-pages"></a>Plain Veelgestelde vragen over pagina 's
 
@@ -65,6 +65,16 @@ Hieronder volgt een voorbeeld van een pagina met veelgestelde vragen waar een st
  ![Voorbeeld van veelgestelde vragen over de dieptekoppeling naar de pagina voor een knowledge base](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
+### <a name="support-urls"></a>Ondersteuning voor URL 's
+
+QnA Maker kunnen ondersteuning van semi-gestructureerde webpagina's, zoals webartikelen dat beschrijft hoe u een bepaalde taak uit te voeren, het diagnosticeren en oplossen van een bepaald probleem en wat zijn de aanbevolen procedures voor een bepaald proces worden verwerkt. Extractie werkt het beste op inhoud waarvoor een duidelijke structuur met hiërarchische koppen.
+
+> [!NOTE]
+> Extractie voor artikelen over ondersteuning voor een nieuwe functie is en is in de eerste fasen. Deze geschikt is voor eenvoudige pagina's, die goed zijn gestructureerd en bevatten geen complexe kopteksten en voetteksten.
+
+![QnA Maker ondersteunt extractie van semi-gestructureerde webpagina's waarbij een duidelijke structuur wordt weergegeven met hiërarchische koppen](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+
+
 ## <a name="pdf-doc-files"></a>PDF / DOC-bestand
 
 QnA Maker kunt semi-gestructureerde inhoud in een PDF-bestand of document bestand verwerken, en deze converteren naar vragen en antwoorden supereenvoudig. Een goede-bestand dat goed kan worden geëxtraheerd is een waar inhoud wordt georganiseerd in een gestructureerde vorm en wordt weergegeven in de goed gedefinieerde secties. De secties kunnen verder worden onderverdeeld in subsecties of subonderwerpen. Extractie werkt het beste op documenten waarvoor een duidelijke structuur met hiërarchische koppen.
@@ -84,7 +94,7 @@ Hieronder volgt een voorbeeld van een handmatige met een index-pagina en hiërar
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Brochures, richtlijnen, documenten en andere bestanden
 
-Nog vele andere typen documenten kunnen ook worden verwerkt voor het genereren van QA-paren, mits ze een duidelijke structuur en indeling hebben. Deze omvatten: Brochures, richtlijnen, rapporten, wit papier, wetenschappelijke documenten, beleid, boeken, enzovoort. Bekijk een voorbeeld [hier](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Nog vele andere typen documenten kunnen ook worden verwerkt voor het genereren van QA-paren, mits ze een duidelijke structuur en indeling hebben. Deze omvatten: Brochures, richtlijnen, rapporten, technische documenten, wetenschappelijke documenten, beleid, boeken, enzovoort. Bekijk een voorbeeld [hier](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Hieronder volgt een voorbeeld van een semi-gestructureerde doc, zonder een index:
 

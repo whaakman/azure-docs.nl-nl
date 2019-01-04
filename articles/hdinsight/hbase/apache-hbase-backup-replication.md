@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 568d63f984980e91b4dc059211dcf0eaceb73820
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164225"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651721"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Instellen van back-up en replicatie voor Apache HBase- en Apache Phoenix op HDInsight
 
@@ -26,7 +26,7 @@ Apache HBase ondersteunt diverse benaderingen voor het beveiligen tegen verlies 
 * Momentopnamen
 * Replicatie
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Phoenix slaat de metagegevens in HBase-tabellen, zodat de metagegevens van de back-up wanneer u back-up van de catalogus van HBase systeemtabellen.
 
 De volgende secties beschrijven het gebruiksscenario voor elk van deze methoden.
@@ -35,7 +35,7 @@ De volgende secties beschrijven het gebruiksscenario voor elk van deze methoden.
 
 Met deze methode kunt u alle gegevens in HBase, zonder dat de mogelijkheid om te selecteren van een subset van tabellen en kolomfamilies kopiëren. Volgende benaderingen kunnen beheersen.
 
-HBase in HDInsight maakt gebruik van de standaardopslag geselecteerd bij het maken van het cluster, Azure Storage-blobs of Azure Data Lake Store. HBase slaat in beide gevallen moet de gegevens en metagegevens van bestanden via het volgende pad:
+HBase in HDInsight maakt gebruik van de standaardopslag geselecteerd bij het maken van het cluster, Azure Storage-blobs of Azure Data Lake-opslag. HBase slaat in beide gevallen moet de gegevens en metagegevens van bestanden via het volgende pad:
 
     /hbase
 
@@ -45,7 +45,7 @@ HBase in HDInsight maakt gebruik van de standaardopslag geselecteerd bij het mak
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* In Azure Data Lake Store de `hbase` zich bevindt in het hoofdpad die u hebt opgegeven tijdens het inrichten van een cluster. Het pad naar deze hoofdmap is doorgaans een `clusters` map een submap met de naam van uw HDInsight-cluster:
+* In Azure Data Lake Storage de `hbase` zich bevindt in het hoofdpad die u hebt opgegeven tijdens het inrichten van een cluster. Het pad naar deze hoofdmap is doorgaans een `clusters` map een submap met de naam van uw HDInsight-cluster:
 
     ```
     /clusters/<clusterName>/hbase
@@ -57,7 +57,7 @@ Nadat u het cluster verwijdert, kunt u laat u de gegevens op locatie of de gegev
 
 * Maak een nieuw HDInsight-exemplaar dat verwijst naar de huidige opslaglocatie. Het nieuwe exemplaar wordt gemaakt met de bestaande gegevens.
 
-* Kopieer de `hbase` map naar een andere Azure Storage blob-container of de locatie van de Data Lake Store en start vervolgens een nieuw cluster met die gegevens. Gebruik voor Azure Storage, [AzCopy](../../storage/common/storage-use-azcopy.md), en voor het gebruik van Data Lake Store [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Kopieer de `hbase` map naar een andere Azure Storage blob-container of de locatie van de Data Lake-opslag en start vervolgens een nieuw cluster met die gegevens. Gebruik voor Azure Storage, [AzCopy](../../storage/common/storage-use-azcopy.md), en voor het gebruik van Data Lake Storage [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Importeren exporteren
 
@@ -75,7 +75,7 @@ Geef het pad van de volledige uitvoer naar de standaardopslag of naar een van de
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-In Azure Data Lake Store is de syntaxis:
+In Azure Data Lake Storage is de syntaxis:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -117,7 +117,7 @@ Het hulpprogramma CopyTable biedt ook ondersteuning voor parameters om op te gev
 
 CopyTable scant de volledige tabel broninhoud die worden gekopieerd naar de doeltabel. Hierdoor kunnen de prestaties van uw HBase-cluster terwijl CopyTable wordt uitgevoerd.
 
-> [!NOTE]
+> [!NOTE]  
 > Voor het automatiseren van het kopiëren van gegevens tussen tabellen, Zie de `hdi_copy_table.sh` script in de [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) -bibliotheek op GitHub.
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Handmatig verzamelen van de Apache ZooKeeper-quorum lijst

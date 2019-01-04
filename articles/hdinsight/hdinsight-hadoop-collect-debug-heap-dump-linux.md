@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498685"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722036"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen
 
@@ -22,7 +22,7 @@ ms.locfileid: "52498685"
 
 Heapdumps bevatten een momentopname van het geheugen van de toepassing, met inbegrip van de waarden van variabelen op het moment dat de dump is gemaakt. Ze zijn daarom nuttig voor het oplossen van problemen die tijdens de uitvoering optreden.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document werken alleen met HDInsight-clusters die gebruikmaken van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="whichServices"></a>Services
@@ -48,7 +48,7 @@ Worden toegewezen en verminder processen zijn iets anders, omdat deze bewerkinge
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [!NOTE]
+> [!NOTE]  
 > Wordt u aangeraden [Apache Ambari](https://ambari.apache.org/) voor het wijzigen van de scripts en de instellingen voor mapred-site.xml, als de Ambari verwerken repliceren van wijzigingen op knooppunten in het cluster. Zie de [met behulp van Apache Ambari](#using-apache-ambari) sectie voor specifieke stappen.
 
 ### <a name="enable-heap-dumps"></a>Heapdumps inschakelen
@@ -59,7 +59,7 @@ De volgende optie kunt heapdumps wanneer er een OutOfMemoryError optreedt:
 
 De **+** geeft aan dat deze optie is ingeschakeld. Uitgeschakeld is de standaardinstelling.
 
-> [!WARNING]
+> [!WARNING]  
 > Heapdumps zijn niet ingeschakeld voor Hadoop-services op HDInsight standaard, zoals de dumpbestanden kunnen erg groot zijn. Als u deze voor het oplossen van inschakelt, moet u deze uitschakelen nadat u hebt gereproduceerd van het probleem en de bestanden die worden verzameld.
 
 ### <a name="dump-location"></a>Locatie van de dump
@@ -76,7 +76,7 @@ U kunt ook een script activeren wanneer een **OutOfMemoryError** optreedt. Bijvo
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [!NOTE]
+> [!NOTE]  
 > Aangezien Apache Hadoop een gedistribueerd systeem is, moet een script dat wordt gebruikt op alle knooppunten in het cluster dat de service wordt uitgevoerd op worden geplaatst.
 > 
 > Het script moet ook worden op een locatie die toegankelijk is via het account dat de service wordt uitgevoerd als en moet machtigingen voor uitvoeren. Bijvoorbeeld, u kunt desgewenst voor het opslaan van scripts in `/usr/local/bin` en gebruik `chmod go+rx /usr/local/bin/filename.sh` verleent u lees-en machtigingen voor uitvoeren.
@@ -89,8 +89,8 @@ Als u wilt wijzigen van de configuratie van een service, gebruikt u de volgende 
 
     Wanneer u hierom wordt gevraagd, verifiëren bij de site met de naam van het HTTP-account (standaard: beheerder) en het wachtwoord voor uw cluster.
 
-   > [!NOTE]
-   > U mogelijk gevraagd een tweede maal door Ambari voor de gebruikersnaam en wachtwoord. Als dit het geval is, voert u de dezelfde naam en het wachtwoord
+   > [!NOTE]  
+   > U mogelijk gevraagd een tweede maal door Ambari voor de gebruikersnaam en wachtwoord. Als dit het geval is, voert u de dezelfde naam en het wachtwoord.
 
 2. Met behulp van de lijst aan de linkerkant, selecteer het gebied van de service dat u wilt wijzigen. Bijvoorbeeld, **HDFS**. Selecteer in het gebied center, de **Peeringconfiguraties** tabblad.
 
@@ -104,7 +104,7 @@ Als u wilt wijzigen van de configuratie van een service, gebruikt u de volgende 
 
     ![HADOOP_NAMENODE_OPTS met - XX: + HeapDumpOnOutOfMemoryError - XX: HeapDumpPath = / tmp /](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Wanneer heap inschakelen voor de kaart geheugendumps of verminder onderliggend proces, zoekt u naar voor de velden met de naam **mapreduce.admin.map.child.java.opts** en **mapreduce.admin.reduce.child.java.opts**.
 
     Gebruik de **opslaan** knop de wijzigingen op te slaan. U kunt een korte opmerking met een beschrijving van de wijzigingen kunt invoeren.
@@ -121,7 +121,7 @@ Als u wilt wijzigen van de configuratie van een service, gebruikt u de volgende 
 
     ![Start opnieuw op alle betrokken item](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > de vermeldingen voor de **opnieuw** knop kan mogelijk verschillen voor andere services.
 
 8. Zodra de services opnieuw zijn opgestart, gebruikt u de **serviceacties** knop **inschakelen uit de onderhoudsmodus**. Deze Ambari bewaking voor waarschuwingen voor de service wordt hervat.

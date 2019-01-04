@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 74d6748a4d595e330103497dcc97ac57e01db250
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1cfecca7d7b8a3f554466d95c666e2cbddbffde
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158615"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975675"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Veilige LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services inschakelen
 
@@ -51,7 +51,7 @@ Voor secure LDAP inschakelen, moet u de volgende configuratiestappen uitvoeren:
 5. Toegang van secure LDAP tot uw beheerde domein via internet is standaard uitgeschakeld. In-/ uitschakelen **toegang van secure LDAP via internet toestaan** naar **inschakelen**, als u wilt.
 
     > [!WARNING]
-    > Wanneer u toegang van secure LDAP via internet inschakelt, is het domein is vatbaar voor wachtwoord brute force-aanvallen via internet. Daarom raden we aan het instellen van een NSG aan het vergrendelen van toegang tot de vereiste bron-IP-adresbereiken. Zie de instructies voor [het vergrendelen van LDAPS toegang tot uw beheerde domein via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
+    > Wanneer u toegang van secure LDAP via internet inschakelt, is het domein is vatbaar voor wachtwoord brute force-aanvallen via internet. Daarom raden we aan het instellen van een NSG aan het vergrendelen van toegang tot de vereiste bron-IP-adresbereiken. Zie de instructies voor [het vergrendelen van LDAPS toegang tot uw beheerde domein via internet](active-directory-ds-ldaps-bind-lockdown.md#task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Klikt u op de map pictogram **. PFX-bestand met certificaat voor secure LDAP**. Geef het pad naar het PFX-bestand met het certificaat voor secure LDAP toegang tot het beheerde domein.

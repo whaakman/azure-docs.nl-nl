@@ -5,25 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: e590500dd622988226c592352b0b86f16d54a9d4
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 08fed2206d7d74d9ab6cb7f1462388486f999987
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983060"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718789"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hoe gebruikers in uw organisatie kunnen uitnodigen van gastgebruikers ook kunnen aan een app
 
-Na een Gast is gebruiker toegevoegd aan de directory in Azure AD wordt de eigenaar van een toepassing kan de gastgebruiker een directe koppeling sturen naar de app die zij willen delen. Azure AD-beheerders kunnen ook instellen Self-servicebeheer zodat toepassingseigenaren hun eigen gastgebruikers kunnen beheren, zelfs als de gastgebruikers bibliotheekscripts zijn toegevoegd aan de map nog. Wanneer een app is geconfigureerd voor self-service, eigenaar van de toepassing maakt gebruik van het toegangsvenster aan een gastgebruiker aan een app uit te nodigen of een gastgebruiker toevoegen aan een groep die toegang tot de app heeft. Self-service app-beheer, moet u eerste instellingen door een beheerder. Hieronder volgt een samenvatting van de installatiestappen uit (Zie voor meer instructies, [vereisten](#prerequisites) hoger op deze pagina):
+Na een Gast is gebruiker toegevoegd aan de directory in Azure AD wordt de eigenaar van een toepassing kan de gastgebruiker een directe koppeling sturen naar de app die zij willen delen. Azure AD-beheerders kunnen ook instellen van self-servicebeheer voor galerie of op basis van SAML-apps in hun Azure AD-tenant. Op deze manier toepassingseigenaren kunnen hun eigen gastgebruikers beheren, zelfs als de gastgebruikers bibliotheekscripts zijn toegevoegd aan de map nog. Wanneer een app is geconfigureerd voor self-service, eigenaar van de toepassing maakt gebruik van het toegangsvenster aan een gastgebruiker aan een app uit te nodigen of een gastgebruiker toevoegen aan een groep die toegang tot de app heeft. Self-service app-beheer voor de galerie en SAML gebaseerde apps, moet u eerste instellingen door een beheerder. Hieronder volgt een samenvatting van de installatiestappen uit (Zie voor meer instructies, [vereisten](#prerequisites) hoger op deze pagina):
 
  - Selfservice groepsbeheer voor uw tenant inschakelen
  - Maak een groep als u wilt toewijzen aan de app en de gebruiker of eigenaar maken
  - De app voor self-service configureren en de groep toewijzen aan de app.
+
+> [!NOTE]
+> Dit artikel wordt beschreven hoe u voor het instellen van self-servicebeheer voor galerie en op basis van SAML-apps die u hebt toegevoegd aan uw Azure AD-tenant. U kunt ook [instellen van Office 365-groepen selfservice](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) , zodat uw gebruikers toegang tot hun eigen Office 365-groepen kunnen beheren. Zie voor meer manieren waarop gebruikers Office-bestanden en apps met gastgebruikers ook kunnen delen kunnen, [toegang voor gasten in Office 365-groepen](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) en [SharePoint delen bestanden of mappen](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Een gastgebruiker uitnodigen voor een app vanuit het toegangsvenster
 
@@ -38,7 +41,7 @@ Nadat een app is geconfigureerd voor self-service, kunnen toepassingseigenaren h
    
    ![Toegangsvenster een gebruiker toevoegen](media/add-users-iw/access-panel-manage-app-add-user.png)
    
-4. In de **leden toevoegen** het zoekvak, typ de e-mailadres voor de gastgebruiker. (Optioneel) een welkomstbericht bevatten.
+4. In de **leden toevoegen** het zoekvak, typ de e-mailadres voor de gastgebruiker. U kunt optioneel een welkomstbericht toevoegen.
    
    ![Toegang tot de uitnodiging voor deelvenster](media/add-users-iw/access-panel-invitation.png)
    
@@ -61,7 +64,7 @@ Nadat u een app is geconfigureerd voor self-service, kunnen toepassingseigenaren
    
    ![Toegangsvenster groepen toevoegen lid](media/add-users-iw/access-panel-groups-add-member.png)
    
-6. In de **leden toevoegen** het zoekvak, typ de e-mailadres voor de gastgebruiker. (Optioneel) een welkomstbericht bevatten.
+6. In de **leden toevoegen** het zoekvak, typ de e-mailadres voor de gastgebruiker. U kunt optioneel een welkomstbericht toevoegen.
    
    ![Uitnodiging voor toegang tot deelvenster groep](media/add-users-iw/access-panel-invitation.png)
    
@@ -102,6 +105,7 @@ Self-service app-beheer, moet u eerste instellingen door een globale beheerder b
 4. In de lijst met toepassingen zoeken en openen van de app.
 5. Onder **beheren**, selecteer **eenmalige aanmelding**, en de toepassing configureren voor eenmalige aanmelding. (Zie voor meer informatie, [over het beheren van eenmalige aanmelding voor zakelijke apps](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
 6. Onder **beheren**, selecteer **selfservice**, en toegang tot de app zelf instellen. (Zie voor meer informatie, [over het gebruik van toegang tot de app zelf](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+
     > [!NOTE]
     > Voor de instelling **aan welke groep moeten toegewezen gebruikers worden toegevoegd?** selecteert u de groep die u in de vorige sectie hebt gemaakt.
 7. Onder **beheren**, selecteer **gebruikers en groepen**, en controleer of dat de selfservice door u gemaakte groep wordt weergegeven in de lijst.
@@ -114,4 +118,4 @@ Zie de volgende artikelen op Azure AD B2B-samenwerking:
 - [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
 - [Hoe voeg beheerders van Azure Active Directory gebruikers van B2B-samenwerking toe?](add-users-administrator.md)
 - [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md)
-- [Licentieverlening voor Azure AD B2B collaboration](licensing-guidance.md)
+- [Licenties voor Azure AD B2B-samenwerking](licensing-guidance.md)

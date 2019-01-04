@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497128"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604528"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Taken verzenden vanuit R-hulpprogramma's voor Visual Studio
 
@@ -35,7 +35,7 @@ RTVS verbetert uw R-werkstroom door het aanbieden van hulpprogramma's zoals de [
 
 4. Installeer [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) op uw computer. ML-Server biedt de [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) en `RxSpark` functies.
 
-5. Installeer [PuTTY](http://www.putty.org/) voor een compute-context om uit te voeren `RevoScaleR` functies van de lokale client met uw HDInsight-cluster.
+5. Installeer [PuTTY](https://www.putty.org/) voor een compute-context om uit te voeren `RevoScaleR` functies van de lokale client met uw HDInsight-cluster.
 
 6. U hebt de mogelijkheid om toe te passen van de Data Science-instellingen aan uw Visual Studio-omgeving, waarmee u een nieuwe indeling voor uw werkruimte voor de R-hulpprogramma's.
     1. Om op te slaan in de huidige instellingen voor Visual Studio, gebruikt u de **Extra > instellingen exporteren en importeren** opdracht, en selecteer vervolgens **geselecteerde omgevingsinstellingen exporteren** en geef een bestandsnaam op. Gebruik dezelfde opdracht als u deze instellingen herstellen, en selecteer **importeren geselecteerd omgevingsinstellingen**.
@@ -44,7 +44,7 @@ RTVS verbetert uw R-werkstroom door het aanbieden van hulpprogramma's zoals de [
 
         ![Data Science-instellingen...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Met behulp van de methode in stap 1, u kunt ook opslaan en herstellen van de indeling van de gegevenswetenschappers van elk persoonlijke gegevens in plaats van herhalende de **Data Science instellingen** opdracht.
 
 ## <a name="execute-local-r-methods"></a>Lokale R-methoden uitvoeren

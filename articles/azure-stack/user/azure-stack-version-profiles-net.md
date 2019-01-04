@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074448"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555010"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>API-versieprofielen gebruiken met .NET in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-De .NET-SDK voor Azure Stack Resource Manager biedt hulpprogramma's waarmee u kunt bouwen en beheren van uw infrastructuur. Resourceproviders in de SDK zijn onder andere compute, networking, storage, app-services, en [KeyVault](../../key-vault/key-vault-whatis.md). De .NET-SDK bevat 14 NuGet-pakketten dat moeten worden gedownload naar uw projectoplossing telkens wanneer die gebruikmaken van de profielgegevens. Echter, kunt u specifiek welke resourceprovider downloaden om het optimaliseren van het geheugen voor uw toepassing wordt gebruikt voor de 2018-03-01-hybride of 2017-03-09-profiel. Elk pakket bestaat uit een resourceprovider, de bijbehorende API-versie en de API-profiel waarvan deze deel uitmaakt. API-profielen in de .NET SDK inschakelen ontwikkeling van hybride cloud, doordat u schakelen tussen de globale Azure-resources en resources in Azure Stack.
+De .NET-SDK voor Azure Stack Resource Manager biedt hulpprogramma's waarmee u kunt bouwen en beheren van uw infrastructuur. Resourceproviders in de SDK zijn onder andere compute, networking, storage, app-services, en [KeyVault](../../key-vault/key-vault-whatis.md). De .NET-SDK bevat 14 NuGet-pakketten. Deze pakketten moeten worden gedownload naar uw project-oplossing telkens waarin de profielgegevens. Echter, kunt u specifiek welke resourceprovider downloaden om het optimaliseren van het geheugen voor uw toepassing wordt gebruikt voor de 2018-03-01-hybride of 2017-03-09-profiel. Elk pakket bestaat uit een resourceprovider, de bijbehorende API-versie en de API-profiel waarvan deze deel uitmaakt. API-profielen in de .NET SDK inschakelen ontwikkeling van hybride cloud, doordat u schakelen tussen de globale Azure-resources en resources in Azure Stack.
 
 ## <a name="net-and-api-version-profiles"></a>.NET en API-versieprofielen
 
@@ -44,7 +44,7 @@ Een API-profiel is een combinatie van resourceproviders en -API-versies. U kunt 
 
 -   Als u specifieke API-versies voor een resourcetype in een specifieke resourceprovider, gebruikt u de specifieke API-versies zoals gedefinieerd in het pakket.
 
-Houd er rekening mee dat u alle van de opties in dezelfde toepassing kunt combineren.
+U kunt alle van de opties in dezelfde toepassing combineren.
 
 ## <a name="install-the-azure-net-sdk"></a>De Azure .NET SDK installeren
 
@@ -52,7 +52,7 @@ Houd er rekening mee dat u alle van de opties in dezelfde toepassing kunt combin
 
 2.  Zie voor het installeren van de juiste NuGet-pakketten, [zoeken en installeren van een pakket][].
 
-3.  De pakketten die moeten worden geïnstalleerd, is afhankelijk van de Profielversie die u wilt gebruiken. De naam van het pakket voor de profielversies zijn:
+3.  De pakketten die moeten worden geïnstalleerd, is afhankelijk van de Profielversie die u wilt gebruiken. De Pakketnamen van het voor de profielversies zijn:
 
     1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**
 
@@ -62,7 +62,7 @@ Houd er rekening mee dat u alle van de opties in dezelfde toepassing kunt combin
 
 5.  Als niet beschikbaar is, maakt u een abonnement en opslaan van de abonnements-ID moet later worden gebruikt. Zie voor instructies voor het maken van een abonnement, [abonnementen voor aanbiedingen maken in Azure Stack][].
 
-6.  Een service-principal maken en opslaan van de Client-ID en het Clientgeheim. Zie voor instructies over het maken van een service-principal voor Azure Stack [toepassingen toegang verlenen tot Azure Stack][]. Houd er rekening mee dat de Client-ID ook wel bekend als de toepassings-ID wordt bij het maken van een service-principal.
+6.  Een service-principal maken en opslaan van de Client-ID en het Clientgeheim. Zie voor instructies over het maken van een service-principal voor Azure Stack [toepassingen toegang verlenen tot Azure Stack][]. De Client-ID wordt ook wel bekend als de toepassings-ID als een service-principal maken.
 
 7.  Zorg ervoor dat uw service-principal de rol van inzender of eigenaar heeft op uw abonnement. Zie voor instructies over hoe u een rol toewijzen aan service-principal [toepassingen toegang verlenen tot Azure Stack][].
 
@@ -76,9 +76,10 @@ Voor het gebruik van de Azure-SDK voor .NET met Azure Stack, moet u de volgende 
 | Client-id                 | AZURE_CLIENT_ID       | De service principal toepassings-ID opgeslagen wanneer de service-principal is gemaakt in de vorige sectie van dit artikel. |
 | Abonnements-id           | AZURE_SUBSCRIPTION_ID | De [ *abonnements-ID* ][] is hoe u toegang hebben tot aanbiedingen in Azure Stack.                                                      |
 | Clientgeheim             | AZURE_CLIENT_SECRET   | De service principal toepassingsgeheim opgeslagen wanneer de service-principal is gemaakt.                                      |
-| Resource Manager-eindpunt | ARM_ENDPOINT           | Zie [ *de Azure Stack resource manager-eindpunt*][].                                                                    |
+| Resource Manager-eindpunt | ARM_ENDPOINT           | Zie [ *het Azure Stack Resource Manager-eindpunt*][].                                                                    |
+| Locatie                  | RESOURCE_LOCATION     | Locatie voor Azure Stack.
 
-Volg de instructies om de Tenant-ID voor uw Azure Stack, [hier](../azure-stack-csp-ref-operations.md). Om in te stellen de omgevingsvariabelen, het volgende doen:
+Volg de instructies om de Tenant-ID voor uw Azure Stack, [hier](../azure-stack-csp-ref-operations.md). Als u wilt de omgevingsvariabelen instellen, moet u de volgende stappen uitvoeren:
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
@@ -96,7 +97,7 @@ In op basis van Unix-systemen kunt u de volgende opdracht uit:
 Export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>De Azure Stack resource manager-eindpunt
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Het Azure Stack Resource Manager-eindpunt
 
 De Microsoft Azure Resource Manager is een raamwerk waarmee beheerders te implementeren, beheren en bewaken van Azure-resources. Deze taken kunnen worden verwerkt in Azure Resource Manager als een groep, in plaats van afzonderlijk, in één bewerking.
 
@@ -106,7 +107,7 @@ Houd rekening met de volgende overwegingen:
 
 - De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): https://management.local.azurestack.external/
 
-- De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 JSON-voorbeeldbestand:
 
@@ -125,158 +126,73 @@ JSON-voorbeeldbestand:
 
 ## <a name="existing-api-profiles"></a>Bestaande API-profielen
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: nieuwste profiel die is gebouwd voor Azure Stack. Gebruik dit profiel voor services meest compatibel is met Azure Stack, zolang er op het stempel 1808 of verdere.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: Meest recente profiel die is gebouwd voor Azure Stack. Gebruik dit profiel voor services meest compatibel is met Azure Stack, zolang er op het stempel 1808 of verdere.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: als u van een tijdstempel die lager is dan de build 1808 gebruikmaakt, dit profiel gebruiken.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: Als u van een tijdstempel die lager is dan de build 1808 gebruikmaakt, moet u dit profiel gebruiken.
 
-3.  **Meest recente**: profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services. Dit profiel maakt deel uit van de **Microsoft.Azure.Management** NuGet-pakket.
+3.  **Meest recente**: Profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services. Dit profiel maakt deel uit van de **Microsoft.Azure.Management** NuGet-pakket.
 
 Zie voor meer informatie over Azure Stack- en API-profielen, een [Overzicht van de API-profielen][].
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Gebruik van Azure .NET SDK API-profiel
 
-De volgende code moet worden gebruikt voor het starten van een profiel-client. Deze parameter is alleen vereist voor Azure Stack of andere persoonlijke clouds. Globale Azure al deze instellingen in standaard.
-
-De volgende code is vereist voor het verifiëren van de service-principal in Azure Stack. Het maakt een token door de tenant-ID en de base verificatie, die specifiek is voor Azure Stack.
+De volgende code moet worden gebruikt voor het starten van een resource management-client. Vergelijkbare code kan worden gebruikt voor het starten van de andere resourceprovider (zoals compute, netwerk en opslag) clients. 
 
 ```csharp
-public class CustomLoginCredentials : ServiceClientCredentials
+var client = new ResourceManagementClient(armEndpoint, credentials)
 {
-    private string clientId;
-    private string clientSecret;
-    private string resourceId;
-    private string tenantId;
-
-    private const string authenticationBase = "https://login.windows.net/{0}";
-
-    public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-    {
-        clientId = servicePrincipalId;
-        clientSecret = servicePrincipalSecret;
-        resourceId = azureEnvironmentResourceId;
-        tenantId = azureEnvironmentTenandId;
-    }
+    SubscriptionId = subscriptionId
+};
 ```
 
-Hierdoor kunt u de API-profiel NuGet-pakketten gebruiken om uw toepassing is op Azure Stack te implementeren.
-
-## <a name="define-azure-stack-environment-setting-functions"></a>Azure Stack-omgeving instelling functies definiëren
-
-Gebruik de volgende code voor de verificatie van de service-principal naar het Azure Stack-omgeving heeft:
+De `credentials` parameter in de bovenstaande code is vereist voor het starten van een client. De volgende code genereert een verificatietoken door de tenant-ID en de service-principal.
 
 ```csharp
-private string AuthenticationToken { get; set; }
-public override void InitializeServiceClient<T>(ServiceClient<T> client)
+var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
+var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
+```
+De `getActiveDirectoryServiceSettings` in de code haalt u Azure Stack-eindpunten van het metagegevenseindpunt. Stelt de omgevingsvariabelen van de aanroep die is gemaakt: 
+
+```csharp
+public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
 {
-    var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-    var credential = new ClientCredential(clientId, clientSecret);
-    var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-    clientCredential: credential).Result;
-    if (result == null)
+    var settings = new ActiveDirectoryServiceSettings();
+    try
     {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
+        var request = (HttpWebRequest)HttpWebRequest.Create(string.Format("{0}/metadata/endpoints?api-version=1.0", armEndpoint));
+        request.Method = "GET";
+        request.UserAgent = ComponentName;
+        request.Accept = "application/xml";
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        {
+            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+            {
+                var rawResponse = sr.ReadToEnd();
+                var deserialized = JObject.Parse(rawResponse);
+                var authenticationObj = deserialized.GetValue("authentication").Value<JObject>();
+                var loginEndpoint = authenticationObj.GetValue("loginEndpoint").Value<string>();
+                var audiencesObj = authenticationObj.GetValue("audiences").Value<JArray>();
+                settings.AuthenticationEndpoint = new Uri(loginEndpoint);
+                settings.TokenAudience = new Uri(audiencesObj[0].Value<string>());
+                settings.ValidateAuthority = loginEndpoint.TrimEnd('/').EndsWith("/adfs", StringComparison.OrdinalIgnoreCase) ? false : true;
+            }
+        }
     }
-    AuthenticationToken = result.AccessToken;
+    catch (Exception ex)
+    {
+        Console.WriteLine(String.Format("Could not get AD service settings. Exception: {0}", ex.Message));
+    }
+    return settings;
 }
 ```
-
-Dit heeft voorrang op de service-client initialiseren om te verifiëren met Azure Stack.
+Hierdoor kunt u de API-profiel NuGet-pakketten gebruiken om uw toepassing is op Azure Stack te implementeren.
 
 ## <a name="samples-using-api-profiles"></a>Voorbeelden met behulp van API-profielen
 
-U kunt de volgende voorbeelden gevonden in de GitHub-opslagplaatsen als uitgangspunt voor het maken van oplossingen met .NET en Azure Stack-API-profielen gebruiken.
-
--   [Project om te testen op virtuele Machine, vNet, resourcegroepen en storage-account][]
--   Virtuele machines beheren met .NET
-
-### <a name="sample-unit-test-project"></a>Voorbeeld van een Project voor de Test-eenheid 
-
-1.  Kloon de opslagplaats met de volgende opdracht:
-
-    ```shell
-    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
-    ```
-
-2.  Een Azure-service-principal maken en toewijzen van een rol voor toegang tot het abonnement. Zie voor instructies over het maken van een service-principal [Azure PowerShell gebruiken voor het maken van een service-principal met een certificaat][].
-
-3.  De volgende vereiste waarden ophalen:
-
-    1.  Tenant-id
-    2.  Client-id
-    3.  Clientgeheim
-    4.  Abonnements-id
-    5.  Resource Manager-eindpunt
-
-4.  Stel de volgende omgevingsvariabelen met behulp van de gegevens die u hebt opgehaald via de service-principal dat hebt gemaakt met behulp van de opdrachtprompt:
-
-    1.  exporteren van AZURE_TENANT_ID = {uw tenant-id}
-    2.  exporteren van AZURE_CLIENT_ID = {uw client-id}
-    3.  exporteren van AZURE_CLIENT_SECRET = {uw clientgeheim}
-    4.  exporteren van AZURE_SUBSCRIPTION_ID = {uw abonnements-id}
-    5.  exporteren van ARM_ENDPOINT = {uw Azure Stack Resource manager-URL}
-
-   Gebruik in Windows, **ingesteld** in plaats van **exporteren**.
-
-5.  Zorg ervoor dat de locatie-variabele is ingesteld op de locatie van uw Azure Stack. Bijvoorbeeld, lokale = "local".
-
-6.  Stel de aangepaste aanmeldingsreferenties waarmee u kunt om te verifiëren met Azure Stack. Houd er rekening mee dat dit deel van de code is opgenomen in dit voorbeeld in de autorisatie-map.
-
-   ```csharp
-   public class CustomLoginCredentials : ServiceClientCredentials
-   {
-       private string clientId;
-       private string clientSecret;
-       private string resourceId;
-       private string tenantId;
-       private const string authenticationBase = "https://login.windows.net/{0}";
-       public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-       {
-           clientId = servicePrincipalId;
-           clientSecret = servicePrincipalSecret;
-           resourceId = azureEnvironmentResourceId;
-           tenantId = azureEnvironmentTenandId;
-       }
-   private string AuthenticationToken { get; set; }
-   ```
-
-7.  Voeg de volgende code toe als u Azure Stack voor de onderdrukking van de service-client initialiseren om te verifiëren met Azure Stack. Houd er rekening mee dat een deel van de code al in dit voorbeeld in de autorisatie-map opgenomen is.
-
-   ```csharp
-   public override void InitializeServiceClient<T>(ServiceClient<T> client)
-   {
-      var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-      var credential = new ClientCredential(clientId, clientSecret);
-      var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-                clientCredential: credential).Result;
-      if (result == null)
-      {
-          throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-      AuthenticationToken = result.AccessToken;
-   }
-   ```
- 
-8.  Met behulp van NuGet-Pakketbeheer, zoeken naar '2018-03-01-hybride' en installeer de pakketten die zijn gekoppeld aan dit profiel voor de resourceproviders Compute, netwerken, opslag, KeyVault en App-Services.
-
-2.  Binnen elke taak in het bestand .cs, stel de parameters die nodig zijn voor het werken met Azure Stack. Een voorbeeld als volgt wordt weergegeven voor de taak `CreateResourceGroupTest`:
-
-   ```csharp
-   var location = Environment.GetEnvironmentVariable("AZURE_LOCATION");
-   var baseUriString = Environment.GetEnvironmentVariable("AZURE_BASE_URL");
-   var resourceGroupName = Environment.GetEnvironmentVariable("AZURE_RESOURCEGROUP");
-   var servicePrincipalId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
-   var servicePrincipalSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET");
-   var azureResourceId = Environment.GetEnvironmentVariable("AZURE_RESOURCE_ID");
-   var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-   var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-   var credentials = new CustomLoginCredentials(servicePrincipalId, servicePrincipalSecret, azureResourceId, tenantId);
-   ```
-
-1.  Klik met de rechtermuisknop op elke taak en selecteert u **test uitvoeren**.
-
-    1.  Een waarschuwing de een groen vinkje in het deelvenster aan clientzijde dat elke taak is op basis van de opgegeven parameters is gemaakt. Controleer of uw Azure Stack-abonnement om te controleren of dat de resources zijn gemaakt.
-
-    2.  Zie voor meer informatie over het uitvoeren van eenheidstests [eenheidstests met Test Explorer uitvoeren.][]
+De volgende voorbeelden kunnen worden gebruikt als uitgangspunt voor het maken van oplossingen met .NET en Azure Stack-API-profielen.
+- [Resourcegroepen beheren](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
+- [Storage-Accounts beheren](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
+- [Een virtuele Machine beheren](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -292,8 +208,8 @@ Zie voor meer informatie over API-profielen:
   [Toepassingen toegang verlenen tot Azure Stack]: ../azure-stack-create-service-principals.md
   [* tenant -ID *]: ../azure-stack-identity-overview.md
   [* abonnement -ID *]: ../azure-stack-plan-offer-quota-overview.md#subscriptions
-  [* de Azure Stack resource manager-eindpunt *]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
+  [* de Azure Stack Resource Manager-eindpunt *]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [Overzicht van de API-profielen]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
-  [Project om te testen op virtuele Machine, vNet, resourcegroepen en storage-account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
-  [Azure PowerShell gebruiken voor het maken van een service-principal met een certificaat]: ../azure-stack-create-service-principals.md
-  [Eenheidstests met Test Explorer uitvoeren.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017
+  [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
+  [Use Azure PowerShell to create a service principal with a certificate]: ../azure-stack-create-service-principals.md
+  [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

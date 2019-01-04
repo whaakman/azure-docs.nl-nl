@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d199275d6c17dff72c020bd3a9807f50af8af1e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438673"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544036"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automatisch diagnostische instellingen inschakelen bij het maken van resources met behulp van Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een resource als deze wordt gemaakt. Hiermee kunt u automatisch wilt streamen uw logboeken met diagnostische gegevens en metrische gegevens naar Event Hubs, archiveren in een Opslagaccount of ze naar Log Analytics verzenden wanneer een resource wordt gemaakt.
@@ -25,7 +25,7 @@ In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](..
 
 De methode voor het inschakelen van diagnostische logboeken met behulp van Resource Manager-sjabloon, is afhankelijk van het resourcetype.
 
-* **Niet-Compute** resources (bijvoorbeeld, Network Security Groups, Logic Apps, automatisering) gebruiken [diagnostische instellingen die worden beschreven in dit artikel](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **Niet-Compute** resources (bijvoorbeeld, Network Security Groups, Logic Apps, automatisering) gebruiken [diagnostische instellingen die worden beschreven in dit artikel](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
 * **COMPUTE** resources (WAD/LAD-indeling) gebruikt de [WAD/LAD-configuratiebestand in dit artikel beschreven](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 In dit artikel wordt beschreven hoe u met behulp van een van beide methoden diagnosefuncties te configureren.
@@ -266,6 +266,6 @@ Om in te schakelen diagnostische gegevens op een Compute-resource, bijvoorbeeld 
 Het hele proces, inclusief voorbeelden wordt beschreven [in dit document](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over Azure-logboeken met diagnostische gegevens](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Diagnostische logboeken naar Eventhubs in Azure Stream](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Meer informatie over Azure-logboeken met diagnostische gegevens](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Diagnostische logboeken naar Eventhubs in Azure Stream](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 

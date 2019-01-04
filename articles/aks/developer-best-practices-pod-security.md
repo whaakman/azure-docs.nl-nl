@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 8acd69480d6cd441c33ccc696794977bbfbfd975
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109834"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559073"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Best practices voor beveiliging van de schil in Azure Kubernetes Service (AKS)
 
-Als u toepassingen ontwikkelen en in Azure Kubernetes Service (AKS uitvoeren), is de beveiliging van uw schillen belangrijkste overweging. Uw toepassingen moeten worden ontworpen voor de principal van minimaal aantal benodigde bevoegdheden. Uw persoonlijke gegevens veilig te houden is topprioriteit hebben voor klanten. U niet wilt dat referenties, zoals databaseverbindingsreeksen, sleutels of geheimen en certificaten die worden blootgesteld aan de buitenwereld waarbij een aanvaller zou kunnen profiteren van deze geheimen voor schadelijke doeleinden. Geen toe te voegen aan uw code of insluit in uw containerinstallatiekopieën. Deze methode wilt maken van een risico voor blootstelling en beperken de mogelijkheid om te roteren deze referenties als de containerinstallatiekopieën moet opnieuw worden opgebouwd.
+Als u toepassingen ontwikkelen en in Azure Kubernetes Service (AKS uitvoeren), is de beveiliging van uw schillen belangrijkste overweging. Uw toepassingen moeten worden ontworpen voor het principe van minimale aantal vereiste bevoegdheden. Uw persoonlijke gegevens veilig te houden is topprioriteit hebben voor klanten. U wilt niet dat referenties, zoals databaseverbindingsreeksen, sleutels of geheimen en certificaten die worden blootgesteld aan de buitenwereld waarbij een aanvaller van deze geheimen voor schadelijke doeleinden profiteren kan. Geen toe te voegen aan uw code of insluit in uw containerinstallatiekopieën. Deze methode wilt maken van een risico voor blootstelling en beperken de mogelijkheid om te roteren deze referenties als de containerinstallatiekopieën moet opnieuw worden opgebouwd.
 
 Deze aanbevolen procedures voor richt zich op hoe veilig schillen in AKS. In deze zelfstudie leert u procedures om het volgende te doen:
 

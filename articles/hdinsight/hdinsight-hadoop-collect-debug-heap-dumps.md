@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b4ca22faf8ef01cab4b2e7231fea8ed49f0fcb3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 698806bdedd9994f2c9de53118cb42c9df1c36cd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494591"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724399"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Heapdumps verzamelen in Blob-opslag voor foutopsporing en analyseren van Apache Hadoop-services
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
@@ -23,8 +23,8 @@ Heapdumps bevatten een momentopname van het geheugen van de toepassing, met inbe
 
 De verzameling van heapdumps voor verschillende services moet zijn ingeschakeld voor services op afzonderlijke clusters. De standaardwaarde voor deze functie is om te worden uitgeschakeld voor een cluster. Deze heapdumps kunnen oplopen, zodat u aangeraden wordt voor het bewaken van de Blob storage-account waar ze worden opgeslagen nadat de verzameling is ingeschakeld.
 
-> [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. De informatie in dit artikel is alleen van toepassing op HDInsight op basis van Windows. Zie voor informatie over HDInsight op basis van Linux, [heapdumps inschakelen voor Apache Hadoop-services op Linux gebaseerde HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> [!IMPORTANT]  
+> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. De informatie in dit artikel is alleen van toepassing op HDInsight op basis van Windows. Zie voor informatie over HDInsight op basis van Linux, [heapdumps inschakelen voor Apache Hadoop-services op Linux gebaseerde HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 
 ## <a name="eligible-services-for-heap-dumps"></a>In aanmerking komende services voor heapdumps

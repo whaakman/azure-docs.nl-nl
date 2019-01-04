@@ -15,17 +15,17 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2d035883534430e76d251b22dfc95d34e4eb03cd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8b0277d1e82e655edd9308f8b8afa7d6dcec434e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723564"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754829"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Fouten opsporen in uw toepassingen met Azure Application Insights in Visual Studio
 In Visual Studio (2015 en hoger) kunt u de prestaties analyseren en problemen in uw ASP.NET web-app identificeren tijdens de foutopsporing en algemeen gebruik. Dit gebeurt aan de hand van telemetrie uit [Azure Application Insights](app-insights-overview.md).
 
-Als u uw ASP.NET-web-app hebt gemaakt met Visual Studio 2017 of hoger, beschikt deze al over de Application Insights-SDK. Anders [voegt u Application Insights aan uw app toe](app-insights-asp-net.md) als u dit nog niet hebt gedaan.
+Als u uw ASP.NET-web-app hebt gemaakt met Visual Studio 2017 of hoger, beschikt deze al over de Application Insights-SDK. Anders [voegt u Application Insights aan uw app toe](../azure-monitor/app/asp-net.md) als u dit nog niet hebt gedaan.
 
 Als uw app wilt bewaken wanneer deze in live productie is, bekijkt u normaal gesproken de Application Insights-telemetrie in de [Azure-portal](https://portal.azure.com), waar u waarschuwingen kunt instellen en krachtige bewakingsprogramma's kunt toepassen. Voor foutopsporing kunt u echter ook de telemetrie in Visual Studio zoeken en analyseren. U kunt Visual Studio gebruiken voor het analyseren van telemetrie van uw productiesite en van foutopsporing wordt uitgevoerd op uw ontwikkelcomputer. In het laatste geval kunt u foutopsporingsruns al analyseren nog voordat u de SDK hebt geconfigureerd om telemetrie naar de Azure-portal te verzenden. 
 
@@ -60,7 +60,7 @@ U kunt ook de Verwante items openen om mislukte aanvragen of uitzonderingen te d
 ![Blader onder Aanvraagdetails naar beneden, naar gerelateerde items](./media/app-insights-visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>Weergave-uitzonderingen en mislukte aanvragen
-Uitzonderingsrapporten worden weergegeven in het venster Zoeken. (In enkele oudere typen ASP.NET-toepassingen moet u [uitzonderingencontrole instellen](app-insights-asp-net-exceptions.md) om te zien welke uitzonderingen door het framework worden afgehandeld.)
+Uitzonderingsrapporten worden weergegeven in het venster Zoeken. (In enkele oudere typen ASP.NET-toepassingen moet u [uitzonderingencontrole instellen](../azure-monitor/app/asp-net-exceptions.md) om te zien welke uitzonderingen door het framework worden afgehandeld.)
 
 Klik op een uitzondering voor een stack-trace. Als de code van de app in Visual Studio is geopend, kunt u via de stack-trace doorklikken naar de relevante coderegel.
 
@@ -72,7 +72,7 @@ In de Code Lens-regel boven elke handlermethode ziet u een aantal van de aanvrag
 ![Uitzondering voor stack-trace](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> Code Lens toont alleen Application Insights-gegevens als u [uw app hebt geconfigureerd om telemetrie te verzenden naar de Application Insights-portal](app-insights-asp-net.md).
+> Code Lens toont alleen Application Insights-gegevens als u [uw app hebt geconfigureerd om telemetrie te verzenden naar de Application Insights-portal](../azure-monitor/app/asp-net.md).
 >
 
 [Meer informatie over Application Insights in Code Lens](app-insights-visual-studio-codelens.md)
@@ -93,7 +93,7 @@ Als u wilt zoeken naar afwijkingen in uw gegevens, kiest u een van de afwijkings
 
 Dit is handig als u al een eerdere versie van uw app hebt gepubliceerd. Zo voorkomt u dat de telemetrie van uw foutopsporingssessies in de Application Insights-portal wordt verward met de telemetrie over de gepubliceerde app.
 
-Ook als u beschikt over [aangepaste telemetrie](app-insights-api-custom-events-metrics.md) waarin u fouten wilt opsporen voordat u deze naar de portal verzendt, komt deze functie van pas.
+Ook als u beschikt over [aangepaste telemetrie](../azure-monitor/app/api-custom-events-metrics.md) waarin u fouten wilt opsporen voordat u deze naar de portal verzendt, komt deze functie van pas.
 
 * *Aanvankelijk heb ik Application Insights volledig geconfigureerd om telemetrie naar de portal te verzenden. Maar nu wil ik de telemetrie alleen bekijken in Visual Studio.*
   
@@ -104,6 +104,6 @@ Ook als u beschikt over [aangepaste telemetrie](app-insights-api-custom-events-m
 ## <a name="next-steps"></a>Volgende stappen
 |  |  |
 | --- | --- |
-| **[Meer gegevens toevoegen](app-insights-asp-net-more.md)**<br/>Bewaak het gebruik, de beschikbaarheid, de afhankelijkheden en de uitzonderingen. Integreer bijgehouden informatie uit frameworks voor logboekregistratie. Schrijf aangepaste telemetrie. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en de geëxporteerde telemetrische gegevens weergeven. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[Meer gegevens toevoegen](../azure-monitor/app/asp-net-more.md)**<br/>Bewaak het gebruik, de beschikbaarheid, de afhankelijkheden en de uitzonderingen. Integreer bijgehouden informatie uit frameworks voor logboekregistratie. Schrijf aangepaste telemetrie. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
+| **[Werken met de Application Insights-portal](../azure-monitor/app/app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en de geëxporteerde telemetrische gegevens weergeven. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 

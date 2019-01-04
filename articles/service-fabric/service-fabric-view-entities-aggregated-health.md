@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308985"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555248"
 ---
 # <a name="view-service-fabric-health-reports"></a>Service Fabric-statusrapporten weergeven
 Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) met health-entiteiten in welke onderdelen van het systeem en watchdogs kunt rapport lokale voorwaarden die ze bewaken. De [health store](service-fabric-health-introduction.md#health-store) alle health-gegevens om te bepalen of entiteiten in orde zijn.
@@ -46,7 +46,7 @@ Om te demonstreren van deze opties, gebruiken we een lokaal cluster met vijf kno
 Service Fabric Explorer biedt een visuele weergave van het cluster. In de onderstaande afbeelding ziet u dat:
 
 * De toepassing **fabric: / WordCount** is rood (fout), omdat er een foutgebeurtenis gemeld door **MyWatchdog** voor de eigenschap **beschikbaarheid**.
-* Een van de services, **fabric: / WordCount/WordCountService** wordt geel (in de waarschuwing). De service is geconfigureerd met zeven replica's en het cluster heeft vijf knooppunten, zodat twee repicas kan niet worden geplaatst. Hoewel deze wordt hier niet getoond, de servicepartitie monitor geel is vanwege een rapport van `System.FM` mededeling dat `Partition is below target replica or instance count`. De gele partitie wordt de gele service geactiveerd.
+* Een van de services, **fabric: / WordCount/WordCountService** wordt geel (in de waarschuwing). De service is geconfigureerd met zeven replica's en het cluster heeft vijf knooppunten, zodat twee replica's kunnen niet worden geplaatst. Hoewel deze wordt hier niet getoond, de servicepartitie monitor geel is vanwege een rapport van `System.FM` mededeling dat `Partition is below target replica or instance count`. De gele partitie wordt de gele service geactiveerd.
 * Het cluster is rood vanwege de rode toepassing.
 
 Standaard-beleid van het clustermanifest en het manifest van de toepassing maakt gebruik van de evaluatie. Strikte beleidsregels zijn en niet een storing kan tolereren.
@@ -464,7 +464,7 @@ Als u de status van de service via de API, maakt u een `FabricClient` en roep de
 
 Het volgende voorbeeld wordt de status van een service met de opgegeven service-naam (URI):
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1030,25 +1030,25 @@ Als algemene query's een onbekende status voor een entiteit retourneren, is het 
 
 De query's met **HealthState** voor entiteiten zijn:
 
-* Knooppuntenlijst: retourneert de lijst met knooppunten in het cluster (wisselbaar geheugen:).
+* Lijst met het knooppunt: Retourneert de lijst met knooppunten in het cluster (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lijst met toepassingen: retourneert de lijst met toepassingen in het cluster (wisselbaar geheugen:).
+* Lijst met toepassingen: Retourneert de lijst met toepassingen in het cluster (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Lijst met Services: retourneert de lijst met services in een toepassing (wisselbaar geheugen:).
+* Lijst van de service: Retourneert de lijst met services in een toepassing (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Partitielijst: retourneert de lijst met partities in een service (wisselbaar geheugen:).
+* Partitielijst met: Retourneert de lijst met partities in een service (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Lijst met replica's: retourneert de lijst met replica's in een partitie (wisselbaar geheugen:).
+* Lijst met replica's: Retourneert de lijst met replica's in een partitie (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
-  * PowerShell: Get-ServiceFabricReplica
-* Lijst met toepassingen geïmplementeerd: retourneert de lijst met geïmplementeerde toepassingen op een knooppunt.
+  * PowerShell: Get-servicefabricreplica uit te
+* Lijst met geïmplementeerde toepassingen: Retourneert de lijst met geïmplementeerde toepassingen op een knooppunt.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* De lijst van de service-pakket wordt geïmplementeerd: retourneert de lijst met service-pakketten in een geïmplementeerde toepassing.
+* Lijst met geïmplementeerde service: Retourneert de lijst met service-pakketten in een geïmplementeerde toepassing.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 

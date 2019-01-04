@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual Machines | Microsoft Docs'
+title: 'Quickstart: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual Machines | Microsoft Docs'
 description: Snelstartgids voor handmatige installatie van één exemplaar SAP HANA op Azure Virtual Machines
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032073"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976899"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snelstartgids: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Quickstart: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines
 ## <a name="introduction"></a>Inleiding
 Deze handleiding helpt u bij het instellen van een single instance SAP HANA op Azure virtual machines (VM's) wanneer u 7.5 van SAP NetWeaver en SAP HANA 1.0 SP12 handmatig installeren. De focus van deze handleiding is over het implementeren van SAP HANA op Azure. Er is geen vervanging voor SAP-documentatie. 
 
@@ -62,20 +62,20 @@ Zie voor informatie over back-ups van SAP HANA op Azure Virtual machines:
 Zie voor meer informatie over het gebruik van SAP Cloud Appliance Library voor het implementeren van S/4HANA, BW/4HANA [implementeren SAP S/4HANA of BW/4HANA op Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 ### <a name="sap-hana-supported-operating-systems"></a>SAP HANA ondersteunde besturingssystemen.
-Zie voor informatie over SAP HANA ondersteunde besturingssystemen, [SAP Support Opmerking #2235581 - SAP HANA: ondersteunde besturingssystemen](https://launchpad.support.sap.com/#/notes/2235581/E). Azure-VM's ondersteunen slechts een subset van deze besturingssystemen. De volgende besturingssystemen worden ondersteund voor het implementeren van SAP HANA op Azure: 
+Zie voor informatie over SAP HANA ondersteunde besturingssystemen, [SAP Support Opmerking #2235581 - SAP HANA: Ondersteunde besturingssystemen](https://launchpad.support.sap.com/#/notes/2235581/E). Azure-VM's ondersteunen slechts een subset van deze besturingssystemen. De volgende besturingssystemen worden ondersteund voor het implementeren van SAP HANA op Azure: 
 
 * SUSE Linux Enterprise Server 12.x
 * Red Hat Enterprise Linux 7.2
 
 Zie voor aanvullende SAP-documentatie over SAP HANA en andere Linux-besturingssystemen:
 
-* [SAP Support Opmerking #171356 - SAP-Software op Linux: algemene informatie](https://launchpad.support.sap.com/#/notes/1984787)
+* [SAP-ondersteuning Opmerking #171356 - SAP-Software op Linux:  Algemene informatie](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP-ondersteuning Opmerking #1944799 - SAP HANA-richtlijnen voor de installatie van de SLES-besturingssysteem](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP Support Opmerking #2205917 - SAP HANA DB aanbevolen besturingssysteeminstellingen voor het voor SLES 12 voor SAP-toepassingen](https://launchpad.support.sap.com/#/notes/2205917/E)
-* [SAP-ondersteuning Opmerking #1984787 - SUSE Linux Enterprise Server 12: Opmerkingen bij de installatie van de](https://launchpad.support.sap.com/#/notes/1984787)
+* [SAP Support Opmerking #1984787 - SUSE Linux Enterprise Server 12:  Opmerkingen bij de installatie](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support Opmerking #1391070 - UUID van de Linux-oplossingen](https://launchpad.support.sap.com/#/notes/1391070)
 * [SAP-ondersteuning Opmerking #2009879 - SAP HANA-richtlijnen voor het Red Hat Enterprise Linux (RHEL)-besturingssysteem](https://launchpad.support.sap.com/#/notes/2009879)
-* [2292690 - SAP HANA DB: aanbevolen besturingssysteeminstellingen voor RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
+* [2292690 - SAP HANA DB: Aanbevolen besturingssysteeminstellingen voor RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
 
 ### <a name="sap-monitoring-in-azure"></a>SAP bewaking in Azure
 Zie voor informatie over SAP bewaking in Azure:
@@ -87,7 +87,7 @@ Zie voor informatie over SAP bewaking in Azure:
 ### <a name="azure-vm-types"></a>Azure VM-typen
 Azure VM-typen en gebruikt in combinatie met SAP HANA-ondersteund SAP workloadscenario's worden beschreven in [SAP gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). 
 
-Azure VM-typen die zijn gecertificeerd door SAP voor SAP NetWeaver of de toepassingslaag S/4HANA zijn gedocumenteerd in [SAP-notitie 1928533 - SAP-toepassingen op Azure: ondersteunde producten en Azure-VM-typen](https://launchpad.support.sap.com/#/notes/1928533/E).
+Azure VM-typen die zijn gecertificeerd door SAP voor SAP NetWeaver of de toepassingslaag S/4HANA zijn gedocumenteerd in [SAP-notitie 1928533 - SAP-toepassingen op Azure: Ondersteunde producten en typen Azure VM's](https://launchpad.support.sap.com/#/notes/1928533/E).
 
 >[!Note]
 >SAP-Linux-Azure-integratie wordt alleen ondersteund op Azure Resource Manager en niet het klassieke implementatiemodel. 
@@ -208,7 +208,7 @@ Zie voor meer informatie over het koppelen van schijven met virtuele Azure-machi
 
 Azure Premium Storage kunt u definiëren schijfcachingtype modi. Voor het bedrijf /hana/data en /hana/log striped set moet opslaan in schijfcache worden uitgeschakeld. Voor de andere volumes (schijven), de modus voor opslaan in cache moet worden ingesteld op **ReadOnly**.
 
-Zie voor meer informatie, [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](../../windows/premium-storage.md).
+Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../../windows/premium-storage.md).
 
 Als u voorbeeld-JSON-sjablonen voor het maken van virtuele machines zoekt, gaat u naar [Azure-Snelstartsjablonen](https://github.com/Azure/azure-quickstart-templates).
 De vm-eenvoudig-sles-sjabloon is een eenvoudige sjabloon. Het bevat een sectie voor opslag, met een schijf van 100 GB gegevens. Deze sjabloon kan worden gebruikt als basis. U kunt de sjabloon aanpassen aan uw specifieke configuratie.
@@ -404,7 +404,7 @@ Naast het installeren van SAP HANA als onderdeel van een gedistribueerde install
 Zie voor meer informatie over het hulpprogramma HANA HDBLCM:
 
 * [De juiste SAP HANA-HDBLCM voor uw taak kiezen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle-beheerhulpprogramma 's](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA Lifecycle-beheerhulpprogramma 's](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA-Server-installatie- en Updatehandleiding](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 Om te voorkomen dat problemen met een standaard groepsinstelling-ID voor de `\<HANA SID\>adm user` (gemaakt door het hulpprogramma HDBLCM), definieert u een nieuwe groep met de naam `sapsys` met behulp van groeps-ID `1001` voordat u SAP HANA via HDBLCM installeert:

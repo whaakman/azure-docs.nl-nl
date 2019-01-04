@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3b51f4a4a4d00bcfaa1baf1c46ad7f6eb638ad2b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a4971d680994c9d81e86a4070ea79365ac8ec4dd
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867865"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606483"
 ---
 # <a name="extended-events-in-sql-database"></a>Uitgebreide gebeurtenissen in SQL-Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -82,7 +82,7 @@ Verwante onderwerpen bieden twee voorbeelden van code:
 
 De uitgebreide gebeurtenissen-functie wordt ondersteund door verschillende [weergaven van catalogus](https://msdn.microsoft.com/library/ms174365.aspx). Catalogusweergaven vertellen u *metagegevens of definities* van de gebruiker gemaakte event-sessies in de huidige database. De weergaven retourneren geen informatie over exemplaren van actieve gebeurtenissessies.
 
-| Naam van<br/>Catalogusweergave | Beschrijving |
+| Naam van<br/>Catalogusweergave | Description |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Retourneert een rij voor elke actie die bij elke gebeurtenis van een event-sessie. |
 | **sys.database_event_session_events** |Retourneert een rij voor elke gebeurtenis in een event-sessie. |
@@ -96,7 +96,7 @@ In Microsoft SQL Server, vergelijkbare catalogusweergaven hebben namen die zijn 
 
 Azure SQL-Database heeft [dynamische beheerweergave (DMV's)](https://msdn.microsoft.com/library/bb677293.aspx) die ondersteuning bieden voor uitgebreide gebeurtenissen. DMV's vertellen u *active* event-sessies.
 
-| Naam van de DMV | Beschrijving |
+| Naam van de DMV | Description |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Retourneert informatie over gebeurtenisacties sessie. |
 | **sys.dm_xe_database_session_events** |Retourneert informatie over sessiegebeurtenissen. |

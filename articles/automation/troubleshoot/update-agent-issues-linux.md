@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dff24fb28a4129aa7f29d5f9ed1db10d533d005e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438639"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578849"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Linux-agent in beheer van updates
 
 Mogelijk zijn er veel oorzaken waardoor uw computer wordt niet weergegeven **gereed** in beheer van updates. U kunt de status van een Hybrid Worker-agent om te bepalen van het onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser voor Azure-machines uitvoeren vanuit de Azure-portal en niet-Azure-machines in de [offline scenario](#troubleshoot-offline).
+
+De volgende lijst worden de gereedheid van de drie statussen, kan een virtuele machine zich in:
+
+* **Gereed** -de update-agent is geïmplementeerd en is minder dan 1 uur geleden laatst gezien.
+* **De verbinding verbroken** -de update-agent is geïmplementeerd en er is meer dan 1 uur geleden laatst gezien.
+* **Niet geconfigureerd** -de update-agent is niet gevonden of onboarding nog niet voltooid.
 
 ## <a name="start-the-troubleshooter"></a>De probleemoplosser voor starten
 
@@ -45,7 +51,7 @@ De OS-controle alleen gecontroleerd of de Hybrid Runbook Worker wordt uitgevoerd
 
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
-|CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Patch toepassen op classificatie gebaseerde vereist 'yum' om terug te keren beveiligingsgegevens die CentOS heeft geen buiten het vak.         |
+|CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Patch toepassen op classificatie gebaseerde vereist 'yum' om terug te keren beveiligingsgegevens CentOS hoeft niet dezelfde kant.         |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Ubuntu 14.04 LTS, 16.04 LTS en 18.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |

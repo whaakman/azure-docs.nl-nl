@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166129"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791064"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Maak een Conversatiecursist-model met behulp van Node.js
 
@@ -112,14 +112,11 @@ De bovenstaande instructies aan de slag met de algemene leeg bot.  Een zelfstudi
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Als u nog niet bent, Ga naar de Conversatiecursist-webgebruikersinterface in Chrome met het laden van http://localhost:5050/home. 
 
-5. Klik op "Zelfstudies importeren" (hoeft slechts één keer worden uitgevoerd).  Dit duurt ongeveer een minuut en kopieert u de Conversatiecursist modellen voor alle zelfstudies bij uw account Conversatiecursist.
-
-6. Klik op de demo-model in de gebruikersinterface van de conversatie-Learner die overeenkomt met de demo die u aan de slag.
+5. Klik op "Zelfstudies importeren" en selecteer de demo-model in de gebruikersinterface van de conversatie-Learner die overeenkomt met de demo die u aan de slag.
 
 Bronbestanden voor de demo's staan in `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Hallo mensen](./tutorials/1-hello-world.md)
+> [Hallo mensen](./tutorials/01-hello-world.md)

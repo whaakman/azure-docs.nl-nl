@@ -1,24 +1,24 @@
 ---
-title: Containers configureren
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Configuratie-instellingen voor containers in Computer Vision.
+title: Configureren van de containers - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Diverse instellingen voor tekst herkennen containers in Computer Vision configureren.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077015"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579784"
 ---
-# <a name="configure-containers"></a>Containers configureren
+# <a name="configure-recognize-text-containers"></a>Tekst herkennen containers configureren
 
 Computer Vision biedt de container herkennen tekst met een gemeenschappelijk framework van de configuratie, zodat u eenvoudig kunt configureren en beheren van instellingen voor opslag, logboekregistratie en Telemetrie en beveiliging voor uw containers.
 
@@ -41,7 +41,7 @@ Waarden van omgevingsvariabelen overschrijven opdrachtregelargument waarden, die
 
 ### <a name="configuration-settings-as-environment-variables"></a>Configuratie-instellingen als omgevingsvariabelen
 
-U kunt de [ASP.NET Core-omgeving variabele syntaxis](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) om op te geven van configuratie-instellingen.
+U kunt de [ASP.NET Core-omgeving variabele syntaxis](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) om op te geven van configuratie-instellingen.
 
 De container leest omgevingsvariabelen van de gebruiker wanneer de container wordt geïnstantieerd. Als een omgevingsvariabele bestaat, overschrijft de waarde van de omgevingsvariabele de standaardwaarde voor de opgegeven configuratie-instelling. Het voordeel van het gebruik van omgevingsvariabelen is dat meerdere configuratie-instellingen kunnen worden ingesteld voordat het instantiëren van containers en meerdere containers kunnen u dezelfde set configuratie-instellingen automatisch gebruikmaken.
 
@@ -130,10 +130,10 @@ De `Logging` configuratie-instellingen beheren van ASP.NET Core logboekregistrat
 
   | Name | Gegevenstype | Description |
   |------|-----------|-------------|
-  | `Format` | Reeks | De indeling van de uitvoer voor de logboekbestanden.<br/> **Opmerking:** deze waarde moet worden ingesteld op `json` om in te schakelen van de provider voor logboekregistratie. Als deze waarde is opgegeven zonder ook een koppelpunt uitvoer op te geven bij het instantiëren van een container, wordt er een fout optreedt. |
+  | `Format` | Reeks | De indeling van de uitvoer voor de logboekbestanden.<br/> **Opmerking:** Deze waarde moet worden ingesteld op `json` om in te schakelen van de provider voor logboekregistratie. Als deze waarde is opgegeven zonder ook een koppelpunt uitvoer op te geven bij het instantiëren van een container, wordt er een fout optreedt. |
   | `MaxFileSize` | Geheel getal | De maximale grootte in megabytes (MB) van een logboekbestand. Wanneer de grootte van het huidige logboekbestand voldoet aan of deze waarde overschrijdt, wordt een nieuw logboekbestand wordt gestart door de provider voor logboekregistratie. Als -1 is opgegeven, wordt de grootte van het logboekbestand alleen beperkt door de maximale bestandsgrootte, indien aanwezig, voor het koppelen van de uitvoer. De standaardwaarde is 1. |
 
-Zie voor meer informatie over het configureren van ondersteuning voor ASP.NET Core-logboekregistratie [instellingen bestandsconfiguratie](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Zie voor meer informatie over het configureren van ondersteuning voor ASP.NET Core-logboekregistratie [logboekregistratie in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## <a name="mounts-configuration-settings"></a>Hiermee koppelt u configuratie-instellingen
 

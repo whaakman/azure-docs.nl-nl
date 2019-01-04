@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: ee16165352edbacddac0c91f1ff68109982577de
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7d12e0f53796713df83b1cbb9e55695598c29077
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855829"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607384"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
 
@@ -23,6 +23,26 @@ Als u wilt snel schalen werkbelastingen van toepassingen in een cluster Azure Ku
 ## <a name="before-you-begin"></a>Voordat u begint
 
 Virtuele knooppunten Schakel netwerkcommunicatie tussen pods in ACI met en het AKS-cluster. Voor deze communicatie een subnet van een virtueel netwerk wordt gemaakt en gedelegeerde machtigingen zijn toegewezen. Virtuele knooppunten werken alleen met AKS-clusters die zijn gemaakt met behulp van *geavanceerde* netwerken. AKS-clusters worden standaard gemaakt met *basic* netwerken. Dit artikel ziet u hoe u een virtueel netwerk en subnetten maken en implementeren van een AKS-cluster maakt gebruik van geavanceerde netwerken.
+
+Als u ACI niet eerder hebt gebruikt, moet u de service-provider registreren met uw abonnement. U kunt de status van de ACI provider registreren met behulp van controleren de [az provider list] [ az-provider-list] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+De *Microsoft.ContainerInstance* provider wilt laten rapporteren als *geregistreerde*, zoals weergegeven in de volgende voorbeelduitvoer:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Als de provider wordt weergegeven als *NotRegistered*, Registreer de provider met behulp van de [az provider register] [ az-provider-register] zoals wordt weergegeven in het volgende voorbeeld:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -278,13 +298,13 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet
 az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --remove delegations 0
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --remove delegations 0
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -319,3 +339,5 @@ Virtuele knooppunten zijn vaak een onderdeel van een oplossing voor schalen in A
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

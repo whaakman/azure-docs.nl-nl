@@ -11,24 +11,24 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098640"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969417"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Ophalen van gegevens van intenties en entiteiten
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of bot chatten om actie te ondernemen. In de volgende secties meer informatie over welke gegevens worden geretourneerd door intenties en entiteiten met voorbeelden van JSON.
 
-De moeilijkst gegevens om op te halen zijn de gegevens hebt geleerd van een machine omdat deze niet een overeenkomst exact overeenkomende tekst. Ophalen van gegevens van de machine geleerd [entiteiten](luis-concept-entity-types.md) moet deel uitmaken van de [ontwerpen cyclus](luis-concept-app-iteration.md) totdat u er zeker van te zijn ontvangen van de gegevens die u verwacht.
+De moeilijkst gegevens om op te halen zijn de gegevens hebt geleerd van een machine omdat dit een overeenkomst exact overeenkomende tekst niet. Ophalen van gegevens van de machine geleerd [entiteiten](luis-concept-entity-types.md) moet deel uitmaken van de [ontwerpen cyclus](luis-concept-app-iteration.md) totdat u bent er zeker van te zijn ontvangen van de gegevens die u verwacht.
 
 ## <a name="data-location-and-key-usage"></a>Locatie en de sleutel gegevensgebruik
 LUIS, biedt de gegevens van de gepubliceerde [eindpunt](luis-glossary.md#endpoint). De **HTTPS-aanvraag** (POST of GET) bevat de utterance, evenals van sommige optionele configuraties, zoals fasering of productie-omgevingen.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-De `appID` is beschikbaar op de **instellingen** pagina van uw LUIS-app als onderdeel van de URL (nadat `/apps/`) wanneer u die LUIS-app wilt bewerken. De `subscription-key` is de eindpuntsleutel die wordt gebruikt voor query's in uw app. U kunt uw gratis ontwerpen/starter-sleutel gebruiken tijdens de zelfstudie LUIS, is het belangrijk om te wijzigen van de eindpuntsleutel in een sleutel die ondersteuning biedt voor uw [verwacht gebruik van LUIS](luis-boundaries.md#key-limits). De `timezoneOffset` eenheid minuten is.
+De `appID` is beschikbaar op de **instellingen** pagina van uw LUIS-app als onderdeel van de URL (nadat `/apps/`) wanneer u die LUIS-app wilt bewerken. De `subscription-key` is de eindpuntsleutel die wordt gebruikt voor query's in uw app. U kunt de sleutel van uw gratis ontwerpen/starter gebruiken terwijl u LUIS leren, is het belangrijk om te wijzigen van de eindpuntsleutel in een sleutel die ondersteuning biedt voor uw [verwacht gebruik van LUIS](luis-boundaries.md#key-limits). De `timezoneOffset` eenheid minuten is.
 
 De **HTTPS-antwoord** bevat alle de intentie en entiteit informatie LUIS kunt bepalen op basis van de huidige gepubliceerde model van een eindpunt van de fasering of productie. Het eindpunt van de URL die is gevonden op de [LUIS](luis-reference-regions.md) website in de **beheren** sectie, op de **sleutels en eindpunten** pagina.
 
@@ -174,7 +174,7 @@ De gegevens die worden geretourneerd van het eindpunt bevat de naam van de entit
 
 ## <a name="hierarchical-entity-data"></a>Hiërarchische entiteitsgegevens
 
-[Hiërarchische](luis-concept-entity-types.md) entiteiten zijn machine geleerd en een woord of woordgroep kan bevatten. Onderliggende items worden aangeduid met context. Als u naar een bovenliggende / onderliggende relatie met exact overeenkomende tekst overeenkomst zoekt, gebruikt u een [lijst](#list-entity-data) entiteit.
+[Hiërarchische](luis-concept-entity-types.md) entiteiten zijn machine geleerd en een woord of woordgroep kan bevatten. Onderliggende items worden aangeduid met context. Als u een bovenliggende / onderliggende relatie met exact overeenkomende tekst overeenkomst zoekt, gebruikt u een [lijst](#list-entity-data) entiteit.
 
 `book 2 tickets to paris`
 
@@ -260,7 +260,7 @@ Samengestelde entiteiten worden geretourneerd in een `compositeEntities` matrix 
 
 ## <a name="list-entity-data"></a>Lijst met entiteitsgegevens
 
-Een [lijst](luis-concept-entity-types.md) entiteit is niet machine-hebt geleerd. Het is een overeenkomst exact overeenkomende tekst. Een lijst met vertegenwoordigt items in de lijst samen met synoniemen voor die items. LUIS markeert een overeenkomst aan een item in een lijst als een entiteit in het antwoord. Een synoniem kan zich in meer dan één lijst.
+Een [lijst](luis-concept-entity-types.md) entiteit is niet machine geleerd. Het is een overeenkomst exact overeenkomende tekst. Een lijst met vertegenwoordigt items in de lijst samen met synoniemen voor die items. LUIS markeert een overeenkomst aan een item in een lijst als een entiteit in het antwoord. Een synoniem kan zich in meer dan één lijst.
 
 Stel dat de app heeft een lijst met de naam `Cities`, zodat voor variaties in plaats van luchthaven (Sea-tac), luchthaven code (SEA), postcode (98101) en het netnummer telefoon (206) zoals plaatsnamen.
 
@@ -425,7 +425,11 @@ Een ander voorbeeld-utterance, met behulp van een synoniem voor Parijs:
 ```
 
 ## <a name="extracting-names"></a>Uitpakken van namen
-Namen ophalen uit een utterance is moeilijk, omdat een naam mag bestaan uit vrijwel elke combinatie van letters en woorden. Afhankelijk van welk type de naam die u uitpakken wilt, hebt u verschillende mogelijkheden. Dit zijn geen regels, maar meer richtlijnen.
+Namen ophalen uit een utterance is moeilijk, omdat een naam mag bestaan uit vrijwel elke combinatie van letters en woorden. Afhankelijk van welk type de naam die u uitpakken wilt, hebt u verschillende mogelijkheden. De volgende tips zijn geen regels, maar meer richtlijnen.
+
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Vooraf gedefinieerde PersonName en GeographyV2 entiteiten toevoegen
+
+[PersonName](luis-reference-prebuilt-person.md) en [GeographyV2](luis-reference-prebuilt-geographyV2.md) entiteiten zijn beschikbaar in bepaalde [taal culturen](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Namen van personen
 De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur hebben. Gebruik een hiërarchische entiteit met voor- en achternamen als onderliggende items of een enkele entiteit met de rol van de voornaam en achternaam. Zorg ervoor dat u voorbeelden gegeven die gebruikmaken van de naam van de eerste en laatste in de verschillende onderdelen van de utterance, in uitingen van verschillende lengtes en uitingen over alle intents, met inbegrip van de geen intentie. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
@@ -434,7 +438,7 @@ De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur h
 Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen. Als uw app gebruikmaakt van een bekende set locaties, kunt u een lijst met entiteit. Als u vinden dat alle namen plaatsen wilt, een eenvoudige entiteit maken en bieden een aantal voorbeelden. Een woordgroepenlijst van het geocoderen van plaatsnamen te versterken welke plaats namen eruit in uw app toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
 
 ### <a name="new-and-emerging-names"></a>Nieuwe en opkomende namen
-Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Dit is het moeilijkste type ophalen van gegevens. Beginnen met een enkele entiteit en een woordgroepenlijst met toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
+Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Deze typen namen is het moeilijkste type ophalen van gegevens. Beginnen met een enkele entiteit en een woordgroepenlijst met toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
 
 ## <a name="pattern-roles-data"></a>Patroon rollen gegevens
 Rollen zijn contextuele verschillen van entiteiten.
@@ -603,6 +607,7 @@ De entiteit van sleuteluitdrukkingen extraheren retourneert belangrijke zinnen i
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Gegevens die overeenkomen met meerdere entiteiten
+
 LUIS retourneert alle entiteiten in de utterance gedetecteerd. Als gevolg hiervan moet de chatbot mogelijk beslissing nemen op basis van de resultaten. Een utterance kan veel entiteiten in een utterance hebben:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -728,6 +733,46 @@ Het eindpunt LUIS kan dezelfde gegevens in verschillende entiteiten detecteren:
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## <a name="data-matching-multiple-list-entities"></a>Gegevens die overeenkomen met meerdere lijst met entiteiten
+
+Als een woord of woordgroep komt overeen met meer dan één entiteit van de lijst, retourneert de query eindpunt elke entiteit die lijst.
+
+Voor de query `when is the best time to go to red rock?`, en de app is het woord `red` in meer dan één lijst LUIS herkent alle entiteiten en retourneert een matrix van entiteiten als onderdeel van het JSON-eindpunt-antwoord: 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }

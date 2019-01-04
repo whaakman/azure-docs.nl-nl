@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: bcd550ac8f4b75002648f2e4737a4683349aa45f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384629"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724315"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Apache Hadoop) via SSH
 
@@ -63,7 +63,7 @@ In Microsoft Windows worden SSH-clients niet standaard geïnstalleerd. De `ssh`-
 
 * [GIT (https://git-scm.com/)](https://git-scm.com/): De `ssh` en `scp` opdrachten zijn beschikbaar via de GitBash-opdrachtregel.
 
-Er zijn ook verschillende grafische SSH-clients, zoals [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Met deze clients kunt u verbinding maken met HDInsight, maar het proces om verbinding, verschilt ten opzichte van het proces in het hulpprogramma `ssh`. Zie voor meer informatie de documentatie van de grafische client die u gebruikt.
+Er zijn ook verschillende grafische SSH-clients, zoals [PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm (https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/). Met deze clients kunt u verbinding maken met HDInsight, maar het proces om verbinding, verschilt ten opzichte van het proces in het hulpprogramma `ssh`. Zie voor meer informatie de documentatie van de grafische client die u gebruikt.
 
 ## <a id="sshkey"></a>Verificatie: SSH sleutels
 
@@ -252,7 +252,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [HDInsight op basis van Azure Storage](hdinsight-hadoop-use-blob-storage.md).
 >
-> * [HDInsight op basis van Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
+> * [HDInsight met behulp van Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

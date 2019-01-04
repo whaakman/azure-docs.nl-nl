@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105152"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973720"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -27,14 +27,14 @@ Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen
 De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visual Basic voor toepassingen (VBA)-functies.
 
 * De volledige expressie moet worden gedefinieerd in termen van functies, die bestaan uit een naam, gevolgd door argumenten tussen haakjes: <br>
-  *Functienaam (<< argument 1 >> <<argument N>>)*
-* Functies in elkaar kan worden genest. Bijvoorbeeld: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+  *Functienaam (`<<argument 1>>`,`<<argument N>>`)*
+* Functies in elkaar kan worden genest. Bijvoorbeeld: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
 * U kunt drie verschillende typen argumenten doorgeven in functies:
   
   1. Kenmerken moeten tussen rechte haakjes worden geplaatst. Bijvoorbeeld: [attributeName]
   2. Tekenreeksconstanten moeten tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld: "VS"
-  3. Andere functies. Bijvoorbeeld: FunctionOne (<<argument1>>, FunctionTwo (<<argument2>>))
-* Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "de naam van bedrijf: \"Contoso\""
+  3. Andere functies. Bijvoorbeeld: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+* Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "De naam van bedrijf: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lijst met functies
 [Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
@@ -243,7 +243,7 @@ U moet een gebruiker alias genereren door te nemen van de eerste 3 letters van d
 
 * **INVOER** (givenName): "John"
 * **INVOER** (voornaam): "Doe"
-* **UITVOER**: "JohDoe"
+* **UITVOER**:  "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Diakritische tekens verwijderen uit een tekenreeks
 U moet vervangen van tekens lang zijn accenttekens met gelijkwaardige tekens die geen accenttekens bevatten.
@@ -254,7 +254,7 @@ NormalizeDiacritics([givenName])
 **Voorbeeld van invoer/uitvoer:** <br>
 
 * **INVOER** (givenName): "Zoë"
-* **UITVOER**: "Zoe"
+* **UITVOER**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
 
@@ -268,7 +268,7 @@ U wilt bijvoorbeeld datums voor ServiceNow.
 **Voorbeeld van invoer/uitvoer:**
 
 * **INVOER** (extensionAttribute1): "20150123105347.1Z"
-* **UITVOER**: "23-01-2015"
+* **UITVOER**:  "23-01-2015"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Vervangen door een waarde op basis van vooraf gedefinieerde set opties
 

@@ -3,16 +3,17 @@ title: Met behulp van herstelplannen in herstel na noodgeval met Azure Site Reco
 description: Meer informatie over het gebruik van plannen voor herstel voor herstel na noodgeval met de Azure Site Recovery-service.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848388"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975658"
 ---
 # <a name="about-recovery-plans"></a>Over herstelplannen
 
@@ -60,11 +61,11 @@ Met deze aanpassingen op locatie is dit wat er gebeurt wanneer u een failover op
 
 Herstellen van grote toepassingen, kan een complexe taak zijn. Handmatige stappen maakt u het proces foutgevoelig, en de persoon die uitgevoerd van de failover mogelijk niet op de hoogte van alle complexiteit van de app. U kunt een plan voor herstel gebruiken om op te leggen volgorde, en de acties die nodig zijn bij elke stap automatiseren met behulp van Azure Automation-runbooks voor failover naar Azure of scripts. U kunt pauzes voor handmatige acties voor taken die niet kunnen worden geautomatiseerd, invoegen in plannen voor herstel. Er zijn een aantal typen taken die u kunt configureren:
 
-* **Taken op de virtuele Azure-machine na een failover**: wanneer u bent Failover-overschakeling uitvoeren naar Azure, moet u doorgaans acties uitvoeren, zodat u verbinding met de virtuele machine na een failover maken kunt. Bijvoorbeeld: 
+* **Taken op de virtuele Azure-machine na een failover**: Wanneer u bent Failover-overschakeling uitvoeren naar Azure, moet u doorgaans acties uitvoeren, zodat u verbinding met de virtuele machine na een failover maken kunt. Bijvoorbeeld: 
     * Maak een openbaar IP-adres op de virtuele machine van Azure.
     * Een netwerkbeveiligingsgroep toewijzen aan de netwerkadapter van de Azure-VM.
     * Een load balancer toevoegen aan een beschikbaarheidsset.
-* **Taken binnen de virtuele machine na een failover**: deze taken doorgaans de app die wordt uitgevoerd op de machine opnieuw configureren zodat deze correct te laten werken in de nieuwe omgeving blijft. Bijvoorbeeld:
+* **Taken binnen de virtuele machine na een failover**: Deze taken doorgaans de app die wordt uitgevoerd op de machine opnieuw configureren zodat deze correct te laten werken in de nieuwe omgeving blijft. Bijvoorbeeld:
     * Wijzig de databaseverbindingsreeks in de machine.
     * De web server-configuratie of regels wijzigen.
 

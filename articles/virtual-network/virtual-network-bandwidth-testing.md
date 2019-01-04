@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023817"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793536"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Bandbreedte/doorvoer testen (NTTTCP)
 
@@ -29,13 +29,14 @@ Het hulpprogramma voor kopiëren naar twee Azure-VM's van dezelfde grootte. Een 
 
 #### <a name="deploying-vms-for-testing"></a>Implementatie van VM's voor het testen
 Voor de toepassing van deze test moet de twee virtuele machines in dezelfde Cloudservice of in dezelfde Beschikbaarheidsset zodat we kunnen hun interne IP-adressen gebruiken en de Load Balancers van de test uitsluiten. Het is mogelijk om te testen met de VIP-adres, maar dit soort testen is buiten het bereik van dit document.
- 
+
 Noteer de IP-adres van de ontvanger. Noemen we dat IP-adres "a.b.c.r"
 
-Noteer het aantal kernen op de virtuele machine. Noemen we dit "\#num\_kernen"  
+Noteer het aantal kernen op de virtuele machine. Noemen we dit "\#num\_kernen"
+
 De test NTTTCP voor 300 seconden (of 5 minuten) worden uitgevoerd op de afzender VM en de ontvanger VM.
 
-Tip: Bij het instellen van deze test voor de eerste keer, kunt u een kortere testperiode om feedback eerder proberen. Nadat het hulpprogramma werkt zoals verwacht, breid de testperiode aan 300 seconden voor de meest nauwkeurige resultaten.
+Tip: Bij het instellen van deze test voor de eerste keer, kunt u een kortere testperiode om feedback sneller wilt proberen. Nadat het hulpprogramma werkt zoals verwacht, breid de testperiode aan 300 seconden voor de meest nauwkeurige resultaten.
 
 > [!NOTE]
 > De afzender **en** ontvanger moet opgeven **hetzelfde** duur van de parameter testen (-t).

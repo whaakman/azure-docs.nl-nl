@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432220"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606466"
 ---
 # <a name="app-service-documentation"></a>Documentatie over App Service
 Met Azure App Service kunt u webtoepassingen maken en hosten in een programmeertaal naar keuze zonder dat u de infrastructuur, taal of runtime van het webframework hoeft te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps Services of een willekeurige Git-repo. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u Azure App Service gebruikt.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux en Docker
-[Web Apps](/app-service/app-service-web-overview) is het belangrijkste App Service-aanbod voor het maken en hosten van webtoepassingen met Windows-omgevingen. Ontwikkelaars die liever werken met Linux kunnen kiezen voor [App Service for Linux](/app-service/containers/app-service-linux-intro). Ontwikkelaars kunnen ook Docker-installatiekopieën rechtstreeks in App Service for Linux implementeren om aangepaste runtimes/frameworks te implementeren.
+[Web Apps](/app-service/overview) is het belangrijkste App Service-aanbod voor het maken en hosten van webtoepassingen met Windows-omgevingen. Ontwikkelaars die liever werken met Linux kunnen kiezen voor [App Service for Linux](/app-service/containers/app-service-linux-intro). Ontwikkelaars kunnen ook Docker-installatiekopieën rechtstreeks in App Service for Linux implementeren om aangepaste runtimes/frameworks te implementeren.
 
 ## <a name="5-minute-quickstarts"></a>QuickStarts van vijf minuten
 
@@ -54,7 +54,7 @@ Ontdek hoe u in Azure beveiligde web-apps implementeert, beheert en bewaakt.
 Zoek scripts om algemene taken te beheren.
 
 - [Azure-CLI](/azure/app-service/app-service-cli-sample)
-- [Azure Powershell](/azure/app-service/app-service-powershell-samples)
+- [Azure Powershell](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>Meer
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 828f8e78f24380303f30260c39f837f0ba3524e6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832360"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788015"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover en failback-Hyper-V-machines gerepliceerd naar de secundaire on-premises site
 
@@ -30,8 +30,8 @@ Dit artikel wordt beschreven hoe u een failover uitvoert voor een Hyper-V-virtue
 
 Failover en failback bestaat uit drie fasen:
 
-1. **Failover naar een secundaire site**: failover machines van de primaire site naar de secundaire server.
-2. **Failback van de secundaire site**: VM's repliceren van de secundaire naar primaire, en voer een geplande failover voor failback.
+1. **Failover naar een secundaire site**: Failover machines van de primaire site naar de secundaire server.
+2. **Failback van de secundaire site**: Virtuele machines repliceren van de secundaire naar primaire en een geplande failover naar een failback uitgevoerd.
 3. Na de geplande failover, optioneel beginnen met het repliceren van de primaire site naar de secundaire opnieuw.
 
 
@@ -58,7 +58,7 @@ Deze procedure wordt beschreven hoe u een reguliere failover uitvoert.
 3. Nadat u hebt gecontroleerd dat de virtuele machine, **doorvoeren** de failover. Hiermee verwijdert u alle beschikbare herstelpunten.
 
 > [!WARNING]
-> **Annuleer een failover die in voortgang is niet**: voordat de failover wordt gestart, wordt de VM-replicatie gestopt. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.  
+> **Annuleer een failover wordt uitgevoerd niet**: De VM-replicatie wordt gestopt voordat de failover is gestart. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Omgekeerde replicatie en failover

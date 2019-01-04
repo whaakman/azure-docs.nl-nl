@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015871"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632888"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight
 [Apache Hive](https://hive.apache.org/) biedt een methode die wordt uitgevoerd [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) taken via een SQL-achtige taal met de naam *[HiveQL] [ hadoop-hiveql]*, die kunnen worden gebruikt voor het samenvatten, uitvoeren van query's en analyseren van grote hoeveelheden gegevens.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document moet een Windows-gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor stappen die met een cluster op basis van Linux werken [gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 Een van de grootste voordelen van Azure HDInsight is het scheiden van de opslag van gegevens en rekenprocessen vereist. HDInsight maakt gebruik van Azure Blob-opslag voor gegevensopslag. Een typische taak bestaat uit drie delen:
@@ -43,8 +43,8 @@ Het belangrijkste gedeelte van de zelfstudie laat zien hoe u een Windows PowerSh
 
 In de bijlagen vindt u de instructies voor het uploaden van gegevens van vertragingen van vluchten, het maken van/uploaden van een Hive-query-tekenreeks en de Azure SQL-database voorbereiden voor de taak Sqoop.
 
-> [!NOTE]
-> De stappen in dit document zijn specifiek voor HDInsight op basis van een Windows-clusters. Zie voor stappen die met een cluster op basis van Linux werken [analyseren van gegevens van vertragingen van vluchten met behulp van Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> [!NOTE]  
+> De stappen in dit document zijn specifiek voor HDInsight op basis van een Windows-clusters. Zie voor stappen die met een cluster op basis van Linux werken [analyseren van gegevens van vertragingen van vluchten met behulp van Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 ### <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
@@ -52,7 +52,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Een werkstation met Azure PowerShell**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en per 1 januari 2017 verdwenen. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
     >
     > Volg de stappen in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) als u de nieuwste versie van Azure PowerShell wilt installeren. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
@@ -242,7 +242,7 @@ Uploaden van het gegevensbestand en de [HiveQL](https://cwiki.apache.org/conflue
 * **Gebruik hetzelfde Azure Storage-account dat wordt gebruikt door het HDInsight-cluster als het standaardbestandssysteem.** Omdat het HDInsight-cluster de toegangssleutel voor Opslagaccount hebt wordt, moet u geen eventuele aanvullende wijzigingen aanbrengen.
 * **Gebruik een ander Azure Storage-account van het standaardbestandssysteem van HDInsight-cluster.** Als dit het geval is, moet u het onderdeel voor het maken van de Windows PowerShell-script uit wijzigen [maken van HDInsight-cluster en voer Apache Hive/Sqoop taken](#runjob) om het opslagaccount als een extra opslagaccount te koppelen. Zie voor instructies [Apache Hadoop-clusters maken in HDInsight][hdinsight-provision]. Het HDInsight-cluster kent de toegangssleutel voor het opslagaccount.
 
-> [!NOTE]
+> [!NOTE]  
 > Het pad van de Blob-opslag voor het gegevensbestand is hard gecodeerd in het bestand HiveQL-script. U moet deze dienovereenkomstig bijwerken.
 
 **Om de vluchtgegevens van vertragingen van te downloaden**
@@ -351,7 +351,7 @@ Als u een andere methode gebruiken wilt voor het uploaden van bestanden, Control
 
 Het pad naar zelfstudies/flightdelay/gegevens is de virtuele map die u hebt gemaakt toen u de bestanden geüpload. Controleer of er 12 bestanden, één voor elke maand.
 
-> [!NOTE]
+> [!NOTE]  
 > De Hive-query voor het lezen van de nieuwe locatie, moet u bijwerken.
 >
 > U moet ofwel de toegangsmachtigingen voor de container openbaar of het opslagaccount binden aan het HDInsight-cluster configureren. Anders wordt pas de Hive-query-tekenreeks weer toegang tot de gegevensbestanden.
@@ -615,7 +615,7 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Data Definition Language 
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -699,12 +699,12 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Data Definition Language 
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-   > [!NOTE]
-   > Het script maakt gebruik van een representational state transfer (REST)-service, http://bot.whatismyipaddress.com, om op te halen van uw externe IP-adres. Het IP-adres wordt gebruikt voor het maken van een firewallregel voor uw SQL database-server.
+   > [!NOTE]  
+   > Het script maakt gebruik van een representational state transfer (REST)-service, https://bot.whatismyipaddress.com, om op te halen van uw externe IP-adres. Het IP-adres wordt gebruikt voor het maken van een firewallregel voor uw SQL database-server.
 
     Hier volgen enkele variabelen die worden gebruikt in het script:
 
-   * **$ipAddressRestService** -de standaardwaarde is http://bot.whatismyipaddress.com. Het is een openbaar IP-adres REST-service voor het ophalen van uw externe IP-adres. Als u wilt, kunt u andere services gebruiken. Het externe IP-adres opgehaald via de service wordt gebruikt om een firewallregel voor uw Azure SQL database-server te maken zodat u toegang hebben tot de database vanaf uw werkstation (met behulp van een Windows PowerShell-script).
+   * **$ipAddressRestService** -de standaardwaarde is https://bot.whatismyipaddress.com. Het is een openbaar IP-adres REST-service voor het ophalen van uw externe IP-adres. Als u wilt, kunt u andere services gebruiken. Het externe IP-adres opgehaald via de service wordt gebruikt om een firewallregel voor uw Azure SQL database-server te maken zodat u toegang hebben tot de database vanaf uw werkstation (met behulp van een Windows PowerShell-script).
    * **$fireWallRuleName** -dit is de naam van de firewallregel voor de Azure SQL database-server. De standaardnaam is <u>FlightDelay</u>. U kunt de naam wijzigen als u wilt.
    * **$sqlDatabaseMaxSizeGB** -deze waarde wordt alleen gebruikt wanneer u een nieuwe Azure SQL database-server maakt. De standaardwaarde is 10GB. 10GB is voldoende voor deze zelfstudie.
    * **$sqlDatabaseName** -deze waarde wordt alleen gebruikt wanneer u een nieuwe Azure SQL-database maakt. De standaardwaarde is HDISqoop. Als u de naam wijzigt, moet u het Sqoop Windows PowerShell-script dienovereenkomstig bijwerken.
@@ -725,7 +725,7 @@ Nu u begrijpt hoe u een bestand uploaden naar Azure Blob-opslag, hoe u een Apach
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -739,9 +739,9 @@ Nu u begrijpt hoe u een bestand uploaden naar Azure Blob-opslag, hoe u een Apach
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

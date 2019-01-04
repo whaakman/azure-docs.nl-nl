@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 99f706a3b24991e7f5a3473d40a568971b71a979
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: bece63c36bf0027524dea051e78d290c407ca349
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451983"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716086"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Aanbevolen procedures voor het beveiligen van PaaS-webtoepassingen en mobiele toepassingen met Azure App Service
 
-In dit artikel bespreken we een verzameling van [Azure App Service](../app-service/app-service-web-overview.md) aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
+In dit artikel bespreken we een verzameling van [Azure App Service](../app-service/overview.md) aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
 
 Azure App Service is een platform-as-a-service (PaaS) aanbieding waarmee u web- en mobiele apps voor elk platform of apparaat maken en verbinding maken met gegevens waar dan ook, in de cloud of on-premises. App Service bevat de web- en mobiele mogelijkheden die zijn eerder afzonderlijk verkrijgbaar waren in Azure Websites en Azure Mobile Services. Deze service bevat ook nieuwe mogelijkheden voor het automatiseren van bedrijfsprocessen en het hosten van cloud-API's. Als een geïntegreerde service heeft App Service een uitgebreide set mogelijkheden voor het web, mobiele en integratiescenario's.
 
 ## <a name="authenticate-through-azure-active-directory-ad"></a>Verificatie via Azure Active Directory (AD)
-App Service biedt een OAuth 2.0-service voor uw id-provider. OAuth 2.0 is gericht op client-ontwikkelaar eenvoudig te houden terwijl er specifieke autorisatiestromen voor webtoepassingen, bureaubladtoepassingen en mobiele telefoons. Azure AD maakt gebruik van OAuth 2.0 waarmee u kunt toestaan dat de toegang tot mobiele en webtoepassingen. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/app-service-authentication-overview.md).
+App Service biedt een OAuth 2.0-service voor uw id-provider. OAuth 2.0 is gericht op client-ontwikkelaar eenvoudig te houden terwijl er specifieke autorisatiestromen voor webtoepassingen, bureaubladtoepassingen en mobiele telefoons. Azure AD maakt gebruik van OAuth 2.0 waarmee u kunt toestaan dat de toegang tot mobiele en webtoepassingen. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Beperken van toegang op basis van rollen 
 Beperken van de toegang is van cruciaal belang voor organisaties die willen beveiligingsbeleid voor toegang tot gegevens afdwingen. Op rollen gebaseerd toegangsbeheer (RBAC) kunt u machtigingen toewijzen aan gebruikers, groepen en toepassingen met een bepaald bereik, zoals de noodzaak om te weten en minimale bevoegdheden beveiligingsprincipes. Zie voor meer informatie over het verlenen van toegang tot toepassingen voor gebruikers, [wat is op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md).

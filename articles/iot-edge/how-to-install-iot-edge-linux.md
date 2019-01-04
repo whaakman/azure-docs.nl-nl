@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: beda9fa096dd8308822a5cd5a816b569712b8c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9945b0aad32fe9abc6a51132a287da10f1b28daa
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086084"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557747"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>De Azure IoT Edge-runtime installeren in Linux (x64)
 
@@ -206,7 +206,39 @@ Op apparaten met beperkte resource, het is raadzaam dat u instellen de *Optimize
 
 Als uw netwerk met een proxyserver, voert u de stappen in [uw IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Verwijderen van IoT Edge
+
+Als u de installatie van de IoT Edge van uw Linux-apparaat verwijderen wilt, gebruikt u de volgende opdrachten uit vanaf de opdrachtregel. 
+
+Verwijder de IoT Edge-runtime. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Wanneer de IoT Edge-runtime wordt verwijderd, wordt de container die deze gemaakt zijn gestopt maar nog steeds aanwezig zijn op uw apparaat. Alle containers om te zien welke blijven weergeven. 
+
+```bash
+sudo docker ps -a
+```
+
+Verwijder de containers van uw apparaat, met inbegrip van de twee runtimecontainers. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Ten slotte de container-runtime van uw apparaat verwijderd. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Volgende stappen
+
+Nu u een IoT Edge-apparaat dat is ingericht met de runtime geïnstalleerd hebt, kunt u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md).
 
 Als u hebt met het Edge-runtime niet goed geïnstalleerd problemen, bekijk de [probleemoplossing](troubleshoot.md) pagina.
 
+Als u wilt een bestaande installatie bijwerken naar de nieuwste versie van IoT Edge, Zie [bijwerken van de IoT Edge security-daemon en de runtime](how-to-update-iot-edge.md).

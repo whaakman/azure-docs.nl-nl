@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287197"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755084"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
@@ -21,7 +21,7 @@ Naast de [gebeurtenisschema in het standaard](event-schema.md), gebeurtenissen i
 
 Een CloudEvents vereenvoudigt interoperabiliteit door te geven van een gemeenschappelijk gebeurtenisschema voor het publiceren en gebruiken van cloud op basis van gebeurtenissen. Dit schema kunt u uniform tooling standard manieren van Routering en verwerken van gebeurtenissen en universele manieren om bij het deserialiseren van de buitenste gebeurtenisschema. U kunt werken eenvoudiger verschillende platforms integreren met een gemeenschappelijk schema.
 
-Een CloudEvents wordt build door verschillende [samenwerkers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), waaronder Microsoft, via de [Cloud Native Compute Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0.1.
+Een CloudEvents wordt opgebouwd door verschillende [samenwerkers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), waaronder Microsoft, via de [Cloud Native Compute Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0.1.
 
 In dit artikel wordt beschreven hoe u een CloudEvents-schema met Event Grid gebruiken.
 
@@ -60,7 +60,7 @@ Hier volgt een voorbeeld van een Azure Blob Storage-gebeurtenis in een CloudEven
 
 Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 
-| Een CloudEvents        | Type     | Voorbeeld van JSON-waarde             | Beschrijving                                                        | Event Grid-toewijzing
+| Een CloudEvents        | Type     | Voorbeeld van JSON-waarde             | Description                                                        | Event Grid-toewijzing
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | type gebeurtenis          | Reeks   | "com.example.someevent"          | Type gebeurtenis die heeft plaatsgevonden                                   | type gebeurtenis
 | eventTypeVersion   | Reeks   | "1.0"                            | De versie van het type gebeurtenis (optioneel)                            | dataVersion

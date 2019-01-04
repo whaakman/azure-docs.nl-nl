@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 127bd965fdce93ae44fbb38a037477174c9cb3fe
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583241"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652232"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark-instellingen configureren
 
@@ -33,7 +33,7 @@ Gebruik de beste Spark-versie voor uw cluster.  De HDInsight-service omvat versc
 Wanneer u een nieuw cluster maakt, zijn er meerdere Spark-versies om uit te kiezen. De volledige lijst [HDInsight-onderdelen en versies](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
 
-> [!NOTE]
+> [!NOTE]  
 > De standaardversie van Apache Spark in de HDInsight-service kan zonder kennisgeving worden gewijzigd. Als u een afhankelijkheid versie hebt, wordt aangeraden dat u deze specifieke versie opgeeft bij het maken van clusters met behulp van .NET SDK, Azure PowerShell en klassieke Azure-CLI.
 
 Apache Spark heeft drie system configuration locaties:
@@ -76,7 +76,7 @@ Om te zien en afzonderlijke waarden van de Spark-configuratie wijzigen, selectee
 
 Als u een niet-standaard set-configuratiewaarden maakt, kunt u ook de geschiedenis van uw configuratie-updates zien.  De geschiedenis van deze configuratie kan zijn handig om te zien welke niet-standaard-configuratie met optimale prestaties.
 
-> [!NOTE]
+> [!NOTE]  
 > Als u wilt zien, maar niet wijzigen, algemene Spark-cluster configuratie-instellingen, selecteer de **omgeving** tabblad op het hoogste niveau **Spark-taak gebruikersinterface** interface.
 
 ## <a name="configuring-spark-executors"></a>Spark Executor configureren
@@ -89,7 +89,7 @@ Spark-taken gebruiken worker bronnen, met name geheugen, dus is het gebruikelijk
 
 Drie belangrijke parameters die vaak worden aangepast om af te stemmen Spark-configuraties ter verbetering van de vereisten van webtoepassingen zijn `spark.executor.instances`, `spark.executor.cores`, en `spark.executor.memory`. Een Executor is een proces gestart voor een Spark-toepassing. Een Executor wordt uitgevoerd op de worker-knooppunt en is verantwoordelijk voor de taken voor de toepassing. Voor elk cluster wordt het standaardaantal Executor en de executor-grootten, berekend op basis van het aantal worker-knooppunten en de grootte van het worker-knooppunt. Deze worden opgeslagen in `spark-defaults.conf` over de hoofdknooppunten van het cluster.  U kunt deze waarden in een actief cluster bewerken door het selecteren van de **aangepaste spark-standaardinstellingen** koppeling in de Ambari-Webgebruikersinterface.  Nadat u wijzigingen aanbrengt, wordt u gevraagd door de gebruikersinterface aan **opnieuw** alle betrokken services.
 
-> [!NOTE]
+> [!NOTE]  
 > Deze drie configuratieparameters kunnen worden geconfigureerd op het niveau van het cluster (voor alle toepassingen die worden uitgevoerd op het cluster) en ook worden opgegeven voor elke afzonderlijke toepassing.
 
 Een andere bron van informatie over de resources die wordt gebruikt door de Spark-Executor is de gebruikersinterface van de Spark-toepassing.  Selecteer in de gebruikersinterface van Spark, de **Executor** tabblad om weer te geven van de samenvatting en details met betrekking tot de configuratie en de resources die door de Executor gebruikt.  Deze weergaven kunt u bepalen of u wilt wijzigen van de standaardwaarden voor Spark Executor voor het hele cluster of een bepaalde set van taakuitvoeringen.
@@ -123,15 +123,15 @@ YARN bepaalt de maximale som van geheugen gebruikt door de containers op elk kno
 
 Spark-clusters in HDInsight omvatten een aantal onderdelen standaard. Elk van deze onderdelen bevat standaard configuratiewaarden, die kunnen worden genegeerd, indien nodig.
 
-* Spark Core - Core, Spark, Spark SQL, Spark-streaming-API's, GraphX en MLlib
-* Anaconda - een python-pakket manager
-* [Apache Livy](https://livy.incubator.apache.org/) -Apache Spark REST API gebruikt voor het verzenden van externe taken naar een HDInsight Spark-cluster
-* [Jupyter](https://jupyter.org/) en [Apache Zeppelin](https://zeppelin.apache.org/) -laptops - interactieve Browserinterface voor interactie met uw Spark-cluster
-* ODBC-stuurprogramma - verbindt Spark-clusters in HDInsight met hulpprogramma's voor business intelligence (BI), zoals Microsoft Power BI en Tableau
+* Spark Core - Core, Spark, Spark SQL, Spark-streaming-API's, GraphX en MLlib van Apache Spark.
+* Anaconda - een python pakket manager.
+* [Apache Livy](https://livy.incubator.apache.org/) -Apache Spark REST API gebruikt voor het verzenden van externe taken naar een HDInsight Spark-cluster.
+* [Jupyter](https://jupyter.org/) en [Apache Zeppelin](https://zeppelin.apache.org/) -laptops - interactieve Browserinterface voor interactie met uw Spark-cluster.
+* ODBC-stuurprogramma - verbindt Spark-clusters in HDInsight met hulpprogramma's voor business intelligence (BI), zoals Microsoft Power BI en Tableau.
 
 Voor toepassingen die worden uitgevoerd in de Jupyter-notebook, gebruiken de `%%configure` opdracht voor het maken van de configuratie wordt gewijzigd van binnen het notitieblok zelf. Deze wijzigingen in de configuratie zal worden toegepast op het Spark-taken uitvoeren vanaf uw laptop-exemplaar. U moet dergelijke wijzigingen aanbrengen aan het begin van de toepassing, voordat u uw eerste codecel uitvoert. De gewijzigde configuratie wordt toegepast op de Livy-sessie wanneer deze wordt gemaakt.
 
-> [!NOTE]
+> [!NOTE]  
 > U kunt de configuratie op een later tijdstip in de toepassing wijzigen met de `-f` parameter (force). Alle wordt uitgevoerd in de toepassing gaan echter verloren.
 
 De code hieronder laat zien hoe u de configuratie voor een toepassing die wordt uitgevoerd in een Jupyter-notebook te wijzigen.

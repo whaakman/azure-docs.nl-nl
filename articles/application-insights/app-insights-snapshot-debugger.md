@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: a92b54a80de645dda8ea0cc0259bd07f72330204
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a9e7cfdf9b63e511c3b59e840999024e849122aa
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136712"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808890"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-apps
 
-Wanneer er een uitzondering optreedt, kunt u automatisch een momentopname voor foutopsporing verzamelen van uw live webtoepassing. De momentopname toont de status van de broncode en variabelen op het moment dat de uitzondering is opgetreden. De Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) bewaakt uitzonderingstelemetrie van uw web-app. Deze verzamelt momentopnamen op uw uitzonderingen boven activerende zodat u de informatie die u nodig hebt om problemen in de productieomgeving te diagnosticeren. Bevatten de [Snapshot collector NuGet-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in uw toepassing, en (optioneel) Configureer verzameling parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Momentopnamen worden weergegeven op [uitzonderingen](app-insights-asp-net-exceptions.md) in de Application Insights-portal.
+Wanneer er een uitzondering optreedt, kunt u automatisch een momentopname voor foutopsporing verzamelen van uw live webtoepassing. De momentopname toont de status van de broncode en variabelen op het moment dat de uitzondering is opgetreden. De Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) bewaakt uitzonderingstelemetrie van uw web-app. Deze verzamelt momentopnamen op uw uitzonderingen boven activerende zodat u de informatie die u nodig hebt om problemen in de productieomgeving te diagnosticeren. Bevatten de [Snapshot collector NuGet-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in uw toepassing, en (optioneel) Configureer verzameling parameters in [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Momentopnamen worden weergegeven op [uitzonderingen](../azure-monitor/app/asp-net-exceptions.md) in de Application Insights-portal.
 
 U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Als u een krachtigere foutopsporing ervaring met de broncode, opent u momentopnamen met Visual Studio 2017 Enterprise. In Visual Studio, kunt u ook [Snappoints om interactief momentopnamen te instellen](https://aka.ms/snappoint) zonder te wachten op een uitzondering.
 
@@ -43,11 +43,11 @@ De volgende omgevingen worden ondersteund:
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Momentopname verzamelen voor ASP.NET-toepassingen configureren
 
-1. [Application Insights inschakelen in uw web-app](app-insights-asp-net.md), als u dit nog niet hebt gedaan.
+1. [Application Insights inschakelen in uw web-app](../azure-monitor/app/asp-net.md), als u dit nog niet hebt gedaan.
 
 2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
-3. Bekijk de standaardopties die het pakket wordt toegevoegd aan [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. Bekijk de standaardopties die het pakket wordt toegevoegd aan [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md):
 
     ```xml
     <TelemetryProcessors>
@@ -81,12 +81,12 @@ De volgende omgevingen worden ondersteund:
     </TelemetryProcessors>
     ```
 
-4. Momentopnamen worden verzameld alleen op uitzonderingen die worden gerapporteerd aan Application Insights. In sommige gevallen (bijvoorbeeld oudere versies van het .NET-platform), moet u wellicht te [uitzondering verzamelen configureren](app-insights-asp-net-exceptions.md#exceptions) om te zien welke uitzonderingen met momentopnamen in de portal.
+4. Momentopnamen worden verzameld alleen op uitzonderingen die worden gerapporteerd aan Application Insights. In sommige gevallen (bijvoorbeeld oudere versies van het .NET-platform), moet u wellicht te [uitzondering verzamelen configureren](../azure-monitor/app/asp-net-exceptions.md#exceptions) om te zien welke uitzonderingen met momentopnamen in de portal.
 
 
 ### <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>Momentopname verzamelen voor ASP.NET Core 2.0-toepassingen configureren
 
-1. [Application Insights inschakelen in uw ASP.NET Core web-app](app-insights-asp-net-core.md), als u dit nog niet hebt gedaan.
+1. [Application Insights inschakelen in uw ASP.NET Core web-app](../azure-monitor/app/asp-net-core.md), als u dit nog niet hebt gedaan.
 
     > [!NOTE]
     > Ervoor dat uw toepassing verwijst naar versie 2.1.1 of hoger, van het pakket Microsoft.ApplicationInsights.AspNetCore zijn.
@@ -212,7 +212,7 @@ Eigenaars van abonnementen toe te kennen de `Application Insights Snapshot Debug
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Fouten opsporen in momentopnamen in de Application Insights-portal
 
-Als een momentopname beschikbaar voor een bepaalde uitzonderingen of een probleem-ID is, een **fouten opsporen in momentopname openen** knop wordt weergegeven op de [uitzondering](app-insights-asp-net-exceptions.md) in de Application Insights-portal.
+Als een momentopname beschikbaar voor een bepaalde uitzonderingen of een probleem-ID is, een **fouten opsporen in momentopname openen** knop wordt weergegeven op de [uitzondering](../azure-monitor/app/asp-net-exceptions.md) in de Application Insights-portal.
 
 ![De knop openen fouten opsporen in momentopname van uitzondering](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
@@ -235,8 +235,8 @@ De momentopname van het gedownloade bevat symboolbestanden die zijn gevonden op 
 
 ## <a name="how-snapshots-work"></a>De werking van momentopnamen
 
-De Snapshot Collector wordt geïmplementeerd als een [Application Insights Telemetry Processor](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Wanneer uw toepassing wordt uitgevoerd, wordt de telemetrie-Processor van Snapshot Collector wordt toegevoegd aan van de toepassing telemetrie pijplijn.
-Telkens wanneer die uw toepassing aanroepen [TrackException](app-insights-asp-net-exceptions.md#exceptions), de Snapshot Collector berekent een probleem-ID van het type uitzondering en de activerend methode.
+De Snapshot Collector wordt geïmplementeerd als een [Application Insights Telemetry Processor](../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Wanneer uw toepassing wordt uitgevoerd, wordt de telemetrie-Processor van Snapshot Collector wordt toegevoegd aan van de toepassing telemetrie pijplijn.
+Telkens wanneer die uw toepassing aanroepen [TrackException](../azure-monitor/app/asp-net-exceptions.md#exceptions), de Snapshot Collector berekent een probleem-ID van het type uitzondering en de activerend methode.
 Telkens wanneer uw toepassing TrackException, roept wordt een item verhoogd voor de juiste probleem-ID. Wanneer de teller de `ThresholdForSnapshotting` waarde, de probleem-ID wordt toegevoegd aan een verzameling van plan bent.
 
 De Snapshot Collector bewaakt ook uitzonderingen als ze zijn gegenereerd met een abonnement op de [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) gebeurtenis. Wanneer die gebeurtenis wordt geactiveerd, wordt de probleem-ID van de uitzondering berekend en vergeleken met de probleem-id's in de verzameling van plan bent.
@@ -472,10 +472,10 @@ Als u een uitzondering met deze momentopname-ID nog steeds niet ziet, is niet na
 
 ### <a name="edit-network-proxy-or-firewall-rules"></a>De netwerk-proxy of firewall-regels bewerken
 
-Als uw toepassing verbinding met Internet via een proxy of firewall maakt, moet u mogelijk de regels voor het toestaan van uw toepassing om te communiceren met de service Snapshot Debugger bewerken. Hier volgt [een lijst met IP-adressen en poorten die worden gebruikt door de Snapshot Debugger](app-insights-ip-addresses.md#snapshot-debugger).
+Als uw toepassing verbinding met Internet via een proxy of firewall maakt, moet u mogelijk de regels voor het toestaan van uw toepassing om te communiceren met de service Snapshot Debugger bewerken. Hier volgt [een lijst met IP-adressen en poorten die worden gebruikt door de Snapshot Debugger](../azure-monitor/app/ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Snappoints instellen in uw code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) momentopnamen ophalen zonder te wachten op een uitzondering.
-* [Diagnose-uitzonderingen in uw web-apps](app-insights-asp-net-exceptions.md) wordt uitgelegd hoe u meer uitzonderingen zichtbaar maken voor Application Insights.
+* [Diagnose-uitzonderingen in uw web-apps](../azure-monitor/app/asp-net-exceptions.md) wordt uitgelegd hoe u meer uitzonderingen zichtbaar maken voor Application Insights.
 * [Slimme detectie](app-insights-proactive-diagnostics.md) automatisch detecteert afwijkende prestaties.

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499405"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597474"
 ---
-# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Een Apache Spark machine learning-pijplijn maken
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Een machine learning-pijplijn in Apache Spark maken
 
-Apache Spark van schaalbare machine learning-bibliotheek (MLlib) biedt mogelijkheden voor modellen in een gedistribueerde omgeving. Het Spark-pakket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) is een set op hoog niveau API's die zijn gebouwd op gegevensframes. Deze API's te maken en af te stemmen praktische machine learning-pijplijnen.  *Machine learning in Spark* verwijst naar deze MLlib DataFrame-API, niet de oudere op basis van een RDD pijplijn API.
+Apache Spark van schaalbare machine learning-bibliotheek (MLlib) biedt mogelijkheden voor modellen in een gedistribueerde omgeving. Het Spark-pakket [ `spark.ml` ](https://spark.apache.org/docs/latest/ml-pipeline.html) is een set op hoog niveau API's die zijn gebouwd op gegevensframes. Deze API's te maken en af te stemmen praktische machine learning-pijplijnen.  *Machine learning in Spark* verwijst naar deze MLlib DataFrame-API, niet de oudere op basis van een RDD pijplijn API.
 
 Een machine learning-pijplijn (ML) is een complete werkstroom meerdere machine learning-algoritmen samen combineren. Er zijn veel stappen die nodig zijn om te verwerken en leer van gegevens, waarvoor een reeks algoritmen is vereist. Pijplijnen definiëren de fasen en ordening van een machine learning-proces. Fasen van een pijplijn worden in MLlib vertegenwoordigd door een specifieke reeks PipelineStages, waar een transformator en een Estimator taken uitvoeren.
 
@@ -30,7 +30,7 @@ Elke stateless exemplaar van een transformator of een Estimator heeft zijn eigen
 
 ## <a name="pipeline-example"></a>Voorbeeld van de pijplijn
 
-Om te demonstreren een praktische gebruik van een ML-pijplijn, in dit voorbeeld wordt het voorbeeld `HVAC.csv` gegevensbestand dat vooraf geladen geleverd op de standaardopslag voor uw HDInsight-cluster, Azure Storage of Data Lake Store. Als u wilt weergeven van de inhoud van het bestand, gaat u naar de `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` bevat een verzameling van tijden met zowel de doel- en de werkelijke temperaturen voor HVAC (*verwarming, ventilatie en airconditioning*) systemen in verschillende gebouwen. Het doel is om het model van de gegevens te trainen en produceren van een prognose temperatuur voor een bepaald gebouw.
+Om te demonstreren een praktische gebruik van een ML-pijplijn, in dit voorbeeld wordt het voorbeeld `HVAC.csv` gegevensbestand dat vooraf geladen geleverd op de standaardopslag voor uw HDInsight-cluster, Azure Storage of Data Lake-opslag. Als u wilt weergeven van de inhoud van het bestand, gaat u naar de `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` bevat een verzameling van tijden met zowel de doel- en de werkelijke temperaturen voor HVAC (*verwarming, ventilatie en airconditioning*) systemen in verschillende gebouwen. Het doel is om het model van de gegevens te trainen en produceren van een prognose temperatuur voor een bepaald gebouw.
 
 De volgende code:
 

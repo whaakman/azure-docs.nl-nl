@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6ee03197a78a75ca57d0ed049cdd6a8df8b2149
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7625eb383beef2e86cc8a977362db09329a6ea1b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272963"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556710"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights Preview use-cases
 
@@ -32,7 +32,7 @@ Dit document bevat een overzicht van de toepassingen die Azure Time Series Insig
 
 ## <a name="introduction"></a>Inleiding
 
-Time Series Insights is een end-to-end platform-as-a-service-aanbieding. Het wordt gebruikt voor het opnemen, verwerken, opslaan en maximaal contextualized, time series geoptimaliseerd IoT-schaal gegevens op te vragen. Time Series Insights is ideaal voor ad-hocgegevensverkenning en operationele analyse. Time Series Insights is een unieke uitbreidbare, aangepaste, voorziet dat voldoet aan de algemene van industriële IoT-implementaties behoeften.
+Time Series Insights is een end-to-end platform-as-a-service-aanbieding. Het platform wordt gebruikt om voor tijdreeksen geoptimaliseerde, in hoge mate gecontextualiseerde gegevens op IoT-schaal op te nemen, te verwerken, op te slaan en op te vragen. Time Series Insights is ideaal voor ad-hoc gegevensverkenning en voor operationele analyse. Time Series Insights is een unieke uitbreidbare, aangepaste, voorziet dat voldoet aan de algemene van industriële IoT-implementaties behoeften.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Gegevensverkenning en visuele afwijkingsdetectie
 

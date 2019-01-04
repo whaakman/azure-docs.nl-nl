@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185428"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606781"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>SIM-gegevens in de oplossing voor externe controle integreren
 
 IoT-apparaten is vaak verbinding maken met de cloud met behulp van een SIM-kaart waarmee ze gegevensstromen verzenden vanaf elke locatie. De externe controle van Azure IoT-oplossing maakt de integratie van beheerde connectiviteit van IoT-gegevens, zodat operators kunnen ook de status van het apparaat wordt via de gegevens van de IoT SIM bijhouden.
 
-Externe controle biedt buiten de box-integratie met Telefónica IoT-connectiviteit, zodat klanten die gebruikmaken van het Platform van IoT-connectiviteit hun apparaat connectiviteitsgegevens van SIM-kaarten om hun oplossingen te synchroniseren. Deze oplossing kan worden uitgebreid ter ondersteuning van andere leveranciers van IoT-connectiviteit via GitHub [opslagplaats](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+Externe controle biedt buiten de box-integratie met Telefónica IoT-connectiviteit, zodat klanten die gebruikmaken van het Platform van IoT-connectiviteit hun apparaat connectiviteitsgegevens van SIM-kaarten om hun oplossingen te synchroniseren. Deze oplossing kan worden uitgebreid ter ondersteuning van andere leveranciers van IoT-connectiviteit via GitHub [opslagplaats](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
 In deze zelfstudie leert u het volgende:
 

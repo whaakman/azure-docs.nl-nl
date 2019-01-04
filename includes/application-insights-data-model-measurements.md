@@ -4,12 +4,12 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572027"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728979"
 ---
 Verzameling van aangepaste metingen. Gebruik deze verzameling naar een rapport met de naam meting die is gekoppeld aan de telemetrie-item. Er zijn typische gebruiksvoorbeelden:
 - de grootte van de nettolading van Afhankelijkheidstelemetrie
@@ -25,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Aangepaste metingen zijn gekoppeld aan de telemetrie-item waartoe ze behoren. Ze vallen onder steekproef nemen met de telemetrie-item met deze metingen. Gebruiken voor het volgen van een meting met een waarde die onafhankelijk van andere telemetrietypen [metrische telemetrie](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Aangepaste metingen zijn gekoppeld aan de telemetrie-item waartoe ze behoren. Ze vallen onder steekproef nemen met de telemetrie-item met deze metingen. Gebruiken voor het volgen van een meting met een waarde die onafhankelijk van andere telemetrietypen [metrische telemetrie](../articles/azure-monitor/app/api-custom-events-metrics.md).
 
-Maximale lengte: 150
+Maximale sleutellengte: 150

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c0f4af863162d004b6a557f8c7a04e31ee66d9b7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384493"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713553"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Installeren en gebruiken van Apache Solr op Windows gebaseerde HDInsight-clusters
 
@@ -38,7 +38,7 @@ Het voorbeeld van een script gebruikt in dit onderwerp wordt een Solr op basis v
 * [Script Action-scripts ontwikkelen voor HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-solr"></a>Wat is Solr?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is een platform voor enterprise search waarmee krachtige zoeken in volledige tekst van gegevens. Hoewel Hadoop kunt opslaan en beheren van grote hoeveelheden gegevens, biedt Apache Solr de zoekfuncties voor het snel de gegevens worden opgehaald.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is een platform voor enterprise search waarmee krachtige zoeken in volledige tekst van gegevens. Hoewel Hadoop kunt opslaan en beheren van grote hoeveelheden gegevens, biedt Apache Solr de zoekfuncties voor het snel de gegevens worden opgehaald.
 
 ## <a name="install-solr-using-portal"></a>Solr met behulp van portal installeren
 1. Beginnen met het maken van een cluster met behulp van de **aangepast maken** optie, zoals beschreven op [Apache Hadoop-clusters maken in HDInsight](hdinsight-provision-clusters.md).
@@ -156,7 +156,7 @@ U moet beginnen met Solr indexeren met enkele gegevensbestanden. U kunt vervolge
           </response>
       ```
       
-   2. Navigeer in de externe sessie naar {SOLR_HOME}\{verzameling} \data. Voor het cluster is gemaakt via het voorbeeld van een script, moet dit `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Op deze locatie ziet u een map met momentopnamen die zijn gemaakt met een naam die lijkt op **momentopname.\*tijdstempel**\*.
+   2. Navigeer in de externe sessie naar {SOLR_HOME}\{verzameling} \data. Voor het cluster is gemaakt via het voorbeeld van een script, moet dit `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Op deze locatie ziet u een map met momentopnamen die zijn gemaakt met een naam die lijkt op **momentopname.* tijdstempel ***.
    
    3. ZIP-de map met momentopnamen en dit uploaden naar Azure Blob-opslag. Navigeer naar de locatie van de map met momentopnamen met behulp van de volgende opdracht uit vanaf de opdrachtregel Hadoop:
 

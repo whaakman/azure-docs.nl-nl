@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: eb177852be273f1c9af06b1f9d85fbba4cc98567
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ae71fb9f509c39e871f4d1dfb29626be47bea4b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845472"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790976"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V naar Azure disaster recovery-architectuur
 
@@ -131,9 +131,9 @@ Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw gepr
 Nadat uw on-premises infrastructuur opnieuw actief is, kunt u failover terug. Failback vindt plaats in drie fasen:
 
 1. Een vliegende start een geplande failover van Azure naar de on-premises site:
-    - **Downtime minimaliseren**: als u deze optie gebruikt de Site Recovery worden gegevens voordat de failover wordt gesynchroniseerd. Het gewijzigde gegevensblokken controleert en downloadt deze naar de on-premises site, terwijl de virtuele machine van Azure houdt actief is, leiden tot minimale downtime. Wanneer u handmatig opgeven dat de failover moet worden voltooid, de Azure-VM wordt afgesloten, een definitieve wijzigingen worden gekopieerd en de failover wordt gestart.
-    - **Volledige download**: met deze optie worden de gegevens gesynchroniseerd tijdens de failover. Deze optie wordt de hele schijf gedownload. Het is sneller omdat er geen controlesommen worden berekend, maar er meer downtime is. Gebruik deze optie als u hebt zijn met de replica virtuele Azure-machines gedurende een bepaalde periode, of als de on-premises VM is verwijderd.
-    - **Virtuele machine maken**: kunt u een failover uitvoeren naar dezelfde virtuele machine of naar een andere virtuele machine. U kunt opgeven dat Site Recovery de virtuele machine maken te als deze nog niet bestaat.
+    - **Downtime minimaliseren**: Als u deze optie gebruikt met Site Recovery, worden gegevens voordat de failover wordt gesynchroniseerd. Het gewijzigde gegevensblokken controleert en downloadt deze naar de on-premises site, terwijl de virtuele machine van Azure houdt actief is, leiden tot minimale downtime. Wanneer u handmatig opgeven dat de failover moet worden voltooid, de Azure-VM wordt afgesloten, een definitieve wijzigingen worden gekopieerd en de failover wordt gestart.
+    - **Volledige download**: Met deze optie gegevens gesynchroniseerd tijdens de failover. Deze optie wordt de hele schijf gedownload. Het is sneller omdat er geen controlesommen worden berekend, maar er meer downtime is. Gebruik deze optie als u hebt zijn met de replica virtuele Azure-machines gedurende een bepaalde periode, of als de on-premises VM is verwijderd.
+    - **Virtuele machine maken**: U kunt selecteren voor failover naar dezelfde virtuele machine of een andere virtuele machine. U kunt opgeven dat Site Recovery de virtuele machine maken te als deze nog niet bestaat.
 
 2. Nadat de initiële synchronisatie is voltooid, selecteert u om de failover te voltooien. Nadat deze is voltooid, kunt u zich aanmelden op de on-premises-VM om te controleren of dat alles werkt zoals verwacht. In de Azure-portal, kunt u zien dat de Azure VM's zijn gestopt.
 3.  Vervolgens geeft u de failover voor het voltooien van en toegang tot de workload via de on-premises VM opnieuw.

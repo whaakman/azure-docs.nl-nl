@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311317"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714352"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -56,7 +56,7 @@ Wanneer u wilt dat het snelste pad naar uw projecten op het web publiceren, moet
 
 U kunt web-apps, back-ends voor mobiele Apps en API apps maken.
 
-Omdat alle drie app-typen de App Service-runtime delen, kunt u een website host, ondersteuning voor mobiele clients en beschikbaar maken van uw API's in Azure, allemaal met hetzelfde project of oplossing. Zie voor meer informatie over App Service, [wat is Azure Web Apps](../../app-service/app-service-web-overview.md).
+Omdat alle drie app-typen de App Service-runtime delen, kunt u een website host, ondersteuning voor mobiele clients en beschikbaar maken van uw API's in Azure, allemaal met hetzelfde project of oplossing. Zie voor meer informatie over App Service, [wat is Azure Web Apps](../../app-service/overview.md).
 
 App Service is ontworpen met DevOps in gedachten. Ondersteunt verschillende hulpprogramma's voor publiceren en continue integratie-implementaties, met inbegrip van GitHub webhooks, Jenkins, Azure DevOps, TeamCity en anderen.
 
@@ -168,7 +168,7 @@ Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te v
 
     >**Wanneer u**: Als u verificatie inschakelen in een App Service-app wilt met behulp van Azure AD, sociale id-providers, of beide.
 
-    >**Aan de slag**: Zie voor meer informatie over verificatie in App Service, [verificatie en autorisatie in Azure App Service](../../app-service/app-service-authentication-overview.md).
+    >**Aan de slag**: Zie voor meer informatie over verificatie in App Service, [verificatie en autorisatie in Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 Zie voor meer informatie over aanbevolen procedures voor beveiliging in Azure, [Azure-beveiliging aanbevolen procedures en patronen](../../security/security-best-practices-and-patterns.md).
 
@@ -190,7 +190,7 @@ Of het de inrichting van virtuele machines of publiceren van uw WebApps met cont
 
 >**Probeer het nu:** [Probeer enkele van de DevOps-integraties](https://azure.microsoft.com/try/devops/).
 
->**Aan de slag**: Zie voor DevOps-opties voor een App Service-app [continue implementatie in Azure App Service](../../app-service/app-service-continuous-deployment.md).
+>**Aan de slag**: Zie voor DevOps-opties voor een App Service-app [continue implementatie in Azure App Service](../../app-service/deploy-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Azure-regio's

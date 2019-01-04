@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 07274269e9902a336181c89ee5c02edd52b6ab01
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849493"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723923"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Overzicht van ondersteuning voor meerdere tenants fisaster voor herstel voor VMware naar Azure met CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Overzicht van ondersteuning voor meerdere tenants voor VMware naar Azure met CSP een noodgeval
 
 [Azure Site Recovery](site-recovery-overview.md) biedt ondersteuning voor omgevingen met meerdere tenants voor tenant-abonnementen. Het ondersteunt ook meerdere tenants voor tenant-abonnementen die worden gemaakt en beheerd via het programma Microsoft Cloud Solution Provider (CSP).
 
@@ -24,11 +24,11 @@ Dit artikel bevat een overzicht van de implementatie en beheer van meerdere tena
 
 Er zijn drie belangrijke modellen voor meerdere tenants:
 
-* **Gedeeld die als host fungeert Services serviceprovider (HSP)**: de partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
+* **Gedeelde Services-hostingprovider (HSP)**: De partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
 
-* **Services-Provider die als host fungeert toegewezen**: de partner is eigenaar van de fysieke infrastructuur, maar worden toegewezen resources (meerdere vCenters, fysieke gegevensopslag, enzovoort) gebruikt voor het hosten van elke tenant-VM's op een aparte infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan het als een oplossing voor de selfservice.
+* **Toegewezen Hosting serviceprovider**: De partner is eigenaar van de fysieke infrastructuur, maar toegewezen resources (meerdere vCenters, fysieke gegevensopslag, enzovoort) gebruikt voor het hosten van elke tenant-VM's op een aparte infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan het als een oplossing voor de selfservice.
 
-* **Beheerde Services Provider (MSP)**: de klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
+* **Managed serviceprovider (MSP)**: De klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Gedeeld-hosting services serviceprovider (HSP)
 
@@ -56,9 +56,9 @@ Een afzonderlijke scale-out processerver is ook onder beheer van de partner.
 
 Elke configuratieserver in het scenario met meerdere tenants gebruikt twee accounts:
 
-- **account voor toegang tot vCenter**: dit account wordt gebruikt voor het detecteren van de tenant-VM's. VCenter toegangsmachtigingen worden toegewezen aan deze heeft. Om te voorkomen van toegang lekken, is het raadzaam dat partners in het configuratiehulpprogramma van deze referenties zelf invoert.
+- **account voor toegang tot vCenter**: Dit account wordt gebruikt voor het detecteren van tenant-VM's. VCenter toegangsmachtigingen worden toegewezen aan deze heeft. Om te voorkomen van toegang lekken, is het raadzaam dat partners in het configuratiehulpprogramma van deze referenties zelf invoert.
 
-- **Virtuele machine toegangsaccount**: dit account wordt gebruikt voor het installeren van de Mobility-service-agent op de tenant-VM's, met een automatische push. Dit is meestal een domeinaccount die een tenant aan een partner kan leveren, of een account dat de partner direct kunt beheren. Als een tenant niet de gegevens rechtstreeks delen met de partner, kunnen ze Voer de referenties via tijdelijke toegang met de configuratieserver. Of met de hulp van de partner, kunnen ze de Mobility-service-agent handmatig installeren.
+- **Virtuele machine toegangsaccount**: Dit account wordt gebruikt voor het installeren van de Mobility-service-agent op de tenant-VM's, met een automatische push. Dit is meestal een domeinaccount die een tenant aan een partner kan leveren, of een account dat de partner direct kunt beheren. Als een tenant niet de gegevens rechtstreeks delen met de partner, kunnen ze Voer de referenties via tijdelijke toegang met de configuratieserver. Of met de hulp van de partner, kunnen ze de Mobility-service-agent handmatig installeren.
 
 ## <a name="vcenter-account-requirements"></a>accountvereisten voor vCenter
 
@@ -75,11 +75,11 @@ De configuratieserver configureren met een account met een speciale rol zijn toe
 1. Een nieuwe rol maken door het klonen van de vooraf gedefinieerde *alleen-lezen* rol, en wijs hieraan een handige naam (zoals Azure_Site_Recovery, zoals wordt weergegeven in dit voorbeeld).
 2. De volgende machtigingen toewijzen aan deze rol:
 
-    * **Gegevensopslag**: toewijzen van ruimte, bladeren gegevensopslag, bestandsbewerkingen op laag niveau, bestand, updatebestanden voor de virtuele machine
-    * **Netwerk**: netwerk toewijzen
-    * **Resource**: virtuele machine toewijzen aan resourcegroep, VM, uitgeschakeld migreren migreren ingeschakeld virtuele machine
-    * **Taken**: taak, Update-taak maken
-    * **VM - configuratie**: alle
+    * **Gegevensopslag**: Toewijzen van ruimte, bladeren gegevensopslag, bestandsbewerkingen op laag niveau, bestand, updatebestanden voor de virtuele machine verwijderen
+    * **Netwerk**: Netwerk toewijzen
+    * **Resource**: Virtuele machine toewijzen aan resourcegroep, VM uitgeschakeld migreren, ingeschakelde VM migreren
+    * **Taken**: Taak, Update-taak maken
+    * **VM - configuratie**: Alle
     - **VM - interactie** > beantwoorden vraag, apparaatverbinding, CD configureren media, diskettes configureren, uitschakelen, inschakelen, VMware-hulpprogramma's installeren
     - **VM - inventarisatie** > maken op basis van bestaande, maak een nieuwe, registreren, registratie opheffen
     - **VM - inrichting** > downloaden van de virtuele machine toestaan, toestaan virtuele machine bestanden uploaden

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f50767ad4fc979962968c32bbe972e28d93cce88
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166401"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652692"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Verwerken en analyseren van JSON-documenten met behulp van Apache Hive in Azure HDInsight
 
@@ -57,9 +57,9 @@ Informatie over het verwerken en analyseren van JavaScript Object Notation (JSON
 }
 ```
 
-Het bestand kan worden gevonden op **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Zie voor meer informatie over het gebruik van Azure Blob storage met HDInsight [gebruik HDFS-compatibele Azure Blob-opslag met Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). U kunt het bestand kopiëren naar de standaardcontainer van uw cluster.
+Het bestand kan worden gevonden op **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Zie voor meer informatie over het gebruik van Azure Blob storage met HDInsight [gebruik HDFS-compatibele Azure Blob-opslag met Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). U kunt het bestand kopiëren naar de standaardcontainer van uw cluster.
 
-In deze zelfstudie gebruikt u de Hive-console. Zie voor instructies over het openen van de Hive-console, [Hive gebruiken met Hadoop op HDInsight met extern bureaublad](apache-hadoop-use-hive-remote-desktop.md).
+In deze zelfstudie gebruikt u de Apache Hive-console. Zie voor instructies over het openen van de Hive-console, [Apache Hive gebruiken met Apache Hadoop op HDInsight met extern bureaublad](apache-hadoop-use-hive-remote-desktop.md).
 
 ## <a name="flatten-json-documents"></a>JSON-documenten plat
 De methoden die worden vermeld in de volgende sectie is vereist dat de JSON-document bestaan uit een enkele rij. Daarom moet u het JSON-document naar een tekenreeks afvlakken. Als uw JSON-document al afgevlakt is, kunt u deze stap overslaan en meteen naar de volgende sectie gaat over het analyseren van JSON-gegevens. Als u wilt het JSON-document afvlakken, voer het volgende script:
@@ -101,7 +101,7 @@ Hive biedt drie verschillende mechanismen voor het uitvoeren van query's op JSON
 * Gebruik de get_json_object gebruiker gedefinieerde functie (UDF's).
 * Gebruik de json_tuple UDF.
 * Gebruik de aangepaste Serializer/Deserializer (serde-schrijfbewerking).
-* Schrijf uw eigen UDF met behulp van Python of andere talen. Zie voor meer informatie over het uitvoeren van uw eigen code Python met Hive [Python-UDF met Apache Hive en Pig][hdinsight-python].
+* Schrijf uw eigen UDF met behulp van Python of andere talen. Zie voor meer informatie over het uitvoeren van uw eigen code Python met Hive [Python-UDF met Apache Hive en Apache Pig][hdinsight-python].
 
 ### <a name="use-the-getjsonobject-udf"></a>Gebruik de get_json_object UDF
 Hive biedt een ingebouwde UDF met de naam [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) die JSON query's uitvoeren tijdens runtime kunt uitvoeren. Deze methode neemt twee argumenten--de tabelnaam en de naam van de methode, met de platte JSON-document en het JSON-veld dat moet worden geparseerd. We bekijken een voorbeeld te zien hoe deze UDF werkt.
@@ -152,9 +152,9 @@ Het type van de JSON-operator in Hive die u kiest is Kortom, afhankelijk van uw 
 
 Zie voor verwante artikelen:
 
-* [Hive en HiveQL gebruiken met Hadoop in HDInsight kunt u een voorbeeldbestand van de Apache-log4j analyseren](../hdinsight-use-hive.md)
-* [Gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Twitter-gegevens analyseren met behulp van Hive in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Apache Hive en HiveQL gebruiken met Apache Hadoop in HDInsight kunt u een voorbeeldbestand van de Apache-log4j analyseren](../hdinsight-use-hive.md)
+* [Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data.md)
+* [Twitter-gegevens analyseren met behulp van Apache Hive in HDInsight](../hdinsight-analyze-twitter-data.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

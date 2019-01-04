@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: activitylog
-ms.openlocfilehash: 19f97d097c47229038595b202e82ccf41dfbfefc
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.component: logs
+ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434916"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715208"
 ---
 # <a name="archive-the-azure-activity-log"></a>De Azure-activiteitenlogboek archiveren
-In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
+In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](../../azure-monitor/platform/activity-logs-overview.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
 
 > [!WARNING]
 > De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -30,7 +30,7 @@ Voordat u begint, moet u [een opslagaccount maken](../../storage/common/storage-
 >  U gegevens naar een opslagaccount gemaakt achter een beveiligd virtueel netwerk kan momenteel niet archiveren.
 
 ## <a name="log-profile"></a>Logboekprofiel
-Als u wilt archiveren het activiteitenlogboek via een van de onderstaande methoden, stelt u de **Logboekprofiel** voor een abonnement. Het Logboekprofiel bepaalt het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen die zijn opgeslagen in een storage-account. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 2147483647. Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. [U kunt meer lezen over log profielen hier](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+Als u wilt archiveren het activiteitenlogboek via een van de onderstaande methoden, stelt u de **Logboekprofiel** voor een abonnement. Het Logboekprofiel bepaalt het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen die zijn opgeslagen in een storage-account. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 2147483647. Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. [U kunt meer lezen over log profielen hier](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Met behulp van de portal activiteitenlogboek archiveren
 1. Klik in de portal op de **activiteitenlogboek** koppeling op de navigatiebalk aan de linkerkant. Als u een koppeling voor het activiteitenlogboek niet ziet, klikt u op de **alle Services** eerst koppelen.
@@ -182,6 +182,6 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Downloaden van blobs voor analyse](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Stream het activiteitenlogboek naar Eventhubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-* [Meer informatie over het activiteitenlogboek](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* [Stream het activiteitenlogboek naar Eventhubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Meer informatie over het activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md)
 

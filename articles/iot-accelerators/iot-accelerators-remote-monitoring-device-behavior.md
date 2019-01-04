@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164004"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631410"
 ---
 # <a name="implement-the-device-model-behavior"></a>Gedrag van het Apparaatmodel implementeren
 
@@ -21,6 +21,9 @@ Het artikel [schema van het Apparaatmodel begrijpen](iot-accelerators-remote-mon
 
 - **Status** JavaScript-bestanden die worden uitgevoerd met vaste intervallen om bij te werken van de interne status van het apparaat.
 - **Methode** JavaScript-bestanden die worden uitgevoerd wanneer de oplossing een methode op het apparaat roept.
+
+> [!NOTE]
+> Model apparaatgedrag zijn alleen voor de gesimuleerde apparaten die worden gehost in de device simulatie-service. Als u maken van een fysiek apparaat wilt, Zie [uw apparaat aansluiten op de oplossingsverbetering voor externe controle](iot-accelerators-connecting-devices.md).
 
 In dit artikel leert u het volgende:
 

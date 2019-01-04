@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2c5a584bd5c235eb143c8e1911006aa6e142ff0d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498141"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605633"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
@@ -26,16 +26,16 @@ ML-Services op HDInsight kunt u een verscheidenheid aan oplossingen voor opslag 
 
 U hebt ook de mogelijkheid om toegang tot meerdere Azure storage-accounts of containers met uw HDInsight-cluster. Azure File storage is een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt waarmee u een Azure Storage file share koppelen voor, bijvoorbeeld, het Linux-bestandssysteem. Maar Azure-bestandsshares kunnen worden gekoppeld en die worden gebruikt door een systeem met een ondersteund besturingssysteem, zoals Windows of Linux. 
 
-Wanneer u een Apache Hadoop-cluster in HDInsight maakt, u opgeven of een **Azure storage** account of een **Data Lake store**. Een specifieke storage-container uit dat account bevat het bestandssysteem voor het cluster dat u (bijvoorbeeld, de Hadoop Distributed File System maakt). Zie voor meer informatie over en richtlijnen:
+Wanneer u een Apache Hadoop-cluster in HDInsight maakt, u opgeven of een **Azure storage** account of **Data Lake Storage**. Een specifieke storage-container uit dat account bevat het bestandssysteem voor het cluster dat u (bijvoorbeeld, de Hadoop Distributed File System maakt). Zie voor meer informatie over en richtlijnen:
 
 - [Azure storage gebruiken met HDInsight](../hdinsight-hadoop-use-blob-storage.md)
-- [Gebruik Data Lake Store met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-store.md)
+- [Data Lake Storage gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>Azure Blob storage-accounts met ML-Services-cluster gebruiken
 
 Als u meer dan één opslagaccount opgegeven bij het maken van uw cluster ML-Services, heeft de volgende instructies wordt uitgelegd hoe u een secundaire account gebruiken voor toegang tot gegevens en bewerkingen op een cluster ML-Services worden weergegeven. Wordt ervan uitgegaan dat de volgende storage-accounts en -container: **storage1** en een standaard-container met de naam **container1**, en **storage2** met **container2**.
 
-> [!WARNING]
+> [!WARNING]  
 > Voor testdoeleinden, prestaties, is het HDInsight-cluster gemaakt in hetzelfde Datacenter als het primaire opslagaccount die u opgeeft. Met behulp van een storage-account in een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
 ### <a name="use-the-default-storage-with-ml-services-on-hdinsight"></a>Gebruik de standaardopslag met ML-Services op HDInsight
@@ -102,29 +102,29 @@ U moet configureren de/User/RevoShare/<SSH username> map op **storage2** als vol
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## <a name="use-an-azure-data-lake-store-with-ml-services-cluster"></a>Een Azure Data Lake Store gebruiken met ML-Services-cluster 
+## <a name="use-azure-data-lake-storage-with-ml-services-cluster"></a>Azure Data Lake Storage gebruiken met ML-Services-cluster 
 
-Voor het gebruik van Data Lake Store met uw HDInsight-cluster, moet u uw cluster toegang geven tot de Azure Data Lake Store die u wilt gebruiken. Zie voor instructies over het gebruik van de Azure-portal een HDInsight-cluster maken met een account voor Azure Data Lake Store als standaardopslag of als een aanvullende store [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Voor het gebruik van Data Lake-opslag met uw HDInsight-cluster, moet u uw cluster toegang geven tot de Azure Data Lake-opslag die u wilt gebruiken. Zie voor instructies over het gebruik van de Azure-portal een HDInsight-cluster maken met een Azure Data Lake Storage-account als de standaardopslag of als extra opslag [een HDInsight-cluster maken met Data Lake Storage met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-Vervolgens gebruikt u de store in uw R-script veel zoals u een secundaire Azure-opslagaccount hebt gedaan, zoals beschreven in de vorige procedure.
+Vervolgens gebruikt u de opslag in uw R-script veel zoals u een secundaire Azure-opslagaccount hebt gedaan, zoals beschreven in de vorige procedure.
 
-### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Toegang tot het cluster toevoegen aan uw Azure Data Lake Stores
-U toegang tot een Data Lake store met behulp van een Service-Principal voor Azure Active Directory (Azure AD) die is gekoppeld aan uw HDInsight-cluster.
+### <a name="add-cluster-access-to-your-azure-data-lake-storage"></a>Toegang tot het cluster toevoegen aan uw Azure Data Lake Storage
+U toegang tot Data Lake-opslag met behulp van een Service-Principal voor Azure Active Directory (Azure AD) die is gekoppeld aan uw HDInsight-cluster.
 
 1. Wanneer u uw HDInsight-cluster maakt, selecteert u **Cluster AAD-identiteit** uit de **gegevensbron** tabblad.
 
 2. In de **Cluster AAD-identiteit** dialoogvenster onder **AD-Service-Principal selecteren**, selecteer **nieuw**.
 
-Nadat u de Service-Principal een naam geven en een wachtwoord voor het maken, klikt u op **ADLS-toegang beheren** de Service-Principal koppelen aan uw Data Lake Store.
+Nadat u de Service-Principal een naam geven en een wachtwoord voor het maken, klikt u op **ADLS-toegang beheren** de Service-Principal koppelen aan uw Data Lake-opslag.
 
-Het is ook mogelijk toegang tot het cluster toevoegen aan een of meer Data Lake Store-accounts maken van een cluster te volgen. Open de Azure portal-vermelding voor een Data Lake Store en Ga naar **Data Explorer > toegang > toevoegen**. 
+Het is ook mogelijk toegang tot het cluster toevoegen aan een of meer Data Lake Storage-accounts maken van een cluster te volgen. Open de Azure portal-vermelding voor een Data Lake-opslag en Ga naar **Data Explorer > toegang > toevoegen**. 
 
-### <a name="how-to-access-the-data-lake-store-from-ml-services-on-hdinsight"></a>Toegang tot de Data Lake store van ML-Services op HDInsight
+### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>Toegang tot Data Lake-opslag van ML-Services op HDInsight
 
-Nadat u toegang tot een Data Lake Store krijgen hebt, kunt u de store in ML-Services-cluster op HDInsight de manier waarop u een secundaire Azure-opslagaccount dat zou doen. Het enige verschil is dat het voorvoegsel **wasb: / /** wordt gewijzigd in **adl: / /** als volgt:
+Nadat u toegang tot Data Lake Storage gegeven hebt, kunt u de opslag in ML-Services-cluster in HDInsight de manier waarop u een secundaire Azure-opslagaccount dat zou doen. Het enige verschil is dat het voorvoegsel **wasb: / /** wordt gewijzigd in **adl: / /** als volgt:
 
 
-    # Point to the ADL store (e.g. ADLtest)
+    # Point to the ADL Storage (e.g. ADLtest)
     myNameNode <- "adl://rkadl1.azuredatalakestore.net"
     myPort <- 0
 
@@ -143,7 +143,7 @@ Nadat u toegang tot een Data Lake Store krijgen hebt, kunt u de store in ML-Serv
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-De volgende opdrachten worden gebruikt voor het Data Lake Store-account configureren met de map RevoShare en het toevoegen van het CSV-voorbeeldbestand uit het vorige voorbeeld:
+De volgende opdrachten worden gebruikt voor het configureren van de Data Lake Storage-account met de map RevoShare en toevoegen van het CSV-voorbeeldbestand uit het vorige voorbeeld:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

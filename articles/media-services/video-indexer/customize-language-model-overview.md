@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: anzaman
-ms.openlocfilehash: aa2c089659d202222e7dd5e41ae56bf2a683bb1e
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b309d0969eb313c90e94af0a32123b7d45b4bef0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323026"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601386"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Een taalmodel met Video Indexer aanpassen
 
-Video Indexer biedt ondersteuning voor automatische spraakherkenning dankzij de integratie met de Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). U kunt het taalmodel aanpassen door aanpassing van woordenlijsten tekst, namelijk de tekst uit het domein waarvan u wilt dat de engine om aan te passen voor uploaden. Nadat u uw model te trainen, nieuwe woorden die voorkomen in de aanpassing van woordenlijsten tekst wordt herkend, ervan uitgaande dat het standaard uitspraak van, en het taalmodel leert nieuwe waarschijnlijk reeksen woorden. Aangepaste taalmodellen worden ondersteund voor Engels, Duits, Spaans, Arabisch, Frans, Hindi, Italiaans, Japans, Portugees, Russisch en Chinees.
+Video Indexer biedt ondersteuning voor automatische spraakherkenning dankzij de integratie met de Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). U kunt het taalmodel aanpassen door aanpassing van woordenlijsten tekst, namelijk de tekst uit het domein waarvan u wilt dat de engine om aan te passen voor uploaden. Nadat u uw model te trainen, nieuwe woorden die voorkomen in de aanpassing van woordenlijsten tekst wordt herkend, ervan uitgaande dat het standaard uitspraak van, en het taalmodel leert nieuwe waarschijnlijk reeksen woorden. Aangepaste taalmodellen worden ondersteund voor Engels, Spaans, Frans, Duits, Italiaans, Chinees (Vereenvoudigd), Japans, Russisch, Portugees (Brazilië), Hindi en Koreaans. 
 
 We gaan een woord dat is zeer specifieke, zoals 'Kubernetes' (in de context van Azure Kubernetes service), als voorbeeld. Omdat het woord nieuw in Video Indexer is, deze wordt herkend als 'community's '. U moet het model voor het herkennen van deze als 'Kubernetes' te trainen. In andere gevallen de woorden bestaan, maar ze worden weergegeven in een bepaalde context wordt niet verwacht door het taalmodel. Bijvoorbeeld is 'containerservice' niet een 2-woordvolgorde op die een niet-specifieke taalmodel als een bepaalde reeks woorden herkennen zou.
 

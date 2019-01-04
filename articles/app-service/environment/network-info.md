@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271008"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630458"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Aandachtspunten voor netwerken voor een App Service Environment #
 
@@ -131,7 +131,7 @@ Als uw ILB as-omgeving de domeinnaam *contoso.net* en de appnaam van uw is *test
 
 ## <a name="functions-and-web-jobs"></a>Functions en webjobs ##
 
-Zowel Functions als Web taken zijn afhankelijk van de SCM-site, maar worden ondersteund voor gebruik in de portal, zelfs als uw apps in een ILB as-omgeving, zo lang uw browser de SCM-site kunt bereiken.  Als u van een zelfondertekend certificaat met uw ILB as-omgeving gebruikmaakt, moet u uw browser naar het certificaat vertrouwd inschakelen.  Is in het computerarchief van de vertrouwensrelatie voor Internet Explorer en Microsoft Edge dat betekent het certificaat dat.  Als u met chrome werkt en dat betekent dat u het certificaat in de browser eerder geaccepteerd dat door waarschijnlijk te maken met de scm-site rechtstreeks.  De beste oplossing is het gebruik van een commercieel certificaat in de vertrouwensketen van de browser.  
+Zowel Functions als Web taken zijn afhankelijk van de SCM-site, maar worden ondersteund voor gebruik in de portal, zelfs als uw apps in een ILB as-omgeving, zo lang uw browser de SCM-site kunt bereiken.  Als u van een zelfondertekend certificaat met uw ILB as-omgeving gebruikmaakt, moet u uw browser naar het certificaat vertrouwd inschakelen.  Is in het computerarchief van de vertrouwensrelatie voor Internet Explorer en Edge dat betekent het certificaat dat.  Als u met chrome werkt en dat betekent dat u het certificaat in de browser eerder geaccepteerd dat door waarschijnlijk te maken met de scm-site rechtstreeks.  De beste oplossing is het gebruik van een commercieel certificaat in de vertrouwensketen van de browser.  
 
 ## <a name="ase-ip-addresses"></a>ASE-IP-adressen ##
 
@@ -151,7 +151,7 @@ Deze IP-adressen zijn eenvoudig zichtbaar zijn in een ASEv2 in Azure portal vanu
 
 ### <a name="app-assigned-ip-addresses"></a>App-toegewezen IP-adressen ###
 
-Met een externe as-omgeving, kunt u IP-adressen toewijzen aan afzonderlijke apps. U kunt geen dat doen met een ILB as-omgeving. Zie voor meer informatie over het configureren van uw app een eigen IP-adres hebben [een bestaand aangepast SSL-certificaat binden aan Azure WebApps](../app-service-web-tutorial-custom-ssl.md).
+Met een externe as-omgeving, kunt u IP-adressen toewijzen aan afzonderlijke apps. U kunt geen dat doen met een ILB as-omgeving. Zie voor meer informatie over het configureren van uw app een eigen IP-adres hebben [een bestaand aangepast SSL-certificaat binden aan Azure App Service](../app-service-web-tutorial-custom-ssl.md).
 
 Wanneer een app een eigen SSL op basis van IP-adres heeft, behoudt de as-omgeving zich twee poorten toe te wijzen aan dat IP-adres. Een poort is voor de HTTP-verkeer, en de andere poort voor HTTPS. Deze poorten worden vermeld in de gebruikersinterface van de as-omgeving in het gedeelte van de IP-adressen. Verkeer moeten kunnen deze poorten van de VIP bereiken of de apps zijn niet toegankelijk. Deze vereiste is belangrijk te weten wanneer u Netwerkbeveiligingsgroepen (nsg's) configureren.
 

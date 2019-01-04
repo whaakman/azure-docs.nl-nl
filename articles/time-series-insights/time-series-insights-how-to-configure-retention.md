@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights-configuratie - retentie configureren in uw Azure Time Series Insights-omgeving | Microsoft Docs
+title: Bewaren configureren in uw Azure Time Series Insights-omgeving | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u bewaren in uw Azure Time Series Insights-omgeving configureren.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2822f99b950a2adca5e097cfa937b7fd68e04a3e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7c45b0581a03e280c7dbd6d998059f1e4bff5345
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277910"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556047"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuratie van de bewaartermijn in Time Series Insights
 In dit artikel wordt beschreven hoe u **gegevensretentietijd** en **-limiet voor opslag overschreden gedrag** in Azure Time Series Insights.

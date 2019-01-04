@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165336"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790891"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichten
 
@@ -30,7 +30,7 @@ Wanneer een producent een bericht via een wachtrij verzendt, gebeurt het meestal
 Microsoft Azure Service Bus-berichten, is de nettolading van eigenschappen die producenten en consumenten gebruiken moeten om door te geven van dergelijke trace-context gedefinieerd.
 Het protocol is gebaseerd op de [correlatie van HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| De naam van eigenschap        | Beschrijving                                                 |
+| Naam van eigenschap        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnose-Id       | De unieke id van een externe aanroep van producent naar de wachtrij. Raadpleeg [Request-Id in de HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) voor logica, overwegingen en indeling |
 |  Correlatie-Context | De bewerkingscontext, die wordt doorgegeven in alle services die betrokken zijn bij de bewerking wordt verwerkt. Zie voor meer informatie, [correlatie-Context in HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
@@ -45,9 +45,9 @@ De instrumentatie kunt bijhouden van alle aanroepen naar de Service Bus messagin
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) biedt uitgebreide mogelijkheden, waaronder automagical aanvraag en bijhouden van afhankelijkheid voor prestatiebewaking.
 
 Afhankelijk van het projecttype van uw, Application Insights SDK te installeren:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) -versie 2.5 beta2 installeren of hoger
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) -installatie van versie 2.2.0-beta2 of hoger.
-Deze koppelingen vindt u informatie over het installeren van de SDK, het maken van resources en SDK configureren (indien nodig). Raadpleeg voor niet-ASP.NET-toepassingen, [Azure Application Insights voor consoletoepassingen](../application-insights/application-insights-console.md) artikel.
+- [ASP.NET](../azure-monitor/app/asp-net.md) -versie 2.5 beta2 installeren of hoger
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) -installatie van versie 2.2.0-beta2 of hoger.
+Deze koppelingen vindt u informatie over het installeren van de SDK, het maken van resources en SDK configureren (indien nodig). Raadpleeg voor niet-ASP.NET-toepassingen, [Azure Application Insights voor consoletoepassingen](../azure-monitor/app/console.md) artikel.
 
 Als u [bericht handler patroon](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) voor het verwerken van berichten, bent u klaar: alle Service Bus-aanroepen uitgevoerd door uw service automatisch worden bijgehouden en verband houden met de andere telemetrie-items. Anders raadpleegt u het volgende voorbeeld voor handmatige berichtverwerking bijhouden.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 In dit voorbeeld `RequestTelemetry` voor elk verwerkte bericht wordt een tijdstempel, duur en het resultaat (geslaagd) gerapporteerd. De telemetrische gegevens is ook een set eigenschappen correlatie.
 Geneste traces en uitzonderingen gemeld tijdens de verwerking van berichten zijn ook een factureringslabel voor correlatie-eigenschappen die ze als 'kinderen' van de `RequestTelemetry`.
 
-In het geval u aanroepen van ondersteunde externe onderdelen tijdens de verwerking van berichten aanbrengt, worden ze ook automatisch bijgehouden en gecorreleerde. Raadpleeg [aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../application-insights/application-insights-custom-operations-tracking.md) voor het handmatig bijhouden en correlatie.
+In het geval u aanroepen van ondersteunde externe onderdelen tijdens de verwerking van berichten aanbrengt, worden ze ook automatisch bijgehouden en gecorreleerde. Raadpleeg [aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../azure-monitor/app/custom-operations-tracking.md) voor het handmatig bijhouden en correlatie.
 
 ### <a name="tracking-without-tracing-system"></a>Bijhouden zonder traceringssysteem
 Als uw traceringssysteem biedt geen ondersteuning voor automatische Service Bus aanroepen bijhouden wordt u op zoek naar dergelijke ondersteuning in een traceringssysteem of in uw toepassing toe te voegen. Deze sectie beschrijft diagnostische gebeurtenissen die door Service Bus .NET-client worden verzonden.  
@@ -141,7 +141,7 @@ In dit voorbeeld registreert listener duur, resultaat, unieke id en de begintijd
 
 #### <a name="events"></a>Gebeurtenissen
 
-Voor elke bewerking, twee gebeurtenissen worden verzonden: 'Start' en 'Stop'. U bent waarschijnlijk, alleen geïnteresseerd in 'Stop'-gebeurtenissen. Ze geven het resultaat van bewerking, evenals begintijd en duur als de activiteitseigenschappen van een.
+Voor elke bewerking, worden twee gebeurtenissen verzonden: 'Start' en 'Stop'. U bent waarschijnlijk, alleen geïnteresseerd in 'Stop'-gebeurtenissen. Ze geven het resultaat van bewerking, evenals begintijd en duur als de activiteitseigenschappen van een.
 
 Nettolading biedt een listener met de context van de bewerking, het binnenkomende API-parameters worden gerepliceerd en waarde retourneren. Nettolading 'Stop' heeft de eigenschappen van nettolading 'Start', zodat u kunt de gebeurtenis 'Start' volledig negeren.
 
@@ -227,6 +227,6 @@ In de aanwezigheid van meerdere `DiagnosticSource` listeners voor dezelfde bron,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Application Insights correlatie](../application-insights/application-insights-correlation.md)
-* [Application Insights-afhankelijkheden controleren](../application-insights/app-insights-asp-net-dependencies.md) om te zien als REST, SQL of andere externe resources zorgen voor vertraging.
-* [Aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../application-insights/application-insights-custom-operations-tracking.md)
+* [Application Insights correlatie](../azure-monitor/app/correlation.md)
+* [Application Insights-afhankelijkheden controleren](../azure-monitor/app/asp-net-dependencies.md) om te zien als REST, SQL of andere externe resources zorgen voor vertraging.
+* [Aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../azure-monitor/app/custom-operations-tracking.md)

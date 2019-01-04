@@ -1,46 +1,37 @@
 ---
-title: 'Zelfstudie: Een web-app met één pagina bouwen - Bing Visual Search'
+title: " Bouw een Web-app van één pagina - Bing visuele zoekopdrachten"
 titleSuffix: Azure Cognitive Services
-description: Laat zien hoe u de Bing Visual Search-API kunt gebruiken in een webtoepassing met één pagina.
+description: Informatie over het integreren van de Bing visuele zoekopdrachten-API in een Web-App van één pagina.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: tutorial
+ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 8ff5e36e6189c522e00c7cdd126c26b1cef92912
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443887"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745139"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Zelfstudie: Visual Search-web-app met één pagina
+# <a name="create-a-visual-search-single-page-web-app"></a>Een visuele zoekopdrachten één pagina web-app maken 
 
 Bing Visual Search-API biedt een ervaring die lijkt op de afbeeldingsdetails die worden getoond op Bing.com/images. Met Visual Search kunt u een afbeelding opgeven en inzichten over de afbeelding terugkrijgen, zoals visueel vergelijkbare afbeeldingen, winkelbronnen, webpagina's met de afbeelding en meer. 
 
-Voor deze zelfstudie moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+In dit artikel wordt uitgelegd hoe u een één pagina WebApp voor de Bing afbeeldingen zoeken-API uit te breiden. Als u wilt weergeven die zelfstudie of haal de broncode hier gebruikt, Zie [zelfstudie: Een app met één pagina maken voor de Bing afbeeldingen zoeken-API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 
-Zo start u een abonnement in de Azure-portal:
-1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
-2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
-3. Voer `Name` in voor de nieuwe resource.
-4. Selecteer `Pay-As-You-Go`-abonnement.
-5. Selecteer prijscategorie `S9`.
-6. Klik op `Enable` om het abonnement te starten.
+De volledige broncode voor deze toepassing (na het uitbreiden van het gebruik van de Bing visuele zoekopdrachten-API), is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-Deze zelfstudie breidt de web-app met één pagina van de Bing Image Search-zelfstudie uit (zie [Web-app met één pagina](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Zie [Web-app met één pagina (broncode)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md) voor de volledige broncode om deze zelfstudie te starten. Zie [Visual Search-web-app met één pagina](tutorial-bing-visual-search-single-page-app-source.md) voor de uiteindelijke broncode van deze zelfstudie.
+## <a name="prerequisites"></a>Vereisten
 
-De behandelde taken zijn:
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-> [!div class="checklist"]
-> * Bing Visual Search-API aanroepen met een afbeeldingsinzichttoken
-> * Vergelijkbare afbeeldingen weergeven
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>De Bing visuele zoekopdrachten-API aanroepen en de verwerking van het antwoord
 
-## <a name="call-bing-visual-search"></a>Bing Visual Search aanroepen
-Bewerk de Bing Image Search zelfstudie en voeg de volgende code toe aan het einde van het scriptelement op regel 409. Deze code roept de Bing Visual Search API aan en geeft de resultaten weer.
+De Bing afbeeldingen zoeken-zelfstudie bewerken en voeg de volgende code toe aan het einde van de `<script>` element (en voordat de afsluiting `</script>` tag). De volgende code een visuele zoekopdrachten-reactie van de API worden verwerkt, doorloopt de resultaten en geeft deze weer.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -70,7 +61,12 @@ function handleVisualSearchResponse(){
         }
     }
 }
+```
 
+De volgende code verzendt een zoekaanvraag naar de API met behulp van een gebeurtenislistener om aan te roepen `handleVisualSearchResponse()`.
+
+
+```javascript
 function bingVisualSearch(insightsToken){
     let visualSearchBaseURL = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch',
         boundary = 'boundary_ABC123DEF456',
@@ -105,13 +101,15 @@ function bingVisualSearch(insightsToken){
 ```
 
 ## <a name="capture-insights-token"></a>Inzichttoken vastleggen
-Voeg de volgende code toe aan het `searchItemsRenderer`-object op regel 151. Deze code voegt de koppeling **find similar** toe (vergelijkbare zoeken) die de `bingVisualSearch`-functie aanroept wanneer erop wordt geklikt. De functie ontvangt imageInsightsToken als argument.
+
+Voeg de volgende code in de `searchItemsRenderer` object. Deze code voegt de koppeling **find similar** toe (vergelijkbare zoeken) die de `bingVisualSearch`-functie aanroept wanneer erop wordt geklikt. De functie ontvangt imageInsightsToken als argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
 ## <a name="display-similar-images"></a>Vergelijkbare afbeeldingen weergeven
+
 Voeg de volgende HTML-code toe op regel 601. Deze code voegt een element toe dat wordt gebruikt om de resultaten van de Bing Visual Search-API-aanroep weer te geven.
 
 ``` html
@@ -126,5 +124,4 @@ Met alle nieuwe JavaScript-code en HTML-elementen op hun plaats, worden zoekresu
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Broncode van de Visual Search-web-app van één pagina](tutorial-bing-visual-search-single-page-app-source.md)
-> [Naslaginformatie over Bing Visual Search-API](https://aka.ms/bingvisualsearchreferencedoc)
+> [Bijsnijden en upload een afbeelding](tutorial-visual-search-crop-area-results.md)

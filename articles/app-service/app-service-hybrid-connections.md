@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258012"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653387"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybride verbindingen van Azure App Service #
 
@@ -177,7 +177,7 @@ Er zijn periodieke updates naar de Hybrid Connection Manager oplossen van proble
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Een hybride verbinding toevoegen via een programma aan uw app ##
 
-De API's zoals hieronder vermeld kan rechtstreeks naar het beheren van de hybride verbindingen die zijn verbonden met uw web-apps worden gebruikt. 
+De API's zoals hieronder vermeld kan rechtstreeks naar het beheren van de hybride verbindingen die zijn verbonden met uw apps worden gebruikt. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -198,7 +198,7 @@ Het JSON-object dat is gekoppeld aan een hybride verbinding ziet eruit zoals:
       }
     }
 
-Een manier om deze informatie te gebruiken, is met de armclient, die u kunt ophalen uit de [ARMClient] [ armclient] GitHub-project. Hier volgt een voorbeeld van een bestaande hybride verbinding toevoegen aan uw web-app. Maak een JSON-bestand per het bovenstaande schema, zoals:
+Een manier om deze informatie te gebruiken, is met de armclient, die u kunt ophalen uit de [ARMClient] [ armclient] GitHub-project. Hier volgt een voorbeeld van een bestaande hybride verbinding toevoegen aan uw app. Maak een JSON-bestand per het bovenstaande schema, zoals:
 
     {
       "name": "relay-demo-hc",
@@ -230,7 +230,7 @@ In App Service, kan het hulpprogramma tcpping worden aangeroepen vanuit de conso
 
 ## <a name="biztalk-hybrid-connections"></a>Hybrid Connections van BizTalk ##
 
-De vroege vorm van deze functie is aangeroepen BizTalk Hybrid Connections. Deze mogelijkheid einde van de levenscyclus is een fout op 31 mei 2018 en beëindiging van bewerkingen. Hybrid connections van BizTalk is verwijderd uit alle web-apps en zijn niet toegankelijk zijn via de portal of de API. Als u nog steeds deze oudere verbindingen die zijn geconfigureerd in de Hybrid Connection Manager hebt, wordt u ziet een status van stopgezet en weergeven van een instructie einde levenscyclus onder.
+De vroege vorm van deze functie is aangeroepen BizTalk Hybrid Connections. Deze mogelijkheid einde van de levenscyclus is een fout op 31 mei 2018 en beëindiging van bewerkingen. Hybrid connections van BizTalk is verwijderd uit alle apps en zijn niet toegankelijk zijn via de portal of de API. Als u nog steeds deze oudere verbindingen die zijn geconfigureerd in de Hybrid Connection Manager hebt, wordt u ziet een status van stopgezet en weergeven van een instructie einde levenscyclus onder.
 
 ![BizTalk hybride verbindingen in de HCM][12]
 

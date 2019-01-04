@@ -2,20 +2,17 @@
 title: Oplossen van verbindingsproblemen met Azure Database voor MariaDB | Microsoft Docs
 description: Informatie over het oplossen van verbindingsproblemen met Azure Database voor MariaDB.
 keywords: mariadb-verbinding, verbindingsreeks, problemen met de netwerkverbinding, tijdelijke fout, -verbindingsfout
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 0100fa6d9691c864de9ac4aaea04b647e1705872
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c7e1ff10f9698bf57ce86a7e9686ef13e5248db7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565136"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545906"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Oplossen van verbindingsproblemen met Azure Database voor MariaDB
 
@@ -49,9 +46,9 @@ Tijdelijke fouten optreden bij het onderhoud is uitgevoerd, het systeem er een f
 
 Als de toepassing niet permanent verbinding maken met Azure Database voor MariaDB, duidt dit meestal op een probleem met een van de volgende:
 
-* Firewall-configuratie: de Azure Database voor MariaDB-server of client-side-firewall wordt geblokkeerd door verbindingen.
-* Herconfiguratie van netwerken op de client: een nieuw IP-adres of een proxy-server is toegevoegd.
-* Gebruikersfout: bijvoorbeeld, u hebt misschien verbindingsparameters, zoals de naam van de server in de verbindingsreeks of een ontbrekend *@servername* -achtervoegsel in de naam van de gebruiker.
+* Firewallconfiguratie: De Azure Database voor MariaDB-server of client-side-firewall wordt geblokkeerd door verbindingen.
+* Herconfiguratie van netwerk op de client: Een nieuw IP-adres of een proxy-server is toegevoegd.
+* Gebruikersfout: Bijvoorbeeld, u hebt misschien verbindingsparameters, zoals de naam van de server in de verbindingsreeks of een ontbrekend *@servername* -achtervoegsel in de naam van de gebruiker.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Stappen voor het oplossen van problemen met de permanente netwerkverbinding
 

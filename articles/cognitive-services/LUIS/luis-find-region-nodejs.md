@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4d14569219c8db503fc91f52a6867de85373aa05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166214"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724382"
 ---
-# <a name="find-endpoint-region-with-nodejs"></a>Eindpunt-gebied met behulp van Node.js zoeken
+# <a name="programmatically-find-endpoint-region-with-nodejs"></a>Eindpunt-gebied met behulp van Node.js via een programma zoeken
 Als u de LUIS-app-ID en de LUIS abonnements-ID hebt, kunt u welke regio u moet gebruiken voor eindpunt query's kunt vinden.
 
 > [!NOTE] 
-> De volledige Node.js-oplossing is beschikbaar via de [ **LUIS-Samples** GitHub-opslagplaats](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> De volledige Node.js-oplossing is beschikbaar via de [ **Azure-Samples** GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS-eindpunt querystrategie
 Elke query LUIS-eindpunt is vereist:

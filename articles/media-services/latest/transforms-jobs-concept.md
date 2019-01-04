@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: e13afe26d06f5b5b2dcf7eddf00f9ee481312b2c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95079813cf3ade41d17393168116e4767ca26e99
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024253"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742776"
 ---
 # <a name="transforms-and-jobs"></a>Transformaties en taken
  
-Azure Media Services v3 introduceert een nieuwe resource sjablonen werkstroom voor een recept die u gebruiken om te coderen en/of het analyseren van uw video's wilt, met de naam [transformeert](https://docs.microsoft.com/rest/api/media/transforms). **Transformeert** kan worden gebruikt voor het configureren van algemene taken voor het coderen of video's analyseren. Elke **transformeren** beschrijft een recept of een workflow van taken voor het verwerken van uw video- of audio-bestanden. 
+Gebruik [transformeert](https://docs.microsoft.com/rest/api/media/transforms) het configureren van algemene taken voor het coderen of video's analyseren. Elke **transformeren** beschrijft een recept of een workflow van taken voor het verwerken van uw video- of audio-bestanden. 
 
-Een **taak** is van de werkelijke aanvraag voor Azure Media Services om toe te passen de **transformeren** aan een bepaalde invoer video of audio-inhoud. De **taak** bevat informatie zoals de locatie van de video-invoer en de locatie voor de uitvoer. U kunt de locatie van uw video met invoer opgeven: HTTPs-URL's, SAS-URL's of [Media Services-activa](https://docs.microsoft.com/rest/api/media/assets).  
+Een [taak](https://docs.microsoft.com/rest/api/media/jobs) is van de werkelijke aanvraag voor Azure Media Services om toe te passen de **transformeren** aan een bepaalde invoer video of audio-inhoud. De **taak** bevat informatie zoals de locatie van de video-invoer en de locatie voor de uitvoer. U kunt de locatie van uw video met invoer opgeven: HTTPS-URL's, SAS-URL's of [Media Services-activa](https://docs.microsoft.com/rest/api/media/assets).  
 
 ## <a name="typical-workflow"></a>Standaardwerkstroom
 
@@ -48,7 +48,7 @@ In Media Services-account met behulp van de API v3 rechtstreeks of via een van d
 
 De volgende tabel ziet u de eigenschappen van de transformatie en biedt de definities.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |Id|Volledig gekwalificeerde resource-ID voor de resource.|
 |naam|De naam van de resource.|
@@ -73,7 +73,7 @@ Zodra een transformatie is gemaakt, kunt u taken met behulp van Media Services-A
 
 De volgende tabel ziet u de eigenschappen van de taken en geeft de definities.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Volledig gekwalificeerde resource-ID voor de resource.|
 |naam   |De naam van de resource.|

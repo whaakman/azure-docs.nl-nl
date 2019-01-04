@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970702"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628490"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault
 
@@ -32,7 +32,9 @@ Waarom uw eigen sleutels maken? Aangepaste sleutels biedt u meer flexibiliteit, 
 
 Als u wilt gebruiken door de klant beheerde sleutels met SSE, kunt u een nieuwe sleutelkluis maken en sleutel of u een bestaande sleutelkluis en de sleutel kunt gebruiken. Het opslagaccount en de key vault moeten zich in dezelfde regio, maar ze kunnen zich in verschillende abonnementen.
 
-### <a name="step-1-create-a-storage-account"></a>Stap 1: Een storage-account maken
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="step-1-create-a-storage-account"></a>Stap 1: Create a storage account
 
 Maak eerst een storage-account als u er nog geen hebt. Zie [Een opslagaccount maken](storage-quickstart-create-account.md) voor meer informatie.
 
@@ -45,7 +47,7 @@ Als u inschakelen via een programma door de klant beheerde sleutels voor SSE wil
 Als u wilt gebruiken door de klant beheerde sleutels met SSE, moet u de identiteit van een storage-account toewijzen aan de storage-account. U kunt de identiteit instellen door het uitvoeren van de volgende PowerShell of Azure CLI-opdracht:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 U kunt voorlopig verwijderen en kan niet opschonen inschakelen door het uitvoeren van de volgende PowerShell of Azure CLI-opdrachten:
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -89,7 +91,7 @@ SSE maakt standaard gebruik van Microsoft beheerde sleutels. U kunt SSE inschake
 
 ![Versleutelingsoptie Portal schermopname](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
-### <a name="step-4-select-your-key"></a>Stap 4: Uw sleutel selecteren
+### <a name="step-4-select-your-key"></a>Stap 4: Selecteer de sleutel
 
 U kunt uw sleutel opgeven als een URI of door het selecteren van de sleutel in een key vault.
 
@@ -121,11 +123,11 @@ U kunt ook toegang via Azure portal door te navigeren naar de Azure Key Vault in
 U kunt de bovenstaande sleutel koppelen aan een bestaand opslagaccount met behulp van de volgende PowerShell-opdrachten:
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Stap 5: Gegevens kopiëren naar storage-account
@@ -154,7 +156,7 @@ Storage-Serviceversleuteling is beschikbaar voor Azure Managed Disks met door Mi
 Azure Disk Encryption biedt integratie tussen OS gebaseerde oplossingen, zoals BitLocker en DM-Crypt en Azure Key Vault. Storage Service-versleuteling biedt versleuteling standaard op de laag van een Azure storage-platform, onder de virtuele machine.
 
 **Kan ik toegang tot de versleutelingssleutels intrekken?**
-Ja, kunt u de toegang op elk gewenst moment intrekken. Er zijn verschillende manieren toegang tot uw sleutels te trekken. Raadpleeg [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) en [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) voor meer informatie. De toegang blokkeren wordt toegang tot alle blobs in de storage-account effectief geblokkeerd als de sleutel voor het account niet toegankelijk door Azure Storage is.
+Ja, kunt u de toegang op elk gewenst moment intrekken. Er zijn verschillende manieren toegang tot uw sleutels te trekken. Raadpleeg [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) en [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) voor meer informatie. De toegang blokkeren wordt toegang tot alle blobs in de storage-account effectief geblokkeerd als de sleutel voor het account niet toegankelijk door Azure Storage is.
 
 **Kan ik een storage-account en een sleutel maken in verschillende regio's?**  
 Nee, het opslagaccount en de Azure Key Vault en de sleutel moeten zich in dezelfde regio bevinden.

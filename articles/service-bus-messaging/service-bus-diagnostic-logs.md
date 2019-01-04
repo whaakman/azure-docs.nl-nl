@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 85bbd59cb921e5f20feb7b1cf1073fd7b695864f
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7f50d6f6417764a20125f85398dd9cbf93f3a4a1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393567"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542107"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Diagnostische logboeken van Service Bus
 
 U kunt twee typen logboeken voor Azure Service Bus weergeven:
-* **[Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Deze logboeken bevatten informatie over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
-* **[Diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. U kunt diagnostische logboeken voor uitgebreidere informatie over alles wat er gebeurt in een taak configureren. Diagnostische logboeken voor activiteiten vanaf het moment dat de taak is gemaakt totdat de taak wordt verwijderd, met inbegrip van updates en activiteiten die plaatsvinden terwijl de taak wordt uitgevoerd.
+* **[Activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md)**. Deze logboeken bevatten informatie over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
+* **[Diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md)**. U kunt diagnostische logboeken voor uitgebreidere informatie over alles wat er gebeurt in een taak configureren. Diagnostische logboeken voor activiteiten vanaf het moment dat de taak is gemaakt totdat de taak wordt verwijderd, met inbegrip van updates en activiteiten die plaatsvinden terwijl de taak wordt uitgevoerd.
 
 ## <a name="turn-on-diagnostic-logs"></a>Logboeken met diagnostische gegevens inschakelen
 
@@ -52,7 +52,7 @@ Diagnostische logboeken zijn standaard uitgeschakeld. Om in te schakelen logboek
 
 Nieuwe instellingen van kracht in ongeveer 10 minuten. Hierna logboeken worden weergegeven in de geconfigureerde archivering doel, op de **diagnoselogboeken** blade.
 
-Zie voor meer informatie over het configureren van diagnostische gegevens over de [overzicht van diagnostische logboeken in Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Zie voor meer informatie over het configureren van diagnostische gegevens over de [overzicht van diagnostische logboeken in Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Diagnostische logboeken schema
 
@@ -64,7 +64,7 @@ Registreert in de **OperationalLogs** categorie leggen wat er gebeurt tijdens de
 
 Operationeel logboek van JSON-tekenreeksen zijn onder andere elementen die worden vermeld in de volgende tabel:
 
-Naam | Beschrijving
+Name | Description
 ------- | -------
 ActivityId | Interne ID, die wordt gebruikt voor het bijhouden
 EventName | Naam van bewerking           

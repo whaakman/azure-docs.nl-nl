@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3fb68370f9b26aacc33d0e2e6090fe819010f468
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285009"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582300"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor waarschuwingen voor activiteitenlogboeken van Azure
 U kunt webhook-eindpunten voor het ontvangen van waarschuwingsmeldingen voor activiteit log configureren als onderdeel van de definitie van een actiegroep. Met webhooks, kunt u deze meldingen doorsturen naar andere systemen voor na verwerking of aangepaste acties. Dit artikel leest hoe de nettolading voor de HTTP POST naar een webhook eruitziet.
@@ -161,9 +161,9 @@ De JSON-nettolading die is opgenomen in de POST-bewerking afhankelijk van de net
 }
 ```
 
-Zie voor specifieke schema-informatie over service health melding activiteitenlogboekalarmen, [health servicemeldingen](../../monitoring-and-diagnostics/monitoring-service-notifications.md). Bovendien leert hoe u [service health webhook-meldingen configureren met uw bestaande oplossingen voor probleem](../../service-health/service-health-alert-webhook-guide.md).
+Zie voor specifieke schema-informatie over service health melding activiteitenlogboekalarmen, [health servicemeldingen](../../azure-monitor/platform/service-notifications.md). Bovendien leert hoe u [service health webhook-meldingen configureren met uw bestaande oplossingen voor probleem](../../service-health/service-health-alert-webhook-guide.md).
 
-Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboekalarmen, [overzicht van de Azure-activiteitenlogboek](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboekalarmen, [overzicht van de Azure-activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md).
 
 | De naam van element | Description |
 | --- | --- |
@@ -196,7 +196,7 @@ Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboek
 | subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Er kan ook andere tekenreeksen die een substatus beschrijven bevatten. Algemene substatus waarden zijn OK (HTTP-statuscode: 200), die zijn gemaakt (HTTP-statuscode: 201), geaccepteerd (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), onjuiste aanvraag (HTTP-statuscode: 400), niet gevonden (HTTP-statuscode: 404), conflict (HTTP-statuscode: 409), een interne serverfout (HTTP-statuscode: 500), Service is niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode: 504). |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over het activiteitenlogboek](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+* [Meer informatie over het activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md).
 * [Azure automation-scripts (Runbooks) uit te voeren op Azure-waarschuwingen](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.
 * [Een logische app gebruiken op een Slack-bericht verzenden vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.

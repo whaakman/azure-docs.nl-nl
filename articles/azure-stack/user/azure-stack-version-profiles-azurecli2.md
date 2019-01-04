@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 12/06/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969954"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726609"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -128,7 +128,6 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. Om u te registreren de *gebruiker* omgeving gebruiken:
 
       ```azurecli
@@ -151,9 +150,22 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. Gebruik het volgende als u voor het registreren van de gebruiker in een AD FS-omgeving:
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. De actieve omgeving instellen met behulp van de volgende opdrachten.
-
+   
    a. Voor de *cloud administratieve* omgeving gebruiken:
 
       ```azurecli
@@ -180,7 +192,7 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
 1. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-    * AAD-omgevingen
+    * Azure AD-omgevingen
       * Meld u aan als een *gebruiker*: U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft.
 
       ```azurecli
@@ -192,9 +204,9 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
       > [!NOTE]
       > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login command` zonder op te geven de `-u` parameter. Met de opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
    
-      * Meld u aan als een *service-principal*: voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
+      * Meld u aan als een *service-principal*: Voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
@@ -203,20 +215,33 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
       ```
     * AD FS-omgevingen
 
-        * Meld u aan als een *service-principal*: 
-          1.    Bereid het .pem-bestand moet worden gebruikt voor service-principal-aanmelding.
-                * Op de clientcomputer waar de principal is gemaakt, de service principal-certificaat exporteren als een pfx met de persoonlijke sleutel (te vinden op het cert: \CurrentUser\My; de naam van het certificaat heeft dezelfde naam als de principal).
+        * Meld u aan als een gebruiker via een webbrowser:  
+              ```azurecli  
+              az login
+              ```
+        * Meld u aan als een gebruiker via een webbrowser met de apparaatcode van een:  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >Met de opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
 
-                *   De pfx naar pem (gebruik OpenSSL Utility) converteren.
+        * Meld u aan als een service-principal:
+        
+          1. Bereid het .pem-bestand moet worden gebruikt voor service-principal-aanmelding.
 
-          1.    Meld u aan bij de CLI. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * Op de clientcomputer waar de principal is gemaakt, de service principal-certificaat exporteren als een pfx met de persoonlijke sleutel (dat zich bevindt in `cert:\CurrentUser\My;` de naam van het certificaat heeft dezelfde naam als de principal).
+        
+            * De pfx naar pem (gebruik OpenSSL Utility) converteren.
+
+          2.  Meld u aan bij de CLI:
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>De connectiviteit testen
 

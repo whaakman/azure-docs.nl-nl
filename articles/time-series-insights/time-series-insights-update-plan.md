@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Preview planning - uw Azure Time Series Insights Preview-omgeving plannen | Microsoft Docs
+title: Uw Azure Time Series Insights Preview-omgeving plannen | Microsoft Docs
 description: Uw Azure Time Series Insights Preview-omgeving plannen.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1df4847f20329e924352adfe782faa43d10dde98
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277043"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556081"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Uw Azure Time Series Insights Preview-omgeving plannen
 
@@ -117,5 +117,5 @@ Volg deze stappen voor het maken en gebruiken van een secundaire Time Series Ins
 
 Lees voor meer informatie over:
 
-- [Azure Time Series Insights Preview opslag en inkomend](./time-series-insights-update-storage-ingress.md)
+- [Azure Time Series Insights Preview-opslag en -opname](./time-series-insights-update-storage-ingress.md)
 - [Gegevens modelleren](./time-series-insights-update-tsm.md)

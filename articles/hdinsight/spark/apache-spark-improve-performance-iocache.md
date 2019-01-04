@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581932"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608491"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Prestaties van Apache Spark-workloads met Azure HDInsight i/o-Cache (Preview)
 
@@ -20,7 +20,7 @@ I/o-Cache is een service voor Azure HDInsight, waardoor de prestaties van Apache
 
 De meeste SSD's bieden meer dan 1 GB per seconde van de bandbreedte. Deze bandbreedte, aangevuld met de besturingssysteem-bestand in-memory-cache, biedt voldoende bandbreedte voor het laden van big compute verwerking gegevensengines, zoals Apache Spark. Het operationele geheugen is beschikbaar voor Apache Spark voor het verwerken van veel geheugen-afhankelijke taken, zoals shuffles van links. Exclusief gebruik van het besturingssysteem van geheugen met kunt Apache Spark voor optimaal Resourcegebruik.  
 
->[!Note]
+>[!Note]  
 >I/o-Cache gebruikt momenteel RubiX als onderdeel van een cache, maar dit kan veranderen in toekomstige versies van de service. Gebruik van i/o-Cache-interfaces en eventuele afhankelijkheden rechtstreeks op de implementatie RubiX niet uitvoeren.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Voordelen van Azure HDInsight i/o-Cache
@@ -45,7 +45,7 @@ Azure HDInsight i/o-Cache is standaard ingeschakeld in de Preview-versie gedeact
 
 1. Controleer of de betrokken services op het cluster opnieuw gestart.
 
->[!NOTE] 
+>[!NOTE]  
 > Hoewel de voortgangsbalk geactiveerd wordt, wordt niet daadwerkelijk i/o-Cache ingeschakeld totdat u de betrokken services opnieuw starten.
 
 ## <a name="troubleshooting"></a>Problemen oplossen

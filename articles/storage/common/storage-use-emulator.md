@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 22c7adc5db044568b4aa49dbbb0e36d2c919f6a6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052540"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629622"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkelen en testen
 
@@ -88,21 +88,24 @@ Nadat u hebt geïnstalleerd en de opslagemulator is gestart, kunt u uw code voor
 Zie voor meer informatie over verbindingsreeksen [configureren van Azure Storage-verbindingsreeksen](../storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Autoriseren met een shared access signature
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Sommige Azure storage-clientbibliotheken, zoals de Xamarin-clientbibliotheek is alleen ondersteuning voor verificatie met een token shared access signature (SAS). U kunt het SAS-token met behulp van een hulpprogramma zoals maken de [Opslagverkenner](http://storageexplorer.com/) of een andere toepassing die ondersteuning biedt voor verificatie met gedeelde sleutel.
 
 U kunt ook een SAS-token genereren met behulp van Azure PowerShell. Het volgende voorbeeld wordt een SAS-token met volledige machtigingen voor een blob-container gegenereerd:
 
-1. Installeer Azure PowerShell als u dit nog (met behulp van de meest recente versie van de Azure PowerShell cmdlets wordt aanbevolen). Zie voor installatie-instructies [installeren en configureren van Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Installeer Azure PowerShell als u dit nog (met behulp van de meest recente versie van de Azure PowerShell cmdlets wordt aanbevolen). Zie voor installatie-instructies [installeren en configureren van Azure PowerShell](/powershell/azure/install-Az-ps).
 2. Open Azure PowerShell en voer de volgende opdrachten, vervangen `CONTAINER_NAME` met een naam van uw keuze:
 
 ```powershell
-$context = New-AzureStorageContext -Local
+$context = New-AzStorageContext -Local
 
-New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+New-AzStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
 $now = Get-Date
 
-New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
 De resulterende shared access signature URI voor de nieuwe container zijn vergelijkbaar met:
@@ -164,13 +167,13 @@ Versie 3.0 vanaf biedt wordt een consolevenster weergegeven wanneer u de Opslage
 ### <a name="options"></a>Opties
 Typ `/help` bij de opdrachtprompt om een lijst met opties te zien.
 
-| Optie | Beschrijving | Opdracht | Argumenten |
+| Optie | Description | Opdracht | Argumenten |
 | --- | --- | --- | --- |
 | **Beginnen** |De opslagemulator wordt gestart. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start de emulator in het huidige proces in plaats van een nieuw proces maken. |
 | **Stoppen** |Hiermee stopt u de opslagemulator. |`AzureStorageEmulator.exe stop` | |
 | **Status** |De status van de opslagemulator af te drukken. |`AzureStorageEmulator.exe status` | |
-| **Wissen** |Hiermee schakelt u de gegevens in alle services op de opdrachtregel opgegeven. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: wist blob-gegevens. <br/>*wachtrij*: wachtrijgegevens worden gewist. <br/>*tabel*: gegevens worden gewist. <br/>*alle*: Hiermee wist u alle gegevens in alle services. |
-| **Init** |Voert eenmalig initialisatie voor het instellen van de emulator. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Servernaam\exemplaarnaam*: Hiermee geeft u de server die als host fungeert voor de SQL-exemplaar. <br/>*-sqlinstance instanceName*: Hiermee geeft u de naam van het SQL-exemplaar moet worden gebruikt in het standaardexemplaar van de server. <br/>*-forcecreate*: zorgt ervoor dat het maken van de SQL-database, zelfs als deze al bestaat. <br/>*-skipcreate*: het maken van de SQL-database wordt overgeslagen. Dit heeft voorrang op - forcecreate.<br/>*-reserveports*: probeert te reserveren van de HTTP-poorten die zijn gekoppeld aan de services.<br/>*-unreserveports*: pogingen tot het verwijderen van de reserveringen voor de HTTP-poorten die zijn gekoppeld aan de services. Dit heeft voorrang op - reserveports.<br/>*-inprocess*: initialisatie in het huidige proces in plaats van bij het maken van een nieuw proces uitgevoerd. Het huidige proces moet worden gestart met verhoogde bevoegdheden als poort reserveringen wilt wijzigen. |
+| **Wissen** |Hiermee schakelt u de gegevens in alle services op de opdrachtregel opgegeven. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: Wist blob-gegevens. <br/>*wachtrij*: Hiermee schakelt u wachtrijgegevens. <br/>*tabel*: Wissen van tabelgegevens. <br/>*Alle*: Hiermee schakelt u alle gegevens in alle services. |
+| **Init** |Voert eenmalig initialisatie voor het instellen van de emulator. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Servernaam\exemplaarnaam*: Hiermee geeft u de server die als host fungeert voor de SQL-exemplaar. <br/>*-sqlinstance instanceName*: Hiermee geeft u de naam van het SQL-exemplaar moet worden gebruikt in het standaardexemplaar van de server. <br/>*-forcecreate*: Hiermee wordt het maken van de SQL-database, zelfs als deze al bestaat. <br/>*-skipcreate*: Hiermee slaat u het maken van de SQL-database. Dit heeft voorrang op - forcecreate.<br/>*-reserveports*: Pogingen tot het reserveren van de HTTP-poorten die zijn gekoppeld aan de services.<br/>*-unreserveports*: Probeert te verwijderen van de reserveringen voor de HTTP-poorten die zijn gekoppeld aan de services. Dit heeft voorrang op - reserveports.<br/>*-inprocess*: Initialisatie in het huidige proces in plaats van bij het maken van een nieuw proces uitgevoerd. Het huidige proces moet worden gestart met verhoogde bevoegdheden als poort reserveringen wilt wijzigen. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Verschillen tussen de opslagemulator en Azure Storage
 Omdat de opslagemulator een geëmuleerde omgeving die wordt uitgevoerd in een lokale SQL-exemplaar is, zijn er verschillen in functionaliteit tussen de emulator en een Azure storage-account in de cloud:

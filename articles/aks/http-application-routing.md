@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384955"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742385"
 ---
 # <a name="http-application-routing"></a>Routering van HTTP-toepassing
 
@@ -28,10 +28,10 @@ Wanneer de invoegtoepassing is ingeschakeld, wordt een DNS-Zone gemaakt in uw ab
 
 De invoegtoepassing implementeert twee onderdelen: een [controller voor binnenkomend verkeer van Kubernetes] [ ingress] en een [externe DNS] [ external-dns] controller.
 
-- **Controller voor binnenkomend verkeer**: de ingangscontroller wordt blootgesteld aan internet met behulp van een Kubernetes-service van het type Load Balancer. De controller voor binnenkomend verkeer controleert en implementeert [inkomend verkeer van Kubernetes-resources][ingress-resource], waarmee routes naar de toepassingseindpunten wordt gemaakt.
-- **Externe DNS-controller**: controleert op Kubernetes inkomend resources en DNS A-records gemaakt in de cluster-specifieke DNS-zone.
+- **Controller voor binnenkomend verkeer**: De controller voor binnenkomend verkeer wordt blootgesteld aan internet met behulp van een Kubernetes-service van het type Load Balancer. De controller voor binnenkomend verkeer controleert en implementeert [inkomend verkeer van Kubernetes-resources][ingress-resource], waarmee routes naar de toepassingseindpunten wordt gemaakt.
+- **Externe DNS-controller**: Controleert op inkomend verkeer van Kubernetes-resources en DNS A-records gemaakt in de cluster-specifieke DNS-zone.
 
-## <a name="deploy-http-routing-cli"></a>Implementeren van HTTP-routering: CLI
+## <a name="deploy-http-routing-cli"></a>Implementeer HTTP-routering: CLI
 
 De HTTP-aanvraag routering invoegtoepassing kan worden ingeschakeld met de Azure CLI bij het implementeren van een AKS-cluster. Om dit te doen, gebruikt u de [az aks maken] [ az-aks-create] opdracht met de `--enable-addons` argument.
 
@@ -55,7 +55,7 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## <a name="deploy-http-routing-portal"></a>Implementeren van HTTP-routering: Portal
+## <a name="deploy-http-routing-portal"></a>Implementeer HTTP-routering: Portal
 
 De HTTP-aanvraag routering invoegtoepassing kan worden ingeschakeld via de Azure-portal bij het implementeren van een AKS-cluster.
 
@@ -174,6 +174,36 @@ De HTTP-routering oplossing kan worden verwijderd met de Azure CLI. Voer de volg
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+Als de HTTP-aanvraag routering invoegtoepassing is uitgeschakeld, blijven bepaalde Kubernetes-resources in het cluster. Deze resources omvatten *configMaps* en *geheimen*, en worden gemaakt in de *kube-systeem* naamruimte. Als u wilt behouden een schone cluster, kunt u deze resources te verwijderen.
+
+Zoek naar *addon-http-aanvraag-routering* resources met behulp van de volgende [kubectl ophalen] [ kubectl-get] opdrachten:
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+De volgende voorbeelduitvoer ziet u configMaps die moeten worden verwijderd:
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+Als resources wilt verwijderen, gebruikt u de [kubectl verwijderen] [ kubectl-delete] opdracht. Geef het resourcetype, de resourcenaam en de naamruimte. Het volgende voorbeeld wordt een van de vorige configmaps:
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Herhaal de vorige `kubectl delete` stap voor alle *addon-http-aanvraag-routering* resources die in uw cluster gebleven.
+
 ## <a name="troubleshoot"></a>Problemen oplossen
 
 Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de toepassingslogboeken voor de externe DNS-toepassing weer te geven. De logboeken te bevestigen dat een A- en DNS TXT-record zijn gemaakt.
@@ -256,6 +286,7 @@ Zie voor meer informatie over het installeren van een HTTPS-beveiligde ingangsco
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

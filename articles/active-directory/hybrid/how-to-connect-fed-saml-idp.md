@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Gebruik een SAML 2.0-id-Provider voor eenmalige aanmelding op | Microsoft Docs'
+title: 'Azure AD Connect: Een SAML 2.0-id-Provider worden gebruikt voor eenmalige aanmelding op | Microsoft Docs'
 description: Dit document beschrijft met behulp van een SAML 2.0 compatibele id-provider voor eenmalige aanmelding op.
 services: active-directory
 author: billmath
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426398"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743524"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Een SAML 2.0-id-Provider (IdP) gebruiken voor eenmalige aanmelding op
 
@@ -76,7 +76,7 @@ Bindingen zijn de communicatie met betrekking tot de transport-parameters die ve
 ## <a name="required-attributes"></a>Vereiste kenmerken
 Deze tabel bevat de vereisten voor specifieke kenmerken in het SAML 2.0-bericht.
  
-|Kenmerk|Beschrijving|
+|Kenmerk|Description|
 | ----- | ----- |
 |NameID|De waarde van deze verklaring moet gelijk zijn aan de ImmutableID van de Azure AD-gebruiker. Het kan maximaal 64 alfanumerieke tekens zijn. Alle niet-HTML-veilige tekens moeten worden gecodeerd, bijvoorbeeld een teken '+' wordt weergegeven als '.2B'.|
 |IDPEmail|De User Principal Name (UPN) in het SAML-antwoord wordt vermeld als een element met de naam IDPEmail van de gebruiker UserPrincipalName (UPN) in Azure AD/Office 365. De UPN is in de e-mailadres. UPN-waarde in Office 365 (Azure Active Directory) voor Windows.|
@@ -167,7 +167,7 @@ Communicatie tussen uw id-provider van SAML 2.0 en Azure AD, moet u inschakelen.
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Windows PowerShell voor aanmelding met SAML 2.0-id-provider installeren
 Nadat u hebt uw SAML 2.0-id-provider voor gebruik met Azure AD-aanmelding geconfigureerd, wordt de volgende stap is om te downloaden en installeren van de Azure Active Directory-Module voor Windows PowerShell. Na de installatie, gebruikt u deze cmdlets naar uw Azure AD-domeinen configureren als federatieve domeinen.
 
-De Azure Active Directory-Module voor Windows PowerShell is een download voor het beheren van gegevens van uw organisatie in Azure AD. Deze module wordt een set cmdlets in Windows PowerShell; geïnstalleerd u voert deze cmdlets voor het instellen van eenmalige aanmelding toegang tot Azure AD en in inschakelen als u wilt alle cloudservices die u bent geabonneerd op. Zie voor instructies over het downloaden en installeren van de cmdlets [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)
+De Azure Active Directory-Module voor Windows PowerShell is een download voor het beheren van gegevens van uw organisatie in Azure AD. Deze module wordt een set cmdlets in Windows PowerShell; geïnstalleerd u voert deze cmdlets voor het instellen van eenmalige aanmelding toegang tot Azure AD en in inschakelen als u wilt alle cloudservices die u bent geabonneerd op. Zie voor instructies over het downloaden en installeren van de cmdlets [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Instellen van een vertrouwensrelatie tussen de SAML-identiteitsprovider en Azure AD
 Voordat u Federatie configureert op een Azure AD-domein, heeft dit een aangepast domein geconfigureerd. Het standaarddomein die wordt geleverd door Microsoft kunnen niet worden gefedereerd. Het standaarddomein van Microsoft eindigt op 'onmicrosoft.com'.
@@ -183,14 +183,14 @@ De volgende procedure begeleidt u bij het converteren van een bestaande standaar
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Configureren van een domein in uw Azure AD-Directory voor Federatie
 
 
-1. Verbinding maken met uw Azure AD-Directory als tenantbeheerder: Connect MsolService.
+1. Verbinding maken met uw Azure AD-Directory als de tenantbeheerder van een: Connect-MsolService.
 2.  Configureer uw gewenste Office 365-domein voor het gebruik van Federatie met SAML 2.0: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  U kunt de ondertekenen certificaat base64-gecodeerde tekenreeks verkrijgen uit het metagegevensbestand van uw id-provider. Een voorbeeld van deze locatie is opgegeven, maar kan verschillen enigszins afhankelijk van uw implementatie.
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Zie voor meer informatie over "Set-MsolDomainAuthentication": [ https://technet.microsoft.com/library/dn194112.aspx ](httpss://technet.microsoft.com/library/dn194112.aspx).
+Zie voor meer informatie over "Set-MsolDomainAuthentication": [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Gebruik moet worden uitgevoerd ' $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" "alleen als u een extensie ECP voor uw id-provider instellen. Exchange Online clients, met uitzondering van Outlook Web Application (OWA) afhankelijk zijn van een bericht op basis van actieve eindpunt. Als uw SAML 2.0 STS een actieve eindpunt die vergelijkbaar is met de Shibboleth ECP implementatie van een actieve eindpunt implementeert is het mogelijk dat het mogelijk dat deze rich clients om te communiceren met de Exchange Online-service.
@@ -207,7 +207,7 @@ Windows PowerShell kan ook worden gebruikt voor het automatiseren van nieuwe geb
 Deze procedure laat zien hoe een enkele gebruiker toevoegen aan Azure AD.
 
 
-1. Verbinding maken met uw Azure AD-Directory als tenantbeheerder: Connect MsolService.
+1. Verbinding maken met uw Azure AD-Directory als de tenantbeheerder van een: Connect-MsolService.
 2.  Maak een nieuwe gebruiker-principal: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
@@ -218,7 +218,7 @@ Deze procedure laat zien hoe een enkele gebruiker toevoegen aan Azure AD.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-Voor meer informatie over "New-MsolUser" Afhandeling, [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)
+Voor meer informatie over "New-MsolUser" Afhandeling, [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >De waarde "UserPrinciplName" moet overeenkomen met de waarde die u voor 'IDPEmail' in het SAML 2.0-claim verzendt en de waarde "ImmutableID" moet overeenkomen met de waarde die wordt verzonden in uw bewering 'NameID'.
@@ -260,7 +260,7 @@ Microsoft is een hulpprogramma waarmee u gebruiken kunt voor het testen van uw o
 7. Dit venster toont een mislukte resultaten van de tests. Te klikken op controleren gedetailleerde resultaten ziet u informatie over de resultaten voor elke test die werd uitgevoerd. U kunt de resultaten naar de schijf om te kunnen delen ze ook opslaan.
  
 >[!NOTE]
->Test de connectiviteit analyzer ook actieve Federatie met behulp van de WS *-gebaseerd en ECP/PAOS protocollen. Als u deze niet gebruikt u de volgende fout kunt negeren: testen van de stroom voor actieve aanmelden met behulp van uw identiteitsprovider actieve Federatie-eindpunt.
+>Test de connectiviteit analyzer ook actieve Federatie met behulp van de WS *-gebaseerd en ECP/PAOS protocollen. Als u deze niet gebruikt, kunt u de volgende fout negeren: Testen van de stroom voor actieve aanmelden met behulp van uw identiteitsprovider actieve Federatie-eindpunt.
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Handmatig controleren of dat deze eenmalige aanmelding is ingesteld juist
 Handmatige verificatie vindt u aanvullende stappen die u nemen kunt om ervoor te zorgen dat uw identiteit SAML 2.0 Provider correct in veel scenario's werkt.
@@ -268,7 +268,7 @@ Om te controleren dat eenmalige aanmelding is ingesteld correct, voert u de volg
 
 
 1. Op een computer domein aanmelden met uw cloudservice met behulp van dezelfde aanmeldingsnaam die u voor uw bedrijfsreferenties gebruiken.
-2.  Klik in het wachtwoord. Als eenmalige aanmelding is ingesteld, het wachtwoord grijs worden weergegeven wordt en u het volgende bericht ziet: ' u nu zijn vereist om aan te melden bij &lt;van uw bedrijf&gt;. "
+2.  Klik in het wachtwoord. Als eenmalige aanmelding is ingesteld, het wachtwoord wordt grijs worden weergegeven en ziet u het volgende bericht: "U nu zijn vereist om aan te melden bij &lt;van uw bedrijf&gt;."
 3.  Klik op de aanmelding bij &lt;van uw bedrijf&gt; koppeling. Als u zich kunt is aanmelden, klikt u vervolgens één aanmelding ingesteld.
 
 ## <a name="next-steps"></a>Volgende stappen

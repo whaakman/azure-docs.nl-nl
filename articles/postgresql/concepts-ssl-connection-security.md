@@ -1,21 +1,17 @@
 ---
 title: SSL-connectiviteit configureren in Azure Database for PostgreSQL
 description: Instructies en informatie voor het configureren van Azure Database for PostgreSQL en gekoppelde toepassingen gebruiken SSL-verbindingen.
-services: postgresql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonwhowell
-manager: kfile
 ms.service: postgresql
-ms.custom: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: cc8bd25b58cf898169a4d84154f7f3f81966bb92
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bcb6f1da78cfccb4914f1f4008609f002a7b8c2d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985791"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545430"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL-connectiviteit configureren in Azure Database for PostgreSQL
 Azure Database voor PostgreSQL verkiest het verbinden van uw clienttoepassingen met de PostgreSQL-service met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.

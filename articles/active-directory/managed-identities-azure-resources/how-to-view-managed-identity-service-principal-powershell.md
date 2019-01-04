@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
 ms.author: daveba
-ms.openlocfilehash: 0e8558d96803e15da355f083c6d1988d5ee6cb68
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0ad3a52b837a5f79c9976c4c509e0a8516de1e7d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882678"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714103"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>De service-principal van een beheerde identiteit met behulp van PowerShell weergeven
 
@@ -31,7 +31,7 @@ In dit artikel leert u hoe u om weer te geven van de service-principal van een b
 
 - Als u niet bekend met beheerde identiteiten voor Azure-resources bent, lees de [overzichtssectie](overview.md).
 - Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/).
-- Schakel [systeem toegewezen identiteit op een virtuele machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) of [toepassing](/azure/app-service/app-service-managed-service-identity#adding-a-system-assigned-identity).
+- Schakel [systeem toegewezen identiteit op een virtuele machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) of [toepassing](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
 - Als u ervoor kiest om PowerShell lokaal te installeren en gebruiken, is voor deze zelfstudie versie 5.7.0 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
 - Als u PowerShell lokaal uitvoert, moet u ook het volgende doen: 
     - Voer `Login-AzureRmAccount` uit om een verbinding op te zetten met Azure.

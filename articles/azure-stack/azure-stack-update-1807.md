@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260581"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714981"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 update
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 Dit artikel wordt de inhoud van het updatepakket 1807 beschreven. Deze update bevat verbeteringen, correcties en bekende problemen voor deze versie van Azure Stack en waar u de update te downloaden. Bekende problemen zijn onderverdeeld in problemen direct verband houden met het updateproces en problemen met de build (na de installatie).
 
@@ -162,9 +162,8 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 
 ### <a name="prerequisites"></a>Vereisten
 
-- De Azure-Stack installeren [1805 bijwerken](azure-stack-update-1805.md) voordat u de Azure Stack 1807 update toepassen.  Er is geen update 1806.  
-
-- Installeer de meest recente beschikbare [update of hotfix voor versie 1805](azure-stack-update-1805.md#post-update-steps).  
+- De Azure-Stack installeren [1805 bijwerken](azure-stack-update-1805.md) voordat u de Azure Stack 1807 update toepassen. Er is geen update 1806.  
+ 
   > [!TIP]  
   > Abonneer u op de volgende *RRS* of *Atom* feeds, blijven van het Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -244,16 +243,16 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
 
    Waarschuwing #1:
-   - NAAM: De functie van de infrastructuur is niet in orde
-   - ERNST: waarschuwing
-   - ONDERDEEL: De gezondheid van controller
-   - Beschrijving: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
+   - NAAM:  De functie van de infrastructuur is niet in orde
+   - ERNST: Waarschuwing
+   - COMPONENT: De gezondheid van controller
+   - BESCHRIJVING: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
 
   Waarschuwing #2:
-   - NAAM: De functie van de infrastructuur is niet in orde
-   - ERNST: waarschuwing
-   - ONDERDEEL: De gezondheid van controller
-   - Beschrijving: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
+   - NAAM:  De functie van de infrastructuur is niet in orde
+   - ERNST: Waarschuwing
+   - COMPONENT: De gezondheid van controller
+   - BESCHRIJVING: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
 
   Beide waarschuwingen kunnen worden genegeerd en wordt automatisch gesloten na verloop van tijd.  
 
@@ -261,10 +260,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- 2812138 | IS --> 
 - U ziet mogelijk een waarschuwing voor **opslag** onderdeel waarvoor u de volgende gegevens:
 
-   - NAAM: Storage service interne communicatiefout  
-   - ERNST: kritiek  
-   - COMPONENT: opslag  
-   - Beschrijving: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
+   - NAAM: Storage service-interne communicatiefout  
+   - ERNST: Kritiek  
+   - COMPONENT: Storage  
+   - BESCHRIJVING: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
 
     De waarschuwing kan veilig worden genegeerd, maar moet u de waarschuwing handmatig sluit.
 
@@ -278,10 +277,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Bij het gebruik van de PowerShell-cmdlets **Start AzsScaleUnitNode** of **Stop-AzsScaleunitNode** voor het beheren van schaaleenheden, de eerste poging om te starten of stoppen van de schaaleenheid kan mislukken. Als de cmdlet voor de eerste keer uitvoert mislukt, wordt de cmdlet nogmaals uitvoeren. De tweede uitvoering moet slagen om de bewerking te voltooien. 
 
 <!-- 2494144 - IS, ASDK --> 
-- Bij het selecteren van een VM-grootte voor de implementatie van een virtuele machine, sommige F-serie VM-grootten zijn niet zichtbaar als onderdeel van de grootte selector bij het maken van een virtuele machine. De volgende VM-grootten worden niet weergegeven in de kiezer: *F8s_v2*, *F16s_v2*, *F32s_v2*, en *F64s_v2*.  
+- Bij het selecteren van een VM-grootte voor de implementatie van een virtuele machine, sommige F-serie VM-grootten zijn niet zichtbaar als onderdeel van de grootte selector bij het maken van een virtuele machine. De volgende VM-grootten worden niet weergegeven in de lijst met: *F8s_v2*, *F16s_v2*, *F32s_v2*, en *F64s_v2*.  
   Als tijdelijke oplossing, gebruikt u een van de volgende methoden om een VM te implementeren. In elke methode moet u om op te geven van de VM-grootte die u wilt gebruiken.
 
-  - **Azure Resource Manager-sjabloon:** wanneer u een sjabloon gebruikt, stelt de *vmSize* in de sjabloon zodat deze overeenkomt met de VM-grootte die u wilt gebruiken. Bijvoorbeeld, de volgende vermelding wordt gebruikt voor het implementeren van een virtuele machine die gebruikmaakt van de *F32s_v2* grootte:  
+  - **Azure Resource Manager-sjabloon:** Wanneer u een sjabloon gebruikt, stelt de *vmSize* in de sjabloon zodat deze overeenkomt met de VM-grootte die u wilt gebruiken. Bijvoorbeeld, de volgende vermelding wordt gebruikt voor het implementeren van een virtuele machine die gebruikmaakt van de *F32s_v2* grootte:  
 
     ```
         "properties": {
@@ -289,9 +288,9 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** kunt u de [az vm maken](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) opdracht en geeft u de VM-grootte als een parameter, die vergelijkbaar is met `--size "Standard_F32s_v2"`.
+  - **Azure CLI:** U kunt de [az vm maken](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) opdracht en geeft u de VM-grootte als een parameter, die vergelijkbaar is met `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** met PowerShell kunt u [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) met de parameter die aangeeft van de VM-grootte, die vergelijkbaar is met `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** U kunt gebruiken met PowerShell [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) met de parameter die aangeeft van de VM-grootte, die vergelijkbaar is met `-VMSize "Standard_F32s_v2"`.
 
 
 <!-- TBD - IS ASDK --> 

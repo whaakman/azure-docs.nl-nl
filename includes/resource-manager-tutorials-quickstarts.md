@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978642"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729336"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Snelstarts en zelfstudies
 
@@ -39,6 +39,7 @@ Gebruik de volgende snelstarts en zelfstudies voor meer informatie over het ontw
     |------|-----|
     |[Sjabloonverwijzing gebruiken](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Gebruik het referentiemateriaal voor sjablonen om sjablonen te ontwikkelen. In de zelfstudie vindt u het schema van het opslagaccount. Gebruik de informatie voor het maken van een versleuteld opslagaccount.|
     |[Meerdere exemplaren maken](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Meerdere exemplaren van Azure-resources maken In de zelfstudie maakt u meerdere exemplaren van het opslagaccount.|
+    |[Resources verplaatsen](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Bronnen van de ene naar een andere resourcegroep verplaatsen. In de zelfstudie, kunt u uitvoeren van een bestaande sjabloon voor het maken van twee resourcegroepen en één opslagaccount en voer vervolgens een Azure PowerShell-cmdlet voor het verplaatsen van het opslagaccount naar de andere resourcegroep.|
     |[Implementatievolgorde van resources instellen](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definieer bronafhankelijkheden. In de zelfstudie maakt u een virtueel netwerk, een virtuele machine en de afhankelijke Azure-resources. U leert hoe de afhankelijkheden worden gedefinieerd.|
     |[Voorwaarden gebruiken](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Resources implementeren op basis van bepaalde parameterwaarden. In de zelfstudie definieert u een sjabloon voor het maken van een nieuw opslagaccount of maakt u gebruik van een bestaand opslagaccount op basis van de waarde van een parameter.|
     |[Key Vault integreren](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Haal geheimen/wachtwoorden op uit Azure Key Vault. In de zelfstudie maakt u een virtuele machine.  Het beheerderswachtwoord voor virtuele machines wordt opgehaald uit Key Vault.|

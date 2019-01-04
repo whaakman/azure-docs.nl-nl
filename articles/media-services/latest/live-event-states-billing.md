@@ -13,24 +13,24 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: 1a49f62d7b5e21fe9d6483f71b729a9100aff1a3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585533"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719418"
 ---
 # <a name="liveevent-states-and-billing"></a>LiveEvent Staten en facturering
 
 In Azure Media Services, een LiveEvent begint zodra de status verandert in facturering **met**. Als u wilt stoppen met het LiveEvent van facturering, moet u de LiveEvent stoppen.
 
-Wanneer **LiveEventEncodingType** op uw [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) is ingesteld op standaard (basis), Media Services automatisch moet worden uitgeschakeld eventuele LiveEvent die nog steeds in de **met** status 12 uur Nadat de invoer feed verbroken is en er zijn geen **LiveOutput**s uitgevoerd. Maar u nog steeds gefactureerd voor de tijd die de LiveEvent is in de **met** staat.
+Wanneer **LiveEventEncodingType** op uw [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) is ingesteld op standaard, Media Services automatisch moet worden uitgeschakeld eventuele LiveEvent die nog steeds in de **met** status 12 uur na de invoer feed verloren en wordt er zijn geen **LiveOutput**s uitgevoerd. Maar u nog steeds gefactureerd voor de tijd die de LiveEvent is in de **met** staat.
 
-## <a name="states"></a>Staten
+## <a name="states"></a>States
 
 De LiveEvent kan zich in een van de volgende statussen.
 
-|Status|Beschrijving|
+|Status|Description|
 |---|---|
 |**Gestopt**| Dit is de beginstatus van de LiveEvent na het maken van (tenzij autostart is ingesteld op ' True '.) Er is geen facturering vindt plaats in deze status. In deze status kunnen de eigenschappen van het LiveEvent worden bijgewerkt, maar streaming niet toegestaan.|
 |**Starten**| De LiveEvent wordt gestart en resources worden toegewezen. Er is geen facturering vindt plaats in deze status. Updates of streaming zijn niet toegestaan in deze status. Als een fout optreedt, wordt de LiveEvent teruggezet naar de status gestopt.|

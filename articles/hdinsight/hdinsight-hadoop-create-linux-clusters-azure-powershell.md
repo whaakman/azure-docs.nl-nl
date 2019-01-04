@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 54dbeeede58116b01f21db784b3e34970ace029f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863428"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792144"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Op basis van Linux-clusters maken in HDInsight met behulp van Azure PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "52863428"
 
 Azure PowerShell is een krachtige scripting omgeving die u gebruiken kunt om te beheren en automatiseren van de implementatie en het beheer van uw workloads in Microsoft Azure. Dit document bevat informatie over het maken van een Linux gebaseerde HDInsight-cluster met behulp van Azure PowerShell. Dit omvat ook een voorbeeldscript.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure PowerShell is alleen beschikbaar op Windows-clients. Als u van een Linux-, Unix- of Mac OS X-client gebruikmaakt, Zie [maken van een Linux gebaseerde HDInsight-cluster met behulp van de klassieke Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) voor informatie over het gebruik van de klassieke CLI om een cluster te maken.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -31,7 +31,7 @@ U kunt het volgende voordat u begint met deze procedure moet zijn:
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en per 1 januari 2017 verdwenen. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
     >
     > Volg de stappen in [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) voor het installeren van de meest recente versie van Azure PowerShell. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
@@ -55,14 +55,14 @@ De waarden die u voor de aanmelding bij cluster opgeeft worden gebruikt om de Ha
 
 De waarden die u voor de SSH-gebruiker opgeeft worden gebruikt om te maken van de SSH-gebruiker voor het cluster. Dit account gebruiken voor een externe SSH-sessie starten op het cluster en taken uitvoeren. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Als u van plan bent gebruik van meer dan 32 worker-knooppunten (op bij het maken van clusters of door te schalen van het cluster na het maken van), moet u ook een hoofdknooppunt grootte opgeven met ten minste 8 kerngeheugens en 14 GB aan RAM-geheugen.
 >
 > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
 
 Het kan duren voordat tot 20 minuten om een cluster te maken.
 
-## <a name="create-cluster-configuration-object"></a>Cluster maken: Configuration-object
+## <a name="create-cluster-configuration-object"></a>Cluster maken: Configuratie-object
 
 U kunt ook maken een gebruiken voor het object HDInsight configuratie `New-AzureRmHDInsightClusterConfig` cmdlet. U kunt dit configuratieobject zodat extra configuratieopties voor uw cluster wijzigen. Gebruik tot slot de `-Config` parameter van de `New-AzureRmHDInsightCluster` cmdlet de configuratie te gebruiken.
 
@@ -70,7 +70,7 @@ Het volgende script maakt u een configuratieobject voor het configureren van een
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
-> [!WARNING]
+> [!WARNING]  
 > Met behulp van een storage-account in een andere locatie dan het HDInsight-cluster wordt niet ondersteund. Wanneer u in dit voorbeeld gebruikt, moet u de extra storage-account maken in dezelfde locatie als de server.
 
 ## <a name="customize-clusters"></a>Clusters aanpassen
@@ -84,7 +84,7 @@ Het volgende script maakt u een configuratieobject voor het configureren van een
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
+Zie [Vereisten voor toegangsbeheer](hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -94,7 +94,7 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende bronnen voor
 
 * [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
 * [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
-* [Apache HAdoop MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-clusters
 
@@ -111,6 +111,6 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende bronnen voor
 
 * [Een zelfstandige toepassing maken met behulp van Scala](spark/apache-spark-create-standalone-application.md)
 * [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](spark/apache-spark-machine-learning-mllib-ipython.md)
 

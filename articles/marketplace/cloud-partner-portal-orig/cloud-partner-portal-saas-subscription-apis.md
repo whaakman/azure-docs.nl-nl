@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4cf59e6aa7e6edc73db2e22b9fa8ce40301b07c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212961"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790330"
 ---
 <a name="saas-sell-through-azure---apis"></a>SaaS-verkopen via Azure - API 's
 ==============================
@@ -62,13 +62,13 @@ Voor het registreren van een nieuwe toepassing met behulp van de Azure portal, m
     ![SaaS AD App-registraties](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration.png)
 
 4.  Voer op de pagina voor het maken, uw toepassing\'s registratie-informatie:
-    -   **Naam**: een zinvolle toepassingsnaam invoeren
+    -   **Naam**: Een zinvolle toepassingsnaam invoeren
     -   **Toepassingstype**: 
         - Selecteer **Systeemeigen** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) die lokaal op een apparaat zijn geïnstalleerd. Deze instelling wordt gebruikt voor openbare [systeemeigen clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) met OAuth.
         - Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Dezelfde toepassing kan zowel een client als resource/API beschikbaar maken.
-    -   **Aanmeldings-URL**: voor Web-app/API-toepassingen, bieden de basis-URL van uw app. Bijvoorbeeld, **http://localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
-    -   **Omleidings-URI**: voor systeemeigen toepassingen geeft u de URI die door Azure AD gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp**.
+    -   **Aanmeldings-URL**: Voor Web-app/API-Apps, geeft u de basis-URL van uw app. Bijvoorbeeld, **http://localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
+    -   **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp**.
 
         ![SaaS AD App-registraties](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
@@ -103,7 +103,7 @@ HTTP-methode
 
 |  **Header-naam**  | **Vereist** |  **Beschrijving**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Inhoudstype     | True         | Type van de inhoud die is gekoppeld aan de aanvraag. De standaardwaarde is `application/x-www-form-urlencoded`.  |
+|  Content-Type     | True         | Type van de inhoud die is gekoppeld aan de aanvraag. De standaardwaarde is `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
@@ -136,7 +136,7 @@ Het antwoordtoken voorbeeld:
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -172,7 +172,7 @@ Actie na de op oplossen eindpunt kan gebruikers een token omzetten in een perman
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Dit komt overeen met alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | inhoudstype       | Ja          | `application/json`                                        |
 | Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
-| x-ms-marketplace-token| Ja| De token queryparameter in de URL in wanneer de gebruiker wordt omgeleid naar de website SaaS ISV's van Azure. **Opmerking:** URL van de token waarde vanuit de browser worden ontsleuteld voordat u deze gebruikt.|
+| x-ms-marketplace-token| Ja| De token queryparameter in de URL in wanneer de gebruiker wordt omgeleid naar de website SaaS ISV's van Azure. **Opmerking:** Dit token is alleen geldig voor één uur. Bovendien decoderen URL van de token waarde vanuit de browser voordat u deze gebruikt.|
 |  |  |  |
   
 
@@ -201,7 +201,7 @@ Actie na de op oplossen eindpunt kan gebruikers een token omzetten in een perman
 | **HTTP-statuscode** | **Foutcode**     | **Beschrijving**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token is opgelost.                                                            |
-| 400                  | `BadRequest`         | Een vereiste headers ontbreken of een ongeldige api-versie die is opgegeven. Kan niet aan het token niet ophalen omdat een van beide het token ongeldig of verlopen is. |
+| 400                  | `BadRequest`         | Een vereiste headers ontbreken of een ongeldige api-versie die is opgegeven. Kan het token niet ophalen omdat een van beide het token ongeldig of verlopen is (het token is alleen geldig voor 1 uur eenmaal gegenereerd). |
 | 403                  | `Forbidden`          | De aanroeper is niet geautoriseerd deze bewerking uit te voeren.                                 |
 | 429                  | `RequestThrottleId`  | Service is bezet verwerken van aanvragen, voer later opnieuw uit.                                |
 | 503                  | `ServiceUnavailable` | Service is omlaag tijdelijk, probeer het later opnieuw.                                        |
@@ -513,7 +513,7 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 | offerId                | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op.         |
 | planId                 | Reeks        | Plan-ID die de gebruiker een abonnement op.          |
 | saasSubscriptionName   | Reeks        | De naam van de SaaS-abonnement.                |
-| saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: De gebruiker zich heeft afgemeld.   <br/> - `Suspended`: De gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`: Azure-abonnement is onderbroken.  |
+| saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: Gebruiker heeft zich afgemeld.   <br/> - `Suspended`: Gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`:  Azure-abonnement is onderbroken.  |
 | gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
 | lastModified           | DateTime      | Abonnement gewijzigd tijdstempelwaarde in UTC. |
 |  |  |  |
@@ -587,7 +587,7 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 | offerId                | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op.         |
 | planId                 | Reeks        | Plan-ID die de gebruiker een abonnement op.          |
 | saasSubscriptionName   | Reeks        | De naam van de SaaS-abonnement.                |
-| saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: De gebruiker zich heeft afgemeld.   <br/> - `Suspended`: De gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`: Azure-abonnement is onderbroken.  |
+| saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: Gebruiker heeft zich afgemeld.   <br/> - `Suspended`: Gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`:  Azure-abonnement is onderbroken.  |
 | gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
 | lastModified           | DateTime      | Abonnement gewijzigd tijdstempelwaarde in UTC. |
 |  |  |  |
@@ -612,4 +612,36 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 | x-ms-correlationid | Ja          | Correlatie-ID is als doorgegeven door de client, anders wordt dit de correlatie-id op.                   |
 | x-ms-activityid    | Ja          | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de service. Dit wordt gebruikt voor alle aansluitingen. |
 | Opnieuw proberen na        | Nee           | Interval met welke client u kunt de status controleren.                                                       |
+|  |  |  |
+
+### <a name="saas-webhook"></a>SaaS-Webhook
+
+Een SaaS-webhook wordt gebruikt voor het melden van wijzigingen proactief in de SaaS-service. Deze POST-API wordt verwacht dat deze worden niet-geverifieerde en wordt aangeroepen door de Microsoft-service. De SaaS-service wordt verwacht voor het aanroepen van de operations-API om te verifiëren en autoriseren voordat actie wordt ondernomen op de webhook-melding. 
+
+
+*Hoofdtekst*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **Parameternaam**     | **Gegevenstype** | **Beschrijving**                               |
+|------------------------|---------------|-----------------------------------------------|
+| id  | Reeks       | Unieke ID voor de bewerking die wordt geactiveerd.                |
+| ActivityId   | Reeks        | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de service. Dit wordt gebruikt voor alle aansluitingen.               |
+| subscriptionId                     | Reeks        | Abonnement-resource-ID van SaaS in Azure.    |
+| offerId                | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.        |
+| publisherId                | Reeks        | Uitgevers-ID van de SaaS-aanbieding         |
+| planId                 | Reeks        | Plan-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.          |
+| action                 | Reeks        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
+| Tijdstempel                 | Reeks        | De waarde van de tijdstempel in UTC waarop deze melding is geactiveerd.          |
 |  |  |  |

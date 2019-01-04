@@ -28,7 +28,7 @@ Standard stemmen zijn beschikbaar in deze regio's:
 | Regio | Eindpunt |
 |--------|----------|
 | US - west | https://westus.tts.speech.microsoft.com/cognitiveservices/v1 |
-| VS - west 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/v1 |
+| US - west 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/v1 |
 | US - oost | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | US - oost 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Azië - oost | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |

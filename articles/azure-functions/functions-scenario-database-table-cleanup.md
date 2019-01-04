@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: e59c0b6994a64972b1458c0f295f24d0a615d871
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740107"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608576"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions gebruiken voor het verbinding maken met een Azure SQL Database
 
@@ -70,7 +70,7 @@ U moet het NuGet-pakket met de SqlClient-bibliotheek toevoegen. Deze bibliotheek
 
 1. Zoek op het tabblad **Bladeren** naar ```System.Data.SqlClient``` en selecteer deze.
 
-1. Klik op de pagina **System.Data.SqlClient** op **Installeren**.
+1. In de **System.Data.SqlClient** pagina, selecteer versie `4.5.1` en klik vervolgens op **installeren**.
 
 1. Wanneer de installatie is voltooid, controleert u de wijzigingen en klikt u vervolgens op **OK** om het venster **Preview** te sluiten.
 

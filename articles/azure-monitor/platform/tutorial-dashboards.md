@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388849"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545311"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
-[Diagnostische logboeken in Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) zijn logboeken van Azure-services die worden beschreven van de werking van deze services of resources. Alle logboeken met diagnostische gegevens beschikbaar zijn via Azure Monitor delen een gemeenschappelijk schema van de op het hoogste niveau met flexibiliteit voor elke service op de unieke eigenschappen voor hun eigen gebeurtenissen verzenden.
+[Diagnostische logboeken in Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md) zijn logboeken van Azure-services die worden beschreven van de werking van deze services of resources. Alle logboeken met diagnostische gegevens beschikbaar zijn via Azure Monitor delen een gemeenschappelijk schema van de op het hoogste niveau met flexibiliteit voor elke service op de unieke eigenschappen voor hun eigen gebeurtenissen verzenden.
 
 Een combinatie van het resourcetype (beschikbaar in de `resourceId` eigenschap) en de `category` unieke identificatie van een schema. Dit artikel beschrijft het schema op het hoogste niveau voor diagnostische logboeken en koppelingen naar de schema's voor elke service.
 
@@ -205,7 +205,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over diagnostische logboeken](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Diagnostische logboeken van de resource naar Stream **Event Hubs**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Meer informatie over diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Diagnostische logboeken van de resource naar Stream **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Diagnostische instellingen voor resources met behulp van de REST-API van Azure Monitor wijzigt](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Logboeken van Azure storage met Log Analytics analyseren](../../azure-monitor/platform/collect-azure-metrics-logs.md)

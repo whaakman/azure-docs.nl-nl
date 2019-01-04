@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133143"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993159"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch testen met 1000 uitingen in LUIS-portal
 
@@ -48,7 +48,7 @@ Alle aangepaste entiteiten in het model worden weergegeven in het filter entitei
 
 De batch-bestand bestaat uit uitingen. Elke utterance ze beschikken over een verwachte intentie voorspelling samen met een [machine geleerde entiteiten](luis-concept-entity-types.md#types-of-entities) u verwacht te worden gedetecteerd. 
 
-## <a name="batch-syntax-template"></a>Batch syntaxis van de sjabloon
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Batch syntaxis van de sjabloon voor intents met entiteiten
 
 Gebruik de volgende sjabloon om te starten van uw batch-bestand:
 
@@ -75,6 +75,22 @@ Gebruik de volgende sjabloon om te starten van uw batch-bestand:
 ```
 
 De batch-bestand maakt gebruik van de **startPos** en **endPos** eigenschappen om te weten het begin en einde van een entiteit. De waarden mag op nul gebaseerde zijn en niet beginnen of eindigen op een spatie. Dit wijkt af van de logboeken voor query's, die startIndex en endIndex eigenschappen gebruiken. 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Batch syntaxis van de sjabloon voor intents zonder entiteiten
+
+Gebruik de volgende sjabloon om te starten van uw batch-bestand zonder entiteiten:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+Als u niet testen van entiteiten wilt, bevatten de `entities` eigenschap en stel de waarde als een lege matrix `[]`.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Veelvoorkomende fouten in een batch importeren

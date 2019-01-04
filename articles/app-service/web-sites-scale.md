@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251047"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727476"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Een app in Azure omhoog schalen
 
@@ -34,7 +34,7 @@ Dit artikel leest u hoe uw app schalen in Azure App Service. Er zijn twee werkst
 * [Uitschalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Verhoog het aantal VM-exemplaren waarop uw app wordt uitgevoerd.
   U kunt uitschalen naar maximaal 20 exemplaren, afhankelijk van uw prijscategorie. [App Service-omgevingen](environment/intro.md) in **geïsoleerd** laag verder verhoogt het aantal scale-out naar 100 instanties. Zie voor meer informatie over het uitbreiden [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md). Daar vindt u informatie over het gebruik van automatisch schalen, dat is het aantal exemplaren automatisch op basis van vooraf gedefinieerde regels en schema's schalen.
 
-De schaalinstellingen worden alleen de seconden toe te passen en gelden voor alle apps in uw [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+De schaalinstellingen worden alleen de seconden toe te passen en gelden voor alle apps in uw [App Service-plan](../app-service/overview-hosting-plans.md).
 Ze dat niet u uw code te wijzigen of opnieuw implementeren van uw toepassing.
 
 Zie voor meer informatie over de prijzen en functies van afzonderlijke App Service-plannen [prijsinformatie voor App Service](https://azure.microsoft.com/pricing/details/web-sites/).  

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e6a11a8c225afb220f290cee2db39c36750b401
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531095"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632141"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Metrische gegevens van Azure Storage inschakelen en weergeven van metrische gegevens
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -37,7 +37,10 @@ Volg deze stappen voor het inschakelen van metrische gegevens in de [Azure-porta
 De [Azure-portal](https://portal.azure.com) wordt niet op dit moment kunt u configureren minuut metrische gegevens in uw storage-account; u moet inschakelen minuut metrische gegevens met behulp van PowerShell of via een programma.
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>Het inschakelen van metrische gegevens met behulp van PowerShell
-U kunt PowerShell gebruiken op uw lokale machine metrische opslaggegevens in uw storage-account configureren met behulp van de Azure PowerShell-cmdlet Get-AzureStorageServiceMetricsProperty de huidige instellingen op te halen en de cmdlet Set-AzureStorageServiceMetricsProperty om de huidige instellingen te wijzigen.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+U kunt PowerShell gebruiken op uw lokale machine metrische opslaggegevens in uw storage-account configureren met behulp van de Azure PowerShell-cmdlet Get-AzStorageServiceMetricsProperty de huidige instellingen op te halen en de cmdlet Set-AzStorageServiceMetricsProperty de huidige instellingen wijzigen.
 
 De cmdlets waarmee metrische opslaggegevens gebruik de volgende parameters:
 
@@ -48,16 +51,16 @@ De cmdlets waarmee metrische opslaggegevens gebruik de volgende parameters:
 De volgende opdracht wordt bijvoorbeeld met de periode is ingesteld op vijf dagen bewaren op minuut metrische gegevens voor de Blob-service in uw storage-standaardaccount:
 
 ```powershell
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 ```
 
 De volgende opdracht haalt de huidige per uur metrische gegevens niveau en retentie dagen voor de blob-service in uw storage-standaardaccount:
 
 ```powershell
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Zie voor meer informatie over het configureren van de Azure PowerShell-cmdlets voor het werken met uw Azure-abonnement en hoe u het standaard opslagaccount dat moet worden gebruikt, selecteert: [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
+Zie voor informatie over het configureren van de Azure PowerShell-cmdlets om te werken met uw Azure-abonnement en het selecteren van het standaardopslagaccount te gebruiken: [Hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Programmatisch metrische opslaggegevens inschakelen
 De volgende C#-fragment toont hoe u metrische gegevens en logboekregistratie voor de Blob-service met behulp van de storage-clientbibliotheek voor .NET inschakelen:
@@ -131,7 +134,7 @@ Als u de tabellen analytics via een programma opent, houd er rekening mee dat de
 
 Volledige details van de schema's vindt u voor deze tabellen aan [tabelschema van metrische gegevens van Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Het onderstaande voorbeeldrijen slechts een subset van de beschikbare kolommen weergeven, maar illustratie van enkele belangrijke functies van de manier waarop die metrische opslaggegevens Hiermee slaat u deze metrische gegevens:
 
-| PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Beschikbaarheid | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey | RowKey | Tijdstempel | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Beschikbaarheid | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 | --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
 | 20140522T1100 |gebruiker. Alle |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
 | 20140522T1100 |gebruiker. QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |

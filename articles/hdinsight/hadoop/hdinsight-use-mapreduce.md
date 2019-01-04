@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632648"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634623"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>MapReduce gebruiken in een Apache Hadoop op HDInsight
 
@@ -28,15 +28,15 @@ Leer hoe u MapReduce-taken uitvoert op HDInsight-clusters. Gebruik de volgende t
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
->
+
 
 ## <a id="whatis"></a>Wat is MapReduce
 
 Apache Hadoop MapReduce is een softwareframework voor het schrijven van taken die grote hoeveelheden gegevens verwerken. Invoergegevens is opgedeeld in segmenten onafhankelijk. Elk segment worden parallel verwerkt op de knooppunten in uw cluster. Een MapReduce-taak bestaat uit twee functies:
 
-* **Toewijzer**: invoergegevens worden verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
+* **Toewijzer**: Invoergegevens worden verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
 
-* **Reducer**: tuples die zijn gegenereerd door het toewijzen van de verbruikt en wordt een samenvatting uitgevoerd die u een kleinere, gecombineerde resultaat van de gegevens toewijzen maakt
+* **Reducer**: Tuples die zijn gegenereerd door het toewijzen van de verbruikt en wordt een samenvatting uitgevoerd die u een kleinere, gecombineerde resultaat van de gegevens toewijzen maakt
 
 Een voorbeeld van een eenvoudige word aantal MapReduce-taak wordt weergegeven in het volgende diagram:
 
@@ -57,7 +57,7 @@ Hadoop-streaming communiceert met de toewijzing en reducer via STDIN en STDOUT. 
 
     [key]/t[value]
 
-Zie voor meer informatie, [Hadoop-Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Zie voor meer informatie, [Hadoop-Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 Zie de volgende documenten voor meer voorbeelden van het gebruik van Hadoop-streaming met HDInsight:
 
@@ -163,7 +163,7 @@ HDInsight uitvoeren HiveQL taken met behulp van verschillende methoden. Gebruik 
 | [CURL](apache-hadoop-use-mapreduce-curl.md) |De taak op afstand indienen met behulp van **REST** |Linux of Windows |Linux, Unix, Mac OS X of Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |De taak op afstand indienen met behulp van **Windows PowerShell** |Linux of Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a id="nextsteps"></a>Volgende stappen
@@ -174,9 +174,9 @@ Zie de volgende documenten voor meer informatie over het werken met gegevens in 
 
 * [Python MapReduce-programma's voor HDInsight streaming ontwikkelen](apache-hadoop-streaming-python.md)
 
-* [Hive gebruiken met HDInsight][hdinsight-use-hive]
+* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
 
-* [Pig gebruiken met HDInsight][hdinsight-use-pig]
+* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

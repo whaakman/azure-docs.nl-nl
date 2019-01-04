@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964114"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720812"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Tenant-brede inzicht voor Azure Security Center
 Dit artikel helpt u aan de slag met het uitvoeren van verschillende acties die de Azure Security Center biedt voordelen maximaliseren. Deze acties worden uitgevoerd, kunt u inzicht op alle Azure-abonnementen die zijn gekoppeld aan uw Azure Active Directory-tenant en effectief beheren van de beveiligingsstatus van uw organisatie op schaal door het toepassen van beveiligingsbeleid voor meerdere krijgen abonnementen op een aggregative manier.
@@ -71,19 +71,19 @@ Een tenantbeheerder van Azure Active Directory heeft geen directe toegang tot Az
 
    ![Eigenschappen van Azure AD - schermafbeelding](./media/security-center-management-groups/aad-properties.png)
 
-3. Onder **globale beheerder kan beheren Azure-abonnementen en beheergroepen**, instellen van de switch op **Ja**.
+3. Onder **Access management voor Azure-resources**, instellen van de switch op **Ja**.
 
    ![Globale beheerder kan beheren Azure-abonnementen en beheergroepen - schermafbeelding](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Als u de switch instelt op **Ja**, uw account voor globale beheerders (momenteel aangemelde gebruiker) wordt toegevoegd aan de rol Administrator voor gebruikerstoegang in Azure RBAC bij het root-bereik (`/`), hebt u toegang tot het weergeven en rapporteren op alle Azure-abonnementen die zijn gekoppeld aan uw Azure AD-tenant.
+   - Als u de switch op Ja instelt, kunt u de rol Administrator voor gebruikerstoegang in Azure RBAC bij het root-bereik (/) zijn toegewezen. Hiermee verkrijgt u machtiging voor het toewijzen van rollen in alle Azure-abonnementen en beheergroepen die zijn gekoppeld aan deze Azure AD-adreslijst. Deze schakeloptie is alleen beschikbaar voor gebruikers die de rol globale beheerder zijn toegewezen in Azure AD.
 
-   - Als u de switch instelt op **Nee**, uw account voor globale beheerders (momenteel aangemelde gebruiker) wordt verwijderd uit de rol Administrator voor gebruikerstoegang in Azure RBAC. Alle Azure-abonnementen die gekoppeld aan de Azure AD-tenant zijn niet wordt weergegeven, en u kunt weergeven en beheren van alleen de Azure-abonnementen waartoe u toegang is verleend.
+  - Als u de switch op Nee instelt, wordt de rol Administrator voor gebruikerstoegang in Azure RBAC verwijderd uit uw gebruikersaccount. U kunt niet meer rollen in alle Azure-abonnementen en beheergroepen die gekoppeld aan deze Azure AD-adreslijst zijn. U kunt weergeven en beheren van alleen de Azure-abonnementen en beheergroepen waaraan u toegang is verleend.
 
 4. Klik op **opslaan** om op te slaan van de instelling.
 
     - Deze instelling is niet een globale eigenschap en geldt alleen voor de momenteel aangemelde gebruiker.
 
-5. Voer de taken die u wilt maken op de uitgebreide toegangsrechten. Wanneer u klaar bent, stelt u de switch terug naar **Nee**.
+5. De taken die u wilt maken op de uitgebreide toegangsrechten uitvoeren. Wanneer u klaar bent, stelt u de switch terug naar **Nee**.
 
 
 ### <a name="assign-rbac-roles-to-users"></a>RBAC-rollen toewijzen aan gebruikers

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aaa89b5a3bb1af6878ed21e0160a534a1c989228
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249325"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721356"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Voorbereiden voor een inkomende IP-adres wijzigen
 
@@ -50,4 +50,4 @@ Het nieuwe inkomende IP-adres die aan uw app is in de portal in de **virtueel IP
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Dit artikel wordt uitgelegd hoe u voorbereidt een IP-adres wijzigen die door Azure is gestart. Zie voor meer informatie over IP-adressen in Azure App Service, [inkomende en uitgaande IP-adressen in Azure App Service](app-service-ip-addresses.md).
+Dit artikel wordt uitgelegd hoe u voorbereidt een IP-adres wijzigen die door Azure is gestart. Zie voor meer informatie over IP-adressen in Azure App Service, [inkomende en uitgaande IP-adressen in Azure App Service](overview-inbound-outbound-ips.md).

@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfea3ec7380a36f937052a6a994504ca081f187
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2abf0afb3b6e1cd80168fa3f295297551b9bf7ce
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019767"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755152"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Hoe: verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedure: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
 
 Als u wilt uw gebruikers eenvoudig toegang geven tot uw cloud-apps, Azure Active Directory (Azure AD) biedt ondersteuning voor tal van verificatieprotocollen, waaronder oudere authentication. Echter, verouderde protocollen bieden geen ondersteuning voor multi-factor authentication (MFA). MFA is in veel omgevingen een algemene vereiste op identiteitsdiefstal adres. 
 
@@ -91,7 +91,7 @@ Azure heeft een veiligheid-functie waarmee wordt voorkomen u het maken van een b
 ![Voor beleidsconfiguratie wordt niet ondersteund](./media/block-legacy-authentication/04.png)
 
 
-De functie veiligheid is nodig omdat *blokkeren van alle gebruikers en alle cloud-apps* in potentie moet worden geblokkeerd dat de hele organisatie van de aan te melden bij uw tenant. U moet ten minste één gebruiker om te voldoen aan de minimale vereiste voor best practice uitsluiten. U kunt ook 
+De functie veiligheid is nodig omdat *blokkeren van alle gebruikers en alle cloud-apps* in potentie moet worden geblokkeerd dat de hele organisatie van de aan te melden bij uw tenant. U moet ten minste één gebruiker om te voldoen aan de minimale vereiste voor best practice uitsluiten. U kunt ook een directory-rol uitsluiten.
 
 ![Voor beleidsconfiguratie wordt niet ondersteund](./media/block-legacy-authentication/05.png)
 

@@ -4,15 +4,16 @@ description: Dit artikel bevat een overzicht van de onderdelen en architectuur d
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 64464772b82a64324a706d1e09e7d2a75b7eb66a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6ce1a20ddb5e99ca6da9531b6d23a8a54d14f588
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834312"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971730"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architectuur voor VMware-/ fysieke servers repliceren naar een secundaire on-premises site
 
@@ -37,7 +38,7 @@ Dit artikel beschrijft de architectuur en processen die worden gebruikt bij het 
 2. Na de initiële replicatie verzendt de agent op elke machine deltareplicatiewijzigingen naar de processerver.
 3. De processerver optimaliseert de gegevens en brengt deze over naar de hoofddoelserver op de secundaire site. De configuratieserver beheert het replicatieproces.
 
-**Afbeelding 6: replicatie van VMware naar VMware**
+**Afbeelding 6: VMware naar VMware-replicatie**
 
 ![VMware naar VMware](./media/site-recovery-components/vmware-to-vmware.png)
 

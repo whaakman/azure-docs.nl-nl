@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342087"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632615"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Ondersteuning voor spraak-API voor Service taal en regio
 
@@ -176,22 +176,7 @@ Stem aanpassing is beschikbaar voor ons Engels (en-US), vasteland Chinees (zh-CN
 
 ## <a name="speech-translation"></a>Spraakomzetting
 
-De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd in de volgende tabel voor spraak-taal. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is. U mag vertalen binnenkomende spraak in meer dan [60 talen](https://www.microsoft.com/translator/business/languages/). Een subset van deze talen zijn beschikbaar voor [spraaksynthese](language-support.md#text-languages).
-
-### <a name="speech-languages"></a>Talen voor spraak
-
-| Taal voor spraakherkenning   | Taalcode |
-|:----------- |-|
-| Arabisch (moderne Standard)      | `ar` |
-| Chinees (Mandarijn)      | `zh` |
-| Nederlands      | `en` |
-| Frans      | `fr` |
-| Duits      | `de` |
-| Italiaans      | `it` |
-| Japans      | `jp` |
-| Portugees (Brazilië)     | `pt` |
-| Russisch      | `ru` |
-| Spaans      |  `es` |
+De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd zijn uit de tabel van de taal spraak-naar-tekst. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is. U mag vertalen binnenkomende spraak in meer dan [60 talen](https://www.microsoft.com/translator/business/languages/). Een subset van deze talen zijn beschikbaar voor [spraaksynthese](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Tekst-talen
 

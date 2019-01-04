@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495370"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653914"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Een HDInsight-toepassing publiceren in de Azure Marketplace
 U kunt een Azure HDInsight-toepassing installeren op een Linux gebaseerde HDInsight-cluster. In dit artikel leert u hoe u een HDInsight-toepassing publiceren in de Azure Marketplace. Raadpleeg voor algemene informatie over het publiceren op Azure Marketplace [een aanbieding publiceren in de Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -45,7 +45,7 @@ Twee stappen worden uitgevoerd in de publicatie van toepassingen in de Marketpla
 }
 ```
 
-| Veld | Beschrijving | Mogelijke waarden |
+| Veld | Description | Mogelijke waarden |
 | --- | --- | --- |
 | typen |De clustertypen waarmee de toepassing compatibel is. |Hadoop, HBase, Storm, Spark (of een combinatie hiervan) |
 | versies |De HDInsight-clustertypen waarmee de toepassing compatibel is. |3.4 |
@@ -53,7 +53,7 @@ Twee stappen worden uitgevoerd in de publicatie van toepassingen in de Marketpla
 ## <a name="application-installation-script"></a>Script voor installatie van toepassing
 Wanneer een toepassing wordt geïnstalleerd op een cluster (hetzij op een bestaand cluster of op een nieuwe), wordt een edge-knooppunt gemaakt. Het installatiescript van de toepassing wordt uitgevoerd op het edge-knooppunt.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > De naam van het installatiescript van de toepassing moet uniek zijn voor een specifieke cluster. Naam van het script moet de volgende indeling hebben:
   > 
   > "naam": "[concat ('hue-install-v0 ','-', uniquestring('applicationName')]"
@@ -81,9 +81,8 @@ Maak een ZIP-bestand met de bestanden die nodig zijn om uw HDInsight-toepassing 
 * mainTemplate.json (Zie voor een voorbeeld [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).)
 * Alle vereiste scripts
 
-> [!NOTE]
+> [!NOTE]  
 > U kunt de toepassingsbestanden (inclusief alle web-app-bestanden) hosten op elk willekeurig eindpunt dat openbaar toegankelijk is.
-> 
 
 ## <a name="publish-the-application"></a>De toepassing publiceren
 Een HDInsight-toepassing publiceren:

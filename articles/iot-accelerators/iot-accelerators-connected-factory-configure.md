@@ -1,5 +1,5 @@
 ---
-title: De topologie van de verbonden Factory configureren | Microsoft Docs
+title: Configureren van de verbonden Factory-topologie - Azure | Microsoft Docs
 description: Klik hier voor meer informatie over het configureren van de topologie van een oplossingsverbetering voor verbonden Factory.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746976"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602270"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>De oplossingsversneller voor verbonden Factory configureren
 
@@ -85,7 +85,7 @@ Het volgende codefragment toont een overzicht van de `ContosoTopologyDescription
 }
 ```
 
-De algemene eigenschappen van `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, en `<station_configuration>` zijn:
+De algemene eigenschappen van `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, en `<station_configuration>` zijn:
 
 * **Naam** (type string)
 
@@ -264,8 +264,8 @@ Alle eigenschappen die in het configuratiebestand gebruikt kunnen worden gegroep
 
 De eigenschappen in deze categorie definiëren het uiterlijk van de verbonden Factory-dashboard. Voorbeelden zijn:
 
-* Naam
-* Beschrijving
+* Name
+* Description
 * Installatiekopie
 * Locatie
 * Eenheden
@@ -282,7 +282,7 @@ De OEE-/ KPI-afbeeldingen voor de verbonden Factory-simulatie bestaan parameters
 * De OPC UA-knooppunt-waarden moeten worden opgenomen in de berekening.
 * Hoe de afbeelding wordt berekend van de telemetriewaarden.
 
-Verbonden Factory's worden de OEE-formules gebruikt zoals gepubliceerd door de http://www.oeefoundation.org.
+Verbonden Factory's worden de OEE-formules gebruikt zoals gepubliceerd door de https://www.oeefoundation.org.
 
 Objecten van de OPC UA-knooppunt in stations inschakelen voor gebruik in de berekening van de OEE-/ KPI-tagging. De **relevantie** eigenschap wordt aangegeven voor welke OEE-/ KPI-afbeelding de waarde van de OPC UA-knooppunt moet worden gebruikt. De **OpCode** eigenschap definieert hoe de waarde in de berekening is opgenomen.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274714"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630662"
 ---
 # <a name="use-an-app-service-environment"></a>Een App Service-omgeving gebruiken #
 
@@ -39,22 +39,22 @@ Azure App Service Environment is een implementatie van Azure App Service in een 
 
 U kunt een as-omgeving (ASEv1 en ASEv2) implementeren met een extern of intern VIP-adres voor toegang tot Apps. De implementatie met een extern VIP-adres wordt vaak een externe as-omgeving genoemd. De interne versie heet de ILB as-omgeving omdat het gebruikmaakt van een interne load balancer (ILB). Zie voor meer informatie over de ILB as-omgeving, [maken en gebruiken een ILB as-omgeving][MakeILBASE].
 
-## <a name="create-a-web-app-in-an-ase"></a>Een web-app maken in een as-omgeving ##
+## <a name="create-an-app-in-an-ase"></a>Een app maken in een as-omgeving ##
 
-Voor het maken van een web-app in een as-omgeving, gebruikt u dezelfde procedure als wanneer u deze normaal gesproken maakt, maar met enkele kleine verschillen. Wanneer u een nieuwe App Service-plan maken:
+Voor het maken van een app in een as-omgeving, gebruikt u dezelfde procedure als wanneer u deze normaal gesproken maakt, maar met enkele kleine verschillen. Wanneer u een nieuwe App Service-plan maken:
 
 - In plaats van het kiezen van een geografische locatie op waar om uw app te implementeren, kunt u een as-omgeving als locatie kiezen.
 - Alle App Service-plannen hebt gemaakt in een as-omgeving moeten zich in een geïsoleerd prijscategorie.
 
 Als u een as-omgeving hebt, kunt u maken volgt u de instructies in [maken van een App Service environment][MakeExternalASE].
 
-Een web-app maken in een as-omgeving:
+Een app maken in een as-omgeving:
 
 1. Selecteer **een resource maken** > **Web en mobiel** > **Web-App**.
 
-2. Voer een naam voor de web-app. Als u al een App Service-plan in een as-omgeving hebt geselecteerd, geeft de domeinnaam op voor de app de domeinnaam van de as-omgeving.
+2. Voer een naam voor de app. Als u al een App Service-plan in een as-omgeving hebt geselecteerd, geeft de domeinnaam op voor de app de domeinnaam van de as-omgeving.
 
-    ![Web-app-naam selecteren][1]
+    ![Selectie van App-naam][1]
 
 1. Selecteer een abonnement.
 
@@ -80,10 +80,10 @@ Een web-app maken in een as-omgeving:
     ![Geïsoleerde categorieën][2]
 
     > [!NOTE]
-    > Linux-web-apps en web-apps voor Windows kunnen niet in de dezelfde App Service-Plan, maar kunnen zich in hetzelfde App Service Environment. 
+    > Linux-apps en apps in Windows mag zich niet in de dezelfde App Service-Plan, maar kunnen zich in hetzelfde App Service Environment. 
     >
 
-1. Selecteer **Maken**.
+2. Selecteer **Maken**.
 
 ## <a name="how-scale-works"></a>Hoe werkt schalen ##
 
@@ -97,7 +97,7 @@ U kunt maximaal 100 exemplaren schalen in een as-omgeving. De 100 instanties kun
 
 ## <a name="ip-addresses"></a>IP-adressen ##
 
-App Service biedt de mogelijkheid om toe te wijzen een toegewezen IP-adres aan een app. Deze mogelijkheid is beschikbaar nadat u een IP-gebaseerd SSL configureren zoals beschreven in [een bestaand aangepast SSL-certificaat binden aan Azure WebApps][ConfigureSSL]. In een as-omgeving is er echter een uitzondering die aandacht vereisen. U kunt extra IP-adressen moet worden gebruikt voor een op IP gebaseerde SSL in een ILB as-omgeving niet toevoegen.
+App Service biedt de mogelijkheid om toe te wijzen een toegewezen IP-adres aan een app. Deze mogelijkheid is beschikbaar nadat u een IP-gebaseerd SSL configureren zoals beschreven in [een bestaand aangepast SSL-certificaat binden aan Azure App Service][ConfigureSSL]. In een as-omgeving is er echter een uitzondering die aandacht vereisen. U kunt extra IP-adressen moet worden gebruikt voor een op IP gebaseerde SSL in een ILB as-omgeving niet toevoegen.
 
 In ASEv1 moet u de IP-adressen als resources toewijzen voordat u ze kunt gebruiken. In ASEv2 gebruikt u deze vanuit uw app net als in de multitenant-App Service. Er is altijd één spare-adres in ASEv2 maximaal 30 IP-adressen. Telkens wanneer is u een, andere toegevoegd, zodat een adres altijd direct beschikbaar voor gebruik is. Een tijd vertraging is vereist voor het toewijzen van een ander IP-adres, waardoor het toevoegen van IP-adressen snel achter elkaar.
 
@@ -187,6 +187,6 @@ Een as-omgeving verwijderen:
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

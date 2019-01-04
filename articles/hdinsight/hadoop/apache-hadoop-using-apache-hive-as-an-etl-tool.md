@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632540"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630255"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive gebruiken als een hulpprogramma voor uitpakken, transformeren en laden (ETL)
 
-U moet meestal opschonen en transformeren van binnenkomende gegevens voordat deze naar een bestemming die geschikt is voor de analyse wordt geladen. Extraheren, transformeren en laden (ETL)-bewerkingen worden gebruikt voor het voorbereiden van gegevens en deze te laden in een bestemming.  Apache Hive in HDInsight kunt lezen in niet-gestructureerde gegevens, indien nodig de gegevens worden verwerkt en vervolgens de gegevens laden in een relationele datawarehouse voor besluit ondersteuning voor systemen. In deze benadering, worden gegevens opgehaald uit de bron en opgeslagen in schaalbare opslag, zoals Azure Storage-blobs of Azure Data Lake Store. De gegevens vervolgens worden getransformeerd met behulp van een reeks van Hive-query's en ten slotte wordt klaargezet binnen Hive in voorbereiding voor bulksgewijs laden in het beoogde gegevensarchief.
+U moet meestal opschonen en transformeren van binnenkomende gegevens voordat deze naar een bestemming die geschikt is voor de analyse wordt geladen. Extraheren, transformeren en laden (ETL)-bewerkingen worden gebruikt voor het voorbereiden van gegevens en deze te laden in een bestemming.  Apache Hive in HDInsight kunt lezen in niet-gestructureerde gegevens, indien nodig de gegevens worden verwerkt en vervolgens de gegevens laden in een relationele datawarehouse voor besluit ondersteuning voor systemen. In deze benadering, worden gegevens opgehaald uit de bron en opgeslagen in schaalbare opslag, zoals Azure Storage-blobs of Azure Data Lake Storage. De gegevens vervolgens worden getransformeerd met behulp van een reeks van Hive-query's en ten slotte wordt klaargezet binnen Hive in voorbereiding voor bulksgewijs laden in het beoogde gegevensarchief.
 
 ## <a name="use-case-and-model-overview"></a>Overzicht van de aanvraag en modellen gebruiken
 
@@ -30,7 +30,7 @@ Hadoop wordt doorgaans gebruikt in de ETL-processen die ofwel een groot aantal t
 
 De gebruikelijke stappen voor het gebruik van Hive om uit te voeren ETL zijn als volgt:
 
-1. Gegevens laden in Azure Data Lake Store of Azure Blob Storage.
+1. Gegevens laden in Azure Data Lake Storage of Azure Blob Storage.
 2. Maak een metagegevens Store-database (met behulp van Azure SQL Database) voor gebruik door Hive bij het opslaan van uw schema's.
 3. Een HDInsight-cluster maakt en verbinding maken met het gegevensarchief.
 4. Definiëren welk schema moet worden toegepast op het moment van lezen van gegevens in het gegevensarchief:
@@ -51,7 +51,7 @@ De gebruikelijke stappen voor het gebruik van Hive om uit te voeren ETL zijn als
 
 5. De gegevens te transformeren en laden naar de bestemming.  Er zijn verschillende manieren om Hive gebruiken tijdens de transformatie en laden:
 
-    * Query's uitvoeren en voorbereiden van gegevens met Hive en sla deze op als een CSV in het Azure Data Lake Store of Azure blob-opslag.  Gebruik vervolgens een hulpprogramma zoals SQL Server Integration Services (SSIS) te verwerven die CSV's en de gegevens in een relationele database van de bestemming, zoals SQL Server laden.
+    * Query's uitvoeren en voorbereiden van gegevens met Hive en sla deze op als een CSV in het Azure Data Lake Storage of Azure blob-opslag.  Gebruik vervolgens een hulpprogramma zoals SQL Server Integration Services (SSIS) te verwerven die CSV's en de gegevens in een relationele database van de bestemming, zoals SQL Server laden.
     * De gegevens rechtstreeks vanuit Excel of C# met behulp van het Hive ODBC-stuurprogramma op te vragen.
     * Gebruik [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) naar de voorbereide platte CSV-bestanden lezen en te laden in de relationele database.
 

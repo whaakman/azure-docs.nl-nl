@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567414"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583065"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Back-up en herstel van versleutelde virtuele machines met Azure Backup
 In dit artikel vertelt de stappen voor het back-up en herstellen van virtuele machines (VM's) met behulp van Azure Backup. Het bevat ook informatie over ondersteunde scenario's, vereisten en stappen voor probleemoplossing voor foutgevallen.
@@ -27,6 +27,10 @@ In dit artikel vertelt de stappen voor het back-up en herstellen van virtuele ma
    | --- | --- | --- |
    | **Niet-beheerde virtuele machines**  | Ja | Ja  |
    | **Beheerde VM 's**  | Ja | Ja  |
+
+   > [!NOTE]
+   > Azure Backup biedt ondersteuning voor virtuele machines die zijn versleuteld met behulp van zelfstandige sleutel (s). Een willekeurige toets die deel uitmaakt van een certificaat dat wordt gebruikt voor het versleutelen van een virtuele machine momenteel niet ondersteund.
+   >   
 
 ## <a name="prerequisites"></a>Vereisten
 * De virtuele machine is versleuteld met behulp van [Azure Disk Encryption](../security/azure-security-disk-encryption.md).

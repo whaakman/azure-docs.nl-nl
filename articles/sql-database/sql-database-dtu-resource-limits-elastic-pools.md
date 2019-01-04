@@ -3,7 +3,7 @@ title: Azure SQL Database DTU gebaseerde resource limieten elastische pools | Mi
 description: Deze pagina beschrijft enkele algemene DTU gebaseerde resourcelimieten voor elastische pools in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-poolss
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: a31a2bc3fa1edc0f4424dde4b5c8934e26669fc0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873441"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653048"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limieten voor elastische pools met behulp van het op DTU gebaseerde aankoopmodel resources 
 
@@ -28,7 +28,7 @@ Zie voor DTU gebaseerde aankopen model resourcelimieten voor individuele databas
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastische pool: opslaggrootte en compute-grootten
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastische pool: Opslaggrootte en compute-grootten
 
 Voor SQL Database elastische pools in de volgende tabellen weergeven van de beschikbare resources in elke servicelaag en compute-grootte. U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), wordt de [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), of de [REST-API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
@@ -111,7 +111,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 ||||||||
 
 > [!IMPORTANT]
-> Meer dan 1 TB aan opslag in de Premium-laag is momenteel beschikbaar in alle regio's behalve het volgende: West-Centraal VS, China-Oost, USDoDCentral, Duitsland-centraal, USDoDEast, VS (overheid)-zuidwesten, Duitsland-Noordoost, USGov Iowa, China-Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's met uitzondering van: West-Centraal VS, China-Oost, USDoDCentral, Duitsland-centraal, USDoDEast, VS (overheid)-zuidwesten, Duitsland-Noordoost, USGov Iowa, China-Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Als alle DTU's van een elastische groep zijn gebruikt, ontvangt elke database in de groep een gelijke hoeveelheid resources om query's te verwerken. De service SQL Database verdeelt resources eerlijk over databases door gelijke hoeveelheden rekentijd te garanderen. Gelijke verdeling van resources in een elastische groep vindt plaats naast een bepaalde hoeveelheid resources die sowieso voor elke database wordt gegarandeerd wanneer het aantal DTU's per database is ingesteld op een andere waarde dan nul.
 
@@ -119,7 +119,7 @@ Als alle DTU's van een elastische groep zijn gebruikt, ontvangt elke database in
 
 De volgende tabel beschrijft de eigenschappen voor databases in pools.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Maximaal aantal eDTU’s per database |Het maximum aantal eDTU's dat elke database in de groep mag gebruiken, is afhankelijk van het gebruik door andere databases in de groep. Het maximum aantal eDTU's per database is geen resourcegarantie voor een database. Het is een algemene instelling voor alle databases in de groep. Stel het maximum aantal eDTU's per database hoog genoeg zijn om pieken in databasegebruik te kunnen afhandelen. Enige mate van overtoewijzing is normaal, omdat de groep in het algemeen uitgaat van pieken en dalen in gebruikspatronen voor databases, waarbij alle databases niet tegelijkertijd pieken. Stel, het piekgebruik per database is twintig eDTU's en slechts 20% van de 100 databases in de groep pieken op hetzelfde moment. Als het maximum aantal eDTU's per database is ingesteld op twintig eDTU's, kan de groep redelijkerwijs vijf keer worden overtoegewezen en kan het aantal eDTU's per groep worden ingesteld op 400. |
 | Minimaal aantal eDTU’s per database |Het minimum aantal eDTU's dat voor elke database in de groep wordt gegarandeerd. Het is een algemene instelling voor alle databases in de groep. Het minimum aantal eDTU’s per database kan worden ingesteld op 0. Dat is ook de standaardwaarde. Deze eigenschap wordt ingesteld op een waarde tussen 0 en het gemiddelde eDTU-gebruik per database. Het product van het aantal databases in de groep en het minimum aantal eDTU's per database mag niet groter zijn dan het aantal eDTU's per groep. Als een groep bijvoorbeeld twintig databases heeft en het minimum aantal eDTU's per database is ingesteld op tien eDTU's, dan moet het aantal eDTU's per groep minimaal 200 eDTU's zijn. |

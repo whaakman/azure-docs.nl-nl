@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 63025a299f6b7b48936be9702522a832a1d77330
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d51cbc7bd88fd9f4baf066210e7b7da8cd175cd6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074794"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603120"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 De [kennisdatabase ontwikkelingscyclus](../Concepts/development-lifecycle-knowledge-base.md) helpt u over het beheren van uw KB van begin tot einde. Gebruik deze aanbevolen procedures te verbeteren van uw knowledge base en biedt betere resultaten van uw toepassing/chat bot-eindgebruikers.
@@ -67,8 +67,11 @@ De standaard-betrouwbaarheidsscore die wordt gebruikt als een drempelwaarde is 5
 |Is de vervangende domeinpagina beschikbaar?|Hebt u Auto-park?|zinsstructuur|
  |Hallo|Yo<br>Hallo er!|Word-stijl en taalgebruik|
 
-### <a name="use-metadata-filters"></a>Filters gebruiken om metagegevens
-[Metagegevens](../How-To/edit-knowledge-base.md) voegt de mogelijkheid om de resultaten van de gebruikersquery van een op basis van filters vast te stellen. De knowledge base-antwoord kan verschillen op basis van de metadata-tag, zelfs als de query hetzelfde is. Bijvoorbeeld, *"waar is vervangende domeinpagina zich"* een ander antwoord kan hebben als de locatie van de vertakking restaurant - dat wil zeggen, de metagegevens is *locatie: Seattle* versus *locatie: Redmond*.
+<a name="#use-metadata-filters"></a>
+
+### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>De van metagegevenstags filter vragen en antwoorden gebruiken
+
+[Metagegevens](../How-To/edit-knowledge-base.md) voegt de mogelijkheid om de resultaten van de gebruikersquery van een op basis van metagegevenstags vast te stellen. De knowledge base-antwoord kan verschillen op basis van de metadata-tag, zelfs als de query hetzelfde is. Bijvoorbeeld, *"waar is vervangende domeinpagina zich"* een ander antwoord kan hebben als de locatie van de vertakking restaurant - dat wil zeggen, de metagegevens is *locatie: Seattle* versus *locatie: Redmond*.
 
 ### <a name="use-synonyms"></a>Synoniemen gebruiken
 Hoewel er enkele ondersteuning van synoniemen in het Engels, gebruikt u [wijzigingen in word](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) synoniemen toevoegen aan trefwoorden die andere vorm. Synoniemen moeten worden toegevoegd op de QnA Maker-serviceniveau en gedeeld door alle knowledge bases in de service.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713092"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975131"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Automatisch schalen van cluster op Azure Kubernetes Service (AKS) - Preview
 
@@ -382,7 +382,7 @@ Events:  <none>
 De status van het cluster automatisch schalen kunt u de status van het cluster automatisch schalen op twee verschillende niveaus: brede, door het cluster en binnen de groep van elk knooppunt. Aangezien AKS momenteel alleen toepassingen met één knooppunt ondersteunt, wordt deze metrische gegevens zijn hetzelfde.
 
 * Status geeft aan dat de algehele status van de knooppunten. Als het cluster automatisch schalen strijd om te maken of knooppunten in het cluster verwijdert, wordt deze status wordt gewijzigd in 'Niet in orde'. Er is ook een uitsplitsing van de status van andere knooppunten:
-    * 'Gereed' betekent dat een knooppunt is een kan worden gepland op het gehele product hebben.
+    * 'Gereed' betekent dat een knooppunt is gereed om te zijn gepland op het gehele product.
     * 'Unready' betekent dat een knooppunt dat defect is geraakt nadat deze is gestart.
     * 'NotStarted' betekent dat een knooppunt volledig nog niet is gestart.
     * 'LongNotStarted' betekent dat een knooppunt kan niet worden gestart binnen een redelijke termijn.
@@ -398,7 +398,7 @@ De status van het cluster automatisch schalen kunt u de status van het cluster a
     * Een kandidaat voor omlaag schalen is een knooppunt die heeft vastgesteld dat het cluster automatisch schalen kan worden verwijderd zonder mogelijkheid voor het afhandelen van de belasting van het cluster. 
     * De tijden die zijn opgegeven weergeven de laatste keer dat het cluster is ingeschakeld voor omlaag kandidaten schalen en de laatste overgangstijd.
 
-Ten slotte onder gebeurtenissen, kunt u zien van elke schaal of verkleinen van gebeurtenissen, mislukte of geslaagde, en hun tijden dat het cluster automatisch schalen is uitgevoerd.
+Ten slotte onder gebeurtenissen, kunt u elke schaal Zie of verkleinen van gebeurtenissen, mislukte of geslaagde, en hun tijden dat het cluster automatisch schalen is uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

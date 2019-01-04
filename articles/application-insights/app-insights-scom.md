@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: d7c3134c36707fcfa079968d19d93b73d7a5f5cc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e9ba42e33fb763256cd31c255ea42593146dfb7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724074"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969315"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Toepassingsprestaties bewaken met Application Insights voor SCOM
-Als u System Center Operations Manager (SCOM) gebruikt voor het beheren van uw servers, kunt u prestaties bewaken en diagnosticeren van prestatieproblemen met behulp van [Azure Application Insights](app-insights-asp-net.md). Application Insights bewaakt uw webtoepassing inkomende aanvragen, uitgaande REST en SQL-aanroepen, uitzonderingen en logboektraceringen. Het biedt dashboards met grafieken met metrische gegevens en slimme waarschuwingen, evenals krachtige diagnostische gegevens doorzoeken en analytische query's in deze telemetrie. 
+Als u System Center Operations Manager (SCOM) gebruikt voor het beheren van uw servers, kunt u prestaties bewaken en diagnosticeren van prestatieproblemen met behulp van [Azure Application Insights](../azure-monitor/app/asp-net.md). Application Insights bewaakt uw webtoepassing inkomende aanvragen, uitgaande REST en SQL-aanroepen, uitzonderingen en logboektraceringen. Het biedt dashboards met grafieken met metrische gegevens en slimme waarschuwingen, evenals krachtige diagnostische gegevens doorzoeken en analytische query's in deze telemetrie. 
 
 U kunt overschakelen op de bewaking van Application Insights met behulp van een managementpack van SCOM.
 
@@ -35,7 +35,7 @@ We nemen:
 * App-framework-versie is .NET 4.5 of hoger.
 * U hebt toegang tot een abonnement in [Microsoft Azure](https://azure.com) en kunnen zich aanmelden bij de [Azure-portal](https://portal.azure.com). Uw organisatie kan een abonnement hebben en aan uw Microsoft-account kunt toevoegen.
 
-(Het ontwikkelingsteam kan bouwen de [Application Insights-SDK](app-insights-asp-net.md) in de web-app. Deze build-runtime-instrumentatiesleutel biedt ze meer flexibiliteit bij het schrijven van aangepaste telemetrie. Echter, het maakt niet uit: u kunt de stappen die hier worden beschreven, met of zonder de SDK al ingebouwd.)
+(Het ontwikkelingsteam kan bouwen de [Application Insights-SDK](../azure-monitor/app/asp-net.md) in de web-app. Deze build-runtime-instrumentatiesleutel biedt ze meer flexibiliteit bij het schrijven van aangepaste telemetrie. Echter, het maakt niet uit: u kunt de stappen die hier worden beschreven, met of zonder de SDK al ingebouwd.)
 
 ## <a name="one-time-install-application-insights-management-pack"></a>(Één keer) Application Insights managementpack installeren
 Op de computer waarop u Operations Manager uitvoert:
@@ -92,13 +92,13 @@ U kunt controleren welke instanties van de app heeft gevonden:
 ![Open in de bewaking, Application Insights](./media/app-insights-scom/100.png)
 
 ## <a name="view-telemetry-in-application-insights"></a>Telemetrie in Application Insights weergeven
-In de [Azure-portal](https://portal.azure.com), blader naar de resource voor uw app. U [grafieken met de telemetrie bekijken](app-insights-dashboards.md) vanuit uw app. (Als deze nog niet op de hoofdpagina nog weergegeven, klikt u op Live Metrics Stream.)
+In de [Azure-portal](https://portal.azure.com), blader naar de resource voor uw app. U [grafieken met de telemetrie bekijken](../azure-monitor/app/app-insights-dashboards.md) vanuit uw app. (Als deze nog niet op de hoofdpagina nog weergegeven, klikt u op Live Metrics Stream.)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Instellen van een dashboard](app-insights-dashboards.md) samenbrengen van de belangrijkste grafieken bewaking van deze en andere apps.
+* [Instellen van een dashboard](../azure-monitor/app/app-insights-dashboards.md) samenbrengen van de belangrijkste grafieken bewaking van deze en andere apps.
 * [Meer informatie over metrische gegevens](app-insights-metrics-explorer.md)
-* [Waarschuwingen instellen](app-insights-alerts.md)
-* [Oorzaak van prestatieproblemen achterhalen](app-insights-detect-triage-diagnose.md)
-* [Krachtige Analytics-query 's](app-insights-analytics.md)
-* [Webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)
+* [Waarschuwingen instellen](../azure-monitor/app/alerts.md)
+* [Oorzaak van prestatieproblemen achterhalen](../azure-monitor/app/detect-triage-diagnose.md)
+* [Krachtige Analytics-query 's](../azure-monitor/app/analytics.md)
+* [Webtests voor beschikbaarheid](../azure-monitor/app/monitor-web-app-availability.md)
 

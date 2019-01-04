@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 42ed050606dd242e43903ed980a5670b4aa6f3df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343170"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790755"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-extensie configuration schema-versies en de geschiedenis
 Deze pagina indexen Azure Diagnostics-extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
@@ -175,7 +175,7 @@ Toegevoegde opslagtype u moet PublicConfig. StorageType mag *tabel*, *Blob*, *Ta
 De mogelijkheid om te routeren naar EventHub toegevoegd.
 
 ### <a name="diagnostics-extension-15"></a>1.5-extensie voor diagnostische gegevens
-De PUT-element en de mogelijkheid voor het verzenden van diagnostische gegevens toegevoegd [Application Insights](../../application-insights/app-insights-cloudservices.md) waardoor het gemakkelijker wordt om problemen te diagnosticeren op uw toepassing als het niveau van de systeem- en -infrastructuur.
+De PUT-element en de mogelijkheid voor het verzenden van diagnostische gegevens toegevoegd [Application Insights](../../azure-monitor/app/cloudservices.md) waardoor het gemakkelijker wordt om problemen te diagnosticeren op uw toepassing als het niveau van de systeem- en -infrastructuur.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 en diagnostische gegevens van de extensie 1.3
 Cloud Service-projecten in Visual Studio, zijn de volgende wijzigingen aangebracht. (Deze wijzigingen gelden ook voor latere versies van Azure SDK.)

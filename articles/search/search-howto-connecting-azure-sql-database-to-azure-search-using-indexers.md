@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313391"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633024"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinding maken met en inhoud met behulp van Azure Search-indexeerfuncties van Azure SQL Database indexeren
 
@@ -156,7 +156,7 @@ Ook kunt u instellen dat de indexeerfunctie periodiek wordt uitgevoerd volgens e
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-De **interval** parameter is vereist. Het interval verwijst naar de tijd tussen het begin van de twee opeenvolgende indexeerfunctie uitvoeringen. De minimaal toegestane interval is 5 minuten. het langste is één dag. Deze moet zijn opgemaakt als een "dayTimeDuration" XSD-waarde (een beperkte subset van een [duur van de ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Het patroon hiervoor is: `P(nD)(T(nH)(nM))`. Voorbeelden: `PT15M` voor elke 15 minuten, `PT2H` voor elke 2 uur.
+De **interval** parameter is vereist. Het interval verwijst naar de tijd tussen het begin van de twee opeenvolgende indexeerfunctie uitvoeringen. De minimaal toegestane interval is 5 minuten. het langste is één dag. Deze moet zijn opgemaakt als een "dayTimeDuration" XSD-waarde (een beperkte subset van een [duur van de ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Het patroon hiervoor is: `P(nD)(T(nH)(nM))`. Voorbeelden: `PT15M` voor elke 15 minuten, `PT2H` voor elke 2 uur.
 
 De optionele **startTime** geeft aan wanneer de geplande uitvoeringen moeten beginnen. Als deze wordt weggelaten, wordt de huidige UTC-tijd gebruikt. Deze tijd kan worden in het verleden – waarin geval de eerste uitvoering is gepland als de indexeerfunctie continu sinds de startTime actief is geweest.  
 

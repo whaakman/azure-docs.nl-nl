@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 24efb8490afdf67b96d531802362f88bef7d13de
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166486"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629676"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools voor Visual Studio gebruiken om te verbinden met Azure HDInsight en Apache Hive-query's uitvoeren
 
@@ -23,7 +23,7 @@ Meer informatie over het gebruik van Data Lake Tools voor Visual Studio (ook wel
 
 Zie [Inleiding tot HDInsight](../hdinsight-hadoop-introduction.md) en [Aan de slag met HDInsight](apache-hadoop-linux-tutorial-get-started.md) voor meer informatie over het gebruik van HDInsight. 
 
-Zie [Develop C# topologies for Apache Storm on HDInsight by using Visual Studio](../storm/apache-storm-develop-csharp-visual-studio-topology.md) (C#-topologieën ontwikkelen voor Apache Storm op HDInsight met behulp van Visual Studio) voor meer informatie over het maken van verbinding met een Storm-cluster.
+Zie voor meer informatie over het verbinden met een Apache Storm-cluster [ontwikkelen C# topologieën voor Apache Storm op HDInsight met behulp van Visual Studio](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 U kunt Data Lake Tools voor Visual Studio gebruiken voor toegang tot Azure Data Lake Analytics en HDInsight. Zie voor informatie over Data Lake Tools [Zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -31,13 +31,12 @@ U kunt Data Lake Tools voor Visual Studio gebruiken voor toegang tot Azure Data 
 
 Al u deze zelfstudie wilt voltooien en Data Lake Tools voor Visual Studio wilt gebruiken, hebt u de volgende items nodig:
 
-* Een Azure HDInsight-cluster. Zie [Aan de slag met Hadoop in Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md) om een HDInsight-cluster te maken. Om interactieve Hive-query's uit te voeren, hebt u een [HDInsight Interactive Query-cluster](../interactive-query/apache-interactive-query-get-started.md) nodig.
+* Een Azure HDInsight-cluster. Zie voor het maken van een HDInsight-cluster, [aan de slag met behulp van Apache Hadoop in Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Om de interactieve Apache Hive-query's uitvoeren, moet u een [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.
 * Een computer waarop Visual Studio 2017, 2015 of 2013 is geïnstalleerd.
     
     > [!NOTE]
     > Momenteel is alleen de Engelse versie van Data Lake Tools voor Visual Studio beschikbaar.
-    > 
-    > 
+
 
 ## <a name="install-or-update-data-lake-tools-for-visual-studio"></a>Azure Data Lake-tools voor Visual Studio installeren of bijwerken
 
@@ -66,8 +65,7 @@ U kunt Data Lake Tools voor Visual Studio gebruiken om verbinding te maken met u
 
 > [!NOTE]
 > Zie [Write and submit Hive queries by using Visual Studio](https://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx) (Hive-query's schrijven en verzenden met behulp van Visual Studio) voor informatie over het maken van verbinding met een algemeen Hadoop-cluster.
-> 
-> 
+
 
 Verbinding maken met uw Azure-abonnement:
 
@@ -77,8 +75,7 @@ Verbinding maken met uw Azure-abonnement:
    
    > [!NOTE]
    > Het venster **Taakoverzicht HDInsight** wordt geopend. Als u het venster niet ziet, kiest u in het menu **Beeld** **Overige vensters**en vervolgens **het venster Taakoverzicht HDInsight**.  
-   > 
-   > 
+
 4. Voer de referenties voor uw Azure-abonnement in en selecteer **Aanmelden**. Verificatie is alleen vereist als u op deze computer nog nooit verbinding hebt gemaakt met het Azure-abonnement vanuit Visual Studio.
 5. In Server Explorer wordt een lijst met bestaande HDInsight-clusters weergegeven. Als u geen clusters hebt, kunt u een cluster maken door gebruik te maken van Azure Portal, Azure PowerShell of de HDInsight SDK. Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie.
    
@@ -106,13 +103,12 @@ Nadat u een container hebt geopend, kunt u met de volgende knoppen blobs uploade
 
 ![Schermafbeelding van Blob-bewerkingen in Server Explorer van Data Lake Tools voor Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "Blobs uploaden, verwijderen en downloaden in Server Explorer")
 
-## <a name="run-interactive-hive-queries"></a>Interactieve Hive-query's uitvoeren
-[Apache Hive](https://hive.apache.org) is een datawarehouse-infrastructuur die is gebouwd op Hadoop. Hive wordt gebruikt voor gegevenssamenvatting, query's en analyse. U kunt Data Lake Tools voor Visual Studio gebruiken om Hive-query's uit te voeren vanuit Visual Studio. Zie [Hive gebruiken met HDInsight](hdinsight-use-hive.md) voor meer informatie over Hive.
+## <a name="run-interactive-apache-hive-queries"></a>Interactieve Apache Hive-query's uitvoeren
+[Apache Hive](https://hive.apache.org) is een datawarehouse-infrastructuur die is gebouwd op Hadoop. Hive wordt gebruikt voor gegevenssamenvatting, query's en analyse. U kunt Data Lake Tools voor Visual Studio gebruiken om Hive-query's uit te voeren vanuit Visual Studio. Zie voor meer informatie over Hive [Apache Hive gebruiken met HDInsight](hdinsight-use-hive.md).
 
-[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) gebruikt [Hive op LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brengt interactiviteit naar complexe datawarehouse-achtige query's op grote opgeslagen gegevenssets. Het uitvoeren van Hive-query's in Interactive Query is veel sneller dan de traditionele Hive-batchtaken. Zie voor meer informatie [Hive-batchtaken uitvoeren](#run-hive-batch-jobs).
+[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) gebruikt [Hive op LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brengt interactiviteit naar complexe datawarehouse-achtige query's op grote opgeslagen gegevenssets. Het uitvoeren van Hive-query's in Interactive Query is veel sneller dan de traditionele Hive-batchtaken. Zie voor meer informatie, [uitvoeren Apache Hive-batchtaken](#run-hive-batch-jobs).
 
-> [!NOTE]
->
+> [!NOTE]  
 > U kunt alleen interactieve Hive-query's uitvoeren wanneer u verbinding maakt met een [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md)-cluster.
 
 U kunt Data Lake Tools voor Visual Studio ook gebruiken om te zien wat er in een Hive-taak zit. Data Lake Tools voor Visual Studio verzamelt de Yarn-logboeken van bepaalde Hive-taken en maakt ze zichtbaar.
@@ -132,7 +128,7 @@ Een lijst met Hive-tabellen maken en het Hive-tabelschema weergeven:
    ![Schermafbeelding van een HDInsight Hive Visual Studio-schemaquery](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Resultaten van Hive-query")
 
 ### <a name="create-hive-tables"></a>Hive-tabellen maken
-U een Hive-tabel maken door de GUI te gebruiken of door Hive-query's te gebruiken. Zie [Hive-query's uitvoeren](#run.queries) voor meer informatie over het gebruik van Hive-query's.
+U een Hive-tabel maken door de GUI te gebruiken of door Hive-query's te gebruiken. Zie voor meer informatie over het gebruik van Hive-query's [uitvoeren Apache Hive-query's](#run.queries).
 
 Een Hive-tabel maken:
 
@@ -163,7 +159,7 @@ Ad-hocquery's maken, valideren en uitvoeren:
    
    > [!NOTE]
    > IntelliSense suggereert alleen de metagegevens van het cluster dat in de HDInsight-werkbalk is geselecteerd.
-   > 
+
    
 4. (Optioneel) Klik op **Script valideren** om het script te controleren op syntaxisfouten.
    
@@ -205,7 +201,8 @@ Hive-taken weergeven:
     ![Schermafbeelding van het venster Hive-taken in HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Hive-taken weergeven")
 
 ### <a name="faster-path-hive-execution-via-hiveserver2"></a>Sneller pad voor het uitvoeren van Hive via HiveServer2
-> [!NOTE]
+
+> [!NOTE]  
 > Deze functie werkt alleen in een cluster in HDInsight versie 3.2 of hoger.
  
 Data Lake Tools voor Visual Studio gebruikt om Hive-taken via [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) te verzenden (ook wel bekend als Templeton). Met deze methode voor het verzenden van Hive-taken duurde het lang om taakgegevens en foutinformatie te retourneren.
@@ -236,11 +233,11 @@ De volgende tabel laat het verschil zien tussen het uitvoeren van query's via Hi
 | Venster sluiten |Uitvoeren via HiveServer2 is *synchroon*. Als de vensters worden gesloten, wordt de queryuitvoering geannuleerd. |Verzenden via WebHCat is *asynchroon*. U kunt de query via WebHCat verzenden en Visual Studio sluiten. U kunt op elk gewenst moment terugkeren om de resultaten te bekijken. |
 
 ### <a name="tez-hive-job-performance-graph"></a>Prestatiegrafiek Tez Hive-taak
-In Data Lake Tools voor Visual Studio ziet u prestatiegrafieken voor de Hive-taken die met de Tez-uitvoeringsengine wordt uitgevoerd. Zie [Hive in HDInsight gebruiken](hdinsight-use-hive.md) voor informatie over het inschakelen van Tez. 
+In Data Lake Tools voor Visual Studio ziet u prestatiegrafieken voor de Hive-taken die met de Tez-uitvoeringsengine wordt uitgevoerd. Zie voor meer informatie over het inschakelen van Tez [gebruik Apache Hive in HDInsight](hdinsight-use-hive.md). 
 
 Nadat u een Hive-taak in Visual Studio hebt ingediend, wordt in Visual Studio de grafiek weergegeven als de taak is voltooid. Mogelijk moet u de knop **Vernieuwen** selecteren om de meest recente taakstatus te bekijken.
 
-> [!NOTE]
+> [!NOTE]  
 > Deze functie is alleen beschikbaar voor een cluster in HDInsight versie 3.2.4.593 of hoger. De functie werkt alleen op voltooide taken. Verder moet u taken verzenden via WebHCat om deze functie te gebruiken. De volgende afbeelding wordt weergegeven wanneer u uw query via HiveServer2 uitvoert: 
 > 
 > ![Schermafbeelding van een Hadoop Hive Tez-prestatiegrafiek](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png "Taakstatus")
@@ -259,7 +256,7 @@ U kunt Data Lake Tools voor Visual Studio gebruiken om in de Hive-taak te kijken
 
 Zie [Interactieve Hive-query's uitvoeren](#run-interactive-hive-queries) voor meer informatie over het uitvoeren van Hive-batchtaken. De informatie in die sectie is van toepassing op het uitvoeren Hive-batchtaken die langere verwerkingstijden hebben.
 
-## <a name="run-pig-scripts"></a>Pig-scripts uitvoeren
+## <a name="run-apache-pig-scripts"></a>Apache Pig-scripts uitvoeren
 U kunt Data Lake Tools voor Visual Studio gebruiken om Pig-scripts te maken en naar HDInsight-clusters te verzenden. Maak eerst een Pig-project op basis van een sjabloon. Verzend het script vervolgens naar HDInsight-clusters.
 
 ## <a name="feedback-and-known-issues"></a>Feedback en bekende problemen
@@ -271,7 +268,7 @@ U kunt Data Lake Tools voor Visual Studio gebruiken om Pig-scripts te maken en n
 In dit artikel hebt u hoe geleerd u het Data Lake Tools-pakket voor Visual Studio kunt gebruiken om verbinding te maken met HDInsight-clusters vanuit Visual Studio. U hebt ook geleerd hoe u een Hive-query uitvoert. Raadpleeg voor meer informatie de volgende artikelen:
 
 * [Hadoop Hive in HDInsight gebruiken](hdinsight-use-hive.md)
-* [Aan de slag met Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
-* [Hadoop-taken opgeven in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Twitter-gegevens met Hadoop analyseren in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Aan de slag met Apache Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
+* [Apache Hadoop-taken in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
+* [Twitter-gegevens met Apache Hadoop in HDInsight analyseren](../hdinsight-analyze-twitter-data.md)
 

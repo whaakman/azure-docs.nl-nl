@@ -7,81 +7,85 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384102"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654067"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
-Wanneer u maakt of manager AKS-clusters, kunnen soms problemen optreden. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
 
-### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>In het algemeen waar vind ik informatie over het opsporen van problemen van Kubernetes?
+Wanneer u maken of beheren van clusters met Azure Kubernetes Service (AKS), kunt u soms problemen ondervinden. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
 
-[Hier](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) is een officiële koppeling voor het oplossen van kubernetes-clusters.
-[Hier](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) is een koppeling naar een gids voor probleemoplossing gepubliceerd door een Microsoft-technicus rond het oplossen van problemen schillen, knooppunten, clusters, enzovoort.
+## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>In het algemeen waar vind ik informatie over het oplossen van problemen van Kubernetes?
 
-### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Ik krijg een fout is overschreden tijdens het maken of bijwerken. Wat moet ik doen? 
+Probeer de [officiële handleiding voor het oplossen van Kubernetes-clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
+Er is ook een [problemen oplossen met](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), gepubliceerd door een Microsoft-technicus voor het oplossen van schillen, knooppunten, clusters en andere functies.
 
-U moet aanvragen kernen [hier](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Ik krijg een 'quotum overschreden'-Fout tijdens het maken of bijwerken. Wat moet ik doen? 
 
-### <a name="what-is-the-max-pods-per-node-setting-for-aks"></a>Wat is de maximale schillen per knooppunt-instelling voor AKS?
+U moet [kernen aanvragen](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-De maximale schillen per knooppunt zijn standaard ingesteld op 30 als u een AKS-cluster in Azure portal implementeert.
-De maximale schillen per knooppunt zijn standaard ingesteld op 110 als u een AKS-cluster in de Azure CLI implementeren. (Zorg ervoor dat u de nieuwste versie van de Azure CLI gebruikt). Deze instelling kan worden gewijzigd met behulp van de max-knooppunten-per-pod-vlag in de az aks create-opdracht.
+## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Wat is de maximale schillen-per-knooppunt-instelling voor AKS?
 
-### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Ik krijg "insufficientSubnetSize" Fout tijdens het implementeren van een AKS-cluster met geavanceerde netwerken. Wat moet ik doen?
+De maximale schillen-per-knooppunt-instelling is standaard 30 als u een AKS-cluster in Azure portal implementeert.
+De maximuminstelling van schillen-per-knooppunt is 110 standaard als u een AKS-cluster in de Azure CLI implementeren. (Zorg ervoor dat u de nieuwste versie van de Azure CLI). Deze instelling kan worden gewijzigd met behulp van de `–-max-pods` markering waarmee wordt aangegeven de `az aks create` opdracht.
 
-Bij aangepaste VNET-optie is geselecteerd voor netwerken in AKS maakt, wordt de Azure CNI gebruikt voor IPAM. Het aantal knooppunten in een AKS-cluster kan overal liggen tussen 1 en 100 liggen. Op basis van 2) boven het subnet grootte moet groter zijn dan product van het aantal knooppunten en de maximale schil per knooppunt subnetgrootte > aantal knooppunten in het cluster * max schillen per knooppunt.
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Ik krijg een insufficientSubnetSize-fout tijdens het implementeren van een AKS-cluster met geavanceerde netwerken. Wat moet ik doen?
 
-### <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mijn schil is vastgelopen in de modus 'CrashLoopBackOff'. Wat moet ik doen?
+In de aangepaste Azure Virtual Network-optie voor het netwerk tijdens het maken van AKS, Azure Container netwerk Interface (CNI) gebruikt voor IP-adresbeheer (IPAM). Het aantal knooppunten in een AKS-cluster kan overal liggen tussen 1 en 100 liggen. Op basis van de vorige sectie, moet de grootte van het gatewaysubnet groter zijn dan het product van het aantal knooppunten en de maximale schillen per knooppunt. De relatie kan worden uitgedrukt in op deze manier: grootte van het gatewaysubnet > aantal knooppunten in het cluster * maximale schillen per knooppunt.
 
-Er zijn diverse redenen voor de schil wordt vastgelopen in deze modus. Om uit te zoeken kunt u de 
-* Met behulp van de schil zelf `kubectl describe pod <pod-name>`
-* De Logboeken gebruiken  `kubectl log <pod-name>`
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mijn schil is vastgelopen in de modus CrashLoopBackOff. Wat moet ik doen?
 
-### <a name="i-am-trying-to-enable-rbac-on-an-existing-cluster-can-you-tell-me-how-i-can-do-that"></a>Ik probeer om in te schakelen van RBAC in een bestaand cluster. Kunt u meer informatie hoe kan ik dat doen?
+Er zijn diverse redenen voor de schil wordt vastgelopen in deze modus. U kunt bekijken:
 
-Helaas RBAC inschakelen voor bestaande clusters wordt niet ondersteund op dit moment. U moet expliciet nieuwe clusters te maken. Als u de CLI, RBAC is standaard ingeschakeld terwijl een wisselknop waarmee deze beschikbaar in de portal AKS is werkstroom maken.
+* De schil zelf, met behulp van `kubectl describe pod <pod-name>`.
+* De logboeken, met behulp van `kubectl log <pod-name>`.
 
-### <a name="i-created-a-cluster-using-the-azure-cli-with-defaults-or-the-azure-portal-with-rbac-enabled-and-numerous-warnings-in-the-kubernetes-dashboard-the-dashboard-used-to-work-before-without-any-warnings-what-should-i-do"></a>Kan ik een cluster met behulp van de Azure CLI met de standaardinstellingen of de Azure-portal met RBAC is ingeschakeld en talrijke waarschuwingen hebt gemaakt in het kubernetes-dashboard. Het dashboard dat wordt gebruikt om te werken voordat zonder eventuele waarschuwingen. Wat moet ik doen?
+Zie voor meer informatie over het oplossen van problemen met pod [fouten opsporen in toepassingen](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-De reden voor het ophalen van waarschuwingen op het dashboard is dat nu is ingeschakeld met RBAC'ed en toegang tot deze is standaard uitgeschakeld. Deze benadering is raadzaam om in het algemeen beschouwd omdat de blootstelling van het dashboard van de standaard voor alle gebruikers van het cluster tot beveiligingsrisico's leiden kan. Als u nog steeds het dashboard inschakelen wilt, volgt u deze [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/) inschakelen.
+## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Ik probeer om in te schakelen van RBAC in een bestaand cluster. Hoe kan ik dat doen?
 
-### <a name="i-cant-seem-to-connect-to-the-dashboard-what-should-i-do"></a>Ik kan geen verbinding maken met het dashboard lijken. Wat moet ik doen?
+Helaas, op rollen gebaseerd toegangsbeheer (RBAC) inschakelen voor bestaande clusters wordt niet ondersteund op dit moment. U moet expliciet nieuwe clusters maken. Als u de CLI gebruikt, worden RBAC is standaard ingeschakeld. Als u de AKS-portal, is een wisselknop om in te schakelen RBAC beschikbaar in de werkstroom voor het maken.
 
-De eenvoudigste manier om toegang tot uw service buiten het cluster wordt kubectl-proxy die proxy om aanvragen in de localhost-poort 8001 op de Kubernetes API-server wordt uitgevoerd. Van daaruit kunnen de apiserver proxy met uw service: http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#! / knooppunt? naamruimte = standaard
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Ik heb een cluster gemaakt met RBAC ingeschakeld met behulp van de Azure-CLI met de standaardinstellingen of de Azure-portal en nu kan ik veel waarschuwingen ziet op de Kubernetes-dashboard. Het dashboard dat wordt gebruikt om te werken zonder eventuele waarschuwingen. Wat moet ik doen?
 
-Als u het kubernetes-dashboard niet ziet, controleert u of de schil kube-proxy wordt uitgevoerd in de naamruimte kube-systeem. Als deze niet actief is, verwijdert de schil en er wordt opnieuw opgestart.
+De reden voor de waarschuwingen op het dashboard is dat het cluster is nu ingeschakeld met RBAC en toegang tot deze is standaard uitgeschakeld. Deze aanpak is in het algemeen aanbevolen omdat de blootstelling van het dashboard van de standaard voor alle gebruikers van het cluster tot beveiligingsrisico's leiden kan. Als u nog steeds het dashboard inschakelen wilt, volgt u de stappen in [dit blogbericht](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-### <a name="i-could-not-get-logs-using-kubectl-logs-or-cannot-connect-to-the-api-server-getting-the-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Ik kan geen logboeken met behulp van Kubectl-logboeken ophalen of kan geen verbinding met de api-server aan de ' fout van de server: fout nummer inspreken back-end: bellen tcp... '. Wat moet ik doen?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Ik kan geen verbinding maken met het dashboard. Wat moet ik doen?
 
-Zorg ervoor dat de standaard-NSG is niet gewijzigd en de poort 22 is geopend voor verbinding met de API-server. Controleer of de schil tunnelfront wordt uitgevoerd in de naamruimte kube-systeem. Als dat niet het geval is, het geforceerd verwijderen en deze zal opnieuw worden opgestart.
+De eenvoudigste manier om toegang tot uw service buiten het cluster is om uit te voeren `kubectl proxy`, welke aanvragen proxy's verzonden naar de localhost-poort 8001 naar de Kubernetes API-server. Van daaruit, kan de API-server proxy met uw service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Ik heb geprobeerd om te upgraden of schalen en krijg "message": "Eigenschap 'imageReference' te wijzigen is niet toegestaan." Fout.  Hoe kan ik dit probleem oplossen?
+Als u het Kubernetes-dashboard niet ziet, controleert u of de `kube-proxy` pod wordt uitgevoerd in de `kube-system` naamruimte. Als deze niet actief is, verwijdert de schil en deze zal opnieuw worden opgestart.
 
-Het is mogelijk dat u deze fout ontvangt omdat u de tags in de agentknooppunten binnen het AKS-cluster hebt gewijzigd. Wijzigen en verwijderen van tags en andere eigenschappen van bronnen in de resourcegroep MC_ * kunnen leiden tot onverwachte resultaten. Wijzigen van de resources onder de MC_ * in de AKS-cluster, verbreekt de Serviceniveaudoelstelling.
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Ik kan geen logboeken ophalen met behulp van kubectl Logboeken of ik kan geen verbinding maken met de API-server. Krijg ik ' fout van de server: fout nummer inspreken back-end: bellen tcp... ' Wat moet ik doen?
 
-### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Hoe verleng ik de service-principal-geheim op mijn AKS-cluster?
+Zorg ervoor dat de standaard-netwerkbeveiligingsgroep (NSG) wordt niet gewijzigd en dat poort 22 geopend voor verbinding met de API-server is. Controleer of de `tunnelfront` pod wordt uitgevoerd in de `kube-system` naamruimte. Als dat niet, opnieuw geforceerd verwijderen van de schil en het.
 
-Standaard worden AKS clusters gemaakt met een service principal waarvoor een verlooptijd van één jaar. Als u in de buurt van de vervaldatum van één jaar, kunt u de referenties voor het uitbreiden van de service-principal voor een aanvullende periode opnieuw instellen.
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Ik heb geprobeerd om te upgraden of schalen en krijg een "bericht: Fout bij voor het wijzigen van de eigenschap 'imageReference' is niet toegestaan'.  Hoe kan ik dit probleem oplossen?
 
-Het volgende voorbeeld voert de volgende stappen uit:
+Mogelijk worden aan te bieden u deze fout omdat u de tags in de agentknooppunten binnen het AKS-cluster hebt gewijzigd. Wijzigen en verwijderen van tags en andere eigenschappen van bronnen in de resourcegroep MC_ * kunnen leiden tot onverwachte resultaten. Wijzigen van de resources in de groep MC_ * in de AKS-cluster verbreekt de service level objective (SLO).
 
-1. Haalt de service-principal-ID van het gebruik van uw cluster de [az aks show](/cli/azure/aks#az-aks-show) opdracht.
-1. Geeft een lijst van de service principal-client geheim met behulp van de [az ad sp referentie lijst](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
-1. De service-principal voor het gebruik van een andere eenjarig breidt de [az ad sp referentie naar de fabrieksinstellingen](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) opdracht. De service principalclientgeheim moet blijven hetzelfde voor de AKS-cluster correct uit te voeren.
+## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Hoe verleng ik de service-principal-geheim op mijn AKS-cluster?
+
+AKS-clusters worden standaard gemaakt met een service-principal met een verlooptijd van één jaar. U kunt de referenties voor het uitbreiden van de service-principal voor een aanvullende periode opnieuw als u in de buurt van de vervaldatum.
+
+Het volgende voorbeeld voert deze stappen uit:
+
+1. Haalt de service-principal-ID van het cluster met behulp van de [az aks show](/cli/azure/aks#az-aks-show) opdracht.
+1. Geeft een lijst van de service principalclientgeheim met behulp van de [az ad sp referentie lijst](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
+1. De service-principal is een uitbreiding voor een andere één jaar met behulp van de [az ad sp referentie naar de fabrieksinstellingen](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) opdracht. De service principalclientgeheim moet blijven hetzelfde voor de AKS-cluster correct uit te voeren.
 
 ```azurecli
-# Get the service principal ID of your AKS cluster
+# Get the service principal ID of your AKS cluster.
 sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 
-# Get the existing service principal client secret
+# Get the existing service principal client secret.
 key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
 
-# Reset the credentials for your AKS service principal and extend for 1 year
+# Reset the credentials for your AKS service principal and extend for one year.
 az ad sp credential reset \
     --name $sp_id \
     --password $key_secret \

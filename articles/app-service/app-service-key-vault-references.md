@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253439"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723141"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Verwijzingen van de Key Vault gebruiken voor App Service en Azure Functions (preview)
 
@@ -32,7 +32,7 @@ Om te kunnen lezen geheimen uit Key Vault, moet u een kluis hebt gemaakt en uw a
 
 1. Een sleutelkluis maken door de volgende de [Key Vault-snelstartgids](../key-vault/quick-create-cli.md).
 
-1. Maak een [systeem toegewezen identiteit beheerd](app-service-managed-service-identity.md) voor uw toepassing.
+1. Maak een [systeem toegewezen identiteit beheerd](overview-managed-identity.md) voor uw toepassing.
 
    > [!NOTE] 
    > Key Vault verwijst momenteel naar beheerde identiteiten alleen ondersteuning door het systeem toegewezen. Gebruiker toegewezen identiteiten kunnen niet worden gebruikt.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b2b4bfc6aa03039a7eca402f7a9af083a44f0829
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345873"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609086"
 ---
 ## <a name="access-the-virtual-machine"></a>Toegang tot de virtuele machine
 
@@ -35,7 +35,7 @@ De volgende stappen laten zien hoe het configureren van de virtuele machine van 
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Alleen SSH-toegang inschakelen tijdens het testen en ontwikkeling. Als u SSH schakelt, [moet u dit opnieuw zo snel mogelijk uitschakelen](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-azure-virtual-machines).
+    Alleen SSH-toegang inschakelen tijdens het testen en ontwikkeling. Als u SSH schakelt, [moet u dit opnieuw zo snel mogelijk uitschakelen](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. Bijwerken van het wachtwoord voor de **azureuser** account op de virtuele machine naar een wachtwoord die u kent. Kies uw eigen wachtwoord wanneer u de volgende opdracht uitvoeren:
 

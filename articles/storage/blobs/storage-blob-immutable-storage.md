@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261467"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634266"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
@@ -25,23 +25,23 @@ Onveranderbare storage kunt financiële instellingen en verwante bedrijven--name
 
 Typische toepassingen zijn onder andere:
 
-- **Naleving van regelgeving**: onveranderbare opslag voor Azure Blob-opslag helpt organisaties adres SEC 17a-4(f), CFTC 1.31(d) FINRA en andere voorschriften.
+- **Naleving van regelgeving**: Onveranderbare opslag voor Azure Blob-opslag helpt organisaties adres SEC 17a-4(f), CFTC 1.31(d) FINRA en andere voorschriften.
 
-- **Beveiligen van documenten vasthouden**: Blob-opslag zorgt ervoor dat gegevens kan niet worden gewijzigd of verwijderd door een gebruiker, met inbegrip van gebruikers met beheerdersrechten account.
+- **Beveiligen van documenten vasthouden**: BLOB-opslag zorgt ervoor dat gegevens kan niet worden gewijzigd of verwijderd door een gebruiker, met inbegrip van gebruikers met beheerdersrechten account.
 
-- **Juridische bewaring**: onveranderbare opslag voor Azure Blob-opslag kan gebruikers voor het opslaan van gevoelige informatie die essentieel is voor een geschil of een juridisch onderzoek in een fraudebestendig staat voor de gewenste duur.
+- **Juridische bewaring**: Onveranderbare opslag voor Azure Blob-opslag kan gebruikers voor het opslaan van gevoelige informatie die essentieel is voor een geschil of een juridisch onderzoek in een fraudebestendig staat voor de gewenste duur.
 
 Onveranderbare opslag maakt:
 
-- **Ondersteuning voor op tijd gebaseerd bewaren groepsbeleid**: gebruikers een beleid voor het opslaan van gegevens voor een opgegeven interval instellen.
+- **Ondersteuning voor op tijd gebaseerd bewaren groepsbeleid**: Gebruikers een beleid voor het opslaan van gegevens voor een opgegeven interval instellen.
 
-- **Ondersteuning van Groepsbeleid juridisch**: wanneer het bewaarinterval is niet bekend, gebruikers juridische bewaring voor het opslaan van gegevens immutably totdat de juridische bewaring is uitgeschakeld kunnen instellen.  Als een juridische bewaring is ingesteld, kunnen blobs worden gemaakt en gelezen, maar niet worden gewijzigd of verwijderd. Elke juridische bewaring wordt gekoppeld aan een door de gebruiker gedefinieerd alfanumeriek label dat wordt gebruikt als een tekenreeks-id (bijvoorbeeld een casus-id).
+- **Ondersteuning van Groepsbeleid juridisch**: Wanneer het bewaarinterval is niet bekend zijn, kunnen gebruikers juridische bewaring voor het opslaan van gegevens immutably totdat de juridische bewaring is uitgeschakeld ingesteld.  Als een juridische bewaring is ingesteld, kunnen blobs worden gemaakt en gelezen, maar niet worden gewijzigd of verwijderd. Elke juridische bewaring wordt gekoppeld aan een door de gebruiker gedefinieerd alfanumeriek label dat wordt gebruikt als een tekenreeks-id (bijvoorbeeld een casus-id).
 
 - **Ondersteuning voor alle lagen blob**: WORM beleidsregels zijn onafhankelijk van de Azure Blob storage-laag en zijn van toepassing op alle lagen: hot, cool en archive Storage. Gebruikers kunnen gegevens naar de prijscategorie meest kosten geoptimaliseerd voor hun workloads overgang behoud van gegevens onveranderbaarheid.
 
-- **Configuratie van de container op serverniveau**: gebruikers kunnen configureren voor op tijd gebaseerd bewaarbeleid en juridisch tags op het niveau van de container. Met behulp van eenvoudige container-niveau instellingen, kunnen gebruikers maken en op tijd gebaseerd bewaarbeleid vergrendelen, bewaren intervallen uitbreiden, instellen en schakel juridische bewaring en nog veel meer. Dit beleid van toepassing op alle blobs in de container, bestaande en nieuwe.
+- **Configuratie van de container op serverniveau**: Gebruikers kunnen configureren voor op tijd gebaseerd bewaarbeleid en juridisch tags op het niveau van de container. Met behulp van eenvoudige container-niveau instellingen, kunnen gebruikers maken en op tijd gebaseerd bewaarbeleid vergrendelen, bewaren intervallen uitbreiden, instellen en schakel juridische bewaring en nog veel meer. Dit beleid van toepassing op alle blobs in de container, bestaande en nieuwe.
 
-- **Ondersteuning voor logboekregistratie controleren**: elke container bevat een logboek. Het bevat maximaal vijf tijd gebaseerd bewaren-opdrachten voor het beleid voor het vergrendelde op tijd gebaseerd bewaren, met een maximum van drie logboeken voor extensies van retentie-interval. Het logboek bevat voor het bewaren op basis van tijd, de gebruikers-ID, het opdrachttype, de tijdstempels en de retentie-interval. Het logboek bevat de gebruikers-ID, het opdrachttype, de tijdstempels voor juridische bewaring en juridisch tags. Dit logboek worden bewaard gedurende de levensduur van de container, in overeenstemming met de seconde 17a-4(f)-regelgeving. De [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ziet u een meer uitgebreide logboek van alle het besturingselement vlak activiteiten. Het is de verantwoordelijkheid van de gebruiker voor het opslaan van deze logboeken permanent mogelijk zijn vereist voor wettelijke of andere doeleinden.
+- **Ondersteuning voor logboekregistratie controleren**: Elke container bevat een logboek. Het bevat maximaal vijf tijd gebaseerd bewaren-opdrachten voor het beleid voor het vergrendelde op tijd gebaseerd bewaren, met een maximum van drie logboeken voor extensies van retentie-interval. Het logboek bevat voor het bewaren op basis van tijd, de gebruikers-ID, het opdrachttype, de tijdstempels en de retentie-interval. Het logboek bevat de gebruikers-ID, het opdrachttype, de tijdstempels voor juridische bewaring en juridisch tags. Dit logboek worden bewaard gedurende de levensduur van de container, in overeenstemming met de seconde 17a-4(f)-regelgeving. De [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ziet u een meer uitgebreide logboek van alle het besturingselement vlak activiteiten. Het is de verantwoordelijkheid van de gebruiker voor het opslaan van deze logboeken permanent mogelijk zijn vereist voor wettelijke of andere doeleinden.
 
 Onveranderbare opslag is ingeschakeld in alle Azure openbare regio's.
 
@@ -95,7 +95,7 @@ Er is geen extra kosten voor het gebruik van deze functie. De prijs is onverande
 
 ## <a name="getting-started"></a>Aan de slag
 
-De meest recente versies van de [Azure-portal](http://portal.azure.com) en [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en de preview-versie van [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) onveranderbare storage ondersteuning voor Azure Blob-opslag.
+De meest recente versies van de [Azure-portal](http://portal.azure.com) en [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en de preview-versie van [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) onveranderbare storage ondersteuning voor Azure Blob-opslag.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -137,13 +137,12 @@ De functie is opgenomen in de volgende opdrachtgroepen: `az storage container im
 
 ### <a name="powershell"></a>PowerShell
 
-[PowerShell-versie 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180) onveranderbare storage ondersteunt.
-Schakel de functie door de volgende stappen uit:
+De preview-module Az.Storage ondersteunt onveranderbare-opslag.  Schakel de functie door de volgende stappen uit:
 
 1. Zorg ervoor dat u de nieuwste versie van PowerShellGet geïnstalleerd hebt: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Verwijder eventuele vorige installatie van Azure PowerShell.
-3. Installatie-AzureRM: `Install-Module AzureRM –Repository PSGallery –AllowClobber`. Azure kan op dezelfde manier worden geïnstalleerd vanuit deze opslagplaats.
-4. De preview-versie van de Storage management vlak-cmdlets installeren: `Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`.
+3. Azure PowerShell installeren: `Install-Module Az –Repository PSGallery –AllowClobber`.
+4. De preview-versie van de Azure PowerShell Storage-module installeren: `Install-Module Az.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`
 
 De [voorbeeld PowerShell-code](#sample-powershell-code) verderop in dit artikel ziet u het gebruik van functies.
 
@@ -202,6 +201,8 @@ Onveranderbare opslag is momenteel alleen beschikbaar in Azure openbare regio's.
 
 ## <a name="sample-powershell-code"></a>PowerShell-voorbeeldcode
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 De volgende PowerShell-voorbeeldscript wordt ter referentie. Dit script maakt een nieuw opslagaccount en -container. Deze vervolgens ziet u hoe in te stellen en wissen juridische bewaring, maken en vergrendelen van een op tijd gebaseerd bewaarbeleid (ook wel bekend als een beleid voor onveranderbaarheid), het bewaarinterval uitbreiden.
 
 Instellen en testen van de Azure Storage-account:
@@ -214,122 +215,122 @@ $container2 = "<Enter another container name>”
 $location = "<Enter the storage account location>"
 
 # Log in to the Azure Resource Manager account
-Login-AzureRMAccount
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Storage"
+Login-AzAccount
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 
 # Create your Azure resource group
-New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
+New-AzResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
-New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
     $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
 # Create a new container
-New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+New-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container
 
 # Create Container 2 with a storage account object
-$accountObject = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroup `
+$accountObject = Get-AzStorageAccount -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount
-New-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+New-AzStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Get a container
-Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container
 
 # Get a container with an account object
-$containerObject = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container
+$containerObject = Get-AzStorageContainer -StorageAccount $accountObject -Name $container
 
 # List containers
-Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount
 
 # Remove a container (add -Force to dismiss the prompt)
-Remove-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Remove-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container2
 
 # Remove a container with an account object
-Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Remove a container with a container object
-$containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
-Remove-AzureRmStorageContainer -InputObject $containerObject2
+$containerObject2 = Get-AzStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzStorageContainer -InputObject $containerObject2
 ```
 
 Stel en juridische bewaring:
 
 ```powershell
 # Set a legal hold
-Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+Add-AzStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
 # with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
+Add-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
 # with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
+Add-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
-Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+Remove-AzStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
 # with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
+Remove-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
 # with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+Remove-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>
 ```
 
 Maken of bijwerken van beleid voor onveranderbaarheid:
 ```powershell
 # with an account name or container name
-Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+Set-AzStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
 # with an account object
-Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Set-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
 # with a container object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Set-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
 # with an immutability policy object
-Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
 ```
 
 Beleid voor onveranderbaarheid ophalen:
 ```powershell
 # Get an immutability policy
-Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
 # with an account object
-Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Get-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
 # with a container object
-Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+Get-AzStorageContainerImmutabilityPolicy -Container $containerObject
 ```
 
 Beleid voor onveranderbaarheid vergrendelen (add - Force voor het verwijderen van de prompt):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
+$policy = Lock-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
 # with an account name or container name
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
 # with an account object
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
 # with a container object
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
 ```
 
@@ -337,45 +338,45 @@ Beleid voor onveranderbaarheid uitbreiden:
 ```powershell
 
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
+$policy = Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
 # with an account name or container name
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Set-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
 # with an account object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+$policy = Set-AzStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
 # with a container object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Set-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
 Een beleid voor Onveranderbaarheid van verwijderen (add - Force voor het verwijderen van de prompt):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
-Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+Remove-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
 # with an account object
-Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Remove-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
 # with a container object
-Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
+Remove-AzStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
 
 ```

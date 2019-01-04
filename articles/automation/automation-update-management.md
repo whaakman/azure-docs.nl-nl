@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342388"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631852"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -209,10 +209,10 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | --- | --- |
 | Name |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
-| Groepen om bij te werken (preview)|Definieer een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie. Zie voor meer informatie, [dynamische groepen](automation-update-management.md#using-dynamic-groups)|
-| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
+| Groepen om bij te werken (preview)|definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie|
+| Bij te werken computers |selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
-|Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior) |
+|Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt |
 |Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
 | Scripts die voorafgaan aan en scripts die volgen|Selecteer de scripts worden uitgevoerd vóór en na de implementatie|
 | Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde mag niet kleiner zijn dan 30 minuten en niet meer dan 6 uur |
@@ -589,7 +589,7 @@ Omdat update verrijking updatebeheer in de cloud uitvoert, kunnen voor sommige u
 
 Updatebeheer kunnen echter nog steeds melden die machine als niet-compatibele omdat er extra informatie over de betreffende update.
 
-Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit gedrag is een beperking van zypper. In sommige gevallen mogelijk u gevraagd de update-implementatie opnieuw uit te voeren. Om te controleren, controleert u de update-logboek.
+Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor de implementatie goed updates voor CentOS, selecteert u alle classificaties om te controleren of updates worden toegepast. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit gedrag is een beperking van zypper. In sommige gevallen mogelijk u gevraagd de update-implementatie opnieuw uit te voeren. Om te controleren, controleert u de update-logboek.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
+ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 378f4609efcc9e9f0652b9ec68f5374b1fe3626a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6e596b0db1a03efbf6b029487ed956105b632edb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959645"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972801"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cluster niet wijzigen van de vingerafdruk van certificaat in de algemene naam
 Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken van het certificaat voor het gebruik van de algemene naam van het certificaat met maakt het beheren van certificaten het veel eenvoudiger. In dit artikel wordt beschreven hoe u een actief Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat bijwerken.
+
+>[!NOTE]
+> Als u twee vingerafdruk gedeclareerd in de sjabloon hebt, moet u twee implementaties uitvoeren.  De eerste implementatie wordt uitgevoerd voordat u de stappen in dit artikel te volgen.  Hiermee stelt u de eerste implementatie uw **vingerafdruk** eigenschap in de sjabloon voor het certificaat dat wordt gebruikt en verwijdert de **thumbprintSecondary** eigenschap.  Volg de stappen in dit artikel voor de tweede implementatie.
  
 ## <a name="get-a-certificate"></a>Een certificaat ophalen
 Haal eerst een certificaat van een [certificeringsinstantie (CA)](https://wikipedia.org/wiki/Certificate_authority).  De algemene naam van het certificaat moet de naam van de host van het cluster.  Bijvoorbeeld, "myclustername.southcentralus.cloudapp.azure.com'.  

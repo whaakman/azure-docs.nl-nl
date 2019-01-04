@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343276"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583728"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Waarschuwingen voor activiteitenlogboek maken voor servicemeldingen
 ## <a name="overview"></a>Overzicht
@@ -196,7 +196,7 @@ Nadat u een waarschuwing gemaakt, wordt het weergegeven in de **waarschuwingen**
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over het [configureren van de webhook-meldingen voor bestaande beheersystemen voor probleem](../../service-health/service-health-alert-webhook-guide.md).
-- Meer informatie over [health servicemeldingen](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Meer informatie over [health servicemeldingen](../../azure-monitor/platform/service-notifications.md).
 - Meer informatie over [melding gelden enkele beperkingen](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Controleer de [activiteit log waarschuwing webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken](../../azure-monitor/platform/alerts-overview.md), en leer hoe u waarschuwingen ontvangt. 

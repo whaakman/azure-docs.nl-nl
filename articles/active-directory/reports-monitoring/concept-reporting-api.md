@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c85ee23f433e7b14278d8cc0ca3bff3e1ab4b94
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624621"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752568"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Aan de slag met de Azure Active Directory reporting API
 
@@ -48,6 +48,11 @@ Zie voor gedetailleerde instructies, de [vereisten voor toegang tot de Azure Act
 
 De Microsoft Graph API-eindpunt voor de logboeken voor controle is `https://graph.microsoft.com/beta/auditLogs/directoryAudits` en het Microsoft Graph API-eindpunt voor aanmeldingen `https://graph.microsoft.com/beta/auditLogs/signIns`. Zie voor meer informatie de [API controleverwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) en [aanmelding bij de API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
+Bovendien kunt u de [risicogebeurtenissen Identity Protection API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) programmatische toegang tot beveiligingsdetecties met behulp van Microsoft Graph. Zie voor meer informatie, [aan de slag met Azure Active Directory Identity Protection en Microsoft Graph](../identity-protection/graph-get-started.md). 
+
+> [!NOTE]
+>  De **https:\/\/domeinen graph.windows.net\/\<-tenantnaam\>\/rapporten\/**  eindpunt is afgeschaft. Gebruik de nieuwe API-eindpunten die hierboven worden beschreven programmatisch toegang verkrijgen tot de rapporten van activiteit en beveiliging.
+  
 ## <a name="apis-with-graph-explorer"></a>API's met Graph Explorer
 
 U kunt de [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) Controleer uw aanmelding en analyseren van gegevens van de API. Zorg ervoor dat u zich aanmeldt bij uw account met behulp van de knoppen voor aanmelding bij in de gebruikersinterface van Graph Explorer en stel **AuditLog.Read.All** en **Directory.Read.All** machtigingen voor uw tenant, zoals wordt weergegeven.   

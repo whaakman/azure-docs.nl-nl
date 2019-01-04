@@ -1,21 +1,19 @@
 ---
 title: Maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten en regels met behulp van Azure CLI | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten en regels met behulp van Azure CLI-opdrachtregel.
-services: mysql
 author: mbolz
 ms.author: mbolz
 manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 12734bba052c6b402bac9a9e4ad687bfb74cd4fd
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a47800274184eb38d3f0161615c239d515febdf5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953244"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538851"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten met behulp van Azure CLI
 Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database voor MySQL-server. Met behulp van handige opdrachten van Azure-opdrachtregelinterface (CLI), kunt u maken, bijwerken, verwijderen, lijst en VNet-service-eindpunten en regels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MySQL-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database for MySQL-Server VNet-service-eindpunten](concepts-data-access-and-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for MySQL.
@@ -55,7 +53,7 @@ Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active
 VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als het VNet en Azure-serviceresources in verschillende abonnementen zitten, moeten de resources onder dezelfde Active Directory (AD)-tenant.
 
 > [!IMPORTANT]
-> Het is raadzaam om te lezen in dit artikel over de service-eindpunt configuraties en overwegingen voordat u het voorbeeldscript uitvoert of het configureren van service-eindpunten. **Service-eindpunt voor virtueel netwerk:** A [service-eindpunt voor Virtueelnetwerk](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. VNet-services-eindpunten gebruikt u de naam van de service type **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure SQL Database, Azure Database for PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt configureert het verkeer van de service-eindpunt voor alle Azure-Database-services, met inbegrip van Azure SQL Database, Azure Database for PostgreSQL en Azure Database for MySQL-servers op het subnet. 
+> Het is raadzaam om te lezen in dit artikel over de service-eindpunt configuraties en overwegingen voordat u het voorbeeldscript uitvoert of het configureren van service-eindpunten. **Virtual Network service-eindpunt:** Een [service-eindpunt voor Virtueelnetwerk](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. VNet-services-eindpunten gebruikt u de naam van de service type **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure SQL Database, Azure Database for PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt configureert het verkeer van de service-eindpunt voor alle Azure-Database-services, met inbegrip van Azure SQL Database, Azure Database for PostgreSQL en Azure Database for MySQL-servers op het subnet. 
 > 
 
 ### <a name="sample-script-to-create-an-azure-database-for-mysql-database-create-a-vnet-vnet-service-endpoint-and-secure-the-server-to-the-subnet-with-a-vnet-rule"></a>Voorbeeld van een script voor het maken van een Azure Database for MySQL-database, een VNet, VNet-service-eindpunt maken en beveiligen van de server met het subnet met een VNet-regel

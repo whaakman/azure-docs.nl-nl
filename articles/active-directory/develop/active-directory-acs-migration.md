@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 01781725e3224e2cab49a5e7cc7dcc33030ce9fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015769"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971549"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Hoe: migreren van de Azure Access controleservice
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedure: Migreren vanuit de Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), een service van Azure Active Directory (Azure AD), wordt op 7 November 2018 beëindigd. Toepassingen en services die momenteel gebruikmaken van toegangsbeheer moeten volledig zijn gemigreerd naar een ander verificatiemechanisme dan. Dit artikel beschrijft de aanbevelingen voor huidige klanten, als u van plan bent uw gebruik van Access Control afschaffen. Als u toegangsbeheer op dit moment niet gebruikt, moet u geen enkele actie ondernemen.
 
@@ -113,9 +113,9 @@ Vanaf November 2017 zijn alle onderdelen van de Access Control volledig onderste
 
 Hier is de planning voor beëindigde Access Control-onderdelen:
 
-- **November 2017**: Azure AD-beheerder-ervaring in de klassieke Azure portal [is buiten gebruik gesteld](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Op dit moment, beheer van de naamruimte voor toegangsbeheer is beschikbaar op een nieuwe, specifieke URL: `https://manage.windowsazure.com?restoreClassic=true`. Deze URl gebruiken om te bekijken van uw bestaande naamruimten, inschakelen en uitschakelen van naamruimten en verwijderen van naamruimten, als u wilt.
-- **2 april 2018**: klassieke Azure-portal is volledig buiten gebruik gesteld, wat betekent dat beheer van de Access Control-naamruimte is niet langer beschikbaar is via een URL. U kan niet op dit moment uitschakelen of inschakelen, verwijderen of het inventariseren van de Access Control-naamruimten. De Access Control-beheerportal zijn echter volledig functionele en zich op `https://\<namespace\>.accesscontrol.windows.net`. Alle andere onderdelen van Access Control blijft normaal functioneren.
-- **7 november 2018**: alle Access Control-onderdelen, permanent worden afgesloten. Dit omvat de Access Control-beheerportal, de management-service, STS en het token transformatie regels-engine. Op dit moment aanvragen die worden verzonden naar de Access Control (dat zich bevindt in \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services met andere technologieën en eerder.
+- **November 2017**:  De Azure AD-beheerder-ervaring in de klassieke Azure portal [is buiten gebruik gesteld](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Op dit moment, beheer van de naamruimte voor toegangsbeheer is beschikbaar op een nieuwe, specifieke URL: `https://manage.windowsazure.com?restoreClassic=true`. Deze URl gebruiken om te bekijken van uw bestaande naamruimten, inschakelen en uitschakelen van naamruimten en verwijderen van naamruimten, als u wilt.
+- **2 april 2018**: De klassieke Azure portal is volledig buiten gebruik gesteld, wat betekent dat beheer van de Access Control-naamruimte is niet langer beschikbaar is via een URL. U kan niet op dit moment uitschakelen of inschakelen, verwijderen of het inventariseren van de Access Control-naamruimten. De Access Control-beheerportal zijn echter volledig functionele en zich op `https://\<namespace\>.accesscontrol.windows.net`. Alle andere onderdelen van Access Control blijft normaal functioneren.
+- **7 november 2018**: Alle onderdelen van de Access Control zijn permanent afgesloten. Dit omvat de Access Control-beheerportal, de management-service, STS en het token transformatie regels-engine. Op dit moment aanvragen die worden verzonden naar de Access Control (dat zich bevindt in \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services met andere technologieën en eerder.
 
 > [!NOTE]
 > Een beleid schakelt naamruimten die een token voor een bepaalde tijd niet hebt aangevraagd. Vanaf begin September 2018 is deze periode is momenteel op 14 dagen van inactiviteit, maar dit zal worden ingekort tot 7 dagen van inactiviteit in de komende weken. Hebt u Access Control-naamruimten die momenteel zijn uitgeschakeld, kunt u [downloaden en installeren van ACS PowerShell](#download-and-install-acs-powershell) de namespace(s) opnieuw inschakelen.
@@ -151,7 +151,7 @@ SharePoint 2013, 2016 en SharePoint Online-klanten hebben lang ACS gebruikt voor
 
 | Functie | Richtlijnen |
 | ------- | -------- |
-| Verifiëren van gebruikers van Azure AD | Voorheen Azure AD bieden geen ondersteuning voor SAML 1.1-tokens vereist voor SharePoint voor verificatie en ACS is gebruikt als een intermediair die SharePoint compatibile met Azure AD-token opmaak. U kunt nu [SharePoint rechtstreeks verbinden met Azure AD met behulp van Azure AD App Gallery SharePoint op de lokale app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Verifiëren van gebruikers van Azure AD | Voorheen Azure AD bieden geen ondersteuning voor SAML 1.1-tokens vereist voor SharePoint voor verificatie en ACS is gebruikt als een intermediair die SharePoint compatibel met Azure AD-token indelingen. U kunt nu [SharePoint rechtstreeks verbinden met Azure AD met behulp van Azure AD App Gallery SharePoint op de lokale app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [App-verificatie & server-naar-server-verificatie in SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Niet beïnvloed door ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig. | 
 | [Lage vertrouwensrelatie autorisatie voor SharePoint-invoegtoepassingen (provider die wordt gehost en SharePoint die wordt gehost)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Niet beïnvloed door ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Niet beïnvloed door ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig. |
@@ -162,8 +162,8 @@ Voor webtoepassingen die gebruikmaken van toegangsbeheer voor gebruikersverifica
 
 - Diepe integratie met Windows Identity Foundation (WIF).
 - Federatie met Google, Facebook, Yahoo, Azure Active Directory en AD FS-accounts en Microsoft-accounts.
-- Ondersteuning voor de volgende verificatieprotocollen voor: OAuth 2.0-concept 13, WS-Trust en Web Services Federatie (WS-Federation).
-- Ondersteuning voor de volgende indelingen voor het token: JSON Web Token (JWT), SAML 1.1, SAML 2.0 en Simple Web Token (SWT).
+- Ondersteuning voor de volgende verificatieprotocollen voor: OAuth 2.0-concept 13, WS-Trust en Web Services Federation (WS-Federation).
+- Ondersteuning voor de volgende indelingen voor het token: JSON Webtoken (JWT), SAML 1.1, SAML 2.0 en Simple Web Token (SWT).
 - Een home realm discovery-ervaring, geïntegreerd in WIF, waarmee gebruikers om op te halen van het type account waarmee ze zich aanmelden. Deze ervaring wordt gehost door de web-App en is volledig aanpasbaar.
 - Token transformatie waarmee uitgebreide aanpassingen van de claims die zijn ontvangen door de web-App van Access Control, met inbegrip van:
     - Claims van id-providers passeren.

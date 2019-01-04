@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b73bf3e542801e58fbda6232eb063305785ce643
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337594"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536267"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection met Azure Security Center
 
@@ -57,7 +57,21 @@ Deze functie biedt ondersteuning voor detectie op Windows Server 2012 R2 en Wind
 
 Alleen servers in voor het serviceniveau standard-abonnementen worden ondersteund.
 
-## <a name="onboarding-instructions"></a>Instructies voor onboarding
+## <a name="onboarding-servers-to-security-center"></a>Onboarding-servers met Security Center 
+
+Security Center onboarden-servers, klikt u op **gaat u naar Azure Security Center onboarden servers** van de voorbereiding van Windows Defender ATP-server.
+
+1. In de **Onboarding** blade selecteert of maakt u een werkruimte waarin gegevens worden opgeslagen. <br>
+2. Als u al uw werkruimten niet ziet, kan het worden vanwege een gebrek aan machtigingen, zorg ervoor dat uw werkruimte is ingesteld op Azure Security Standard-laag. Zie voor meer informatie [een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging](security-center-pricing.md).
+    
+3.  Selecteer **servers toevoegen** voor de instructies voor het installeren van de Microsoft Monitoring Agent. 
+
+4.  Na de onboarding, kunt u de machines onder bewaken **reken- en apps**.
+
+  ![Onboarding-computers](media/security-center-wdatp/onboard-computers.png)
+
+
+## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP-integratie inschakelen
 
 Als u wilt weergeven als Windows Defender ATP-integratie is ingeschakeld, selecteert u **Security center** > **beveiligingsbeleid** > **abonnement**  >  **Instellingen bewerken**.
 

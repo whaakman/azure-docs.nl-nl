@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 57848a7a4d8e627e952a9f46d438b073c73d833a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a9b90fe119bc56620a7bd3087d4842f604fc18f0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725859"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582538"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodieke back-up en herstel in Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -150,6 +150,9 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestor
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
+> [!IMPORTANT]
+> Zorg ervoor dat de bewaartermijn in het bewaarbeleid is geconfigureerd voor minder dan 24 dagen anders resulteert dit in de service gaan naar het quorum verloren na replica-failover back-up herstellen vanwege een probleem in de runtime.
+
 ### <a name="enable-periodic-backup"></a>Periodieke back-up inschakelen
 Na het definiëren van back-upbeleid om te voldoen aan de beveiligingsvereisten voor gegevens van de toepassing, moet het back-upbeleid gekoppeld aan de toepassing. Afhankelijk van vereiste, kan het back-upbeleid zijn gekoppeld aan een toepassing, service of een partitie.
 
@@ -228,8 +231,10 @@ FailureError            :
 
 ## <a name="limitation-caveats"></a>Beperking / voorbehouden
 - Er is geen Service-Fabric gebouwd in PowerShell-cmdlets.
-- Er is geen ondersteuning voor Service Fabric-CLI.
 - Er is geen ondersteuning voor Service Fabric-clusters op Linux.
+
+## <a name="known-issues"></a>Bekende problemen
+- Zorg ervoor dat de bewaartermijn is geconfigureerd voor minder dan 24 dagen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Understanding periodieke back-upconfiguratie](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

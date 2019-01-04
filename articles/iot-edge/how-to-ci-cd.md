@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386822"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582912"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
@@ -32,7 +32,7 @@ In dit artikel leert u hoe u:
 
 In deze sectie maakt u een voorbeeld van een IoT Edge oplossing met eenheidstests dat kan worden uitgevoerd als onderdeel van het bouwproces. Voordat u de instructies in deze sectie, voer de stappen in [een IoT Edge-oplossing met meerdere modules in Visual Studio Code ontwikkelen](how-to-develop-multiple-modules-vscode.md).
 
-1. Typ in het opdrachtenpalet van VS Code, en voer de opdracht **Azure IoT Edge: Nieuwe IoT Edge-oplossing**. Selecteer de werkruimtemap van uw, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maakt u een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). Wijzig deze in Azure Container Registry (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
+1. Typ in het opdrachtenpalet van VS Code, en voer de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Selecteer de werkruimtemap van uw, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maakt u een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). Wijzig deze in Azure Container Registry (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
 
     ![Instellen van Azure Container Registry](./media/how-to-ci-cd/acr.png)
 
@@ -40,7 +40,7 @@ In deze sectie maakt u een voorbeeld van een IoT Edge oplossing met eenheidstest
 
 3. Uw voorbeeld IoT Edge-oplossing is nu gereed. De standaard C#-module fungeert als een pipe bericht-module. In de `deployment.template.json`, ziet u deze oplossing bevat twee modules. Het bericht wordt gegenereerd op basis van de `tempSensor` -module, en wordt rechtstreeks kan worden doorgesluisd `FilterModule`, vervolgens naar uw IoT-hub zijn verzonden.
 
-4. Sla deze projecten en doorvoeren in uw Azure-opslagplaatsen.
+4. Deze projecten opslaan op en voer in de opslagplaats van uw Azure-opslagplaatsen.
     
 > [!NOTE]
 > Zie voor meer informatie over het gebruik van Azure-opslagplaatsen [deel van uw code met Visual Studio en Azure-opslagplaatsen](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -69,11 +69,11 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
     
     * Als u maken van de modules in platform amd64 voor Linux-containers wilt, kiest u **Ubuntu 1604 die worden gehost**
     * Als u maken van de modules in platform amd64 voor Windows-containers wilt, kiest u **VS2017 die worden gehost** 
-    * Als u uw modules in platform arm32v7 voor Linux-containers maken wilt, moet u instellen van uw eigen bouwagent door te klikken op de **beheren** knop.
+    * Als u uw modules in platform arm32v7 voor Linux-containers maken wilt, moet u instellen van uw eigen bouwagent door naar de pagina de **beheren** knop.
     
     ![Build-agentpool configureren](./media/how-to-ci-cd/configure-env.png)
 
-1. In de Agent-taak, klikt u op '+' om toe te voegen drie taken in de build-pijplijn. De eerste twee zijn afkomstig uit **Azure IoT Edge**. En het derde is van **Build-artefacten publiceren**
+1. In de Agent-taak, open '+' om toe te voegen drie taken in de build-pijplijn. De eerste twee zijn afkomstig uit **Azure IoT Edge**. En het derde is van **Build-artefacten publiceren**
     
     ![Taken toevoegen aan de build-pijplijn](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
 
     ![Trigger continue integratie inschakelen](./media/how-to-ci-cd/configure-trigger.png)
 
-    Sla de nieuwe build-pijplijn. Klik op de knop **Opslaan**.
+    Sla de nieuwe build-pijplijn met **opslaan** knop.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Azure-pijplijnen voor continue implementatie configureren
 In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het automatisch uitgevoerd zodra uw build-pijplijn artefacten komt en implementatie-Logboeken in Azure-pijplijnen worden weergegeven.
 
-1. In de **Releases** tabblad **+ nieuwe pijplijn**. Of, als u release-pijplijnen al hebt, kiest u de **+ nieuw** en klik op **+ nieuw release-pijplijn**.  
+1. In de **Releases** tabblad **+ nieuwe pijplijn**. Of, als u release-pijplijnen al hebt, kiest u de **+ nieuw** en selecteer **+ nieuw release-pijplijn**.  
 
     ![Release-pijplijn toevoegen](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
 
     ![Artefacten toevoegen](./media/how-to-ci-cd/add-artifacts.png)  
     
-    In **toevoegen van een pagina artefact**, brontype kiezen **bouwen**. Selecteer vervolgens het project en de build-pijplijn die u hebt gemaakt. Klik vervolgens op **toevoegen**.
+    In **toevoegen van een pagina artefact**, brontype kiezen **bouwen**. Selecteer vervolgens het project en de build-pijplijn die u hebt gemaakt. Selecteer vervolgens **Toevoegen**.
 
     ![Een build-artefact toevoegen](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
 
     ![QA-taken configureren](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   Implementatietaak is platform ongevoelig, wat betekent dat u kunt een **VS2017 gehost** of **gehost Ubuntu 1604** in de **agentpool** (of een andere agent worden beheerd door zelf). Klik op '+' en een taak wordt toegevoegd.
+   Implementatietaak is platform ongevoelig, wat betekent dat u kunt een **VS2017 gehost** of **gehost Ubuntu 1604** in de **agentpool** (of een andere agent worden beheerd door zelf). Selecteer '+' en een taak wordt toegevoegd.
 
     ![Taken toevoegen voor QA](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
 
     ![Implementatie naar QA](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Sla de nieuwe release-pijplijn. Klik op de knop **Opslaan**. En klik vervolgens op **pijplijn** terugkeren naar de pijplijn.
+    Sla de nieuwe release-pijplijn met de **opslaan** knop. En selecteer vervolgens **pijplijn** terugkeren naar de pijplijn.
 
 6. De tweede fase is voor uw productieomgeving. Om toe te voegen een nieuwe fase 'PROD', kunt u de fase 'QA' klonen en wijzig de naam gekloonde fase **PROD**,
 
     ![Kloon-fase](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configureer de taken voor uw productieomgeving. Stel dat u hebt verschillende IoT Edge apparaten zijn gelabeld als 'prod', in de configuraties van de taak, de Doelvoorwaarde 'prod' en de implementatie-ID wordt ingesteld als "implementeren-prod' in de geavanceerde instellingen bijwerken. Klik op de knop **Opslaan**. En klik vervolgens op **pijplijn** terugkeren naar de pijplijn.
+7. Configureer de taken voor uw productieomgeving. Stel dat u hebt verschillende IoT Edge apparaten zijn gelabeld als 'prod', in de configuraties van de taak, de Doelvoorwaarde 'prod' en de implementatie-ID wordt ingesteld als "implementeren-prod' in de geavanceerde instellingen bijwerken. Sla het met de **opslaan** knop. En selecteer vervolgens **pijplijn** terugkeren naar de pijplijn.
     
     ![Implementeren naar productie](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
 
         ![Open vóór de implementatie-voorwaarden](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Stel **ingeschakeld** in **vóór de implementatie goedkeuringen**. En vult u de **goedkeurders** invoer. Klik vervolgens op **Opslaan**.
+    2. Stel **ingeschakeld** in **vóór de implementatie goedkeuringen**. En vult u de **goedkeurders** invoer. Sla het met **opslaan** knop.
     
         ![Voorwaarden instellen](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
 
 In deze sectie maakt activeren u een build zodat de werken CI/CD-pijplijn. Controleer vervolgens of dat de implementatie is geslaagd.
 
-1. Voor het activeren van een build-taak, kunt u een wijziging naar de opslagplaats broncode pushen of deze handmatig te activeren. U kunt een taak build activeren in de build-pijplijn door te klikken op de **wachtrij** knop zoals in de volgende schermafbeelding.
+1. Voor het activeren van een build-taak, kunt u een wijziging naar de opslagplaats broncode pushen of deze handmatig te activeren. U kunt een taak build activeren in de build-pijplijn door te selecteren de **wachtrij** knop zoals in de volgende schermafbeelding.
 
     ![Handmatige trigger](./media/how-to-ci-cd/manual-trigger.png)
 

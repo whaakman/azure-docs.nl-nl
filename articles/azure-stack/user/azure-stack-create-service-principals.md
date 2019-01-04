@@ -3,27 +3,26 @@ title: Maken van een Service-Principal voor Azure Stack | Microsoft Docs
 description: Beschrijft hoe u een service-principal die kan worden gebruikt met de op rollen gebaseerd toegangsbeheer in Azure Resource Manager voor het beheren van toegang tot bronnen te maken.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958311"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715820"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Toepassingen toegang geven tot Azure Stack-bronnen met het maken van service-principals
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt een toepassing toegang geven tot Azure Stack bronnen door een service-principal die gebruikmaakt van Azure Resource Manager maken. Een service-principal kunt u de specifieke machtigingen delegeren met behulp van [op rollen gebaseerd toegangsbeheer](azure-stack-manage-permissions.md).
 
@@ -52,7 +51,7 @@ De manier waarop u Active Directory hebt geconfigureerd voor Azure Stack wordt b
 
 De stappen voor het toewijzen van een service-principal aan een rol hetzelfde voor Azure AD en AD FS. Nadat u de service-principal gemaakt, kunt u [overdragen van machtigingen](azure-stack-create-service-principals.md#assign-role-to-service-principal) aan een rol toe te wijzen.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Maken van een service-principal voor Azure AD
+## <a name="create-service-principal-for-azure-ad"></a>Service-principal maken voor Azure AD
 
 Als uw Azure Stack Azure AD als het identiteitsarchief gebruikt, kunt u een service-principal met behulp van dezelfde stappen als voor Azure met behulp van de Azure-portal maken.
 
@@ -95,11 +94,11 @@ Als u Azure Stack met AD FS als de identiteitsarchief hebt geïmplementeerd, kun
 * Service-principal toewijzen aan een rol.
 * Meld u met behulp van de service-principal-id.
 
-Zie voor meer informatie over het maken van de service-principal [service-principal maken voor AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Zie voor meer informatie over het maken van de service-principal [service-principal maken voor AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>De service-principal toewijzen aan een rol
 
-Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../../role-based-access-control/built-in-roles.md).
+Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: Ingebouwde rollen](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
 U kunt van een rol bereik instellen op het niveau van een abonnement, een resourcegroep of een resource. Machtigingen worden overgenomen op lagere niveaus van bereik. Een app met de rol van lezer voor een resourcegroep betekent bijvoorbeeld dat de app een van de resources in de resourcegroep kan lezen.
@@ -114,9 +113,7 @@ Gebruik de volgende stappen uit als richtlijn voor een rol toewijzen aan een ser
 
 3. Selecteer **Access Control (IAM)** voor het abonnement.
 
-     ![Selecteer toegangsbeheer](./media/azure-stack-create-service-principal/image17.png)
-
-4. Selecteer **Toevoegen**.
+4. Selecteer **roltoewijzing toevoegen**.
 
 5. Selecteer de rol die u wilt toewijzen aan de toepassing.
 

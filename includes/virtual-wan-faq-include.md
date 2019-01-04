@@ -105,7 +105,7 @@ Nee, Virtual WAN heeft niet vanaf elke locatie ExpressRoute nodig. Standaard wor
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Is er een doorvoerlimiet in het netwerk bij gebruik van Azure Virtual WAN?
 
-Het aantal vertakkingen is beperkt tot 1000 verbindingen per hub/regio tot een totaal van 2 G in de hub. De uitzondering is West Central US, met een totaal van 20 Gbps. In de toekomst gaan we 20 Gbps uitrollen in andere regio's.
+Het aantal vertakkingen is beperkt tot 1000 verbindingen per hub/regio tot een totaal van 2 G in de hub. De uitzondering is US - west-centraal, met een totaal van 20 Gbps. In de toekomst gaan we 20 Gbps uitrollen in andere regio's.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Kan het on-premises apparaat in Virtual WAN meerde ISP's parallel gebruiken of is er altijd sprake van één VPN-tunnel?
 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275330"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653353"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -44,9 +44,9 @@ In dit onderwerp vindt u een overzicht van het rapport-aanmeldingen.
 * Bovendien een gebruiker (niet-beheerders) toegang krijgen tot hun eigen aanmeldingen 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Welke Azure AD-licentie heb ik nodig voor toegang tot aanmeldingsactiviteiten?
-* Uw tenant moet beschikken over een Azure AD Premium-licentie om het rapport met alle aanmeldingsactiviteiten te kunnen raadplegen
+* Uw tenant moet beschikken over een Azure AD Premium-licentie die is gekoppeld aan om te zien van het activiteitenrapport-alles op aanmelden. Zie [aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) upgrade uw versie van Azure Active Directory.
 
-## <a name="sign-ins-report"></a>Rapport aanmeldingen
+## <a name="sign-ins-report"></a>Aanmeldingenrapport
 
 De gebruiker aanmeldingen rapport vindt u antwoorden op de volgende vragen:
 

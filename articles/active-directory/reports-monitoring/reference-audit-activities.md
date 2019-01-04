@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622871"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971372"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referentie voor auditactiviteiten van Azure AD
 
@@ -29,7 +29,7 @@ Met Azure Active Directory (Azure AD)-rapporten krijgt u informatie die u nodig 
 
 De rapportstructuur in Azure AD bestaat uit de volgende onderdelen:
 
-- **Activiteitenrapporten** 
+- **Activiteitsrapporten** 
     - [Aanmeldingen](concept-sign-ins.md) : bevat informatie over het gebruik van beheerde toepassingen en de gebruiker aanmeldingsactiviteiten
     - [Auditlogboeken](concept-audit-logs.md): traceerbaarheid via logboeken voor alle door diverse functies binnen Azure AD uitgevoerde wijzigingen. 
     
@@ -228,10 +228,10 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Autorisatie|Gebruikerskenmerk bijwerken|
 |Autorisatie|Een versleutelde CPIM-sleutel uploaden|
 |Autorisatie|Gebruikersautorisatie: API is uitgeschakeld voor de tenantfunctieset|
-|Autorisatie|Gebruikersautorisatie: Gebruiker toegang verleend als 'tenantbeheerder'|
-|Autorisatie|Gebruikersautorisatie: De gebruiker heeft toegangsrechten voor 'Geverifieerde gebruikers' gekregen|
+|Autorisatie|Gebruikersautorisatie: Gebruiker toegang verleend als 'Tenantbeheerder'|
+|Autorisatie|Gebruikersautorisatie: Gebruiker heeft toegangsrechten voor 'Geverifieerde gebruikers' gekregen|
 |Autorisatie|Controleren of de B2C-functie is ingeschakeld|
-|Autorisatie|Controleren of de functie is ingeschakeld|
+|Autorisatie|Controleer of de functie is ingeschakeld|
 |Autorisatie|Programma maken|
 |Autorisatie|Programma verwijderen|
 |Autorisatie|Programmabeheer koppelen|
@@ -255,7 +255,7 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Mapbeheer|TenantDomains ophalen|
 |Sleutel|Hiermee wordt het type tenant opgehaald|
 |Sleutel|Controleren of de B2C-functie is ingeschakeld|
-|Sleutel|Controleren of de functie is ingeschakeld|
+|Sleutel|Controleer of de functie is ingeschakeld|
 |Sleutel|Partner aan bedrijf toevoegen|
 |Sleutel|Niet-geverifieerd domein toevoegen|
 |Sleutel|Geverifieerd domein toevoegen|
@@ -515,10 +515,10 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Groepsbeheer|Aanvraag voor goedkeuring aanvraag beoordelen|
 |Groepsbeheer|Toegangsbeoordeling bijwerken|
 |Groepsbeheer|Instellingen voor de e-mailmelding van de toegangsbeoordeling bijwerken|
-|Groepsbeheer|Instelling voor aantal herhalingen toegangsbeoordeling bijwerken|
-|Groepsbeheer|Instelling voor duur herhalingen toegangsbeoordeling bijwerken|
-|Gebruikersbeheer|Instelling voor eindtype herhalingen toegangsbeoordeling bijwerken|
-|Gebruikersbeheer|Instelling voor type herhalingen toegangsbeoordeling bijwerken|
+|Groepsbeheer|Instelling voor toegangsbeoordeling van aantal terugkeerpatronen bijwerken|
+|Groepsbeheer|Instelling voor toegangsbeoordeling van duur van terugkeerpatroon in dagen bijwerken|
+|Gebruikersbeheer|Instelling voor toegangsbeoordeling van eindtype van terugkeerpatroon bijwerken|
+|Gebruikersbeheer|Instelling voor toegangsbeoordeling van type terugkeerpatroon bijwerken|
 
 
 

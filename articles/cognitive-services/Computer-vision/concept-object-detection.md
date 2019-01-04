@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
-ms.openlocfilehash: 7f0f86e783edb55bc3193df073c92c9523a90176
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 89323e584b4020613fe3ff8411df50f2ab96f156
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976029"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582725"
 ---
 # <a name="object-detection"></a>Objectdetectie
 
-Objectdetectie van het is vergelijkbaar met [tagging](concept-tagging-images.md), maar de API retourneert de omsluitende vak coördinaten (in pixels) van elk gevonden object. Bijvoorbeeld, als een afbeelding een hond, cat en een persoon bevat, de analyse-bewerking wordt een lijst die objecten, samen met hun coördinaten in de afbeelding. U kunt deze functionaliteit gebruiken voor het verwerken van de relaties tussen de objecten in een afbeelding. Ook kunt u bepalen of er meerdere exemplaren van dezelfde tag in een afbeelding zijn.
+Objectdetectie van het is vergelijkbaar met [tagging](concept-tagging-images.md), maar de API retourneert de omsluitende vak coördinaten (in pixels) van elk gevonden object. Als een afbeelding bijvoorbeeld een hond, kat en persoon bevat, zal de detectiebewerking deze objecten vermelden, samen met hun coördinaten in de afbeelding. U kunt deze functionaliteit gebruiken voor het verwerken van de relaties tussen de objecten in een afbeelding. Ook kunt u bepalen of er meerdere exemplaren van dezelfde tag in een afbeelding zijn.
 
 De API voor het detecteren van toepassing is tags op basis van de objecten of levensonderhoud dingen geïdentificeerd in de afbeelding. Houd er rekening mee dat op dit moment, er is geen formeel relatie tussen de taxonomie gebruikt voor labels en de taxonomie gebruikt voor objectdetectie van het. Op het niveau van een concept vindt de API detecteren alleen u objecten en levensonderhoud dingen, terwijl de API-code kan ook contextuele termen, zoals 'binnenshuis', die met het omsluitende kaders kunnen niet worden vertaald.
 

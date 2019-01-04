@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309035"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581025"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker gebruiken voor het Apache Kafka-onderwerpen repliceren met Kafka in HDInsight
 
@@ -22,7 +22,7 @@ Informatie over het gebruik van Apache Kafka mirroring functie onderwerpen repli
 
 In dit voorbeeld wordt spiegelen gebruikt voor het repliceren van onderwerpen tussen twee clusters met HDInsight. Beide clusters zich in een Azure-netwerk in dezelfde regio.
 
-> [!WARNING]
+> [!WARNING]  
 > Spiegeling moet niet worden beschouwd als een manier om fouttolerantie. De verschuiving naar items in een onderwerp verschillen tussen de bron- en -clusters, zodat clients kunnen niet beide worden door elkaar gebruikt.
 >
 > Als u zich zorgen maken over-fouttolerantie gebruikt, moet u replicatie voor de onderwerpen in uw cluster instellen. Zie voor meer informatie, [aan de slag met Apache Kafka in HDInsight](apache-kafka-get-started.md).
@@ -45,13 +45,13 @@ De bron- en -clusters kunnen afwijken van het aantal knooppunten en partities en
 
 Als u spiegelen tussen Kafka-clusters in verschillende netwerken wilt, zijn er de volgende aanvullende overwegingen:
 
-* **Gateways**: de netwerken moeten kunnen communiceren op het TCP/IP-niveau.
+* **Gateways**: De netwerken moeten kunnen communiceren op het TCP/IP-niveau.
 
-* **Naamomzetting**: de Kafka-clusters in elk netwerk moeten kunnen met elkaar verbinden met behulp van hostnamen. Dit is mogelijk een Domain Name System (DNS)-server in elk netwerk dat is geconfigureerd om aanvragen doorsturen naar de andere netwerken.
+* **Naamomzetting**: De Kafka-clusters in elk netwerk moeten kunnen met elkaar verbinden met behulp van hostnamen. Dit is mogelijk een Domain Name System (DNS)-server in elk netwerk dat is geconfigureerd om aanvragen doorsturen naar de andere netwerken.
 
     Bij het maken van een Azure-netwerk, in plaats van de automatische DNS-server opgegeven met het netwerk, moet u een aangepaste DNS-server en het IP-adres voor de server opgeven. Nadat het Virtueelnetwerk is gemaakt, moet u vervolgens een Azure-Machine die gebruikmaakt van dit IP-adres, maakt en vervolgens installeren en configureren van DNS-software op het.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Maak en configureer de aangepaste DNS-server voor de installatie van HDInsight in het Virtueelnetwerk. Er is geen aanvullende configuratie vereist voor HDInsight de DNS-server geconfigureerd voor het Virtueelnetwerk te gebruiken.
 
 Zie voor meer informatie over het verbinden van twee virtuele netwerken van Azure, [een VNet-naar-VNet-verbinding configureren](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
@@ -66,7 +66,7 @@ Hoewel u een Azure virtual network maken kunt en Kafka-clusters handmatig, is he
    
     De Azure Resource Manager-sjabloon bevindt zich op **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten. Met deze sjabloon maakt u een Kafka-cluster dat drie werkknooppunten bevat.
 
 2. Gebruik de volgende informatie voor het vullen van de vermeldingen in de **aangepaste implementatie** blade:
@@ -77,21 +77,21 @@ Hoewel u een Azure virtual network maken kunt en Kafka-clusters handmatig, is he
 
     * **Locatie**: Selecteer een locatie geografisch dicht bij u.
      
-    * **Clusternaam baseren**: deze waarde wordt gebruikt als basisnaam voor de Kafka-clusters. Bijvoorbeeld, voeren **hdi** maakt clusters met de naam **bron hdi** en **dest hdi**.
+    * **Clusternaam baseren**: Deze waarde wordt gebruikt als basisnaam voor de Kafka-clusters. Bijvoorbeeld, voeren **hdi** maakt clusters met de naam **bron hdi** en **dest hdi**.
 
-    * **Gebruikersnaam voor aanmelding cluster**: de beheerdersnaam voor de bron- en Kafka-clusters.
+    * **Gebruikersnaam voor aanmelding cluster**: De beheerdersnaam voor de bron- en Kafka-clusters.
 
-    * **Cluster-wachtwoord voor Clusteraanmelding**: het beheerderswachtwoord voor de bron- en Kafka-clusters.
+    * **Cluster-wachtwoord voor Clusteraanmelding**: Het beheerderswachtwoord voor de bron- en Kafka-clusters.
 
-    * **SSH-gebruikersnaam**: de SSH-gebruiker maken voor de bron- en Kafka-clusters.
+    * **SSH-gebruikersnaam**: De SSH-gebruiker voor de bron- en Kafka om clusters te maken.
 
-    * **SSH-wachtwoord**: het wachtwoord voor de SSH-gebruiker voor de bron- en Kafka-clusters.
+    * **SSH wachtwoord**: Het wachtwoord voor de SSH-gebruiker voor de bron- en Kafka-clusters.
 
 3. Lees de **voorwaarden** en schakel vervolgens het selectievakje **Ik ga akkoord met de bovenstaande voorwaarden** in.
 
 4. Schakel tot slot **Vastmaken aan dashboard** in en selecteer **Kopen**. Het duurt ongeveer 20 minuten om de clusters te maken.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De naam van de HDInsight-clusters zijn **bron BASENAME** en **dest BASENAME**, waarbij BASENAME is de naam die u hebt opgegeven voor de sjabloon. U gebruikt deze namen in latere stappen bij het verbinden met de clusters.
 
 ## <a name="create-topics"></a>Help-onderwerpen maken
@@ -218,7 +218,7 @@ Hoewel u een Azure virtual network maken kunt en Kafka-clusters handmatig, is he
 
 7. De standaardconfiguratie voor Kafka in HDInsight is niet toegestaan voor het automatisch maken van onderwerpen. Voordat u begint met het proces spiegelen moet u een van de volgende opties gebruiken:
 
-    * **Maken van de onderwerpen op de doelcluster**: deze optie kunt u het aantal partities en de replicatie van meerdere factoren instellen.
+    * **Maken van de onderwerpen op de doelcluster**: Deze optie kunt u het aantal partities en de replicatie van meerdere factoren instellen.
 
         U kunt onderwerpen tevoren maken met behulp van de volgende opdracht uit:
 
@@ -228,7 +228,7 @@ Hoewel u een Azure virtual network maken kunt en Kafka-clusters handmatig, is he
 
         Vervang `testtopic` met de naam van het onderwerp te maken.
 
-    * **Configureren van het cluster voor het maken van automatische onderwerp**: met deze optie kunt MirrorMaker automatisch maken van onderwerpen, maar deze met een verschillend aantal partities of replicatiefactor dan de bron-onderwerp maken kan.
+    * **Configureren van het cluster voor het maken van automatische onderwerp**: Deze optie kunt MirrorMaker automatisch maken van onderwerpen, maar deze met een verschillend aantal partities of replicatiefactor dan de bron-onderwerp maken kan.
 
         Voor het configureren van het doelcluster voor het automatisch maken van onderwerpen, moet u deze stappen uitvoeren:
 
@@ -254,9 +254,9 @@ Hoewel u een Azure virtual network maken kunt en Kafka-clusters handmatig, is he
 
     * **--producer.config**: Hiermee geeft u het bestand dat de producent-eigenschappen bevat. Deze eigenschappen worden gebruikt voor het maken van een producent die naar schrijft de *bestemming* Kafka-cluster.
 
-    * **--lijst met toegestane adressen**: een lijst met onderwerpen die MirrorMaker van het broncluster zijn gerepliceerd naar de bestemming.
+    * **--lijst met toegestane adressen**: Een lijst met onderwerpen die MirrorMaker van het broncluster zijn gerepliceerd naar de bestemming.
 
-    * **--num.streams**: het aantal threads van de consument te maken.
+    * **--num.streams**: Het aantal threads van de consument te maken.
 
  Bij het opstarten wordt MirrorMaker informatie weergegeven die vergelijkbaar is met de volgende tekst:
 

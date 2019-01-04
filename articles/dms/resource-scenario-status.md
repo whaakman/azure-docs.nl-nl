@@ -4,22 +4,22 @@ description: Meer informatie over de status van de migratie-scenario's ondersteu
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267863"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722084"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status van het migratiescenario's ondersteund door de Azure Database Migration Service
-Azure Database Migration Service is ontworpen ter ondersteuning van verschillende migratiescenario's (bron-/ doelparen) voor zowel offline (eenmalig) en online (doorlopende synchronisatie). De dekking scenario is geleverd door de Azure Database Migration Service wordt uitgebreid na verloop van tijd. Nieuwe scenario's er worden regelmatig toegevoegd. In dit artikel geeft de migratiescenario's die momenteel worden ondersteund door de Azure Database Migration Service en de status (Private Preview, Public Preview of algemeen beschikbaar) of in elk scenario.
+Azure Database Migration Service is ontworpen ter ondersteuning van verschillende migratiescenario's (bron-/ doelparen) voor zowel offline (eenmalig) en online (doorlopende synchronisatie). De dekking scenario is geleverd door de Azure Database Migration Service wordt uitgebreid na verloop van tijd. Nieuwe scenario's er worden regelmatig toegevoegd. In dit artikel geeft de migratiescenario's die momenteel worden ondersteund door de Azure Database Migration Service en de status (privé [of beperkte] Preview, Public Preview of algemeen beschikbaar) of elk scenario.
 
 ## <a name="offline-versus-online-migrations"></a>Offline en online migraties
 Wanneer u databases naar Azure migreren met behulp van de Azure Database Migration Service, kunt u een offline of een online migratie uitvoeren. Met *offline* migraties, downtime van toepassingen wordt gestart op het moment dat de migratie begint. Voor *online* migraties uitvaltijd is beperkt tot de benodigde tijd voor het overzetten van naar de nieuwe omgeving wanneer de migratie is voltooid. Het is raadzaam om te testen een offlinemigratie om te bepalen of de uitvaltijd toegestaan is. Als dat niet het geval is, moet u een online migratie uit te voeren.

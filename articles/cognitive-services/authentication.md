@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435766"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726287"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Verifiëren van aanvragen voor Azure Cognitive Services
 
@@ -34,7 +34,7 @@ Laten we snel bekijken de verificatieheaders die beschikbaar zijn voor gebruik m
 
 | Header | Description |
 |--------|-------------|
-| OCP-Apim-Subscription-Key | Deze header gebruiken om te verifiëren met een abonnementssleutel voor een bepaalde service of een abonnementssleutel met meerdere service. Als u een abonnementssleutel met meerdere service-, de regio voor uw abonnement moet worden opgegeven als de `Ocp-Apim-Subscription-Region` header. |
+| OCP-Apim-Subscription-Key | Deze header gebruiken om te verifiëren met een abonnementssleutel voor een bepaalde service of een abonnementssleutel met meerdere service. |
 | OCP-Apim-abonnement-regio | Deze header is alleen vereist als u een abonnementssleutel met meerdere service-met de [Translator Text-API](./Translator/reference/v3-0-reference.md). Gebruik deze header de regio van het abonnement op te geven. |
 | Autorisatie | Gebruik deze header als u een verificatietoken. De stappen voor het uitvoeren van een token exchange worden beschreven in de volgende secties. De opgegeven waarde volgende indeling: `Bearer <TOKEN>`. |
 

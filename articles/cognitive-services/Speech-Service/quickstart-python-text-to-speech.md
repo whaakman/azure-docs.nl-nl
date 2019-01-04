@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Converteer tekst naar spraak, Python - spraakservices'
+title: 'Quickstart: Converteren van tekst naar spraak, Python - spraakservices'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Python en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00f57ccc0e02c8805e9a41fc5bce8f0ca4a3303a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090054"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542523"
 ---
-# <a name="quickstart-convert-text-to-speech-using-python"></a>Snelstartgids: Converteren voor tekst naar spraak met behulp van Python
+# <a name="quickstart-convert-text-to-speech-using-python"></a>Quickstart: Converteert tekst naar spraak met behulp van Python
 
 In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Python en de Text to Speech REST-API. De hoofdtekst van de aanvraag in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 
@@ -86,7 +86,7 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Zie voor meer informatie over verificatie [over het verkrijgen van een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Zie voor meer informatie over verificatie [verifiëren met een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="make-a-request-and-save-the-response"></a>Een aanvraag indienen en het antwoord opslaan
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 5acabc8381422b9202b041cf849af3b35809a3c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109794"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717208"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor beveiliging van clusters en upgrades in Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ Voor gedetailleerdere controle van de containeracties u kunt ook gebruiken ingeb
 
 ### <a name="app-armor"></a>App-chassis
 
-Als u wilt beperken de acties die containers kunnen uitvoeren, kunt u de [AppAmour] [ k8s-apparmor] beveiligingsmodule voor Linux-kernel. AppArmor is beschikbaar als onderdeel van het onderliggende knooppunt met AKS-besturingssysteem hebt, en is standaard ingeschakeld. U maakt AppArmor profielen die beperken van acties zoals lezen, schrijven of uitvoeren of systeemfuncties zoals het koppelen van bestandssystemen. AppArmor standaardprofielen toegang beperken tot verschillende `/proc` en `/sys` locaties, en een methode voor het isoleren van logisch containers van het onderliggende knooppunt. AppArmor werkt voor elke toepassing die wordt uitgevoerd op Linux, niet alleen Kubernetes-schillen.
+Als u wilt beperken de acties die containers kunnen uitvoeren, kunt u de [AppArmor] [ k8s-apparmor] beveiligingsmodule voor Linux-kernel. AppArmor is beschikbaar als onderdeel van het onderliggende knooppunt met AKS-besturingssysteem hebt, en is standaard ingeschakeld. U maakt AppArmor profielen die beperken van acties zoals lezen, schrijven of uitvoeren of systeemfuncties zoals het koppelen van bestandssystemen. AppArmor standaardprofielen toegang beperken tot verschillende `/proc` en `/sys` locaties, en een methode voor het isoleren van logisch containers van het onderliggende knooppunt. AppArmor werkt voor elke toepassing die wordt uitgevoerd op Linux, niet alleen Kubernetes-schillen.
 
 ![AppArmor-profielen gebruikt in een AKS-cluster om te beperken containeracties](media/operator-best-practices-container-security/apparmor.png)
 

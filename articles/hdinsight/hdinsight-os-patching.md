@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434042"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741586"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-patches voor HDInsight 
 HDInsight zorgt patchen van het besturingssysteem van de onderliggende virtuele machines die door HDInsight-clusters worden gebruikt als een beheerde Apache Hadoop-service. Vanaf 1 augustus 2016 hebben we de Gast OS beleid toepassen van patches voor HDInsight op basis van Linux-clusters (versie 3.4 of hoger) gewijzigd. Het doel van het nieuwe beleid is aanzienlijk minder opnieuw te worden opgestart vanwege het toepassen van patches. Het nieuwe beleid blijft patch virtuele machines (VM's) op Linux-clusters elke maandag of donderdag begint bij 12: 00 uur UTC gespreide wijze op knooppunten in een bepaald cluster. Een virtuele machine wordt echter alleen opnieuw opgestart maximaal eenmaal per 30 dagen vanwege Gast OS-patches. Bovendien de eerste keer opnieuw opstarten voor een nieuw cluster gebeurt niet eerder dan 30 dagen na het maken van het cluster. Patches worden van kracht nadat de virtuele machines opnieuw zijn opgestart.
@@ -33,7 +33,6 @@ Met behulp van de scriptactie die wordt beschreven in dit artikel, kunt u de OS-
 
 > [!NOTE]  
 > Deze scriptactie werkt alleen met HDInsight op basis van Linux-clusters die zijn gemaakt na 1 augustus 2016. Patches worden van kracht wanneer virtuele machines opnieuw zijn opgestart. 
->
 
 ## <a name="how-to-use-the-script"></a>Het gebruik van het script 
 

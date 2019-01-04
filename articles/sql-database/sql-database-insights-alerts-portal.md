@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273338"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634606"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure portal gebruiken om waarschuwingen te maken voor Azure SQL Database en Data Warehouse
 
@@ -46,13 +46,13 @@ U kunt configureren en informatie over met behulp van regels voor waarschuwingen
 1. In de [portal](https://portal.azure.com/), zoek de resource die u geïnteresseerd bent in controle en selecteer deze.
 2. Selecteer **waarschuwingen (klassiek)** onder de sectie bewaking. De tekst en het pictogram kunnen verschillen voor verschillende resources.  
    
-     ![Bewaking](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![Bewaking](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **ALLEEN SQL DW**: Klik op de **DWU-gebruik** graph. Selecteer **klassieke waarschuwingen weergeven**
 
 3. Selecteer de **metrische waarschuwing toevoegen (klassiek)** knop en vul de velden in.
    
-    ![Waarschuwing toevoegen](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Waarschuwing toevoegen](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Naam** de waarschuwing regel en kies een **beschrijving**, die ook weergegeven in e-mailmeldingen.
 5. Selecteer de **Metric** u wilt controleren, en kies vervolgens een **voorwaarde** en **drempelwaarde** waarde voor de metrische gegevens. Ook voor kiezen de **periode** van de tijd waarop de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers. Bijvoorbeeld als u de periode 'PT5M' en de waarschuwing voor CPU ziet er uit meer dan 80%, de waarschuwing wordt geactiveerd wanneer de **gemiddelde** CPU gedurende vijf minuten meer dan 80% is geweest. Nadat de eerste trigger is het geval is, wordt deze opnieuw geactiveerd wanneer de gemiddelde CPU lager dan 80% meer dan vijf minuten is. De meting van CPU doet zich voor elke minuut. Raadpleeg de onderstaande tabel voor ondersteunde tijdvensters en typt u de aggregatie die elke waarschuwing gebruikt en niet alle waarschuwingen de gemiddelde waarde gebruiken.   
 6. Controleer **e-eigenaren...**  als u wilt dat beheerders en medebeheerders moet worden verzonden wanneer de waarschuwing wordt geactiveerd.
@@ -117,5 +117,5 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 ## <a name="next-steps"></a>Volgende stappen
 * [Bekijk een overzicht van Azure-bewaking](../monitoring-and-diagnostics/monitoring-overview.md) met inbegrip van de typen gegevens die u kunt verzamelen en controleren.
 * Meer informatie over [configureren van webhooks in waarschuwingen](../azure-monitor/platform/alerts-webhooks.md).
-* Krijgen een [overzicht van diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) en verzamelen van gedetailleerde metrische gegevens voor hoge frequentie op uw service.
+* Krijgen een [overzicht van diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md) en verzamelen van gedetailleerde metrische gegevens voor hoge frequentie op uw service.
 * Krijgen een [overzicht van metrische gegevens verzameling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om ervoor te zorgen dat uw service beschikbaar is en reageert.

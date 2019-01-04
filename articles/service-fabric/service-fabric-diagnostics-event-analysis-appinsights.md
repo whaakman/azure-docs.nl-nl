@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f51d132d3cdc2d8aed65919df5fa225711508c60
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322786"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753092"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Gebeurtenis analyses en visualisatie met Application Insights
 
@@ -39,7 +39,7 @@ Application Insights is een geavanceerde buiten de box-ervaring bij het gebruik 
 
 ![Overzicht van Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-In het rechterdeelvenster in de vorige afbeelding, er zijn twee soorten gegevens in de lijst: aanvragen en gebeurtenissen. Aanvragen zijn oproepen naar de API via HTTP-aanvragen van de app in dit geval en gebeurtenissen zijn aangepaste gebeurtenissen, die fungeren als telemetrie die u overal in uw code kunt toevoegen. U kunt verder verkennen instrumenteren van uw toepassingen in [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../application-insights/app-insights-api-custom-events-metrics.md). Te klikken op een aanvraag zou meer details weergeven zoals wordt weergegeven in de volgende afbeelding, met inbegrip van gegevens die specifiek zijn voor Service Fabric, dat wordt verzameld in het nuget-pakket voor Application Insights-Service Fabric. Deze informatie is nuttig voor het oplossen van problemen en weet wat de status van uw toepassing is, en al deze gegevens wordt gezocht binnen de Application Insights
+In het rechterdeelvenster in de vorige afbeelding, er zijn twee soorten gegevens in de lijst: aanvragen en gebeurtenissen. Aanvragen zijn oproepen naar de API via HTTP-aanvragen van de app in dit geval en gebeurtenissen zijn aangepaste gebeurtenissen, die fungeren als telemetrie die u overal in uw code kunt toevoegen. U kunt verder verkennen instrumenteren van uw toepassingen in [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../azure-monitor/app/api-custom-events-metrics.md). Te klikken op een aanvraag zou meer details weergeven zoals wordt weergegeven in de volgende afbeelding, met inbegrip van gegevens die specifiek zijn voor Service Fabric, dat wordt verzameld in het nuget-pakket voor Application Insights-Service Fabric. Deze informatie is nuttig voor het oplossen van problemen en weet wat de status van uw toepassing is, en al deze gegevens wordt gezocht binnen de Application Insights
 
 ![Details van de aanvraag Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
@@ -47,7 +47,7 @@ Application Insights heeft een aangewezen weergave voor het uitvoeren van query'
 
 ![Details van de aanvraag Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Als u wilt de mogelijkheden van de Application Insights-portal verder verkennen, Ga naar de [documentatie voor Application Insights-portal](../application-insights/app-insights-dashboards.md).
+Als u wilt de mogelijkheden van de Application Insights-portal verder verkennen, Ga naar de [documentatie voor Application Insights-portal](../azure-monitor/app/app-insights-dashboards.md).
 
 ### <a name="configuring-application-insights-with-wad"></a>Application Insights configureren met WAD
 
@@ -114,7 +114,7 @@ Het verdient aanbeveling met EventFlow en WAD aggregatieoplossingen, omdat ze to
 
 [Application Insights-ondersteuning voor Microservices en Containers](https://azure.microsoft.com/blog/app-insights-microservices/) ziet u enkele van de nieuwe functies die zijn wordt gewerkt (momenteel nog steeds in beta), waarmee u kunt uitgebreidere controle out-of-the-box-opties met Application Insights hebt. Hieronder vallen afhankelijkheid bijhouden (gebruikt voor het bouwen van een toepassingstoewijzing van uw services en toepassingen in een cluster en de communicatie ertussen) en betere correlatie van traceringen die afkomstig zijn van uw services (helpt u bij het beter een probleem in de werkstroom van dicht een toepassing of service).
 
-Als u in .NET ontwikkelt en zal waarschijnlijk worden met behulp van enkele van Service Fabric-programmeermodellen en bereid Application Insights gebruiken als uw platform voor het visualiseren en analyseren van de gebeurtenis-en log, klikt u vervolgens raadzaam dat u via de Application Insights gaat SDK-route als de werkstroom voor controle en diagnostische gegevens. Lezen [dit](../application-insights/app-insights-asp-net-more.md) en [dit](../application-insights/app-insights-asp-net-trace-logs.md) aan de slag met het gebruik van Application Insights te verzamelen en weergeven van uw Logboeken.
+Als u in .NET ontwikkelt en zal waarschijnlijk worden met behulp van enkele van Service Fabric-programmeermodellen en bereid Application Insights gebruiken als uw platform voor het visualiseren en analyseren van de gebeurtenis-en log, klikt u vervolgens raadzaam dat u via de Application Insights gaat SDK-route als de werkstroom voor controle en diagnostische gegevens. Lezen [dit](../azure-monitor/app/asp-net-more.md) en [dit](../azure-monitor/app/asp-net-trace-logs.md) aan de slag met het gebruik van Application Insights te verzamelen en weergeven van uw Logboeken.
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navigeren in de Application Insights-resource in Azure portal
 
@@ -122,9 +122,9 @@ Als u Application Insights hebt geconfigureerd als uitvoer voor uw gebeurtenisse
 
 *Metrics Explorer* een handig hulpmiddel voor het maken van aangepaste dashboards op basis van metrische gegevens die uw toepassingen, services en -cluster kunnen rapporteren. Zie [verkennen van metrische gegevens in Application Insights](../application-insights/app-insights-metrics-explorer.md) voor het instellen van een aantal grafieken voor zelf is gebaseerd op de gegevens die u verzamelt.
 
-Te klikken op **Analytics** gaat u naar de Application Insights Analytics-portal, waar u kunt een query gebeurtenissen en traceringen met groter bereik en optionaliteit. Meer informatie over deze [analyses in Application Insights](../application-insights/app-insights-analytics.md).
+Te klikken op **Analytics** gaat u naar de Application Insights Analytics-portal, waar u kunt een query gebeurtenissen en traceringen met groter bereik en optionaliteit. Meer informatie over deze [analyses in Application Insights](../azure-monitor/app/analytics.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Stel waarschuwingen in AI](../application-insights/app-insights-alerts.md) om te worden geïnformeerd over wijzigingen in de prestaties of gebruik
+* [Stel waarschuwingen in AI](../azure-monitor/app/alerts.md) om te worden geïnformeerd over wijzigingen in de prestaties of gebruik
 * [Slimme detectie in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) voert een proactieve analyse van de telemetrie wordt verzonden naar Application Insights om te waarschuwen voor mogelijke prestatieproblemen

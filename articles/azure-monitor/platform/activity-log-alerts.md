@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341522"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581433"
 ---
 # <a name="alerts-on-activity-log"></a>Waarschuwingen voor activiteitenlogboeken 
 
@@ -28,11 +28,11 @@ Normaal gesproken u waarschuwingen voor activiteitenlogboek maken om meldingen t
 * Specifieke bewerkingen die worden uitgevoerd voor resources in uw Azure-abonnement, vaak binnen het bereik van bepaalde resourcegroepen of resources. Bijvoorbeeld, als u wilt worden gewaarschuwd wanneer een virtuele machine in myProductionResourceGroup wordt verwijderd. Of u wilt worden gewaarschuwd als nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
 * Er treedt een gebeurtenis van de health service op. Service health-gebeurtenissen opnemen van incidenten en onderhoudsgebeurtenissen die betrekking hebben op de resources in uw abonnement.
 
-Een eenvoudige vergelijking voor informatie over voorwaarden waarop de waarschuwingsregels voor activiteitenlogboeken, kunnen worden gemaakt is om te verkennen of filteren van gebeurtenissen via [activiteitenlogboek in Azure Portal](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Azure controleren: activiteitenlogboek, een kunt filteren of nodig gebeurtenis zoeken en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop.
+Een eenvoudige vergelijking voor informatie over voorwaarden waarop de waarschuwingsregels voor activiteitenlogboeken, kunnen worden gemaakt is om te verkennen of filteren van gebeurtenissen via [activiteitenlogboek in Azure Portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure controleren: activiteitenlogboek, een kunt filteren of nodig gebeurtenis zoeken en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop.
 
 In beide gevallen wordt een waarschuwing voor activiteitenlogboek controleert alleen voor gebeurtenissen in het abonnement waarin de waarschuwing is gemaakt.
 
-U kunt een waarschuwing voor activiteitenlogboek op basis van een eigenschap op het hoogste niveau in de JSON-object voor het activiteitenlogboek kunt configureren. Zie voor meer informatie, [overzicht van de Azure-activiteitenlogboek](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log). Zie voor meer informatie over service health-gebeurtenissen, [ontvangen van waarschuwingen voor activiteitenlogboeken voor servicemeldingen](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+U kunt een waarschuwing voor activiteitenlogboek op basis van een eigenschap op het hoogste niveau in de JSON-object voor het activiteitenlogboek kunt configureren. Zie voor meer informatie, [overzicht van de Azure-activiteitenlogboek](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). Zie voor meer informatie over service health-gebeurtenissen, [ontvangen van waarschuwingen voor activiteitenlogboeken voor servicemeldingen](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 Waarschuwingen voor activiteitenlogboeken zijn een aantal veelgebruikte opties:
 
@@ -64,5 +64,5 @@ Zie voor meer informatie over actiegroepen [maken en beheren van actiegroepen in
 - Krijgen een [overzicht van waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 - Meer informatie over [maken en wijzigen van waarschuwingen voor activiteitenlogboeken](../../azure-monitor/platform/alerts-activity-log.md).
 - Controleer de [activiteit log waarschuwing webhook-schema](activity-log-alerts-webhook.md).
-- Meer informatie over [health servicemeldingen](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Meer informatie over [health servicemeldingen](../../azure-monitor/platform/service-notifications.md).
 

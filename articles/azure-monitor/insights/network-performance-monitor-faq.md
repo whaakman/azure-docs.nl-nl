@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166605"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543985"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -70,6 +70,9 @@ Het script configureert alleen Windows Firewall lokaal. Als u hebt de firewall o
 
 ### <a name="how-many-agents-should-i-use"></a>Het aantal agents moet ik gebruiken?
 U moet ten minste één agent gebruiken voor elk subnet dat u wilt bewaken.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Wat is het maximum aantal agents dat ik kan gebruiken of ik Zie-fout "... u uw configuratie-limiet hebt bereikt"?
+NPM beperkt het aantal IP-adressen aan 5000 IP-adressen per werkruimte. Als een knooppunt zowel IPv4 als IPv6-adressen heeft, wordt dit meegeteld als 2 IP-adressen voor dat knooppunt. Daarom kan bepaalt deze limiet van 5000 IP-adressen de bovengrens voor het aantal agents. U kunt de inactieve agents verwijderen uit knooppunten tabblad in NPM >> configureren. NPM onderhoudt ook geschiedenis van alle de IP-adressen die ooit zijn toegewezen aan de virtuele machine die als host fungeert de agent en deze ook tellen als afzonderlijke IP-adressen die bijdragen aan dat de bovengrens van 5000 IP-adressen. Aan vrij te maken van IP-adressen voor uw werkruimte, kunt u de pagina knooppunten te verwijderen van de IP-adressen die zich niet in gebruik.
 
 ## <a name="monitoring"></a>Bewaking
 

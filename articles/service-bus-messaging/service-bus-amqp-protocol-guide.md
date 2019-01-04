@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961141"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542506"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -264,7 +264,7 @@ Elke verbinding heeft een eigen besturingselement koppeling om te beginnen en ei
 
 #### <a name="starting-a-transaction"></a>Starten van een transactie
 
-Om te beginnen transactioneel werk. het verkrijgen van de domeincontroller moet een `txn-id` uit de coördinator. Dit gebeurt door het verzenden van een `declare` type bericht. Als de verklaring gelukt is, de coördinator reageert met een resultaat van de toestand van uitvoert die de toegewezen `txn-id`.
+Om te beginnen transactioneel werk. het verkrijgen van de domeincontroller moet een `txn-id` uit de coördinator. Dit gebeurt door het verzenden van een `declare` type bericht. Als de verklaring geslaagd is, wordt de coördinator reageert met een resultaat toestand, dat het toegewezen `txn-id`.
 
 | Client (Controller) | | Servicebus (coördinator) |
 | --- | --- | --- |
@@ -351,7 +351,7 @@ De AMQP SASL integratie heeft twee nadelen:
 * Alle referenties en tokens zijn gericht op de verbinding. Een infrastructuur voor berichten willen gedifferentieerde toegangsbeheer op basis van per entiteit; bijvoorbeeld, zodat de houder van een token te verzenden naar een wachtrij, maar niet naar de wachtrij B. Met de autorisatiecontext verankerd op de verbinding, is het niet mogelijk slechts één verbinding en nog andere toegangstokens voor wachtrij A en B. wachtrij gebruiken
 * Toegangstokens zijn doorgaans alleen geldig voor een beperkte periode. Deze geldigheid moet de gebruiker periodiek opnieuw ophalen van tokens en biedt de mogelijkheid voor de uitgever van het token te weigeren uitgeven van een nieuwe token als van de gebruiker toegang tot machtigingen zijn gewijzigd. AMQP-verbindingen kunnen de laatste gedurende lange perioden. De SASL-model biedt alleen een kans om in te stellen van een token tijdens de verbinding, wat dat de infrastructuur voor berichten is betekent verbreken van de client wanneer het token is verlopen of nodig is om te accepteren van het risico van waardoor verdere communicatie met een client die de toegangsrechten is mogelijk in de tussentijd ingetrokken.
 
-De AMQP CBS-specificatie geïmplementeerd door Service Bus, kunt u een elegante tijdelijke oplossing voor zowel van die problemen: Hierdoor kan een client access tokens koppelen aan elk knooppunt, en om bij te werken die tokens voordat ze zijn verlopen, zonder dat de stroom wordt onderbroken.
+De specificatie AMQP CBS geïmplementeerd door Service Bus, kunt een elegante tijdelijke oplossing voor zowel van die problemen: Hierdoor kan een client access tokens koppelen aan elk knooppunt, en om bij te werken die tokens voordat ze zijn verlopen, zonder dat de stroom wordt onderbroken.
 
 CBS definieert een virtuele management-knooppunt, met de naam *$cbs*, te worden verstrekt door de messaging-infrastructuur. Het beheerknooppunt accepteert tokens namens een andere knooppunten in de infrastructuur voor berichten.
 
@@ -361,9 +361,9 @@ Het aanvraagbericht bevat de volgende toepassingseigenschappen:
 
 | Sleutel | Optioneel | Waardetype | De inhoud van waarde |
 | --- | --- | --- | --- |
-| bewerking |Nee |tekenreeks |**Put-token** |
-| type |Nee |tekenreeks |Het type van het token wordt geplaatst. |
-| naam |Nee |tekenreeks |De 'doelgroep', die de token van toepassing is. |
+| bewerking |Nee |string |**Put-token** |
+| type |Nee |string |Het type van het token wordt geplaatst. |
+| naam |Nee |string |De 'doelgroep', die de token van toepassing is. |
 | verlooptijd |Ja |tijdstempel |De verlooptijd van het token. |
 
 De *naam* eigenschap identificeert de entiteit waarmee het token gekoppeld worden moet. Dit is het pad naar de wachtrij of onderwerp/abonnement in Service Bus. De *type* eigenschap identificeert het type token:
@@ -374,14 +374,14 @@ De *naam* eigenschap identificeert de entiteit waarmee het token gekoppeld worde
 | amqp:SWT |Eenvoudige Webtoken (SWT) |AMQP-waarde (tekenreeks) |Alleen ondersteund voor SWT-tokens die zijn uitgegeven door de AAD/ACS |
 | servicebus.Windows.NET:sastoken |Service Bus SAS-Token |AMQP-waarde (tekenreeks) |- |
 
-Tokens verleent rechten. Service Bus op de hoogte van drie fundamentele rechten: 'Verzenden' kunnen worden verzonden, "Listen" kunt ontvangen en manipuleren entiteiten 'Beheren' kunnen. Deze rechten bevatten SWT-tokens die zijn uitgegeven door de AAD/ACS expliciet als claims. Service Bus SAS-tokens Raadpleeg regels die zijn geconfigureerd op de naamruimte of de entiteit en deze regels zijn geconfigureerd met rechten. Het token ondertekenen met de sleutel die is gekoppeld aan deze regel dus kunt u de token snelle de respectieve rechten. Het token dat is gekoppeld aan een entiteit met *put-token* toestaat de verbonden client om te communiceren met de entiteit per token rechten. Een koppeling waar de client wordt op de *afzender* rol vereist de "verzenden" rechts; op de *ontvanger* rol vereist het "Listen" rechts.
+Tokens verleent rechten. Service Bus op de hoogte van drie fundamentele rechten: 'Verzenden' kunnen worden verzonden, "Listen" kunnen ontvangen, en manipuleren entiteiten 'Beheren' kunnen. Deze rechten bevatten SWT-tokens die zijn uitgegeven door de AAD/ACS expliciet als claims. Service Bus SAS-tokens Raadpleeg regels die zijn geconfigureerd op de naamruimte of de entiteit en deze regels zijn geconfigureerd met rechten. Het token ondertekenen met de sleutel die is gekoppeld aan deze regel dus kunt u de token snelle de respectieve rechten. Het token dat is gekoppeld aan een entiteit met *put-token* toestaat de verbonden client om te communiceren met de entiteit per token rechten. Een koppeling waar de client wordt op de *afzender* rol vereist de "verzenden" rechts; op de *ontvanger* rol vereist het "Listen" rechts.
 
 Het antwoordbericht bevat de volgende *toepassingseigenschappen* waarden
 
 | Sleutel | Optioneel | Waardetype | De inhoud van waarde |
 | --- | --- | --- | --- |
 | status-code |Nee |int |HTTP-responscode **[RFC2616]**. |
-| Beschrijving van status |Ja |tekenreeks |Beschrijving van de status. |
+| Beschrijving van status |Ja |string |Beschrijving van de status. |
 
 De client kunt aanroepen *put-token* herhaaldelijk en voor elke entiteit in de infrastructuur voor berichten. De tokens zijn binnen het bereik van de huidige client en verankerd op de huidige verbinding, wat betekent dat de server komt geen tokens behouden wanneer de verbinding uitvalt.
 
@@ -399,7 +399,7 @@ De client is voor het bijhouden van de geldigheidsduur van het token. Wanneer ee
 
 Met deze functionaliteit, die u maakt een afzender en tot stand brengen van de koppeling naar de `via-entity`. Aanvullende informatie wordt doorgegeven tijdens het maken van de koppeling voor het maken van de waarde true bestemming van de berichten/overdrachten op deze koppeling. Zodra het koppelen voltooid is, alle berichten die op deze koppeling wordt verzonden, automatisch worden doorgestuurd naar de *doelentiteit* via *via entiteit*. 
 
-> Opmerking: Verificatie is om te worden uitgevoerd voor beide *via entiteit* en *doelentiteit* voordat u deze koppeling tot stand brengen.
+> Opmerking: Verificatie moet worden uitgevoerd voor beide *via entiteit* en *doelentiteit* voordat u deze koppeling tot stand brengen.
 
 | Client | | Service Bus |
 | --- | --- | --- |

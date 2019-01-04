@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 8bd614fd7aad248612d65717fe50e04a3fc3a9e1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7881643d2b63c569cc37e0a138f3b7507ce5a787
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481878"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632803"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Uw apparaat aansluiten op de Remote Monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
+Deze zelfstudie leert u hoe u een echt apparaat verbinden met de oplossingsverbetering voor externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
+
+Als u liever een apparaat simuleren, Zie [maken en test een nieuw gesimuleerd apparaat](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="create-a-nodejs-solution"></a>Een Node.js-oplossing maken
 
@@ -70,7 +72,6 @@ Zorg ervoor dat [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnsta
     var temperatureSchema = 'chiller-temperature;v1';
     var humiditySchema = 'chiller-humidity;v1';
     var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
     var deviceType = "Chiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
@@ -88,8 +89,6 @@ Zorg ervoor dat [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnsta
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
         "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
           "MessageSchema": {
             "Name": temperatureSchema,
             "Format": "JSON",
@@ -100,8 +99,6 @@ Zorg ervoor dat [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnsta
           }
         },
         "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
           "MessageSchema": {
             "Name": humiditySchema,
             "Format": "JSON",
@@ -112,8 +109,6 @@ Zorg ervoor dat [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnsta
           }
         },
         "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
           "MessageSchema": {
             "Name": pressureSchema,
             "Format": "JSON",

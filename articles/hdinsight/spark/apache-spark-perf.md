@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499148"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653727"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Optimaliseren voor Apache Spark-taken
+# <a name="optimize-apache-spark-jobs"></a>Apache Spark-taken optimaliseren
 
 Meer informatie over het optimaliseren van [Apache Spark](https://spark.apache.org/) clusterconfiguratie voor uw specifieke workload.  De meest voorkomende uitdaging is geheugengbelasting, vanwege een onjuiste configuraties (met name verkeerde formaat executor), langlopende bewerkingen en taken die in Cartesische bewerkingen resulteren. U kunt taken met de juiste opslaan in cache en door toe te staan voor versnellen [gegevensverschil](#optimize-joins-and-shuffles). Voor de beste prestaties bewaken en controleren van langlopende en resource-intensieve Spark taakuitvoeringen.
 
@@ -27,41 +27,41 @@ De volgende secties beschrijven algemene optimalisaties voor Spark-taak en aanbe
 Spark-1.x gebruikt rdd's tot abstracte gegevens en vervolgens Spark 2.x geïntroduceerd DataFrames en gegevenssets. Houd rekening met de volgende relatieve voordelen:
 
 * **Gegevensframes**
-    * Beste keuze in de meeste situaties
-    * Queryoptimalisatie via katalysator biedt
-    * Genereren van code geheel-fase
-    * Directe geheugentoegang op
-    * Lage overheadkosten garbagecollection (GC)
-    * Niet als ontwikkelaarsvriendelijke als gegevenssets, als er geen controles compilatietijdswitch of domein object programmeren zijn
+    * Beste keuze in de meeste situaties.
+    * Queryoptimalisatie via katalysator biedt.
+    * Genereren van code geheel-fase.
+    * Directe geheugentoegang op.
+    * Lage overhead garbagecollection (GC).
+    * Niet als ontwikkelaarsvriendelijke als gegevenssets, als er geen controles compilatietijdswitch of domein object programmeren zijn.
 * **Gegevenssets**
-    * Goede in complexe ' ETL-pijplijnen waarbij de invloed op de prestaties acceptabel is
-    * Geen geschikte in waar de invloed op de prestaties aanzienlijk kan worden aggregaties
-    * Queryoptimalisatie via katalysator biedt
-    * Ontwikkelaarsvriendelijke door te geven van de domein-object programmeren en compileren controles
-    * Serialisatie/deserialisatie overhead toegevoegd
-    * Hoge GC overhead
-    * Genereren van code geheel fasen verbroken
+    * Goede in complexe ' ETL-pijplijnen waarbij de invloed op de prestaties acceptabel is.
+    * Geen geschikte in aggregaties waar de invloed op de prestaties aanzienlijk kan worden.
+    * Queryoptimalisatie via katalysator biedt.
+    * Ontwikkelaarsvriendelijke door te geven van de domein-object programmeren en compileren controles.
+    * Serialisatie/deserialisatie overhead toegevoegd.
+    * Hoge GC overhead.
+    * Genereren van code geheel fasen, verbroken.
 * **RDDs**
-    * In Spark 2.x gebruikt, u hoeft te gebruiken van de rdd's, tenzij u moet een nieuwe aangepaste RDD bouwen
-    * Er is geen queryoptimalisatie via katalysator
-    * Er is geen geheel fase-code genereren
-    * Hoge GC overhead
-    * Gebruik Spark 1.x legacy API's
+    * In Spark 2.x gebruikt, u hoeft te gebruiken van de rdd's, tenzij u moet een nieuwe aangepaste RDD bouwen.
+    * Er is geen queryoptimalisatie via katalysator.
+    * Er is geen geheel fase-code genereren.
+    * Hoge GC overhead.
+    * Gebruik Spark 1.x legacy API's.
 
 ## <a name="use-optimal-data-format"></a>Optimale gegevensindeling gebruiken
 
-Spark ondersteunt een groot aantal indelingen, zoals csv, json, xml, parquet, orc en avro. Spark kan worden uitgebreid naar veel meer indelingen met externe gegevensbronnen - ondersteuning voor meer informatie, Zie [Spark-pakketten](https://spark-packages.org).
+Spark ondersteunt een groot aantal indelingen, zoals csv, json, xml, parquet, orc en avro. Spark kan worden uitgebreid naar veel meer indelingen met externe gegevensbronnen - ondersteuning voor meer informatie, Zie [Apache Spark-pakketten](https://spark-packages.org).
 
 De beste indeling voor prestaties is parquet met *snappy compressie*, dit is de standaardinstelling in Spark 2.x. Parquet gegevens worden opgeslagen in de indeling in kolomvorm en maximaal in Spark wordt geoptimaliseerd.
 
 ## <a name="select-default-storage"></a>Standaardopslag selecteren
 
-Wanneer u een nieuw Spark-cluster maakt, hebt u de optie voor het selecteren van Azure Blob Storage of Azure Data Lake Store als standaardopslag van uw cluster. Beide opties bieden u het voordeel van langdurige opslag voor tijdelijke clusters, zodat uw gegevens worden niet automatisch verwijderd wanneer u uw cluster verwijdert. U kunt een tijdelijke cluster opnieuw en nog steeds toegang tot uw gegevens.
+Wanneer u een nieuw Spark-cluster maakt, hebt u de optie voor het selecteren van Azure Blob Storage of Azure Data Lake Storage als standaardopslag van uw cluster. Beide opties bieden u het voordeel van langdurige opslag voor tijdelijke clusters, zodat uw gegevens worden niet automatisch verwijderd wanneer u uw cluster verwijdert. U kunt een tijdelijke cluster opnieuw en nog steeds toegang tot uw gegevens.
 
 | Store-Type | Bestandssysteem | Snelheid | Tijdelijke | Gebruiksvoorbeelden |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:**//url/ | **Standard** | Ja | Tijdelijke cluster |
-| Azure Data Lake Store | **adl:**//url/ | **Faster** | Ja | Tijdelijke cluster |
+| Azure Data Lake Storage | **adl:**//url/ | **Faster** | Ja | Tijdelijke cluster |
 | Lokale HDFS | **hdfs:**//url/ | **Fastest** | Nee | Interactieve 24/7-cluster |
 
 ## <a name="use-the-cache"></a>De cache gebruiken
@@ -73,7 +73,7 @@ Spark biedt een eigen systeemeigen opslaan in cache-mechanismen die kunnen worde
     * Werkt niet met partities, die kan worden gewijzigd in toekomstige releases van Spark.
 
 * Opslag op opslaan in cache (aanbevolen)
-    * Kan worden geïmplementeerd met behulp van [Alluxio](http://www.alluxio.org/).
+    * Kan worden geïmplementeerd met behulp van [Alluxio](https://www.alluxio.org/).
     * In het geheugen en SSD-opslag gebruikt.
 
 * Lokale HDFS (aanbevolen)
@@ -119,9 +119,9 @@ Bucketing is vergelijkbaar met het partitioneren van gegevens, maar elke bucket 
 
 Sommige geavanceerde bucket functies zijn:
 
-* Queryoptimalisatie op basis van bucket meta-informatie
-* Geoptimaliseerde aggregaties
-* Geoptimaliseerde joins
+* Queryoptimalisatie op basis van bucket meta-informatie.
+* Geoptimaliseerde aggregaties.
+* Geoptimaliseerde joins.
 
 U kunt partitioneren en op hetzelfde moment bucketing gebruiken.
 
@@ -175,8 +175,8 @@ Bij het bepalen van de configuratie van de executor, houd rekening met de overhe
     1. De communicatie tussen de Executor overhead te beperken.
     2. Verminder het aantal open verbindingen tussen Executor (N2) op grotere clusters (> 100 executor).
     3. Verhoog de heap-grootte voor de voor geheugen-intensieve taken.
-    4. Optioneel: Minder geheugenoverhead per executor.
-    5. Optioneel: Verhoog-gebruik en gelijktijdigheid door hogere toewijzing van CPU.
+    4. Optioneel: Per executor geheugenoverhead verminderen.
+    5. Optioneel: Gebruik en gelijktijdigheid van hogere toewijzing van CPU verhogen.
 
 Als een algemene vuistregel bij het selecteren van de executor-grootte:
     
@@ -202,7 +202,7 @@ De prestaties van uw query's voor uitbijters of andere prestatieproblemen contro
 Bewaken van uw actieve taken regelmatig om de prestaties. Als u meer inzicht in bepaalde problemen nodig hebt, kunt u overwegen een van de volgende prestaties profilering van hulpprogramma's:
 
 * [Intel PAL hulpprogramma](https://github.com/intel-hadoop/PAT) bewaakt CPU, opslag en netwerkgebruik voor bandbreedte.
-* [Oracle Java 8 grip](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profielen Spark en executor-code.
+* [Oracle Java 8 grip](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profielen Spark en executor-code.
 
 Sleutel voor de prestaties van Spark 2.x query's is de engine wolfraam, die afhankelijk van het genereren van code geheel-fase is. In sommige gevallen kan genereren van code geheel fasen zijn uitgeschakeld. Bijvoorbeeld, als u een niet-veranderlijke type gebruiken (`string`) in de expressie aggregatie `SortAggregate` wordt weergegeven in plaats van `HashAggregate`. Bijvoorbeeld, voor betere prestaties, probeert u het volgende en genereren van code vervolgens weer inschakelen:
 

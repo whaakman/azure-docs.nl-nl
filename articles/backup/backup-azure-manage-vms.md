@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465717"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635762"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Back-ups van een virtuele Azure-machine beheren
 
-Dit artikel bevat richtlijnen over het beheren van back-ups van virtuele machine en wordt uitgelegd van de back-upwaarschuwingen-informatie die beschikbaar zijn in de portal-dashboard. De instructies in dit artikel is van toepassing op het gebruik van virtuele machines met Recovery Services-kluizen. In dit artikel wordt niet beschreven voor het maken van virtuele machines, en ook wordt uitgelegd hoe u virtuele machines beveiligt. Zie voor informatie over het beveiligen van Azure Resource Manager geïmplementeerde virtuele machines in Azure met een Recovery Services-kluis, [eerste kennismaking: Back-up van VM's naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md).
+Dit artikel bevat richtlijnen over het beheren van back-ups van virtuele machine en wordt uitgelegd van de back-upwaarschuwingen-informatie die beschikbaar zijn in de portal-dashboard. De instructies in dit artikel is van toepassing op het gebruik van virtuele machines met Recovery Services-kluizen. In dit artikel wordt niet beschreven voor het maken van virtuele machines, en ook wordt uitgelegd hoe u virtuele machines beveiligt. Zie voor informatie over het beveiligen van Azure Resource Manager geïmplementeerde virtuele machines in Azure met een Recovery Services-kluis, [eerste blik: Maak een back-up van VM's naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md).
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Kluizen en beveiligde virtuele machines beheren
 In de Azure-portal bevat het dashboard van de Recovery Services-kluis toegang tot informatie over de kluis, waaronder:
@@ -77,7 +77,7 @@ In de vorige procedure moet u het dashboard van de kluis geopend. Het kluisdashb
 
     ![Back-upitems dashboard met de blade instellingen](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    Vanuit het kluisdashboard item, kunt u veel Sleutelbeheer taken, zoals uitvoeren:
+    U kunt veel belangrijke taken, zoals uitvoeren vanuit het kluisdashboard item:
 
    * wijzigen van beleid of een nieuwe back-upbeleid maken
    * bekijken van herstelpunten en hun status consistentie bekijken
@@ -85,7 +85,7 @@ In de vorige procedure moet u het dashboard van de kluis geopend. Het kluisdashb
    * de beveiliging van virtuele machines stoppen
    * de beveiliging van een virtuele machine hervatten
    * verwijderen van een back-upgegevens (of herstelpunt)
-   * [Herstel de back-schijven](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [Herstel de back-schijven](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 Het beginpunt is voor de volgende procedures het kluisdashboard item.
 
@@ -114,7 +114,7 @@ Het beginpunt is voor de volgende procedures het kluisdashboard item.
 >
 >
 
-## <a name="on-demand-backup-of-a-virtual-machine"></a>On-demand back-up van een virtuele machine
+## <a name="on-demand-backup-of-a-virtual-machine"></a>on-demand back-up van een virtuele machine
 U kunt een on-demand back-up van een virtuele machine nemen nadat deze is geconfigureerd voor beveiliging. Als de eerste back-up in behandeling is, maakt back-up op aanvraag een volledige kopie van de virtuele machine in de Recovery Services-kluis. Als de eerste back-up is voltooid, verzendt een on-demand back-up alleen wijzigingen van de vorige momentopname naar de Recovery Services-kluis. Dat wil zeggen, zijn volgende back-ups altijd incrementeel.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Voor het activeren van een on-demand back-up van een virtuele machine:
 
     Met de back-uptaak wordt een herstelpunt gemaakt. De bewaartermijn van het herstelpunt is hetzelfde als de bewaartermijn is opgegeven in het beleid dat is gekoppeld aan de virtuele machine. Klik om de voortgang voor de taak, op het kluisdashboard te volgen op de **back-uptaken** tegel.  
 
-## <a name="stop-protecting-virtual-machines"></a>De beveiliging van virtuele machines stoppen
+## <a name="stop-protecting-virtual-machines"></a>de beveiliging van virtuele machines stoppen
 Als u stoppen met het beveiligen van een virtuele machine wilt, wordt u gevraagd of u wilt bewaren van de herstelpunten. Er zijn twee manieren om te stoppen met het beveiligen van virtuele machines:
 
 * alle toekomstige back-uptaken stoppen en verwijderen van alle herstelpunten, of
@@ -166,7 +166,7 @@ Beveiliging voor een virtuele machine stoppen:
 
     ![Stop de beveiliging bevestigen](./media/backup-azure-manage-vms/stop-message.png)
 
-## <a name="resume-protection-of-a-virtual-machine"></a>De beveiliging van een virtuele machine hervatten
+## <a name="resume-protection-of-a-virtual-machine"></a>de beveiliging van een virtuele machine hervatten
 Als de **back-upgegevens behouden** optie hebt gekozen bij het beveiliging voor de virtuele machine is gestopt, en vervolgens kunt u de beveiliging hervatten. Als de **back-upgegevens verwijderen** optie hebt gekozen, en vervolgens beveiliging voor de virtuele machine niet hervatten.
 
 Beveiliging voor de virtuele machine hervatten
@@ -214,4 +214,4 @@ Verwijderen van back-upgegevens op een virtuele machine met de *back-up uitgesch
     Een melding laat u weten dat de back-upgegevens is verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk voor meer informatie over het opnieuw maken van een virtuele machine vanaf een herstelpunt [Azure-VM's herstellen](backup-azure-arm-restore-vms.md). Als u informatie over het beveiligen van uw virtuele machines nodig hebt, raadpleegt u [eerste kennismaking: Back-up van VM's naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md). Zie voor meer informatie over het bewaken van gebeurtenissen [waarschuwingen voor back-ups van virtuele machine van Azure controleren](backup-azure-monitor-vms.md).
+Bekijk voor meer informatie over het opnieuw maken van een virtuele machine vanaf een herstelpunt [Azure-VM's herstellen](backup-azure-arm-restore-vms.md). Als u informatie over het beveiligen van uw virtuele machines nodig hebt, raadpleegt u [eerste blik: Maak een back-up van VM's naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md). Zie voor meer informatie over het bewaken van gebeurtenissen [waarschuwingen voor back-ups van virtuele machine van Azure controleren](backup-azure-monitor-vms.md).

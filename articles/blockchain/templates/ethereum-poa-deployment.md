@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242668"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974043"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -81,7 +81,7 @@ Deze oplossing wordt geleverd met Azure Monitor voor het bijhouden van statistie
 
 ### <a name="deployment-architecture"></a>Implementatie-architectuur
 
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 
 Deze oplossing kunt implementeren één of meerdere regio's op basis van meerdere leden Ethereum consortium network. Standaard zijn de RPC- en peering eindpunten toegankelijk via openbare IP-adres om eenvoudig verbindingen tussen abonnementen en clouds. Het is raadzaam gebruik te maken van [pariteit van rollen contracten](https://wiki.parity.io/Permissioning) niveau voor toepassing besturingselementen voor toegang. We ondersteunen ook netwerken die zijn geïmplementeerd achter VPN's, die gebruikmaken van VNet-gateways voor abonnementoverschrijdende connectiviteit. Deze implementaties zijn complexer worden, zodat het wordt aanbevolen om te beginnen met het openbare IP-model eerst.
 
@@ -150,7 +150,7 @@ Na de installatie van MetaMask, gaat u naar de DApp Governance in de browser.  U
 #### <a name="becoming-an-admin"></a>Een beheerder uw account
 Als u het eerste lid dat op het netwerk geïmplementeerd, wordt klikt u vervolgens u automatisch een beheerder en uw pariteit knooppunten worden vermeld als Systeemstatuscontrolepunten.  Als u bent lid wordt van het netwerk, moet u ophalen uw stem aangegeven dat een beheerder met een meerderheid (groter dan 50%) van de bestaande-beheerder heeft ingesteld.  Als u ervoor kiest niet te worden van een beheerder en vervolgens uw knooppunten wordt nog steeds synchroniseren en valideren van de blockchain; Deze wordt echter niet opgenomen in het maakproces blokkeren. Voor het starten van de stemmende proces om te worden van een beheerder, klikt u op __Nominate__ en geef uw Ethereum-adres en de alias.
 
-![Nomineer](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
+![Benoemen](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
 #### <a name="candidates"></a>Kandidaten
 Selecteren van de __kandidaten__ tabblad ziet u de huidige reeks candidate beheerders.  Wanneer een kandidaat een stem meerderheid van de huidige beheerders is bereikt, ophalen de uiteindelijke gepromoot naar een beheerder.  Selecteer de rij om te stemmen op een kandidaat, en klik op 'Stem ' aan de bovenkant.  Als u van op een stem gedachten, kunt u de uiteindelijke selecteren en klikt u op 'Rescind stem'.
@@ -198,7 +198,7 @@ Dit proces vereist een Azure-abonnement dat u kunt ondersteuning voor de impleme
 
 Nadat een abonnement is beveiligd, gaat u naar Azure portal. Selecteer '+', Marketplace ('Zie alle'), en zoek naar Ethereum PoA Consortium.
 
-De volgende sectie helpen u bij het configureren van het eerste lid footprint in het netwerk. De stroom van de implementatie is onderverdeeld in vijf stappen: basisbeginselen, implementatie-regio's, netwerk-grootte en prestaties, Ethereum-instellingen, Azure Monitor.
+De volgende sectie helpen u bij het configureren van het eerste lid footprint in het netwerk. De stroom van de implementatie is onderverdeeld in vijf stappen: Basisbeginselen, regio's voor implementatie, netwerk-grootte en prestaties, Ethereum-instellingen, Azure Monitor.
 
 #### <a name="basics"></a>Basisbeginselen
 
@@ -206,7 +206,7 @@ Onder **basisbeginselen**, waarden opgeven voor standard parameters voor elke im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+Parameternaam|Description|Toegestane waarden|Standaardwaarden
 ---|---|---|---
 Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
 E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.v.t.
@@ -226,7 +226,7 @@ Geef vervolgens onder implementatie regio's, invoer voor het aantal regio('s) im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+  Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
   Aantal regio('s)|Aantal regio's om de consortium-netwerk te implementeren|1, 2, 3, 4, 5|1
   Eerste regio|Eerste regio voor de implementatie van het netwerk consortium|Alle toegestaan Azure-regio 's|N.v.t.
@@ -244,7 +244,7 @@ De mogelijke grootte van de blockchain worden bepaald door de grootte van de val
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+  Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
   Het aantal knooppunten met gelijke validator|Het aantal knooppunten validator om in te richten als onderdeel van het netwerk|2-15|2
   Validatie van knooppunt-opslagprestaties|Het type beheerde schijf een back-up elk van de validatie van geïmplementeerde knooppunten.|Standard-SSD- of Premium|Standard - SSD
@@ -270,7 +270,7 @@ Geef vervolgens onder Ethereum-instellingen, Ethereum-gerelateerde configuratie-
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+  Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Consortium lid-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. Lid-ID moet in het geval van een particulier netwerk, uniek zijn in verschillende organisaties in hetzelfde netwerk.  Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's. Noteer de waarde van deze parameter omdat moet u deze delen met andere leden van de gekoppelde om ervoor te zorgen dat er geen conflicten.|0-255|N.v.t.
 Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999.999.999|10101010
@@ -287,7 +287,7 @@ Een voorbeeldimplementatie wordt hieronder weergegeven: ![ethereum-instellingen]
 
 De blade controle kunt u een Log Analytics-resource voor het netwerk configureren. De monitoring agent worden verzameld en surface nuttig metrische gegevens en logboeken van uw netwerk, biedt de mogelijkheid om snel te controleren de netwerkstatus of foutopsporing problemen.
 
-  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+  Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Bewaking|Optie voor het inschakelen van bewaking|In- of uitschakelen|Inschakelen
 Verbinding maken met bestaande Log Analytics|Maak een nieuw exemplaar van de Log Analytics of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Fouten opsporen in slimme servicecontract met Truffle
 
-Truffle heeft een lokale ontwikkelen-netwerk dat beschikbaar is voor het opsporen van fouten in slimme contract. U vindt de volledige zelfstudie [hier](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle heeft een lokale ontwikkelen-netwerk dat beschikbaar is voor het opsporen van fouten in slimme contract. U vindt de volledige zelfstudie [hier](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### <a name="webassembly-wasm-support"></a>Ondersteuning voor WebAssembly (WASM)
 

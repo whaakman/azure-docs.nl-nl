@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341403"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713228"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostische gegevens in duurzame functies (Azure Functions)
 
@@ -25,7 +25,7 @@ Er zijn verschillende opties voor het oplossen van problemen met [duurzame funct
 
 [Application Insights](../../application-insights/app-insights-overview.md) is de aanbevolen manier om te doen, diagnose en controle in Azure Functions. Dit geldt ook voor duurzame functies. Zie voor een overzicht van hoe u Application Insights in uw functie-app, [Monitor Azure Functions](../functions-monitoring.md).
 
-Azure Functions duurzame Extension verzendt ook *bijhouden van gebeurtenissen* waarmee u kunt de uitvoering van de end-to-end van een indeling traceren. Deze kan worden gevonden en opgevraagd met de [Application Insights Analytics](../../application-insights/app-insights-analytics.md) hulpprogramma in de Azure-portal.
+Azure Functions duurzame Extension verzendt ook *bijhouden van gebeurtenissen* waarmee u kunt de uitvoering van de end-to-end van een indeling traceren. Deze kan worden gevonden en opgevraagd met de [Application Insights Analytics](../../azure-monitor/app/analytics.md) hulpprogramma in de Azure-portal.
 
 ### <a name="tracking-data"></a>Gegevens voor het bijhouden
 
@@ -43,7 +43,7 @@ Elke gebeurtenis van de levenscyclus van een exemplaar van de orchestration zorg
   * **Gestopt**: De orchestrator werk is gepland en wordt gewacht tot deze is voltooid.
   * **Luisteren**: De orchestrator is beschikbaar voor de melding van een externe gebeurtenis.
   * **Voltooid**: De functie is voltooid.
-  * **Kan geen**: De functie is mislukt met een fout.
+  * **Mislukt**: De functie is mislukt met een fout.
 * **reden**: Aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Bijvoorbeeld, als een exemplaar wordt gewacht tot een externe gebeurtenismelding, dit veld geeft aan dat de naam van de gebeurtenis die is in afwachting van. Als een functie is mislukt, wordt dit de foutdetails bevatten.
 * **isReplay**: Booleaanse waarde die aangeeft of de-traceringsgebeurtenis voor herhaalde uitvoering.
 * **extensionVersion**: De versie van de extensie duurzame taak. Dit is vooral belangrijk gegevens tijdens het rapporteren van mogelijke fouten in de uitbreiding. Langlopende exemplaren mogelijk meerdere versies rapporteren als een update treedt op wanneer deze wordt uitgevoerd.

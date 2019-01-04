@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407334"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976729"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -28,7 +28,7 @@ Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-o
 
 ## <a name="logging-and-debugging-apps"></a>Logboekregistratie en foutopsporing van apps
 
-Rapporten, verkeer visualisaties en de gezondheid van controles zijn beschikbaar voor eeach app via de Azure-portal. Zie de [overzicht van Azure App Service-diagnostics](/azure/app-service/app-service-diagnostics) voor meer informatie over hoe u toegang tot en gebruik deze diagnostische hulpprogramma's.
+Rapporten, verkeer visualisaties en de gezondheid van controles zijn beschikbaar voor eeach app via de Azure-portal. Zie de [overzicht van Azure App Service-diagnostics](/azure/app-service/overview-diagnostics) voor meer informatie over hoe u toegang tot en gebruik deze diagnostische hulpprogramma's.
 
 ## <a name="application-performance-monitoring"></a>Bewaking van toepassingsprestaties
 
@@ -54,11 +54,11 @@ Vervolgens stream logboeken naar uw console met `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Zie voor meer informatie, [Streaminglogboeken met de Azure CLI](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
+Zie voor meer informatie, [Streaminglogboeken met de Azure CLI](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>App-registratie
 
-Schakel [toepassingslogboeken](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) via Azure portal of [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) App Service configureren voor de standard-console-uitvoer en foutstromen standard-console van uw toepassing schrijven naar de lokale bestandssysteem of Azure Blob Storage. Logboekregistratie voor het lokale bestandssysteem voor App Service exemplaar uitgeschakeld 12 uur nadat deze is geconfigureerd. Als u langere bewaartermijn nodig hebt, configureert u de toepassing naar uitvoer schrijven naar een Blob storage-container.
+Schakel [toepassingslogboeken](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via Azure portal of [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) App Service configureren voor de standard-console-uitvoer en foutstromen standard-console van uw toepassing schrijven naar de lokale bestandssysteem of Azure Blob Storage. Logboekregistratie voor het lokale bestandssysteem voor App Service exemplaar uitgeschakeld 12 uur nadat deze is geconfigureerd. Als u langere bewaartermijn nodig hebt, configureert u de toepassing naar uitvoer schrijven naar een Blob storage-container.
 
 Als uw toepassing gebruikmaakt van [Logback](https://logback.qos.ch/) of [Log4j](https://logging.apache.org/log4j) voor tracering, kunt u doorsturen deze traceringen ter beoordeling naar Azure Application Insights met behulp van de logboekregistratie framework configuratie-instructies in [Traceerlogboeken in Application Insights Java verkennen](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -173,9 +173,6 @@ Voor het configureren van Tomcat voor het gebruik van Java-Database Connectivity
 
 Of stel de omgevingsvariabelen in de blade 'Instellingen' in de Azure-portal.
 
->[!NOTE]
-> Als u Azure Database voor Postgres gebruikt, vervangt u `ssl=true` met `sslmode=require` in de JDBC-verbindingsreeks.
-
 Bepaal vervolgens als de gegevensbron moet beschikbaar zijn voor één toepassing of voor alle toepassingen die worden uitgevoerd op de Tomcat-servlet.
 
 #### <a name="for-application-level-data-sources"></a>Voor gegevensbronnen op toepassingsniveau: 
@@ -259,7 +256,7 @@ Bepaal vervolgens als de gegevensbron moet beschikbaar zijn voor één toepassin
 
     3. Verbinding maken met de lokale tunneling poort met uw SFTP-client en de bestanden te uploaden de `/home/tomcat/lib` map.
 
-    U kunt ook een FTP-client gebruiken voor het uploaden van het JDBC-stuurprogramma. Volg deze [instructies voor het ophalen van de referenties van uw FTP-](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    U kunt ook een FTP-client gebruiken voor het uploaden van het JDBC-stuurprogramma. Volg deze [instructies voor het ophalen van de referenties van uw FTP-](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Als u een gegevensbron op serverniveau hebt gemaakt, moet u de App Service Linux-toepassing opnieuw starten. Tomcat wordt opnieuw ingesteld `CATALINA_HOME` naar `/home/tomcat/conf` en gebruikt u de bijgewerkte configuratie.
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184940"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540235"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics
 
 ![Azure-activiteitenlogboeken symbool](./media/collect-activity-logs/activity-log-analytics.png)
 
-De oplossing Activity Log Analytics helpt u bij het analyseren en te zoeken naar de [Azure-activiteitenlogboek](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in al uw Azure abonnementen. De Azure-activiteitenlogboek wordt een logboek dat inzicht in de bewerkingen die worden uitgevoerd voor resources in uw abonnementen biedt. Het activiteitenlogboek was voorheen bekend als *auditlogboeken* of *operationele logboeken* omdat deze dat deze gebeurtenissen voor uw abonnementen meldt.
+De oplossing Activity Log Analytics helpt u bij het analyseren en te zoeken naar de [Azure-activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md) in al uw Azure abonnementen. De Azure-activiteitenlogboek wordt een logboek dat inzicht in de bewerkingen die worden uitgevoerd voor resources in uw abonnementen biedt. Het activiteitenlogboek was voorheen bekend als *auditlogboeken* of *operationele logboeken* omdat deze dat deze gebeurtenissen voor uw abonnementen meldt.
 
 Met het activiteitenlogboek, kunt u bepalen de *wat*, *die*, en *wanneer* voor (PUT, POST, DELETE schrijfbewerkingen) die voor de resources in uw abonnement. U kunt ook de status van de bewerkingen en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen lees (GET)-bewerkingen of bewerkingen voor resources die gebruikmaken van het klassieke implementatiemodel.
 

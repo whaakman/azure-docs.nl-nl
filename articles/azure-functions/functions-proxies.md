@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139517"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538987"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -81,8 +81,8 @@ Bijvoorbeeld, als een proxy heeft een Routesjabloon, zoals `/pets/{petId}`, de U
 Naast de parameters van de route, kunnen de volgende waarden worden gebruikt in configuratiewaarden:
 
 * **{request.method}** : De HTTP-methode die wordt gebruikt op de oorspronkelijke aanvraag.
-* **{request.headers. \<Headernaam\>}**: een header die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
-* **{request.querystring. \<ParameterName\>}**: een queryreeks-parameter die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt lezen. Als de parameter niet is opgenomen in de aanvraag, wordt de waarde een lege tekenreeks zijn.
+* **{request.headers. \<Headernaam\>}**: Een header die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{request.querystring. \<ParameterName\>}**: Een queryreeks-parameter die kan worden gelezen uit de oorspronkelijke aanvraag. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt lezen. Als de parameter niet is opgenomen in de aanvraag, wordt de waarde een lege tekenreeks zijn.
 
 ### <a name="response-parameters"></a>Naslaginformatie over back-end antwoord parameters
 
@@ -90,7 +90,7 @@ Antwoord parameters kunnen worden gebruikt als onderdeel van het wijzigen van he
 
 * **{backend.response.statusCode}** : De HTTP-statuscode die op de back-end-antwoord wordt geretourneerd.
 * **{backend.response.statusReason}** : De HTTP-reden dat op de back-end-antwoord wordt geretourneerd.
-* **{backend.response.headers. \<Headernaam\>}**: een header die kan worden gelezen uit het antwoord van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in het antwoord opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{backend.response.headers. \<Headernaam\>}**: Een header die kan worden gelezen uit het antwoord van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt lezen. Als de header niet in het antwoord opgenomen is, wordt de waarde een lege tekenreeks zijn.
 
 ### <a name="use-appsettings"></a>Naslaginformatie over toepassingsinstellingen
 
@@ -139,12 +139,12 @@ De proxy's die u configureert, worden opgeslagen in een *proxies.json* bestand, 
 
 Elke proxy heeft een beschrijvende naam, zoals *proxy1* in het voorgaande voorbeeld. De bijbehorende proxy definition-object wordt gedefinieerd door de volgende eigenschappen:
 
-* **matchCondition**: vereist--een object voor het definiëren van de aanvragen die de uitvoering van deze proxy activeren. Deze twee eigenschappen die worden gedeeld met bevat [HTTP-triggers]:
-    * _methoden_: een matrix met de proxy reageert op HTTP-methoden. Als deze niet is opgegeven, wordt de proxy reageert op HTTP-methoden worden in de route.
-    * _route_: vereist--definieert de Routesjabloon beheren die aanvraag-URL's uw proxy reageert op. In tegenstelling tot in HTTP-triggers is er geen standaardwaarde.
-* **backendUri**: de URL van de back-end-resource waarvoor u de aanvraag via proxy moet. Deze waarde kan verwijzen naar toepassings- en parameters van de oorspronkelijke clientaanvraag. Als deze eigenschap niet opgenomen is, wordt Azure Functions reageert met een HTTP 200 OK.
-* **requestOverrides**: een object dat definieert de transformaties met de back-end-aanvraag. Zie [Een object requestOverrides definiëren].
-* **responseOverrides**: een object dat definieert de transformaties met het antwoord van de client. Zie [Een object responseOverrides definiëren].
+* **matchCondition**: Vereist: een object voor het definiëren van de aanvragen die de uitvoering van deze proxy activeren. Deze twee eigenschappen die worden gedeeld met bevat [HTTP-triggers]:
+    * _methoden_: Een matrix met de proxy reageert op HTTP-methoden. Als deze niet is opgegeven, wordt de proxy reageert op HTTP-methoden worden in de route.
+    * _route_: Vereiste--definieert de Routesjabloon beheren die aanvraag-URL's uw proxy reageert op. In tegenstelling tot in HTTP-triggers is er geen standaardwaarde.
+* **backendUri**: De URL van de back-end-resource waarvoor u de aanvraag via proxy moet. Deze waarde kan verwijzen naar toepassings- en parameters van de oorspronkelijke clientaanvraag. Als deze eigenschap niet opgenomen is, wordt Azure Functions reageert met een HTTP 200 OK.
+* **requestOverrides**: Een object dat definieert de transformaties met de back-end-aanvraag. Zie [Een object requestOverrides definiëren].
+* **responseOverrides**: Een object dat definieert de transformaties met het antwoord van de client. Zie [Een object responseOverrides definiëren].
 
 > [!NOTE] 
 > De *route* eigenschap in Azure Functions-proxy's komt niet voor de eer de *routePrefix* eigenschap van de configuratie van de functie-App-host. Als u wilt opnemen een voorvoegsel zoals `/api`, moeten worden opgenomen in de *route* eigenschap.
@@ -161,7 +161,7 @@ U kunt afzonderlijke proxy's uitschakelen door toe te voegen `"disabled": true` 
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -187,9 +187,9 @@ Proxy's lezen alle tekenreeksen zonder interpretatie, met uitzondering van accol
 
 Het object requestOverrides definieert wijzigingen aangebracht in de aanvraag wanneer de back-end-bron wordt aangeroepen. Het object wordt gedefinieerd door de volgende eigenschappen:
 
-* **backend.Request.Method**: de HTTP-methode die wordt gebruikt voor het aanroepen van de back-end.
-* **backend.Request.QueryString. \<ParameterName\>**: een queryreeks-parameter die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt instellen. Als de lege tekenreeks is opgegeven, wordt de parameter is niet opgenomen in de back-end-aanvraag.
-* **backend.Request.headers. \<Headernaam\>**: een header die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in de back-end-aanvraag.
+* **backend.Request.Method**: De HTTP-methode die wordt gebruikt voor het aanroepen van de back-end.
+* **backend.Request.QueryString. \<ParameterName\>**: Een queryreeks-parameter die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt instellen. Als de lege tekenreeks is opgegeven, wordt de parameter is niet opgenomen in de back-end-aanvraag.
+* **backend.Request.headers. \<Headernaam\>**: Een header die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in de back-end-aanvraag.
 
 Waarden kunnen verwijzen naar toepassings- en parameters van de oorspronkelijke clientaanvraag.
 
@@ -218,10 +218,10 @@ Een voorbeeldconfiguratie kan er als volgt uitzien:
 
 Het object requestOverrides definieert wijzigingen die worden aangebracht in de reactie die wordt doorgegeven aan de client. Het object wordt gedefinieerd door de volgende eigenschappen:
 
-* **response.statusCode**: de HTTP-statuscode moeten worden geretourneerd naar de client.
-* **response.statusReason**: de HTTP-reden wordt geretourneerd naar de client.
-* **Response.BODY**: de tekenreeksweergave van de instantie moet worden geretourneerd naar de client.
-* **Response.headers. \<Headernaam\>**: een header die kan worden ingesteld voor het antwoord op de client. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in het antwoord.
+* **response.statusCode**: De HTTP-statuscode die wordt geretourneerd naar de client.
+* **response.statusReason**: De HTTP-reden wordt geretourneerd naar de client.
+* **Response.BODY**: De tekenreeksweergave van de instantie moet worden geretourneerd naar de client.
+* **Response.headers. \<Headernaam\>**: Een header die kan worden ingesteld voor het antwoord op de client. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in het antwoord.
 
 Waarden kunnen verwijzen naar toepassingsinstellingen, de parameters van de aanvraag van de oorspronkelijke client en de parameters uit het antwoord van de back-end.
 

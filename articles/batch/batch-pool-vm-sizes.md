@@ -1,9 +1,9 @@
 ---
-title: Kies VM-grootten voor Azure Batch-pools | Microsoft Docs
+title: Kies VM-grootten voor pools - Azure Batch | Microsoft Docs
 description: Hoe u kunt kiezen uit de beschikbare VM-grootten voor rekenknooppunten in Azure Batch-pools
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2018
-ms.author: danlep
-ms.openlocfilehash: 35e5d13ac358fa5edcb778253340de0f9e15c067
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: a1d733e918d4b53ea9dd220f5e379e0c8133c03a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281274"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540653"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-pool
 
@@ -36,7 +37,7 @@ Er zijn enkele uitzonderingen en beperkingen voor het kiezen van een VM-grootte:
 
 Batch-pools in de configuratie van de virtuele Machine ondersteuning voor alle VM-grootten ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)) *behalve* voor het volgende:
 
-| Familie  | Niet-ondersteunde grootten  |
+| Gezin  | Niet-ondersteunde grootten  |
 |---------|---------|
 | Basic A-serie | Basic_A0 (A0) |
 | A-serie | Standard_A0 |
@@ -44,7 +45,7 @@ Batch-pools in de configuratie van de virtuele Machine ondersteuning voor alle V
 
 De volgende VM-grootten worden alleen ondersteund voor knooppunten met lage prioriteit:
 
-| Familie  | Ondersteunde grootten  |
+| Gezin  | Ondersteunde grootten  |
 |---------|---------|
 | M-serie | Standard_M64ms |
 | M-serie | Standard_M128s |
@@ -55,7 +56,7 @@ Andere VM-grootten in de M-serie zijn momenteel niet ondersteund.
 
 Batch-pools in de Cloud-serviceconfiguratie ondersteunen alle [VM-grootten voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md) *behalve* voor het volgende:
 
-| Familie  | Niet-ondersteunde grootten  |
+| Gezin  | Niet-ondersteunde grootten  |
 |---------|---------|
 | A-serie | ExtraSmall |
 | Av2-serie | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |

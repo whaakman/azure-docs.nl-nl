@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a54c47c0f67052f2ce486a97e009293a118919d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407091"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994110"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Gegevens uploaden voor Apache Hadoop-taken in HDInsight
 
@@ -171,12 +171,10 @@ of
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Zie voor een lijst met andere Hadoop-opdrachten die met bestanden werken [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Zie voor een lijst met andere Hadoop-opdrachten die met bestanden werken [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Op Apache HBase-clusters, de standaard blokgrootte gebruikt bij het schrijven van gegevens is 256 KB. Hoewel dit goed met HBase APIs's of REST-API's werkt, het gebruik van de `hadoop` of `hdfs dfs` opdrachten voor het schrijven van gegevens die groter zijn dan ~ 12 GB in een fout resulteert. Zie voor meer informatie de [uitzondering voor schrijven op blob storage](#storageexception) sectie in dit artikel.
->
->
 
 ### <a name="graphical-clients"></a>Grafische clients
 Er zijn ook verschillende toepassingen die een grafische interface bieden voor het werken met Azure Storage. De volgende tabel bevat een lijst met enkele van deze toepassingen:
@@ -184,17 +182,17 @@ Er zijn ook verschillende toepassingen die een grafische interface bieden voor h
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio-hulpprogramma's voor HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure-opslagverkenner](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Azure-opslagverkenner](https://storageexplorer.com/) |✔ |✔ |✔ |
+| [Cloud Storage Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio-hulpprogramma's voor HDInsight
 Zie voor meer informatie, [door de gekoppelde resources navigeren](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Explorer
-*Azure Storage Explorer* een handig hulpmiddel voor het inspecteren en het wijzigen van de gegevens in blobs. Het is een gratis, open-source-hulpprogramma dat kan worden gedownload vanaf [ http://storageexplorer.com/ ](http://storageexplorer.com/). De broncode is beschikbaar via deze koppeling ook.
+*Azure Storage Explorer* een handig hulpmiddel voor het inspecteren en het wijzigen van de gegevens in blobs. Het is een gratis, open-source-hulpprogramma dat kan worden gedownload vanaf [ https://storageexplorer.com/ ](https://storageexplorer.com/). De broncode is beschikbaar via deze koppeling ook.
 
 Voordat u het hulpprogramma gebruikt, moet u uw Azure-opslag account naam en de accountsleutel weten. Zie voor instructies over het ophalen van deze informatie, de ' hoe: Weergeven, kopiëren en opnieuw genereren opslag toegangssleutels"sectie van [maken, beheren of verwijderen van een storage-account][azure-create-storage-account].
 
@@ -315,7 +313,7 @@ Nu dat u hoe u gegevens in HDInsight krijgt begrijpt, leest u de volgende artike
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

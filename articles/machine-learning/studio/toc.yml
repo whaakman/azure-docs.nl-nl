@@ -55,166 +55,18 @@ items:
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
   - name: R snel starten
     href: r-quickstart.md
-- name: Procedures
+- name: Voorbeelden
   items:
-  - name: Hulpprogramma's instellen
-    items:
-    - name: Een werkruimte beheren
-      items:
-      - name: Maken
-        href: create-workspace.md
-      - name: Beheren
-        href: manage-workspace.md
-      - name: Problemen oplossen
-        href: troubleshooting-creating-ml-workspace.md
-      - name: Implementeren met ARM
-        href: deploy-with-resource-manager-template.md
-      - name: Studio-accountgegevens weergeven en verwijderen
-        displayName: export
-        href: export-delete-personal-data-dsr.md
-  - name: Gegevens ophalen en begrijpen
-    items:
-    - name: Trainingsgegevens importeren
-      items:
-      - name: Overzicht
-        href: import-data.md
-      - name: Uit een lokaal bestand
-        href: import-data-from-local-file.md
-      - name: Uit onlinebronnen
-        href: import-data-from-online-sources.md
-      - name: Uit een experiment
-        href: import-data-from-an-experiment.md
-      - name: On-premises SQL gebruiken
-        displayName: on-premises
-        href: use-data-from-an-on-premises-sql-server.md
-  - name: Modellen ontwikkelen
-    items:
-    - name: Modellen maken en trainen
-      items:
-      - name: Beheer van de levenscyclus van experimenten
-        href: version-control.md
-      - name: Experimentherhalingen beheren
-        href: manage-experiment-iterations.md
-      - name: PowerShell gebruiken om modellen te maken
-        displayName: endpoint, endpoints
-        href: create-models-and-endpoints-with-powershell.md
-      - name: Algoritmen selecteren
-        items:
-        - name: Algoritmen kiezen
-          href: algorithm-choice.md
-        - name: Overzichtskaart algoritmen
-          href: algorithm-cheat-sheet.md
-        - name: Lineaire regressie gebruiken
-          href: linear-regression-in-azure.md
-        - name: Tekstanalyse gebruiken
-          href: text-analytics-module-tutorial.md
-      - name: Resultaten evalueren en interpreteren
-        items:
-        - name: Prestaties evalueren
-          href: evaluate-model-performance.md
-        - name: Parameters optimaliseren
-          displayName: optimization
-          href: algorithm-parameters-optimize.md
-        - name: Resultaten interpreteren
-          href: interpret-model-results.md
-        - name: Fouten opsporen
-          href: debug-models.md
-      - name: R en Python gebruiken
-        items:
-        - name: R-scripts uitvoeren
-          href: extend-your-experiment-with-r.md
-        - name: Aangepaste R-modules schrijven
-          href: custom-r-modules.md
-        - name: Python-scripts uitvoeren
-          href: execute-python-scripts.md
-  - name: Modellen operationeel maken
-    displayName: deploy
-    items:
-    - name: Overzicht
-      displayName: deploy, consume, web service
-      href: deploy-consume-web-service-guide.md
-    - name: Modellen implementeren
-      items:
-      - name: Een webservice implementeren
-        displayName: publish
-        href: publish-a-machine-learning-web-service.md
-      - name: Hoe werkt het?
-        href: model-progression-experiment-to-web-service.md
-      - name: Implementatie voorbereiden
-        href: convert-training-experiment-to-scoring-experiment.md
-      - name: Externe gegevens gebruiken
-        displayName: import, export
-        href: web-services-that-use-import-export-modules.md
-      - name: Implementeren in meerdere regio's
-        displayName: multiple regions
-        href: how-to-deploy-to-multiple-regions.md
-      - name: Webserviceparameters gebruiken
-        href: web-service-parameters.md
-      - name: Logboekregistratie inschakelen
-        href: web-services-logging.md
-    - name: Webservices beheren
-      items:
-      - name: Web Services-portal gebruiken
-        href: manage-new-webservice.md
-      - name: Beheren met API's
-        displayName: endpoint, endpoints
-        href: manage-web-service-endpoints-using-api-management.md
-      - name: Eindpunten maken
-        href: create-endpoint.md
-      - name: Schalen
-        href: scaling-webservice.md
-    - name: Modellen opnieuw trainen
-      items:
-      - name: Overzicht
-        href: retrain-machine-learning-model.md
-      - name: Programmatisch opnieuw trainen
-        href: retrain-models-programmatically.md
-      - name: Een klassieke webservice opnieuw trainen
-        href: retrain-a-classic-web-service.md
-      - name: Opnieuw trainen met PowerShell
-        href: retrain-new-web-service-using-powershell.md
-      - name: Een bestaande webservice opnieuw trainen
-        href: retrain-existing-resource-manager-based-web-service.md
-      - name: Problemen oplossen
-        href: troubleshooting-retraining-models.md
-    - name: Modellen gebruiken
-      items:
-      - name: Overzicht
-        href: consume-web-services.md
-      - name: Excel gebruiken
-        href: consuming-from-excel.md
-      - name: Excel-invoegtoepassing gebruiken
-        href: excel-add-in-for-web-services.md
-      - name: Een web-appsjabloon gebruiken
-        href: consume-web-service-with-web-app-template.md
-      - name: Een Batch-pool gebruiken
-        href: dedicated-capacity-for-bes-jobs.md
-  - name: Voorbeelden
-    items:
-    - name: Voorbeeldexperimenten
-      href: sample-experiments.md
-    - name: Voorbeeldgegevenssets
-      href: use-sample-datasets.md
-    - name: Voorbeeld van klantverloop
-      href: azure-ml-customer-churn-scenario.md
-- name: Naslaginformatie
-  items:
-  - name: Azure PowerShell-module (nieuw)
-    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
-  - name: Azure PowerShell-module (klassiek)
-    href: powershell-module.md
-  - name: Naslaginformatie over algoritmen en modules
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: API's voor REST-beheer
-    href: /rest/api/machinelearning
-  - name: Foutcodes voor webservices
-    href: web-service-error-codes.md
-- name: Verwant
-  items:
+  - name: Voorbeeldgegevenssets
+    href: use-sample-datasets.md
+  - name: Voorbeeld van klantverloop
+    href: azure-ml-customer-churn-scenario.md
   - name: Azure AI-galerie
     items:
     - name: Overzicht
       href: gallery-how-to-use-contribute-publish.md
+    - name: Voorbeeldexperimenten
+      href: sample-experiments.md
     - name: Bedrijfstakken
       href: gallery-industries.md
     - name: Oplossingen
@@ -235,6 +87,145 @@ items:
       href: gallery-custom-modules.md
     - name: Accountgegevens weergeven en verwijderen
       href: ai-gallery-control-personal-data-dsr.md
+- name: Concepten
+  items:
+  - name: Modelbeheer
+    displayName: deploy, consume, web service
+    href: deploy-consume-web-service-guide.md
+- name: Handleidingen
+  items:
+  - name: Een werkruimte beheren
+    items:
+    - name: Maken
+      href: create-workspace.md
+    - name: Beheren
+      href: manage-workspace.md
+    - name: Problemen oplossen
+      href: troubleshooting-creating-ml-workspace.md
+    - name: Implementeren met ARM
+      href: deploy-with-resource-manager-template.md
+    - name: Studio-accountgegevens weergeven en verwijderen
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+  - name: Trainingsgegevens importeren
+    items:
+    - name: Overzicht
+      href: import-data.md
+    - name: Uit een lokaal bestand
+      href: import-data-from-local-file.md
+    - name: Uit onlinebronnen
+      href: import-data-from-online-sources.md
+    - name: Uit een experiment
+      href: import-data-from-an-experiment.md
+    - name: On-premises SQL gebruiken
+      displayName: on-premises
+      href: use-data-from-an-on-premises-sql-server.md
+  - name: Modellen maken en trainen
+    items:
+    - name: Beheer van de levenscyclus van experimenten
+      href: version-control.md
+    - name: Experimentherhalingen beheren
+      href: manage-experiment-iterations.md
+    - name: PowerShell gebruiken om modellen te maken
+      displayName: endpoint, endpoints
+      href: create-models-and-endpoints-with-powershell.md
+    - name: Algoritmen selecteren
+      items:
+      - name: Algoritmen kiezen
+        href: algorithm-choice.md
+      - name: Overzichtskaart algoritmen
+        href: algorithm-cheat-sheet.md
+      - name: Lineaire regressie gebruiken
+        href: linear-regression-in-azure.md
+      - name: Tekstanalyse gebruiken
+        href: text-analytics-module-tutorial.md
+    - name: Resultaten evalueren en interpreteren
+      items:
+      - name: Prestaties evalueren
+        href: evaluate-model-performance.md
+      - name: Parameters optimaliseren
+        displayName: optimization
+        href: algorithm-parameters-optimize.md
+      - name: Resultaten interpreteren
+        href: interpret-model-results.md
+      - name: Fouten opsporen
+        href: debug-models.md
+    - name: R en Python gebruiken
+      items:
+      - name: R-scripts uitvoeren
+        href: extend-your-experiment-with-r.md
+      - name: Aangepaste R-modules schrijven
+        href: custom-r-modules.md
+      - name: Python-scripts uitvoeren
+        href: execute-python-scripts.md
+  - name: Modellen implementeren
+    items:
+    - name: Een webservice implementeren
+      displayName: publish
+      href: publish-a-machine-learning-web-service.md
+    - name: Hoe werkt het?
+      href: model-progression-experiment-to-web-service.md
+    - name: Implementatie voorbereiden
+      href: convert-training-experiment-to-scoring-experiment.md
+    - name: Externe gegevens gebruiken
+      displayName: import, export
+      href: web-services-that-use-import-export-modules.md
+    - name: Implementeren in meerdere regio's
+      displayName: multiple regions
+      href: how-to-deploy-to-multiple-regions.md
+    - name: Webserviceparameters gebruiken
+      href: web-service-parameters.md
+    - name: Logboekregistratie inschakelen
+      href: web-services-logging.md
+  - name: Webservices beheren
+    items:
+    - name: Web Services-portal gebruiken
+      href: manage-new-webservice.md
+    - name: Beheren met API's
+      displayName: endpoint, endpoints
+      href: manage-web-service-endpoints-using-api-management.md
+    - name: Eindpunten maken
+      href: create-endpoint.md
+    - name: Schalen
+      href: scaling-webservice.md
+  - name: Modellen opnieuw trainen
+    items:
+    - name: Overzicht
+      href: retrain-machine-learning-model.md
+    - name: Programmatisch opnieuw trainen
+      href: retrain-models-programmatically.md
+    - name: Een klassieke webservice opnieuw trainen
+      href: retrain-a-classic-web-service.md
+    - name: Opnieuw trainen met PowerShell
+      href: retrain-new-web-service-using-powershell.md
+    - name: Een bestaande webservice opnieuw trainen
+      href: retrain-existing-resource-manager-based-web-service.md
+    - name: Problemen oplossen
+      href: troubleshooting-retraining-models.md
+  - name: Modellen gebruiken
+    items:
+    - name: Overzicht
+      href: consume-web-services.md
+    - name: Excel gebruiken
+      href: consuming-from-excel.md
+    - name: Excel-invoegtoepassing gebruiken
+      href: excel-add-in-for-web-services.md
+    - name: Een web-appsjabloon gebruiken
+      href: consume-web-service-with-web-app-template.md
+    - name: Een Batch-pool gebruiken
+      href: dedicated-capacity-for-bes-jobs.md
+- name: Naslaginformatie
+  items:
+  - name: Azure PowerShell-module (nieuw)
+    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
+  - name: Azure PowerShell-module (klassiek)
+    href: powershell-module.md
+  - name: Naslaginformatie over algoritmen en modules
+    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: API's voor REST-beheer
+    href: /rest/api/machinelearning
+  - name: Foutcodes voor webservices
+    href: web-service-error-codes.md
 - name: Resources
   items:
   - name: Prijzen
@@ -249,9 +240,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Gids voor R-ontwikkelaars
     href: ../r-developers-guide.md
-ms.openlocfilehash: 8aaf830dc13919a664a931b5d08a11c817e8dc51
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 16c610345c063be9149d841c71d27f73e22d143d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628303"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974112"

@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b9c8f1af612c220534e45c5c66651f0ad8600826
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634410"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628183"
 ---
 # <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analyseren van sensorgegevens met behulp van de Apache Hive-Query-Console op Apache Hadoop in HDInsight
 
-Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Hive met HDInsight (Apache Hadoop) en vervolgens de gegevens in Microsoft Excel visualiseren met behulp van Power View.
+Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Apache Hive met HDInsight (Apache Hadoop) en vervolgens de gegevens in Microsoft Excel visualiseren met behulp van Power View.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document werken alleen met HDInsight op basis van een Windows-clusters. HDInsight is alleen beschikbaar voor Windows voor versies lager dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 
@@ -35,10 +35,10 @@ In dit voorbeeld gebruikt u Hive voor het verwerken van historische gegevens en 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een HDInsight (Hadoop)-cluster: Zie [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster.
+* Een HDInsight (Hadoop)-cluster: Zie [Apache Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster.
 * Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > Microsoft Excel wordt gebruikt voor gegevensvisualisatie met [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Microsoft Hive ODBC-stuurprogramma](https://www.microsoft.com/download/details.aspx?id=40886)

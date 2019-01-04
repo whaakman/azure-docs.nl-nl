@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 13bca67a48d1b9e73dc2f092979e455c72711316
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d353db3554837ebe13cc53f5adac6658b82e31ec
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011332"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717684"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Ga naar HDInsight Management SDK-Preview
 
 ## <a name="overview"></a>Overzicht
 De Go SDK voor HDInsight biedt klassen en -functies waarmee u kunt voor het beheren van uw HDInsight-clusters. Dit omvat bewerkingen als u wilt maken, verwijderen, bijwerken, weergeven, vergroten of verkleinen, scriptacties uitvoeren, controleren en ophalen van de eigenschappen van HDInsight-clusters, en meer.
 
-> [!NOTE]
+> [!NOTE]  
 >Referentiemateriaal voor GoDoc voor deze SDK is ook [beschikbaar hier](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-account. Als u nog geen hebt, [een gratis proefversie](https://azure.microsoft.com/free/).
-* [Go](https://golang.org/dl/)
+* [Ga](https://golang.org/dl/).
 
 ## <a name="sdk-installation"></a>SDK-installatie
 
@@ -36,8 +36,8 @@ Uitvoeren vanaf de locatie van uw GOPATH, `go get github.com/Azure/azure-sdk-for
 
 De SDK moet eerst worden geverifieerd bij uw Azure-abonnement.  Ga als volgt het voorbeeld hieronder een service-principal maken en deze gebruiken om te verifiëren. Nadat dit is gebeurd, hebt u een exemplaar van een `ClustersClient`, die bevat veel functies (zoals beschreven onderstaande secties) die kunnen worden gebruikt voor het uitvoeren van beheerbewerkingen.
 
-> [!NOTE]
-> Er zijn andere manieren om te verifiëren naast het onderstaande voorbeeld dat mogelijk beter geschikt voor uw behoeften zijn kan. Alle functies die hier worden beschreven: [verificatiefuncties in de Azure SDK voor Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> [!NOTE]  
+> Er zijn andere manieren om te verifiëren naast het onderstaande voorbeeld dat mogelijk beter geschikt voor uw behoeften zijn kan. Alle functies worden hier beschreven: [Verificatiefuncties in de Azure SDK voor Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Voorbeeld van verificatie met behulp van een service-principal
 
@@ -70,7 +70,7 @@ Als u bent niet aangemeld bij het juiste abonnement, selecteert u het juiste abo
 az account set -s <name or ID of subscription>
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Als u nog niet hebt geregistreerd de HDInsight-Resourceprovider door een andere functie (zoals door het maken van een HDInsight-Cluster via de Azure Portal), moet u dit doen zodra voordat u kunt verifiëren. Dit kan worden gedaan vanuit de [Azure Cloud Shell](https://shell.azure.com/bash) door het uitvoeren van de volgende opdracht uit:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
@@ -133,7 +133,7 @@ func main() {
 
 ## <a name="cluster-management"></a>Clusterbeheer
 
-> [!NOTE]
+> [!NOTE]  
 > In deze sectie wordt ervan uitgegaan dat u al hebt geverifieerd en gebouwd een `ClusterClient` exemplaar en op te slaan in een variabele met de naam `client`. Instructies voor het verifiëren en verkrijgen van een `ClusterClient` vindt u in de bovenstaande sectie voor verificatie.
 
 ### <a name="create-a-cluster"></a>Een cluster maken
@@ -144,7 +144,7 @@ Een nieuw cluster kan worden gemaakt door het aanroepen van `client.Create()`.
 
 In dit voorbeeld laat zien over het maken van een [Apache Spark](https://spark.apache.org/) cluster met 2 hoofdknooppunten en 1 worker-knooppunt.
 
-> [!NOTE]
+> [!NOTE]  
 > U moet eerst een resourcegroep en de Storage-Account, zoals hieronder wordt uitgelegd. Als u deze al hebt gemaakt, kunt u deze stappen overslaan.
 
 ##### <a name="creating-a-resource-group"></a>Het maken van een resourcegroep
@@ -283,7 +283,8 @@ client.List()
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
-> [!NOTE]
+
+> [!NOTE]  
 > Beide `List()` en `ListByResourceGroup()` retourneren een `ClusterListResultPage` struct. Als u de volgende pagina, kunt u bellen `Next()`. Dit kan worden herhaald totdat `ClusterListResultPage.NotDone()` retourneert `false`, zoals wordt weergegeven in het onderstaande voorbeeld.
 
 #### <a name="example"></a>Voorbeeld
@@ -345,13 +346,13 @@ extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
 extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > De onderstaande bewaking voorbeelden wordt ervan uitgegaan u hebt al geïnitialiseerd een `ExtensionClient` met de naam `extClient` en stel de `Authorizer` zoals hierboven.
 
 ### <a name="enable-oms-monitoring"></a>OMS-controle inschakelen
 
-> [!NOTE]
-> Om in te schakelen OMS-controle, moet u een bestaande Log Analytics-werkruimte hebben. Als u nog geen hebt gemaakt een, leert u hoe u dat hier doen: [een Log Analytics-werkruimte maken in Azure portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> [!NOTE]  
+> Om in te schakelen OMS-controle, moet u een bestaande Log Analytics-werkruimte hebben. Als u nog geen hebt gemaakt een, leert u hoe u dat hier doen: [Een Log Analytics-werkruimte maken in Azure portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 Om in te schakelen de OMS-controle op het cluster:
 
@@ -378,8 +379,9 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 ## <a name="script-actions"></a>Scriptacties
 
 HDInsight biedt een configuratie scriptacties aangeroepen functie die wordt aangeroepen aangepaste scripts voor het aanpassen van het cluster.
-> [!NOTE]
-> Meer informatie over het gebruik van scriptacties vindt u hier: [aanpassen Linux gebaseerde HDInsight-clusters met scriptacties](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+
+> [!NOTE]  
+> Meer informatie over het gebruik van scriptacties vindt u hier: [HDInsight Linux gebaseerde clusters aanpassen met scriptacties](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
 ### <a name="execute-script-actions"></a>Uitvoeren van scriptacties
 
@@ -397,7 +399,7 @@ scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
 scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > De onderstaande scriptacties voorbeelden wordt ervan uitgegaan dat u hebt al geïnitialiseerd een `ScriptActionsClient` met de naam `scriptActionsClient` en stel de `Authorizer` zoals hierboven.
 
 ### <a name="delete-script-action"></a>Scriptactie verwijderen
@@ -410,7 +412,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 
 ### <a name="list-persisted-script-actions"></a>Lijst met persistente scriptacties
 
-> [!NOTE]
+> [!NOTE]  
 > Beide `ListByCluster()` retourneert een `ScriptActionsListPage` struct. Als u de volgende pagina, kunt u bellen `Next()`. Dit kan worden herhaald totdat `ClusterListResultPage.NotDone()` retourneert `false`, zoals wordt weergegeven in het onderstaande voorbeeld.
 
 Overzicht van alle persistente scriptacties voor het opgegeven cluster:
@@ -445,7 +447,7 @@ scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION
 scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > De hieronder wordt ervan uitgegaan dat u hebt al geïnitialiseerd een `ScriptExecutionHistoryClient` met de naam `scriptExecutionHistoryClient` en stel de `Authorizer` zoals hierboven.
 
 Overzicht van uitvoeringsgeschiedenis alle scripts voor het opgegeven cluster:

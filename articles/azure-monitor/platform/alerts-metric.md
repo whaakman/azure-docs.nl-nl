@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336467"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584300"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van metrische waarschuwingen met behulp van Azure Monitor
 
@@ -33,7 +33,7 @@ De volgende procedure wordt beschreven hoe u een waarschuwingsregel voor metrisc
 
 3. Klik op **doel selecteren**, selecteer een doelresource die u wilt wijzigen in het deelvenster context die wordt geladen. Gebruik **abonnement** en **resourcetype** vervolgkeuzelijsten om te vinden van de resource die u wilt bewaken. U kunt ook de zoekbalk te vinden van uw resource.
 
-4. Als de geselecteerde resource voor metrische gegevens die u kunt waarschuwingen maken op **beschikbare signalen** aan de onderkant rechts metrische gegevens bevat. U vindt de volledige lijst met resourcetypen die worden ondersteund voor metrische waarschuwingen in deze [artikel](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+4. Als de geselecteerde resource voor metrische gegevens die u kunt waarschuwingen maken op **beschikbare signalen** aan de onderkant rechts metrische gegevens bevat. U vindt de volledige lijst met resourcetypen die worden ondersteund voor metrische waarschuwingen in deze [artikel](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 5. Als u een doelbron hebt geselecteerd, klikt u op **criteria toevoegen**
 
@@ -130,4 +130,4 @@ In de vorige secties beschreven hoe u kunt maken, weergeven en beheren van waars
 
 - [Metrische waarschuwingen met behulp van Azure Resource Manager-sjablonen maken](../../azure-monitor/platform/alerts-enable-template.md).
 - [Begrijpen hoe metrische waarschuwingen werk](alerts-metric-overview.md).
-- [Inzicht in de web-hook-schema voor metrische waarschuwingen](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [Inzicht in de web-hook-schema voor metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

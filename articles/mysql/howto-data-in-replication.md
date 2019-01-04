@@ -1,20 +1,17 @@
 ---
 title: Als u wilt repliceren van gegevens in Azure Database voor MySQL is de replicatie van gegevens in configureren.
 description: In dit artikel wordt beschreven hoe u gegevens in de replicatie instellen voor Azure Database voor MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
-ms.translationtype: HT
+ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497923"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539616"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database voor MySQL-gegevens in replicatie configureren
 
@@ -156,7 +153,7 @@ De volgende stappen uit voorbereiden en configureren van de MySQL-server die geh
    - master_password: wachtwoord voor de hoofd-server
    - master_log_file: binaire logboekbestandsnaam die worden uitgevoerd `show master status`
    - master_log_pos: binaire logboekpositie die worden uitgevoerd `show master status`
-   - master_ssl_ca: CA-certificaat-context. Als u geen gebruik van SSL, geeft u lege tekenreeks.
+   - master_ssl_ca: Context van de CA-certificaat. Als u geen gebruik van SSL, geeft u lege tekenreeks.
        - Het verdient aanbeveling om door te geven van deze parameter in als een variabele. Zie de volgende voorbeelden voor meer informatie.
 
 > [!NOTE]

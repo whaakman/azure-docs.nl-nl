@@ -1,21 +1,18 @@
 ---
 title: Access-server-Logboeken in Azure Database for MySQL met behulp van Azure CLI
 description: In dit artikel wordt beschreven hoe u toegang krijgen tot de serverlogboeken in Azure Database voor MySQL met behulp van het opdrachtregelprogramma van Azure CLI.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978451"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547028"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en serverlogboeken openen met behulp van Azure CLI
 U kunt de Azure Database for MySQL-serverlogboeken downloaden met behulp van Azure CLI, het Azure-opdrachtregelprogramma.
@@ -28,7 +25,7 @@ Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Logboekregistratie voor Azure Database voor MySQL configureren
 U kunt de server voor toegang tot het MySQL-logboek voor langzame query's door de volgende stappen configureren:
 1. Logboekregistratie inschakelen door in te stellen de **trage\_query\_log** parameter op ON.
-2. Andere parameters, zoals aanpassen **lang\_query\_tijd** en **log\_trage\_admin\_instructies**.
+2. Andere parameters, zoals aanpassen **lang\_query\_tijd** en **log\_trage\_admin\_instructies**.
 
 Zie voor meer informatie over het instellen van de waarde van deze parameters via Azure CLI, [serverparameters configureren](howto-configure-server-parameters-using-cli.md). 
 

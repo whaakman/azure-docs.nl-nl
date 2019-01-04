@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409459"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794546"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -23,6 +23,8 @@ In dit artikel is ontworpen om u te helpen u problemen op te lossen die met uw A
 1. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure-bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enz.). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -130,11 +132,11 @@ Set-AzureRmStorageSyncServerEndpoint `
 
 Dit probleem kan optreden als de Monitor voor het synchroniseren van opslag-proces wordt niet uitgevoerd of de server kan niet communiceren met de Azure File Sync-service vanwege een proxy of firewall.
 
-U lost dit probleem, moet u de volgende stappen uitvoeren:
+Gebruik een of meer van de volgende stappen om dit probleem op te lossen:
 
-1. Op de server opent u Taakbeheer en controleer of dat de Monitor van de synchronisatie-opslag (AzureStorageSyncMonitor.exe)-proces wordt uitgevoerd. Als het proces wordt niet uitgevoerd, moet u eerst probeert de server opnieuw wordt opgestart. Als de server opnieuw wordt opgestart, wordt het probleem niet verhelpen, een upgrade naar de meest recente Azure File Sync [agentversie](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
+1. Open Taakbeheer op de server en controleer of het Storage Sync Monitor-proces (AzureStorageSyncMonitor.exe) actief is. Als het proces niet wordt uitgevoerd, start u om te beginnen de server opnieuw op. Als de server opnieuw wordt opgestart, wordt het probleem niet verhelpen, een upgrade naar de meest recente Azure File Sync [agentversie](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Controleer of de Firewall en Proxy-instellingen correct zijn geconfigureerd:
-    - Als de server zich achter een firewall bevindt, controleert u of poort 443, uitgaand is toegestaan. Als de firewall verkeer tot specifieke domeinen beperkt, controleert u of de domeinen die worden vermeld in de Firewall [documentatie](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) toegankelijk zijn.
+    - Als de server zich achter een firewall bevindt, controleert u of uitgaand verkeer via poort 443 is toegestaan. Als de firewall verkeer tot specifieke domeinen beperkt, controleert u of de domeinen die worden vermeld in de Firewall [documentatie](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) toegankelijk zijn.
     - Als de server zich achter een proxy, de brede, door het machine of app-specifieke proxy-instellingen configureren met de volgende stappen in de Proxy [documentatie](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 <a id="endpoint-noactivity-sync"></a>**Servereindpunt heeft een status van "Geen activiteit" en de status van de server op de blade geregistreerde servers is 'Online'**  
@@ -468,15 +470,23 @@ Als u deze registerwaarde instelt, accepteert de Azure File Sync-agent elk lokaa
 | **Fouttekenreeks** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Herstel is vereist** | Ja |
 
-Deze fout treedt doorgaans op omdat de servertijd onjuist zijn of het certificaat dat wordt gebruikt voor verificatie is verlopen. Als de servertijd juist is, voer de volgende stappen uit om het verlopen certificaat te vernieuwen:
+Deze fout kan worden veroorzaakt door:
 
-1. Open de MMC-module Certificaten, selecteer computeraccount en navigeer naar certificaten (lokale Computer) \Personal\Certificates.
-2. Controleer of het certificaat voor clientverificatie is verlopen. Als het certificaat is verlopen, sluit u de certificaten MMC-module en doorgaan met de overige stappen. 
-3. Controleer of de Azure File Sync-agent versie 4.0.1.0 of hoger is geïnstalleerd.
-4. Voer de volgende PowerShell-opdrachten op de server:
+- Servertijd is onjuist
+- Het servereindpunt is verwijderd
+- Gebruikt voor verificatie het certificaat is verlopen. 
+    Als u wilt controleren of het certificaat is verlopen, moet u de volgende stappen uitvoeren:  
+    1. Open de MMC-module Certificaten, selecteer computeraccount en navigeer naar certificaten (lokale Computer) \Personal\Certificates.
+    2. Controleer of het certificaat voor clientverificatie is verlopen.
+
+Als de servertijd juist is, voer de volgende stappen uit om het probleem te verhelpen:
+
+1. Controleer of de Azure File Sync-agent versie 4.0.1.0 of hoger is geïnstalleerd.
+2. Voer de volgende PowerShell-opdrachten op de server:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
@@ -562,14 +572,14 @@ Deze fout treedt op vanwege een intern probleem opgetreden met de synchronisatie
 
 ### <a name="common-troubleshooting-steps"></a>Algemene stappen voor probleemoplossing
 <a id="troubleshoot-storage-account"></a>**Controleer of dat het opslagaccount bestaat.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Navigeer naar de groep voor synchronisatie binnen de Opslagsynchronisatieservice.
 2. Selecteer het cloudeindpunt in de groep voor synchronisatie.
 3. Noteer de naam van de Azure file share in het geopende deelvenster.
 4. Selecteer het gekoppelde opslagaccount. Als deze koppeling is mislukt, is het opslagaccount waarnaar wordt verwezen, verwijderd.
     ![Een schermafbeelding van het detailpaneel van cloud-eindpunt met een koppeling naar het opslagaccount.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -583,20 +593,20 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 # Log into the Azure account and put the returned account information
 # in a reference variable.
-$acctInfo = Connect-AzureRmAccount
+$acctInfo = Connect-AzAccount
 
 # this variable stores your subscription ID 
 # get the subscription ID by logging onto the Azure portal
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = [System.String[]]@()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -609,7 +619,7 @@ if ($regions -notcontains $region) {
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = [System.String[]]@()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
@@ -656,7 +666,7 @@ $cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
@@ -667,12 +677,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Controleer of dat het opslagaccount bevat geen netwerkregels.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Eenmaal in de storage-account, selecteert u **Firewalls en virtuele netwerken** aan de linkerkant van het opslagaccount.
 2. In de storage-account, de **zodat toegang vanaf alle netwerken** keuzerondje moet worden geselecteerd.
     ![Een schermafbeelding van de storage-account firewall- en regels uitgeschakeld.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -683,12 +693,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Zorg ervoor dat de Azure-bestandsshare bestaat.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klik op **overzicht** op de tabel links om terug te keren naar de pagina van het belangrijkste opslagaccount.
 2. Selecteer **bestanden** om de lijst met bestandsshares weer te geven.
 3. Controleer of de bestandsshare waarnaar wordt verwezen door de cloudeindpunt wordt weergegeven in de lijst met bestandsshares (u moet hebben opgemerkt dit in stap 1 hierboven).
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -702,7 +712,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klik op **toegangsbeheer (IAM)** op de linker inhoudsopgave.
 1. Klik op de **roltoewijzingen** tabblad aan de lijst met de gebruikers en toepassingen (*service-principals*) die toegang hebben tot uw storage-account.
 1. Controleer of **hybride File Sync-Service** wordt weergegeven in de lijst met de **Reader en gegevenstoegang** rol. 
@@ -715,10 +725,10 @@ if ($fileShare -eq $null) {
     - In de **rol** veld **Reader en toegang tot gegevens**.
     - In de **Selecteer** veld, typt u **hybride File Sync-Service**, selecteer de rol en klikt u op **opslaan**.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
-Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
         $foundSyncPrincipal = $true
         if ($_.RoleDefinitionName -ne "Reader and Data Access") {
@@ -829,11 +839,11 @@ Als bestanden niet worden ingetrokken:
 > Een gebeurtenis-ID 9006 één keer per uur in het gebeurtenislogboek telemetrie wordt geregistreerd als een bestand niet intrekken (één gebeurtenis wordt geregistreerd per foutcode). De operationele en diagnostische logboeken van de gebeurtenis moet worden gebruikt wanneer u aanvullende informatie nodig hebt om een probleem vast te stellen.
 
 <a id="files-unexpectedly-recalled"></a>**Problemen met bestanden onverwacht ingetrokken op een server oplossen**  
-Antivirus-, back-up- en andere toepassingen die grote aantallen bestanden lezen ertoe leiden dat onbedoelde terughalen, tenzij ze het kenmerk overslaan offline respecteren en het lezen van de inhoud van die bestanden overslaan. Overslaan van offlinebestanden voor producten die ondersteuning bieden voor deze optie helpt te voorkomen dat onbedoelde terughalen tijdens bewerkingen, zoals antivirussoftware scans of back-uptaken.
+Antivirus-, back-up- en andere toepassingen die grote aantallen bestanden lezen ertoe leiden dat onbedoelde terughalen, tenzij ze het kenmerk overslaan offline respecteren en het lezen van de inhoud van die bestanden overslaan. Als u offlinebestanden overslaat voor producten die ondersteuning bieden voor deze optie, voorkomt u dat er onbedoeld wordt teruggehaald tijdens bijvoorbeeld antivirusscans en back-uptaken.
 
-Neem contact op met de softwareleverancier voor meer informatie over het configureren van de oplossing voor het lezen van offlinebestanden overslaan.
+Vraag uw softwareleverancier hoe de oplossing kan worden geconfigureerd zodat offlinebestanden niet meer worden gelezen.
 
-Onbedoelde terugroepingen kunnen ook optreden in andere scenario's, zoals wanneer u, bestanden in Verkenner bladert worden. Openen van een map met de cloud gelaagde bestanden in Verkenner op de server kan leiden tot ongewenste teruggehaald. Dit is nog meer waarschijnlijk als een antivirusoplossing is ingeschakeld op de server.
+Onbedoelde terugroepingen kunnen ook optreden in andere scenario's, zoals wanneer u, bestanden in Verkenner bladert worden. Als u in Verkenner op de server een map opent met bestanden in cloudlagen, kan dat resulteren in onbedoeld terughalen. Dit is nog waarschijnlijker als er een antivirusoplossing is ingeschakeld op de server.
 
 ## <a name="general-troubleshooting"></a>Algemene probleemoplossing
 Als u problemen met Azure File Sync op een server, kunt u beginnen met de volgende stappen:

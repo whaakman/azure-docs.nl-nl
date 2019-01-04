@@ -1,19 +1,17 @@
 ---
-title: Advanced Threat Protection - Azure Database voor PostgreSQL | Microsoft Docs
+title: Advanced Threat Protection - Azure Database for PostgreSQL
 description: Beveiliging tegen bedreigingen detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's met de database.
-services: postgresql
 author: bolzmj
-manager: kfile
-ms.service: postgresql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: ab32cc9a4aafd9fc716eff8104fb2b5117f233a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047386"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536148"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Advanced Threat Protection voor Azure Database for PostgreSQL
 
@@ -22,7 +20,7 @@ Advanced Threat Protection for Azure Database for PostgreSQL detecteert vreemde 
 Advanced Threat Protection maakt deel uit van de aanbieding met geavanceerde beveiliging van gegevens, dit een geïntegreerde-pakket voor geavanceerde beveiligingsmogelijkheden is. Advanced Threat Protection kan worden geopend en beheerd de [Azure-portal](https://portal.azure.com) en is momenteel in preview.
 
 > [!NOTE]
-> De functie Advanced Threat Protection is **niet** beschikbaar in de volgende Azure government en onafhankelijke cloud-regio's: VS (overheid)-Texas, VS (overheid)-Arizona, VS (overheid)-Iowa, VS (overheid) Virginia, VS DoD Oost, VS DoD-centraal, Duitsland-centraal, Duitsland Noord, China-Oost, China-Oost 2. Ga naar [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/) voor algemene beschikbaarheid.
+> De functie Advanced Threat Protection is **niet** beschikbaar in de volgende Azure government en onafhankelijke cloud-regio's: VS (overheid)-Texas, VS (overheid)-Arizona, VS (overheid)-Iowa, VS (overheid)-Virginia, US DoD-Oost, VS DoD-centraal, Duitsland-centraal, Noord Duitsland, China-Oost, China-Oost 2. Ga naar [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/) voor algemene beschikbaarheid.
 >
 
 ## <a name="set-up-threat-detection"></a>Detectie van bedreigingen instellen

@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036799"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602185"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure-Logboekintegratie met Azure Diagnostics-logboeken en Windows event forwarding
 
@@ -151,9 +151,9 @@ Nadat u de basisconfiguratie hebt voltooid, u kunt na de installatie en validati
 In deze stap configureert u de computer waarop de service Azure-Logboekintegratie verbinding maken met de storage-account met de logboekbestanden.
 
 Als u wilt deze stap hebt voltooid, moet u een aantal dingen:  
-* **FriendlyNameForSource**: een beschrijvende naam die u op het opslagaccount toepassen kunt dat u hebt geconfigureerd voor de virtuele machine voor het opslaan van gegevens uit Azure Diagnostics.
-* **StorageAccountName**: de naam van het opslagaccount dat u hebt opgegeven bij het configureren van Azure Diagnostics.  
-* **StorageKey**: de toegangssleutel voor het opslagaccount waarin de Azure Diagnostics-gegevens zijn opgeslagen voor deze virtuele machine.  
+* **FriendlyNameForSource**: Een beschrijvende naam die u op het opslagaccount toepassen kunt dat u hebt geconfigureerd voor de virtuele machine voor het opslaan van gegevens uit Azure Diagnostics.
+* **StorageAccountName**: De naam van het opslagaccount dat u hebt opgegeven bij het configureren van Azure Diagnostics.  
+* **StorageKey**: De opslagsleutel voor het opslagaccount waarin de Azure Diagnostics-gegevens zijn opgeslagen voor deze virtuele machine.  
 
 Als u wilt de opslagsleutel, voert u de volgende stappen uit:
 1. Ga naar de [Azure Portal](http://portal.azure.com).
@@ -198,7 +198,7 @@ De volgende video bevat informatie over de voorgaande stappen:<br /><br />
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>Als gegevens niet wordt weergegeven in de map doorgestuurde gebeurtenissen
 Als gegevens niet wordt weergegeven in de map doorgestuurde gebeurtenissen na een uur, voert u deze stappen uit:
 
-1. Controleer de machine waarop de Azure-Logboekintegratie-service wordt uitgevoerd. Controleer of deze toegang heeft tot Azure. Connectiviteit wilt testen, in een browser, probeert u naar de [Azure-portal](http://portal.azure.com).
+1. Controleer de machine waarop de Azure-Logboekintegratie-service wordt uitgevoerd. Controleer of deze toegang heeft tot Azure. Connectiviteit wilt testen, in een browser, probeert u naar de [Azure-portal](https://portal.azure.com).
 2. Zorg ervoor dat het gebruikersaccount Azlog schrijfmachtiging voor de map users\Azlog heeft.
   1. Open Verkenner.
   2. Ga naar C:\users.
@@ -243,7 +243,7 @@ U kunt ook openen een [ondersteuningsaanvraag](../azure-supportability/how-to-cr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen voor meer informatie over Azure-Logboekintegratie: voordat u de stappen in dit artikel, moet u lees dan het artikel van Get-gestarte en voltooi de stappen bevat.
+Zie voor meer informatie over Azure-Logboekintegratie, de volgende artikelen: Voordat u de stappen in dit artikel, moet u lees dan het artikel van Get-gestarte en voltooi de stappen bevat.
 
 * [Azure-Logboekintegratie voor Azure-logboeken](https://www.microsoft.com/download/details.aspx?id=53324). Het Download Center bevat details, systeemvereisten en installatie-instructies voor Azure-Logboekintegratie.
 * [Inleiding tot Azure-Logboekintegratie](security-azure-log-integration-overview.md). In dit artikel vindt u Azure-Logboekintegratie, de belangrijkste mogelijkheden en hoe het werkt.

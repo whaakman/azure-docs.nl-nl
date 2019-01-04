@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights verzenden van gebeurtenissen - gebeurtenissen verzenden naar een Azure Time Series Insights-omgeving | Microsoft Docs
+title: Gebeurtenissen verzenden naar een Azure Time Series Insights-omgeving | Microsoft Docs
 description: Informatie over het configureren van een event hub en een voorbeeldtoepassing om gebeurtenissen te verzenden u in Azure Time Series Insights bekijken kunt uitvoeren.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 69d16292f5b71179ee66fb5f7d6c4a6f11cbb9de
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276142"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557016"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met behulp van een event hub
 

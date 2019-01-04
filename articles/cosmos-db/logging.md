@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d91c1e99a04f6fdbc6422aa18504625471d0f0d1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438503"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810488"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registratie in diagnoselogboek in Azure Cosmos DB 
 
@@ -81,7 +81,7 @@ Als u wilt inschakelen voor diagnostische gegevens vastleggen in Azure portal, m
     * **Stream naar een event hub**: Als u wilt deze optie gebruikt, moet u een bestaande Event Hubs-naamruimte en event hub te verbinden. Zie voor het maken van een Event Hubs-naamruimte, [een Event Hubs-naamruimte en een event hub maken met behulp van de Azure-portal](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal voor het selecteren van de naam van de Event Hubs-naamruimte en het beleid.
     * **Verzenden naar Log Analytics**: Als u wilt deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe Log Analytics-werkruimte met de volgende stappen om te [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in de portal. Zie voor meer informatie over het weergeven van uw logboeken in Log Analytics [weergave-logboeken in Log Analytics](#view-in-loganalytics).
     * **Meld u DataPlaneRequests**: Selecteer deze optie om aan te melden van aanvragen van de back-end van de onderliggende Azure Cosmos DB gedistribueerd platform voor SQL, grafiek, MongoDB, Cassandra en Table-API-accounts. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
-    * **Meld u MongoRequests**: Selecteer deze optie om aan te melden gebruiker geïnitieerde aanvragen van de Azure Cosmos DB-front-end voor het uitvoeren van de MongoDB-API-accounts. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
+    * **Meld u MongoRequests**: Selecteer deze optie om aan te melden gebruiker geïnitieerde aanvragen van de Azure Cosmos DB-front-end voor het uitvoeren van Cosmos-accounts die zijn geconfigureerd met Azure Cosmos DB-API voor MongoDB. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
     * **Metrische aanvragen**: Selecteer deze optie voor het opslaan van uitgebreide gegevens in [metrische gegevens van Azure](../azure-monitor/platform/metrics-supported.md). Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
 
 3. Selecteer **Opslaan**.
@@ -459,7 +459,7 @@ De volgende tabel beschrijft de inhoud van elke logboekvermelding.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor meer informatie over het inschakelen van logboekregistratie en metrische gegevens en logboekbestanden categorieën die worden ondersteund door de verschillende Azure-services, zowel de [overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en [overzicht van Azure diagnostische logboeken ](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikelen.
+- Lees voor meer informatie over het inschakelen van logboekregistratie en metrische gegevens en logboekbestanden categorieën die worden ondersteund door de verschillende Azure-services, zowel de [overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en [overzicht van Azure diagnostische logboeken ](../azure-monitor/platform/diagnostic-logs-overview.md) artikelen.
 - Lees deze artikelen voor meer informatie over eventhubs:
    - [Wat is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

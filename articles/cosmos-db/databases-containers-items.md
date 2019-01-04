@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409538"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807683"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Werken met Azure Cosmos-databases, containers en objecten
 
@@ -24,7 +24,7 @@ Nadat u hebt gemaakt een [Azure Cosmos DB-account](account-overview.md) onder uw
 
 U kunt een of meer Azure Cosmos-databases maken onder uw account. Een database is vergelijkbaar met een naamruimte, is de eenheid van het beheer voor een set met Azure Cosmos-containers. De volgende tabel ziet u hoe een Azure Cosmos-database is toegewezen aan verschillende API-specifieke entiteiten:
 
-| **Azure Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+| **Azure Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos-database | Database | Keyspace | Database | Database | N.v.t. |
 
@@ -35,7 +35,7 @@ U kunt een of meer Azure Cosmos-databases maken onder uw account. Een database i
 
 U kunt werken met een Azure Cosmos-database met behulp van de volgende Azure Cosmos-API's:
 
-| **Bewerking** | **Azure-CLI**|**SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+| **Bewerking** | **Azure-CLI**|**SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- |
 |Het inventariseren van alle databases| Ja | Ja | Ja (database is toegewezen aan een keyspace) | Ja | N.v.t. | N.v.t. |
 |Database lezen| Ja | Ja | Ja (database is toegewezen aan een keyspace) | Ja | N.v.t. | N.v.t. |
@@ -67,7 +67,7 @@ U kunt een unieke sleutel opgeven voor uw Azure Cosmos-container. Zorg ervoor da
 
 Een Azure Cosmos-container is gespecialiseerd in API-specifieke entiteiten als volgt:
 
-| **Azure Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+| **Azure Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos-container | Verzameling | Tabel | Verzameling | Graph | Tabel |
 
@@ -75,7 +75,7 @@ Een Azure Cosmos-container is gespecialiseerd in API-specifieke entiteiten als v
 
 Een Azure Cosmos-container is een set door het systeem gedefinieerde eigenschappen. Afhankelijk van de keuze van de API, sommige fouten mogelijk niet rechtstreeks worden blootgesteld. De volgende tabel beschrijft de lijst met ondersteunde door het systeem gedefinieerde eigenschappen:
 
-| **Door het systeem gedefinieerde eigenschap** | **Gegenereerde of gebruiker worden ingesteld van het systeem** | **Doel** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+| **Door het systeem gedefinieerde eigenschap** | **Gegenereerde of gebruiker worden ingesteld van het systeem** | **Doel** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__rid | Door het systeem gegenereerde | De unieke id van de container | Ja | Nee | Nee | Nee | Nee |
 |__etag | Door het systeem gegenereerde | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
@@ -91,7 +91,7 @@ Een Azure Cosmos-container is een set door het systeem gedefinieerde eigenschapp
 
 De volgende bewerkingen uit met behulp van een Azure Cosmos-API biedt ondersteuning voor een Azure Cosmos-container.
 
-| **Bewerking** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+| **Bewerking** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Het inventariseren van containers in een database | Ja* | Ja | Ja | Ja | N.v.t. | N.v.t. |
 | Lezen van een container | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
@@ -103,7 +103,7 @@ De volgende bewerkingen uit met behulp van een Azure Cosmos-API biedt ondersteun
 
 Afhankelijk van de keuze van de API kan een Azure Cosmos-item ofwel een document in een verzameling, een rij in een tabel of een knooppunt/rand in een grafiek vertegenwoordigen. De volgende tabel ziet u de toewijzing tussen de API-specifieke entiteiten aan een Azure Cosmos-item:
 
-| **Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+| **Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos-item | Document | Rij | Document | Knooppunt of randtabel | Item |
 
@@ -111,7 +111,7 @@ Afhankelijk van de keuze van de API kan een Azure Cosmos-item ofwel een document
 
 Elke Azure Cosmos-item heeft de volgende eigenschappen van het systeem gedefinieerd. Afhankelijk van de keuze van de API, sommige fouten mogelijk niet rechtstreeks worden blootgesteld.
 
-|**Door het systeem gedefinieerde eigenschap** | **Gegenereerde of gebruiker worden ingesteld van het systeem**| **Doel** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+|**Door het systeem gedefinieerde eigenschap** | **Gegenereerde of gebruiker worden ingesteld van het systeem**| **Doel** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__id | Door het systeem gegenereerde | De unieke id van het item | Ja | Nee | Nee | Nee | Nee |
 |__etag | Door het systeem gegenereerde | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
@@ -124,7 +124,7 @@ Elke Azure Cosmos-item heeft de volgende eigenschappen van het systeem gedefinie
 
 De volgende bewerkingen die kunnen worden uitgevoerd met behulp van een Azure Cosmos-API biedt ondersteuning voor Azure Cosmos-item.
 
-| **Bewerking** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
+| **Bewerking** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Invoegen, vervangen, verwijderen, Upsert, lezen | Nee | Ja | Ja | Ja | Ja | Ja |
 

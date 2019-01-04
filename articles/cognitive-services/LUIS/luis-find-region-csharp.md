@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f95dec8a539a92a0397421fbde411f646eeca3ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165160"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720081"
 ---
-# <a name="find-endpoint-region-with-c"></a>Eindpunt-gebied met C# zoeken 
+# <a name="programmatically-find-endpoint-region-with-c"></a>Eindpunt-gebied met via een programma zoekenC# 
 Als u de LUIS-app-ID en de LUIS abonnements-ID hebt, kunt u welke regio u moet gebruiken voor eindpunt query's kunt vinden.
 
 > [!NOTE] 
-> De volledige C# oplossing is beschikbaar via de [ **LUIS-Samples** GitHub-opslagplaats](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> De volledige C# oplossing is beschikbaar via de [ **Azure-Samples** GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS-eindpunt querystrategie
 Elke query LUIS-eindpunt is vereist:

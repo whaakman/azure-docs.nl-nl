@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 74d6acb03f9ba984d35caf1f5c7963f686cda5a7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 47ce2b39f1733c99ef8c15926d42aa62e1fcd44c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219253"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634555"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
@@ -176,12 +176,14 @@ U kunt de registratie van een aangepast domein verwijderen met de [az storage ac
 
 ### <a name="powershell"></a>PowerShell
 
-U kunt de registratie van een aangepast domein verwijderen met de [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) PowerShell-cmdlet en geef vervolgens een lege tekenreeks (`""`) voor de `-CustomDomainName` argumentwaarde.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+U kunt de registratie van een aangepast domein verwijderen met de [Set AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell-cmdlet en geef vervolgens een lege tekenreeks (`""`) voor de `-CustomDomainName` argumentwaarde.
 
 * De opdrachtindeling van de:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
       -AccountName "<storage-account-name>" `
       -CustomDomainName ""
@@ -190,7 +192,7 @@ U kunt de registratie van een aangepast domein verwijderen met de [Set-AzureRmSt
 * Opdrachtvoorbeeld van de:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "myresourcegroup" `
       -AccountName "mystorageaccount" `
       -CustomDomainName ""

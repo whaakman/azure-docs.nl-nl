@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Public Key Infrastructure certificaten voorbereiden voor de implementatie van de geïntegreerde Azure Stack-systemen | Microsoft Docs
+title: Azure Stack Public Key Infrastructure certificaten voorbereiden voor implementatie van de geïntegreerde Azure Stack-systemen of geheime rotatie | Microsoft Docs
 description: Beschrijft hoe u de Azure Stack PKI-certificaten voorbereiden voor Azure Stack-geïntegreerde systemen.
 services: azure-stack
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972024"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631478"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI-certificaten voorbereiden voor implementatie
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI-certificaten voorbereiden voor gebruik in de implementatie of de rotatie
 De certificaatbestanden [verkregen van uw Certificeringsinstantie keuze](azure-stack-get-pki-certs.md) moet worden geïmporteerd en geëxporteerd met eigenschappen die overeenkomen met de Azure Stack-certificaatvereisten.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>Certificaten voorbereiden voor implementatie
-Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-certificaten: 
+Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-certificaten die worden gebruikt voor het implementeren van een nieuwe Azure Stack-omgeving of voor het omwisselen van geheimen in een bestaande Azure Stack-omgeving: 
 
 ### <a name="import-the-certificate"></a>Het certificaat importeren
 

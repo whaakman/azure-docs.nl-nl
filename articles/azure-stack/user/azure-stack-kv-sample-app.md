@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: b17f6301a41dbb1f64edf9d027dff0f57c09282c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139359"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808771"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Een voorbeeldtoepassing die gebruikmaakt van sleutels en geheimen die zijn opgeslagen in een key vault
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Volg de stappen in dit artikel om uit te voeren van een voorbeeldtoepassing (HelloKeyVault) die sleutels en geheimen opgehaald uit een key vault in Azure Stack.
+Volg de stappen in dit artikel voor het uitvoeren van een voorbeeldtoepassing met de naam **HelloKeyVault** die worden opgehaald van sleutels en geheimen van een sleutel in Azure Stack-kluis.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,7 +46,7 @@ U kunt de Azure portal of PowerShell gebruiken om voor te bereiden voor de voorb
 >[!NOTE]
 >Het PowerShell-script maakt standaard een nieuwe toepassing in Active Directory. U kunt echter een van uw bestaande toepassingen registreren.
 
- Voordat u het volgende script uitvoert, zorg ervoor dat u waarden opgeven voor de `aadTenantName` en `applicationPassword` variabelen. Als u een waarde op voor geen opgeeft `applicationPassword`, met dit script wordt een willekeurig wachtwoord gegenereerd.
+Voordat u het volgende script uitvoert, zorg ervoor dat u waarden opgeven voor de `aadTenantName` en `applicationPassword` variabelen. Als u een waarde op voor geen opgeeft `applicationPassword`, met dit script wordt een willekeurig wachtwoord gegenereerd.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -69,7 +69,7 @@ Function GenerateSymmetricKey()
 Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
-$aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
@@ -134,10 +134,9 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ```
 
-De volgende schermopname ziet u de uitvoer van het script gebruikt voor het maken van de key vault:
+De volgende afbeelding ziet de uitvoer van het script gebruikt voor het maken van de key vault:
 
 ![Voor Key vault met toegangssleutels](media/azure-stack-kv-sample-app/settingsoutput.png)
 
@@ -145,19 +144,19 @@ Noteer de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** waarden die zi
 
 ## <a name="download-and-configure-the-sample-application"></a>Downloaden en configureren van de voorbeeldtoepassing
 
-De sleutelkluis-voorbeeld downloaden van de Azure [Key Vault-client voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=45343) pagina. Pak de inhoud van het ZIP-bestand op uw ontwikkelwerkstation. Er zijn twee toepassingen in de map met voorbeelden, in dit artikel wordt gebruikgemaakt van HelloKeyVault.
+De sleutelkluis-voorbeeld downloaden van de Azure [Key Vault-client voorbeelden](https://www.microsoft.com/download/details.aspx?id=45343) pagina. Pak de inhoud van het ZIP-bestand op uw ontwikkelwerkstation. Er zijn twee toepassingen in de map met voorbeelden. In dit artikel wordt gebruikgemaakt van **HelloKeyVault**.
 
-Het voorbeeld HelloKeyVault laden:
+Laden van de **HelloKeyVault** voorbeeld:
 
 * Blader naar de **Microsoft.Azure.KeyVault.Samples** > **voorbeelden** > **HelloKeyVault** map.
-* Open de toepassing HelloKeyVault in Visual Studio.
+* Open de **HelloKeyVault** toepassing in Visual Studio.
 
 ### <a name="configure-the-sample-application"></a>De voorbeeld-App configureren
 
 In Visual Studio:
 
-* Open het bestand HelloKeyVault\App.config en vinden, bladert u naar de &lt; **appSettings** &gt; element.
-* Update de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** sleutels met de waarden die zijn geretourneerd door de gebruikt voor het maken van de key vault. (Het bestand App.config heeft standaard een tijdelijke aanduiding voor *AuthCertThumbprint*. Vervang deze tijdelijke aanduiding met *AuthClientSecret*.)
+* Open het bestand HelloKeyVault\App.config en zoek de &lt; **appSettings** &gt; element.
+* Update de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** sleutels met de waarden die zijn geretourneerd door die zijn gebruikt bij het maken van de key vault. Het bestand App.config heeft standaard een tijdelijke aanduiding voor `AuthCertThumbprint`. Vervang deze tijdelijke aanduiding met `AuthClientSecret`.
 
   ![App-instellingen](media/azure-stack-kv-sample-app/appconfig.png)
 
@@ -170,10 +169,9 @@ Wanneer u HelloKeyVault uitvoert, wordt de toepassing zich aanmeldt bij Azure AD
 U kunt het voorbeeld HelloKeyVault te gebruiken:
 
 * Eenvoudige bewerkingen zoals het maken, coderen, verpakken, en verwijderen uitvoeren op de sleutels en geheimen.
-* Parameters doorgeven zoals *versleutelen* en *ontsleutelen* naar HelloKeyVault, en de opgegeven wijzigingen toepassen op een key vault.
+* Parameters doorgeven zoals `encrypt` en `decrypt` naar HelloKeyVault, en de opgegeven wijzigingen toepassen op een key vault.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een virtuele machine implementeren met een Key Vault-wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
-
-[Een VM implementeren met een Key Vault-certificaat](azure-stack-kv-push-secret-into-vm.md)
+- [Een virtuele machine implementeren met een Key Vault-wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
+- [Een VM implementeren met een Key Vault-certificaat](azure-stack-kv-push-secret-into-vm.md)

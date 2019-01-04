@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326490"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553423"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -189,7 +189,7 @@ Nee, Standard-SSD's geen enkel exemplaar VM SLA. Premium-SSD-schijven gebruiken 
 
 ## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks
 
-** Zijn er gevolgen van de migratie op de prestaties van Managed Disks?
+**Zijn er gevolgen van de migratie op de prestaties van Managed Disks?**
 
 Migratie omvat het verkeer van de schijf van de ene opslaglocatie naar de andere. Dit is georganiseerd via achtergrond kopiëren van gegevens kan enkele uren duren, doorgaans minder dan 24 uur, afhankelijk van de hoeveelheid gegevens in de schijven. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.  
 

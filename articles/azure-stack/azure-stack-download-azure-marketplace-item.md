@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 70bbade2877b62c3d211600f69e1825677f12040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282491"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721866"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Als een cloud-operator, kunt u items downloaden van de Azure Marketplace en stel ze beschikbaar in Azure Stack. Er zijn de items die u kunt kiezen uit een gecureerde lijst van de Azure Marketplace-items die zijn getest en worden ondersteund als u wilt werken met Azure Stack. Aanvullende items worden regelmatig toegevoegd aan deze lijst, dus kom later terug voor nieuwe inhoud blijven. 
 
@@ -75,8 +75,8 @@ Als Azure Stack in een niet-verbonden modus en zonder verbinding met internet he
 Het hulpprogramma voor marketplace-syndicatie kan ook worden gebruikt in een verbonden scenario. 
 
 Er zijn twee onderdelen voor dit scenario:
-- **Deel 1:** downloaden vanuit Azure Marketplace. Op de computer met internettoegang PowerShell configureren, downloadt u het hulpprogramma syndication en download vervolgens items formulier, de Azure Marketplace.  
-- **Deel 2:** uploaden en publiceren naar de Azure Stack Marketplace. U verplaatst u de bestanden die u hebt gedownload naar uw Azure Stack-omgeving, importeer deze in Azure Stack en ze vervolgens te publiceren op Azure Stack Marketplace.  
+- **Deel 1:** Downloaden van Azure Marketplace. Op de computer met internettoegang PowerShell configureren, downloadt u het hulpprogramma syndication en download vervolgens items formulier, de Azure Marketplace.  
+- **Deel 2:** Uploaden en publiceren naar de Azure Stack Marketplace. U verplaatst u de bestanden die u hebt gedownload naar uw Azure Stack-omgeving, importeer deze in Azure Stack en ze vervolgens te publiceren op Azure Stack Marketplace.  
 
 
 ### <a name="prerequisites"></a>Vereisten
@@ -89,6 +89,8 @@ Er zijn twee onderdelen voor dit scenario:
 - Hebt u een [opslagaccount](azure-stack-manage-storage-accounts.md) in Azure Stack waaraan een openbaar toegankelijke container (dit is een blob storage). U kunt de container gebruikt als tijdelijke opslag voor de marketplace-items galeriebestanden. Als u niet bekend met storage-accounts en containers bent, Zie [werken met blobs - Azure-portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in de documentatie van Azure.
 
 - De marketplace-syndicatie tool wordt gedownload tijdens de eerste procedure. 
+
+- U kunt installeren [AzCopy](../storage/common/storage-use-azcopy.md) voor downloaden van optimale prestaties, maar dit is niet vereist.
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Gebruik het hulpprogramma marketplace syndication naar marketplace-items downloaden
 
@@ -126,10 +128,7 @@ Er zijn twee onderdelen voor dit scenario:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId ` 
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
 6. Wanneer het hulpprogramma wordt uitgevoerd, ziet u een scherm dat vergelijkbaar is met de volgende afbeelding, met de lijst met beschikbare marketplace-items:
@@ -144,7 +143,35 @@ Er zijn twee onderdelen voor dit scenario:
 
 9. De tijd die het downloaden duurt, is afhankelijk van de grootte van het item. Nadat het downloaden is voltooid, is het item is beschikbaar in de map die u hebt opgegeven in het script. De download bevat onder andere een VHD-bestand (voor virtuele machines) of een ZIP-bestand (voor extensies van virtuele machines). Een galerijpakket in deze ook advies inwinnen de *.azpkg* -indeling, dit gewoon een zipbestand is.
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Het downloaden van het importeren en publiceren op Azure Stack Marketplace
+10. Als het downloaden is mislukt, kunt u het opnieuw proberen door de volgende PowerShell-cmdlet opnieuw uit te voeren:
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    Voordat opnieuw wordt geprobeerd, verwijdert u de hoofdmap van het product waarin de download is mislukt. Bijvoorbeeld, als het downloadscript is mislukt bij het downloaden te `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, verwijder de `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` map en voer de cmdlet.
+ 
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>Het downloaden van het importeren en publiceren op Azure Stack Marketplace (1811 en hoger)
+
+1. U moet de bestanden die u hebt verplaatst [eerder gedownloade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) lokaal zodat ze beschikbaar voor uw Azure Stack-omgeving zijn. Het hulpprogramma voor marketplace-syndicatie moet ook zijn beschikbaar voor uw Azure Stack-omgeving, omdat u moet het hulpprogramma gebruiken om uit te voeren van de importbewerking.
+
+   De volgende afbeelding toont een voorbeeld van een map structuur. `D:\downloadfolder` bevat alle gedownloade marketplace-items. Elke submap is een marketplace-item (bijvoorbeeld `microsoft.custom-script-linux-arm-2.0.3`) met de naam van de product-ID. Binnen elke submap is van de marketplace-item gedownloade inhoud.
+
+   [ ![Mapstructuur van Marketplace downloaden](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace downloaden van directory-structuur") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+
+2. Volg de instructies in [in dit artikel](azure-stack-powershell-configure-admin.md) het configureren van de Azure Stack-Operator PowerShell-sessie. 
+
+3. Importeer de module syndicatie en start vervolgens het hulpprogramma voor marketplace-syndicatie het volgende script uit te voeren:
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+   De `-AzsCredential` parameter is optioneel. Het wordt gebruikt voor het vernieuwen van het toegangstoken als deze is verlopen. Als de `-AzsCredential` parameter niet wordt opgegeven en het token is verlopen, wordt u gevraagd de referenties van de operator in te voeren.
+
+4. Nadat het script is voltooid, het item moet zijn beschikbaar in de Azure Stack Marketplace.
+
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>Het downloaden van het importeren en publiceren op Azure Stack Marketplace (1809 en lager)
 
 1. De bestanden voor installatiekopieën van virtuele machines of sjablonen voor oplossingen die u hebt [eerder gedownloade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) moeten lokaal beschikbaar zijn voor uw Azure Stack-omgeving worden gemaakt.  
 
@@ -159,7 +186,7 @@ Er zijn twee onderdelen voor dit scenario:
    3. Selecteer de container die u wilt gebruiken en selecteer vervolgens **uploaden** openen de **blob uploaden** deelvenster.  
       [ ![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Blader in het deelvenster van de blob uploaden naar de pakket- en schijf-bestanden wilt laden in opslag en selecteer vervolgens **uploaden**: [ ![uploaden](media/azure-stack-download-azure-marketplace-item/uploadsm.png "uploaden") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. Blader in het deelvenster van de blob uploaden naar de pakket- en schijf-bestanden wilt laden in opslag en selecteer vervolgens **uploaden**: [ ![Uploaden](media/azure-stack-download-azure-marketplace-item/uploadsm.png "uploaden") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Bestanden die u uploadt, worden weergegeven in het deelvenster van de container. Selecteer een bestand en kopieer vervolgens de URL van de **Blob-eigenschappen** deelvenster. U gebruikt deze URL in de volgende stap bij het importeren van de marketplace-item in Azure Stack.  In de volgende afbeelding is de container is *blob-opslag-testen* en het bestand is *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Het bestand dat de URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       [ ![BLOB-eigenschappen](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob-eigenschappen") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
@@ -168,10 +195,10 @@ Er zijn twee onderdelen voor dit scenario:
 
    U krijgt de *publisher*, *bieden*, en *sku* waarden van de installatiekopie van het tekstbestand dat wordt gedownload met het bestand AZPKG. Het tekstbestand dat is opgeslagen in de doellocatie. De *versie* waarde is de versie die u bij het downloaden van het item van Azure in de vorige procedure hebt genoteerd. 
  
-   In het volgende voorbeeldscript worden waarden voor de Windows Server 2016 Datacenter - Server Core-virtuele machine gebruikt. De waarde voor *- Osuri* is een van voorbeeldpad naar de locatie van de blob-opslag voor het item. 
+   In het volgende voorbeeldscript worden waarden voor de Windows Server 2016 Datacenter - Server Core-virtuele machine gebruikt. De waarde voor *- Osuri* is een van voorbeeldpad naar de locatie van de blob-opslag voor het item.
 
    Als alternatief voor dit script kunt u de [procedure in dit artikel beschreven](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) voor het importeren van de. VHD-installatiekopie met behulp van de Azure portal.
- 
+
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -181,12 +208,12 @@ Er zijn twee onderdelen voor dit scenario:
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
-   
-   **Over oplossingssjablonen:** sommige sjablonen kunnen een klein 3 MB bevatten. VHD-bestand met de naam van de **fixed3.vhd**. U hoeft niet te importeren dat bestand in Azure Stack. Fixed3.VHD.  Dit bestand is opgenomen in sommige oplossingssjablonen om te voldoen aan vereisten voor de Azure Marketplace voor publiceren.
+
+   **Over oplossingssjablonen:** Sommige sjablonen kunnen een klein 3 MB bevatten. VHD-bestand met de naam van de **fixed3.vhd**. U hoeft niet te importeren dat bestand in Azure Stack. Fixed3.VHD.  Dit bestand is opgenomen in sommige oplossingssjablonen om te voldoen aan vereisten voor de Azure Marketplace voor publiceren.
 
    Lees de beschrijving van de sjablonen downloaden en importeer vervolgens de aanvullende vereisten zoals VHD's die nodig zijn voor het werken met de oplossingssjabloon.  
    
-   **Over extensies:** wanneer u met de extensies voor virtuele machine-installatiekopie werkt, gebruikt u de volgende parameters:
+   **Over extensies:** Wanneer u met de extensies voor virtuele machine-installatiekopie werkt, gebruikt u de volgende parameters:
    - *Publisher*
    - *Type*
    - *Versie*  

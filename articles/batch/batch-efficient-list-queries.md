@@ -3,7 +3,7 @@ title: Efficiënte lijstquery's - Azure Batch ontwerpen | Microsoft Docs
 description: De prestaties verbeteren door het filteren van uw query's bij het aanvragen van informatie over Batch-resources zoals pools, jobs, taken en rekenknooppunten.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/26/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004452"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537898"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Efficiënt query's naar de lijst met Batch-resources maken
 
@@ -107,8 +107,8 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 Binnen de [Batch .NET] [ api_net] API, de [ODATADetailLevel] [ odata] klasse wordt gebruikt voor het verstrekken van filter, selecteren en uitvouwen tekenreeksen om weer te geven bewerkingen. De klasse ODataDetailLevel heeft drie openbare tekenreekseigenschappen die kunnen worden opgegeven in de constructor, of rechtstreeks op het object is ingesteld. U vervolgens de ODataDetailLevel-object doorgeven als een parameter aan de verschillende bewerkingen na opvragen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs], en [ListTasks][net_list_tasks].
 
 * [ODATADetailLevel][odata].[ FilterClause][odata_filter]: Beperk het aantal items dat wordt geretourneerd.
-* [ODATADetailLevel][odata].[ SelectClause][odata_select]: opgeven welke eigenschapswaarden worden geretourneerd bij elk item.
-* [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: gegevens ophalen voor alle items in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
+* [ODATADetailLevel][odata].[ SelectClause][odata_select]: Geef op welke waarden van eigenschappen voor elk item worden geretourneerd.
+* [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: Ophalen van gegevens voor alle items in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
 
 Het volgende codefragment maakt gebruik van de Batch .NET API efficiënt query uitvoeren op de Batch-service voor de statistische gegevens van een specifieke set van toepassingen. In dit scenario heeft de gebruiker Batch pools voor test- en productieomgevingen. De test-groep-id's worden voorafgegaan door 'test' en de productie-groep-id's worden voorafgegaan door 'prod'. In het codefragment *myBatchClient* is een goed geïnitialiseerd exemplaar van de [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) klasse.
 
@@ -147,8 +147,8 @@ List<CloudPool> testPools =
 Namen van eigenschappen in filter selecteren uit en vouw van tekenreeksen *moet* geven hun tegenhangers REST-API, zowel in de naam en de aanvraag. De onderstaande tabellen bevatten toewijzingen tussen de tegenhangers .NET en REST-API.
 
 ### <a name="mappings-for-filter-strings"></a>Toewijzingen voor tekenreeksen
-* **.NET-lijst met methoden**: elk van de .NET API-methoden in deze kolom accepteert een [ODATADetailLevel] [ odata] object als parameter.
-* **REST-aanvragen voor lijst**: elke REST-API-pagina die zijn gekoppeld aan de in deze kolom bevat een tabel met Hiermee geeft u de eigenschappen en bewerkingen die zijn toegestaan in *filter* tekenreeksen. U gebruikt deze namen van eigenschappen en bewerkingen wanneer u een [ODATADetailLevel.FilterClause] [ odata_filter] tekenreeks.
+* **.NET-lijst met methoden**: Elk van de .NET API-methoden in deze kolom accepteert een [ODATADetailLevel] [ odata] object als parameter.
+* **REST-aanvragen voor lijst**: Elke pagina REST-API is gekoppeld aan de in deze kolom bevat een tabel met Hiermee geeft u de eigenschappen en bewerkingen die zijn toegestaan in *filter* tekenreeksen. U gebruikt deze namen van eigenschappen en bewerkingen wanneer u een [ODATADetailLevel.FilterClause] [ odata_filter] tekenreeks.
 
 | .NET-lijst met methoden | REST-aanvragen voor lijst |
 | --- | --- |
@@ -165,7 +165,7 @@ Namen van eigenschappen in filter selecteren uit en vouw van tekenreeksen *moet*
 
 ### <a name="mappings-for-select-strings"></a>Toewijzingen voor tekenreeksen selecteren
 * **Batch .NET-typen**: Batch .NET API-typen.
-* **REST-API-entiteiten**: elke pagina in deze kolom bevat een of meer tabellen met de namen van de REST-API-eigenschappen voor het type. De namen van deze eigenschappen worden gebruikt wanneer u samenstelt *Selecteer* tekenreeksen. U gebruikt deze dezelfde namen van eigenschappen als u een [ODATADetailLevel.SelectClause] [ odata_select] tekenreeks.
+* **REST-API-entiteiten**: Elke pagina in deze kolom bevat een of meer tabellen met de namen van de REST-API-eigenschappen voor het type. De namen van deze eigenschappen worden gebruikt wanneer u samenstelt *Selecteer* tekenreeksen. U gebruikt deze dezelfde namen van eigenschappen als u een [ODATADetailLevel.SelectClause] [ odata_select] tekenreeks.
 
 | Batch .NET-typen | REST-API-entiteiten |
 | --- | --- |
@@ -246,9 +246,9 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [Gebruik van Azure Batch compute-bronnen met gelijktijdige knooppunttaken maximaliseren](batch-parallel-node-tasks.md) is een ander artikel met betrekking tot de prestaties van de Batch-toepassingen. Bepaalde typen workloads kunnen profiteren van het uitvoeren van parallelle taken op groter, maar minder--rekenknooppunten. Bekijk de [voorbeeldscenario](batch-parallel-node-tasks.md#example-scenario) in het artikel voor meer informatie over dit scenario.
 
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
 [github_samples]: https://github.com/Azure/azure-batch-samples

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187843"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726215"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -161,8 +161,8 @@ De oplossing ontvangt de volgende telemetrietypen van de gegevens van uw verbond
 - Beschikbaarheid
 - Uitzonderingen
 - Aanvragen
-- Paginaweergaven – voor uw werkruimte voor het ontvangen van paginaweergaven, moet u uw apps voor het verzamelen van gegevens configureren. Zie voor meer informatie, [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Aangepaste gebeurtenissen – voor uw werkruimte voor het ontvangen van aangepaste gebeurtenissen, moet u uw apps voor het verzamelen van gegevens configureren. Zie voor meer informatie, [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Paginaweergaven – voor uw werkruimte voor het ontvangen van paginaweergaven, moet u uw apps voor het verzamelen van gegevens configureren. Zie voor meer informatie, [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Aangepaste gebeurtenissen – voor uw werkruimte voor het ontvangen van aangepaste gebeurtenissen, moet u uw apps voor het verzamelen van gegevens configureren. Zie voor meer informatie, [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Gegevens worden ontvangen door Log Analytics van Application Insights zodra deze beschikbaar is.
 

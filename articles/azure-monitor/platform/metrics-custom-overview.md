@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 2b3e8877713fde088be2147bbfa8969e351a3f06
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326090"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605582"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Aangepaste metrische gegevens in Azure Monitor
 
@@ -25,7 +25,7 @@ Aangepaste metrische gegevens kunnen worden verzonden naar Azure Monitor via ver
 - Uw toepassing instrumenteren met behulp van de Azure Application Insights-SDK en aangepaste telemetrie verzenden naar Azure Monitor. 
 - De uitbreiding voor de Windows Azure Diagnostics (WAD) installeren op uw [virtuele Azure-machine](collect-custom-metrics-guestos-resource-manager-vm.md), [virtuele-machineschaalset](collect-custom-metrics-guestos-resource-manager-vmss.md), [klassieke VM](collect-custom-metrics-guestos-vm-classic.md), of [klassieke Cloudservices](collect-custom-metrics-guestos-vm-cloud-service-classic.md) en prestatiemeteritems verzenden naar Azure Monitor. 
 - Installeer de [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) uitvoer invoegtoepassing op uw virtuele Azure Linux-machine en de metrische gegevens verzenden met behulp van de Azure Monitor.
-- Aangepaste metrische gegevens verzenden [rechtstreeks naar de Azure Monitor REST API](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Aangepaste metrische gegevens verzenden [rechtstreeks naar de Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 Wanneer u aangepaste metrische gegevens verzenden naar Azure Monitor, elk gegevenspunt of waarde, die wordt gerapporteerd, moeten de volgende informatie bevatten.
 
@@ -193,6 +193,6 @@ Aangepaste metrische gegevens van andere services gebruiken:
  - [Virtuele-machineschaalset](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Virtuele Azure-Machines (klassiek)](collect-custom-metrics-guestos-vm-classic.md)
  - [Met behulp van de agent Telegraf virtuele Linux-Machine](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Klassieke Cloudservices](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

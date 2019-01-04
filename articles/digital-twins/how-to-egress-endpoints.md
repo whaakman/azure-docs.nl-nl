@@ -1,25 +1,71 @@
 ---
 title: Uitgaand verkeer en eindpunten in Azure, digitale dubbels | Microsoft Docs
-description: Richtlijnen voor het maken van eindpunten met Azure digitale dubbels
+description: Richtlijnen voor het maken van eindpunten met digitale dubbels van Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636302"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994812"
 ---
 # <a name="egress-and-endpoints"></a>Uitgaand verkeer en eindpunten
 
-Het concept van biedt ondersteuning voor Azure van digitale dubbels **eindpunten**. Elk eindpunt vertegenwoordigt een bericht of gebeurtenis-broker in de Azure-abonnement van de gebruiker. Gebeurtenissen en -berichten kunnen worden verzonden naar Azure Event Hubs, Azure Event Grid en Azure Service Bus-onderwerpen.
+Azure van digitale dubbels *eindpunten* vertegenwoordigen een bericht of gebeurtenis-broker binnen Azure-abonnement van een gebruiker. Gebeurtenissen en -berichten kunnen worden verzonden naar Azure Event Hubs, Azure Event Grid en Azure Service Bus-onderwerpen.
 
-Gebeurtenissen worden verzonden naar eindpunten op basis van vooraf gedefinieerde routering voorkeuren. De gebruiker kan opgeven welk eindpunt moet een van de volgende gebeurtenissen ontvangen: 
+Gebeurtenissen worden doorgestuurd naar eindpunten op basis van vooraf gedefinieerde routering voorkeuren. Gebruikers opgeven die *gebeurtenistypen* elk eindpunt kan ontvangen.
+
+Voor meer informatie over gebeurtenissen, Routering en gebeurtenistypen, verwijzen naar [Routing gebeurtenissen en -berichten in Azure, digitale dubbels](./concepts-events-routing.md).
+
+## <a name="events"></a>Gebeurtenissen
+
+Gebeurtenissen worden verzonden door de IoT-objecten (zoals apparaten en sensoren) voor de verwerking van door Azure bericht en gebeurtenis-brokers. Gebeurtenissen worden gedefinieerd door de volgende [schemaverwijzing voor Azure Event Grid-gebeurtenis](../event-grid/event-schema.md).
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Kenmerk | Type | Description |
+| --- | --- | --- |
+| id | string | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| gegevens | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
+| type gebeurtenis | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
+
+Voor meer informatie over de Event Grid-gebeurtenisschema:
+
+- Controleer de [schemaverwijzing voor Azure Event Grid-gebeurtenis](../event-grid/event-schema.md).
+- Lees de [Azure EventGrid Node.js SDK EventGridEvent verwijzing](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Gebeurtenistypen
+
+Gebeurtenistypen classificeren van de aard van de gebeurtenis en zijn ingesteld de **type gebeurtenis** veld. Beschikbare gebeurtenistypen zijn gegeven door de volgende lijst:
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Gebeurtenissen worden verzonden naar eindpunten op basis van vooraf gedefinieerd
 - SpaceChange
 - DeviceMessage
 
-Raadpleeg voor een basiskennis hebt van gebeurtenissen Routering en gebeurtenistypen [Routing gebeurtenissen en -berichten](concepts-events-routing.md).
-
-## <a name="event-types-description"></a>Beschrijving van gebeurtenis-typen
-
-De indeling voor elk van de typen gebeurtenissen worden beschreven in de volgende secties.
+De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subsecties.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** is van toepassing op wijzigingen in de metagegevensgrafiek. De **onderwerp** eigenschap geeft u het type object dat is beïnvloed. De volgende typen objecten mogelijk deze gebeurtenis te activeren: 
+**TopologyOperation** is van toepassing op wijzigingen in de metagegevensgrafiek. De **onderwerp** eigenschap geeft u het type object dat is beïnvloed. De volgende typen objecten mogelijk deze gebeurtenis te activeren:
 
 - Apparaat
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ De indeling voor elk van de typen gebeurtenissen worden beschreven in de volgend
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** is een gebeurtenis die is verzonden door een gebruiker gedefinieerde functie (UDF's). 
+**UdfCustom** is een gebeurtenis die is verzonden door een gebruiker gedefinieerde functie (UDF's).
   
 > [!IMPORTANT]  
 > Deze gebeurtenis moet expliciet worden verzonden vanuit de UDF zelf.
@@ -195,10 +237,19 @@ Met behulp van **DeviceMessage**, kunt u een **EventHub** verbinding waarmee onb
 
 ## <a name="configure-endpoints"></a>Eindpunten configureren
 
-Eindpunt management wordt uitgevoerd via de API-eindpunten. De volgende voorbeelden laten zien hoe u de verschillende ondersteunde eindpunten configureren. Speciale aandacht besteden aan de matrix van de typen gebeurtenis omdat ze de routering voor het eindpunt:
+Eindpunt management wordt uitgevoerd via de API-eindpunten.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+De volgende voorbeelden laten zien hoe u de ondersteunde eindpunten configureren.
+
+>[!IMPORTANT]
+> Let op de **eigenschap eventTypes** kenmerk. Hiermee definieert u welke gebeurtenis typen worden verwerkt door het eindpunt en dus bepalen de routering.
+
+Op basis van een geverifieerde HTTP POST-aanvraag
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Route naar Service Bus-gebeurtenistypen **SensorChange**, **SpaceChange**, en **TopologyOperation**:

@@ -1,9 +1,9 @@
 ---
-title: Met Visual Studio-sjablonen - Azure Batch-oplossingen bouwen | Microsoft Docs
+title: Bouw oplossingen met Visual Studio-sjablonen - Azure Batch | Microsoft Docs
 description: Leer hoe Visual Studio-projectsjablonen helpen u bij het implementeren en uitvoeren van uw rekenintensieve workloads op Azure Batch.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114093"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538120"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio-projectsjablonen voor Batch-oplossingen snel gebruiken
 
@@ -62,7 +62,7 @@ Voor het gebruik van de Batch-sjablonen, moet u het volgende:
     
     * Azure Batch-Job Manager met taak splitsen
     * Processor van Azure Batch-taak
-  * De sjablonen voor Visual Studio downloaden uit de galerie met online: [projectsjablonen voor Microsoft Azure Batch][vs_gallery_templates]
+  * Download de sjablonen uit de galerie met online voor Visual Studio: [Microsoft Azure Batch-projectsjablonen][vs_gallery_templates]
 * Als u van plan bent te gebruiken de [toepassingspakketten](batch-application-packages.md) functie voor het implementeren van job manager en processor-taak naar de Batch-rekenknooppunten, moet u een opslagaccount koppelen aan uw Batch-account.
 
 ## <a name="preparation"></a>Voorbereiding
@@ -112,18 +112,18 @@ De rest van deze sectie beschrijft de verschillende bestanden en de codestructuu
 **Framework-bestanden**
 
 * `Configuration.cs`: Het laden van gegevens van de configuratie, zoals de details van de Batch-account, referenties voor het gekoppelde opslagaccount, job en taakgegevens en taakparameters ingekapseld. Het biedt ook toegang tot Batch gedefinieerde omgevingsvariabelen (Zie omgevingsinstellingen voor taken, in de Batch-documentatie) via de klasse Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: Hiermee isoleert de implementatie van de configuratieklasse zodat u uw taak splitsen met behulp van een valse of mock configuratieobject eenheidstest kunt.
+* `IConfiguration.cs`: Isoleert de uitvoering van de klasse configuratie, zodat u uw taak splitsen met behulp van een valse of mock configuratieobject eenheidstest kunt.
 * `JobManager.cs`: De onderdelen van het programma job manager deelt. Het is verantwoordelijk voor het initialiseren van de taak splitser, aanroepen van de taak splitser, en het verzenden van de taken die zijn geretourneerd door de taak splitser de indiener van de taak.
 * `JobManagerException.cs`: Hiermee geeft u een fout waarvoor de manager van de taak is beëindigd. JobManagerException wordt gebruikt om u te laten teruglopen 'verwachte' fouten waarbij specifieke diagnostische informatie kan worden opgegeven als onderdeel van de beëindiging.
-* `TaskSubmitter.cs`: Met deze klasse is verantwoordelijk voor het toevoegen van taken die zijn geretourneerd door de taak splitser voor de Batch-taak. De aggregaties van de klasse Taakbeheer heeft de volgorde van de taken in batches voor efficiënt, maar tijdige toevoegen aan de taak, roept vervolgens TaskSubmitter.SubmitTasks op een achtergrond-thread voor elke batch.
+* `TaskSubmitter.cs`: Deze klasse is verantwoordelijk voor het toevoegen van taken die zijn geretourneerd door de taak splitser voor de Batch-taak. De aggregaties van de klasse Taakbeheer heeft de volgorde van de taken in batches voor efficiënt, maar tijdige toevoegen aan de taak, roept vervolgens TaskSubmitter.SubmitTasks op een achtergrond-thread voor elke batch.
 
 **Taak splitsen**
 
-`JobSplitter.cs`: Met deze klasse bevat toepassingsspecifieke logica voor het splitsen van de taak in taken. Het framework roept de methode JobSplitter.Split voor het verkrijgen van een reeks taken, die wordt toegevoegd aan de taak als de methode deze retourneert. Dit is de klasse waar voert u de logica van de taak. Implementeer de Split-methode voor het retourneren van een reeks CloudTask exemplaren die de taken in die u wilt voor het partitioneren van de taak vertegenwoordigt.
+`JobSplitter.cs`: Deze klasse bevat toepassingsspecifieke logica voor het splitsen van de taak in taken. Het framework roept de methode JobSplitter.Split voor het verkrijgen van een reeks taken, die wordt toegevoegd aan de taak als de methode deze retourneert. Dit is de klasse waar voert u de logica van de taak. Implementeer de Split-methode voor het retourneren van een reeks CloudTask exemplaren die de taken in die u wilt voor het partitioneren van de taak vertegenwoordigt.
 
 **Standaard .NET projectbestanden in de opdrachtregel**
 
-* `App.config`: De standaard .NET-toepassing-configuratiebestand.
+* `App.config`: Standaard .NET-toepassing-configuratiebestand.
 * `Packages.config`: Standaard NuGet-pakket afhankelijkheid-bestand.
 * `Program.cs`: Bevat de programma-toegangspunt en de afhandeling van uitzonderingen op het hoogste niveau.
 
@@ -191,7 +191,7 @@ Afsluitcodes en uitzonderingen bieden een mechanisme om te bepalen van het resul
 
 Een jobbeheertaak die is geïmplementeerd met behulp van de Job Manager-sjabloon kunt drie mogelijke afsluitcodes geretourneerd:
 
-| Code | Beschrijving |
+| Code | Description |
 | --- | --- |
 | 0 |De taak manager is voltooid. Uw taak splitsen code uitgevoerd worden voltooid en alle taken zijn toegevoegd aan de job. |
 | 1 |De jobbeheertaak is mislukt met een uitzondering in een 'verwachte' deel van het programma. De uitzondering is vertaald naar een JobManagerException met diagnostische gegevens en, indien mogelijk, suggesties voor het oplossen van de fout. |
@@ -281,7 +281,7 @@ De rest van deze sectie beschrijft de verschillende bestanden en de codestructuu
 **Framework-bestanden**
 
 * `Configuration.cs`: Het laden van gegevens van de configuratie, zoals de details van de Batch-account, referenties voor het gekoppelde opslagaccount, job en taakgegevens en taakparameters ingekapseld. Het biedt ook toegang tot Batch gedefinieerde omgevingsvariabelen (Zie omgevingsinstellingen voor taken, in de Batch-documentatie) via de klasse Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: Hiermee isoleert de implementatie van de configuratieklasse zodat u uw taak splitsen met behulp van een valse of mock configuratieobject eenheidstest kunt.
+* `IConfiguration.cs`: Isoleert de uitvoering van de klasse configuratie, zodat u uw taak splitsen met behulp van een valse of mock configuratieobject eenheidstest kunt.
 * `TaskProcessorException.cs`: Hiermee geeft u een fout waarvoor de manager van de taak is beëindigd. TaskProcessorException wordt gebruikt om u te laten teruglopen 'verwachte' fouten waarbij specifieke diagnostische informatie kan worden opgegeven als onderdeel van de beëindiging.
 
 **Taak-Processor**
@@ -297,7 +297,7 @@ De rest van deze sectie beschrijft de verschillende bestanden en de codestructuu
 
 **Standaard .NET projectbestanden in de opdrachtregel**
 
-* `App.config`: De standaard .NET-toepassing-configuratiebestand.
+* `App.config`: Standaard .NET-toepassing-configuratiebestand.
 * `Packages.config`: Standaard NuGet-pakket afhankelijkheid-bestand.
 * `Program.cs`: Bevat de programma-toegangspunt en de afhandeling van uitzonderingen op het hoogste niveau.
 
@@ -369,7 +369,7 @@ Afsluitcodes en uitzonderingen bieden een mechanisme om te bepalen van het resul
 
 Een taak van de processor die wordt geïmplementeerd met behulp van de sjabloon van de Processor van de taak kan drie mogelijke afsluitcodes retourneren:
 
-| Code | Beschrijving |
+| Code | Description |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |De processor van de taak is voltooid. Let op: dit niet betekent dat het programma dat u aangeroepen, alleen geslaagd is: dat de processor van de taak is aangeroepen en uitgevoerd na verwerking zonder uitzonderingen. De betekenis van de afsluitcode is afhankelijk van de aangeroepen programma – doorgaans afsluitcode 0 betekent dat het programma is voltooid en een andere afsluitcode betekent dat het programma is mislukt. |
 | 1 |De processor van de taak is mislukt met een uitzondering in een 'verwachte' deel van het programma. De uitzondering is vertaald naar een `TaskProcessorException` met diagnostische gegevens en, indien mogelijk, suggesties voor het oplossen van de fout. |

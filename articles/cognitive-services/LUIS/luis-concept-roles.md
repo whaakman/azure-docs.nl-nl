@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: dd11c2c7062d09c522c46770e8dba6d6eb0ac1e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cb155486365ffa1beb4657e2d9cc56fcf143b624
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105561"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547742"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Rollen van de entiteit in de patronen zijn contextuele subtypen
 Rollen zijn met de naam, contextuele subtypen van een entiteit gebruikt alleen in [patronen](luis-concept-patterns.md).
@@ -45,6 +45,16 @@ De entiteit en de rol worden tussen haakjes, `{}`. De entiteit en de rol worden 
 
 
 [!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+
+## <a name="example-role-for-entities"></a>Voorbeeld van de rol voor entiteiten
+
+Een rol is slechts een contextueel geleerde plaatsing van een entiteit binnen een utterance. Dit is het effectiefst als de utterance meer dan één van dat entiteitstype heeft. De eenvoudigste voorbeeld voor elk entiteitstype is het onderscheid maken tussen een naar en van de locatie. De locatie kan worden weergegeven in een groot aantal verschillende Entiteitstypen. 
+
+Een voorbeeld van de use-case is overdragen van een werknemer van een afdeling naar een andere waar elke afdeling is een item in een lijst. Bijvoorbeeld: 
+
+`Move [PersonName] from [Department:from] to [Department:to]`. 
+
+Beide entiteiten afdeling worden geretourneerd in het JSON-antwoord en elk bevat de naam van de rol in de geretourneerde voorspelling. 
 
 ## <a name="roles-with-prebuilt-entities"></a>Rollen met vooraf gemaakte entiteiten
 

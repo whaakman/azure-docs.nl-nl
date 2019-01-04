@@ -1,23 +1,27 @@
 ---
 title: Fouten opsporen in UDF's in Azure, digitale dubbels | Microsoft Docs
-description: Richtlijn over fouten opsporen in UDF's in Azure, digitale dubbels
+description: Fouten opsporen in UDF's in Azure, digitale dubbels richtlijnen.
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413010"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974859"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in problemen met de gebruiker gedefinieerde functies in Azure, digitale dubbels
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in door de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
-In dit artikel bevat een overzicht van hoe u de gebruiker gedefinieerde functies vaststelt. Vervolgens bevat deze enkele van de meest voorkomende scenario's is opgetreden bij het werken met hen.
+In dit artikel bevat een overzicht van hoe u de gebruiker gedefinieerde functies vaststelt. Vervolgens bevat deze enkele van de meest voorkomende scenario's die waarschijnlijk zullen optreden bij het werken met hen.
+
+>[!TIP]
+> Lezen [bewaking en logboekregistratie configureren](./how-to-configure-monitoring.md) voor meer informatie over het instellen van het foutopsporingsprogramma's in Azure digitale dubbels met activiteitenlogboeken, diagnostische logboeken en Azure Monitor.
 
 ## <a name="debug-issues"></a>Spoor fouten op
 
@@ -28,9 +32,14 @@ Weten hoe u eventuele problemen die in uw exemplaar van Azure digitale dubbels o
 Logboeken en metrische gegevens voor uw exemplaar van Azure digitale dubbels worden weergegeven via Azure Monitor. De volgende documentatie wordt ervan uitgegaan dat u hebt gemaakt een [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) werkruimte via de [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), tot en met [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), of via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Een vertraging van 5 minuten kunnen optreden bij het verzenden van gebeurtenissen naar **Log Analytics** voor de eerste keer.
+> Een vijf minuten vertraging kan optreden bij het verzenden van gebeurtenissen naar Azure Log Analytics voor het eerst.
 
-Lees het artikel ['Verzamelen en gebruiken van logboekgegevens van uw Azure-resources'](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) om in te schakelen van diagnostische instellingen voor uw exemplaar van Azure digitale dubbels via de Portal, Azure CLI of PowerShell. Zorg ervoor dat alle logboekcategorieën, metrische gegevens en uw Azure Log Analytics-werkruimte te selecteren.
+Voor het configureren van bewaking en logboekregistratie voor digitale dubbels Azure-resources, Lees [bewaking en logboekregistratie configureren](./how-to-configure-monitoring.md).
+
+Lees het artikel [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md) voor een uitgebreid overzicht van instellingen voor diagnostische logboeken voor uw exemplaar van Azure digitale dubbels via Azure Portal, Azure CLI of PowerShell.
+
+>[!IMPORTANT]
+> Zorg ervoor dat alle logboekcategorieën, metrische gegevens en uw Azure Log Analytics-werkruimte te selecteren.
 
 ### <a name="trace-sensor-telemetry"></a>Sensor-tracetelemetrie
 
@@ -56,11 +65,11 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query's](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Lees voor meer informatie over krachtige querybewerkingen [aan de slag met query's](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="identify-common-issues"></a>Veelvoorkomende problemen identificeren
 
-Zowel opsporen en identificeren van algemene problemen zijn belangrijk bij het oplossen van uw oplossing. Enkele veelvoorkomende problemen opgetreden bij het ontwikkelen, door de gebruiker gedefinieerde functies worden samengevat hieronder.
+Zowel opsporen en identificeren van algemene problemen zijn belangrijk bij het oplossen van uw oplossing. Verschillende problemen die vaak optreden bij het ontwikkelen van de gebruiker gedefinieerde functies worden samengevat hieronder.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -74,11 +83,11 @@ Controleer of een roltoewijzing voor de gebruiker gedefinieerde functie door uw 
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parameter | Vervangen door |
+| Parameterwaarde | Vervangen door |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | De ID van de gebruiker gedefinieerde functie om op te halen van roltoewijzingen voor|
+| YOUR_USER_DEFINED_FUNCTION_ID | De ID van de gebruiker gedefinieerde functie om op te halen van roltoewijzingen voor|
 
-Als er geen roltoewijzing wordt opgehaald, volgt u in dit artikel op [over het maken van een roltoewijzing voor de gebruiker gedefinieerde functie](./how-to-user-defined-functions.md).
+Informatie over [over het maken van een roltoewijzing voor de gebruiker gedefinieerde functie](./how-to-user-defined-functions.md), als er geen roltoewijzingen bestaat.
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Of als de matcher voor de telemetrie van een sensor werkt
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-In dit scenario optreedt, omdat de gebruikte id naar een sensor verwijst terwijl het opgegeven type topologie-object is 'Ruimte'.
+In dit scenario optreedt, omdat de gebruikte id naar een sensor verwijst terwijl het objecttype topologie opgegeven `Space`.
 
 **Juiste** voorbeeld:
 
@@ -200,4 +209,4 @@ Als u diagnostische instellingen inschakelen, kunt u deze algemene uitzonderinge
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het inschakelen [bewaking en logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) in digitale dubbels van Azure.
+Meer informatie over het inschakelen [bewaking en logboeken](../azure-monitor/platform/activity-logs-overview.md) in digitale dubbels van Azure.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077746"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543560"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -27,7 +27,7 @@ ExpressRoute-verbindingen gaan niet via het openbare internet. Deze verbindingen
 
 ### <a name="where-is-the-service-available"></a>Waar de service beschikbaar is?
 
-Deze pagina voor de locatie en de beschikbaarheid wordt weergegeven: [ExpressRoute partners en locaties](expressroute-locations.md).
+Deze pagina voor de locatie en de beschikbaarheid wordt weergegeven: [ExpressRoute-partners en locaties](expressroute-locations.md).
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>Hoe kan ik ExpressRoute gebruiken om te verbinden met Microsoft als ik geen partnerschappen met een van de ExpressRoute-provider-partners?
 
@@ -166,7 +166,7 @@ Ja. U kunt maximaal 10 virtuele netwerken-verbindingen op een standard ExpressRo
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Ik heb meerdere Azure-abonnementen met virtuele netwerken. Kan ik virtuele netwerken koppelen die zich in afzonderlijke abonnementen op één ExpressRoute-circuit?
 
-Ja. U kunt maximaal 10 andere Azure-abonnementen gebruiken één ExpressRoute-circuit autoriseren. Deze limiet kan worden verhoogd met het inschakelen van de ExpressRoute premium-functie.
+Ja. U kunt maximaal 10 virtuele netwerken in hetzelfde abonnement bevinden als het circuit of verschillende abonnementen met behulp van een enkel ExpressRoute-circuit koppelen. Deze limiet kan worden verhoogd met het inschakelen van de ExpressRoute premium-functie.
 
 Zie voor meer informatie, [delen van een ExpressRoute-circuit voor meerdere abonnementen](expressroute-howto-linkvnet-arm.md).
 

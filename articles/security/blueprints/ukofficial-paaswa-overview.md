@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409017"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718481"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -102,17 +102,17 @@ Gegevens zijn van doorvoer van buiten en tussen Azure-onderdelen worden bescherm
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps biedt een volledig beheerde hostomgeving voor web-App ontwikkeld in Java, PHP, Node.js, Python, HTML- en C# zonder om infrastructuur te beheren. Het biedt automatisch schalen en hoge beschikbaarheid ondersteunt zowel Windows als Linux en maakt automatische implementaties van [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) of een willekeurige op basis van een Git-repo.
+Azure App Service biedt een volledig beheerde hostomgeving voor web-App ontwikkeld in Java, PHP, Node.js, Python, HTML en C# zonder om infrastructuur te beheren. Het biedt automatisch schalen en hoge beschikbaarheid ondersteunt zowel Windows als Linux en maakt automatische implementaties van [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) of een willekeurige op basis van een Git-repo.
 
 App Service is [ISO, SOC en PCI-](https://www.microsoft.com/TrustCenter/) en verificatie van gebruikers met [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) of via sociaal aanmelden ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), en [Microsoft authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
-Basic-, Standard en Premium-abonnementen zijn voor productieworkloads en draaien op specifieke virtuele Machine-instanties. Elke instantie kan meerdere toepassingen en domeinen ondersteunen. App-services ook ondersteuning voor [IP-adresbeperkingen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) voor het beveiligen van verkeer naar de goedgekeurde IP-adressen, indien nodig, evenals [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) voor beveiligde verbinding met andere PaaS-services zoals [voor Key Vault](https://azure.microsoft.com/services/key-vault/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Extra beveiliging is vereist als host fungeert voor uw apps in een persoonlijke, exclusieve Azure-omgeving en is ideaal voor apps waarvoor een veilige verbindingen met uw on-premises netwerk, of extra prestaties en schaal onze Isolated-abonnement.
+Basic-, Standard en Premium-abonnementen zijn voor productieworkloads en draaien op specifieke virtuele Machine-instanties. Elke instantie kan meerdere toepassingen en domeinen ondersteunen. App-services ook ondersteuning voor [IP-adresbeperkingen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) voor het beveiligen van verkeer naar de goedgekeurde IP-adressen, indien nodig, evenals [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) voor beveiligde verbinding met andere PaaS-services zoals [voor Key Vault](https://azure.microsoft.com/services/key-vault/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Extra beveiliging is vereist als host fungeert voor uw apps in een persoonlijke, exclusieve Azure-omgeving en is ideaal voor apps waarvoor een veilige verbindingen met uw on-premises netwerk, of extra prestaties en schaal onze Isolated-abonnement.
 
 Deze sjabloon implementeert de volgende functies van App Service:
 
-- [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) laag voor App Service-Plan
-- Meerdere Web-App [implementatiesites](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Ontwikkel, Preview, QA, UAT en natuurlijk productie (standaard sleuf).
-- [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) verbinding maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt voor toegang tot [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) laag voor App Service-Plan
+- Meerdere App Service [implementatiesites](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Ontwikkel, Preview, QA, UAT en natuurlijk productie (standaard sleuf).
+- [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/app-service/overview-managed-identity) verbinding maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt voor toegang tot [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integratie met [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) om prestaties te bewaken
 - [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - Metrische gegevens [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -163,7 +163,7 @@ Gedetailleerde informatie over het beveiligen van Azure Storage vindt u de [beve
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault in deze blauwdruk
 
-- Bevat de toegangssleutel voor opslag met leestoegang verleend aan de [beheerde identiteit](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) van de klant gerichte web-app
+- Bevat de toegangssleutel voor opslag met leestoegang verleend aan de [beheerde identiteit](https://docs.microsoft.com/azure/app-service/overview-managed-identity) van de klant gerichte web-app
 - Het wachtwoord van de SQL Server DBA bevat (in een afzonderlijke kluis)
 - Logboekregistratie van diagnostische gegevens
 

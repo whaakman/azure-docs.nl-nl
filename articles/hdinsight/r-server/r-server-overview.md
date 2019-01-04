@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499468"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584527"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot ML-Services en mogelijkheden van de open-source R op HDInsight
 
-> [!NOTE]
+> [!NOTE]  
 > In September 2017, Microsoft R Server werd uitgebracht onder de nieuwe naam van **Microsoft Machine Learning Server** of ML-Server. Als gevolg daarvan kan R Server-cluster in HDInsight heet nu **Machine Learning-Services** of **ML-Services** -cluster in HDInsight. Zie voor meer informatie over de naamswijziging van R Server [Microsoft R Server is nu Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
 
 Microsoft Machine Learning Server is beschikbaar als een implementatie-opties wanneer u een HDInsight-clusters in Azure maken. Het clustertype waarmee u deze optie wordt aangeroepen **ML-Services**. Deze mogelijkheid biedt gegevenswetenschappers, statistici en R-programmeurs on-demandtoegang tot schaalbare, gedistribueerde analysemethoden in HDInsight.
@@ -29,7 +29,7 @@ ML-Services op HDInsight biedt de nieuwste mogelijkheden voor analyses op basis 
 
 Het edge-knooppunt van een cluster biedt een handige locatie verbinding maken met het cluster en uw R-scripts uit te voeren. Met een edge-knooppunt hebt u de mogelijkheid van het uitvoeren van de functies voor geparallelliseerde gedistribueerde van ScaleR over de kernen van het edge-knooppunt-server. U kunt ze ook uitvoeren op de knooppunten van het cluster met behulp van de ScaleR Hadoop Mapreduce of Apache Spark-compute-context.
 
-De modellen of voorspellingen op die het resultaat van de analyse kunnen worden gedownload voor on-premises gebruik. Ze kunnen ook operationaliseren elders in Azure, met name via [Azure Machine Learning Studio](http://studio.azureml.net) [webservice](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+De modellen of voorspellingen op die het resultaat van de analyse kunnen worden gedownload voor on-premises gebruik. Ze kunnen ook operationaliseren elders in Azure, met name via [Azure Machine Learning Studio](https://studio.azureml.net) [webservice](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Aan de slag met ML-Services op HDInsight
 
@@ -61,7 +61,7 @@ ML-Services in HDInsight biedt de volgende voordelen:
 
 De volgende functies zijn opgenomen in ML-Services op HDInsight.
 
-| Functie-categorie | Beschrijving |
+| Functie-categorie | Description |
 |------------------|-------------|
 | R-ingeschakeld | [R-pakketten](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) voor oplossingen die zijn geschreven in R, met een open-source-distributie van R- en runtime-infrastructuur voor het uitvoeren van script. |
 | Python-ingeschakeld | [Python-modules](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) voor oplossingen die zijn geschreven in Python, met een open-source-verdeling van Python en runtime-infrastructuur voor het uitvoeren van script.
@@ -72,7 +72,7 @@ De volgende functies zijn opgenomen in ML-Services op HDInsight.
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Opties voor gegevensopslag voor ML-Services op HDInsight
 
-Standaardopslag voor het HDFS-bestandssysteem van HDInsight-clusters kan worden gekoppeld aan een Azure Storage-account of een Azure Data Lake Store. Deze koppeling zorgt ervoor dat de gewenste gegevens is geüpload naar het cluster opslag tijdens de analyse persistent wordt gemaakt en de gegevens zijn beschikbaar, zelfs nadat het cluster wordt verwijderd. Er zijn verschillende hulpprogramma's voor het verwerken van de gegevensoverdracht naar de opslagoptie die u selecteert, met inbegrip van de faciliteit portal op basis van het uploaden van het opslagaccount en de [AzCopy](../../storage/common/storage-use-azcopy.md) hulpprogramma.
+Standaardopslag voor het HDFS-bestandssysteem van HDInsight-clusters kan worden gekoppeld aan een Azure Storage-account of een Azure Data Lake-opslag. Deze koppeling zorgt ervoor dat de gewenste gegevens is geüpload naar het cluster opslag tijdens de analyse persistent wordt gemaakt en de gegevens zijn beschikbaar, zelfs nadat het cluster wordt verwijderd. Er zijn verschillende hulpprogramma's voor het verwerken van de gegevensoverdracht naar de opslagoptie die u selecteert, met inbegrip van de faciliteit portal op basis van het uploaden van het opslagaccount en de [AzCopy](../../storage/common/storage-use-azcopy.md) hulpprogramma.
 
 U hebt de mogelijkheid van het inschakelen van toegang tot extra Blob en Data lake opgeslagen tijdens het inrichtingsproces, ongeacht de primaire opslag-optie gebruikt cluster. Zie [aan de slag met ML-Services op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) voor informatie over het toevoegen van toegang tot extra accounts. Zie [Azure Storage-opties voor ML-Services op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) artikel voor meer informatie over het gebruik van meerdere opslagaccounts.
 

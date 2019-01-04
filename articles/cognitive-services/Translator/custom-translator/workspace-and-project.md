@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627368"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717549"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Wat is een aangepaste Translator-werkruimte?
 
@@ -31,7 +31,7 @@ Een project is een wrapper voor een model, documenten en tests. Elk project omva
 
 De categorie geeft het domein: het gebied van de terminologie en stijl die u wilt gebruiken: voor uw project. Kies het meest relevant voor uw documenten categorie. In sommige gevallen van uw keuze van de categorie rechtstreeks invloed op het gedrag van de aangepaste Translator.
 
-Er zijn geen aangepaste modellen voor categorieën, maar met uitzondering van een algemene basislijn-systeem. Maar nog steeds wordt aangeraden gebruikers het meest van toepassing zijn op hun domein categorie selecteren, zodat deze kan worden gebruikt als een id in de categorie-id. Voor projecten in het domein van de technologie selecteren "Technologie" zorgt ervoor dat wanneer een basislijn-model beschikbaar is, dat uw project zich om deze te gebruiken.
+We hebben twee sets basislijn modellen. Ze zijn algemeen en technologie. Als de categorie **technologie** is geselecteerd, worden de modellen van de basislijn technologie gebruikt. Voor een andere categorieselectie, worden de algemene basislijn-modellen gebruikt. Het model van de basislijn technologie wordt ook in de technologie-domein, maar lagere kwaliteit en u ziet als de zinnen die wordt gebruikt voor de vertaling niet binnen het domein van de technologie vallen. We raden klanten om te selecteren van categorie technologie alleen als zinnen strikt binnen het domein van de technologie vallen.
 
 U kunt in dezelfde werkruimte en projecten voor de dezelfde combinatie van taal in verschillende categorieën maken. Aangepaste Translator wordt voorkomen dat het maken van een dubbele project met de dezelfde combinatie van taal en categorie. Een label toe te passen aan uw project, kunt u om te voorkomen dat deze beperking. Gebruik de labels niet, tenzij u automatische vertalingssystemen voor meerdere clients toe te voegen dat aan uw project een unieke label, worden weergegeven in uw projecten CategoryID bouwt.
 

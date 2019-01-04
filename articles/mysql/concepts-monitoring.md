@@ -1,20 +1,17 @@
 ---
 title: Bewaking in Azure Database for MySQL
 description: Dit artikel beschrijft de metrische gegevens voor bewaking en waarschuwingen voor Azure Database voor MySQL, met inbegrip van CPU, opslag en verbinding statistieken.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: de339fbab3d360507a77708816b5fccdca80a7d1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035730"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544750"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Bewaking in Azure Database for MySQL
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database for MySQL biedt verschillende metrische gegevens inzicht in het gedrag van uw server geven.
@@ -25,7 +22,7 @@ Alle metrische gegevens van Azure hebben een frequentie van één minuut en elke
 ### <a name="list-of-metrics"></a>Overzicht van metrische gegevens
 Deze metrische gegevens zijn beschikbaar voor Azure Database voor MySQL:
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Beschrijving|
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Description|
 |---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Het percentage van CPU gebruikt.|
 |memory_percent|Percentage geheugen|Procent|Het percentage gebruikt geheugen.|

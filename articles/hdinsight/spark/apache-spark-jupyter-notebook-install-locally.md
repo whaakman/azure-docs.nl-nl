@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c1f4690d2ce10fe83d613b37ef2514effd2cef63
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163375"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598818"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter-notebook op uw computer installeren en verbinden met Apache Spark in HDInsight
 
@@ -22,9 +22,9 @@ In dit artikel leert u hoe u Jupyter-notebook, met de aangepaste PySpark (voor P
 
 Er zijn drie belangrijke stappen die betrokken zijn bij de Jupyter- en de Spark-Magic-pakket installeren op uw computer.
 
-* Jupyter-notebook installeren
-* De PySpark- en Spark-kernels installeren met de Magic-pakket voor Spark
-* Spark Magic-pakket voor toegang tot Spark-cluster in HDInsight configureren
+* Installeer de Jupyter-notebook.
+* Installeer de PySpark- en Spark-kernels met de Spark-magic.
+* Configureer magic voor toegang tot Spark-cluster in HDInsight Spark.
 
 Zie voor meer informatie over de aangepaste kernels en de Spark-magic beschikbaar voor de Jupyter-notebooks met HDInsight-cluster [beschikbare Kernels voor Jupyter-notebooks met Apache Spark Linux-clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
@@ -43,7 +43,7 @@ Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. Zowe
 
         conda install jupyter
 
-    Zie voor meer informatie over het installeren van Jupyter [installeren Jupyter met behulp van Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
+    Zie voor meer informatie over het installeren van Jupyter [installeren Jupyter met behulp van Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>De kernels en Spark Magic-pakket installeren
 
@@ -100,7 +100,7 @@ In deze sectie configureert u de Spark-magic die u eerder hebt geïnstalleerd al
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
-    >[!TIP]
+    >[!TIP]  
     >Heartbeats worden verzonden om ervoor te zorgen dat sessies niet kunnen worden gelekt. Wanneer een computer in de slaapstand gaat of wordt afgesloten, wordt de heartbeat is niet verzonden, wat resulteert in de sessie wordt opgeschoond. Voor clusters v3.4, als u wilt uitschakelen van dit gedrag kunt u instellen de configuratie van Livy `livy.server.interactive.heartbeat.timeout` naar `0` van de Ambari UI. Voor clusters v3.5, als u niet de bovenstaande, 3,5 configuratie stelt worden de sessie niet verwijderd.
 
 1. Jupyter starten. Gebruik de volgende opdracht uit vanaf de opdrachtprompt.
@@ -120,7 +120,7 @@ In deze sectie configureert u de Spark-magic die u eerder hebt geïnstalleerd al
 
     Als u de uitvoer met succes ophalen kunt, wordt de verbinding met het HDInsight-cluster getest.
 
-    >[!TIP]
+    >[!TIP]  
     >Als u de configuratie van de notebook verbinding maken met een ander cluster bijwerken wilt, werkt u de config.json met de nieuwe set waarden, zoals wordt weergegeven in stap 3 hierboven.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Waarom zou ik Jupyter installeren op mijn computer?
@@ -132,7 +132,7 @@ Er is een aantal redenen waarom u wilt mogelijk Jupyter op uw computer installer
 * U kunt lokaal werken met notitieblokken zonder dat ook een cluster omhoog. U hoeft alleen een cluster voor het testen van uw laptops, niet voor het handmatig beheren van uw laptops of een ontwikkelomgeving.
 * Het is mogelijk eenvoudiger te configureren van uw eigen lokale ontwikkelomgeving dan de Jupyter-installatie op het cluster configureren.  U kunt profiteren van alle software die u lokaal hebt geïnstalleerd zonder een of meer externe clusters configureren.
 
-> [!WARNING]
+> [!WARNING]  
 > Jupyter op uw lokale computer is geïnstalleerd, kunnen meerdere gebruikers kunnen de dezelfde notebook op de dezelfde Spark-cluster uitvoeren op hetzelfde moment. In een dergelijke situatie worden meerdere Livy-sessies gemaakt. Als u een probleem ondervindt en daarop foutopsporing uitvoeren wilt, is dit een complexe taak om bij te houden welke Livy-sessie behoort tot welke gebruiker.
 >
 >

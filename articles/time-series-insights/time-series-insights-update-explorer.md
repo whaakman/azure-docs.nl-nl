@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Preview explorer - gegevens visualiseren in de Verkenner van Azure Time Series Insights Preview | Microsoft Docs
+title: Gegevens visualiseren in de Verkenner van Azure Time Series Insights Preview | Microsoft Docs
 description: In dit artikel worden de functies en opties die beschikbaar zijn in de web-app van Azure Time Series Insights Preview explorer beschreven.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5372a36291ee13966d497bdae83a6e214dce99b9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272334"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556642"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Gegevens visualiseren in de Preview-versie van de Verkenner
 
@@ -25,7 +25,7 @@ Dit artikel beschrijft functies en opties die beschikbaar zijn in Azure Time Ser
 
 Voordat u de Verkenner van Azure Time Series Insights Preview gebruiken, moet u:
 
-* Een Time Series Insights-omgeving instellen hebt. Zie voor meer informatie, [zelfstudie: Voorbeeld van Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+* Een Time Series Insights-omgeving instellen hebt. Zie [Zelfstudie: Voorbeeld van Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 * Gegevenstoegang verlenen tot de Time Series Insights-omgeving die u hebt gemaakt voor het account. U kunt toegang tot andere ook over uzelf opgeven.
 * Een gebeurtenisbron toevoegen aan de Time Series Insights-omgeving om gegevens te pushen naar de omgeving.
 
@@ -189,7 +189,7 @@ In plaats van de hiërarchie ziet u het deelvenster Time Series Insights termen,
 
 Het deelvenster met Time Series Insights Preview-voorwaarden editor bevat de volgende parameters:
 
-**Waar**: De where component kunt u snel filter de gebeurtenissen met behulp van de set met operanden die worden vermeld in de volgende tabel. Als u een zoekopdracht uitvoeren door een operand selecteren, wordt het predicaat automatisch bijgewerkt op basis van die zoekopdracht. Ondersteunde Operandtypen zijn onder andere:
+**Where**: De where component kunt u snel filter de gebeurtenissen met behulp van de set met operanden die worden vermeld in de volgende tabel. Als u een zoekopdracht uitvoeren door een operand selecteren, wordt het predicaat automatisch bijgewerkt op basis van die zoekopdracht. Ondersteunde Operandtypen zijn onder andere:
 
 | Bewerking | Ondersteunde typen   | Opmerkingen |
 | --- | --- | --- |

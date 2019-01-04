@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b9f7a1144be21b425ff0bed9e2e6cb47315c13a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0b171c7ed13eab84d84bb797e154a3acec8fbac7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974897"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633672"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-clusters
 
@@ -63,17 +63,17 @@ De kosten als gevolg van de verschillende locaties voor de rekenclusters en opsl
 
 Het opslaan van gegevens in Azure Storage in plaats van HDFS heeft enkele voordelen:
 
-* **Hergebruik en delen van gegevens:** de gegevens in HDFS bevinden zich in het rekencluster. Alleen de toepassingen die toegang tot het rekencluster hebben, kunnen de gegevens met HDFS API's gebruiken. De gegevens in Azure Storage zijn toegankelijk via de HDFS API's of via de [Blob Storage REST API's][blob-storage-restAPI]. Zo kan een grotere set toepassingen (inclusief andere HDInsight-clusters) en hulpprogramma's worden gebruikt om de gegevens te produceren en te gebruiken.
+* **Hergebruik van de gegevens en het delen van:** De gegevens in HDFS bevindt zich in het rekencluster. Alleen de toepassingen die toegang tot het rekencluster hebben, kunnen de gegevens met HDFS API's gebruiken. De gegevens in Azure Storage zijn toegankelijk via de HDFS API's of via de [Blob Storage REST API's][blob-storage-restAPI]. Zo kan een grotere set toepassingen (inclusief andere HDInsight-clusters) en hulpprogramma's worden gebruikt om de gegevens te produceren en te gebruiken.
 
-* **Gegevensarchivering:** door gegevens op te slaan in Azure Storage, kunnen de HDInsight-clusters die worden gebruikt voor berekeningen, veilig worden verwijderd zonder dat er gegevens verloren gaan.
+* **Archivering van gegevens:** Opslaan van gegevens in Azure storage, kunt de HDInsight-clusters gebruikt voor berekeningen, veilig worden verwijderd zonder verlies van gebruikersgegevens.
 
-* **Kosten voor gegevensopslag:** opslaan van gegevens in de systeemeigen HDFS voor de lange termijn duurder is dan wanneer de gegevens opgeslagen in Azure storage, omdat de kosten van een rekencluster hoger zijn dan de kosten van Azure storage. Daarnaast bespaart u op de kosten voor het laden van gegevens omdat de gegevens niet opnieuw hoeven te worden geladen voor elk rekencluster dat wordt gegenereerd.
+* **Kosten voor gegevensopslag:** Opslaan van gegevens in de systeemeigen HDFS voor de lange termijn is duurder dan het opslaan van gegevens in Azure storage, omdat de kosten van een rekencluster hoger zijn dan de kosten van Azure storage. Daarnaast bespaart u op de kosten voor het laden van gegevens omdat de gegevens niet opnieuw hoeven te worden geladen voor elk rekencluster dat wordt gegenereerd.
 
-* **Elastisch uitbreiden:** hoewel HDFS u een uitgebreid bestandssysteem biedt, wordt de schaal bepaald door het aantal knooppunten dat u voor het cluster maakt. Het wijzigen van de schaal is mogelijk een complexer proces dan. Vertrouw hiervoor niet zonder meer op de elastische schalingsmogelijkheden waarover u automatisch beschikt in Azure Storage.
+* **Elastisch uitbreiden:** Hoewel HDFS u een scale-out-bestandssysteem biedt, wordt de schaal bepaald door het aantal knooppunten die u voor uw cluster maakt. Het wijzigen van de schaal is mogelijk een complexer proces dan. Vertrouw hiervoor niet zonder meer op de elastische schalingsmogelijkheden waarover u automatisch beschikt in Azure Storage.
 
-* **Geo-replicatie:** de gegevens van uw Azure-opslag kan geografisch worden gerepliceerd. Hoewel deze mogelijkheid u geografisch herstel en gegevensredundantie biedt, ondersteuning van een failover naar de geografisch gerepliceerde locatie ernstige problemen heeft gevolgen voor de prestaties van uw en kan leiden tot extra kosten. Geo-replicatie daarom kiest zorgvuldig en alleen als de waarde van de gegevens de extra kosten waard.
+* **Geo-replicatie:** De gegevens van uw Azure-opslag kan geografisch worden gerepliceerd. Hoewel deze mogelijkheid u geografisch herstel en gegevensredundantie biedt, ondersteuning van een failover naar de geografisch gerepliceerde locatie ernstige problemen heeft gevolgen voor de prestaties van uw en kan leiden tot extra kosten. Geo-replicatie daarom kiest zorgvuldig en alleen als de waarde van de gegevens de extra kosten waard.
 
-* **Beheer van de gegevenslevenscyclus:** alle gegevens in elk bestandssysteem verloopt via een eigen levenscyclus. Gegevens vaak ontvangt u zeer waardevol en veelgebruikte, verandert in een minder kostbare wordt en minder toegang vereisen en uiteindelijk vereist archiveren of verwijderen. Azure Storage biedt gegevens in lagen en lifecycle management-beleidsregels die gegevens op de juiste wijze in voor de fase van de levenscyclus lagen.
+* **Beheer van de gegevenslevenscyclus:** Alle gegevens in elk bestandssysteem verloopt via een eigen levenscyclus. Gegevens vaak ontvangt u zeer waardevol en veelgebruikte, verandert in een minder kostbare wordt en minder toegang vereisen en uiteindelijk vereist archiveren of verwijderen. Azure Storage biedt gegevens in lagen en lifecycle management-beleidsregels die gegevens op de juiste wijze in voor de fase van de levenscyclus lagen.
 
 Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten genereren die u niet wilt opslaan in Azure Storage. In dat geval kunt u ervoor kiezen de gegevens op te slaan in de lokale HDFS. In feite HDInsight maakt gebruik van de systeemeigen HDFS-implementatie (die wordt aangeduid als DFS) voor verschillende tussenliggende resultaten in Hive-taken en andere processen.
 
@@ -101,35 +101,39 @@ Wanneer u een HDInsight-cluster maakt vanuit de Portal, hebt u de opties (zoals 
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Als u [geïnstalleerd en geconfigureerd, Azure PowerShell][powershell-install], kunt u de volgende code uit de Azure PowerShell-prompt te maken van een opslagaccount en container:
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
-    $SubscriptionID = "<Your Azure Subscription ID>"
-    $ResourceGroupName = "<New Azure Resource Group Name>"
-    $Location = "WEST US 2"
+```azurepowershell
+$SubscriptionID = "<Your Azure Subscription ID>"
+$ResourceGroupName = "<New Azure Resource Group Name>"
+$Location = "WEST US 2"
 
-    $StorageAccountName = "<New Azure Storage Account Name>"
-    $containerName = "<New Azure Blob Container Name>"
+$StorageAccountName = "<New Azure Storage Account Name>"
+$containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $SubscriptionID
 
-    # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+# Create resource group
+New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
-    # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
-      -Name StorageAccountName `
-      -Location $Location `
-      -SkuName Standard_LRS `
-      -Kind StorageV2 
-      -HierarchialNamespace $True
+# Create default storage account
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
+  -Name StorageAccountName `
+  -Location $Location `
+  -SkuName Standard_LRS `
+  -Kind StorageV2 
+  -HierarchialNamespace $True
 
-    # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+# Create default blob containers
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+New-AzStorageContainer -Name $containerName -Context $destContext
+```
 
 > [!NOTE]
 > Het maken van een container is gelijk aan het maken van een bestandssysteem in Data Lake Storage Gen2.
@@ -209,7 +213,7 @@ Zie voor meer informatie:
 * [HDInsight-clusters met behulp van Azure Data Lake Storage Gen2 met Hadoop, Spark, Kafka en meer instellen](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Opname van gegevens in Azure Data Lake Storage Gen2 distcp gebruiken](data-lake-storage-use-distcp.md)
 
-[powershell-install]: /powershell/azureps-cmdlets-docs
+[powershell-install]: /powershell/azure/install-az-ps
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx

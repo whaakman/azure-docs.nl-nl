@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076787"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716750"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack aanvullende plannen
 
@@ -32,7 +32,7 @@ Er zijn tijden wanneer alles combineren in één abonnement optimaal is. In ande
 Er is een andere reden voor het gebruik van aanvullende plannen om gebruikers Houd ook rekening met het gebruik van hun bronnen te helpen. Om dit te doen, kunt u beginnen met een basis-abonnement met relatief klein aantal quota (afhankelijk van de services die nodig zijn). Klik, als gebruikers capaciteit bereiken, ze zou worden gewaarschuwd dat ze de toewijzing van resources op basis van hun toegewezen planning hebt verbruikt. Van daaruit Selecteer de gebruikers kunnen vervolgens een aanvullende plan waarmee de extra resources.
 
 > [!NOTE]
-> Wanneer u een aanvullende plan gebruiken om uit te breiden een quotum niet wilt, kunt u ook kiezen om te [bewerken van de oorspronkelijke configuratie van de quota voor](azure-stack-quota-types.md#to-edit-a-quota). 
+> Wanneer u een aanvullende plan gebruiken om uit te breiden een quotum niet wilt, kunt u ook kiezen om te [bewerken van de oorspronkelijke configuratie van de quota voor](azure-stack-quota-types.md#edit-a-quota). 
 
 Als een aanvullende plan een gebruiker aan een bestaand abonnement voor de aanbieding toevoegt, de extra resources kunnen een uur duren om te worden weergegeven. 
 

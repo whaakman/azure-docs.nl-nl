@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140027"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554857"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Toegang tot gegevenssets met Python met behulp van de clientbibliotheek van Azure Machine Learning Python
 De Preview-versie van Microsoft Azure Machine Learning Python-clientbibliotheek kunt inschakelen van beveiligde toegang tot uw Azure Machine Learning-gegevenssets van een lokale Python-omgeving en kunt het maken en beheren van gegevenssets in een werkruimte.
 
 In dit onderwerp bevat instructies over het:
 
-* installeren van de Machine Learning Python-clientbibliotheek 
+* installeren van de Machine Learning Python-clientbibliotheek
 * toegang tot en het uploaden van gegevenssets, zoals instructies voor het ophalen van de machtiging voor toegang tot Azure Machine Learning-gegevenssets van uw lokale omgeving voor Python
 * toegang tot de tussenliggende gegevenssets van experimenten
 * de Python-clientbibliotheek gebruiken om te sommen, gegevenssets, toegang tot metagegevens, de inhoud van een gegevensset te lezen, nieuwe gegevenssets maken en bijwerken van bestaande gegevenssets
@@ -49,7 +49,7 @@ De Azure Machine Learning Python-clientbibliotheek moet ook worden geïnstalleer
 
     pip install azureml
 
-U kunt ook u kunt downloaden en installeren van de bronnen op [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+U kunt ook u kunt downloaden en installeren van de bronnen op [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
@@ -74,11 +74,11 @@ Als uw rol is niet ingesteld als **eigenaar**, kunt u een aanvraag voor het opni
 
 Als u wilt het Autorisatietoken, kunt u het volgende doen:
 
-* Vragen om een token van een eigenaar. Eigenaren kunnen toegang krijgen tot hun autorisatietokens vanaf de pagina instellingen van de werkruimte in Studio. Selecteer **instellingen** in het linkerdeelvenster en klik op **AUTORISATIETOKENS** om te zien van de primaire en secundaire tokens.  Hoewel de primaire of de secundaire autorisatietokens kunnen worden gebruikt in het codefragment, verdient het aanbeveling dat de eigenaren van de secundaire autorisatietokens alleen delen.
+* Vragen om een token van een eigenaar. Eigenaren kunnen toegang krijgen tot hun autorisatietokens vanaf de pagina instellingen van de werkruimte in Studio. Selecteer **instellingen** in het linkerdeelvenster en klik op **AUTORISATIETOKENS** om te zien van de primaire en secundaire tokens. Hoewel de primaire of de secundaire autorisatietokens kunnen worden gebruikt in het codefragment, verdient het aanbeveling dat de eigenaren van de secundaire autorisatietokens alleen delen.
 
 ![Autorisatietokens](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Vragen om te worden gepromoveerd tot de rol van eigenaar.  U doet dit door een huidige eigenaar van de werkruimte, moet eerst worden verwijderd uit de werkruimte vervolgens opnieuw voor het uitnodigen als een eigenaar.
+* Vragen om te worden gepromoveerd tot de rol van eigenaar. U doet dit door een huidige eigenaar van de werkruimte, moet eerst worden verwijderd uit de werkruimte vervolgens opnieuw voor het uitnodigen als een eigenaar.
 
 Als ontwikkelaars de werkruimte-id en -autorisatie hebt verkregen token, ze hebben toegang tot de werkruimte met behulp van het codefragment, ongeacht hun rol.
 

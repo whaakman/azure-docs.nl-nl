@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890548"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811015"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -35,13 +35,13 @@ De informatie in dit artikel beschrijft registreren geïntegreerde Azure Stack-s
 
 U moet de volgende voldaan voordat u registreert:
 
- - Controleer uw referenties
+ - Uw referenties controleren
  - De PowerShell-taalmodus instellen
  - PowerShell voor Azure Stack installeren
  - De hulpprogramma's voor Azure Stack downloaden
  - Bepalen van uw registratie-scenario
 
-### <a name="verify-your-credentials"></a>Controleer uw referenties
+### <a name="verify-your-credentials"></a>Uw referenties controleren
 
 Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
@@ -125,7 +125,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Beschrijving |  
+   | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -153,7 +153,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Beschrijving |  
+   | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -189,7 +189,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Beschrijving |  
+   | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -300,15 +300,15 @@ U kunt de cmdlet Get-inhoud (optioneel) gebruiken om te verwijzen naar een besta
 
 ## <a name="verify-azure-stack-registration"></a>Controleer of de registratie van de Azure Stack
 
-Volg deze stappen om te controleren of Azure Stack is geregistreerd met Azure.
+U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie geslaagd is. Deze tegel is beschikbaar op de standaard-dashboard in de beheerdersportal. De status kan geregistreerd of niet geregistreerd. Als geregistreerd, ook ziet u de ID van de Azure-abonnement dat u gebruikt voor het registreren van uw Azure-Stack samen met de registratie-resourcegroep en de naam.
 
-1. Meld u aan met de Azure Stack [beheerportal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;regio >. &lt;FQDN-naam >*.
-2. Selecteer **alle Services**, en klik vervolgens onder de **beheer** categorie, selecteer **Marketplace management** > **uit Azuretoevoegen**.
+1. Aanmelden bij de [Azure Stack-beheerportal](https://adminportal.local.azurestack.external).
 
-Als u ziet een lijst met items die beschikbaar zijn in Azure (zoals WordPress), wordt de activering is voltooid. Echter, in niet-verbonden omgevingen niet ziet u Azure marketplace-items in de Azure Stack marketplace.
+2. Selecteer in het Dashboard, **regiobeheer**.
 
-> [!Note]  
-> Nadat de registratie is voltooid, wordt de actieve waarschuwing voor het registreren van niet langer worden weergegeven.
+    [ ![De tegel beheer regio](media/azure-stack-registration/admin1sm.png "regio management tegel") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. Selecteer **eigenschappen**. Deze blade ziet u de status en details van uw omgeving. De status kan zijn **geregistreerde** of **niet geregistreerd**. Als geregistreerd, ook ziet u de ID van de Azure-abonnement dat u gebruikt voor het registreren van uw Azure Stack, samen met de registratie-resourcegroep en de naam.
 
 ## <a name="renew-or-change-registration"></a>Vernieuwen of wijzigen van inschrijving
 
@@ -427,16 +427,16 @@ Als u wilt de cmdlet uitvoert, hebt u het volgende nodig:
     <String>] [<CommonParameters>]
    ```
 
-| Parameter | Type | Beschrijving |
+| Parameter | Type | Description |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Reeks | Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Reeks |  |
 | ResourceGroupLocation | Reeks |  |
-| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: capaciteit, PayAsYouUse en ontwikkeling. |
+| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: Capaciteit, PayAsYouUse en ontwikkeling. |
 | MarketplaceSyndicationEnabled | Waar/onwaar | Hiermee bepaalt u of de marketplace-management-functie beschikbaar in de portal is. Ingesteld op true als registreren met een internetverbinding. Ingesteld op ONWAAR als registreren in niet-omgeving verbonden. Voor niet-verbonden registraties de [offline syndication hulpprogramma](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) kan worden gebruikt voor het downloaden van items voor de marketplace. |
-| UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: True, False. |
+| UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: Waar, ONWAAR. |
 | AgreementNumber | Reeks |  |
 | registrationName | Reeks | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, het script mislukken. |
 
@@ -449,16 +449,16 @@ Get-AzsRegistrationToken genereert een registratietoken van de invoerparameters.
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parameter | Type | Beschrijving |
+| Parameter | Type | Description |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Reeks |  Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Reeks |  |
 | ResourceGroupLocation | Reeks |  |
-| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: capaciteit, PayAsYouUse en ontwikkeling. |
+| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: Capaciteit, PayAsYouUse en ontwikkeling. |
 | MarketplaceSyndicationEnabled | Waar/onwaar |  |
-| UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: True, False. |
+| UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: Waar, ONWAAR. |
 | AgreementNumber | Reeks |  |
 
 

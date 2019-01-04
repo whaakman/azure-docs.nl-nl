@@ -9,36 +9,36 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086842"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742742"
 ---
 # <a name="streaming-locators"></a>Streaming-locators
 
-Als u wilt uw clients voorzien van een URL die kan worden gebruikt voor het afspelen van gecodeerde video of audio-bestanden, die u wilt maken een [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) en de streaming-URL's maken. Zie voor meer informatie, [Stream van een bestand](stream-files-dotnet-quickstart.md).
+U moet uw clients met een URL die kan worden gebruikt om af te spelen gecodeerde video of audio-bestanden opgeven, moet u maken een [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators) en de streaming-URL's maken. Zie voor meer informatie, [Stream van een bestand](stream-files-dotnet-quickstart.md).
 
 ## <a name="streaminglocator-definition"></a>StreamingLocator definitie
 
 De volgende tabel ziet u de eigenschappen van de StreamingLocator en biedt de definities.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id |Volledig gekwalificeerde resource-ID voor de resource.|
-|naam   |De naam van de resource.|
+|naam|De naam van de resource.|
 |properties.alternativeMediaId|Alternatieve Media-ID van deze Streaming-Locator.|
-|properties.assetName   |Assetnaam|
-|properties.contentKeys |De Inhoudssleutels die worden gebruikt door deze Streaming-Locator gemaakt.|
-|Properties.created |De aanmaaktijd van de Streaming-Locator gemaakt.|
+|properties.assetName|Assetnaam|
+|properties.contentKeys|De Inhoudssleutels die worden gebruikt door deze Streaming-Locator gemaakt.|
+|Properties.created|De aanmaaktijd van de Streaming-Locator gemaakt.|
 |properties.defaultContentKeyPolicyName|De naam van de standaard ContentKeyPolicy die worden gebruikt door deze Streaming-Locator gemaakt.|
-|properties.endTime |De eindtijd van de Streaming-Locator gemaakt.|
+|properties.endTime|De eindtijd van de Streaming-Locator gemaakt.|
 |properties.startTime|De begintijd van de Streaming-Locator gemaakt.|
 |properties.streamingLocatorId|De StreamingLocatorId van de Streaming-Locator.|
-|properties.streamingPolicyName |De naam van het Streaming-beleid die worden gebruikt door deze Streaming-Locator gemaakt. Geef de naam van Streaming-beleid dat u hebt gemaakt of gebruik een van de vooraf gedefinieerde beleidsregels voor Streaming. De vooraf gedefinieerde Streaming beleidsregels beschikbaar zijn: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' en ' Predefined_ MultiDrmStreaming'|
+|properties.streamingPolicyName |De naam van het Streaming-beleid die worden gebruikt door deze Streaming-Locator gemaakt. Geef de naam van Streaming-beleid dat u hebt gemaakt of gebruik een van de vooraf gedefinieerde beleidsregels voor Streaming. De vooraf gedefinieerde Streaming beleidsregels beschikbaar zijn: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' en 'Predefined_MultiDrmStreaming'|
 |type|Het type van de resource.|
 
 Zie voor de definitie van de volledige [Streaming-Locators](https://docs.microsoft.com/rest/api/media/streaminglocators).
@@ -65,7 +65,7 @@ Beschrijving van de operator:
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de StreamingLocator-eigenschappen: 
 
-|Naam|Filteren|Bestellen|
+|Name|Filteren|Bestellen|
 |---|---|---|
 |id |||
 |naam|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|

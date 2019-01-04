@@ -1,55 +1,81 @@
 ---
-title: Uitschalen met ingebouwde indexeerfuncties - Azure Search indexeren
-description: Nieuwe elementen toe te voegen, bestaande elementen of documenten bijwerken of verwijderen van verouderde documenten in een volledig opnieuw samenstellen of een gedeeltelijke incrementele indexeren om te vernieuwen van een Azure Search-index.
+title: Index grote gegevensset met de ingebouwde indexeerfuncties - Azure Search
+description: Meer informatie over strategieën voor grote hoeveelheden gegevens te indexeren of rekenintensief zijn indexering door de batchmodus, te en technieken voor geplande, parallelle en gedistribueerde indexeren.
 services: search
 author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316666"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742232"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-search"></a>Hoe u scale-out in Azure Search indexeren
+# <a name="how-to-index-large-data-sets-in-azure-search"></a>Grote gegevenssets in Azure Search indexeren
 
-Als de gegevensvolumes toenemen of verwerking moet wijzigen, ziet u wellicht dat eenvoudige [opnieuw op te bouwen en opnieuw indexeren taken](search-howto-reindex.md) zijn niet voldoende. 
+Als de gegevensvolumes toenemen of verwerking moet wijzigen, is het wellicht standaard indexering strategieën zijn niet meer praktische. Voor Azure Search zijn er verschillende manieren om te bepalen of grotere gegevenssets, variërend van hoe u een aanvraag van de gegevens uploaden voor het gebruik van een bron-specifieke indexeerfunctie voor geplande en gedistribueerde werkbelastingen structureren.
 
-Als eerste stap bij het nakomen van toegenomen vraag, wordt aangeraden dat u verhoogt de [schaalbaarheid en capaciteit](search-capacity-planning.md) binnen de grenzen van uw bestaande service. 
+Dezelfde technieken voor grote hoeveelheden gegevens zijn ook van toepassing op langlopende processen. In het bijzonder de stappen die worden beschreven in [parallelle indexeren](#parallel-indexing) zijn handig voor het indexeren van rekenintensief zijn, zoals analyse van de afbeelding of de verwerking van natuurlijke taal [cognitief zoeken pijplijnen](cognitive-search-concept-intro.md).
 
-Een tweede stap als kunt u [indexeerfuncties](search-indexer-overview.md), mechanismen voor schaalbare indexeren wordt toegevoegd. Indexeerfuncties worden geleverd met een ingebouwde scheduler waarmee u kunt het pakket uit het indexeren met regelmatige intervallen of uitbreiden van de verwerking van buiten de 24-uurs tijdvenster. Daarnaast in combinatie met gegevensbrondefinities, helpen indexeerfuncties u bij het behalen van een vorm van parallelle uitvoering door te partitioneren van gegevens en schema's parallel uitvoeren.
+## <a name="batch-indexing"></a>Indexeren van batch
 
-### <a name="scheduled-indexing-for-large-data-sets"></a>Geplande indexering voor grote gegevenssets
+Een van de eenvoudigste mechanismen voor een grotere set gegevens indexeren is om in te dienen meerdere documenten of records in één aanvraag. Zolang de nettolading van de gehele onder 16 MB is, kan een aanvraag tot 1000 documenten in een bulkbewerking uploaden verwerken. Ervan uitgaande dat de [toevoegen of bijwerken documenten REST-API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), zou u 1000 documenten in de hoofdtekst van de aanvraag verpakken.
 
-Planning is een belangrijk mechanisme voor het verwerken van grote gegevenssets en trage analyses, zoals het analyseren van afbeeldingen in een pijplijn cognitief zoeken. Verwerking van de indexeerfunctie werkt binnen een 24-uurs tijdvenster. Als de verwerking niet kan worden voltooid binnen 24 uur, wordt het gedrag van het plannen van de indexeerfunctie kunnen werken in uw voordeel. 
+Indexeren van batch is geïmplementeerd voor afzonderlijke aanvragen met behulp van REST- of .NET of via indexeerfuncties. Een paar indexeerfuncties werken onder andere limieten. Met name stelt Azure Blob-indexering batchgrootte op 10 documenten als erkenning van de grootte van de grotere gemiddelde document. Voor indexeerfuncties op basis van de [indexeerfunctie REST-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), kunt u instellen de `BatchSize` argument voor het aanpassen van deze instelling om beter overeen met de kenmerken van uw gegevens. 
+
+> [!NOTE]
+> Houd er rekening mee om te voorkomen dat documentgrootte omlaag, moeten worden uitgesloten om gegevens van de aanvraag. Afbeeldingen en andere binaire gegevens zijn niet rechtstreeks kan worden doorzocht en mag niet worden opgeslagen in de index. Als u wilt integreren om gegevens in de zoekresultaten, moet u een niet-doorzoekbaar veld waarin een URL-verwijzing naar de resource definiëren.
+
+## <a name="add-resources"></a>Resources toevoegen
+
+Services die zijn ingericht op een van de [Standard Prijscategorieën](search-sku-tier.md) dikwijls onvoldoende capaciteit voor zowel opslag als werkbelastingen (query's of indexeren), waardoor hebt gebruikt [verhogen van het aantal partitie en replica's ](search-capacity-planning.md) een duidelijk oplossing voor grotere gegevenssets laten werken. Voor optimale resultaten, moet u beide resources: partities voor opslag en replica's voor de taken die gegevens opnemen.
+
+Steeds meer replica's en partities zijn factureerbare gebeurtenissen die uw kosten te verhogen, maar, tenzij u continu met maximale belasting indexeren worden, kunt u schaal toevoegen voor de duur van het indexeringsproces worden geautomatiseerd en pas vervolgens de resource niveaus omlaag nadat het indexeren is is voltooid.
+
+## <a name="use-indexers"></a>Gebruik van indexeerfuncties
+
+[Indexeerfuncties](search-indexer-overview.md) worden gebruikt voor het verkennen van externe gegevensbronnen voor doorzoekbare inhoud. Hoewel niet specifiek bedoeld voor grootschalige indexeren, zijn verschillende mogelijkheden voor indexeerfunctie bijzonder nuttig voor grotere gegevenssets voor:
+
++ Planners kunnen u pakket uit het indexeren met regelmatige intervallen, zodat u kunt deze verspreid na verloop van tijd.
++ Geplande indexeren kunt hervatten op het laatste punt van de bekende moet worden gestopt. Als een gegevensbron is niet volledig binnen een 24-uurs tijdvenster verkend, hervat de indexeerfunctie indexeren op dag twee op waar het afgebroken.
++ Partitioneren van gegevens in kleinere afzonderlijke gegevensbronnen kunt u parallelle verwerking. U kunt een grote gegevensset opdelen in kleinere gegevenssets, en maak vervolgens meerdere definities voor gegevensbronnen die kunnen worden geïndexeerd parallel.
+
+> [!NOTE]
+> Indexeerfuncties zijn data-source-specifieke, met behulp van een indexeerfunctie benadering is alleen beschikbaar voor geselecteerde gegevensbronnen op Azure: [SQL-Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
+
+## <a name="scheduled-indexing"></a>Geplande indexeren
+
+Plannen van de indexeerfunctie is een belangrijk mechanisme voor het verwerken van grote gegevenssets, evenals de trage processen, zoals het analyseren van afbeeldingen in een pijplijn cognitief zoeken. Verwerking van de indexeerfunctie werkt binnen een 24-uurs tijdvenster. Als de verwerking niet kan worden voltooid binnen 24 uur, wordt het gedrag van het plannen van de indexeerfunctie kunnen werken in uw voordeel. 
 
 Standaard gepland indexering begint met een bepaald interval, met een taak die doorgaans voltooien voordat u met de volgende geplande interval wordt hervat. Als de verwerking niet binnen het interval wordt voltooid, stopt de indexeerfunctie echter (vanwege tijd onvoldoende). Op het volgende interval bijhouden verwerking wordt hervat waar deze laatste afgebroken, met het system-bijhouden van waar dat wordt uitgevoerd. 
 
-U kunt de indexeerfunctie volgens een schema 24-uurs plaatsen in de praktijk bij index belastingen spanning enkele dagen. Tijdens het indexeren wordt hervat voor de volgende 24 uur per dag in het verleden, opnieuw wordt gestart op de laatste bekende goede document. Op deze manier kan een indexeerfunctie eraan via een achterstand van het document werken gedurende een reeks dagen totdat alle niet-verwerkte documenten worden verwerkt. Zie voor meer informatie over deze benadering, [indexeren van grote gegevenssets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
+U kunt de indexeerfunctie volgens een schema 24-uurs plaatsen in de praktijk bij index belastingen spanning enkele dagen. Tijdens het indexeren wordt hervat voor de volgende cyclus van 24 uur per dag, opnieuw wordt gestart op de laatste bekende goede document. Op deze manier kan een indexeerfunctie eraan via een achterstand van het document werken gedurende een reeks dagen totdat alle niet-verwerkte documenten worden verwerkt. Zie voor meer informatie over deze benadering, [grote gegevenssets in Azure Blob storage indexeren](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Zie voor meer informatie over het instellen van schema's in het algemeen [indexeerfunctie REST-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
 
 <a name="parallel-indexing"></a>
 
 ## <a name="parallel-indexing"></a>Parallelle indexeren
 
-Een tweede keuze is voor het instellen van een parallelle strategie te indexeren. Voor niet-routine, vereisten, zoals OCR op gescande documenten in een pijplijn voor cognitief zoeken, indexeren voor rekenintensieve een parallelle indexeren strategie mogelijk de juiste aanpak voor die specifieke doel. Analyse van de afbeelding en verwerking van natuurlijke taal zijn langere tijd worden uitgevoerd in een pijplijn van de verrijking cognitief zoeken. Parallelle indexeren van een service die niet tegelijkertijd van queryaanvragen verwerken is wordt mogelijk een beschikbare optie voor het uitvoeren van een grote instantie van de inhoud van de langzame-verwerking. 
+Een parallelle indexeren strategie is gebaseerd op meerdere gegevensbronnen databasetaken, waarbij elke definitie van de gegevensbron Hiermee geeft u een subset van de gegevens te indexeren. 
 
-Een strategie voor parallelle verwerking heeft de volgende elementen:
+Voor niet-routine, rekenintensieve indexering vereisten - zoals OCR op gescande documenten in een pijplijn cognitief zoeken, analyse van de afbeelding of verwerking van natuurlijke taal - een parallelle strategie indexeren is vaak de juiste aanpak voor het voltooien van een langdurig proces binnen de kortste tijd. Als u kunt voorkomen of query-aanvragen verminderen, is parallelle indexering van een service die niet tegelijkertijd van query's verwerken is de beste strategie-optie voor het uitvoeren van een grote instantie van de inhoud van de langzame-verwerking. 
 
-+ Brongegevens tussen meerdere containers of meerdere virtuele mappen in dezelfde container delen. 
-+ Elke mini gegevensset die moet worden toegewezen een [Datumbron](https://docs.microsoft.com/rest/api/searchservice/create-data-source), in een eigen gekoppelde [indexeerfunctie](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Parallelle verwerking heeft de volgende elementen:
+
++ Verdeel brongegevens tussen meerdere containers of meerdere virtuele mappen in dezelfde container. 
++ Elke mini gegevensset toewijzen aan een eigen [Datumbron](https://docs.microsoft.com/rest/api/searchservice/create-data-source), in een eigen gekoppelde [indexeerfunctie](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Verwijzen naar hetzelfde voor cognitief zoeken [vaardigheden](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in elke definitie van de indexeerfunctie.
 + Schrijven naar het hetzelfde doel search-index. 
 + Alle indexeerfuncties om uit te voeren op hetzelfde moment plannen.
 
-> [!Note]
+> [!NOTE]
 > Azure Search biedt geen ondersteuning voor uitsluitend replica's of partities op specifieke workloads. Het risico van zware gelijktijdige indexeren is uw systeem ten koste van prestaties van query's overbelasten. Als u een testomgeving hebt, voert u parallelle indexeren er eerst voor meer informatie over het gebruik van systeembronnen.
 
-## <a name="configure-parallel-indexing"></a>Parallelle indexering configureren
+### <a name="how-to-configure-parallel-indexing"></a>Het configureren van parallelle indexeren
 
 Voor indexeerfuncties, capaciteit voor het verwerken is los op basis van een indexeerfunctie-subsysteem voor elke service-eenheid (SU) die wordt gebruikt door uw search-service. Er zijn meerdere gelijktijdige indexeerfuncties op Azure Search-services die zijn ingericht op basis of standaard lagen hebben van ten minste twee replica's mogelijk. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: aae3454fc8de8455146fa1189b66e6498c32e20c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ba163b797cfaaf73c660f1ef3d8da18758e8139a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440574"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541996"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Indeling wijzigen naar diagnostische logboeken van Azure Monitor gearchiveerd naar een opslagaccount voorbereiden
 
@@ -32,7 +32,7 @@ Azure Monitor biedt een functie waarmee u voor het verzenden van diagnostische g
 * Deze wijziging wordt in één keer uitgevoerd in alle openbare cloud-regio's. De wijziging wordt in Azure China of Azure Duitsland Azure Government-clouds nog hervat.
 * Deze wijziging heeft gevolgen voor de volgende gegevenstypen:
   * [Diagnostische logboeken van Azure-resource](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([lijst met resources hier Zie](./../../azure-monitor/platform/tutorial-dashboards.md))
-  * [Azure-resource metrische gegevens die worden geëxporteerd door de diagnostische instellingen](./../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
+  * [Azure-resource metrische gegevens die worden geëxporteerd door de diagnostische instellingen](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
   * [Azure gegevens van een activiteitenlogboek wordt geëxporteerd met logboekprofielen](./../../azure-monitor/platform/archive-activity-log.md)
 * Deze wijziging heeft geen invloed op:
   * Netwerk-stroomlogboeken

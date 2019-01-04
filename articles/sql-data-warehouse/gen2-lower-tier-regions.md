@@ -38,7 +38,7 @@ Upgrade [Azure SQL datawarehouse Compute geoptimaliseerd Gen1 naar Gen2](https:/
 - US - oost 2
 - Europa -west
 - Europa - noord
-- VS - west 2
+- US - west 2
 - Azië - zuidoost
 - VS Zuid-centraal
 - US - centraal 

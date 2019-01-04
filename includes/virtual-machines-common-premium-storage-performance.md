@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678177"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553379"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Ontwerp voor hoge prestaties
 
@@ -35,7 +35,7 @@ We hebben deze richtlijnen die specifiek voor Premium-opslag omdat workloads die
 > Soms is lijkt te zijn van een prestatieprobleem schijf eigenlijk een knelpunt netwerk. In deze situaties moet u optimaliseren uw [netwerkprestaties](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Als uw virtuele machine versnelde netwerken ondersteunt, moet u ervoor zorgen dat deze is ingeschakeld. Als deze niet is ingeschakeld, kunt u het inschakelen op reeds geïmplementeerde VM's op zowel [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) en [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Voordat u begint, als u niet bekend bent met Premium Storage, lees eerst de [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md) en [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md)artikelen.
+Voordat u begint, als u niet bekend bent met Premium Storage, lees eerst de [Premium Storage: Opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md) en [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) artikelen.
 
 ## <a name="application-performance-indicators"></a>Toepassing prestatie-indicatoren
 
@@ -66,6 +66,14 @@ Daarom is het belangrijk om te bepalen van de optimale doorvoer en IOPS-waarden 
 Latentie is de tijd die nodig is een aanvraag ontvangen van een enkele aanvraag verzenden naar de opslagschijven en het antwoord naar de client te verzenden. Dit is een kritieke meting van de prestaties van een toepassing naast IOPS en doorvoer. De latentie van de schijf voor een premium-opslag is de tijd die nodig zijn voor het ophalen van de gegevens voor een aanvraag en communiceren terug naar uw toepassing. Premium Storage biedt een consistente lage latenties. Als u alleen-lezentoegang hostcache in op premium-opslagschijven inschakelt, kunt u veel lagere latentie voor het lezen. We in schijfcache wordt besproken in de volgende sectie in meer detail op *optimaliseert de prestaties van toepassingen*.
 
 Wanneer u uw toepassing om op te halen van hogere IOPS en doorvoer optimaliseert, heeft dit invloed op de latentie van uw toepassing. Na het afstemmen van de prestaties van toepassingen, moet u altijd de latentie van de toepassing om te voorkomen van onverwachte hoge latentie gedrag evalueren.
+
+Bewerkingen voor de controlelaag op beheerde schijven te volgen, kan verkeer van de schijf van de ene opslaglocatie naar de andere omvatten. Dit is georganiseerd via achtergrond kopiëren van gegevens kan enkele uren om uit te voeren, afhankelijk van de hoeveelheid gegevens in de schijven meestal minder dan 24 uur duren. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.  
+
+1.  [Update het opslagtype](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.  [Loskoppelen en een schijf koppelen van een virtuele machine naar een andere](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.  [Een beheerde schijf maken op basis van een VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.  [Een beheerde schijf maken op basis van een momentopname](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.  [Niet-beheerde schijven converteren naar beheerde schijven](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## <a name="gather-application-performance-requirements"></a>Verzamelen van prestaties toepassingsvereisten
 
@@ -108,7 +116,7 @@ De beste manier om te meten van de prestatievereisten van uw toepassing, is met 
 
 De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logische schijf en de fysieke schijf van uw server. Als u premium storage-schijven met een virtuele machine, de fysieke schijf-prestatiemeteritems maken voor elke premium-opslagschijf en prestatiemeteritems voor logische schijf zijn voor elk volume dat is gemaakt op de premium-opslagschijven. U kunt de waarden voor de schijven die als host de workload van uw toepassing fungeren moet vastleggen. Als er een één-op-een-toewijzing tussen logische en fysieke schijven, kunt u verwijzen naar prestatiemeteritems voor fysieke schijf; Raadpleeg anders de prestatiemeteritems voor logische schijf. Op Linux genereert de opdracht iostat een CPU en het disk utilization-rapport. Het disk utilization-rapport voorziet in statistieken per fysieke apparaat of de partitie. Als u een database-server met de gegevens en logboekbestanden op afzonderlijke schijven hebt, verzamelen van deze gegevens voor beide schijven. Onderstaande tabel worden beschreven tellers voor schijven, processor en geheugen:
 
-| Teller | Beschrijving | PerfMon | Iostat |
+| Teller | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOP's of transacties per seconde** |Het aantal i/o-aanvragen die zijn verleend aan de schijf voor opslag per seconde. |Schijf lezen per seconde <br> Schijf schrijven per seconde |tps <br> r/s <br> w/s |
 | **Schijf lees- en schrijfbewerkingen** |% van leesbewerkingen en bewerkingen die worden uitgevoerd op de schijf te schrijven. |Percentage schijftijd voor lezen <br> Percentage schijftijd voor schrijven |r/s <br> w/s |
@@ -403,24 +411,24 @@ Voer de stappen hieronder om te oefenen cache uit
 
 1. Twee toegangsspecificaties maken met waarden die hieronder worden weergegeven
 
-   | Naam | Aanvraaggrootte | Willekeurige % | De % lezen |
+   | Name | Aanvraaggrootte | Willekeurige % | De % lezen |
    | --- | --- | --- | --- |
    | RandomWrites\_1 MB |1MB |100 |0 |
    | RandomReads\_1 MB |1MB |100 |100 |
 1. Voer de test Iometer voor het initialiseren van cacheschijf met de volgende parameters. Drie werkthreads gebruiken voor het doelvolume en een wachtrijdiepte van 128. Stel de duur 'Uitvoeringstijd' van de test te 2hrs op het tabblad 'Testen instellen'.
 
-   | Scenario | Doelvolume | Naam | Duur |
+   | Scenario | Doelvolume | Name | Duur |
    | --- | --- | --- | --- |
    | Cacheschijf initialiseren |CacheReads |RandomWrites\_1 MB |2hrs |
 1. Voer de test Iometer voor het opwarmen van cacheschijf met de volgende parameters. Drie werkthreads gebruiken voor het doelvolume en een wachtrijdiepte van 128. Stel de duur 'Uitvoeringstijd' van de test te 2hrs op het tabblad 'Testen instellen'.
 
-   | Scenario | Doelvolume | Naam | Duur |
+   | Scenario | Doelvolume | Name | Duur |
    | --- | --- | --- | --- |
    | Warme van Cache-schijf |CacheReads |RandomReads\_1 MB |2hrs |
 
 Nadat de cacheschijf is opgewarmd, gaat u verder met de test-scenario's die hieronder worden vermeld. Als u wilt de Iometer test uitvoert, gebruikt u ten minste drie werkthreads voor **elke** volume als doel. Voor elke werkthread, selecteert u het doelvolume, wachtrijdiepte ingesteld en selecteert u een van de specificaties opgeslagen test, zoals wordt weergegeven in de onderstaande tabel, om uit te voeren van het bijbehorende Testscenario. De tabel toont ook verwachte resultaten voor IOPS en doorvoer bij het uitvoeren van deze tests. Voor alle scenario's, wordt een kleine i/o-grootte van 8KB en een hoge wachtrijdiepte van 128 gebruikt.
 
-| Testscenario | Doelvolume | Naam | Resultaat |
+| Testscenario | Doelvolume | Name | Resultaat |
 | --- | --- | --- | --- |
 | Met maximaal Gelezen IOP 's |CacheReads |RandomWrites\_8 kB |MAAR LIEFST 50.000 IOPS |
 | Met maximaal IOPS-schrijfbewerkingen |NoCacheWrites |RandomReads\_8 kB |MAAR LIEFST 64.000 IOPS |
@@ -597,7 +605,7 @@ Als u de maximale gecombineerde lezen en schrijven doorvoer, gebruikt u een grot
 
 Meer informatie over Azure Premium Storage:
 
-* [Premium Storage: opslag met hoge prestaties voor de werkbelasting van virtuele Azure-machines](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure](../articles/virtual-machines/windows/premium-storage.md)  
 
 Lees de artikelen over aanbevolen procedures voor prestaties voor SQL Server voor SQL Server-gebruikers:
 

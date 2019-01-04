@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060578"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628337"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Beheren van opslag in de Azure-onafhankelijke clouds met behulp van PowerShell
 
@@ -23,6 +23,8 @@ De meeste mensen gebruiken openbare Azure-Cloud voor de globale Azure-implementa
 * [Azure China-Cloud uitgevoerd door 21Vianet in China](http://www.windowsazure.cn/)
 * [Azure-Duitse Cloud](../../germany/germany-welcome.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="using-an-independent-cloud"></a>Met behulp van een onafhankelijke cloud 
 
 Voor het gebruik van Azure Storage in een van de onafhankelijke clouds, moet u die cloud in plaats van openbare Azure-verbinden. Gebruik een van de onafhankelijke clouds in plaats van openbare Azure:
@@ -31,33 +33,33 @@ Voor het gebruik van Azure Storage in een van de onafhankelijke clouds, moet u d
 * U bepalen en de beschikbare regio's.
 * U gebruik het juiste eindpunt-achtervoegsel, die van openbare Azure afwijkt.
 
-De voorbeelden moet Azure PowerShell-moduleversie 4.4.0 of hoger. Voer in een PowerShell-venster `Get-Module -ListAvailable AzureRM` de versie te vinden. Als niets wordt weergegeven, of u wilt upgraden, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+De voorbeelden vereist Azure PowerShell module Az versie 0,7 of hoger. Voer in een PowerShell-venster `Get-Module -ListAvailable Az` de versie te vinden. Als niets wordt weergegeven, of u wilt upgraden, Zie [Azure PowerShell-module installeren](/powershell/azure/install-Az-ps). 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Voer de [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) cmdlet om te controleren van de beschikbare Azure-omgevingen:
+Voer de [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) cmdlet om te controleren van de beschikbare Azure-omgevingen:
    
 ```powershell
-Get-AzureRmEnvironment
+Get-AzEnvironment
 ```
 
 Aanmelden bij uw account dat toegang heeft tot de cloud die u wilt verbinden en de omgeving. Dit voorbeeld laat zien hoe u zich aanmelden bij een account dat gebruikmaakt van de Azure Government-Cloud.   
 
 ```powershell
-Connect-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzAccount –Environment AzureUSGovernment
 ```
 
 Voor toegang tot de China-Cloud, gebruikt u de omgeving **AzureChinaCloud**. Gebruiken voor toegang tot de Duitse Cloud, **AzureGermanCloud**.
 
-Als u de lijst met locaties te maken van een storage-account of een andere resource nodig hebt, kunt u op dit moment de locaties die beschikbaar zijn voor het gebruik van de geselecteerde cloud query [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+Als u de lijst met locaties te maken van een storage-account of een andere resource nodig hebt, kunt u op dit moment de locaties die beschikbaar zijn voor het gebruik van de geselecteerde cloud query [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```powershell
-Get-AzureRmLocation | select Location, DisplayName
+Get-AzLocation | select Location, DisplayName
 ```
 
 De volgende tabel ziet u de locaties die worden geretourneerd voor de Duitse cloud.
 
-|Locatie | Weergavenaam |
+|Locatie | DisplayName |
 |----|----|
 | germanycentral | Duitsland - centraal|
 | germanynortheast | Duitsland - noordoost | 
@@ -67,36 +69,36 @@ De volgende tabel ziet u de locaties die worden geretourneerd voor de Duitse clo
 
 Het achtervoegsel van het eindpunt voor elk van deze omgevingen wijkt af van het openbare Azure-eindpunt. Bijvoorbeeld, het achtervoegsel van het blob-eindpunt voor openbare Azure-is **blob.core.windows.net**. Voor de Government-Cloud, het achtervoegsel van het blob-eindpunt is **blob.core.usgovcloudapi.net**. 
 
-### <a name="get-endpoint-using-get-azurermenvironment"></a>Met behulp van Get-AzureRMEnvironment-eindpunt ophalen 
+### <a name="get-endpoint-using-get-azenvironment"></a>Met behulp van Get-AzEnvironment-eindpunt ophalen 
 
-Ophalen van het eindpunt achtervoegsel via [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). Het eindpunt is de *StorageEndpointSuffix* eigenschap van de omgeving. De volgende codefragmenten laten zien hoe u dit doet. Deze opdrachten retourneren iets, zoals 'core.cloudapp.net' of 'core.cloudapi.de', enzovoort. Voeg dit toe aan de storage-service voor toegang tot deze service. "Queue.core.cloudapi.de" wordt bijvoorbeeld toegang tot de queue-service in de Duitse Cloud.
+Ophalen van het eindpunt achtervoegsel via [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). Het eindpunt is de *StorageEndpointSuffix* eigenschap van de omgeving. De volgende codefragmenten laten zien hoe u dit doet. Deze opdrachten retourneren iets, zoals 'core.cloudapp.net' of 'core.cloudapi.de', enzovoort. Voeg dit toe aan de storage-service voor toegang tot deze service. "Queue.core.cloudapi.de" wordt bijvoorbeeld toegang tot de queue-service in de Duitse Cloud.
 
 Dit codefragment worden alle van de omgevingen en het achtervoegsel van het eindpunt voor elk criterium opgehaald.
 
 ```powershell
-Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
+Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
 Met deze opdracht worden de volgende resultaten geretourneerd.
 
-| Naam| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | Core.usgovcloudapi.NET |
 
-Als u wilt alle van de eigenschappen voor de opgegeven omgeving ophalen, aanroepen **Get-AzureRmEnvironment** en geef de cloudnaam. Dit codefragment retourneert een lijst met eigenschappen. Zoek naar **StorageEndpointSuffix** in de lijst. Het volgende voorbeeld is voor de Duitse Cloud.
+Als u wilt alle van de eigenschappen voor de opgegeven omgeving ophalen, aanroepen **Get-AzEnvironment** en geef de cloudnaam. Dit codefragment retourneert een lijst met eigenschappen. Zoek naar **StorageEndpointSuffix** in de lijst. Het volgende voorbeeld is voor de Duitse Cloud.
 
 ```powershell
-Get-AzureRmEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud 
 ```
 
 De resultaten zijn vergelijkbaar met het volgende:
 
-|De naam van eigenschap|Waarde|
+|Naam van eigenschap|Waarde|
 |----|----|
-| Naam | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |
@@ -111,7 +113,7 @@ De resultaten zijn vergelijkbaar met het volgende:
 Alleen de opslag-achtervoegsel eindpunteigenschap ophalen, de specifieke cloud ophalen en vragen om alleen die een eigenschap.
 
 ```powershell
-$environment = Get-AzureRmEnvironment -Name AzureGermanCloud
+$environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 
@@ -129,7 +131,7 @@ U kunt ook de eigenschappen van een storage-account om op te halen van de eindpu
 # Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
   # Output the endpoints.
@@ -157,7 +159,7 @@ Vanaf hier voortaan, kunt u de dezelfde PowerShell gebruikt voor het beheren van
 Als u een nieuwe resourcegroep en een opslagaccount voor deze oefening hebt gemaakt, kunt u alle activa die door het verwijderen van de resourcegroep verwijderen. Hiermee verwijdert u ook alle resources binnen de groep. In dit geval verwijderd het de storage-account gemaakt en de resourcegroep zelf.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

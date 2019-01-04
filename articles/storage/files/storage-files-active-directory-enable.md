@@ -7,17 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: c898a206322bbc6acb73d582fcb08c8bbba274d0
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 03344cf989e1381f97b108e82b8d63e9c4653404
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291437"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809796"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory-verificatie inschakelen via SMB voor Azure Files (preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Zie voor een overzicht van Azure AD-verificatie voor Azure Files via SMB, [overzicht van Azure Active Directory-verificatie voor Azure Files (Preview) via SMB](storage-files-active-directory-overview.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Overzicht van de werkstroom
 Voordat u Azure AD via SMB voor Azure Files inschakelt, Controleer uw Azure AD en Azure Storage-omgevingen correct zijn geconfigureerd. Het wordt aanbevolen dat u stapsgewijs door de [vereisten](#prerequisites) om ervoor te zorgen dat u alle vereiste stappen hebt uitgevoerd. 
@@ -60,7 +62,7 @@ Voordat u Azure AD via SMB voor Azure Files inschakelt, zorg er dan voor dat u h
 
     Selecteer een nieuwe of bestaande bestandsshare die is gekoppeld aan hetzelfde abonnement als uw Azure AD-tenant. Zie voor meer informatie over het maken van een nieuwe bestandsshare [een bestandsshare maken in Azure Files](storage-how-to-create-file-share.md). 
 
-    De Azure AD-tenant moet worden geïmplementeerd in een regio die wordt ondersteund voor de Preview-versie van Azure AD via SMB. De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: VS-West, VS-West 2, Zuid-centraal VS, VS-Oost, VS-Oost 2, VS-midden, Noord-centraal VS, Australië-Oost, West-Europa, Noord-Europa.
+    De Azure AD-tenant moet worden geïmplementeerd in een regio die wordt ondersteund voor de Preview-versie van Azure AD via SMB. De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: VS-West, VS-West 2, VS Zuid-centraal, VS-Oost, VS-Oost 2, VS-midden, VS Noord-centraal, Australië-Oost, West-Europa, Noord-Europa.
 
     Voor optimale prestaties wordt aangeraden dat de bestandsshare zich in dezelfde regio als de virtuele machine van waaruit u plant voor toegang tot de share.
 
@@ -88,17 +90,17 @@ De volgende afbeelding ziet u hoe u Azure AD-verificatie via SMB inschakelt voor
   
 ### <a name="powershell"></a>PowerShell  
 
-Als u Azure AD-verificatie via SMB van Azure PowerShell, installeert u eerst de `AzureRM.Storage` -module, versie `6.0.0-preview`, als volgt. Zie voor meer informatie over het installeren van PowerShell [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps):
+Om in te schakelen Azure AD-verificatie via SMB van Azure PowerShell, installeert u eerst een preview-versie van de `Az.Storage` module met Azure AD-ondersteuning. Zie voor meer informatie over het installeren van PowerShell [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
 
 ```powershell
-Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
 ```
 
-Maak vervolgens een nieuwe opslag Roep vervolgens account [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) en stel de **EnableAzureFilesAadIntegrationForSMB** parameter **waar**. Houd er rekening mee in het volgende voorbeeld wordt de tijdelijke aanduiding voor waarden vervangen door uw eigen waarden.
+Maak vervolgens een nieuwe opslag Roep vervolgens account [Set AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) en stel de **EnableAzureFilesAadIntegrationForSMB** parameter **waar**. Houd er rekening mee in het volgende voorbeeld wordt de tijdelijke aanduiding voor waarden vervangen door uw eigen waarden.
 
 ```powershell
 # Create a new storage account
-New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
+New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -Location "<azure-region>" `
     -SkuName Standard_LRS `
@@ -107,7 +109,7 @@ New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # Update an existing storage account
 # Supported for storage accounts created after September 24, 2018 only
-Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true```
 ```
@@ -152,17 +154,16 @@ De volgende aangepaste rolsjabloon biedt machtigingen voor share-niveau wijzigen
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share",
+  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-    "*"
-  ],
-  "NotActions": [
-      "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshare/*"
   ],
   "DataActions": [
-    "*"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/*"
+  ],
+  "NotDataActions": [
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermission",
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actasadmin"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"
@@ -178,12 +179,12 @@ De volgende aangepaste rolsjabloon biedt de leesmachtigingen share-niveau, een i
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share",
+  "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-    "*/read"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshare/read"
   ],
   "DataActions": [
-    "*/read"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"
@@ -201,7 +202,7 @@ De volgende PowerShell-opdracht maakt u een aangepaste rol die is gebaseerd op e
 
 ```powershell
 #Create a custom role based on the sample template above
-New-AzureRmRoleDefinition -InputFile "<custom-role-def-json-path>"
+New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
 ```
 
 #### <a name="cli"></a>CLI 
@@ -225,11 +226,11 @@ Wanneer u het volgende voorbeeld van een script uitvoert, moet u tijdelijke aand
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzureRmRoleDefinition "<role-name>"
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>"
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
-New-AzureRmRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
+New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
 #### <a name="cli"></a>CLI

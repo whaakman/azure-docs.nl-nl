@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311810"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724849"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinden met Azure Search met behulp van indexeerfuncties
 
@@ -38,7 +38,7 @@ In de volgende video Azure Cosmos DB Program Manager Andrew Liu ziet u hoe u een
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>Ondersteunde API-typen
 
-Hoewel Azure Cosmos DB een groot aantal gegevensmodellen en API's ondersteunt, breidt de ondersteuning voor productie van Azure Search-indexeerfunctie alleen de SQL-API. Ondersteuning voor MongoDB-API is momenteel in openbare preview.  
+Hoewel Azure Cosmos DB een groot aantal gegevensmodellen en API's ondersteunt, breidt de ondersteuning voor productie van Azure Search-indexeerfunctie alleen de SQL-API. Ondersteuning voor de Azure Cosmos DB voor MongoDB-API is momenteel in openbare preview.  
 
 Ondersteuning voor aanvullende API's is binnenkort. Om te helpen we prioriteit geven aan welke u moet eerst worden ondersteund, neem uw stem op de website van User Voice cast-conversie:
 

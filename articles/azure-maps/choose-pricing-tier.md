@@ -3,17 +3,17 @@ title: Kies de prijscategorie voor Azure-kaarten rechts | Microsoft Docs
 description: Meer informatie over prijzen van lagen die worden aangeboden door Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998383"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993957"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>De prijscategorie van Azure Maps rechts kiezen
 
@@ -53,9 +53,8 @@ Zie de tabel met **prijscategorie gericht klanten** een beter idee van de Prijsc
 
 | Prijscategorie  |        Potentiële klanten                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>De prijscategorie S0 is voor klanten die kleine of middelgrote bedrijven. Het is een recht prijscategorie voor u, als u grote aantallen gelijktijdige gebruikers niet verwacht en uw servicevereisten wordt voldaan door de georuimtelijke core API's, zoals aangegeven door de onderstaande tabel. Deze laag is algemeen beschikbaar en is van toepassing voor toepassingen in alle fasen van de productie van proof-of-concept-ontwikkeling en vroege toepassing productie en de implementatie testen.<p>|
+| S0            |    <p>De prijscategorie S0 is voor klanten die kleine of middelgrote bedrijven. Het is een recht prijscategorie voor u, als u grote aantallen gelijktijdige gebruikers niet verwacht en uw servicevereisten wordt voldaan door de georuimtelijke core API's, zoals aangegeven door de bovenstaande tabel. Deze laag is algemeen beschikbaar en is van toepassing voor toepassingen in alle fasen van de productie van proof-of-concept-ontwikkeling en vroege toepassing productie en de implementatie testen.<p>|
 | S1            |    <p>De prijscategorie S1 is bedoeld voor klanten die moeten worden ondersteuning voor grootschalige enterprise, essentiële toepassingen, grote aantallen gelijktijdige gebruikers, of geavanceerde georuimtelijke services vereist.</p>|
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

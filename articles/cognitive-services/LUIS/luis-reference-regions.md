@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d8d3d4d55d4d03eb6d6a62898823158812d7c1f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 995300fe2a82fb41078d1c66435f0fb006d5f8cf
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135828"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603688"
 ---
-# <a name="regions-and-keys"></a>Regio's en sleutels
+# <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Ontwerpen en het publiceren van regio's en de bijbehorende sleutels
 
 De regio waarin u uw LUIS-app publiceren overeenkomt met de regio of locatie die u in de Azure-portal opgeeft wanneer u een Azure LUIS-eindpuntsleutel maakt. Wanneer u [een app publiceren](./luis-how-to-publish-app.md), LUIS genereert automatisch een eindpunt-URL voor de regio die is gekoppeld aan de sleutel. Als u wilt een LUIS-app publiceren in meer dan één regio, moet u ten minste één sleutel per regio. 
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011773"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725929"
 ---
 # <a name="liveevent-types-comparison"></a>LiveEvent typen vergelijking
 
@@ -28,7 +28,7 @@ In Azure Media Services, een [LiveEvent](https://docs.microsoft.com/rest/api/med
 
 De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
 
-| Functie | Pass Through-LiveEvent | Standard (standaard) LiveEvent |
+| Functie | Pass Through-LiveEvent | Standard LiveEvent |
 | --- | --- | --- |
 | Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
 | Maximale beeldschermresolutie voor bijdrage feed |4K (4096 x 2160 op 60 frames per seconde) |1080p (1920 x 1088 op 30 frames per seconde)|

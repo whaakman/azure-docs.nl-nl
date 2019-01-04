@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251025"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794351"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -97,7 +97,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
 ### <a name="configure-settings"></a>Instellingen configureren
 
-1. Selecteer in de wizard voor het beheer van de configuratieserver **Connectiviteit instellen** en selecteer vervolgens de NIC die door de processerver wordt gebruikt voor het ontvangen van replicatieverkeer van VM's. Selecteer vervolgens **Opslaan**. U kunt deze instelling niet wijzigen nadat deze is geconfigureerd.
+1. Selecteer in de wizard voor het beheer van de configuratieserver **Connectiviteit instellen** en selecteer vervolgens de NIC die door de processerver wordt gebruikt voor het ontvangen van replicatieverkeer van VM's. Selecteer vervolgens **Opslaan**. U kunt deze instelling niet wijzigen nadat deze is geconfigureerd. Het wordt sterk aanbevolen de IP-adres van een configuratieserver niet wijzigen. Zorg ervoor dat IP-adres toegewezen aan de configuratieserver is statisch IP-adres en niet DHCP IP.
 2. In **Selecteer Recovery Services-kluis**, zich aanmelden bij Microsoft Azure, selecteer uw Azure-abonnement en de relevante resourcegroep en kluis.
 
     > [!NOTE]
@@ -150,7 +150,11 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
     In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. Selecteer in de Servers, **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
 8. Kan ik klonen van een bestaande configuratieserver en gebruiken voor het indelen van replicatie?
 
-    **Geen**, gebruik van een gekloonde onderdeel van de configuratieserver wordt niet ondersteund. 
+    **Geen**, gebruik van een gekloonde onderdeel van de configuratieserver wordt niet ondersteund.
+
+9. Kan ik het IP-adres van de configuratieserver wijzigen?
+
+    **Geen**, het wordt sterk aanbevolen niet wijzigen het IP-adres van een configuratieserver. Zorg ervoor dat alle IP-adressen toegewezen aan de configuratieserver worden statische IP-adressen en geen DHCP IP-adressen.
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 

@@ -5,20 +5,21 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846008"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790653"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
 U ontvangt mogelijk een bericht specifieke fout bij het beveiligen van uw virtuele VMware-machines of fysieke servers met Azure Site Recovery. In dit artikel beschrijft enkele veelvoorkomende problemen die optreden tijdens het repliceren van on-premises virtuele VMware-machines en fysieke servers naar Azure met [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="initial-replication-issues"></a>Initiële replicatie oplossen.
+
+## <a name="initial-replication-issues"></a>Initiële replicatie oplossen
 
 In veel gevallen zijn initiële replicatie-fouten die we op ondersteuning optreden vanwege problemen met de netwerkverbinding tussen de serverproces bronserver of verwerken van server naar Azure. De meeste gevallen kunt u deze problemen kunt oplossen door de onderstaande stappen te volgen.
 
@@ -33,7 +34,7 @@ Kan geen verbinding maken, binnenkomende poort 9443 op de processerver toestaan 
 
 * Controleer de status van service `InMage Scout VX Agent – Sentinel/OutpostStart` als deze niet wordt uitgevoerd en controleer of als het probleem blijft bestaan.   
 
-## <a name="verify-the-process-server"></a>Controleer of de processerver
+### <a name="verify-the-process-server"></a>Controleer of de processerver
 
 * **Controleer als processerver actief van gegevens naar Azure pushen is**
 
@@ -69,9 +70,9 @@ Als er problemen zijn, klikt u vervolgens vanaf de opdrachtregel processerver te
 Als u kan geen verbinding maken, klikt u vervolgens controleren of het toegangsprobleem vanwege een firewall of Proxy, zoals beschreven in de volgende stap.
 
 
-* **Controleer als IP-adressen gebaseerde firewallregels op de processerver toegang niet blokkeert**: als u een IP-adressen gebaseerde firewallregels gebruikt op de server, downloadt u de volledige lijst van Microsoft Azure Datacenter IP-bereiken van [hier](https://www.microsoft.com/download/details.aspx?id=41653) en toe te voegen aan uw firewallconfiguratie om ervoor te zorgen dat communicatie met Azure (en de poort HTTPS (443)).  Sta de IP-adresbereiken voor de Azure-regio van uw abonnement en voor de regio US - west toe (deze worden gebruikt voor toegangs- en identiteitsbeheer).
+* **Controleer als IP-adressen gebaseerde firewallregels op de processerver toegang niet blokkeert**: Als u een IP-adressen gebaseerde firewallregels gebruikt op de server, downloadt u de volledige lijst van Microsoft Azure Datacenter IP-bereiken van [hier](https://www.microsoft.com/download/details.aspx?id=41653) en toe te voegen aan uw firewallconfiguratie om ervoor te zorgen dat communicatie met Azure (en de poort HTTPS (443)).  Sta de IP-adresbereiken voor de Azure-regio van uw abonnement en voor de regio US - west toe (deze worden gebruikt voor toegangs- en identiteitsbeheer).
 
-* **Controleer als URL-gebaseerde firewall op de processerver toegang niet blokkeert**: als u een URL-gebaseerde firewall-regels op de server, controleert u of de volgende URL's worden toegevoegd aan de firewall-configuratie.
+* **Controleer als URL-gebaseerde firewall op de processerver toegang niet blokkeert**:  Als u een URL-gebaseerde firewall-regels op de server, controleert u of dat de volgende URL's worden toegevoegd aan de firewall-configuratie.
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -86,7 +87,20 @@ Zoeken in Microsoft Azure Backup
 Open het en klikt u op actie > Eigenschappen wijzigen. Onder het tabblad Proxy-configuratie ziet u de proxy-adres hetzelfde moet zoals aangegeven in de registerinstellingen. Als dat niet het geval is, wijzig deze aan hetzelfde adres.
 
 
-* **Controleer als vertraging bandbreedte niet op de processerver wordt beperkt**: de bandbreedte vergroten en controleer of het probleem nog steeds bestaat.
+* **Controleer als vertraging bandbreedte niet op de processerver wordt beperkt**:  De bandbreedte vergroten en controleer of het probleem nog steeds bestaat.
+
+## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>Bron-VM moet worden beveiligd met Site Recovery niet wordt weergegeven op de Azure portal
+
+Bij het kiezen van de bronmachine replicatie met Azure Site Recovery in te schakelen, de computer mogelijk niet beschikbaar voor u kunt doorgaan met de volgende oorzaken hebben
+
+* Als er twee virtuele machines onder het vCenter met dezelfde instantie UUID, klikt u vervolgens de eerste virtuele machine is gedetecteerd door de configuratieserver zijn worden weergegeven in de portal. Zorg ervoor dat er geen twee virtuele machines hetzelfde exemplaar UUID hebben om op te lossen.
+* Zorg ervoor dat u hebt toegevoegd de juiste vCenter-referenties tijdens het instellen van van de configuratie met behulp van OVF-sjabloon of geïntegreerde set up. Als u wilt controleren of de referenties die zijn toegevoegd, raadpleegt u de richtlijnen voor gedeelde [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* Als de machtigingen die voor toegang tot vCenter niet voldoende bevoegdheden hebben, kan dit leiden tot fouten in het detecteren van virtuele machines. Zorg ervoor dat de machtigingen die [hier](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) worden toegevoegd aan het account van de vCenter-gebruiker.
+* Als de virtuele machine is al beveiligd met Site Recovery, wordt klikt u vervolgens het niet meer beschikbaar voor beveiliging. Zorg ervoor dat de virtuele machine die u in de portal zoekt is nog niet beveiligd door een andere gebruiker of onder andere abonnementen.
+
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Beveiligde virtuele machines uit grijs worden weergegeven in de portal
+
+Virtuele machines die worden gerepliceerd in Site Recovery worden grijs weergegeven als er dubbele vermeldingen in het systeem. Raadpleeg de richtlijnen gegeven [hier](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) verwijderen van de verouderde vermeldingen en los het probleem.
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u meer hulp nodig hebt, klikt u vervolgens boek uw query [Azure Site Recovery-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We hebben een actieve community en een van onze technici kunnen om u te helpen.

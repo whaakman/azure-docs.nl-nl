@@ -10,18 +10,22 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 8542b1f6dfe031de58ea6eeb931027ee03bd81f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5e5392f04b7894f0fe39a940865035d967c2d19a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030962"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629935"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>Een upgrade uw QnA Maker-service uitvoeren
 U kunt kiezen om bij te werken van afzonderlijke onderdelen van de QnA Maker-stack nadat de initiële is gemaakt. Bekijk de details van de afhankelijke onderdelen en de SKU-selectie [hier](https://aka.ms/qnamaker-docs-capacity).
 
 ## <a name="upgrade-qna-maker-management-sku"></a>QnA Maker Management SKU upgraden
+
+Als u wilt hebben van meer vragen en antwoorden in uw knowledge base, buiten de huidige laag upgrade uw prijscategorie QnA Maker-service. 
+
 Upgrade de QnA Maker management SKU:
+
 1. Ga naar uw QnA Maker-resource in Azure portal en selecteer **prijscategorie**.
 
     ![QnA Maker-resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
@@ -31,6 +35,9 @@ Upgrade de QnA Maker management SKU:
     ![Prijzen voor QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## <a name="upgrade-app-service"></a>Appservice bijwerken
+
+ Wanneer uw knowledge base fungeren meer aanvragen van uw client-app moet, moet u uw app-service prijscategorie bijwerken.
+
 U kunt [omhoog schalen](https://docs.microsoft.com/azure/app-service/web-sites-scale) of verkleinen van de appservice.
 
 1. Ga naar de resource voor de App-service in Azure portal en selecteer **omhoog schalen** of **omlaag schalen** opties zoals vereist.
@@ -38,6 +45,9 @@ U kunt [omhoog schalen](https://docs.microsoft.com/azure/app-service/web-sites-s
     ![QnA Maker app service schalen](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
 ## <a name="upgrade-azure-search-service"></a>Azure Search-service upgraden
+
+Wanneer u van plan bent om veel knowledge bases, upgrade van uw Azure Search-service prijscategorie. 
+
 Het is momenteel niet mogelijk om uit te voeren van een in-place upgrade van de Azure SKU zoeken. U kunt echter een nieuwe resource van Azure search maken met de gewenste SKU, de gegevens te herstellen naar de nieuwe resource en vervolgens koppelen aan de QnA Maker-stack.
 
 1. Maak een nieuwe Azure search-resource in Azure portal en kies de gewenste SKU.

@@ -8,22 +8,24 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829407"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634708"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Uw apparaat aansluiten op de Remote Monitoring solution accelerator (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle.
+Deze zelfstudie leert u hoe u een echt apparaat verbinden met de oplossingsverbetering voor externe controle.
 
 Net als bij de meeste embedded-toepassingen die worden uitgevoerd op apparaten met beperkte, is de clientcode voor de apparaattoepassing geschreven in C. In deze zelfstudie bouwt u de apparaat-clienttoepassing op een computer met Windows.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+Als u liever een apparaat simuleren, Zie [maken en test een nieuw gesimuleerd apparaat](iot-accelerators-remote-monitoring-create-simulated-device.md).
+
+## <a name="prerequisites"></a>Vereisten
 
 Om uit te voeren de stappen in deze gebruiksaanwijzing Volg de stappen in [instellen van uw Windows-ontwikkelomgeving](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) de vereiste ontwikkelprogramma's en bibliotheken toevoegen aan uw Windows-machine.
 
@@ -33,7 +35,7 @@ De [voorbeeldcode](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>De broncode downloaden en voorbereiden van het project
 
-Om voor te bereiden op het project, klonen of downloaden de [opslagplaats Azure IoT C SDKs](https://github.com/Azure/azure-iot-sdk-c) vanuit GitHub.
+Voorbereiden van het project, [kloon de opslagplaats van de Azure IoT C SDKs](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) vanuit GitHub.
 
 Het voorbeeld bevindt zich de **samples/oplossingen/remote_monitoring_client** map.
 

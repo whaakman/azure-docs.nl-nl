@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: fae4fffbe9e4b0be0f2edacf3e86b6268cc58608
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 39525c7e25e247504429ea36210986a5e3300cc1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384646"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537168"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
 
@@ -70,7 +70,7 @@ U kunt een virtueel netwerk niet verplaatsen naar een andere resourcegroep of ab
 2. Selecteer **een resource maken** in de linkerbovenhoek van Azure portal.
 3. Voer de naam van het virtuele netwerk dat u wilt inschakelen DDoS Protection standaard voor in de **resources, services en documenten vak Zoeken** aan de bovenkant van de portal. Wanneer de naam van het virtuele netwerk wordt weergegeven in de lijst met zoekresultaten, selecteert u deze.
 4. Selecteer **DDoS protection**onder **instellingen**.
-5. Selecteer **Standard**. Onder **DDoS-beschermingsplan**, selecteert u een bestaande DDoS-beschermingsplan of het abonnement dat u in stap 1 hebt gemaakt en selecteer vervolgens **opslaan**. Het abonnement dat u selecteert, kan zich in het hetzelfde of een ander abonnement dan het virtuele netwerk, maar beide abonnementen moeten zijn gekoppeld aan dezelfde Azure Active Directory-tenant.
+5. selecteer **Standaard**. Onder **DDoS-beschermingsplan**, selecteert u een bestaande DDoS-beschermingsplan of het abonnement dat u in stap 1 hebt gemaakt en selecteer vervolgens **opslaan**. Het abonnement dat u selecteert, kan zich in het hetzelfde of een ander abonnement dan het virtuele netwerk, maar beide abonnementen moeten zijn gekoppeld aan dezelfde Azure Active Directory-tenant.
 
 ## <a name="disable-ddos-for-a-virtual-network"></a>DDoS uitschakelen voor een virtueel netwerk
 
@@ -157,7 +157,7 @@ Aanval risicobeperking rapporten maakt gebruik van de gegevens voor het protocol
 6. Selecteer **diagnostische gegevens voor het verzamelen van het logboek DDoSMitigationReports inschakelen** en selecteer vervolgens zo veel van de volgende opties die u nodig hebt:
 
     - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Zowel de incrementele en na aanval risicobeperking-rapporten bevatten de volgende velden
@@ -179,7 +179,7 @@ Aanval risicobeperking Flow Logboeken kunt u bekijken van het verwijderde verkee
 6. Selecteer **diagnostische gegevens voor het verzamelen van het logboek DDoSMitigationFlowLogs inschakelen** en selecteer vervolgens zo veel van de volgende opties die u nodig hebt:
 
     - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Als u wilt de gegevens van de logboeken stroom bekijken in Azure analytics-dashboard, kunt u het voorbeelddashboard van importeren https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 

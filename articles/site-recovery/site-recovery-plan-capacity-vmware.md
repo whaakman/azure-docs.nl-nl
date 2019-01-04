@@ -4,15 +4,15 @@ description: Dit artikel om de capaciteit plannen en schaal gebruiken bij het in
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f724837e8cce733680b98a5df5690e6a8dfbf6ee
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f644416a9e56009aadd0f8e1b217402d625af84
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258845"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788732"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Plannen van capaciteit en schaalbaarheid voor noodherstel van VMware naar Azure
 
@@ -20,7 +20,7 @@ In dit artikel gebruiken om te achterhalen van de capaciteit plannen en te schal
 
 ## <a name="how-do-i-start-capacity-planning"></a>Hoe start ik plannen van capaciteit?
 
-Informatie verzamelen over uw replicatieomgeving door het uitvoeren van de [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) voor VMware-replicatie. [Meer informatie](site-recovery-deployment-planner.md) over dit hulpprogramma. U zult verzamelen van informatie over compatibele en niet-compatibele virtuele machines, schijven per virtuele machine, en gegevensverloop per schijf. Het hulpprogramma behandelt ook de netwerkbandbreedtevereisten en de Azure-infrastructuur die nodig is voor een succesvolle replicatie en testfailover.
+Als u wilt weten de vereisten voor Azure Site Recovery-infrastructuur, verzamelt u informatie over uw replicatieomgeving door de [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) voor VMware-replicatie. [Meer informatie](site-recovery-deployment-planner.md) over dit hulpprogramma. Dit hulpprogramma biedt een rapport met volledige informatie op compatibele en niet-compatibele virtuele machines, schijven per VM en gegevensverloop per schijf. Het hulpprogramma bevat ook een overzicht van netwerkbandbreedtevereisten om te voldoen aan de RPO-doel en de Azure-infrastructuur die nodig zijn voor succesvolle replicatie en failover.
 
 ## <a name="capacity-considerations"></a>Overwegingen voor capaciteit
 
@@ -30,45 +30,59 @@ Informatie verzamelen over uw replicatieomgeving door het uitvoeren van de [Azur
 **Configuratieserver** | De configuratieserver moet kunnen zijn voor het afhandelen van het dagelijkse tarief capaciteit voor wijzigen voor alle workloads die worden uitgevoerd op beveiligde machines en moet voldoende bandbreedte continu om gegevens te repliceren naar Azure Storage.<br/><br/> Als een best practice, zoekt u de configuratieserver op hetzelfde netwerk- en LAN-segment als de machines die u wilt beveiligen. Deze kan zich bevinden op een ander netwerk, maar machines die u wilt beveiligen moet zichtbaarheid van laag-3-netwerk toe.<br/><br/> Aanbevelingen voor de grootte voor de configuratieserver worden samengevat in de tabel in de volgende sectie.
 **Processerver** | De eerste processerver is standaard geïnstalleerd op de configuratieserver. U kunt extra processervers om te schalen van uw omgeving kunt implementeren. <br/><br/> De processerver ontvangt replicatiegegevens van beveiligde machines en optimaliseert met caching, compressie en codering. Vervolgens verzendt de gegevens naar Azure. De proces-server-machine moet voldoende bronnen zijn voor deze taken uitvoeren.<br/><br/> De processerver maakt gebruik van een cache op basis van een schijf. Gebruik een afzonderlijke cacheschijf 600 GB of meer om gegevenswijzigingen die zijn opgeslagen in het geval van een knelpunt netwerk of een storing te verwerken.
 
-## <a name="size-recommendations-for-the-configuration-server"></a>Aanbevelingen voor de grootte voor de configuratieserver
+## <a name="size-recommendations-for-the-configuration-serverin-built-process-server"></a>Aanbevelingen voor de grootte voor de configuratie van server/ingebouwde processerver
+
+Elke configuratieserver geïmplementeerd via [OVF-sjabloon](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) een ingebouwde processerver heeft. Resources van de configuratieserver, zoals CPU, geheugen, schijfruimte worden gebruikt op een ander tarief als ingebouwde processerver wordt gebruikt om virtuele machines te beveiligen. Daarom kan verschillen de vereisten als ingebouwde processerver wordt gebruikt.
+Een configuratieserver waar ingebouwde processerver wordt gebruikt ter bescherming van de werkbelasting kan maximaal 200 virtuele machines op basis van de volgende configuraties worden verwerkt
 
 **CPU** | **Geheugen** | **Cachegrootte van de schijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines**
 --- | --- | --- | --- | ---
 8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz [gigahertz]) | 16 GB | 300 GB | 500 GB of minder | Minder dan 100 machines repliceren.
 12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) | 18 GB | 600 GB | 500 GB tot 1 TB | 100-150-machines repliceren.
 16 vcpu's (2-sockets * 8 kernen \@ 2,5 GHz) | 32 GB | 1 TB | 1 TB tot 2 TB | Repliceren tussen 150 tot 200-machines.
-Een andere processerver implementeren | | | > 2 TB | Extra processervers implementeren als u meer dan 200 machines repliceert, of als de dagelijkse gegevens wijzigt tarief is groter dan 2 TB.
+Implementeren van een andere configuratieserver via [OVF-sjabloon](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) | | | | Nieuwe configuratieserver implementeren als u meer dan 200 machines repliceert.
+Implementatie van een andere [processerver](vmware-azure-set-up-process-server-scale.md#download-installation-file) | | | &GT; 2 TB| Nieuwe uitbreidbare processerver implementeren als de totale dagelijkse veranderingssnelheid van gegevens is groter dan 2 TB.
 
 Waar:
 
 * Elke bron-VM is geconfigureerd met 3 schijven van 100 GB elk.
 * We benchmarking opslag van 8 SAS-schijven van 10 K RPM, RAID 10 voor de cache schijf metingen gebruikt.
 
+## <a name="size-recommendations-for-the-configuration-server"></a>Aanbevelingen voor de grootte voor de configuratieserver
+
+Wanneer u niet van plan bent de configuratieserver als processerver gebruiken, volgt u de hieronder opgegeven configuratie voor het afhandelen van tot 650 virtuele machines.
+
+**CPU** | **RAM-GEHEUGEN** | **Grootte van de Besturingssysteemschijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines**
+--- | --- | --- | --- | ---
+24 vcpu's (2-sockets * 12 kernen \@ 2,5 GHz [gigahertz])| 32GB | 80 GB | Niet van toepassing | Maximaal 650 VM 's
+
+Wanneer elke bron-VM is geconfigureerd met 3 schijven van 100 GB elk.
+
+Aangezien proces server-functionaliteit wordt niet gebruikt, veranderingssnelheid van gegevens is niet van toepassing. Als u wilt behouden hierboven capaciteit, kunt u uw workload van ingebouwde processerver naar een ander proces voor scale-out overschakelen door de richtlijnen te volgen [hier](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
+
 ## <a name="size-recommendations-for-the-process-server"></a>Aanbevelingen voor de grootte voor de processerver
 
-Als u wilt meer dan 200 machines beveiligt, of de dagelijkse veranderingssnelheid groter dan 2 TB is, kunt u processervers voor het afhandelen van de replicatie-belasting toevoegen. Als u wilt schalen, kunt u het volgende doen:
+Processerver is het onderdeel die verantwoordelijk is voor de procedure voor replicatie van gegevens in Azure Site Recovery. Als de dagelijkse veranderingssnelheid groter dan 2 TB is, moet u het toevoegen van een scale-out-proces voor het afhandelen van de belasting van de replicatie. Als u wilt schalen, kunt u het volgende doen:
 
-* Het aantal configuratieservers verhogen. Bijvoorbeeld, kunt u maximaal 400 machines met twee configuratieservers beveiligen.
-* Meer processervers toevoegen en deze gebruiken voor het afhandelen van verkeer in plaats van (of naast) de configuratieserver.
+* Het aantal configuratieservers verhogen door te implementeren via [OVF-sjabloon](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Bijvoorbeeld, kunt u maximaal 400 machines met twee configuratieservers beveiligen.
+* Voeg [scale-out processervers](vmware-azure-set-up-process-server-scale.md#download-installation-file), en deze gebruiken voor het afhandelen van replicatieverkeer in plaats van (of naast) de configuratieserver.
 
 De volgende tabel beschrijft een scenario waarin:
 
-* U niet van plan bent de configuratieserver gebruiken als een processerver.
-* U kunt een aanvullende processerver hebt ingesteld.
-* U kunt beveiligde virtuele machines voor het gebruik van de aanvullende processerver hebt geconfigureerd.
+* U kunt een uitbreidbare processerver hebt ingesteld.
+* U kunt beveiligde virtuele machines voor het gebruik van de uitbreidbare processerver hebt geconfigureerd.
 * Elke beveiligde bron-VM is geconfigureerd met drie schijven van 100 GB elk.
 
-**Configuratieserver** | **Aanvullende processerver** | **Cachegrootte van de schijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines**
---- | --- | --- | --- | ---
-8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 16 GB geheugen | 4 vcpu's (2-sockets * 2 kernen \@ 2,5 GHz), 8 GB geheugen | 300 GB | 250 GB of minder | 85 of minder machines repliceren.
-8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 16 GB geheugen | 8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 12 GB geheugen | 600 GB | 250 GB tot 1 TB | 85-150-machines repliceren.
-12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz), 18 GB geheugen | 12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) 24 GB geheugen | 1 TB | 1 TB tot 2 TB | Repliceren tussen 150 225 machines.
+**Aanvullende processerver** | **Cachegrootte van de schijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines**
+--- | --- | --- | ---
+4 vcpu's (2-sockets * 2 kernen \@ 2,5 GHz), 8 GB geheugen | 300 GB | 250 GB of minder | 85 of minder machines repliceren.
+8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 12 GB geheugen | 600 GB | 250 GB tot 1 TB | 85-150-machines repliceren.
+12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) 24 GB geheugen | 1 TB | 1 TB tot 2 TB | Repliceren tussen 150 225 machines.
 
-De manier waarop u uw servers schalen, is afhankelijk van uw voorkeur voor een scale-up- of scale-out-model.  U door het implementeren van een paar geavanceerde configuratie en processervers omhoog schalen of uitschalen door meer servers met minder resources implementeren. Bijvoorbeeld, als u beveiligen 220 machines wilt, kan u doen het volgende:
+De manier waarop u uw servers schalen, is afhankelijk van uw voorkeur voor een scale-up- of scale-out-model.  U door het implementeren van een paar geavanceerde configuratie en processervers omhoog schalen of uitschalen door meer servers met minder resources implementeren. Bijvoorbeeld, als u beveiligen 200 machines met veranderingssnelheid van algemene gegevens elke dag om 1,5 TB wilt, kan u doen het volgende:
 
-* Instellen van de configuratieserver met 12 vCPU, 18 GB geheugen, en een aanvullende processerver met 12 vCPU, 24 GB geheugen. Configureer beveiligde machines voor het gebruik van alleen de aanvullende processerver.
-* Stel configuratieservers twee (2 x 8 vCPU, 16 GB RAM-geheugen) en twee extra processervers (1 x 8 vCPU en 4 vCPU x 1 te verwerken 135 + 85 [220]-machines). Beveiligde machines voor het gebruik van alleen de extra processervers configureren.
-
+* Instellen van een enkel proces-server met 16 vCPU, 24 GB RAM-geheugen.
+* Instellen van twee processervers (2 x 8 vCPU, 2 * 12 GB RAM-geheugen).
 
 ## <a name="control-network-bandwidth"></a>Netwerkbandbreedte
 
@@ -104,6 +118,16 @@ U kunt ook de cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/librar
    * Als u wilt hoeveel bandbreedte er voor failbackverkeer vanuit Azure, wijzig de waarde van **DownloadThreadsPerVM**.
 2. De standaardwaarde is 4. In netwerken met overprovisioning moeten deze registersleutels zodanig worden gewijzigd dat niet de standaardwaarden worden gebruikt. Het maximum is 32. Houd het verkeer in de gaten om de waarde te optimaliseren.
 
+## <a name="setup-azure-site-recovery-infrastructure-to-protect-more-than-500-virtual-machines"></a>Azure Site Recovery-infrastructuur voor het beveiligen van meer dan 500 virtuele machines instellen
+
+Voordat u van Azure Site Recovery-infrastructuur instelt, moet u toegang tot de omgeving om te meten van de volgende factoren: compatibele virtuele machines, gegevens dagelijkse veranderingssnelheid vereiste netwerkbandbreedte voor de gewenste RPO, aantal Azure site recovery onderdelen die vereist zijn, gebruikte tijd voor het voltooien van de initiële replicatie enz.,
+
+1. Als u wilt deze parameters meten, zorg ervoor dat u de deployment planner uitvoeren op uw omgeving met behulp van de richtlijnen voor gedeelde [hier](site-recovery-deployment-planner.md).
+2. Een configuratieserver implementeren aan de vereisten die worden vermeld [hier](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server). Als uw productie-werkbelasting groter is dan 650 virtuele machines, implementeert u een andere configuratieserver.
+3. Implementeren op basis van de gemeten dagelijkse veranderingssnelheid van gegevens, [scale-out processervers](vmware-azure-set-up-process-server-scale.md#download-installation-file) met behulp van de grootte richtlijnen vermeld [hier](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
+4. Als u verwacht de veranderingssnelheid van gegevens dat voor een virtuele machine van schijf 2 MBps wordt overschreden, zorg er dan aan [instellen van een premium storage-account](tutorial-prepare-azure.md#create-a-storage-account). Omdat de deployment planner wordt uitgevoerd voor een bepaalde periode, veranderingssnelheid pieken in de gegevens van andere periode punten kunnen niet worden vastgelegd in het rapport.
+5. Aan de hand van de gewenste RPO [instellen van de netwerkbandbreedte](site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+6. Na de installatie van de infrastructuur, volgt u de richtlijnen gepubliceerd onder [sectie procedures](vmware-azure-set-up-source.md) om in te schakelen van herstel na noodgevallen voor uw workload.
 
 ## <a name="deploy-additional-process-servers"></a>Extra processervers implementeren
 

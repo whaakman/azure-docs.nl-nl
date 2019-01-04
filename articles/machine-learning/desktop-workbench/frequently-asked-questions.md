@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f573cda9f06837bf44ee39a680b207af1ba0fe07
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313937"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973227"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Veelgestelde vragen over Azure Machine Learning
 
@@ -55,18 +55,17 @@ De eerste twee gebruikers die zijn gekoppeld aan uw Azure Machine Learning exper
 
 **Moet ik betalen op basis van het aantal experimenten dat ik uitvoer?**
 
-Nee, kunnen de experimenten-Service net zoveel experimenten uitvoeren als u behoefte en kosten zijn uitsluitend gebaseerd op het aantal gebruikers. Rekenbronnen voor experimenten worden afzonderlijk in rekening gebracht. We raden u aan het uitvoeren van meerdere experimenten, zodat u kunt het beste aansluit op model voor uw oplossing vinden.   
+Nee, kunnen de experimenten-Service net zoveel experimenten uitvoeren als u behoefte en kosten zijn uitsluitend gebaseerd op het aantal gebruikers. Rekenbronnen voor experimenten worden afzonderlijk in rekening gebracht. We raden u aan het uitvoeren van meerdere experimenten, zodat u kunt het beste aansluit op model voor uw oplossing vinden.
 
 **Welke specifieke soorten reken- en opslagresources kan ik gebruiken?**
 
-De experimenten-service kan uw experimenten uitvoeren op lokale machines (direct of op basis van Docker), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), en [HDInsight](https://azure.microsoft.com/services/hdinsight/). De service ook toegang heeft tot een [Azure Storage](https://azure.microsoft.com/services/storage/) -account voor het opslaan van de uitvoer van uitvoerbewerkingen en kunnen gebruikmaken van een [Visual Studio Team Service](https://azure.microsoft.com/services/visual-studio-team-services/) account voor versiebeheer en Git-opslag. Houd er rekening mee dat u betaalt afzonderlijke voor gebruikte reken- en opslagbronnen kosten, op basis van de afzonderlijke prijzen.  
-
+De experimenten-service kan uw experimenten uitvoeren op lokale machines (direct of op basis van Docker), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), en [HDInsight](https://azure.microsoft.com/services/hdinsight/). De service ook toegang heeft tot een [Azure Storage](https://azure.microsoft.com/services/storage/) -account voor het opslaan van de uitvoer van uitvoerbewerkingen en kunnen gebruikmaken van een [Azure DevOps](https://azure.microsoft.com/services/devops/) account voor versiebeheer en Git-opslag. Houd er rekening mee dat u betaalt afzonderlijke voor gebruikte reken- en opslagbronnen kosten, op basis van de afzonderlijke prijzen.
 
 ## <a name="model-management"></a>Modelbeheer
 
 **Wat is Azure Machine Learning Modelbeheer?**
 
-Azure Machine Learning Modelbeheer is een beheerde Azure-service waarmee data scientists en dev ops teams betrouwbaar voorspellende modellen implementeren in een groot aantal omgevingen. GIT-opslagplaatsen en Docker-containers bieden traceability en herhaalbaarheid. Modellen kunnen op betrouwbare wijze worden geïmplementeerd in de cloud, on-premises of edge. U kunt één keer in de productieomgeving, beheer de modelprestaties vervolgens proactief opnieuw trainen als vermindert de prestaties. U kunt modellen op lokale machines te implementeren [virtuele Azure-machines](https://azure.microsoft.com/services/virtual-machines/), Spark op [HDInsight](https://azure.microsoft.com/services/hdinsight/) of Kubernetes georganiseerd [Azure Container Service](https://azure.microsoft.com/services/container-service/) clusters.  
+Azure Machine Learning Modelbeheer is een beheerde Azure-service waarmee data scientists en dev ops teams betrouwbaar voorspellende modellen implementeren in een groot aantal omgevingen. GIT-opslagplaatsen en Docker-containers bieden traceability en herhaalbaarheid. Modellen kunnen op betrouwbare wijze worden geïmplementeerd in de cloud, on-premises of edge. U kunt één keer in de productieomgeving, beheer de modelprestaties vervolgens proactief opnieuw trainen als vermindert de prestaties. U kunt modellen op lokale machines te implementeren [virtuele Azure-machines](https://azure.microsoft.com/services/virtual-machines/), Spark op [HDInsight](https://azure.microsoft.com/services/hdinsight/) of Kubernetes georganiseerd [Azure Container Service](https://azure.microsoft.com/services/container-service/) clusters.
 
 **Wat is een 'model'?**
 
@@ -78,11 +77,11 @@ Een model is de uitvoer van een trainingsproces en is de toepassing van een algo
  
 **Wat is een 'implementatie?'**
 
-Model Management kunt u modellen implementeren als verpakte webservicecontainers in Azure. Deze webservices kunnen worden aangeroepen met behulp van REST-API's. Elke webservice wordt geteld als één implementatie en het totale aantal actieve implementaties worden geteld onderdeel van uw abonnement. Gebruiken we het voorbeeld, wanneer u uw beste prestatiemodel implementeert, wordt uw abonnement met één implementatie verhoogd. Als u vervolgens opnieuw trainen en implementeren van een andere versie, hebt u twee implementaties. Als u dat vaststelt het nieuwere model beter is en verwijder de oorspronkelijke, het aantal implementaties is met één verlaagd.  
+Model Management kunt u modellen implementeren als verpakte webservicecontainers in Azure. Deze webservices kunnen worden aangeroepen met behulp van REST-API's. Elke webservice wordt geteld als één implementatie en het totale aantal actieve implementaties worden geteld onderdeel van uw abonnement. Gebruiken we het voorbeeld, wanneer u uw beste prestatiemodel implementeert, wordt uw abonnement met één implementatie verhoogd. Als u vervolgens opnieuw trainen en implementeren van een andere versie, hebt u twee implementaties. Als u dat vaststelt het nieuwere model beter is en verwijder de oorspronkelijke, het aantal implementaties is met één verlaagd.
 
 **Welke specifieke rekenbronnen worden beschikbaar voor mijn implementaties?** 
 
-Modelbeheer kan uw implementaties uitvoeren als Docker-containers die zijn geregistreerd bij [Azure Container Service](https://azure.microsoft.com/services/container-service/), als [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), of op lokale machines. Aanvullende implementatiedoelen wordt binnenkort toegevoegd. Houd er rekening mee dat u betaalt afzonderlijke voor alle gebruikte rekenbronnen op basis kosten van de afzonderlijke prijzen.     
+Modelbeheer kan uw implementaties uitvoeren als Docker-containers die zijn geregistreerd bij [Azure Container Service](https://azure.microsoft.com/services/container-service/), als [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), of op lokale machines. Aanvullende implementatiedoelen wordt binnenkort toegevoegd. Houd er rekening mee dat u betaalt afzonderlijke voor alle gebruikte rekenbronnen op basis kosten van de afzonderlijke prijzen.
 
 **Kan ik de Azure Machine Learning-Modelbeheer gebruiken voor het implementeren van modellen die zijn gebouwd met behulp van hulpprogramma's dan de experimenten-Service?**
 
@@ -108,15 +107,15 @@ Ja, kunt u meerdere versies van hetzelfde model implementeren. Modelbeheer biedt
 
 **Wat is Azure Machine Learning Workbench?**
 
-De Azure Machine Learning Workbench is een companion-toepassing die is gebouwd voor professionele gegevenswetenschappers. Beschikbaar voor Windows en Mac, de Machine Learning Workbench biedt overzicht, beheer en controle voor machine learning-oplossingen. De Machine Learning Workbench omvat toegang aan hypermoderne AI-frameworks van zowel Microsoft als open source-community. We hebben de meest populaire toolkits voor data science, waaronder TensorFlow, Microsoft Cognitive Toolkit, Spark ML en scikit opgenomen-meer en meer. We hebben ook integratie met populaire gegevenswetenschap IDE's zoals Jupyter notebooks, PyCharm en Visual Studio Code ingeschakeld. De Machine Learning Workbench heeft ingebouwde voorbereiding mogelijkheden voor het snel voorbeeld, begrijpen en voorbereiden van gegevens, gestructureerd of ongestructureerd. Onze nieuwe hulpprogramma voor gegevensvoorbereiding, met de naam [PROSE](https://microsoft.github.io/prose/), is gebouwd op hypermoderne technologie van Microsoft Research.  
+De Azure Machine Learning Workbench is een companion-toepassing die is gebouwd voor professionele gegevenswetenschappers. Beschikbaar voor Windows en Mac, de Machine Learning Workbench biedt overzicht, beheer en controle voor machine learning-oplossingen. De Machine Learning Workbench omvat toegang aan hypermoderne AI-frameworks van zowel Microsoft als open source-community. We hebben de meest populaire toolkits voor data science, waaronder TensorFlow, Microsoft Cognitive Toolkit, Spark ML en scikit opgenomen-meer en meer. We hebben ook integratie met populaire gegevenswetenschap IDE's zoals Jupyter notebooks, PyCharm en Visual Studio Code ingeschakeld. De Machine Learning Workbench heeft ingebouwde voorbereiding mogelijkheden voor het snel voorbeeld, begrijpen en voorbereiden van gegevens, gestructureerd of ongestructureerd. Onze nieuwe hulpprogramma voor gegevensvoorbereiding, met de naam [PROSE](https://microsoft.github.io/prose/), is gebouwd op hypermoderne technologie van Microsoft Research.
 
 **Workbench een IDE is?**
 
-Nee. De Machine Learning Workbench is ontworpen als een aanvulling op de populaire IDE's zoals Jupyter Notebooks, Visual Studio Code en PyCharm, maar het is niet een volledig functionele IDE. De Machine Learning Workbench biedt enkele basistekst bewerkingsmogelijkheden, maar het opsporen van fouten, de intellisense en andere veel gebruikte IDE mogelijkheden worden niet ondersteund. Raden wij aan dat u uw favoriete IDE voor het ontwikkelen van code, bewerken en het opsporen van fouten. U kunt ook meer om te proberen [Visual Studio Code-hulpprogramma's voor AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
+Nee. De Machine Learning Workbench is ontworpen als een aanvulling op de populaire IDE's zoals Jupyter Notebooks, Visual Studio Code en PyCharm, maar het is niet een volledig functionele IDE. De Machine Learning Workbench biedt enkele basistekst bewerkingsmogelijkheden, maar het opsporen van fouten, de intellisense en andere veel gebruikte IDE mogelijkheden worden niet ondersteund. Raden wij aan dat u uw favoriete IDE voor het ontwikkelen van code, bewerken en het opsporen van fouten. U kunt ook meer om te proberen [Visual Studio Code-hulpprogramma's voor AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 **Is er een toeslag voor het gebruik van de Azure Machine Learning Workbench?**
 
-Nee. Azure Machine Learning Workbench is een gratis toepassing. U kunt deze toepassing downloaden op net zoveel machines en voor net zoveel gebruikers als u wilt. Voor het gebruik van Azure Machine Learning Workbench hebt u een Experimenten-account nodig. .  
+Nee. Azure Machine Learning Workbench is een gratis toepassing. U kunt deze toepassing downloaden op net zoveel machines en voor net zoveel gebruikers als u wilt. Voor het gebruik van Azure Machine Learning Workbench hebt u een Experimenten-account nodig.
 
 **Opdrachtregel mogelijkheden ondersteund?**
 
@@ -138,7 +137,7 @@ De huidige versie van Jupyter opgenomen in Workbench wordt gestart, een Python 3
 **Welke indelingen worden momenteel ondersteund voor gegevensopname in Workbench?**
 
 De hulpmiddelen voor het voorbereiden van gegevens in Workbench momenteel ondersteuning voor opname van de volgende indelingen: 
-- Bestanden met scheidingstekens, zoals CSV, TSV, enzovoort.  
+- Bestanden met scheidingstekens, zoals CSV, TSV, enzovoort.
 - Bestanden met vaste breedte
 - Bestanden met tekst zonder opmaak
 - Excel (xls/xlsx)
@@ -157,7 +156,7 @@ Voor de openbare preview ondersteunt Workbench opname van gegevens mogelijk:
 
 **Wat voor soort data wrangling, voorbereiding en transformaties zijn beschikbaar?**
 
-Voor openbare preview ondersteunt Workbench "Afgeleid kolom door bijvoorbeeld" 'Kolom splitsen door voorbeeld', 'Tekst Clustering', 'Verwerken ontbrekende Values' en nog veel meer.  Workbench biedt ook ondersteuning voor gegevensconversie van het type, de gegevens worden verzameld (aantal, gemiddelde, afwijking, enzovoort) en complexe joins. Ga naar onze productdocumentatie voor een volledige lijst met ondersteunde mogelijkheden. 
+Voor openbare preview ondersteunt Workbench "Afgeleid kolom door bijvoorbeeld" 'Kolom splitsen door voorbeeld', 'Tekst Clustering', 'Verwerken ontbrekende Values' en nog veel meer. Workbench biedt ook ondersteuning voor gegevensconversie van het type, de gegevens worden verzameld (aantal, gemiddelde, afwijking, enzovoort) en complexe joins. Ga naar onze productdocumentatie voor een volledige lijst met ondersteunde mogelijkheden. 
 
 **Zijn er maximale grootte van gegevens door Azure Machine Learning Workbench, experimenten en Modelbeheer-afgedwongen?**
 

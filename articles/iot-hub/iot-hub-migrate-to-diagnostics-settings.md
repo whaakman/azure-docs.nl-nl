@@ -5,18 +5,18 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 11/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 3cb0f91f3143e6a4828548f3a15678b3814cba17
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4a1517c1d5bb0f34c0f1b0ec81d074f8ec39aff5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154858"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546572"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migreren van uw IoT-Hub van bewerkingen controleren naar diagnostische instellingen
 
-Klanten die gebruikmaken van [bewerkingen controleren](iot-hub-operations-monitoring.md) om bij te houden van de status van bewerkingen in IoT Hub kunnen migreren die werkstroom [Azure diagnostische instellingen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), een functie van Azure Monitor. Instellingen voor diagnostische gegevens leveren resourceniveau diagnostische gegevens voor veel Azure-services.
+Klanten die gebruikmaken van [bewerkingen controleren](iot-hub-operations-monitoring.md) om bij te houden van de status van bewerkingen in IoT Hub kunnen migreren die werkstroom [Azure diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md), een functie van Azure Monitor. Instellingen voor diagnostische gegevens leveren resourceniveau diagnostische gegevens voor veel Azure-services.
 
 De bewerkingen bewakingsfunctionaliteit van IoT Hub is verouderd en in de toekomst wordt verwijderd. In dit artikel bevat stappen voor het verplaatsen van uw workloads van bewerkingen controleren naar diagnostische instellingen. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -49,6 +49,10 @@ Ook diagnostische instellingen aanbiedingen bijhouden voor vijf nieuwe categorie
 * Directe methoden
 
 Zie voor de specifieke schemastructuren, [inzicht in het schema voor de diagnostische instellingen](iot-hub-monitor-resource-health.md#understand-the-logs).
+
+## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>Bewaking van apparaat verbinding maken en gebeurtenissen met een lage latentie verbreken
+
+Voor het bewaken van apparaat verbinding maakt en disconnect-gebeurtenissen, wordt aangeraden zich abonneert op de [ **apparaat verbroken** gebeurtenis](iot-hub-event-grid.md#event-types) op Event Grid waarschuwingen ontvangen en controleren van de verbindingsstatus van het apparaat. Gebruik deze [zelfstudie](iot-hub-how-to-order-connection-state-events.md) voor informatie over het apparaat is verbonden en het apparaat verbroken gebeurtenissen uit IoT Hub in uw IoT-oplossing integreren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

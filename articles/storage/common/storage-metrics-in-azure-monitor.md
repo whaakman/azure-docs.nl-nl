@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957296"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994433"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor biedt een uniforme gebruikersinterfaces voor het bewaken van alle 
 
 Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure Monitor API's (REST en .net) en analyse-oplossingen, zoals Event Hubs. Zie voor meer informatie, [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de afgelopen 93 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) in Azure Monitor.
+Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de afgelopen 93 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../../azure-monitor/platform/diagnostic-logs-overview.md) in Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Toegang tot metrische gegevens in Azure portal
 
@@ -330,41 +330,41 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="account-level"></a>Accountniveau
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| UsedCapacity | De hoeveelheid opslag die wordt gebruikt door de storage-account. Voor standard storage-accounts is het de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium-opslagaccounts en Blob storage-accounts is het hetzelfde als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: totaal <br/> Voorbeeld van een waarde: 1024 |
+| UsedCapacity | De hoeveelheid opslag die wordt gebruikt door de storage-account. Voor standard storage-accounts is het de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium-opslagaccounts en Blob storage-accounts is het hetzelfde als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="blob-storage"></a>Blob Storage
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | Het totaal van Blob-opslag die wordt gebruikt in de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: totaal <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
-| BlobCount    | Het aantal blob-objecten die zijn opgeslagen in de storage-account. <br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
-| ContainerCount    | Het aantal containers in het opslagaccount. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
+| BlobCapacity | Het totaal van Blob-opslag die wordt gebruikt in de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
+| BlobCount    | Het aantal blob-objecten die zijn opgeslagen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
+| ContainerCount    | Het aantal containers in het opslagaccount. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| TableCapacity | De hoeveelheid van Table storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
-| TableCount   | Het aantal tabellen in de storage-account. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
-| TableEntityCount | Het aantal tabelentiteiten in de storage-account. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
+| TableCapacity | De hoeveelheid van Table storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
+| TableCount   | Het aantal tabellen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
+| TableEntityCount | Het aantal tabelentiteiten in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="queue-storage"></a>Queue Storage
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| QueueCapacity | De hoeveelheid van Queue storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
-| QueueCount   | Het aantal wachtrijen in de storage-account. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
-| QueueMessageCount | Het aantal niet-verlopen Wachtrijberichten in de storage-account. <br/><br/>Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
+| QueueCapacity | De hoeveelheid van Queue storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
+| QueueCount   | Het aantal wachtrijen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
+| QueueMessageCount | Het aantal niet-verlopen Wachtrijberichten in de storage-account. <br/><br/>Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="file-storage"></a>File Storage
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| FileCapacity | De hoeveelheid opslag van bestanden die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
-| FileCount   | Het aantal bestanden in de storage-account. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
-| FileShareCount | Het aantal bestandsshares in de storage-account. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
+| FileCapacity | De hoeveelheid opslag van bestanden die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
+| FileCount   | Het aantal bestanden in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
+| FileShareCount | Het aantal bestandsshares in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
 ## <a name="transaction-metrics"></a>Metrische gegevens de transactie
 
@@ -372,26 +372,26 @@ Metrische gegevens die transactie worden verzonden naar Azure-opslag naar Azure 
 
 Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azure Monitor.
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| Transacties | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen, evenals aanvragen waarbij fouten zijn opgetreden. <br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Toepasselijke dimensies: de ResponseType, GeoType ApiName en -verificatie ([definitie](#metrics-dimensions))<br/> Voorbeeld van een waarde: 1024 |
-| Inkomend verkeer | De hoeveelheid inkomende gegevens. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: totaal <br/> Toepasselijke dimensies: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| Uitgaand verkeer | De hoeveelheid uitgaande gegevens. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: totaal <br/> Toepasselijke dimensies: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| SuccessServerLatency | De gemiddelde tijd die nodig is om een aanvraag door Azure Storage te verwerken. Deze waarde bevat niet de netwerklatentie die is opgegeven in SuccessE2ELatency. <br/><br/> Eenheid: milliseconden <br/> Aggregatietype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| SuccessE2ELatency | De gemiddelde end-to-end-latentie van geslaagde aanvragen aan een opslagservice of de opgegeven API-bewerking. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. <br/><br/> Eenheid: milliseconden <br/> Aggregatietype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| Beschikbaarheid | Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door te nemen van de waarde van het totale aantal factureerbare aanvragen en delen door het aantal toepasselijke aanvragen, met inbegrip van aanvragen die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking. <br/><br/> Eenheid: procent <br/> Aggregatietype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 99,99 |
+| Transacties | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen, evenals aanvragen waarbij fouten zijn opgetreden. <br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: De ResponseType, GeoType ApiName en -verificatie ([definitie](#metrics-dimensions))<br/> Voorbeeld van een waarde: 1024 |
+| Inkomend verkeer | De hoeveelheid inkomende gegevens. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| Uitgaand verkeer | De hoeveelheid uitgaande gegevens. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| SuccessServerLatency | De gemiddelde tijd die nodig is om een aanvraag door Azure Storage te verwerken. Deze waarde bevat niet de netwerklatentie die is opgegeven in SuccessE2ELatency. <br/><br/> Eenheid: Milliseconden <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| SuccessE2ELatency | De gemiddelde end-to-end-latentie van geslaagde aanvragen aan een opslagservice of de opgegeven API-bewerking. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. <br/><br/> Eenheid: Milliseconden <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| Beschikbaarheid | Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door te nemen van de waarde van het totale aantal factureerbare aanvragen en delen door het aantal toepasselijke aanvragen, met inbegrip van aanvragen die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking. <br/><br/> Eenheid: Procent <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 99,99 |
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens over dimensies
 
 Azure Storage ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor.
 
-| Dimensienaam | Beschrijving |
+| Dimensienaam | Description |
 | ------------------- | ----------------- |
 | BlobType | Het type blob voor alleen Blob-metrische gegevens. De ondersteunde waarden zijn **BlockBlob** en **PageBlob**. Toevoeg-Blob is opgenomen in BlockBlob. |
-| De ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Beschreven die zijn met uitzondering van alle andere server-side '-fouten </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. </li> <li> ServerTimeoutError: Time-out geverifieerde aanvraag die een 500 HTTP-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot de gegevens of er is een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>    ClientThrottlingError: Client-side beperking-fout. </li> <li> ClientTimeoutError: Time-out geverifieerde aanvraag die een 500 HTTP-statuscode geretourneerd. Als de netwerktime-out van de client of de time-out van de aanvraag is ingesteld op een lagere waarde dan verwacht door de storage-service, is een verwachte tijd. Anders wordt dit apparaat gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Beschreven die zijn met uitzondering van alle andere client-side '-fouten. </li> <li> Voltooid: Succesvolle aanvraag|
+| De ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Alle andere serverzijde fouten beschreven die behalve </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. </li> <li> ServerTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot de gegevens of er is een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>    ClientThrottlingError: Client-side beperking-fout. </li> <li> ClientTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. Als de netwerktime-out van de client of de time-out van de aanvraag is ingesteld op een lagere waarde dan verwacht door de storage-service, is een verwachte tijd. Anders wordt dit apparaat gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Alle andere client-side '-fouten met uitzondering van die wordt beschreven. </li> <li> Geslaagd: Succesvolle aanvraag|
 | GeoType | De transactie van primaire of secundaire cluster. De beschikbare waarden zijn onder andere primaire en secundaire database. Dit geldt voor Read Access-Geo Redundant Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
 | ApiName | De naam van bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
-| Verificatie | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder andere: <br/> <li>AccountKey: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>SAS: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>OAuth: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>Anoniem: De transactie is aangevraagd anoniem. Deze bevat geen voorbereidende aanvragen.</li> <li>AnonymousPreflight: De transactie is voorbereidende aanvraag.</li> |
+| Verificatie | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder andere: <br/> <li>AccountKey: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>SAS: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>OAuth: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>Anoniem: De transactie is anoniem aangevraagd. Deze bevat geen voorbereidende aanvragen.</li> <li>AnonymousPreflight: De transactie is voorbereidende aanvraag.</li> |
 
 Voor de metrische gegevens over ondersteunende dimensies moet u de dimensiewaarde om te zien van de bijbehorende metrische waarden op te geven. Bijvoorbeeld, als u bekijkt **transacties** waarde voor gelukt-antwoorden, moet u voor het filteren van de **ResponseType** dimensie met **succes**. Of als u bekijkt **BlobCount** waarde voor blok-Blob, moet u voor het filteren van de **BlobType** dimensie met **BlockBlob**.
 

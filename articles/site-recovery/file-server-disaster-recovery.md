@@ -4,16 +4,16 @@ description: In dit artikel wordt beschreven hoe u een bestandsserver beveiligt 
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: dde38f1c27ed808d730699e3c1d68a1c78cf3af5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850479"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794087"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Een bestandsserver beveiligen met behulp van Azure Site Recovery 
 
@@ -37,15 +37,15 @@ In het vorige diagram nemen meerdere bestandsservers - leden genoemd - actief de
 
 ## <a name="disaster-recovery-recommendations-for-file-servers"></a>Aanbevelingen voor herstel na noodgeval voor bestandsservers
 
-* **Een bestandsserver repliceren met behulp van een Site Recovery**: bestandsservers kunnen worden gerepliceerd in Azure met behulp van Site Recovery. Wanneer een of meer on-premises bestandsserver niet toegankelijk zijn, kunnen de herstel-VM’s naar Azure worden gebracht. De VM’s kunnen vervolgens, on-premises, aanvragen van clients verwerken, mits er sprake is van site-to-site VPN-connectiviteit, en Active Directory is geconfigureerd in Azure. U kunt deze methode gebruiken bij een omgeving waarin DFSR is geconfigureerd of in een bestandsserveromgeving zonder DFSR. 
+* **Een bestandsserver met behulp van Site Recovery repliceert**: Bestandsservers kunnen worden gerepliceerd naar Azure met behulp van Site Recovery. Wanneer een of meer on-premises bestandsserver niet toegankelijk zijn, kunnen de herstel-VM’s naar Azure worden gebracht. De VM’s kunnen vervolgens, on-premises, aanvragen van clients verwerken, mits er sprake is van site-to-site VPN-connectiviteit, en Active Directory is geconfigureerd in Azure. U kunt deze methode gebruiken bij een omgeving waarin DFSR is geconfigureerd of in een bestandsserveromgeving zonder DFSR. 
 
-* **DFSR uitbreiden naar een Azure IaaS-VM**: in een geclusterde bestandsserveromgeving waarin DFSR is geïmplementeerd, kunt u de on-premises DFSR uitbreiden naar Azure. Er wordt vervolgens een Azure-VM ingeschakeld om de bestandsserverfunctie uit te voeren. 
+* **DFS-replicatie uitbreiden naar een Azure IaaS-VM**: In een geclusterde bestandsserver serveromgeving met DFSR geïmplementeerd, kunt u de on-premises DFSR uitbreiden naar Azure. Er wordt vervolgens een Azure-VM ingeschakeld om de bestandsserverfunctie uit te voeren. 
 
     * Nadat de afhankelijkheden van site-to-site VPN-connectiviteit en Active Directory zijn verwerkt en DFSR is ingesteld, kunnen clients, wanneer een of meer on-premises bestandsservers niet toegankelijk zijn, verbinding maken met de Azure-VM die de aanvragen verwerkt.
 
     * U kunt deze aanpak gebruiken als uw VM’s configuraties hebben die niet worden ondersteund met Site Recovery. Een voorbeeld is een gedeelde clusterschijf. Deze wordt soms gebruikt in bestandsserveromgevingen. DFSR werkt ook goed met omgevingen met een lage bandbreedte met gemiddeld verloop. Houd rekening met extra kosten wanneer een Azure-VM de hele tijd actief is. 
 
-* **Azure File Sync gebruiken om bestanden te repliceren**: als u van plan bent de cloud te gebruiken of al een Azure-VM gebruikt, kunt u Azure File Sync gebruiken. Met Azure File Sync kunt u volledig beheerde bestandsshares in de cloud synchroniseren die toegankelijk zijn via het industriestandaard SMB-protocol ([Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)). Azure-bestandsshares kunnen vervolgens gelijktijdig worden gekoppeld met on-premises implementaties of cloudimplementaties van Windows, Linux en macOS. 
+* **Azure File Sync gebruiken voor het repliceren van uw bestanden**: Als u van plan bent de cloud al gebruiken of een Azure-VM, kunt u Azure File Sync. Met Azure File Sync kunt u volledig beheerde bestandsshares in de cloud synchroniseren die toegankelijk zijn via het industriestandaard SMB-protocol ([Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)). Azure-bestandsshares kunnen vervolgens gelijktijdig worden gekoppeld met on-premises implementaties of cloudimplementaties van Windows, Linux en macOS. 
 
 De volgende diagrammen helpen u te bepalen welke strategie u moet gebruiken voor uw bestandsserveromgeving.
 
@@ -74,9 +74,9 @@ Omdat Site Recovery-replicatie toepassingsagnostisch is, is de verwachting dat d
 > [!IMPORTANT]
 > Voordat u verdergaat met een van de volgende drie methoden, moet u ervoor zorgen dat deze afhankelijkheden zijn afgehandeld.
 
-**Connectiviteit tussen sites**: er moet een directe verbinding tussen de on-premises site en het Azure-netwerk tot stand worden gebracht om communicatie tussen servers toe te staan. Gebruik een beveiligde site-to-site VPN-verbinding met een virtueel Azure-netwerk die wordt gebruikt als noodherstelsite. Zie [Een site-to-site VPN-verbinding tot stand brengen tussen een on-premises site en een virtueel Azure-netwerk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
+**Site-naar-site-connectiviteit**: Een directe verbinding tussen de on-premises site en het Azure-netwerk moet tot stand worden gebracht voor de communicatie tussen servers. Gebruik een beveiligde site-to-site VPN-verbinding met een virtueel Azure-netwerk die wordt gebruikt als noodherstelsite. Zie [Een site-to-site VPN-verbinding tot stand brengen tussen een on-premises site en een virtueel Azure-netwerk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
-**Active Directory**: DFSR is afhankelijk van Active Directory. Dit betekent dat de Active Directory-forest met lokale domeincontrollers is uitgebreid naar de noodherstelsite in Azure. Zelfs als u niet gebruikmaakt van DFSR, moet u deze stappen nemen als de beoogde gebruiker toegang moet krijgen of geverifieerd moet worden voor toegang. Zie [On-premises Active Directory uitbreiden naar Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory) voor meer informatie.
+**Active Directory**: DFS-replicatie, is afhankelijk van Active Directory. Dit betekent dat de Active Directory-forest met lokale domeincontrollers is uitgebreid naar de noodherstelsite in Azure. Zelfs als u niet gebruikmaakt van DFSR, moet u deze stappen nemen als de beoogde gebruiker toegang moet krijgen of geverifieerd moet worden voor toegang. Zie [On-premises Active Directory uitbreiden naar Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory) voor meer informatie.
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Aanbevelingen voor herstel na noodgeval voor virtuele Azure IaaS-machines
 

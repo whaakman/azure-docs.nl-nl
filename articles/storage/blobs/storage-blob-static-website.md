@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161290"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598887"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
 
-In tegenstelling tot de statische website hosting, dynamische websites die afhankelijk van de servercode zijn beste worden gehost met behulp van [Azure Web Apps](/azure/app-service/app-service-web-overview).
+In tegenstelling tot de statische website hosting, dynamische websites die afhankelijk van de servercode zijn beste worden gehost met behulp van [Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 Wanneer u de statische website inschakelt die als host fungeert voor uw opslagaccount u selecteert u de naam van de standaard-bestand en geef optioneel een pad naar een aangepaste 404-pagina. Als de functie is ingeschakeld, een container met de naam *$web* wordt gemaakt als deze nog niet bestaat. 
@@ -161,6 +161,6 @@ Ja, is het eindpunt op het web hoofdlettergevoelig net als de blob-eindpunt.
 * [Azure-CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md)
 * [Een aangepaste domeinnaam voor uw blob- en web-eindpunten configureren](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [Uw eerste serverloze web-app bouwen](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Zelfstudie: Uw domein in Azure DNS hosten](../../dns/dns-delegate-domain-azure-dns.md)
+* [Zelfstudie: Host uw domein in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

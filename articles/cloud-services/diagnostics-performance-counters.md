@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bae1e7de3c24ff6fbf943ef93ad449d784feb0c8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322940"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788693"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Verzamelen van prestatiemeteritems voor uw Azure-Cloudservice
 
@@ -84,7 +84,7 @@ Een prestatiemeteritem kan worden toegevoegd aan uw cloudservice voor Azure Diag
 
 ### <a name="application-insights"></a>Application Insights
 
-Azure Application Insights voor Cloud Services kunt dat u opgeven welke prestatiemeteritems die u wenst te verzamelen. Nadat u [Application Insights toevoegen aan uw project](../application-insights/app-insights-cloudservices.md#sdk), een configuratiebestand met de naam **ApplicationInsights.config** wordt toegevoegd aan uw Visual Studio-project. Dit configuratiebestand wordt gedefinieerd welk type informatie Application Insights worden verzameld en verzonden naar Azure.
+Azure Application Insights voor Cloud Services kunt dat u opgeven welke prestatiemeteritems die u wenst te verzamelen. Nadat u [Application Insights toevoegen aan uw project](../azure-monitor/app/cloudservices.md#sdk), een configuratiebestand met de naam **ApplicationInsights.config** wordt toegevoegd aan uw Visual Studio-project. Dit configuratiebestand wordt gedefinieerd welk type informatie Application Insights worden verzameld en verzonden naar Azure.
 
 Open de **ApplicationInsights.config** -bestand en zoek de **ApplicationInsights** > **TelemetryModules** element. Elke `<Add>` onderliggend element definieert een type telemetrie te verzamelen, samen met de configuratie ervan. Het moduletype prestaties teller telemetrie is `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Als dit element is al gedefinieerd, voeg er een tweede keer. Elk prestatiemeteritem voor het verzamelen van wordt gedefinieerd in een knooppunt met de naam `<Counters>`. Hier volgt een voorbeeld waarin station prestatiemeteritems worden verzameld:
 
@@ -116,7 +116,7 @@ Application Insights verzamelt automatisch de volgende prestatiemeteritems:
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Zie voor meer informatie, [systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md) en [Application Insights voor Azure Cloud Services](../application-insights/app-insights-cloudservices.md#performance-counters).
+Zie voor meer informatie, [systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md) en [Application Insights voor Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
@@ -294,7 +294,7 @@ Zoals eerder is vermeld, de prestatiemeteritems die u wenst te verzamelen zijn g
 
 ## <a name="more-information"></a>Meer informatie
 
-- [Application Insights voor Azure Cloudservices](../application-insights/app-insights-cloudservices.md#performance-counters)
+- [Application Insights voor Azure Cloudservices](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md)
 - [Een pad voor prestatiemeteritems op te geven](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure Diagnostics-Schema - prestatiemeteritems](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

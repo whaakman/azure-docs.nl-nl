@@ -9,16 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f461bc1fd17ee957be5f223de731608011d021f5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a60dd9af60328759e332514c8af061e50382798
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959356"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634861"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
 De meest voorkomende Azure PowerShell-modules worden geboden door standaard in elk Automation-account. De Azure-modules worden regelmatig bijgewerkt in de Azure-team. In uw Automation-account krijgt u een manier om bij te werken van de modules in het account als nieuwe versies beschikbaar via de portal zijn.
+
+> [!NOTE]
+> De nieuwe [Az van Azure PowerShell-module](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) worden niet ondersteund in Azure Automation.
 
 Omdat modules regelmatig door de productgroep bijgewerkt worden, kunnen wijzigingen optreden met de cmdlets opgenomen. Deze actie kan een negatieve invloed hebben op uw runbooks afhankelijk van het type wijziging, zoals de naam van een parameter of volledig beëindigde van een cmdlet. Om te voorkomen dat dit gevolgen heeft voor uw runbooks en de processen die ze automatiseren, testen en te valideren voordat u doorgaat. Als u een speciale Automation-account dat is bestemd voor dit doel niet hebt, houd rekening met het maken van een zodat u veel verschillende scenario's tijdens de ontwikkeling van uw runbooks testen kunt. Deze test moet iteratieve wijzigingen zoals het bijwerken van de PowerShell-modules bevatten. Als u uw scripts lokaal ontwikkelt, is het aanbevolen dat de dezelfde moduleversies lokaal die u in uw Automation-Account hebt, wanneer de dezelfde resultaten testen om ervoor te zorgen dat u ontvangt. Nadat de resultaten worden gevalideerd en u de vereiste wijzigingen hebt toegepast, kunt u de wijzigingen kunt verplaatsen naar productie.
 

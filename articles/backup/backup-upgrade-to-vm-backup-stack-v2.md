@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8882970471b554f6d05a9cf3028e7be572292ef6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 605ce97f786b6b674a4adf8d6b1ee50957ef25fa
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582697"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582742"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade uitvoeren naar Azure VM Backup-stack V2
 
@@ -147,3 +147,6 @@ Incrementele momentopnamen worden gebruikt voor niet-beheerde schijven. Voor beh
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Over het verkrijgen van standard-SSD managed disk-ondersteuning voor een virtuele machine?
 Een upgrade uitvoeren naar Azure VM Backup stack V2 voor ondersteuning van Azure Backup voor de [Standard-SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-snapshot-tier1"></a>Wat gebeurt er als ik de bewaarperiode van herstelpunt (laag 2) minder dan momentopname (Tier1) Selecteer?
+De VM-back-upstack v2 is niet toegestaan voor het verwijderen van het herstelpunt (Tier2), tenzij de momentopname (Tier1) is verwijderd. Op dit moment bewaarperiode van 7 dagen voor het verwijderen van de momentopname (Tier1) wordt ondersteund, zodat het herstelpunt (Tier2) bewaarperiode voor minder zijn dan zeven dagen niet wordt herkend. Het is raadzaam om de planning restore point (Tier2)-bewaarperiode groter zijn dan 7 dagen.

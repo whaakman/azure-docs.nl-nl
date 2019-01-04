@@ -3,24 +3,22 @@ title: Azure Database voor MariaDB server firewall-regels
 description: Beschrijft de firewallregels voor uw Azure Database voor MariaDB-server.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 930e561c1777ccfcb8046c824853ebb12367cee5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248097"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546245"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database voor MariaDB server firewall-regels
 Totdat u opgeeft welke computers zijn gemachtigd, verhinderen firewalls alle toegang tot uw database-server. De firewall verleent toegang tot de server op basis van het oorspronkelijke IP-adres van elke aanvraag.
 
 Voor het configureren van een firewall, firewallregels die bereiken van acceptabele IP-adressen opgeven te maken. U kunt firewallregels op serverniveau maken.
 
-**Firewall-regels:** deze regels zorgen ervoor dat clients toegang krijgen tot uw gehele Azure-Database voor MariaDB-server, dat wil zeggen, alle databases binnen dezelfde logische server. Firewallregels op serverniveau kunnen worden geconfigureerd met behulp van de Azure portal of Azure CLI-opdrachten. Voor het maken van firewallregels op serverniveau, moet u eigenaar van het abonnement of een bijdrager aan het abonnement.
+**Firewall-regels:** Deze regels zorgen ervoor dat clients toegang krijgen tot uw gehele Azure-Database voor MariaDB-server, dat wil zeggen, alle databases binnen dezelfde logische server. Firewallregels op serverniveau kunnen worden geconfigureerd met behulp van de Azure portal of Azure CLI-opdrachten. Voor het maken van firewallregels op serverniveau, moet u eigenaar van het abonnement of een bijdrager aan het abonnement.
 
 ## <a name="firewall-overview"></a>Firewalloverzicht
 Alle databasetoegang tot uw Azure Database voor MariaDB-server is standaard geblokkeerd door de firewall. Als u wilt beginnen met behulp van de server vanaf een andere computer, moet u een of meer firewallregels op serverniveau regels voor toegang tot uw server op te geven. Gebruik de firewallregels om op te geven welke IP-adresbereiken van Internet om toe te staan. Toegang tot de Azure portal-website zelf wordt niet beïnvloed door de firewall-regels.
@@ -53,11 +51,11 @@ Naast de Azure portal, kunnen de firewallregels programmatisch worden beheerd me
 ## <a name="troubleshooting-the-database-firewall"></a>Problemen met de databasefirewall oplossen
 De volgende punten overwegen wanneer u toegang tot de Microsoft Azure-Database voor MariaDB server-service niet werkt zoals verwacht:
 
-* **Wijzigingen aan de acceptatielijst zijn nog niet doorgevoerd:** kunnen er maar liefst een vertraging van vijf minuten voor in de Azure Database voor MariaDB Server firewall-configuratie wijzigingen te activeren.
+* **Wijzigingen aan de acceptatielijst zijn nog niet doorgevoerd:** Mogelijk zijn er maar liefst vijf minuten vertraging voor wijzigingen in de Azure Database voor MariaDB Server firewall-configuratie te activeren.
 
-* **De aanmelding is niet gemachtigd of is een onjuist wachtwoord gebruikt:** als een aanmelding heeft geen machtigingen voor de Azure Database voor MariaDB-server of het wachtwoord onjuist is, de verbinding met de Azure Database voor MariaDB-server is geweigerd. Door een firewallinstellingen te maken, krijgen clients alleen de mogelijkheid om te proberen verbinding te maken met de server. Elke client moet alsnog de benodigde beveiligingsreferenties opgeven.
+* **De aanmelding is niet gemachtigd of is een onjuist wachtwoord gebruikt:** Als een aanmelding heeft geen machtigingen voor de Azure Database voor MariaDB-server of het wachtwoord onjuist is, wordt de verbinding met de Azure Database voor MariaDB-server is geweigerd. Door een firewallinstellingen te maken, krijgen clients alleen de mogelijkheid om te proberen verbinding te maken met de server. Elke client moet alsnog de benodigde beveiligingsreferenties opgeven.
 
-* **Dynamisch IP-adres:** als er een internetverbinding met dynamische IP-adressering en u problemen ondervindt bij het ophalen van via de firewall, kunt u een van de volgende oplossingen proberen:
+* **Dynamische IP-adres:** Als u een internetverbinding met dynamische IP-adressering hebt en u problemen ondervindt bij het ophalen van via de firewall, kunt u een van de volgende oplossingen proberen:
 
 * Vraag uw Internetproviderverbindingen (ISP) voor het IP-adresbereik is toegewezen aan uw clientcomputers die toegang hebben tot de Azure Database voor MariaDB-server en vervolgens als een firewall-regel toevoegen het IP-adresbereik.
 

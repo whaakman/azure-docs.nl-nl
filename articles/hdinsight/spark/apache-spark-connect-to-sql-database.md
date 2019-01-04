@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8e651f516254d408b15ab4aeae718861dfc2b3e6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499263"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608286"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark-cluster gebruiken om te lezen en schrijven van gegevens naar Azure SQL-database
 
@@ -26,9 +26,9 @@ Leer hoe u een Apache Spark-cluster in Azure HDInsight verbinden met een Azure S
 
 * **Azure SQL-database**. Volg de instructies op [maken van een Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Zorg ervoor dat u een database maken met het voorbeeld **AdventureWorksLT** schema en gegevens. Zorg ervoor dat u maakt een firewall op serverniveau-regel voor het toestaan van uw client-IP-adres voor toegang tot de SQL-database op de server. De instructies voor het toevoegen van de firewallregel is beschikbaar in hetzelfde artikel. Nadat u uw Azure SQL database hebt gemaakt, zorg ervoor dat u de volgende waarden bij de hand houden. U moet ze verbinding kunnen maken met de database van een Spark-cluster.
 
-    * De naam van de server die als host fungeert voor de Azure SQL database
-    * Naam van een Azure SQL-database
-    * Azure SQL database-beheerder-gebruikersnaam / wachtwoord
+    * Naam van de server die als host fungeert voor de Azure SQL-database.
+    * Azure SQL-databasenaam.
+    * Azure SQL database-beheerder-gebruikersnaam / wachtwoord.
 
 * **SQL Server Management Studio**. Volg de instructies op [gebruik SSMS verbinding maken en gegevens op te vragen](../../sql-database/sql-database-connect-query-ssms.md).
 
@@ -41,12 +41,10 @@ Maak eerst een [Jupyter-Notebook](https://jupyter.org/) die zijn gekoppeld aan h
 
     ![Jupyter-notebook in Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter-notebook in Spark")
    
-   > [!NOTE]
+   > [!NOTE]  
    > U kunt de Jupyter-notebook in Spark-cluster ook openen door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
 
 1. Klik in de Jupyter-notebook in de rechterbovenhoek op **nieuw**, en klik vervolgens op **Spark** om een Scala-notitieblok te maken. Jupyter-notebooks in HDInsight Spark-cluster bieden ook de **PySpark** kernel voor Python2-toepassingen, en de **PySpark3** kernel voor Python3-toepassingen. In dit artikel maken wordt een Scala-notebook.
    
@@ -54,9 +52,8 @@ Maak eerst een [Jupyter-Notebook](https://jupyter.org/) die zijn gekoppeld aan h
 
     Zie [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md) (Jupyter-notebookkernels gebruiken met Apache Spark-clusters in HDInsight) voor meer informatie over de kernels.
 
-   > [!NOTE]
+   > [!NOTE]  
    > In dit artikel gebruiken we een kernel Spark (Scala) omdat het streaming-gegevens van Spark in SQL-database wordt alleen ondersteund in Scala en Java op dit moment. Hoewel het lezen van en schrijven in SQL kunnen worden gedaan met behulp van Python, voor consistentie in dit artikel, gebruiken we Scala voor alle drie de bewerkingen.
-   >
 
 1. Hiermee opent u een nieuwe notebook met een standaardnaam **naamloos**. Klik op de naam van het notitieblok en voer een naam in van uw keuze.
 
@@ -235,6 +232,6 @@ In deze sectie we streamen van gegevens in de **hvactable** dat u al hebt gemaak
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake Store](apache-spark-use-with-data-lake-store.md)
+* [HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake-opslag](apache-spark-use-with-data-lake-store.md)
 * [Structured streaming gebeurtenissen verwerken met behulp van Event hub](apache-spark-eventhub-structured-streaming.md)
 * [Apache Spark Structured Streaming met Apache Kafka in HDInsight gebruiken](../hdinsight-apache-kafka-spark-structured-streaming.md)

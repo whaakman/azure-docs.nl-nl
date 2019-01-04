@@ -56,6 +56,12 @@ items:
   items:
   - name: Problemen met SSH oplossen
     href: troubleshoot-ssh-connection.md
+  - name: Fouten in het bestandssysteem oplossen
+    href: https://support.microsoft.com/help/3213321
+  - name: Kernel-problemen oplossen met betrekking opstarten
+    href: https://support.microsoft.com/help/4091524
+  - name: Fstab-fouten oplossen
+    href: https://support.microsoft.com/help/3206699
   - name: Gedetailleerde SSH-probleemoplossing
     href: detailed-troubleshoot-ssh-connection.md
 - name: Veelvoorkomende foutberichten
@@ -105,6 +111,8 @@ items:
   href: unexpected-reboots-attached-vhds.md
 - name: Windows-activeringsproblemen
   href: troubleshoot-activation-problems.md
+- name: Activeringsprobleem met geforceerde tunnels
+  href: custom-routes-enable-kms-activation.md
 - name: Problemen met toegang tot toepassingen
   href: troubleshoot-app-connection.md
 - name: Nieuwe VM-implementaties
@@ -162,9 +170,9 @@ items:
   href: understand-vm-reboot.md
 - name: Hulpprogramma's voor probleemoplossing op afstand
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: af1f284108a326b3ce099ee49cb15a8f51cc61af
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b745b9e42c700ea446d934df7d2e3201b555f075
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434850"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976321"

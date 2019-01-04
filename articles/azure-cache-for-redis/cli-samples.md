@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: wesmc
-ms.openlocfilehash: fabd21f9d7fe5ac1511f6b4cc07b8c17b055befe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 15166ae5eaab72849564ce8f03daf65eefae11f1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019466"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584034"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Azure CLI-voorbeelden voor Azure Cache voor Redis
 
@@ -33,7 +33,7 @@ De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behul
 | [Cachedetails van de ophalen](./scripts/show-cache.md) | Hiermee haalt details van een Azure-Cache voor Redis-exemplaar, met inbegrip van Inrichtingsstatus. |
 | [De hostnaam, poorten en sleutels ophalen](./scripts/cache-keys-ports.md) | Hiermee haalt de hostnaam, poorten en sleutels voor een Azure-Cache voor Redis-exemplaar. |
 |**Web-app en de cache**||
-| [Een WebApp verbinden met een Azure-Cache voor Redis](./../app-service/scripts/app-service-cli-app-service-redis.md) | Hiermee maakt u een Azure-web-app en een Azure-Cache voor Redis, vervolgens voegt u de details van de redis-verbinding toe aan de app-instellingen. |
+| [Een web-app verbinden met Azure Cache voor Redis](./../app-service/scripts/cli-connect-to-redis.md) | Hiermee maakt u een Azure-web-app en een Azure-Cache voor Redis, vervolgens voegt u de details van de redis-verbinding toe aan de app-instellingen. |
 |**Cache verwijderen**||
 | [Een cache verwijderen](./scripts/delete-cache.md) | Hiermee verwijdert u een Azure-Cache voor Redis-exemplaar  |
 | | |

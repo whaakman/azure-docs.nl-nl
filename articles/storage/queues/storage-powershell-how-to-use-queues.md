@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: b89c2607a1b21b999e5f95224e4aefc97e321f14
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251352"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634419"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
@@ -27,16 +27,18 @@ Azure Queue storage is een service voor het opslaan van grote aantallen berichte
 > * Een bericht verwijderen 
 > * Een wachtrij verwijderen
 
-Deze instructies vereist moduleversie 3.6 of hoger van Azure PowerShell. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Deze procedures voor vereist de Azure PowerShell-module Az 0,7 of hoger. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps).
 
 Er zijn geen PowerShell-cmdlets voor de gegevenslaag voor wachtrijen. Een bericht om uit te voeren gegevens vlak bewerkingen, zoals een bericht toevoegen lezen en verwijderen van een bericht, u moet de storage-clientbibliotheek voor .NET gebruiken zoals deze wordt weergegeven in PowerShell. Maakt u een berichtobject en klikt u vervolgens kunt u opdrachten, zoals AddMessage bewerkingen van dat bericht uit te voeren. Dit artikel ziet u hoe u dat doet.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzAccount` en volg de instructies op het scherm.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Lijst met locaties ophalen
@@ -44,28 +46,28 @@ Connect-AzureRmAccount
 Als u niet weet welke locatie u kunt gebruiken, kunt u een lijst met de beschikbare locaties weergeven. Selecteer de gewenste locatie in de lijst. In deze oefening gebruikt **eastus**. Dit in de variabele Store **locatie** voor toekomstig gebruik.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 ```
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Maak een resourcegroep met de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) opdracht. 
 
 Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Naam van de resourcegroep Store in een variabele voor toekomstig gebruik. In dit voorbeeld wordt een resourcegroep met de naam *howtoqueuesrg* wordt gemaakt in de *eastus* regio.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>Een opslagaccount maken
 
-Een standaardopslagaccount voor algemeen gebruik te maken met het gebruik van lokaal redundante opslag (LRS) [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Krijg de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven.
+Een standaardopslagaccount voor algemeen gebruik te maken met het gebruik van lokaal redundante opslag (LRS) [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Krijg de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS
@@ -75,27 +77,27 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
 
-Het volgende voorbeeld maakt eerst een verbinding met Azure Storage met behulp van de context van het storage, waaronder de naam van het opslagaccount en de toegangssleutel. Vervolgens wordt de [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet voor het maken van een wachtrij met de naam 'queuename'.
+Het volgende voorbeeld maakt eerst een verbinding met Azure Storage met behulp van de context van het storage, waaronder de naam van het opslagaccount en de toegangssleutel. Vervolgens wordt de [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) cmdlet voor het maken van een wachtrij met de naam 'queuename'.
 
 ```powershell
 $queueName = "howtoqueue"
-$queue = New-AzureStorageQueue –Name $queueName -Context $ctx
+$queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
 Zie voor informatie over naamgevingsregels voor Azure Queue-Service, [naamgeving van wachtrijen en metagegevens](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Ophalen van een wachtrij
 
-U kunt query's uitvoeren en ophalen van een bepaalde wachtrij of een lijst met alle wachtrijen in een Storage-account. De volgende voorbeelden laten zien hoe u om op te halen van alle wachtrijen in de storage-account en een bepaalde wachtrij; beide opdrachten gebruiken de [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet.
+U kunt query's uitvoeren en ophalen van een bepaalde wachtrij of een lijst met alle wachtrijen in een Storage-account. De volgende voorbeelden laten zien hoe u om op te halen van alle wachtrijen in de storage-account en een bepaalde wachtrij; beide opdrachten gebruiken de [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) cmdlet.
 
 ```powershell
 # Retrieve a specific queue
-$queue = Get-AzureStorageQueue –Name $queueName –Context $ctx
+$queue = Get-AzStorageQueue –Name $queueName –Context $ctx
 # Show the properties of the queue
 $queue
 
 # Retrieve all queues and show their names
-Get-AzureStorageQueue -Context $ctx | select Name
+Get-AzStorageQueue -Context $ctx | select Name
 ```
 
 ## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
@@ -157,11 +159,11 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Een wachtrij verwijderen
-Als u wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept u de cmdlet Remove-AzureStorageQueue. Het volgende voorbeeld ziet hoe u de specifieke wachtrij die wordt gebruikt in deze oefening met de cmdlet Remove-AzureStorageQueue verwijderen.
+Als u wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept u de cmdlet Remove-AzStorageQueue. Het volgende voorbeeld ziet hoe u de specifieke wachtrij die wordt gebruikt in deze oefening met de cmdlet Remove-AzStorageQueue verwijderen.
 
 ```powershell
 # Delete the queue 
-Remove-AzureStorageQueue –Name $queueName –Context $ctx
+Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -169,7 +171,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 Als u wilt verwijderen van alle activa die u in deze oefening hebt gemaakt, moet u de resourcegroep verwijderd. Hiermee verwijdert u ook alle resources binnen de groep. In dit geval verwijderd het de storage-account gemaakt en de resourcegroep zelf.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -185,7 +187,7 @@ In dit artikel met instructies, hebt u geleerd over eenvoudige wachtrij-opslagbe
 > * Een wachtrij verwijderen
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage-cmdlets
-* [PowerShell Storage-cmdlets](/powershell/module/azurerm.storage#storage)
+* [PowerShell Storage-cmdlets](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.

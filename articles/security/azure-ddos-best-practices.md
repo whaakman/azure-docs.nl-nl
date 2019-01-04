@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231620"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720863"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Best practices en referentiearchitecturen
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Aanbevolen procedures en referentiearchitecturen
 
 Dit artikel is bedoeld voor IT-besluitvormers en personeel. Er wordt verwacht dat u bekend met Azure bent, netwerken en beveiliging.
 
@@ -81,7 +81,7 @@ Ervoor te zorgen dat een toepassing is flexibel genoeg om af te handelen van een
 
 Schaalbaarheid is hoe goed een systeem kan afhandelen van toegenomen belasting. Moet u uw toepassingen te ontwerpen [horizontaal schalen](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) om te voldoen aan de vraag van een versterkt belasting, specifiek in het geval van een DDoS-aanval. Als uw toepassing afhankelijk van één exemplaar van een service is, maakt het een single point of failure. Meerdere exemplaren wordt ingericht, kunt u uw systeem beter bestand is tegen en beter schaalbaar.
 
-Voor [Azure App Service](../app-service/app-service-value-prop-what-is.md), selecteer een [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) die meerdere exemplaren biedt. Voor Azure Cloud Services, configureert u elk van de rollen gebruiken [meerdere exemplaren](../cloud-services/cloud-services-choose-me.md). Voor [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), zorg ervoor dat de architectuur van uw virtuele machine (VM) meer dan één virtuele machine bevat en dat elke virtuele machine wordt opgenomen in een [beschikbaarheidsset](../virtual-machines/virtual-machines-windows-manage-availability.md). Wordt u aangeraden [virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor automatisch te schalen.
+Voor [Azure App Service](../app-service/app-service-value-prop-what-is.md), selecteer een [App Service-plan](../app-service/overview-hosting-plans.md) die meerdere exemplaren biedt. Voor Azure Cloud Services, configureert u elk van de rollen gebruiken [meerdere exemplaren](../cloud-services/cloud-services-choose-me.md). Voor [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), zorg ervoor dat de architectuur van uw virtuele machine (VM) meer dan één virtuele machine bevat en dat elke virtuele machine wordt opgenomen in een [beschikbaarheidsset](../virtual-machines/virtual-machines-windows-manage-availability.md). Wordt u aangeraden [virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor automatisch te schalen.
 
 ### <a name="defense-in-depth"></a>Verdediging
 
@@ -96,7 +96,7 @@ Vaak zien we klanten on-premises bronnen ophalen aangevallen, samen met hun bron
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Azure-producten voor DDoS protection
 
-Azure heeft twee DDoS-service-aanbiedingen die bescherming tegen netwerkaanvallen (laag 3 en 4): DDoS Protection Basic- en DDoS Protection Standard. 
+Azure heeft twee DDoS-service-aanbiedingen die bescherming tegen netwerkaanvallen (laag 3 en 4): DDoS Protection Basic en DDoS-bescherming standaard. 
 
 ### <a name="ddos-protection-basic"></a>DDoS Protection Basic
 

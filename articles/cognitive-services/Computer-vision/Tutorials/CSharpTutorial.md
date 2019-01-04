@@ -1,7 +1,7 @@
 ---
-title: 'Zelfstudie: Bouw een installatiekopie voor het verwerken van app - C#'
+title: 'Zelfstudie: Een afbeelding verwerking app bouwen:C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Verken een eenvoudige Windows-app die gebruikmaakt van de Computer Vision-API in Microsoft Cognitive Services. OCR uitvoeren en werken met visuele kenmerken in een afbeelding miniaturen te maken.
+description: Verken een eenvoudige Windows-app die gebruikmaakt van de Computer Vision-API in Microsoft Cognitive Services. Voer OCR uit, maak miniaturen en werk met visuele kenmerken in een afbeelding.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342650"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584442"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Zelfstudie: Bouw een installatiekopie voor het verwerken van app - C&#35;
 
-Verken een eenvoudige Windows-toepassing die gebruikmaakt van de Computer Vision optische tekenherkenning (OCR) uitvoeren, smart bijgesneden miniaturen, plus detecteren, categoriseren, label en beschrijven visuele kenmerken, met inbegrip van gezichten, in een afbeelding. Het onderstaande voorbeeld kunt u een afbeeldings-URL of een lokaal opgeslagen bestand verzenden. U kunt dit open-source-voorbeeld gebruiken als een sjabloon voor het bouwen van uw eigen app voor Windows met behulp van de Computer Vision-API en Windows Presentation Foundation (WPF), een onderdeel van .NET Framework.
+Verken een eenvoudige Windows-toepassing die gebruikmaakt van de Computer Vision optische tekenherkenning (OCR) uitvoeren, smart bijgesneden miniaturen, plus detecteren, categoriseren, label en beschrijven visuele kenmerken, met inbegrip van gezichten, in een afbeelding. Met het onderstaande voorbeeld kunt u een afbeeldings-URL of een lokaal opgeslagen bestand verzenden voor analyse. U kunt dit open-source-voorbeeld gebruiken als een sjabloon voor het bouwen van uw eigen app voor Windows met behulp van de Computer Vision-API en Windows Presentation Foundation (WPF), een onderdeel van .NET Framework.
 
 > [!div class="checklist"]
 > * Ophalen van de voorbeeld-app vanuit GitHub
@@ -31,7 +32,7 @@ Verken een eenvoudige Windows-toepassing die gebruikmaakt van de Computer Vision
 
 Daarna wordt ingegaan op de voorbeeld-app, zorg ervoor dat u hebt voldaan aan de volgende vereisten:
 
-* U moet hebben [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) of hoger.
+* U hebt [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) of hoger nodig.
 * U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
 ## <a name="get-the-sample-app"></a>De voorbeeld-app downloaden
@@ -87,7 +88,7 @@ U kunt de voorbeeld-app, om te zien hoe deze samenwerkt met u en de Computer Vis
 
 1. Onder **selecteert u een scenario** in het navigatiedeelvenster, selecteer een van de scenario's die momenteel is opgenomen in de voorbeeld-app:  
 
-   | Scenario | Beschrijving |
+   | Scenario | Description |
    |----------|-------------|
    |Afbeelding analyseren | Maakt gebruik van de [analyseren installatiekopie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) bewerking voor het analyseren van een lokale of externe-installatiekopie. U kunt kiezen voor de visuele kenmerken en de taal voor de analyse en zowel de installatiekopie als de resultaten zien.  |
    |Afbeelding met domeinmodel analyseren | Maakt gebruik van de [lijst domeinspecifieke modellen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) bewerking om de domeinmodellen van waaruit u selecteren kunt, weer te geven en de [herkennen domein specifieke inhoud](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) bewerking voor het analyseren van een lokale of externe-installatiekopie met de model van het geselecteerde domein. U kunt ook de taal voor de analyse. |
@@ -98,10 +99,10 @@ U kunt de voorbeeld-app, om te zien hoe deze samenwerkt met u en de Computer Vis
    |Miniatuur ophalen | Maakt gebruik van de [halen miniatuur](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) bewerking voor het genereren van een miniatuur voor een lokale of externe-installatiekopie. |
 
    > [!IMPORTANT]
-   > Microsoft ontvangt de installatiekopieën die u uploadt en voor het verbeteren van de Computer Vision-API en gerelateerde services kan gebruiken. Door het indienen van een afbeelding, u bevestigen dat u hebt gevolgd onze [Developer gedragscode](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
+   > Microsoft ontvangt de installatiekopieën die u uploadt en voor het verbeteren van de Computer Vision-API en gerelateerde services kan gebruiken. Door het indienen van een afbeelding bevestigt u dat u zich hebt gehouden aan onze [gedragscode voor ontwikkelaars](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    De volgende schermafbeelding ziet u de pagina die is opgegeven voor het scenario met afbeelding analyseren na het analyseren van een voorbeeldafbeelding.
-   ![Afbeelding scenario pagina analyseren](../Images/Analyze_Image_Example.PNG)
+   ![Schermafbeelding van de pagina van de installatiekopie analyseren](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>De voorbeeld-app verkennen
 

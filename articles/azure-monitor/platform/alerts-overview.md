@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346129"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976950"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Overzicht van waarschuwingen in Microsoft Azure 
 
@@ -56,7 +56,7 @@ De belangrijkste kenmerken van een waarschuwingsregel zijn:
 
 ## <a name="what-you-can-alert-on"></a>Wat u kunt waarschuwingen op
 
-U kunt waarschuwing bij Logboeken en metrische gegevens, zoals beschreven in [bewaking gegevensbronnen](../../monitoring-and-diagnostics/monitoring-data-sources.md). Deze omvatten, maar zijn niet beperkt tot:
+U kunt waarschuwing bij Logboeken en metrische gegevens, zoals beschreven in [bewaking gegevensbronnen](../../azure-monitor/platform/data-sources-reference.md). Deze omvatten, maar zijn niet beperkt tot:
 - Metrische waarden
 - Meld u zoekquery 's
 - Gebeurtenissen in het activiteitenlogboek
@@ -131,7 +131,7 @@ Voorheen moest Azure Monitor, Application Insights, Log Analytics en status van 
 | **Bron van de monitor** | **Signaaltype**  | **Beschrijving** | 
 |-------------|----------------|-------------|
 | Servicestatus | Activiteitenlogboek  | Wordt niet ondersteund. Zie [waarschuwingen voor activiteitenlogboek maken voor servicemeldingen](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Webtests voor beschikbaarheid | Wordt niet ondersteund. Zie [webtestwaarschuwingen](../../application-insights/app-insights-monitor-web-app-availability.md). Beschikbaar voor elke website die geïnstrumenteerd om gegevens te verzenden naar Application Insights. Een melding ontvangen wanneer de beschikbaarheid of reactiesnelheid van een website lager dan de verwachtingen is. |
+| Application Insights | Webtests voor beschikbaarheid | Wordt niet ondersteund. Zie [webtestwaarschuwingen](../../azure-monitor/app/monitor-web-app-availability.md). Beschikbaar voor elke website die geïnstrumenteerd om gegevens te verzenden naar Application Insights. Een melding ontvangen wanneer de beschikbaarheid of reactiesnelheid van een website lager dan de verwachtingen is. |
 
 
 ## <a name="all-alerts-page"></a>Pagina met alle waarschuwingen 

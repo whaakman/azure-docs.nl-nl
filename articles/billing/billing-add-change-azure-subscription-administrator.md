@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727865"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583354"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
 Om de toegang tot Azure-resources te beheren, moet u over de juiste beheerdersrol beschikken. In dit artikel wordt beschreven hoe u toevoegen of wijzigen van de beheerdersrol voor een gebruiker op het abonnementsniveau.
-
-> [!div class="nextstepaction"]
-> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Welke beheerdersrol moet ik gebruiken?
 

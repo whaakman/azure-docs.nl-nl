@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 3ac7ab0aac190ab53075a6a4ee24fca3ee7eeb84
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d6dfd88f9349312cc81d760a2c473f32ff932885
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227517"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543070"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -52,7 +52,7 @@ Er is een limiet aan het aantal netwerkbeveiligingsgroepen die kunt u per Azure-
 **Opdrachten**
 
 - Azure CLI: [az network nsg maken](/cli/azure/network/nsg#az-network-nsg-create)
-- PowerShell: [nieuwe-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
+- PowerShell: [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
 
 ### <a name="view-all-network-security-groups"></a>Alle netwerkbeveiligingsgroepen weergeven
 
@@ -68,7 +68,7 @@ Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer *
 1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de netwerkbeveiligingsgroep in de lijst die u wilt weergeven van details voor. Onder **instellingen** vindt u de **inkomende beveiligingsregels** en **uitgaande beveiligingsregels**, wordt de **netwerkinterfaces** en  **Subnetten** de netwerkbeveiligingsgroep is gekoppeld aan. U kunt ook inschakelen of uitschakelen **diagnostische logboeken** en **effectieve beveiligingsregels**. Zie voor meer informatie, [diagnostische logboeken](virtual-network-nsg-manage-log.md) en [effectieve beveiligingsregels bekijken](diagnose-network-traffic-filter-problem.md).
 3. Zie voor meer informatie over de algemene instellingen voor Azure die worden vermeld, de volgende artikelen:
-    *   [Activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -128,13 +128,13 @@ Er is een limiet aan het aantal regels per netwerkbeveiligingsgroep per Azure-lo
     |Protocol     | Selecteer **eventuele**, **TCP**, of **UDP**.        |         |
     |Bewerking     | Selecteer **toestaan** of **weigeren**.        |         |
     |Prioriteit     | Voer een waarde tussen 100-4096 die uniek is voor alle beveiligingsregels binnen de netwerkbeveiligingsgroep. |Regels worden verwerkt in volgorde van prioriteit. Des te lager het nummer, hoe hoger de prioriteit. Het raadzaam dat u een lege ruimte tussen de getallen prioriteit laten bij het maken van regels, zoals 100, 200, 300. Openingen maakt het eenvoudiger om toe te voegen in de toekomst regels die u mogelijk wilt aanbrengen hoger of lager is dan de bestaande regels.         |
-    |Naam     | Een unieke naam voor de regel in de netwerkbeveiligingsgroep.        |  De naam mag maximaal 80 tekens bevatten. Moet beginnen met een letter of cijfer, eindigen met een letter, cijfer of onderstrepingsteken en mag alleen letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes bevatten.       |
-    |Beschrijving     | Een optionele beschrijving.        |         |
+    |Name     | Een unieke naam voor de regel in de netwerkbeveiligingsgroep.        |  De naam mag maximaal 80 tekens bevatten. Moet beginnen met een letter of cijfer, eindigen met een letter, cijfer of onderstrepingsteken en mag alleen letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes bevatten.       |
+    |Description     | Een optionele beschrijving.        |         |
 
 **Opdrachten**
 
 - Azure CLI: [az network nsg-regel maken](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
-- PowerShell: [nieuwe-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
+- PowerShell: [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
 
 ### <a name="view-all-security-rules"></a>Alle regels weergeven
 
@@ -195,7 +195,7 @@ Een toepassingsbeveiligingsgroep bevat nul of meer netwerkinterfaces. Zie voor m
 
     | Instelling        | Waarde                                                   |
     | ---            | ---                                                     |
-    | Naam           | De naam moet uniek zijn binnen de resourcegroep.        |
+    | Name           | De naam moet uniek zijn binnen de resourcegroep.        |
     | Abonnement   | Selecteer uw abonnement.                               |
     | Resourcegroep | Selecteer een bestaande resourcegroep of maak een nieuwe. |
     | Locatie       | Een locatie selecteren                                       |
@@ -255,7 +255,7 @@ Om uit te voeren taken van netwerkbeveiligingsgroepen, beveiligingsregels en bev
 
 ### <a name="network-security-group"></a>Netwerkbeveiligingsgroep
 
-| Bewerking                                                        |   Naam                                                                |
+| Bewerking                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Netwerkbeveiligingsgroep ophalen                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Maken of bijwerken van netwerkbeveiligingsgroep                             |
@@ -265,7 +265,7 @@ Om uit te voeren taken van netwerkbeveiligingsgroepen, beveiligingsregels en bev
 
 ### <a name="network-security-group-rule"></a>Regel voor netwerkbeveiligingsgroep
 
-| Bewerking                                                        |   Naam                                                                |
+| Bewerking                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   Regel ophalen                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   Maken of bijwerken van regel                                               |
@@ -273,7 +273,7 @@ Om uit te voeren taken van netwerkbeveiligingsgroepen, beveiligingsregels en bev
 
 ### <a name="application-security-group"></a>Toepassingsbeveiligingsgroep
 
-| Bewerking                                                                     | Naam                                                     |
+| Bewerking                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Een IP-configuratie toevoegen aan een toepassingsbeveiligingsgroep|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Een beveiligingsregel toevoegen aan een toepassingsbeveiligingsgroep    |

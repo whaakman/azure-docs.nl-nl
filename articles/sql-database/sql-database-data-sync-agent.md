@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/12/2018
-ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b5916b781c636752ada6898cfa0c03bc02891501
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685137"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715015"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Data Sync-Agent voor Azure SQL Data Sync
 
 Gegevens synchroniseren met on-premises SQL Server-databases te installeren en configureren van de Data Sync-Agent voor Azure SQL Data Sync. Zie voor meer informatie over SQL Data Sync [gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
 
 ## <a name="download-and-install"></a>Downloaden en installeren
 
@@ -136,7 +139,7 @@ Dit probleem kunnen worden veroorzaakt door deze scenario's:
 
 ### <a name="agent-start"></a> Clientagent niet wordt gestart (fout 1069)
 
-U ontdekt dat de agent niet wordt uitgevoerd op een computer die als host fungeert voor SQL Server. Wanneer u de agent handmatig te starten probeert, ziet u een dialoogvenster dat het bericht verschijnt ' fout 1069: de service is niet gestart vanwege een fout met aanmelding. "
+U ontdekt dat de agent niet wordt uitgevoerd op een computer die als host fungeert voor SQL Server. Wanneer u de agent handmatig te starten probeert, ziet u een dialoogvenster dat het bericht verschijnt ' fout 1069: De service is niet gestart vanwege een fout met aanmelding."
 
 ![Het dialoogvenster fout 1069 synchroniseren](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
@@ -316,15 +319,15 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 
 Zie de volgende artikelen voor meer informatie over SQL Data Sync:
 
--   Overzicht - [gegevens synchroniseren tussen meerdere cloud en on-premises databases met Azure SQL Data Sync](sql-database-sync-data.md)
+-   Overzicht: [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md)
 -   Data Sync instellen
     - In de portal - [zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - Met PowerShell
         -  [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Aanbevolen procedures - [aanbevolen procedures voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Monitor - [SQL Data Sync met Log Analytics controleren](sql-database-sync-monitor-oms.md)
--   Problemen oplossen - [oplossen van problemen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
--   Bijwerken van het synchronisatieschema
-    -   Met behulp van Transact-SQL - [automatiseren van de replicatie van schemawijzigingen in Azure SQL Data Sync](sql-database-update-sync-schema.md)
-    -   Met PowerShell - [Gebruik PowerShell om bij te werken van het synchronisatieschema in een bestaande synchronisatiegroep](scripts/sql-database-sync-update-schema.md)
+-   Best practices: [Best practices voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Bewaken: [SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)
+-   Problemen oplossen: [Problemen met Azure SQL Data Sync oplossen](sql-database-troubleshoot-data-sync.md)
+-   Het synchronisatieschema bijwerken
+    -   Met Transact-SQL: [De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren](sql-database-update-sync-schema.md)
+    -   Met PowerShell: [PowerShell gebruiken voor het bijwerken van het synchronisatieschema in een bestaande synchronisatiegroep](scripts/sql-database-sync-update-schema.md)

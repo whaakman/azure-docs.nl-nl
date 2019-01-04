@@ -1,102 +1,39 @@
 ---
-title: Wachtwoordcomplexiteit in aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
-description: Het configureren van de vereisten voor wachtwoordcomplexiteit voor wachtwoorden in aangepast beleid.
+title: Configureren van de complexiteit van wachtwoorden met behulp van aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
+description: Klik hier voor meer informatie over het configureren van de vereisten voor wachtwoordcomplexiteit met behulp van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 12/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 74542f86d5114ff57e358db7e239e307059fe5ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848524"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580345"
 ---
-# <a name="configure-password-complexity-in-custom-policies"></a>Wachtwoordcomplexiteit in aangepaste beleidsregels configureren
+# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configureren van de complexiteit van wachtwoorden met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In dit artikel is een geavanceerde beschrijving van de werking van wachtwoordcomplexiteit en met behulp van aangepaste Azure AD B2C-beleid is ingeschakeld.
-
-## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Vereisten voor wachtwoordcomplexiteit voor wachtwoorden configureren
-
-Azure Active Directory B2C (Azure AD B2C) biedt ondersteuning voor de complexiteitsvereisten voldoen voor wachtwoorden die worden geleverd door een eindgebruiker bij het maken van een account te wijzigen.  Azure AD B2C gebruikt standaard **sterke** wachtwoorden.  Azure AD B2C biedt ook ondersteuning voor configuratieopties voor het beheren van de complexiteit van wachtwoorden die klanten kunnen gebruiken.  In dit artikel wordt besproken wachtwoordcomplexiteit configureren in aangepast beleid.  Het is ook mogelijk om te gebruiken [wachtwoordcomplexiteit configureren in de ingebouwde beleidsregels](active-directory-b2c-reference-password-complexity.md).
+In Azure Active Directory (Azure AD) B2C, kunt u de complexiteitsvereisten voldoen voor wachtwoorden die worden geleverd door een gebruiker bij het maken van een account configureren. Azure AD B2C gebruikt standaard **sterke** wachtwoorden. In dit artikel leest u hoe het configureren van de complexiteit van wachtwoorden in [aangepast beleid](active-directory-b2c-overview-custom.md). Het is ook mogelijk om te configureren van de complexiteit van wachtwoorden in [gebruikersstromen](active-directory-b2c-reference-password-complexity.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account aanmelden-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+Voer de stappen in [aan de slag met aangepaste beleidsregels in Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="how-to-configure-password-complexity-in-custom-policy"></a>Wachtwoordcomplexiteit in aangepast beleid configureren
+## <a name="add-the-elements"></a>De elementen toe te voegen
 
-Als u wilt configureren wachtwoordcomplexiteit in aangepast beleid, de algemene structuur van het aangepaste beleid moet bevatten een `ClaimsSchema`, `Predicates`, en `InputValidations` -element in `BuildingBlocks`.
+1. Kopieer de *SignUpOrSignIn.xml* bestand dat u met de beginnerspakket gedownload en geef deze de naam *SingUpOrSignInPasswordComplexity.xml*.
+2. Open de *SingUpOrSignInPasswordComplexity.xml* bestand en wijzig de **PolicyId** en de **PublicPolicyUri** naar een nieuwe naam. Bijvoorbeeld, *B2C_1A_signup_signin_password_complexity*.
+3. Voeg de volgende **ClaimType** elementen met de id's van `newPassword` en `reenterPassword`:
 
-```XML
-  <BuildingBlocks>
-    <ClaimsSchema>...</ClaimsSchema>
-    <Predicates>...</Predicates>
-    <InputValidations>...</InputValidations>
-  </BuildingBlocks>
-```
-
-Het doel van deze elementen is als volgt:
-
-- Elke `Predicate` element definieert een eenvoudige tekenreeks validatiecontrole waarmee waar of onwaar wordt geretourneerd.
-- De `InputValidations` element heeft een of meer `InputValidation` elementen.  Elke `InputValidation` is gebouwd met behulp van een reeks `Predicate` elementen. Dit element kunt u Booleaanse aggregaties uitvoeren (vergelijkbaar met `and` en `or`).
-- De `ClaimsSchema` wordt gedefinieerd welke claim wordt gevalideerd.  Vervolgens definieert die `InputValidation` regel wordt gebruikt om te valideren dat claim.
-
-### <a name="defining-a-predicate-element"></a>Een predikaat element definiëren
-
-Predikaten hebben twee typen: IsLengthRange of MatchesRegex. Laten we bekijken een voorbeeld van elk.  Eerst hebben we een voorbeeld van MatchesRegex, die wordt gebruikt zodat deze overeenkomt met een reguliere expressie.  In dit voorbeeld deze overeenkomt met tekenreeks is die getallen bevat.
-
-```XML
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-Volgende laten we bekijken een voorbeeld van IsLengthRange.  Deze methode heeft een minimale en maximale tekenreekslengte.
-
-```XML
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
-        <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-Gebruik de `HelpText` kenmerk voor een foutbericht weergegeven voor eindgebruikers als de controle is mislukt.  Deze tekenreeks kan worden gelokaliseerd met behulp van de [functie voor het aanpassen van taal](active-directory-b2c-reference-language-customization.md).
-
-### <a name="defining-an-inputvalidation-element"></a>Een element InputValidation definiëren
-
-Een `InputValidation` is een samenvoeging van `PredicateReferences`. Elke `PredicateReferences` moet worden voldaan opdat de `InputValidation` te voltooien.  Echter, in de `PredicateReferences` element gebruikt een kenmerk met de naam `MatchAtLeast` om op te geven hoeveel `PredicateReference` controles moeten de waarde true geretourneerd.  (Optioneel) definieert een `HelpText` kenmerk voor de onderdrukking van het foutbericht is gedefinieerd de `Predicate` elementen waarnaar wordt verwezen.
-
-```XML
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-```
-
-### <a name="defining-a-claimsschema-element"></a>Een element ClaimsSchema definiëren
-
-De claimtypen `newPassword` en `reenterPassword` worden beschouwd als speciale, dus niet de namen te wijzigen.  De gebruikersinterface van de gebruiker valideert opnieuw het wachtwoord correct ingevoerd tijdens het maken van accounts op basis van deze `ClaimType` elementen.  Om te zoeken hetzelfde `ClaimType` elementen, zoek dan in de TrustFrameworkBase.xml in uw starter-pack.  Wat is er nieuw in dit voorbeeld is dat we overschrijven van deze elementen voor het definiëren van een `InputValidationReference`. De `ID` kenmerk van dit nieuwe element verwijst naar de `InputValidation` element dat we hebben gedefinieerd.
-
-```XML
+    ```XML
     <ClaimsSchema>
       <ClaimType Id="newPassword">
         <InputValidationReference Id="PasswordValidation" />
@@ -105,78 +42,29 @@ De claimtypen `newPassword` en `reenterPassword` worden beschouwd als speciale, 
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
-```
+    ```
 
-### <a name="putting-it-all-together"></a>Alles samenvoegen
+4. [Predikaten](predicates.md) methode typen hebben `IsLengthRange` of `MatchesRegex`. De `MatchesRegex` type wordt gebruikt om een reguliere expressie. De `IsLengthRange` type heeft een minimale en maximale tekenreekslengte. Toevoegen een **predikaten** element op de **BuildingBlocks** element als deze niet met de volgende bestaat **predicaat** elementen:
 
-Dit voorbeeld laat zien hoe alle onderdelen in elkaar passen om een beleid werken.  In dit voorbeeld gebruiken:
-
-1. Volg de instructies in de vereiste [aan de slag](active-directory-b2c-get-started-custom.md) als u wilt downloaden, configureren en uploaden TrustFrameworkBase.xml en TrustFrameworkExtensions.xml
-1. Maak een SignUporSignIn.xml-bestand met behulp van de inhoud van het voorbeeld in deze sectie.
-1. Bijwerken met het vervangen van SignUporSignIn.xml `yourtenant` met de naam van uw Azure AD B2C-tenant.
-1. Het beleidsbestand SignUporSignIn.xml laatst uploaden.
-
-In dit voorbeeld bevat een validatie voor pincode wachtwoorden en één voor sterke wachtwoorden:
-
-- Zoek naar `PINpassword`. Dit `InputValidation` element valideert een pincode van een willekeurige lengte.  Het wordt niet gebruikt op dit moment, omdat deze niet wordt verwezen in de `InputValidationReference` -element in `ClaimType`. 
-- Zoek naar `PasswordValidation`. Dit `InputValidation` element valideert een wachtwoord is 8 tot 16 tekens en 3 van 4 cijfers, hoofdletters, kleine letter, bevat of symbolen.  Ernaar wordt verwezen in `ClaimType`.  Deze regel is daarom in dit beleid wordt afgedwongen.
-
-```XML
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="yourtenant.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin"
-  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin">
- <BasePolicy>
-    <TenantId>yourtenant.onmicrosoft.com</TenantId>
-    <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
-  </BasePolicy>
-  <BuildingBlocks>
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    ```XML
     <Predicates>
-      <Predicate Id="Lowercase" Method="MatchesRegex" HelpText="a lowercase">
+      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
         <Parameters>
-          <Parameter Id="RegularExpression">[a-z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Uppercase" Method="MatchesRegex" HelpText="an uppercase">
-        <Parameters>
-          <Parameter Id="RegularExpression">[A-Z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Number" Method="MatchesRegex" HelpText="a number">
-        <Parameters>
-          <Parameter Id="RegularExpression">[0-9]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Symbol" Method="MatchesRegex" HelpText="a symbol">
-        <Parameters>
-          <Parameter Id="RegularExpression">[!@#$%^*()]+</Parameter>
+          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
         <Parameters>
           <Parameter Id="Minimum">8</Parameter>
           <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
+    ```
+
+5. Elke **InputValidation** element wordt samengesteld met behulp van de gedefinieerde **predicaat** elementen. Dit element kunt u Booleaanse aggregatiefuncties die vergelijkbaar met zijn `and` en `or`. Voeg een **InputValidations** element op de **BuildingBlocks** element als deze niet met de volgende bestaat **InputValidation** element:
+
+    ```XML
     <InputValidations>
       <InputValidation Id="PasswordValidation">
         <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
@@ -189,30 +77,57 @@ In dit voorbeeld bevat een validatie voor pincode wachtwoorden en één voor ste
           <PredicateReference Id="Symbol" />
         </PredicateReferences>
       </InputValidation>
-      <InputValidation Id="PINpassword">
-        <PredicateReferences Id="PINGroup">
-          <PredicateReference Id="PIN" />
-        </PredicateReferences>
-      </InputValidation>
     </InputValidations>
-  </BuildingBlocks>
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
-```
+    ```
+
+6. Zorg ervoor dat de **PolicyProfile** technisch profiel bevat de volgende elementen:
+
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect"/>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName"/>
+          <OutputClaim ClaimTypeReferenceId="givenName"/>
+          <OutputClaim ClaimTypeReferenceId="surname"/>
+          <OutputClaim ClaimTypeReferenceId="email"/>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub"/>
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+7. Sla het beleidsbestand.
+
+## <a name="test-your-policy"></a>Het beleid testen
+
+Bij het testen van uw toepassingen in Azure AD B2C, kan het nuttig zijn om de Azure AD B2C-token dat is geretourneerd naar `https://jwt.ms` om te kunnen controleren van de claims in het.
+
+### <a name="upload-the-files"></a>De bestanden uploaden
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+4. Selecteer **Identity-Ervaringsframework**.
+5. Klik op de pagina aangepast beleid **uploaden beleid**.
+6. Selecteer **het beleid overschrijven als deze bestaat**, en zoek en selecteer de *SingUpOrSignInPasswordComplexity.xml* bestand.
+7. Klik op **Uploaden**.
+
+### <a name="run-the-policy"></a>Het beleid uitvoeren
+
+1. Open het beleid dat u hebt gewijzigd. Bijvoorbeeld, *B2C_1A_signup_signin_password_complexity*.
+2. Voor **toepassing**, selecteer uw toepassing die u eerder hebt geregistreerd. Om te zien van het token wordt de **antwoord-URL** moet worden weergegeven `https://jwt.ms`.
+3. Klik op **Nu uitvoeren**.
+4. Selecteer **Meld u nu**, voer een e-mailadres en een nieuw wachtwoord invoeren. Richtlijnen wordt voor wachtwoordbeperkingen weergegeven. De gebruikersinformatie ingevoerd en klik vervolgens op **maken**. Hier ziet u de inhoud van het token dat is geretourneerd.
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Meer informatie over het [configureren met behulp van aangepaste beleidsregels in Azure Active Directory B2C wachtwoordwijziging](active-directory-b2c-reference-password-change-custom.md).
+
+

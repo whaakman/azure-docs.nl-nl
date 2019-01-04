@@ -7,17 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 88e0ad847d8d779bd769ed73d4f0393ddfb65588
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876310"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604426"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Prestaties van Azure SQL Database controleren met dynamic management views
 
@@ -574,7 +574,7 @@ Het volgende voorbeeld ziet u verschillende manieren waarop u kunt de **sys.reso
     ORDER BY start_time DESC;
     ```
 
-2. Om te evalueren hoe goed uw werkbelasting geschikt is voor de compute-grootte, die u wilt inzoomen op elk aspect van de metrische gegevens voor resources: CPU, leesbewerkingen, schrijfbewerkingen, aantal werkrollen en sessies. Hier volgt een gewijzigde query's uitvoeren met behulp van **sys.resource_stats** voor het rapporteren van de gemiddelde en maximale waarden van deze metrische gegevens voor resources:
+2. Om te evalueren hoe goed uw werkbelasting geschikt is voor de compute-grootte, die u wilt inzoomen op elk aspect van de metrische resource gegevens: CPU, leesbewerkingen, schrijfbewerkingen, aantal werkrollen en sessies. Hier volgt een gewijzigde query's uitvoeren met behulp van **sys.resource_stats** voor het rapporteren van de gemiddelde en maximale waarden van deze metrische gegevens voor resources:
 
     ```sql
     SELECT

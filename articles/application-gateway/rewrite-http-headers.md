@@ -1,0 +1,136 @@
+---
+title: Herschrijf de HTTP-headers in Azure Application Gateway | Microsoft Docs
+description: In dit artikel biedt een overzicht van de mogelijkheid voor het herschrijven van HTTP-headers in Azure Application Gateway
+services: application-gateway
+author: abshamsft
+ms.service: application-gateway
+ms.topic: article
+ms.date: 12/20/2018
+ms.author: absha
+ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971815"
+---
+# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
+
+HTTP-headers kunnen de client en de server om door te geven aanvullende informatie met de aanvraag of het antwoord. Deze HTTP-headers kunt verschillende belangrijke scenario's zoals het toevoegen van koptekst beveiligingsgerelateerde herschrijven velden, zoals HSTS / X-XSS-beveiliging of response-header-velden is verwijderd, kan die gevoelige informatie, zoals de naam van de back-end-server weergeven.
+
+Application Gateway ondersteunt nu de mogelijkheid te herschrijven headers van de binnenkomende HTTP-aanvragen, evenals de uitgaande HTTP-antwoorden. Kunt u zich kunt toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders terwijl de aanvraag/antwoord-pakketten worden verplaatst tussen de client en back-end-pools. U kunt zowel standard herschrijven (gedefinieerd in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) en niet-standaard header-velden.
+
+> [!NOTE] 
+>
+> De HTTP-ondersteuning voor het herschrijven van-header is alleen beschikbaar voor de [nieuwe Voorraadeenheid [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+Application Gateway-header herschrijven-ondersteuning biedt:
+
+- **Algemene header herschrijven**: U kunt specifieke headers voor alle aanvragen en antwoorden die betrekking hebben op de site herschrijven.
+- **Kop op pad gebaseerde herschrijven**: dit type herschrijven kan herschrijven van de koptekst voor alleen deze aanvragen en antwoorden die betrekking hebben op alleen op het gebied van een specifieke site, bijvoorbeeld een winkelwagentje winkelwagen gebied aangeduid met/winkelwagen / *.
+
+Met deze wijziging moet u naar:
+
+1. De nieuwe objecten die zijn vereist voor het herschrijven van de http-headers maken: 
+   - **RequestHeaderConfiguration**: dit object wordt gebruikt om velden in de aanvraagheader die u van plan bent om te schrijven en de nieuwe waarde die de oorspronkelijke kopteksten worden herschreven moeten aan te geven.
+   - **ResponseHeaderConfiguration**: dit object wordt gebruikt om de antwoord-header-velden die u van plan bent te herschrijven en de nieuwe waarde die de oorspronkelijke kopteksten worden herschreven moeten aan te geven.
+   - **ActionSet**: dit object bevat de configuratie van de aanvraag- en reactieheaders hierboven opgegeven. 
+   - **RewriteRule**: dit object bevat alle de *actionSets* hierboven opgegeven. 
+   - **RewriteRuleSet**-dit object bevat alle de *rewriteRules* en moet worden gekoppeld aan een aanvraag routeringsregel - basis of op basis van een pad.
+2. U moet koppelen van de regelset herschrijven met een regel voor doorsturen. Eenmaal gemaakt, wordt deze configuratie opnieuw schrijven is gekoppeld aan de bron-listener via de regel voor doorsturen. Wanneer u een basisregel voor routering, wordt de configuratie van de herschrijven header is gekoppeld aan de listener van een bron en is een algemene header herschrijven. Wanneer een regel op pad gebaseerde routering wordt gebruikt, wordt de configuratie van de koptekst opnieuw schrijven is gedefinieerd in de URL-path-map. Dus dit alleen van toepassing op het padgebied van het specifieke van een site.
+
+U kunt meerdere http-header herschrijven-regelsets maken en elke set van de regel herschrijven kan worden toegepast op meerdere listeners. U kunt echter slechts één http-herschrijvingsregel is ingesteld op een specifieke listener toepassen.
+
+U kunt de waarde in de headers te herschrijven:
+
+- De tekstwaarde. 
+
+  *Voorbeeld:* 
+
+  ```azurepowershell-interactive
+  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  ```
+
+- De waarde van een andere koptekst. 
+
+  *Voorbeeld 1:* 
+
+  ```azurepowershell-interactive
+  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  ```
+
+  > [!Note] 
+  > Als u wilt een aanvraagheader opgeeft, moet u de syntaxis gebruiken: {http_req_headerName}
+
+  *Voorbeeld 2*:
+
+  ```azurepowershell-interactive
+  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  ```
+
+  > [!Note] 
+  > Om een antwoordheader opgeeft, moet u de syntaxis gebruiken: {http_resp_headerName}
+
+- De waarde uit de ondersteunde servervariabelen.
+
+  *Voorbeeld:* 
+
+  ```azurepowershell-interactive
+  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  ```
+
+  > [!Note] 
+  > Om een servervariabele opgeeft, moet u de syntaxis gebruiken: {var_serverVariable}
+
+- Een combinatie van de bovenstaande.
+
+De hierboven genoemde servervariabelen zijn de variabelen die informatie over de server, wordt de verbinding met de client en de huidige aanvraag via de verbinding. Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabelen:
+
+| Ondersteunde servervariabelen | Description                                                  |
+| -------------------------- | :----------------------------------------------------------- |
+| ciphers_supported          | retourneert de lijst met coderingen die worden ondersteund door de client          |
+| ciphers_used               | retourneert de tekenreeks van de coderingen die worden gebruikt voor een SSL-verbinding tot stand gebrachte |
+| client_latitude            | om te bepalen van het land, regio en plaats, afhankelijk van de IP-adres van client |
+| client_longitude           | om te bepalen van het land, regio en plaats, afhankelijk van de IP-adres van client |
+| client_port                | Clientpoort                                                  |
+| client_tcp_rtt             | informatie over de client TCP-verbinding. beschikbaar op systemen die ondersteuning bieden voor de TCP_INFO socket-optie |
+| client_user                | Wanneer u HTTP-verificatie, de gebruikersnaam moet worden opgegeven voor verificatie |
+| host                       | in deze volgorde van prioriteit: hostnaam van de aanvraagregel, of de hostnaam van het veld met de header 'Host' of de naam van de server die overeenkomt met een aanvraag |
+| http_method                | de methode die wordt gebruikt voor het maken van de URL-aanvraag. Bijvoorbeeld GET, POST enzovoort. |
+| http_status                | sessiestatus, bijvoorbeeld: 200, 400, 403 enzovoort.                       |
+| http_version               | aanvraagprotocol, meestal "HTTP/1.0", ' HTTP/1.1' of "HTTP/2.0" |
+| QUERY_STRING               | de lijst met variabele / waarde-paren die vervolgens worden de '? ' in de aangevraagde URL. |
+| received_byte              | aanvraaglengte (met inbegrip van de aanvraagregel, koptekst en hoofdtekst van de aanvraag) |
+| request_query              | argumenten in de aanvraagregel                                |
+| request_scheme             | schema van de aanvraag, 'http' of 'https'                            |
+| request_uri                | volledige oorspronkelijke aanvraag-URI (met argumenten)                   |
+| sent_bytes                 | aantal bytes dat wordt verzonden naar een client                             |
+| SERVER_PORT                | poort van de server, die een aanvraag geaccepteerd                 |
+| ssl_connection_protocol    | retourneert het protocol van een SSL-verbinding tot stand gebrachte        |
+| ssl_enabled                | 'aan' als werkt verbinding in de SSL-modus of een lege tekenreeks anders |
+
+## <a name="limitations"></a>Beperkingen
+
+- Deze mogelijkheid te herschrijven van HTTP-headers is momenteel alleen beschikbaar via Azure PowerShell, Azure API en Azure SDK. Ondersteuning via de portal en Azure CLI is binnenkort beschikbaar.
+
+- Wanneer u een koptekst herschrijven op uw Application Gateway toepassen, moet u de portal niet gebruiken voor het maken van de wijzigingen aan deze toepassingsgateway totdat de mogelijkheid wordt ondersteund op de portal. Als u wijzigingen aanbrengen in de Application Gateway na het toepassen van een herschrijvingsregel voor de portal hebt gebruikt, wordt in de header regel herschrijven. U kunt aanbrengen met behulp van Azure PowerShell, Azure-API's of Azure SDK.
+
+- De HTTP-ondersteuning voor het herschrijven van koptekst wordt alleen ondersteund op de nieuwe SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). De mogelijkheid wordt niet ondersteund op de oude SKU.
+
+- Voor het herschrijven van de verbinding maken, bijwerken en Host-headers is nog niet ondersteund.
+
+- Twee belangrijke servervariabelen, client_ip (het IP-adres van de client die de aanvraag) en cookie_*naam* (de *naam* cookie), worden nog niet ondersteund. De servervariabele client_ip is bijzonder nuttig in scenario's waarbij klanten van plan bent te herschrijven van de x-doorgestuurd-voor-header ingesteld door Application Gateway, zodat de header alleen de IP-adres van de client en niet de informatie over de poort bevat.
+
+  Deze servervariabelen zal binnenkort worden ondersteund.
+
+- De mogelijkheid voor het herschrijven van de http-headers voorwaardelijk's is binnenkort beschikbaar.
+
+- Naam van de header mag alfanumerieke tekens en symbolen zoals gedefinieerd in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Echter, momenteel niet ondersteund de "liggend" (\_) speciaal teken in naam van de Header. 
+
+## <a name="need-help"></a>Hulp nodig?
+
+Neem contact op met ons op [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) als u hulp met deze functie nodig hebt.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Nadat u meer over de mogelijkheid voor het herschrijven van HTTP-headers, gaat u naar [maken van een automatisch schalen en een zone-redundante application gateway die HTTP-headers herschrijft](tutorial-http-header-rewrite-powershell.md) of [Herschrijf de HTTP-headers in bestaande automatisch schalen en zone-redundante application-gateway](add-http-header-rewrite-rule-powershell.md)

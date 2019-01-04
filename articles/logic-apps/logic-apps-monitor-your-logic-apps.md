@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434253"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543853"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -156,7 +156,7 @@ Als u wilt uw query te verfijnen door een filter toe te voegen, kies **+ toevoeg
 Samen met Azure Log Analytics, kunt u uitbreiden hoe u diagnostische gegevens van uw logische app gebruiken met andere Azure-services, bijvoorbeeld: 
 
 * [Azure Diagnostics-in Azure-opslag logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Stream diagnostische logboeken van Azure naar Azure Eventhubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Stream diagnostische logboeken van Azure naar Azure Eventhubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
 U kunt vervolgens get realtime bewaking met behulp van Telemetrie en analyses van andere services, zoals [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) en [Power BI](../azure-monitor/platform/powerbi.md). Bijvoorbeeld:
 

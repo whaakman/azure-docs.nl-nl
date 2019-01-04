@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312899"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653982"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Apache Phoenix gebruiken met Apache HBase op basis van Linux-clusters in HDInsight
-Meer informatie over het gebruik van [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight en SQLLine gebruiken. Zie voor meer informatie over Phoenix [Phoenix in 15 minuten of minder](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor de grammatica Phoenix [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
+Meer informatie over het gebruik van [Apache Phoenix](https://phoenix.apache.org/) in Azure HDInsight en SQLLine gebruiken. Zie voor meer informatie over Phoenix [Apache Phoenix in 15 minuten of minder](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor de grammatica Phoenix [Apache Phoenix grammatica](https://phoenix.apache.org/language/index.html).
 
-> [!NOTE]
-> Zie voor informatie over HDInsight de Phoenix-versie, [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight](../hdinsight-component-versioning.md).
+> [!NOTE]  
+> Zie voor informatie over HDInsight de Phoenix-versie, [wat is er nieuw in het Apache Hadoop-clusterversies geleverd door HDInsight](../hdinsight-component-versioning.md).
 >
 >
 
@@ -61,7 +61,7 @@ Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met ee
 
         !quit
 
-Zie voor meer informatie de [SQLLine handmatig](http://sqlline.sourceforge.net/#manual) en [Apache Phoenix grammatica](http://phoenix.apache.org/language/index.html).
+Zie voor meer informatie de [SQLLine handmatig](http://sqlline.sourceforge.net/#manual) en [Apache Phoenix grammatica](https://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u Apache Phoenix gebruiken in HDInsight. Voor meer informatie, Zie de volgende artikelen:

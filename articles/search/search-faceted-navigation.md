@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313935"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632430"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Facetnavigatie is een filteren mechanisme waarmee Self-directed drilldown navigatie in zoektoepassingen. De term 'meervoudige navigatie' kan niet bekend zijn, maar u hebt waarschijnlijk eerder gebruikt. Zoals in het volgende voorbeeld wordt weergegeven, is meervoudige navigatie niets meer dan de categorieën die worden gebruikt om resultaten te filteren.
@@ -34,7 +34,7 @@ In de ontwikkeling van toepassingen vormt schrijven van code die wordt gemaakt v
 ## <a name="sample-code-and-demo"></a>Voorbeeldcode en demo
 In dit artikel wordt een taak search-portal als voorbeeld gebruikt. Het voorbeeld wordt geïmplementeerd als een ASP.NET MVC-toepassing.
 
--   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](http://azjobsdemo.azurewebsites.net/).
+-   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Download de code uit de [opslagplaats voor Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -371,7 +371,7 @@ Vindt u voorbeelden van het filter in [syntaxis voor OData-expressie (Azure Sear
 ## <a name="try-the-demo"></a>Probeer de demoversie
 De Azure Search taak Portal-Demo bevat de voorbeelden in dit artikel wordt verwezen.
 
--   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](http://azjobsdemo.azurewebsites.net/).
+-   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Download de code uit de [opslagplaats voor Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,12 +396,12 @@ Als u met zoekresultaten werkt, bekijk de URL voor wijzigingen in de basisquery'
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Meer informatie
-Bekijk [gedetailleerde informatie over Azure Search](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Op 45:25 is er een demo over het implementeren van facetten.
+Bekijk [gedetailleerde informatie over Azure Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Op 45:25 is er een demo over het implementeren van facetten.
 
 Voor meer inzicht in ontwerpprincipes voor meervoudige navigatie raden we aan de volgende koppelingen:
 
 * [Ontwerpen voor Facetzoekopdrachten](http://www.uie.com/articles/faceted_search/)
-* [Ontwerppatronen: Facetnavigatie](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Ontwerppatronen: Facetnavigatie](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ Voor meer inzicht in ontwerpprincipes voor meervoudige navigatie raden we aan de
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

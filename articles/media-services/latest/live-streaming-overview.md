@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
-ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000241"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788205"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -34,7 +34,7 @@ In dit artikel biedt een gedetailleerd overzicht, richtlijnen en diagrammen van 
 
 Met het oog op de on-demand of live streams met Media Services, moet u beschikken over ten minste één [streamingendpoint zo](https://docs.microsoft.com/rest/api/media/streamingendpoints). Wanneer uw Media Services-account wordt gemaakt een **standaard** streamingendpoint zo wordt toegevoegd aan uw account in de **gestopt** staat. U moet de streamingendpoint zo van waaruit u uw inhoud streamen naar uw viewers wilt starten. U kunt de standaardwaarde **streamingendpoint zo**, of maak een ander aangepast **streamingendpoint zo** met de gewenste configuratie- en CDN-instellingen. U besluiten om in te schakelen van meerdere door, elke regel die gericht is op een andere CDN en bieden een unieke hostnaam voor het leveren van inhoud. 
 
-In Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Wanneer u een LiveEvent maakt, wordt een invoereindpunt gemaakt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma. De externe live codering verzendt de bijdrage feed aan die een invoereindpunt met behulp van de [RTMP](https://www.adobe.com/devnet/rtmp.html) of [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (gefragmenteerde MP4)-protocol.  
+In Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Wanneer u een LiveEvent maakt, wordt een invoereindpunt gemaakt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma. De externe live codering verzendt de bijdrage feed aan die een invoereindpunt met behulp van de [RTMP](https://www.adobe.com/devnet/rtmp.html) of [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (gefragmenteerde MP4)-protocol. Voor de Smooth Streaming-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `http://` of `https://`. Voor het RTMP-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `rtmp://` of `rtmps://`. Zie voor meer informatie, [aanbevolen live coderingsprogramma's streaming](recommended-on-premises-live-encoders.md).
 
 Zodra de **LiveEvent** ontvangen van de bijdrage feed is gestart, kunt u de preview-eindpunt (de voorbeeld-URL te bekijken en te valideren dat u de live stream voordat u verdere publiceert ontvangt. Nadat u hebt gecontroleerd dat de stroom preview goed is, kunt u de LiveEvent gebruiken om de live stream beschikbaar voor levering via een of meer (vooraf gemaakt) **door**. Om dit te realiseren, maakt u een nieuw [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) op de **LiveEvent**. 
 
@@ -44,7 +44,7 @@ Met Media Services kunt u profiteren van **dynamische pakketten**, waarmee u pre
 
 Media Services kunt u uw inhoud dynamisch wordt versleuteld bezorgen (**dynamische versleuteling**) met Advanced Encryption Standard (AES-128) of een van de drie belangrijkste digital rights management (DRM)-systemen: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM-licenties naar geautoriseerde clients. Zie voor meer informatie over het versleutelen van uw inhoud met Media Services [overzicht inhoud beveiligen](content-protection-overview.md)
 
-Indien gewenst, kunt u ook toepassen dynamisch filteren, die kan worden gebruikt voor het beheren van het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. 
+Indien gewenst, kunt u ook toepassen dynamisch filteren, die kan worden gebruikt voor het beheren van het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [Filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
 
 ### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nieuwe mogelijkheden voor live streamen in v3
 
@@ -77,13 +77,13 @@ Zie het voorbeeld van een live in [MediaV3LiveApp](https://github.com/Azure-Samp
 
 ![Live encoding](./media/live-streaming/live-encoding.png)
 
-Wanneer u live coderen met Media Services, zou u uw on-premises live coderingsprogramma voor het verzenden van een single-bitrate video als de bijdrage feed om de LiveEvent (met behulp van RTMP- of Fragmented Mp4-protocol) te configureren. De LiveEvent codeert die binnenkomende single-bitrate stream naar een [meerdere bitrate videostream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), maakt deze beschikbaar zijn voor de levering van voor het afspelen van apparaten via protocollen, zoals MPEG-DASH, HLS en Smooth Streaming. Bij het maken van dit type LiveEvent, geef het type codering als **Basic** (LiveEventEncodingType.Basic).
+Wanneer u live coderen met Media Services, zou u uw on-premises live coderingsprogramma voor het verzenden van een single-bitrate video als de bijdrage feed om de LiveEvent (met behulp van RTMP- of Fragmented Mp4-protocol) te configureren. De LiveEvent codeert die binnenkomende single-bitrate stream naar een [meerdere bitrate videostream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), maakt deze beschikbaar zijn voor de levering van voor het afspelen van apparaten via protocollen, zoals MPEG-DASH, HLS en Smooth Streaming. Bij het maken van dit type LiveEvent, geef het type codering als **Standard** (LiveEventEncodingType.Standard).
 
 U kunt de bijdrage op maximaal 1080 p oplossing tegen een tarief van het kader van 30 frames/seconde, met de video codec H.264/AVC en AAC-kanaal verzenden (AAC-LC, hij AACv1 of hij AACv2)-audiocodec. Zie de [LiveEvent vergelijkings- en beperkingen van het type](live-event-types-comparison.md) artikel voor meer informatie.
 
 ## <a name="liveevent-types-comparison"></a>LiveEvent typen vergelijking
 
-Het volgende artikel bevat een tabel met de vergelijking tussen de functies van de twee LiveEvent-typen: [vergelijking](live-event-types-comparison.md).
+Het volgende artikel bevat een tabel met de vergelijking tussen de functies van de twee LiveEvent-typen: [Vergelijking](live-event-types-comparison.md).
 
 ## <a name="liveoutput"></a>LiveOutput
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: b071bfe83ba9ef653db2d6d1debad4e3dfa02580
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845923"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993799"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -119,29 +119,29 @@ function generateRandomId() {
 In een klassebibliotheek, de dezelfde trigger en informatie over de binding &mdash; wachtrij- en tabelnamen, opslagaccounts, functie parameters voor invoer en uitvoer &mdash; wordt geleverd door de kenmerken in plaats van een bestand function.json. Hier volgt een voorbeeld:
 
 ```csharp
- public static class QueueTriggerTableOutput
- {
-     [FunctionName("QueueTriggerTableOutput")]
-     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
-     public static Person Run(
-         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         ILogger log)
-     {
-         return new Person() {
-                 PartitionKey = "Orders",
-                 RowKey = Guid.NewGuid().ToString(),
-                 Name = order["Name"].ToString(),
-                 MobileNumber = order["MobileNumber"].ToString() };
-     }
- }
+public static class QueueTriggerTableOutput
+{
+    [FunctionName("QueueTriggerTableOutput")]
+    [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+    public static Person Run(
+        [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order,
+        ILogger log)
+    {
+        return new Person() {
+                PartitionKey = "Orders",
+                RowKey = Guid.NewGuid().ToString(),
+                Name = order["Name"].ToString(),
+                MobileNumber = order["MobileNumber"].ToString() };
+    }
+}
 
- public class Person
- {
-     public string PartitionKey { get; set; }
-     public string RowKey { get; set; }
-     public string Name { get; set; }
-     public string MobileNumber { get; set; }
- }
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
 ```
 
 ## <a name="supported-bindings"></a>Ondersteunde bindingen
@@ -161,7 +161,7 @@ In sommige omgevingen ontwikkeling, u moet expliciet *registreren* een binding d
 |C#-klassenbibliotheek vormt met behulp van Visual Studio 2017|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2017)|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2017)|
 |C#-klassenbibliotheek vormt met behulp van Visual Studio Code|N/A|[.NET Core CLI gebruiken](#c-class-library-with-visual-studio-code)|
 
-De volgende bindingstypen zijn uitzonderingen waarvoor geen expliciete registratie is vereist omdat ze automatisch worden geregistreerd in alle versies en omgevingen: http- en timer.
+De volgende bindingstypen zijn uitzonderingen waarvoor geen expliciete registratie is vereist omdat ze automatisch worden geregistreerd in alle versies en omgevingen: HTTP- en timer.
 
 ### <a name="azure-portal-development"></a>Azure portal-ontwikkeling
 
@@ -613,9 +613,10 @@ module.exports = function (context, info) {
 Als sommige van deze eigenschappen in de JSON-nettolading objecten met eigenschappen, kunt u verwijzen naar die rechtstreeks via een puntnotering. Stel bijvoorbeeld dat uw JSON er als volgt uitzien:
 
 ```json
-{"BlobName": {
-  "FileName":"HelloWorld",
-  "Extension":"txt"
+{
+  "BlobName": {
+    "FileName":"HelloWorld",
+    "Extension":"txt"
   }
 }
 ```

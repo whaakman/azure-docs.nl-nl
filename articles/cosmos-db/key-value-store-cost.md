@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8e04439d63646a8aebe224adbf629491cc2dfbc6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134179"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547215"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB als een opslag met sleutelwaarden – kosten-overzicht
 
-Azure Cosmos DB is een wereldwijd gedistribueerde, multi-model databaseservice voor het bouwen van maximaal beschikbare, grootschalige toepassingen eenvoudig. Azure Cosmos DB indexeert automatisch alle gegevens, efficiënt neemt standaard. Hiermee maakt u snel en consistent [SQL](how-to-sql-query.md) (en [JavaScript](programming.md))-query's op elk soort gegevens. 
+Azure Cosmos DB is een wereldwijd gedistribueerde, multi-model databaseservice voor het bouwen van maximaal beschikbare, grootschalige toepassingen eenvoudig. Azure Cosmos DB indexeert automatisch alle gegevens, efficiënt neemt standaard. Hiermee maakt u snel en consistent [SQL](how-to-sql-query.md) (en [JavaScript](stored-procedures-triggers-udfs.md))-query's op elk soort gegevens. 
 
 Dit artikel worden de kosten van Azure Cosmos DB voor eenvoudige schrijven en bewerkingen lezen wanneer deze wordt gebruikt als een sleutel/waarde-archief. Voorbeelden van bewerkingen zijn ingevoegd, vervangt, verwijderingen en upsert-bewerking van documenten worden geschreven. Naast het garanderen van een 99,99% beschikbaarheids-SLA voor alle accounts voor één regio en alle accounts voor meerdere regio's met soepele consistentie en 99,999% beschikbaarheid voor lezen op alle accounts voor meerdere regio's, Azure Cosmos DB biedt gegarandeerd < 10 ms latentie voor leesbewerkingen en < 15 ms latentie voor de (geïndexeerde) schrijfbewerkingen respectievelijk in het 99e percentiel. 
 

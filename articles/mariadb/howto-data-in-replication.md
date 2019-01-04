@@ -3,17 +3,15 @@ title: Configureer de replicatie-gegevens in als u wilt repliceren van gegevens 
 description: In dit artikel wordt beschreven hoe u gegevens in de replicatie instellen voor Azure Database voor MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212757"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548898"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Azure Database voor MariaDB-gegevens in replicatie configureren
 
@@ -96,7 +94,7 @@ De volgende stappen uit voorbereiden en configureren van de MariaDB-server die g
  
    Klik op de **beheerdersrollen** deelvenster en selecteer vervolgens **Replicatie secundair apparaat** uit de lijst met **globale bevoegdheden**. Klik vervolgens op **toepassen** om de replicatierol te maken.
 
-   ![Replicatie Slave](./media/howto-data-in-replication/replicationslave.png)
+   ![Replicatie Secundair apparaat](./media/howto-data-in-replication/replicationslave.png)
 
 
 4. De hoofd-server ingesteld op modus alleen-lezen
@@ -155,7 +153,7 @@ De volgende stappen uit voorbereiden en configureren van de MariaDB-server die g
    - master_password: wachtwoord voor de hoofd-server
    - master_log_file: binaire logboekbestandsnaam die worden uitgevoerd `show master status`
    - master_log_pos: binaire logboekpositie die worden uitgevoerd `show master status`
-   - master_ssl_ca: CA-certificaat-context. Als u geen gebruik van SSL, geeft u lege tekenreeks.
+   - master_ssl_ca: Context van de CA-certificaat. Als u geen gebruik van SSL, geeft u lege tekenreeks.
        - Het verdient aanbeveling om door te geven van deze parameter in als een variabele. Zie de volgende voorbeelden voor meer informatie.
 
    **Voorbeelden**

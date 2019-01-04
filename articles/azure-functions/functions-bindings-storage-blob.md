@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a222e66b896886d724572982626fd0bc2c277a8
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338563"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809961"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -320,7 +320,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. Uitzonderingen worden vermeld in de [gebruik](#trigger---usage) sectie. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven. | 
 |**Pad** | **BlobPath** |De [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) om te controleren.  Kan een [patroon voor de blob](#trigger---blob-name-patterns). | 
-|**verbinding** | **verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [Blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**verbinding** | **Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [Blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -446,7 +446,7 @@ De blobtrigger gebruikmaakt van een wachtrij intern, zodat het maximum aantal ge
 
 [Het verbruiksabonnement](functions-scale.md#how-the-consumption-plan-works) een functie-app op een virtuele machine (VM) tot 1,5 GB geheugen beperkt. Geheugen wordt gebruikt door elk gelijktijdig worden uitgevoerd exemplaar van de functie en de Functions-runtime zelf. Als een blob-geactiveerde functie wordt de hele blob in het geheugen geladen, de maximale hoeveelheid geheugen die wordt gebruikt door deze functie alleen voor blobs is 24 uur per dag * maximale blob-grootte. Een functie-app met drie blob geactiveerde functies en de standaardinstellingen zou bijvoorbeeld een maximum aantal VM-gelijktijdigheid van 3 * 24 uur per dag = 72 functie aanroepen.
 
-JavaScript-functies de gehele blob in het geheugen laden en C#-functies dat doen als u met maken `string`, `Byte[]`, of POCO.
+JavaScript en Java-functies in het geheugen, de hele blob laden en C# functies dat doen als u met maken `string`, `Byte[]`, of POCO.
 
 ## <a name="trigger---polling"></a>Trigger - polling
 
@@ -462,7 +462,7 @@ Zie het voorbeeld taalspecifieke:
 
 * [C#](#input---c-example)
 * [C# script (.csx)](#input---c-script-example)
-* [Java](#input---java-example)
+* [Java](#input---java-examples)
 * [JavaScript](#input---javascript-example)
 * [Python](#input---python-example)
 
@@ -630,22 +630,61 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-### <a name="input---java-example"></a>Invoer - Java-voorbeeld
+### <a name="input---java-examples"></a>Invoer - Java-voorbeelden
 
-Het volgende voorbeeld is een Java-functie die gebruikmaakt van een wachtrijtrigger en een binding van de blob-invoerbestanden. Bericht uit de wachtrij bevat de naam van de blob en de functie registreert de grootte van de blob.
+Deze sectie bevat de volgende voorbeelden:
+
+* [HTTP-trigger, zoekt u naar blob-naam van de query-tekenreeks](#http-trigger-look-up-blob-name-from-query-string-java)
+* [Trigger in de wachtrij, blob-naam van de wachtrijbericht ontvangen](#queue-trigger-receive-blob-name-from-queue-message-java)
+
+#### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP-trigger, zoekt u naar blob-naam van de query-tekenreeks (Java)
+
+ Het volgende voorbeeld ziet u een Java-functie die gebruikmaakt van de ```HttpTrigger``` aantekening voor het ontvangen van een parameter met de naam van een bestand in een blob storage-container. De ```BlobInput``` aantekening vervolgens het bestand gelezen en wordt de inhoud ervan wordt doorgegeven aan de functie als een ```byte[]```.
 
 ```java
-@FunctionName("getBlobSize")
-@StorageAccount("AzureWebJobsStorage")
-public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
-                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
-       final ExecutionContext context) {
+  @FunctionName("getBlobSizeHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage blobSize(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    final ExecutionContext context) {
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-receive-blob-name-from-queue-message-java"></a>Trigger in de wachtrij, ontvangen van de blob-naam van wachtrijbericht (Java)
+
+ Het volgende voorbeeld ziet u een Java-functie die gebruikmaakt van de ```QueueTrigger``` aantekening om een bericht met de naam van een bestand in een blob storage-container te ontvangen. De ```BlobInput``` aantekening vervolgens het bestand gelezen en wordt de inhoud ervan wordt doorgegeven aan de functie als een ```byte[]```.
+
+```java
+  @FunctionName("getBlobSize")
+  @StorageAccount("Storage_Account_Connection_String")
+  public void blobSize(
+    @QueueTrigger(
+      name = "filename", 
+      queueName = "myqueue-items-sample") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{queueTrigger}") 
+    byte[] content,
+    final ExecutionContext context) {
       context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
- }
- ```
+  }
+```
 
-  In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@BlobInput` aantekening op parameters waarvan de waarde afkomstig van een blob zijn kan.  Deze aantekening kan worden gebruikt met systeemeigen Java-typen, pojo's of null-waarden met behulp van `Optional<T>`.
-
+In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@BlobInput` aantekening op parameters waarvan de waarde afkomstig van een blob zijn kan.  Deze aantekening kan worden gebruikt met systeemeigen Java-typen, pojo's of null-waarden met behulp van `Optional<T>`.
 
 ## <a name="input---attributes"></a>Invoer - kenmerken
 
@@ -690,7 +729,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Uitzonderingen worden vermeld in de [gebruik](#input---usage) sectie. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.|
 |**Pad** |**BlobPath** | Het pad naar de blob. |
-|**verbinding** |**verbinding**| De naam van een app-instelling met de [opslagverbindingsreeks](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**verbinding** |**Verbinding**| De naam van een app-instelling met de [opslagverbindingsreeks](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -728,7 +767,7 @@ Zie het voorbeeld taalspecifieke:
 
 * [C#](#output---c-example)
 * [C# script (.csx)](#output---c-script-example)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
 * [Python](#output---python-example)
 
@@ -915,23 +954,72 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### <a name="output---java-example"></a>Uitvoer - Java-voorbeeld
+### <a name="output---java-examples"></a>Uitvoer - Java-voorbeelden
 
-Het volgende voorbeeld wordt blob-invoer en uitvoerbindingen in een Java-functie. De functie maakt een kopie van een blob tekst. De functie wordt geactiveerd door een wachtrijbericht met de naam van de blob te kopiëren. De nieuwe blob met de naam {originalblobname}-exemplaar
+Deze sectie bevat de volgende voorbeelden:
+
+* [HTTP-trigger, met behulp van OutputBinding](#http-trigger-using-outputbinding-java)
+* [Wachtrijtrigger, met behulp van de retourwaarde van functie](#queue-trigger-using-function-return-value-java)
+
+#### <a name="http-trigger-using-outputbinding-java"></a>HTTP-trigger, met behulp van OutputBinding (Java)
+
+ Het volgende voorbeeld ziet u een Java-functie die gebruikmaakt van de ```HttpTrigger``` aantekening voor het ontvangen van een parameter met de naam van een bestand in een blob storage-container. De ```BlobInput``` aantekening vervolgens het bestand gelezen en wordt de inhoud ervan wordt doorgegeven aan de functie als een ```byte[]```. De ```BlobOutput``` aantekening wordt gebonden aan ```OutputBinding outputItem```, die vervolgens door de functie wordt gebruikt om te schrijven van de inhoud van de invoerblob naar de geconfigureerde storage-container.
 
 ```java
-@FunctionName("copyTextBlob")
-@StorageAccount("AzureWebJobsStorage")
-@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
-public String blobCopy(
-    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
-    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+  @FunctionName("copyBlobHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage copyBlobHttp(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    @BlobOutput(
+      name = "target", 
+      path = "myblob/{Query.file}-CopyViaHttp")
+    OutputBinding<String> outputItem,
+    final ExecutionContext context) {
+      // Save blob to outputItem
+      outputItem.setValue(new String(content, StandardCharsets.UTF_8));
+
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-using-function-return-value-java"></a>Wachtrijtrigger, met behulp van de retourwaarde van functie (Java)
+
+ Het volgende voorbeeld ziet u een Java-functie die gebruikmaakt van de ```QueueTrigger``` aantekening om een bericht met de naam van een bestand in een blob storage-container te ontvangen. De ```BlobInput``` aantekening vervolgens het bestand gelezen en wordt de inhoud ervan wordt doorgegeven aan de functie als een ```byte[]```. De ```BlobOutput``` aantekening wordt gebonden aan de geretourneerde waarde van de functie, die vervolgens wordt gebruikt door de runtime voor het schrijven van de inhoud van de invoerblob naar de geconfigureerde storage-container.
+
+```java
+  @FunctionName("copyBlobQueueTrigger")
+  @StorageAccount("Storage_Account_Connection_String")
+  @BlobOutput(
+    name = "target", 
+    path = "myblob/{queueTrigger}-Copy")
+  public String copyBlobQueue(
+    @QueueTrigger(
+      name = "filename", 
+      dataType = "string",
+      queueName = "myqueue-items") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      path = "samples-workitems/{queueTrigger}") 
+    String content,
+    final ExecutionContext context) {
+      context.getLogger().info("The content of \"" + filename + "\" is: " + content);
       return content;
- }
- ```
+  }
+```
 
- In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@BlobOutput` aantekening op functieparameters waarvan de waarde kan worden geschreven naar een object in blob-opslag.  Het parametertype moet `OutputBinding<T>`, waarbij T alle systeemeigen Java-type van een POJO.
-
+ In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@BlobOutput` aantekening op functieparameters waarvan de waarde kan worden geschreven naar een object in blob-opslag.  Het parametertype moet `OutputBinding<T>`, waarbij T een systeemeigen Java-type of een POJO.
 
 ## <a name="output---attributes"></a>Uitvoer - kenmerken
 
@@ -975,7 +1063,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op `out` voor een Uitvoerbinding. Uitzonderingen worden vermeld in de [gebruik](#output---usage) sectie. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.  Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.|
 |**Pad** |**BlobPath** | Het pad naar de blobco. |
-|**verbinding** |**verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

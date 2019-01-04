@@ -1,5 +1,5 @@
 ---
-title: Consistentieniveaus en Azure Cosmos DB-API 's
+title: Consistentieniveaus en Azure Cosmos DB-API's
 description: Informatie over de consistentieniveaus voor API's in Azure Cosmos DB.
 keywords: consistentie, azure cosmosdb, azure, modellen, mongodb, cassandra, grafiek, tabel, Microsoft azure
 services: cosmos-db
@@ -8,14 +8,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 277a064d93e2ebcea82f3909b3fd16328a775105
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2fde29111ae1a95aec0cfef93762d3ae4f0e0dd0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832493"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809383"
 ---
-# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API 's
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API's
 
 Vijf consistentiemodellen aangeboden door Azure Cosmos DB worden ondersteund door de Azure Cosmos DB SQL API. Wanneer u Azure Cosmos DB gebruikt, is de SQL-API de standaardinstelling. 
 
@@ -50,5 +50,5 @@ De volgende tabel ziet u de toewijzing 'lezen problemen' tussen MongoDB 3.4 en h
 Meer informatie over consistentieniveaus en compatibiliteit tussen Azure Cosmos DB-API's met de open-source-API's. Zie de volgende artikelen:
 
 * [Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus](consistency-levels-tradeoffs.md)
-* [MongoDB-functies worden ondersteund door de Azure Cosmos DB MongoDB-API](mongodb-feature-support.md)
+* [MongoDB-functies worden ondersteund door de Azure Cosmos DB-API voor MongoDB](mongodb-feature-support.md)
 * [Apache Cassandra-functies worden ondersteund door de Cassandra-API van Azure Cosmos DB](cassandra-support.md)

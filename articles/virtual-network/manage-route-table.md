@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7c3c4eea80eb0ceddc48d30fd51cf23524df5640
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222111"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540755"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
@@ -48,7 +48,7 @@ Er is een limiet aan het aantal routetabellen u per Azure-locatie en abonnement 
 **Opdrachten**
 
 - Azure CLI: [az network route-table maken](/cli/azure/network/route-table/route#az_network_route_table_create)
-- PowerShell: [nieuwe AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Routetabellen weergeven
 
@@ -64,7 +64,7 @@ Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wann
 1. Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wanneer **routetabellen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de routetabel in de lijst die u wilt weergeven van details voor. Onder **instellingen**, vindt u de **Routes** in de routetabel en het **subnetten** de routetabel is gekoppeld aan.
 3. Zie voor meer informatie over algemene Azure-instellingen, de volgende informatie:
-    *   [Activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -147,7 +147,7 @@ Er is een limiet aan het aantal routes per routetabel per Azure-locatie en abonn
 **Opdrachten**
 
 - Azure CLI: [az network route-table route maken](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
-- PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell: [Nieuwe AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Routes weergeven
 
@@ -236,7 +236,7 @@ Het volgende hoptype tussen een virtuele machine en het IP-adres van een andere 
 
 Om uit te voeren taken op routetabellen en routes, moet uw account worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is toegewezen de nodige acties die worden vermeld in de volgende tabel:
 
-| Bewerking                                                          |   Naam                                                  |
+| Bewerking                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Een routetabel lezen                                    |
 | Microsoft.Network/routeTables/write                             |   Maken of bijwerken van een routetabel                        |

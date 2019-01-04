@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 0c14055209c6094585e0d1df892fea24a3f3ea55
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a64f92df7592b4df419e5f70a32f631ca0504c6c
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721065"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994212"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -68,14 +68,14 @@ Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een 
 
 ### <a name="properties-of-type-boolean"></a>Eigenschappen van het type boolean
 
-| Eigenschappen | Toegestane waarden | Gebruik |
+| Properties | Toegestane waarden | Gebruik |
 | --- | --- | --- |
 | accountEnabled |waar onwaar |user.accountEnabled - eq true |
 | dirSyncEnabled |waar onwaar |user.dirSyncEnabled - eq true |
 
 ### <a name="properties-of-type-string"></a>Eigenschappen van het typetekenreeks
 
-| Eigenschappen | Toegestane waarden | Gebruik |
+| Properties | Toegestane waarden | Gebruik |
 | --- | --- | --- |
 | city |Een tekenreekswaarde of *null* |(user.city - eq "waarde") |
 | Land/regio |Een tekenreekswaarde of *null* |(zoals user.country - eq "waarde") |
@@ -106,7 +106,7 @@ Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een 
 
 ### <a name="properties-of-type-string-collection"></a>Eigenschappen van het type tekenreeks-verzameling
 
-| Eigenschappen | Toegestane waarden | Gebruik |
+| Properties | Toegestane waarden | Gebruik |
 | --- | --- | --- |
 | otherMails |een string-waarde |(user.otherMails-bevat "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-bevat "SMTP: alias@domain") |
@@ -231,7 +231,7 @@ De regel voor een verzameling kan bestaan uit complexe expressies waarbij de eig
 
 Eigenschappen van meerdere waarden zijn verzamelingen van objecten van hetzelfde type. Ze kunnen worden gebruikt om te maken met behulp van regels voor groepslidmaatschap-een en -alle logische operators.
 
-| Eigenschappen | Waarden | Gebruik |
+| Properties | Waarden | Gebruik |
 | --- | --- | --- |
 | gebruikt u assignedPlans | Elk object in de verzameling beschrijft de tekenreekseigenschappen van de volgende: capabilityStatus, service, servicePlanId |user.assignedPlans-een (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- en assignedPlan.capabilityStatus - eq "Ingeschakeld") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses-een (\_ -bevat "contoso")) |
@@ -362,7 +362,7 @@ De volgende apparaatkenmerken kunnen worden gebruikt.
  systemLabels | een willekeurige tekenreeks die overeenkomt met de eigenschap voor Intune voor apparaten van de moderne werkplek tagging | (device.systemLabels-bevat "M365Managed")
 
 > [!Note]  
-> Voor de deviceOwnership bij het maken van dynamische groepen voor apparaten moet u de waarde gelijk is aan 'Bedrijf' instellen. Het eigendom van het apparaat wordt in Intune in plaats daarvan weergegeven als Bedrijfseigendom. Raadpleeg [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) voor meer informatie. 
+> Voor de deviceOwnership bij het maken van dynamische groepen voor apparaten moet u de waarde gelijk is aan 'Bedrijf' instellen. Het eigendom van het apparaat wordt in Intune in plaats daarvan weergegeven als Bedrijfseigendom. Raadpleeg [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) voor meer informatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

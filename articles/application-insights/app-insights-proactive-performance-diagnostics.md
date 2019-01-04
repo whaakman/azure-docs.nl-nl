@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bd7b4bd2e1c3116f2a722b0a06d24ecc43e6ccb2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864958"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974980"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
 [Application Insights](app-insights-overview.md) automatisch analyseert de prestaties van uw web-App, en wordt u gewaarschuwd over mogelijke problemen. U mogelijk is het lezen van dit omdat u een van onze Slimme detectie-meldingen ontvangen.
 
-Deze functie is vereist geen speciale instellingen, dan uw app configureren voor Application Insights (op [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), of [Node.js](app-insights-nodejs.md), en in [webpagina code](app-insights-javascript.md)). Deze is actief wanneer uw app zoveel telemetrie genereert.
+Deze functie is vereist geen speciale instellingen, dan uw app configureren voor Application Insights (op [ASP.NET](../azure-monitor/app/asp-net.md), [Java](../azure-monitor/app/java-get-started.md), of [Node.js](app-insights-nodejs.md), en in [webpagina code](../azure-monitor/app/javascript.md)). Deze is actief wanneer uw app zoveel telemetrie genereert.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>Wanneer kan ik een melding voor slimme detectie krijgen?
 
@@ -69,22 +69,22 @@ E-mailberichten over slimme detectie prestatieafwijkingen zijn beperkt tot één
 ## <a name="faq"></a>Veelgestelde vragen
 
 * *Medewerkers van Microsoft is dus kijken van mijn gegevens?*
-  * Nee. De service is volledig automatisch. Alleen krijgt u de meldingen. Uw gegevens [persoonlijke](app-insights-data-retention-privacy.md).
+  * Nee. De service is volledig automatisch. Alleen krijgt u de meldingen. Uw gegevens [persoonlijke](../azure-monitor/app/data-retention-privacy.md).
 * *U alle met Application Insights verzamelde gegevens analyseren?*
   * Niet op dit moment. We analyseren op dit moment aanvraag laadtijd reactietijd, de reactietijd voor afhankelijkheden en de pagina. Analyse van aanvullende metrische gegevens is op onze achterstand benieuwd.
 
 * Welke typen toepassingen werkt dit voor?
-  * Deze degradations worden gedetecteerd in elke toepassing die de juiste telemetrie genereert. Als u Application Insights in uw web-app hebt geïnstalleerd, worden klikt u vervolgens aanvragen en de afhankelijkheden automatisch bijgehouden. Maar in de back-endservices of andere apps, als u aanroepen naar ingevoegd [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) of [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), en vervolgens Slimme detectie op dezelfde manier werkt.
+  * Deze degradations worden gedetecteerd in elke toepassing die de juiste telemetrie genereert. Als u Application Insights in uw web-app hebt geïnstalleerd, worden klikt u vervolgens aanvragen en de afhankelijkheden automatisch bijgehouden. Maar in de back-endservices of andere apps, als u aanroepen naar ingevoegd [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) of [TrackDependency](../azure-monitor/app/api-custom-events-metrics.md#trackdependency), en vervolgens Slimme detectie op dezelfde manier werkt.
 
 * *Kan ik mijn eigen anomaliedetectie detectieregels maken of bestaande regels aanpassen?*
 
   * Nog niet, maar u kunt:
-    * [Waarschuwingen instellen](app-insights-alerts.md) waarmee wordt aangegeven dat wanneer een metriek een drempelwaarde overschrijdt.
-    * [Telemetrie exporteren](app-insights-export-telemetry.md) naar een [database](app-insights-code-sample-export-sql-stream-analytics.md) of [naar PowerBI](app-insights-export-power-bi.md), waar u ze kunt analyseren zelf.
+    * [Waarschuwingen instellen](../azure-monitor/app/alerts.md) waarmee wordt aangegeven dat wanneer een metriek een drempelwaarde overschrijdt.
+    * [Telemetrie exporteren](../azure-monitor/app/export-telemetry.md) naar een [database](../azure-monitor/app/code-sample-export-sql-stream-analytics.md) of [naar PowerBI](app-insights-export-power-bi.md), waar u ze kunt analyseren zelf.
 * *Hoe vaak wordt de analyse uitgevoerd?*
 
   * We dagelijks wordt uitgevoerd de analyse op de telemetrie van de vorige dag (volledige dag in UTC-tijdzone).
-* *Daarom wordt deze vervangen [metrische waarschuwingen](app-insights-alerts.md)?*
+* *Daarom wordt deze vervangen [metrische waarschuwingen](../azure-monitor/app/alerts.md)?*
   * Nee.  We doorvoeren niet naar elke die u kunt abnormaal overwegen gedrag detecteren.
 
 
@@ -101,7 +101,7 @@ Eerst maakt het uit? Als een pagina is altijd langzaam wordt geladen, maar slech
 
 De instructie impact (betrokken gebruikers of % van het verkeer) gebruiken als algemene richtlijn, maar houd er rekening mee dat dit niet het hele verhaal. Verzamel andere bewijs om te bevestigen.
 
-Houd rekening met de parameters van het probleem. Als deze afhankelijk van het Geografie is, stelt u [beschikbaarheidstests](app-insights-monitor-web-app-availability.md) met inbegrip van die regio: er gewoon mogelijk netwerkproblemen op dit gebied.
+Houd rekening met de parameters van het probleem. Als deze afhankelijk van het Geografie is, stelt u [beschikbaarheidstests](../azure-monitor/app/monitor-web-app-availability.md) met inbegrip van die regio: er gewoon mogelijk netwerkproblemen op dit gebied.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnose traag laden van pagina
 Waar is het probleem? Is de server traag reageren, is de pagina erg lang duurt of is de browser nodig om zich veel werk weer te geven?
@@ -109,16 +109,16 @@ Waar is het probleem? Is de server traag reageren, is de pagina erg lang duurt o
 Open de blade Browsers met metrische gegevens. De gesegmenteerde weergave van de browser laden tijd wordt aangegeven waar de gaan. 
 
 * Als **aanvraagtijd verzenden** is hoog, de server reageert langzaam of de aanvraag is een bericht met een grote hoeveelheid gegevens. Bekijk de [maatstaven voor prestaties](app-insights-web-monitor-performance.md#metrics) voor het onderzoeken van reactietijden.
-* Instellen van [bijhouden van afhankelijkheid](app-insights-asp-net-dependencies.md) om te zien of de traagheid veroorzaakt door externe services of uw database wordt.
-* Als **antwoord ontvangen van** overheersende, wordt de pagina en de afhankelijke onderdelen - JavaScript, CSS, afbeeldingen en verder (maar niet asynchroon geladen gegevens) lang zijn. Instellen van een [beschikbaarheidstest](app-insights-monitor-web-app-availability.md), en zorg ervoor dat u de optie voor het laden van afhankelijke onderdelen. Wanneer u bepaalde resultaten, opent u de details van een resultaat en vouwt u het om te zien hoe lang het laden van verschillende bestanden.
+* Instellen van [bijhouden van afhankelijkheid](../azure-monitor/app/asp-net-dependencies.md) om te zien of de traagheid veroorzaakt door externe services of uw database wordt.
+* Als **antwoord ontvangen van** overheersende, wordt de pagina en de afhankelijke onderdelen - JavaScript, CSS, afbeeldingen en verder (maar niet asynchroon geladen gegevens) lang zijn. Instellen van een [beschikbaarheidstest](../azure-monitor/app/monitor-web-app-availability.md), en zorg ervoor dat u de optie voor het laden van afhankelijke onderdelen. Wanneer u bepaalde resultaten, opent u de details van een resultaat en vouwt u het om te zien hoe lang het laden van verschillende bestanden.
 * Hoge **Client verwerkingstijd** stelt scripts langzaam worden uitgevoerd. Als de reden niet duidelijk is, kunt u code timing toevoegen en verzendtijden in trackMetric aanroepen.
 
 ### <a name="improve-slow-pages"></a>Langzame pagina's verbeteren
 Er is een volledige van advies over het verbeteren van uw antwoorden van de server en de laadtijden voor pagina's, zodat we niet wordt geprobeerd alle hier herhalen web. Hier volgen enkele tips die u waarschijnlijk al kent, alleen voor u overweegt:
 
-* Trage laden vanwege de grote bestanden: de scripts en andere onderdelen asynchroon worden geladen. Gebruik het script bundeling. De hoofdpagina opsplitsen in widgets die hun gegevens afzonderlijk worden geladen. Plain oude HTML-code voor grote tabellen niet verzenden: een script gebruiken om aan te vragen van de gegevens als JSON of andere compacte indeling en vervolgens de tabel in de plaats. Er zijn om te helpen bij al deze geweldige-frameworks. (Ze ook leiden tot grote scripts, natuurlijk.)
-* Browserpagina's met trage serverafhankelijkheden: Houd rekening met de geografische locaties van de onderdelen. Bijvoorbeeld, als u Azure gebruikt, moet u ervoor dat de webserver en de database zich in dezelfde regio. Query's worden opgehaald meer gegevens dan ze nodig hebben? Caching aan of batchverwerking help zou?
-* Problemen met capaciteit: kijken naar de server metrische gegevens van reactietijden en het aantal aanvragen. Als de reactietijden pieken onevenredig met pieken in het aantal aanvragen, is het waarschijnlijk dat uw servers worden uitgebreid.
+* Het traag laden vanwege de grote bestanden: De scripts en andere onderdelen asynchroon worden geladen. Gebruik het script bundeling. De hoofdpagina opsplitsen in widgets die hun gegevens afzonderlijk worden geladen. Plain oude HTML-code voor grote tabellen niet verzenden: een script gebruiken om aan te vragen van de gegevens als JSON of andere compacte indeling en vervolgens de tabel in de plaats. Er zijn om te helpen bij al deze geweldige-frameworks. (Ze ook leiden tot grote scripts, natuurlijk.)
+* Trage afhankelijkheden: Houd rekening met de geografische locaties van de onderdelen. Bijvoorbeeld, als u Azure gebruikt, moet u ervoor dat de webserver en de database zich in dezelfde regio. Query's worden opgehaald meer gegevens dan ze nodig hebben? Caching aan of batchverwerking help zou?
+* Capaciteit problemen: Ga naar de server metrische gegevens van reactietijden en het aantal aanvragen. Als de reactietijden pieken onevenredig met pieken in het aantal aanvragen, is het waarschijnlijk dat uw servers worden uitgebreid.
 
 
 ## <a name="server-response-time-degradation"></a>Degradatie van de serverreactietijd
@@ -185,9 +185,9 @@ Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app controleren
 * [Profiler](app-insights-profiler.md) 
 * [Snapshot debugger](app-insights-snapshot-debugger.md)
 * [Analytische gegevens](../azure-monitor/log-query/get-started-portal.md)
-* [Analytics slimme diagnostische gegevens](app-insights-analytics.md)
+* [Analytics slimme diagnostische gegevens](../azure-monitor/app/analytics.md)
 
 Slimme detectie worden volledig automatisch uitgevoerd. Maar misschien u graag enkele meer waarschuwingen instellen?
 
-* [Handmatig geconfigureerde metrische waarschuwingen](app-insights-alerts.md)
-* [Webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)
+* [Handmatig geconfigureerde metrische waarschuwingen](../azure-monitor/app/alerts.md)
+* [Webtests voor beschikbaarheid](../azure-monitor/app/monitor-web-app-availability.md)

@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271042"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603428"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Aanbevelingen voor prestaties voor SQL-Database
 
 Azure SQL Database leert herkennen en past zich aan met uw toepassing. Het biedt gepersonaliseerde aanbevelingen waarmee u kunt de prestaties van uw SQL-databases. SQL Database continu beoordeelt en analyseert de gebruiksgeschiedenis van uw SQL-databases. De aanbevelingen die worden verstrekt zijn gebaseerd op database-unieke werkbelasting patronen en prestaties te verbeteren.
 
 > [!TIP]
-> [Automatisch afstemmen](sql-database-automatic-tuning.md) is de aanbevolen methode voor het afstemmen van prestaties. [Intelligent Insights](sql-database-intelligent-insights.md) is de aanbevolen methode voor het bewaken van de prestaties. 
+> [Automatisch afstemmen](sql-database-automatic-tuning.md) is de aanbevolen methode om enkele van de meest voorkomende prestatieproblemen met de database automatisch afstemmen. [Query uitvoeren op prestatie-inzichten](sql-database-query-performance.md) is de aanbevolen methode voor basic Azure SQL Database-prestaties behoeften op het gebied. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is de aanbevolen methode voor geavanceerde bewaking van prestaties van de database op schaal, met ingebouwde intelligentie voor het oplossen van prestaties automatisch.
 >
 
 ## <a name="create-index-recommendations"></a>Indexaanbevelingen maken

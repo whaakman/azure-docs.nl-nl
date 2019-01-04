@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622960"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651449"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Het gebruik van de Azure Active Directory Power BI-inhoudspakket
 
@@ -32,7 +32,7 @@ De Power BI content pack voor Azure Active Directory (Azure AD) bevat vooraf gem
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een Azure AD premium (P1/P2)-licentie voor het gebruik van het inhoudspakket. 
+U moet een Azure AD premium (P1/P2)-licentie voor het gebruik van het inhoudspakket. Zie [aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) upgrade uw versie van Azure Active Directory.
 
 ## <a name="install-the-content-pack"></a>Het inhoudspakket installeren
 
@@ -42,9 +42,9 @@ Bekijk de [snelstartgids](quickstart-install-power-bi-content-pack.md) voor het 
 
 De volgende rapporten zijn opgenomen in de Azure AD Power BI-inhoudspakket. De rapporten bevatten gegevens uit de **afgelopen 30 dagen**.
 
-**App-gebruik en trends rapport**: in dit rapport geeft u inzicht in de toepassingen die worden gebruikt in uw organisatie. U kunt een lijst van de populairste toepassingen of te begrijpen hoe een toepassing die u onlangs hebt uitgerold in uw organisatie wordt gebruikt. Hiermee kunt u bij te houden en gebruik na verloop van tijd te verbeteren.
+**App-gebruik en trends rapport**:  Dit rapport geeft u inzicht in de toepassingen die worden gebruikt in uw organisatie. U kunt een lijst van de populairste toepassingen of te begrijpen hoe een toepassing die u onlangs hebt uitgerold in uw organisatie wordt gebruikt. Hiermee kunt u bij te houden en gebruik na verloop van tijd te verbeteren.
 
-**Aanmeldingen per locatie en gebruikers**: in dit rapport bevat gegevens over alle aanmeldingen uitgevoerd met behulp van Azure. Met dit rapport, u kunt inzoomen op afzonderlijke aanmeldingen en vragen beantwoorden zoals:
+**Aanmeldingen per locatie en gebruikers**: Dit rapport bevat de gegevens op alle aanmeldingen uitgevoerd met behulp van Azure. Met dit rapport, u kunt inzoomen op afzonderlijke aanmeldingen en vragen beantwoorden zoals:
 
 - Waar deze gebruiker aanmelden uit?
 - Welke gebruiker heeft de meeste aanmeldingen en vanaf welke locatie? 
@@ -52,34 +52,34 @@ De volgende rapporten zijn opgenomen in de Azure AD Power BI-inhoudspakket. De r
  
 U kunt ook resultaten filteren door een specifieke datum of locatie te selecteren.
 
-**Unieke gebruikers per app**: dit rapport bevat een overzicht van alle unieke gebruikers met behulp van een bepaalde app. Alleen gebruikers die zijn opgenomen "*is*" aangemeld bij een toepassing.
+**Unieke gebruikers per app**:  Dit rapport bevat een overzicht van alle unieke gebruikers met behulp van een bepaalde app. Alleen gebruikers die zijn opgenomen "*is*" aangemeld bij een toepassing.
 
-**Apparaataanmeldingen**: met dit rapport kunt u de verschillende apparaatprofielen die worden gebruikt binnen uw organisatie begrijpen en te bepalen voor apparaten op basis van gebruik. Het biedt gegevens over het type besturingssysteem en browsers die worden gebruikt om aan te melden voor toepassingen, samen met gedetailleerde informatie over de gebruikers met inbegrip van:
+**Apparaataanmeldingen**: Dit rapport kunt u de verschillende apparaatprofielen die worden gebruikt binnen uw organisatie begrijpen en te bepalen voor apparaten op basis van gebruik. Het biedt gegevens over het type besturingssysteem en browsers die worden gebruikt om aan te melden voor toepassingen, samen met gedetailleerde informatie over de gebruikers met inbegrip van:
 
 - Gebruikersnaam
 - IP-adres
 - Locatie 
 - Aanmeldingsstatus 
 
-**SSPR-trechter**: met dit rapport kunt u inzicht in hoe de SSPR-hulpprogramma wordt gebruikt binnen uw organisatie. U kunt bekijken hoeveel wachtwoord opnieuw instellen van wachtwoorden zijn verzonden via het hulpprogramma SSPR en hoe vaak is gelukt. U kunt ook verdiepen in de problemen met wachtwoorden opnieuw instellen van wachtwoorden en te begrijpen waarom bepaalde fouten is opgetreden. 
+**SSPR-trechter**: Dit rapport kunt u begrijpen hoe de SSPR-hulpprogramma wordt gebruikt binnen uw organisatie. U kunt bekijken hoeveel wachtwoord opnieuw instellen van wachtwoorden zijn verzonden via het hulpprogramma SSPR en hoe vaak is gelukt. U kunt ook verdiepen in de problemen met wachtwoorden opnieuw instellen van wachtwoorden en te begrijpen waarom bepaalde fouten is opgetreden. 
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Het inhoudspakket Azure AD-activiteit aanpassen
 
-**Visualisatie wijzigen**: u kunt een rapportvisualisatie wijzigen door te klikken op **Rapport bewerken** en de gewenste visualisatie te selecteren.
+**Visualisatie wijzigen**:  U kunt een rapportvisualisatie wijzigen door te klikken op **rapport bewerken** en selecteer de gewenste visualisatie.
  
 ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/09.png) 
  
 ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/10.png) 
 
-**Aanvullende velden opnemen**: u kunt een veld toevoegen aan het rapport of eruit verwijderen door het visuele element te selecteren waaraan u het veld wilt toevoegen of waaruit u het veld wilt verwijderen. U kunt bijvoorbeeld het veld 'sign-in status' toevoegen aan de tabelweergave, zoals hieronder weergegeven. 
+**Aanvullende velden opnemen**:  U kunt een veld toevoegen aan het rapport of eruit verwijderen door het visuele element dat u wilt toevoegen of verwijderen van het veld te selecteren. U kunt bijvoorbeeld het veld 'sign-in status' toevoegen aan de tabelweergave, zoals hieronder weergegeven. 
  
 ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/11.png) 
 
-**Visualisaties aan het dashboard vastmaken**: U kunt uw dashboard aanpassen door te nemen van uw eigen visualisaties aan het rapport en vast te maken aan het dashboard. 
+**Visualisaties aan het dashboard vastmaken**:  U kunt uw dashboard aanpassen door te nemen van uw eigen visualisaties aan het rapport en vast te maken aan het dashboard. 
 
 ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/13.png) 
  
-**Het dashboard deelt**: U kunt ook het dashboard delen met de gebruikers in uw organisatie. Nadat u het rapport deelt, kunnen gebruikers de velden die u hebt geselecteerd in het rapport zien.
+**Het dashboard deelt**: U kunt het dashboard ook delen met de gebruikers in uw organisatie. Nadat u het rapport deelt, kunnen gebruikers de velden die u hebt geselecteerd in het rapport zien.
  
 ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/14.png) 
 

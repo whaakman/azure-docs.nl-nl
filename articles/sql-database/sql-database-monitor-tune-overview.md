@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272861"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602343"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
@@ -91,7 +91,7 @@ Probleem met de parameter gevoelige plan (PSP) verwijst naar een scenario waarbi
 
 Er zijn verschillende oplossingen die worden gebruikt voor het oplossen van problemen, elk met een bijbehorende optimalisatie- en nadelen:
 
-- Gebruik de [COMPILEREN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint in elke query kan worden uitgevoerd. Deze tijdelijke oplossing wisselt lokale compilatietijd van transacties en hogere CPU voor een hogere kwaliteit van het abonnement. Met behulp van de `RECOMPILE` optie is vaak niet mogelijk voor workloads waarvoor een hoge doorvoer.
+- Gebruik de [COMPILEREN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint in elke query kan worden uitgevoerd. Deze tijdelijke oplossing wisselt lokale compilatietijd en hogere CPU voor een hogere kwaliteit van het abonnement. Met behulp van de `RECOMPILE` optie is vaak niet mogelijk voor workloads waarvoor een hoge doorvoer.
 - Gebruik de [optie (OPTIMALISEREN voor...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint voor de onderdrukking van de feitelijke parameter-waarde met een typische parameterwaarde die een goed genoeg plan voor de meeste mogelijkheden voor parameter-waarde produceert.   Deze optie vereist een goed begrip van de optimale parameterwaarden en bijbehorende plan kenmerken.
 - Gebruik [optie (OPTIMALISEREN voor onbekend)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint voor de onderdrukking van de werkelijke parameterwaarde ruil met behulp van het gemiddelde van de vector dichtheid. Een andere manier om dit te doen is door de binnenkomende parameterwaarden vastleggen in lokale variabelen en vervolgens met behulp van de lokale variabelen binnen de predicaten in plaats van de parameters zelf. De gemiddelde dichtheid moet *goed genoeg* met deze specifieke oplossing.
 - Uitschakelen van de parameter bekijken met de [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint.
@@ -104,7 +104,7 @@ Zie voor meer informatie over het oplossen van dit soort problemen:
 
 - Dit [Pluk een parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blogbericht
 - Dit [parameter probleem en tijdelijke oplossingen bekijken](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) blogbericht
-- Dit [elephant en muis parameter bekijken](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogbericht
+- Dit [elephant en muis parameter bekijken](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogbericht
 - Dit [dynamische sql ten opzichte van de kwaliteit van de planning voor query's met parameters](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogbericht
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Het compileren activiteit vanwege onjuiste parameterisering oplossen

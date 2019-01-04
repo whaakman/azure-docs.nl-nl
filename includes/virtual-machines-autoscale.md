@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399845"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594316"
 ---
 U kunt eenvoudig [automatisch schalen](../articles/azure-monitor/platform/autoscale-best-practices.md) uw [virtuele machines (VM's)](../articles/virtual-machines/windows/overview.md) bij het gebruik [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) en de [functie voor automatisch schalen van Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Uw virtuele machines moeten lid zijn van een schaalset automatisch worden geschaald. In dit artikel bevat informatie waarmee u beter te begrijpen hoe u uw virtuele machines met behulp van automatische en handmatige methoden verticaal en horizontaal schalen.
 
@@ -29,7 +29,7 @@ Schaalsets maken het eenvoudig te implementeren en beheren van identieke VM's al
 
 Automatisch schalen biedt het juiste aantal VM's voor het afhandelen van de belasting van uw toepassing. Hiermee kunt u VM's voor het verwerken van de belasting toeneemt en bespaar geld door het verwijderen van virtuele machines die niet-actieve zit toevoegen. U een minimum en maximum aantal virtuele machines worden uitgevoerd op basis van een set regels. Met een minimale maakt ervoor dat uw toepassing altijd wordt uitgevoerd zelfs zonder enige belasting. Met een maximumwaarde die mogelijk van uw totale kosten per uur worden beperkt.
 
-U kunt automatisch schalen inschakelen bij het maken van de schaalset met behulp van [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) of [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). U kunt deze ook inschakelen nadat de schaalset is gemaakt. U kunt een schaalset maken, de uitbreiding te installeren en configureren voor automatisch schalen met behulp van een [Azure Resource Manager-sjabloon](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Automatisch schalen van Azure Monitor inschakelen in Azure portal, of automatisch schalen van de set schaalinstellingen inschakelen.
+U kunt automatisch schalen inschakelen bij het maken van de schaalset met behulp van [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) of [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). U kunt deze ook inschakelen nadat de schaalset is gemaakt. U kunt een schaalset maken, de uitbreiding te installeren en configureren voor automatisch schalen met behulp van een [Azure Resource Manager-sjabloon](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Automatisch schalen van Azure Monitor inschakelen in Azure portal, of automatisch schalen van de set schaalinstellingen inschakelen.
 
 ![Automatisch schalen inschakelen](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

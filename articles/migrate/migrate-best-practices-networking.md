@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139738"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994960"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Aanbevolen procedures voor het instellen van netwerken aan voor workloads die zijn gemigreerd naar Azure
 
@@ -37,7 +37,7 @@ Azure biedt virtuele netwerken (VNets):
 
 Er zijn een aantal dingen die u denken wanneer planning van de topologie van uw VNet moet, met inbegrip van het rangschikken van IP-adres opslagruimten, het implementeren van een ster-netwerk, hoe u VNets segmenteren in subnetten, DNS instellen en implementeren van Azure-beschikbaarheidszones.
 
-## <a name="best-practice-plan-ip-addressing"></a>Aanbevolen: Plan IP-adressering
+## <a name="best-practice-plan-ip-addressing"></a>Aanbevolen: IP-adressering plannen
 
 Wanneer u VNets als onderdeel van uw migratie maakt, is het belangrijk dat u van plan bent om uw VNet-IP-adresruimte.
 
@@ -53,7 +53,7 @@ Wanneer u VNets als onderdeel van uw migratie maakt, is het belangrijk dat u van
 - [Meer informatie over](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) beperkingen netwerken.
 
 
-## <a name="best-practice-implement-a-hub-spoke-network-topology"></a>Aanbevolen: een ster-netwerktopologie implementeren
+## <a name="best-practice-implement-a-hub-spoke-network-topology"></a>Aanbevolen: Een ster-netwerktopologie implementeren
 
 Een ster-netwerktopologie worden geïsoleerd van werkbelastingen terwijl services zoals identiteit en beveiliging.
 - De hub is een Azure-VNet die als een centraal punt van connectiviteit fungeert.
@@ -76,7 +76,7 @@ Overweeg de volgende:
 - [Meer informatie over](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) VNet-peering.
 
 
-## <a name="best-practice-design-subnets"></a>Aanbevolen: wanneer u subnetten ontwerpt
+## <a name="best-practice-design-subnets"></a>Aanbevolen: Ontwerp subnetten
 
 Voor isolatie binnen een VNet, kunt u het segment in een of meer subnetten en een gedeelte van de adresruimte van het VNet op elk subnet toewijzen.
 - U kunt meerdere subnetten binnen elk VNet maken.
@@ -101,7 +101,7 @@ DEV-DB-EUS2 | 10.245.24.0/23 | 507 | Database-VM 's
 - [Informatie over hoe](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) een fictief bedrijf (Contoso) hun netwerkinfrastructuur voorbereid voor migratie.
 
 
-## <a name="best-practice-set-up-a-dns-server"></a>Aanbevolen: een DNS-server instellen
+## <a name="best-practice-set-up-a-dns-server"></a>Aanbevolen: Een DNS-server instellen
 
 Azure toevoegt standaard een DNS-server wanneer u een VNet implementeert. Hiermee kunt u snel vnet's maken en implementeren van resources. Deze DNS-server biedt echter alleen services tot de resources op dit VNet. Als u wilt meerdere VNets met elkaar verbinden, of verbinding maken met een on-premises server via vnet's, moet u extra UPN-mogelijkheden voor probleemoplossing. Bijvoorbeeld, moet u mogelijk Active Directory om op te lossen van DNS-namen tussen virtuele netwerken. Om dit te doen, moet u uw eigen aangepaste DNS-server in Azure implementeren.
 
@@ -118,10 +118,10 @@ Azure toevoegt standaard een DNS-server wanneer u een VNet implementeert. Hierme
 
 **Meer informatie:**
 - [Meer informatie over](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) naamomzetting wanneer u uw eigen DNS-server.
-- [Meer informatie over](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS naamgevingsregels en -beperkingen.
+- [Meer informatie over](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS naamgevingsregels en -beperkingen.
 
 
-## <a name="best-practice-set-up-availability-zones"></a>Aanbevolen: beschikbaarheidszones instellen
+## <a name="best-practice-set-up-availability-zones"></a>Aanbevolen: Beschikbaarheidszones instellen
 
 Beschikbaarheidszones verhogen hoge beschikbaarheid voor uw apps en gegevens beschermen tegen storingen in datacenters.
 
@@ -134,8 +134,8 @@ Beschikbaarheidszones verhogen hoge beschikbaarheid voor uw apps en gegevens bes
     ![Binnen een beschikbaarheidszone](./media/migrate-best-practices-networking/availability-zone.png) *binnen een beschikbaarheidszone*
 
 - U kunt plannen en hoge beschikbaarheid bouwen in uw migratiearchitectuur van compute, opslag, netwerken en gegevensbronnen binnen een zone plaatsen, en ze te repliceren in andere zones. Azure-services die ondersteuning voor beschikbaarheidszones worden onderverdeeld in twee categorieën:
-    - Zonegebonden services: U een resource koppelen aan een specifieke zone. Voor beheerde schijven, IP-adressen voor voorbeeld-VM's).
-    - Zone-redundante services: de resource wordt automatisch gerepliceerd in zones. Bijvoorbeeld: zone-redundante opslag, Azure SQL Database.
+    - Zonegebonden services: U kunt een resource koppelen aan een specifieke zone. Voor beheerde schijven, IP-adressen voor voorbeeld-VM's).
+    - Zone-redundante services: De resource wordt automatisch gerepliceerd in zones. Bijvoorbeeld: zone-redundante opslag, Azure SQL Database.
 - U kunt een standaard Azure taakverdeling met internetgerichte workloads of app-lagen voor zonegebonden fouttolerantie implementeren.
 
     ![Netwerktaakverdeler](./media/migrate-best-practices-networking/load-balancer.png) *Load balancer*
@@ -149,14 +149,14 @@ Beschikbaarheidszones verhogen hoge beschikbaarheid voor uw apps en gegevens bes
 
 Voor een geslaagde migratie is het essentieel dat on-premises zakelijke netwerken verbinden met Azure. Hiermee maakt u een always on-verbinding wel een hybride cloud-netwerk, waar services worden opgegeven met de Azure-cloud voor zakelijke gebruikers. Er zijn twee opties voor het maken van dit type netwerk:
 
-- **Site-naar-site-VPN:** u een site-naar-site-verbinding maken tussen uw compatibel on-premises VPN-apparaat en een Azure VPN-gateway die geïmplementeerd in een VNet. Een on-premises geautoriseerd resource toegang heeft tot de VNets. Site-naar-site-berichten worden verzonden via een gecodeerde tunnel via internet. 
-- **Met Azure ExpressRoute:** maken van een Azure ExpressRoute-verbinding tussen uw on-premises netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is privé; verkeer niet via internet gaan.
+- **Site-to-site VPN:** U maken een site-naar-site-verbinding tussen uw compatibel on-premises VPN-apparaat en een Azure VPN-gateway die geïmplementeerd in een VNet. Een on-premises geautoriseerd resource toegang heeft tot de VNets. Site-naar-site-berichten worden verzonden via een gecodeerde tunnel via internet. 
+- **Azure ExpressRoute:** U een Azure ExpressRoute-verbinding tussen uw on-premises netwerk en Azure, via een ExpressRoute-partner tot stand brengen. Deze verbinding is privé; verkeer niet via internet gaan.
 
 **Meer informatie:**
 
 - [Meer informatie](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn) over hybride cloud-netwerken.
 
-## <a name="best-practice-implement-a-highly-available-site-to-site-vpn"></a>Aanbevolen: een maximaal beschikbare site-naar-site-VPN implementeren
+## <a name="best-practice-implement-a-highly-available-site-to-site-vpn"></a>Aanbevolen: Een maximaal beschikbare site-naar-site-VPN implementeren
 
 Voor het implementeren van een site-naar-site-VPN, moet u een VPN-gateway in Azure instellen.
 - Een VPN-gateway is een specifiek type VNet-gateway die wordt gebruikt voor het verzenden van versleuteld verkeer tussen een Azure VNet en een on-premises locatie via het openbare Internet.
@@ -193,7 +193,7 @@ Bij het instellen van een site-naar-site-VPN, doen u het volgende:
 - [Meer informatie over](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview) instellen van BGP met Azure VPN-gateways.
 
 
-### <a name="best-practice-configure-a-gateway-for-vpn-gateways"></a>Aanbevolen: een gateway voor VPN-Gateways configureren
+### <a name="best-practice-configure-a-gateway-for-vpn-gateways"></a>Aanbevolen: Een gateway voor VPN-Gateways configureren
 
 Wanneer u een VPN-gateway in Azure maken, moet u een speciaal subnet met de naam GatewaySubnet gebruiken. Bij het maken van deze opmerking subnet deze aanbevolen procedures:
 
@@ -205,7 +205,7 @@ Wanneer u een VPN-gateway in Azure maken, moet u een speciaal subnet met de naam
 **Meer informatie:**
 - [Gebruik dit hulpprogramma](https://gallery.technet.microsoft.com/scriptcenter/Address-prefix-calculator-a94b6eed) om te bepalen van uw IP-adresruimte.
 
-## <a name="best-practice-implement-azure-virtual-wan-for-branch-offices"></a>Aanbevolen: implementeer Azure virtuele WAN voor filialen
+## <a name="best-practice-implement-azure-virtual-wan-for-branch-offices"></a>Aanbevolen: Azure virtuele WAN worden geïmplementeerd voor filialen
 
 Voor meerdere VPN-verbindingen is Azure virtuele WAN een netwerkservice, dat geoptimaliseerde en geautomatiseerde vertakking-vertakking-connectiviteit via Azure biedt.
 - Met Virtual WAN kunt u apparaten in filialen verbinden en configureren, zodat deze met Azure kunnen communiceren. Dit kan worden gedaan handmatig of met behulp van de gewenste provider apparaten via een virtueel WAN-partner.
@@ -215,7 +215,7 @@ Voor meerdere VPN-verbindingen is Azure virtuele WAN een netwerkservice, dat geo
 **Meer informatie:**
 [meer informatie over](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about) Azure virtuele WAN.
 
-### <a name="best-practice-implement-expressroute-for-mission-critical-connections"></a>Aanbevolen: implementeer ExpressRoute voor essentiële taken kritiek verbindingen
+### <a name="best-practice-implement-expressroute-for-mission-critical-connections"></a>Aanbevolen: ExpressRoute voor essentiële taken kritiek verbindingen implementeren
 
 De service Azure ExpressRoute kunt u uw on-premises infrastructuur in de Microsoft cloud uitbreiden door het maken van privéverbindingen tussen het virtuele Azure-datacenter en on-premises netwerken.
 - ExpressRoute-verbindingen kunnen zich via een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of via een connectiviteitsprovider. Ze lopen niet via het openbare internet.
@@ -280,7 +280,7 @@ De verantwoordelijkheid voor het beveiligen van vnet's wordt gedeeld tussen Micr
 - [Bekijk een overzicht](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices) van aanbevolen procedures voor netwerkbeveiliging.
 - [Meer informatie over het](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm#security) ontwerp voor beveiligde netwerken.
 
-## <a name="best-practice-implement-an-azure-perimeter-network"></a>Aanbevolen: een Azure perimeternetwerk implementeren
+## <a name="best-practice-implement-an-azure-perimeter-network"></a>Aanbevolen: Implementeren van een Azure-perimeternetwerk
 
 Hoewel Microsoft sterk investeert bij het beschermen van de cloudinfrastructuur, moet u ook uw cloudservices en -resourcegroepen beveiligen. Een meerlaagse aanpak voor beveiliging biedt de beste verdediging. Een perimeternetwerk plaatsen in plaats is een belangrijk onderdeel van deze strategie defense.
 
@@ -301,7 +301,7 @@ De volgende afbeelding toont een voorbeeld van een perimeternetwerk één subnet
 - [Meer informatie over](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) implementeren van een perimeternetwerk tussen Azure en uw on-premises datacenter.
 
 
-## <a name="best-practice-filter-vnet-traffic-with-nsgs"></a>Aanbevolen: Filter VNet-verkeer met nsg's
+## <a name="best-practice-filter-vnet-traffic-with-nsgs"></a>Aanbevolen: VNet-verkeer met nsg's filteren
 
 Netwerkbeveiligingsgroepen (NSG) bevat meerdere binnenkomende en uitgaande beveiligingsregels die netwerkverkeer naar en van resources te filteren. Filters kan worden door de bron en doel-IP-adres, poort en protocol. 
 - Nsg's bevatten beveiligingsregels die toestaan of weigeren van inkomend verkeer naar (of uitgaand netwerkverkeer van) verschillende soorten Azure-resources. Voor elke regel kunt u de bron en het doel, de poort en het protocol opgeven.
@@ -312,7 +312,7 @@ Netwerkbeveiligingsgroepen (NSG) bevat meerdere binnenkomende en uitgaande bevei
 - Bestaande verbindingen worden niet onderbroken wanneer u een regel waarmee de stroom verwijdert. Verkeersstromen zijn onderbroken wanneer er verbindingen worden gestopt en er is geen verkeersstromen in beide richtingen ten minste een paar minuten.
 - Wanneer u nsg's maakt, maakt u als enkele mogelijk, maar als veel die nodig zijn.
 
-### <a name="best-practice-secure-northsouth-and-eastwest-traffic"></a>Aanbevolen: noordelijke/zuidelijke richting en Oostelijke/Westelijke verkeer beveiligen
+### <a name="best-practice-secure-northsouth-and-eastwest-traffic"></a>Aanbevolen: Noordelijke/zuidelijke richting en Oostelijke/Westelijke verkeer beveiligen
 
 Bij het beveiligen van vnet's, is het belangrijk te bedenken aanvalsvectoren.
 - Gebruik alleen subnet-nsg's maakt uw omgeving eenvoudiger, maar alleen voor beveiliging van verkeer in uw subnet. Dit staat bekend als noordelijke/zuidelijke richting verkeer.
@@ -336,11 +336,11 @@ Servicetags duren voordat de handmatig werk buiten een regel toewijzen aan groep
 
 **Meer informatie:**
 
-- [Meer informatie over](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) nsg's.
+- [Meer informatie over](https://docs.microsoft.com/azure/virtual-network/security-overview) nsg's.
 - [Beoordeling](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de servicetags die beschikbaar zijn voor nsg's.
 
 
-## <a name="best-practice-use-application-security-groups"></a>Aanbevolen: gebruik van beveiligingsgroepen voor toepassing
+## <a name="best-practice-use-application-security-groups"></a>Aanbevolen: Gebruik van beveiligingsgroepen voor toepassing
 
 Toepassingsbeveiligingsgroepen kunnen u netwerkbeveiliging configureren als een natuurlijke uitbreiding van een app.
 
@@ -365,9 +365,9 @@ NIC4 | AsgDb
 
     **De naam van regel** | **Doel** | **Details**
     --- | --- | ---   
-    Allow-HTTP-Inbound-Internet | Verkeer van internet naar de webservers toestaan. Inkomend verkeer van internet wordt geweigerd door de DenyAllInbound standaardbeveiligingsregel, zodat er geen aanvullende regel voor de toepassingsbeveiligingsgroepen AsgLogic of AsgDb nodig is. | Prioriteit: 100<br/><br/> Bron: internet<br/><br/> Bronpoort: *<br/><br/> Bestemming: AsgWeb<br/><br/> Doelpoort: 80<br/><br/> Protocol: TCP<br/><br/> Toegang: toestaan.
-    Deny-Database-All | De beveiliging standaardregel AllowVNetInBound kan alle communicatie tussen resources in hetzelfde VNet, met deze regel is nodig om verkeer te weigeren van alle resources. | Prioriteit: 120<br/><br/> Bron: *<br/><br/> Bronpoort: *<br/><br/> Bestemming: AsgDb<br/><br/> Doelpoort: 1433<br/><br/> Protocol: alle<br/><br/> Toegang: weigeren.
-    Allow-Database-BusinessLogic | Verkeer van de toepassingsbeveiligingsgroep AsgLogic aan de toepassingsbeveiligingsgroep AsgDb toestaan. De prioriteit voor deze regel is hoger dan de regel voor weigeren-Database-All en voordat u deze regel wordt verwerkt, zodat verkeer van de toepassingsbeveiligingsgroep AsgLogic is toegestaan, en al het andere verkeer wordt geblokkeerd. | Prioriteit: 110<br/><br/> Bron: AsgLogic<br/><br/> Bronpoort: *<br/><br/> Bestemming: AsgDb<br/><br/> Doelpoort: 1433<br/><br/> Protocol: TCP<br/><br/> Toegang: toestaan.
+    Allow-HTTP-Inbound-Internet | Verkeer van internet naar de webservers toestaan. Inkomend verkeer van internet wordt geweigerd door de DenyAllInbound standaardbeveiligingsregel, zodat er geen aanvullende regel voor de toepassingsbeveiligingsgroepen AsgLogic of AsgDb nodig is. | Prioriteit: 100<br/><br/> Bron: internet<br/><br/> Bronpoort: *<br/><br/> Bestemming: AsgWeb<br/><br/> Doelpoort: 80<br/><br/> Protocol: TCP<br/><br/> Toegang: Toestaan.
+    Deny-Database-All | De beveiliging standaardregel AllowVNetInBound kan alle communicatie tussen resources in hetzelfde VNet, met deze regel is nodig om verkeer te weigeren van alle resources. | Prioriteit: 120<br/><br/> Bron: *<br/><br/> Bronpoort: *<br/><br/> Bestemming: AsgDb<br/><br/> Doelpoort: 1433<br/><br/> Protocol: Alle<br/><br/> Toegang: Weigeren.
+    Allow-Database-BusinessLogic | Verkeer van de toepassingsbeveiligingsgroep AsgLogic aan de toepassingsbeveiligingsgroep AsgDb toestaan. De prioriteit voor deze regel is hoger dan de regel voor weigeren-Database-All en voordat u deze regel wordt verwerkt, zodat verkeer van de toepassingsbeveiligingsgroep AsgLogic is toegestaan, en al het andere verkeer wordt geblokkeerd. | Prioriteit: 110<br/><br/> Bron: AsgLogic<br/><br/> Bronpoort: *<br/><br/> Bestemming: AsgDb<br/><br/> Doelpoort: 1433<br/><br/> Protocol: TCP<br/><br/> Toegang: Toestaan.
 
 - De regels die een toepassingsbeveiligingsgroep als bron of doel opgeven, worden alleen toegepast op netwerkinterfaces die lid van de toepassingsbeveiligingsgroep. Als de netwerkinterface geen lid is van een toepassingsbeveiligingsgroep, wordt de regel niet toegepast op de netwerkinterface, ook niet als de netwerkbeveiligingsgroep aan het subnet is gekoppeld.
 
@@ -376,7 +376,7 @@ NIC4 | AsgDb
 - [Meer informatie over](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups) toepassingsbeveiligingsgroepen.
 
 
-### <a name="best-practice-secure-access-to-paas-using-vnet-service-endpoints"></a>Aanbevolen: beveiligde toegang tot PaaS met behulp van VNet-service-eindpunten
+### <a name="best-practice-secure-access-to-paas-using-vnet-service-endpoints"></a>Aanbevolen: Beveiligde toegang tot PaaS met behulp van VNet-service-eindpunten
 
 VNet-service-eindpunten Breid uw privé-adresruimte van VNet en de identiteit van Azure-services via een directe verbinding.
 
@@ -392,7 +392,7 @@ VNet-service-eindpunten Breid uw privé-adresruimte van VNet en de identiteit va
 - [Meer informatie over](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) VNet-service-eindpunten.
 
 
-## <a name="best-practice-control-public-ip-addresses"></a>Aanbevolen: openbare IP-adressen beheren
+## <a name="best-practice-control-public-ip-addresses"></a>Aanbevolen: Openbare IP-adressen
 
 Openbare IP-adressen in Azure kunnen worden gekoppeld aan virtuele machines, load balancers, application gateways en VPN-gateways.
 
@@ -414,7 +414,7 @@ Openbare IP-adressen in Azure kunnen worden gekoppeld aan virtuele machines, loa
 
 Azure heeft platform beveiligingsfuncties die eenvoudig te gebruiken en uitgebreide tegenmaatregelen om algemene netwerkaanvallen te bieden. Het gaat hierbij om Azure-Firewall-, Web Application Firewall- en Network Watcher.
 
-## <a name="best-practice-deploy-azure-firewall"></a>Aanbevolen: De Firewall van Azure implementeren
+## <a name="best-practice-deploy-azure-firewall"></a>Aanbevolen: Firewall van Azure implementeren
 
 Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice die worden beveiligd met uw VNet-resources. Het is een volledig stateful firewall-as-a-service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte.
 
@@ -435,7 +435,7 @@ Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice 
 - [Meer informatie over](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
 
 
-## <a name="best-practice-deploy-azure-web-application-firewall-waf"></a>Aanbevolen: implementeer Azure Web Application Firewall (WAF)
+## <a name="best-practice-deploy-azure-web-application-firewall-waf"></a>Aanbevolen: Azure Web Application Firewall (WAF) implementeren
 
 Webtoepassingen worden steeds doel van aanvallen die gebruikmaken van bekende beveiligingsproblemen. Aanvallen zijn SQL-injectieaanvallen en aanvallen via cross-site scripting. Zo wordt voorkomen dat dergelijke aanvallen in toepassingscode kan lastig zijn, en kan tevens veel onderhoud, patching en controle op meerdere lagen van de Toepassingstopologie vereisen. Een gecentraliseerde web application firewall kunt maakt het beveiligingsbeheer veel eenvoudiger en app-beheerders beveiliging tegen bedreigingen of aanvallen. Een web-app-firewall kan reageren op bedreigingen sneller en patches voor bekende beveiligingsproblemen op een centrale locatie, in plaats van afzonderlijke webtoepassing te beveiligen. Bestaande toepassingsgateways kunnen eenvoudig worden geconverteerd naar een toepassingsgateway met Web Application Firewall.
 
@@ -452,7 +452,7 @@ Azure Web application firewall (WAF) is een functie van Azure application gatewa
 - [Beoordeling](https://docs.microsoft.com/azure/application-gateway/application-gateway-waf-configuration) WAF beperkingen en uitsluitingen.
 
 
-## <a name="best-practice-implement-azure-network-watcher"></a>Aanbevolen: implementeer Azure Network Watcher
+## <a name="best-practice-implement-azure-network-watcher"></a>Aanbevolen: Implementeer Azure Network Watcher
 
 Azure Network Watcher biedt hulpprogramma's voor het bewaken van resources en communicatie in een Azure VNet. U kunt bijvoorbeeld communicatie tussen een virtuele machine en een eindpunt, zoals een andere virtuele machine of FQDN-naam, resources weergeven en relaties tussen resources in een VNet, controleren of verkeer netwerkproblemen vaststellen.
 
@@ -480,7 +480,7 @@ Voor complexere netwerktopologieën met, kunt u security-producten van Microsoft
 - NVA is beschikbaar via een groot aantal leveranciers in de [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
  
 
-## <a name="best-practice-implement-firewalls-and-nvas-in-hub-networks"></a>Aanbevolen: Implementeer firewalls en NVA's in hub-netwerken
+## <a name="best-practice-implement-firewalls-and-nvas-in-hub-networks"></a>Aanbevolen: Firewalls en virtuele netwerkapparaten in hub-netwerken implementeren
 
 Het perimeternetwerk (met toegang tot het internet) wordt in de hub, meestal beheerd via een Firewall van Azure, een firewall-farm, of met Web Application Firewalls (WAF's). Houd rekening met de volgende vergelijkingen.
 

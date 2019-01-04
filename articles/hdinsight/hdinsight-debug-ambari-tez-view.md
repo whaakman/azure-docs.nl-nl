@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012348"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719690"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Apache Ambari-weergaven gebruiken om op te sporen Apache Tez-taken in HDInsight
 
 De [Apache Ambari](https://ambari.apache.org/) Webgebruikersinterface voor HDInsight bevat een [Apache TEZ](https://tez.apache.org/) weergeven die kan worden gebruikt om te begrijpen en taken die gebruikmaken van Tez. De Tez-weergave kunt u de taak als een diagram van verbonden items visualiseren, Inzoomen op elk item en statistieken en waardevolle informatie ophalen.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Vereisten
@@ -90,9 +90,9 @@ Gebruik de volgende stappen uit om uit te voeren van een Hive-query die gebruikm
 
 5. De tabbladen op deze pagina kunnen u de volgende informatie bekijken:
 
-    * **Querydetails**: meer informatie over de Hive-query.
-    * **Tijdlijn**: informatie over hoe lang duurde in elke fase van de verwerking.
-    * **Configuraties**: de configuratie voor deze query gebruikt.
+    * **Querydetails**: Als u meer informatie over de Hive-query.
+    * **Tijdlijn**: Informatie over hoe lang duurde in elke fase van de verwerking.
+    * **Configuraties**: De configuratie voor deze query gebruikt.
 
     Van __Querydetails__ kunt u de koppelingen naar meer informatie over de __toepassing__ of de __DAG__ voor deze query.
     

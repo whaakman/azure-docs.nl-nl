@@ -2,20 +2,17 @@
 title: Afhandeling van tijdelijke connectiviteitsfouten voor Azure Database voor MariaDB | Microsoft Docs
 description: Leer hoe u voor het afhandelen van tijdelijke connectiviteitsfouten voor Azure Database voor MariaDB.
 keywords: MySQL-verbinding, verbindingsreeks, problemen met de netwerkverbinding, tijdelijke fout, -verbindingsfout
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 203401e3842912169371f315048f6930c8dc80eb
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f5f5915e6fdb240fa519ee10526c935a524cb5b4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568094"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546280"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Afhandeling van tijdelijke connectiviteitsfouten voor Azure Database voor MariaDB
 
@@ -39,7 +36,7 @@ Het eerste en tweede geval zijn redelijk eenvoudig om af te handelen. Probeer de
 * Voor elke volgende nieuwe poging, worden de toename van het wachten tot exponentieel toeneemt, 60 seconden.
 * Stel een maximum aantal nieuwe pogingen op het moment waarop uw toepassing rekening gehouden met de bewerking is mislukt.
 
-Wanneer een verbinding met een actieve transactie mislukt, is het moeilijker voor het afhandelen van het herstel correct. Er zijn twee gevallen: als de transactie alleen-lezen in aard is, het is veilig om de verbinding opnieuw te openen en voer de transactie opnieuw uit. Als echter als de transactie is ook schrijven naar de database, moet u bepalen als de transactie is teruggedraaid of als deze is geslaagd voordat wordt de tijdelijke fout is opgetreden. In dat geval wordt u mogelijk niet hebt ontvangen de bevestiging van het doorvoeren van de database-server.
+Wanneer een verbinding met een actieve transactie mislukt, is het moeilijker voor het afhandelen van het herstel correct. Er zijn twee mogelijke situaties: Als de transactie alleen-lezen in aard is, is het veilig om de verbinding opnieuw te openen en voer de transactie opnieuw uit. Als echter als de transactie is ook schrijven naar de database, moet u bepalen als de transactie is teruggedraaid of als deze is geslaagd voordat wordt de tijdelijke fout is opgetreden. In dat geval wordt u mogelijk niet hebt ontvangen de bevestiging van het doorvoeren van de database-server.
 
 Er is één manier om dit te doen, het genereren van een unieke ID op de client die wordt gebruikt voor alle nieuwe pogingen. U doorgeven deze unieke ID als onderdeel van de transactie op de server en bewaar deze in een kolom met een unique-beperking. Op deze manier die u veilig opnieuw de transactie proberen kunt. Deze zal slagen als de vorige transactie is teruggedraaid en de unieke ID van de client gegenereerd nog niet in het systeem bestaat. Deze mislukken, die wijzen op een schending van de dubbele sleutel als de unieke ID eerder opgeslagen is omdat de vorige transactie is voltooid.
 

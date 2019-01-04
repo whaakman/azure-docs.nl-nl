@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086603"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603324"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Een kennisdatabase in QnA Maker bewerken
 
@@ -71,7 +71,7 @@ Alternatieve vragen toevoegen aan een bestaande QnA-paar voor het verbeteren van
 ## <a name="add-metadata"></a>metagegevens toevoegen
 
 
-Metagegevens paren toevoegen door het filterpictogram selecteren
+De metagegevens van paren toevoegen door de metagegevens-pictogram te selecteren
 
 ![Metagegevens toevoegen](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,11 +80,17 @@ Metagegevens paren toevoegen door het filterpictogram selecteren
 
 ## <a name="manage-large-knowledge-bases"></a>Beheren van grote knowledge bases
 
-1. De vragen en antwoorden supereenvoudig zijn **gegroepeerd** door de gegevensbron waaruit deze zijn geëxtraheerd. U kunt uitvouwen of samenvouwen van de gegevensbron.
-2. U kunt **zoeken** de knowledge base door te typen in het tekstvak aan de bovenkant van de Knowledge Base-tabel. Klik op enter om te zoeken op de vraag, antwoord of de metagegevens van inhoud. Klik op het pictogram X om de search-filter te verwijderen.
-3. **Paginering** kunt u voor het beheren van grote knowledge bases
+* **Groepen van gegevensbron**: De vragen en antwoorden supereenvoudig zijn gegroepeerd op de gegevensbron waaruit deze zijn geëxtraheerd. U kunt uitvouwen of samenvouwen van de gegevensbron.
 
-    ![Zoeken, pagineren, groep](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Gebruik de QnA Maker bron gegevensbalk samenvouwen en uitvouwen data source vragen en antwoorden](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Zoeken in knowledge base**: U kunt de kennisdatabase zoeken door te typen in het tekstvak aan de bovenkant van de Knowledge Base-tabel. Klik op enter om te zoeken op de vraag, antwoord of de metagegevens van inhoud. Klik op het pictogram X om de search-filter te verwijderen.
+
+    ![De QnA Maker-zoekvak boven de vragen en antwoorden naar de weergave beperken tot alleen items die overeenkomen met een filter gebruiken](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Paginering**: Gegevensbronnen snel doorlopen voor het beheren van grote knowledge bases
+
+    ![De functies van de QnA Maker paginering boven de vragen en antwoorden gebruiken om te verplaatsen door middel van pagina's van vragen en antwoorden](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Knowledge bases verwijderen
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258896"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714471"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>PremiumV2-laag voor Azure App Service configureren
 
@@ -29,7 +29,7 @@ De nieuwe **PremiumV2** prijscategorie biedt snellere processors, SSD-opslag en 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Scale-up van een web-app voor **PremiumV2**, moet u beschikken over een Web-App in Azure App Service die wordt uitgevoerd in een lager is dan prijscategorie **PremiumV2**, en de Web-App moet worden uitgevoerd in een App Service-implementatie die ondersteuning biedt voor PremiumV2.
+Scale-up van een app aan **PremiumV2**, moet u beschikken over een Azure App Service-app die wordt uitgevoerd in een lager is dan prijscategorie **PremiumV2**, en de app moet worden uitgevoerd in een App Service-implementatie die ondersteuning biedt voor PremiumV2.
 
 <a name="availability"></a>
 
@@ -47,7 +47,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>Een app maken in PremiumV2-laag
 
-De prijscategorie van een App Service-app is gedefinieerd in de [App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) waarop deze wordt uitgevoerd. U kunt een App Service-plan maken door zelf of als onderdeel van Web-App maken.
+De prijscategorie van een App Service-app is gedefinieerd in de [App Service-plan](overview-hosting-plans.md) waarop deze wordt uitgevoerd. U kunt een App Service-plan maken door zelf of als onderdeel van het maken van apps.
 
 Bij het configureren van de App Service-plan in de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, selecteer **prijscategorie**. 
 
@@ -88,7 +88,7 @@ Sommige App Service-plannen kunnen niet omhoog schalen naar de prijscategorie Pr
 
 Als uw app wordt uitgevoerd in een App Service-implementatie waarbij **PremiumV2** niet beschikbaar is, of als uw app wordt uitgevoerd in een regio die momenteel niet ondersteund door **PremiumV2**, moet u uw app om te opnieuw te implementeren profiteren van **PremiumV2**.  U hebt hiervoor twee opties:
 
-- Maakt een **nieuwe** resource groep en maak vervolgens een **nieuwe** web-app en appservice-plan in de **nieuwe** resourcegroep, de gewenste Azure-regio kiezen tijdens het maken het proces.  U **moet** selecteert u de **PremiumV2** abonnement op het moment dat de nieuwe app service-plan is gemaakt.  Dit zorgt ervoor dat de combinatie van App Service-abonnement, resourcegroep en Azure-regio resulteert in de App Service-plan wordt gemaakt in een App Service-implementatie die ondersteuning biedt voor **PremiumV2**.  Code van uw toepassing vervolgens implementeren in de zojuist gemaakte app- en app service-plan. Indien gewenst kunt u vervolgens de App Service-plan omlaag schalen van **PremiumV2** kosten om op te slaan, en kunt u zich nog steeds met succes back omhoog schalen opnieuw in de toekomst met **PremiumV2**.
+- Maakt een **nieuwe** resource groep en maak vervolgens een **nieuwe** app en App Service-plan in de **nieuwe** resourcegroep, de gewenste Azure-regio kiezen tijdens het proces voor het maken.  U **moet** selecteert u de **PremiumV2** abonnement op het moment dat de nieuwe app service-plan is gemaakt.  Dit zorgt ervoor dat de combinatie van App Service-abonnement, resourcegroep en Azure-regio resulteert in de App Service-plan wordt gemaakt in een App Service-implementatie die ondersteuning biedt voor **PremiumV2**.  Code van uw toepassing vervolgens implementeren in de zojuist gemaakte app- en app service-plan. Indien gewenst kunt u vervolgens de App Service-plan omlaag schalen van **PremiumV2** kosten om op te slaan, en kunt u zich nog steeds met succes back omhoog schalen opnieuw in de toekomst met **PremiumV2**.
 - Als uw app al wordt uitgevoerd in een bestaande **Premium** tier, en vervolgens kunt u uw app klonen met alle app-instellingen, verbindingsreeksen en configuratie van de implementatie in een nieuw app service-plan, die gebruikmaakt van **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)

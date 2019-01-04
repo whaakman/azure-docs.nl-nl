@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 82187a99fc8009096127cca624698e1329e5d13b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386533"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975523"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -33,7 +33,7 @@ Om te kunnen krijgen observability binnen uw gehele omgeving, moet u inschakelen
 
 - [Met Azure DevOps Projects](../devops-project/overview.md) een vereenvoudigde ervaring met uw bestaande code en Git-opslagplaats, of kies een van de voorbeeldtoepassingen te maken van een pijplijn voor continue integratie (CI) en continue levering (CD) naar Azure.
 - [Doorlopende bewaking in uw DevOps-release-pijplijn](../application-insights/app-insights-vsts-continuous-monitoring.md) kunt u poort of terugdraaien van de implementatie aanpassen aan de gegevens te controleren.
-- [Statusmonitor](../application-insights/app-insights-monitor-performance-live-website-now.md) kunt u het instrumenteren van een live .NET-app op Windows met Azure Application Insights, zonder te hoeven wijzigen of opnieuw implementeren van uw code.
+- [Statusmonitor](../azure-monitor/app/monitor-performance-live-website-now.md) kunt u het instrumenteren van een live .NET-app op Windows met Azure Application Insights, zonder te hoeven wijzigen of opnieuw implementeren van uw code.
 - Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../application-insights/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), of [andere programmeertalen](../application-insights/app-insights-platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
 
 
@@ -56,7 +56,7 @@ Toepassingen zijn alleen zo betrouwbaar is als de onderliggende infrastructuur. 
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Resources in Azure-resourcegroepen combineren
 Een typische toepassing op Azure vandaag bevat meerdere resources, zoals virtuele machines en Services van de App of microservices die worden gehost op Cloud Services, AKS clusters of Service Fabric. Deze toepassingen maken vaak gebruik van afhankelijkheden, zoals Event Hubs, opslag, SQL en Service Bus.
 
-- Combineer resources inAzure resourcegroepen volledige om inzicht te krijgen in al uw resources die gezamenlijk uw verschillende toepassingen. [Azure Monitor voor resourcegroepen](../monitoring-and-diagnostics/resource-group-insights.md) biedt een eenvoudige manier om de status en prestaties van uw volledige reeks toepassingen met volledige stack en inzoomen op respectieve onderdelen voor onderzoeken of foutopsporing kunt bij te houden.
+- Combineer resources inAzure resourcegroepen volledige om inzicht te krijgen in al uw resources die gezamenlijk uw verschillende toepassingen. [Azure Monitor voor resourcegroepen](../azure-monitor/insights/resource-group-insights.md) biedt een eenvoudige manier om de status en prestaties van uw volledige reeks toepassingen met volledige stack en inzoomen op respectieve onderdelen voor onderzoeken of foutopsporing kunt bij te houden.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Zorg ervoor dat de kwaliteit van continue implementatie
 Continue integratie / continue implementatie kunt u automatisch integreren en wijzigingen in de code implementeren in uw toepassing op basis van de resultaten van de geautomatiseerde testen. Het stroomlijnt het implementatieproces en zorgt ervoor dat de kwaliteit van eventuele wijzigingen voordat ze in productie gaan.
@@ -74,7 +74,7 @@ Een essentieel onderdeel van de bewaking wordt beheerders van actuele en voorspe
 - Het definiëren van acties voor waarschuwingen gebruik van de meest efficiënte manier om uw beheerders te informeren. Beschikbare [acties voor melding](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-mail, pushmeldingen te verzenden of spraakoproepen zijn.
 - Gebruik Geavanceerde bewerkingen voor het [verbinding maken met uw ITSM-hulpprogramma](platform/itsmc-overview.md) of andere systemen waarschuwingen te beheren via [webhooks](platform/activity-log-alerts-webhook.md).
 - Herstellen van situaties geïdentificeerd in waarschuwingen ook met [Azure Automation-runbooks](../automation/automation-webhooks.md) of [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) die kunnen worden gestart vanuit een waarschuwing met behulp van webhooks. 
-- Gebruik [automatisch schalen](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) dynamisch te verhogen en verlagen van de compute-resources op basis van verzamelde gegevens.
+- Gebruik [automatisch schalen](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) dynamisch te verhogen en verlagen van de compute-resources op basis van verzamelde gegevens.
 
 ## <a name="prepare-dashboards-and-workbooks"></a>Werkmappen en dashboards voorbereiden
 Ervoor te zorgen dat uw ontwikkel- en operations toegang tot de dezelfde Telemetrie en hulpprogramma's hebben, kunnen ze patronen in uw gehele omgeving weergeven en de gemiddelde tijd om te detecteren (MTTD) en de gemiddelde tijd om te herstellen (MTTR) kunt minimaliseren.

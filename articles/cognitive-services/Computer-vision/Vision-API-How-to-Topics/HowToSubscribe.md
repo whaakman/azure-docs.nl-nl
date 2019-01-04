@@ -1,5 +1,5 @@
 ---
-title: Abonnementssleutels ophalen voor de Computer Vision-API
+title: Abonnementssleutels - Computer Vision ophalen
 titlesuffix: Azure Cognitive Services
 description: Informatie over het verkrijgen van abonnementssleutels voor aanroepen naar de Computer Vision-API in Azure Cognitive Services.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985419"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580804"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Abonnementssleutels ophalen
 

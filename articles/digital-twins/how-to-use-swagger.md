@@ -1,21 +1,22 @@
 ---
-title: Meer informatie over het gebruik van Azure digitale dubbele Swagger | Microsoft Docs
-description: Gebruik Azure digitale dubbele Swagger
+title: Over het gebruik van Azure digitale dubbele verwijzing Swagger | Microsoft Docs
+description: Informatie over het gebruik van Azure digitale dubbele Swagger-referentiedocumentatie.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
-ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624247"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975641"
 ---
-# <a name="use-azure-digital-twins-swagger"></a>Gebruik Azure digitale dubbele Swagger
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Digitale dubbele Swagger referentiedocumentatie voor Azure
 
 Elke ingerichte Azure digitale Twins-instantie bevat een eigen automatisch gegenereerde Swagger-referentiedocumentatie.
 
@@ -34,19 +35,19 @@ Swagger biedt een interactieve samenvatting van uw API, waaronder:
 * Voorbeeld van de informatie die wordt gebruikt om te valideren en controleer of HTTP-antwoorden.
 * Informatie over foutcodes.
 
-Swagger is een handig hulpmiddel om u te helpen bij het ontwikkelen en testen oproepen naar de API Management.
+Swagger is een handig hulpmiddel om u te helpen bij het ontwikkelen en testen oproepen naar de Azure digitale dubbels Management API's.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Naslagmateriaal
 
-Referentiemateriaal voor automatisch gegenereerde wordt uitgelegd belangrijke concepten en objectmodellen.
+Het automatisch gegenereerde Swagger-referentiemateriaal levert een kort overzicht van belangrijke concepten, beschikbaar Management-API-eindpunten en een beschrijving van elk objectmodel om te helpen ontwikkelen en testen.
 
 Een beknopt overzicht beschrijft de API.
 
 ![Swagger-bovenaan][1]
 
-Core API objectmodellen worden ook weergegeven.
+Beheer API objectmodellen worden ook weergegeven.
 
 ![Swagger-modellen][2]
 
@@ -58,7 +59,7 @@ De gegenereerde Swagger-objectmodellen zijn handig om te zien van alle beschikba
 
 ## <a name="endpoint-summary"></a>Samenvatting van eindpunt
 
-Swagger bevat ook een uitgebreide overzicht van alle eindpunten waaruit de API.
+Swagger bevat ook een uitgebreide overzicht van alle eindpunten waaruit de Management API's.
 
 Elke vermelde eindpunt omvat ook de informatie vereist aanvraag, zoals de:
 

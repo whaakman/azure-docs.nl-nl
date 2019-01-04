@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340824"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723226"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -34,27 +34,24 @@ U kunt een lijst van alle problemen weergeven door te selecteren **aanbevelingen
 Zie voor een volledige lijst van reken- en App-services aanbevelingen, [aanbevelingen](security-center-virtual-machine-recommendations.md).
 
 Als u wilt doorgaan, selecteer **Compute en apps** onder **Resources** of het hoofdmenu van Security Center.
-![Security Center-dashboard][1]
+![Security Center-dashboard](./media/security-center-virtual-machine-recommendations/overview.png)
 
-## <a name="monitor-compute-and-app-services"></a>Monitor voor reken- en App-services
-Onder **Rekenprocessen** vindt u vier tabbladen:
+## <a name="monitor-compute-and-app-services"></a>Reken- en app-services bewaken
+Onder **Compute en apps**, er zijn de volgende tabbladen:
 
 - **Overzicht**: bewaking en aanbevelingen door Security Center.
 - **VM’s en computers**: lijst met alle virtuele machines, computers en de bijbehorende actuele beveiligingsstatussen.
 - **Cloud Services**: lijst van al uw web- en werkrollen die worden bewaakt door Security Center.
 - **App-services (Preview)**: lijst met uw App service-omgevingen en de huidige beveiligingsstatus van elk.
-Als u wilt doorgaan, selecteer **Compute en apps** onder **Resources** of het hoofdmenu van Security Center.
+- **Containers (Preview)**: lijst met de containers die worden gehost op IaaS Linux-machines en beoordelen van de beveiliging van de Docker-configuraties.
+- **VM-schaalsets (Preview)**: lijst met uw schaalsets en aanbevelingen voor elk.
+- **Rekenresources (Preview)**: lijst met aanbevelingen voor uw compute-resources, zoals Service Fabric-clusters en eventhubs.
 
-![Compute][2]
+Als u wilt doorgaan, selecteer **Compute en apps** onder **Resource beveiliging hygeine**.
+
+![Compute](./media/security-center-virtual-machine-recommendations/compute.png)
 
 Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem.
-
-### <a name="monitoring-recommendations"></a>Aanbevelingen ten aanzien van controle
-In deze sectie toont het totale aantal virtuele machines en computers dat is geïnitialiseerd voor automatische inrichting en de huidige status. In dit voorbeeld is er één aanbeveling **Problemen met de agentstatus controleren**. Selecteer deze aanbeveling.
-
-![Problemen met de agentstatus controleren][3]
-
-**Problemen met de agentstatus controleren** wordt geopend. Virtuele machines en computers die Security Center niet kan controleren, worden vermeld. Selecteer een virtuele machine of computer voor gedetailleerde informatie. **BEWAKINGSSTATUS** toont de reden waarom Security Center niet kan bewaken. Raadpleeg de [Security Center probleemoplossingsgids](security-center-troubleshooting-guide.md) voor een lijst met waarden, beschrijvingen en probleemoplossingen voor de waarden van **BEWAKINGSSTATUS**.
 
 ### Niet-bewaakte VM's en computers <a name="unmonitored-vms-and-computers"></a>
 Een virtuele machine of computer wordt niet bewaakt door Security Center als de machine wordt niet uitgevoerd voor de Microsoft Monitoring Agent-extensie. Een computer heeft misschien een lokale agent is al geïnstalleerd, bijvoorbeeld de directe OMS-agent of de SCOM-agent. Machines met deze agents worden geïdentificeerd als niet-bewaakt omdat deze agents niet volledig worden ondersteund in Security Center. De Microsoft Monitoring Agent-extensie is vereist om volledig te profiteren van alle mogelijkheden van Security Center.
@@ -64,13 +61,9 @@ U kunt de extensie installeren op de niet-bewaakte virtuele machine of computer 
 Zie [Problemen met de agentstatus controleren](security-center-troubleshooting-guide.md#mon-agent) voor meer informatie over de redenen waarom Security Center VM's en computers die zijn geïnitialiseerd voor automatische inrichting niet afdoende kan bewaken.
 
 ### <a name="recommendations"></a>Aanbevelingen
-Deze sectie bevat een reeks aanbevelingen voor elke virtuele machine en computer, web-en werkrollen, Azure App Service Web Apps en Azure App Service Environment die wordt bewaakt door Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal resources dat is beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem weer, zoals wordt geïllustreerd op de volgende schermafbeelding:
+Deze sectie bevat een reeks aanbevelingen voor elke virtuele machine en computer, web-en werkrollen, Azure App Service Web Apps en Azure App Service Environment die wordt bewaakt door Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal resources dat is beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem.
 
-![Aanbevelingen][4]
-
-Elke aanbeveling heeft een set acties die u kunt uitvoeren nadat u deze hebt geselecteerd. Als u bijvoorbeeld **ontbrekende systeemupdates**, het aantal virtuele machines en computers waarvoor patches ontbreken, en de ernst van de ontbrekende update wordt weergegeven, zoals wordt weergegeven in de volgende schermafbeelding:
-
-![Systeemupdates toepassen][5]
+Elke aanbeveling heeft een set acties die u kunt uitvoeren nadat u deze hebt geselecteerd. Als u bijvoorbeeld **ontbrekende systeemupdates**, het aantal virtuele machines en computers waarvoor patches ontbreken, en de ernst van de ontbrekende update weergegeven.
 
 **Systeemupdates toepassen** geeft een samenvatting van essentiële updates in een grafiek, één voor Windows en één voor Linux. Het tweede gedeelte bevat een tabel met de volgende informatie:
 
@@ -91,7 +84,6 @@ Elke aanbeveling heeft een set acties die u kunt uitvoeren nadat u deze hebt ges
 
 Klik op de naam van de ontbrekende update om meer informatie voor de aanbeveling weer te geven.
 
-![Details van de aanbeveling][6]
 
 > [!NOTE]
 > Hier de aanbevelingen voor beveiliging zijn hetzelfde als die onder de **aanbevelingen** tegel. Zie [beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen.
@@ -99,42 +91,39 @@ Klik op de naam van de ontbrekende update om meer informatie voor de aanbeveling
 >
 
 ### <a name="vms-and-computers"></a>VM's en computers
-De sectie virtuele machines en computers geeft een overzicht van alle aanbevelingen voor de virtuele machine en computer. Elke kolom vertegenwoordigt een reeks aanbevelingen, zoals te zien is op de volgende schermafbeelding:
+De sectie virtuele machines en computers geeft een overzicht van alle aanbevelingen voor de virtuele machine en computer. Elke kolom vertegenwoordigt een reeks aanbevelingen.
 
-![Aanbevelingen voor de computer en virtuele machine][7]
+![Aanbevelingen voor de computer en virtuele machine](./media/security-center-virtual-machine-recommendations/vm-computers.png)
 
 Er zijn vier typen pictogrammen weergegeven in deze lijst:
 
-![Niet-Azure-computer][8] Computer zonder Azure.
+![Niet-Azure-computer](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Computer zonder Azure.
 
-![Virtuele machines van Azure Resource Manager][9] Virtuele machines van Azure Resource Manager.
+![Virtuele machines van Azure Resource Manager](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png) Virtuele machines van Azure Resource Manager.
 
-![Klassieke Azure-VM][10] Klassieke Azure-VM.
+![Klassieke Azure-VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Klassieke Azure-VM.
 
-![Virtuele machines geïdentificeerd vanuit de werkruimte][11] Virtuele machines die alleen zijn geïdentificeerd vanuit de werkruimte die deel uitmaakt van het weergegeven abonnement. Dit omvat VM's van andere abonnementen die rapporteren aan de werkruimte in dit abonnement, en VM’s die zijn geïnstalleerd met de directe SCOM-agent en geen resource-ID hebben.
 
-U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling snel identificeren van de virtuele machine en de computer die aandacht vereisen en wat het type aanbeveling. U kunt ook de filteroptie gebruiken om te selecteren welke opties u in dit scherm ziet.
+![Virtuele machines geïdentificeerd vanuit de werkruimte](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Virtuele machines die alleen zijn geïdentificeerd vanuit de werkruimte die deel uitmaakt van het weergegeven abonnement. Dit omvat VM's van andere abonnementen die rapporteren aan de werkruimte in dit abonnement, en VM’s die zijn geïnstalleerd met de directe SCOM-agent en geen resource-ID hebben.
 
-![Filteren][12]
+U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling snel identificeren van de virtuele machine en de computer die aandacht vereisen en wat het type aanbeveling. U kunt ook de filters gebruiken om te zoeken naar de lijst door **resourcetype** en door **ernst**.
 
-In het vorige voorbeeld heeft één VM een cruciale aanbeveling met betrekking tot eindpuntbeveiliging. Selecteer de virtuele machine voor meer informatie over het:
-
-![Kritieke aanbeveling][13]
-
+Als u wilt inzoomen in de aanbevelingen voor beveiliging voor elke virtuele machine, klik op de virtuele machine.
 Hier ziet u de beveiligingsdetails voor de virtuele machine of computer. Onderin ziet u de aanbevolen actie en de ernst van elk probleem.
+![Cloudservices](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Cloud services
-Voor cloudservices wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is, zoals u ziet in de volgende schermafbeelding:
+Voor cloudservices, wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is.
 
-![Cloud services][14]
+![Cloud services](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
 
-In een scenario waarin u een aanbeveling krijgt (wat is niet het geval is bij het vorige voorbeeld) hebt, moet u de stappen in de aanbeveling voor de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Wanneer u deze waarschuwing selecteert in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) rijen, ziet u meer informatie over deze aanbeveling, zoals wordt weergegeven in de Schermafbeelding van het volgende:
-
-![WorkerRole1][15]
+In een scenario waarin u een aanbeveling krijgt (wat is niet het geval is bij het vorige voorbeeld) hebt, moet u de stappen in de aanbeveling voor de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Wanneer u deze waarschuwing selecteert in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) rijen, ziet u meer informatie over deze aanbeveling.
 
 Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op **Besturingssysteemversie bijwerken** onder de kolom **BESCHRIJVING**.
 
-![Besturingssysteemversie bijwerken][16]
+
+
+![Besturingssysteemversie bijwerken](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services-preview"></a>App Services (preview)
 
@@ -145,15 +134,15 @@ Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op 
 
 Onder **App services**, vindt u een lijst van uw App service-omgevingen en samenvatting van de status op basis van de evaluatie van Security Center wordt uitgevoerd.
 
-![App-services][17]
+![App-services](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 
-![Omgeving voor App-services][18] Omgeving van App-services.
+![Omgeving voor App-services](./media/security-center-virtual-machine-recommendations/ase.png) Omgeving van App-services.
 
-![Webtoepassing][19] Web-App.
+![Webtoepassing](./media/security-center-virtual-machine-recommendations/web-app.png) Web-App.
 
-![Functions-toepassing][24] Functions-toepassing.
+![Functions-toepassing](./media/security-center-virtual-machine-recommendations/function-app.png) Functions-toepassing.
 
 1. Selecteer een web-App. Een overzicht wordt geopend met drie tabbladen:
 
@@ -163,53 +152,41 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 
   Onder **aanbevelingen** is een lijst met aanbevelingen voor de geselecteerde web-App en de ernst van elke aanbeveling.
 
-  ![Overzicht weergeven][20]
+  ![Aanbevelingen van App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
-2. Selecteer een aanbeveling voor een beschrijving van de aanbeveling en een lijst van resources niet in orde, gezonde resources en niet-gescande resources.
+2. Selecteer een aanbeveling om een beschrijving van de aanbeveling en een lijst met resources niet in orde, gezonde resources en niet-gescande resources te bekijken.
 
-  ![Beschrijving van de aanbeveling][21]
+ - Onder de **doorgegeven evaluaties** kolom is een lijst van geslaagde evaluaties.  Ernst van deze beoordeling is altijd groen.
 
-  Onder **evaluaties doorgegeven** is een lijst van geslaagde evaluaties.  Ernst van deze beoordeling is altijd groen.
+ -  Selecteer een evaluatie van de doorgegeven in de lijst voor een beschrijving van de evaluatie, een lijst met resources niet in orde en in orde is en een lijst met niet-gescande resources. Er is een tabblad voor de resources niet in orde, maar deze lijst is altijd leeg omdat de evaluatie van de doorgegeven.
 
-  ![Geslaagde evaluaties][22]
+    ![App Service-herstel](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-3. Selecteer een evaluatie van de doorgegeven in de lijst voor een beschrijving van de evaluatie, een lijst met resources niet in orde en in orde is en een lijst met niet-gescande resources. Er is een tabblad voor de resources niet in orde, maar deze lijst is altijd leeg omdat de evaluatie van de doorgegeven.
+## <a name="virtual-machine-scale-sets-preview"></a>Virtuele-machineschaalsets (Preview)
+Security Center detecteert automatisch of u ingesteld voor schalen hebt en raadt u aan de Microsoft Monitoring Agent installeren op deze scale sets. 
 
-    ![Resources die in orde zijn][23]
+De Microsoft Monitoring Agent installeren: 
+
+1. Selecteer de aanbeveling **monitoring agent installeren op virtuele-machineschaalset**. U ophalen een lijst van niet-bewaakte schaalsets.
+2. Selecteer een schaalset niet in orde. Volg de instructies voor het installeren van de bewakingsagent met behulp van een bestaande ingevuld werkruimte of maak een nieuwe. Zorg ervoor dat u de werkruimte [prijscategorie](security-center-pricing.md) als deze niet ingesteld.
+
+ ![MMS installeren](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Als u wilt instellen schaalsets nieuwe automatisch de Microsoft Monitoring Agent wilt installeren:
+1. Ga naar Azure Policy en klikt u op **definities**.
+2. Zoeken naar het beleid **implementeren Log Analytics-agent voor Windows-VM-schaalsets** en klik erop.
+3. Klik op **Toewijzen**.
+4. Stel de **bereik** en **Log Analytics-werkruimte** en klikt u op **toewijzen**.
+
+Als u wilt instellen, alle bestaande schaalsets voor het installeren van Microsoft Monitoring Agent, in de Azure-beleid, gaat u naar **herstel** en het bestaande beleid toepassen op bestaande schaalsets.
+
 
 ## <a name="compute-and-app-recommendations"></a>Reken- en app-aanbevelingen
 |Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
-|Machine|50|Bewakingsagent op uw machines installeren|Installeer de agent bewaking voor het verzamelen van gegevens, updates scannen, basislijnen te scannen en endpoint protection op elke machine inschakelen.|
-|Machine|50|Automatische inrichting en verzamelen van gegevens voor uw abonnementen inschakelen |Automatische inrichting en verzamelen van gegevens voor computers in uw abonnementen om gegevens te verzamelen, updates scannen, basislijnen te scannen en endpoint protection op elke machine die is toegevoegd aan uw abonnementen inschakelen.|
-|Machine|40|Statusproblemen van bewakingsagenten oplossen op uw machines|Voor volledige beveiliging van Security Center, oplossen van problemen met de bewaking agent op uw virtuele machines door de instructies in de gids voor probleemoplossing| 
-|Machine|40|Statusproblemen met eindpuntbescherming oplossen voor uw machines|Voor volledige Security Center beveiliging oplossen monitoring agent op uw virtuele machines door de instructies in de gids voor probleemoplossing.|
-|Machine|40|Problemen oplossen met ontbrekende scangegevens op uw machines|Problemen met ontbrekende Scangegevens op virtuele machines en computers. Ontbrekende Scangegevens op de resultaten van uw machines beveiligingscontroles zoals ontbrekende update scannen, basislijn scannen en ontbrekende endpoint protection solution scannen.|
-|Machine|40|Systeemupdates installeren op uw machines|Ontbrekende systeembeveiliging en essentiële updates voor het beveiligen van uw Windows- en Linux-machines en computers installeren
-|Machine|40|Besturingssysteemversie voor rollen van uw cloudservice bijwerken|De versie van besturingssysteem (OS) voor rollen van uw cloudservice worden bijgewerkt naar de meest recente versie die beschikbaar is voor uw type besturingssysteem.|
-|Machine|35|Problemen met de beveiligingsconfiguratie van virtuele machines verhelpen|Beveiligingsproblemen in de configuratie van de beveiliging op uw virtuele machines te beschermen tegen aanvallen herstellen. |
-|Machine|35|Beveiligingsproblemen in de configuratie van de beveiliging van uw containers herstellen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van computers waarop Docker is geïnstalleerd, om beveiliging tegen aanvallen te bieden.|
-|Machine|25|Besturingselementen voor adaptieve toepassingen inschakelen|Toepassing voor welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure inschakelen. Hiermee kunt u beveiliging van uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op elke virtuele machine en helpt die u toepassen met behulp van deze informatie regels toestaan. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van de toepassing regels voor toestaan.|
-|Machine|20|Oplossing voor eindpuntbeveiliging installeren op uw machines|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele machines, Beveilig ze tegen bedreigingen en zwakke plekken.|
-|Machine|20|Start uw machines opnieuw op om systeemupdates toe te passen|Start uw machines opnieuw op om de systeemupdates toe te passen en de machine vanuit beveiligingsproblemen te beveiligen.|
 |App Service|20|Web-App moet alleen toegankelijk zijn via HTTPS|Alleen beperkt de toegang van webtoepassingen via HTTPS.|
 |App Service|20|Functie-App moet alleen toegankelijk zijn via HTTPS|Beperk de toegang van de functie-Apps alleen via HTTPS.|
-|Machine|15|Schijfversleuteling toepassen op uw virtuele machines|Versleutel de schijven van uw virtuele machines met Azure Disk Encryption zowel voor Windows en Linux-machines. Azure Disk Encryption (ADE) maakt gebruik van de branche standaard BitLocker-functie van Windows en de DM-Crypt-functie van Linux voor besturingssysteem en schijfversleuteling om u te helpen te beschermen en uw gegevens veilig houden en te voldoen aan uw organisatie beveiliging en naleving verplichtingen klant Azure sleutelkluis. Wanneer uw behoeften nalevings- en moet u de end-to-end met behulp van uw versleutelingssleutels, met inbegrip van versleuteling van de kortstondige schijf in de (lokaal gekoppelde tijdelijke), gebruikt Azure disk encryption-gegevens versleutelen. U kunt ook standaard zijn beheerde schijven at-rest standaard versleuteld met behulp van Azure Storage-Serviceversleuteling waar de versleutelingssleutels beheerd door Microsoft-sleutels in Azure worden. Als deze voldoet aan uw nalevings- en beveiligingsvereisten, kunt u gebruikmaken van de standaard beheerde schijf-versleuteling om te voldoen aan uw vereisten.|
-|Rekenresources (service fabric)|10|Azure Active Directory gebruiken voor clientverificatie in Service Fabric|Verificatie van de Client alleen via Azure Active Directory uitvoeren in Service Fabric.|
-|Rekenresources (automation-account)|5| Versleuteling van Automation-account inschakelen|Versleuteling van Automation-account-variabele assets inschakelen bij het opslaan van gevoelige gegevens.|
 |App Service|5|Diagnostische logboeken in appservice inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (Load balancer)|5|Schakel diagnostische logboeken in Load Balancer|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (zoeken)|5|Diagnostische logboeken in Search-service inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (servicebus)|5|Diagnostische logboeken in Service Bus inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (stream analytics)|5|Inschakelen van diagnostische logboeken in Azure Stream Analytics|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (service fabric)|5|Schakel diagnostische logboeken in Service Fabric|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (batch)|5|Schakel diagnostische logboeken in Batch-accounts|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (event hub)|5|Diagnostische logboeken in Event Hub inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Rekenresources (logische apps)|5|Diagnostische logboeken in Logic Apps inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
-|Machine|15|Een firewall voor webtoepassingen toevoegen| Een web application firewall (WAF)-oplossing voor het beveiligen van uw webtoepassingen implementeren. |
-|Machine|30|Het herstellen van beveiligingsproblemen - door een oplossing voor evaluatie van beveiligingsproblemen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
-|Rekenresources (service fabric)|15|Stel de eigenschap ClusterProtectionLevel op EncryptAndSign in Service Fabric|Service Fabric biedt drie niveaus van beveiliging (geen, aanmelding en EncryptAndSign) voor communicatie van knooppunt-naar-knooppunt met behulp van een primaire clustercertificaat.  Stel het beveiligingsniveau om ervoor te zorgen dat alle berichten van knooppunt-naar-knooppunt zijn versleuteld en digitaal zijn ondertekend. |
 |App Service|10|Foutopsporing op afstand moet worden uitgeschakeld voor Web-App|Als u niet meer nodig hebt om deze te gebruiken voor het Web-foutopsporing uitschakelen. Externe foutopsporing moeten inkomende poorten op een functie-App moeten worden geopend.|
 |App Service|10|Foutopsporing op afstand moet worden uitgeschakeld voor Functions-toepassing|Als u niet meer nodig hebt om deze te gebruiken voor functie-App-foutopsporing uitschakelen. Externe foutopsporing moeten inkomende poorten op een functie-App moeten worden geopend.|
 |App Service|10|IP-beperkingen voor Web-App configureren|Een lijst met IP-adressen die zijn toegestaan voor toegang tot uw toepassing definiëren. Gebruik van IP-beperkingen beschermt u webtoepassingen tegen algemene aanvallen.|
@@ -219,21 +196,55 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 |App Service|5|Websockets moeten worden uitgeschakeld voor functie-App|Controleer het gebruik van Websockets in functie-Apps. Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's.|
 |App Service|5|Aangepaste domeinen gebruiken voor uw Web-App|Aangepaste domeinen gebruiken voor een webtoepassing beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS.|
 |App Service|5|Aangepaste domeinen voor functie-App gebruiken|Aangepaste domeinen gebruiken voor een functie-app beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS.|
-|Rekenresources (batch)|1|Waarschuwingsregels voor metrische gegevens op Batch-account configureren|Waarschuwingsregels voor metrische gegevens op Batch-account configureren en inschakelen van de metrische gegevens Pool verwijderen voltooid gebeurtenissen en Pool verwijderen starten|
-|Rekenresources (servicebus)|1|Alle autorisatieregels behalve RootManageSharedAccessKey van Service Bus-naamruimte verwijderen |Service Bus-clients moeten een beleid voor het toegangsniveau van naamruimte die toegang tot alle wachtrijen en onderwerpen in een naamruimte biedt niet gebruiken. Om uit te lijnen met de minste bevoegdheden beveiliging-model kunt u de waarde maken toegangsbeleid op het entiteitsniveau van de voor wachtrijen en onderwerpen voor toegang tot alleen de specifieke entiteit.|
-|Rekenresources (event hub)|1|Alle autorisatieregels behalve RootManageSharedAccessKey uit de Event Hub-naamruimte verwijderen |Event Hub-clients moeten een beleid voor het toegangsniveau van naamruimte die toegang tot alle wachtrijen en onderwerpen in een naamruimte biedt niet gebruiken. Om uit te lijnen met de minste bevoegdheden beveiliging-model kunt u de waarde maken toegangsbeleid op het entiteitsniveau van de voor wachtrijen en onderwerpen voor toegang tot alleen de specifieke entiteit.|
-|Rekenresources (event hub)|5|Autorisatieregels definiëren voor de Event Hub-entiteit|Controle van autorisatieregels voor de Event Hub-entiteit minste bevoegdheden toegang te verlenen.|
-|Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
 |App Service|20|CORS kunt u voorkomen dat elke resource toegang tot uw Web-Apps|Toestaan dat alleen vereiste domeinen om te communiceren met uw webtoepassing. Cross-origin resource sharing (CORS) kunt u voorkomen dat alle domeinen toegang tot uw webtoepassing.|
 |App Service|20|CORS kunt u voorkomen dat elke resource toegang tot uw functie-App| Toestaan dat alleen vereiste domeinen om te communiceren met uw functie-toepassing. Cross-origin resource sharing (CORS) kunt u voorkomen dat alle domeinen toegang tot uw functie-toepassing.|
-|Machine|15|Een firewall voor webtoepassingen toevoegen| Een web application firewall (WAF)-oplossing voor het beveiligen van uw webtoepassingen implementeren. |
 |App Service|10|Gebruik de nieuwste ondersteunde .NET Framework voor webtoepassingen|Gebruik de meest recente versie van .NET Framework voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
 |App Service|10|Gebruik de nieuwste ondersteunde Java-versie voor Web-App|Gebruik de meest recente Java-versie voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
 |App Service|10|Gebruik de nieuwste ondersteunde PHP-versie voor Web-App|Gebruik de nieuwste PHP-versie voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
 |App Service|10|Gebruik de nieuwste ondersteunde Node.js versie voor Web-App|Gebruik de meest recente versie van Node.js voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
 |App Service|10|Gebruik de nieuwste ondersteunde Python-versie voor Web-App|Gebruik de meest recente versie van Python voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
-|VM's en computers|1|Virtuele machines migreren naar nieuwe AzureRM-resources|Nieuwe Azure Resource Manager-v2 voor uw virtuele machines gebruiken voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van ARM-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure Verificatie op basis van AD en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer. |
-|Machine|30|Het herstellen van beveiligingsproblemen - door een oplossing voor evaluatie van beveiligingsproblemen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
+|Rekenresources (batch)|1|Waarschuwingsregels voor metrische gegevens op Batch-account configureren|Waarschuwingsregels voor metrische gegevens op Batch-account configureren en inschakelen van de metrische gegevens Pool verwijderen voltooid gebeurtenissen en Pool verwijderen starten|
+|Rekenresources (service fabric)|10|Azure Active Directory gebruiken voor clientverificatie in Service Fabric|Verificatie van de Client alleen via Azure Active Directory uitvoeren in Service Fabric.|
+|Rekenresources (automation-account)|5| Versleuteling van Automation-account inschakelen|Versleuteling van Automation-account-variabele assets inschakelen bij het opslaan van gevoelige gegevens.|
+|Rekenresources (Load balancer)|5|Schakel diagnostische logboeken in Load Balancer|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (zoeken)|5|Diagnostische logboeken in Search-service inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (servicebus)|5|Diagnostische logboeken in Service Bus inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (stream analytics)|5|Inschakelen van diagnostische logboeken in Azure Stream Analytics|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (service fabric)|5|Schakel diagnostische logboeken in Service Fabric|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (batch)|5|Schakel diagnostische logboeken in Batch-accounts|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (event hub)|5|Diagnostische logboeken in Event Hub inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (logische apps)|5|Diagnostische logboeken in Logic Apps inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Rekenresources (service fabric)|15|Stel de eigenschap ClusterProtectionLevel op EncryptAndSign in Service Fabric|Service Fabric biedt drie niveaus van beveiliging (geen, aanmelding en EncryptAndSign) voor communicatie van knooppunt-naar-knooppunt met behulp van een primaire clustercertificaat.  Stel het beveiligingsniveau om ervoor te zorgen dat alle berichten van knooppunt-naar-knooppunt zijn versleuteld en digitaal zijn ondertekend. |
+|Rekenresources (servicebus)|1|Alle autorisatieregels behalve RootManageSharedAccessKey van Service Bus-naamruimte verwijderen |Service Bus-clients moeten een beleid voor het toegangsniveau van naamruimte die toegang tot alle wachtrijen en onderwerpen in een naamruimte biedt niet gebruiken. Om uit te lijnen met de minste bevoegdheden beveiliging-model kunt u de waarde maken toegangsbeleid op het entiteitsniveau van de voor wachtrijen en onderwerpen voor toegang tot alleen de specifieke entiteit.|
+|Rekenresources (event hub)|1|Alle autorisatieregels behalve RootManageSharedAccessKey uit de Event Hub-naamruimte verwijderen |Event Hub-clients moeten een beleid voor het toegangsniveau van naamruimte die toegang tot alle wachtrijen en onderwerpen in een naamruimte biedt niet gebruiken. Om uit te lijnen met de minste bevoegdheden beveiliging-model kunt u de waarde maken toegangsbeleid op het entiteitsniveau van de voor wachtrijen en onderwerpen voor toegang tot alleen de specifieke entiteit.|
+|Rekenresources (event hub)|5|Autorisatieregels definiëren voor de Event Hub-entiteit|Controle van autorisatieregels voor de Event Hub-entiteit minste bevoegdheden toegang te verlenen.|
+|Machine|50|Bewakingsagent op uw machines installeren|Installeer de agent bewaking voor het verzamelen van gegevens, updates scannen, basislijnen te scannen en endpoint protection op elke machine inschakelen.|
+|Machine|50|Automatische inrichting en verzamelen van gegevens voor uw abonnementen inschakelen |Automatische inrichting en verzamelen van gegevens voor computers in uw abonnementen om gegevens te verzamelen, updates scannen, basislijnen te scannen en endpoint protection op elke machine die is toegevoegd aan uw abonnementen inschakelen.|
+|Machine|40|Statusproblemen van bewakingsagenten oplossen op uw machines|Voor volledige beveiliging van Security Center, oplossen van problemen met de bewaking agent op uw virtuele machines door de instructies in de gids voor probleemoplossing| 
+|Machine|40|Statusproblemen met eindpuntbescherming oplossen voor uw machines|Voor volledige Security Center beveiliging oplossen monitoring agent op uw virtuele machines door de instructies in de gids voor probleemoplossing.|
+|Machine|40|Problemen oplossen met ontbrekende scangegevens op uw machines|Problemen met ontbrekende Scangegevens op virtuele machines en computers. Ontbrekende Scangegevens op de resultaten van uw machines beveiligingscontroles zoals ontbrekende update scannen, basislijn scannen en ontbrekende endpoint protection solution scannen.|
+|Machine|40|Systeemupdates installeren op uw machines|Ontbrekende systeembeveiliging en essentiële updates voor het beveiligen van uw Windows- en Linux-machines en computers installeren
+|Machine|15|Een firewall voor webtoepassingen toevoegen| Een web application firewall (WAF)-oplossing voor het beveiligen van uw webtoepassingen implementeren. |
+|Machine|40|Besturingssysteemversie voor rollen van uw cloudservice bijwerken|De versie van besturingssysteem (OS) voor rollen van uw cloudservice worden bijgewerkt naar de meest recente versie die beschikbaar is voor uw type besturingssysteem.|
+|Machine|35|Problemen met de beveiligingsconfiguratie van virtuele machines verhelpen|Beveiligingsproblemen in de configuratie van de beveiliging op uw virtuele machines te beschermen tegen aanvallen herstellen. |
+|Machine|35|Beveiligingsproblemen in de configuratie van de beveiliging van uw containers herstellen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van computers waarop Docker is geïnstalleerd, om beveiliging tegen aanvallen te bieden.|
+|Machine|25|Besturingselementen voor adaptieve toepassingen inschakelen|Toepassing voor welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure inschakelen. Hiermee kunt u beveiliging van uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op elke virtuele machine en helpt die u toepassen met behulp van deze informatie regels toestaan. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van de toepassing regels voor toestaan.|
+|Machine|20|Oplossing voor eindpuntbeveiliging installeren op uw machines|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele machines, Beveilig ze tegen bedreigingen en zwakke plekken.|
+|Machine|20|Start uw machines opnieuw op om systeemupdates toe te passen|Start uw machines opnieuw op om de systeemupdates toe te passen en de machine vanuit beveiligingsproblemen te beveiligen.|
+|Machine|15|Schijfversleuteling toepassen op uw virtuele machines|Versleutel de schijven van uw virtuele machines met Azure Disk Encryption zowel voor Windows en Linux-machines. Azure Disk Encryption (ADE) maakt gebruik van de branche standaard BitLocker-functie van Windows en de DM-Crypt-functie van Linux voor besturingssysteem en schijfversleuteling om u te helpen te beschermen en uw gegevens veilig houden en te voldoen aan uw organisatie beveiliging en naleving verplichtingen klant Azure sleutelkluis. Wanneer uw behoeften nalevings- en moet u de end-to-end met behulp van uw versleutelingssleutels, met inbegrip van versleuteling van de kortstondige schijf in de (lokaal gekoppelde tijdelijke), gebruikt Azure disk encryption-gegevens versleutelen. U kunt ook standaard zijn beheerde schijven at-rest standaard versleuteld met behulp van Azure Storage-Serviceversleuteling waar de versleutelingssleutels beheerd door Microsoft-sleutels in Azure worden. Als deze voldoet aan uw nalevings- en beveiligingsvereisten, kunt u gebruikmaken van de standaard beheerde schijf-versleuteling om te voldoen aan uw vereisten.|
+|Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
+|Machine|15|Een firewall voor webtoepassingen toevoegen| Een web application firewall (WAF)-oplossing voor het beveiligen van uw webtoepassingen implementeren. |
+|Machine|30|Beveiligingsproblemen met behulp van een oplossing voor evaluatie van beveiligingsproblemen herstellen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
+|Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
+|Machine|1|Virtuele machines migreren naar nieuwe Azure Resource Manager-resources|Gebruik Azure Resource Manager voor uw virtuele machines voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer. |
+|Machine|30|Beveiligingsproblemen met behulp van een oplossing voor evaluatie van beveiligingsproblemen herstellen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
+|Schaalset voor virtuele machines |4|Diagnostische logboeken in Virtual Machine Scale Sets inschakelen|Logboeken inschakelen en behouden voor maximaal een jaar. Hiermee kunt u activiteit sporen onderzoek opnieuw te maken. Dit is handig wanneer een beveiligingsincident voordoet, of uw netwerk is gecompromitteerd.|
+|Schaalset voor virtuele machines|35|Beveiligingsproblemen in de configuratie van de beveiliging van uw virtuele-machineschaalsets herstellen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van uw virtuele-machineschaalsets om beveiliging tegen aanvallen te bieden. |
+|Schaalset voor virtuele machines|5|Endpoint protection-statusfouten op schaalsets voor virtuele machines herstellen|Fouten in de eindpuntbeveiligingsstatus van uw virtuele-machineschaalsets verhelpen om deze te beschermen tegen bedreigingen en beveiligingsproblemen. |
+|Schaalset voor virtuele machines|10|Oplossing voor eindpuntbeveiliging installeren op virtuele-machineschaalsets|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele-machineschaalsets, ze te beschermen tegen bedreigingen en zwakke plekken. |
+|Schaalset voor virtuele machines|40|Systeemupdates installeren op virtuele-machineschaalsets|Ontbrekende systeembeveiliging en essentiële updates installeren ter beveiliging van de virtuele-machineschaalsets voor Windows en Linux. |
+ 
+
 
 
 
@@ -253,28 +264,3 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
 
-<!--Image references-->
-[1]: ./media/security-center-virtual-machine-recommendations/overview.png
-[2]: ./media/security-center-virtual-machine-recommendations/compute.png
-[3]: ./media/security-center-virtual-machine-recommendations/monitoring-agent-health-issues.png
-[4]: ./media/security-center-virtual-machine-recommendations/compute-recommendations.png
-[5]: ./media/security-center-virtual-machine-recommendations/apply-system-updates.png
-[6]: ./media/security-center-virtual-machine-recommendations/missing-update-details.png
-[7]: ./media/security-center-virtual-machine-recommendations/vm-computers.png
-[8]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png
-[9]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png
-[10]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png
-[11]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png
-[12]: ./media/security-center-virtual-machine-recommendations/filter.png
-[13]: ./media/security-center-virtual-machine-recommendations/vm-detail.png
-[14]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png
-[15]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new3.png
-[16]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png
-[17]: ./media/security-center-virtual-machine-recommendations/app-services.png
-[18]: ./media/security-center-virtual-machine-recommendations/ase.png
-[19]: ./media/security-center-virtual-machine-recommendations/web-app.png
-[20]: ./media/security-center-virtual-machine-recommendations/recommendation.png
-[21]: ./media/security-center-virtual-machine-recommendations/recommendation-desc.png
-[22]: ./media/security-center-virtual-machine-recommendations/passed-assessment.png
-[23]: ./media/security-center-virtual-machine-recommendations/healthy-resources.png
-[24]: ./media/security-center-virtual-machine-recommendations/function-app.png

@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971518"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973195"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -175,13 +175,15 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
 
 Met geo-replicatie databases, wanneer u de controle op de primaire database inschakelen heeft de secundaire database een identieke controlebeleid. Het is ook mogelijk om in te stellen de controle op de secundaire database door het inschakelen van controle op de **secundaire server**, onafhankelijk van de primaire database.
 
-- Op serverniveau (**aanbevolen**): Schakel controle op zowel de **primaire server** , evenals de **secundaire server** -de primaire en secundaire databases wordt elk worden gecontroleerd onafhankelijk van elkaar op basis van hun respectieve op serverniveau beleid.
-- Op databaseniveau: Op databaseniveau voor secundaire databases controle kan alleen worden geconfigureerd in de primaire database controle-instellingen.
+- Op serverniveau (**aanbevolen**): Schakel controle op zowel de **primaire server** , evenals de **secundaire server** -de primaire en secundaire databases wordt elk gecontroleerd afzonderlijk op basis van hun respectieve op serverniveau-beleid.
+- Op databaseniveau: Controle op databaseniveau voor secundaire databases kan alleen worden geconfigureerd in de primaire database controle-instellingen.
   - Controle moet zijn ingeschakeld op de *primaire database zelf*, niet op de server.
   - Nadat de controle is ingeschakeld op de primaire database, wordt deze ook worden ingeschakeld op de secundaire database.
 
     >[!IMPORTANT]
     >Met de controle op databaseniveau is de opslaginstellingen voor de secundaire database identiek aan die van de primaire database, waardoor regio-overschrijdend-verkeer. U wordt aangeraden dat u alleen op serverniveau controle inschakelen en laat u de controle op databaseniveau uitgeschakeld voor alle databases.
+    > [!WARNING]
+    > Event hub of log analytics met als doel voor de logboeken voor controle op serverniveau is momenteel niet ondersteund voor secundaire geo-replicatie-databases.
 
 ### <a id="subheading-6">Toegangssleutel voor opslag</a>
 
@@ -220,12 +222,12 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 
 ## <a id="subheading-7"></a>SQL database auditing met behulp van Azure PowerShell beheren
 
-**PowerShell-cmdlets**:
+**PowerShell-cmdlets (met inbegrip van WHERE-component ondersteuning voor het filteren van aanvullende)**:
 
-- [Maken of bijwerken van de Database Blob controlebeleid (Set-AzureRMSqlDatabaseAuditing)][105]
-- [Maken of bijwerken van de Server Blob controlebeleid (Set-AzureRMSqlServerAuditing)][106]
-- [Database controlebeleid ophalen (Get-AzureRMSqlDatabaseAuditing)][101]
-- [Server Blob controlebeleid ophalen (Get-AzureRMSqlServerAuditing)][102]
+- [Maken of bijwerken van de Database Blob controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Maken of bijwerken van de Server Blob controlebeleid (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [Database controlebeleid ophalen (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Server Blob controlebeleid ophalen (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 Zie voor een voorbeeldscript [controle en detectie van bedreigingen met behulp van PowerShell configureren](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -245,6 +247,14 @@ Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 - [Database ophalen *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ophalen van Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>SQL database auditing met behulp van ARM-sjablonen beheren
+
+U kunt beheren met Azure SQL database auditing met behulp van [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) sjablonen, zoals wordt weergegeven in deze voorbeelden:
+
+- [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Azure blob storage-account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Een Azure SQL-Server met controle ingeschakeld auditlogboeken schrijven naar Log Analytics implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -254,6 +264,7 @@ Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -266,10 +277,3 @@ Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

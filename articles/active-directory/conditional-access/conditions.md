@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5f3857480bfe6c4d5c4efe759b11761123fa4441
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410060"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973057"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? 
 
@@ -74,7 +74,7 @@ Selecteer:
 
 - **Alle cloud-apps** basislijn beleid toe te passen op de hele organisatie. Gebruik deze selectie voor beleidsregels die meervoudige verificatie vereisen wanneer het aanmeldingsrisico wordt gedetecteerd voor alle cloud-Apps. Een beleid toegepast op **alle cloud-apps** geldt voor toegang tot alle websites en services. Deze instelling is niet beperkt tot de cloud-apps die worden weergegeven op de **apps selecteren** lijst. 
 
-- **Selecteer spp's** tot specifieke doelservices in uw beleid. Bijvoorbeeld, u kunt vereisen dat gebruikers hebben een [compatibel apparaat](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) voor toegang tot SharePoint Online. Dit beleid wordt ook toegepast op andere services als ze toegang hebben tot SharePoint-inhoud. Een voorbeeld is Microsoft Teams. 
+- **Selecteer apps** tot specifieke doelservices in uw beleid. Bijvoorbeeld, u kunt vereisen dat gebruikers hebben een [compatibel apparaat](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) voor toegang tot SharePoint Online. Dit beleid wordt ook toegepast op andere services als ze toegang hebben tot SharePoint-inhoud. Een voorbeeld is Microsoft Teams. 
 
 U kunt specifieke apps uitsluiten van een beleid. Deze apps zijn echter nog steeds afhankelijk van het beleid toegepast op de services die ze gebruiken. 
 

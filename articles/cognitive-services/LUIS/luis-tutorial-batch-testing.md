@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106036"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754387"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Zelfstudie 2: Batch-test-gegevenssets
+# <a name="tutorial-batch-test-data-sets"></a>Zelfstudie: Gegevenssets voor batch-test
 
 Deze zelfstudie wordt gedemonstreerd hoe u met batch testen utterance voorspelling problemen in uw app vinden en corrigeren.  
 
@@ -36,7 +36,7 @@ Wanneer u een app dan in deze zelfstudie gebruikt, doen *niet* gebruikt u de voo
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken
+> * De voorbeeld-app importeren
 > * Maak een batchbestand testen 
 > * Een batch-test uitvoeren
 > * Bekijk de resultaten
@@ -45,13 +45,13 @@ Wanneer u een app dan in deze zelfstudie gebruikt, doen *niet* gebruikt u de voo
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Bestaande app gebruiken
+## <a name="import-example-app"></a>De voorbeeld-app importeren
 
 Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Voer de volgende stappen uit:
 
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json) en sla het op.
+1.  Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json) en sla het op.
 
 2. Importeer de JSON in een nieuwe app.
 
@@ -61,7 +61,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
 ## <a name="batch-file"></a>Batch-bestand
 
-1. Maak `HumanResources-jobs-batch.json` in een teksteditor of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) deze. 
+1. Maak `HumanResources-jobs-batch.json` in een teksteditor of [downloaden](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) deze. 
 
 2. In het JSON-indeling batchbestand utterances met toevoegen de **bedoeling** gewenste voorspelde in de test. 
 
@@ -177,7 +177,7 @@ Wanneer het eerst schrijven en testen van batch-bestanden, het is raadzaam om te
 
 De waarde van een **taak** entiteit, opgegeven in de test-uitingen is meestal een of twee woorden, met een paar voorbeelden wordt meer woorden. Als _uw eigen_ human resources-app heeft doorgaans taaknamen van vele woorden bestaat, wordt de voorbeeld-uitingen met het label met **taak** entiteit in deze app niet goed werkt.
 
-1. Maak `HumanResources-entities-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/) of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) deze.
+1. Maak `HumanResources-entities-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/) of [downloaden](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) deze.
 
 
 2. In de JSON-indeling batch-bestand, Voeg een matrix met objecten die uitingen met de **bedoeling** gewenste voorspelde in de test, evenals de locaties van alle entiteiten in de utterance. Aangezien een entiteit op basis van tokens, zorg starten en stoppen van elke entiteit op een teken. Niet beginnen of eindigen van de utterance op een spatie. Dit zorgt ervoor dat een fout opgetreden tijdens het importeren van de batch-bestand.  

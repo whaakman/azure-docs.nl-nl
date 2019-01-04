@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08d0221c785fdaeb18fe9a2999d08ded67d1fa91
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437194"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742997"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning in HDInsight
 
-HDInsight kunt machine learning met big data, biedt de mogelijkheid om op te halen van waardevolle inzichten van grote hoeveelheden (petabytes, of zelfs exabytes) en ongestructureerd, en gegevens ontdekt. Er zijn meerdere machine learning-opties in HDInsight:  SparkML en MLlib, R, Apache Hive en de Microsoft Cognitive Toolkit.
+HDInsight kunt machine learning met big data, biedt de mogelijkheid om op te halen van waardevolle inzichten van grote hoeveelheden (petabytes, of zelfs exabytes) en ongestructureerd, en gegevens ontdekt. Er zijn meerdere machine learning-opties in HDInsight:  SparkML en Apache Spark MLlib, R, Apache Hive en de Microsoft Cognitive Toolkit.
 
 ## <a name="sparkml-and-mllib"></a>SparkML en MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) is een aanbieding wordt gehost op Azure van [Apache Spark](http://spark.apache.org/), een uniforme, open source, een framework voor parallelle gegevensverwerking ondersteunen in-memory verwerking om te verbeteren van de analyse van big data. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak, en geavanceerde analyses. Gedistribueerde berekening in-memory-mogelijkheden van Spark kunnen u een goede keuze voor de zich herhalende algoritmen in machine learning- en grafiekberekeningen gebruikt. Er zijn twee schaalbare machine learning-bibliotheken die algoritmische modellering naar deze gedistribueerde omgeving meenemen: MLlib en SparkML. MLlib bevat de oorspronkelijke API die is gebaseerd op rdd's. SparkML is een nieuwere pakket dat een hoger niveau API die is gebaseerd op DataFrames biedt voor het maken van ML-pijplijnen. SparkML nog ondersteunt niet alle van de functies van MLlib, maar vervangt MLlib als standard van Spark-machine learning-bibliotheek.
+[HDInsight Spark](spark/apache-spark-overview.md) is een aanbieding wordt gehost op Azure van [Apache Spark](https://spark.apache.org/), een uniforme, open source, een framework voor parallelle gegevensverwerking ondersteunen in-memory verwerking om te verbeteren van de analyse van big data. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak, en geavanceerde analyses. Gedistribueerde berekening in-memory-mogelijkheden van Spark kunnen u een goede keuze voor de zich herhalende algoritmen in machine learning- en grafiekberekeningen gebruikt. Er zijn twee schaalbare machine learning-bibliotheken die algoritmische modellering naar deze gedistribueerde omgeving meenemen: MLlib en SparkML. MLlib bevat de oorspronkelijke API die is gebaseerd op rdd's. SparkML is een nieuwere pakket dat een hoger niveau API die is gebaseerd op DataFrames biedt voor het maken van ML-pijplijnen. SparkML nog ondersteunt niet alle van de functies van MLlib, maar vervangt MLlib als standard van Spark-machine learning-bibliotheek.
 
 De Microsoft Machine Learning-bibliotheek voor Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark). Deze bibliotheek is ontworpen voor de datawetenschappers productiever te maken op Spark, verhogen de snelheid van experimenten en gebruikmaken van geavanceerde machine learning-technieken, met inbegrip van deep learning, op zeer grote gegevenssets. MMLSpark biedt een laag bovenop SparkML van laag niveau API's bij het bouwen van schaalbare ML-modellen, zoals indexering tekenreeksen bij gegevens in een indeling die werd verwacht door machine learning-algoritmen en aan elkaar te koppelen functie vectoren toewijzen. De MMLSpark-bibliotheek vereenvoudigt deze en andere algemene taken voor het ontwikkelen van modellen in PySpark.
 

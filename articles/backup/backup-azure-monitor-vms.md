@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a7f09341c1362850409a940810a4e2dd20aa7f74
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864533"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745037"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Waarschuwingen voor back-ups van een virtuele Azure-machine controleren
+
 Waarschuwingen zijn antwoorden van de service een gebeurtenis drempelwaarde bereikt of overschreden. Weten wanneer problemen start kan zijn essentieel voor zakelijke kosten. Waarschuwingen doorgaans niet plaats op basis van een schema, en dus is het handig om te weten zo snel mogelijk na waarschuwingen gegenereerd. Bijvoorbeeld, wanneer een back-up of herstel de taak mislukt, een waarschuwing wordt gegenereerd binnen vijf minuten van de fout. In het dashboard van de kluis bevat de tegel waarschuwingen voor back-up waarschuwing op het niveau en kritieke gebeurtenissen. U kunt alle gebeurtenissen weergeven in de instellingen voor waarschuwingen voor back-up. Maar wat kunt u doen als er een waarschuwing optreedt wanneer u aan een afzonderlijke probleem werkt? Als u niet weet wanneer de waarschuwing gebeurt, wordt een kleine ongemak of deze gegevens in gevaar kan brengen. Als u wilt controleren of dat de juiste personen zich bewust bent van een waarschuwing - wanneer deze zich voordoet, de service voor het verzenden van meldingen van waarschuwingen via e-mail te configureren. Zie voor meer informatie over het instellen van e-mailmeldingen [meldingen configureren](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>Hoe vind ik informatie over de waarschuwingen
+
 Als u informatie over de gebeurtenis die een waarschuwing heeft veroorzaakt, moet u de sectie waarschuwingen van de back-up openen. Er zijn twee manieren om te openen van de sectie waarschuwingen van de back-up: een van de waarschuwingen voor back-up tegel in het dashboard van de kluis of in de sectie waarschuwingen en gebeurtenissen.
 
 De back-up waarschuwingen-blade geopend vanaf de tegel waarschuwingen voor back-up:
@@ -43,6 +45,7 @@ De back-up waarschuwingen-blade geopend in de sectie waarschuwingen en gebeurten
     Zie voor het aanpassen van de kenmerken die wordt weergegeven in de lijst, [nog een gebeurtenis kenmerken weergeven](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
 ## <a name="configure-notifications"></a>Meldingen configureren
+
  U kunt de service voor het verzenden van e-mailmeldingen voor waarschuwingen die is opgetreden in het afgelopen uur, of wanneer bepaalde typen gebeurtenissen plaatsvinden.
 
 Voor het instellen van e-mailmeldingen voor waarschuwingen
@@ -62,14 +65,16 @@ Voor het instellen van e-mailmeldingen voor waarschuwingen
 5. In de **ernst** dialoogvenster, kiest u een of meer niveaus die u wilt activeren, e-mailmelding.
 6. Klik op **Opslaan**.
 
-   ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Welke typen waarschuwingen zijn beschikbaar voor Azure IaaS VM backup?
+### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Welke typen waarschuwingen zijn beschikbaar voor Azure IaaS VM backup
+
    | Waarschuwingsniveau | Waarschuwingen die zijn verzonden |
    | --- | --- |
    | Kritiek | voor back-up mislukt, herstel is mislukt |
    | Waarschuwing | voor back-uptaken is geslaagd met waarschuwingen (bijvoorbeeld: Sommige schrijvers is mislukt tijdens het maken van een momentopname) |
    | Informatief | op dit moment zijn geen informatieve waarschuwingen beschikbaar voor Azure VM backup |
 
-### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Zijn er situaties waarin het e-mailbericht zelfs niet is verzonden nadat er meldingen zijn geconfigureerd?
+### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situaties waarin de e-mailbericht is niet verzonden, zelfs als er meldingen zijn geconfigureerd
+
 Er zijn situaties waarbij een waarschuwing niet verzonden wordt, zelfs als de meldingen juist zijn geconfigureerd. Meldingen worden in de volgende situaties e-mail niet verzonden om te voorkomen dat waarschuwingsruis:
 
 * Als meldingen zijn geconfigureerd voor samenvatting per uur en een waarschuwing wordt gegenereerd en opgelost binnen het uur.
@@ -79,9 +84,13 @@ Er zijn situaties waarbij een waarschuwing niet verzonden wordt, zelfs als de me
 
 ## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Gebruik activiteitenlogboeken voor meldingen voor geslaagde back-ups
 
+> [!NOTE]
+> We hebben verplaatst naar een nieuw model moet activiteitenlogboeken van Azure Backup op de Recovery Services-kluizen. Helaas heeft hier last generatie van activiteitenlogboeken in Azure onafhankelijke Clouds. Als gebruikers van Azure onafhankelijke Cloud gemaakt/geconfigureerd geen waarschuwingen van activiteitenlogboeken via Azure Monitor, zoals die hier worden vermeld, zouden ze niet worden geactiveerd. In dat geval zou u wordt geadviseerd dergelijke gebruikers kunnen instellingen voor diagnostische en LA werkruimte of [Power BI rapportageoplossing](backup-azure-configure-reports.md) om de relevante informatie te verkrijgen. Ook wordt in alle Azure openbare regio's, als een gebruiker Recovery Services-activiteitenlogboeken in een Log Analytics-werkruimte verzamelen is zoals vermeld [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), deze logboeken ook niet weergegeven.
+
 Als u een melding wilt nadat de back-ups zijn gelukt, kunt u waarschuwingen die zijn gebouwd op de [activiteitenlogboeken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) van de kluis.
 
 ### <a name="login-into-azure-portal"></a>Meld u aan bij Azure portal
+
 Meld u aan bij de Azure-portal en gaat u verder met de relevante Azure Recovery Services-kluis en klik op de sectie 'Activiteitenlogboek' in de eigenschappen.
 
 ### <a name="identify-appropriate-log"></a>Identificeren van de juiste logboek
@@ -98,9 +107,7 @@ Klik vervolgens op 'Een waarschuwing voor activiteitenlogboek toevoegen' waarsch
 
 Te klikken op 'Waarschuwing voor activiteitenlogboek toevoegen' ziet u een scherm zoals hieronder wordt weergegeven
 
-![Waarschuwing voor activiteitenlogboek](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
-    
-Het abonnement en resourcegroep worden gebruikt voor het opslaan van de waarschuwing. De criteria worden vooraf ingevuld. Zorg ervoor dat alle waarden zijn relevant zijn voor uw behoeften.
+![Waarschuwing voor activiteitenlogboek](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png) het abonnement en resourcegroep worden gebruikt voor het opslaan van de waarschuwing. De criteria worden vooraf ingevuld. Zorg ervoor dat alle waarden zijn relevant zijn voor uw behoeften.
 
 Voor geslaagde back-ups, is het 'niveau' gemarkeerd als 'Ter informatie' en de Status 'Voltooid'.
 
@@ -112,18 +119,19 @@ De groep' acties' gebruiken om de actie bij het genereren van een waarschuwing t
 
 ![Activiteit log actiegroep](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-
 Zodra u op OK klikt, wordt een waarschuwing voor activiteitenlogboek wordt gegenereerd en latere activiteitenlogboeken vastgelegd voor geslaagde back-ups worden de actie wordt geactiveerd, zoals gedefinieerd in de actiegroep.
 
 ### <a name="limitations-on-alerts"></a>Beperkingen met betrekking tot waarschuwingen
+
 Waarschuwingen op basis van gebeurtenissen zijn afhankelijk van de volgende beperkingen:
 
 1. Waarschuwingen worden geactiveerd op alle virtuele machines in de Recovery Services-kluis. U kunt de waarschuwing voor een subset van virtuele machines in een Recovery Services-kluis niet aanpassen.
 2. Waarschuwingen worden verzonden vanuit 'alerts-noreply@mail.windowsazure.com'. U kunt de afzender voor e-mailadres momenteel niet wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Bekijk voor meer informatie over het opnieuw maken van een virtuele machine vanaf een herstelpunt [Azure-VM's herstellen](backup-azure-arm-restore-vms.md).
 
-Als u informatie over het beveiligen van uw virtuele machines nodig hebt, raadpleegt u [eerste kennismaking: Back-up van VM's naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md). 
+Als u informatie over het beveiligen van uw virtuele machines nodig hebt, raadpleegt u [eerste blik: Maak een back-up van VM's naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md).
 
 Meer informatie over de beheertaken voor back-ups van virtuele machine in het artikel [beheren Azure virtuele machine back-ups](backup-azure-manage-vms.md).

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0b42a51f255080905cb0104d06ed18f1d18f8e5d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015412"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728360"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sectie met resources van Azure Resource Manager-sjablonen
 
@@ -90,7 +90,7 @@ Definieert u resources met de volgende structuur:
 | location |Varieert |Geografische locaties van de opgegeven resource wordt ondersteund. U kunt een van de beschikbare locaties selecteren, maar meestal is het zinvol om te kiezen die zich in de buurt van uw gebruikers. Meestal is het ook verstandig om de resources die met elkaar in dezelfde regio communiceren te plaatsen. De meeste resourcetypen een locatie vereist, maar sommige typen (zoals een roltoewijzing) vereisen een locatie. |
 | tags |Nee |Tags die gekoppeld aan de resource zijn. Labels toevoegen om in te delen logisch resources in uw abonnement. |
 | opmerkingen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon |
-| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources om te implementeren op hetzelfde moment opgeven. Zie voor meer informatie, [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md). |
+| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources om te implementeren op hetzelfde moment opgeven. Zie voor meer informatie, [verschillende exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat deze resource is geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze implementeert in de juiste volgorde. Als resources niet van elkaar afhankelijk zijn, zijn ze parallel geïmplementeerd. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of resource-id's uniek. Alleen lijst met resources die in deze sjabloon zijn geïmplementeerd. Resources die niet zijn gedefinieerd in deze sjabloon moeten al bestaan. Vermijd onnodige afhankelijkheden toevoegen als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor meer informatie over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
 | properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de hoofdtekst van de aanvraag voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. |
 | sku | Nee | Sommige resources zijn waarden toegestaan die definiëren van de SKU om het te implementeren. Bijvoorbeeld, kunt u het type redundantie voor een opslagaccount. |
@@ -289,7 +289,7 @@ De indeling van het type van de onderliggende bron is: `{resource-provider-names
 
 De indeling van de naam van de onderliggende bron is: `{parent-resource-name}/{child-resource-name}`
 
-Maar u hoeft de database in de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze methode gebruiken als de bovenliggende resource is niet geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` meerdere onderliggende om resources te maken. Met deze methode moet u het type volledige resource en omvatten de naam van de bovenliggende resource in de naam van de onderliggende resource.
+Maar u hoeft de database in de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze methode gebruiken als de bovenliggende resource is niet geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` om meer dan één onderliggende resource te maken. Met deze methode moet u het type volledige resource en omvatten de naam van de bovenliggende resource in de naam van de onderliggende resource.
 
 ```json
 {
@@ -318,122 +318,11 @@ Bijvoorbeeld:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` klopt `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet correct
 
-## <a name="recommendations"></a>Aanbevelingen
-De volgende informatie kan nuttig zijn wanneer u met resources werkt:
-
-* Geef andere inzenders leert wat het doel van de resource, zodat **opmerkingen** voor elke resource in de sjabloon:
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
-         ...
-     }
-   ]
-   ```
-
-* Als u een *openbaar eindpunt* in uw sjabloon (zoals een Azure Blob storage openbaar eindpunt), *niet programmeren* de naamruimte. Gebruik de **verwijzing** functie voor het dynamisch de naamruimte niet ophalen. Deze aanpak kunt u de sjabloon implementeren in andere openbare naamruimte omgevingen zonder handmatig wijzigen van het eindpunt in de sjabloon. Stel de API-versie naar dezelfde versie die u voor het opslagaccount in de sjabloon gebruikt:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Als het opslagaccount dat is geïmplementeerd in dezelfde sjabloon die u maakt, moet u geen naamruimte van de provider opgeven wanneer u verwijst naar de resource. Het volgende voorbeeld ziet u de vereenvoudigde syntaxis:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Als u andere waarden in de sjabloon die zijn geconfigureerd voor het gebruik van een openbare-naamruimte hebt, wijzigt u deze waarden om dezelfde **verwijzing** functie. U kunt bijvoorbeeld instellen de **storageUri** eigenschap van de virtuele machine diagnostische profiel:
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
-   
-   U kunt ook een bestaand opslagaccount die zich in een andere resourcegroep verwijzen:
-
-   ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-
-* Openbare IP-adressen toewijzen aan een virtuele machine alleen wanneer een toepassing vereist. Voor verbinding met een virtuele machine (VM) voor het opsporen van fouten, of voor beheer of administratieve doeleinden, inkomende NAT-regels, een virtuele netwerkgateway of een jumpbox te gebruiken.
-   
-     Zie voor meer informatie over verbinding maken met virtuele machines:
-   
-   * [VM's uitvoeren voor een architectuur met meerdere lagen in Azure](../guidance/guidance-compute-n-tier-vm.md)
-   * [WinRM-toegang instellen voor virtuele machines in Azure Resource Manager](../virtual-machines/windows/winrm.md)
-   * [Externe toegang tot uw virtuele machine toestaan met behulp van Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Externe toegang tot uw virtuele machine toestaan met behulp van PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Externe toegang tot uw Linux-VM geven met behulp van Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* De **Domeinnaamlabel** eigenschap voor openbare IP-adressen moet uniek zijn. De **Domeinnaamlabel** waarde moet tussen 3 en 63 tekens lang en volgt u de regels die door deze reguliere expressie opgegeven: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Omdat de **uniqueString** functie genereert een tekenreeks van 13 tekens lang zijn en de **dnsPrefixString** parameter is beperkt tot 50 tekens bevatten:
-
-   ```json
-   "parameters": {
-       "dnsPrefixString": {
-           "type": "string",
-           "maxLength": 50,
-           "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
-           }
-       }
-   },
-   "variables": {
-       "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
-
-* Wanneer u een wachtwoord aan een extensie voor aangepaste scripts toevoegen, gebruikt u de **commandToExecute** eigenschap in de **protectedSettings** eigenschap:
-   
-   ```json
-   "properties": {
-       "publisher": "Microsoft.Azure.Extensions",
-       "type": "CustomScript",
-       "typeHandlerVersion": "2.0",
-       "autoUpgradeMinorVersion": true,
-       "settings": {
-           "fileUris": [
-               "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
-           ]
-       },
-       "protectedSettings": {
-           "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
-       }
-   }
-   ```
-   
-   > [!NOTE]
-   > Om ervoor te zorgen dat er geheimen worden versleuteld wanneer ze als parameters worden doorgegeven aan VM's en -extensies, gebruikt u de **protectedSettings** eigenschap van de relevante extensies.
-   > 
-   > 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
 * Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
-* Zie voor het gebruik van meer dan één sjabloon tijdens de implementatie, [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
+* Zie voor aanbevelingen over het maken van sjablonen, [aanbevolen procedures voor Azure Resource Manager-sjabloon](template-best-practices.md).
 * Mogelijk moet u de resources die zijn opgeslagen in een andere resourcegroep gebruiken. In dit scenario is gebruikelijk bij het werken met opslagaccounts of virtuele netwerken die zijn verdeeld over verschillende resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).
 * Zie voor meer informatie over de beperkingen op basis van resource [aanbevolen naamgevingsregels voor Azure-resources](../guidance/guidance-naming-conventions.md).

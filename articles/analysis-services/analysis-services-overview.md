@@ -89,8 +89,8 @@ Azure Analysis Services wordt ondersteund in regio's in de hele wereld. Onderste
 |US - west-centraal   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |US - west     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |US - west     |    S8, S9   |    2  |
-|VS - west 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|VS - west 2    |    S8, S9  |    1     |
+|US - west 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|US - west 2    |    S8, S9  |    1     |
 
 ### <a name="europe"></a>Europa
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012756"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726626"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Gebruik de Azure Data Lake-tools voor Visual Studio met de Hortonworks Sandbox
 
@@ -60,13 +60,13 @@ Zorg ervoor dat de Hortonworks Sandbox wordt uitgevoerd. Volg de stappen in de [
 
     ![Schermopname van dialoogvenster met bijwerkknop gemarkeerd](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Het updateproces gebruikt Ambari om te wijzigen van de configuratie van Hortonworks Sandbox wat er wordt verwacht door de Data Lake-tools voor Visual Studio.
 
 6. Nadat de validatie is voltooid, schakelt u **voltooien** configuratie wilt voltooien.
     ![Schermopname van dialoogvenster met de knop Voltooien gemarkeerd](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > Het kan enkele minuten om te configureren en valideren van de services duren, afhankelijk van de snelheid van uw ontwikkelomgeving en de hoeveelheid geheugen toegewezen aan de virtuele machine.
 
 Nadat u deze stappen te volgen, hebt u nu een **lokale HDInsight-cluster** vermelding in Server Explorer, onder de **HDInsight** sectie.
@@ -99,7 +99,7 @@ Hive biedt een SQL-achtige querytaal (HiveQL) voor het werken met gestructureerd
 
     Na de **taakstatus** wordt gewijzigd in **voltooid**, een omgeleid Acyclic Graph (DAG) wordt weergegeven. In dit diagram beschrijft het uitvoeringspad die is bepaald door de Tez bij het verwerken van de Hive-query. Tez is de standaard-uitvoeringsengine voor Hive op het lokale cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Apache Tez is ook de standaardwaarde als u van HDInsight op basis van Linux-clusters gebruikmaakt. Het is niet de standaard op HDInsight op basis van Windows. Om deze te gebruiken, u moet de regel toevoegen `set hive.execution.engine = tez;` aan het begin van uw Hive-query.
 
     Gebruik de **Taakuitvoer** koppeling om de uitvoer weer te geven. In dit geval is het 823, het aantal rijen in de tabel sample_08. U kunt diagnostische gegevens over de taak weergeven met behulp van de **taaklogboek** en **YARN-logboek downloaden** koppelingen.
@@ -110,7 +110,7 @@ Hive biedt een SQL-achtige querytaal (HiveQL) voor het werken met gestructureerd
 
     Een interactieve query streams het uitvoerlogboek voor gegenereerd tijdens de verwerking naar de **HiveServer2 uitvoer** venster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > De informatie is hetzelfde die beschikbaar is in de **taaklogboek** koppelen nadat een taak is voltooid.
 
     ![Schermafbeelding van het uitvoerlogboek](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)

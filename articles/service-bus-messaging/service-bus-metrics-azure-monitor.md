@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5175d768f4aa62365e4151b4c8fed372038f1d95
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821290"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548796"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
@@ -29,7 +29,7 @@ Azure Monitor biedt een uniforme gebruikersinterfaces voor bewaking over de vers
 
 Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure Monitor API's (REST en .NET) en oplossingen voor gegevensanalyse, zoals Log Analytics en Event Hubs. Zie voor meer informatie, [door gegevens te controleren die worden verzameld door Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de meest recente 30 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Deze waarde is geconfigureerd in [diagnostische instellingen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
+Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de meest recente 30 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Deze waarde is geconfigureerd in [diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Toegang tot metrische gegevens in de portal
 
@@ -58,13 +58,13 @@ Alle metrische waarden worden verzonden naar Azure Monitor elke minuut. De tijdg
 
 Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| Inkomende aanvragen (preview) | Het aantal aanvragen voor de Service Bus-service gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Geslaagde aanvragen (preview)|Het aantal geslaagde aanvragen voor de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Server-fouten (preview)|Het aantal aanvragen die niet worden verwerkt vanwege een fout in de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Gebruikersfouten (preview - Zie de volgende subsectie)|Het aantal aanvragen die niet worden verwerkt wegens gebruikersfouten gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik is overschreden.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+| Inkomende aanvragen (preview) | Het aantal aanvragen voor de Service Bus-service gedurende een bepaalde periode. <br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|Geslaagde aanvragen (preview)|Het aantal geslaagde aanvragen voor de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|Server-fouten (preview)|Het aantal aanvragen die niet worden verwerkt vanwege een fout in de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|Gebruikersfouten (preview - Zie de volgende subsectie)|Het aantal aanvragen die niet worden verwerkt wegens gebruikersfouten gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik is overschreden.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
 
 ### <a name="user-errors"></a>Gebruikersfouten
 
@@ -76,36 +76,36 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 
 ## <a name="message-metrics"></a>Bericht metrische gegevens
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-|Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die naar Service Bus wordt verzonden in een opgegeven periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten ontvangen van Service Bus gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-| Berichten (preview) | Het aantal berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Dimensie: EntityName |
-| ActiveMessages (preview) | Het aantal actieve berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Dimensie: EntityName |
+|Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die naar Service Bus wordt verzonden in een opgegeven periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten ontvangen van Service Bus gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+| Berichten (preview) | Het aantal berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Dimensie: EntityName |
+| ActiveMessages (preview) | Het aantal actieve berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Dimensie: EntityName |
 
 ## <a name="connection-metrics"></a>Metrische verbindingsgegevens
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-|ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, maar ook op een entiteit.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Verbindingen geopend (preview)|Het aantal open verbindingen.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Gesloten verbindingen (preview)|Het aantal gesloten verbindingen.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName |
+|ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, maar ook op een entiteit.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|Verbindingen geopend (preview)|Het aantal open verbindingen.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|Gesloten verbindingen (preview)|Het aantal gesloten verbindingen.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Metrische gegevens voor het gebruik van resources
 
 > [!NOTE] 
 > De volgende metrische gegevens zijn alleen beschikbaar bij de **premium** laag. 
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
-|Geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
+|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: Procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
+|Geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: Procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens over dimensies
 
 Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
 
-|Dimensienaam|Beschrijving|
+|Dimensienaam|Description|
 | ------------------- | ----------------- |
 |EntityName| Service Bus ondersteunt berichtentiteiten onder de naamruimte.|
 
@@ -123,7 +123,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
         ![Naamruimte selecteren](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selecteer **criteria toevoegen**, en de volgende acties uitvoeren op de **signaallogica configureren** pagina:
     1. Selecteer **metrische gegevens** voor **signaal type**. 
-    2. Selecteer een signaal. Bijvoorbeeld: **fouten (Preview) Service**. 
+    2. Selecteer een signaal. Bijvoorbeeld: **Service-fouten (Preview)**. 
 
         ![Selecteer de server-fouten](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selecteer **groter is dan** voor **voorwaarde**.

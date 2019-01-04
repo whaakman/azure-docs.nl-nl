@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0a5d6180c7dfa94abf8dd738c8017a3b332dfd8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955051"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598801"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
@@ -78,7 +78,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 Read Scale-Out is standaard ingeschakeld in [Managed Instance](sql-database-managed-instance.md) laag bedrijfskritiek. Het expliciet moet worden ingeschakeld [database op logische server geplaatst](sql-database-logical-servers.md) lagen Premium en bedrijfskritiek. De methoden voor het inschakelen en uitschakelen van Read Scale-Out wordt hier beschreven.
 
-### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Enable en disable Read Scale-Out
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: In- en uitschakelen van Read Scale-Out
 
 De December 2016 beheren Read Scale-Out in Azure PowerShell vereist Azure PowerShell versie of hoger. Zie voor de nieuwste versie van PowerShell, [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -102,7 +102,7 @@ Een nieuwe database maken met meer scale-out ingeschakeld (de items in de puntha
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST-API: Enable en disable Read Scale-Out
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST-API: In- en uitschakelen van Read Scale-Out
 
 Voor een database maken met lezen scale-out is ingeschakeld, of voor het in- of uitschakelen van lezen scale-out voor een bestaande database, maken of bijwerken van de bijbehorende database-entiteit met de `readScale` eigenschap ingesteld op `Enabled` of `Disabled` zoals in het onderstaande voorbeeld de aanvraag.
 

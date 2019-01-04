@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3239cbc957d2a79c7a5411604759f86f0268bd70
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409442"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976304"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -68,7 +68,7 @@ De volgende stappen gebruikt Homebrew de essentiële hulpprogramma installeren o
 
     ```bash
     brew tap azure/functions
-    brew install azure-functions-core-tools 
+    brew install azure-functions-core-tools
     ```
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) met APT
@@ -195,12 +195,12 @@ De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code
 + [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
 + [C# script (.csx)](functions-reference-csharp.md#environment-variables)
 + [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables) 
++ [Java](functions-reference-java.md#environment-variables)
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Wanneer er is geen geldige verbindingsreeks is ingesteld voor **AzureWebJobsStorage** en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:  
+Wanneer er is geen geldige verbindingsreeks is ingesteld voor **AzureWebJobsStorage** en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:
 
-> Ontbrekende waarde voor AzureWebJobsStorage in local.settings.json. Dit is vereist voor alle triggers dan HTTP. U kunt uitvoeren ' azure functionapp ophalen-app-instellingen van de func <functionAppName>' of een verbindingsreeks in local.settings.json opgeven.
+> Ontbrekende waarde voor AzureWebJobsStorage in local.settings.json. Dit is vereist voor alle triggers dan HTTP. U kunt uitvoeren ' azure functionapp ophalen-app-instellingen van de func \<functionAppName\>' of een verbindingsreeks in local.settings.json opgeven.
 
 ### <a name="get-your-storage-connection-strings"></a>Uw storage-verbindingsreeksen ophalen
 
@@ -210,7 +210,7 @@ Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, kunt u om te teste
 
   ![Verbindingsreeks kopiëren vanuit Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Gebruik [Azure Storage Explorer](https://storageexplorer.com/) verbinding maken met uw Azure-account. In de **Explorer**, vouw uw abonnement, selecteer uw opslagaccount en kopieer de primaire of secundaire verbindingsreeks. 
++ Gebruik [Azure Storage Explorer](https://storageexplorer.com/) verbinding maken met uw Azure-account. In de **Explorer**, vouw uw abonnement, selecteer uw opslagaccount en kopieer de primaire of secundaire verbindingsreeks.
 
   ![Kopieer de verbindingsreeks van Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
@@ -298,16 +298,15 @@ De `host` opdracht is alleen vereist in versie 1.x.
 
 | Optie     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--build`** | Bouw huidige project voordat wordt uitgevoerd. Versie 2.x en C# projecten alleen. |
+| **`--no-build`** | Er is geen huidige project build voordat u doen. Voor dotnet projecten. Standaard is ingesteld op false. Versie 2.x alleen. |
 | **`--cert`** | Het pad naar een pfx-bestand dat een persoonlijke sleutel bevat. Alleen gebruikt met `--useHttps`. Versie 2.x alleen. |
+| **`--cors-credentials`** | Cross-origin-geverifieerde aanvragen (dat wil zeggen cookies en header voor de verificatie) toestaan versie 2.x alleen. |
 | **`--cors`** | Een door komma's gescheiden lijst met CORS-oorsprong, zonder spaties. |
-| **`--debug`** | Start de host met de poort voor foutopsporing openen zodat u kunt koppelen aan de **func.exe** verwerken van [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) of [Visual Studio 2017](functions-dotnet-class-library.md). Geldige waarden zijn `VSCode` en `VS`.  |
 | **`--language-worker`** | Argumenten voor het configureren van de werknemer taal. Versie 2.x alleen. |
 | **`--nodeDebugPort -n`** | De poort voor het foutopsporingsprogramma knooppunt te gebruiken. Standaard: Een waarde van launch.json of 5858. Versie 1.x alleen. |
 | **`--password`** | Het wachtwoord of een bestand met het wachtwoord voor een pfx-bestand. Alleen gebruikt met `--cert`. Versie 2.x alleen. |
 | **`--port -p`** | De lokale poort voor luisteren. Standaardwaarde: 7071. |
 | **`--pause-on-error`** | Aanvullende invoer wacht voordat het proces wordt afgesloten. Alleen tijdens het starten van Core-hulpprogramma's vanaf een integrated development environment (IDE) gebruikt.|
-| **`--script-root --prefix`** | Hiermee geeft het pad naar de hoofdmap van de functie-app die moet worden uitgevoerd of geïmplementeerd. Dit wordt gebruikt voor compilatie projecten die projectbestanden te in een submap genereren. Bijvoorbeeld, wanneer u een C#-klassenbibliotheek project, de host.json local.settings.json en function.json bestanden bouwen worden gegenereerd een *hoofdmap* submap met een pad, zoals `MyProject/bin/Debug/netstandard2.0`. In dit geval stelt het voorvoegsel als `--script-root MyProject/bin/Debug/netstandard2.0`. Dit is de hoofdmap van de functie-app wanneer die wordt uitgevoerd in Azure. |
 | **`--timeout -t`** | De time-out voor de host functies om te starten, in seconden. Standaard: 20 seconden.|
 | **`--useHttps`** | Verbinding maken met `https://localhost:{port}` in plaats van naar `http://localhost:{port}`. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
 
@@ -324,13 +323,13 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->Wanneer lokaal uitvoert, wordt verificatie wordt niet afgedwongen voor HTTP-eindpunten. Dit betekent dat alle lokale HTTP-aanvragen worden verwerkt als `authLevel = "anonymous"`. Zie voor meer informatie de [HTTP-binding artikel](functions-bindings-http-webhook.md#authorization-keys). 
+>Wanneer lokaal uitvoert, wordt verificatie wordt niet afgedwongen voor HTTP-eindpunten. Dit betekent dat alle lokale HTTP-aanvragen worden verwerkt als `authLevel = "anonymous"`. Zie voor meer informatie de [HTTP-binding artikel](functions-bindings-http-webhook.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Testgegevens doorgeven aan een functie
 
 Voor het testen van uw functies lokaal, u [starten van de host functies](#start) en -eindpunten worden aangeroepen op de lokale server met behulp van HTTP-aanvragen. Het eindpunt dat u aanroept, is afhankelijk van het type van de functie.
 
->[!NOTE]  
+>[!NOTE]
 > Het hulpprogramma cURL voorbeelden in dit onderwerp gebruiken voor het verzenden van HTTP-aanvragen vanuit de terminal of opdrachtprompt. U kunt een hulpprogramma van uw keuze gebruiken voor het verzenden van HTTP-aanvragen naar de lokale server. Het hulpprogramma cURL is standaard beschikbaar in Linux-systemen. Op Windows, moet u eerst downloaden en installeren van de [hulpprogramma cURL](https://curl.haxx.se/).
 
 Zie voor meer algemene informatie over het testen van functies, [strategieën voor het testen van uw code in Azure Functions](functions-test-a-function.md).
@@ -341,9 +340,9 @@ U kunt de volgende aanroepen eindpunt om uit te voeren lokaal HTTP- en webhook g
 
     http://localhost:{port}/api/{function_name}
 
-Zorg ervoor dat u de dezelfde servernaam en poort op die de Functions-host luistert. U ziet in de uitvoer gegenereerd bij het starten van de functie-host. U kunt deze URL met behulp van een HTTP-methode ondersteund door de trigger aanroepen. 
+Zorg ervoor dat u de dezelfde servernaam en poort op die de Functions-host luistert. U ziet in de uitvoer gegenereerd bij het starten van de functie-host. U kunt deze URL met behulp van een HTTP-methode ondersteund door de trigger aanroepen.
 
-De volgende cURL-opdracht triggers de `MyHttpTrigger` Quick Start-functie van een GET-aanvraag met de _naam_ parameter doorgegeven in de querytekenreeks. 
+De volgende cURL-opdracht triggers de `MyHttpTrigger` Quick Start-functie van een GET-aanvraag met de _naam_ parameter doorgegeven in de querytekenreeks.
 
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
@@ -355,11 +354,11 @@ Het volgende voorbeeld wordt dezelfde functie aangeroepen vanuit een POST-aanvra
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-U kunt aanvragen ophalen vanuit een browser voor het doorgeven van gegevens in de querytekenreeks. Voor alle andere HTTP-methoden, moet u cURL, Fiddler, Postman of een vergelijkbaar hulpprogramma van de HTTP-tests gebruiken.  
+U kunt aanvragen ophalen vanuit een browser voor het doorgeven van gegevens in de querytekenreeks. Voor alle andere HTTP-methoden, moet u cURL, Fiddler, Postman of een vergelijkbaar hulpprogramma van de HTTP-tests gebruiken.
 
 #### <a name="non-http-triggered-functions"></a>Niet-HTTP-geactiveerde functies
 
-Voor alle soorten functies dan HTTP-triggers en webhooks, kunt u uw functies lokaal door het aanroepen van een beheer-eindpunt testen. Het aanroepen van dit eindpunt met een HTTP POST-aanvraag voor de lokale server, wordt de functie geactiveerd. U kunt eventueel testgegevens doorgeven aan de uitvoering in de hoofdtekst van de POST-aanvraag. Deze functionaliteit is vergelijkbaar met de **Test** tabblad in de Azure-portal.  
+Voor alle soorten functies dan HTTP-triggers en webhooks, kunt u uw functies lokaal door het aanroepen van een beheer-eindpunt testen. Het aanroepen van dit eindpunt met een HTTP POST-aanvraag voor de lokale server, wordt de functie geactiveerd. U kunt eventueel testgegevens doorgeven aan de uitvoering in de hoofdtekst van de POST-aanvraag. Deze functionaliteit is vergelijkbaar met de **Test** tabblad in de Azure-portal.
 
 U aanroepen het volgende administrator-eindpunt voor het activeren van niet-HTTP-functies:
 
@@ -381,10 +380,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 #### <a name="using-the-func-run-command-in-version-1x"></a>Met behulp van de `func run` opdracht in versie 1.x
 
->[!IMPORTANT]  
+>[!IMPORTANT]
 > De `func run` opdracht wordt niet ondersteund in versie 2.x van de hulpprogramma's. Zie voor meer informatie het onderwerp [hoe gericht op versies van Azure Functions-runtime](set-runtime-version.md).
 
-U kunt ook een functie aanroepen via `func run <FunctionName>` en geef de invoergegevens voor de functie. Met deze opdracht is vergelijkbaar met het uitvoeren van een functie met de **Test** tabblad in de Azure-portal. 
+U kunt ook een functie aanroepen via `func run <FunctionName>` en geef de invoergegevens voor de functie. Met deze opdracht is vergelijkbaar met het uitvoeren van een functie met de **Test** tabblad in de Azure-portal.
 
 `func run` ondersteunt de volgende opties:
 
@@ -410,9 +409,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core-hulpprogramma's ondersteunt twee typen implementatie, functie project-bestanden rechtstreeks naar uw functie-app implementeren en implementeren van een aangepaste Linux-container, dit wordt alleen ondersteund in versie 2.x. U moet al hebben [een functie-app gemaakt in uw Azure-abonnement](functions-cli-samples.md#create).
 
-In versie 2.x gebruikt, hebt u [geregistreerd uw extensies](#register-extensions) in uw project voordat u publiceert. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd. 
+In versie 2.x gebruikt, hebt u [geregistreerd uw extensies](#register-extensions) in uw project voordat u publiceert. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd.
 
-### <a name="project-file-deployment"></a>Bestand implementeren  
+### <a name="project-file-deployment"></a>Bestand implementeren
 
 De meest voorkomende implementatiemethode omvat het gebruik van Core-hulpprogramma's kunnen worden verpakt uw functie-app-project, binaire bestanden en afhankelijkheden en het pakket implementeren op uw functie-app. U kunt eventueel [uitvoeren van uw functies direct vanuit het implementatiepakket](run-functions-from-deployment-package.md).
 
@@ -424,10 +423,10 @@ func azure functionapp publish <FunctionAppName>
 
 Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout optreedt wanneer de `<FunctionAppName>` bestaat niet in uw abonnement. Zie voor meer informatie over het maken van een functie-app vanuit de opdrachtprompt of terminal-venster met de Azure CLI, [maken van een functie-App voor uitvoering zonder server](./scripts/functions-cli-create-serverless.md).
 
-De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht worden niet verwijderd van Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure Portal].  
+De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht worden niet verwijderd van Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure Portal].
 
->[!IMPORTANT]  
-> Wanneer u een functie-app in Azure portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).  
+>[!IMPORTANT]
+> Wanneer u een functie-app in Azure portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).
 > U kunt de runtimeversie voor een functie-app met bestaande functies niet wijzigen.
 
 Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van toepassing:
@@ -460,7 +459,7 @@ Functions kunt u uw functieproject in een aangepaste Linux-container implementer
 func deploy
 ```
 
-De volgende aangepaste container implementatie-opties zijn beschikbaar: 
+De volgende aangepaste container implementatie-opties zijn beschikbaar:
 
 | Optie     | Description                            |
 | ------------ | -------------------------------------- |

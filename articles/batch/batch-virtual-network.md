@@ -1,19 +1,20 @@
 ---
-title: Inrichten van Azure Batch-pool in een virtueel netwerk | Microsoft Docs
+title: Inrichten van een pool in een virtueel netwerk - Azure Batch | Microsoft Docs
 description: Het maken van een Batch-pool in een Azure-netwerk, zodat rekenknooppunten veilig met andere virtuele machines in het netwerk, zoals een bestandsserver communiceren kunnen.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: danlep
-ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091949"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543903"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Een Azure Batch-pool in een virtueel netwerk maken
 
@@ -37,7 +38,7 @@ Een Azure Batch-pool heeft instellingen om toe te staan van rekenknooppunten om 
 
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Een pool maken met een VNet in de portal
 
-Nadat u uw VNet hebt gemaakt en toegewezen subnet, kunt u een Batch-pool maken met dit VNet. Volg deze stappen voor het maken van een groep van toepassingen vanuit Azure portal: 
+Nadat u uw VNet hebt gemaakt en toegewezen subnet, kunt u een Batch-pool maken met dit VNet. Volg deze stappen voor het maken van een groep van toepassingen vanuit Azure portal: 
 
 1. Ga in Azure Portal naar uw Batch-account. Dit account moet zich in hetzelfde abonnement en dezelfde regio als de resourcegroep met de VNet die u wilt gebruiken. 
 2. In de **instellingen** venster aan de linkerkant, selecteer de **Pools** menu-item.

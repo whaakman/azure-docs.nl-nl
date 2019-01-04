@@ -4,19 +4,19 @@ description: Meer informatie over bekende problemen/migratiebeperkingen met onli
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282873"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724132"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure DB voor PostgreSQL
 
@@ -76,32 +76,32 @@ Bekende problemen en beperkingen die zijn gekoppeld aan online migraties van Pos
 
 ## <a name="datatype-limitations"></a>Beperkingen van gegevenstype
 
-- **Beperking**: als er een ENUM-gegevenstype in de bron-PostgreSQL-database is, wordt de migratie mislukken tijdens de continue synchronisatie.
+- **Beperking**: Als er een ENUM-gegevenstype in de bron-PostgreSQL-database is, wordt de migratie mislukken tijdens de continue synchronisatie.
 
-    **Tijdelijke oplossing**: wijzigen ENUM-gegevenstype naar teken variëren in Azure Database for PostgreSQL.
+    **Tijdelijke oplossing**: Wijzig ENUM-gegevenstype naar teken variëren in Azure Database voor PostgreSQL.
 
-- **Beperking**: als er geen primaire sleutel voor tabellen, doorlopende synchronisatie mislukken.
+- **Beperking**: Als er geen primaire sleutel voor tabellen is, mislukt doorlopende synchronisatie.
 
-    **Tijdelijke oplossing**: een primaire sleutel voor de tabel voor de migratie om door te gaan tijdelijk in te stellen. Nadat de migratie van gegevens is voltooid, kunt u de primaire sleutel verwijderen.
+    **Tijdelijke oplossing**: Een primaire sleutel voor de tabel voor de migratie om door te gaan tijdelijk in te stellen. Nadat de migratie van gegevens is voltooid, kunt u de primaire sleutel verwijderen.
 
 ## <a name="lob-limitations"></a>LOB-beperkingen
 Grote Object (LOB)-kolommen zijn kolommen die grote kunnen groeien. Voorbeelden van LOB-gegevenstypen zijn voor PostgreSQL, XML, JSON, afbeeldingen, tekst, enzovoort.
 
-- **Beperking**: als LOB-gegevenstypen worden gebruikt als primaire sleutels, dan mislukt de migratie.
+- **Beperking**: Als u LOB-gegevenstypen worden gebruikt als primaire sleutels, mislukt de migratie.
 
-    **Tijdelijke oplossing**: primaire sleutel van de vervangen met andere gegevenstypen of kolommen die geen LOB.
+    **Tijdelijke oplossing**: Primaire sleutel vervangen door andere gegevenstypen of kolommen die geen LOB.
 
-- **Beperking**: als de lengte van het grote Object (LOB)-kolom groter dan 32 KB is, gegevens op het doel kan worden afgekapt. U kunt de lengte van LOB-kolom met behulp van deze query controleren:
+- **Beperking**: Als de lengte van het grote Object (LOB)-kolom groter dan 32 KB is, kunnen gegevens worden afgekapt als op de doelopslaglocatie. U kunt de lengte van LOB-kolom met behulp van deze query controleren:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Tijdelijke oplossing**: hebt u LOB-object dat groter is dan 32 KB, neem dan contact op met de engineering-team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+    **Tijdelijke oplossing**: Als u LOB-object dat groter is dan 32 KB hebt, neem dan contact op met de engineering-team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
 
-- **Beperking**: als er LOB-kolommen in de tabel, en er geen primaire sleutel ingesteld voor de tabel is, gegevens voor deze tabel niet kan worden gemigreerd.
+- **Beperking**: Als er LOB-kolommen in de tabel, en er geen primaire sleutel ingesteld voor de tabel is, kan gegevens niet worden gemigreerd voor deze tabel.
 
-    **Tijdelijke oplossing**: een primaire sleutel voor de tabel voor de migratie om door te gaan tijdelijk in te stellen. Nadat de migratie van gegevens is voltooid, kunt u de primaire sleutel verwijderen.
+    **Tijdelijke oplossing**: Een primaire sleutel voor de tabel voor de migratie om door te gaan tijdelijk in te stellen. Nadat de migratie van gegevens is voltooid, kunt u de primaire sleutel verwijderen.
 
 ## <a name="postgresql10-workaround"></a>Tijdelijke oplossing PostgreSQL10
 PostgreSQL 10.x verschillende wijzigingen aanbrengt in pg_xlog mapnamen en kan daarom veroorzaakt migratie niet wordt uitgevoerd zoals verwacht. Als u van PostgreSQL migreren wilt 10.x met Azure Database for PostgreSQL 10.3, voer het volgende script op de bron-PostgreSQL-database om de functie wrapper rond pg_xlog functies te maken.

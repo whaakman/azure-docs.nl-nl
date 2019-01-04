@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438860"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976967"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Opmerkingen bij de release voor Azure HDInsight
 
@@ -25,7 +25,7 @@ Dit artikel bevat informatie over de **meest recente** LDR-updates voor Azure HD
 
 ## <a name="summary"></a>Samenvatting
 
-Azure HDInsight is een van de meest populaire services onder de enterprise-klanten voor open-source Apache Hadoop en Apache Spark-analyses op Azure. Met de [plus 50 procent prijsverlaging op HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), verplaatsen naar de cloud Klanten plukken meer kan worden bespaard dan ooit.
+Azure HDInsight is onder zakelijke klanten een van de meest populaire services voor open source Apache Hadoop- en Apache Spark-analyses in Azure. Met de [plus 50 procent prijsverlaging op HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), verplaatsen naar de cloud Klanten plukken meer kan worden bespaard dan ooit.
 
 ## <a name="new-features"></a>Nieuwe functies
 
@@ -35,7 +35,7 @@ De nieuwe updates en mogelijkheden kunnen worden onderverdeeld de volgende categ
 
     a.  [**Nieuwe functies in Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Nieuwe functies in Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Nieuwe functies in Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***R Server 9.1 bijwerken naar Machine Learning Services 9.3*** – met deze release bieden we kunnen gegevenswetenschappers en engineers met het beste van open-source uitgebreid met algoritmische innovaties en het gemak van uitoefening, allemaal verkrijgbaar in hun de voorkeurstaal van de snelheid van Apache Spark. Deze release uitbreiding van de mogelijkheden die in R Server met toegevoegde ondersteuning voor Python, leidt tot wijziging van het cluster van R Server ML-Services. 
 
@@ -1300,9 +1300,9 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 
 |**Apache-onderdeel**|**Apache JIRA**|**Samenvatting**|**Details**|
 |--|--|--|--|
-|**Spark 2.3** |**N.v.t.** |**Opmerkingen bij de release wijzigingen, zoals beschreven in de Apache Spark** |-Er is een document 'Afschaffing' en een handleiding "Gedrag is gewijzigd" https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Voor SQL-onderdeel is er een andere gedetailleerde 'Migration' guide (van 2.2 naar 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N.v.t.** |**Opmerkingen bij de release wijzigingen, zoals beschreven in de Apache Spark** |-Er is een document 'Afschaffing' en een handleiding "Gedrag is gewijzigd" https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Voor SQL-onderdeel is er een andere gedetailleerde 'Migration' guide (van 2.2 naar 2.3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark-taak is voltooid, maar er is een volledige fout voor HDFS schijf quotum |**Scenario:** Met **insert overschrijven** wanneer een quotum is ingesteld op de map Prullenbak van de gebruiker die de opdracht wordt uitgevoerd.<br /><br />**Gedrag van het vorige:** De taak is voltooid, zelfs als deze de gegevens naar de Prullenbak verplaatsen is mislukt. Het resultaat kan ten onrechte deel van de gegevens die eerder aanwezig in de tabel bevatten.<br /><br />**Nieuw gedrag:** Wanneer de overstap naar de map Prullenbak mislukt, worden de bestanden permanent verwijderd.|
-|**Kafka 1.0**|**N.v.t.**|**Opmerkingen bij de release wijzigingen, zoals beschreven in de Apache Spark** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**N.v.t.**|**Opmerkingen bij de release wijzigingen, zoals beschreven in de Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |Aanvullende ranger hive-beleid is vereist voor het invoegen OVERSCHRIJVEN |**Scenario:** Aanvullende ranger hive-beleid is vereist voor **invoegen OVERSCHRIJVEN**<br /><br />**Gedrag van het vorige:** Hive **invoegen OVERSCHRIJVEN** query's zoals gewoonlijk wordt uitgevoerd.<br /><br />**Nieuw gedrag:** Hive **invoegen OVERSCHRIJVEN** onverwacht query's mislukken na een upgrade naar HDP-2.6.x met de fout:<br /><br />Fout bij het compileren van de instructie: IS MISLUKT: HiveAccessControlException machtiging is geweigerd: jdoe van de gebruiker geen bevoegdheden voor schrijven op /tmp/\*(status = 42000, code = 40000)<br /><br />Vanaf HDP-2.6.0 Hive **invoegen OVERSCHRIJVEN** query's moeten een Ranger-URI-beleid om toe te staan van schrijfbewerkingen, zelfs als de gebruiker schrijven bevoegdheden verleend via de HDFS-beleid heeft.<br /><br />**Tijdelijke oplossing/verwachte actie met klant:**<br /><br />1. Maak een nieuw beleid onder de Hive-opslagplaats.<br />2. Selecteer in de vervolgkeuzelijst waarin u de Database bekijken, URI.<br />3. Het pad bijwerken (voorbeeld: / tmp / *)<br />4. De gebruikers en groepen toevoegen en opslaan.<br />5. Probeer de query invoegen.|
 |**HDFS**|**N.v.t.** |HDFS moet ondersteuning bieden voor meerdere KMS-URI 's |**Gedrag van het vorige:** dfs.encryption.key.provider.uri-eigenschap is gebruikt voor het pad naar de KMS-provider configureren.<br /><br />**Nieuw gedrag:** dfs.encryption.key.provider.uri is afgeschaft en vervangen door hadoop.security.key.provider.path pad naar de KMS-provider configureren.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Optie voor het uitschakelen van scheduler |**Onderdeel beïnvloed:** Zeppelin-Server<br /><br />**Gedrag van het vorige:** In eerdere versies van Zeppelin is er geen optie voor het uitschakelen van scheduler.<br /><br />**Nieuw gedrag:** Standaard worden gebruikers niet meer scheduler, zien zoals deze is standaard uitgeschakeld.<br /><br />**Tijdelijke oplossing/verwachte actie met klant:** Als u inschakelen, scheduler wilt, moet u azeppelin.notebook.cron.enable met de waarde ' True ' geretourneerd onder aangepaste zeppelin-site in de instellingen van Ambari Zeppelin toevoegen.|
@@ -1409,6 +1409,10 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
             val = \_.escape(val);//Line Nee: 460
             
             Na het verwijderen van de bovenstaande regel, de Ranger-gebruikersinterface kunt u beleidsregels maken met beleidsvoorwaarde met speciale tekens en beleid kan evaluatie wel gemaakt voor hetzelfde beleid.
+
+**HDInsight-integratie met ADLS Gen 2: Gebruiker machtigingen voor mappen en probleem met ESP-clusters**
+    1.  Basismappen voor gebruikers worden niet ophalen van gemaakt op de hoofd-knooppunt 1. Tijdelijke oplossing is het handmatig maken en wijzigen in eigendom van de betreffende gebruiker UPN.
+    2.  Machtigingen voor /hdp is momenteel niet ingesteld op 751. Dit moet worden ingesteld op een.  chmod 751 /hdp b.  chmod – R 755/hdp/apps
 
 ## <a name="deprecation"></a>Afschaffing
 

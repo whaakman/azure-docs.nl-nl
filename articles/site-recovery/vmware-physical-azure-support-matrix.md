@@ -4,15 +4,16 @@ description: Geeft een overzicht van de ondersteunde besturingssystemen en onder
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 12/12/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 7593183093a722f55b2bd638ef551fb1343433c4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5d457a6b7eb96486a24ca53d9093ffa4f573b774
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323470"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974417"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -48,12 +49,12 @@ Vrije schijfruimte | 600 GB aan ruimte vereist voor het bewaarstation.
 Besturingssysteem  | Windows Server 2012 R2 of WindowsServer 2016 |
 Landinstelling van het besturingssysteem | Engels (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") moet worden geïnstalleerd.
-Windows Server-functies | Niet inschakelen: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-Groepsbeleid| Niet inschakelen: <br> -Toegang tot de opdrachtprompt voorkomen. <br> -Toegang tot registerbewerkingsprogramma's voorkomen. <br> -Logica vertrouwen voor bestandsbijlagen. <br> -Uitvoering van Script inschakelen. <br> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Zorg ervoor dat u:<br/><br/> -Geen een bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Bestaande website /-app niet hebt luisteren op poort 443<br>
+Windows Server-functies | Niet inschakelen: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
+Groepsbeleid| Niet inschakelen: <br/> -Toegang tot de opdrachtprompt voorkomen. <br/> -Toegang tot registerbewerkingsprogramma's voorkomen. <br/> -Logica vertrouwen voor bestandsbijlagen. <br/> -Uitvoering van Script inschakelen. <br/> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Zorg ervoor dat u:<br/><br/> -Geen een bestaande standaardwebsite <br/> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br/> -Bestaande website /-app niet hebt luisteren op poort 443<br/>
 Type NIC | VMXNET3 (indien geïmplementeerd als een VMware-VM)
 Type IP-adres | Statisch
-Poorten | 443 gebruikt voor de orchestration-besturingselement)<br>9443 gebruikt voor het gegevenstransport
+Poorten | 443 gebruikt voor de orchestration-besturingselement)<br/>9443 gebruikt voor het gegevenstransport
 
 ## <a name="replicated-machines"></a>Gerepliceerde machines
 
@@ -62,8 +63,8 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 **Onderdeel** | **Details**
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
-Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
-Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>-Upgrade uitvoeren voor gerepliceerde machines van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.</br></br> - [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open source-technologie in Azure. Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> -In Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> -Upgrade uitvoeren voor beveiligde machines over belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> -Servers met Red Hat Enterprise Linux 5.2-5,11 of CentOS 5.2-5,11 moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
+Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. <br/><br/>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). <br/><br/> Windows 2016 Nano Server wordt niet ondersteund.
+Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * <br/><br/>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/><br/>-Upgrade uitvoeren voor gerepliceerde machines van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.<br/><br/> - [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open source-technologie in Azure. Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> -In Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> -Upgrade uitvoeren voor beveiligde machines over belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> -Servers met Red Hat Enterprise Linux 5.2-5,11 of CentOS 5.2-5,11 moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
 
 
 
@@ -99,9 +100,9 @@ Debian 8 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.156-94.64-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.19 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default naar 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default<br/><br/> SP2 4.4.21-69-default naar 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default<br/><br/>SP3 4.4.73-5-default naar 4.4.156-94.64-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.19 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.96-default<br/><br/> SP2 4.4.21-69-default naar 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.85-default<br/><br/>SP3 4.4.73-5-default naar 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.96-default<br/><br/> SP2 4.4.21-69-default naar 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.85-default<br/><br/>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-systemen/Gast bestandsopslag
 
@@ -112,9 +113,11 @@ Volume manager | Voordat u [9.20 versie](https://support.microsoft.com/en-in/hel
 Geparavirtualiseerde opslagapparaten | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
+
+Apparaat-/ koppelpunt naamconventie | De naam van apparaat of de naam van koppelpunt moet uniek zijn. Zorg ervoor dat er geen twee apparaten/koppelpunten hoofdlettergevoelig namen hebben. </br> Voorbeeld: Naamgeving van de twee apparaten van dezelfde virtuele machine als *device1* en *Device1* is niet toegestaan.
 Mappen | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. De volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) alle moeten op dezelfde schijf als besturingssysteem op de bronserver: / (hoofd), bevinden, / usr, / usr/local, /var, / etc.</br>2. bevinden moet zich op een partitie op schijf en niet een LVM-volume.<br/><br/> Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) bovenstaande beperkingen zijn en hoger, niet van toepassing.
-Vrije schijfruimte| 2 GB op de/root-partitie <br/><br/> 250 MB op de map voor installatie
-XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom worden van Mobility Service versie 9.10 stationstoewijzingen ondersteund. Gebruik het hulpprogramma xfs_info om te controleren of de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
+
+Vrije schijfruimte | 2 GB op de/root-partitie <br/><br/> 250 MB op de installatiemap XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom worden van Mobility Service versie 9.10 stationstoewijzingen ondersteund. Gebruik het hulpprogramma xfs_info om te controleren of de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
 
 ## <a name="vmdisk-management"></a>Beheer van de virtuele machine/schijf
 
@@ -163,7 +166,7 @@ Host virtueel SAN | Ja voor VMware<br/><br/> N.V.T. voor fysieke servers
 Host-MPIO (Multipath I/O) | Ja, getest met Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
 Virtuele Hostvolumes (VVols) | Ja voor VMware<br/><br/> N.V.T. voor fysieke servers
 VMDK-Gast/server | Ja
-Gast/server EFI/UEFI| Gedeeltelijk (migratie naar Azure voor Windows Server 2012 en hoger) </br></br> Zie de opmerking aan het einde van de tabel
+Gast/server EFI/UEFI| Gedeeltelijk (migratie naar Azure voor Windows Server 2012 en hoger) <br/><br/> Zie de opmerking aan het einde van de tabel
 De gedeelde clusterschijf Gast/host-server | Nee
 Versleutelde schijf Gast/host-server | Nee
 Gast/NFS-server | Nee
@@ -172,7 +175,7 @@ Gast/server RDM | Ja<br/><br/> N.V.T. voor fysieke servers
 Gast/server schijf > 1 TB | Ja<br/><br/>Maximaal 4095 GB
 Gast/server-schijf met de fysieke sectorgrootte van 4K logische en 4 k | Ja
 Gast/server-schijf met de 4K logische en fysieke sectorgrootte van 512 bytes | Ja
-Volume van de Gast/host-server met striped schijf > 4 TB <br><br/>Logische volumebeheer (LVM)| Ja
+Volume van de Gast/host-server met striped schijf > 4 TB <br/><br/>Logische volumebeheer (LVM)| Ja
 Gast/server - opslagruimten | Nee
 Schijf Gast/server-hot toevoegen of verwijderen | Nee
 Gast/server - schijf uitsluiten | Ja
@@ -218,8 +221,8 @@ On-premises machines die u naar Azure repliceren, moeten voldoen aan de virtuele
 Gast-besturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated-machines) voor gerepliceerde machines. | Controle mislukt als niet-ondersteund.
 Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als niet-ondersteund.
 Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als niet-ondersteund.
-Aantal besturingssysteemschijven | 1 | Controle mislukt als niet-ondersteund.  
-Aantal gegevensschijven | 64 of minder. | Controle mislukt als niet-ondersteund.  
+Aantal besturingssysteemschijven | 1 | Controle mislukt als niet-ondersteund.
+Aantal gegevensschijven | 64 of minder. | Controle mislukt als niet-ondersteund.
 Grootte van de gegevensschijf | Maximaal 4095 GB | Controle mislukt als niet-ondersteund.
 Netwerkadapters | Meerdere netwerkadapters worden ondersteund. |
 Gedeelde VHD | Wordt niet ondersteund. | Controle mislukt als niet-ondersteund.

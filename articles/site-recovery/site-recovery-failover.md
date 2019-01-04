@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4f0e4a745aa054f96bf2ce90ff6f2c33588d1337
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d07b7156800b50daa75978add3ad3922108f142
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833617"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974009"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Failover van virtuele machines en fysieke servers 
 
@@ -39,12 +39,12 @@ Deze procedure wordt beschreven hoe u een failover uitvoeren voor een [herstelpl
 
 1. Selecteer **herstelplannen** > *recoveryplan_name*. Klik op **Failover**
 2. Op de **Failover** scherm, selecteer een **herstelpunt** voor de failover. U kunt een van de volgende opties gebruiken:
-    1.  **Meest recente**: deze optie om de taak starten door eerst alle gegevens die is verzonden naar Site Recovery-service verwerkt. Verwerken van de gegevens, maakt een herstelpunt voor elke virtuele machine. Dit herstelpunt wordt gebruikt door de virtuele machine tijdens de failover. Deze optie biedt het laagste RPO (Recovery Point Objective) als de virtuele machine gemaakt nadat de failover heeft alle gegevens die is gerepliceerd naar de Site Recovery-service wanneer de failover werd geactiveerd.
-    1.  **Laatst verwerkte**: deze optie wordt er een failover van alle virtuele machines van het herstelplan te gaan naar de meest recente herstelpunt dat al is verwerkt door Site Recovery-service. Wanneer u test-failover van een virtuele machine uitvoert, wordt ook de tijdstempel van de meest recente verwerkte herstelpunt weergegeven. Als u failover van een herstelplan te gaan doen, kunt u deze gaat u naar de afzonderlijke virtuele machine en bekijk **laatste herstelpunten** tegel om deze informatie te verkrijgen. Als er geen tijd besteed aan voor het verwerken van de niet-verwerkte gegevens, biedt deze optie een lage RTO (Recovery Time Objective) failover-optie.
-    1.  **Laatste toepassingsconsistente**: deze optie wordt er een failover van alle virtuele machines van het herstelplan te gaan naar de meest recente toepassingsconsistente herstelpunt uitgevoerd die al is verwerkt door Site Recovery-service. Wanneer u test-failover van een virtuele machine uitvoert, wordt ook de tijdstempel van de meest recente toepassingsconsistente herstelpunt weergegeven. Als u failover van een herstelplan te gaan doen, kunt u deze gaat u naar de afzonderlijke virtuele machine en bekijk **laatste herstelpunten** tegel om deze informatie te verkrijgen.
-    1.  **Meest recente verwerkte multi-VM**: deze optie is alleen beschikbaar voor herstelplannen met ten minste één virtuele machine met multi-VM-consistentie op. Virtuele machines die deel van een failover van de groep replicatie naar de meest recente toepassingsconsistente herstelpunt van algemene multi-VM uitmaken verwijzen. De failover van andere virtuele machines naar hun meest recente verwerkte herstelpunt.  
-    1.  **Nieuwste multi-VM-app-consistente**: deze optie is alleen beschikbaar voor het plannen voor herstel die u hebt ten minste één virtuele machine met multi-VM-consistentie op. Virtuele machines die deel van een failover van de groep replicatie naar het laatste toepassingsconsistente herstelpunt van algemene multi-VM uitmaken verwijzen. De failover van andere virtuele machines naar hun meest recente toepassingsconsistente herstelpunt.
-    1.  **Aangepaste**: als u test-failover van een virtuele machine uitvoert, dan kunt u deze optie om failover naar een bepaald herstelpunt.
+    1.  **Meest recente**: Deze optie om de taak starten door eerst alle gegevens die is verzonden naar Site Recovery-service verwerkt. Verwerken van de gegevens, maakt een herstelpunt voor elke virtuele machine. Dit herstelpunt wordt gebruikt door de virtuele machine tijdens de failover. Deze optie biedt het laagste RPO (Recovery Point Objective) als de virtuele machine gemaakt nadat de failover heeft alle gegevens die is gerepliceerd naar de Site Recovery-service wanneer de failover werd geactiveerd.
+    1.  **Laatst verwerkte**: Deze optie wordt er een failover van alle virtuele machines van het herstelplan te gaan naar de meest recente herstelpunt dat al is verwerkt door Site Recovery-service. Wanneer u test-failover van een virtuele machine uitvoert, wordt ook de tijdstempel van de meest recente verwerkte herstelpunt weergegeven. Als u failover van een herstelplan te gaan doen, kunt u deze gaat u naar de afzonderlijke virtuele machine en bekijk **laatste herstelpunten** tegel om deze informatie te verkrijgen. Als er geen tijd besteed aan voor het verwerken van de niet-verwerkte gegevens, biedt deze optie een lage RTO (Recovery Time Objective) failover-optie.
+    1.  **Laatste toepassingsconsistente**: Deze optie wordt er een failover van alle virtuele machines van het herstelplan te gaan naar de meest recente toepassingsconsistente herstelpunt uitgevoerd die al is verwerkt door Site Recovery-service. Wanneer u test-failover van een virtuele machine uitvoert, wordt ook de tijdstempel van de meest recente toepassingsconsistente herstelpunt weergegeven. Als u failover van een herstelplan te gaan doen, kunt u deze gaat u naar de afzonderlijke virtuele machine en bekijk **laatste herstelpunten** tegel om deze informatie te verkrijgen.
+    1.  **Meest recente verwerkte multi-VM**: Deze optie is alleen beschikbaar voor het plannen voor herstel die u hebt ten minste één virtuele machine met multi-VM-consistentie op. Virtuele machines die deel van een failover van de groep replicatie naar de meest recente toepassingsconsistente herstelpunt van algemene multi-VM uitmaken verwijzen. De failover van andere virtuele machines naar hun meest recente verwerkte herstelpunt.  
+    1.  **Nieuwste multi-VM-app-consistente**: Deze optie is alleen beschikbaar voor het plannen voor herstel die u hebt ten minste één virtuele machine met multi-VM-consistentie op. Virtuele machines die deel van een failover van de groep replicatie naar het laatste toepassingsconsistente herstelpunt van algemene multi-VM uitmaken verwijzen. De failover van andere virtuele machines naar hun meest recente toepassingsconsistente herstelpunt.
+    1.  **Aangepaste**: Als u test-failover van een virtuele machine uitvoert, kunt u deze optie om failover naar een bepaald herstelpunt te gebruiken.
 
     > [!NOTE]
     > De optie voor het kiezen van een herstelpunt is alleen beschikbaar wanneer u bent Failover-overschakeling uitvoeren naar Azure.
@@ -78,12 +78,12 @@ Virtuele machines/fysieke servers die zijn beveiligd met Site Recovery ook onder
 
 Wanneer een failover wordt geactiveerd, moet deze stappen te volgen:
 
-1. Controle van vereisten: deze stap zorgt ervoor dat alle vereiste voorwaarden voor failover wordt voldaan
+1. Controle van vereisten: Deze stap zorgt ervoor dat alle vereiste voorwaarden voor failover wordt voldaan
 1. Failover: Deze stap verwerkt de gegevens en maakt het gereed is zodat een virtuele machine van Azure buiten deze kan worden gemaakt. Als u hebt gekozen **nieuwste** herstelpunt, deze stap maakt een herstelpunt van de gegevens die zijn verzonden naar de service.
 1. Start: Deze stap maakt u een virtuele machine van Azure met behulp van de gegevens verwerkt in de vorige stap.
 
 > [!WARNING]
-> **Een wordt uitgevoerd niet annuleren failover**: voordat de failover wordt gestart, replicatie voor de virtuele machine is gestopt. Als u **annuleren** een in de taak wordt uitgevoerd, de failover gestopt, maar de virtuele machine niet wordt gestart om te repliceren. Replicatie kan niet opnieuw worden gestart.
+> **Een wordt uitgevoerd niet annuleren failover**: Voordat de failover wordt gestart, is replicatie voor de virtuele machine gestopt. Als u **annuleren** een in de taak wordt uitgevoerd, de failover gestopt, maar de virtuele machine niet wordt gestart om te repliceren. Replicatie kan niet opnieuw worden gestart.
 >
 >
 

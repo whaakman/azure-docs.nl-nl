@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277933"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632786"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
+
 Dit artikel wordt beschreven voor het uitvoeren van onderhoud beleid voor geïntegreerde Azure Stack-systemen, en wat u moet doen om te voorkomen dat uw systeem in een ondersteunde status. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>Updatepakketten downloaden voor geïntegreerde systemen
+
+Microsoft brengt zowel volledige maandelijkse updatepakketten als hotfixes voor specifieke problemen te verhelpen. 
+
+Updatepakketten met maandelijkse worden gehost in een beveiligde Azure-eindpunt. U kunt ze handmatig downloaden de [Azure Stack Updates downloader hulpprogramma](http://aka.ms/azurestackupdatedownload). Als uw schaaleenheid is verbonden, de update automatisch wordt weergegeven in de portal aan als beheerder **Update beschikbaar**. Volledige, worden maandelijks-updatepakketten ook beschreven op elke versie. Voor meer informatie over elke release kunt u een release van de [Update-pakket worden uitgerold](#update-package-release-cadence) sectie van dit artikel.
+
+Hotfix-updatepakketten worden gehost in hetzelfde beveiligde Azure-eindpunt. U kunt ze handmatig met behulp van de ingesloten koppelingen in elk van de respectieve hotfix-KB-artikelen; downloaden bijvoorbeeld, [Azure Stack-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Net als bij de volledige, maandelijkse updatepakketten, Azure Stack-operators kunnen de .xml, .BIN-bestand en .exe-bestanden downloaden en importeren met behulp van de procedure in [toepassen van updates in Azure Stack](azure-stack-apply-updates.md). Azure Stack-operators met verbonden schaaleenheden ziet de hotfixes automatisch weergegeven in de beheerdersportal met het bericht **Update beschikbaar**.
+
+Als uw schaaleenheid niet is verbonden en u wilt worden gewaarschuwd over elke versie van de hotfix, zich abonneren op de [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) of [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed die u hebt genoteerd in elke versie.  
 
 ## <a name="update-package-types"></a>Pakkettypen bijwerken
 
@@ -51,7 +62,7 @@ Hotfixes worden gedownload en geïnstalleerd net als bij de reguliere volledige 
 
 
 ## <a name="keep-your-system-under-support"></a>Houd uw systeem onder ondersteuning
-Als u wilt doorgaan om ondersteuning te ontvangen, moet u uw Azure Stack-implementatie actueel houden. Het beleid om op updates is: voor uw Azure Stack-implementatie moet worden bewaard in de ondersteuning, moet deze het meest recent uitgebrachte versie van de update uitvoeren of een van de twee voorgaande updateversies van de uitvoeren. Hotfixes worden niet beschouwd als grote update-versies. Als uw Azure Stack-cloud op is achter *meer dan twee updates*, deze wordt beschouwd als niet-compatibel en moeten bijwerken naar ten minste de minimaal ondersteunde versie om ondersteuning te ontvangen. 
+Als u wilt doorgaan om ondersteuning te ontvangen, moet u uw Azure Stack-implementatie actueel houden. Het beleid om op updates is: Voor uw Azure Stack-implementatie moet worden bewaard in de ondersteuning, moet het uitvoeren van de meest recent uitgebrachte versie van de update of een van de twee voorgaande updateversies van de uitvoeren. Hotfixes worden niet beschouwd als grote update-versies. Als uw Azure Stack-cloud op is achter *meer dan twee updates*, deze wordt beschouwd als niet-compatibel en moeten bijwerken naar ten minste de minimaal ondersteunde versie om ondersteuning te ontvangen. 
 
 Bijvoorbeeld, als de meest recente beschikbare versie van de update 1805 is en de vorige twee updatepakketten versies 1804 en 1803 zijn, blijven zowel 1803 1804 en ondersteuning. 1802 is echter ondersteuning vervalt. Het beleid geldt wanneer er geen versie voor een maand of twee. Bijvoorbeeld, als de huidige versie 1805 is en er geen 1804 release is, blijven de vorige twee updatepakketten 1803 en 1802 ondersteund.
 

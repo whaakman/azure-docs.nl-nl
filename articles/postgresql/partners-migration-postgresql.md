@@ -1,25 +1,24 @@
 ---
-title: Azure Database for PostgreSQL-Migratiepartners | Microsoft Docs
+title: Azure Database for PostgreSQL-migratiepartners
 description: Lijsten met van externe migratiepartners met oplossingen die ondersteuning bieden voor Azure Database voor PostgreSQL.
-services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: 11069e4e5ff9a6ad6b91fc554036955afa805443
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 63facf52531d1f58e4022085503da96a797f60df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626451"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536233"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Azure Database for PostgreSQL-migratiepartners
 Ter ondersteuning van ruim uw Azure Database voor PostgreSQL-oplossing, kunt u kiezen uit een groot aantal toonaangevende partners en hulpprogramma's. In dit artikel ziet u Microsoft-partners met oplossingen voor cloudmigratie met ondersteuning voor Azure Database for PostgreSQL.
 
 ## <a name="migration-partners"></a>Migratiepartners
-| Partner | Beschrijving | Koppelingen | Video's |
+| Partner | Description | Koppelingen | Video's |
 | --- | --- | --- | --- |
 | ![SNP technologieën][1] |**SNP technologieën**<br>SNP Technologies is een alleen-cloud serviceprovider, het bouwen van veilige en betrouwbare oplossingen voor bedrijven van de toekomst. Het bedrijf is van mening dat bij het genereren van de werkelijke waarde voor uw bedrijf. Vanuit de gedachte tot het uitvoeren van deelt SNP technologieën een gemeenschappelijk doel met clients, waardoor het inschakelen van hun investering in een voordeel.|[Website][snp_website]<br>[Twitter][snp_twitter]<br>[Neem contact op met][snp_contact] | |
 | ![DB beste technologieën, LLC][2] |**DB beste technologieën, LLC**<br>Beste DB helpt klanten optimaal gebruikmaken van een beheerde databaseservice voor Azure. Het bedrijf biedt verschillende manieren voor u om te beginnen, met inbegrip van [toekomst-status Beoordelingssessies](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [optimalisatie voor het beheer van gegevens voor Microsoft-gegevensplatform](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fdata-management-optimization-for-microsoft-data-platform%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261204561&sdata=DYF9EeMaMdKZP%2FJ9d3mw%2F67hUAxWmINcI1rMbEQZ1DM%3D&reserved=0), [Microsoft Azure Services voor implementatieplanning](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fmicrosoft-azure-deployment-planning-services%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=Q%2FNJaHWXrrln6eXaVmU1iVb4tJCoKVgSA8cEBQiZaDk%3D&reserved=0), en [Training voor Azure Data Platform gereedheid](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fazure-data-platform-readiness-training%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=dX%2BBGSCyq4x9ZPkTN74Y%2FUgHJ%2FqtsNgwEFDJft%2FTkc0%3D&reserved=0).|[Website][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Neem contact op met][dbbest_contact] | |

@@ -1,20 +1,7 @@
 ---
-title: Instellen van herstel na noodgevallen van on-premises Hyper-V-machines in VMM-clouds naar Azure met Azure Site Recovery | Microsoft Docs
-description: Meer informatie over het instellen van herstel na noodgevallen van on-premises Hyper-V-machines in System Center VMM-clouds naar Azure, met de Azure Site Recovery-service.
-services: site-recovery
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846421"
----
+Titel: Instellen van herstel na noodgevallen van on-premises Hyper-V-machines in VMM-clouds naar Azure met Azure Site Recovery | Microsoft-Docs-beschrijving: Meer informatie over het instellen van herstel na noodgevallen van on-premises Hyper-V-machines in System Center VMM-clouds naar Azure, met de Azure Site Recovery-service.
+Services: site recovery-auteur: rayne wiselman ms.service: site recovery ms.topic: conceptueel ms.date: 27-12-2018 ms.author: raynew ms.custom: MVC
+
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Instellen van herstel na noodgevallen van on-premises Hyper-V-machines in VMM-clouds naar Azure
 
 De [Azure Site Recovery](site-recovery-overview.md)-service draagt bij aan uw strategie voor herstel na noodgevallen door de replicatie, failover en failback van on-premises machines en virtuele Azure-machines te beheren en in te delen.

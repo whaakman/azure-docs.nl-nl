@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8c3e3fa6dee41725c95be6f820440f6be50c53e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: e38aab92dccd096e639df04cc0f4cfec5ccb5bf0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496492"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650888"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Bekende problemen voor Apache Spark-cluster in HDInsight
 
@@ -112,14 +112,14 @@ Wanneer de Spark-cluster heeft onvoldoende resources, wordt de Spark- en PySpark
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)

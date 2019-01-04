@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 19582c59460644d8599034afeaafde8735c04ec3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53441008"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549629"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 Azure Monitor biedt verschillende manieren om te communiceren met metrische gegevens, zoals ze in het portaal grafieken, toegang hebben tot deze via de REST-API of uitvoeren van deze query's met behulp van PowerShell of CLI. Hieronder vindt u een volledige lijst van alle metrische gegevens op dit moment met metrische gegevens van Azure Monitor-pijplijn. Andere metrische gegevens is mogelijk beschikbaar in de portal of met verouderde API's. Deze lijst hieronder bevat alleen beschikbaar via de pijplijn voor het metrische gegevens van Azure Monitor samengevoegde metrische gegevens. Query's uitvoeren voor en toegang tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -21,7 +21,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Bijvoorbeeld*: De metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
+> *Bijvoorbeeld*: De metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
 >
 >
 
@@ -1572,4 +1572,4 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over metrische gegevens in Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Waarschuwingen over metrische gegevens maken](../../azure-monitor/platform/alerts-overview.md)
-* [Metrische gegevens exporteren naar opslag, Event Hub of Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Metrische gegevens exporteren naar opslag, Event Hub of Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)

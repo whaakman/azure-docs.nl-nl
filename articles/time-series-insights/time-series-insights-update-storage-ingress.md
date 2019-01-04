@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Preview-gegevens - opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview | Microsoft Docs
+title: Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview | Microsoft Docs
 description: Inzicht krijgen in de opslag van gegevens en inkomend verkeer in Azure Time Series Insights Preview.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9504e62ea99c835f43f0d86ec2cfa57a9afcb4e4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f0326e6f05f44b5f2c4416a1c1db09bc5816a297
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269988"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558308"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview
 

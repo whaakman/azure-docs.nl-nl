@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 12/202018
 ms.author: jingwang
-ms.openlocfilehash: 1f3e9be3a0048c4bf2e87ac23cbdc76b1aaa649f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61ac0eeeb177ffccbe10d4ab049d3541ac6aeb60
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166403"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810420"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een HTTP-eindpunt met behulp van Azure Data Factory
 
@@ -28,6 +28,12 @@ ms.locfileid: "49166403"
 
 In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van een HTTP-eindpunt. Het artikel is gebaseerd op [Kopieeractiviteit in Azure Data Factory](copy-activity-overview.md), die een algemeen overzicht van Kopieeractiviteit geeft.
 
+Het verschil tussen deze HTTP-connector, de [REST-connector](connector-rest.md) en de [Web-connector voor tabel](connector-web-table.md) zijn:
+
+- **REST-connector** specifiek ondersteuning kopiëren van gegevens uit RESTful-API's; 
+- **HTTP-connector** is generiek gegevens ophalen van een HTTP-eindpunt, bijvoorbeeld om bestand te downloaden. Voordat de REST-connector beschikbaar is, kan het geval zijn de HTTP-connector gebruiken om gegevens te kopiëren van RESTful-API, die wordt ondersteund, maar minder functionele vergelijken met de REST-connector.
+- **Web-connector voor tabel** extraheert inhoud van de webpagina van een HTML-tabel.
+
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
 U kunt gegevens kopiëren van een HTTP-bron naar elke ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevens opslaat of Kopieeractiviteit als bronnen en sinks ondersteunt, [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -35,10 +41,8 @@ U kunt gegevens kopiëren van een HTTP-bron naar elke ondersteunde sink-gegevens
 U kunt deze HTTP-connector te gebruiken:
 
 - Gegevens ophalen uit een HTTP/S-eindpunt met behulp van de HTTP **ophalen** of **POST** methoden.
-- Ophalen van gegevens met behulp van een van de volgende verificaties: **anoniem**, **Basic**, **Digest**, **Windows**, of  **ClientCertificate**.
+- Gegevens ophalen met behulp van een van de volgende verificaties: **Anonieme**, **Basic**, **Digest**, **Windows**, of **ClientCertificate**.
 - Het HTTP-antwoord als kopiëren-is of met behulp van parseren [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
-
-Het verschil tussen deze connector en de [Web-connector voor tabel](connector-web-table.md) is dat de Web-connector voor tabel tabelinhoud wordt geëxtraheerd uit een HTML-webpagina.
 
 > [!TIP]
 > Als u wilt testen een HTTP-aanvraag voor het ophalen van gegevens voordat u de HTTP-connector in Data Factory configureert, meer informatie over de API-specificatie voor de koptekst en hoofdtekst van de vereisten. U kunt hulpprogramma's zoals Postman of een webbrowser gebruiken om te valideren.
@@ -53,7 +57,7 @@ De volgende secties bevatten meer informatie over eigenschappen die u gebruiken 
 
 De volgende eigenschappen worden ondersteund voor de HTTP-gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap moet worden ingesteld op **HttpServer**. | Ja |
 | url | De basis-URL naar de webserver. | Ja |
@@ -65,7 +69,7 @@ De volgende eigenschappen worden ondersteund voor de HTTP-gekoppelde service:
 
 Stel de **authenticationType** eigenschap **Basic**, **Digest**, of **Windows**. Naast de algemene eigenschappen die worden beschreven in de vorige sectie, moet u de volgende eigenschappen opgeven:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | Gebruikersnaam | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
 | wachtwoord | Het wachtwoord voor de gebruiker (de **gebruikersnaam** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -98,7 +102,7 @@ Stel de **authenticationType** eigenschap **Basic**, **Digest**, of **Windows**.
 
 ClientCertificate om verificatie te gebruiken, stelt de **authenticationType** eigenschap **ClientCertificate**. Naast de algemene eigenschappen die worden beschreven in de vorige sectie, moet u de volgende eigenschappen opgeven:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | embeddedCertData | De gegevens van de met base64 gecodeerde certificaat. | Geef óf een **embeddedCertData** of **certThumbprint**. |
 | certThumbprint | De vingerafdruk van het certificaat dat geïnstalleerd op het certificaatarchief van de zelf-hostende Integration Runtime-machine. Geldt alleen wanneer de zelf-hostende Integration Runtime-type is opgegeven in de **connectVia** eigenschap. | Geef óf een **embeddedCertData** of **certThumbprint**. |
@@ -163,15 +167,15 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 Om gegevens te kopiëren van HTTP, stel de **type** eigenschap van de gegevensset in **HttpFile**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **HttpFile**. | Ja |
 | relativeurl bevatten | Een relatieve URL naar de resource die de gegevens bevat. Als deze eigenschap is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. | Nee |
 | requestMethod | De HTTP-methode. Toegestane waarden zijn **ophalen** (standaard) en **Post**. | Nee |
 | additionalHeaders | Extra kopteksten die HTTP-aanvraag. | Nee |
 | RequestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
-| Indeling | Als u wilt ophalen van gegevens uit de HTTP-eindpunt als-is zonder parseren en kopieer de gegevens in een store op basis van bestanden, gaat de **indeling** sectie in de invoer en uitvoer gegevenssetdefinities.<br/><br/>Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Onder **indeling**, stel de **type** eigenschap op een van deze waarden. Zie voor meer informatie, [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format). |Nee |
-| Compressie | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus: **optimale** en **snelst**. |Nee |
+| Indeling | Als u wilt ophalen van gegevens uit de HTTP-eindpunt als-is zonder parseren en kopieer de gegevens in een store op basis van bestanden, gaat de **indeling** sectie in de invoer en uitvoer gegevenssetdefinities.<br/><br/>Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, worden de volgende indeling bestandstypen ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Onder **indeling**, stel de **type** eigenschap op een van deze waarden. Zie voor meer informatie, [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format). |Nee |
+| Compressie | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus:  **Optimale** en **snelste**. |Nee |
 
 > [!NOTE]
 > De ondersteunde grootte van HTTP-verzoek nettolading is ongeveer 500 KB. Als de grootte van de nettolading die u wilt doorgeven aan uw webeindpunt groter dan 500 KB is, kunt u overwegen de nettolading in kleinere chunks batchverwerking.
@@ -225,7 +229,7 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 Instellen om gegevens te kopiëren van HTTP, **gegevensbrontype** in de kopieeractiviteit naar **HttpSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de bron voor kopiëren-activiteit moet worden ingesteld op **HttpSource**. | Ja |
 | httpRequestTimeout | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. Deze waarde is de time-out voor een antwoord, niet de time-out voor lezen van gegevens van de reactie. De standaardwaarde is **00:01:40**.  | Nee |

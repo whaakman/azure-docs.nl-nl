@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7f33742fc5e765aa5ab0c66d13e844b3be2bab9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322291"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599873"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana toegang in Azure HDInsight
 
@@ -34,7 +34,7 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
 
 2. Typ of selecteer de waarden zoals voorgesteld in de volgende schermafbeelding:
 
-    > [!NOTE]
+    > [!NOTE]  
     > De opgegeven waarden moeten uniek zijn en moeten voldoen aan deze richtlijnen voor naamgeving. De sjabloon voert geen validatiecontroles uit. Als de waarden die u opgeeft, al in gebruik zijn of niet aan de richtlijnen voldoen, krijgt u een foutmelding nadat u de sjabloon hebt verzonden.       
     > 
     >
@@ -53,7 +53,7 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
     |**Gebruikersnaam/Wachtwoord voor clusteraanmeldgegevens**     | De standaardaanmeldingsnaam is **admin**. Het wachtwoord moet uit minstens tien tekens bestaan en moet minstens één cijfer, één hoofdletter, één kleine letter en één niet-alfanumeriek teken bevatten (uitgezonderd ' " ` \). Zorg ervoor dat u **geen makkelijk te raden** wachtwoorden gebruikt, zoals 'Pass@word1'.|
     |**SSH-gebruikersnaam en SSH-wachtwoord**     | De standaardgebruikersnaam is **sshuser**.  U kunt de SSH-gebruikersnaam wijzigen.  Voor het SSH-gebruikerswachtwoord gelden dezelfde vereisten als voor het aanmeldingswachtwoord voor het cluster.|
        
-    Sommige eigenschappen zijn vastgelegd in de sjabloon.  U kunt deze waarden uit de sjabloon configureren. Zie voor meer informatie over van deze eigenschappen, [Apache Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    Sommige eigenschappen zijn vastgelegd in de sjabloon.  U kunt deze waarden uit de sjabloon configureren. Raadpleeg voor meer uitleg over deze eigenschappen [Apache Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden** en **Vastmaken aan dashboard**, en selecteer vervolgens **Kopen**. U ziet een nieuwe tegel met de mededeling dat **de implementatie wordt verzonden**. Het duurt ongeveer 20 minuten om een cluster te maken.
 
@@ -66,10 +66,8 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
 5. De tegel bevat ook de standaardopslag die aan het cluster is gekoppeld. Elk cluster is afhankelijk van een [Azure Storage-account](../hdinsight-hadoop-use-blob-storage.md) of een [Azure Data Lake-account](../hdinsight-hadoop-use-data-lake-store.md). Dit wordt het standaardopslagaccount genoemd. HDInsight-cluster en het standaardopslagaccount moeten in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd.
     
 
-> [!NOTE]
-> Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie.       
-> 
->
+> [!NOTE]  
+> Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie. 
 
 ## <a name="access-the-grafana-dashboard"></a>Toegang tot het Grafana-dashboard
 
@@ -94,10 +92,8 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
 ## <a name="clean-up-resources"></a>Resources opschonen
 Nadat u het artikel hebt voltooid, kunt u het cluster verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. 
 
-> [!NOTE]
+> [!NOTE]  
 > Als u *meteen* verder wilt gaan met de volgende zelfstudie om te leren hoe u ETL-bewerkingen uitvoert met behulp van Hadoop in HDInsight, kunt u het cluster beter behouden. In die zelfstudie hebt u namelijk ook een Hadoop-cluster nodig. Als u echter niet direct verdergaat met de volgende zelfstudie, moet u het cluster nu verwijderen.
-> 
-> 
 
 **Het cluster en/of het standaardopslagaccount verwijderen**
 
@@ -122,9 +118,9 @@ Als u klaar bent om te gaan werken met uw eigen gegevens en meer wilt weten over
 
 Zie de volgende artikelen voor meer informatie over het analyseren van gegevens met HDInsight:
 
-* Zie voor meer informatie over het gebruik van Hive met HDInsight, waaronder over het uitvoeren van Hive-query's vanuit Visual Studio [Apache Hive gebruiken met HDInsight](../hdinsight-use-hive.md).
-* Zie voor meer informatie over Pig, een taal die wordt gebruikt om gegevens, te transformeren [Apache Pig gebruiken met HDInsight](../hdinsight-use-pig.md).
-* Zie voor meer informatie over Apache Hadoop MapReduce, een manier om programma's schrijven die gegevens op Hadoop verwerken, [gebruik Apache Hadoop MapReduce met HDInsight](../hdinsight-use-mapreduce.md).
+* Zie [Apache Hive gebruiken met HDInsight](../hdinsight-use-hive.md) voor meer informatie over het gebruik van Hive met HDInsight, waaronder over het uitvoeren van Hive-query's vanuit Visual Studio.
+* Zie [Apache Pig gebruiken met HDInsight](../hdinsight-use-pig.md) voor meer informatie over Pig, een taal die wordt gebruikt voor het omzetten van gegevens.
+* Zie [MapReduce gebruiken met HDInsight](../hdinsight-use-mapreduce.md) voor meer informatie over MapReduce, een middel om programma's te schrijven die gegevens verwerken op Hadoop.
 * Zie voor meer informatie over het gebruik van de HDInsight-hulpprogramma's voor Visual Studio om gegevens op HDInsight te analyseren [Aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 

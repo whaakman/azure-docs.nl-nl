@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344962"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722563"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Beveiligen van uw RESTful-service met behulp van clientcertificaten
 
@@ -37,16 +37,16 @@ Dit artikel wordt beschreven hoe u:
 * Voer de stappen in de [REST-API integreren claims worden uitgewisseld](active-directory-b2c-custom-rest-api-netfw.md) artikel.
 * Verkrijgen van een geldig certificaat (een pfx-bestand met een persoonlijke sleutel).
 
-## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Stap 1: Een web-app voor verificatie van clientcertificaten configureren
+## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Stap 1: Configureren van een web-app voor verificatie van clientcertificaten
 Voor het instellen van **Azure App Service** om te vereisen dat clientcertificaten, stelt u de web-app `clientCertEnabled` site-instelling *waar*. Om deze wijziging in de Azure-portal, de webpagina van de app te openen. In het linker navigatiedeelvenster, onder **instellingen** Selecteer **SSL-instellingen**. In de **clientcertificaten** sectie, schakelt u de **binnenkomend clientcertificaat** optie.
 
 >[!NOTE]
->Zorg ervoor dat uw Azure App Service-plan Standard of hoger. Zie voor meer informatie, [gedetailleerd overzicht van Azure App Service-plannen](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Zorg ervoor dat uw Azure App Service-plan Standard of hoger. Zie voor meer informatie, [gedetailleerd overzicht van Azure App Service-plannen](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >Voor meer informatie over het instellen de **clientCertEnabled** eigenschap, Zie [configureren TLS wederzijdse verificatie voor web-apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
-## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Stap 2: Uw certificaat uploaden naar Azure AD B2C-beleidssleutels
+## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Stap 2: Upload uw certificaat naar de sleutels voor Azure AD B2C-beleid
 Nadat u hebt ingesteld `clientCertEnabled` naar *waar*, de communicatie met uw RESTful-API is een clientcertificaat vereist. Als u wilt downloaden, uploaden en opslaan van het clientcertificaat in uw Azure AD B2C-tenant, het volgende doen: 
 1. Selecteer in uw Azure AD B2C-tenant, **B2C-instellingen** > **Identity-Ervaringsframework**.
 
@@ -97,7 +97,7 @@ Ter ondersteuning van verificatie van clientcertificaten in uw aangepast beleid,
 
     ![ClientCertificate verificatie XML-elementen instellen](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-tech-profile.png)
 
-## <a name="step-4-upload-the-policy-to-your-tenant"></a>Stap 4: Het beleid voor uploaden naar uw tenant
+## <a name="step-4-upload-the-policy-to-your-tenant"></a>Stap 4: Uploaden van het beleid aan uw tenant
 
 1. In de [Azure-portal](https://portal.azure.com), Ga naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en selecteer vervolgens **Azure AD B2C**.
 
@@ -152,7 +152,7 @@ Ter ondersteuning van verificatie van clientcertificaten in uw aangepast beleid,
    >Als u het foutbericht ontvangt *de naam is niet geldig, Geef een geldige naam*, betekent dit dat Azure AD B2C uw RESTful-service is aangeroepen terwijl het certificaat van de client weergegeven. De volgende stap is om het certificaat te valideren.
 
 ## <a name="step-6-add-certificate-validation"></a>Stap 6: Validatie van het servercertificaat toevoegen
-Het clientcertificaat dat Azure AD B2C wordt verzonden naar uw RESTful-service heeft geen validatie ondergaan door het Azure Web Apps-platform, behalve om te controleren of het certificaat bestaat. Validatie van het certificaat is de verantwoordelijkheid van de web-app. 
+Het clientcertificaat dat Azure AD B2C wordt verzonden naar uw RESTful-service heeft geen validatie ondergaan door de Azure App Service-platform, behalve om te controleren of het certificaat bestaat. Validatie van het certificaat is de verantwoordelijkheid van de web-app. 
 
 In deze sectie voegt u ASP.NET-voorbeeldcode die de eigenschappen voor certificaat voor verificatiedoeleinden wordt gebruikt valideert.
 

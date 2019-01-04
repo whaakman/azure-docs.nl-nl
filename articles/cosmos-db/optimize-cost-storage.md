@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 618be936ef0326a1b9f5db426d4c37bb2bd1c760
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263830"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535655"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimaliseer opslagkosten in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Azure Cosmos DB wordt verwacht dat de grootte van het artikel moet 2 MB of minde
 
 ## <a name="optimize-cost-with-indexing"></a>Kosten met indexeren optimaliseren
 
-Standaard de gegevens automatisch geïndexeerd, die de totale hoeveelheid opslagruimte kunt verhogen. U kunt echter aangepaste index beleid om deze overhead verminderen toepassen. Automatisch indexeren die niet afgestemd is op door middel van beleid is ongeveer 10-20% van de itemgrootte aan. Door te verwijderen of aanpassen, index-beleid, betaalt u geen extra kosten voor schrijfbewerkingen en capaciteit voor extra doorvoer vereisen. Zie [indexeren in Cosmos DB](indexing-policies.md) om aangepaste indexering beleid te configureren. Als u hebt gewerkt met relationele databases, mag u denkt dat 'Alles indexeren' betekent verdubbeling van opslag of hoger. In Azure Cosmos DB is in het geval is Mediaan, het echter veel lager. In Azure Cosmos DB is de opslagoverhead van de index doorgaans laag (10-20%) zelfs met automatische indexering, omdat het is ontworpen voor een lage opslagverbruik. U kunt de verhouding van de prestaties van de voetafdruk en de query van de index op een meer verfijnde manier beheren door het beheer van het indexeringsbeleid.
+Standaard de gegevens automatisch geïndexeerd, die de totale hoeveelheid opslagruimte kunt verhogen. U kunt echter aangepaste index beleid om deze overhead verminderen toepassen. Automatisch indexeren die niet afgestemd is op door middel van beleid is ongeveer 10-20% van de itemgrootte aan. Door te verwijderen of aanpassen, index-beleid, betaalt u geen extra kosten voor schrijfbewerkingen en capaciteit voor extra doorvoer vereisen. Zie [indexeren in Azure Cosmos DB](indexing-policies.md) om aangepaste indexering beleid te configureren. Als u hebt gewerkt met relationele databases, mag u denkt dat 'Alles indexeren' betekent verdubbeling van opslag of hoger. In Azure Cosmos DB is in het geval is Mediaan, het echter veel lager. In Azure Cosmos DB is de opslagoverhead van de index doorgaans laag (10-20%) zelfs met automatische indexering, omdat het is ontworpen voor een lage opslagverbruik. U kunt de verhouding van de prestaties van de voetafdruk en de query van de index op een meer verfijnde manier beheren door het beheer van het indexeringsbeleid.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Kosten met de tijd op live en wijzigingenfeed optimaliseren
 

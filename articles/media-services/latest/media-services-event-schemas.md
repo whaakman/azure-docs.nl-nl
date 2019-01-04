@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011991"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789226"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-schema's voor Media Services-gebeurtenissen
 
@@ -28,7 +28,7 @@ Zie voor een lijst met zelfstudies en voorbeelden van scripts, [Media Services-g
 
 ### <a name="job-related-event-types"></a>Gerelateerde gebeurtenistypen
 
-Media Services verzendt de **taak** gerelateerde typen gebeurtenissen die hieronder worden beschreven. Er zijn twee categorieën voor de **taak** gerelateerde gebeurtenissen: 'bewaking taak statuswijzigingen"en" bewaking taak uitvoer status '. 
+Media Services verzendt de **taak** gerelateerde typen gebeurtenissen die hieronder worden beschreven. Er zijn twee categorieën voor de **taak** gerelateerde gebeurtenissen: "Monitoring taakstatus verandert" en 'Verandert de toestand van de uitvoer controleren taak'. 
 
 U kunt registreren voor alle gebeurtenissen met een abonnement op de gebeurtenis JobStateChange. Of u kunt zich abonneren op specifieke gebeurtenissen alleen (bijvoorbeeld laatste Staten zoals JobErrored, JobFinished en JobCanceled). 
 
@@ -112,9 +112,9 @@ Het gegevensobject heeft de volgende eigenschappen:
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | previousState | string | De status van de taak voor de gebeurtenis. |
-| state | string | De nieuwe status van de taak wordt een melding in deze gebeurtenis. Bijvoorbeeld, "gepland: de taak is klaar om te beginnen" of "voltooid: de taak is voltooid '.|
+| state | string | De nieuwe status van de taak wordt een melding in deze gebeurtenis. Bijvoorbeeld, "geplande: De taak is klaar om te beginnen"of" voltooid: De taak is voltooid'.|
 
-Wanneer de status van de taak worden een van de waarden: *in de wachtrij geplaatst*, *geplande*, *verwerking*, *voltooid*, *fout*, *Geannuleerd*, *annuleren*
+De taakstatus kan waar een van de waarden zijn: *In de wachtrij geplaatst*, *gepland*, *verwerking*, *voltooid*, *fout*, *geannuleerd*, *Annuleren*
 
 > [!NOTE]
 > *In de wachtrij geplaatst* zal alleen aanwezig zijn in de **previousState** eigenschap, maar niet in de **status** eigenschap.
@@ -134,7 +134,7 @@ Voor elke niet-definitieve taak statuswijziging (zoals JobScheduled, JobProcessi
     "previousState": "Scheduled",
     "state": "Processing",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -168,7 +168,7 @@ Voor elke laatste taak statuswijziging (zoals JobFinished, JobCanceled, JobError
     "previousState": "Processing",
     "state": "Finished",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -205,7 +205,7 @@ Het volgende voorbeeld ziet u het schema van de **JobOutputStateChange** gebeurt
       "state": "Finished"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -236,7 +236,7 @@ Voor elke wijziging van de status JobOutput lijkt het voorbeeldschema op het vol
       "state": "Processing"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -258,13 +258,14 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventConnectionRejected** 
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
     "data": { 
-      "StreamId":"Mystream1",
-      "IngestUrl": "http://abc.ingest.isml",
-      "EncoderIp": "118.238.251.xxx",
-      "EncoderPort": 52859,
-      "ResultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -394,14 +395,15 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIncomingDataChunkDrop
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
     "data": { 
-      "TrackType": "Video",
-      "TrackName": "Video",
-      "Bitrate": 300000,
-      "Timestamp": 36656620000,
-      "Timescale": 10000000,
-      "ResultCode": "FragmentDrop_OverlapTimestamp"
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -413,8 +415,8 @@ Het gegevensobject heeft de volgende eigenschappen:
 | TrackType | string | Type van het spoor (Audio / Video). |
 | TrackName | string | De naam van het spoor. |
 | Bitrate | geheel getal | Bitrate van het spoor. |
-| Tijdstempel | string | Timestamp van het gegevenssegment is verwijderd. |
-| Tijdschaal | string | Tijdschaal van de tijdstempel. |
+| tijdstempel | string | Timestamp van het gegevenssegment is verwijderd. |
+| tijdschaal | string | Tijdschaal van de tijdstempel. |
 | ResultCode | string | De reden van de gegevens chunk vervolgkeuzelijst. **FragmentDrop_OverlapTimestamp** of **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -456,8 +458,8 @@ Het gegevensobject heeft de volgende eigenschappen:
 | IngestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |
 | EncoderIp | string  | IP-adres van het coderingsprogramma. |
 | EncoderPort | string | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
-| Tijdstempel | string | Eerste timestamp van het gegevenssegment dat is ontvangen. |
-| Tijdschaal | string | Tijdschaal waarin tijdstempel wordt weergegeven. |
+| tijdstempel | string | Eerste timestamp van het gegevenssegment dat is ontvangen. |
+| tijdschaal | string | Tijdschaal waarin tijdstempel wordt weergegeven. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -509,13 +511,14 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIncomingVideoStreamsO
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
     "data": {
-      "FirstTimestamp": "2162058216",
-      "FirstDuration": "2000",
-      "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000",
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -528,7 +531,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | FirstDuration | string | De duur van het gegevenssegment met eerste tijdstempel. |
 | SecondTimestamp | string  | Tijdstempel voor een ander nummer/kwaliteit-niveau van het type video ontvangen. |
 | SecondDuration | string | De duur van het gegevenssegment met tweede tijdstempel. |
-| Tijdschaal | string | Tijdschaal van tijdstempels en de duur.|
+| tijdschaal | string | Tijdschaal van tijdstempels en de duur.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -571,13 +574,13 @@ Het gegevensobject heeft de volgende eigenschappen:
 | Bitrate | geheel getal | Bitrate van het spoor. |
 | IncomingBitrate | geheel getal | Berekende bitrate op basis van die afkomstig zijn van het coderingsprogramma gegevenssegmenten. |
 | LastTimestamp | string | Meest recente tijdstempel ontvangen voor een nummer in de afgelopen 20 seconden. |
-| Tijdschaal | string | Tijdschaal waarin tijdstempels worden uitgedrukt. |
+| tijdschaal | string | Tijdschaal waarin tijdstempels worden uitgedrukt. |
 | OverlapCount | geheel getal | Aantal gegevenssegmenten had tijdstempels in de afgelopen 20 seconden overlapt. |
 | DiscontinuityCount | geheel getal | Het aantal wijzigingen in de afgelopen 20 seconden waargenomen. |
 | NonIncreasingCount | geheel getal | Aantal gegevenssegmenten met tijdstempels in het verleden zijn ontvangen in de afgelopen 20 seconden. |
-| UnexpectedBitrate | bool | Als de verwachte en de daadwerkelijke bitsnelheden verschillen door meer dan de toegestane limiet afgelopen 20 seconden. Dit is waar als en alleen als, IncomingBitrate > = 2 * bitrate of IncomingBitrate < = bitrate/2 of IncomingBitrate = 0. |
-| Status | string | Status van de live-gebeurtenis. |
-| In orde | bool | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als OverlapCount = 0 & & DiscontinuityCount = 0 & & NonIncreasingCount = 0 & & UnexpectedBitrate = false. |
+| UnexpectedBitrate | bool | Als de verwachte en de daadwerkelijke bitsnelheden verschillen door meer dan de toegestane limiet afgelopen 20 seconden. Dit is waar als en alleen als, incomingBitrate > = 2 * bitrate of incomingBitrate < = bitrate/2 of IncomingBitrate = 0. |
+| state | string | Status van de live-gebeurtenis. |
+| in orde | bool | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -616,7 +619,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | PreviousTimestamp | string | Timestamp van het vorige fragment. |
 | NewTimestamp | string | Tijdstempel van de huidige fragment. |
 | DiscontinuityGap | string | De kloof tussen boven twee tijdstempels. |
-| Tijdschaal | string | Tijdschaal in welke tussenruimte zowel tijdstempel en onderbreking worden weergegeven. |
+| tijdschaal | string | Tijdschaal in welke tussenruimte zowel tijdstempel en onderbreking worden weergegeven. |
 
 ### <a name="common-event-properties"></a>Algemene eigenschappen van gebeurtenis
 

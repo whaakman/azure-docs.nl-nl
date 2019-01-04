@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit voor Eclipse: Maak Scala-toepassingen voor HDInsight Spark '
+title: 'Azure Toolkit voor Eclipse: Voor HDInsight Spark Scala-toepassingen maken '
 description: Gebruik HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse Spark-toepassingen die zijn geschreven in Scala ontwikkelen en deze verzenden naar een HDInsight Spark-cluster, rechtstreeks vanuit de Eclipse IDE.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: a875e7517870e4a782d3169fd5eb0796c9b0f16a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496593"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602746"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 
 Gebruik HDInsight-hulpprogramma's in Azure Toolkit voor [Eclipse](https://www.eclipse.org/) voor het ontwikkelen van [Apache Spark](https://spark.apache.org/) toepassingen die zijn geschreven [Scala](https://www.scala-lang.org/) en deze verzenden naar een Azure HDInsight Spark-cluster rechtstreeks vanuit de Eclipse IDE. U kunt de HDInsight Tools-invoegtoepassing in een aantal verschillende manieren gebruiken:
 
-* Om te ontwikkelen en verzenden van een Scala Spark-toepassing in een HDInsight Spark-cluster
-* Voor toegang tot de resources van uw Azure HDInsight Spark-cluster
-* Om te ontwikkelen en een Scala Spark-toepassing lokaal uitvoeren
+* Om te ontwikkelen en verzenden van een Scala Spark-toepassing in een HDInsight Spark-cluster.
+* Voor toegang tot de resources van uw Azure HDInsight Spark-cluster.
+* Om te ontwikkelen en een Scala Spark-toepassing lokaal uitvoeren.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > U kunt dit hulpprogramma gebruiken om te maken en verzenden van toepassingen alleen voor een HDInsight Spark-cluster op Linux.
 > 
 > 
@@ -78,7 +78,7 @@ U kunt een normale cluster koppelen met behulp van de gebruikersnaam van de Amba
    
    ![dialoogvenster van de cluster koppelen](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > We gebruiken de sleutel van een gekoppeld opslagaccount, gebruikersnaam en wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld.
    > ![Opslagverkenner in Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -207,7 +207,7 @@ U kunt HDInsight-hulpprogramma's gebruiken in Azure Toolkit voor Eclipse Spark S
 ### <a name="prerequisite"></a>Vereiste
 Terwijl u de lokale Spark Scala-toepassing op een Windows-computer uitvoert, krijgt u mogelijk een uitzondering, zoals wordt beschreven [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Deze uitzondering treedt op omdat **WinUtils.exe** ontbreekt in Windows. 
 
-U kunt deze fout oplossen, moet u [downloaden van het uitvoerbare bestand](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) naar een locatie zoals **C:\WinUtils\bin**, en voeg de omgevingsvariabele **HADOOP_HOME** en stel de waarde van de variabele **C\WinUtils**.
+U kunt deze fout oplossen, moet u [downloaden van het uitvoerbare bestand](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) naar een locatie zoals **C:\WinUtils\bin**, en voeg de omgevingsvariabele **HADOOP_HOME** en stel de waarde van de variabele **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Een lokale Spark Scala-toepassing uitvoeren
 1. Start Eclipse en maak een project. In de **nieuw Project** in het dialoogvenster de volgende opties en selecteer vervolgens **volgende**.
@@ -245,14 +245,14 @@ Als u bepaalde feedback hebt, of als er andere problemen die optreden bij gebrui
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Het maken en uitvoeren van toepassingen
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Apache Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [Azure Toolkit voor IntelliJ gebruiken om te maken en verzenden van Spark Scala-toepassingen](apache-spark-intellij-tool-plugin.md)

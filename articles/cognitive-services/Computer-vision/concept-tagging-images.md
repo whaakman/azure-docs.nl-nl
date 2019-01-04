@@ -1,7 +1,7 @@
 ---
-title: 'Afbeeldingen: Computer Vision-tagging'
+title: Tags toepassen van inhoud naar afbeeldingen - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot afbeeldingen met behulp van de Computer Vision-API-tagging.
+description: Meer informatie over concepten met betrekking tot de taggingfunctie van de Computer Vision-API-installatiekopieën.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960904"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582929"
 ---
-# <a name="tagging-images"></a>Afbeeldingen taggen
+# <a name="applying-content-tags-to-images"></a>Inhoud tags toepassen op afbeeldingen
 
 Computer Vision retourneert tags op basis van duizenden herkenbare objecten, levende wezens, landschappen en acties. Wanneer tags ambigu of niet algemeen bekend zijn, geeft de API-reactie tips om de betekenis van de tag in de context van een bekende situatie te verduidelijken. Tags zijn niet ingedeeld als taxonomie en er bestaan geen overnamehiërarchieën. Een verzameling inhoudstags vormt de basis voor een 'beschrijving van de afbeelding, weergegeven als voor mensen leesbare taal opgemaakt in volledige zinnen. Houd er rekening mee dat Engels op dit moment de enige ondersteunde taal is voor de beschrijving van afbeeldingen.
 
@@ -27,7 +28,7 @@ Computer Vision-algoritmen uitvoer na het uploaden van een afbeelding of een afb
 
 Computer Vision geretourneerd bij het labelen van visuele kenmerken die zijn gedetecteerd in het voorbeeld ziet u de volgende JSON-antwoord.
 
-![House_Yard](./Images/house_yard.png).
+![Een blauwe huis en de voorste yard](./Images/house_yard.png).
 
 ```json
 {

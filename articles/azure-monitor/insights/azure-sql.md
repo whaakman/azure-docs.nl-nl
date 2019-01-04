@@ -7,22 +7,22 @@ ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/26/2018
-ms.author: v-daljep
-ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/17/2018
+ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341623"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546711"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
 ![Azure SQL Analytics-symbool](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is een cloud voor controle voor het bewaken van de prestaties van Azure SQL-databases, elastische pools en beheerde instanties op schaal en voor meerdere abonnementen via één venster inzicht bedrijfsanalyses. Er worden verzameld en worden gevisualiseerd met belangrijke metrische gegevens voor Azure SQL Database-prestaties met ingebouwde intelligentie voor het oplossen van prestaties.
+Azure SQL Analytics is een geavanceerde controle voor het bewaken van de prestaties van Azure SQL-databases, elastische pools en beheerde instanties op schaal en voor meerdere abonnementen via één venster inzicht bedrijfsanalyses in de cloud. Er worden verzameld en worden gevisualiseerd met belangrijke metrische gegevens voor Azure SQL Database-prestaties met ingebouwde intelligentie voor het oplossen van prestaties.
 
 Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangepaste regels voor bewaking en waarschuwingen kunt maken. De oplossing helpt u bij het identificeren van problemen in elke laag van uw toepassingsstack. Deze metrische gegevens voor Azure-diagnose en weergaven van Log Analytics gebruikt om gegevens over alle uw Azure SQL-databases, elastische pools en databases die aanwezig zijn in beheerde instanties in één Log Analytics-werkruimte. Log Analytics helpt u bij het verzamelen, afstemmen en visualiseren van gestructureerde en ongestructureerde gegevens.
 

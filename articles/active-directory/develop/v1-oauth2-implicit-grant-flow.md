@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 818801a7f36e82d0065f85b5cf9e36288ccbff32
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422028"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970386"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informatie over de impliciete stroom voor OAuth2 in Azure Active Directory (AD)
 
@@ -57,11 +57,11 @@ De impliciete stroom is vernieuwingstokens, voornamelijk om beveiligingsredenen 
 
 Een JavaScript-toepassing heeft echter een ander mechanisme beschikken voor het vernieuwen van toegangstokens zonder herhaaldelijk dat de gebruiker om referenties wordt gevraagd. De toepassing kan een verborgen iframe gebruiken om uit te voeren nieuwe token aanvragen voor het eindpunt voor autorisatie van Azure AD: als de browser nog steeds een actieve sessie heeft (lezen: is van een sessiecookie) op basis van de Azure AD-domein, de verificatieaanvraag kunt is optreden hoeft u geen voor de interactie van de gebruiker.
 
-Dit model, hebben de JavaScript-toepassing de mogelijkheid toegangstokens onafhankelijk van elkaar te vernieuwen en nieuwe labels voor een nieuwe API zelfs verkrijgen (mits de gebruiker eerder voor hen geaccepteerde. Hiermee voorkomt u de extra belasting van ophalen, beheren en beveiligen van een hoge waarde-artefacten, zoals een vernieuwingstoken. Het artefact die het op de achtergrond vernieuwen mogelijk is, maakt de cookie van de Azure AD-sessie wordt beheerd buiten de toepassing. Een ander voordeel van deze benadering is dat van een gebruiker kan zich afmelden bij Azure AD, met behulp van een van de toepassingen die zijn aangemeld bij Azure AD, dat wordt uitgevoerd in een van de browsertabbladen. Dit resulteert in het verwijderen van de Azure AD-sessiecookie en de JavaScript-toepassing wordt automatisch de mogelijkheid om te vernieuwen van tokens voor de ondertekende uit gebruiker verliezen.
+Dit model hebben de JavaScript-toepassing de mogelijkheid toegangstokens onafhankelijk van elkaar te vernieuwen en nieuwe labels voor een nieuwe API zelfs verkrijgen (mits de gebruiker eerder voor deze geaccepteerde). Hiermee voorkomt u de extra belasting van ophalen, beheren en beveiligen van een hoge waarde-artefacten, zoals een vernieuwingstoken. Het artefact die het op de achtergrond vernieuwen mogelijk is, maakt de cookie van de Azure AD-sessie wordt beheerd buiten de toepassing. Een ander voordeel van deze benadering is dat van een gebruiker kan zich afmelden bij Azure AD, met behulp van een van de toepassingen die zijn aangemeld bij Azure AD, dat wordt uitgevoerd in een van de browsertabbladen. Dit resulteert in het verwijderen van de Azure AD-sessiecookie en de JavaScript-toepassing wordt automatisch de mogelijkheid om te vernieuwen van tokens voor de ondertekende uit gebruiker verliezen.
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>De impliciete toekenning geschikt is voor mijn app?
 
-De impliciete toekenning geeft meer risico's dan andere verleent, en de gebieden die u moet letten zijn goed gedocumenteerd. Bijvoorbeeld, [misbruik van toegangstoken te imiteren Resource-eigenaar in de impliciete Flow] [ OAuth2-Spec-Implicit-Misuse] en [risicomodel van OAuth 2.0- en beveiligingsoverwegingen] [ OAuth2-Threat-Model-And-Security-Implications]). De hogere risicoprofiel is echter grotendeels vanwege het feit dat het is bedoeld voor toepassingen die active code, bediend door een externe bron naar een browser uitvoeren. Als u van plan bent een beveiligd-WACHTWOORDVERIFICATIE-architectuur, hebben geen back-end-onderdelen of van plan om aan te roepen een Web-API via JavaScript, gebruik van de impliciete stroom voor het ophalen van tokens wordt aanbevolen.
+De impliciete toekenning geeft meer risico's dan andere verleent, en de gebieden die u moet letten zijn goed gedocumenteerd (bijvoorbeeld [misbruik van toegangstoken te imiteren Resource-eigenaar in de impliciete Flow] [ OAuth2-Spec-Implicit-Misuse]en [risicomodel OAuth 2.0- en beveiligingsoverwegingen][OAuth2-Threat-Model-And-Security-Implications]). De hogere risicoprofiel is echter grotendeels vanwege het feit dat het is bedoeld voor toepassingen die active code, bediend door een externe bron naar een browser uitvoeren. Als u van plan bent een beveiligd-WACHTWOORDVERIFICATIE-architectuur, hebben geen back-end-onderdelen of van plan om aan te roepen een Web-API via JavaScript, gebruik van de impliciete stroom voor het ophalen van tokens wordt aanbevolen.
 
 Als uw toepassing een systeemeigen client is niet de impliciete stroom uitstek geschikt. Het ontbreken van de Azure AD-sessiecookie in de context van een systeemeigen client ontneemt uw toepassing uit de weg van het onderhouden van een lange levensduur sessie. Dit betekent dat uw toepassing wordt de gebruiker meerdere keren gevraagd bij het ophalen van de toegangstokens voor nieuwe resources.
 

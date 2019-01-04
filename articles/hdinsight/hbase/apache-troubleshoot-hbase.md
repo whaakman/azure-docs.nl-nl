@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014664"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651602"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Apache HBase oplossen met behulp van Azure HDInsight
 
@@ -288,7 +288,7 @@ Er is geen serveradres wordt vermeld in *hbase: meta* voor regio xxx.
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
-U ziet mogelijk een bericht op uw Linux-cluster waarmee wordt aangegeven dat de *hbase: meta* tabel is niet online. Met `hbck` kan rapporteren dat ' hbase: meta tabel replicaId 0 is niet gevonden in elke regio. " Het probleem kan zijn dat HMaster kan geen initialisatie uitvoeren nadat u HBase opnieuw opgestart. In de HMaster-Logboeken, ziet u het bericht: "Er is geen serveradres vermeld in hbase: metagegevens voor de regio hbase: back-up \<regionaam\>'.  
+U ziet mogelijk een bericht op uw Linux-cluster waarmee wordt aangegeven dat de *hbase: meta* tabel is niet online. Met `hbck` kan rapporteren dat ' hbase: meta tabel replicaId 0 is niet gevonden in elke regio. " Het probleem kan zijn dat HMaster kan geen initialisatie uitvoeren nadat u HBase opnieuw opgestart. In de HMaster-logboeken ziet u mogelijk het bericht: "Er is geen serveradres vermeld in hbase: metagegevens voor de regio hbase: back-up \<regionaam\>'.  
 
 ### <a name="resolution-steps"></a>Oplossingen
 
@@ -314,12 +314,12 @@ U ziet mogelijk een bericht op uw Linux-cluster waarmee wordt aangegeven dat de 
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Kan niet worden verwerkt de HBase-tabel](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[Kan niet worden verwerkt de HBase-tabel](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>Fout
 
-HMaster een time-out optreedt bij een onherstelbare uitzondering die vergelijkbaar is met ' java.io.IOException: time-out 300000ms wachten op de tabel naamruimte moet worden toegewezen. "
+HMaster een time-out optreedt bij een onherstelbare uitzondering die vergelijkbaar is met ' java.io.IOException: Time-out 300000ms wachten op tabel van de naamruimte moet worden toegewezen."
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
@@ -344,7 +344,7 @@ Dit is een bekend probleem met de HMaster-service. Algemene cluster opstarttaken
 
 ### <a name="issue"></a>Probleem
 
-Een fout opnieuw opstarten op een regioserver kan worden voorkomen door de volgende aanbevolen procedures. Het is raadzaam dat u zware werkbelasting activiteit onderbreken wanneer u van plan bent om opnieuw te starten van servers voor HBase-regio. Als een toepassing wordt voortgezet om te verbinden met regioservers wanneer shutdown bezig is, wordt regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee om eerst alle tabellen leeg te maken. Zie voor informatie over het leegmaken van tabellen [HDInsight HBase: over het verbeteren van de tijd van Apache HBase-cluster opnieuw starten door het verplaatsen van tabellen](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Een fout opnieuw opstarten op een regioserver kan worden voorkomen door de volgende aanbevolen procedures. Het is raadzaam dat u zware werkbelasting activiteit onderbreken wanneer u van plan bent om opnieuw te starten van servers voor HBase-regio. Als een toepassing wordt voortgezet om te verbinden met regioservers wanneer shutdown bezig is, wordt regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee om eerst alle tabellen leeg te maken. Zie voor informatie over het leegmaken van tabellen [HDInsight HBase: Over het verbeteren van de tijd van Apache HBase-cluster opnieuw starten door het verplaatsen van tabellen](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Als u de opstartbewerking voor HBase-regioservers vanuit de Apache Ambari-gebruikersinterface hebt gestart, ziet u meteen dat de regioservers werd afgesloten, maar ze niet meteen opnieuw. 
 

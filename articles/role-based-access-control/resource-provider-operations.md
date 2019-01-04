@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410530"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728445"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -1867,12 +1867,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Devices/provisioningServices/certificates/verify/Action | Controleer de resource-certificaat |
 > | Bewerking | Microsoft.Devices/provisioningServices/certificates/Write | Maken of bijwerken van certificaat |
 > | Bewerking | Microsoft.Devices/provisioningServices/Delete | IotDps resource verwijderen |
-> | Bewerking | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
+> | Bewerking | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald. Opmerking: mogelijk moet u `Microsoft.Insights/diagnosticSettings/read` ook  |
 > | Bewerking | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.Devices/provisioningServices/keys/listkeys/Action | IotDps sleutels voor de naam van de sleutel ophalen |
 > | Bewerking | Microsoft.Devices/provisioningServices/listkeys/Action | Alle IotDps-sleutels ophalen |
-> | Bewerking | Microsoft.Devices/provisioningServices/logDefinitions/read | De logboekdefinities van de beschikbaar voor de provisioning-Service opgehaald |
-> | Bewerking | Microsoft.Devices/provisioningServices/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor de provisioning-service |
+> | Bewerking | Microsoft.Devices/provisioningServices/logDefinitions/read | Hiermee haalt u de beschikbare logboekdefinities voor de provisioning-Service. Opmerking: mogelijk moet u `Microsoft.Insights/logDefinitions/read` ook |
+> | Bewerking | Microsoft.Devices/provisioningServices/metricDefinitions/read | Hiermee haalt de beschikbare metrische gegevens voor de provisioning-service. Opmerking: mogelijk moet u `Microsoft.Insights/metricDefinitions/read` ook |
 > | Bewerking | Microsoft.Devices/provisioningServices/operationresults/Read | Resultaat van de DPS-bewerking ophalen |
 > | Bewerking | Microsoft.Devices/provisioningServices/Read | Ophalen van IotDps |
 > | Bewerking | Microsoft.Devices/provisioningServices/skus/Read | Geldige IotDps Skus ophalen |

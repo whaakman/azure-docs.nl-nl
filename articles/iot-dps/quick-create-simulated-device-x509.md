@@ -1,6 +1,6 @@
 ---
 title: In deze snelstart ziet u hoe u een gesimuleerd X.509-apparaat kunt inrichten met C voor Azure IoT Hub | Microsoft Docs
-description: In deze quickstart wordt gebruikgemaakt van afzonderlijke registraties. In deze quickstart maakt u een gesimuleerd X.509-apparaat met de IoT C SDK voor Azure IoT Hub Device Provisioning Service en richt u het apparaat in.
+description: In deze snelstart wordt gebruikgemaakt van afzonderlijke inschrijvingen. In deze quickstart maakt u een gesimuleerd X.509-apparaat met de IoT C SDK voor Azure IoT Hub Device Provisioning Service en richt u het apparaat in.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/16/2018
@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8b7848392ebd8ec44dcf646b13911aaafe905ae3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 16942e183152720dc958b6c0ccecde1dee2e5cde
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158908"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185168"
 ---
-# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snelstart: Een gesimuleerd X.509-apparaat inrichten met de Azure IoT C SDK
+# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snelstartgids: Een gesimuleerd X.509-apparaat inrichten met de Azure IoT C SDK
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
@@ -24,9 +24,9 @@ In deze snelstart leert u hoe u een X.509-apparaatsimulator op een Windows-ontwi
 
 Raadpleeg [Concepten voor automatische inrichting](concepts-auto-provisioning.md) als u niet bekend bent met het proces van automatisch inrichten. Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat met deze snelstart. 
 
-Azure IoT Device Provisioning Service ondersteunt twee typen registraties:
-- [Registratiegroepen](concepts-service.md#enrollment-group): voor het registreren van meerdere gerelateerde apparaten.
-- [Afzonderlijke registraties](concepts-service.md#individual-enrollment): voor het registreren van een enkel apparaat.
+Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): Wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): Wordt gebruikt om één apparaat in te schrijven.
 
 In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
@@ -137,13 +137,13 @@ U gaat voorbeeldcode van de Azure IoT C-SDK gebruiken om het certificaat te make
 
 3. Voer bij **Inschrijving toevoegen** de volgende gegevens in en klik op de knop **Opslaan**.
 
-    - **Mechanisme:** selecteer **X.509** als *mechanisme* voor identiteitscontrole.
-    - **Primair certificaat .pem- of .cer-bestand:** klik op **Een bestand selecteren** om het certificaatbestand X509testcert.pem te selecteren dat u eerder hebt gemaakt.
-    - **IoT Hub-apparaat-id:** voer **test-docs-cert-device** in als id voor het apparaat.
+    - **Mechanisme:** Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
+    - **Pem- of cer-bestand voor primair certificaat:** Klik op **Een bestand selecteren** om het certificaatbestand X509testcert.pem te selecteren dat u eerder hebt gemaakt.
+    - **Apparaat-id voor IoT Hub:** Voer **test-docs-cert-device** in als id voor het apparaat.
 
-    [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+      [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-    Als het apparaat is ingeschreven, wordt uw X.509-apparaat weergegeven als **riot-device-cert** onder de kolom *Registratie-id* op het tabblad *Afzonderlijke registraties*. 
+      Als het apparaat is ingeschreven, wordt uw X.509-apparaat weergegeven als **riot-device-cert** onder de kolom *Registratie-id* op het tabblad *Afzonderlijke registraties*. 
 
 
 

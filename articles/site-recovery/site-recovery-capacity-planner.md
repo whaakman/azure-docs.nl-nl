@@ -3,16 +3,17 @@ title: Capaciteit plannen voor Hyper-V-noodherstel met Azure Site Recovery | Mic
 description: Gebruik dit artikel kunt u schatten capaciteit bij het instellen van herstel na noodgeval met de Azure Site Recovery-service.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844937"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976712"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Capaciteit plannen voor noodherstel van Hyper-V-VM 
 
@@ -33,8 +34,8 @@ Gebruik Site Recovery Capacity Planner voor het analyseren van uw bronomgeving e
 
 U kunt het hulpprogramma uitvoeren in twee modi:
 
-* **Planning voor snelle**: netwerk- en projecties op basis van een gemiddelde aantal virtuele machines, schijven, opslag en de wijzigingssnelheid biedt.
-* **Gedetailleerde planning**: vindt u informatie over elke werkbelasting op het niveau van de virtuele machine. VM-compatibiliteit analyseren en netwerk- en projecties ophalen.
+* **Planning voor snelle**: Biedt de netwerk- en projecties op basis van een gemiddelde aantal virtuele machines, schijven, opslag en de wijzigingssnelheid.
+* **Gedetailleerde planning**: Geeft de details van elke werkbelasting op het niveau van de virtuele machine. VM-compatibiliteit analyseren en netwerk- en projecties ophalen.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
@@ -65,17 +66,17 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
 4. Nadat u de waarden voor de bronomgeving hebt ingevoerd, bevat de uitvoer weergegeven:
 
-   * **Bandbreedte die is vereist voor replicatie van verschillen (in Megabits per seconde)**: netwerkbandbreedte voor replicatie van verschillen voor de gemiddelde dagelijkse veranderingssnelheid van gegevens wordt berekend.
-   * **Bandbreedte die is vereist voor de initiële replicatie (in Megabits per seconde)**: netwerkbandbreedte voor de initiële replicatie wordt berekend op basis van de initiële replicatie waarden die u invoert.
-   * **Opslag die is vereist (in GB)**: de totale Azure-opslag vereist.
-   * **Totaal aantal IOP's op Standard-opslag**: het aantal wordt berekend op basis van de grootte van 8 kB IOPS op de totale standard storage-accounts. Het getal wordt berekend op basis van de schijven voor de virtuele machine bron en de dagelijkse gegevenswijzigingssnelheid voor de snelle Planner. Voor de gedetailleerde Planner, het getal wordt berekend op basis van het totale aantal virtuele machines die zijn toegewezen aan de standaard Azure-VM's en de gegevenswijzigingssnelheid op deze virtuele machines.
-   * **Aantal vereiste accounts voor standaardopslag**: het totale aantal standard storage-accounts die nodig zijn voor het beveiligen van de virtuele machines. Een standard storage-account kan maximaal 20.000 IOP's bevatten voor alle virtuele machines in de standard-opslag. Maximaal 500 IOP's wordt per schijf ondersteund.
-   * **Aantal vereiste schijven voor Blob**: het aantal schijven die zijn gemaakt op Azure-opslag.
-   * **Het aantal vereiste accounts voor premium**: het totale aantal premium storage-accounts die nodig zijn voor het beveiligen van de virtuele machines. Een bron-VM met hoge IOPS (groter dan 20.000) moet een premium storage-account. Premium storage-account kan maximaal 80.000 IOP's bevatten.
-   * **Totaal aantal IOP's op Premium Storage**: het aantal wordt berekend op basis van de grootte van 256 kB IOPS op de totale premium storage-accounts. Het getal wordt berekend op basis van de schijven voor de virtuele machine bron en de dagelijkse gegevenswijzigingssnelheid voor de snelle Planner. Het getal wordt berekend op basis van het totale aantal virtuele machines die zijn toegewezen aan premium Azure-VM's (DS- en GS-serie) voor de gedetailleerde Planner en veranderingssnelheid van de gegevens op deze virtuele machines.
-   * **Het aantal configuratieservers vereist**: geeft het aantal configuratieservers zijn vereist voor de implementatie.
-   * **Aantal extra processervers vereist**: geeft aan of extra processervers vereist, naast de processerver die standaard op de configuratieserver wordt uitgevoerd.
-   * **Extra opslag van 100% op de broncomputer**: laat zien of extra opslag in de bronlocatie vereist is.
+   * **Bandbreedte die is vereist voor replicatie van verschillen (in Megabits per seconde)**: Netwerkbandbreedte voor replicatie van verschillen wordt voor de gemiddelde dagelijkse veranderingssnelheid van gegevens berekend.
+   * **Bandbreedte die is vereist voor de initiële replicatie (in Megabits per seconde)**: Netwerkbandbreedte voor de initiële replicatie wordt berekend op basis van de initiële replicatie waarden die u invoert.
+   * **Opslag die is vereist (in GB)**: De totale Azure opslagruimte vereist.
+   * **Totaal aantal IOP's op Standard-opslag**: Het getal wordt berekend op basis van de grootte van 8 kB IOPS op de totale standard storage-accounts. Het getal wordt berekend op basis van de schijven voor de virtuele machine bron en de dagelijkse gegevenswijzigingssnelheid voor de snelle Planner. Voor de gedetailleerde Planner, het getal wordt berekend op basis van het totale aantal virtuele machines die zijn toegewezen aan de standaard Azure-VM's en de gegevenswijzigingssnelheid op deze virtuele machines.
+   * **Aantal vereiste accounts voor standaardopslag**: Het totale aantal standard storage-accounts nodig voor het beveiligen van de virtuele machines. Een standard storage-account kan maximaal 20.000 IOP's bevatten voor alle virtuele machines in de standard-opslag. Maximaal 500 IOP's wordt per schijf ondersteund.
+   * **Aantal vereiste schijven voor Blob**: Het aantal schijven die zijn gemaakt op Azure-opslag.
+   * **Het aantal vereiste accounts voor premium**: Het totale aantal premium storage-accounts nodig voor het beveiligen van de virtuele machines. Een bron-VM met hoge IOPS (groter dan 20.000) moet een premium storage-account. Premium storage-account kan maximaal 80.000 IOP's bevatten.
+   * **Totaal aantal IOP's op Premium Storage**: Het getal wordt berekend op basis van de grootte van 256 kB IOPS op de totale premium storage-accounts. Het getal wordt berekend op basis van de schijven voor de virtuele machine bron en de dagelijkse gegevenswijzigingssnelheid voor de snelle Planner. Het getal wordt berekend op basis van het totale aantal virtuele machines die zijn toegewezen aan premium Azure-VM's (DS- en GS-serie) voor de gedetailleerde Planner en veranderingssnelheid van de gegevens op deze virtuele machines.
+   * **Het aantal configuratieservers vereist**: Geeft het aantal configuratieservers zijn vereist voor de implementatie.
+   * **Aantal extra processervers vereist**: Geeft aan of extra processervers zijn vereist, naast de processerver die standaard op de configuratieserver wordt uitgevoerd.
+   * **Extra opslag van 100% op de broncomputer**: Geeft aan of extra opslag in de bronlocatie vereist is.
 
       ![Uitvoer](./media/site-recovery-capacity-planner/output.png)
 

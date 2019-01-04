@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 92221e5aaebbaebb2af17ea211e38a3665a2b04f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632608"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652470"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Gebruik Python-gebruiker gedefinieerde functies (UDF's) met Apache Hive en Apache Pig in HDInsight
 
@@ -26,7 +26,7 @@ Python2.7 is standaard op HDInsight 3.0 en hoger geïnstalleerd. Apache Hive kan
 
 HDInsight bevat ook Jython, een Python-implementatie die zijn geschreven in Java. Jython rechtstreeks op de virtuele Java-Machine wordt uitgevoerd en maakt geen gebruik van streaming. Jython is de aanbevolen Python-interpreter als Python gebruiken met Pig.
 
-> [!WARNING]
+> [!WARNING]  
 > De stappen in dit document moeten u de volgende veronderstellingen: 
 >
 > * U kunt de Python-scripts maken op uw lokale ontwikkelomgeving.
@@ -38,7 +38,7 @@ HDInsight bevat ook Jython, een Python-implementatie die zijn geschreven in Java
 > * Gebruik `scp` voor het uploaden van de bestanden in de cloudshell naar HDInsight.
 > * Gebruik `ssh` vanuit de cloudshell verbinding maken met HDInsight en het uitvoeren van de voorbeelden.
 
-## <a name="hivepython"></a>Hive-UDF
+## <a name="hivepython"></a>Apache Hive UDF
 
 Python kan worden gebruikt als een UDF uit Hive via de HiveQL `TRANSFORM` instructie. Bijvoorbeeld, de volgende HiveQL roept de `hiveudf.py` bestand wordt opgeslagen in de standaard Azure Storage-account voor het cluster.
 
@@ -66,7 +66,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Op Windows gebaseerde HDInsight-clusters, de `USING` component moet het volledige pad naar python.exe opgeven.
 
 Dit is wat in dit voorbeeld doet:
@@ -111,7 +111,7 @@ De uitvoer van het script is een samenvoeging van de invoerwaarden voor `devicem
 
 Zie [uitgevoerd in de voorbeelden](#running) voor het uitvoeren van dit voorbeeld op uw HDInsight-cluster.
 
-## <a name="pigpython"></a>Pig UDF
+## <a name="pigpython"></a>Apache Pig UDF
 
 Een Python-script kan worden gebruikt als een UDF uit Pig via de `GENERATE` instructie. U kunt het script met behulp van Jython of C Python kunt uitvoeren.
 
@@ -123,7 +123,7 @@ Gebruik het opgeven van de Python-interpreter `register` wanneer u verwijst naar
 * **Gebruik Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
 * **Gebruik C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Wanneer u Jython, het pad naar het bestand pig_jython mag bestaan uit een lokaal pad of een WASB: / / pad. Echter, wanneer u C Python, u moet verwijzen naar een bestand op het lokale bestandssysteem van het knooppunt dat u gebruikt voor het verzenden van de Pig-taak.
 
 Eenmaal na registratie, de Pig Latin voor dit voorbeeld is hetzelfde voor beide:
@@ -182,7 +182,7 @@ Wanneer de gegevens wordt geretourneerd naar Pig, heeft een consistent schema zo
 
 ## <a name="running"></a>Uploaden en de voorbeelden uitvoeren
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De **SSH** stappen werken alleen met een Linux gebaseerde HDInsight-cluster. De **PowerShell** stappen werken met een Linux- of Windows-gebaseerde HDInsight-cluster, maar vereisen dat een Windows-client.
 
 ### <a name="ssh"></a>SSH
@@ -303,7 +303,7 @@ Na het uploaden van bestanden, gebruikt u de volgende stappen uit de Hive en Pig
 
 U kunt PowerShell gebruiken de bestanden te uploaden naar de HDInsight-server. Gebruik het volgende script om de Python-bestanden te uploaden:
 
-> [!IMPORTANT] 
+> [!IMPORTANT]   
 > De stappen in deze sectie gebruikt Azure PowerShell. Zie voor meer informatie over het gebruik van Azure PowerShell [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
@@ -313,14 +313,14 @@ U kunt PowerShell gebruiken de bestanden te uploaden naar de HDInsight-server. G
 
 Dit script wordt informatie opgehaald voor het HDInsight-cluster en vervolgens pakt het account en de sleutel voor het standaardaccount voor opslag en bestanden worden geüpload naar de hoofdmap van de container.
 
-> [!NOTE]
-> Zie voor meer informatie over het uploaden van bestanden, de [gegevens uploaden voor Hadoop-taken in HDInsight](../hdinsight-upload-data.md) document.
+> [!NOTE]  
+> Zie voor meer informatie over het uploaden van bestanden, de [gegevens uploaden voor Apache Hadoop-taken in HDInsight](../hdinsight-upload-data.md) document.
 
 #### <a name="powershell-use-the-hive-udf"></a>PowerShell: Gebruik de component UDF
 
 PowerShell kan ook worden gebruikt om Hive-query's op afstand worden uitgevoerd. Gebruik de volgende PowerShell-script om uit te voeren van een Hive-query die gebruikmaakt van **hiveudf.py** script:
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voordat u die wordt uitgevoerd vraagt het script u om de accountgegevens HTTPs/Admin voor uw HDInsight-cluster.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
@@ -337,7 +337,7 @@ De uitvoer voor de **Hive** taak moet worden weergegeven die vergelijkbaar is me
 
 PowerShell kan ook worden gebruikt Pig Latin-taken uit te voeren. Om uit te voeren een Pig Latin-taak die gebruikmaakt van de **pigudf.py** script, gebruikt u de volgende PowerShell-script:
 
-> [!NOTE]
+> [!NOTE]  
 > Bij het op afstand indienen van een taak met behulp van PowerShell, is het niet mogelijk Python C gebruiken als de-interpreter.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
@@ -383,6 +383,6 @@ Als u laden van Python-modules die niet worden geboden door standaard wilt, Zie 
 
 Voor andere manieren om te gebruiken Pig, Hive, en voor meer informatie over het gebruik van MapReduce, Zie de volgende documenten:
 
-* [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hdinsight-use-pig.md)
+* [Apache Hive gebruiken met HDInsight](hdinsight-use-hive.md)
+* [Apache Pig gebruiken met HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met HDInsight](hdinsight-use-mapreduce.md)

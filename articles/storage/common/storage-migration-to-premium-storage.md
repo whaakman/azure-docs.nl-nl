@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.component: common
-ms.openlocfilehash: 4ec0d4058c512ce420cd6e1bdc393b8043dbf1b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c9e9dd0eab127fcb0deb3085915bd51eeb309089
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232548"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632837"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
 
@@ -32,7 +32,7 @@ Het doel van deze handleiding is om nieuwe gebruikers van Azure Premium Storage 
 U kunt virtuele machines vanaf andere platforms migreren naar Azure Premium Storage of bestaande Azure-VM's migreren van standaardopslag naar Premium Storage. Deze handleiding bevat informatie over stappen voor beide twee scenario's. Volg de stappen die zijn opgegeven in de betreffende sectie afhankelijk van uw scenario.
 
 > [!NOTE]
-> U vindt een overzicht van functies en prijzen van Premium-opslag in Premium-opslag: [opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md). Het is raadzaam om de migratie van een virtuele machine-schijf vereisen hoge IOPS naar Azure Premium Storage voor de beste prestaties voor uw toepassing. Als de schijf geen hoge IOPS is vereist, kunt u kosten kunt beperken door het onderhoud ervan in de Standard-opslag, waarin de gegevens van de virtuele machine-schijf op hardeschijfstations (HDD's) in plaats van SSD's worden opgeslagen.
+> U vindt een overzicht van functies en prijzen van Premium-opslag in Premium-opslag: [Opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md). Het is raadzaam om de migratie van een virtuele machine-schijf vereisen hoge IOPS naar Azure Premium Storage voor de beste prestaties voor uw toepassing. Als de schijf geen hoge IOPS is vereist, kunt u kosten kunt beperken door het onderhoud ervan in de Standard-opslag, waarin de gegevens van de virtuele machine-schijf op hardeschijfstations (HDD's) in plaats van SSD's worden opgeslagen.
 >
 
 De migratie voltooien in zijn geheel is mogelijk aanvullende acties zowel vóór als na de stappen in deze handleiding. Voorbeelden hiervan zijn virtuele netwerken of eindpunten configureren of codewijzigingen in de toepassing zelf mogelijk moet hiervoor de enige downtime in uw toepassing. Deze acties zijn uniek voor elke toepassing en u ze samen met de stappen in deze handleiding voor de volledige overgang naar Premium Storage zo weinig mogelijk moet voltooien.
@@ -67,7 +67,7 @@ Premium Storage-accounts hebben de volgende schaalbaarheidsdoelen naast de [Azur
 
 | Totale capaciteit | Totale bandbreedte voor een Account voor lokaal redundante opslag |
 |:--- |:--- |
-| Schijf capaciteit: 35TB<br />Snapshot-capaciteit: 10 TB |Maximaal 50 gigabits per seconde voor binnenkomend en uitgaand |
+| Capaciteit van de schijf: 35TB<br />Snapshot-capaciteit: 10 TB |Maximaal 50 gigabits per seconde voor binnenkomend en uitgaand |
 
 Bekijk voor meer informatie over specificaties van Premium Storage [Scalability and Performance Targets bij het gebruik van Premium Storage](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
 
@@ -81,13 +81,13 @@ Kies een locatie waar Azure Premium Storage beschikbaar is. Zie [Azure Services 
 Bij het maken van een Azure-VM, wordt u gevraagd om bepaalde VM-instellingen te configureren. Denk eraan dat enkele instellingen staan vast voor de levensduur van de virtuele machine, terwijl u kunt wijzigen of andere later toevoegen. Deze Azure-VM-configuratie-instellingen controleren en zorg ervoor dat deze zodat deze overeenkomt met de vereisten van uw workloads op de juiste wijze zijn geconfigureerd.
 
 ### <a name="optimization"></a>Optimalisatie
-[Azure Premium Storage: Ontwerpen voor hoge prestaties](../../virtual-machines/windows/premium-storage-performance.md) bevat richtlijnen voor het bouwen van krachtige toepassingen met behulp van Azure Premium Storage. Volg de richtlijnen in combinatie met aanbevolen procedures voor prestaties van toepassing op de technologieën die worden gebruikt door uw toepassing.
+[Azure Premium Storage: Ontwerp voor hoge prestaties](../../virtual-machines/windows/premium-storage-performance.md) bevat richtlijnen voor het bouwen van krachtige toepassingen met behulp van Azure Premium Storage. Volg de richtlijnen in combinatie met aanbevolen procedures voor prestaties van toepassing op de technologieën die worden gebruikt door uw toepassing.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Voorbereiden en virtuele harde schijven (VHD's) kopiëren naar Premium Storage
 De volgende sectie bevat richtlijnen voor het voorbereiden van VHD's van uw virtuele machine en VHD's kopiëren naar Azure Storage.
 
-* [Scenario 1: "Ik ben migreren bestaande Azure-VM's naar Azure Premium Storage."](#scenario1)
-* [Scenario 2: "Ik ben migreren VM's vanaf andere platforms naar Azure Premium Storage."](#scenario2)
+* [Scenario 1: "Ik ben bestaande Azure-VM's migreren naar Azure Premium Storage."](#scenario1)
+* [Scenario 2: "Ik ben VM's migreren vanaf andere platforms naar Azure Premium Storage."](#scenario2)
 
 ### <a name="prerequisites"></a>Vereisten
 Als u wilt voorbereiden van de VHD's voor migratie, hebt u het volgende nodig:
@@ -105,7 +105,7 @@ Als u wilt voorbereiden van de VHD's voor migratie, hebt u het volgende nodig:
 >
 >
 
-### <a name="scenario1"></a>Scenario 1: "Ik ben migreren bestaande Azure-VM's naar Azure Premium Storage."
+### <a name="scenario1"></a>Scenario 1: "Ik ben bestaande Azure-VM's migreren naar Azure Premium Storage."
 Als u bestaande Azure-VM's migreert, moet de virtuele machine stoppen, VHD's per het type VHD die u wilt voorbereiden en kopieer vervolgens de VHD met het AzCopy- of PowerShell.
 
 De virtuele machine moet volledig omlaag voor het migreren van een oude toestand. Er zijn een uitvaltijd totdat de migratie is voltooid.
@@ -163,7 +163,7 @@ U moet uw container pad en opslagaccountsleutel voor het verwerken van een van d
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Optie 1: Kopieer geen VHD met AzCopy (asynchrone kopiëren)
 Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan tijd duren, afhankelijk van de grootte van de VHD's. Vergeet niet om te controleren of limieten Inkomend/uitgaand verkeer van het opslagaccount wanneer u deze optie. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor meer informatie.
 
-1. Download en installeer AzCopy hier: [meest recente versie van AzCopy](https://aka.ms/downloadazcopy)
+1. Download en installeer AzCopy hier: [Meest recente versie van AzCopy](https://aka.ms/downloadazcopy)
 2. Open Azure PowerShell en Ga naar de map waarin AzCopy wordt geïnstalleerd.
 3. Gebruik de volgende opdracht uit om te kopiëren van de VHD-bestand van 'Source' naar 'Doel'.
 
@@ -179,25 +179,28 @@ Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan ti
 
     Hier volgen beschrijvingen van de parameters in de AzCopy-opdracht:
 
-   * **/ Bron:  *&lt;bron&gt;:***  locatie van de map of de URL van de opslag-container met de VHD.
-   * **/ SourceKey:  *&lt;bron accountsleutel&gt;:***  opslagaccountsleutel van de bron-storage-account.
-   * **/ Dest:  *&lt;bestemming&gt;:***  opslag container-URL te kopiëren van de VHD op.
-   * **/ DestKey:  *&lt;dest accountsleutel&gt;:***  opslagaccountsleutel van het doelopslagaccount.
-   * **/ Patroon:  *&lt;-bestandsnaam&gt;:***  Geef de bestandsnaam op van de VHD te kopiëren.
+   * **/ Bron:  *&lt;bron&gt;:*** Locatie van de map of de URL van de opslag-container met de VHD.
+   * **/ SourceKey:  *&lt;bron accountsleutel&gt;:*** Opslagaccountsleutel van de bron-storage-account.
+   * **/ Dest:  *&lt;bestemming&gt;:*** Opslag container-URL te kopiëren van de VHD op.
+   * **/ DestKey:  *&lt;dest accountsleutel&gt;:*** Opslagaccountsleutel van het doelopslagaccount.
+   * **/ Patroon:  *&lt;-bestandsnaam&gt;:*** Geef de bestandsnaam op van de VHD te kopiëren.
 
 Voor meer informatie over het gebruik van AzCopy hulpprogramma [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md).
 
 ##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>Optie 2: Kopieer geen VHD met PowerShell (Synchronized kopiëren)
-U kunt ook het VHD-bestand met de PowerShell-cmdlet Start-AzureStorageBlobCopy kopiëren. Gebruik de volgende opdracht uit op Azure PowerShell om te kopiëren van de VHD. Vervang de waarden in <> met overeenkomende waarden van uw bron- en storage-account. Voor het gebruik van deze opdracht moet u een container met de naam VHD's in uw doel-opslagaccount hebben. Als de container niet bestaat, maakt voordat u de opdracht uitvoert.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+U kunt ook het VHD-bestand met de PowerShell-cmdlet Start-AzStorageBlobCopy kopiëren. Gebruik de volgende opdracht uit op Azure PowerShell om te kopiëren van de VHD. Vervang de waarden in <> met overeenkomende waarden van uw bron- en storage-account. Voor het gebruik van deze opdracht moet u een container met de naam VHD's in uw doel-opslagaccount hebben. Als de container niet bestaat, maakt voordat u de opdracht uitvoert.
 
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
 
-$sourceContext = New-AzureStorageContext  –StorageAccountName <source-account> -StorageAccountKey <source-account-key>
+$sourceContext = New-AzStorageContext  –StorageAccountName <source-account> -StorageAccountKey <source-account-key>
 
-$destinationContext = New-AzureStorageContext  –StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
+$destinationContext = New-AzStorageContext  –StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
 
-Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
+Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
 ```
 
 Voorbeeld:
@@ -205,14 +208,14 @@ Voorbeeld:
 ```powershell
 C:\PS> $sourceBlobUri = "https://sourceaccount.blob.core.windows.net/vhds/myvhd.vhd"
 
-C:\PS> $sourceContext = New-AzureStorageContext  –StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
+C:\PS> $sourceContext = New-AzStorageContext  –StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
 
-C:\PS> $destinationContext = New-AzureStorageContext  –StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
+C:\PS> $destinationContext = New-AzStorageContext  –StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
 
-C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
+C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 ```
 
-### <a name="scenario2"></a>Scenario 2: "Ik ben migreren VM's vanaf andere platforms naar Azure Premium Storage."
+### <a name="scenario2"></a>Scenario 2: "Ik ben VM's migreren vanaf andere platforms naar Azure Premium Storage."
 Als u VHD van niet - Azure-Cloudopslag in Azure migreert, moet u eerst de VHD exporteren naar een lokale map. Het pad van de volledige broncode van de lokale directory waar VHD is opgeslagen bij de hand hebt, en vervolgens met behulp van AzCopy te uploaden naar Azure Storage.
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>Step 1. VHD naar een lokale map exporteren
@@ -254,10 +257,10 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 
 Een voorbeeld <Uri> mogelijk ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Een voorbeeld <FileInfo> mogelijk ***"C:\path\to\upload.vhd"***.
 
-##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Optie 2: De VHD-bestand uploaden met behulp van AzCopy
+##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Optie 2: AzCopy gebruiken om de VHD-bestand te uploaden
 Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan tijd duren, afhankelijk van de grootte van de VHD's. Vergeet niet om te controleren of limieten Inkomend/uitgaand verkeer van het opslagaccount wanneer u deze optie. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor meer informatie.
 
-1. Download en installeer AzCopy hier: [meest recente versie van AzCopy](https://aka.ms/downloadazcopy)
+1. Download en installeer AzCopy hier: [Meest recente versie van AzCopy](https://aka.ms/downloadazcopy)
 2. Open Azure PowerShell en Ga naar de map waarin AzCopy wordt geïnstalleerd.
 3. Gebruik de volgende opdracht uit om te kopiëren van de VHD-bestand van 'Source' naar 'Doel'.
 
@@ -273,12 +276,12 @@ Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan ti
 
     Hier volgen beschrijvingen van de parameters in de AzCopy-opdracht:
 
-   * **/ Bron:  *&lt;bron&gt;:***  locatie van de map of de URL van de opslag-container met de VHD.
-   * **/ SourceKey:  *&lt;bron accountsleutel&gt;:***  opslagaccountsleutel van de bron-storage-account.
-   * **/ Dest:  *&lt;bestemming&gt;:***  opslag container-URL te kopiëren van de VHD op.
-   * **/ DestKey:  *&lt;dest accountsleutel&gt;:***  opslagaccountsleutel van het doelopslagaccount.
-   * **/ BlobType: pagina:** geeft aan dat de bestemming een pagina-blob.
-   * **/ Patroon:  *&lt;-bestandsnaam&gt;:***  Geef de bestandsnaam op van de VHD te kopiëren.
+   * **/ Bron:  *&lt;bron&gt;:*** Locatie van de map of de URL van de opslag-container met de VHD.
+   * **/ SourceKey:  *&lt;bron accountsleutel&gt;:*** Opslagaccountsleutel van de bron-storage-account.
+   * **/ Dest:  *&lt;bestemming&gt;:*** Opslag container-URL te kopiëren van de VHD op.
+   * **/ DestKey:  *&lt;dest accountsleutel&gt;:*** Opslagaccountsleutel van het doelopslagaccount.
+   * **/ BlobType: pagina:** Geeft aan dat de bestemming een pagina-blob.
+   * **/ Patroon:  *&lt;-bestandsnaam&gt;:*** Geef de bestandsnaam op van de VHD te kopiëren.
 
 Voor meer informatie over het gebruik van AzCopy hulpprogramma [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md).
 
@@ -430,7 +433,7 @@ Als u meerdere virtuele machines hebt te migreren, wordt de automatisering met b
 De veronderstellingen zijn:
 
 * Klassieke Azure-VM's die u maakt.
-* De bron-OS-schijven en de gegevensschijven van de bron zich in hetzelfde opslagaccount en dezelfde container. Als uw Besturingssysteemschijven en gegevensschijven niet op dezelfde plaats zijn, kunt u AzCopy of Azure PowerShell gebruiken om te kopiëren van VHD's over de storage-accounts en -containers. Raadpleeg de vorige stap: [kopie VHD met het AzCopy- of PowerShell](#copy-vhd-with-azcopy-or-powershell). Bewerken van dit script om te voldoen aan uw scenario is een andere keuze, maar wij raden omdat het is eenvoudiger en sneller met behulp van de AzCopy- of PowerShell.
+* De bron-OS-schijven en de gegevensschijven van de bron zich in hetzelfde opslagaccount en dezelfde container. Als uw Besturingssysteemschijven en gegevensschijven niet op dezelfde plaats zijn, kunt u AzCopy of Azure PowerShell gebruiken om te kopiëren van VHD's over de storage-accounts en -containers. Raadpleeg de vorige stap: [Kopieer de VHD met het AzCopy- of PowerShell](#copy-vhd-with-azcopy-or-powershell). Bewerken van dit script om te voldoen aan uw scenario is een andere keuze, maar wij raden omdat het is eenvoudiger en sneller met behulp van de AzCopy- of PowerShell.
 
 Hieronder vindt u het automatiseringsscript. Tekst vervangen door uw gegevens en bijwerken van het script moet overeenkomen met uw specifieke scenario.
 
@@ -610,18 +613,18 @@ Hieronder vindt u het automatiseringsscript. Tekst vervangen door uw gegevens en
 
     # Get source storage account information, not considering the data disks and os disks are in different accounts
     $sourceStorageAccountName = $sourceOSDisk.MediaLink.Host -split "\." | select -First 1
-    $sourceStorageKey = (Get-AzureStorageKey -StorageAccountName $sourceStorageAccountName).Primary
-    $sourceContext = New-AzureStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
+    $sourceStorageKey = (Get-AzStorageKey -StorageAccountName $sourceStorageAccountName).Primary
+    $sourceContext = New-AzStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
 
     # Create destination context
-    $destStorageKey = (Get-AzureStorageKey -StorageAccountName $DestStorageAccount).Primary
-    $destContext = New-AzureStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
+    $destStorageKey = (Get-AzStorageKey -StorageAccountName $DestStorageAccount).Primary
+    $destContext = New-AzStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
 
     # Create a container of vhds if it doesn't exist
-    if ((Get-AzureStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
+    if ((Get-AzStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
     {
         Write-Host "`n[WORKITEM] - Creating a container vhds in the destination storage account." -ForegroundColor Yellow
-        New-AzureStorageContainer -Context $destContext -Name vhds
+        New-AzStorageContainer -Context $destContext -Name vhds
     }
 
 
@@ -634,7 +637,7 @@ Hieronder vindt u het automatiseringsscript. Tekst vervangen door uw gegevens en
         # from the same vhd blob.
         $ContinueAnswer = Read-Host "`n`t[Warning] You chose to copy data disks only. Moving VM requires removing the original VM (the disks and backing vhd files will NOT be deleted) so that the new VM can boot from the same vhd. This is an irreversible action. Do you wish to proceed right now? (Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
-        $destOSVHD = Get-AzureStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
+        $destOSVHD = Get-AzStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
         Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
         Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
 
@@ -652,7 +655,7 @@ Hieronder vindt u het automatiseringsscript. Tekst vervangen door uw gegevens en
         # copy the os disk vhd
         Write-Host "`n[WORKITEM] - Starting copying os disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
         $allDisksToCopy += @($sourceOSDisk)
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
+        $targetBlob = Start-AzStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
         $destOSVHD = $targetBlob
     }
 
@@ -664,7 +667,7 @@ Hieronder vindt u het automatiseringsscript. Tekst vervangen door uw gegevens en
         $blobName = $disk.MediaLink.Segments[2]
         # copy all data disks
         Write-Host "`n[WORKITEM] - Starting copying data disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
+        $targetBlob = Start-AzStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
         # update the media link to point to the target blob link
         $disk.MediaLink = $targetBlob.ICloudBlob.Uri.AbsoluteUri
     }
@@ -683,7 +686,7 @@ Hieronder vindt u het automatiseringsscript. Tekst vervangen door uw gegevens en
                 Continue
             }
             $blobName = $disk.MediaLink.Segments[2]
-            $copyState = Get-AzureStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
+            $copyState = Get-AzStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
             if ($copyState.Status -eq "Success")
             {
                 Write-Host "`n[Status] - Success for disk copy $($disk.DiskName) at $($copyState.CompletionTime)" -ForegroundColor Green
@@ -762,7 +765,7 @@ Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Vir
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: opslag met hoge prestaties voor de werkbelasting van virtuele Azure-machines](../../virtual-machines/windows/premium-storage.md)
+* [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

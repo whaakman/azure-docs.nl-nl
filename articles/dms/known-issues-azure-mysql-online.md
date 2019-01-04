@@ -4,28 +4,28 @@ description: Meer informatie over bekende problemen/migratiebeperkingen met onli
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884507"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721645"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure DB voor MySQL
 
 Bekende problemen en beperkingen die zijn gekoppeld aan online migratie van MySQL naar Azure Database voor MySQL worden in de volgende secties beschreven. 
 
 ## <a name="online-migration-configuration"></a>Configuratie voor de online migratie
-- De bronversie van MySQL Server moet versie 5.6.35, 5.7.18 of hoger zijn
+- De bronversie van MySQL-Server moet versie 5.6.35, 5.7.18 of hoger
 - Azure Database for MySQL ondersteunt:
-    - Bewerking door MySQL-community
+    - MySQL in communityversie
     - InnoDB-engine
 - Versiemigratie van dezelfde. Migreren van MySQL 5.6 met Azure Database voor MySQL 5.7 wordt niet ondersteund.
 - Binaire logboekregistratie inschakelen in my.ini (Windows) of my.cnf (Unix)
@@ -53,34 +53,34 @@ Bekende problemen en beperkingen die zijn gekoppeld aan online migratie van MySQ
       GROUP BY SchemaName;
     ```
 
-    Voer de drop refererende sleutel (dit is de tweede kolom) in het queryresultaat.
+    Voer het 'drop foreign key'-script (de tweede kolom) uit in het queryresultaat.
 - Schema in de doel-Azure Database for MySQL mag geen geen triggers. Laten vallen van triggers in de doeldatabase:
     ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
     ```
 
 ## <a name="datatype-limitations"></a>Beperkingen van gegevenstype
-- **Beperking**: als er een JSON-gegevenstype in de bron-database voor MySQL is, migratie mislukt tijdens de continue synchronisatie.
+- **Beperking**: Als er een JSON-gegevenstype in de bron-MySQL-database is, mislukt de migratie tijdens de continue synchronisatie.
 
-    **Tijdelijke oplossing**: JSON wijzigen datatype gemiddeld tekst of longtext in source MySQL-database.
+    **Tijdelijke oplossing**: JSON-gegevenstype op Gemiddeld tekst of longtext in source MySQL-database wijzigen.
 
-- **Beperking**: als er geen primaire sleutel voor tabellen, doorlopende synchronisatie mislukken.
+- **Beperking**: Als er geen primaire sleutel voor tabellen is, mislukt doorlopende synchronisatie.
  
-    **Tijdelijke oplossing**: een primaire sleutel voor de tabel voor de migratie om door te gaan tijdelijk in te stellen. Nadat de migratie van gegevens is voltooid, kunt u de primaire sleutel verwijderen.
+    **Tijdelijke oplossing**: Een primaire sleutel voor de tabel voor de migratie om door te gaan tijdelijk in te stellen. Nadat de migratie van gegevens is voltooid, kunt u de primaire sleutel verwijderen.
 
 ## <a name="lob-limitations"></a>LOB-beperkingen
 Grote Object (LOB)-kolommen zijn kolommen die kunnen worden vergroot groot. Voor MySQL, middelgrote tekst, zijn sommige van de gegevenstypen van LOB Longtext, Blob, Mediumblob, Longblob, enzovoort.
 
-- **Beperking**: als LOB-gegevenstypen worden gebruikt als primaire sleutels, dan mislukt de migratie.
+- **Beperking**: Als u LOB-gegevenstypen worden gebruikt als primaire sleutels, mislukt de migratie.
 
-    **Tijdelijke oplossing**: primaire sleutel met andere gegevenstypen of kolommen die LOB niet vervangen.
+    **Tijdelijke oplossing**: Primaire sleutel vervangen door andere gegevenstypen of kolommen die geen LOB.
 
-- **Beperking**: als de lengte van het grote Object (LOB)-kolom groter dan 32 KB is, gegevens op het doel kan worden afgekapt. U kunt de lengte van LOB-kolom met behulp van deze query controleren:
+- **Beperking**: Als de lengte van het grote Object (LOB)-kolom groter dan 32 KB is, kunnen gegevens worden afgekapt als op de doelopslaglocatie. U kunt de lengte van LOB-kolom met behulp van deze query controleren:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Tijdelijke oplossing**: hebt u LOB-object dat groter is dan 32 KB, neem dan contact op met de engineering-team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com). 
+    **Tijdelijke oplossing**: Als u LOB-object dat groter is dan 32 KB hebt, neem dan contact op met de engineering-team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com). 
 
 ## <a name="other-limitations"></a>Andere beperkingen
 - Een wachtwoord met openen en sluiten accolades {} aan het begin en einde van de tekenreeks van het wachtwoord wordt niet ondersteund. Deze beperking geldt voor zowel verbinden met MySQL bron en doel-Azure Database voor MySQL.

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f9f0c52c187b36416dbc77f280a8f6148cf1cbbc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138684"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971049"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concepten over intents in uw LUIS-app
 
@@ -58,7 +58,7 @@ Op dezelfde manier populariteit [uitingen](luis-concept-utterance.md) komen over
 [Vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md) intents met uitingen hebben.  
 
 ## <a name="none-intent-is-fallback-for-app"></a>Geen intentie is terugval voor app
-De **geen** bedoeling is de bedoeling van een catch-all of terugval. Het wordt gebruikt om te leren LUIS uitingen die in het app-domein (onderwerpsgebied) niet belangrijk zijn. De **geen** bedoeling moet tussen 10 en 20 procent van de totale uitingen in de toepassing. U mag deze intent niet leeglaten. 
+De **geen** bedoeling is de bedoeling van een catch-all of terugval. Het wordt gebruikt om te leren LUIS uitingen die in het app-domein (onderwerpsgebied) niet belangrijk zijn. De **geen** bedoeling moet tussen 10 en 20 procent van de totale uitingen in de toepassing. Laat niet de geen leeg zijn. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Geen intentie helpt conversatie richting
 Wanneer een utterance wordt voorspeld omdat het geen intentie en geretourneerd naar de chatbot met die voorspelling de bot kunt meer vragen stellen of geef een menu voor het regelen van de gebruiker kan de geldige opties in de chatbot. 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit voor IntelliJ: foutopsporing op afstand in HDInsight Spark-toepassingen '
+title: 'Azure Toolkit voor IntelliJ: Foutopsporing op afstand in HDInsight Spark-toepassingen '
 description: Informatie over hoe HDInsight-hulpprogramma's gebruiken in Azure Toolkit voor IntelliJ op afstand fouten opsporen in Spark-toepassingen die worden uitgevoerd op HDInsight-clusters via VPN-verbinding.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: e973c1895a331969eea9997f7122268a9ff783bd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e57257c6965f0da8c2d6ce990d2425847b73884f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584737"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605786"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure-Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand in HDInsight via VPN-verbinding
 
@@ -34,8 +34,8 @@ In dit artikel biedt stapsgewijze instructies over het gebruik van de HDInsight-
 * **Oracle Java development kit**. U kunt installeren vanuit de [Oracle website](https://aka.ms/azure-jdks).
 * **IntelliJ IDEA**. In dit artikel wordt versie 2017.1. U kunt installeren vanuit de [JetBrains website](https://www.jetbrains.com/idea/download/).
 * **HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ**. HDInsight-hulpprogramma's voor IntelliJ zijn beschikbaar als onderdeel van de Azure Toolkit voor IntelliJ. Zie voor instructies over het installeren van de Azure Toolkit [Installeer Azure Toolkit voor IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
-* **Aanmelden bij uw Azure-abonnement van IntelliJ IDEA**. Volg de instructies in [Azure-Toolkit voor IntelliJ Spark om toepassingen te maken voor een HDInsight-cluster](apache-spark-intellij-tool-plugin.md).
-* **Tijdelijke oplossing uitzondering**. Tijdens het uitvoeren van de Spark Scala-toepassing voor foutopsporing op afstand op een Windows-computer, krijgt u mogelijk een uitzondering. Deze uitzondering wordt uitgelegd in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) en treedt op vanwege een ontbrekend bestand WinUtils.exe in Windows. U kunt deze fout omzeilen, moet u [downloaden van het uitvoerbare bestand](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) naar een locatie zoals **C:\WinUtils\bin**. Voeg een **HADOOP_HOME** omgevingsvariabele, en stel de waarde van de variabele **C\WinUtils**.
+* **Aanmelden bij uw Azure-abonnement van IntelliJ IDEA**. Volg de instructies in [Azure-Toolkit voor IntelliJ om een Apache Spark-toepassingen voor een HDInsight-cluster maken](apache-spark-intellij-tool-plugin.md).
+* **Tijdelijke oplossing uitzondering**. Tijdens het uitvoeren van de Spark Scala-toepassing voor foutopsporing op afstand op een Windows-computer, krijgt u mogelijk een uitzondering. Deze uitzondering wordt uitgelegd in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) en treedt op vanwege een ontbrekend bestand WinUtils.exe in Windows. U kunt deze fout omzeilen, moet u [downloaden van het uitvoerbare bestand](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) naar een locatie zoals **C:\WinUtils\bin**. Voeg een **HADOOP_HOME** omgevingsvariabele, en stel de waarde van de variabele **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Stap 1: Een Azure-netwerk maken
 Volg de instructies in de volgende koppelingen voor het maken van een Azure-netwerk en controleer vervolgens of de connectiviteit tussen uw computer en het virtuele netwerk:
@@ -81,7 +81,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 
 1. Herhaal de stappen voor het hoofdknooppunt.
 
-## <a name="step-4-create-an-apache-spark-scala-application-by-using-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Stap 4: Een Apache Spark Scala-toepassing maken met behulp van HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ en configureren voor foutopsporing op afstand
+## <a name="step-4-create-an-apache-spark-scala-application-by-using-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Stap 4: Een Apache Spark Scala-toepassing maken met behulp van HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ en deze configureren voor foutopsporing op afstand
 1. Open IntelliJ IDEA en een nieuw project maken. Voer in het dialoogvenster **Nieuw project** de volgende handelingen uit:
 
     ![Selecteer de nieuwe projectsjabloon, maken in IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
@@ -232,7 +232,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 
     ![De externe vervolgkeuzelijst lijst met](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/config-run.png)
 
-## <a name="step-5-run-the-application-in-debug-mode"></a>Stap 5: De toepassing uitvoeren in de foutopsporingsmodus
+## <a name="step-5-run-the-application-in-debug-mode"></a>Stap 5: Voer de toepassing uit in de foutopsporingsmodus
 1. Open in uw project IntelliJ IDEA `SparkSample.scala` en maak een onderbrekingspunt naast `val rdd1`. In de **onderbrekingspunt maken voor** pop-upmenu, selecteer **regel in de functie executeJob**.
 
     ![Een onderbrekingspunt toevoegen](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
@@ -262,18 +262,18 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
-* Create Scala-project (video): [Apache Spark Scala-toepassingen maken](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Foutopsporing op afstand (video): [Azure-Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand op een HDInsight-cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Maak Scala-project (video): [Apache Spark Scala-toepassingen maken](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Externe foutopsporing (video): [Azure-Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand op een HDInsight-cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-hulpprogramma's](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-hulpprogramma 's](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster](apache-spark-intellij-tool-plugin.md)

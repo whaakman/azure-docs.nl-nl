@@ -3,17 +3,15 @@ title: Concepten van de server in Azure Database voor MariaDB
 description: In dit onderwerp vindt u overwegingen en richtlijnen voor het werken met Azure Database voor MariaDB-servers.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247768"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544563"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concepten van de server in Azure Database voor MariaDB
 In dit artikel vindt u overwegingen en richtlijnen voor het werken met Azure Database voor MariaDB-servers.
@@ -33,7 +31,7 @@ Een Azure Database voor MariaDB-server:
 - Vindt u het bereik voor management-beleid die van toepassing op de betreffende databases zijn: aanmelding, firewall, gebruikers, rollen, configuraties, enzovoort.
 - Is beschikbaar in de versie van de engine MariaDB 10.2. Zie voor meer informatie, [ondersteund Azure Database voor MariaDB databaseversies](./concepts-supported-versions.md).
 
-U kunt een of meerdere databases maken binnen een Azure-Database voor MariaDB-server. U kunt kiezen voor het maken van een individuele database per server om alle resources te gebruiken of om meerdere databases voor het delen van de resources te maken. De prijzen zijn gestructureerd per server, op basis van de configuratie van prijzen laag vCores en opslag (GB). Zie voor meer informatie, [Prijscategorieën](./concepts-pricing-tiers.md).
+Op een Azure Database for MariaDB-server kunt u een of meerdere databases maken. U kunt kiezen voor het maken van een individuele database per server om alle resources te gebruiken of om meerdere databases voor het delen van de resources te maken. De prijzen zijn gestructureerd per server, op basis van de configuratie van prijzen laag vCores en opslag (GB). Zie voor meer informatie, [Prijscategorieën](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Hoe beveilig ik een Azure Database voor MariaDB-server?
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240406"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972376"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Een AlwaysOn-beschikbaarheidsgroep configureren op Azure virtual machines in verschillende regio 's
 
@@ -84,6 +84,7 @@ Voor het maken van een replica in een extern Datacenter, voer de volgende stappe
    - Een back-endpool die bestaan uit alleen de virtuele machines in dezelfde regio als de load balancer bevatten.
    - Gebruik een TCP-poort test die specifiek zijn voor het IP-adres.
    - Een load balancing-regel die specifiek zijn voor de SQL-Server in dezelfde regio hebben.  
+   - Alleen een Standard Load Balancer als de virtuele machines in de back-endpool geen deel uit van een enkele beschikbaarheidsset of virtuele-machineschaalset maken. Voor aanvullende informatie revisie [overzicht van Azure Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 1. [Functie Failover Clustering toevoegen aan de nieuwe SQL-Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 

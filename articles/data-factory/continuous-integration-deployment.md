@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623768"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554925"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
@@ -733,12 +733,12 @@ Hier volgt een voorbeeld van een script om te stoppen triggers vóór de impleme
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder="$(env:System.DefaultWorkingDirectory)/Dev/",
-    [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
-    [parameter(Mandatory = $false)] [String] $ResourceGroupName="sampleuser-datafactory",
-    [parameter(Mandatory = $false)] [String] $DataFactoryName="sampleuserdemo2",
-    [parameter(Mandatory = $false)] [Bool] $predeployment=$true
-
+    [parameter(Mandatory = $false)] [String] $rootFolder,
+    [parameter(Mandatory = $false)] [String] $armTemplate,
+    [parameter(Mandatory = $false)] [String] $ResourceGroupName,
+    [parameter(Mandatory = $false)] [String] $DataFactoryName,
+    [parameter(Mandatory = $false)] [Bool] $predeployment=$true,
+    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=$false
 )
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
@@ -762,7 +762,6 @@ if ($predeployment -eq $true) {
     }
 }
 else {
-
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
@@ -789,7 +788,7 @@ else {
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
 
-    #delte resources
+    #Delete resources
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
@@ -820,7 +819,25 @@ else {
         Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
-    #Start Active triggers - After cleanup efforts (moved code on 10/18/2018)
+    if ($deleteDeployment -eq $true) {
+        Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
+        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
+        $deploymentName = $deploymentsToConsider[0].DeploymentName
+
+       Write-Host "Deployment to be deleted: " $deploymentName
+        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
+
+        $deploymentsToDelete | ForEach-Object { 
+            Write-host "Deleting inner deployment: " $_.properties.targetResource.id
+            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+        }
+        Write-Host "Deleting deployment: " $deploymentName
+        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+    }
+
+    #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
@@ -958,3 +975,17 @@ Het volgende voorbeeld ziet een voorbeeldbestand voor parameters. Dit voorbeeld 
     }
 }
 ```
+
+## <a name="linked-resource-manager-templates"></a>Gekoppelde Resource Manager-sjablonen
+
+Als u continue integratie en implementatie (CI/CD) voor uw Data Factory's hebt ingesteld, kunt u zien dat, als uw factory groeit, u uitgevoerd in de Resource Manager-sjabloon-limieten, zoals het maximum aantal resources of de maximale nettolading in een Resource Manager-sjabloon. Voor scenario's zoals deze, samen met het genereren van de volledige Resource Manager-sjabloon voor een fabriek, genereert de Data Factory nu ook Gekoppelde Resource Manager-sjablonen. Als gevolg hiervan hebben de nettolading van de gehele factory onderverdeeld in verschillende bestanden, zodat u de genoemde limieten niet uitvoeren.
+
+Als u Git geconfigureerd hebt, de gekoppelde sjablonen worden gegenereerd en opgeslagen samen met de volledige Resource Manager-sjablonen de `adf_publish` vertakking, onder een nieuwe map met de naam `linkedTemplates`.
+
+![Gekoppelde map voor Resource Manager-sjablonen](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+
+De gekoppelde Resource Manager-sjablonen hebben meestal een master sjabloon en een set van onderliggende sjablonen die zijn gekoppeld aan het model. De bovenliggende sjabloon heet `ArmTemplate_master.json`, en de onderliggende sjablonen hebben een naam met het patroon `ArmTemplate_0.json`, `ArmTemplate_1.json`, enzovoort. Als u wilt verplaatsen via de volledige Resource Manager-sjabloon voor het gebruik van de gekoppelde sjablonen gebruiken, werken uw CI/CD-taak om te verwijzen naar `ArmTemplate_master.json` in plaats van dat verwijst naar `ArmTemplateForFactory.json` (dat wil zeggen, de volledige Resource Manager-sjabloon). Resource Manager moet u de gekoppelde sjablonen uploaden naar een opslagaccount, zodat ze tijdens de implementatie kunnen worden geopend door Azure. Zie voor meer informatie, [gekoppelde ARM-sjablonen met VSTS implementeren](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+
+Vergeet niet om toe te voegen van de Data Factory-scripts in uw CI/CD-pijplijn voor en na de Implementatietaak.
+
+Als u geen Git geconfigureerd, de gekoppelde sjablonen zijn toegankelijk via de **exporteren ARM-sjabloon** gebaar.

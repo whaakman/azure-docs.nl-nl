@@ -1,20 +1,17 @@
 ---
 title: Prijscategorieën voor Azure Database for PostgreSQL
 description: Dit artikel beschrijft de Prijscategorieën voor Azure Database voor PostgreSQL.
-services: postgresql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/10/2018
-ms.openlocfilehash: a57e481093bca12a1726a4cc16fa090aa158c1d8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3760e2a5ccae1d21574412ec223cade03bebda1e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320883"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548923"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database voor PostgreSQL Prijscategorieën
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 39ae2108c327f38dbf41981ec6aabe7722b77685
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302014"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717378"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure Key Vault instellen met sleutelrotatie en controle
 
@@ -414,7 +414,7 @@ En voeg een bestand met de naam van project.json met de volgende inhoud:
 
 Bij **opslaan**, Azure Functions de vereiste binaire bestanden worden gedownload.
 
-Schakel over naar de **integreren** tabblad en geef de parameter timer een beschrijvende naam op om te gebruiken binnen de functie. In de bovenstaande code wordt de timer te worden opgeroepen verwacht *myTimer*. Geef een [CRON-expressie](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) als volgt: 0 \* \* \* \* \* voor de timer die zorgt ervoor dat de functie één keer een minuut wordt uitgevoerd.
+Schakel over naar de **integreren** tabblad en geef de parameter timer een beschrijvende naam op om te gebruiken binnen de functie. In de bovenstaande code wordt de timer te worden opgeroepen verwacht *myTimer*. Geef een [CRON-expressie](../app-service/webjobs-create.md#CreateScheduledCRON) als volgt: 0 \* \* \* \* \* voor de timer die zorgt ervoor dat de functie één keer een minuut wordt uitgevoerd.
 
 Op dezelfde **integreren** tabblad, voegt u een invoer van het type **Azure Blob Storage**. Dit verwijst naar het sync.txt-bestand met de tijdstempel van de laatste gebeurtenis van de functie bekeken. Dit is beschikbaar in de functie door de naam van de parameter. In de vorige code de Azure Blob Storage-invoer wordt verwacht dat de parameternaam moet *inputBlob*. Kies de opslagaccount waar het bestand sync.txt worden geplaatst (het kan zijn hetzelfde of een ander opslagaccount). In het padveld, geeft u het pad waar het bestand zich in de notatie {container-name}/path/to/sync.txt bevinden.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263963"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555452"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Totale kosten van Ownership(TCO) met Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Het serverloze inrichtingsmodel van Azure Cosmos DB elimineert de noodzaak voor 
 
 * **Uitstekende waarde voor de prijs:** Handel analisten, klanten en partners hebt bevestigd dat een hogere waarde van de functies die Azure Cosmos DB voor een veel lagere prijs vergeleken biedt met klanten krijgt bij het implementeren van deze oplossingen op hun eigen of via andere leveranciers. De database-functies die wereldwijde distributie, consistentiemodellen meerdere masters, goed gedefinieerde en intuïtieve, automatische indexering zijn aanzienlijk vereenvoudigd met Azure Cosmos DB zonder overhead, complexiteit of downtime.
 
-* **Er is geen NoSQL devops-beheer is vereist:** Met Azure Cosmos DB hoeft een niet te maken met het gebruik van devops-implementaties beheren, voert u onderhoud, de schaal of patch. U kunt de alle de werkbelastingen die u met OSS NoSQL cluster gehost on-premises of op cloud-infrastructuur doen zou kunt uitvoeren.
+* **Er is geen NoSQL DevOps-beheer is vereist:** Met Azure Cosmos DB hoeft een niet te maken met het gebruik van DevOps-implementaties beheren, voert u onderhoud, de schaal of patch. U kunt de alle de werkbelastingen die u met OSS NoSQL cluster gehost on-premises of op cloud-infrastructuur doen zou kunt uitvoeren.
 
 ![Azure Cosmos DB-eigendomskosten](./media/total-cost-ownership/tco.png)
 
@@ -37,7 +37,7 @@ Het serverloze inrichtingsmodel van Azure Cosmos DB elimineert de noodzaak voor 
 
 * **Geoptimaliseerd voor de cloud:** Azure Cosmos DB is ontworpen vanaf de grond-up met fijnmazig isolatie voor meerdere tenants en prestaties. Dit maakt optimaal plaatsen, uitvoeren en duizenden tenants en hun werklast te verdelen over clusters en datacentrums. De huidige generatie van OSS-NoSQL-databases worden daarentegen, on-premises uitgevoerd met de volledige virtuele machine is ervan uitgegaan dat de workload van één tenant wordt uitgevoerd. Deze databases zijn niet ontworpen om gebruikmaken van de infrastructuur en hardware naar de volledige omvang van de cloudprovider. Bijvoorbeeld, een OSS-NoSQL-database-engine is niet op de hoogte van de verschillen tussen een virtuele machine in Visual Studio een routine-installatiekopie bijwerken of het feit dat premium-schijf is al drie richtingen gerepliceerd. Het kan niet profiteren van deze voordelen en over de voordelen en besparingen doorgeven aan klanten.
 
-* **U betaalt per uur:** Voor grootschalige workloads die nodig hebben om te schalen op elk punt in tijd worden alleen kosten in rekening gebracht per uur. De werkbelastingen in een toepassing doorgaans verschillen voor verschillende tijden van het jaar en de gegevens die dat wordt gevraagd. Met Azure Cosmos DB, kunt u omhoog of omlaag schalen naar behoefte en betaal alleen voor wat u nodig hebt. U mag niet overeenkomen met dit model, omdat er een manier om het uit bedrijf nemen de hardware voor elk uur met on-premises of gehoste IaaS-systemen. In dergelijke gevallen kunt u mogelijk opslaan tussen 10 tot 14 keer op een gemiddelde met Azure Cosmos DB.
+* **U betaalt per uur:** Voor grootschalige workloads, die nodig hebt om te schalen op elk gewenst moment in-time, betaalt u alleen per uur. De werkbelastingen in een toepassing is doorgaans kunnen variëren per keer van het jaar, en door de gegevens die wordt doorzocht. Met Azure Cosmos DB, kunt u omhoog of omlaag schalen naar behoefte en betaal alleen voor wat u nodig hebt. U mag niet overeenkomen met dit model, omdat er een manier om het uit bedrijf nemen de hardware voor elk uur met on-premises of gehoste IaaS-systemen. In dergelijke gevallen kunt u mogelijk opslaan tussen 10 tot 14 keer op een gemiddelde met Azure Cosmos DB.
 
 * **Krijgt u gratis talrijke functies:** Schrijf workloads aanzienlijk goedkoper zijn vergeleken met alternatieve database-services in Azure Cosmos DB. Bovendien biedt Azure Cosmos DB functies zoals zoals [automatische indexering](indexing-policies.md), [Time to Live (TTL)](time-to-live.md), [Change Feed](change-feed.md) en anderen zonder eventuele extra kosten iets dat andere databaseservices doorgaans kosten in rekening gebracht.
 

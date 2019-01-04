@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721558"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580413"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodieke back-up en herstel in Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> Zorg ervoor dat de bewaartermijn in het bewaarbeleid is geconfigureerd voor minder dan 24 dagen anders resulteert dit in de service gaan naar het quorum verloren na replica-failover back-up herstellen vanwege een probleem in de runtime.
+
 ### <a name="enable-periodic-backup"></a>Periodieke back-up inschakelen
 Na het definiëren van beleid om te voldoen aan de beveiligingsvereisten voor gegevens van de toepassing, moet het back-upbeleid gekoppeld aan de toepassing. Afhankelijk van vereiste, kan het back-upbeleid zijn gekoppeld aan een toepassing, service of een partitie.
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>Bekende problemen
+- Zorg ervoor dat de bewaartermijn is geconfigureerd voor minder dan 24 dagen. 
+- Back-up herstellen-service zijn niet beschikbaar op Landinstellingen waar het decimale scheidingsteken anders dan is '.'
+- Back-up herstellen-service kan niet zijn beschikbaar op het cluster is beveiligd met gMSA op basis van beveiliging.
+
 ## <a name="limitation-caveats"></a>Beperking / voorbehouden
 - Er is geen Service-Fabric gebouwd in PowerShell-cmdlets.
-- Er is geen ondersteuning voor Service Fabric-CLI.
 - Er is geen ondersteuning voor Service Fabric-clusters op Linux.
 
 ## <a name="next-steps"></a>Volgende stappen

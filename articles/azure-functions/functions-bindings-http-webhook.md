@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317437"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727000"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -491,7 +491,7 @@ Standaard alle functie-routes worden voorafgegaan door *api*. U kunt ook aanpass
 
 ### <a name="working-with-client-identities"></a>Werken met client-id 's
 
-Als uw functie-app [App Service-verificatie / autorisatie](../app-service/app-service-authentication-overview.md), vindt u informatie over geverifieerde clients vanuit uw code. Deze informatie is beschikbaar als [aanvraagheaders geïnjecteerd door het platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+Als uw functie-app [App Service-verificatie / autorisatie](../app-service/overview-authentication-authorization.md), vindt u informatie over geverifieerde clients vanuit uw code. Deze informatie is beschikbaar als [aanvraagheaders geïnjecteerd door het platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
 U kunt deze informatie ook lezen uit het binden van gegevens. Deze mogelijkheid is alleen beschikbaar voor de Functions-runtime 2.x. Het is ook momenteel alleen beschikbaar voor .NET-talen.
 
@@ -577,7 +577,7 @@ U kunt anonieme aanvragen, waarvoor geen sleutels. U kunt ook vereisen dat de ho
 
 Als u wilt uw functie-eindpunten in de productieomgeving volledig te beveiligen, moet u overwegen implementatie van een van de volgende opties voor functie-app-beveiliging:
 
-* Inschakelen van App Service-verificatie / autorisatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD) en diverse externe id-providers gebruiken om clients te verifiëren. U kunt deze gebruiken voor het implementeren van aangepaste regels voor uw functies en u kunt werken met de gebruikersinformatie uit uw functiecode aan te geven. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/app-service-authentication-overview.md) en [werken met client-id's](#working-with-client-identities).
+* Inschakelen van App Service-verificatie / autorisatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD) en diverse externe id-providers gebruiken om clients te verifiëren. U kunt deze gebruiken voor het implementeren van aangepaste regels voor uw functies en u kunt werken met de gebruikersinformatie uit uw functiecode aan te geven. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/overview-authentication-authorization.md) en [werken met client-id's](#working-with-client-identities).
 
 * Azure API Management (APIM) gebruiken om aanvragen te verifiëren. APIM biedt een verscheidenheid aan opties voor API-beveiliging voor binnenkomende aanvragen. Zie voor meer informatie, [API Management-verificatiebeleid](../api-management/api-management-authentication-policies.md). Met APIM op locatie, kunt u uw functie-app voor het accepteren van aanvragen van het IP-adres van de APIM-instantie te configureren. Zie voor meer informatie, [IP-adresbeperkingen](ip-addresses.md#ip-address-restrictions).
 

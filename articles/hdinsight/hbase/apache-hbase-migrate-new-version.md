@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499305"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650100"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Een Apache HBase-cluster migreren naar een nieuwe versie
 
@@ -26,16 +26,16 @@ Clusters op basis van een taak, zoals [Apache Spark](https://spark.apache.org/) 
 4. Tijdelijke gegevens importeren.
 5. Taken starten en gaan met de verwerking op het nieuwe cluster.
 
-Upgrade een [Apache HBase](http://hbase.apache.org/) cluster enkele extra stappen nodig zijn, zoals beschreven in dit artikel.
+Upgrade een [Apache HBase](https://hbase.apache.org/) cluster enkele extra stappen nodig zijn, zoals beschreven in dit artikel.
 
-> [!NOTE]
+> [!NOTE]  
 > De uitvaltijd tijdens de upgrade moet minimaal orde van grootte minuten. Deze uitvaltijd wordt veroorzaakt door de stappen leegmaken van alle in-memory-gegevens en vervolgens de tijd voor het configureren en opnieuw starten van de services op het nieuwe cluster. De resultaten zullen verschillen, afhankelijk van het aantal knooppunten, de hoeveelheid gegevens en andere variabelen.
 
 ## <a name="review-apache-hbase-compatibility"></a>Apache HBase compatibiliteit evalueren
 
-Vóór de upgrade van Apache HBase, zorg ervoor dat de HBase-versies in de bron- en -clusters zijn compatibel. Zie voor meer informatie, [Hadoop-onderdelen en versies die beschikbaar met HDInsight](../hdinsight-component-versioning.md).
+Vóór de upgrade van Apache HBase, zorg ervoor dat de HBase-versies in de bron- en -clusters zijn compatibel. Zie voor meer informatie, [Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight](../hdinsight-component-versioning.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Is het raadzaam dat u de versie-compatibiliteitsmatrix in controleren de [HBase book](https://hbase.apache.org/book.html#upgrading).
 
 Hier volgt een voorbeeld van de versie compatibiliteitsmatrix, waar Y compatibiliteit aangeeft en N een mogelijke incompatibiliteit:
@@ -54,7 +54,7 @@ Hier volgt een voorbeeld van de versie compatibiliteitsmatrix, waar Y compatibil
 | Compatibiliteit van afhankelijkheid | N | J | J |
 | Operationele compatibiliteit | N | N | J |
 
-> [!NOTE]
+> [!NOTE]  
 > Eventuele incompatibiliteiten belangrijke moeten worden beschreven in de releaseopmerkingen voor HBase-versie.
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Een upgrade uitvoert op dezelfde primaire versie van Apache HBase
@@ -203,7 +203,7 @@ De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide word
 9. Alle benodigde services opnieuw starten zoals aangegeven door Ambari.
 10. Wijs de toepassing naar het nieuwe cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > De statische DNS-server voor uw wijzigingen in de toepassing bij een upgrade. In plaats van hard-coding DNS, kunt u een CNAME in DNS-instellingen voor uw domeinnaam die verwijst naar de naam van het cluster configureren. Een andere optie is het gebruik van een configuratiebestand voor uw toepassing die u zonder opnieuw te implementeren bijwerken kunt.
 
 11. Start de opname van gegevens om te zien als alles werkt zoals verwacht.
@@ -211,7 +211,7 @@ De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide word
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over [Apache HBase](http://hbase.apache.org/) en HDInsight-clusters bijwerkt, Zie de volgende artikelen:
+Voor meer informatie over [Apache HBase](https://hbase.apache.org/) en HDInsight-clusters bijwerkt, Zie de volgende artikelen:
 
 * [Een HDInsight-cluster upgraden naar een nieuwere versie](../hdinsight-upgrade-cluster.md)
 * [Controleren en beheren van Azure HDInsight met behulp van de Apache Ambari-Webinterface](../hdinsight-hadoop-manage-ambari.md)

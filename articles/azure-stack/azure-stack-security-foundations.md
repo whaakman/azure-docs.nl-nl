@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901478"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727086"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure-infrastructuur stack-beveiliging
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 Aandachtspunten voor de beveiliging en nalevingsvoorschriften zijn een van de belangrijkste stuurprogramma's voor het gebruik van hybride clouds. Azure Stack is ontworpen voor deze scenario's. In dit artikel wordt uitgelegd dat de beveiligingsmaatregelen voor Azure Stack.
 
@@ -40,7 +40,7 @@ Omdat de infrastructuur wordt uitgevoerd op goed gedefinieerde hardware en softw
 Omdat Azure Stack wordt geleverd als een geïntegreerd systeem, wordt de beveiligingsstatus van de Azure Stack-infrastructuur wordt gedefinieerd door Microsoft. Net als in Azure zijn tenants verantwoordelijk voor het definiëren van de beveiligingsstatus van de tenant-workloads. Dit document bevat fundamentele kennis over de beveiligingsstatus van de Azure Stack-infrastructuur.
 
 ## <a name="data-at-rest-encryption"></a>Data-at-rest versleuteling
-Alle gegevens in Azure Stack-infrastructuur en tenant is in rust versleuteld met Bitlocker. Deze versleuteling bescherming tegen fysiek verlies of diefstal van Azure Stack-opslagonderdelen. 
+Alle gegevens in Azure Stack-infrastructuur en tenant is in rust versleuteld met Bitlocker. Deze versleuteling bescherming tegen fysiek verlies of diefstal van Azure Stack-opslagonderdelen. Zie voor meer informatie, [data-at-rest versleuteling in Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Gegevens in transit versleuteling
 De onderdelen van de Azure Stack-infrastructuur communiceren door middel van kanalen die zijn versleuteld met TLS 1.2. Certificaten voor bestandsversleuteling worden zelf beheerd door de infrastructuur. 

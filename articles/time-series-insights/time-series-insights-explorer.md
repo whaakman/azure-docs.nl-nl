@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights explorer gegevens verkennen - gegevens met behulp van de Verkenner van Azure Time Series Insights verkennen | Microsoft Docs
+title: Verken gegevens met behulp van de Azure Time Series Insights-Verkenner | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u gebruik van Azure Time Series Insights explorer in uw webbrowser om snel een globale weergave van uw big data te bekijken en valideren van uw IoT-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273133"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556591"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 In dit artikel behandelt de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U gebruikt Verkenner van Time Series Insights in uw webbrowser om visualisaties van uw gegevens te maken.

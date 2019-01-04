@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f3746fc340b382c58f7a9501cb0828a6b6befe8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002144"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976032"
 ---
-# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
+# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Overzicht: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
 Dit artikel leest u hoe u aan de telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met behulp van [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Behandelen we het complete proces van het Application Insights-script toevoegen aan uw toepassing, het vastleggen van gegevens en gegevensvisualisatie.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Voor het bewaken van uw toepassing, kunt u een Application Insights-SDK toevoege
     ![Klik op +, Ontwikkelaarsservices, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Kies ASP.NET als het toepassingstype.
-3. Volg de instructies voor [verkrijgen van de JavaScript SDK-script voor uw app](app-insights-javascript.md#set-up-application-insights-for-your-web-page), Kopieer het JavaScript-fragment en zorg ervoor dat u de Instrumentatiesleutel vervangen door de juiste waarde voor uw Application Insights-resource.
+3. Volg de instructies voor [verkrijgen van de JavaScript SDK-script voor uw app](../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page), Kopieer het JavaScript-fragment en zorg ervoor dat u de Instrumentatiesleutel vervangen door de juiste waarde voor uw Application Insights-resource.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Een JavaScript-webresource in Microsoft Dynamics CRM maken
 1. Open uw Online CRM-exemplaar en meld u aan met administratorbevoegdheden.
@@ -134,5 +134,5 @@ U kunt zelfs diepere analyse doen als u [exporteren van gegevens naar Microsoft 
 
 ## <a name="learn-more"></a>Meer informatie
 * [Wat is Application Insights?](app-insights-overview.md)
-* [Application Insights voor webpagina 's](app-insights-javascript.md)
+* [Application Insights voor webpagina 's](../azure-monitor/app/javascript.md)
 * [Meer voorbeelden en walkthroughs](app-insights-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Beveiligingsfilters waaruit resultaten met behulp van Active Directory-id's - Azure Search
+title: Beveiligingsfilters waaruit resultaten met behulp van Active Directory - Azure Search
 description: Toegangsbeheer voor Azure Search-inhoud met beveiligingsfilters en identiteiten van Azure Active Directory (AAD).
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308818"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628286"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Beveiligingsfilters voor Azure Search-resultaten met behulp van Active Directory-identiteiten bijsnijden
 

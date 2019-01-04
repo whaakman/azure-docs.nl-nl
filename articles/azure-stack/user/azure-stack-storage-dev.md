@@ -4,17 +4,17 @@ description: Richtlijnen aan de slag met het gebruik van hulpprogramma's voor op
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 56814cc44874fe0c169e5fb51dc6cbff5a225231
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341555"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727850"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Aan de slag met hulpprogramma's voor opslagontwikkeling Azure Stack
 
@@ -29,9 +29,9 @@ Gebruik dit artikel als richtlijn om aan de slag met hulpprogramma's voor opslag
 
 ## <a name="azure-client-libraries"></a>Azure-clientbibliotheken
 
-De ondersteunde versies van de REST-API voor Azure Stack-opslag zijn 17-04-2017, 31-05-2016, 2015-12-11, 2015-07-08, 2015-04-05 voor de update 1802 of nieuwere versies en 2015-04-05 voor eerdere versies. De Azure Stack-eindpunten beschikt niet over volledige pariteit met de meest recente versie van de Azure storage REST-API. Voor de opslagclientbibliotheken moet u rekening houden met de versie die compatibel is met de REST-API.
+Voor de opslagclientbibliotheken rekening met de versie die compatibel is met de REST-API. U moet ook het Azure Stack-eindpunt opgeven in uw code.
 
-### <a name="1802-update-or-newer-versions"></a>1802 update of nieuwere versies
+### <a name="1811-update-or-newer-versions"></a>1811 update of nieuwere versies
 
 | Clientbibliotheek | Ondersteunde versie van Azure Stack | Koppeling | Eindpunt-specificatie |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -45,22 +45,22 @@ De ondersteunde versies van de REST-API voor Azure Stack-opslag zijn 17-04-2017,
 
 #### <a name="install-php-client-via-composer---current"></a>PHP-client via Composer - huidige installeren
 
-Te installeren via de Composer: (nemen blob voorbeeld).
+Te installeren via de Composer: (duren voordat de blob als voorbeeld).
 
 1. Maak een bestand met de naam **composer.json** in de hoofdmap van het project met de volgende code:
 
-  ```php
+    ```json
     {
       "require": {
-      "Microsoft/azure-storage-blob":"1.0.0"
+      "Microsoft/azure-storage-blob":"1.2.0"
       }
     }
-  ```
+    ```
 
 2. Download [composer.phar](http://getcomposer.org/composer.phar) naar de hoofdmap van het project.
 3. Uitvoeren: `php composer.phar install`.
 
-### <a name="previous-versions"></a>Vorige versies
+### <a name="previous-versions-1802-to-1809-update"></a>Vorige versies (update 1802-1809)
 
 |Clientbibliotheek|Ondersteunde versie van Azure Stack|Koppeling|Eindpunt-specificatie|
 |---------|---------|---------|---------|
@@ -74,19 +74,19 @@ Te installeren via de Composer: (nemen blob voorbeeld).
 
 #### <a name="install-php-client-via-composer---previous"></a>PHP-client via Composer - vorige installeren
 
-Via Composer installeren:
+Te installeren via de Composer: (nemen blob voorbeeld).
 
 1. Maak een bestand met de naam **composer.json** in de hoofdmap van het project met de volgende code:
 
-  ```php
+  ```json
     {
-          "require":{
-          "Microsoft/azure-storage":"0.15.0"
-          }
+      "require": {
+      "Microsoft/azure-storage-blob":"1.0.0"
+      }
     }
   ```
 
-2. Download [composer.phar](http://getcomposer.org/composer.phar) in de hoofdmap van het project.
+2. Download [composer.phar](http://getcomposer.org/composer.phar) naar de hoofdmap van het project.
 3. Uitvoeren: `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>De declaratie van eindpunt
@@ -101,7 +101,7 @@ Neem contact op met de cloudbeheerder als u niet zeker weet over uw eindpunt.
 
 Achtervoegsel van het eindpunt is voor Azure Stack opgegeven in het bestand app.config:
 
-```
+```xml
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -111,7 +111,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 Achtervoegsel van het eindpunt is voor Azure Stack opgegeven in de installatie van de verbindingsreeks:
 
-```
+```java
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -123,7 +123,7 @@ public static final String storageConnectionString =
 
 Achtervoegsel van het eindpunt is voor Azure Stack opgegeven in de declaratie-exemplaar:
 
-```
+```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -132,7 +132,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 Achtervoegsel van het eindpunt is voor Azure Stack opgegeven in de installatie van de verbindingsreeks:
 
-```
+```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -143,7 +143,7 @@ EndpointSuffix=local.azurestack.external"));
 
 Achtervoegsel van het eindpunt is voor Azure Stack opgegeven in de installatie van de verbindingsreeks:
 
-```
+```php
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -154,7 +154,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 Achtervoegsel van het eindpunt is voor Azure Stack opgegeven in de declaratie-exemplaar:
 
-```
+```python
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -164,7 +164,7 @@ endpoint_suffix='local.azurestack.external')
 
 Achtervoegsel van het eindpunt is voor Azure Stack opgegeven in de installatie van de verbindingsreeks:
 
-```
+```ruby
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

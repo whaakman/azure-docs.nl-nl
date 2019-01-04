@@ -3,24 +3,22 @@ title: Configureren van SSL-verbinding met het veilig verbinding maken met Azure
 description: Instructies voor het juiste configuratie van Azure Database voor MariaDB en gekoppelde toepassingen correct gebruik van SSL-verbindingen
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 00e8479eab927acccc8f797311a0a2d440bb96da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4bf18a44255903df09aae3382c0eb35a2a55eea5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961668"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541809"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configureren van SSL-connectiviteit in uw toepassing veilig verbinding maken met Azure Database voor MariaDB
 Azure Database voor MariaDB ondersteunt verbindingen van uw Azure Database voor MariaDB-server voor clienttoepassingen met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
 
 ## <a name="obtain-ssl-certificate"></a>SSL-certificaat ophalen
 Download het certificaat nodig om te communiceren via SSL met uw Azure Database voor MariaDB-server uit [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) en sla het certificaatbestand op uw lokale schijf (in deze zelfstudie wordt c:\ssl bijvoorbeeld).
-**Voor Microsoft Internet Explorer en Microsoft Edge:** nadat het downloaden is voltooid, wijzig de naam van het certificaat naar BaltimoreCyberTrustRoot.crt.pem.
+**Voor Microsoft Internet Explorer en Microsoft Edge:** Nadat het downloaden is voltooid, wijzig de BaltimoreCyberTrustRoot.crt.pem van het certificaat.
 
 ## <a name="bind-ssl"></a>Binden van SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Verbinding maken met server met behulp van de MySQL Workbench via SSL
@@ -49,7 +47,7 @@ Uitvoeren van de mysql **status** opdracht uit om te controleren of u hebt verbo
 ```sql
 status
 ```
-Controleer of de verbinding is versleuteld aan de hand van de uitvoer, die moet worden weergegeven: **SSL: codering in gebruik is AES256 SHA** 
+Controleer of dat de verbinding is versleuteld aan de hand van de uitvoer, die moet worden weergegeven:  **SSL: Codering in gebruik is AES256 SHA** 
 
 ## <a name="sample-code"></a>Voorbeeldcode
 Als u wilt geen veilige verbinding maken met Azure Database voor MariaDB via SSL van uw toepassing, raadpleegt u de volgende codevoorbeelden:

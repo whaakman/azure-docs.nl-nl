@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961600"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714318"
 ---
 # <a name="article-top"></a>Uw bestaande Azure Mobile Service migreren naar Azure App Service
 Met de [algemene beschikbaarheid van Azure App Service], Azure Mobile Services-sites kunnen eenvoudig worden gemigreerd in-place om te profiteren van alle functies van Azure App Service.  Dit document wordt uitgelegd wat u kunt verwachten wanneer uw site van Azure Mobile Services migreren naar Azure App Service.
@@ -219,7 +219,7 @@ Alle scheduler-taken zijn beschikbaar via de Scheduler-Taakverzamelingen-sectie.
 1. Meld u aan bij [Azure Portal].
 2. Selecteer **Bladeren >**, voer **planning** in de *Filter* vak en selecteer vervolgens **Scheduler verzamelingen**.
 3. Selecteer de Taakverzameling voor uw site.  De naam ervan is *sitename*-taken.
-4. Klik op **instellingen**.
+4. Klik op **Instellingen**.
 5. Klik op **Scheduler-taken** onder beheren.
 
 Geplande taken worden weergegeven met de frequentie die u hebt opgegeven voor de migratie.  On-demand-taken zijn uitgeschakeld.  Een taak op aanvraag uitvoeren:
@@ -234,7 +234,7 @@ Uw taken op aanvraag bevinden zich in `App_Data/config/scripts/scheduler post-mi
 ### <a name="notification-hubs"></a>Notification Hubs
 Mobile Services maakt gebruik van Notification Hubs voor pushmeldingen.  De volgende App-instellingen worden gebruikt voor de Notification Hub koppelen aan uw mobiele Service na de migratie:
 
-| Toepassingsinstelling | Beschrijving |
+| Toepassingsinstelling | Description |
 |:--- |:--- |
 | **MS\_PushEntityNamespace** |De Notification Hub-Namespace |
 | **MS\_NotificationHubName** |De naam van de Notification Hub |
@@ -267,7 +267,7 @@ In de tussentijd zijn alle verouderde pushinstellingen (met de uitzondering die 
 ### <a name="app-settings"></a>Andere App-instellingen
 De volgende extra app-instellingen zijn gemigreerd vanuit uw mobiele Service en beschikbaar zijn onder *instellingen* > *App-instellingen*:
 
-| Toepassingsinstelling | Beschrijving |
+| Toepassingsinstelling | Description |
 |:--- |:--- |
 | **MS\_MobileServiceName** |De naam van uw app |
 | **MS\_MobileServiceDomainSuffix** |Het domeinvoorvoegsel. Internet Explorer azure-mobile.net |
@@ -310,7 +310,7 @@ Registratie in diagnoselogboek is gewoonlijk in een Azure App Service uitgeschak
 2. Selecteer **alle resources** of **App Services** klik vervolgens op de naam van uw gemigreerde mobiele Service.
 3. De blade instellingen wordt standaard geopend.
 4. Selecteer **diagnostische logboeken** onder het menu functies.
-5. Klik op **ON** voor de volgende Logboeken: **toepassingslogboeken (bestandssysteem)**, **gedetailleerde foutberichten**, en **tracering van mislukte aanvragen**
+5. Klik op **ON** voor de volgende Logboeken: **Toepassingslogboeken (bestandssysteem)**, **gedetailleerde foutberichten**, en **tracering van mislukte aanvragen**
 6. Klik op **bestandssysteem** voor Web server-logboekregistratie
 7. Klik op **Opslaan**.
 
@@ -376,25 +376,25 @@ Nu dat uw toepassing is gemigreerd naar App Service, zijn er nog meer functies d
 [prijzen van App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Automatisch schalen]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Klassieke Azure-portal]: https://manage.windowsazure.com
 [Azure Portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Abonnementen voor Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
-[continu implementeren]: ../app-service/app-service-continuous-deployment.md
+[continu implementeren]: ../app-service/deploy-continuous-deployment.md
 [Uw gemengde naamruimten converteren]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [Aangepaste domeinnamen]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: https://www.telerik.com/fiddler
 [algemene beschikbaarheid van Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Logboekregistratie]: ../app-service/web-sites-enable-diagnostic-log.md
+[Logboekregistratie]: ../app-service/troubleshoot-diagnostic-logs.md
 [Node.js-SDK voor mobiele Apps]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services versus App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Bewaking van toepassingsprestaties]: ../app-service/web-sites-monitor.md
 [Postman]: https://www.getpostman.com/
-[faseringssleuven]: ../app-service/web-sites-staged-publishing.md
+[faseringssleuven]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [Voorbeelden van XDT transformeren]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functies]: ../azure-functions/functions-overview.md

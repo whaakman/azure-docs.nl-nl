@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278675"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608440"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -36,6 +36,17 @@ Stappen voor het upgraden van Azure AD Connect | Verschillende methoden voor [ee
 Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update toepast, [accounts en machtigingen](reference-connect-accounts-permissions.md#upgrade).
 
 Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12700"></a>1.2.70.0
+
+### <a name="release-status"></a>Releasestatus
+
+12-18/2018: Die zijn uitgebracht voor downloaden
+
+### <a name="fixed-issues"></a>Problemen opgelost
+
+Deze versie werkt het niet-standaard-connectors (bijvoorbeeld algemene LDAP-Connector en algemene SQL Connector) geleverd met Azure AD Connect. Zie voor meer informatie over die van toepassing zijn connectors versie 1.1.911.0 in [Connectorversie](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history).
+
 
 ## <a name="12690"></a>1.2.69.0
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4cac20cb44c2400e44ff2ca0939b1537f0b20734
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259236"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727179"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Een lijst met entiteit gebruiken voor het verhogen van detectie van entiteit 
 Deze zelfstudie ziet u het gebruik van een [entiteit lijst](luis-concept-entity-types.md) te verhogen van de detectie van de entiteit. Lijst met entiteiten hoeft te worden gelabeld als ze exact overeenkomen met de voorwaarden zijn.  
@@ -37,7 +37,7 @@ In deze zelfstudie leert u het volgende:
 > [!Tip]
 > Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
 
-Alle code in deze zelfstudie vindt u op de [LUIS-Samples-GitHub-opslagplaats](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+Alle code in deze zelfstudie vindt u op de [Azure-Samples-GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>HomeAutomation app gebruiken
 De app HomeAutomation geeft u controle over apparaten zoals lichten, entertainmentsystemen en omgeving van besturingselementen, zoals verwarming en koeling. Deze systemen zijn diverse verschillende namen die de fabrikant van namen, bijnamen acroniemen en slang kunnen opnemen. 

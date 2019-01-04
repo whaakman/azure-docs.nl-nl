@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499115"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653252"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Dataiku DDS voor gepubliceerde toepassing - installeren
 
@@ -28,15 +28,15 @@ U kunt DSS gebruiken voor het implementeren van een volledige analytische oploss
 
 U kunt DSS installeren op HDInsight met behulp van [Apache Hadoop](https://hadoop.apache.org/) of [Apache Spark](https://spark.apache.org/) clusters. U kunt DSS installeren op bestaande actieve clusters, of bij het maken van nieuwe clusters. DSS biedt ook ondersteuning voor het gebruik van Azure Blob-opslag als een connector voor het lezen van gegevens.
 
-U kunt DSS gebruiken voor het bouwen van projecten, die vervolgens kunnen genereren [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) of Spark-taken. Deze taken worden uitgevoerd als er regelmatig MapReduce of Spark-taken in HDInsight, zodat u het cluster op aanvraag kunt schalen.
+U kunt DSS gebruiken voor het bouwen van projecten, die vervolgens kunnen genereren [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) of Spark-taken. Deze taken worden uitgevoerd als er regelmatig MapReduce of Spark-taken in HDInsight, zodat u het cluster op aanvraag kunt schalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u wilt deze app installeren op een nieuw HDInsight-cluster of een bestaand cluster, hebt u de volgende configuratie:
 
-* Cluster-laag of lagen toe: Standard, Premium
+* Clusterniveau: Standard, Premium
 * Clustertype(n): Hadoop, Spark
-* Cluster-versie (s): 3.4, 3.5
+* Clusterversie (s): 3.4, 3.5
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Gepubliceerde toepassing installeren de Dataiku DSS
 
@@ -62,7 +62,7 @@ De volgende stappen bevatten een eenvoudige demonstratie.
 
     ![Nieuwe koppeling van het project](./media/hdinsight-apps-install-dataiku/new-project.png)
 
-3. Typ in het venster Nieuw project in een **naam**. De **Projectsleutel** wordt automatisch gevuld met een aanbevolen waarde. In dit geval geeft 'Orders'. Klik op **maken**.
+3. Typ in het venster Nieuw project in een **naam**. De **Projectsleutel** wordt automatisch gevuld met een aanbevolen waarde. In dit geval geeft 'Orders'. Klik op **MAKEN**.
 
     ![Nieuw projectformulier](./media/hdinsight-apps-install-dataiku/new-project-form.png)
 
@@ -113,8 +113,8 @@ Lees voor uitgebreide zelfstudies [meer Dataiku DSS](https://www.dataiku.com/lea
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Dataiku DSS documentatie](https://doc.dataiku.com/dss/latest/).
-* [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
-* [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): informatie over het publiceren van aangepaste HDInsight-toepassingen in Azure Marketplace.
-* [MSDN: een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): informatie over het definiëren van HDInsight-toepassingen.
-* [HDInsight Linux gebaseerde clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md): informatie over het gebruik scriptacties om extra toepassingen te installeren.
-* [Lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md): informatie over het gebruik van een lege edge-knooppunt voor toegang tot HDInsight-clusters, en voor het testen en HDInsight-toepassingen hosten.
+* [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): Informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
+* [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): Informatie over het publiceren van uw aangepaste HDInsight-toepassingen op Azure Marketplace.
+* [MSDN: Een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): Meer informatie over het definiëren van HDInsight-toepassingen.
+* [HDInsight Linux gebaseerde clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md): Informatie over het gebruik scriptacties om extra toepassingen te installeren.
+* [Lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md): Leer hoe u een lege edge-knooppunt gebruiken voor toegang tot HDInsight-clusters, en voor het testen en HDInsight-toepassingen hosten.

@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015752"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714280"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Extra opslagaccounts toevoegen aan HDInsight
 
 Informatie over het gebruik van scriptacties aanvullende Azure storage-accounts toevoegen aan HDInsight. De stappen in dit document wordt een storage-account toevoegen aan een bestaand HDInsight op basis van Linux-cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De informatie in dit document is over het toevoegen van extra opslag aan een cluster nadat deze is gemaakt. Zie voor meer informatie over het toevoegen van storage-accounts tijdens het maken van een cluster [clusters instellen in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
 Met dit script worden de volgende parameters:
 
-* __Azure storage-accountnaam__: de naam van het opslagaccount om toe te voegen aan het HDInsight-cluster. Nadat het script is uitgevoerd, kan HDInsight lezen en schrijven van gegevens die zijn opgeslagen in dit storage-account.
+* __Azure storage-accountnaam__: De naam van het opslagaccount om toe te voegen aan het HDInsight-cluster. Nadat het script is uitgevoerd, kan HDInsight lezen en schrijven van gegevens die zijn opgeslagen in dit storage-account.
 
-* __Azure storage-accountsleutel__: een sleutel die toegang tot het opslagaccount verleent.
+* __Azure storage-accountsleutel__: Een sleutel die toegang tot het opslagaccount verleent.
 
-* __-p__ (optioneel): als u opgeeft, wordt de sleutel is niet versleuteld en is opgeslagen in het bestand core-site.xml als tekst zonder opmaak.
+* __-p__ (optioneel): Als u opgeeft, wordt de sleutel is niet versleuteld en wordt opgeslagen in het bestand core-site.xml als tekst zonder opmaak.
 
 Tijdens de verwerking voert het script de volgende acties:
 
@@ -45,7 +45,7 @@ Tijdens de verwerking voert het script de volgende acties:
 
 * Stopt en start u de [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), en [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) services. Deze services starten en stoppen, kunnen ze het nieuwe opslagaccount gebruiken.
 
-> [!WARNING]
+> [!WARNING]  
 > Met behulp van een storage-account in een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
 ## <a name="the-script"></a>Het script
@@ -60,7 +60,7 @@ __Vereisten voor__:
 
 Met dit script kan worden gebruikt vanuit de Azure-portal, Azure PowerShell of de klassieke Azure-CLI. Zie voor meer informatie de [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Wanneer u de stappen in het document aanpassen, gebruikt u de volgende informatie om toe te passen met dit script:
 >
 > * Een voorbeeld-scriptactie URI vervangen door de URI voor dit script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
@@ -85,14 +85,14 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Stel `$clusterName` op de naam van het HDInsight-cluster. Stel `$storageAccountName` op de naam van het storage-account. Voer desgevraagd de cluster-aanmeldingswachtwoord (beheerder) en het wachtwoord.
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Stel `$PASSWORD` naar de accountwachtwoord voor clusteraanmelding (beheerder). Stel `$CLUSTERNAME` op de naam van het HDInsight-cluster. Stel `$STORAGEACCOUNTNAME` op de naam van het storage-account.
 >
 > In dit voorbeeld wordt [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) en [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) ophalen en parseren van JSON-gegevens.
@@ -132,14 +132,14 @@ U kunt dit probleem omzeilen, moet u de bestaande vermelding voor de storage-acc
 
 Als het opslagaccount zich in een andere regio dan het HDInsight-cluster, kan slechte prestaties optreden. Toegang tot gegevens in een andere regio stuurt netwerkverkeer buiten de regionale Azure-datacenter en via het openbare internet, dit leiden latentie tot kan.
 
-> [!WARNING]
+> [!WARNING]  
 > Met behulp van een storage-account in een andere regio dan het HDInsight-cluster wordt niet ondersteund.
 
 ### <a name="additional-charges"></a>Extra kosten
 
 Als het opslagaccount zich in een andere regio dan het HDInsight-cluster, merkt u wellicht aanvullende uitgaand verkeer kosten in rekening gebracht op uw Azure-facturering. Een kosten voor uitgaand verkeer toegepast wanneer gegevens een regionaal datacenter verlaat. Deze kosten wordt toegepast, zelfs als het verkeer dat bestemd voor een andere Azure-datacenter in een andere regio is.
 
-> [!WARNING]
+> [!WARNING]  
 > Met behulp van een storage-account in een andere regio dan het HDInsight-cluster wordt niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen

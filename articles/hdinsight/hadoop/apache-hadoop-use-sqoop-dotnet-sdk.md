@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 3cd34bf67b0d796af71036e7d14834a061803973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633030"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628080"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Apache Sqoop taken uitvoeren met behulp van .NET-SDK voor Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -24,12 +24,11 @@ Informatie over het gebruik van de Azure HDInsight .NET SDK uitvoeren Apache Sqo
 
 > [!NOTE]
 > Maar u de procedures in dit artikel met ofwel een Windows- of Linux gebaseerde HDInsight-cluster gebruiken kunt, werken ze alleen vanaf een Windows-client. Als u andere methoden, gebruikt u de tabselector boven aan dit artikel.
-> 
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u deze zelfstudie begint, moet u het volgende item hebben:
 
-* Een Hadoop-cluster in HDInsight. Zie voor meer informatie, [maken van een cluster en een SQL-database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Een Apache Hadoop-cluster in HDInsight. Zie voor meer informatie, [maken van een cluster en een SQL-database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Sqoop gebruiken op HDInsight-clusters met de .NET SDK
 De HDInsight .NET-SDK bevat clientbibliotheken voor .NET, zodat het eenvoudiger om te werken met HDInsight-clusters van .NET. In deze sectie maakt u een C#-consoletoepassing de hivesampletable exporteren naar de Azure SQL Database-tabel die u eerder in deze zelfstudie hebt gemaakt.
@@ -111,14 +110,14 @@ De HDInsight .NET-SDK bevat clientbibliotheken voor .NET, zodat het eenvoudiger 
 ## <a name="limitations"></a>Beperkingen
 HDInsight op basis van Linux biedt de volgende beperkingen:
 
-* Bulk-export: de Sqoop-connector die wordt gebruikt voor het exporteren van gegevens naar Microsoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
+* Bulksgewijs exporteren: De Sqoop-connector die wordt gebruikt voor het exporteren van gegevens naar Microsoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
 
-* Batchverwerking: met behulp van de `-batch` overschakelen wanneer voegt worden uitgevoerd, Sqoop meerdere invoegingen in plaats van de bewerkingen insert batchverwerking wordt uitgevoerd.
+* Batchverwerking: Met behulp van de `-batch` -switch, Sqoop voert meerdere invoegingen in plaats van de batchverwerking van de insert-bewerkingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 U hebt nu geleerd hoe u Sqoop gebruiken. Voor meer informatie zie:
 
-* [Oozie gebruiken met HDInsight](../hdinsight-use-oozie.md): gebruik Sqoop actie in een Oozie-workflow.
-* [Analyseren van gegevens van vertragingen van vluchten met behulp van HDInsight](../hdinsight-analyze-flight-delay-data.md): gebruik van Hive voor het analyseren van vertragingen van vluchten vertraging van gegevens en Sqoop kunt gebruiken om gegevens te exporteren naar een Azure SQL-database.
-* [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md): vinden van andere methoden voor het uploaden van gegevens naar HDInsight of Azure Blob storage.
+* [Apache Oozie gebruiken met HDInsight](../hdinsight-use-oozie.md): Sqoop actie gebruiken in een Oozie-workflow.
+* [Analyseren van gegevens van vertragingen van vluchten met behulp van HDInsight](../hdinsight-analyze-flight-delay-data.md): Apache Hive gebruiken voor het analyseren van gegevens van vertragingen van vluchten en Sqoop kunt gebruiken om gegevens te exporteren naar een Azure SQL-database.
+* [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md): Andere methoden voor het uploaden van gegevens naar HDInsight of Azure Blob storage vinden.
 

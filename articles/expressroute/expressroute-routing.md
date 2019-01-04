@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406552"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994578"
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -120,7 +120,7 @@ Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden t
 ## <a name="autonomous-system-numbers"></a>Autonome systeemnummers
 Microsoft gebruikt AS 12076 voor openbare Azure-peering, privé Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund.
 
-Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden van meerdere circuitparen waarvan u eigenaar bent. Route metrics hoeven niet identiek te zijn.
+Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden in meerdere circuit paren die van u. Route metrics hoeven niet identiek te zijn.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Limieten voor route-aggregatie en voorvoegsel
 Wij ondersteunen maximaal 4000 voorvoegsels die aan ons zijn geadverteerd door middel van de persoonlijke Azure-peering. Dit aantal kan worden verhoogd tot 10.000 voorvoegsels als de Premium-invoegtoepassing voor ExpressRoute wordt ingeschakeld. We accepteren maximaal 200 voorvoegsels per BGP-sessie voor openbare Azure-peering en Microsoft-peering. 
@@ -135,7 +135,7 @@ Standaardroutes zijn alleen toegestaan voor persoonlijke Azure-peeringsessies. I
 
  Als u connectiviteit met andere Azure-services en infrastructuurservices wilt inschakelen, moet u een van de volgende voorzieningen treffen:
 
-* Openbare Azure-peering is ingeschakeld om verkeer om te leiden naar openbare eindpunten
+* Openbare Azure-peering is ingeschakeld om verkeer te routeren naar openbare eindpunten.
 * U gebruikt door de gebruiker gedefinieerde routering om internetconnectiviteit toe te staan voor elk subnet dat internetconnectiviteit vereist.
 
 > [!NOTE]
@@ -215,7 +215,7 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 | Azure Global Services * | 12076:5050 |
 | Andere online services van Office 365 | 12076:5100 |
 
-***Azure Global Services bevat Azure DevOps**\**
+***Azure Global Services bevat Azure DevOps**
 
 
 > [!NOTE]

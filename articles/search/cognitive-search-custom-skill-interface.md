@@ -1,5 +1,5 @@
 ---
-title: Interfacedefinitie voor aangepaste vaardigheden in een pijplijn cognitief zoeken - Azure Search
+title: Interfacedefinitie voor aangepaste vaardigheden in cognitief zoeken - Azure Search
 description: Aangepaste gegevens extractie interface voor aangepaste kwalificatie van de web-api in de pijplijn cognitief zoeken in Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314649"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628269"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Een aangepaste vaardigheden toevoegen aan een pijplijn cognitief zoeken
 

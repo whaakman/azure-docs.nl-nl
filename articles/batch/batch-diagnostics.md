@@ -1,5 +1,5 @@
 ---
-title: Metrische gegevens, waarschuwingen en diagnostische logboeken voor Azure Batch | Microsoft Docs
+title: Metrische gegevens, waarschuwingen en diagnostische logboeken - Azure Batch | Microsoft Docs
 description: Registreren en analyseren van diagnostische gebeurtenissen voor Azure Batch-accountresources zoals pools en taken.
 services: batch
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.custom: seodec18
+ms.openlocfilehash: cd3e671a00f7f8b0a13ed95bfd43795a24244a66
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438435"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537100"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
  
-In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met behulp van functies van [Azure Monitor](../azure-monitor/overview.md). Azure Monitor verzamelt [metrische gegevens](../azure-monitor/platform/data-collection.md#metrics) en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren voor het bewaken van uw Batch-account en problemen diagnosticeren. U kunt ook configureren [metrische waarschuwingen](../azure-monitor/platform/alerts-overview.md) , zodat u meldingen ontvangen wanneer een metrische waarde een bepaalde waarde heeft bereikt. 
+In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met behulp van functies van [Azure Monitor](../azure-monitor/overview.md). Azure Monitor verzamelt [metrische gegevens](../azure-monitor/platform/data-collection.md#metrics) en [diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren voor het bewaken van uw Batch-account en problemen diagnosticeren. U kunt ook configureren [metrische waarschuwingen](../azure-monitor/platform/alerts-overview.md) , zodat u meldingen ontvangen wanneer een metrische waarde een bepaalde waarde heeft bereikt. 
 
 ## <a name="batch-metrics"></a>Metrische gegevens voor batch
 
@@ -109,7 +109,7 @@ Andere optionele bestemmingen voor diagnostische logboeken:
 
     ![Diagnostische gegevens van batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Andere opties om logboekbestanden te verzamelen zijn onder andere: Azure Monitor gebruiken in de portal voor diagnostische instellingen configureren, gebruikt u een [Resource Manager-sjabloon](../azure-monitor/platform/diagnostic-logs-stream-template.md), of gebruikt u Azure PowerShell of Azure CLI. Zie [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Andere opties om logboekbestanden te verzamelen zijn onder andere: Azure Monitor gebruiken in de portal voor diagnostische instellingen configureren, gebruikt u een [Resource Manager-sjabloon](../azure-monitor/platform/diagnostic-logs-stream-template.md), of gebruikt u Azure PowerShell of Azure CLI. Zie [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Toegang tot diagnostische logboeken in de opslag

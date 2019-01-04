@@ -1,6 +1,6 @@
 ---
 title: Problemen oplossen met domein en SSL-certificaten - Azure App Service | Microsoft Docs
-description: Problemen met domein en SSL-certificaat oplossen in Azure-web-apps
+description: Problemen met domein en SSL-certificaat oplossen in Azure App Service
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389003"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653659"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Problemen met domein en SSL-certificaat oplossen in Azure-web-apps
+# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Problemen met domein en SSL-certificaat oplossen in Azure App Service
 
-Dit artikel worden veelvoorkomende problemen die u tegenkomen kunt wanneer u een domein of een SSL-certificaat voor uw Azure-web-apps configureren. Ook wordt beschreven mogelijke oorzaken en oplossingen voor deze problemen.
+Dit artikel worden veelvoorkomende problemen die u tegenkomen kunt wanneer u een domein of een SSL-certificaat voor uw web-apps in Azure App Service configureren. Ook wordt beschreven mogelijke oorzaken en oplossingen voor deze problemen.
 
 Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op [MSDN en Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning voor Azure site](https://azure.microsoft.com/support/options/) en selecteer **ontvang ondersteuning**.
 
 ## <a name="certificate-problems"></a>Certificaatproblemen
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-a-web-app"></a>U kunt een SSL-certificaat-binding niet toevoegen aan een web-app 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>U kunt een SSL-certificaat-binding niet toevoegen aan een app 
 
 #### <a name="symptom"></a>Symptoom
 
@@ -40,13 +40,13 @@ Wanneer u een SSL-binding toevoegt, wordt de volgende strekking weergegeven:
 
 #### <a name="cause"></a>Oorzaak
 
-Dit probleem kan optreden als er meerdere IP-gebaseerd SSL-bindingen voor hetzelfde IP-adres voor meerdere Webapps. Web-app A heeft bijvoorbeeld een op IP gebaseerde SSL met een oud certificaat. Web-app B is een op IP gebaseerde SSL met een nieuw certificaat voor hetzelfde IP-adres. Wanneer u het SSL-binding van de web-app met het nieuwe certificaat bijwerken, is het vanwege de volgende fout mislukt omdat hetzelfde IP-adres wordt gebruikt voor een andere app. 
+Dit probleem kan optreden als u meerdere IP-gebaseerd SSL-bindingen voor hetzelfde IP-adres voor meerdere apps hebt. App A heeft bijvoorbeeld een op IP gebaseerde SSL met een oud certificaat. App B is een op IP gebaseerde SSL met een nieuw certificaat voor hetzelfde IP-adres. Wanneer u de app SSL-binding niet met het nieuwe certificaat bijwerken, is het vanwege de volgende fout mislukt omdat hetzelfde IP-adres wordt gebruikt voor een andere app. 
 
 #### <a name="solution"></a>Oplossing 
 
 U lost dit probleem, moet u een van de volgende methoden gebruiken:
 
-- De IP-gebaseerd SSL-binding op de web-app die gebruikmaakt van het oude certificaat verwijderd. 
+- De IP-gebaseerd SSL-binding op de app die gebruikmaakt van het oude certificaat verwijderd. 
 - Maak een nieuwe IP-gebaseerd SSL-binding die gebruikmaakt van het nieuwe certificaat.
 
 ### <a name="you-cant-delete-a-certificate"></a>U kunt een certificaat niet verwijderen 
@@ -59,11 +59,11 @@ Wanneer u probeert om een certificaat te verwijderen, ontvangt u de volgende str
 
 #### <a name="cause"></a>Oorzaak
 
-Dit probleem kan optreden als het certificaat wordt gebruikt door een andere web-app.
+Dit probleem kan optreden als het certificaat wordt gebruikt door een andere app.
 
 #### <a name="solution"></a>Oplossing
 
-De SSL-binding voor dat certificaat verwijderen uit de web-apps. Probeer te verwijderen van het certificaat. Als u het certificaat niet verwijderen, schakelt u de cache van de browser internet en opnieuw openen van de Azure portal in een nieuw browservenster. Probeer te verwijderen van het certificaat.
+De SSL-binding voor dat certificaat uit de apps verwijderen. Probeer te verwijderen van het certificaat. Als u het certificaat niet verwijderen, schakelt u de cache van de browser internet en opnieuw openen van de Azure portal in een nieuw browservenster. Probeer te verwijderen van het certificaat.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Kunt u aanschaffen een App Service certificate niet 
 
@@ -75,7 +75,7 @@ Dit probleem kan optreden voor het gebruik van de volgende redenen:
 
 - De App Service-plan is gratis of gedeeld. Deze Prijscategorieën ondersteuning geen voor SSL. 
 
-    **Oplossing**: De App Service-plan voor web-app een upgrade uitvoert naar Standard.
+    **Oplossing**: De App Service-plan voor app upgraden naar Standard.
 
 - Het abonnement beschikt niet over een geldige creditcard.
 
@@ -110,14 +110,14 @@ Certificaat verwijderen en vervolgens een nieuw certificaat kopen.
 
 Als het huidige certificaat die gebruikmaakt van het verkeerde domein zich in de status "Verleend", moet u ook worden gefactureerd voor dat certificaat. App Service-certificaten zijn niet worden terugbetaald, maar u kunt contact opnemen met [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om te zien of er nog andere opties. 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-web-app-shows-the-old-certificate"></a>Een App Service-certificaat is vernieuwd, maar de web-app ziet u het oude certificaat 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Een App Service-certificaat is vernieuwd, maar de app ziet u het oude certificaat 
 
 #### <a name="symptom"></a>Symptoom
 
-Het App Service-certificaat is vernieuwd, maar de web-app die gebruikmaakt van de App Service-certificaat is nog steeds met behulp van het oude certificaat. U hebt ontvangen ook een waarschuwing dat het HTTPS-protocol vereist is.
+Het App Service-certificaat is vernieuwd, maar de app die gebruikmaakt van het App Service-certificaat is nog steeds met behulp van het oude certificaat. U hebt ontvangen ook een waarschuwing dat het HTTPS-protocol vereist is.
 
 #### <a name="cause"></a>Oorzaak 
-De functie Web Apps van Azure App Service wordt een achtergrondtaak om de acht uur wordt uitgevoerd en de certificaatresource wordt gesynchroniseerd als er wijzigingen zijn. Wanneer u draaien of bijwerken van een certificaat, soms de toepassing is nog steeds bezig met ophalen van het oude certificaat en niet het bijgewerkte certificaat. De reden is dat de taak voor het synchroniseren van de certificaatresource nog niet is uitgevoerd. 
+Azure App Service een achtergrondtaak elke acht uur wordt uitgevoerd en de certificaatresource wordt gesynchroniseerd als er wijzigingen zijn. Wanneer u draaien of bijwerken van een certificaat, soms de toepassing is nog steeds bezig met ophalen van het oude certificaat en niet het bijgewerkte certificaat. De reden is dat de taak voor het synchroniseren van de certificaatresource nog niet is uitgevoerd. 
  
 #### <a name="solution"></a>Oplossing
 
@@ -156,7 +156,7 @@ Bijvoorbeeld, als u een standaard-certificaat voor azure.com met het domein veri
 ### <a name="you-cant-purchase-a-domain"></a>Kunt u aanschaffen niet een domein
 
 #### <a name="symptom"></a>Symptoom
-U kunt geen aanschaffen van een domein van de Web-Apps of App Service-domein in Azure portal.
+U kunt een App Service-domein in Azure portal kan niet kopen.
 
 #### <a name="cause-and-solution"></a>Oorzaak en oplossing
 
@@ -176,7 +176,7 @@ Dit probleem doet zich voor een van de volgende redenen:
 
     **Oplossing**: Uw Azure-abonnement upgraden naar een ander abonnementstype, zoals een abonnement met betalen per gebruik.
 
-### <a name="you-cant-add-a-host-name-to-a-web-app"></a>U kunt een hostnaam niet toevoegen aan een web-app 
+### <a name="you-cant-add-a-host-name-to-an-app"></a>U kunt een hostnaam niet toevoegen aan een app 
 
 #### <a name="symptom"></a>Symptoom
 
@@ -191,11 +191,11 @@ Dit probleem doet zich voor een van de volgende redenen:
     **Oplossing**: Vraag de beheerder van het abonnement u om toestemming te geven de hostnaam van een toe te voegen.
 - Uw domeineigendom kan niet worden geverifieerd.
 
-    **Oplossing**: Controleren of uw CNAME- of een record correct is geconfigureerd. Als u wilt een aangepast domein toewijzen aan web-app, een CNAME-record of een A-record te maken. Als u een hoofddomein gebruiken wilt, moet u een en TXT-records:
+    **Oplossing**: Controleren of uw CNAME- of een record correct is geconfigureerd. Als u wilt een aangepast domein toewijzen aan een app, een CNAME-record of een A-record te maken. Als u een hoofddomein gebruiken wilt, moet u een en TXT-records:
 
     |Recordtype|Host|Wijs|
     |------|------|-----|
-    |A|@|IP-adres voor een web-app|
+    |A|@|IP-adres voor een app|
     |TXT|@|< app-naam >. azurewebsites.net|
     |CNAME|www|< app-naam >. azurewebsites.net|
 
@@ -216,7 +216,7 @@ Dit probleem doet zich voor een van de volgende redenen:
 #### <a name="solution"></a>Oplossing
 - Wacht tot 48 uur voor dit probleem op te lossen zelf.
 - Als u de TTL-instelling in de DNS-configuratie wijzigen kunt, wijzigt u de waarde in vijf minuten om te zien of hiermee het probleem is opgelost.
-- Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de web-app verwijst. Als dat niet het geval is, configureert u de A-record naar het juiste IP-adres van de web-app.
+- Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de app verwijst. Als dat niet het geval is, configureert u de A-record naar het juiste IP-adres van de app.
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>U moet een verwijderde domein herstellen 
 
@@ -247,7 +247,7 @@ Het aangepaste domein die u hebt geconfigureerd, een CNAME- of A-record ontbreek
 **Oplossing voor oorzaak 1**
 
 - Als u een A-record hebt toegevoegd, zorg ervoor dat er ook een TXT-record wordt toegevoegd. Zie voor meer informatie, [A-record maken](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Als u geen gebruik van het hoofddomein voor uw web-app, wordt u aangeraden dat u een CNAME-record in plaats van een A-record gebruiken.
+- Als u geen gebruik van het hoofddomein voor uw app, wordt u aangeraden dat u een CNAME-record in plaats van een A-record gebruiken.
 - Een CNAME-record en een A-record niet gebruiken voor hetzelfde domein bevinden. Dit kan een conflict veroorzaken en te voorkomen dat het domein worden omgezet. 
 
 **Oorzaak 2** 
@@ -256,18 +256,18 @@ De browser internet mogelijk nog steeds de oude IP-adres voor uw domein caching.
 
 **Oplossing voor oorzaak 2**
 
-Schakel de browser. Voor Windows-apparaten, kunt u de opdracht uitvoeren `ipconfig /flushdns`. Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de web-app verwijst. 
+Schakel de browser. Voor Windows-apparaten, kunt u de opdracht uitvoeren `ipconfig /flushdns`. Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de app verwijst. 
 
 ### <a name="you-cant-add-a-subdomain"></a>U kunt geen een subdomein toevoegen 
 
 #### <a name="symptom"></a>Symptoom
 
-U kunt een nieuwe hostnaam niet toevoegen aan een web-app een subdomein toewijzen.
+U kunt een nieuwe hostnaam niet toevoegen aan een app een subdomein toewijzen.
 
 #### <a name="solution"></a>Oplossing
 
-- Neem contact op met de beheerder van abonnement om ervoor te zorgen dat u machtigingen hebben voor een hostnaam toevoegen aan de web-app.
-- Als u meer subdomeinen nodig hebt, raden wij u wijzigt de hosting van domein naar Azure DNS. Met behulp van Azure DNS kunt u 500 hostnamen toevoegen aan uw web-app. Zie voor meer informatie, [een subdomein toevoegen](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Neem contact op met de beheerder van abonnement om ervoor te zorgen dat u gemachtigd bent de naam van een host toevoegt aan de app.
+- Als u meer subdomeinen nodig hebt, raden wij u wijzigt de hosting van domein naar Azure DNS. U kunt met behulp van Azure DNS, 500 hostnamen toevoegen aan uw app. Zie voor meer informatie, [een subdomein toevoegen](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 
 

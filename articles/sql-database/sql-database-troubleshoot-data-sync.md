@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685817"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723889"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Problemen oplossen met SQL Data Sync
 
 In dit artikel wordt beschreven hoe u bekende problemen oplossen met Azure SQL Data Sync. Als er een oplossing voor een probleem is, wordt het hier opgegeven.
 
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
+
+> [!IMPORTANT]
+> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
 
 ## <a name="sync-issues"></a>Problemen met synchronisatie
 
@@ -37,7 +40,7 @@ Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met
 
 - [Ik zie een aanzienlijke afname van prestaties](#sync-perf)
 
-- [Kan ik dit bericht ziet: "kan niet de waarde NULL niet invoegen in de kolom <column>. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen?](#sync-nulls)
+- [Kan ik ziet dit bericht: ' Kan niet de waarde NULL niet invoegen in de kolom <column>. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen?](#sync-nulls)
 
 - [Hoe wordt Data Sync kringverwijzingen verwerkt? Dat wil zeggen, wanneer dezelfde gegevens in meerdere synchronisatiegroepen is gesynchroniseerd en als gevolg hiervan blijft wijzigen?](#sync-circ)
 
@@ -102,7 +105,7 @@ De prestaties van uw vermindert aanzienlijk, mogelijk op het punt waar u de gebr
 
 - **Resolutie**. De beste oplossing is voorkomen. Zorg ervoor dat u geen kringverwijzingen in uw synchronisatiegroepen hebt. Een rij die is gesynchroniseerd met een synchronisatiegroep kan niet worden gesynchroniseerd door een andere synchronisatiegroep.
 
-### <a name="sync-nulls"></a> Kan ik dit bericht ziet: "kan niet de waarde NULL niet invoegen in de kolom <column>. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen? 
+### <a name="sync-nulls"></a> Kan ik ziet dit bericht: ' Kan niet de waarde NULL niet invoegen in de kolom <column>. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen? 
 Dit foutbericht geeft aan dat een van de twee volgende problemen is opgetreden:
 -  Een tabel hebben niet een primaire sleutel. U kunt dit probleem oplossen, toevoegen een primaire sleutel voor alle tabellen die u synchroniseert.
 -  Er is een WHERE-component in de instructie CREATE INDEX is. Data Sync afhandelen niet van dit probleem. Om op te lossen dit probleem, verwijder de component WHERE of wijzigingen handmatig aanbrengen voor alle databases. 
@@ -239,18 +242,18 @@ Als u een verloren of beschadigde database vanaf een back-up herstellen, is er m
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over SQL Data Sync:
 
--   Overzicht - [gegevens synchroniseren tussen meerdere cloud en on-premises databases met Azure SQL Data Sync](sql-database-sync-data.md)
+-   Overzicht: [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md)
 -   Data Sync instellen
     - In de portal - [zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - Met PowerShell
         -  [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Gegevens synchroniseren Agent - [gegevens synchroniseren-Agent voor Azure SQL Data Sync](sql-database-data-sync-agent.md)
--   Aanbevolen procedures - [aanbevolen procedures voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Monitor - [SQL Data Sync met Log Analytics controleren](sql-database-sync-monitor-oms.md)
--   Bijwerken van het synchronisatieschema
-    -   Met behulp van Transact-SQL - [automatiseren van de replicatie van schemawijzigingen in Azure SQL Data Sync](sql-database-update-sync-schema.md)
-    -   Met PowerShell - [Gebruik PowerShell om bij te werken van het synchronisatieschema in een bestaande synchronisatiegroep](scripts/sql-database-sync-update-schema.md)
+-   Data Sync-agent: [Data Sync-agent voor Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Best practices: [Best practices voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Bewaken: [SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)
+-   Het synchronisatieschema bijwerken
+    -   Met Transact-SQL: [De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren](sql-database-update-sync-schema.md)
+    -   Met PowerShell: [PowerShell gebruiken voor het bijwerken van het synchronisatieschema in een bestaande synchronisatiegroep](scripts/sql-database-sync-update-schema.md)
 
 Zie voor meer informatie over SQL Database:
 

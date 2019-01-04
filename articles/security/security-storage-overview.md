@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259136"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973125"
 ---
 # <a name="azure-storage-security-overview"></a>Overzicht van beveiliging van Azure Storage
 
@@ -67,11 +67,11 @@ Versleuteling tijdens overdracht is een mechanisme om gegevens te beveiligen wan
 Meer informatie over client-side-versleuteling:
 
 * [Client-Side Encryption voor Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Cloudbeveiliging reeks besturingselementen: versleutelen van gegevens die onderweg zijn](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Cloudbeveiliging besturingselementen reeks: Versleutelen van gegevens die onderweg zijn](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Versleuteling 'at rest'
 
-Voor veel organisaties [gegevensversleuteling in rust](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap voor privacy, naleving en onafhankelijkheid van gegevens. Drie Azure-functies bieden versleuteling van gegevens die zich in rust:
+Voor veel organisaties [gegevensversleuteling in rust](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap voor privacy, naleving en onafhankelijkheid van gegevens. Drie Azure-functies bieden versleuteling van gegevens die zich in rust:
 
 * [Storage-Serviceversleuteling](../storage/common/storage-security-guide.md#encryption-at-rest) kunt u om aan te vragen die de storage-service gegevens automatisch versleuteld bij het schrijven van deze naar Azure Storage.
 * [Clientversleuteling](../storage/common/storage-security-guide.md#client-side-encryption) biedt ook de functie van versleuteling-at-rest.

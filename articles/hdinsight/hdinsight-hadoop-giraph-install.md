@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89d1859b521fff8ca8d3e8c7342bcb5a4b8d59fe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3ee1cfaa9e5eb08b2fe6ee7d210dcb84a8c39d78
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012977"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715321"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installeren en Apache Giraph gebruikt op Windows gebaseerde HDInsight-clusters
 
 Meer informatie over het aanpassen van Windows op basis van HDInsight-cluster met Apache Giraph met Script Action en hoe u Giraph gebruikt om grootschalige grafieken te verwerken. Zie voor meer informatie over het gebruik van Giraph met een cluster op basis van Linux [Apache Giraph installeren op HDInsight Hadoop-clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document werken alleen met HDInsight op basis van een Windows-clusters. HDInsight is alleen beschikbaar voor Windows voor versies lager dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over hoe u Giraph installeren op een Linux gebaseerde HDInsight-cluster [Apache Giraph installeren op HDInsight Hadoop-clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 
@@ -34,7 +34,7 @@ U Giraph kunt installeren op elk type cluster (Hadoop, Storm, HBase, Spark) op A
 * [Script Action-scripts ontwikkelen voor HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-giraph"></a>Wat is Giraph?
-<a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> Hiermee kunt u grafische verwerking met behulp van Hadoop en kan worden gebruikt met Azure HDInsight. Grafieken model relaties tussen objecten, zoals de verbindingen tussen routers in een groot netwerk zoals Internet, of de relaties tussen personen op sociale netwerken (soms ook wel een sociale grafiek genoemd). Grafische verwerking kunt u te beredeneren de relaties tussen de objecten in een grafiek, zoals:
+<a href="https://giraph.apache.org/" target="_blank">Apache Giraph</a> Hiermee kunt u grafische verwerking met behulp van Hadoop en kan worden gebruikt met Azure HDInsight. Grafieken model relaties tussen objecten, zoals de verbindingen tussen routers in een groot netwerk zoals Internet, of de relaties tussen personen op sociale netwerken (soms ook wel een sociale grafiek genoemd). Grafische verwerking kunt u te beredeneren de relaties tussen de objecten in een grafiek, zoals:
 
 * Identificeren van mogelijke vrienden op basis van uw huidige relaties.
 * Hoe identificeert u de kortste route tussen twee computers in een netwerk.
@@ -61,7 +61,7 @@ U Giraph kunt installeren op elk type cluster (Hadoop, Storm, HBase, Spark) op A
     U kunt meer dan één scriptactie voor het installeren van meerdere onderdelen op het cluster toevoegen. Nadat u de scripts hebt toegevoegd, klikt u op het vinkje om te beginnen met het maken van het cluster.
 
 ## <a name="use-giraph"></a>Giraph gebruiken
-We gebruiken het SimpleShortestPathsComputation-voorbeeld ter illustratie van de basic <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> implementatie voor het zoeken naar het kortste pad tussen objecten in een grafiek. Gebruik de volgende stappen op de voorbeeldgegevens en de voorbeeld-jar uploaden, een taak uitvoeren met behulp van het voorbeeld SimpleShortestPathsComputation en bekijk vervolgens de resultaten.
+We gebruiken het SimpleShortestPathsComputation-voorbeeld ter illustratie van de basic <a href = "https://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> implementatie voor het zoeken naar het kortste pad tussen objecten in een grafiek. Gebruik de volgende stappen op de voorbeeldgegevens en de voorbeeld-jar uploaden, een taak uitvoeren met behulp van het voorbeeld SimpleShortestPathsComputation en bekijk vervolgens de resultaten.
 
 1. Upload een bestand met voorbeeldgegevens naar Azure Blob-opslag. Maak een nieuw bestand met de naam op uw lokale werkstation **tiny_graph.txt**. Deze moet de volgende regels bevat:
 
@@ -80,7 +80,7 @@ We gebruiken het SimpleShortestPathsComputation-voorbeeld ter illustratie van de
     ![tiny_graph.txt getekend als cirkels met verschillende afstand tussen regels](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 2. Voer in het voorbeeld SimpleShortestPathsComputation. Gebruik de volgende Azure PowerShell-cmdlets om uit te voeren in het voorbeeld met behulp van het bestand tiny_graph.txt als invoer.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en per 1 januari 2017 verdwenen. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
     >
     > Volg de stappen in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) als u de nieuwste versie van Azure PowerShell wilt installeren. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
@@ -164,8 +164,8 @@ Zie [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-
 * [Apache Hadoop-clusters maken in HDInsight](hdinsight-provision-clusters.md): algemene informatie over het maken van HDInsight-clusters.
 * [HDInsight-cluster met Script Action aanpassen][hdinsight-cluster-customize]: algemene informatie over het aanpassen van HDInsight-clusters met behulp van scriptacties.
 * [Script Action-scripts ontwikkelen voor HDInsight](hdinsight-hadoop-script-actions.md).
-* [Installeren en gebruiken van Apache Spark op HDInsight-clusters][hdinsight-install-spark]: Script Action-voorbeeld over het installeren van Spark.
-* [Apache Solr installeren op HDInsight-clusters](hdinsight-hadoop-solr-install.md): Script Action-voorbeeld over het installeren van Solr.
+* [Installeren en gebruiken van Apache Spark op HDInsight-clusters][hdinsight-install-spark]: Voorbeeldscript actie over het installeren van Spark.
+* [Apache Solr installeren op HDInsight-clusters](hdinsight-hadoop-solr-install.md): Voorbeeldscript actie over het installeren van Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/

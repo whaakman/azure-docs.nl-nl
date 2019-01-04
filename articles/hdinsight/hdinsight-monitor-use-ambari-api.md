@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7967459e1318e85e1e179e21bc803bf00ee329cd
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436327"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743790"
 ---
 # <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Controleren van Apache Hadoop-clusters in HDInsight met Apache Ambari-API
 Leer hoe u HDInsight-clusters controleren met behulp van Apache Ambari APIs.
 
 > [!NOTE]  
 > De informatie in dit artikel is voornamelijk bedoeld voor HDInsight op basis van een Windows-clusters, waardoor een alleen-lezen versie van de Ambari REST-API. Zie voor Linux gebaseerde clusters [beheren Apache Hadoop-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-> 
-> 
 
 ## <a name="what-is-ambari"></a>Wat is Ambari?
 [Apache Ambari] [ ambari-home] wordt gebruikt voor het inrichten, beheren en controleren van Apache Hadoop-clusters. Het bevat een intuïtieve verzameling hulpprogramma‘s voor operators en een krachtige reeks API‘s die de complexiteit van Hadoop verbergen en de werking van clusters vereenvoudigen. Zie voor meer informatie over de API's, [Ambari API Reference][ambari-api-reference]. 
@@ -38,8 +36,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
   
   > [!NOTE]  
   > Als de cURL-opdracht gebruiken in Windows, gebruik dubbele aanhalingstekens in plaats van enkele aanhalingstekens voor de optiewaarden.
-  > 
-  > 
+
 * **Een Azure HDInsight-cluster**. Zie voor instructies over het inrichten van het cluster [aan de slag met HDInsight] [ hdinsight-get-started] of [inrichten HDInsight-clusters][hdinsight-provision]. U moet de volgende gegevens op de zelfstudie te volgen:
   
   | Cluster-eigenschap | Naam van Azure PowerShell-variabele | Waarde | Description |
@@ -146,13 +143,13 @@ Nu hebt u geleerd hoe u bewaking Apache Ambari-API-aanroepen. Voor meer informat
 * [Documentatie voor HDInsight][hdinsight-documentation]
 * [Aan de slag met HDInsight][hdinsight-get-started]
 
-[ambari-home]: http://ambari.apache.org/
+[ambari-home]: https://ambari.apache.org/
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
-[microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
+[microsoft-hadoop-SDK]: https://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx

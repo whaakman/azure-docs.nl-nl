@@ -4,18 +4,18 @@ description: Overzicht van de Azure Database Migration Service, waarmee u naadlo
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
+manager: craigg
 ms.reviewer: douglasl
-ms.service: database-migration
+ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/12/2018
-ms.openlocfilehash: b3509917f0473795ec204c6672a630b2857ff37c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/19/2018
+ms.openlocfilehash: 68fb6497141d79dc721af7dfa5a8f69102c7e239
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343918"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722197"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Wat is de Azure Database Migration Service?
 Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure data platforms met minimale downtime (online migratie).
@@ -24,7 +24,7 @@ Azure Database Migration Service is een volledig beheerde service die is ontworp
 Azure Database Migration Service kan worden geïntegreerd enkele van de functionaliteit van onze bestaande hulpprogramma's en services. Daardoor kunnen klanten met een uitgebreide en zeer beschikbare oplossing. De service wordt gebruikt de [Data Migration Assistant](https://aka.ms/dma) voor het genereren van evaluatierapporten die aanbevelingen te doen om u te begeleiden bij de wijzigingen die zijn vereist voordat u een migratie uitvoert. Het is aan u om uit te voeren van een herstel is vereist. Wanneer u klaar bent om met het migratieproces te beginnen, voert de Azure Database Migration Service alle vereiste stappen uit. U kunt worden geactiveerd en vergeten uw migratieprojecten met een hart, te weten dat gebruikgemaakt van best practices wordt, zoals wordt bepaald door Microsoft.
 
 > [!NOTE]
-> Als u de Azure Database Migration Service gebruikt om een onlinemigratie uit te voeren, is het vereist dat u een exemplaar maakt op basis van de prijscategorie Premium (preview).
+> Met behulp van de Azure Database Migration Service om uit te voeren van een online migratie vereist het maken van een exemplaar op basis van de prijscategorie Premium.
 
 ## <a name="regional-availability"></a>Regionale beschikbaarheid
 Zie voor bijgewerkte informatie over regionale beschikbaarheid van de Azure Database Migration Service [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).

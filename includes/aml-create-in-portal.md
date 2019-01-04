@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: edcb2ecb74255ddbb8d601cb69565fb401b756d2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f73b15ed16cfe26bf14e60a5206568e1a1564fd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886212"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594371"
 ---
 Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement u gebruikt. 
 
@@ -28,26 +28,26 @@ Selecteer in de linkerbovenhoek van de portal **een resource maken**.
 
 Voer in de zoekbalk typt, **Machine Learning**. Selecteer de **werkruimte van Machine Learning-service** zoekresultaat.
 
-   ![zoeken naar werkruimte](./media/aml-create-in-portal/allservices-search.PNG)
+   ![Zoeken naar een werkruimte](./media/aml-create-in-portal/allservices-search.PNG)
 
-In de **werkruimte van Machine Learning-service** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen.
+In de **ML-werkruimte in service** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen.
 
    ![Maken](./media/aml-create-in-portal/portal-create-button.png)
 
 In de **ML-werkruimte in service** in het deelvenster voor het configureren van uw werkruimte.
 
-   Veld|Beschrijving
+   Veld|Description
    ---|---
-   Naam van de werkruimte |Voer een unieke naam ter identificatie van uw werkruimte. Hier gebruiken we de docs-ws. Namen moeten uniek zijn in de resourcegroep. Gebruik een naam die gemakkelijk te trekken en onderscheiden van werkruimten die door anderen zijn gemaakt.  
+   Naam van de werkruimte |Voer een unieke naam ter identificatie van uw werkruimte. In dit voorbeeld gebruiken we **docs-ws**. Namen moeten uniek zijn in de resourcegroep. Gebruik een naam die gemakkelijk te trekken en onderscheiden van werkruimten die door anderen zijn gemaakt.  
    Abonnement |Selecteer het Azure-abonnement dat u wilt gebruiken.
-   Resourcegroep | Een bestaande resourcegroep gebruiken in uw abonnement, of voer een naam in om een nieuwe resourcegroep te maken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Hier gebruiken we de docs-aml. 
+   Resourcegroep | Een bestaande resourcegroep gebruiken in uw abonnement, of voer een naam in om een nieuwe resourcegroep te maken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. In dit voorbeeld gebruiken we **docs-aml**. 
    Locatie | Selecteer de locatie die het dichtst bij uw gebruikers en de gegevensresources. Deze locatie is waar de werkruimte is gemaakt.
 
    ![Werkruimte maken](./media/aml-create-in-portal/workspace-create.png)
 
 Selecteer eerst het maakproces **maken**. Het kan even duren om de werkruimte te maken.
 
-Als u wilt controleren op de status van de implementatie, selecteer het meldingspictogram (de klok) op de werkbalk.
+Als u wilt controleren op de status van de implementatie, selecteer het pictogram meldingen **bell**, op de werkbalk.
 
    ![Status van het maken van werkruimte](./media/aml-create-in-portal/notifications.png)
 

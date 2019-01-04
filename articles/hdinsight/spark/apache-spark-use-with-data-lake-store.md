@@ -1,6 +1,6 @@
 ---
-title: Apache Spark gebruiken voor het analyseren van gegevens in Azure Data Lake Store
-description: Spark-taken voor het analyseren van gegevens die zijn opgeslagen in Azure Data Lake Store uitvoeren
+title: Apache Spark gebruiken voor het analyseren van gegevens in Azure Data Lake Storage
+description: Spark-taken voor het analyseren van gegevens die zijn opgeslagen in Azure Data Lake Storage uitvoeren
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,68 +9,63 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 876a564c3cf5ee4b19d7f2530ecff1ed12bebe63
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 51d3c1c63c07c3e2a36d5e963ec00c9f23831579
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581815"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634215"
 ---
-# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake Store
+# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake-opslag
 
-In deze zelfstudie gebruikt u [Jupyter-Notebook](https://jupyter.org/) beschikbaar met HDInsight Spark-clusters een taak die gegevens uit een Data Lake Store-account leest uit te voeren.
+In deze zelfstudie gebruikt u [Jupyter-Notebook](https://jupyter.org/) beschikbaar met HDInsight Spark-clusters een taak die gegevens uit een Data Lake Storage-account leest uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure Data Lake Store-account. Volg de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](../../data-lake-store/data-lake-store-get-started-portal.md).
+* Azure Data Lake Storage-account. Volg de instructies op [aan de slag met Azure Data Lake Storage met behulp van de Azure-portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark-cluster met Data Lake Store als opslag. Volg de instructies op [Quick Start: clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark-cluster met Data Lake-opslag als opslag. Volg de instructies in [Quick Start: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
 
-> [!NOTE]
-> U hoeft niet in deze stap uitvoeren als u het HDInsight-cluster hebt gemaakt met Data Lake Store als standaardopslag. Het proces voor het cluster maken wordt enkele voorbeeldgegevens in de Data Lake Store-account dat u opgeeft tijdens het maken van het cluster toegevoegd. Ga naar de sectie [gebruik HDInsight Spark-cluster met Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
->
->
+> [!NOTE]  
+> U hoeft niet in deze stap uitvoeren als u het HDInsight-cluster hebt gemaakt met Data Lake Storage als standaardopslag. Het proces voor het cluster maken wordt enkele voorbeeldgegevens in de Data Lake Storage-account dat u opgeeft tijdens het maken van het cluster toegevoegd. Ga naar de sectie [gebruik HDInsight Spark-cluster met Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
 
-Als u een HDInsight-cluster met Data Lake Store als extra opslag en Azure Storage-Blob als standaardopslag gemaakt, moet u eerst via enkele voorbeeldgegevens kopiëren naar het Data Lake Store-account. U kunt het voorbeeld van gegevens uit de Azure Storage-Blob die is gekoppeld aan het HDInsight-cluster gebruiken. U kunt de [ADLCopy hulpprogramma](https://aka.ms/downloadadlcopy) om dit te doen. Download en installeer het hulpprogramma via de koppeling.
+Als u een HDInsight-cluster met Data Lake-opslag als extra opslag en Azure Storage-Blob als standaardopslag gemaakt, moet u eerst via enkele voorbeeldgegevens kopiëren naar het Data Lake Storage-account. U kunt het voorbeeld van gegevens uit de Azure Storage-Blob die is gekoppeld aan het HDInsight-cluster gebruiken. U kunt de [ADLCopy hulpprogramma](https://aka.ms/downloadadlcopy) om dit te doen. Download en installeer het hulpprogramma via de koppeling.
 
 1. Open een opdrachtprompt en navigeer naar de map waarin AdlCopy is geïnstalleerd, doorgaans `%HOMEPATH%\Documents\adlcopy`.
 
-2. Voer de volgende opdracht om te kopiëren van een specifieke blob uit de Broncontainer naar een Data Lake Store:
+2. Voer de volgende opdracht om te kopiëren van een specifieke blob uit de Broncontainer naar Data Lake-opslag:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    Kopieer de **HVAC.csv** voorbeeldgegevens op het bestand **/HdiSamples/HdiSamples/SensorSampleData/hvac/** aan het Azure Data Lake Store-account. Het codefragment moet er als volgt uitzien:
+    Kopieer de **HVAC.csv** voorbeeldgegevens op het bestand **/HdiSamples/HdiSamples/SensorSampleData/hvac/** aan het Azure Data Lake Storage-account. Het codefragment moet er als volgt uitzien:
 
         AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-   > [!WARNING]
+   > [!WARNING]  
    > Zorg ervoor dat u die de namen van de bestanden en paden in het juiste hoofdlettergebruik zijn.
-   >
-   >
-3. U wordt gevraagd de referenties invoert voor de Azure-abonnement waarin u uw Data Lake Store-account hebt. Het volgende (of een vergelijkbaar) codefragment wordt weergegeven:
+
+3. U wordt gevraagd de referenties invoert voor de Azure-abonnement waarmee u uw Data Lake Storage-account hebt. Het volgende (of een vergelijkbaar) codefragment wordt weergegeven:
 
         Initializing Copy.
         Copy Started.
         100% data copied.
         Copy Completed. 1 file copied.
 
-    Het gegevensbestand (**HVAC.csv**) moeten worden gekopieerd in een map **/hvac** in het Data Lake Store-account.
+    Het gegevensbestand (**HVAC.csv**) moeten worden gekopieerd in een map **/hvac** in het Data Lake Storage-account.
 
-## <a name="use-an-hdinsight-spark-cluster-with-data-lake-store"></a>Gebruik van een HDInsight Spark-cluster met Data Lake Store
+## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage"></a>Een HDInsight Spark-cluster met Data Lake-opslag gebruiken
 
 1. Uit de [Azure Portal](https://portal.azure.com/), vanaf het startboard, klikt u op de tegel voor uw Apache Spark-cluster (als u deze aan het startboard hebt vastgemaakt). U kunt ook naar uw cluster navigeren onder **Bladeren** > **HDInsight-clusters**.
 
 2. Klik vanuit de blade Spark-cluster op **Snelkoppelingen**. Klik vervolgens vanuit het **Cluster-dashboard** op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Mogelijk bereikt u de Jupyter-notebook voor uw cluster ook door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
 
 3. Maak een nieuwe notebook. Klik op **Nieuw** en klik vervolgens op **PySpark**.
 
@@ -84,9 +79,9 @@ Als u een HDInsight-cluster met Data Lake Store als extra opslag en Azure Storag
 
      ![Status van een Jupyter-notebooktaak](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status van een Jupyter-notebooktaak")
 
-5. Voorbeeldgegevens laden in een tijdelijke tabel met de **HVAC.csv** bestand dat u hebt gekopieerd naar het Data Lake Store-account. U kunt toegang tot de gegevens in het Data Lake Store-account met behulp van de volgende URL-patroon.
+5. Voorbeeldgegevens laden in een tijdelijke tabel met de **HVAC.csv** bestand dat u hebt gekopieerd naar het Data Lake Storage-account. U kunt toegang tot de gegevens in het Data Lake Storage-account met behulp van de volgende URL-patroon.
 
-    * Als u Data Lake Store als standaardopslag, zijn HVAC.csv op de locatie die vergelijkbaar is met de volgende URL:
+    * Als u Data Lake Storage als standaardopslag, zijn HVAC.csv op de locatie die vergelijkbaar is met de volgende URL:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
@@ -94,13 +89,13 @@ Als u een HDInsight-cluster met Data Lake Store als extra opslag en Azure Storag
 
             adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-    * Als u Data Lake Store als extra opslag hebt, wordt HVAC.csv zich op de locatie waar u hebt gekopieerd, zoals:
+    * Als u Data Lake Storage als extra opslag hebt, wordt HVAC.csv zich op de locatie waar u hebt gekopieerd, zoals:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
 
-     Plak het volgende codevoorbeeld in een lege cel, Vervang **MYDATALAKESTORE** met uw Data Lake Store-accountnaam en druk op **SHIFT + ENTER**. Dit codevoorbeeld registreert de gegevens in een tijdelijke tabel genaamd **hvac**.
+     Plak het volgende codevoorbeeld in een lege cel, Vervang **MYDATALAKESTORE** met uw Data Lake Storage-accountnaam en druk op **SHIFT + ENTER**. Dit codevoorbeeld registreert de gegevens in een tijdelijke tabel genaamd **hvac**.
 
-            # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
+            # Load the data. The path below assumes Data Lake Storage is default storage for the Spark cluster
             hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
             # Create the schema

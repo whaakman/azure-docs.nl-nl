@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: asrastog
-ms.openlocfilehash: a5b8ce8cd753ee294a8d61ba8a3dfed872f0f31a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956319"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993481"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Avro-gegevens opvragen met behulp van Azure Data Lake Analytics
 
@@ -21,7 +21,7 @@ In dit artikel wordt beschreven hoe u Avro-gegevens voor het efficiënt te route
 
 IoT Hub schrijft dat de uitdaging is dat wanneer u Azure IoT Hub berichten naar Azure Blob-opslag worden doorgestuurd, de inhoud in Avro-indeling, die zowel een eigenschap van de hoofdtekst van bericht als een berichteigenschap is. IoT Hub schrijven van gegevens naar Blob-opslag alleen in de indeling van de Avro ondersteunt, en deze indeling wordt niet gebruikt voor alle andere eindpunten. Zie voor meer informatie, een artikel over het gebruik van Azure Storage-containers. Hoewel de Avro-indeling ideaal voor het behoud van gegevens en het bericht is, is een uitdaging om te gebruiken om gegevens te doorzoeken. Ter vergelijking: JSON- of CSV-indeling, het is veel eenvoudiger is voor het opvragen van gegevens.
 
-<!-- https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
 
 Voor het adres van de behoeften van niet-relationele big data en indelingen en strijden tegen deze uitdaging, kunt u veel van de big data-patronen voor zowel transformeren en schalen van gegevens. Een van de patronen 'betalen per query', is Azure Data Lake Analytics, wat het hoofdonderwerp van dit artikel. Hoewel u kunt eenvoudig de query worden uitgevoerd in Hadoop- of andere oplossingen, Data Lake Analytics is vaak beter geschikt zijn voor deze benadering 'betalen per query'. 
 
@@ -171,7 +171,7 @@ In deze sectie maakt u Avro-gegevens op te vragen en exporteren naar een CSV-bes
 
 In deze zelfstudie hebt u geleerd hoe u query's Avro-gegevens om efficiënt te routeren van berichten van Azure IoT Hub met Azure-services.
 
-Zie voor meer voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub, de [documentatie voor IoT-oplossingsversnellers Azure](../iot-accelerators/index.yml).
+Zie voor meer voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub, de [documentatie voor IoT-oplossingsversnellers Azure](/azure/iot-accelerators).
 
 Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide.md).
 

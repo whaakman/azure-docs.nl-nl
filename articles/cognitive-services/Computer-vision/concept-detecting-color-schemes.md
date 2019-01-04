@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339489"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579359"
 ---
-# <a name="detecting-color-schemes"></a>Kleurenschema’s detecteren
+# <a name="detect-color-schemes-in-images"></a>Kleurenschema's detecteren in afbeeldingen
 
-Computer Vision extraheert kleuren uit een afbeelding. De kleuren worden vervolgens in drie verschillende contexten geanalyseerd: de dominante voorgrondkleur, de dominante achtergrondkleur en de dominante kleuren voor de installatiekopie als geheel. Ze worden in 12 dominante Accentkleuren gegroepeerd. Deze Accentkleuren zijn zwart, blauw, brown, grijs, groen, oranje, roze, paars, rood, groenblauwe, wit en geel. Computer Vision analyseert de kleuren die is geëxtraheerd uit een afbeelding om terug te keren een accentkleur dat de meest levendige kleur voor de installatiekopie voor gebruikers, door een combinatie van dominante kleuren en de verzadiging vertegenwoordigt. Afhankelijk van de kleuren in een afbeelding, kunnen de eenvoudige zwart-wit of Accentkleuren in hexadecimale kleurcodes worden geretourneerd. Computer Vision ook retourneert een Booleaanse waarde die aangeeft of een installatiekopie van een zwart- wit.
+Computer Vision extraheert kleuren uit een afbeelding. De kleuren worden vervolgens in drie verschillende contexten geanalyseerd: de dominante voorgrondkleur, de dominante achtergrondkleur en de dominante kleuren voor de installatiekopie als geheel. Ze worden in 12 dominante Accentkleuren gegroepeerd. Deze accentkleuren zijn zwart, blauw, bruin, grijs, groen, oranje, roze, paars, rood, groenblauw, wit en geel. Computer Vision analyseert de kleuren die is geëxtraheerd uit een afbeelding om terug te keren een accentkleur dat de meest levendige kleur voor de installatiekopie voor gebruikers, door een combinatie van dominante kleuren en de verzadiging vertegenwoordigt. Afhankelijk van de kleuren in een afbeelding kunnen ofwel gewoon zwart-wit ofwel accentkleuren worden geretourneerd in hexadecimale kleurcodes. Computer Vision ook retourneert een Booleaanse waarde die aangeeft of een installatiekopie van een zwart- wit.
 
 ## <a name="color-scheme-detection-examples"></a>Kleur-schema-detectie-voorbeelden
 
 Het volgende voorbeeld wordt de JSON-antwoord geretourneerd door visie op de Computer bij het detecteren van het kleurenschema van de installatiekopie van het voorbeeld. In dit geval wordt de installatiekopie van het voorbeeld is niet een zwart- wit -installatiekopie, maar de dominante kleuren van voorgrond en achtergrond zwart zijn en de dominante kleuren voor de afbeelding als een geheel zwart-wit zijn.
 
-![Outdoor Mountain](./Images/mountain_vista.png)
+![Berglandschap](./Images/mountain_vista.png)
 
 ```json
 {
@@ -51,8 +52,8 @@ De volgende tabel beschrijft de dominante voorgrond, achtergrond en kleuren voor
 
 | Installatiekopie | Dominante kleuren |
 |-------|-----------------|
-|![Vision bloem analyseren](./Images/flower.png)| Voorgrond: zwart<br/>Achtergrond: wit<br/>Kleuren: Zwart, technische, groen|
-![Vision Station van de trein analyseren](./Images/train_station.png) | Voorgrond: zwart<br/>Achtergrond: zwart<br/>Kleuren: zwart |
+|![Een wit bloem met een groene achtergrond](./Images/flower.png)| Voorgrond: Zwart<br/>Achtergrond: Wit<br/>Kleuren: Zwart, wit-groen|
+![Een trein een station wilt doorlopen](./Images/train_station.png) | Voorgrond: Zwart<br/>Achtergrond: Zwart<br/>Kleuren: Zwart |
 
 ### <a name="accent-color-examples"></a>Accent kleur voorbeelden
 
@@ -60,9 +61,9 @@ De volgende tabel beschrijft de dominante voorgrond, achtergrond en kleuren voor
 
 | Installatiekopie | Accentkleur |
 |-------|--------------|
-|![Outdoor Mountain](./Images/mountain_vista.png) | #BB6D10 |
-|![Vision bloem analyseren](./Images/flower.png) | #C6A205 |
-|![Vision Station van de trein analyseren](./Images/train_station.png) | #474A84 |
+|![Een persoon die permanent op een rock mountain zonsondergang](./Images/mountain_vista.png) | #BB6D10 |
+|![Een wit bloem met een groene achtergrond](./Images/flower.png) | #C6A205 |
+|![Een trein een station wilt doorlopen](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Detectie van zwart- wit -voorbeelden
 
@@ -70,8 +71,8 @@ De volgende tabel geeft aan of de voorbeeldafbeelding zwart- wit, zoals geretour
 
 | Installatiekopie | Zwart- wit? |
 |-------|----------------|
-|![Visie ontwikkelen analyseren](./Images/bw_buildings.png) | true |
-|![Vision House Yard analyseren](./Images/house_yard.png) | false |
+|![Een zwart-wit beeld van de gebouwen in Manhattan](./Images/bw_buildings.png) | true |
+|![Een blauwe huis en de voorste yard](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Volgende stappen
 

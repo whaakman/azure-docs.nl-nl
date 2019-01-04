@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 99efd29165f381b9038758c3384774a65da91501
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 874d2e7b5925bf299c3749948206401e00553736
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649411"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650444"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Gekoppelde services in Azure Data Factory parameteriseren
 
@@ -34,7 +34,7 @@ Bekijk de volgende video voor een inleiding van 7 minuten en demonstratie van de
 
 ## <a name="supported-data-stores"></a>Ondersteunde gegevensarchieven
 
-Parameterisering van de gekoppelde service wordt op dit moment ondersteund in de gebruikersinterface van Data Factory in Azure portal voor de volgende gegevensarchieven. Voor alle andere gegevensarchieven, kunt u de gekoppelde service voorzien door het selecteren van de **Code** pictogram op het pijplijntabblad en met behulp van de JSON-editor.
+Parameterisering van de gekoppelde service wordt op dit moment ondersteund in de gebruikersinterface van Data Factory in Azure portal voor de volgende gegevensarchieven. Voor alle andere gegevensarchieven, kunt u de gekoppelde service voorzien door het selecteren van de **Code** pictogram op de **verbindingen** tabblad en met behulp van de JSON-editor.
 - Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server

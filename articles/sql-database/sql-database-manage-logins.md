@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864941"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631971"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Beheren en het verlenen van toegang tot de database met SQL Database en SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Na de configuratie van firewall-regels, kunt u verbinding met Azure [SQL-Databas
 > Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](sql-database-security-tutorial.md). In deze zelfstudie geldt niet voor **Azure SQL Database Managed Instance**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Onbeperkte beheerdersaccounts
-Er zijn twee beheerdersaccounts (**serverbeheerder** en **Active Directory-beheerder**) die als beheerder fungeren. Als u deze beheerdersaccounts voor uw SQL-server wilt identificeren, opent u Azure Portal en gaat u naar de eigenschappen van de SQL-server.
+Er zijn twee beheerdersaccounts (**serverbeheerder** en **Active Directory-beheerder**) die als beheerder fungeren. Voor het identificeren van deze beheerdersaccounts voor uw SQL-server, opent u Azure portal en navigeer naar het tabblad Eigenschappen van uw SQL server of SQL-Database.
 
-![SQL Server-beheerders](./media/sql-database-manage-logins/sql-admins.png)
+![SQL Server-beheerders](media/sql-database-manage-logins/sql-admins.png)
 
 - **Serverbeheerder**   
 Wanneer u een Azure SQL-server maakt, moet u de **aanmeldgegevens van de serverbeheerder** opgeven. De SQL-server maakt het account vervolgens als een aanmelding in de hoofddatabase. Dit account maakt verbinding met behulp van SQL Server-verificatie (gebruikersnaam en wachtwoord). Er kan slechts één van deze accounts bestaan.   
@@ -78,7 +78,7 @@ Naast de beheerdersrollen op serverniveau die eerder zijn besproken, biedt SQL D
 Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen nieuwe databases maken. Voor het gebruik van deze rol maakt u een gebruiker in de `master`-database en voegt u deze gebruiker vervolgens toe aan de databaserol **dbmanager**. Om een database te maken, moet de gebruiker een gebruiker zijn op basis van een SQL Server-aanmelding in de hoofddatabase of een gebruiker van een ingesloten database op basis van een Azure Active Directory-gebruiker.
 
 1. Gebruik een beheerdersaccount om verbinding te maken met de hoofddatabase.
-2. Optionele stap: maak een aanmelding voor SQL-verificatie met de instructie [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Voorbeeldinstructie:
+2. Optionele stap: Maak een aanmelding SQL Server-verificatie met behulp van de [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instructie. Voorbeeldinstructie:
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -184,7 +184,7 @@ Bij het beheren van aanmeldingen en gebruikers in SQL Database, moet u het volge
 * Bij het uitvoeren van de `CREATE USER`-instructie met de optie `FOR/FROM LOGIN` moet deze de enige instructie in een Transact-SQL-batch zijn.
 * Bij het uitvoeren van de `ALTER USER`-instructie met de optie `WITH LOGIN` moet deze de enige instructie in een Transact-SQL-batch zijn.
 * Voor `CREATE/ALTER/DROP` heeft een gebruiker de `ALTER ANY USER`-machtiging voor de database nodig.
-* Wanneer de eigenaar van een databaserol probeert om een andere databasegebruiker toe te voegen aan of te verwijderen uit die databaserol, kan de volgende fout optreden: **Gebruiker of rol 'Naam' bestaat niet in deze database.** Deze fout treedt op omdat de gebruiker niet zichtbaar is voor de eigenaar. Om dit probleem op te lossen, verleent u de roleigenaar de `VIEW DEFINITION`-machtiging voor de gebruiker. 
+* Wanneer de eigenaar van een databaserol probeert toevoegen of verwijderen van een andere databasegebruiker toe uit die databaserol, kan de volgende fout optreden: **Gebruiker of rol 'Naam' bestaat niet in deze database.** Deze fout treedt op omdat de gebruiker niet zichtbaar is voor de eigenaar. Om dit probleem op te lossen, verleent u de roleigenaar de `VIEW DEFINITION`-machtiging voor de gebruiker. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

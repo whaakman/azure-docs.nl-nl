@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166163"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653965"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Apache Pig gebruiken met Apache Hadoop op HDInsight
 
@@ -29,10 +29,10 @@ Apache Pig is een platform voor het maken van programma's voor Apache Hadoop met
 | [.NET-SDK voor Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux of Windows |Windows (voorlopig) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux of Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-## <a id="why"></a>Waarom Pig gebruiken
+## <a id="why"></a>Waarom zou ik Apache Pig gebruiken
 
 Een van de uitdagingen bij het verwerken van gegevens met behulp van MapReduce in Hadoop is de verwerkingslogica implementeren met behulp van alleen een kaart en een functie verminderen. Voor de verwerking van complexe, hebt u vaak verwerking opsplitsen in meerdere MapReduce-bewerkingen die zijn gekoppeld samen aan het gewenste resultaat te bereiken.
 
@@ -40,23 +40,23 @@ Pig kunt u verwerking definiëren als een reeks transformaties die de gegevens v
 
 De Pig Latin-taal kunt u beschrijven de gegevensstroom van onbewerkte invoer, via een of meer transformaties, om de gewenste uitvoer te produceren. Pig Latin-programma's volgen deze algemene patroon:
 
-* **Load**: Gegevens lezen van het bestandssysteem worden bewerkt
+* **Load**: Lezen van gegevens van het bestandssysteem worden bewerkt.
 
-* **Transformeren**: De gegevens bewerken
+* **Transformeren**: De gegevens te manipuleren.
 
-* **Dump of op te slaan**: Uitvoer van gegevens naar het scherm of op te slaan voor verwerking
+* **Dump of op te slaan**: Uitvoer van gegevens naar het scherm of op te slaan voor verwerking.
 
 ### <a name="user-defined-functions"></a>De gebruiker gedefinieerde functies
 
 Pig Latin biedt ook ondersteuning voor gebruiker gedefinieerde functies (UDF's), zodat u kunt het aanroepen van externe onderdelen die logica die moeilijk te model in Pig Latin implementeren.
 
-Zie voor meer informatie over Pig Latin [Pig Latin naslaginformatie over handmatige 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) en [Pig Latin naslaginformatie over handmatige 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
+Zie voor meer informatie over Pig Latin [Pig Latin naslaginformatie over handmatige 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) en [Pig Latin naslaginformatie over handmatige 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 Zie de volgende documenten voor een voorbeeld van het gebruik van UDF's met Pig:
 
-* [DataFu gebruiken met Pig in HDInsight](apache-hadoop-use-pig-datafu-udf.md) -DataFu is een verzameling van nuttige UDF onderhouden door Apache
-* [Python gebruiken met Pig en Hive in HDInsight](python-udf-hdinsight.md)
-* [Gebruik C# met Hive en Pig in HDInsight](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Apache DataFu gebruiken met Apache Pig in HDInsight](apache-hadoop-use-pig-datafu-udf.md) -DataFu is een verzameling van nuttige UDF onderhouden door Apache
+* [Python gebruiken met Apache Pig- en Apache Hive in HDInsight](python-udf-hdinsight.md)
+* [Gebruik C# met Apache Hive en Apache Pig in HDInsight](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## <a id="data"></a>Voorbeeldgegevens
 
@@ -68,7 +68,7 @@ Elk logboek in het bestand bestaat uit een line-of velden met een `[LOG LEVEL]` 
 
 In het vorige voorbeeld is het Logniveau fout.
 
-> [!NOTE]
+> [!NOTE]  
 > U kunt ook een log4j-bestand genereren met behulp van de [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) hulpprogramma voor registratie en uploadt dit bestand vervolgens naar uw blob. Zie [gegevens uploaden naar HDInsight](../hdinsight-upload-data.md) voor instructies. Zie voor meer informatie over hoe in Azure storage-blobs worden gebruikt met HDInsight, [Azure Blob Storage gebruiken met HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Voorbeeld van de taak
@@ -98,7 +98,7 @@ HDInsight uitvoeren Pig Latin-taken met behulp van een aantal methoden. Gebruik 
 | [.NET-SDK voor Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux of Windows |Windows (voorlopig) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux of Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig en SQL Server integratieservices
@@ -115,9 +115,9 @@ Meer informatie over het Azure Feature Pack voor SSIS [hier][ssispack].
 Nu hebt u geleerd hoe u Pig gebruiken met HDInsight, gebruiken de volgende koppelingen op andere manieren om te werken met Azure HDInsight.
 
 * [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md)
-* [Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Sqoop gebruiken met HDInsight](hdinsight-use-sqoop.md)
-* [Oozie gebruiken met HDInsight](../hdinsight-use-oozie.md)
+* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
+* [Apache Sqoop gebruiken met HDInsight](hdinsight-use-sqoop.md)
+* [Apache Oozie gebruiken met HDInsight](../hdinsight-use-oozie.md)
 * [MapReduce-taken gebruiken met HDInsight][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

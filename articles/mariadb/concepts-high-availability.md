@@ -3,17 +3,15 @@ title: Concepten van hoge beschikbaarheid in Azure Database voor MariaDB
 description: In dit onderwerp vindt u informatie van hoge beschikbaarheid bij het gebruik van Azure Database voor MariaDB
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e1e4103360c2864f6a63f2eb0c7f146cac779cb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833836"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538154"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Concepten van hoge beschikbaarheid in Azure Database voor MariaDB
 De Azure Database voor MariaDB-service biedt een gegarandeerde hoge mate van beschikbaarheid. De met financiële garantie service level agreement (SLA) is 99,99% bij algemene beschikbaarheid. Er is bijna geen toepassing uitvaltijd wanneer u deze service.

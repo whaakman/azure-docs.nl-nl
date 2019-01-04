@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 0e7487525dc23482cbd3029b626e7bb30dd51b50
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7f7071c9f87528eddbfe3d541cd85624e308948f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398557"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633382"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Voorlopig verwijderen voor Azure Storage-blobs
 Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.
@@ -68,7 +68,7 @@ Voorlopig verwijderen niet de gegevens opslaan in geval van een container of acc
 
 De volgende tabel worden verwacht gedrag wanneer voorlopig verwijderen is ingeschakeld:
 
-| REST-API-bewerking | Resourcetype | Beschrijving | Wijziging in gedrag |
+| REST-API-bewerking | Resourcetype | Description | Wijziging in gedrag |
 |--------------------|---------------|-------------|--------------------|
 | [Verwijderen](/rest/api/storagerp/StorageAccounts/Delete) | Account | Hiermee verwijdert u het opslagaccount, met inbegrip van alle containers en blobs die deze bevat.                           | Er is geen wijziging. Containers en blobs in de verwijderde account zijn niet hersteld. |
 | [Container verwijderen](/rest/api/storageservices/delete-container) | Container | Hiermee verwijdert u de container, inclusief alle blobs die deze bevat. | Er is geen wijziging. BLOBs in de verwijderde container zijn niet hersteld. |
@@ -170,26 +170,29 @@ Nadat u de verwijdering ongedaan van een blob-momentopnamen maken, klikt u op **
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Om in te schakelen voorlopig verwijderen, bijwerken van de blobclient van een service-eigenschappen. Het volgende voorbeeld wordt de functie voor voorlopig verwijderen voor een subset van accounts in een abonnement:
 
 ```powershell
-Set-AzureRmContext -Subscription "<subscription-name>"
-$MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
-$MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+Set-AzContext -Subscription "<subscription-name>"
+$MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
+$MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
 U kunt controleren of dat deze functie voor voorlopig verwijderen is ingeschakeld met behulp van de volgende opdracht uit:
 
 ```powershell
-$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 Als u wilt herstellen blobs die per ongeluk zijn verwijderd, verwijderen ongedaan maken van de blobs niet aanroepen. Houd er rekening mee dat aanroepen **verwijdering Blob**, zowel voor actieve en voorlopig verwijderde blobs herstellen door alle gekoppelde voorlopig verwijderde momentopnamen als actief. Verwijderen ongedaan maken in het volgende voorbeeld wordt op alle voorlopig verwijderde en actieve blobs in een container:
 ```powershell
 # Create a context by specifying storage account name and key
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Get the blobs in a given container and show their properties
-$Blobs = Get-AzureStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
+$Blobs = Get-AzStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
 $Blobs.ICloudBlob.Properties
 
 # Undelete the blobs
@@ -198,8 +201,8 @@ $Blobs.ICloudBlob.Undelete()
 Als u zoekt het bewaarbeleid van currrent voorlopig verwijderen, gebruik de volgende opdracht:
 
 ```azurepowershell-interactive
-   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
-   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+   $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
 ### <a name="azure-cli"></a>Azure-CLI 

@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101827"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721832"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
 SQL Data Sync is een service die is gebouwd op Azure SQL Database waarmee u de gegevens die u bidirectioneel op meerdere SQL-databases en SQL Server-exemplaren selecteert worden gesynchroniseerd.
+
+> [!IMPORTANT]
+> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
 
 ## <a name="architecture-of-sql-data-sync"></a>Architectuur van SQL Data Sync
 
@@ -51,11 +54,11 @@ Een groep voor synchronisatie heeft de volgende eigenschappen:
 
 Gegevenssynchronisatie is handig in gevallen waarbij gegevens moeten worden up-to-date gehouden over meerdere Azure SQL-databases of SQL Server-databases. Hier volgen de belangrijkste gebruiksvoorbeelden voor Data Sync:
 
--   **Hybride gegevenssynchronisatie:** met het synchroniseren van gegevens, kunt u gegevens worden gesynchroniseerd tussen uw on-premises database en Azure SQL-databases om hybride toepassingen. Deze mogelijkheid kan beroep instellen op klanten die van plan bent te verplaatsen naar de cloud en wil graag enkele van de toepassing in Azure te plaatsen.
+-   **Synchronisatie van hybride gegevens:** Met het synchroniseren van gegevens, kunt u gegevens worden gesynchroniseerd tussen uw on-premises database en Azure SQL-databases om hybride toepassingen. Deze mogelijkheid kan beroep instellen op klanten die van plan bent te verplaatsen naar de cloud en wil graag enkele van de toepassing in Azure te plaatsen.
 
 -   **Gedistribueerde toepassingen:** In veel gevallen is het nuttig zijn voor het scheiden van verschillende werkbelastingen voor verschillende databases. Bijvoorbeeld, als u een grote productiedatabase hebt, maar u moet ook een rapport of de analytics-workload wordt uitgevoerd op deze gegevens, is het handig om een tweede database voor deze extra belasting. Deze aanpak minimaliseert de prestatie-invloed op uw productie-werkbelasting. Data Sync kunt u deze twee databases gesynchroniseerd houden.
 
--   **Wereldwijd gedistribueerde toepassingen:** veel bedrijven meerdere regio's en zelfs verschillende landen omvatten. Als u wilt de netwerklatentie beperken, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
+-   **Wereldwijd gedistribueerde toepassingen:** Veel bedrijven omvatten meerdere regio's en zelfs verschillende landen. Als u wilt de netwerklatentie beperken, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
 
 Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
 
@@ -69,9 +72,9 @@ Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
 
 ## <a name="how-does-data-sync-work"></a>Hoe werkt Data Sync? 
 
--   **Bijhouden van gegevenswijzigingen:** gegevenssynchronisatie bijgehouden wijzigingen met behulp van invoegen, bijwerken en verwijderen van triggers. De wijzigingen worden vastgelegd in een tabel aan de in de database. Houd er rekening mee dat BULKSGEWIJS invoegen wordt niet geactiveerd triggers standaard. Als bulkhints niet opgegeven is, wordt er geen triggers voor invoegen uitvoeren. De optie bulkhints toevoegen zodat gegevenssynchronisatie die ingevoegd bijhouden kunt. 
+-   **Bijhouden van wijzigingen in gegevens:** Synchroniseren van gegevens worden bijgehouden wijzigingen met behulp van insert, update en delete-triggers. De wijzigingen worden vastgelegd in een tabel aan de in de database. Houd er rekening mee dat BULKSGEWIJS invoegen wordt niet geactiveerd triggers standaard. Als bulkhints niet opgegeven is, wordt er geen triggers voor invoegen uitvoeren. De optie bulkhints toevoegen zodat gegevenssynchronisatie die ingevoegd bijhouden kunt. 
 
--   **Het synchroniseren van gegevens:** Data Sync is gemaakt in een Hub en Spoke-model. De Hub synchroniseert afzonderlijk met elk lid. Wijzigingen van de Hub worden gedownload naar het lid en vervolgens de wijzigingen van het lid worden geüpload naar de Hub.
+-   **Synchroniseren van gegevens:** Gegevenssynchronisatie is ontworpen in een Hub en Spoke-model. De Hub synchroniseert afzonderlijk met elk lid. Wijzigingen van de Hub worden gedownload naar het lid en vervolgens de wijzigingen van het lid worden geüpload naar de Hub.
 
 -   **Het oplossen van conflicten:** Data Sync biedt twee opties voor conflictoplossing, *Hub wins* of *lid wins*.
     -   Als u selecteert *Hub wins*, wijzigingen in het lid altijd worden overschreven door de wijzigingen in de hub.

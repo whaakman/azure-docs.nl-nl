@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633092"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713456"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Algemene scenario's met Service Fabric onderzoeken
 
-In dit artikel ziet u algemene scenario's die gebruikers hebben aangetroffen in het gebied van controle en diagnostische gegevens met Service Fabric. De scenario's die betrekking hebben op alle 3 lagen van service fabric: toepassings-, Cluster- en -infrastructuur. Elke oplossing maakt gebruik van Application Insights en Log Analytics, Azure controleprogramma's, elk scenario te voltooien. De stappen in elke oplossing geeft gebruikers een inleiding over het gebruik van Application Insights en Log Analytics in de context van Service Fabric.
+In dit artikel ziet u algemene scenario's die gebruikers hebben aangetroffen in het gebied van controle en diagnostische gegevens met Service Fabric. De scenario's die betrekking hebben op alle 3 lagen van service fabric: Toepassings-, Cluster- en -infrastructuur. Elke oplossing maakt gebruik van Application Insights en Log Analytics, Azure controleprogramma's, elk scenario te voltooien. De stappen in elke oplossing geeft gebruikers een inleiding over het gebruik van Application Insights en Log Analytics in de context van Service Fabric.
 
 ## <a name="prerequisites-and-recommendations"></a>Vereisten en aanbevelingen
 
@@ -56,7 +56,7 @@ De oplossingen in dit artikel worden de volgende hulpprogramma's gebruiken. U wo
 
     ![App-kaart van AI-Blade](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI App-kaart](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    Voor meer informatie over het toepassingsoverzicht, gaat u naar de [mapa Aplikace Pro-documentatie](../application-insights/app-insights-app-map.md)
+    Voor meer informatie over het toepassingsoverzicht, gaat u naar de [mapa Aplikace Pro-documentatie](../azure-monitor/app/app-map.md)
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Hoe maak ik een waarschuwing wanneer een knooppunt uitgeschakeld wordt
 
@@ -139,7 +139,7 @@ Controleer deze koppelingen voor de volledige lijst prestatiemeteritems op betro
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Stel waarschuwingen in AI](../application-insights/app-insights-alerts.md) om te worden geïnformeerd over wijzigingen in de prestaties of gebruik
+* [Stel waarschuwingen in AI](../azure-monitor/app/alerts.md) om te worden geïnformeerd over wijzigingen in de prestaties of gebruik
 * [Slimme detectie in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) voert een proactieve analyse van de telemetrie wordt verzonden naar AI om u te waarschuwen voor mogelijke prestatieproblemen
 * Meer informatie over Log Analytics [waarschuwingen](../log-analytics/log-analytics-alerts.md) voor detectie en diagnostiek.
 * Voor clusters van on-premises biedt Log Analytics een gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Log Analytics. Meer informatie over die in [computers zonder internettoegang verbinden met Log Analytics met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md)

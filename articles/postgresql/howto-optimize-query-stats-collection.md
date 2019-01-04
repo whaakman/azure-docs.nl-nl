@@ -3,16 +3,15 @@ title: Query statistieken verzameling in Azure Database voor PostgreSQL-server q
 description: Dit artikel wordt beschreven hoe u query statistieken verzameling op een Azure Database for PostgreSQL-server kunt optimaliseren.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 076442d85d7f628504cca95c36f3e99f4d0c5117
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: df54693aee9a9a23b8202c90a6c23008ff7a7cb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966684"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548711"
 ---
 # <a name="optimize-query-statistics-collection-in-azure-database-for-postgresql-server"></a>Query verzamelen van queryuitvoeringsstatistieken in Azure Database for PostgreSQL-server te optimaliseren 
 Dit artikel wordt beschreven voor het verzamelen van queryuitvoeringsstatistieken query in een Azure Database for PostgreSQL-server te optimaliseren.

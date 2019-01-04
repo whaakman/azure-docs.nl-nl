@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438277"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582708"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache controleren voor Redis
 Azure maakt gebruik van Redis-Cache [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) verschillende opties voor het bewaken van uw cache-exemplaren. U kunt metrische gegevens weergeven, grafieken met metrische gegevens aan het Startboard vastmaken, aanpassen van het bereik van datum en tijd van de bewaking van grafieken, toevoegen en metrische gegevens verwijderen uit de grafieken en waarschuwingen instellen wanneer aan bepaalde voorwaarden wordt voldaan. Deze hulpprogramma's kunnen u de status van uw Azure-Cache voor instanties van Redis en hulp bij het beheren van uw cache in toepassingen worden gecontroleerd.
@@ -79,7 +79,7 @@ Het configureren van een opslagaccount voor uw cache metrische gegevens:
 >
 >
 
-Voor toegang tot uw metrische gegevens, kunt u deze bekijken in Azure portal zoals eerder in dit artikel wordt beschreven en u kunt ze ook openen met behulp van de [REST-API van Azure Monitor Metrics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Voor toegang tot uw metrische gegevens, kunt u deze bekijken in Azure portal zoals eerder in dit artikel wordt beschreven en u kunt ze ook openen met behulp van de [REST-API van Azure Monitor Metrics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Als u storage-accounts wijzigen, de gegevens in de eerder geconfigureerde opslagaccount blijft beschikbaar voor downloaden, maar deze niet wordt weergegeven in de Azure-portal.  
@@ -142,7 +142,7 @@ Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw
 
 Als u wilt de activiteitenlogboeken voor uw cache weergeven, klikt u op **activiteitenlogboeken** uit de **resourcemenu**.
 
-Zie voor meer informatie over activiteitenlogboeken [overzicht van de Azure-activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Zie voor meer informatie over activiteitenlogboeken [overzicht van de Azure-activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

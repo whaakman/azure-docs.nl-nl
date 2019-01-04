@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386873"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790829"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Clusters in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka instellen
 
@@ -107,12 +107,12 @@ U hoeft niet te expliciet opgeven van de locatie van het cluster: Het cluster zi
 
 ## <a name="storage-endpoints-for-clusters"></a>Opslag-eindpunten voor clusters
 
-Hoewel een on-premises Hadoop-installatie gebruikmaakt van het Hadoop Distributed File System (HDFS) voor opslag op het cluster, in de cloud kunt u opslag-eindpunten die zijn verbonden met het cluster. HDInsight-clusters gebruiken [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) of [blobs in Azure Storage](hdinsight-hadoop-use-blob-storage.md). Met behulp van Azure Storage of Data Lake Store, betekent dat u de HDInsight-clusters die worden gebruikt voor berekeningen en nog steeds behoud uw gegevens veilig kunt verwijderen. 
+Hoewel een on-premises Hadoop-installatie gebruikmaakt van het Hadoop Distributed File System (HDFS) voor opslag op het cluster, in de cloud kunt u opslag-eindpunten die zijn verbonden met het cluster. HDInsight-clusters gebruiken [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) of [blobs in Azure Storage](hdinsight-hadoop-use-blob-storage.md). Met behulp van Azure Storage of Data Lake Storage betekent dat u de HDInsight-clusters die worden gebruikt voor berekeningen en nog steeds behoud uw gegevens veilig kunt verwijderen. 
 
 > [!WARNING]  
 > Met behulp van een extra opslagaccount in een andere locatie van het HDInsight-cluster wordt niet ondersteund.
 
-Tijdens de configuratie voor het standaardeindpunt voor opslag geeft u een blob-container van een Azure Storage-account of een Data Lake Store. De standaardopslag bevat toepassings- en Logboeken. U kunt eventueel extra gekoppelde Azure Storage-accounts en Data Lake Store-accounts die toegang hebben tot het cluster opgeven. Het HDInsight-cluster en de afhankelijke opslagaccounts moeten zich in dezelfde Azure-locatie.
+Tijdens de configuratie voor het standaardeindpunt voor opslag geeft u een blob-container van een Azure Storage-account of een Data Lake-opslag. De standaardopslag bevat toepassings- en Logboeken. U kunt eventueel extra gekoppelde Azure Storage-accounts en Data Lake Storage-accounts die toegang hebben tot het cluster opgeven. Het HDInsight-cluster en de afhankelijke opslagaccounts moeten zich in dezelfde Azure-locatie.
 
 ![Instellingen voor de opslag van cluster: HDFS-compatibele opslag-eindpunten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -247,7 +247,7 @@ Zie voor een voorbeeld van het gebruik van twee clustertypen binnen een virtueel
 
 ## <a name="troubleshoot-access-control-issues"></a>Problemen met toegang beheren
 
-Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
+Zie [Vereisten voor toegangsbeheer](hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,20 +1,17 @@
 ---
 title: Over het gebruik sys_schema voor het afstemmen van prestaties en onderhoud van de Database in Azure Database for MySQL
 description: Dit artikel wordt beschreven hoe u met sys_schema prestatieproblemen vinden en onderhouden van de database in Azure Database voor MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446904"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542846"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Over het gebruik van sys_schema voor prestaties afstemmen en het Databaseonderhoud in Azure Database for MySQL
 
@@ -24,15 +21,15 @@ De MySQL-performance_schema, de eerste beschikbaar in de MySQL-5.5 biedt instrum
 
 Er zijn 52 weergaven in de sys_schema en elke weergave bevat een van de volgende voorvoegsels:
 
-- Host_summary of i/o-: i/o-gerelateerde latenties.
+- Host_summary of i/o: I/o gerelateerde latenties.
 - InnoDB: Status van de buffer InnoDB en wordt vergrendeld.
 - Geheugen: Geheugengebruik door de host en de gebruikers.
 - Schema: Schema-gerelateerde informatie, zoals Automatische toename, indexen, enzovoort.
-- Overzicht: Informatie over SQL-instructies gebruikt; leidde tot volledige tabelcontrole uitgevoerd, of lang moment dat de query-instructie kan zijn.
+- Overzicht: Meer informatie over SQL-instructies gebruikt; leidde tot volledige tabelcontrole uitgevoerd, of lang moment dat de query-instructie kan zijn.
 - Gebruiker: Resources verbruikt en gegroepeerd per gebruiker. Voorbeelden zijn bestand i/o's, verbindingen en geheugen.
 - Wacht: Wacht gebeurtenissen gegroepeerd op de host of de gebruiker.
 
-Nu gaan we bekijken enkele algemene patronen in het gebruik van de sys_schema. Begint met, we de gebruikspatronen u groeperen in twee categorieën: **afstemmen van prestaties** en **onderhoud van de Database**.
+Nu gaan we bekijken enkele algemene patronen in het gebruik van de sys_schema. Begint met, groeperen we de gebruikspatronen in twee categorieën: **Prestaties afstemmen** en **onderhoud van de Database**.
 
 ## <a name="performance-tuning"></a>Prestaties afstemmen
 
@@ -48,7 +45,7 @@ Omdat Azure Database for MySQL i/o wordt met betrekking tot opslag, wordt gescha
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 
-Ondanks de zorgvuldige planning kijken, kunnen nog steeds veel query's resulteren in volledige tabelscans. Voor meer informatie over de typen van indexen en hoe u ze optimaliseren, kunt u verwijzen naar dit artikel: [problemen oplossen met de prestaties van query's](./howto-troubleshoot-query-performance.md). Volledige tabelscans zijn resource-intensieve en verlagen van de databaseprestaties van uw. De snelste manier om te vinden van tabellen met volledige tabelcontrole uitgevoerd wordt op query de *sys.schema_tables_with_full_table_scans* weergeven.
+Ondanks de zorgvuldige planning kijken, kunnen nog steeds veel query's resulteren in volledige tabelscans. Voor meer informatie over de typen van indexen en hoe u ze optimaliseren, kunt u verwijzen naar dit artikel: [Problemen oplossen met de prestaties van query's](./howto-troubleshoot-query-performance.md). Volledige tabelscans zijn resource-intensieve en verlagen van de databaseprestaties van uw. De snelste manier om te vinden van tabellen met volledige tabelcontrole uitgevoerd wordt op query de *sys.schema_tables_with_full_table_scans* weergeven.
 
 ![volledige tabelscans](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 

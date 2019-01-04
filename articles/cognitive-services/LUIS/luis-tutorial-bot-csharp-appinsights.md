@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: a5150d3f318fce2f66adfa4bdc43ae8aec651223
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 46065a742afd08585707f4f4fdf6ad2e32cd89b2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251144"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719452"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>LUIS resultaten aan met een Bot in Application Insights toevoegenC#
 
@@ -39,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 > [!Tip]
 > Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
 
-Alle code in deze zelfstudie vindt u op de [LUIS-Samples-GitHub-opslagplaats](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) en elke regel die is gekoppeld aan deze zelfstudie is opgenomen als met `//LUIS Tutorial:`.
+Alle code in deze zelfstudie vindt u op de [Azure-Samples-GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) en elke regel die is gekoppeld aan deze zelfstudie is opgenomen als met `//LUIS Tutorial:`.
 
 ## <a name="review-luis-web-app-bot"></a>LUIS web app-bot bekijken
 
@@ -127,11 +127,11 @@ De **Application Insights** pakket wordt nu weergegeven in het project en correc
 
 2. In de **publiceren** venster **nieuw profiel maken**.
 
-    ![Project kunt publiceren naar portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
+    ![Als onderdeel van de publicatie, nieuwe profiel te maken.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
 
 3. Selecteer **-profiel importeren**, en selecteer **OK**.
 
-    ![Project kunt publiceren naar portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
+    ![Als onderdeel van de publicatie-profiel importeren](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
 4. In de **publiceren instellingen importbestand** windows, gaat u naar de projectmap, gaat u naar de `PostDeployScripts` map, selecteert u de bestanden die eindigen op `.PublishSettings`, en selecteer `Open`. U hebt nu publiceren voor dit project geconfigureerd.
 
@@ -204,7 +204,7 @@ Open Application Insights om te zien van de LUIS-vermeldingen.
 
 1. Selecteer in de portal **alle resources** vervolgens filteren op de naam van de web-app-bot. Klik op de resource met het type **Application Insights**. Het pictogram voor Application Insights is een gloeilampje.
 
-    ![Zoeken naar app insights](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Zoeken naar app insights in Azure Portal](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. Wanneer de resource wordt geopend, klikt u op de **zoeken** pictogram van het Vergrootglas in het deelvenster uiterst rechts. Een nieuw deelvenster met de juiste weergegeven. Afhankelijk van hoeveel telemetriegegevens wordt gevonden, het deelvenster kan duren voordat een tweede om weer te geven. Zoeken naar `LUIS`. De lijst wordt met alleen LUIS queryresultaten toegevoegd met deze zelfstudie teruggebracht.
 

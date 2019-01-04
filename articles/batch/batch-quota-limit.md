@@ -1,9 +1,9 @@
 ---
-title: Quota en limieten voor Azure Batch-service | Microsoft Docs
+title: Quota en limieten - Azure Batch-service | Microsoft Docs
 description: Meer informatie over Azure Batch standaardquota, limieten en beperkingen en vergroot het quotum aanvragen
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263596"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753196"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -65,9 +65,9 @@ Als u een Batch-account met de pooltoewijzingsmodus is ingesteld gemaakt op **ge
 | [Gelijktijdige taken](batch-parallel-node-tasks.md) per knooppunt | 4 x aantal kernen van knooppunt |
 | [Toepassingen](batch-application-packages.md) per Batch-account | 20 |
 | Toepassingspakketten per toepassing | 40 |
-| De maximale levensduur van taken | 7 dagen<sup>1</sup> |
+| De maximale levensduur van taken | 180 dagen<sup>1</sup> |
 
-<sup>1</sup> de maximale levensduur van een taak, wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 7 dagen. Voltooide taken blijven voor onbepaalde tijd bestaan; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
+<sup>1</sup> de maximale levensduur van een taak, wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 180 dagen. Voltooide taken blijven voor 7 dagen. gegevens voor taken is niet voltooid binnen de maximale levensduur zijn niet toegankelijk.
 
 ## <a name="view-batch-quotas"></a>Batch-quotums weergeven
 
@@ -99,14 +99,14 @@ Volg deze stappen om aan te vragen van een quotum voor uw Batch-account of uw ab
    
     d. **Ondersteuningsplan** > **inclusief quotum ondersteuning**
    
-    Klik op **Volgende**.
+    Klik op **volgende**.
 1. In **probleem**:
    
     a. Selecteer een **ernst** volgens uw [impact op bedrijf][support_sev].
    
     b. In **Details**, met elk quotum die u wilt wijzigen, de Batch-accountnaam en de nieuwe limiet opgeven.
    
-    Klik op **Volgende**.
+    Klik op **volgende**.
 1. In **contactgegevens**:
    
     a. Selecteer een **voorkeursmethode voor contact op met**.

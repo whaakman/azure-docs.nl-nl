@@ -35,7 +35,7 @@ De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning** en **vert
   Regio | Parameter voor spraak-SDK | Spraak aanpassing Portal
  ------|-------|--------
  US - west | `westus` | https://westus.cris.ai
- VS - west 2 | `westus2` | https://westus2.cris.ai
+ US - west 2 | `westus2` | https://westus2.cris.ai
  US - oost | `eastus` | https://eastus.cris.ai
  US - oost 2 | `eastus2` | https://eastus2.cris.ai
  Azië - oost | `eastasia` | https://eastasia.cris.ai

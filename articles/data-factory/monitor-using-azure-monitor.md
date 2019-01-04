@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387479"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558427"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -26,7 +26,7 @@ Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring bied
 Azure Monitor biedt op basisniveau infrastructuur metrische gegevens en logboeken voor de meeste services in Microsoft Azure. Zie voor meer informatie, [bewakingsoverzicht](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Diagnostische logboeken in Azure zijn Logboeken door een resource met uitgebreide, regelmatig gegevens over de werking van die resource. Data Factory voert diagnostische logboeken in Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Data Factory gegevens behouden
-Data Factory worden alleen gegevens voor pijplijnuitvoering voor 45 dagen opgeslagen. Als u wilt om vast te leggen van de pijplijn gegevens langer dan 45 dagen worden uitgevoerd met behulp van Azure Monitor, kunt u niet alleen logboeken met diagnostische gegevens voor analyse routeren, u kunt ze ook behouden in een storage-account, zodat u beschikt over factory informatie voor de duur van uw keuze.
+Data Factory worden alleen gegevens voor pijplijnuitvoering voor 45 dagen opgeslagen. Als u wilt om vast te leggen van de pijplijn gegevens langer dan 45 dagen worden uitgevoerd, met behulp van Azure Monitor, u kunt niet alleen routeren logboeken met diagnostische gegevens voor analyse, u kunt ze ook behouden in een storage-account, zodat u beschikt over factory informatie voor de duur van uw keuze.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
@@ -41,9 +41,9 @@ U kunt een storage-account of event hub-naamruimte die zich niet in hetzelfde ab
 ### <a name="diagnostic-settings"></a>Diagnostische instellingen
 Diagnostische logboeken voor niet-compute-resources zijn geconfigureerd met behulp van diagnostische instellingen. Diagnostische instellingen voor een resource-besturingselement:
 
-* Waar logboeken met diagnostische gegevens worden verzonden (Storage-Account, Event Hubs en/of Log Analytics).
+* Waarnaar logboeken met diagnostische gegevens worden verzonden (Storage-Account, Event Hubs of Log Analytics).
 * Welke logboekcategorieën worden verzonden.
-* Hoe lang elke logboekcategorie moet worden bewaard in een storage-account
+* Hoe lang elke categorie logboekbestanden worden bewaard in een storage-account.
 * Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 2147483647 zijn.
 * Als bewaarbeleid worden ingesteld, maar het opslaan van Logboeken in een storage-account is uitgeschakeld (bijvoorbeeld alleen Event Hubs of Log Analytics-opties zijn geselecteerd), het bewaarbeleid hebben geen effect.
 * Bewaarbeleid zijn toegepast per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid worden verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd.
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 
 **Headers**
-* Vervang `{api-version}` met `2016-09-01`.
+* Vervang `{api-version}` door `2016-09-01`.
 * Vervang `{resource-id}` met de resource-ID van de resource waarvoor u wilt bewerken diagnostische instellingen. Voor meer informatie [resourcegroepen voor het beheren van uw Azure-resources met behulp van](../azure-resource-manager/resource-group-portal.md).
 * Stel de `Content-Type` koptekst `application/json`.
 * De autorisatie-header ingesteld op een JSON webtoken die u uit Azure Active Directory verkrijgt. Zie voor meer informatie, [verifiëren van aanvragen](../active-directory/develop/authentication-scenarios.md).
@@ -104,7 +104,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | --- | --- | --- |
 | storageAccountId |Reeks | De resource-ID van het opslagaccount waarnaar u wilt verzenden van diagnostische logboeken |
 | serviceBusRuleId |Reeks | De service bus regel-ID van de service bus-naamruimte waarin u hebben van Event Hubs gemaakt wilt voor het streamen van diagnostische logboeken. De regel-ID van de indeling is: "{service bus-resource-ID} /authorizationrules/ {naam} '.|
@@ -177,7 +177,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 
 **Headers**
-* Vervang `{api-version}` met `2016-09-01`.
+* Vervang `{api-version}` door `2016-09-01`.
 * Vervang `{resource-id}` met de resource-ID van de resource waarvoor u wilt bewerken diagnostische instellingen. Voor meer informatie met behulp van resourcegroepen voor het beheren van uw Azure-resources.
 * Stel de `Content-Type` koptekst `application/json`.
 * De autorisatie-header ingesteld op een JSON Web Token die u uit Azure Active Directory verkrijgt. Zie Authenticating aanvragen voor meer informatie.
@@ -274,11 +274,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Eigenschap | Type | Beschrijving | Voorbeeld |
+| Eigenschap | Type | Description | Voorbeeld |
 | --- | --- | --- | --- |
 | Niveau |Reeks | Niveau van de diagnostische logboeken. Niveau 4 is altijd het geval is bij Logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |Reeks | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tijd | Reeks | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | Reeks | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Reeks| ID van de activiteit die wordt uitgevoerd | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| Reeks| ID van de pijplijnuitvoering | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| Reeks | Gekoppelde resource-ID voor de data factory-resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -321,11 +321,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Eigenschap | Type | Beschrijving | Voorbeeld |
+| Eigenschap | Type | Description | Voorbeeld |
 | --- | --- | --- | --- |
 | Niveau |Reeks | Niveau van de diagnostische logboeken. Niveau 4 is het geval is bij Logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |Reeks | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tijd | Reeks | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | Reeks | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| Reeks| ID van de pijplijnuitvoering | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| Reeks | Gekoppelde resource-ID voor de data factory-resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Reeks | De categorie van diagnostische logboeken. Deze eigenschap instellen op "PipelineRuns" | `PipelineRuns` |
@@ -366,11 +366,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| Eigenschap | Type | Beschrijving | Voorbeeld |
+| Eigenschap | Type | Description | Voorbeeld |
 | --- | --- | --- | --- |
 | Niveau |Reeks | Niveau van de diagnostische logboeken. Ingesteld op niveau 4 voor logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |Reeks | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tijd | Reeks | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | Reeks | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| Reeks| ID van de trigger uitvoeren | `08587023010602533858661257311` |
 |resourceId| Reeks | Gekoppelde resource-ID voor de data factory-resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Reeks | De categorie van diagnostische logboeken. Deze eigenschap instellen op "PipelineRuns" | `PipelineRuns` |
@@ -465,15 +465,7 @@ U kunt de bovenstaande metrische gegevens visualiseren, kijken naar de query's a
 
 ## <a name="alerts"></a>Waarschuwingen
 
-U kunt waarschuwingen op ondersteunde metrische gegevens in Data Factory kunt verhogen. Klik op de **waarschuwingen** knop op de Data Factory **Monitor** pagina.
-
-![Waarschuwingen-optie](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Hiermee gaat u naar de **waarschuwingen** pagina.
-
-![Pagina met waarschuwingen](media/monitor-using-azure-monitor/alerts_image2.png)
-
-U kunt ook Meld u aan bij de Azure-portal en klikt u op **Monitor -&gt; waarschuwingen** bereiken het **waarschuwingen** rechtstreeks pagina.
+Meld u aan bij de Azure-portal en klikt u op **Monitor -&gt; waarschuwingen** om waarschuwingen te maken.
 
 ![Waarschuwingen in het menu van de portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ U kunt ook Meld u aan bij de Azure-portal en klikt u op **Monitor -&gt; waarschu
     ![Actiegroep, scherm 4 van 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [bewaken en beheren van pijplijnen programmatisch](monitor-programmatically.md) artikel voor meer informatie over het controleren en beheren van pijplijnen door uit te voeren.
+
+Zie [bewaken en beheren van pijplijnen programmatisch](monitor-programmatically.md) artikel voor meer informatie over het controleren en beheren van pijplijnen met code.

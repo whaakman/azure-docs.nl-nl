@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338776"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556557"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Walkthrough: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als een orchestration-stap
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Overzicht: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als een orchestration-stap
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ De IEF gegevens in de claims gegevens verzendt en ontvangt in claims. De claimui
 
 U kunt de ontvangen claims later gebruiken om te wijzigen van de stroom van de uitvoering van.
 
-U kunt ook de interactie als een validatieprofiel ontwerpen. Zie voor meer informatie, [rondleiding: REST-API integreren claims worden uitgewisseld in uw Azure AD B2C de gebruikersbeleving als validatie op gebruikersinvoer](active-directory-b2c-rest-api-validation-custom.md).
+U kunt ook de interactie als een validatieprofiel ontwerpen. Zie voor meer informatie, [scenario: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie op gebruikersinvoer](active-directory-b2c-rest-api-validation-custom.md).
 
 Het scenario is dat wanneer een gebruiker een profiel bewerken, we willen:
 
@@ -45,9 +45,9 @@ Het scenario is dat wanneer een gebruiker een profiel bewerken, we willen:
 
 - Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account aanmelden-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
 - Een REST-API-eindpunt om te communiceren met. In dit scenario wordt een eenvoudige Azure-functie-app-webhook als voorbeeld gebruikt.
-- *Aanbevolen*: Voer de [REST-API claims exchange scenario als validatiestap](active-directory-b2c-rest-api-validation-custom.md).
+- *Aanbevolen*: Voltooi de [REST-API claims exchange scenario als validatiestap](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Stap 1: Bereid de REST-API-functie
+## <a name="step-1-prepare-the-rest-api-function"></a>Stap 1: Voorbereiden van de REST-API-functie
 
 > [!NOTE]
 > Installatie van de REST API-functies is buiten het bereik van dit artikel. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) biedt een uitstekende toolkit voor het maken van RESTful-services in de cloud.
@@ -97,6 +97,7 @@ Een technisch profiel is de volledige configuratie van de uitwisseling van de ge
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -114,7 +115,7 @@ De `<InputClaims>` element wordt gedefinieerd voor de claims die worden verzonde
 
 De `<OutputClaims>` element wordt gedefinieerd voor de claims die de IEF van de REST-service wordt verwacht. Ongeacht het aantal claims die worden ontvangen, wordt de IEF alleen de geïdentificeerd hier gebruiken. In dit voorbeeld wordt een claim ontvangen als `city` worden toegewezen aan een IEF claim met de naam `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Stap 3: De nieuwe claim toevoegen `city` aan het schema van het bestand TrustFrameworkExtensions.xml
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Stap 3: Toevoegen van de nieuwe claim `city` aan het schema van het bestand TrustFrameworkExtensions.xml
 
 De claim `city` is nog niet gedefinieerd overal in onze schema. Voeg een definitie in het element dus toe `<BuildingBlocks>`. U vindt dit element aan het begin van het bestand TrustFrameworkExtensions.xml.
 
@@ -133,7 +134,7 @@ De claim `city` is nog niet gedefinieerd overal in onze schema. Voeg een definit
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Stap 4: De claimuitwisseling die REST-service opnemen als een orchestration-stap in uw profiel bewerken de gebruikersbeleving in TrustFrameworkExtensions.xml
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Stap 4: De claimuitwisseling die REST-service bevatten, zoals een orchestration-stap in uw profiel bewerken de gebruikersbeleving in TrustFrameworkExtensions.xml
 
 Voeg een stap voor het profiel bewerken gebruikersbeleving, nadat de gebruiker is geverifieerd (orchestration stappen 1-4 in het volgende XML-bestand) en de bijgewerkte profielgegevens (stap 5) is opgegeven door de gebruiker.
 
@@ -211,7 +212,7 @@ De laatste XML voor de gebruikersbeleving moet er als volgt:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Stap 5: De claim toevoegen `city` uw relying party beleid-bestand, zodat de claim wordt verzonden naar uw toepassing
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Stap 5: Toevoegen van de claim `city` uw relying party beleid-bestand, zodat de claim wordt verzonden naar uw toepassing
 
 Bewerk het ProfileEdit.xml relying party (RP)-bestand en wijzig de `<TechnicalProfile Id="PolicyProfile">` element toe te voegen van de volgende: `<OutputClaim ClaimTypeReferenceId="city" />`.
 

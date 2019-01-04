@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262598"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602168"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -270,15 +270,11 @@ Microsoft biedt partners met een weergave van implementaties van klanten hun sja
 
 **Wie kan een GUID toevoegen aan een sjabloon?**
 
-De tracerings-resource is bedoeld om van de partner-oplossing verbinden met gebruik van Azure van de klant. Gegevens over gebruik is gekoppeld aan de identiteit van een partner Microsoft Partner Network (MPN-ID). Rapportage is beschikbaar voor partners in de CPP.
+De tracerings-resource is bedoeld om van de partner-oplossing verbinden met gebruik van Azure van de klant. Gegevens over gebruik is gekoppeld aan de identiteit van een partner Microsoft Partner Network (MPN-ID). 
 
 **Nadat een GUID wordt toegevoegd, kan het worden gewijzigd?**
  
 Ja, een klant of implementatiepartner kan de sjabloon aanpassen en kunt wijzigen of verwijderen van de GUID. Het is raadzaam dat partners proactief de rol van de resource en de GUID voor hun klanten en partners beschrijven om te voorkomen dat de verwijdering of bewerkingen voor het bijhouden van GUID. De GUID wijzigt, worden alleen nieuwe, niet-bestaande implementaties en resources verwijderd.
-
-**Wanneer reporting beschikbaar zal zijn?**
-
-Een bètaversie van rapportage moet zijn binnenkort beschikbaar. Reporting wordt in de CPP worden geïntegreerd.
 
 **Kan ik de sjablonen die zijn geïmplementeerd vanuit een niet-Microsoft-opslagplaats, zoals GitHub bijhouden?**
 

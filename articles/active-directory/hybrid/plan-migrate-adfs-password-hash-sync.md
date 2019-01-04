@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410258"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555095"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migreren van Federatie naar wachtwoord-hashsynchronisatie voor Azure AD
 Het volgende document bevat richtlijnen over het verplaatsen van AD FS naar wachtwoord-hashsynchronisatie.
@@ -295,7 +295,7 @@ Gebruik deze methode als uw AD FS is in eerste instantie geconfigureerd met behu
    > Alle federatieve domeinen wordt op dit moment worden gewijzigd in beheerde verificatie zal nu gebruikmaken van wachtwoord-Hashsynchronisatie als de methode voor verificatie.
        
    7. Open de Azure AD-portal, selecteert u Azure Active Directory en selecteer vervolgens Azure AD Connect.
-   8. Controleer of dat Federation tijdens naadloze eenmalige aanmelding is uitgeschakeld en Password Sync zijn ingeschakeld.  
+   8. Controleer of u Federation tijdens naadloze eenmalige aanmelding is uitgeschakeld en Password Sync zijn ingeschakeld.  
   ![Afbeelding 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
    9. Ga naar [testen en de volgende stappen](#testing-and-next-steps).
    
@@ -336,7 +336,7 @@ Als onderdeel van dit proces kunt u naadloze eenmalige aanmelding inschakelen en
    > [!IMPORTANT]
    > Geen wijzigingen worden aangebracht in de manier waarop gebruikers zich aanmelden op dit moment.  
    
-   7. Controleer of dat Federation blijft worden ingeschakeld en nu dat naadloze eenmalige aanmelding is ingeschakeld op de Azure AD-Portal.
+   7. Controleer of Federation blijft worden ingeschakeld en nu dat naadloze eenmalige aanmelding is ingeschakeld op de Azure AD-Portal.
    ![Afbeelding 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### <a name="convert-domains-from-federated-to-managed"></a>Converteren van domeinen uit die zijn gefedereerd met het beheerd

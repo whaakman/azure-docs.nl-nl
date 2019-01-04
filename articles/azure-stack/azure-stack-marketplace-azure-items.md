@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: fc23efb206496bd36922da39adc0ff32abb78907
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994848"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608668"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit.*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit.*
 
 ## <a name="virtual-machine-extensions"></a>Extensies virtuele machine
 
@@ -52,7 +52,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 
 |  | Itemnaam | Description | Uitgever |
 | --- | --- | --- | --- |
-| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Geavanceerde oplossingen die eenvoudig te implementeren, kosteneffectieve, toepassingen en de gebruiker gericht. Deze installatiekopieën worden regelmatig bijgewerkt met de meest recente patches. **Belangrijke informatie: installatiekopieën gedownload voordat 18 januari 2018 moet worden verwijderd en door de meest recente versies vervangen.** | Microsoft |
+| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Geavanceerde oplossingen die eenvoudig te implementeren, kosteneffectieve, toepassingen en de gebruiker gericht. Deze installatiekopieën worden regelmatig bijgewerkt met de meest recente patches. **Belangrijke informatie: Afbeeldingen gedownload voordat 18 januari 2018 moet worden verwijderd en door de meest recente versies vervangen.** | Microsoft |
 | ![Evaluatieversie van SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013-evaluatieversie op Windows Server 2012 Datacenter en Visual Studio 2017 community edition. | Microsoft |
 | ![Evaluatieversie van SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Evaluatieversie van SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016-evaluatieversie op Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 in Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 servicepack 2. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
@@ -138,7 +138,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Framework voor betrouwbare, schaalbare en gedistribueerde computing. | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | Volledig geïntegreerde en kant-en-klaar-ontwikkelomgeving. | Bitnami |
 | ![Houd Groupware Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Houd Groupware Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | Suite gratis, enterprise-ready, browser gebaseerde communicatie. | Bitnami |
-| ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | SCM-hulpprogramma's ondersteunen Integration-server: CSV-volume, Subversion en Git. | Bitnami |
+| ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | Van integratieserver SCM-hulpprogramma's ondersteunen: CSV-volume, Subversion en Git. | Bitnami |
 | ![Jenkins-Cluster](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins-Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) | Jenkins CI is een open-source doorlopende integratie.  **Deze oplossingssjabloon vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![JFrog Artifactory](media/azure-stack-marketplace-azure-items/jfrogartifactory.png) | [JFrog Artifactory](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.artifactory) | Binaire software van de opslagplaats van de toonaangevende uitgever. | Bitnami |
 | ![Joomla](media/azure-stack-marketplace-azure-items/joomla.png) | [Joomla!](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.joomla) | Gebruiksvriendelijke CMS voor eenvoudig website bouwt. | Bitnami |
@@ -228,12 +228,13 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | De meest populaire en ready to go CMS. | Bitnami |
 | ![Verkoop CRM X2Engine](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [Verkoop CRM X2Engine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Compact marketing, verkoop en klant-servicetoepassing. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS- en Web-Portal programma dat wordt gemaakt van dynamische websites. | Bitnami |
-| ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Open-source CRM-systeem: mobiele, sociale netwerken en Gamified. | Bitnami |
+| ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Open-source CRM-systeem: Mobiel, sociaal en Gamified. | Bitnami |
 | ![Check Point vSEC beveiligingsbeheer](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC beveiligingsbeheer](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC voorziet in geavanceerde, met meerdere lagen threat preventie ter bescherming van de klant assets in Azure tegen schadelijke software en geavanceerde bedreigingen. **Beide Check Point vSEC marketplace-items downloaden.** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Bouwen, implementeren en beheren met Chef Automate, het continue automatiseringsplatform. **Beide Chef marketplace-items downloaden**. | Chef-Software, Inc. |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [CommVault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | Een uitgebreide oplossing voor back-up en herstel, toepassing en VM migratie naar Azure Stack en herstel na noodgevallen voor Azure Stack-omgevingen in één oplossing. | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Beheren, controleren en virtuele machines versleutelen met gemak en vertrouwen. **Download alle CloudLink SecureVM-items.** | Dell EMC |
 | ![Gebeurtenis vastleggen SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [Gebeurtenis vastleggen SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM is een uitgebreide beveiligingsplatform dat voorziet in geavanceerde beveiligingsprogramma's met nalevingsmogelijkheden voor controle gereed is voor. | Gebeurtenis vastleggen |
+| ![Exivity - oplossing voor hybride Cloudopslag facturering](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - oplossing voor hybride Cloudopslag facturering](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | Een facturering die voldoen aan de vereisten van het leveren van vrijwel elke IT-services kunnen hulpprogramma model of geïmplementeerd in de on-premises, openbare cloud of hybride omgevingen. | Exivity |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [Virtuele F5 Big-IP-editie](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Geavanceerde Load Balancing, GSLB, netwerkfirewall, DNS, WAF en toegang tot Apps. | F5-netwerken |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Gebaseerd op HDP 2,5 100% open-source platform voor Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky hybride-Cloudbeveiliging](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | De Kaspersky hybride Cloud Security kunt een naadloos gecoördineerd en adaptieve cybersecurity-ecosysteem. | Kaspersky Lab |

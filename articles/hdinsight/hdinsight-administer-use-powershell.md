@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 8454a22b02f28ece45ce04464f8f2658f745b53e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6701443807a2709edf08a2b979cd59bebacb7b5d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163341"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790148"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -73,10 +73,8 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 ## <a name="scale-clusters"></a>Clusters schalen
 Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebruikt door een cluster dat wordt uitgevoerd in Azure HDInsight zonder te hoeven maken van het cluster opnieuw wijzigen.
 
-> [!NOTE]
-> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Zie [clusters tonen en vermelden](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
->
->
+> [!NOTE]  
+> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Zie [clusters tonen en vermelden](hdinsight-administer-use-portal-linux.md#showClusters).
 
 De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cluster die door HDInsight worden ondersteund:
 
@@ -104,7 +102,7 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cl
   * Storm-Webgebruikersinterface
   * Opdrachtregelinterface (CLI)-hulpprogramma
 
-    Raadpleeg de [Apache Storm documentatie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
+    Raadpleeg de [Apache Storm documentatie](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
 
     De Storm-webgebruikersinterface is beschikbaar op het HDInsight-cluster:
 
@@ -158,10 +156,8 @@ $credential = New-Object System.Management.Automation.PSCredential($hadoopUserNa
 Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > U herstellen door de toegang verlenen/intrekken, de cluster-gebruikersnaam en wachtwoord.
->
->
 
 Verlening en het intrekken van toegang kunnen ook worden gedaan via de portal. Zie [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal].
 
@@ -207,9 +203,9 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Verzenden van taken
-**Apache Hadoop MapReduce-taken indienen**
+**MapReduce-taken indienen**
 
-Zie [uitvoeren van de Apache Hadoop MapReduce-voorbeelden opgenomen in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Zie [uitvoeren van de MapReduce-voorbeelden opgenomen in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Apache Hive-taken indienen**
 

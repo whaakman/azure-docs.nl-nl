@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7a009d310fe29ce67a16d48edb86a7e652088ac6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310379"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727918"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises
 
@@ -31,6 +31,9 @@ Voor volledige PowerShell-voorbeelden die laten hoe u SQL Data Sync configureert
 
 - [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
 - [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+> [!IMPORTANT]
+> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
 
 ## <a name="step-1---create-sync-group"></a>Stap 1: maken van de groep voor synchronisatie
 

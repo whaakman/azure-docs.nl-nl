@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
-ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567431"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555639"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IoT Edge-runtime installeren in Linux (ARM32v7/armhf)
 
@@ -175,6 +175,39 @@ Op apparaten met beperkte resource, het is raadzaam dat u instellen de *Optimize
 
 Als uw netwerk met een proxyserver, voert u de stappen in [uw IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Verwijderen van IoT Edge
+
+Als u de installatie van de IoT Edge van uw Linux-apparaat verwijderen wilt, gebruikt u de volgende opdrachten uit vanaf de opdrachtregel. 
+
+Verwijder de IoT Edge-runtime. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Wanneer de IoT Edge-runtime wordt verwijderd, wordt de container die deze gemaakt zijn gestopt maar nog steeds aanwezig zijn op uw apparaat. Alle containers om te zien welke blijven weergeven. 
+
+```bash
+sudo docker ps -a
+```
+
+Verwijder de containers van uw apparaat, met inbegrip van de twee runtimecontainers. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Ten slotte de container-runtime van uw apparaat verwijderd. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 
+Nu u een IoT Edge-apparaat dat is ingericht met de runtime geïnstalleerd hebt, kunt u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md).
+
 Als u problemen met het Edge-runtime niet goed geïnstalleerd hebt, raadpleegt u de [probleemoplossing](troubleshoot.md#stability-issues-on-resource-constrained-devices) pagina.
+
+Als u wilt een bestaande installatie bijwerken naar de nieuwste versie van IoT Edge, Zie [bijwerken van de IoT Edge security-daemon en de runtime](how-to-update-iot-edge.md).

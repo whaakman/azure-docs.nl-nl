@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139221"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599941"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Een edge-gateway voor de verbonden Factory solution accelerator op Windows of Linux implementeren
 
@@ -70,7 +70,7 @@ Zie voor meer informatie de [volumes gebruiken](https://docs.docker.com/engine/a
 
 Voordat u de OPC-onderdelen installeert, voert u de volgende stappen uit om voor te bereiden uw omgeving:
 
-1. Voor het voltooien van de implementatie van de gateway, moet u de **iothubowner** verbindingsreeks van de IoT-Hub in uw verbonden Factory-implementatie. In de [Azure-portal](http://portal.azure.com/), gaat u naar uw IoT-Hub in de resourcegroep die is gemaakt tijdens de implementatie van de oplossing Connected Factory. Klik op **beleid voor gedeelde toegang** toegang krijgen tot de **iothubowner** verbindingsreeks:
+1. Voor het voltooien van de implementatie van de gateway, moet u de **iothubowner** verbindingsreeks van de IoT-Hub in uw verbonden Factory-implementatie. In de [Azure-portal](https://portal.azure.com/), gaat u naar uw IoT-Hub in de resourcegroep die is gemaakt tijdens de implementatie van de oplossing Connected Factory. Klik op **beleid voor gedeelde toegang** toegang krijgen tot de **iothubowner** verbindingsreeks:
 
     ![De IoT Hub-verbindingsreeks zoeken](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

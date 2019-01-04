@@ -9,21 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: ''
+ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686616"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721594"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Aanbevolen procedures voor SQL Data Sync 
 
 Dit artikel wordt beschreven aanbevolen procedures voor Azure SQL Data Sync.
 
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
+
+> [!IMPORTANT]
+> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
 
 ## <a name="security-and-reliability"></a> Beveiliging en betrouwbaarheid
 
@@ -196,7 +199,7 @@ In sommige gevallen kan registratie van een database met een clientagent kan lei
 1. Groep voor synchronisatie met een is gemaakt met behulp van een SQL Database-exemplaar en een on-premises SQL Server-database, die gekoppeld aan de lokale agent 1 is.
 2. Dezelfde on-premises database is geregistreerd bij de lokale agent 2 (deze agent is niet gekoppeld aan een groep voor synchronisatie).
 3. Registratie van de on-premises database van de lokale agent 2 Hiermee verwijdert u de tracering en meta-tabellen voor groep A voor de on-premises database synchroniseren.
-4. Synchronisatie van groep een mislukken, vanwege de volgende fout: "de huidige bewerking kan niet worden voltooid omdat de database nog niet is ingericht voor synchronisatie of u bent niet gemachtigd voor de synchronisatie van configuratie-tabellen."
+4. Een van de synchronisatiebewerkingen groep mislukken vanwege de volgende fout: "De huidige bewerking kan niet worden voltooid omdat de database nog niet is ingericht voor synchronisatie of u bent niet gemachtigd voor de synchronisatie van configuratie-tabellen."
 
 #### <a name="solution"></a>Oplossing
 
@@ -219,18 +222,18 @@ Als u probeert een database verwijderen en bewerk vervolgens een synchronisatieg
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over SQL Data Sync:
 
--   Overzicht - [gegevens synchroniseren tussen meerdere cloud en on-premises databases met Azure SQL Data Sync](sql-database-sync-data.md)
+-   Overzicht: [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md)
 -   Data Sync instellen
     - In de portal - [zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - Met PowerShell
         -  [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Gegevens synchroniseren Agent - [gegevens synchroniseren-Agent voor Azure SQL Data Sync](sql-database-data-sync-agent.md)
--   Monitor - [SQL Data Sync met Log Analytics controleren](sql-database-sync-monitor-oms.md)
--   Problemen oplossen - [oplossen van problemen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
--   Bijwerken van het synchronisatieschema
-    -   Met behulp van Transact-SQL - [automatiseren van de replicatie van schemawijzigingen in Azure SQL Data Sync](sql-database-update-sync-schema.md)
-    -   Met PowerShell - [Gebruik PowerShell om bij te werken van het synchronisatieschema in een bestaande synchronisatiegroep](scripts/sql-database-sync-update-schema.md)
+-   Data Sync-agent: [Data Sync-agent voor Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Bewaken: [SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)
+-   Problemen oplossen: [Problemen met Azure SQL Data Sync oplossen](sql-database-troubleshoot-data-sync.md)
+-   Het synchronisatieschema bijwerken
+    -   Met Transact-SQL: [De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren](sql-database-update-sync-schema.md)
+    -   Met PowerShell: [PowerShell gebruiken voor het bijwerken van het synchronisatieschema in een bestaande synchronisatiegroep](scripts/sql-database-sync-update-schema.md)
 
 Zie voor meer informatie over SQL Database:
 

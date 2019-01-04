@@ -3,15 +3,16 @@ title: Over herstel na noodgevallen van virtuele VMware-machines naar Azure met 
 description: Dit artikel bevat een overzicht van herstel na noodgevallen van virtuele VMware-machines naar Azure met behulp van de Azure Site Recovery-service.
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 22be5d7438fdb554d1550fd6675ee1884c638824
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0984f53c70baa50916e125d096a612ad8f061228
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851057"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972818"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Over herstel na noodgevallen van virtuele VMware-machines naar Azure
 
@@ -88,7 +89,7 @@ On-premises dit is wat u nodig hebt om te doen:
 Nadat u uw infrastructuur van Azure en on-premises geïmplementeerd hebt, kunt u herstel na noodgevallen instellen.
 
 1. Voor informatie over de onderdelen die u moet implementeren, raadpleegt de [VMware naar Azure-architectuur](vmware-azure-architecture.md), en de [fysiek naar Azure-architectuur](physical-azure-architecture.md). Er zijn een aantal onderdelen, dus is het belangrijk om te begrijpen hoe ze allemaal bij elkaar passen.
-2. **Bronomgeving**: als een eerste stap in de implementatie, instellen van uw replicatiebronomgeving. U opgeven wat u wilt repliceren en waar u naar wilt repliceren.
+2. **Bronomgeving**: Als een eerste stap in de implementatie, moet u uw replicatiebronomgeving instellen. U opgeven wat u wilt repliceren en waar u naar wilt repliceren.
 3. **Configuratieserver**: U moet een configuratieserver in uw on-premises bron-omgeving instellen:
     - De configuratieserver is een één on-premises machine. Voor herstel na noodgevallen VMware, wordt u aangeraden als een VMware-VM die kunnen worden geïmplementeerd vanaf een downloadbare OVF-sjabloon te implementeren.
     - De configuratieserver coördineert de communicatie tussen on-premises en Azure
@@ -96,7 +97,7 @@ Nadat u uw infrastructuur van Azure en on-premises geïmplementeerd hebt, kunt u
         - De processerver ontvangt, optimaliseert en replicatiegegevens verzendt naar Azure storage. Ook verwerkt deze automatische installatie van de Mobility-service op computers die u repliceren wilt, en voert automatische detectie van virtuele machines op VMware-servers.
         - Op de hoofddoelserver worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.
     - Instellen bevat de configuratieserver registreren in de kluis, MySQL-Server en VMware PowerCLI, downloaden en op te geven de accounts die zijn gemaakt voor automatische detectie en installatie van de Mobility-service.
-4. **Doelomgeving**: instellen van het doel-Azure-omgeving door op te geven uw Azure-abonnement, opslag- en netwerkinstellingen.
+4. **Doelomgeving**: Instellen van het doel-Azure-omgeving door op te geven uw Azure-abonnement, opslag- en netwerkinstellingen.
 5. **Beleid voor wachtwoordreplicatie**: U opgeven hoe replicatie moet worden uitgevoerd. Instellingen omvatten onder meer hoe vaak herstelpunten worden gemaakt en opgeslagen, en of u toepassingsconsistente momentopnamen moeten worden gemaakt.
 6. **Replicatie inschakelen**. U schakelt replicatie voor on-premises computers. Als u een account voor het installeren van de Mobility-service hebt gemaakt, wordt wordt deze geïnstalleerd wanneer u replicatie voor een machine inschakelt. 
 

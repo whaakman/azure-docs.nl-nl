@@ -1,5 +1,5 @@
 ---
-title: 'Ontwerppatroon voor een Azure Cosmos DB: socialemedia-apps'
+title: 'Ontwerppatroon voor een Azure Cosmos DB: Socialemedia-apps'
 description: Meer informatie over een ontwerppatroon voor sociale netwerken door gebruik te maken van de flexibiliteit van de opslag van Azure Cosmos DB en andere Azure-services.
 keywords: socialemedia-apps
 services: cosmos-db
@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083968"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726779"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialiseren met Azure Cosmos DB
 
 Opgenomen in een zeer onderling verbonden society betekent dat een bepaald moment in het leven u deel van uitmaken een **sociaal netwerk**. U sociale netwerken gebruiken om te Blijf op de hoogte vrienden, collega's, familie en soms om uw passie delen met mensen met een gemeenschappelijk belang.
 
-Als de technici en ontwikkelaars, u mogelijk hebt zich afgevraagd hoe deze netwerken opslaan en interconnect van uw gegevens. Of u mogelijk hebt zelfs zijn binnen de perken blijven om te maken of een nieuwe sociaal netwerk voor een specifieke specialistische markt ontwerpen. Als de grote vraag daartoe zich voordoet: hoe worden al deze gegevens opgeslagen?
+Als de technici en ontwikkelaars, u mogelijk hebt zich afgevraagd hoe deze netwerken opslaan en interconnect van uw gegevens. Of u mogelijk hebt zelfs zijn binnen de perken blijven om te maken of een nieuwe sociaal netwerk voor een specifieke specialistische markt ontwerpen. Als de grote vraag daartoe zich voordoet: Hoe worden al deze gegevens opgeslagen?
 
 Stel dat u maakt een nieuwe en glanzend sociaal netwerk waar uw gebruikers artikelen met gerelateerde media, zoals afbeeldingen, video's of zelfs muziek kunnen plaatsen. Gebruikers kunnen opmerkingen over berichten en punten geven voor de classificaties. Er is een feed met berichten die gebruikers zien en ermee op de startpagina van de belangrijkste website. Deze methode niet geluid complexe op eerst, maar om het eenvoudig te, gaan we daar niet. (U kunt dieper ingaan op aangepaste kanalen op basis van relaties worden beïnvloed, maar dit gaat verder dan het doel van dit artikel.)
 
@@ -100,7 +100,7 @@ Het maken van feeds is alleen een kwestie van het maken van documenten die een l
 
 U kunt een 'laatste' stream hebben met berichten die zijn geordend op datum gemaakt. Of u kunt een 'meest belaste' stream met deze berichten met meer likes in de afgelopen 24 uur hebben. U kunt zelfs een aangepaste stroom voor elke gebruiker op basis van logica, zoals Volgers en interesses implementeren. Het is nog steeds een lijst met berichten. Er is een kwestie van het bouwen van deze lijsten, maar de prestaties lezen concurrerende blijft. Wanneer u een van deze lijsten aanschaft, u één query verlenen aan het Cosmos DB met behulp van de [IN de operator](how-to-sql-query.md#WhereClause) om op te halen van pagina's van berichten op een tijdstip.
 
-De feed stromen kunnen worden gebouwd met behulp van [Azure App Services](https://azure.microsoft.com/services/app-service/) processen op de achtergrond: [Webjobs](../app-service/web-sites-create-web-jobs.md). Zodra een bericht wordt gemaakt, verwerking op de achtergrond kan worden geactiveerd met behulp van [Azure Storage](https://azure.microsoft.com/services/storage/) [wachtrijen](../storage/queues/storage-dotnet-how-to-use-queues.md) en Webjobs geactiveerd met behulp van de [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uitvoering de boeken doorgifte in stromen op basis van uw eigen aangepaste logica.
+De feed stromen kunnen worden gebouwd met behulp van [Azure App Services](https://azure.microsoft.com/services/app-service/) processen op de achtergrond: [Webjobs](../app-service/webjobs-create.md). Zodra een bericht wordt gemaakt, verwerking op de achtergrond kan worden geactiveerd met behulp van [Azure Storage](https://azure.microsoft.com/services/storage/) [wachtrijen](../storage/queues/storage-dotnet-how-to-use-queues.md) en Webjobs geactiveerd met behulp van de [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uitvoering de boeken doorgifte in stromen op basis van uw eigen aangepaste logica.
 
 Punten en likes via een bericht kunnen worden verwerkt op een uitgestelde manier met behulp van dezelfde methode om een uiteindelijke consistente omgeving te maken.
 
@@ -206,15 +206,15 @@ Voor meer informatie over Azure Search, vindt u de [Hitchhiker van handleiding v
 
 ## <a name="the-underlying-knowledge"></a>De onderliggende kennis
 
-Na deze inhoud die meegroeit en wordt elke dag op te slaan, is het wellicht denken: wat kan ik doen met deze stroom van gegevens van mijn gebruikers?
+Na deze inhoud die meegroeit en wordt elke dag op te slaan, wellicht denken: Wat kan ik doen met deze stroom van gegevens van mijn gebruikers?
 
-Het antwoord is vrij eenvoudig: plaats om te werken en leer van deze.
+Het antwoord is vrij eenvoudig: Plaats om te werken en leer van deze.
 
 Maar wat kunt u leren? Enkele eenvoudige voorbeelden zijn onder meer [sentimentanalyse](https://en.wikipedia.org/wiki/Sentiment_analysis), inhoud aanbevelingen op basis van gebruikersvoorkeuren of zelfs een geautomatiseerde content moderator die ervoor dat de inhoud die is gepubliceerd door uw sociale netwerk zorgt veilig is voor de familie.
 
 Nu dat ik kreeg u aangesloten, denkt u waarschijnlijk na moet u enkele PhD in de wetenschap math om op te halen van deze patronen en informatie uit de eenvoudige databases en -bestanden, maar u zou zijn gegaan.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), onderdeel van de [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), is een volledig beheerde cloudservice waarmee u werkstromen maken middels algoritmen in een eenvoudige interface met slepen en neerzetten, uw eigen algoritmen in code[ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), of u sommige van de al zijn gemaakt en klaar voor gebruik van API's, zoals: [Tekstanalyse](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator of [aanbevelingen](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), onderdeel van de [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), is een volledig beheerde cloudservice waarmee u werkstromen maken middels algoritmen in een eenvoudige interface met slepen en neerzetten, uw eigen algoritmen in code[ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), of u sommige van de al zijn gemaakt en klaar voor gebruik van API's, zoals: [Tekstanalyse](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator, of [aanbevelingen](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 U kunt gebruiken voor het bereiken van een van deze scenario's voor Machine Learning, [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) om op te nemen van de gegevens uit verschillende bronnen. U kunt ook [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) voor de verwerking van de gegevens en het genereren van een uitvoer die kan worden verwerkt door Azure Machine Learning.
 

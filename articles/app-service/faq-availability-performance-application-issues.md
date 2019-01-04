@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388836"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721560"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Toepassingsprestaties Veelgestelde vragen voor Web-Apps in Azure
 
@@ -163,7 +163,7 @@ Zie voor meer informatie, [web-apps in App Service configureren](web-sites-confi
 
 Azure Load Balancer heeft een standaardinstelling voor de time-out voor inactiviteit van vier minuten. Dit is doorgaans een redelijke antwoord tijdslimiet voor een webaanvraag. Als uw web-app is vereist voor verwerking op de achtergrond, raden wij met behulp van Azure WebJobs. De Azure-web-app WebJobs kunt aanroepen en een melding wanneer de verwerking op de achtergrond is voltooid. U kunt kiezen uit meerdere methoden voor het gebruik van WebJobs, met inbegrip van wachtrijen en -triggers.
 
-WebJobs is ontworpen voor verwerking op de achtergrond. U kunt doen zoveel achtergrond verwerken als u in een webtaak wilt. Zie voor meer informatie over WebJobs [achtergrondtaken uitvoeren met WebJobs](web-sites-create-web-jobs.md).
+WebJobs is ontworpen voor verwerking op de achtergrond. U kunt doen zoveel achtergrond verwerken als u in een webtaak wilt. Zie voor meer informatie over WebJobs [achtergrondtaken uitvoeren met WebJobs](webjobs-create.md).
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core-toepassingen die worden gehost in App Service soms reageert niet. Hoe kan ik dit probleem oplossen?
 

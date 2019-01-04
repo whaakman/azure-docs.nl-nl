@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: f3e590ec5dded03ce9c6ab2f7a21d51048020622
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012586"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651824"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Cognitive Toolkit deep learning-model met Azure HDInsight Spark-cluster gebruiken
 
@@ -39,15 +39,15 @@ Deze oplossing is verdeeld over de in dit artikel en een Jupyter-notebook die u 
 
 De volgende resterende stappen worden behandeld in de Jupyter-notebook.
 
-- Voorbeeldafbeeldingen laden in een Spark Resiliant gedistribueerd gegevensset of RDD
-   - Laden van modules en voorinstellingen voor definiëren
-   - Downloaden van de gegevensset lokaal op het Spark-cluster
-   - De gegevensset converteren naar een RDD
-- De afbeeldingen met behulp van een getraind Cognitive Toolkit-model beoordelen
-   - Het getrainde model van de Cognitive Toolkit downloaden naar het Spark-cluster
-   - Definieer functies kunnen worden gebruikt door de worker-knooppunten
-   - De afbeeldingen te beoordelen op worker-knooppunten
-   - De nauwkeurigheid van model evalueren
+- Voorbeeldafbeeldingen in een Spark Resiliant gedistribueerd gegevensset of RDD laden.
+   - Laden van modules en voorinstellingen voor definiëren.
+   - Download de gegevensset lokaal op het Spark-cluster.
+   - De gegevensset omzetten in een RDD.
+- De afbeeldingen met behulp van een getraind Cognitive Toolkit-model te beoordelen.
+   - Het getrainde model van de Cognitive Toolkit downloaden naar het Spark-cluster.
+   - Definieer functies kunnen worden gebruikt door de worker-knooppunten.
+   - De afbeeldingen te beoordelen op worker-knooppunten.
+   - De nauwkeurigheid van model evalueren.
 
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit installeren
@@ -90,15 +90,15 @@ Voor het gebruik van de Microsoft Cognitive Toolkit met het Azure HDInsight Spar
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Telemetrie analyse van Application Insights met Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)

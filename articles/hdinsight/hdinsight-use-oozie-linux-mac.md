@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 14b849a46701ab19c76ee175717c3715cc89f411
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408898"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994382"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
@@ -58,7 +58,7 @@ De werkstroom gebruikt in dit document bevat twee acties. Acties zijn definities
 
 2. Een actie Sqoop exporteert de inhoud van de nieuwe Hive-tabel naar een tabel gemaakt in Azure SQL Database. Zie voor meer informatie over Sqoop [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
 
-> [!NOTE]
+> [!NOTE]  
 > Zie voor ondersteunde versies van de Oozie op HDInsight-clusters, [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>De werkmap maken
@@ -301,7 +301,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
     ```
 
     > [!NOTE]  
-    > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Store in plaats daarvan wordt gebruikt, deze begint met `adl://`.
+    > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Storage in plaats daarvan gebruikt wordt, deze begint met `adl://`.
 
     Sla de inhoud van de `<value>` -element, zoals deze wordt gebruikt in de volgende stappen.
 
@@ -576,7 +576,7 @@ U kunt de coördinator gebruiken om op te geven van een starten, een end en de f
     </coordinator-app>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > De `${...}` variabelen zijn vervangen door waarden in de taakdefinitie tijdens runtime. De variabelen die zijn:
     >
     > * `${coordFrequency}`: De tijd tussen het uitvoeren van exemplaren van de taak.
@@ -737,7 +737,7 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u e
 * [Apache Pig gebruiken met Apache Hadoop op HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
@@ -757,12 +757,12 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u e
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
@@ -773,4 +773,4 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u e
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

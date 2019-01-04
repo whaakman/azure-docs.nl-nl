@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c2924380ef5175b330deb5052a962bfecf820ae
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399840"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594360"
 ---
 U kunt profiteren van veel mogelijkheden voor het bewaken van uw virtuele machines te verzamelen, weergeven en analyseren van diagnostische en logboekgegevens. Eenvoudige doen [bewaking](../articles/azure-monitor/overview.md) van uw virtuele machine, kunt u het scherm overzicht voor de virtuele machine in Azure portal. U kunt [extensies](../articles/virtual-machines/windows/extensions-features.md) voor het configureren van diagnostische gegevens op uw VM's voor het verzamelen van aanvullende metrische gegevens. U kunt ook meer geavanceerde controle-opties, zoals gebruiken [Application Insights](../articles/application-insights/app-insights-overview.md) en [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -43,23 +43,23 @@ U kunt maken [waarschuwingen](../articles/azure-monitor/platform/alerts-overview
 
 ## <a name="logs"></a>Logboeken
 
-De [Azure Activity Log](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) is een abonnementlogboek die biedt inzicht in gebeurtenissen op abonnementsniveau die hebben plaatsgevonden in Azure. Het logboek omvat een scala aan gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. U kunt klikken op activiteitenlogboek in Azure portal om het logboek voor uw virtuele machine weer te geven.
+De [Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overview.md) is een abonnementlogboek die biedt inzicht in gebeurtenissen op abonnementsniveau die hebben plaatsgevonden in Azure. Het logboek omvat een scala aan gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. U kunt klikken op activiteitenlogboek in Azure portal om het logboek voor uw virtuele machine weer te geven.
 
 Er zijn enkele dingen die u met het activiteitenlogboek doen kunt:
 
-- Maak een [waarschuwing voor een activiteitenlogboek gebeurtenis](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-- [Deze Stream naar een Event Hub](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
+- Maak een [waarschuwing voor een activiteitenlogboek gebeurtenis](../articles/azure-monitor/platform/activity-logs-overview.md).
+- [Deze Stream naar een Event Hub](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
 - Analyseren in Power BI met behulp van de [Power BI-inhoudspakket](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Sla deze op een storage-account](../articles/azure-monitor/platform/archive-activity-log.md) voor archivering of handmatige controle. U kunt de bewaartijd (in dagen) met behulp van het logboek-profiel opgeven.
 
 U kunt ook toegang tot gegevens van een activiteitenlogboek via [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), of [Monitor REST API's](https://docs.microsoft.com/rest/api/monitor/).
 
-[Diagnostische logboeken in Azure](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) zijn logboeken van uw virtuele machine met uitgebreide, regelmatig gegevens over de werking ervan. Diagnoselogboeken verschillen van het activiteitenlogboek door te geven inzicht in bewerkingen die zijn uitgevoerd binnen de virtuele machine.
+[Diagnostische logboeken in Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md) zijn logboeken van uw virtuele machine met uitgebreide, regelmatig gegevens over de werking ervan. Diagnoselogboeken verschillen van het activiteitenlogboek door te geven inzicht in bewerkingen die zijn uitgevoerd binnen de virtuele machine.
 
 Enkele van de dingen die u met diagnostische logboeken doen kunt zijn onder andere:
 
 - [Opslaan naar een opslagaccount](../articles/azure-monitor/platform/archive-diagnostic-logs.md) voor controle of handmatige controle. U kunt de bewaartijd (in dagen) met behulp van de instellingen voor Resourcediagnose opgeven.
-- [Deze Stream naar Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
+- [Deze Stream naar Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
 - Analyseren met [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Geavanceerde controle

@@ -1,19 +1,20 @@
 ---
 title: Blobs toevoegen aan objecten in Azure, digitale dubbels | Microsoft Docs
-description: Inzicht krijgen in hoe u blobs toevoegen aan objecten in Azure, digitale dubbels
+description: Informatie over het toevoegen van blobs op objecten in digitale dubbels van Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725621"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974507"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in Azure, digitale dubbels
 
@@ -21,10 +22,7 @@ BLOBs zijn niet-gestructureerde representaties van algemene bestandstypen, zoals
 
 Azure ondersteunt het digitale dubbels blobs te koppelen aan apparaten, spaties en gebruikers. BLOBs kunnen bestaan uit een profielafbeelding voor een gebruiker, een apparaat foto, een video, een kaart of een logboek.
 
-> [!NOTE]
-> In dit artikel wordt ervan uitgegaan dat:
-> * Dat wordt uw exemplaar is correct geconfigureerd voor het ontvangen van API Management-aanvragen.
-> * Die hebt u goed geverifieerd met behulp van een REST-client van uw keuze.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>Blobs uploaden: een overzicht
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Parameterwaarde | Vervangen door |
+| Waarde | Vervangen door |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | De naam van een meerdelige inhoud grens |
+| USER_DEFINED_BOUNDARY | De naam van een meerdelige inhoud grens |
 
 De volgende code is een .NET-implementatie van de dezelfde blob-upload, met behulp van de klasse [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>API-eindpunten
 
-De volgende secties helpen u bij het core eindpunten en hun functies.
+De volgende secties beschrijven de core blob-gerelateerde API-eindpunten en hun functies.
 
 ### <a name="devices"></a>Apparaten
 
@@ -136,7 +134,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 Geslaagde aanvragen retourneren een **DeviceBlob** JSON-object in het antwoord. **DeviceBlob** objecten voldoen aan de volgende JSON-schema:
 
-| Kenmerk | Type | Beschrijving | Voorbeelden |
+| Kenmerk | Type | Description | Voorbeelden |
 | --- | --- | --- | --- |
 | **DeviceBlobType** | Reeks | De categorie van een blob die kan worden gekoppeld aan een apparaat | `Model` en `Specification` |
 | **DeviceBlobSubtype** | Reeks | Een blob subcategorie dat is meer dan specifieke **DeviceBlobType** | `PhysicalModel`, `LogicalModel`, `KitSpecification`, en `FunctionalSpecification` |
@@ -144,7 +142,7 @@ Geslaagde aanvragen retourneren een **DeviceBlob** JSON-object in het antwoord. 
 > [!TIP]
 > Gebruik de voorgaande tabel om te verwerken is de geretourneerde aanvraaggegevens.
 
-### <a name="spaces"></a>Opslagruimten
+### <a name="spaces"></a>Spaties
 
 U kunt ook blobs koppelen naar spaties. De volgende afbeelding geeft een lijst van alle ruimte API-eindpunten die verantwoordelijk is voor het verwerken van blobs. Het bevat ook een padparameters om door te geven in deze eindpunten.
 
@@ -164,7 +162,7 @@ Maken van een **PATCH** aanvraag voor hetzelfde eindpunt kunt u een beschrijving
 
 Voltooide bewerkingen retourneren een **SpaceBlob** -object dat aan het volgende schema voldoet. U kunt deze gebruiken voor geretourneerde gegevens.
 
-| Kenmerk | Type | Beschrijving | Voorbeelden |
+| Kenmerk | Type | Description | Voorbeelden |
 | --- | --- | --- | --- |
 | **SpaceBlobType** | Reeks | De categorie van een blob die kan worden gekoppeld aan een spatie | `Map` en `Image` |
 | **SpaceBlobSubtype** | Reeks | Een blob subcategorie dat is meer dan specifieke **SpaceBlobType** | `GenericMap`, `ElectricalMap`, `SatelliteMap`, en `WayfindingMap` |
@@ -187,14 +185,14 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 
 De geretourneerde JSON (**UserBlob** objecten) voldoet aan de volgende JSON-modellen:
 
-| Kenmerk | Type | Beschrijving | Voorbeelden |
+| Kenmerk | Type | Description | Voorbeelden |
 | --- | --- | --- | --- |
 | **UserBlobType** | Reeks | De categorie van een blob die kan worden gekoppeld aan een gebruiker | `Image` en `Video` |
 | **UserBlobSubtype** |  Reeks | Een blob subcategorie dat is meer dan specifieke **UserBlobType** | `ProfessionalImage`, `VacationImage`, en `CommercialVideo` |
 
 ## <a name="common-errors"></a>Algemene fouten
 
-Een veelvoorkomende fout is niet de juiste berichtkopinformatie inclusief:
+Een veelvoorkomende fout, moet u niet de juiste headerinformatie:
 
 ```JSON
 {

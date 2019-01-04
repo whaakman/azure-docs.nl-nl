@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141574"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601964"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Test uw LUIS-app in de portal LUIS
 <a name="train-your-app"></a>
@@ -51,11 +51,11 @@ Controleren van details van de testresultaten in het **inspecteren** deelvenster
  
 1. Met de **Test** dia-out Configuratiescherm openen, selecteer **inspecteren** voor een utterance die u wilt vergelijken. 
 
-    ![Knop controleren](./media/luis-how-to-interactive-test/inspect.png)
+    ![Selecteer de knop controleren voor meer informatie over de resultaten van de](./media/luis-how-to-interactive-test/inspect.png)
 
 2. De **inspectie** deelvenster wordt weergegeven. Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.
 
-    ![Knop controleren](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="correct-top-scoring-intent"></a>Juiste boven scoring-doel
 

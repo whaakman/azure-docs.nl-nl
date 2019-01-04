@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 20fe724d32e31e1bacbad024cc934f89af12f112
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139925"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993209"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure voor on-demand Red Hat Enterprise Linux-machines in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehoste opslagplaats, aangepaste opslagplaatsen maken met Azure-specifieke inhoud en het beschikbaar maken voor virtuele machines door eindgebruikers.
 
 Red Hat Enterprise Linux (RHEL) betalen naar gebruik (betalen per gebruik) afbeeldingen afkomstig zijn vooraf geconfigureerd voor toegang tot Azure RHUI. Er is geen aanvullende configuratie nodig. Uitvoeren als u de meest recente updates, `sudo yum update` nadat uw RHEL-exemplaar gereed is. Deze service is opgenomen als onderdeel van de kosten voor de RHEL PAYG-software.
+
+Meer informatie over de RHEL-installatiekopieën in Azure, met inbegrip van publicatie- en bewaarbeleid, is beschikbaar [hier](./rhel-images.md).
 
 ## <a name="important-information-about-azure-rhui"></a>Belangrijke informatie over Azure RHUI
 * Azure RHUI ondersteunt momenteel alleen de nieuwste secundaire versie van de RHEL-familie (RHEL6 of RHEL7). Als u een RHEL VM-exemplaar dat is verbonden met RHUI naar de nieuwste secundaire versie upgraden, uitvoeren `sudo yum update`.
@@ -35,9 +37,37 @@ Red Hat Enterprise Linux (RHEL) betalen naar gebruik (betalen per gebruik) afbee
 
 * Toegang tot de RHUI wordt gehost op Azure is opgenomen in de prijs van de installatiekopie RHEL PAYG. Als u een betalen per gebruik-RHEL VM uit de RHUI wordt gehost op Azure registratie is dat de virtuele machine niet converteren naar een type bring-your-own-license (BYOL) van virtuele machine. Als u dezelfde virtuele machine met een andere bron van de updates hebt geregistreerd, kunnen kosten voor _indirecte_ dubbele kosten in rekening gebracht. U betaalt het eerst voor de kosten van Azure RHEL-software. De tweede keer voor Red Hat-abonnementen die eerder zijn gekocht, moet u betalen. Als u consistent een update-infrastructuur dan RHUI wordt gehost op Azure gebruiken wilt, houd rekening met het maken en implementeren van uw eigen installatiekopieën (BYOL-type). Dit proces wordt beschreven [maken en uploaden, een Red Hat gebaseerde virtuele machine voor Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* Twee soorten PAYG RHEL-installatiekopieën in Azure (RHEL for SAP HANA) en RHEL for SAP Business Applications zijn verbonden met specifieke RHUI-kanalen die op de specifieke RHEL secundaire versie zoals vereist voor de SAP-certificering blijven.
+* SAP betalen per gebruik RHEL-installatiekopieën in Azure (RHEL for SAP, RHEL for SAP HANA en RHEL for SAP Business Applications) zijn verbonden met specifieke RHUI-kanalen die op de specifieke RHEL secundaire versie zoals vereist voor de SAP-certificering blijven.
 
 * Toegang tot Azure gehoste RHUI is beperkt tot de virtuele machines binnen de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Als u via een proxy alle VM-verkeer via een on-premises netwerkinfrastructuur, moet u mogelijk voor het instellen van de gebruiker gedefinieerde routes voor de RHEL-betalen per gebruik virtuele machines voor toegang tot de Azure-RHUI.
+
+### <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEl EUS en versie vergrendelen RHEL VM 's
+Sommige klanten willen hun RHEL VM's naar een bepaalde kleine RHEL-versie vergrendelen. U kunt uw RHEL VM naar een specifieke secundaire versie versie-lock door bij te werken van de opslagplaatsen om te verwijzen naar de uitgebreide ondersteuning voor Update-opslagplaatsen. Gebruik de volgende instructies om te vergrendelen van een RHEL VM naar een specifieke secundaire versie:
+
+>[!NOTE]
+> Dit geldt alleen voor RHEL 7.2 7.5
+
+1. Niet-EUS opslagplaatsen uitschakelen:
+    ```
+    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    ```
+
+1. EUS opslagplaatsen toevoegen:
+    ```
+    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    ```
+
+1. De variabele releasever vergrendelen:
+    ```
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > De bovenstaande instructies, de secundaire versie van RHEL naar de huidige secundaire versie wordt vergrendeld. Voer een specifieke secundaire versie als u wilt bijwerken en een vergrendeling van naar een hoger secundaire versie aan die niet de nieuwste versie. Bijvoorbeeld, `echo 7.5 > /etc/yum/vars/releasever` uw RHEL-versie op RHEL 7,5 wordt vergrendeld
+1. Uw RHEL VM bijwerken
+    ```bash
+    sudo yum update
+    ```
 
 ### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>De IP-adressen voor de levering van inhoud RHUI servers
 
@@ -70,13 +100,19 @@ De nieuwe Azure RHUI-servers worden geïmplementeerd met [Azure Traffic Manager]
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Verlopen RHUI-clientcertificaat op een virtuele machine bijwerken
 
-Als u een oudere RHEL VM-installatiekopie, bijvoorbeeld RHEL 7.4 (image-URN: `RedHat:RHEL:7.4:7.4.2018010506`), wordt er verbindingsproblemen met RHUI vanwege een SSL-clientcertificaat nu is verlopen (op 21 november-2018). Werk de RHUI-clientpakket op de virtuele machine met behulp van de volgende opdracht uit om dit probleem oplossen
+Als u een oudere RHEL VM-installatiekopie, bijvoorbeeld RHEL 7.4 (image-URN: `RedHat:RHEL:7.4:7.4.2018010506`), wordt er verbindingsproblemen met RHUI vanwege een SSL-clientcertificaat nu is verlopen (op 21 november-2018). Werk de RHUI-clientpakket op de virtuele machine met behulp van de volgende opdracht uit om dit probleem oplossen:
 
 ```bash
 sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
 ```
 
-U kunt ook uitgevoerd `sudo yum update` wordt ook bijgewerkt voor dit pakket ondanks fouten van 'verlopen SSL-certificaat' u voor andere opslagplaatsen ziet. Na de update, normale connectiviteit met andere RHUI-opslagplaatsen moet worden hersteld.
+Als uw RHEL VM in US Government-cloud, gebruikt u de volgende opdracht uit:
+```bash
+sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+```
+
+U kunt ook uitgevoerd `sudo yum update` werkt ook de certificaat-clientpakket ondanks fouten van 'verlopen SSL-certificaat' u voor andere opslagplaatsen ziet. Na de update, normale connectiviteit met andere opslagplaatsen RHUI dient te worden hersteld, zodat u kunt uitvoeren `sudo yum update` is.
+
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Problemen met verbinding naar Azure RHUI
 Als u problemen hebt met het verbinding maken met Azure RHUI vanuit uw virtuele machine van Azure RHEL betalen per gebruik, volg deze stappen:
@@ -179,5 +215,6 @@ Deze procedure is alleen ter informatie bedoeld. Er is al de juiste configuratie
 1. Nadat u klaar bent, moet u controleren of u toegang hebt tot Azure RHUI van de virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
-Een Red Hat Enterprise Linux-VM maken vanaf een betalen per gebruik van Azure Marketplace-installatiekopie en RHUI wordt gehost op Azure gebruiken, gaat u naar de [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Een Red Hat Enterprise Linux-VM maken vanaf een betalen per gebruik van Azure Marketplace-installatiekopie en RHUI wordt gehost op Azure gebruiken, gaat u naar de [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Voor meer informatie over de Red Hat-afbeeldingen in Azure, gaat u naar de [documentatiepagina](./rhel-images.md).
 

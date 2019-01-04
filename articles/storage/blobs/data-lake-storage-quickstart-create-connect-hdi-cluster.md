@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: f1c42a3e091bc4b3804edfe835e521a99fcee880
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975065"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792883"
 ---
-# <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snelstartgids: Clusters instellen in HDInsight
+# <a name="quickstart-set-up-clusters-in-hdinsight"></a>Quickstart: Clusters instellen in HDInsight
 
 In deze snelstartgids leert u hoe u kunt instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, Interactive Query, HBase, R Server of Storm. U leert ook hoe u ze toevoegen aan een domein, clusters aanpassen en koppelt u ze naar een opslagaccount met [preview van Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) ingeschakeld.
 
@@ -39,7 +39,7 @@ De volgende tabel ziet u de verschillende methoden die u gebruiken kunt voor het
 | [cURL](../../hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Azure Resource Manager-sjablonen](../../hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## <a name="quick-create-basic-cluster-setup"></a>Snel maken: Basic clusterinstallatie
+## <a name="quick-create-basic-cluster-setup"></a>Snel maken: Basic-cluster instellen
 
 Dit artikel begeleidt u bij instellingen in de [Azure-portal](https://portal.azure.com), hier kunt u maken een HDInsight-cluster met *snelle invoer* of *aangepaste*.
 
@@ -86,8 +86,8 @@ Voor meer informatie over het maken van aan domein gekoppelde HDInsight-cluster,
 
 Met HDInsight-clusters, kunt u twee gebruikersaccounts configureren tijdens het maken van een cluster:
 
-* HTTP-gebruiker: de standaardgebruikersnaam is *admin*. Hierbij wordt de basisconfiguratie in Azure portal. Soms wordt genoemd "Cluster gebruiker."
-* SSH-gebruiker (Linux-clusters): gebruikt voor verbinding met het cluster via SSH. Zie [SSH gebruiken met HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* HTTP-gebruiker: De standaardnaam van de gebruiker is *admin*. Hierbij wordt de basisconfiguratie in Azure portal. Soms wordt genoemd "Cluster gebruiker."
+* SSH-gebruiker (Linux-clusters): Gebruikt voor verbinding met het cluster via SSH. Zie [SSH gebruiken met HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 ## <a name="location"></a>Locatie (regio's) voor clusters en opslag
 
@@ -102,7 +102,7 @@ Hoewel een on-premises Hadoop-installatie gebruikmaakt van het Hadoop Distribute
 
 Tijdens de configuratie voor het standaardeindpunt voor opslag geeft u Data Lake-opslag. De standaardopslag bevat toepassings- en Logboeken. U kunt desgewenst aanvullende gekoppelde opslagaccounts waarvoor Data Lake Storage Gen2 opgeven dat het cluster toegang heeft tot ingeschakeld. Het HDInsight-cluster en de afhankelijke opslagaccounts moeten zich in dezelfde Azure-locatie.
 
-![Instellingen voor de opslag van cluster: HDFS-compatibele eindpunten van opslag](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
+![Instellingen voor de opslag van cluster: HDFS-compatibele opslag-eindpunten](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Zorg ervoor dat u **Data Lake Store-toegang uitschakelen**. Deze instelling verwijst naar de oude *Data Lake Store* functionaliteit en moet worden uitgeschakeld zodat *Data Lake Storage* functies goed te laten werken.
@@ -172,8 +172,8 @@ Wanneer u de Azure-portal gebruikt om het cluster te configureren, de grootte va
 
 Wanneer u clusters implementeert, kiest u de compute-resources op basis van de oplossing die u van plan bent om te implementeren. De volgende virtuele machines worden gebruikt voor HDInsight-clusters:
 
-* A- en D1-4-serie VM's: [General-purpose Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* D11-14-serie VM: [geoptimaliseerd voor geheugen Linux-VM-grootten](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* D1-4-serie VM's en een: [Algemene Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
+* D11-14-serie VM: [Linux VM-grootten geoptimaliseerd voor geheugen](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
 Om erachter te komen welke u waarde moeten gebruiken een VM-grootte opgeven tijdens het maken van een cluster met behulp van de verschillende SDK's of tijdens het gebruik van Azure PowerShell, Zie [VM-grootten voor HDInsight-clusters](../../cloud-services/cloud-services-sizes-specs.md#size-tables). In dit artikel gekoppeld, gebruikt u de waarde in de **grootte** kolom van de tabellen.
 
@@ -198,7 +198,7 @@ Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op 
 
 De meeste van de HDInsight-toepassingen zijn geïnstalleerd op een lege edge-knooppunt.  Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd zoals in het hoofdknooppunt. U kunt het edge-knooppunt gebruiken voor toegang tot het cluster en hosten van uw client-apps testen van uw clienttoepassingen. Zie voor meer informatie, [lege edge-knooppunten gebruiken in HDInsight](../../hdinsight/hdinsight-apps-use-edge-node.md).
 
-## <a name="advanced-settings-script-actions"></a>Geavanceerde instellingen: scriptacties
+## <a name="advanced-settings-script-actions"></a>Geavanceerde instellingen: Scriptacties
 
 U kunt extra onderdelen installeren of de configuratie van het cluster aanpassen met behulp van scripts tijdens het maken van. Deze scripts worden aangeroepen **scriptactie**, dit is een configuratieoptie die kan worden gebruikt vanuit de Azure portal, HDInsight Windows PowerShell-cmdlets of de HDInsight .NET SDK. Zie voor meer informatie, [aanpassen HDInsight-cluster met Script Action](../../hdinsight/hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -229,7 +229,7 @@ Soms wilt u de volgende configuratiebestanden tijdens het maakproces configurere
 
 Zie voor meer informatie, [aanpassen HDInsight-clusters met Bootstrap](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Geavanceerde instellingen: clusters met een virtueel netwerk uitbreiden
+## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Geavanceerde instellingen: Clusters met een virtueel netwerk uitbreiden
 
 Als uw oplossing vereist technologieën die worden verdeeld over meerdere HDInsight-clustertypen, een [virtueel Azure-netwerk](https://docs.microsoft.com/azure/virtual-network) verbinding kunnen maken van de vereiste clustertypen. Deze configuratie staat de clusters, en een code die u voor ze rechtstreeks kan communiceren met elkaar implementeren.
 
@@ -239,12 +239,12 @@ Zie voor een voorbeeld van het gebruik van twee clustertypen binnen een virtueel
 
 ## <a name="troubleshoot-access-control-issues"></a>Problemen met toegang beheren
 
-Zie [Vereisten voor toegangsbeheer](../../hdinsight/hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
+Zie [Vereisten voor toegangsbeheer](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Hadoop-bestandssysteem ABFS-stuurprogramma voor Azure Data Lake Storage Gen2](data-lake-storage-abfs-driver.md)
-- [Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
+- [Zelfstudie: Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
 - [Wat zijn HDInsight, de Hadoop-ecosysteem en Hadoop-clusters?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Aan de slag met Hadoop in HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Werken in Hadoop op HDInsight vanaf een Windows-PC](../../hdinsight/hdinsight-hadoop-windows-tools.md)

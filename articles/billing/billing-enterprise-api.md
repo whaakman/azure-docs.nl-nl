@@ -15,18 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: e2f59771d7ae2c818fe2f4c93441bf27f8e312ae
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d2021873b36a55bd36cf500eff168fe7311d944c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274101"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579427"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Overzicht van de rapportage-API's voor zakelijke klanten
 De rapportage-API's kunnen Azure Enterprise-klanten om op te halen via een programma gebruiks- en factureringsgegevens in de gewenste hulpprogramma's voor gegevensanalyse. Zakelijke klanten zich hebben aangemeld een [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) met Azure om te maken in de onderhandelde monetaire toezeggingen en toegang krijgen tot aangepaste prijzen voor Azure-resources.
-
-> [!div class="nextstepaction"]
-> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="enabling-data-access-to-the-api"></a>Voor gegevenstoegang tot de API
 * **Genereren of de API-sleutel ophalen** -Meld u aan bij de Enterprise portal en navigeert u naar rapporten > Download Usage > API Access Key genereren of de API-sleutel ophalen.
@@ -55,7 +52,7 @@ In het antwoord van de bovenstaande API Etags geretourneerd. Een wijziging in de
 
 
 ## <a name="api-response-codes"></a>API-responscodes   
-|Statuscode van antwoord|Bericht|Beschrijving|
+|Statuscode van antwoord|Bericht|Description|
 |-|-|-|
 |200| OK|Geen fout|
 |401| Niet geautoriseerd| API-sleutel niet wordt gevonden, ongeldig, verlopen enzovoort.|

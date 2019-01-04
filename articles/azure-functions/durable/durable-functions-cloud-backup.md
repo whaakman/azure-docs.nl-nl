@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d3dfcb74852f90615af90f9eab3711b1b235c53e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7bb2a68209e657b1e3ff8c3a61730d42f04a3b8a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341385"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727374"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - back-voorbeeld van de Cloud
 
@@ -172,6 +172,9 @@ U kunt nu zien dat de indeling voltooid is en ongeveer hoeveel tijd het duurde o
 ## <a name="visual-studio-sample-code"></a>Visual Studio-voorbeeldcode
 
 Hier volgt de indeling als één C#-bestand in een Visual Studio-project:
+
+> [!NOTE]
+> U moet voor het installeren van de `Microsoft.Azure.WebJobs.Extensions.Storage` Nuget-pakket om uit te voeren van de voorbeeldcode hieronder.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

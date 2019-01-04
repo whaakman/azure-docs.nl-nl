@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333578"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753129"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Bewaarbeleid Azure Active Directory-rapporten
 
@@ -53,17 +53,19 @@ Voor beveiliging signalen, de verzamelingsproces wordt gestart wanneer u zich aa
 
 **Activiteitsrapporten**    
 
-| Rapport                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Directorycontrole        | 7 dagen        | 30 dagen             | 30 dagen             |
-| Aanmeldingsactiviteit       | N/A           | 30 dagen             | 30 dagen             |
-| Azure MFA-gebruik        | 30 dagen       | 30 dagen             | 30 dagen             |
+| Rapport                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--            | :--                 | :--                 |
+| Directorycontrole        | 7 dagen        |  7 dagen        | 30 dagen             | 30 dagen             |
+| Aanmeldingsactiviteit       | N/A           |  N/A           | 30 dagen             | 30 dagen             |
+| Azure MFA-gebruik        | 30 dagen       |  30 dagen       | 30 dagen             | 30 dagen             |
+
+U kunt de gegevens van de activiteit controleren en meld u langer dan de bewaartermijn die hierboven worden beschreven door het routering naar Azure storage-account met behulp van Azure Monitor behouden. Zie voor meer informatie, [archief Azure AD vastgelegd in een Azure storage-account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Beveiliging signalen**
 
-| Rapport         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| Gebruikers die risico lopen  | 7 dagen        | 30 dagen             | 90 dagen             |
-| Riskante aanmeldingen | 7 dagen        | 30 dagen             | 90 dagen             |
+| Rapport         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--            | :--                 | :--                 |
+| Gebruikers die risico lopen  | 7 dagen        | 7 dagen         | 30 dagen             | 90 dagen             |
+| Riskante aanmeldingen | 7 dagen        | 7 dagen         |  30 dagen            | 90 dagen             |
 
 ---

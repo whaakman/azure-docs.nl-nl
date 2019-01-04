@@ -1,20 +1,17 @@
 ---
 title: Importeren en exporteren in Azure Database for MySQL
 description: In dit artikel wordt uitgelegd gebruikelijke manieren om te importeren en exporteren van databases in Azure Database voor MySQL, met behulp van hulpprogramma's, zoals MySQL Workbench.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2018
-ms.openlocfilehash: ee291f24a1ad77f84e7cdb8cf4c687af7dfa3f17
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986216"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545515"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migreren van uw MySQL-database met behulp van importeren en exporteren
 Dit artikel wordt uitgelegd twee algemene benaderingen gebruikt om te importeren en exporteren van gegevens naar een Azure Database for MySQL-server met behulp van MySQL Workbench. 
@@ -86,14 +83,14 @@ Het volgende voorbeeld wordt de tabel geëxporteerd naar een CSV-bestand:
 Het volgende voorbeeld worden geïmporteerd in de tabel uit een CSV-bestand:
 1. Met de rechtermuisknop op de tabel van de database moet worden geïmporteerd. 
 2. Blader naar en selecteer het CSV-bestand worden geïmporteerd en klik vervolgens op **volgende**. 
-3. Selecteer de doeltabel (nieuw of bestaand), en selecteer of schakel de **afkappen tabel voor het importeren** selectievakje. Klik op **Volgende**.
+3. Selecteer de doeltabel (nieuw of bestaand), en selecteer of schakel de **afkappen tabel voor het importeren** selectievakje. Klik op **volgende**.
 4. Schakel codering en de kolommen die moeten worden geïmporteerd en klik vervolgens op **volgende**. 
 5. Op de **gegevens importeren** pagina, klikt u op **volgende**. De wizard importeert de gegevens dienovereenkomstig.
 
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL-gegevens exporteren en importeren van wizards in het deelvenster Navigator
 Een wizard exporteert of importeert SQL gegenereerd op basis van MySQL Workbench of gegenereerd op basis van de opdracht mysqldump gebruiken. Toegang tot deze wizards in de **Navigator** deelvenster of door te selecteren **Server** in het hoofdmenu. Selecteer vervolgens **gegevensexport** of **gegevensimport**. 
 
-#### <a name="data-export"></a>Gegevens exporteren
+#### <a name="data-export"></a>Gegevensexport
 ![MySQL Workbench-gegevens exporteren met behulp van het navigatievenster](./media/concepts-migrate-import-export/p2.png)
 
 U kunt de **gegevensexport** tabblad om uw MySQL-gegevens te exporteren. 

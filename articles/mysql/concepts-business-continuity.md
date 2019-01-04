@@ -1,20 +1,17 @@
 ---
 title: Overzicht van bedrijfscontinuïteit met Azure Database for MySQL
 description: Overzicht van bedrijfscontinuïteit met Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714340"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554534"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Overzicht van bedrijfscontinuïteit met Azure Database for MySQL
 
@@ -49,7 +46,7 @@ Een optie is na afloop van de server weer online komt wanneer de storing in het 
 De andere optie is het gebruik van de Azure Database voor MySQL van geo-restore-functie waarmee de server met behulp van geografisch redundante back-ups wordt hersteld. Deze back-ups zijn toegankelijk, zelfs wanneer de regio waarin die uw server wordt gehost in offline. U kunt herstellen vanuit deze back-ups naar elke andere regio en de server weer online brengen.
 
 > [!IMPORTANT]
-> Geo-herstel is alleen mogelijk als u de server met geografisch redundante back-upopslag hebt ingericht. Als u overschakelen van lokaal redundante naar geografisch redundante back-ups voor een bestaande server wilt, moet u een dump pg_dump van uw bestaande server met nemen en terugzet op een nieuwe server die is geconfigureerd met geografisch redundante back-ups.
+> Geo-herstel is alleen mogelijk als u de server met geografisch redundante back-upopslag hebt ingericht. Als u overschakelen van lokaal redundante naar geografisch redundante back-ups voor een bestaande server wilt, moet u een dump mysqldump van uw bestaande server met nemen en terugzet op een nieuwe server die is geconfigureerd met geografisch redundante back-ups.
 
 ## <a name="next-steps"></a>Volgende stappen
 

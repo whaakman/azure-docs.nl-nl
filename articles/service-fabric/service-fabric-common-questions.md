@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164634"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537617"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -64,9 +64,16 @@ Er momenteel andere problemen met grote virtuele-machineschaalsets, zoals het on
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Wat is de minimale grootte van een Service Fabric-cluster? Waarom kan deze niet kleiner zijn?
 
-De minimale ondersteunde grootte voor een Service Fabric-cluster uitvoeren van productieworkloads is vijf knooppunten. We ondersteuning voor dev/test-scenario's voor clusters met drie knooppunten.
+De minimale ondersteunde grootte voor een Service Fabric-cluster uitvoeren van productieworkloads is vijf knooppunten. Voor scenario's voor ontwikkelen ondersteunen we één knooppunt (geoptimaliseerd voor snelle ontwikkeling biedt bij het Visual Studio) en clusters met vijf knooppunten.
 
-Deze minimum bestaan omdat de Service Fabric-cluster wordt een set van stateful systeemservices, waaronder de naming-service en de failover manager uitgevoerd. Deze services, bijhouden welke services zijn geïmplementeerd op het cluster en waar ze momenteel wordt gehost, zijn afhankelijk van sterke consistentie. De mogelijkheid om te verkrijgen die sterke consistentie op zijn beurt afhankelijk een *quorum* voor een bepaalde update naar de status van deze services, waarbij een quorum vertegenwoordigt een strikte meerderheid van de replica's (N/2 + 1) voor een bepaalde service.
+Vereist een productiecluster ten minste 5 knooppunten vanwege de volgende drie redenen hebben:
+1. Zelfs als er geen gebruiker-services worden uitgevoerd, wordt een set van stateful systeemservices, waaronder de naming-service en de failover manager-service uitgevoerd in een Service Fabric-cluster. Deze systeemservices zijn essentieel voor het cluster blijven werken.
+2. We geven altijd één replica van een service per knooppunt, zodat de clustergrootte de bovengrens van het aantal replica's die een service (daadwerkelijk een partitie is) kan hebben.
+3. Nadat de clusterupgrade van een wordt ten minste één knooppunt uitvallen, we willen dat een buffer van minstens één knooppunt, dus we willen een productiecluster ten minste twee knooppunten *bovendien* aan de minimumwaarde. De minimumwaarde is de grootte van het quorum van een systeemservice, zoals hieronder wordt beschreven.  
+
+We willen dat het cluster moet beschikbaar zijn bij gelijktijdige storing van twee knooppunten. Voor een Service Fabric-cluster moet beschikbaar zijn, moeten de systeemservices beschikbaar zijn. Stateful system-services zoals naamgevingsservice en failover manager-service, die afhankelijk zijn van sterke consistentie bijhouden welke services zijn geïmplementeerd op het cluster en waar ze momenteel wordt gehost. De mogelijkheid om te verkrijgen die sterke consistentie op zijn beurt afhankelijk een *quorum* voor een bepaalde update naar de status van deze services, waarbij een quorum vertegenwoordigt een strikte meerderheid van de replica's (N/2 + 1) voor een bepaalde service. Dus als we willen tolerantie tegen gelijktijdige verlies van twee knooppunten (dus gelijktijdige verlies van twee replica's van een systeemservice), moet hebben we de clustergrootte - QuorumSize > = 2, waardoor de minimale grootte moet vijf. Om te zien die rekening houden met het cluster heeft N knooppunten en er zijn N replica's van een systeemservice--één op elk knooppunt. De grootte van het quorum voor een system-service is (N/2 + 1). De bovenstaande ongelijkheid ziet eruit als N - (N/2 + 1) > = 2. Er zijn twee mogelijke situaties rekening houden: wanneer N zelfs is en wanneer N oneven is. Als N zelfs het geval is, bijvoorbeeld N is = 2\*m waar m > = 1, de ongelijkheid eruit 2\*m - (2\*m/2 + 1) > = 2 of m > = 3. Het minimale aantal voor N 6 is en dat is bereikt wanneer m = 3. Aan de andere kant als N oneven is, zeg N = 2\*m + 1 waar m > = 1, de ongelijkheid eruit 2\*m + 1 - ((2\*m + 1) / 2 + 1) > = 2 of 2\*m + 1 - (m + 1) > = 2 of m > = 2. Het minimale aantal voor N is 5 en die is bereikt wanneer m = 2. Daarom tussen alle waarden van N die voldoen aan de ongelijkheid de clustergrootte - QuorumSize > = 2, de minimumwaarde is 5.
+
+Opmerking: in het bovenstaande argument dat we een veronderstelde hebben dat elk knooppunt is een replica van een systeemservice, duidt dit de quorum-grootte wordt berekend op basis van het aantal knooppunten in het cluster. Echter, door het veranderen van *TargetReplicaSetSize* maken we kan de grootte van de quorum minder dan (N / 2 + 1) die mogelijk de indruk dat we kan een cluster kleiner is dan 5 knooppunten hebt en nog steeds 2 extra knooppunten hierboven de grootte van de quorum geven. Bijvoorbeeld, in een cluster met 4 knooppunten als we de TargetReplicaSetSize ingesteld op 3, de quorum-grootte op basis van TargetReplicaSetSize is (3/2 + 1) of 2, dus hebben we CluserSize - QuorumSize = 4-2 > = 2. Echter, we kunnen niet garanderen dat de service is bij of boven quorum als we een paar knooppunten tegelijk, gaan verloren kan het zijn dat de twee knooppunten kwijt die als host twee replica's, fungeert zijn zodat de service wordt met ingang van quorumverlies (met alleen een enkele replica naar links) een ND wordt niet beschikbaar.
 
 Die gedachte, we gaan sommige clusterconfiguraties mogelijk:
 
@@ -74,9 +81,13 @@ Die gedachte, we gaan sommige clusterconfiguraties mogelijk:
 
 **Twee knooppunten**: een quorum van een service die is geïmplementeerd op twee knooppunten (N = 2) is 2 (2/2 + 1 = 2). Wanneer een enkele replica verbroken is, is het niet mogelijk om te maken van een quorum. Omdat het uitvoeren van een service-upgrade tijdelijk waarbij u een replica vereist, maar dit is geen een handig configuratie.
 
-**Drie knooppunten**: met drie knooppunten (N = 3), de vereiste voor het maken van een quorum is nog steeds twee knooppunten (3/2 + 1 = 2). Dit betekent dat u kunt een afzonderlijke knooppunt kwijtraakt en nog steeds quorum onderhouden.
+**Drie knooppunten**: met drie knooppunten (N = 3), de vereiste voor het maken van een quorum is nog steeds twee knooppunten (3/2 + 1 = 2). Dit betekent dat u kunt een afzonderlijke knooppunt kwijtraakt en nog steeds onderhouden quorum, maar gelijktijdige storing van twee knooppunten wordt de systeemservices in quorumverlies werken en zorgt ervoor dat het cluster niet meer beschikbaar zijn.
 
-De configuratie van het cluster drie knooppunten wordt ondersteund voor ontwikkelen en testen omdat kunt u veilig upgrades uitvoeren en storingen in afzonderlijke knooppunten overleven, zolang ze niet tegelijkertijd optreden. Voor werkbelastingen voor productie moet u tegen een gelijktijdige storing, dus vijf knooppunten vereist zijn.
+**Vier knooppunten**: met vier knooppunten (N = 4), is de vereiste voor het maken van een quorum drie knooppunten (4/2 + 1 = 3). Dit betekent dat u kunt een afzonderlijke knooppunt kwijtraakt en nog steeds onderhouden quorum, maar gelijktijdige storing van twee knooppunten wordt de systeemservices in quorumverlies werken en zorgt ervoor dat het cluster niet meer beschikbaar zijn.
+
+**Vijf knooppunten**: met vijf knooppunten (N = 5), de vereiste voor het maken van een quorum is nog steeds drie knooppunten (5/2 + 1 = 3). Dit betekent dat u kunt twee knooppunten op hetzelfde moment verliezen en nog steeds quorum voor de systeemservices onderhouden.
+
+Voor werkbelastingen voor productie, moet u zijn tegen gelijktijdig uitvallen van ten minste twee knooppunten (bijvoorbeeld een vanwege een clusterupgrade van, een vanwege andere redenen), dus vijf knooppunten vereist zijn.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kan ik mijn cluster op 's nachts/weekends om kosten te besparen uitschakelen?
 

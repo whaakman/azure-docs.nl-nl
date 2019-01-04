@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237871"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972359"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Scheiding van zinnen en tokeniseren
 
 > [!IMPORTANT]
-> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
+> De preview van Linguistic Analysis is op 9 augustus 2018 uit gebruik genomen. We raden u aan [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) te gebruiken voor tekstverwerking en -analyse.
 
 ## <a name="background-and-motivation"></a>Achtergrond en motivatie
 
@@ -75,4 +75,4 @@ Deze tokeniseren kan we voor het afhandelen van het woord *niet* en de woorden *
 ## <a name="specification"></a>Specificatie
 
 Het is belangrijk om consistente beslissingen over welke bestaat uit een willekeurige zin en een token.
-We zijn afhankelijk van de specificatie van de [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (meer gegevens zijn beschikbaar op ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).
+We zijn afhankelijk van de specificatie van de [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (meer gegevens zijn beschikbaar op ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

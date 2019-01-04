@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 12/20/2018
 ms.author: alkohli
-ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091926"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723449"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box-limieten
 
@@ -22,7 +22,6 @@ Houd rekening met deze limieten bij het implementeren en uitvoeren van uw Micros
 
 ## <a name="data-box-service-limits"></a>Data Box-service-limieten
 
- - Data Box-service is alleen beschikbaar in VS helemaal de [Azure-regio's voor openbare Azure-cloud](https://azure.microsoft.com/regions/).
  - Als u meerdere opslagaccounts met Data Box-service gebruikt, moeten alle opslagaccounts behoren tot dezelfde Azure-regio alleen.
  - U wordt aangeraden dat u niet meer dan drie opslagaccounts. Met behulp van meer storage-accounts kan mogelijk gevolgen hebben voor de prestaties.
 
@@ -79,5 +78,5 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Namen van containers voor blok-blobs en pagina-blobs | Moet een geldige DNS-naam die tussen de 3 en 63 tekens lang zijn. <br>  Moet beginnen met een letter of cijfer. <br> Mag alleen kleine letters, cijfers en afbreekstreepjes (-). <br> Elk koppelteken (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. <br> In namen worden geen opeenvolgende koppeltekens toegestaan. |
 | De namen van shares voor Azure files                  | Hetzelfde als hierboven                                                                                                                                                                                                                                                                                                             |
-| Directory- en bestandsnamen voor Azure files     |<li> Aanvraag te behouden, niet-hoofdlettergevoelige en mag niet groter zijn dan 255 tekens. </li><li> Mag niet eindigen met de schuine streep (/). </li><li>Indien opgegeven, worden deze automatisch verwijderd. </li><li> Volgende tekens zijn niet toegestaan: ' "\ /: | in combinatie *? "</li><li> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li> Ongeldige tekens voor URL-pad zijn niet toegestaan. Codepunten zoals \uE000 zijn geen geldige Unicode-tekens. Sommige ASCII of Unicode-tekens, zoals stuurcodes (0x00-0x1F \u0081, enzovoort), zijn ook niet toegestaan. Voor regels voor Unicode-tekenreeksen in HTTP/1.1 Zie RFC 2616, sectie 2.2: eenvoudige regels en RFC 3987. </li><li> De volgende bestand namen zijn niet toegestaan: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punt-teken (.), en twee punten tekens (.).</li>|
+| Directory- en bestandsnamen voor Azure files     |<li> Aanvraag te behouden, niet-hoofdlettergevoelige en mag niet groter zijn dan 255 tekens. </li><li> Mag niet eindigen met de schuine streep (/). </li><li>Indien opgegeven, worden deze automatisch verwijderd. </li><li> Volgende tekens zijn niet toegestaan: ' "\ /: | in combinatie *? "</li><li> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li> Ongeldige tekens voor URL-pad zijn niet toegestaan. Codepunten zoals \uE000 zijn geen geldige Unicode-tekens. Sommige ASCII of Unicode-tekens, zoals stuurcodes (0x00-0x1F \u0081, enzovoort), zijn ook niet toegestaan. Tekenreeksen in HTTP/1.1 Zie RFC 2616, sectie 2.2 voor regels voor Unicode: Eenvoudige regels en RFC 3987. </li><li> Volgende bestandsnamen zijn niet toegestaan: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punt-teken (.), en twee punten tekens (.).</li>|
 | Blobnamen voor blok-blob en pagina-blob      | </li><li>Blobnamen zijn hoofdlettergevoelig en kunnen elke combinatie van tekens bevatten. </li><li>Een blobnaam moet 1 tot 1024 tekens bevatten. </li><li>Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li>Het aantal padsegmenten dat de blobnaam omvat, mag niet meer dan 254 zijn. Een padsegment is de tekenreeks tussen opeenvolgende scheidingstekens (bijvoorbeeld de slash '/') die overeenkomt met de naam van een virtuele map.</li> |

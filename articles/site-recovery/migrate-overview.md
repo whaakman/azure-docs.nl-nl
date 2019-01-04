@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9ec502f63df23bab311a45972e31e6df13fa9281
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843985"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792967"
 ---
 # <a name="about-migration"></a>Info over migratie
 
@@ -21,9 +21,9 @@ Lees dit artikel voor een snel overzicht van hoe de [Azure Site Recovery](site-r
 
 Dit is wat u kunt migreren met behulp van Site Recovery:
 
-- **Migreren van on-premises naar Azure**: on-premises Hyper-V-machines, virtuele VMware-machines en fysieke servers naar Azure migreren. Na de migratie worden workloads die op de on-premises machines werden uitgevoerd, op Azure-VM's uitgevoerd. 
-- **Migreren binnen Azure**: hierbij worden Azure-VM's tussen Azure-regio's gemigreerd. 
-- **AWS migreren**: hierbij worden AWS Windows-exemplaren naar Azure IaaS-VM's gemigreerd. 
+- **Migreren van on-premises naar Azure**: Migreer on-premises Hyper-V-machines, virtuele VMware-machines en fysieke servers naar Azure. Na de migratie worden workloads die op de on-premises machines werden uitgevoerd, op Azure-VM's uitgevoerd. 
+- **Migreren binnen Azure**: Virtuele Azure-machines migreren tussen Azure-regio's. 
+- **AWS migreren**: AWS Windows-instanties migreren naar Azure IaaS VM's. 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>Wat wordt precies bedoeld met 'migreren’?

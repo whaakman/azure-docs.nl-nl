@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409748"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722648"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Geavanceerd gebruik van verificatie en autorisatie in Azure App Service
 
-Dit artikel leest u over het aanpassen van de ingebouwde [verificatie en autorisatie in App Service](app-service-authentication-overview.md), en voor het beheren van de identiteit van uw toepassing. 
+Dit artikel leest u over het aanpassen van de ingebouwde [verificatie en autorisatie in App Service](overview-authentication-authorization.md), en voor het beheren van de identiteit van uw toepassing. 
 
 Als u wilt snel aan de slag, ziet u een van de volgende zelfstudies:
 
@@ -37,13 +37,13 @@ Als u wilt snel aan de slag, ziet u een van de volgende zelfstudies:
 
 ## <a name="use-multiple-sign-in-providers"></a>Aanmelden-providers gebruiken
 
-De configuratie van de portal biedt geen een directe manier om meerdere providers voor aanmelden bij uw gebruikers (zoals Facebook en Twitter) bieden. Het is echter niet moeilijk om de functionaliteit toevoegen aan uw web-app. De stappen uit worden als volgt beschreven:
+De configuratie van de portal biedt geen een directe manier om meerdere providers voor aanmelden bij uw gebruikers (zoals Facebook en Twitter) bieden. Het is echter niet moeilijk om de functionaliteit toevoegen aan uw app. De stappen uit worden als volgt beschreven:
 
 Eerste in de **verificatie / autorisatie** pagina in Azure portal, het configureren van elk van de id-provider die u wilt inschakelen.
 
 In **te ondernemen actie wanneer de aanvraag niet is geverifieerd**, selecteer **toestaan anonieme aanvragen (Er is geen actie)**.
 
-In de aanmeldingspagina, of de navigatiebalk, of een andere locatie van uw web-app, kunt u een koppeling aanmelden toevoegen aan elk van de providers die u hebt ingeschakeld (`/.auth/login/<provider>`). Bijvoorbeeld:
+In de aanmeldingspagina, of de navigatiebalk, of een andere locatie van uw app, kunt u een koppeling aanmelden toevoegen aan elk van de providers die u hebt ingeschakeld (`/.auth/login/<provider>`). Bijvoorbeeld:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -63,7 +63,7 @@ Als u wilt omleiden van de gebruiker na-aanmelden bij een aangepaste URL, gebrui
 
 ## <a name="validate-tokens-from-providers"></a>Valideren van tokens van providers
 
-In een client omgeleid aanmelden, de toepassing handmatig meldt zich aan de gebruiker met de provider en vervolgens verzendt het verificatietoken naar App Service voor de validatie (Zie [verificatiestroom](app-service-authentication-overview.md#authentication-flow)). Deze validatie zelf verlenen niet daadwerkelijk u toegang tot de gewenste app-resources, maar een succesvolle validatie krijgt u een sessietoken dat u gebruiken kunt voor toegang tot app-resources. 
+In een client omgeleid aanmelden, de toepassing handmatig meldt zich aan de gebruiker met de provider en vervolgens verzendt het verificatietoken naar App Service voor de validatie (Zie [verificatiestroom](overview-authentication-authorization.md#authentication-flow)). Deze validatie zelf verlenen niet daadwerkelijk u toegang tot de gewenste app-resources, maar een succesvolle validatie krijgt u een sessietoken dat u gebruiken kunt voor toegang tot app-resources. 
 
 Voor het valideren van de token van de provider moet App Service-app eerst worden geconfigureerd met de gewenste provider. Tijdens runtime, nadat u het verificatietoken uit uw provider ophalen, plaats het token voor `/.auth/login/<provider>` voor validatie. Bijvoorbeeld: 
 
@@ -186,15 +186,15 @@ Wanneer het toegangstoken van de provider is verlopen, moet u de gebruiker verif
 - **Microsoft-Account**: Wanneer [verificatie-instellingen voor Microsoft-Account configureren](configure-authentication-provider-microsoft.md), selecteer de `wl.offline_access` bereik.
 - **Azure Active Directory**: In [ https://resources.azure.com ](https://resources.azure.com), de volgende stappen uit:
     1. Aan de bovenkant van de pagina, selecteer **lezen/schrijven**.
-    1. Navigeer in de browser links naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_naam >**_   >  **providers** > **Microsoft.Web** > **sites** > _**\<app \_naam >**_ > **config** > **authsettings**. 
-    1. Klik op **Bewerken**.
-    1. De volgende eigenschap wijzigen. Vervang  _\<app\_id >_ met Azure Active Directory-toepassings-ID van de service die u wilt openen.
+    2. Navigeer in de browser links naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_naam >**_   >  **providers** > **Microsoft.Web** > **sites** > _**\<app \_naam >**_ > **config** > **authsettings**. 
+    3. Klik op **Bewerken**.
+    4. De volgende eigenschap wijzigen. Vervang  _\<app\_id >_ met Azure Active Directory-toepassings-ID van de service die u wilt openen.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Klik op **plaatsen**. 
+    5. Klik op **plaatsen**. 
 
 Als uw provider is geconfigureerd, kunt u [het vernieuwingstoken en verlooptijd voor het toegangstoken van de bovenliggende map vinden](#retrieve-tokens-in-app-code) in het tokenarchief. 
 

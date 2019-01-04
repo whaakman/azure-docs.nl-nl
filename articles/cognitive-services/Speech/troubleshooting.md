@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 80e39e845ab631ad5cc3ae8af9e2e42f09b521bf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 2da6795e938f1a0c0ed0495fb169007126501eea
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342187"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753657"
 ---
 # <a name="troubleshooting-bing-speech"></a>Bing Speech oplossen
 
@@ -52,7 +52,7 @@ U kunt de volgende opdracht voor verificatie kunt uitvoeren. Houd er rekening me
 > [!NOTE]
 > Vervang `YOUR_SUBSCRIPTION_KEY` door uw eigen abonnementssleutel.
 
-# <a name="powershelltabpowershell"></a>[Powershell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -88,7 +88,7 @@ Deze stap is alleen nodig als u de verificatietoken voor verificatie gebruiken. 
 > [!NOTE]
 > Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audiobestand en `YOUR_ACCESS_TOKEN` geretourneerd door het Autorisatietoken in de vorige stap.
 
-# <a name="powershelltabpowershell"></a>[Powershell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```Powershell
 

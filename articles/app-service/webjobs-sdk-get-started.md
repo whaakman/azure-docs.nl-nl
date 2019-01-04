@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339804"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606978"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -54,7 +54,7 @@ De instructies vertellen hoe ze moeten een WebJobs SDK versie 2.x-project maken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-In dit artikel wordt ervan uitgegaan dat u hebt [een Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) en ervaring met [apps in Azure App Service](app-service-web-overview.md). Voltooi de stappen in dit artikel:
+In dit artikel wordt ervan uitgegaan dat u hebt [een Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) en ervaring met [apps in Azure App Service](overview.md). Voltooi de stappen in dit artikel:
 
 * [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/) met de **Azure-ontwikkeling** werkbelasting. Als u al van Visual Studio hebt maar geen die werkbelasting, het toevoegen van de werkbelasting door te selecteren **Tools > hulpprogramma's en onderdelen**.
 * [Een App Service-app maken](app-service-web-get-started-dotnet-framework.md). Als u al die u een webtaak te implementeren hebt kunt, kunt u die gebruiken in plaats van een nieuwe maken.

@@ -4,17 +4,16 @@ description: Gebruik de Microsoft Azure backup-agent naar de back-up van Windows
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: back-upkluis; back-up van een Windows-server. back-upvensters;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874002"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788392"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Een back-up van een Windows-server of -client maken op Azure met behulp van het Resource Manager-implementatiemodel
 In dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-client) bestanden en mappen in Azure met Azure Backup met behulp van de Resource Manager-implementatiemodel.
@@ -183,6 +182,8 @@ Als uw computer/proxy beperkte internettoegang heeft, zorgt u ervoor dat de fire
 Het back-upbeleid is het schema voor herstelpunten worden gemaakt en hoe lang die de herstelpunten worden bewaard. Gebruik de Microsoft Azure backup-agent te maken van het back-upbeleid voor bestanden en mappen.
 
 ### <a name="to-create-a-backup-schedule"></a>Een back-upschema maken
+
+De back-upschema op de computer die u back wilt-up instellen. Houd er rekening mee dat de tijd die is ingesteld voor de back-up verschillen van de tijd van de lokale computer, kan omdat Azure Backup niet zomer-en wintertijd (Zomertijd) worden gehouden. 
 1. Open de Microsoft Azure backup-agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
 
     ![De Azure backup-agent starten](./media/backup-configure-vault/snap-in-search.png)

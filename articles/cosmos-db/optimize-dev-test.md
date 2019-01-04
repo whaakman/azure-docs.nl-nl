@@ -1,17 +1,17 @@
 ---
 title: Optimaliseren voor ontwikkelen en testen in Azure Cosmos DB
-description: In dit artikel wordt uitgelegd hoe Cosmos DB biedt meerdere opties voor het ontwikkelen en testen van de service gratis.
+description: In dit artikel wordt uitgelegd hoe Azure Cosmos DB biedt meerdere opties voor het ontwikkelen en testen van de service gratis.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: e6ccf70a085950ebd6b520fa4991220981e4f018
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d3ed5c2c13e5a35bcc6cd0e03a6b553691785cdb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53264103"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548660"
 ---
 # <a name="optimizing-for-development-and-testing-in-azure-cosmos-db"></a>Optimaliseren voor ontwikkelen en testen in Azure Cosmos DB
 
@@ -19,11 +19,11 @@ Dit artikel beschrijft de verschillende opties voor het Azure Cosmos DB gebruike
 
 ## <a name="azure-cosmos-db-emulator-locally-downloadable-version"></a>Azure Cosmos DB-emulator (lokaal downloadbare versie)
 
-[Azure Cosmos DB-emulator](local-emulator.md) is een lokale downloadbare versie die lijkt op de Azure Cosmos DB-cloudservice. U kunt schrijven en testen van code die gebruikmaakt van de Azure Cosmos DB-API's, zelfs als er geen netwerkverbinding en zonder dat er kosten in rekening. Azure Cosmos DB-emulator biedt een lokale omgeving voor ontwikkelingsdoeleinden met hoge kwaliteit naar de cloudservice. U kunt ontwikkelen en testen van uw toepassing lokaal, zonder dat het maken van een Azure-abonnement. Wanneer u klaar bent om uw toepassing in de cloud te implementeren, bijwerken van de verbindingsreeks verbinding maken met de Azure Cosmos DB-eindpunt in de cloud, worden er geen andere wijzigingen aanbrengen die nodig zijn. U kunt ook [Stel een CI/CD-pijplijn met de Cosmos DB-emulator](tutorial-setup-ci-cd.md) bouwen taak in Azure DevOps tests uitvoeren. U kunt aan de slag door naar de pagina de [Cosmos DB-emulator](local-emulator.md) artikel.
+[Azure Cosmos DB-emulator](local-emulator.md) is een lokale downloadbare versie die lijkt op de Azure Cosmos DB-cloudservice. U kunt schrijven en testen van code die gebruikmaakt van de Azure Cosmos DB-API's, zelfs als er geen netwerkverbinding en zonder dat er kosten in rekening. Azure Cosmos DB-emulator biedt een lokale omgeving voor ontwikkelingsdoeleinden met hoge kwaliteit naar de cloudservice. U kunt ontwikkelen en testen van uw toepassing lokaal, zonder dat het maken van een Azure-abonnement. Wanneer u klaar bent om uw toepassing in de cloud te implementeren, bijwerken van de verbindingsreeks verbinding maken met de Azure Cosmos DB-eindpunt in de cloud, worden er geen andere wijzigingen aanbrengen die nodig zijn. U kunt ook [Stel een CI/CD-pijplijn met de Azure Cosmos DB-emulator](tutorial-setup-ci-cd.md) bouwen taak in Azure DevOps tests uitvoeren. U kunt aan de slag door naar de pagina de [Azure Cosmos DB-emulator](local-emulator.md) artikel.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Probeer Azure Cosmos DB gratis uit
 
-[Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) is een gratis kosten in rekening gebracht ervaring biedt waarmee u de database en verzamelingen maken en experimenteren met Azure Cosmos DB in de cloud. U niet om u te registreren voor Azure hebben of eventuele kosten te betalen. De probeer Azure Cosmosdb-accounts zijn beschikbaar voor een beperkte periode, momenteel 30 dagen. U kunt ze op elk gewenst moment vernieuwen. Probeer Azure Cosmos DB accounts kunt u gemakkelijk Azure Cosmos DB evalueren, ontwikkelen en testen van een toepassing met behulp van de Snelstarts of zelfstudies. U kunt een demo maken of uitvoeren van Eenheidstesten zonder dat er kosten in rekening. Met behulp van Cosmos DB uitproberen voor gratis accounts, u kunt gratis evaluatie van de premium-mogelijkheden van Cosmos DB, met inbegrip van kant en klare wereldwijde distributie, sla's en consistentie modellen. U kunt een database maken met een maximum van 25 Azure Cosmos-containers en 10.000 RU/s aan doorvoer. U kunt de voorbeeldtoepassing uitvoeren zonder dat u zich abonneert op een Azure-account of met behulp van uw creditcard. Met Cosmos DB proberen gratis, kunt u een Azure Cosmos-account voor meerdere regio's maken en een app erop worden uitgevoerd in een paar minuten. Als u wilt beginnen, Zie [Azure Cosmosdb gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) pagina.
+[Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) is een gratis kosten in rekening gebracht ervaring biedt waarmee u de database en verzamelingen maken en experimenteren met Azure Cosmos DB in de cloud. U niet om u te registreren voor Azure hebben of eventuele kosten te betalen. De probeer Azure Cosmosdb-accounts zijn beschikbaar voor een beperkte periode, momenteel 30 dagen. U kunt ze op elk gewenst moment vernieuwen. Probeer Azure Cosmos DB accounts kunt u gemakkelijk Azure Cosmos DB evalueren, ontwikkelen en testen van een toepassing met behulp van de Snelstarts of zelfstudies. U kunt een demo maken of uitvoeren van Eenheidstesten zonder dat er kosten in rekening. Met behulp van Azure Cosmos DB uitproberen voor gratis accounts, u kunt gratis evaluatie van de premium-mogelijkheden van Azure Cosmos DB, met inbegrip van kant en klare wereldwijde distributie, sla's en consistentie modellen. U kunt een database maken met een maximum van 25 Azure Cosmos-containers en 10.000 RU/s aan doorvoer. U kunt de voorbeeldtoepassing uitvoeren zonder dat u zich abonneert op een Azure-account of met behulp van uw creditcard. Met Try Azure Cosmos DB gratis, kunt u een Azure Cosmos-account voor meerdere regio's maken en een app erop worden uitgevoerd in een paar minuten. Als u wilt beginnen, Zie [Azure Cosmosdb gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) pagina.
 
 ## <a name="azure-free-account"></a>Gratis Azure-account
 

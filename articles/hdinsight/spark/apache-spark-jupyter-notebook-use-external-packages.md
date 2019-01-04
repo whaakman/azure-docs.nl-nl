@@ -9,25 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: ddee05fed3112edc6cf1e1261ea06bc2fe864ed3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c0394025fef15b987f0777d157c465e83d860601
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583547"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652129"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Externe pakketten gebruiken met Jupyter-notebooks in Apache Spark-clusters in HDInsight
 > [!div class="op_single_selector"]
 > * [Met behulp van Magic-pakket voor cellen](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Met behulp van scriptacties](apache-spark-python-package-installation.md)
->
->
 
 Meer informatie over het configureren van een [Jupyter-Notebook](https://jupyter.org/) in Apache Spark-cluster in HDInsight te gebruiken externe, door de community geleverde Apache **maven** pakketten die niet zijn opgenomen out-of-the-box in het cluster. 
 
-U kunt zoeken naar de [Maven-opslagplaats](http://search.maven.org/) voor de volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten ophalen uit andere bronnen. Bijvoorbeeld, een volledige lijst van door de community geleverde pakketten is beschikbaar op [Spark pakketten](http://spark-packages.org/).
+U kunt zoeken naar de [Maven-opslagplaats](https://search.maven.org/) voor de volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten ophalen uit andere bronnen. Bijvoorbeeld, een volledige lijst van door de community geleverde pakketten is beschikbaar op [Spark pakketten](https://spark-packages.org/).
 
-In dit artikel leert u hoe u de [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) pakket met de Jupyter-notebook.
+In dit artikel leert u hoe u de [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) pakket met de Jupyter-notebook.
 
 ## <a name="prerequisites"></a>Vereisten
 U hebt het volgende:
@@ -39,11 +37,10 @@ U hebt het volgende:
 
 1. Klik vanuit de blade Spark-cluster op **Snelkoppelingen**. Klik vervolgens vanuit het **Cluster-dashboard** op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Mogelijk bereikt u de Jupyter-notebook voor uw cluster ook door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-    > 
 
 1. Maak een nieuwe notebook. Klik op **nieuw**, en klik vervolgens op **Spark**.
    
@@ -55,7 +52,7 @@ U hebt het volgende:
 
 1. U gebruikt de `%%configure` Magic-pakket voor het configureren van de notebook voor het gebruik van een extern pakket. Zorg ervoor dat u aanroepen in notitieblokken die externe pakketten gebruiken, de `%%configure` magic in de eerste codecel. Dit zorgt ervoor dat de kernel is geconfigureerd voor het gebruik van het pakket voordat de sessie wordt gestart.
 
-    >[!IMPORTANT] 
+    >[!IMPORTANT]  
     >Als u het configureren van de kernel in de eerste cel vergeet, kunt u de `%%configure` met de `-f` parameter, maar die wordt de sessie opnieuw starten en alle gaan verloren.
 
     | HDInsight-versie | Opdracht |
@@ -65,7 +62,7 @@ U hebt het volgende:
 
 1. Het bovenstaande fragment wordt verwacht dat de maven-coördinaten voor de externe-pakket in Maven Central Repository. In dit fragment `com.databricks:spark-csv_2.10:1.4.0` is de maven-coördinaat voor **spark-csv** pakket. Hier ziet u hoe u de coördinaten voor een pakket samenstelt.
    
-    a. Het pakket niet vinden in de Maven-opslagplaats. Voor deze zelfstudie gebruiken we [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Het pakket niet vinden in de Maven-opslagplaats. Voor deze zelfstudie gebruiken we [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. Verzamel uit de opslagplaats en de waarden voor **groeps-id**, **ArtifactId**, en **versie**. Zorg ervoor dat de waarden die u verzamelt die overeenkomen met uw cluster. In dit geval gebruiken we een 2.10 Scala en Spark 1.4.0-pakket, maar u moet mogelijk verschillende versies voor de juiste Scala of Spark-versie te selecteren in uw cluster. U vindt de Scala-versie op het cluster door uit te voeren `scala.util.Properties.versionString` op de kernel Spark Jupyter of Spark indienen. U vindt de Spark-versie op het cluster door uit te voeren `sc.version` op Jupyter-notebooks.
    
@@ -99,14 +96,14 @@ U hebt het volgende:
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Apache Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 

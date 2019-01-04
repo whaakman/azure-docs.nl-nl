@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4502f7232d2bcfaf4a32a384d24556cd668dc50b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285121"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720302"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
 Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
@@ -73,13 +73,13 @@ Deze nettolading voorbeeld zou worden omgezet naar ongeveer als volgt wanneer ve
 ```
 Als u alle variabelen in een aangepaste webhook hebt opgegeven in de JSON-behuizing, zoals '#searchinterval', de resulterende webhook variabele gegevens binnen de behuizing, zoals ook heeft "00: 05:00 '.
 
-Zorg ervoor dat als u wilt opnemen zoekresultaten in een aangepaste payload, **IncudeSearchResults** is ingesteld als een eigenschap op het hoogste niveau in de json-nettolading. 
+Zorg ervoor dat als u wilt opnemen zoekresultaten in een aangepaste payload, **IncludeSearchResults** is ingesteld als een eigenschap op het hoogste niveau in de json-nettolading. 
 
 ## <a name="sample-payloads"></a>Voorbeeld-nettoladingen
 In deze sectie wordt een voorbeeld van payload voor webhook voor Logboekwaarschuwingen, met inbegrip van wanneer de nettolading van standard is en wanneer de aangepaste.
 
 > [!NOTE]
-> Om ervoor te zorgen voor compatibiliteit, standaard webhookpayload voor waarschuwingen met behulp van Azure Log Analytics is hetzelfde als [Log Analytics-waarschuwing management](alerts-metric.md). Maar voor logboekwaarschuwingen met behulp van [Application Insights](../../application-insights/app-insights-analytics.md), de standaard webhookpayload is gebaseerd op schema van de actiegroep.
+> Om ervoor te zorgen voor compatibiliteit, standaard webhookpayload voor waarschuwingen met behulp van Azure Log Analytics is hetzelfde als [Log Analytics-waarschuwing management](alerts-metric.md). Maar voor logboekwaarschuwingen met behulp van [Application Insights](../../azure-monitor/app/analytics.md), de standaard webhookpayload is gebaseerd op schema van de actiegroep.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standard Webhook voor Logboekwaarschuwingen 
 Deze voorbeelden hebben een dummy-nettolading met slechts twee kolommen en twee rijen vermeld.
@@ -200,5 +200,5 @@ Hieronder volgt een voorbeeld-nettolading voor een aangepaste webhookactie voor 
 - Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen ](alerts-unified-log.md)
 - Inzicht in [managaing waarschuwingen in Azure](alerts-log.md)
 - Maken en beheren van [actiegroepen in Azure](action-groups.md)
-- Meer informatie over [Application Insights](../../application-insights/app-insights-analytics.md)
+- Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md)
 - Meer informatie over [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 

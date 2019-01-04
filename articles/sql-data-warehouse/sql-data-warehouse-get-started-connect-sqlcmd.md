@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL-datawarehouse.
+description: Gebruik het opdrachtregelhulpprogramma sqlcmd verbinding maken met en query uitvoeren op een Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247710"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976406"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Verbinding maken met SQL Data Warehouse met sqlcmd
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken m
 ## <a name="1-connect"></a>1. Verbinding maken
 U gaat als volgt aan de slag met [sqlcmd][sqlcmd]: open de opdrachtprompt en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database. De verbindingstekenreeks moet de volgende parameters bevatten:
 
-* **Server (-S):** server in de notatie `<`servernaam`>`.database.windows.net
-* **Database (-d):** databasenaam.
-* **Id's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moeten zijn ingeschakeld om verbinding te kunnen maken met een exemplaar van SQL Data Warehouse.
+* **Server (-S):** Server in het formulier `<`servernaam`>`. database.windows.net
+* **Database (-d):** Naam van de database.
+* **Id's tussen aanhalingstekens voor inschakelen (-ik):** Id's tussen aanhalingstekens moeten zijn ingeschakeld voor verbinding maken met een exemplaar van SQL Data Warehouse.
 
 Als u gebruik wilt maken van SQL Server-verificatie, moet u de gebruikersnaam- en wachtwoordparameters toevoegen:
 
-* **Gebruiker (-U):** servergebruiker in de notatie `<`gebruiker`>`
-* **Wachtwoord (-P):** wachtwoord dat is gekoppeld aan de gebruiker.
+* **Gebruiker (-U):** Servergebruiker in de notatie `<`gebruiker`>`
+* **Wachtwoord (-P):** Het wachtwoord dat is gekoppeld aan de gebruiker.
 
 Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:
 

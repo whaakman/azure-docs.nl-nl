@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435545"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744328"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix in HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) is een open source, uiterst parallelle relationele databaselaag die is gebouwd op [Apache HBase](hbase/apache-hbase-overview.md). Phoenix kunt u gebruikmaken van SQL-achtige query's over HBase. Phoenix maakt gebruik van JDBC-stuurprogramma's onder zodat gebruikers kunnen maken, verwijderen, SQL-tabellen, indexen, weergaven en reeksen en upsert rijen afzonderlijk en bulksgewijs wijzigen. Phoenix maakt gebruik van systeemeigen compilatie noSQL in plaats van MapReduce gebruiken voor het compileren van query's, waardoor het maken van toepassingen van de lage latentie op basis van HBase. Phoenix coprocessors ter ondersteuning van de uitvoering van code client wordt geleverd in de adresruimte van de server uitvoeren van de code geplaatst met de gegevens wordt toegevoegd. Deze aanpak minimaliseert de overdracht van client/server-gegevens.
+[Apache Phoenix](https://phoenix.apache.org/) is een open source, uiterst parallelle relationele databaselaag die is gebouwd op [Apache HBase](hbase/apache-hbase-overview.md). Phoenix kunt u gebruikmaken van SQL-achtige query's over HBase. Phoenix maakt gebruik van JDBC-stuurprogramma's onder zodat gebruikers kunnen maken, verwijderen, SQL-tabellen, indexen, weergaven en reeksen en upsert rijen afzonderlijk en bulksgewijs wijzigen. Phoenix maakt gebruik van systeemeigen compilatie noSQL in plaats van MapReduce gebruiken voor het compileren van query's, waardoor het maken van toepassingen van de lage latentie op basis van HBase. Phoenix coprocessors ter ondersteuning van de uitvoering van code client wordt geleverd in de adresruimte van de server uitvoeren van de code geplaatst met de gegevens wordt toegevoegd. Deze aanpak minimaliseert de overdracht van client/server-gegevens.
 
-Apache Phoenix opent u big data-query's voor niet-ontwikkelaars die een SQL-achtige syntaxis kunnen gebruiken in plaats van programmeren. Phoenix is geoptimaliseerd voor HBase, in tegenstelling tot andere hulpprogramma's zoals [Hive](hadoop/hdinsight-use-hive.md) en Apache Spark SQL. Het voordeel voor ontwikkelaars is zeer goed presterende query's met veel minder code te schrijven.
+Apache Phoenix opent u big data-query's voor niet-ontwikkelaars die een SQL-achtige syntaxis kunnen gebruiken in plaats van programmeren. Phoenix is geoptimaliseerd voor HBase, in tegenstelling tot andere hulpprogramma's zoals [Apache Hive](hadoop/hdinsight-use-hive.md) en Apache Spark SQL. Het voordeel voor ontwikkelaars is zeer goed presterende query's met veel minder code te schrijven.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Wanneer u een SQL-query verzendt, wordt Phoenix compileert de query op HBase systeemeigen aanroepen en de scan (of plan) voor optimalisatie parallel wordt uitgevoerd. Deze laag van abstractie kan de ontwikkelaar van het schrijven van MapReduce-taken, in plaats daarvan richten op de bedrijfslogica en de werkstroom van hun toepassing rond Phoenix van big data-opslag.
@@ -70,17 +70,17 @@ U kunt meer kolommen later toevoegen met de `ALTER VIEW` instructie.
 
 ### <a name="skip-scan"></a>Scan overslaan
 
-Overslaan scan maakt gebruik van een of meer kolommen van een samengestelde index zoeken naar afzonderlijke waarden. In tegenstelling tot een scan bereik overslaan scan intra-rij scannen, wordt vrijgegeven implementeert [verbeterde prestaties](http://phoenix.apache.org/performance.html#Skip-Scan). Tijdens het zoeken naar, wordt de eerste overeenkomende waarde overgeslagen samen met de index tot de volgende waarde is gevonden.
+Overslaan scan maakt gebruik van een of meer kolommen van een samengestelde index zoeken naar afzonderlijke waarden. In tegenstelling tot een scan bereik overslaan scan intra-rij scannen, wordt vrijgegeven implementeert [verbeterde prestaties](https://phoenix.apache.org/performance.html#Skip-Scan). Tijdens het zoeken naar, wordt de eerste overeenkomende waarde overgeslagen samen met de index tot de volgende waarde is gevonden.
 
 Maakt gebruik van een scan overslaan de `SEEK_NEXT_USING_HINT` inventarisatie van het HBase-filter. Met behulp van `SEEK_NEXT_USING_HINT`, de scan overslaan van wordt bijgehouden welke set sleutels of bereiken van sleutels, zijn in elke kolom wordt gezocht. De overslaan scannen en heeft een sleutel die is doorgegeven aan deze tijdens de evaluatie van filter en bepaalt of het is een van de combinaties. Als dat niet het geval is, wordt de scan overslaan evalueert de hoogste op een toets om naar te gaan.
 
 ### <a name="transactions"></a>Transacties
 
-HBase biedt u beveiliging op rijniveau transacties, Phoenix kan worden geïntegreerd met [Tephra](http://tephra.io/) om toe te voegen cross-rij- en cross-tabel transactieondersteuning met volledige [ACID](https://en.wikipedia.org/wiki/ACID) semantiek.
+HBase biedt u beveiliging op rijniveau transacties, Phoenix kan worden geïntegreerd met [Tephra](https://tephra.io/) om toe te voegen cross-rij- en cross-tabel transactieondersteuning met volledige [ACID](https://en.wikipedia.org/wiki/ACID) semantiek.
 
 Als met traditionele SQL-transacties kunnen transacties die worden geleverd via de transactiebeheerder Phoenix u om te controleren of een atomische eenheid van gegevens is upserted, terugdraaien van de transactie als de upsert-bewerking is mislukt op een willekeurige tabel transactie is ingeschakeld.
 
-Zie voor het inschakelen van Phoenix transacties de [Apache Phoenix transactie documentatie](http://phoenix.apache.org/transactions.html).
+Zie voor het inschakelen van Phoenix transacties de [Apache Phoenix transactie documentatie](https://phoenix.apache.org/transactions.html).
 
 Als u een nieuwe tabel met transacties die zijn ingeschakeld, stelt u de `TRANSACTIONAL` eigenschap `true` in een `CREATE` instructie:
 
@@ -94,7 +94,7 @@ Als u wilt een bestaande tabel om te worden transactionele wijzigen, gebruikt u 
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > U kunt niet een transactionele tabel overstappen terug naar de niet-transactionele wordt.
 
 ### <a name="salted-tables"></a>Gezouten tabellen

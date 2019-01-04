@@ -3,24 +3,22 @@ title: Gebruikers maken in Azure Database voor MariaDB-server
 description: Dit artikel wordt beschreven hoe u nieuwe gebruikersaccounts om te communiceren met een Azure Database voor MariaDB-server kunt maken.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50154a7fee63eb3ff9e08155123f9e5962bbfcf0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946105"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542124"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Gebruikers maken in Azure Database voor MariaDB 
 Dit artikel wordt beschreven hoe u gebruikers kunt maken in Azure Database voor MariaDB.
 
 Wanneer u eerst uw Azure Database voor MariaDB hebt gemaakt, u hebt een gebruiker van de serverbeheerder en het wachtwoord opgegeven. Voor meer informatie kunt u volgen de [snelstartgids](quickstart-create-mariadb-server-database-using-azure-portal.md). U vindt de gebruiker aanmeldnamen van serverbeheerder vanuit Azure portal.
 
-De server-beheerder bepaalde bevoegdheden voor uw server opgehaald die worden beschreven: selecteren, invoegen, bijwerken, verwijderen, maken, verwijderen, opnieuw laden, proces, verwijzingen, INDEX, ALTER, DATABASES weergeven, tijdelijke tabellen maken, VERGRENDELEN tabellen, uitvoeren, SLAVE-replicatie en replicatie CLIENT WEERGAVE MAKEN, WEERGEVEN, MAKEN ROUTINEMATIGE, ALTER ROUTINE, TRIGGER VAN DE GEBRUIKER, GEBEURTENIS,
+De gebruiker server admin wordt bepaalde bevoegdheden voor de server die worden beschreven: SELECTEREN, INVOEGEN, BIJWERKEN, VERWIJDEREN, MAKEN, VERWIJDEREN, OPNIEUW LADEN, VERWERKEN, VERWIJZINGEN, INDEX, ALTER, DATABASES, GEVEN TIJDELIJKE TABELLEN MAKEN, VERGRENDELEN VAN TABELLEN, WORDEN UITGEVOERD, HET MAKEN VAN SLAVE-REPLICATIE, REPLICATIE-CLIENT WEERGEVEN, WEERGEVEN, MAKEN ROUTINEMATIGE, ROUTINE WIJZIGEN, GEBRUIKER MAKEN , GEBEURTENIS, TRIGGER
 
 Nadat de Azure Database voor MariaDB-server is gemaakt, kunt u het eerste gebruikersaccount van de server-beheerder kunt gebruiken voor het maken van extra gebruikers en beheerderstoegang verlenen. Het serverbeheerdersaccount kan ook worden gebruikt om minder bevoegde gebruikers die toegang tot afzonderlijke databaseschema hebben te maken.
 
@@ -85,6 +83,6 @@ Nadat de Azure Database voor MariaDB-server is gemaakt, kunt u het eerste gebrui
 Zie voor meer informatie over het beheer van gebruikersaccounts, MariaDB-documentatie voor [Gebruikersaccountbeheer](https://mariadb.com/kb/en/library/user-account-management/), [verlenen syntaxis](https://mariadb.com/kb/en/library/grant/), en [bevoegdheden](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Volgende stappen
-De firewall voor IP-adressen van de nieuwe gebruikers-machines in te schakelen om verbinding te openen: [maken en beheren van Azure Database voor MariaDB-firewallregels met behulp van Azure portal](howto-manage-firewall-portal.md)  
+Open de firewall voor IP-adressen van de nieuwe gebruikers machines waarmee ze verbinding kunnen maken: [Maken en beheren van Azure Database voor MariaDB-firewallregels met behulp van Azure portal](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

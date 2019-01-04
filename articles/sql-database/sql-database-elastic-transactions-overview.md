@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e3fb703d49b97b7e8fa4136f8cd49fed20ee12a9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877181"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720711"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Over clouddatabases gedistribueerde transacties
 Elastische transacties voor Azure SQL Database (SQL database) kunnen u uitvoeren van transacties met betrekking meerdere databases in SQL-database tot. Elastische transacties voor SQL-database zijn beschikbaar voor .NET-toepassingen met behulp van ADO .NET en integreren met de vertrouwde programmering ervaring met de [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) klassen. Als u de bibliotheek, Zie [.NET Framework 4.6.1 (webinstallatieprogramma)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -30,8 +30,8 @@ On-premises, in dit scenario normaal gesproken nodig waarop Microsoft Distribute
 Transacties voor SQL-database elastische databases kunnen toepassingen atomische wijzigingen aanbrengen in de gegevens die zijn opgeslagen in diverse verschillende SQL-Databases. De Preview-versie is gericht op de ervaringen van de client-side-ontwikkeling in C# en .NET. Een met T-SQL server-side '-ervaring is gepland voor een later tijdstip.  
 Elastische transacties is gericht op de volgende scenario's:
 
-* Meerdere databasetoepassingen in Azure: met dit scenario de gegevens zijn verticaal gepartitioneerd voor meerdere databases in SQL DB dat verschillende soorten gegevens bevinden zich op verschillende databases. Sommige bewerkingen vereist wijzigingen in gegevens die wordt bewaard in twee of meer databases. De toepassing maakt gebruik van elastische databasetransacties coördineren van de wijzigingen voor databases en ervoor zorgen dat atomisch.
-* Shard-database-toepassingen in Azure: met dit scenario, de gegevenslaag maakt gebruik van de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md) of self-sharding voor het horizontaal partitioneren van de gegevens voor verschillende databases in SQL-database. Een prominente use-case is de noodzaak voor het uitvoeren van atomische wijzigingen voor een shard-toepassing met meerdere tenants wanneer wijzigingen tenants omvatten. Denk bijvoorbeeld aan een overdracht van één tenant naar een andere, zowel die zich bevinden op verschillende databases. Een tweede geval is fijnmazige sharding voor behoeften aan capaciteit voor een grote tenant die op zijn beurt doorgaans impliceert dat sommige atomische bewerkingen moet zich uitstrekt over meerdere databases die worden gebruikt voor de dezelfde tenant. Een derde case is atomic updates om te verwijzen naar gegevens die worden gerepliceerd tussen databases. Atomische, transactionele, bewerkingen langs deze regels kunnen nu worden gecoördineerd voor verschillende databases met behulp van de Preview-versie.
+* Meerdere databasetoepassingen in Azure: Met dit scenario gegevens verticaal gepartitioneerd voor meerdere databases in SQL-database zodat de verschillende soorten gegevens bevinden zich op verschillende databases. Sommige bewerkingen vereist wijzigingen in gegevens die wordt bewaard in twee of meer databases. De toepassing maakt gebruik van elastische databasetransacties coördineren van de wijzigingen voor databases en ervoor zorgen dat atomisch.
+* Shard-database-toepassingen in Azure: Met dit scenario, de gegevenslaag maakt gebruik van de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md) of self-sharding voor het horizontaal partitioneren van de gegevens voor verschillende databases in SQL-database. Een prominente use-case is de noodzaak voor het uitvoeren van atomische wijzigingen voor een shard-toepassing met meerdere tenants wanneer wijzigingen tenants omvatten. Denk bijvoorbeeld aan een overdracht van één tenant naar een andere, zowel die zich bevinden op verschillende databases. Een tweede geval is fijnmazige sharding voor behoeften aan capaciteit voor een grote tenant die op zijn beurt doorgaans impliceert dat sommige atomische bewerkingen moet zich uitstrekt over meerdere databases die worden gebruikt voor de dezelfde tenant. Een derde case is atomic updates om te verwijzen naar gegevens die worden gerepliceerd tussen databases. Atomische, transactionele, bewerkingen langs deze regels kunnen nu worden gecoördineerd voor verschillende databases met behulp van de Preview-versie.
   Elastische transacties gebruiken doorvoeren in twee fasen om ervoor te zorgen transactie atomisch voor databases. Het is geschikt voor transacties die betrekking hebben op minder dan 100 databases op een tijdstip binnen een transactie. Deze limieten worden niet afgedwongen, maar een goed is, prestaties en succespercentages voor elastische databasetransacties afnemen wanneer deze limieten overschrijden.
 
 ## <a name="installation-and-migration"></a>Installatie en migratie
@@ -92,7 +92,7 @@ Elastische transacties voor SQL-database worden ook ondersteund coördineren van
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installatie van .NET voor Azure Cloud Services
-Azure biedt verschillende aanbiedingen bij host .NET-toepassingen. Een vergelijking van de verschillende aanbiedingen is beschikbaar in [vergelijking van Azure App Service, Cloud Services en virtuele Machines](../app-service/choose-web-site-cloud-service-vm.md). Als het gastbesturingssysteem van de aanbieding kleiner dan .NET 4.6.1 vereist voor de elastische transacties is, moet u het gastbesturingssysteem upgraden naar 4.6.1 worden geïnstalleerd. 
+Azure biedt verschillende aanbiedingen bij host .NET-toepassingen. Een vergelijking van de verschillende aanbiedingen is beschikbaar in [vergelijking van Azure App Service, Cloud Services en virtuele Machines](../app-service/overview-compare.md). Als het gastbesturingssysteem van de aanbieding kleiner dan .NET 4.6.1 vereist voor de elastische transacties is, moet u het gastbesturingssysteem upgraden naar 4.6.1 worden geïnstalleerd. 
 
 Voor Azure App Services, worden upgrades voor het gastbesturingssysteem momenteel niet ondersteund. Voor Azure Virtual Machines, meld u aan bij de VM en voer het installatieprogramma voor de nieuwste .NET framework. Voor Azure Cloud Services moet u bijvoorbeeld de installatie van een nieuwere versie van .NET in de opstarttaken van uw implementatie. De concepten en stappen worden beschreven in [.NET installeren op een Cloudservicerol](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -123,17 +123,17 @@ Elastische transacties worden ondersteund over verschillende logische servers in
 Gebruik de volgende PowerShell-cmdlets voor het beheren van relaties voor elastische databasetransacties communicatie tussen servers:
 
 * **Nieuwe AzureRmSqlServerCommunicationLink**: Gebruik deze cmdlet voor het maken van een nieuwe relatie van de communicatie tussen twee logische servers in Azure SQL-database. De relatie is symmetrische dat beide servers transacties met de andere server tot stand kunnen brengen.
-* **Get-AzureRmSqlServerCommunicationLink**: Gebruik deze cmdlet voor het ophalen van de bestaande communicatie relaties en hun eigenschappen.
+* **Get-AzureRmSqlServerCommunicationLink**: Deze cmdlet gebruiken om op te halen van de bestaande communicatie relaties en hun eigenschappen.
 * **Remove-AzureRmSqlServerCommunicationLink**: Gebruik deze cmdlet voor het verwijderen van een bestaande relatie voor de communicatie. 
 
 ## <a name="monitoring-transaction-status"></a>Controlestatus van transactie
-Gebruik dynamische beheerweergaven (DMV's) in SQL-database naar de monitor status en voortgang van uw transacties lopende elastische databases. Alle DMV's met betrekking tot transacties zijn relevant voor gedistribueerde transacties in SQL-database. U vindt hier de bijbehorende lijst met DMV's: [transactie gerelateerde Dynamic Management Views en -functies (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Gebruik dynamische beheerweergaven (DMV's) in SQL-database naar de monitor status en voortgang van uw transacties lopende elastische databases. Alle DMV's met betrekking tot transacties zijn relevant voor gedistribueerde transacties in SQL-database. U vindt hier de bijbehorende lijst met DMV's: [Transactie gerelateerde functies (Transact-SQL) en Dynamic Management Views](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Deze DMV's zijn met name handig:
 
-* **sys.DM\_tran\_active\_transacties**: een lijst met actieve transacties en hun status. De kolom UOW (werkeenheid) kunt identificeren de verschillende onderliggende transacties die deel uitmaken van dezelfde gedistribueerde transactie. Alle transacties binnen de dezelfde gedistribueerde transactie voeren dezelfde UOW-waarde. Zie de [DMV documentatie](https://msdn.microsoft.com/library/ms174302.aspx) voor meer informatie.
-* **sys.DM\_tran\_database\_transacties**: biedt aanvullende informatie over transacties, zoals de plaatsing van de transactie in het logboek. Zie de [DMV documentatie](https://msdn.microsoft.com/library/ms186957.aspx) voor meer informatie.
-* **sys.DM\_tran\_vergrendelingen**: bevat informatie over de vergrendelingen die momenteel worden vastgehouden door actieve transacties. Zie de [DMV documentatie](https://msdn.microsoft.com/library/ms190345.aspx) voor meer informatie.
+* **sys.DM\_tran\_active\_transacties**: Een lijst met actieve transacties en hun status. De kolom UOW (werkeenheid) kunt identificeren de verschillende onderliggende transacties die deel uitmaken van dezelfde gedistribueerde transactie. Alle transacties binnen de dezelfde gedistribueerde transactie voeren dezelfde UOW-waarde. Zie de [DMV documentatie](https://msdn.microsoft.com/library/ms174302.aspx) voor meer informatie.
+* **sys.DM\_tran\_database\_transacties**: Bevat aanvullende informatie over transacties, zoals de plaatsing van de transactie in het logboek. Zie de [DMV documentatie](https://msdn.microsoft.com/library/ms186957.aspx) voor meer informatie.
+* **sys.DM\_tran\_vergrendelingen**: Bevat informatie over de vergrendelingen die momenteel worden vastgehouden door actieve transacties. Zie de [DMV documentatie](https://msdn.microsoft.com/library/ms190345.aspx) voor meer informatie.
 
 ## <a name="limitations"></a>Beperkingen
 De volgende beperkingen zijn momenteel van toepassing op transacties met elastische databases in SQL-database:

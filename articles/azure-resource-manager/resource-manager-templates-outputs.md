@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140452"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725805"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>De uitvoersectie in Azure Resource Manager-sjablonen
 In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. U kunt bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource retourneren.
@@ -81,25 +81,8 @@ Het volgende voorbeeld ziet u de structuur van de uitvoerdefinitie van een:
 | type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning van de dezelfde typen als sjabloon invoerparameters die zijn opgegeven. |
 | waarde |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de uitvoerwaarde. |
 
-## <a name="recommendations"></a>Aanbevelingen
-
-Als u een sjabloon te maken van openbare IP-adressen gebruikt, moet u een uitvoersectie die gegevens van het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN retourneert) opnemen. U kunt uitvoerwaarden gebruiken om op te halen eenvoudig meer informatie over openbare IP-adressen en FQDN's na de implementatie.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## <a name="example-templates"></a>Voorbeeldsjablonen
-
 
 |Template  |Description  |
 |---------|---------|
@@ -111,5 +94,4 @@ Als u een sjabloon te maken van openbare IP-adressen gebruikt, moet u een uitvoe
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
 * Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
-* Als u wilt combineren meerdere sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Mogelijk moet u de resources die zijn opgeslagen in een andere resourcegroep gebruiken. In dit scenario is gebruikelijk bij het werken met opslagaccounts of virtuele netwerken die zijn verdeeld over meerdere resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).
+* Zie voor aanbevelingen over het maken van sjablonen, [aanbevolen procedures voor Azure Resource Manager-sjabloon](template-best-practices.md).

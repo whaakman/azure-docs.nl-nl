@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967058"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714607"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Leer hoe u een toepassing implementeren in Azure en Azure Stack met behulp van een hybride-pijplijn voor continue integratie/continue levering (CI/CD).
 
@@ -72,7 +72,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u enige basiskennis van Azure en Az
 ### <a name="azure-requirements"></a>Azure-vereisten
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-* Maak een [Web-App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Noteer de URL van de Web-App, moet u deze gebruiken in de zelfstudie.
+* Maak een [Web-App](https://docs.microsoft.com/azure/app-service/overview) in Azure. Noteer de URL van de Web-App, moet u deze gebruiken in de zelfstudie.
 
 ### <a name="azure-stack-requirements"></a>Vereisten voor Azure Stack
 
@@ -166,7 +166,7 @@ Als onderdeel van de configuratie van de service-eindpunt, Azure DevOps-Services
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>De service-principal-rechten voor het implementeren van resources in de Azure Stack-abonnement verlenen
 
-Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de beste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de beste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: Ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van bereik. Bijvoorbeeld een toepassing toevoegt aan de rol van lezer voor een resourcegroep betekent dit dat het de resourcegroep en alle bijbehorende resources kunt lezen.
 
@@ -180,9 +180,7 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
 3. Selecteer in Visual Studio Enterprise, **Access Control (IAM)**.
 
-    ![Toegangsbeheer (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Selecteer **Toevoegen**.
+4. Selecteer **roltoewijzing toevoegen**.
 
     ![Toevoegen](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -282,7 +280,7 @@ U kunt de instructies in [een Azure Resource Manager-serviceverbinding met een b
 
 U kunt een serviceverbinding maken met de volgende toewijzing:
 
-| Naam | Voorbeeld | Beschrijving |
+| Name | Voorbeeld | Description |
 | --- | --- | --- |
 | Verbindingsnaam | Azure Stack Azure AD | De naam van de verbinding. |
 | Omgeving | AzureStack | De naam van uw omgeving. |
@@ -307,7 +305,7 @@ De meest recente update van Azure DevOps kunt maken van een serviceverbinding me
 
 U kunt een serviceverbinding maken met de volgende toewijzing:
 
-| Naam | Voorbeeld | Beschrijving |
+| Name | Voorbeeld | Description |
 | --- | --- | --- |
 | Verbindingsnaam | Azure Stack ADFS | De naam van de verbinding. |
 | Omgeving | AzureStack | De naam van uw omgeving. |
@@ -350,7 +348,7 @@ Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurco
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Implementatie van zelfstandige web-app voor App Services in beide clouds maken
 
-1. Bewerken de **WebApplication.csproj** bestand: Selecteer **Runtimeidentifier** en voeg deze `win10-x64.` voor meer informatie, Zie [onafhankelijke implementatie](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentatie.
+1. Bewerk de **WebApplication.csproj** bestand: Selecteer **Runtimeidentifier** en voeg deze `win10-x64.` voor meer informatie, Zie [onafhankelijke implementatie](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentatie.
 
     ![Runtimeidentifier configureren](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 

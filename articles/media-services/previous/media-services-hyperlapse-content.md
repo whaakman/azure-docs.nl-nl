@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b361202d2d80f879ae6d23ec29782bc6f837f96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242582"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632871"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media-bestanden met Azure Media Hyperlapse
+
+> [!NOTE]
+> Deze preview-functie van Azure Media Services wordt binnenkort beëindigd. Vanaf 19 December 2018, maken Media Services niet meer wilt voor wijzigingen of verbeteringen Media Hyperlapse. Op 29 maart 2019, wordt het buiten gebruik is gesteld en niet meer beschikbaar zijn.
+
 Azure Media Hyperlapse is een medium Processor (KP) die smooth timelapsevideo's te versoepelen worden gemaakt van de eerste persoon of het actie-camera-inhoud.  De cloud gebaseerde op hetzelfde niveau naar [van Microsoft Research bureaublad Hyperlapse Pro en telefonische Hyperlapse Mobile](https://aka.ms/hyperlapse), Microsoft Hyperlapse voor Azure Media Services maakt gebruik van de enorme schaal van de Azure Media Services Media verwerken platform voor horizontaal schalen en parallelliseren bulksgewijs Hyperlapse-verwerking.
 
 > [!IMPORTANT]
@@ -37,7 +41,7 @@ U moet eerst uw gewenste invoerbestand uploaden naar Azure Media Services.  Lees
 ### <a id="configuration"></a>Definitie van de configuratie voor Hyperlapse
 Nadat de inhoud van uw Media Services-account is, moet u uw configuratie-definitie maken.  De volgende tabel beschrijft de gebruiker opgegeven velden:
 
-| Veld | Beschrijving |
+| Veld | Description |
 | --- | --- |
 | StartFrame |Het frame waarop de Microsoft Hyperlapse-verwerking moet beginnen. |
 | NumFrames |Het aantal frames verwerken |

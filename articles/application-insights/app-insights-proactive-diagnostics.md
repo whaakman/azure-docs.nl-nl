@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 44b80a395ce29d67912f822c806246bdd97b59b6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868936"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972835"
 ---
 # <a name="smart-detection-in-application-insights"></a>Slimme detectie in Application Insights
  Slimme detectie waarschuwt automatisch u over potentiële prestatieproblemen in uw webtoepassing. Het voert proactieve analyse van de telemetrie die uw app naar verzendt [Application Insights](app-insights-overview.md). Als er een plotselinge toename van de foutpercentages of abnormale patronen in de prestaties van de client of server is, krijgt u een waarschuwing. Deze functie heeft geen configuratie nodig. Het werkt als uw toepassing zoveel telemetrie verzendt.
@@ -55,11 +55,11 @@ Er zijn drie soorten detectie:
 Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app controleren:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
+* [Search explorer](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - krachtige querytaal](../azure-monitor/log-query/get-started-portal.md)
 
 Slimme detectie is volledig automatisch. Maar misschien u graag enkele meer waarschuwingen instellen?
 
-* [Handmatig geconfigureerde metrische waarschuwingen](app-insights-alerts.md)
-* [Webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) 
+* [Handmatig geconfigureerde metrische waarschuwingen](../azure-monitor/app/alerts.md)
+* [Webtests voor beschikbaarheid](../azure-monitor/app/monitor-web-app-availability.md) 
 

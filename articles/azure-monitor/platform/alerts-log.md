@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339209"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725049"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor  
 
@@ -23,7 +23,7 @@ Dit artikel leest u hoe het instellen van waarschuwingen met behulp van de inter
 - De criteria: Bepaalde voorwaarde of logische dat wanneer in signaal zien, moet actie activeren
 - Actie: Specifieke aanroep verzonden naar een ontvanger van een melding - e-mail, SMS, webhook, enzovoort.
 
-De term **Logboekwaarschuwingen** om te beschrijven van waarschuwingen met waar signaal aangepaste query op basis van [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) of [Application Insights](../../application-insights/app-insights-analytics.md). Meer informatie over functies, -terminologie en typen van [Logboekwaarschuwingen - overzicht](../../azure-monitor/platform/alerts-unified-log.md).
+De term **Logboekwaarschuwingen** om te beschrijven van waarschuwingen met waar signaal aangepaste query op basis van [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/analytics.md). Meer informatie over functies, -terminologie en typen van [Logboekwaarschuwingen - overzicht](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Populaire logboekgegevens van [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is nu ook beschikbaar op de metrische platform in Azure Monitor. Voor de detailweergave [metrische waarschuwingen voor logboeken](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -245,6 +245,6 @@ Op de goede werking 201 te maken van waarschuwingsregel nieuwe status wordt gere
 
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](../../azure-monitor/platform/alerts-unified-log.md)
 * Inzicht in [webhookacties voor logboekwaarschuwingen](../../azure-monitor/platform/alerts-log-webhook.md)
-* Meer informatie over [Application Insights](../../application-insights/app-insights-analytics.md)
+* Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md)
 * Meer informatie over [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 

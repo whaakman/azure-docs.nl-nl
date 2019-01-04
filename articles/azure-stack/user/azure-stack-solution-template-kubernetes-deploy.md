@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959458"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722393"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes op Azure Stack implementeren
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
 > Kubernetes in Azure Stack is in preview.
@@ -60,7 +60,7 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 
 1. Als u geen Kubernetes-Cluster in de marketplace, neemt u contact op met de beheerder van Azure Stack.
 
-## <a name="create-a-service-principal-in-azure-ad"></a>Een service-principal maken in Azure AD
+## <a name="create-a-service-principal-in-azure-ad"></a>een service-principal maken in Azure Active Directory
 
 1. Meld u aan de globale [Azure-portal](http://portal.azure.com).
 
@@ -101,7 +101,7 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 
 1. Selecteer het abonnement dat is gemaakt door de operator voor het gebruik van het Kubernetes-Cluster.
 
-1. Selecteer **toegangsbeheer (IAM)** > Selecteer **+ toevoegen**.
+1. Selecteer **toegangsbeheer (IAM)** > Selecteer **roltoewijzing toevoegen**.
 
 1. Selecteer de **Inzender** rol.
 

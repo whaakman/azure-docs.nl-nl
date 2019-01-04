@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831097"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628201"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Uw Raspberry Pi-apparaat verbinden met de Remote Monitoring solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle. Net als bij de meeste embedded-toepassingen die worden uitgevoerd op apparaten met beperkte, is de clientcode voor de toepassing Raspberry Pi-apparaat geschreven in C. In deze zelfstudie bouwt u de toepassing op een Raspberry Pi met de Raspbian OS.
+Deze zelfstudie leert u hoe u een echt apparaat verbinden met de oplossingsverbetering voor externe controle. Net als bij de meeste embedded-toepassingen die worden uitgevoerd op apparaten met beperkte, is de clientcode voor de toepassing Raspberry Pi-apparaat geschreven in C. In deze zelfstudie bouwt u de toepassing op een Raspberry Pi met de Raspbian OS.
+
+Als u liever een apparaat simuleren, Zie [maken en test een nieuw gesimuleerd apparaat](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Vereiste hardware
 
@@ -36,7 +38,7 @@ Een desktopcomputer waarmee u kunt extern verbinding maken met de opdrachtregel 
 
 SSH-client moet u op de computer waarmee u kunt voor externe toegang tot de opdrachtregel op de Raspberry Pi.
 
-- Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](http://www.putty.org/).
+- Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](https://www.putty.org/).
 - De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma. Zie voor meer informatie, [SSH met behulp van Linux- of Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### <a name="required-raspberry-pi-software"></a>Vereiste software voor Raspberry Pi

@@ -1,5 +1,5 @@
 ---
-title: Containerworkloads op Azure Batch | Microsoft Docs
+title: Workloads voor containers - Azure Batch | Microsoft Docs
 description: Informatie over het uitvoeren van toepassingen van containerinstallatiekopieën op Azure Batch.
 services: batch
 author: dlepow
@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262428"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540993"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Containertoepassingen uitvoeren op Azure Batch
 
@@ -29,14 +30,14 @@ Met behulp van containers biedt een eenvoudige manier Batch-taken uitvoeren zond
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **SDK-versies**: containerinstallatiekopieën van de Batch-SDK's ondersteuning vanaf de volgende versies:
+* **SDK-versies**: De Batch-SDK's ondersteunen containerinstallatiekopieën vanaf de volgende versies:
     * Batch REST-API versie 2017-09-01.6.0
     * Batch .NET SDK versie 8.0.0
     * Batch Python SDK versie 4.0
     * Batch Java SDK versie 3.0
     * Batch Node.js SDK versie 3.0
 
-* **Accounts**: In uw Azure-abonnement, moet u een Batch-account en optioneel een Azure Storage-account maken.
+* **Accounts**: In uw Azure-abonnement moet u een Batch-account en optioneel een Azure Storage-account maken.
 
 * **Een ondersteunde VM-installatiekopie**: Containers worden alleen ondersteund in pools die zijn gemaakt met de configuratie van de virtuele Machine, van afbeeldingen in de volgende sectie worden beschreven, 'ondersteund installatiekopieën voor virtuele machines." Als u een aangepaste installatiekopie, Zie de overwegingen met betrekking tot in de volgende sectie en de vereisten in [een beheerde aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md). 
 

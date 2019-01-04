@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: 160078787d28f43ef800d25c8b50fb316b38944f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436174"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975182"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -39,9 +39,7 @@ Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rech
 
 ![Metrische gegevens](media/overview/metrics.png)
 
-<<<<<<< HEAD logboekgegevens die zijn verzameld door Azure Monitor kunnen worden geanalyseerd met [query's](log-query/log-query-overview.md) die snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met [melden analytics](../log-analytics/log-analytics-log-search-portals.md) in Azure portal en rechtstreeks analyseren met behulp van deze hulpprogramma's of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [waarschuwing regels](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
-=== Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../azure-monitor/log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../azure-monitor/log-query/portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../azure-monitor/platform/alerts-overview.md).
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../azure-monitor/log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../azure-monitor/log-query/portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor maakt gebruik van een versie van de [Data Explorer-querytaal](/azure/kusto/query/) die geschikt is voor eenvoudige log query's, maar bevat ook geavanceerde functies, zoals aggregaties, joins en slimme analyse. U kunt snel leren over de query-taal met [meerdere lessen](log-query/get-started-queries.md).  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](log-query/sql-cheatsheet.md) en [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -56,11 +54,11 @@ Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zi
 - **Azure-abonnement bewakingsgegevens**: Gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. 
 - **Azure-tenant bewakingsgegevens**: Gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory.
 
-Als u een Azure-abonnement en begin toevoegen van resources, zoals virtuele machines en web-apps maakt, wordt Azure Monitor gestart verzamelen van gegevens.  [Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) opnemen wanneer resources worden gemaakt of gewijzigd. [Metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) uitgelegd hoe de resource wordt uitgevoerd en de resources die voor deze wordt gebruikt. 
+Als u een Azure-abonnement en begin toevoegen van resources, zoals virtuele machines en web-apps maakt, wordt Azure Monitor gestart verzamelen van gegevens.  [Activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md) opnemen wanneer resources worden gemaakt of gewijzigd. [Metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) uitgelegd hoe de resource wordt uitgevoerd en de resources die voor deze wordt gebruikt. 
 
-Uitbreiden van de gegevens die u verzamelt in de huidige bewerking van de resources door [diagnostische gegevens inschakelen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) en [toevoegen van een agent](platform/agent-windows.md) om resources te berekenen. Hierdoor wordt het verzamelen van telemetrie voor de interne werking van de resource en kunt u het configureren van verschillende [gegevensbronnen](platform/agent-data-sources.md) voor het verzamelen van Logboeken en metrische gegevens van Windows en Linux Gast-besturingssysteem. 
+Uitbreiden van de gegevens die u verzamelt in de huidige bewerking van de resources door [diagnostische gegevens inschakelen](../azure-monitor/platform/diagnostic-logs-overview.md) en [toevoegen van een agent](platform/agent-windows.md) om resources te berekenen. Hierdoor wordt het verzamelen van telemetrie voor de interne werking van de resource en kunt u het configureren van verschillende [gegevensbronnen](platform/agent-data-sources.md) voor het verzamelen van Logboeken en metrische gegevens van Windows en Linux Gast-besturingssysteem. 
 
-[Een instrumentatiepakket toevoegen aan uw toepassing](../application-insights/app-insights-azure-web-apps.md), Application Insights voor het verzamelen van gedetailleerde informatie over uw toepassing met inbegrip van paginaweergaven, aanvragen en uitzonderingen inschakelen. De beschikbaarheid van uw toepassing verder controleren door het configureren van een [beschikbaarheidstest](../application-insights/app-insights-monitor-web-app-availability.md) gebruikersverkeer simuleren.
+[Een instrumentatiepakket toevoegen aan uw toepassing](../azure-monitor/app/azure-web-apps.md), Application Insights voor het verzamelen van gedetailleerde informatie over uw toepassing met inbegrip van paginaweergaven, aanvragen en uitzonderingen inschakelen. De beschikbaarheid van uw toepassing verder controleren door het configureren van een [beschikbaarheidstest](../azure-monitor/app/monitor-web-app-availability.md) gebruikersverkeer simuleren.
 
 ### <a name="custom-sources"></a>Aangepaste bronnen
 Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp van de [Data Collector API](../azure-monitor/platform/data-collector-api.md). Hiermee kunt u aangepaste bewakingsscenario's maken en uitbreiden van de bewaking aan resources die niet beschikbaar voor telemetrie via andere bronnen maken.
@@ -131,7 +129,7 @@ Automatisch schalen kunt u de juiste hoeveelheid resources die worden uitgevoerd
 Vaak hebt u de vereiste Azure Monitor worden geïntegreerd met andere systemen en om aangepaste oplossingen die gebruikmaken van uw bewakingsgegevens te maken. Andere Azure-services werken met Azure Monitor om deze integratie te bieden.
 
 ### <a name="event-hub"></a>Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is van een streaming-platform en een gebeurtenisopneemservice die kunt transformeren en opslaan van gegevens met behulp van een realtime-analyseprovider of batching/opslagadapters. Event Hubs te gebruiken [stream logboekgegevens van Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) naar SIEM- en controlehulpprogramma's van partners.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is van een streaming-platform en een gebeurtenisopneemservice die kunt transformeren en opslaan van gegevens met behulp van een realtime-analyseprovider of batching/opslagadapters. Event Hubs te gebruiken [stream logboekgegevens van Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) naar SIEM- en controlehulpprogramma's van partners.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

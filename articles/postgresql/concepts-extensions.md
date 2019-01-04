@@ -1,20 +1,17 @@
 ---
 title: PostgreSQL-extensies gebruiken in Azure Database for PostgreSQL
 description: Beschrijft de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van uitbreidingen in Azure Database voor PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 195a54ab65573a24911169b7dc42de7637ad60f9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d6d5a8500435a540f091a082e7dc0e0d6d455716
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823806"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540840"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-extensies in Azure Database for PostgreSQL
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).

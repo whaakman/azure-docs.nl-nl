@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864975"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726530"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack-implementatie planningsoverwegingen
 Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw development kit host-computer voldoet aan de vereisten die worden beschreven in dit artikel.
@@ -29,17 +29,17 @@ Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw 
 ## <a name="hardware"></a>Hardware
 | Onderdeel | Minimum | Aanbevolen |
 | --- | --- | --- |
-| Schijfstations: besturingssysteem |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |
-| Schijfstations: algemene development kit gegevens<sup>*</sup>  |4 schijven. Elke schijf biedt minimaal 140 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |4 schijven. Elke schijf biedt minimaal 250 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |
-| Compute: CPU |Dual-Socket: 12 fysieke processorkernen (totaal) |Dual-Socket: 16 fysieke processorkernen (totaal) |
-| Compute: geheugen |96 GB RAM |128 GB RAM-geheugen (dit is de minimale ter ondersteuning van PaaS-resourceproviders.)|
-| Compute: BIOS |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |
-| Netwerk: NIC |Windows Server 2012 R2-certificering vereist voor NIC, geen gespecialiseerde functies vereist |Windows Server 2012 R2-certificering vereist voor NIC, geen gespecialiseerde functies vereist |
+| Schijfstations: Besturingssysteem |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |
+| Schijfstations: Algemene development kit gegevens<sup>*</sup>  |4 schijven. Elke schijf biedt minimaal 240 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |4 schijven. Elke schijf biedt een minimum van 400 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |
+| COMPUTE: CPU |Dual-Socket: 16 fysieke processorkernen (totaal) |Dual-Socket: 20 fysieke processorkernen (totaal) |
+| COMPUTE: Geheugen |192 GB RAM-GEHEUGEN |256 GB RAM-GEHEUGEN |
+| COMPUTE: BIOS |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |
+| Netwerk: NIC |Windows Server 2012 R2-certificering. Er zijn geen gespecialiseerde functies vereist |Windows Server 2012 R2-certificering. Er zijn geen gespecialiseerde functies vereist |
 | Logocertificering HW |[Gecertificeerd voor Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Gecertificeerd voor WindowsServer 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> U moet meer dan dit capaciteit aanbevolen als u van plan bent over het toevoegen van veel van de [marketplace-items](asdk-marketplace-item.md) van Azure.
 
-**Configuratie van gegevensschijfstation:** alle gegevensstations moeten van hetzelfde type (allemaal SAS, SATA of alle NVMe) en capaciteit. Als harde schijven van het type SAS worden gebruikt, moet u de schijfstations koppelen via één pad (er wordt geen ondersteuning geboden voor MPIO, Multipath).
+**Configuratie van gegevensschijfstation:** Alle gegevensstations moeten van hetzelfde type (allemaal SAS, SATA of alle NVMe) en capaciteit. Als harde schijven van het type SAS worden gebruikt, moet u de schijfstations koppelen via één pad (er wordt geen ondersteuning geboden voor MPIO, Multipath).
 
 **Configuratie-opties voor HBA**
 
@@ -59,7 +59,7 @@ Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw 
 
 <sup>*</sup> RAID-controllers zonder Pass Through-mogelijkheid kunnen het mediatype niet herkennen. Deze controllers markeren zowel HDD als SSD als niet opgegeven. In dat geval wordt de SSD gebruikt als permanente opslag in plaats van de caching-apparaten. Daarom kunt u de development kit op deze SSD's implementeren.
 
-**Voorbeeld van HBA's**: LSI 9207-8i, LSI-9300-8i of LSI-9265-8i in de modus 'passeren'
+**Voorbeeld van HBA's**: LSI 9207-8i, LSI-9300-8i of LSI-9265-8i in de modus
 
 Er zijn voorbeelden van OEM-configuraties beschikbaar.
 

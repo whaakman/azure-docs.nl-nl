@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: ef93c62a2e2084a43eeda578c889a568d04db4f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856086"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53740889"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure functie-activiteit in Azure Data Factory
 
@@ -26,11 +26,13 @@ De activiteit Azure-functie kunt u uitvoeren [Azure Functions](../azure-function
 
 ## <a name="azure-function-linked-service"></a>Azure-functie gekoppelde service
 
+Het retourtype van de Azure-functie is een geldige jobject is leeggemaakt. Iets anders mislukt en de algemene gebruikersfout genereert *fout aanvragende eindpunt*.
+
 | **Eigenschap** | **Beschrijving** | **Vereist** |
 | --- | --- | --- |
 | type   | De eigenschap type moet worden ingesteld op: **AzureFunction** | ja |
 | functie-app-url | De URL voor de Azure-functie-App. De indeling is `https://<accountname>.azurewebsites.net`. Deze URL is de waarde onder **URL** sectie bij het weergeven van uw functie-App in Azure portal  | ja |
-| Functietoets | De toegangssleutel voor de Azure-functie. Klik op de **beheren** voor de betreffende functie uit en kopieer een de **functietoets** of de **hostsleutel**. Ontdek meer hier: [Azure Functions-HTTP-triggers en bindingen](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | ja |
+| Functietoets | De toegangssleutel voor de Azure-functie. Klik op de **beheren** voor de betreffende functie uit en kopieer een de **functietoets** of de **hostsleutel**. Meer informatie vindt u hier: [Azure Functions-HTTP-triggers en bindingen](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | ja |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Azure functie-activiteit
@@ -41,12 +43,18 @@ De activiteit Azure-functie kunt u uitvoeren [Azure Functions](../azure-function
 | type  | Type activiteit is 'AzureFunctionActivity' | Reeks | ja |
 | Gekoppelde service | De gekoppelde Azure-functie-service voor de bijbehorende Azure-functie-App  | Verwijzing naar de gekoppelde service | ja |
 | Functienaam  | Naam van de functie in de Azure-functie-App waarmee deze activiteit wordt aangeroepen | Reeks | ja |
-| method  | REST-API-methode voor de functieaanroep | Tekenreeks ondersteunde typen: 'ophalen', 'POST', 'plaats'   | ja |
+| method  | REST-API-methode voor de functieaanroep | Tekenreeks ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS'   | ja |
 | koptekst  | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: "headers": {'Accept-taal': ' nl-ons ", 'Content-Type': ' application/json'} | Tekenreeks (of expressie resultType van de tekenreeks) | Nee |
-| hoofdtekst  | de hoofdtekst die samen met de aanvraag wordt verzonden naar de functie api-methode  | Tekenreeks (of expressie resultType van de tekenreeks).   | Vereist voor opslag/POST-methoden |
+| hoofdtekst  | de hoofdtekst die samen met de aanvraag wordt verzonden naar de functie api-methode  | Tekenreeks (of expressie resultType van de tekenreeks) of object.   | Vereist voor opslag/POST-methoden |
 |   |   |   | |
 
 Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](control-flow-web-activity.md#request-payload-schema) sectie.
+
+## <a name="more-info"></a>Meer informatie
+
+De activiteit Azure-functie ondersteunt **routering**. Bijvoorbeeld, als uw app gebruikmaakt van de volgende routering - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - de `functionName` is `functionName/{value}`, die u kunt parameters voor de gewenste `functionName` tijdens runtime.
+
+De activiteit Azure-functie biedt ook ondersteuning voor **query's**. Een query moet deel uitmaken van de `functionName` - bijvoorbeeld `HttpTriggerCSharp2?name=hello` - waar de `function name` is `HttpTriggerCSharp2`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

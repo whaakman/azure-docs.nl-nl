@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417766"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722139"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>De parametersectie van Azure Resource Manager-sjablonen
 U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in de parametersectie van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft te bieden van parameters in de sjabloon, maar zonder parameters de sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen wilt implementeren.
@@ -83,7 +83,7 @@ Het vorige voorbeeld hebt u slechts een deel van de eigenschappen die u in de se
 }
 ```
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
 | parameterName |Ja |Naam van de parameter. Moet een geldige JavaScript-id. |
 | type |Ja |Het type van de waarde van parameter. De toegestane typen en de waarden zijn **tekenreeks**, **securestring**, **int**, **bool**, **object**, **secureObject**, en **matrix**. |
@@ -91,8 +91,8 @@ Het vorige voorbeeld hebt u slechts een deel van de eigenschappen die u in de se
 | allowedValues |Nee |Matrix van toegestane waarden voor de parameter om ervoor te zorgen dat de juiste waarde is opgegeven. |
 | Minimumwaarde |Nee |De minimumwaarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
 | Maximumwaarde |Nee |De maximale waarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
-| minLength |Nee |De minimale lengte voor string, securestring en parameters van het type matrix deze waarde wordt ook meegerekend. |
-| maxLength |Nee |De maximale lengte voor string, securestring en parameters van het type matrix, deze waarde wordt ook meegerekend. |
+| minLength |Nee |De minimale lengte van tekenreeks, een beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
+| maxLength |Nee |De maximale lengte voor string, beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
 | description |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. |
 
 ## <a name="template-functions-with-parameters"></a>Sjabloonfuncties met parameters
@@ -188,79 +188,11 @@ Vervolgens, verwijzen naar de subeigenschappen van de parameter met behulp van d
 ]
 ```
 
-## <a name="recommendations"></a>Aanbevelingen
-De volgende informatie kan nuttig zijn wanneer u met parameters werkt:
-
-* Uw gebruik van parameters minimaliseren. Gebruik indien mogelijk een variabele of een letterlijke waarde. Parameters gebruiken om alleen voor deze scenario's:
-   
-   * Instellingen die u wilt gebruik van variaties op basis van de omgeving (SKU, grootte, capaciteit).
-   * Namen van voorbeeldresources die u wilt opgeven voor de eenvoudige identificatie.
-   * De waarden die u vaak gebruikt om andere taken (zoals de naam van een beheerder-gebruiker) te voltooien.
-   * Geheimen (zoals wachtwoorden).
-   * Het nummer of de matrix met waarden om te gebruiken bij het maken van meer dan één exemplaar van een resourcetype.
-* Gebruik kamelen voor namen van parameters.
-* Geef een beschrijving van elke parameter in de metagegevens:
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Standaardwaarden voor parameters (met uitzondering van wachtwoorden en SSH-sleutels) definiëren. Door op te geven een standaardwaarde is opgegeven, wordt er tijdens de implementatie van de parameter optioneel. De standaardwaarde mag geen lege tekenreeks zijn. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* Gebruik **securestring** voor alle wachtwoorden en geheimen. Als u gevoelige gegevens in een JSON-object doorgeven, gebruikt u de **secureObject** type. Sjabloonparameters met securestring of secureObject typen kunnen niet worden gelezen na de implementatie van de resource. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* Een parameter om op te geven locatie gebruiken en delen die zoveel mogelijk van de parameterwaarde met de resources die kunnen worden op dezelfde locatie. Deze aanpak minimaliseert het aantal keer dat gebruikers wordt gevraagd om locatie-informatie te geven. Als een resourcetype dat wordt ondersteund in een beperkt aantal locaties, is het raadzaam Geef een geldige locatie rechtstreeks in de sjabloon of een andere locatieparameter toevoegen. Wanneer een organisatie de toegestane regio's voor de gebruikers, beperkt de **resourceGroup () .location** expressie mogelijk te voorkomen dat een gebruiker van de sjabloon te implementeren. Een gebruiker wordt bijvoorbeeld een resourcegroep gemaakt in een regio. Een tweede gebruiker in deze resourcegroep moet implementeren, maar heeft geen toegang tot het gebied. 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* Vermijd het gebruik van een parameter of variabele voor de API-versie voor een resourcetype. Resource-eigenschappen en waarden kunnen variëren per versienummer. IntelliSense in een code-editor kan niet het juiste schema bepalen wanneer de API-versie is ingesteld op een parameter of variabele. In plaats daarvan programmeren de API-versie in de sjabloon.
-* Vermijd een parameternaam in de sjabloon die overeenkomt met een parameter in de implementatieopdracht op te geven. Resource Manager deze naamgevingsconventie conflict opgelost doordat de postfix **FromTemplate** aan de sjabloonparameter. Bijvoorbeeld, als u een parameter met de naam opgeeft **ResourceGroupName** in uw sjabloon, deze conflicteert met de **ResourceGroupName** parameter in de [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Tijdens de implementatie van u wordt gevraagd om een waarde voor **ResourceGroupNameFromTemplate**.
-
 ## <a name="example-templates"></a>Voorbeeldsjablonen
 
 Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van parameters. Te testen hoe parameters worden verwerkt in verschillende scenario's implementeren.
 
-|Template  |Beschrijving  |
+|Template  |Description  |
 |---------|---------|
 |[parameters met functies voor standaardwaarden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstreert hoe u sjabloonfuncties gebruiken bij het definiëren van de standaardwaarden voor parameters. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
 |[Parameter-object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Ziet u met behulp van een object voor een parameter. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
@@ -269,5 +201,5 @@ Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van 
 
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
 * Voor informatie over het invoeren van de parameterwaarden tijdens de implementatie, Zie [een toepassing implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md). 
-* Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
+* Zie voor aanbevelingen over het maken van sjablonen, [aanbevolen procedures voor Azure Resource Manager-sjabloon](template-best-practices.md).
 * Zie voor meer informatie over het gebruik van een parameter-object [een object gebruiken als een parameter in een Azure Resource Manager-sjabloon](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

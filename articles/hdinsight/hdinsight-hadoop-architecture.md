@@ -9,19 +9,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: f6393d15572eadb376cbd88dc94c3de0fd8fa80b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9f45b1603fe0e34bfdf6192fd85ecaf27311ae32
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495569"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718074"
 ---
-# <a name="apache-hadoop-architecture-in-hdinsight"></a>Architectuur van Apache Hadoop in HDInsight
+# <a name="apache-hadoop-architecture-in-hdinsight"></a>Apache Hadoop-architectuur in HDInsight
 
-[Apache Hadoop](https://hadoop.apache.org/) bevat twee belangrijkste onderdelen: de [Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) waarmee de opslag, en [Apache Hadoop nog een andere Resource Negotiator (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) die biedt verwerking. Met de opslag en verwerking van de mogelijkheden, een cluster wordt lopen [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) programma's de gewenste verwerking van gegevens uit te voeren.
+[Apache Hadoop](https://hadoop.apache.org/) bevat twee belangrijkste onderdelen: de [Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) waarmee de opslag, en [Apache Hadoop nog een andere Resource Negotiator (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) die biedt verwerking. Met de opslag en verwerking van de mogelijkheden, een cluster wordt lopen [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) programma's de gewenste verwerking van gegevens uit te voeren.
 
-> [!NOTE]
-> Een HDFS wordt doorgaans niet geïmplementeerd in het HDInsight-cluster om opslag te bieden. In plaats daarvan wordt een HDFS-compatibele interfacelaag gebruikt door Hadoop-onderdelen. De mogelijkheid van de werkelijke opslag wordt verstrekt door Azure Storage of Azure Data Lake Store. Voor Hadoop, MapReduce-taken uitvoeren op het HDInsight-cluster worden uitgevoerd als een HDFS aanwezig zijn en dus geen wijzigingen in de ter ondersteuning van hun behoefte aan opslag vereist. Opslag is uitbestede in Hadoop op HDInsight, maar YARN verwerking blijft een belangrijk onderdeel. Zie voor meer informatie, [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md).
+> [!NOTE]  
+> Een HDFS wordt doorgaans niet geïmplementeerd in het HDInsight-cluster om opslag te bieden. In plaats daarvan wordt een HDFS-compatibele interfacelaag gebruikt door Hadoop-onderdelen. De mogelijkheid van de werkelijke opslag wordt verstrekt door Azure Storage of Azure Data Lake-opslag. Voor Hadoop, MapReduce-taken uitvoeren op het HDInsight-cluster worden uitgevoerd als een HDFS aanwezig zijn en dus geen wijzigingen in de ter ondersteuning van hun behoefte aan opslag vereist. Opslag is uitbestede in Hadoop op HDInsight, maar YARN verwerking blijft een belangrijk onderdeel. Zie voor meer informatie, [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Dit artikel bevat YARN en hoe deze coördineert de uitvoering van toepassingen op HDInsight.
 

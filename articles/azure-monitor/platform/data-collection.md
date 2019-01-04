@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: fdf8d8977651c868c9f534dc61e3d1a77a43e672
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435942"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718959"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -86,7 +86,7 @@ Er zijn drie fundamentele bronnen van metrische gegevens die door Azure Monitor 
 **Metrische toepassingsgegevens** zijn gemaakt door Application Insights voor uw bewaakte toepassingen en kunt u prestatieproblemen detecteren en bijhouden van trends in hoe uw toepassing wordt gebruikt. Dit omvat ook deze waarden als _serverreactietijd_ en _browseruitzonderingen_.
 
 **Aangepaste metrische gegevens** metrische gegevens die u definieert naast de standaard metrische gegevens die zijn automatisch beschikbaar zijn. Aangepaste metrische gegevens moeten worden gemaakt op basis van één resource in dezelfde regio als die resource. U kunt aangepaste metrische gegevens met behulp van de volgende manieren maken:
-    - [Aangepaste metrische gegevens in uw toepassing definiëren](../../application-insights/app-insights-api-custom-events-metrics.md) die wordt bewaakt door Application Insights. Deze worden naast de standaard set metrische toepassingsgegevens.
+    - [Aangepaste metrische gegevens in uw toepassing definiëren](../../azure-monitor/app/api-custom-events-metrics.md) die wordt bewaakt door Application Insights. Deze worden naast de standaard set metrische toepassingsgegevens.
     - Publiceren van aangepaste metrische gegevens van uw Windows-virtuele machines met behulp van [Windows diagnostische extensie (WAD),](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publiceren van aangepaste metrische gegevens van uw Linux-machines met [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
     - Aangepaste metrische gegevens van een Azure-service met behulp van de aangepaste API voor metrische gegevens schrijven.
@@ -100,8 +100,8 @@ Taken die u met metrische gegevens uitvoeren kunt omvatten het volgende:
 - Configureer een [waarschuwingsregel voor metrische gegevens](alerts-metric.md) die duurt of een melding verzendt [automatische actie](action-groups.md) wanneer de metriek een drempelwaarde overschrijdt.
 - Gebruik [voor automatisch schalen](../../azure-monitor/platform/autoscale-overview.md) vergroten of verkleinen van resources op basis van een metriek een drempelwaarde overschrijden.
 - Metrische gegevens doorsturen naar Log Analytics om metrische gegevens, samen met logboekgegevens te analyseren en voor het opslaan van de metrische waarden voor langer dan 93 dagen. 
-- Metrische gegevens naar Stream een [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) te routeren [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) of met externe systemen.
-- [Archief](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) de geschiedenis van prestaties of de status van uw resource voor naleving, controle- of offline rapportagedoeleinden.
+- Metrische gegevens naar Stream een [Event Hub](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) te routeren [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) of met externe systemen.
+- [Archief](../../azure-monitor/learn/tutorial-archive-data.md) de geschiedenis van prestaties of de status van uw resource voor naleving, controle- of offline rapportagedoeleinden.
 - Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) of [REST-API](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 
@@ -129,7 +129,7 @@ Logboeken zijn met name nuttig voor het combineren van gegevens uit diverse bron
 ### <a name="sources-of-log-data"></a>Bronnen van logboekgegevens
 Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronnen binnen Azure en on-premises bronnen. Bronnen van logboekgegevens omvatten het volgende:
 
-- [Activiteitenlogboeken](collect-activity-logs.md) van Azure-resources met informatie over de configuratie en de status en [diagnostische logboeken](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) die inzicht geven in hun werking.
+- [Activiteitenlogboeken](collect-activity-logs.md) van Azure-resources met informatie over de configuratie en de status en [diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) die inzicht geven in hun werking.
 - Agents op [Windows](agent-windows.md) en [Linux](../learn/quick-collect-linux-computer.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Azure Monitor volgens verzenden [gegevensbronnen](data-sources.md) die u configureert.
 - Toepassingsgegevens verzameld door [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Gegevens die inzicht bieden in een bepaalde toepassing of service van [bewakingsoplossingen](../insights/solutions.md) of functies zoals Container Insights, inzichten van de virtuele machine of Resource Group inzichten.
@@ -156,7 +156,7 @@ Taken die u met Logboeken uitvoeren kunt omvatten het volgende:
 Alle gegevens in Azure Monitor is opgehaald met een [logboekquery](../log-query/log-query-overview.md) die zijn geschreven met de [Data Explorer-querytaal](../log-query/get-started-queries.md), waarmee u snel ophalen, samenvoegen en analyseren van verzamelde gegevens. Gebruik [Log Analytics](../log-query/portals.md) te schrijven en testen van query's in Azure portal. U kunt interactief werken met resultaten of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook Logboeken kunt ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Gegevens van Application Insights is opgeslagen in een afzonderlijke partitie dan andere logboekgegevens in Azure Monitor. Dit biedt ondersteuning voor dezelfde functionaliteit als andere logboekgegevens, maar moet u de [Application Insights-console](/application-insights/app-insights-analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../log-query/cross-workspace-query.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
+> Gegevens van Application Insights is opgeslagen in een afzonderlijke partitie dan andere logboekgegevens in Azure Monitor. Dit biedt ondersteuning voor dezelfde functionaliteit als andere logboekgegevens, maar moet u de [Application Insights-console](/azure-monitor/app/analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../log-query/cross-workspace-query.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
 
 ![Logboeken](media/data-collection/logs.png)
 
@@ -176,7 +176,7 @@ De uitleg van deze functie is beschikbaar op [metrische waarschuwingen maken voo
 ## <a name="stream-data-to-external-systems"></a>Stream-gegevens met externe systemen
 Naast het gebruik van de hulpprogramma's in Azure voor het analyseren van gegevens, mogelijk hebt u een vereiste dit doorsturen naar een extern hulpprogramma, zoals een security information en event management (SIEM) product. Doorsturen van dit gebeurt meestal rechtstreeks vanuit de bewaakte resources via [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
 
-U kunt hulp krijgen voor de verschillende soorten bewakingsgegevens op [Stream Azure-bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+U kunt hulp krijgen voor de verschillende soorten bewakingsgegevens op [Stream Azure-bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

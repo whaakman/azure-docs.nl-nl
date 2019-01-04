@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/07/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 94b1b4cfbc5e7a96be389f315a1c58dc311c60a0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f34c27addb61ce3dc24406598663d6bfbddf448b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104922"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969434"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Beleid voor automatisch schalen voor een Service Fabric-NET-toepassing maken
 Een van de belangrijkste voordelen van het implementeren van toepassingen naar Service Fabric Mesh is de mogelijkheid voor u om services eenvoudig in of uit te schalen. Dit is handig voor het afhandelen van wisselende belastingen van uw services of het verbeteren van de beschikbaarheid. U kunt handmatig schalen van uw services in- of uitschalen of instellen van beleid voor automatisch schalen.
@@ -109,7 +109,9 @@ application:
             - name: AutoScaleWorkerRule
               trigger:
                 kind: AverageLoad
-                metricName: cpu
+                metric:
+                  kind: Resource
+                  name: cpu
                 lowerLoadThreshold: 0.2
                 upperLoadThreshold: 0.8
                 scaleIntervalInSeconds: 60

@@ -9,34 +9,34 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582205"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633756"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Verwerken van gebeurtenissen uit Azure Event Hubs met Apache Storm op HDInsight (C#)
 
-Meer informatie over het werken met Azure Event Hubs van [Apache Storm](http://storm.apache.org/) op HDInsight. Dit document maakt gebruik van een C# Storm-topologie te lezen en schrijven van gegevens uit Event Hubs
+Meer informatie over het werken met Azure Event Hubs van [Apache Storm](https://storm.apache.org/) op HDInsight. Dit document maakt gebruik van een C# Storm-topologie te lezen en schrijven van gegevens uit Event Hubs
 
-> [!NOTE]
+> [!NOTE]  
 > Zie voor een Java-versie van dit project [gebeurtenissen uit Azure Event Hubs met Apache Storm op HDInsight (Java) verwerkt](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 ## <a name="scpnet"></a>SCP.NET
 
 De stappen in dit document gebruiken SCP.NET, een NuGet-pakket waarmee u eenvoudig te maken van C#-topologieën en -onderdelen voor gebruik met Storm op HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Hoewel de stappen in dit document, is afhankelijk van een Windows-ontwikkelomgeving met Visual Studio, kan het project gecompileerd worden verstuurd naar een Storm op HDInsight-cluster dat gebruik maakt van Linux. Op basis van Linux-clusters die zijn gemaakt na 28 oktober 2016 vallen, ondersteunen alleen SCP.NET-topologieën.
 
-HDInsight 3.4 en hoger gebruik Mono om uit te voeren van C#-topologieën. Het voorbeeld in dit document gebruikt werkt met HDInsight 3.6. Als u van plan bent over het maken van uw eigen .NET-oplossingen voor HDInsight, controleert u de [Mono-compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) document voor mogelijke compatibiliteitsproblemen.
+HDInsight 3.4 en hoger gebruik Mono om uit te voeren van C#-topologieën. Het voorbeeld in dit document gebruikt werkt met HDInsight 3.6. Als u van plan bent over het maken van uw eigen .NET-oplossingen voor HDInsight, controleert u de [Mono-compatibiliteit](https://www.mono-project.com/docs/about-mono/compatibility/) document voor mogelijke compatibiliteitsproblemen.
 
 ### <a name="cluster-versioning"></a>Cluster-versiebeheer
 
 Het Microsoft.scp.NET.SDK dat NuGet-pakket dat u voor uw project moet overeenkomen met de belangrijkste versie van Storm op HDInsight is geïnstalleerd. Storm voor HDInsight versie 3.5 en 3.6 gebruiken 1.x, dus moet u SCP.NET versie 1.0.x.x met deze clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Het voorbeeld in dit document wordt verwacht dat een HDInsight 3.5 of 3.6-cluster.
 >
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -47,15 +47,15 @@ C#-topologieën ook verwijst naar .NET 4.5.
 
 Microsoft biedt een set van Java-onderdelen die kunnen worden gebruikt om te communiceren met Event Hubs in een Storm-topologie. U vindt het Java-archief (JAR)-bestand met een compatibele versie van HDInsight 3.6 van deze onderdelen op [ https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar ](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Terwijl de onderdelen worden geschreven in Java, kunt u ze eenvoudig vanuit een C#-topologie gebruiken.
 
 De volgende onderdelen worden gebruikt in dit voorbeeld:
 
-* __EventHubSpout__: leest gegevens uit Event Hubs.
-* __Eventhubbolt die worden__: schrijft gegevens naar Event Hubs.
-* __EventHubSpoutConfig__: gebruikt voor het configureren van EventHubSpout.
-* __EventHubBoltConfig__: het configureren van eventhubbolt die worden gebruikt.
+* __EventHubSpout__: Leest gegevens uit Event Hubs.
+* __Eventhubbolt die worden__: Schrijft gegevens naar Event Hubs.
+* __EventHubSpoutConfig__: Gebruikt voor het configureren van EventHubSpout.
+* __EventHubBoltConfig__: Het configureren van eventhubbolt die worden gebruikt.
 
 ### <a name="example-spout-usage"></a>Voorbeeld spout gebruik
 
@@ -99,7 +99,7 @@ topologyBuilder.SetJavaBolt(
         .shuffleGrouping("Spout");
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > In dit voorbeeld wordt een Clojure expressie doorgegeven als een tekenreeks, in plaats van **JavaComponentConstructor** maken een **EventHubBoltConfig**, zoals in het voorbeeld spout heeft. Een van beide methoden werkt. Gebruik de methode die u het beste werkt.
 
 ## <a name="download-the-completed-project"></a>Het voltooide project downloaden
@@ -110,7 +110,7 @@ U kunt een volledige versie van het project gemaakt in deze zelfstudie uit downl
 
 * Een [Apache Storm op HDInsight-clusterversie 3.5 of 3.6](apache-storm-tutorial-get-started-linux.md).
 
-    > [!WARNING]
+    > [!WARNING]  
     > Het voorbeeld in dit document is Storm op HDInsight versie 3.5 of 3.6 vereist. Dit werkt niet met oudere versies van HDInsight, vanwege de belangrijke wijzigingen voor klasse-naam. Zie voor een versie van dit voorbeeld dat met oudere clusters buiten bedrijf werkt [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
 
 * Een [Azure event hub](../../event-hubs/event-hubs-create.md).
@@ -136,7 +136,7 @@ Eventhubs is de gegevensbron voor dit voorbeeld. Gebruik de informatie in de sec
 
 1. Nadat de event hub is gemaakt, geven de **EventHub** instellingen in de Azure portal en selecteer **beleid voor gedeelde toegang**. Selecteer **+ toevoegen** om toe te voegen van de volgende beleidsregels:
 
-   | Naam | Machtigingen |
+   | Name | Machtigingen |
    | --- | --- |
    | schrijver |Verzenden |
    | lezer |Luisteren |
