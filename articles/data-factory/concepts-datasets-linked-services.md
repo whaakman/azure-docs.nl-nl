@@ -21,7 +21,7 @@ ms.lasthandoff: 07/11/2018
 ms.locfileid: "38581263"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-create-datasets.md)
 > * [Huidige versie](concepts-datasets-linked-services.md)
 
