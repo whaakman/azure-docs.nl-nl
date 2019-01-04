@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954930"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020078"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Bijwerken van Azure Machine Learning-modellen met behulp van de activiteit resources bijwerken
 
@@ -38,7 +37,7 @@ ms.locfileid: "49954930"
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [bijwerken van machine learning-modellen in Data Factory](../update-machine-learning-models.md).
 
-In dit artikel is een aanvulling op de belangrijkste versie van Azure Data Factory - artikel voor Azure Machine Learning-integratie: [voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Als u dit nog niet hebt gedaan, lees dan het belangrijkste artikel voordat u lezen in dit artikel. 
+In dit artikel is een aanvulling op de belangrijkste versie van Azure Data Factory - artikel voor Azure Machine Learning-integratie: [Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Als u dit nog niet hebt gedaan, lees dan het belangrijkste artikel voordat u lezen in dit artikel. 
 
 ## <a name="overview"></a>Overzicht
 De voorspellende modellen in de Azure ML experimenten scoren moeten opnieuw worden getraind met behulp van nieuwe invoergegevenssets na verloop van tijd. Als u klaar bent met het opnieuw trainen, die u wilt de scoringwebservice bijwerken met het retrained ML-model. De gebruikelijke stappen voor het inschakelen van Azure ML-modellen voor retraining en bij te werken via webservices zijn:

@@ -1,12 +1,11 @@
 ---
-title: Voorbeeld van Azure-toepassing voor gebruik met DMZ's | Microsoft Docs
+title: Voorbeeld van Azure-toepassing voor gebruik met DMZ 's
+titlesuffix: Azure Virtual Network
 description: Deze eenvoudige web-App na het maken van een DMZ voor het testen van scenario's voor verkeer stroom implementeren
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f299665168e1dfca223c5cab7ba0e0f2767a50ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866846"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021421"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Voorbeeldtoepassing voor gebruik met DMZ 's
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -156,7 +155,7 @@ Met dit script stelt u de back-end voor deze eenvoudige toepassing. Met dit scri
 5. Verbeterde beveiliging van Internet Explorer om toe te staan eenvoudiger kunt bladeren vanaf deze server uitschakelen 
 
 > [!IMPORTANT]
-> **Best Practice**: nooit verbeterde beveiliging van Internet Explorer uitschakelen op een productieserver, plus het is doorgaans een goed idee surfen op Internet vanaf een productieserver. Openen van bestandsshares voor anonieme toegang is ook een goed idee, maar gedaan hier voor het gemak.
+> **Best Practice**: Verbeterde beveiliging van Internet Explorer nooit uitschakelen op een productieserver, plus het is doorgaans een goed idee surfen op Internet vanaf een productieserver. Openen van bestandsshares voor anonieme toegang is ook een goed idee, maar gedaan hier voor het gemak.
 > 
 > 
 

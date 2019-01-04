@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 600bec9e4cfe356dcd28d489707d20ab47f5b013
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 62ee1c880987d0f9ad358f1a0d31af4a73263725
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753639"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017970"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -28,7 +28,7 @@ Functions ook heeft [geïntegreerde bewaking die geen gebruik maakt van Applicat
 
 ## <a name="application-insights-pricing-and-limits"></a>Prijzen van Application Insights en limieten
 
-U kunt gratis Application Insights-integratie met de functie-Apps uitproberen. Er is echter een dagelijkse limiet voor de hoeveelheid gegevens kan gratis worden verwerkt, en u deze limiet tijdens het testen mogelijk bereikt. Als uw dagelijkse limiet bijna is bereikt, biedt Azure portal en e-mailmeldingen.  Maar als u deze waarschuwingen mist en de limiet bereikt, nieuwe logboeken wordt niet weergegeven in Application Insights-query's. Dus rekening houden met de limiet om te voorkomen dat onnodig tijd voor het oplossen van problemen. Zie voor meer informatie, [beheren van prijzen en gegevensvolumes in Application Insights](../application-insights/app-insights-pricing.md).
+U kunt gratis Application Insights-integratie met de functie-Apps uitproberen. Er is echter een dagelijkse limiet voor de hoeveelheid gegevens kan gratis worden verwerkt, en u deze limiet tijdens het testen mogelijk bereikt. Als uw dagelijkse limiet bijna is bereikt, biedt Azure portal en e-mailmeldingen.  Maar als u deze waarschuwingen mist en de limiet bereikt, nieuwe logboeken wordt niet weergegeven in Application Insights-query's. Dus rekening houden met de limiet om te voorkomen dat onnodig tijd voor het oplossen van problemen. Zie voor meer informatie, [beheren van prijzen en gegevensvolumes in Application Insights](../azure-monitor/app/pricing.md).
 
 ## <a name="enable-app-insights-integration"></a>App Insights-integratie inschakelen
 
@@ -85,7 +85,7 @@ Nadat u hebt Application Insights-integratie ingesteld zoals wordt weergegeven i
 
 1. Selecteer **vernieuwen** periodiek totdat de lijst van functieaanroepen wordt weergegeven.
 
-   Het duurt tot vijf minuten voor de lijst worden weergegeven, vanwege de manier waarop de telemetriegegevens voor het batches van client voor verzending naar de server. (Deze vertraging niet van toepassing op de [Live Metrics Stream](../application-insights/app-insights-live-stream.md). Deze service maakt verbinding met de Functions-host wanneer u de pagina laadt, zodat logboeken rechtstreeks naar de pagina worden gestreamd.)
+   Het duurt tot vijf minuten voor de lijst worden weergegeven, vanwege de manier waarop de telemetriegegevens voor het batches van client voor verzending naar de server. (Deze vertraging niet van toepassing op de [Live Metrics Stream](../azure-monitor/app/live-stream.md). Deze service maakt verbinding met de Functions-host wanneer u de pagina laadt, zodat logboeken rechtstreeks naar de pagina worden gestreamd.)
 
    ![Lijst met aanroepen](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -115,7 +115,7 @@ Voor Application Insights openen vanuit een functie-app in Azure portal, selecte
 
 Zie voor meer informatie over het gebruik van Application Insights de [documentatie voor Application Insights](https://docs.microsoft.com/azure/application-insights/). In deze sectie ziet u enkele voorbeelden van hoe u gegevens weergeven in Application Insights. Als u al bekend met Application Insights bent, gaat u rechtstreeks naar [in de secties over het configureren en aanpassen van de telemetriegegevens](#configure-categories-and-log-levels).
 
-In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md), kunt u grafieken maken en waarschuwingen op basis van metrische gegevens zoals als aantal functieaanroepen, uitvoeringstijd en slagingspercentage.
+In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), kunt u grafieken maken en waarschuwingen op basis van metrische gegevens zoals als aantal functieaanroepen, uitvoeringstijd en slagingspercentage.
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -123,7 +123,7 @@ Op de [fouten](../azure-monitor/app/asp-net-exceptions.md) tabblad kunt u diagra
 
 ![Aantal mislukte processen](media/functions-monitoring/failures.png)
 
-Op de [prestaties](../application-insights/app-insights-performance-counters.md) tabblad kunt u prestatieproblemen analyseren.
+Op de [prestaties](../azure-monitor/app/performance-counters.md) tabblad kunt u prestatieproblemen analyseren.
 
 ![Prestaties](media/functions-monitoring/performance.png)
 
@@ -131,7 +131,7 @@ De **Servers** tabblad bevat Resourcegebruik en doorvoer per server. Deze gegeve
 
 ![Servers](media/functions-monitoring/servers.png)
 
-De [Live Metrics Stream](../application-insights/app-insights-live-stream.md) tabblad bevat metrische gegevens zoals deze is gemaakt in realtime.
+De [Live Metrics Stream](../azure-monitor/app/live-stream.md) tabblad bevat metrische gegevens zoals deze is gemaakt in realtime.
 
 ![Livestream](media/functions-monitoring/live-stream.png)
 
@@ -329,7 +329,7 @@ Als in de vorige sectie hebt genoteerd, combineert de runtime gegevens over de f
 
 ## <a name="configure-sampling"></a>Steekproeven configureren
 
-Application Insights is een [steekproeven](../application-insights/app-insights-sampling.md) functie die u beschermen kunt tegen het produceren van te veel telemetriegegevens op tijdstippen van de piekbelasting. Wanneer het aantal binnenkomende telemetriegegevens een opgegeven drempelwaarde overschrijdt, wordt de Application Insights willekeurig negeert een aantal inkomende objecten gestart. De standaardinstelling voor het maximum aantal items per seconde is 5. U kunt configureren van lijnen in [host.json](functions-host-json.md).  Hier volgt een voorbeeld:
+Application Insights is een [steekproeven](../azure-monitor/app/sampling.md) functie die u beschermen kunt tegen het produceren van te veel telemetriegegevens op tijdstippen van de piekbelasting. Wanneer het aantal binnenkomende telemetriegegevens een opgegeven drempelwaarde overschrijdt, wordt de Application Insights willekeurig negeert een aantal inkomende objecten gestart. De standaardinstelling voor het maximum aantal items per seconde is 5. U kunt configureren van lijnen in [host.json](functions-host-json.md).  Hier volgt een voorbeeld:
 
 ### <a name="version-2x"></a>Versie 2.x 
 
@@ -360,7 +360,7 @@ Application Insights is een [steekproeven](../application-insights/app-insights-
 ```
 
 > [!NOTE]
-> [Sampling](../application-insights/app-insights-sampling.md) is standaard ingeschakeld. Als u blijken te ontbreken gegevens, moet u mogelijk alleen de steekproeven-instellingen voor uw specifieke scenario bewaking aanpassen.
+> [Sampling](../azure-monitor/app/sampling.md) is standaard ingeschakeld. Als u blijken te ontbreken gegevens, moet u mogelijk alleen de steekproeven-instellingen voor uw specifieke scenario bewaking aanpassen.
 
 ## <a name="write-logs-in-c-functions"></a>Schrijven Logboeken in C#-functies
 

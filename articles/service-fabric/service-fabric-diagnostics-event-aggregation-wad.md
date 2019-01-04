@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232491"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002396"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Nu dat u bij het samenvoegen van gebeurtenissen in Azure Storage, [Log Analytics
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>De extensie voor diagnostische gegevens via Azure Resource Manager implementeren
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Een cluster maken met de extensie voor diagnostische gegevens
-Voor het maken van een cluster met behulp van Resource Manager, moet u de configuratie van diagnostische JSON naar de volledige Resource Manager-sjabloon toevoegen voordat u het cluster maakt. Wij bieden een voorbeeld van vijf VM-cluster Resource Manager-sjabloon met configuratie van diagnostische toegevoegd als onderdeel van onze voorbeelden Resource Manager-sjabloon. U kunt het zien op deze locatie in de galerie met voorbeelden van Azure: [cluster met vijf knooppunten met een voorbeeld van diagnostische Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Voor het maken van een cluster met behulp van Resource Manager, moet u de configuratie van diagnostische JSON toevoegen aan de volledige Resource Manager-sjabloon. Wij bieden een voorbeeld van vijf VM-cluster Resource Manager-sjabloon met configuratie van diagnostische toegevoegd als onderdeel van onze voorbeelden Resource Manager-sjabloon. Op deze locatie in de galerie met voorbeelden van Azure kunt u deze bekijken: [Cluster met vijf knooppunten met een voorbeeld van diagnostische Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Als u de instelling voor diagnostische gegevens in het Resource Manager-sjabloon, open het bestand azuredeploy.json en zoeken naar **IaaSDiagnostics**. Voor het maken van een cluster met behulp van deze sjabloon, selecteert u de **implementeren in Azure** knop beschikbaar op de vorige koppeling.
 
@@ -196,24 +196,24 @@ Sinds de tabellen die is gevuld met de extensie toeneemt totdat het quotum is be
 ## <a name="log-collection-configurations"></a>Meld u verzameling configuraties
 Logboeken van extra kanalen zijn ook beschikbaar voor de verzameling, Hier volgen enkele van de meest voorkomende configuraties die kunt u in de sjabloon voor clusters die worden uitgevoerd in Azure.
 
-* Operationele kanaal - Base: Ingeschakeld op hoog niveau bewerkingen die worden uitgevoerd door de Service Fabric en het cluster, met inbegrip van gebeurtenissen voor een knooppunt te komen, een nieuwe toepassing wordt geïmplementeerd, of een upgrade terugdraaien, enzovoort. Raadpleeg voor een lijst van gebeurtenissen, [operationele kanaal gebeurtenissen](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Operationele kanaal - Base: Standaard ingeschakeld, op hoog niveau bewerkingen die worden uitgevoerd door de Service Fabric en het cluster, met inbegrip van gebeurtenissen voor een knooppunt te komen, een nieuwe toepassing wordt geïmplementeerd of een upgrade terugdraaien, enzovoort. Raadpleeg voor een lijst van gebeurtenissen, [operationele kanaal gebeurtenissen](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Operationele kanaal - beschreven: Dit omvat statusrapporten en taakverdeling beslissingen, plus alles in de basis operationele kanaal. Deze gebeurtenissen worden gegenereerd door het systeem of uw code met behulp van de status of API's van reporting zoals load [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) of [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000008 ' aan de lijst van ETW-providers.
+* Operationele kanaal - beschreven: Dit omvat beslissingen, plus alles in de basis operationele kanaal voor taakverdeling en statusrapporten. Deze gebeurtenissen worden gegenereerd door het systeem of uw code met behulp van de status of API's van reporting zoals load [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) of [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000008 ' aan de lijst van ETW-providers.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Gegevens en Messaging, kanaal - Base: essentiële logboeken en gebeurtenissen die worden gegenereerd in de berichten (momenteel alleen de ReverseProxy) en het gegevenspad, ook naar kanaal met gedetailleerde operationele Logboeken. Deze gebeurtenissen zijn fouten en andere belangrijke problemen in de ReverseProxy verwerking van aanvragen, evenals aanvragen verwerkt. **Dit is onze aanbeveling voor uitgebreide logboekregistratie**. Als u wilt deze gebeurtenissen in Visual Studio diagnostische logboeken weergeven, toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000010 ' aan de lijst van ETW-providers.
+* Wanneer u gegevens en Berichtenkanaal: Kritieke logboeken en gebeurtenissen die worden gegenereerd in de berichten (momenteel alleen de ReverseProxy) en het gegevenspad, ook naar kanaal met gedetailleerde operationele Logboeken. Deze gebeurtenissen zijn fouten en andere belangrijke problemen in de ReverseProxy verwerking van aanvragen, evenals aanvragen verwerkt. **Dit is onze aanbeveling voor uitgebreide logboekregistratie**. Als u wilt deze gebeurtenissen in Visual Studio diagnostische logboeken weergeven, toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000010 ' aan de lijst van ETW-providers.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Gegevens & Messaging, kanaal - gedetailleerde: uitgebreide kanaal waarin alle niet-kritieke logboeken van gegevens en berichten in het cluster en de gedetailleerde operationele kanaal is opgenomen. Voor gedetailleerde probleemoplossing voor alle omgekeerde proxy gebeurtenissen, verwijzen naar de [omgekeerde proxy diagnostics handleiding](service-fabric-reverse-proxy-diagnostics.md).  Als u wilt deze gebeurtenissen in Visual Studio diagnostische logboeken weergeven, toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000020 ' aan de lijst van ETW-providers.
+* Gegevens & Berichtenkanaal - beschreven: Uitgebreide kanaal met alle niet-kritieke logboeken van gegevens en berichten in het cluster en de gedetailleerde operationele kanaal. Voor gedetailleerde probleemoplossing voor alle omgekeerde proxy gebeurtenissen, verwijzen naar de [omgekeerde proxy diagnostics handleiding](service-fabric-reverse-proxy-diagnostics.md).  Als u wilt deze gebeurtenissen in Visual Studio diagnostische logboeken weergeven, toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000020 ' aan de lijst van ETW-providers.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"

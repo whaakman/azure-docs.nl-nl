@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27686cf036f69a9a4597c499e9b8b7d66d77e1e9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055688"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019670"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Geavanceerde JSON-transformaties met Liquid-sjablonen in Azure Logic Apps uitvoeren
 
@@ -34,7 +34,7 @@ Dus voordat u een Liquid transformatie in uw logische app uitvoeren kunt, defini
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Liquid sjabloon of de kaart voor uw integratie-account maken
 
 1. In dit voorbeeld maakt de voorbeeldsjabloon vloeistof die worden beschreven in deze stap.
-Als u geen filters gebruiken in uw Liquid sjabloon wilt, zorg er dan voor dat deze filters beginnen met hoofdletters. Meer informatie over [vloeistof filters](https://shopify.github.io/liquid/basics/introduction/#filters). 
+Als u geen filters gebruiken in uw Liquid sjabloon wilt, zorg er dan voor dat deze filters beginnen met hoofdletters. Meer informatie over [vloeistof filters](https://shopify.github.io/liquid/basics/introduction/#filters), welke gebruik [DotLiquid](https://dotliquidmarkup.org/) en C# naamconventies.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -80,7 +80,7 @@ Als u geen filters gebruiken in uw Liquid sjabloon wilt, zorg er dan voor dat de
 
 2. In de Logic App Designer voegen de [aanvraagtrigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) aan uw logische app.
 
-3. Kies onder de trigger **nieuwe stap**. Typ in het zoekvak 'vloeistof' als filter en selecteer deze actie: **JSON transformeren naar JSON - vloeistof**
+3. Kies onder de trigger **nieuwe stap**. Typ 'vloeistof' als filter in het zoekvak en selecteer deze actie: **JSON transformeren naar JSON - vloeistof**
 
    ![Zoek en selecteer Liquid actie](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -121,7 +121,7 @@ Vloeistof is niet beperkt tot alleen JSON-transformaties. Hier volgen andere act
   
    ![Van voorbeelduitvoer-JSON naar tekst](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
-* Transformeer XML in JSON
+* XML naar JSON transformeren
   
   Hier volgt de Liquid sjabloon die wordt gebruikt voor dit voorbeeld:
    

@@ -1,13 +1,10 @@
 ---
-title: Maak een Azure virtual network peering - Resource Manager - verschillende abonnementen | Microsoft Docs
+title: Maak een Azure virtual network peering - Resource Manager - verschillende abonnementen
+titlesuffix: Azure Virtual Network
 description: Informatie over het maken van een virtueel netwerk dat peering tussen virtuele netwerken die zijn gemaakt via Resource Manager en die aanwezig zijn in verschillende Azure-abonnementen.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727474"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014961"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Maak een virtueel-netwerkpeering - Resource Manager, verschillende abonnementen
 
@@ -53,7 +50,7 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
     - **Adresruimte**: *10.0.0.0/16*
     - **Subnetnaam**: *standaard*
     - **Subnetadresbereik**: *10.0.0.0/24*
-    - **Abonnement**: Selecteer abonnement A.
+    - **Abonnement**: Selecteer A.-abonnement
     - **Resourcegroep**: Selecteer **nieuw** en voer *myResourceGroupA*
     - **Locatie**: *VS-Oost*
 4. In de **zoeken naar resources** vak aan de bovenkant van de portal, type *myVnetA*. Selecteer **myVnetA** wanneer deze wordt weergegeven in de lijst met zoekresultaten. 
@@ -70,7 +67,7 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
     - **Adresruimte**: *10.1.0.0/16*
     - **Subnetnaam**: *standaard*
     - **Subnetadresbereik**: *10.1.0.0/24*
-    - **Abonnement**: Selecteer abonnement B.
+    - **Abonnement**: Abonnement selecteren B.
     - **Resourcegroep**: Selecteer **nieuw** en voer *myResourceGroupB*
     - **Locatie**: *VS-Oost*
 
@@ -84,10 +81,10 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
 20. Onder **myVnetA - Peerings**, selecteer **+ toevoegen**
 21. Onder **Add peering**, invoeren, of selecteert, de volgende opties, en selecteer vervolgens **OK**:
      - **Name**: *myVnetAToMyVnetB*
-     - **Virtueel netwerk implementatiemodel**: Selecteer **Resource Manager**.
-     - **Ik weet mijn resource-ID**: Schakel dit selectievakje in.
+     - **Virtueel netwerk implementatiemodel**:  Selecteer **Resource Manager**.
+     - **Ik weet mijn resource-ID**: schakel dit selectievakje in.
      - **Resource-ID**: Geef de resource-ID uit stap 14.
-     - **Toestaan van toegang tot het virtuele netwerk:** ervoor te zorgen dat **ingeschakeld** is geselecteerd.
+     - **Toegang tot het virtuele netwerk toestaan:** Zorg ervoor dat **ingeschakeld** is geselecteerd.
     Er zijn geen andere instellingen worden gebruikt in deze zelfstudie. Lees voor meer informatie over alle instellingen van peering, [virtueel-netwerkpeerings beheren](virtual-network-manage-peering.md#create-a-peering).
 22. Enkele ogenblikken na het selecteren van de peering die u hebt gemaakt weergegeven **OK** in de vorige stap. **Gestart** wordt vermeld in de **PEERINGSTATUS** kolom voor de **myVnetAToMyVnetB** u peering gemaakt. U myVnetA naar myVnetB hebt gekoppeld, maar u moet nu myVnetB naar myVnetA koppelen. De peering moet worden gemaakt in beide richtingen om in te schakelen van resources in de virtuele netwerken met elkaar communiceren.
 23. Meld u af bij de portal aan als UserA en aanmelden als gebruiker b.
@@ -95,8 +92,8 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
 25. Een paar seconden na het selecteren van **OK** de peering voor myVnetB, maken de **myVnetBToMyVnetA** peering dat u zojuist hebt gemaakt wordt weergegeven met de **verbonden** in de **PEERINGSTATUS** kolom.
 26. Meld u af bij de portal aan als UserB en aanmelden als gebruiker a.
 27. Volg de stappen 17-19 nogmaals. De **PEERINGSTATUS** voor de **myVnetAToVNetB** peering is nu er ook **verbonden**. De peering wordt tot stand gebracht nadat er **verbonden** in de **PEERINGSTATUS** kolom voor beide virtuele netwerken in de peering. Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn niet de resources in de virtuele netwerken kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-28. **Optionele**: hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-29. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in de [resources verwijderen](#delete-portal) sectie van dit artikel.
+28. **Optionele**: Hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+29. **Optionele**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in de [resources verwijderen](#delete-portal) sectie van dit artikel.
 
 ## <a name="cli"></a>Maken van de peering - Azure CLI
 
@@ -173,8 +170,8 @@ In plaats van de CLI en de bijbehorende afhankelijkheden installeren, kunt u de 
     > [!NOTE]
     > De peering is niet tot stand gebracht totdat de status van de peering is **verbonden** voor beide virtuele netwerken.
 
-11. **Optionele**: hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-12. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in [resources verwijderen](#delete-cli) in dit artikel.
+11. **Optionele**: Hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+12. **Optionele**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in [resources verwijderen](#delete-cli) in dit artikel.
 
 Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn niet de resources in de virtuele netwerken kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
  
@@ -243,8 +240,8 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 
     Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn niet de resources in de virtuele netwerken kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-13. **Optionele**: hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-14. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in [resources verwijderen](#delete-powershell) in dit artikel.
+13. **Optionele**: Hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+14. **Optionele**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in [resources verwijderen](#delete-powershell) in dit artikel.
 
 ## <a name="template"></a>Maken van de peering - Resource Manager-sjabloon
 
@@ -285,11 +282,11 @@ Als de virtuele netwerken zich in verschillende abonnementen en de abonnementen 
 
 3. Meld u aan bij Azure als UserA en implementeer de sjabloon met behulp van de [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), of de [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Geef de naam van het bestand dat u de voorbeeld-json-tekst in stap 2 opgeslagen.
 4. De voorbeeld-json uit stap 2 naar een bestand op uw computer kopiëren en wijzigingen aanbrengen aan de regels die met beginnen:
-    - **naam**: wijziging *myVnetA/myVnetAToMyVnetB* naar *myVnetB/myVnetBToMyVnetA*.
-    - **id**: Vervang `<subscription ID>` met de abonnements-ID en het wijzigen van de gebruiker b *myVnetB* naar *myVnetA*.
+    - **Naam**: Wijziging *myVnetA/myVnetAToMyVnetB* naar *myVnetB/myVnetBToMyVnetA*.
+    - **Id**: Vervang `<subscription ID>` met de abonnements-ID en het wijzigen van de gebruiker b *myVnetB* naar *myVnetA*.
 5. Stap 3 van de volledige opnieuw aangemeld bij Azure als gebruiker b.
-6. **Optionele**: hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-7. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in de [resources verwijderen](#delete) sectie van dit artikel, met behulp van de Azure-portal, PowerShell of Azure CLI.
+6. **Optionele**: Hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+7. **Optionele**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in de [resources verwijderen](#delete) sectie van dit artikel, met behulp van de Azure-portal, PowerShell of Azure CLI.
 
 ## <a name="delete"></a>Resources verwijderen
 Wanneer u deze zelfstudie hebt voltooid, is het raadzaam om de resources die u in de zelfstudie hebt gemaakt, zodat er geen kosten voor het gebruik te verwijderen. Als u een resourcegroep verwijdert, verwijdert u ook alle resources die zich in de resourcegroep.

@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050349"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021829"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filteren van activiteit in Azure Data Factory
-U kunt een activiteit Filter gebruiken in een pijplijn een filterexpressie toepassen op een invoermatrix. 
+U kunt een filteractiviteit in een pijplijn gebruiken een filterexpressie toepassen op een invoermatrix. 
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -38,16 +37,16 @@ U kunt een activiteit Filter gebruiken in een pijplijn een filterexpressie toepa
 
 ## <a name="type-properties"></a>Type-eigenschappen
 
-Eigenschap | Beschrijving | Toegestane waarden | Vereist
+Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | Naam van de `Filter` activiteit. | Reeks | Ja
 type | Moet worden ingesteld op **filter**. | Reeks | Ja
-voorwaarde | De voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
+voorwaarde | Voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
 items | De invoermatrix waarop filter moet worden toegepast. | Expressie | Ja
 
 ## <a name="example"></a>Voorbeeld
 
-In dit voorbeeld wordt de pijplijn heeft twee activiteiten: **Filter** en **ForEach**. De activiteit van het Filter is geconfigureerd voor het filteren van de invoermatrix voor items met een waarde groter is dan 3. De ForEach-activiteit vervolgens doorloopt over de gefilterde waarden en wordt gewacht op het aantal seconden dat is opgegeven door de huidige waarde.
+In dit voorbeeld heeft de pijplijn twee activiteiten: **Filter** en **ForEach**. De Filter-activiteit is geconfigureerd voor het filteren van de invoermatrix voor artikelen met een waarde die groter is dan 3. De ForEach-activiteit doorloopt over de gefilterde waarden vervolgens en wacht tot het aantal seconden dat is opgegeven door de huidige waarde.
 
 ```json
 {

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 82187a99fc8009096127cca624698e1329e5d13b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975523"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002277"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -34,7 +34,7 @@ Om te kunnen krijgen observability binnen uw gehele omgeving, moet u inschakelen
 - [Met Azure DevOps Projects](../devops-project/overview.md) een vereenvoudigde ervaring met uw bestaande code en Git-opslagplaats, of kies een van de voorbeeldtoepassingen te maken van een pijplijn voor continue integratie (CI) en continue levering (CD) naar Azure.
 - [Doorlopende bewaking in uw DevOps-release-pijplijn](../application-insights/app-insights-vsts-continuous-monitoring.md) kunt u poort of terugdraaien van de implementatie aanpassen aan de gegevens te controleren.
 - [Statusmonitor](../azure-monitor/app/monitor-performance-live-website-now.md) kunt u het instrumenteren van een live .NET-app op Windows met Azure Application Insights, zonder te hoeven wijzigen of opnieuw implementeren van uw code.
-- Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../application-insights/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), of [andere programmeertalen](../application-insights/app-insights-platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
+- Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../application-insights/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), of [andere programmeertalen](../azure-monitor/app/platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
 
 
 

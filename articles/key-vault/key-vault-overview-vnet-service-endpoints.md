@@ -1,21 +1,21 @@
 ---
 ms.assetid: ''
-title: Virtual network-service-eindpunten voor Azure Key Vault | Microsoft Docs
+title: Virtual network-service-eindpunten voor Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Overzicht van virtual network-service-eindpunten voor Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681514"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002418"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Virtual network-service-eindpunten voor Azure Key Vault
 
@@ -31,6 +31,7 @@ U kunt configureren [Key Vault-firewalls en virtuele netwerken](key-vault-networ
 > Key Vault-firewalls en virtuele netwerkregels alleen van toepassing op de [gegevenslaag](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) van Key Vault. Key Vault bewerkingen voor de controlelaag (zoals maken, verwijderen en aanpassen van bewerkingen, instellen van toegangsbeleid, instelling firewalls en virtuele netwerkregels) worden niet beïnvloed door firewalls en virtual network-regels.
 
 Hier volgen enkele voorbeelden van hoe u service-eindpunten kunt gebruiken:
+
 * U Key Vault gebruikt voor het opslaan van versleutelingssleutels en toepassingsgeheimen certificaten, en u wilt blokkeren van toegang tot uw key vault via het openbare internet.
 * U kunt toegang tot uw key vault vergrendelen zodat alleen uw toepassing of een korte lijst van bepaalde hosts verbinding met uw key vault maken kunt.
 * U hebt een toepassing die wordt uitgevoerd in uw Azure-netwerk en dit virtuele netwerk is vergrendeld voor alle binnenkomend en uitgaand verkeer. Uw toepassing moet nog steeds verbinding maken met Key Vault voor het ophalen van geheimen of certificaten en cryptografische sleutels te gebruiken.
@@ -38,6 +39,7 @@ Hier volgen enkele voorbeelden van hoe u service-eindpunten kunt gebruiken:
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Key Vault-firewalls en virtuele netwerken configureren
 
 Hier volgen de stappen die vereist voor het configureren van firewalls en virtuele netwerken. Deze stappen zijn van toepassing of u met PowerShell, de Azure CLI of Azure portal.
+
 1. Schakel [logboekregistratie van Key Vault](key-vault-logging.md) gedetailleerde toegang Logboeken. Dit helpt bij diagnostische gegevens, wanneer u firewalls en virtuele netwerkregels te voorkomen toegang tot een key vault dat. (Deze stap is optioneel maar ten zeerste aanbevolen.)
 2. Schakel **service-eindpunten voor key vault** voor virtuele netwerken en subnetten.
 3. Firewalls en virtuele-netwerkregels voor een key vault toegang te beperken die key vault vanuit een specifieke virtuele netwerken, subnetten en IPv4-adresbereiken instellen.
@@ -57,6 +59,7 @@ Zie voor meer informatie, [Azure Key Vault configureren van firewalls en virtuel
 > * Alleen IPv4-adressen worden ondersteund op dit moment.
 
 ## <a name="trusted-services"></a>Betrouwbare services
+
 Hier volgt een lijst van vertrouwde services die zijn toegestaan voor toegang tot een key vault als de **vertrouwde-services toestaan** optie is ingeschakeld.
 
 |Vertrouwde service|Gebruiksscenario's|

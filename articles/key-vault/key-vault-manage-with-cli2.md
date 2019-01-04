@@ -1,5 +1,5 @@
 ---
-title: Beheren van Azure Key Vault met CLI | Microsoft Docs
+title: Beheren van Azure Key Vault met behulp van CLI - Azure Key Vault | Microsoft Docs
 description: In dit artikel gebruiken voor het automatiseren van algemene taken in Key Vault met behulp van de Azure CLI
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 632620bf8140ba855198a9354fbd7e50604e18c3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256444"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000305"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
 
@@ -133,7 +133,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 
 De uitvoer van deze opdracht toont eigenschappen van de sleutelkluis die u hebt gemaakt. De twee belangrijkste eigenschappen zijn:
 
-* **naam**: In het voorbeeld is de naam van de ContosoKeyVault. U gebruikt deze naam voor andere Key Vault-opdrachten.
+* **Naam**: In het voorbeeld is de naam van de ContosoKeyVault. U gebruikt deze naam voor andere Key Vault-opdrachten.
 * **vaultUri**: In het voorbeeld wordt de URI is https://contosokeyvault.vault.azure.net. Toepassingen die via de REST API gebruikmaken van uw kluis, moeten deze URI gebruiken.
 
 Uw Azure-account is nu gemachtigd om alle bewerkingen op deze sleutelkluis uit te voeren. Vanaf nog is niemand anders gemachtigd.
@@ -228,18 +228,18 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 Gebruik [az keyvault update](/cli/azure/keyvault#az-keyvault-update) om in te schakelen Geavanceerde beleidsregels voor de key vault. 
 
- Key Vault voor implementatie inschakelen: Hiermee kunt u virtuele machines om op te halen van certificaten die zijn opgeslagen als geheimen van de kluis.
+ Key Vault voor implementatie inschakelen: Hiermee kunt virtuele machines om op te halen van certificaten die zijn opgeslagen als geheimen van de kluis.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-Key Vault inschakelen voor schijfversleuteling: vereist als u de kluis voor Azure Disk encryption.
+Key Vault voor schijfversleuteling inschakelen: Vereist als u de kluis voor Azure Disk encryption.
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-Key Vault inschakelen voor sjabloonimplementatie: Resource Manager kunt geheimen ophalen uit de kluis.
+Key Vault inschakelen voor sjabloonimplementatie: Kan Resource Manager geheimen ophalen uit de kluis.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

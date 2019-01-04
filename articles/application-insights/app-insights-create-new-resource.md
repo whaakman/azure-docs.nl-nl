@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3e642e5954a8c1154ca5b07f06f9450e4e9ee39a
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 68155b69c1122d645eca5fe121d32bd9353db2da
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807921"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002719"
 ---
 # <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
 Azure Application Insights geeft gegevens over uw toepassing in een Microsoft Azure *resource*. Het maken van een nieuwe resource maakt daarom deel uit van [Application Insights instellen voor het bewaken van een nieuwe toepassing][start]. In veel gevallen, kan het maken van een resource automatisch worden uitgevoerd door de IDE. Maar in sommige gevallen, maakt u een resource handmatig - bijvoorbeeld als afzonderlijke resources voor de ontwikkeling en productie builds van uw toepassing.
@@ -66,18 +66,18 @@ Klik op de tegel Search om te zien [diagnostische gegevens doorzoeken][diagnosti
 Als u meer gegevens verwacht, klikt u op **vernieuwen** na een paar seconden.
 
 ## <a name="creating-a-resource-automatically"></a>Het automatisch maken van een resource
-U kunt schrijven een [PowerShell-script](app-insights-powershell.md) voor het automatisch maken van een resource.
+U kunt schrijven een [PowerShell-script](../azure-monitor/app/powershell.md) voor het automatisch maken van een resource.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een dashboard maken](../azure-monitor/app/app-insights-dashboards.md)
 * [Diagnostische gegevens doorzoeken](../azure-monitor/app/diagnostic-search.md)
-* [Metrische gegevens verkennen](app-insights-metrics-explorer.md)
+* [Metrische gegevens verkennen](../azure-monitor/app/metrics-explorer.md)
 * [Analytics-query's schrijven](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
+[metrics]: ../azure-monitor/app/metrics-explorer.md
 [start]: app-insights-overview.md
 

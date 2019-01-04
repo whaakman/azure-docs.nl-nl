@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f733a321470321b5b0f8bce48b4ac7978027fab7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 193e024b4691b76b08bcbe15ace35ccafd45c394
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973465"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023444"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filteren en voorverwerking van telemetrie in Application Insights-SDK
 
 
 U kunt schrijven en configureren van plug-ins voor de Application Insights SDK om aan te passen hoe telemetrie wordt vastgelegd en voordat deze wordt verzonden naar de Application Insights-service wordt verwerkt.
 
-* [Sampling](../../application-insights/app-insights-sampling.md) reduceert de hoeveelheid telemetrie zonder gevolgen voor uw statistieken. Samen blijven gekoppeld zodat u tussen ervan navigeren kunt bij het oplossen van een probleem van gegevenspunten. In de portal worden vermenigvuldigd met het totale aantal om te compenseren voor de meting.
+* [Sampling](../../azure-monitor/app/sampling.md) reduceert de hoeveelheid telemetrie zonder gevolgen voor uw statistieken. Samen blijven gekoppeld zodat u tussen ervan navigeren kunt bij het oplossen van een probleem van gegevenspunten. In de portal worden vermenigvuldigd met het totale aantal om te compenseren voor de meting.
 * Filteren met telemetrie Processors [voor ASP.NET](#filtering) of [Java](../../azure-monitor/app/java-filter-telemetry.md) kunt u selecteren of wijzigen van telemetrie in de SDK voordat deze wordt verzonden naar de server. U kunt bijvoorbeeld de hoeveelheid telemetrie verminderen door aanvragen uitsluiten van robots. Maar filteren is een eenvoudige benadering voor het beperken van verkeer dan steekproeven. Hiermee kunt u meer controle over wat wordt verzonden, maar u moet er rekening mee dat dit van invloed op uw statistieken - bijvoorbeeld: als u alle geslaagde aanvragen filteren.
 * [Telemetrie Initializers eigenschappen toevoegen](#add-properties) aan elk telemetrie verzonden vanuit uw app, waaronder telemetrie van de standard-modules. U kunt bijvoorbeeld berekende waarden; toevoegen of versienummers waarmee de gegevens in de portal te filteren.
 * [De SDK-API](../../azure-monitor/app/api-custom-events-metrics.md) wordt gebruikt om aangepaste gebeurtenissen en metrische gegevens te verzenden.
@@ -43,7 +43,7 @@ Als u wilt filteren telemetrie, een processor telemetrie schrijven en registrere
 > [!WARNING]
 > Filteren van de telemetrie van de SDK verzonden kunt met behulp van processors scheeftrekken de statistieken die u in de portal ziet, en soms moeilijk te volgen verwante items.
 >
-> In plaats daarvan kunt u overwegen [steekproeven](../../application-insights/app-insights-sampling.md).
+> In plaats daarvan kunt u overwegen [steekproeven](../../azure-monitor/app/sampling.md).
 >
 >
 
@@ -371,5 +371,5 @@ Wat is het verschil tussen de telemetrie processors en telemetrie initializers?
 
 ## <a name="next"></a>Volgende stappen
 * [Logboeken en gebeurtenissen voor zoeken](../../azure-monitor/app/diagnostic-search.md)
-* [Steekproeven](../../application-insights/app-insights-sampling.md)
+* [Steekproeven](../../azure-monitor/app/sampling.md)
 * [Problemen oplossen](../../application-insights/app-insights-troubleshoot-faq.md)

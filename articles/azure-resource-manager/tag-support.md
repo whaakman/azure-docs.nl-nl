@@ -4,14 +4,14 @@ description: Laat zien welke typen Azure-resource bieden ondersteuning voor tags
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 12/21/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ef365cdf0a5df168c438abd0428e41200b07756c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 50ea7a2446b5560bd208b2da128fa877068ce452
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753775"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000288"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-group-using-tags.md).
@@ -24,15 +24,20 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 ## <a name="ad-hybrid-health-service"></a>Hybride AD Health-Service
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| services | Nee | 
-| addsservices | Nee | 
-| configuratie | Nee | 
-| agents | Nee | 
+| addsservices | Nee |
 | aadsupportcases | Nee | 
-| rapporten | Nee | 
-| servicehealthmetrics | Nee | 
-| logboeken | Nee | 
+| agents | Nee | 
 | anonymousapiusers | Nee | 
+| configuratie | Nee | 
+| logboeken | Nee | 
+| rapporten | Nee | 
+| services | Nee | 
+| servicehealthmetrics | Nee | 
+
+## <a name="aks"></a>AKS
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| managedClusters | Ja | 
 
 ## <a name="analysis-services"></a>Analysis Services
 | Resourcetype | Ondersteunt tags |
@@ -43,11 +48,11 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | apiManagementAccounts | Nee | 
-| apiManagementAccounts/connectionProviders | Nee | 
-| apiManagementAccounts/verbindingen | Nee | 
-| apiManagementAccounts/connectionAcls | Nee | 
-| apiManagementAccounts/connectionProviderAcls | Nee | 
 | apiManagementAccounts/API 's | Nee | 
+| apiManagementAccounts/connectionAcls | Nee | 
+| apiManagementAccounts/connectionProviders | Nee | 
+| apiManagementAccounts/connectionProviderAcls | Nee | 
+| apiManagementAccounts/verbindingen | Nee | 
 
 ## <a name="api-management"></a>API Management
 | Resourcetype | Ondersteunt tags |
@@ -58,11 +63,48 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | AutomationAccounts | Ja | 
-| automationAccounts/runbooks | Ja | 
 | automationAccounts/configuraties | Ja | 
-| automationAccounts/webhooks | Nee | 
-| automationAccounts/softwareUpdateConfigurations | Nee | 
 | automationAccounts/taken | Nee | 
+| automationAccounts/runbooks | Ja | 
+| automationAccounts/softwareUpdateConfigurations | Nee | 
+| automationAccounts/webhooks | Nee | 
+
+## <a name="azure-database-for-mariadb"></a>Azure Database for MariaDB
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| servers | Ja | 
+| servers-configuraties | Nee |
+| servers/databases | Nee |
+| servers/firewallRules | Nee |
+| servers/recoverableServers | Nee | 
+| servers/securityAlertPolicies | Nee |
+| servers/virtualNetworkRules | Nee | 
+
+## <a name="azure-database-for-mysql"></a>Azure Database for MySQL
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| servers | Ja | 
+| servers-configuraties | Nee |
+| servers/databases | Nee |
+| servers/firewallRules | Nee |
+| servers/recoverableServers | Nee | 
+| servers/securityAlertPolicies | Nee |
+| servers/virtualNetworkRules | Nee | 
+
+## <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| servers | Ja | 
+| servers/adviseurs | Nee | 
+| servers-configuraties | Nee |
+| servers/databases | Nee |
+| servers/firewallRules | Nee |
+| servers/queryTexts | Nee | 
+| servers/recoverableServers | Nee | 
+| servers/securityAlertPolicies | Nee |
+| servers/topQueryStatistics | Nee | 
+| servers/virtualNetworkRules | Nee | 
+| servers/waitStatistics | Nee | 
 
 ## <a name="batch"></a>Batch
 | Resourcetype | Ondersteunt tags |
@@ -87,12 +129,12 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 ## <a name="cdn"></a>CDN
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
+| edgenodes | Nee | 
 | Profielen | Ja | 
 | profielen/eindpunten | Ja | 
-| profielen/eindpunten/oorsprongen | Nee | 
 | profielen/eindpunten/customdomains | Nee | 
+| profielen/eindpunten/oorsprongen | Nee | 
 | validateProbe | Nee | 
-| edgenodes | Nee | 
 
 ## <a name="classic-compute"></a>Klassieke Compute
 | Resourcetype | Ondersteunt tags |
@@ -114,8 +156,8 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | virtualNetworks | Nee | 
-| virtualNetworks/virtualNetworkPeerings | Nee | 
 | virtualNetworks/remoteVirtualNetworkPeeringProxies | Nee | 
+| virtualNetworks/virtualNetworkPeerings | Nee | 
 
 ## <a name="classic-storage"></a>Klassieke opslag
 | Resourcetype | Ondersteunt tags |
@@ -127,23 +169,23 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | availabilitySets | Ja | 
-| virtuele machines | Ja | 
-| virtuele machines/extensies | Ja | 
-| virtualMachineScaleSets | Ja | 
-| virtualMachineScaleSets/extensies | Nee | 
-| virtualMachineScaleSets/virtuele machines | Nee | 
-| virtualMachineScaleSets/netwerkinterfaces | Nee | 
-| virtualMachineScaleSets/virtuele machines/netwerkinterfaces | Nee | 
-| virtualMachineScaleSets/publicIPAddresses | Nee | 
+| Schijven | Ja | 
+| images | Ja | 
 | restorePointCollections | Ja | 
 | restorePointCollections/restorePoints | Nee | 
-| virtuele machines/diagnosticSettings | Nee | 
-| virtuele machines/metricDefinitions | Nee | 
 | sharedVMImages | Ja | 
 | sharedVMImages /-versies | Ja | 
-| Schijven | Ja | 
 | momentopnamen | Ja | 
-| images | Ja | 
+| virtuele machines | Ja | 
+| virtuele machines/diagnosticSettings | Nee | 
+| virtuele machines/extensies | Ja | 
+| virtuele machines/metricDefinitions | Nee | 
+| virtualMachineScaleSets | Ja | 
+| virtualMachineScaleSets/extensies | Nee | 
+| virtualMachineScaleSets/netwerkinterfaces | Nee | 
+| virtualMachineScaleSets/publicIPAddresses | Nee | 
+| virtualMachineScaleSets/virtuele machines | Nee | 
+| virtualMachineScaleSets/virtuele machines/netwerkinterfaces | Nee | 
 
 ## <a name="container"></a>Container
 | Resourcetype | Ondersteunt tags |
@@ -155,6 +197,14 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | ------------- | ----------- |
 | containerGroups | Ja | 
 | serviceAssociationLinks | Nee | 
+
+## <a name="container-registry"></a>Container Registry
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| registers | Ja | 
+| registers/replicaties | Ja |
+| registers/taken | Ja |
+| registers/webhooks | Ja |
 
 ## <a name="container-service"></a>Container Service
 | Resourcetype | Ondersteunt tags |
@@ -177,6 +227,11 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | ------------- | ----------- |
 | Connectors | Ja | 
 
+## <a name="data-box"></a>Data Box
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| taken | Ja | 
+
 ## <a name="data-box-edge"></a>Data Box Edge
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
@@ -196,11 +251,11 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | dataFactories | Ja | 
-| factory 's | Ja | 
-| factory's / integrationRuntimes | Nee | 
 | dataFactories/diagnosticSettings | Nee | 
 | dataFactories/metricDefinitions | Nee | 
 | dataFactorySchema | Nee | 
+| factory 's | Ja | 
+| factory's / integrationRuntimes | Nee | 
 
 ## <a name="devices"></a>Apparaten
 | Resourcetype | Ondersteunt tags |
@@ -218,9 +273,24 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | Labs | Ja | 
-| Schema 's | Ja | 
-| Labs/virtuele machines | Ja | 
+| Labs/artifactsources | Ja |
+| Labs/kosten | Ja |
+| Labs/customimages | Ja |
+| Labs/formules | Ja |
+| Labs/notificationchannels | Ja |
+| policysets-Labs-beleid | Ja |
+| Labs/schema 's | Ja |
 | Labs/serviceRunners | Ja | 
+| Labs/gebruikers | Ja |
+| gebruikers-Labs-schijven | Ja |
+| gebruikers-Labs-omgevingen | Ja |
+| gebruikers-Labs-geheimen | Ja |
+| Labs/gebruikers/servicefabrics | Ja |
+| Labs/gebruikers/servicefabrics/schema 's | Ja |
+| Labs/virtuele machines | Ja | 
+| Labs/virtuele machines/schema 's | Ja |
+| Labs/virtualnetworks | Ja |
+| Schema 's | Ja | 
 
 ## <a name="dynamics-lcs"></a>Dynamics LCS
 | Resourcetype | Ondersteunt tags |
@@ -232,18 +302,23 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 ## <a name="event-grid"></a>Event Grid
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| eventSubscriptions | Nee | 
-| onderwerpen | Ja | 
 | domeinen | Ja | 
 | domeinen/onderwerpen | Nee | 
-| topicTypes | Nee | 
+| eventSubscriptions | Nee | 
 | extensionTopics | Nee | 
+| onderwerpen | Ja | 
+| topicTypes | Nee | 
 
 ## <a name="event-hub"></a>Event Hub
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Naamruimten | Ja | 
 | Clusters | Ja | 
+| Naamruimten | Ja | 
+| naamruimten/AuthorizationRules | Nee |
+| naamruimten/disasterRecoveryConfigs | Nee |
+| naamruimten/Event hubs | Nee |
+| Event hubs-naamruimten/authorizationRules | Nee |
+| Event hubs-naamruimten/consumergroups | Nee |
 
 ## <a name="hana-on-azure"></a>Hana op Azure
 | Resourcetype | Ondersteunt tags |
@@ -265,28 +340,31 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | actionGroups | Ja |
-| Onderdelen | Ja | 
-| onderdelen/query | Nee | 
-| onderdelen/metrische gegevens | Nee | 
-| onderdelen/gebeurtenissen | Nee | 
-| webtests | Ja | 
-| query's | Nee | 
-| scheduledqueryrules | Ja | 
-| onderdelen/pricingPlans | Nee | 
-| migrateToNewPricingModel | Nee | 
-| rollbackToLegacyPricingModel | Nee | 
+| activityLogAlerts | Ja |
+| alertrules | Ja |
 | automatedExportSettings | Nee | 
-| werkmappen | Ja | 
-| myWorkbooks | Nee | 
+| Onderdelen | Ja | 
+| onderdelen/gebeurtenissen | Nee | 
+| onderdelen/metrische gegevens | Nee | 
+| onderdelen/pricingPlans | Nee | 
+| onderdelen/query | Nee | 
 | logboeken | Nee | 
+| metricAlerts | Ja |
+| migrateToNewPricingModel | Nee | 
+| myWorkbooks | Nee | 
+| query's | Nee | 
+| rollbackToLegacyPricingModel | Nee | 
+| scheduledqueryrules | Ja | 
+| webtests | Ja | 
+| werkmappen | Ja | 
 
 ## <a name="key-vault"></a>Key Vault
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Kluizen | Ja | 
-| Kluizen/geheimen | Nee | 
-| kluizen/accessPolicies | Nee | 
 | deletedVaults | Nee | 
+| Kluizen | Ja | 
+| kluizen/accessPolicies | Nee | 
+| Kluizen/geheimen | Nee | 
 
 ## <a name="log-analytics"></a>Log Analytics
 | Resourcetype | Ondersteunt tags |
@@ -296,8 +374,8 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 ## <a name="logic"></a>Logica
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Werkstromen | Ja | 
 | integrationAccounts | Ja | 
+| Werkstromen | Ja | 
 
 ## <a name="machine-learning-services"></a>Machine Learning Services
 | Resourcetype | Ondersteunt tags |
@@ -310,13 +388,6 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | ------------- | ----------- |
 | Identiteiten | Nee | 
 | userAssignedIdentities | Ja | 
-
-## <a name="mariadb"></a>MariaDB
-| Resourcetype | Ondersteunt tags |
-| ------------- | ----------- |
-| servers | Ja | 
-| servers/recoverableServers | Nee | 
-| servers/virtualNetworkRules | Nee | 
 
 ## <a name="marketplace-apps"></a>Marketplace-Apps
 | Resourcetype | Ondersteunt tags |
@@ -333,64 +404,57 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | mediaservices | Ja | 
+| mediaservices/accountFilters | Nee | 
 | mediaservices/activa | Nee | 
+| activa-mediaservices/assetFilters | Nee | 
 | mediaservices/contentKeyPolicies | Nee | 
-| mediaservices/streamingLocators | Nee | 
-| mediaservices/streamingPolicies | Nee | 
 | mediaservices/eventGridFilters | Nee | 
-| mediaservices/transformaties | Nee | 
-| transformaties-mediaservices-taken | Nee | 
-| mediaservices/door | Ja | 
+| mediaservices/liveEventOperations | Nee | 
 | mediaservices/liveEvents | Ja | 
 | mediaservices/liveEvents/liveOutputs | Nee | 
-| mediaservices/streamingEndpointOperations | Nee | 
-| mediaservices/liveEventOperations | Nee | 
 | mediaservices/liveOutputOperations | Nee | 
-| activa-mediaservices/assetFilters | Nee | 
-| mediaservices/accountFilters | Nee | 
-
-## <a name="mysql"></a>MySQL
-| Resourcetype | Ondersteunt tags |
-| ------------- | ----------- |
-| servers | Ja | 
-| servers/recoverableServers | Nee | 
-| servers/virtualNetworkRules | Nee | 
+| mediaservices/door | Ja | 
+| mediaservices/streamingEndpointOperations | Nee | 
+| mediaservices/streamingLocators | Nee | 
+| mediaservices/streamingPolicies | Nee | 
+| mediaservices/transformaties | Nee | 
+| transformaties-mediaservices-taken | Nee | 
 
 ## <a name="network"></a>Netwerk
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| virtualNetworks | Ja | 
-| publicIPAddresses | Ja | 
-| Netwerkinterfaces | Ja | 
+| applicationGateways | Ja | 
+| applicationSecurityGroups | Ja | 
+| azureFirewalls | Ja | 
+| verbindingen | Ja | 
+| ddosProtectionPlans | Ja | 
+| expressRouteCircuits | Ja | 
+| frontdoors | Ja | 
+| frontdoorWebApplicationFirewallPolicies | Ja | 
 | interfaceEndpoints | Ja | 
 | load balancers | Ja | 
-| networkSecurityGroups | Ja | 
-| applicationSecurityGroups | Ja | 
-| serviceEndpointPolicies | Ja | 
+| localNetworkGateways | Ja | 
 | networkIntentPolicies | Ja | 
-| routeTables | Ja | 
-| publicIPPrefixes | Ja | 
+| Netwerkinterfaces | Ja | 
+| networkProfiles | Ja | 
+| networkSecurityGroups | Ja | 
 | networkWatchers | Ja | 
 | networkWatchers/connectionMonitors | Ja | 
 | networkWatchers/lenzen | Ja | 
 | networkWatchers/pingMeshes | Ja | 
-| virtualNetworkGateways | Ja | 
-| localNetworkGateways | Ja | 
-| verbindingen | Ja | 
-| applicationGateways | Ja | 
-| expressRouteCircuits | Ja | 
-| routeFilters | Ja | 
-| virtualWans | Ja | 
-| vpnSites | Ja | 
-| virtualHubs | Ja | 
-| vpnGateways | Ja | 
-| azureFirewalls | Ja | 
-| virtualNetworkTaps | Ja | 
 | privateLinkServices | Ja | 
-| ddosProtectionPlans | Ja | 
-| networkProfiles | Ja | 
-| frontdoors | Ja | 
-| frontdoorWebApplicationFirewallPolicies | Ja | 
+| publicIPAddresses | Ja | 
+| publicIPPrefixes | Ja | 
+| routeFilters | Ja | 
+| routeTables | Ja | 
+| serviceEndpointPolicies | Ja | 
+| virtualHubs | Ja | 
+| virtualNetworks | Ja | 
+| virtualNetworkGateways | Ja | 
+| virtualNetworkTaps | Ja | 
+| virtualWans | Ja | 
+| vpnGateways | Ja | 
+| vpnSites | Ja | 
 | webApplicationFirewallPolicies | Ja | 
 
 ## <a name="notification-hubs"></a>Notification Hubs
@@ -398,6 +462,20 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | ------------- | ----------- |
 | Naamruimten | Ja | 
 | naamruimten/notificationHubs | Ja | 
+
+## <a name="operational-insights"></a>Operational Insights
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| werkruimten | Ja |
+| werkruimten/gegevensbronnen | Ja |
+| werkruimten/linkedServices | Ja |
+| werkruimten/savedSearches | Nee |
+| werkruimten/storageInsightConfigs | Ja |
+
+## <a name="operations-management"></a>Operations Management
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| oplossingen | Nee |
 
 ## <a name="portal"></a>Portal
 | Resourcetype | Ondersteunt tags |
@@ -409,17 +487,6 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | ------------- | ----------- |
 | rootResources | Ja | 
 
-## <a name="postgresql"></a>PostgreSQL
-| Resourcetype | Ondersteunt tags |
-| ------------- | ----------- |
-| servers | Ja | 
-| servers/recoverableServers | Nee | 
-| servers/virtualNetworkRules | Nee | 
-| servers/topQueryStatistics | Nee | 
-| servers/queryTexts | Nee | 
-| servers/waitStatistics | Nee | 
-| servers/adviseurs | Nee | 
-
 ## <a name="power-bi"></a>Power BI
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
@@ -428,8 +495,8 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 ## <a name="recovery-services"></a>Recovery Services
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Kluizen | Ja | 
 | backupProtectedItems | Nee | 
+| Kluizen | Ja | 
 
 ## <a name="relay"></a>Relay
 | Resourcetype | Ondersteunt tags |
@@ -451,8 +518,8 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 ## <a name="search"></a>Search
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| searchServices | Ja | 
 | resourceHealthMetadata | Nee | 
+| searchServices | Ja | 
 
 ## <a name="security"></a>Beveiliging
 | Resourcetype | Ondersteunt tags |
@@ -495,6 +562,64 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | applicationDefinitions | Ja | 
 | jitRequests | Ja | 
 
+## <a name="sql"></a>SQL
+| Resourcetype | Ondersteunt tags |
+| ------------- | ----------- |
+| locaties/instanceFailoverGroups | Nee |
+| managedInstances | Ja |
+| managedInstances/databases | Ja |
+| managedInstances/databases/backupShortTermRetentionPolicies | Nee |
+| databases/managedInstances/schema's / kolommen/tabellen/sensitivityLabels | Nee |
+| managedInstances/databases/vulnerabilityAssessments | Nee |
+| managedInstances/databases/vulnerabilityAssessments/regels/basislijnen | Nee |
+| managedInstances/encryptionProtector | Nee |
+| managedInstances/sleutels | Nee |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Nee |
+| managedInstances/vulnerabilityAssessments | Nee |
+| servers | Ja |
+| servers/beheerders | Nee |
+| servers/adviseurs | Nee |
+| servers/auditingSettings | Nee |
+| servers/backupLongTermRetentionVaults | Nee |
+| servers/communicationLinks | Nee |
+| servers/connectionPolicies | Nee |
+| servers/databases | Ja |
+| databases-servers/adviseurs | Nee |
+| servers/databases/auditingSettings | Nee |
+| servers/databases/backupLongTermRetentionPolicies | Nee |
+| servers/databases/backupShortTermRetentionPolicies | Nee |
+| servers/databases/connectionPolicies | Nee |
+| servers/databases/dataMaskingPolicies | Nee |
+| servers/databases/dataMaskingPolicies/regels | Nee |
+| servers/databases/extendedAuditingSettings | Nee |
+| databases-servers-extensies | Nee |
+| servers/databases/geoBackupPolicies | Nee |
+| databases/servers/schema's / kolommen/tabellen/sensitivityLabels | Nee |
+| servers/databases/securityAlertPolicies | Nee |
+| servers/databases/syncGroups | Nee |
+| servers/databases/syncGroups/syncMembers | Nee |
+| servers/databases/transparentDataEncryption | Nee |
+| servers/databases/vulnerabilityAssessments | Nee |
+| servers/databases/vulnerabilityAssessments/regels/basislijnen | Nee |
+| servers/disasterRecoveryConfiguration | Nee |
+| servers/dnsAliases | Nee |
+| servers/elasticPools | Ja |
+| servers/encryptionProtector | Nee |
+| servers/extendedAuditingSettings | Nee |
+| servers/failoverGroups | Ja |
+| servers/firewallRules | Nee |
+| servers/jobAgents | Ja |
+| jobAgents-servers-referenties | Nee |
+| jobAgents-servers-taken | Nee |
+| servers/jobAgents/taken/uitvoeringen | Nee |
+| servers/jobAgents/taken/stappen | Nee |
+| servers/jobAgents/targetGroups | Nee |
+| servers/sleutels | Nee |
+| servers/securityAlertPolicies | Nee |
+| servers/syncAgents | Nee |
+| servers/virtualNetworkRules | Nee |
+| servers/vulnerabilityAssessments | Nee |
+
 ## <a name="sql-virtual-machine"></a>Virtuele machine van SQL
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
@@ -505,20 +630,20 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | ------------- | ----------- |
 | storageAccounts | Ja | 
 | storageAccounts/blobServices | Nee | 
-| storageAccounts/tableServices | Nee | 
-| storageAccounts/queueServices | Nee | 
 | storageAccounts/fileServices | Nee | 
+| storageAccounts/queueServices | Nee | 
 | storageAccounts/services | Nee | 
 | storageAccounts/services/metricDefinitions | Nee | 
+| storageAccounts/tableServices | Nee | 
 
 ## <a name="storage-sync"></a>Opslagsynchronisatieservice
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | storageSyncServices | Ja | 
+| storageSyncServices/een geregistreerde server | Nee | 
 | storageSyncServices/syncGroups | Nee | 
 | storageSyncServices/syncGroups/cloudEndpoints | Nee | 
 | storageSyncServices/syncGroups/serverEndpoints | Nee | 
-| storageSyncServices/een geregistreerde server | Nee | 
 | storageSyncServices/werkstromen | Nee | 
 
 ## <a name="storsimple"></a>Storsimple
@@ -548,53 +673,50 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | account | Ja | 
-| account of het aangevraagde project | Ja | 
 | -/ accountextensie | Ja | 
-| account | Ja | 
 | account of het aangevraagde project | Ja | 
-| -/ accountextensie | Ja | 
 
 ## <a name="web"></a>Web
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| sites/instanties | Nee | 
-| sleuven-sites-instanties | Nee | 
-| exemplaren-websites-extensies | Nee | 
-| sites/sleuven/exemplaren/extensies | Nee | 
-| publishingUsers | Nee | 
-| Valideren | Nee | 
-| sourceControls | Nee | 
-| sites/hostNameBindings | Nee | 
-| sites/domainOwnershipIdentifiers | Nee | 
-| sites/sleuven/hostNameBindings | Nee | 
+| apiManagementAccounts | Nee | 
+| apiManagementAccounts/apiAcls | Nee | 
+| apiManagementAccounts/API 's | Nee | 
+| apiManagementAccounts/API/apiAcls | Nee | 
+| apiManagementAccounts/API/connectionAcls | Nee | 
+| API's-apiManagementAccounts-verbindingen | Nee | 
+| apiManagementAccounts/API/verbindingen/connectionAcls | Nee | 
+| apiManagementAccounts/API/localizedDefinitions | Nee | 
+| apiManagementAccounts/connectionAcls | Nee | 
+| apiManagementAccounts/verbindingen | Nee | 
+| billingMeters | Nee | 
 | certificaten | Ja | 
+| connectionGateways | Ja | 
+| verbindingen | Ja | 
+| customApis | Ja | 
+| deletedSites | Nee | 
+| functions | Nee | 
+| hostingEnvironments | Ja | 
+| hostingEnvironments/metrische gegevens | Nee | 
+| hostingEnvironments/multiRolePools | Nee | 
+| hostingEnvironments/workerPools | Nee | 
+| publishingUsers | Nee | 
 | serverFarms | Ja | 
 | serverFarms/werkrollen | Nee | 
 | Sites | Ja | 
-| sites/sleuven | Ja | 
+| sites/domainOwnershipIdentifiers | Nee | 
+| sites/hostNameBindings | Nee | 
+| sites/instanties | Nee | 
+| exemplaren-websites-extensies | Nee | 
 | sites/metrische gegevens | Nee | 
-| sites/sleuven/metrische gegevens | Nee | 
 | sites/premieraddons | Ja | 
-| hostingEnvironments | Ja | 
-| hostingEnvironments/multiRolePools | Nee | 
-| hostingEnvironments/workerPools | Nee | 
-| hostingEnvironments/metrische gegevens | Nee | 
-| functions | Nee | 
-| deletedSites | Nee | 
-| apiManagementAccounts | Nee | 
-| apiManagementAccounts/verbindingen | Nee | 
-| apiManagementAccounts/connectionAcls | Nee | 
-| apiManagementAccounts/API/verbindingen/connectionAcls | Nee | 
-| apiManagementAccounts/API/connectionAcls | Nee | 
-| apiManagementAccounts/apiAcls | Nee | 
-| apiManagementAccounts/API/apiAcls | Nee | 
-| apiManagementAccounts/API 's | Nee | 
-| apiManagementAccounts/API/localizedDefinitions | Nee | 
-| API's-apiManagementAccounts-verbindingen | Nee | 
-| verbindingen | Ja | 
-| customApis | Ja | 
-| connectionGateways | Ja | 
-| billingMeters | Nee | 
+| sites/sleuven | Ja | 
+| sites/sleuven/hostNameBindings | Nee | 
+| sleuven-sites-instanties | Nee | 
+| sites/sleuven/exemplaren/extensies | Nee | 
+| sites/sleuven/metrische gegevens | Nee | 
+| sourceControls | Nee | 
+| Valideren | Nee | 
 | verifyHostingEnvironmentVnet | Nee | 
 
 ## <a name="xrm"></a>XRM

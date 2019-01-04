@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c9c9f07eab395df716a4575338f881f07d573b74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38581263"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019126"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +35,7 @@ Nu een **gegevensset** is een benoemde weergave van gegevens die gewoon verwijst
 
 Voordat u een gegevensset maakt, moet u een **gekoppelde service** uw gegevensopslag aan de data factory koppelen. Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindingsinformatie bevatten die Data Factory nodig heeft om verbinding te maken met externe bronnen. Beschouw dit niet mogelijk. de structuur van de gegevens in de gekoppelde gegevensarchieven, vertegenwoordigt de gegevensset en de gekoppelde service definieert de verbinding met de gegevensbron. Bijvoorbeeld, gekoppelde een Azure Storage-service wordt een storage-account aan de data factory. Een Azure Blob-gegevensset vertegenwoordigt de blob-container en de map in het Azure storage-account met de blobs voor invoer om te worden verwerkt.
 
-Hier volgt een voorbeeldscenario. Om gegevens te kopiëren van Blob-opslag met een SQL-database, maakt u twee gekoppelde services: Azure Storage en Azure SQL Database. Vervolgens maakt u twee gegevenssets: Azure Blob-gegevensset (die verwijst naar de gekoppelde Azure Storage-service) en Azure SQL Table-gegevensset (die verwijst naar de gekoppelde Azure SQL Database-service). De Azure Storage en de gekoppelde Azure SQL Database-services bevatten verbindingsreeksen die Data Factory tijdens runtime gebruikt verbinding maken met uw Azure Storage en Azure SQL Database, respectievelijk. De Azure Blob-gegevensset specificeert de blob-container en de blob-map met de blobs voor invoer in uw Blob storage. De Azure SQL Table-gegevensset bevat de SQL-tabel in uw SQL-database waarnaar de gegevens zijn om te worden gekopieerd.
+Hier volgt een voorbeeldscenario. Om gegevens te kopiëren van Blob-opslag met een SQL-database, moet u twee gekoppelde services maken: Azure Storage en Azure SQL-Database. Vervolgens maakt u twee gegevenssets: Azure Blob-gegevensset (die verwijst naar de gekoppelde Azure Storage-service) en Azure SQL Table-gegevensset (die verwijst naar de gekoppelde Azure SQL Database-service). De Azure Storage en de gekoppelde Azure SQL Database-services bevatten verbindingsreeksen die Data Factory tijdens runtime gebruikt verbinding maken met uw Azure Storage en Azure SQL Database, respectievelijk. De Azure Blob-gegevensset specificeert de blob-container en de blob-map met de blobs voor invoer in uw Blob storage. De Azure SQL Table-gegevensset bevat de SQL-tabel in uw SQL-database waarnaar de gegevens zijn om te worden gekopieerd.
 
 Het volgende diagram toont de relaties tussen de pijplijn, activiteit, gegevensset en gekoppelde service in Data Factory:
 
@@ -63,7 +62,7 @@ Een gekoppelde service in Data Factory wordt in JSON-indeling als volgt gedefini
 
 De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
-Eigenschap | Beschrijving | Vereist |
+Eigenschap | Description | Vereist |
 -------- | ----------- | -------- |
 naam | De naam van de gekoppelde service. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
 type | Het type van de gekoppelde service. Bijvoorbeeld: AzureStorage (gegevensopslag) of AzureBatch (rekenen). Zie de beschrijving voor typeProperties. | Ja |
@@ -120,12 +119,12 @@ Een gegevensset in Data Factory wordt in JSON-indeling als volgt gedefinieerd:
 ```
 De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
-Eigenschap | Beschrijving | Vereist |
+Eigenschap | Description | Vereist |
 -------- | ----------- | -------- |
 naam | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
 type | Het type van de gegevensset. Geef een van de typen die worden ondersteund door Data Factory (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie, [gegevenssettypen](#dataset-type). | Ja |
 structuur | Het schema van de gegevensset. Zie voor meer informatie, [gegevenssetstructuur](#dataset-structure). | Nee |
-typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure-Blob, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#dataset-type). | Ja |
+typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob-, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#dataset-type). | Ja |
 
 ## <a name="dataset-example"></a>Voorbeeld van de gegevensset
 In het volgende voorbeeld vertegenwoordigt de gegevensset een tabel met de naam MyTable in een SQL-database.
@@ -186,12 +185,12 @@ De **structuur** sectie is optioneel. Het schema van de gegevensset wordt gedefi
 
 Elke kolom in de structuur bevat de volgende eigenschappen:
 
-Eigenschap | Beschrijving | Vereist
+Eigenschap | Description | Vereist
 -------- | ----------- | --------
 naam | Naam van de kolom. | Ja
-type | Het gegevenstype van de kolom. Data Factory ondersteunt de volgende gegevenstypen van de tussentijdse als toegestane waarden: **Int16, Int32, Int64, één, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, datum/tijd, Datetimeoffset en Timespan** | Nee
+type | Het gegevenstype van de kolom. Data Factory ondersteunt de volgende tijdelijke gegevenstypen als toegestane waarden: **Int16, Int32 Int64, één, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, datum/tijd, Datetimeoffset en Timespan** | Nee
 cultuur | . NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee
-indeling | Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee
+Indeling | Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee
 
 ### <a name="example"></a>Voorbeeld
 Stel in het volgende voorbeeld wordt de bron-Blob-gegevens is CSV-indeling en bevat drie kolommen: gebruikers-id, naam en lastlogindate. Ze zijn van het type Int64, tekenreeks en datum/tijd met een aangepaste datum / tijdindeling met behulp van Franse afkortingen voor de dag van de week.

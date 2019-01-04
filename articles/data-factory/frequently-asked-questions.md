@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024090"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Data Factory.  
@@ -50,7 +49,7 @@ Data Factory biedt vrijheid om modellen te alle stroomstijlen die is vereist voo
 - Deltastromen:
     - Gebruik parameters en geef de bovengrens op voor deltakopieerbewerkingen tijdens het verplaatsen van dimensie of verwijzingstabellen in een relationele opslagplaats, on-premises of in de cloud, met de gegevens in de lake laden. 
 
-Zie voor meer informatie, [zelfstudie: stromen beheren](tutorial-control-flow.md).
+Zie [Zelfstudie: Stromen beheren](tutorial-control-flow.md).
 
 ### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transformeer uw gegevens op schaal met code gratis pijplijnen
 De nieuwe ervaring voor de browser gebaseerde hulpprogramma's biedt zonder code pijplijn ontwerpen en implementeren met een moderne, interactieve webgebaseerde ervaring bieden.
@@ -60,7 +59,7 @@ Voor visuele gegevens ontwikkelaars en data-engineers is de ADF-Webgebruikersint
 ### <a name="rich-cross-platform-sdks-for-advanced-users"></a>Uitgebreide cross-platform-SDK's voor ervaren gebruikers
 Als u een ervaren gebruiker bent en op zoek naar een programma-interface, ADF V2 een uitgebreide set SDK's die kunnen worden gebruikt voor het ontwerpen biedt, beheren, bewaken van pijplijnen met behulp van uw favoriete IDE
 1.  Python-SDK
-2.  PowerShell-CLI
+2.  Powershell CLI
 3.  C# SDK gebruikers kunnen ook gebruikmaken van de gedocumenteerde REST API's om de interface met ADF V2
 
 ### <a name="iterative-development-and-debugging-using-visual-tools"></a>Iteratieve ontwikkeling en foutopsporing met visual tools
@@ -92,9 +91,9 @@ Data Factory heeft de volgende functies toegevoegd voor SSIS sinds de eerste ope
 ## <a name="what-is-integration-runtime"></a>Wat is een integratieruntime?
 De integratieruntime is de rekeninfrastructuur die door Azure Data Factory wordt gebruikt voor de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen:
 
-- **Gegevensverplaatsing**: voor gegevensverplaatsing verplaatst Integration Runtime de gegevens tussen de bron- en doelserver, terwijl er ondersteuning wordt geboden voor ingebouwde connectors, Indelingsconversie, kolomtoewijzing en goed presterende en schaalbare gegevensoverdracht.
-- **Verzending van activiteiten**: voor transformatie biedt Integration Runtime de mogelijkheid voor het uitvoeren van systeemeigen SSIS-pakketten bevatten.
-- **Uitvoeren van SSIS-pakketten**: systeemeigen SSIS-pakketten in een beheerde Azure compute-omgeving wordt uitgevoerd. Integration Runtime biedt ook ondersteuning voor transformatieactiviteiten voor verzending en bewaking die worden uitgevoerd in diverse compute-services zoals Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server en meer.
+- **Gegevensverplaatsing**: Voor gegevensverplaatsing verplaatst Integration Runtime de gegevens tussen de bron- en doelgegevensarchieven, terwijl er ondersteuning wordt geboden voor ingebouwde connectors, indelingsconversie, kolomtoewijzing en goed presterende en schaalbare gegevensoverdracht.
+- **Verzending van activiteiten**: Voor transformatie biedt Integration Runtime de mogelijkheid om intern SSIS-pakketten uit te voeren.
+- **Uitvoeren van SSIS-pakketten**: Systeemeigen uitvoert SSIS-pakketten in een beheerde Azure compute-omgeving. Integration Runtime biedt ook ondersteuning voor transformatieactiviteiten voor verzending en bewaking die worden uitgevoerd in diverse compute-services zoals Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server en meer.
 
 U kunt een of meer instanties van integratieruntime implementeren die nodig is om de verplaatsing en transformatie van gegevens. Integratieruntime kan worden uitgevoerd op een openbare Azure-netwerk of op een particulier netwerk (on-premises, Azure Virtual Network of Amazon Web Services virtual private cloud [VPC]). 
 
@@ -179,5 +178,5 @@ U kunt de `@coalesce` maken in de expressies voor het afhandelen van null-waarde
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van een data factory:
 
-- [Snelstartgids: Een data factory maken](quickstart-create-data-factory-dot-net.md)
-- [Zelfstudie: Gegevens kopiëren in de cloud](tutorial-copy-data-dot-net.md)
+- [Snelstart: Een data factory maken](quickstart-create-data-factory-dot-net.md)
+- [Zelfstudie: Kopiëren van gegevens in de cloud](tutorial-copy-data-dot-net.md)

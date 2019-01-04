@@ -7,12 +7,12 @@ author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957586"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999438"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitor en fouten opsporen met metrische gegevens in Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Een doorvoer ongelijke verdeling kan ertoe leiden dat *hot* partities, die kunne
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Bepalen van de opslag-distributie over meerdere partities
 
-Met een goede kardinaliteit van de partitie is essentieel voor elke schaalbare toepassing. Om te bepalen van de distributie van de doorvoer van een gepartitioneerde container onderverdeeld op basis van partities, Ga naar de blade met metrische gegevens in de [Azure-portal](https://portal.azure.com). Op het tabblad doorvoer wordt de uitsplitsing van de opslag weergegeven in het maximum aantal verbruikte RU/seconde per elke fysieke partitie-grafiek. De volgende afbeelding ziet u een slechte verdeling van gegevens zoals aangegeven in de ongelijke partitie aan de linkerkant.
+Met een goede kardinaliteit van de partitie is essentieel voor elke schaalbare toepassing. Om te bepalen van de distributie van de opslag van een gepartitioneerde container onderverdeeld op basis van partities, Ga naar de blade met metrische gegevens in de [Azure-portal](https://portal.azure.com). In het tabblad opslag de uitsplitsing van de opslag wordt weergegeven in de gegevens + opslag die door de bovenste partitie sleutels grafiek Index. De volgende afbeelding ziet u een slechte verdeling van de gegevensopslag zoals aangegeven in de ongelijke partitie aan de linkerkant.
 
 ![Voorbeeld van slechte gegevensdistributie](media/use-metrics/metrics-07.png)
 

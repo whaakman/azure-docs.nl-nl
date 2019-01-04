@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2c5a584bd5c235eb143c8e1911006aa6e142ff0d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4aae44745981951fa61836fe52d8d6b799c6cadf
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605633"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001512"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
 ML-Services op HDInsight kunt u een verscheidenheid aan oplossingen voor opslag gebruiken om vast te leggen van gegevens, code of objecten die bevatten de resultaten van analyse. Deze omvatten de volgende opties:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake-opslag](https://azure.microsoft.com/services/data-lake-store/)
+- [Azure Data Lake-opslag](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure File storage](https://azure.microsoft.com/services/storage/files/)
 
 U hebt ook de mogelijkheid om toegang tot meerdere Azure storage-accounts of containers met uw HDInsight-cluster. Azure File storage is een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt waarmee u een Azure Storage file share koppelen voor, bijvoorbeeld, het Linux-bestandssysteem. Maar Azure-bestandsshares kunnen worden gekoppeld en die worden gebruikt door een systeem met een ondersteund besturingssysteem, zoals Windows of Linux. 

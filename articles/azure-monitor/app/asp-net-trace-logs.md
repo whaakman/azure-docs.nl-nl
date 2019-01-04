@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e5e1a415ce5c5bd14a8afef41e506259555d79f6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b5cc0004edf105d8875ff83240b659e210b18e41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970250"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019942"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET-traceerlogboeken in Application Insights verkennen
 Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing, kunt u uw logboeken zijn verzonden naar hebben [Azure Application Insights][start], waar u kunt verkennen en zoeken ze. Uw logboeken wordt samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat u kunt de traces die zijn gekoppeld aan het onderhoud van elke gebruikersaanvraag identificeren en correlaties met andere gebeurtenissen en uitzonderingenrapporten.
@@ -160,7 +160,7 @@ U kunt doen, bijvoorbeeld:
 * De configuratie van deze pagina als favoriet opslaan
 
 > [!NOTE]
-> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, stuurt de functie voor adaptieve steekproeven mogelijk slechts een percentage van uw telemetrie. [Meer informatie over steekproeven.](../../application-insights/app-insights-sampling.md)
+> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, stuurt de functie voor adaptieve steekproeven mogelijk slechts een percentage van uw telemetrie. [Meer informatie over steekproeven.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,7 +194,7 @@ Soms duurt het even voor alle gebeurtenissen en aanvragen voor het ophalen via d
 Diverse factoren van invloed zijn op de hoeveelheid gegevens die worden bewaard. Zie de [limieten](../../azure-monitor/app/api-custom-events-metrics.md#limits) sectie van de metrische gegevens klantpagina voor meer informatie. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Ik zie niet sommige van de logboekvermeldingen die ik verwacht
-Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, stuurt de functie voor adaptieve steekproeven mogelijk slechts een percentage van uw telemetrie. [Meer informatie over steekproeven.](../../application-insights/app-insights-sampling.md)
+Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, stuurt de functie voor adaptieve steekproeven mogelijk slechts een percentage van uw telemetrie. [Meer informatie over steekproeven.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Volgende stappen
 * [Beschikbaarheid en reactiesnelheid tests instellen][availability]

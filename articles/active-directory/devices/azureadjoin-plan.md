@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b891995fab9e7def4b9b72f8bd8630d6b7e11d27
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310365"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023853"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -113,7 +113,7 @@ Als u gebruikers in uw:
 
 - **Azure AD**, geen aanvullende installatie vereist is.
 
-[Alternatieve aanmeldings-id's](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) worden niet ondersteund in Azure AD gekoppelde apparaten. Als uw gebruikers een alternatieve aanmeldings-ID gebruikt, moet u van plan bent om over te schakelen met behulp van hun primaire UPN uit Azure AD.
+On-premises UPN's die verschillen van Azure AD UPN's worden niet ondersteund in Azure AD gekoppelde apparaten. Als uw gebruikers met een on-premises UPN, moet u van plan bent om over te schakelen met behulp van hun primaire UPN uit Azure AD.
 
 
 
@@ -167,7 +167,7 @@ De volgende secties worden de overwegingen voor verschillende soorten toepassing
 
 ### <a name="cloud-based-applications"></a>Cloud-Apps
 
-Als een toepassing wordt toegevoegd aan Azure AD-app-galerie, krijgen gebruikers eenmalige aanmelding via Azure AD gekoppelde apparaten. Er is geen aanvullende configuratie vereist. Gebruikers krijgen eenmalige aanmelding op zowel, Microsoft Edge en Chrome-browser. Voor Chrome, moet u implementeren de [Windows 10-Accounts extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Als een toepassing wordt toegevoegd aan Azure AD-app-galerie, krijgen gebruikers eenmalige aanmelding via Azure AD gekoppelde apparaten. Er is geen aanvullende configuratie vereist. Gebruikers krijgen eenmalige aanmelding op zowel, Edge en Chrome-browser. Voor Chrome, moet u implementeren de [Windows 10-Accounts extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Alle Win32-toepassingen die:
 

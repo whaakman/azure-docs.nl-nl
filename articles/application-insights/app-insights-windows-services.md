@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c23ff8a22284416a9c87750e4ca0448e0690de0e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809893"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017511"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Application Insights handmatig configureren voor .NET-toepassingen
 
@@ -138,7 +138,7 @@ Raadpleeg dit artikel voor [Probleemoplossing](../azure-monitor/app/asp-net-trou
 
 > [!NOTE]
 > Als uw app veel telemetriegegevens genereert, beperkt de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen te sturen. Gebeurtenissen die betrekking hebben op dezelfde aanvraag, worden echter als groep geselecteerd of gedeselecteerd, zodat u tussen gerelateerde gebeurtenissen kunt navigeren. 
-> [Meer informatie over steekproeven](app-insights-sampling.md).
+> [Meer informatie over steekproeven](../azure-monitor/app/sampling.md).
 > 
 > 
 

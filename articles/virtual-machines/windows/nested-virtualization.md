@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1caf8455816bd86411a75821ee33516e8aad5de3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435103"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002260"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Het inschakelen van geneste virtualisatie in een Azure-VM
 
@@ -180,3 +180,7 @@ In dit voorbeeld gebruikt u een adres binnen het bereik 192.168.0.0/24.
 
 Open uw browser en navigeer naar een webpagina in de virtuele gastmachine.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
+
+## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>Instellen van intranetverbinding voor de virtuele gastmachine
+
+Raadpleeg voor instructies over het inschakelen van transparante connectiviteit tussen Gast-VM's en virtuele Azure-machines [dit document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).

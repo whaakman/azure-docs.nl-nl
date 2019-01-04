@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969478"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021115"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -155,8 +154,8 @@ Bekijk de volgende video voor een 12 minuten durende inleiding en demonstratie v
 
 ### <a name="terminology"></a>Terminologie
 
-- **Gedeelde IR**: de oorspronkelijke zelf-hostende IR die wordt uitgevoerd op een fysieke infrastructuur.  
-- **Gekoppelde IR**: de IR die verwijst naar een andere gedeelde IR. Dit is een logische IR en maakt gebruik van de infrastructuur van een andere zelf-hostende IR (gedeeld).
+- **Gedeelde IR**: De oorspronkelijke zelf-hostende IR die wordt uitgevoerd op een fysieke infrastructuur.  
+- **Gekoppelde IR**: De IR die verwijst naar een andere gedeelde IR. Dit is een logische IR en maakt gebruik van de infrastructuur van een andere zelf-hostende IR (gedeeld).
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>De stappen op hoog niveau voor het maken van een gekoppelde zelf-hostende IR
 
@@ -220,7 +219,7 @@ Er zijn twee firewalls om te overwegen: de *bedrijfsfirewall* die worden uitgevo
 
 Op de *bedrijfsfirewall* niveau, moet u de volgende domeinen bevinden en uitgaande poorten configureren:
 
-Domeinnamen | Poorten | Beschrijving
+Domeinnamen | Poorten | Description
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443 | Gebruikt voor communicatie met de back-end data movement service
 *.core.windows.net | 443 | Gebruikt voor gefaseerd kopiëren via Azure Blob-opslag (indien geconfigureerd)
@@ -257,9 +256,9 @@ De zelf-hostende integratieruntime maakt gebruik van de proxy-server verbinding 
 
 Er zijn drie opties:
 
-- **Gebruik geen proxy**: de zelf-hostende integratieruntime de proxy niet expliciet gebruikt voor het verbinding maken met cloudservices.
-- **Systeemproxy gebruiken**: de zelf-hostende integratieruntime maakt gebruik van de proxy-instellingen die is geconfigureerd in diahost.exe.config en diawp.exe.config. Als er geen proxy is geconfigureerd in diahost.exe.config en diawp.exe.config, maakt de zelf-hostende integratieruntime verbinding met de cloudservice rechtstreeks zonder tussenkomst van een proxy.
-- **Aangepaste proxy gebruikt**: de HTTP-proxy-instellingen moet worden gebruikt voor de zelf-hostende integratieruntime, in plaats van configuraties in diahost.exe.config en diawp.exe.config configureren. **Adres** en **poort** zijn vereist. **Gebruikersnaam** en **wachtwoord** zijn optioneel, afhankelijk van de instelling van de verificatie van uw proxy. Alle instellingen zijn versleuteld met Windows DPAPI op de zelf-hostende integratieruntime en lokaal opgeslagen op de machine.
+- **Gebruik geen proxy**: De zelf-hostende integratieruntime niet expliciet gebruikt de proxy voor het verbinding maken met cloudservices.
+- **Systeemproxy gebruiken**: De zelf-hostende integratieruntime maakt gebruik van de proxy-instellingen die in diahost.exe.config en diawp.exe.config is geconfigureerd. Als er geen proxy is geconfigureerd in diahost.exe.config en diawp.exe.config, maakt de zelf-hostende integratieruntime verbinding met de cloudservice rechtstreeks zonder tussenkomst van een proxy.
+- **Aangepaste proxy gebruikt**: De HTTP-proxy-instellingen moet worden gebruikt voor de zelf-hostende integratieruntime, in plaats van configuraties in diahost.exe.config en diawp.exe.config configureren. **Adres** en **poort** zijn vereist. **Gebruikersnaam** en **wachtwoord** zijn optioneel, afhankelijk van de instelling van de verificatie van uw proxy. Alle instellingen zijn versleuteld met Windows DPAPI op de zelf-hostende integratieruntime en lokaal opgeslagen op de machine.
 
 De hostservice van integratieruntime wordt automatisch opnieuw opgestart nadat u de bijgewerkte proxy-instellingen hebt opgeslagen.
 
@@ -318,7 +317,7 @@ U moet ook om ervoor te zorgen dat Microsoft Azure in de lijst met toegestane ad
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Mogelijke problemen voor de firewall en proxy-server-problemen
 Als u fouten die vergelijkbaar is met de volgende query optreden, is het waarschijnlijk veroorzaakt door onjuiste configuratie van de firewall of proxy-server, waarmee de zelf-hostende integratieruntime verbinding maken met Data Factory worden geblokkeerd om zichzelf te verifiëren. Om ervoor te zorgen dat uw firewall en proxy-server correct zijn geconfigureerd, raadpleegt u de vorige sectie.
 
-* Als u probeert om de zelf-hostende integratieruntime te registreren, krijgt u de volgende fout: "is mislukt voor het registreren van dit knooppunt voor Integratieruntime. Controleer of de verificatiesleutel geldig is en de service voor integratie met Host-Service wordt uitgevoerd op deze machine."
+* Als u probeert om de zelf-hostende integratieruntime te registreren, krijgt u de volgende fout: "Is mislukt voor het registreren van dit knooppunt voor Integration Runtime. Controleer of de verificatiesleutel geldig is en de service voor integratie met Host-Service wordt uitgevoerd op deze machine."
 * Wanneer u Integration Runtime Configuration Manager opent, ziet u de status van **verbroken** of **verbinden**. Wanneer u onder Windows-gebeurtenislogboeken, bekijkt **logboeken** > **logboeken toepassingen en Services** > **Microsoft Integration Runtime**, u ziet foutberichten zoals deze:
 
     ```
@@ -345,4 +344,4 @@ Als u ervoor geen open poort 8060 op de zelf-hostende integration runtime-machin
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende zelfstudies voor stapsgewijze instructies: [zelfstudie: on-premises gegevens kopiëren naar de cloud](tutorial-hybrid-copy-powershell.md).
+Zie de volgende zelfstudies voor stapsgewijze instructies: [Zelfstudie: On-premises gegevens kopiëren naar de cloud](tutorial-hybrid-copy-powershell.md).

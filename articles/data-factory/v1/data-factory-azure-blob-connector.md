@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren naar/van Azure Blob-opslag | Microsoft Docs
-description: 'Informatie over het kopiëren van blob-gegevens in Azure Data Factory. Gebruik ons voorbeeld: gegevens kopiëren naar en van Azure Blob Storage en Azure SQL Database.'
+description: 'Informatie over het kopiëren van blob-gegevens in Azure Data Factory. Gebruik ons voorbeeld: Het kopiëren van gegevens naar en vanuit Azure Blob Storage en Azure SQL Database.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,17 +9,16 @@ ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2efc20d5a2248fed69f38880a9e75a6ccb2403dd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: cb26813f565e6ba3f4a1e15dd84e93e1e50347c6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058149"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025807"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob Storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,9 +51,9 @@ U kunt gegevens kopiëren van de volgende gegevensarchieven **naar Azure Blob St
 ## <a name="get-started"></a>Aan de slag
 U kunt een pijplijn maken met een kopieeractiviteit die gegevens naar/van een Azure Blob-opslag wordt verplaatst met behulp van verschillende hulpprogramma's / API's.
 
-De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. In dit artikel bevat een [scenario](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) voor het maken van een pijplijn om gegevens te kopiëren vanaf de locatie van een Azure Blob Storage naar een andere locatie van de Azure Blob Storage. Zie voor een zelfstudie over het maken van een pijplijn om gegevens te kopiëren uit een Azure Blob Storage naar Azure SQL Database, [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
+De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. In dit artikel bevat een [scenario](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) voor het maken van een pijplijn om gegevens te kopiëren vanaf de locatie van een Azure Blob Storage naar een andere locatie van de Azure Blob Storage. Zie voor een zelfstudie over het maken van een pijplijn om gegevens te kopiëren uit een Azure Blob Storage naar Azure SQL Database, [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -68,26 +67,26 @@ Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-e
 De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Azure Blob Storage.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
-Er zijn twee soorten gekoppelde services, die kunt u een Azure Storage koppelen aan een Azure data factory. Ze zijn: **AzureStorage** gekoppelde service en **AzureStorageSas** gekoppelde service. De gekoppelde Azure Storage-service biedt de data factory met wereldwijde toegang tot Azure Storage. Terwijl de Azure Storage SAS (Shared Access Signature) gekoppelde biedt service de data factory met beperkte/tijdelijke toegang naar Azure Storage. Er zijn geen andere verschillen tussen de twee gekoppelde services. Kies de gekoppelde service die tegemoetkomt aan uw behoeften. De volgende secties vindt u meer informatie over deze twee gekoppelde services.
+Er zijn twee soorten gekoppelde services, die kunt u een Azure Storage koppelen aan een Azure data factory. Dit zijn: **AzureStorage** gekoppelde service en **AzureStorageSas** gekoppelde service. De gekoppelde Azure Storage-service biedt de data factory met wereldwijde toegang tot Azure Storage. Terwijl de Azure Storage SAS (Shared Access Signature) gekoppelde biedt service de data factory met beperkte/tijdelijke toegang naar Azure Storage. Er zijn geen andere verschillen tussen de twee gekoppelde services. Kies de gekoppelde service die tegemoetkomt aan uw behoeften. De volgende secties vindt u meer informatie over deze twee gekoppelde services.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
-Als u een gegevensset die de invoer- of -gegevens in een Azure Blob-opslag, die u stelt de eigenschap type van de gegevensset in: **AzureBlob**. Stel de **linkedServiceName** eigenschap van de gegevensset in de naam van de Azure Storage of Azure Storage SAS gekoppelde service.  De eigenschappen van het type van de gegevensset opgeven die de **blob-container** en de **map** in de blob-opslag.
+Als een gegevensset die de invoer- of -gegevens in een Azure Blob-opslag opgeven, stelt u de eigenschap type van de gegevensset in: **AzureBlob**. Stel de **linkedServiceName** eigenschap van de gegevensset in de naam van de Azure Storage of Azure Storage SAS gekoppelde service.  De eigenschappen van het type van de gegevensset opgeven die de **blob-container** en de **map** in de blob-opslag.
 
 Zie voor een volledige lijst van JSON-secties & eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties, zoals de structuur, beschikbaarheid en het beleid van een gegevensset JSON zijn vergelijkbaar voor alle typen van gegevensset (Azure SQL, Azure-blob, Azure-tabel, enz.).
 
-Data factory ondersteunt de volgende CLS-conform .NET op basis van waarden voor het ontwikkelen van type informatie in 'geheel' voor schema-on-read-gegevensbronnen, zoals Azure blob: Int16, Int32, Int64, één, Double, Decimal, Byte [], Bool, String, Guid, Datetime, DateTimeOffset, Timespan. Data Factory wordt automatisch typeconversies voert bij het verplaatsen van gegevens van een brongegevensarchief naar een sink-gegevensopslag.
+Data factory ondersteunt de volgende CLS-conform .NET op basis van typewaarden voor het type informatie in "structuur" voor schema-on-read-gegevensbronnen, zoals Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte [], Bool, String, Guid, datum/tijd, Datetimeoffset, Timespan. Data Factory wordt automatisch typeconversies voert bij het verplaatsen van gegevens van een brongegevensarchief naar een sink-gegevensopslag.
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie, opmaken enz., van de gegevens in het gegevensarchief. De typeProperties sectie voor de gegevensset van het type **AzureBlob** gegevensset heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | folderPath |Pad naar de container en map in de blob-opslag. Voorbeeld: myblobcontainer\myblobfolder\ |Ja |
-| fileName |Naam van de blob. Bestandsnaam is optioneel en is hoofdlettergevoelig.<br/><br/>Als u een filename opgeeft, wordt de activiteit (inclusief kopie) werkt op de specifieke Blob.<br/><br/>Als geen bestandsnaam is opgegeven, bevat kopiëren alle Blobs in de folderPath voor invoergegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in de activiteit-sink, de naam van het gegenereerde bestand zou worden in de volgende deze indeling: Data.<Guid>. txt (bijvoorbeeld:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nee |
+| fileName |Naam van de blob. Bestandsnaam is optioneel en is hoofdlettergevoelig.<br/><br/>Als u een filename opgeeft, wordt de activiteit (inclusief kopie) werkt op de specifieke Blob.<br/><br/>Als geen bestandsnaam is opgegeven, bevat kopiëren alle Blobs in de folderPath voor invoergegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in de activiteit-sink, de naam van het gegenereerde bestand zou worden in de volgende notatie: De gegevens. <Guid>.txt (voorbeeld:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nee |
 | partitionedBy |partitionedBy is een optionele eigenschap. U kunt deze gebruiken om op te geven van een dynamische folderPath en de bestandsnaam voor time series-gegevens. Bijvoorbeeld, folderPath kan worden als parameters gebruikt voor elk uur gegevens. Zie de [partitionedBy eigenschap sectie](#using-partitionedBy-property) voor meer informatie en voorbeelden. |Nee |
-| Indeling | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie, [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestanden (binaire kopie), het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. |Nee |
-| Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus: **optimale** en **snelst**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
+| Indeling | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie, [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestanden (binaire kopie), het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. |Nee |
+| Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus zijn: **Optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 
 ### <a name="using-partitionedby-property"></a>Met behulp van de eigenschap partitionedBy
 Zoals vermeld in de vorige sectie, kunt u een dynamische folderPath en de bestandsnaam voor time series-gegevens met de **partitionedBy** eigenschap [Data Factory-functies en de systeemvariabelen](data-factory-functions-variables.md).
@@ -127,24 +126,24 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 **BlobSource** ondersteunt de volgende eigenschappen in de **typeProperties** sectie:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | recursieve |Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. |True (standaardwaarde), False |Nee |
 
 **BlobSink** ondersteunt de volgende eigenschappen **typeProperties** sectie:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | copyBehavior |Definieert het gedrag kopiëren wanneer de bron BlobSource of bestandssysteem is. |<b>PreserveHierarchy</b>: behoudt de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand voor bronmap is identiek aan het relatieve pad van doelbestand naar doelmap.<br/><br/><b>FlattenHierarchy</b>: alle bestanden uit de bronmap van het zich in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde naam. <br/><br/><b>MergeFiles</b>: alle bestanden uit de bronmap naar één bestand worden samengevoegd. Als de naam van de bestands-/ Blob is opgegeven, is de naam van het samengevoegde de opgegeven naam. anders zou worden automatisch gegenereerde naam. |Nee |
 
 **BlobSource** biedt ook ondersteuning voor deze twee eigenschappen voor achterwaartse compatibiliteit.
 
-* **treatEmptyAsNull**: Hiermee wordt opgegeven of null of lege tekenreeks behandelen als null-waarde.
+* **treatEmptyAsNull**: Geeft aan of null of lege tekenreeks behandelen als null-waarde.
 * **skipHeaderLineCount** -Hiermee geeft u het aantal regels moeten worden overgeslagen. Het is van toepassing alleen wanneer invoergegevensset gebruikmaakt TextFormat.
 
 Op deze manier **BlobSink** ondersteunt de volgende eigenschap voor achterwaartse compatibiliteit.
 
-* **blobWriterAddHeader**: Hiermee bepaalt u of een koptekst van de kolomdefinities toevoegen tijdens het schrijven naar een uitvoergegevensset.
+* **blobWriterAddHeader**: Geeft aan of een koptekst van de kolomdefinities toevoegen tijdens het schrijven naar een uitvoergegevensset.
 
 Gegevenssets bieden nu ondersteuning voor de volgende eigenschappen die dezelfde functionaliteit worden geïmplementeerd: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
@@ -170,8 +169,8 @@ Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor de v
 | false |flattenHierarchy |Voor een bronmap Map1 met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>De doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/><br/>Subfolder1 bestand3 File4 en File5 worden niet doorgevoerd. |
 | false |mergeFiles |Voor een bronmap Map1 met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>De doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. Automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 worden niet doorgevoerd. |
 
-## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Walkthrough: Kopieerwizard gebruiken om gegevens te kopiëren naar/van Blob-opslag
-Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In dit scenario, bron- en doelserver gegevensopslag van het type: Azure Blob Storage. De pijplijn in dit scenario kopieert gegevens uit een map naar een andere map in de dezelfde blob-container. In dit scenario is opzettelijk eenvoudig om weer te geven u eigenschappen van instellingen of bij het gebruik van Blob-opslag als een bron of de sink. 
+## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Overzicht: Kopieerwizard gebruiken om gegevens naar/van Blob-opslag te kopiëren
+Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In dit scenario, bron- en doelserver gegevensopslag van het type: Azure Blob-opslag. De pijplijn in dit scenario kopieert gegevens uit een map naar een andere map in de dezelfde blob-container. In dit scenario is opzettelijk eenvoudig om weer te geven u eigenschappen van instellingen of bij het gebruik van Blob-opslag als een bron of de sink. 
 
 ### <a name="prerequisites"></a>Vereisten
 1. Maak een algemeen **Azure Storage-Account** als u er nog geen hebt. U de blob-opslag gebruiken als zowel **bron** en **bestemming** gegevens opslaan in dit scenario. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) voor de stappen voor het maken van een account.
@@ -192,7 +191,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     4. Selecteer een **locatie** voor de gegevensfactory.
     5. Selecteer het selectievakje **Vastmaken aan dashboard** onderaan de blade.
     6. Klik op **Create**.
-3. Wanneer het aanmaken voltooid is, ziet u de **Data Factory** blade zoals weergegeven in de volgende afbeelding: ![Data factory-startpagina](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. Wanneer het aanmaken is voltooid, ziet u de blade **Gegevensfactory** zoals op de volgende afbeelding wordt weergegeven: ![Data factory-startpagina](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>De wizard Kopiëren
 1. Klik op de startpagina van Data Factory de **gegevens kopiëren** tegel om te starten **Kopieerwizard van Data** in een afzonderlijk tabblad.    
@@ -206,7 +205,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     4. De instellingen voor **terugkerend patroon**. Deze taak wordt uitgevoerd dagelijks tussen de begin- en eindtijden die u in de volgende stap opgeeft.
     5. Wijziging de **datum en-tijd** naar **21-04-2017**. 
     6. Wijzig de **einddatum en-tijd** naar **25-04-2017**. U kunt naar het type van de datum in plaats van bladeren op de agenda.     
-    8. Klik op **Volgende**.
+    8. Klik op **volgende**.
       ![Hulpprogramma voor kopiëren - pagina eigenschappen](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png) 
 3. Op de pagina **Brongegevensarchief** klikt u op de tegel **Azure Blob Storage**. U gebruikt deze pagina om het brongegevensarchief op te geven voor de kopieertaak. U kunt een bestaande gekoppelde service van een gegevensarchief gebruiken of een nieuw gegevensarchief opgeven. Voor het gebruik van een bestaande gekoppelde service, selecteert u **van bestaande gekoppelde SERVICES** en selecteer de juiste gekoppelde service. 
     ![Hulpprogramma voor kopiëren - pagina van brongegevensarchief](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
@@ -215,7 +214,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
    2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **accountselectiemethode**.
    3. Selecteer uw Azure-abonnement of houden **Alles selecteren** voor **Azure-abonnement**.   
    4. Selecteer een **Azure-opslagaccount** uit de lijst met Azure-opslagaccounts die beschikbaar is voor het abonnement dat u hebt geselecteerd. U kunt er ook voor kiezen om in te voeren van de opslagaccountinstellingen handmatig door te selecteren **handmatig invoeren** optie voor de **Accountselectiemethode**.
-   5. Klik op **Volgende**. 
+   5. Klik op **volgende**. 
       ![Hulpprogramma voor kopiëren - Azure Blob storage-account opgeven](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. Op de pagina **Het invoerbestand of de invoermap kiezen**:
    1. Dubbelklik op **adfblobcontainer**.
@@ -226,7 +225,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     2. Stel geen **kopiëren bestand recursief**. Selecteer deze optie om te bladeren door mappen recursief voor bestanden die moeten worden gekopieerd naar de bestemming. 
     3. Dit niet doet de **binaire kopie** optie. Selecteer deze optie om uit te voeren van een binaire kopie van het bronbestand naar de bestemming. Selecteer niet voor dit scenario zodat u meer opties in de volgende pagina's kunt zien. 
     4. Bevestig dat de **compressietype** is ingesteld op **geen**. Selecteer een waarde voor deze optie als de bronbestanden in een van de ondersteunde indelingen zijn gecomprimeerd. 
-    5. Klik op **Volgende**.
+    5. Klik op **volgende**.
     ![Hulpprogramma voor kopiëren - het invoerbestand of invoermap kiezen](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
 7. Op de pagina **Bestandsinstellingen** ziet u de scheidingstekens en het schema dat automatisch is gedetecteerd door de wizard tijdens het parseren van het bestand. 
     1. Controleer of de volgende opties: een. De **bestandsindeling** is ingesteld op **tekstindeling**. Hier ziet u alle ondersteunde indelingen in de vervolgkeuzelijst. Bijvoorbeeld: JSON, Avro, ORC, Parquet.
@@ -247,7 +246,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
    2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **accountselectiemethode**.
    3. Selecteer uw Azure-**abonnement**.  
    4. Selecteer uw Azure storage-account. 
-   5. Klik op **Volgende**.     
+   5. Klik op **volgende**.     
 10. Op de **uitvoerbestand of uitvoermap kiezen** pagina: 
     6. Geef **mappad** als **adfblobconnector/output / {year} / {month} / {day}**. Voer **tabblad**.
     7. Voor de **jaar**, selecteer **jjjj**.
@@ -255,7 +254,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     9. Voor de **dag**, controleert u dat deze is ingesteld op **dd**.
     10. Bevestig dat de **compressietype** is ingesteld op **geen**.
     11. Bevestig dat de **gedrag kopiëren** is ingesteld op **-bestanden samenvoegen**. Als het uitvoerbestand met dezelfde naam al bestaat, wordt de nieuwe inhoud toegevoegd aan hetzelfde bestand aan het einde.
-    12. Klik op **Volgende**.
+    12. Klik op **volgende**.
     ![Hulpprogramma voor kopiëren - uitvoerbestand of uitvoermap kiezen](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Op de **bestandsindelingsinstellingen** pagina, Controleer de instellingen en klik op **volgende**. Een van de aanvullende opties hier is het toevoegen van een koptekst naar het uitvoerbestand. Als u deze optie selecteert, wordt een rij met koppen toegevoegd door de namen van de kolommen van het schema van de bron. U kunt de standaardkolomnamen wijzigen bij het weergeven van het schema voor de bron. U kunt wijzigen de eerste kolom bijvoorbeeld de naam van de eerste en tweede kolom op achternaam. Vervolgens is het uitvoerbestand gegenereerd met een header met deze namen als kolomnamen. 
     ![Hulpprogramma voor kopiëren - bestandsindelingsinstellingen voor doel](media/data-factory-azure-blob-connector/file-format-destination.png)

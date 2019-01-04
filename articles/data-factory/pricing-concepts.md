@@ -7,16 +7,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: fae74d3912bb608afec93b7aa587885f66af4e53
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ec5ebfa29af13b5a34617be7f423fd7bc220636b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115056"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017749"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Informatie over prijzen van Data Factory met behulp van voorbeelden
 
@@ -44,7 +43,7 @@ Om uit te voeren van het scenario, moet u een pijplijn maken met de volgende ite
 | Pijplijn ophalen | 1 lezen/schrijven-entiteit |
 | Pijplijn uitvoeren | 2 uitvoeringen van activiteit (1 voor de trigger uitvoeren, 1 voor uitvoeringen van activiteit) |
 | Kopieer gegevens veronderstelling: uitvoeringstijd = 10 minuten | 10 \* 4 azure Integratieruntime (DIU standaardinstelling = 4) Zie voor meer informatie over integratie gegevenseenheden en optimaliseren kopieerprestaties [in dit artikel](copy-activity-performance.md) |
-| Monitor pijplijn veronderstelling: Slechts 1 uitvoeren opgetreden | 2 bewaking uitvoeren records opnieuw geprobeerd (1 voor pijplijn-run, 1 voor de activiteit die wordt uitgevoerd) |
+| Monitor pijplijn veronderstelling: Alleen 1 uitvoeren opgetreden | 2 bewaking uitvoeren records opnieuw geprobeerd (1 voor pijplijn-run, 1 voor de activiteit die wordt uitgevoerd) |
 
 **Totaal aantal Scenario prijzen: $0.16811**
 
@@ -75,7 +74,7 @@ Om uit te voeren van het scenario, moet u een pijplijn maken met de volgende ite
 | Pijplijn ophalen | 1 lezen/schrijven-entiteit |
 | Pijplijn uitvoeren | 3 uitvoeringen van activiteit (1 voor de trigger uitvoeren, 2 voor uitvoeringen van activiteit) |
 | Kopieer gegevens veronderstelling: uitvoeringstijd = 10 minuten | 10 \* 4 azure Integratieruntime (DIU standaardinstelling = 4) Zie voor meer informatie over integratie gegevenseenheden en optimaliseren kopieerprestaties [in dit artikel](copy-activity-performance.md) |
-| Monitor pijplijn veronderstelling: Slechts 1 uitvoeren opgetreden | 3 bewaking uitvoeren records opnieuw geprobeerd (1 voor pijplijn-run, 2 voor de activiteit die wordt uitgevoerd) |
+| Monitor pijplijn veronderstelling: Alleen 1 uitvoeren opgetreden | 3 bewaking uitvoeren records opnieuw geprobeerd (1 voor pijplijn-run, 2 voor de activiteit die wordt uitgevoerd) |
 | Databricks-activiteit veronderstelling uitvoeren: uitvoeringstijd = 10 minuten | Externe Pijplijnuitvoering activiteit 10 minuten |
 
 **Totaal aantal Scenario prijzen: $0.16916**
@@ -109,7 +108,7 @@ Om uit te voeren van het scenario, moet u een pijplijn maken met de volgende ite
 | Pijplijn ophalen | 1 lezen/schrijven-entiteit |
 | Pijplijn uitvoeren | 4 uitvoeringen van activiteit (1 voor de trigger uitvoeren, 3 voor uitvoeringen van activiteit) |
 | Kopieer gegevens veronderstelling: uitvoeringstijd = 10 minuten | 10 \* 4 azure Integratieruntime (DIU standaardinstelling = 4) Zie voor meer informatie over integratie gegevenseenheden en optimaliseren kopieerprestaties [in dit artikel](copy-activity-performance.md) |
-| Monitor pijplijn veronderstelling: Slechts 1 uitvoeren opgetreden | 4 bewaking uitvoeren records opnieuw geprobeerd (1 voor pijplijn-run, 3 voor de activiteit die wordt uitgevoerd) |
+| Monitor pijplijn veronderstelling: Alleen 1 uitvoeren opgetreden | 4 bewaking uitvoeren records opnieuw geprobeerd (1 voor pijplijn-run, 3 voor de activiteit die wordt uitgevoerd) |
 | Activiteit Lookup veronderstelling uitvoeren: uitvoeringstijd = 1 minuut | 1 minuut Pipeline-activiteit uitvoeren |
 | Databricks-activiteit veronderstelling uitvoeren: uitvoeringstijd = 10 minuten | 10 minuten tot de uitvoering van externe Pipeline-activiteit |
 

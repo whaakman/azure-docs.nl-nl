@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736407"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015811"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -46,7 +45,7 @@ De Spark-activiteit is een van de [activiteiten voor gegevenstransformatie](data
 > - HDInsight Spark-clusters die gebruikmaken van Azure Data Lake Store als primaire opslag biedt geen ondersteuning voor de Spark-activiteit.
 > - De Spark-activiteit ondersteunt alleen bestaande (eigen) HDInsight Spark-clusters. Het biedt geen ondersteuning voor een gekoppelde HDInsight-service op aanvraag.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Walkthrough: Een pijplijn maken met een Spark-activiteit
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Overzicht: Een pijplijn maken met Spark-activiteit
 Hier volgen de gebruikelijke stappen voor het maken van een data factory-pijplijn met een Spark-activiteit: 
 
 * Een data factory maken.
@@ -74,7 +73,7 @@ Volg deze stappen om een data factory te maken:
 1. Op de **nieuwe data factory** blade onder **naam**, voer **SparkDF**.
 
    > [!IMPORTANT]
-   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u ziet de fout 'de naam Data factory SparkDF is niet beschikbaar', wijzigt u de naam van de data factory. Bijvoorbeeld, gebruik yournameSparkDFdate en opnieuw maken van de data factory. Zie voor meer informatie over naamgevingsregels [Data Factory: naamgevingsregels](data-factory-naming-rules.md).
+   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u ziet de fout 'de naam Data factory SparkDF is niet beschikbaar', wijzigt u de naam van de data factory. Bijvoorbeeld, gebruik yournameSparkDFdate en opnieuw maken van de data factory. Zie voor meer informatie over naamgevingsregels [Data Factory: Naamgevingsregels](data-factory-naming-rules.md).
 
 1. Selecteer onder **Abonnement** het Azure-abonnement waarvoor u de data factory wilt maken.
 
@@ -327,7 +326,7 @@ Hier volgt de voorbeeld-JSON-definitie van een pijplijn met een Spark-activiteit
 
 De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | -------- | ----------- | -------- |
 | naam | Naam van de activiteit in de pijplijn. | Ja |
 | description | De tekst die wordt beschreven wat de activiteit doet. | Nee |
@@ -338,7 +337,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie.
 | Klassenaam | Java/Spark main-klasse van de toepassing. | Nee |
 | argumenten | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee |
 | proxyUser | Het gebruikersaccount te imiteren voor het uitvoeren van het Spark-programma. | Nee |
-| sparkConfig | Geef waarden op voor de Spark-configuratie-eigenschappen die worden vermeld in [configuratie van een Spark: toepassingseigenschappen](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee |
+| sparkConfig | Geef waarden op voor de Spark-configuratie-eigenschappen die worden vermeld in [Spark-configuratie: Toepassingseigenschappen](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee |
 | getDebugInfo | Hiermee geeft u aan bij de Spark-logboekbestanden worden gekopieerd naar de opslag die wordt gebruikt door het HDInsight-cluster (of) opgegeven door sparkJobLinkedService. Toegestane waarden zijn geen, altijd of fout. De standaardwaarde is ingesteld op geen. | Nee |
 | sparkJobLinkedService | De opslag gekoppelde service waarin de Spark taakbestand, afhankelijkheden en Logboeken. Als u een waarde voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan het HDInsight-cluster gebruikt. | Nee |
 
@@ -347,7 +346,7 @@ De Spark-activiteit biedt geen ondersteuning voor een inline-script als Pig en H
 
 De volgende mapstructuur maken in de blob-opslag waarnaar wordt verwezen door de gekoppelde HDInsight-service. Vervolgens kunt u afhankelijke bestanden uploaden naar de juiste submappen in de hoofdmap wordt vertegenwoordigd door **entryFilePath**. Bijvoorbeeld, Python-bestanden uploaden naar de submap pyFiles en jar-bestanden naar de submap JAR-bestanden van de hoofdmap. Tijdens runtime, wordt de Data Factory-service de volgende mapstructuur verwacht in de blob-opslag: 
 
-| Pad | Beschrijving | Vereist | Type |
+| Pad | Description | Vereist | Type |
 | ---- | ----------- | -------- | ---- |
 | . | Pad naar de hoofdmap van de Spark-taak in de gekoppelde storage-service. | Ja | Map |
 | &lt;door de gebruiker gedefinieerde &gt; | Het pad dat naar het bestand vermelding van de Spark-taak verwijst. | Ja | File |

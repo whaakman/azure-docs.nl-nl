@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: a993e35282c0c49ae4e3f2ff9f2314f12d779438
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8de7ed00114a11b4c765bfa9f9ae42529ef53f7f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980811"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024022"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Web-apps tijdens runtime instrumenteren met Application Insights
 
@@ -38,7 +38,7 @@ Hier volgt een samenvatting van wat elke route u biedt:
 | Aanvragen en uitzonderingen |Ja |Ja |
 | [Meer gedetailleerde uitzonderingen](../../azure-monitor/app/asp-net-exceptions.md) | |Ja |
 | [Diagnostische gegevens over afhankelijkheid](../../azure-monitor/app/asp-net-dependencies.md) |Op .NET 4.6+, maar minder details |Ja, volledige details: resultaatcodes, SQL-opdrachttekst, HTTP-woord|
-| [Systeemprestatiemeteritems](../../application-insights/app-insights-performance-counters.md) |Ja |Ja |
+| [Systeemprestatiemeteritems](../../azure-monitor/app/performance-counters.md) |Ja |Ja |
 | [API voor aangepaste telemetrie][api] |Ja |Nee |
 | [Integratie traceerlogboeken](../../azure-monitor/app/asp-net-trace-logs.md) |Ja |Nee |
 | [Paginaweergave en gebruikersgegevens](../../azure-monitor/app/javascript.md) |Ja |Nee |
@@ -256,7 +256,7 @@ Voor toepassingen die bij het compileren al zijn geïnstrumenteerd:
 
 Uw telemetrie weergeven:
 
-* [Verken de metrische gegevens](../../application-insights/app-insights-metrics-explorer.md) om de prestaties en het gebruik te bewaken
+* [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken
 * [Doorzoek gebeurtenissen en logboeken][diagnostic] om problemen te analyseren
 * [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's
 * [Maak dashboards](../../azure-monitor/app/app-insights-dashboards.md)
@@ -275,5 +275,5 @@ Meer telemetrie toevoegen:
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

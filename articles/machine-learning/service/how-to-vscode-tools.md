@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013142"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Aan de slag met Azure Machine Learning voor Visual Studio Code
 
@@ -26,7 +26,7 @@ Gebruik de Azure Machine Learning-extensie in Visual Studio code de Azure Machin
 ## <a name="prerequisite"></a>Vereiste
 
 
-+ Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
++ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 + Visual Studio Code moet worden geïnstalleerd. VS Code is een toegankelijke, krachtige broncode-editor die wordt uitgevoerd op het bureaublad. Het wordt geleverd met ingebouwde ondersteuning voor Python en meer.  [Informatie over het installeren van VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
@@ -80,7 +80,8 @@ Voordat u training en implementeren van machine learning-modellen met behulp van
 
 1. Klik op het Azure-pictogram in de activiteitenbalk Visual Studio Code. De Azure Machine Learning-zijbalk wordt weergegeven.
 
-   [![zijbalk](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![Installeren](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. Met de rechtermuisknop op uw Azure-abonnement en selecteer **werkruimte maken**. Er wordt een lijst weergegeven. Naam van het abonnement is 'Gratis' en de werkruimte is 'TeamWorkspace' in de animatie. 
 
@@ -96,11 +97,11 @@ Voordat u training en implementeren van machine learning-modellen met behulp van
  
 1. Druk op enter en wordt de nieuw experiment gemaakt. Deze wordt weergegeven in de structuurweergave onder de Werkruimtenaam van de.
 
-1. Met de rechtermuisknop op de naam van het experiment en kies **map koppelen aan het Experiment**. Deze map moet uw lokale Python-scripts bevatten. De map vervolgens gekoppeld aan het experiment in de cloud. 
+1. U kunt met de rechtermuisknop op een Experiment in een werkruimte en selecteer 'Instellen als actieve Experiment'. De **'Active'** experiment is het experiment u momenteel gebruikt en uw map openen in VS Code wordt gekoppeld aan dit experiment in de cloud. Deze map moet uw lokale Python-scripts bevatten.
 
    Elk van uw experiment nu met uw experiment uitgevoerd, zodat al uw belangrijke metrische gegevens worden opgeslagen in de geschiedenis van het experiment en de modellen die u training krijgen automatisch worden geüpload naar Azure Machine Learning en opgeslagen in uw experiment metrische gegevens en Logboeken.
 
-   [![Koppelen van een map in VS Code](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![Koppelen van een map in VS Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>Sneltoetsen gebruiken
 

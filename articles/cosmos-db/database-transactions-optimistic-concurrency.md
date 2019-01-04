@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbb92fd1186881a359f77a9c6b68816763dd8f9b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ddd3b7a859e48e3212d8d51d627eea2e69c7c1ff
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628990"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024702"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>Databasetransacties en functionaliteit voor optimistische gelijktijdigheid beheren
 
@@ -53,9 +53,9 @@ Optimistisch gelijktijdigheidbeheer kunt u voorkomen dat updates verloren gaan e
 
 De gelijktijdige updates van een item zijn onderworpen aan de OCC door Azure Cosmos DB-communicatielaag-protocol. Azure Cosmos-database zorgt ervoor dat de client-side-versie van het item dat u bijwerken (of verwijderen) gelijk zijn aan de versie van het item in de Azure Cosmos-container. Dit zorgt ervoor dat uw schrijfbewerkingen zijn beschermd tegen het per ongeluk worden overschreven door het schrijven van anderen en vice versa. In een omgeving met meerdere gebruikers voorkomt de Optimistisch gelijktijdigheidbeheer dat u per ongeluk verwijderen of bijwerken van de verkeerde versie van een item. Items zijn zo beschermd tegen de roemruchte "verloren update" of 'verloren verwijderen' problemen.
 
-Elk item dat is opgeslagen in een Azure Cosmos-container is een systeem gedefinieerd `__etag` eigenschap. De waarde van de `__etag` automatisch wordt gegenereerd en bijgewerkt door de server telkens als het item wordt bijgewerkt. `__etag` kan worden gebruikt met de client verstrekte if-none-match-aanvraagheader om toe te staan van de server om te bepalen of een item voorwaardelijk kan worden bijgewerkt. De waarde van de if-none-match-header komt overeen met de waarde van de `__etag` op de server, klikt u vervolgens het item wordt bijgewerkt. Als de waarde van de header if-match-aanvraag niet meer actueel is, de server worden geweigerd door de bewerking opnieuw uit met een ' HTTP 412 Precondition failure ' antwoordbericht. De client kan vervolgens een opnieuw ophalen het item om het verkrijgen van de huidige versie van het item op de server of de versie van het item op de server met een eigen overschrijven `__etag` waarde voor het item. Bovendien `__etag` met de if-none-match-header kan worden gebruikt om te bepalen of een opnieuw ophalen van een resource nodig is. 
+Elk item dat is opgeslagen in een Azure Cosmos-container is een systeem gedefinieerd `_etag` eigenschap. De waarde van de `_etag` automatisch wordt gegenereerd en bijgewerkt door de server telkens als het item wordt bijgewerkt. `_etag` kan worden gebruikt met de client verstrekte if-none-match-aanvraagheader om toe te staan van de server om te bepalen of een item voorwaardelijk kan worden bijgewerkt. De waarde van de if-none-match-header komt overeen met de waarde van de `_etag` op de server, klikt u vervolgens het item wordt bijgewerkt. Als de waarde van de header if-match-aanvraag niet meer actueel is, de server worden geweigerd door de bewerking opnieuw uit met een ' HTTP 412 Precondition failure ' antwoordbericht. De client kan vervolgens een opnieuw ophalen het item om het verkrijgen van de huidige versie van het item op de server of de versie van het item op de server met een eigen overschrijven `_etag` waarde voor het item. Bovendien `_etag` met de if-none-match-header kan worden gebruikt om te bepalen of een opnieuw ophalen van een resource nodig is. 
 
-Van het item __etag waarde verandert telkens als het item wordt bijgewerkt. Voor item vervangen, moet if-none-match expliciet worden uitgedrukt als een onderdeel van de Aanvraagopties. Zie voor een voorbeeld: de voorbeeldcode in [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `__etag` waarden zijn impliciet gecontroleerd op alle geschreven artikelen die door een opgeslagen procedure. Als er een conflict wordt gedetecteerd, wordt de opgeslagen procedure wordt Draai de transactie terug en een uitzondering genereert. Met deze methode worden alle of geen schrijfbewerkingen binnen de opgeslagen procedure atomisch toegepast. Dit is een signaal aan de toepassing om de updates opnieuw en probeer de aanvraag van de oorspronkelijke client.
+Van het item _etag waarde verandert telkens als het item wordt bijgewerkt. Voor item vervangen, moet if-none-match expliciet worden uitgedrukt als een onderdeel van de Aanvraagopties. Zie voor een voorbeeld: de voorbeeldcode in [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` waarden zijn impliciet gecontroleerd op alle geschreven artikelen die door een opgeslagen procedure. Als er een conflict wordt gedetecteerd, wordt de opgeslagen procedure wordt Draai de transactie terug en een uitzondering genereert. Met deze methode worden alle of geen schrijfbewerkingen binnen de opgeslagen procedure atomisch toegepast. Dit is een signaal aan de toepassing om de updates opnieuw en probeer de aanvraag van de oorspronkelijke client.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590327"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022278"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,14 +58,14 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapBw** | Ja |
 | server | Naam van de server waarop de SAP BW-instantie zich bevindt. | Ja |
 | systemNumber | Het systeemnummer van de SAP BW-systeem.<br/>Toegestane waarde: decimaal getal van twee cijfers weergegeven als een tekenreeks. | Ja |
 | ClientId | Client-ID van de client in het W SAP-systeem.<br/>Toegestane waarde: decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
 | Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
-| wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| wachtwoord | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld:**
@@ -124,7 +123,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van SAP BW, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
 | query | Hiermee geeft u de MDX-query voor het lezen van gegevens van de SAP BW-exemplaar. | Ja |
@@ -167,21 +166,21 @@ Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP B
 
 | SAP BW-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| ACCP | int |
+| ACCP | Int |
 | CHAR | Reeks |
 | CLNT | Reeks |
-| VAL | decimaal |
+| VAL | Decimaal |
 | CUKY | Reeks |
-| DECEMBER | decimaal |
+| DECEMBER | Decimaal |
 | FLTP | Double-waarde |
 | INT1 | Byte |
 | INT2 | Int16 |
-| INT4 | int |
+| INT4 | Int |
 | LANG | Reeks |
 | LCHR | Reeks |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | decimaal |
+| QUAN | Decimaal |
 | ONBEWERKTE | Byte[] |
 | RAWSTRING | Byte[] |
 | TEKENREEKS | Reeks |

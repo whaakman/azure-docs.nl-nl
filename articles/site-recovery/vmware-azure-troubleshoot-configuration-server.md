@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 6c8f4fa1fdfdb18d57f001308a6b2105acf9a08d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f5c8241907459a06f0a6206ae6865cdf3fe9ab89
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788851"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998962"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Problemen met configuratie-server
 
@@ -33,13 +33,13 @@ Broncomputer wordt geregistreerd bij de configuratieserver tijdens de installati
     - Los de problemen richtlijnen gegeven [hier](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) handmatig de registratie opnieuw uit te voeren.
 4. Als de bovenstaande tekenreeks niet wordt gevonden, gaat u naar de bronmachine en controleer het logboek C:\ProgramData\ASRSetupLogs\UploadedLogs\* ASRUnifiedAgentInstaller.log ProgramData is een verborgen map. Als niet kunt vinden, probeert ongedaan maken-verbergen de map. De fouten kunnen worden veroorzaakt door verschillende problemen. Zoekreeks "post-aanvraag: (7) - kan geen verbinding maken met server'. Als gevonden,
     - Los de problemen met het netwerk tussen de machine en de configuratie van een bronserver. Controleer of deze configuratieserver bereikbaar is vanaf broncomputer met behulp van hulpprogramma's voor netwerk, zoals ping, traceroute, webbrowser enz., zorg ervoor dat bronmachine kunnen bereiken configuratieserver via poort 443 is.
-    - Controleer of er zijn dat geen firewallregels op de bronmachine de verbinding tussen de bron-machine en de configuratie-server blokkeert. Werken met het uw netwerkbeheerders de verbindingsproblemen deblokkeren.
+    - Controleer of er zijn dat geen firewallregels op de bronmachine de verbinding tussen de bron-machine en de configuratie-server blokkeert. Werken met de uw beheerdernetwerk om de blokkering van de verbindingsproblemen te.
     - Zorg ervoor dat de mappen die worden vermeld [hier](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) zijn uitgesloten van de antivirussoftware.
     - Probeer na het oplossen van netwerkproblemen met het, de registratie door de volgende richtlijnen gegeven [hier](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 5. Als dat niet wordt gevonden, in de dezelfde log-zoeken naar de tekenreeks "aanvraag: (60) - peer-certificaat kan niet worden geverifieerd met de opgegeven CA-certificaten. '. Als gevonden, 
     - Deze fout kan zijn omdat de configuratie-servercertificaat is verlopen of broncomputer biedt geen ondersteuning voor TLS 1.0 en hoger SSL-protocollen of er is een firewall wordt geblokkeerd door SSL-communicatie tussen de bron-machine en de configuratie-server.
     - Als u wilt oplossen, verbinding maken met server IP-adres met een webbrowser op bronmachine met behulp van URI https://<CSIPADDRESS>: 443 /. Zorg ervoor dat deze bron-VM kan bereiken configuratieserver via poort 443.
-    - Controleer of er geen firewallregels op de broncomputer zijn zijn toegevoegd of verwijderd voor de bronmachine om te communiceren met CS. Omdat er veel andere firewallsoftware zijn, is het niet mogelijk te vermelden in de vereiste configuraties, neem contact op met de beheerders van de klant-netwerk.
+    - Controleer of er zijn dat geen firewallregels op de bronmachine de verbinding tussen de bron-machine en de configuratie-server blokkeert. Werken met de uw beheerdernetwerk om de blokkering van de verbindingsproblemen te.
     - Zorg ervoor dat de mappen die worden vermeld [hier](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) zijn uitgesloten van de antivirussoftware.  
     - Los de problemen, opnieuw proberen de registratie door de volgende richtlijnen gegeven [hier](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 6. In Linux, als de waarde van het platform van < INSTALLATION_DIR > /etc/drscout.conf is beschadigd, klikt u vervolgens registratie mislukt. Om te identificeren, gaat u naar het logboek /var/log/ua_install.log. U ziet de tekenreeks "Configuratie wordt afgebroken omdat VM_PLATFORM waarde null of is is niet VmWare/Azure." Het platform moet worden ingesteld op 'VmWare' of 'Azure'. Als het bestand drscout.conf is beschadigd, het is raadzaam te [verwijderen](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) de mobility-agent en opnieuw te installeren. Als het ongedaan maken-installatie mislukt, volgt u de onderstaande stappen te volgen:

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078003"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025645"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Gegevens kopiëren van Netezza met behulp van Azure Data Factory 
 
@@ -50,7 +49,7 @@ Een gebruikelijke verbindingsreeks is `Server=<server>;Port=<port>;Database=<dat
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| SecurityLevel | Het niveau van beveiliging (SSL/TLS) die gebruikmaakt van het stuurprogramma voor de verbinding met het gegevensarchief. Voorbeeld: `SecurityLevel=preferredSecured`. Ondersteunde waarden zijn:<br/>- **Alleen niet-beveiligde** (**onlyUnSecured**): het stuurprogramma biedt geen gebruik van SSL.<br/>- **Niet-beveiligde (preferredUnSecured) (standaard) bij voorkeur**: als de server een keuze biedt, het stuurprogramma niet worden gebruikt voor het gebruik van SSL. <br/>- **Beveiligd (preferredSecured) bij voorkeur**: als de server een keuze biedt, SSL wordt gebruikt door het stuurprogramma. <br/>- **Alleen beveiligd (onlySecured)**: het stuurprogramma biedt geen verbinding maken als een SSL-verbinding beschikbaar is. | Nee |
+| SecurityLevel | Het niveau van beveiliging (SSL/TLS) die gebruikmaakt van het stuurprogramma voor de verbinding met het gegevensarchief. Voorbeeld: `SecurityLevel=preferredSecured`. Ondersteunde waarden zijn:<br/>- **Alleen niet-beveiligde** (**onlyUnSecured**): Het stuurprogramma biedt geen gebruik van SSL.<br/>- **Niet-beveiligde (preferredUnSecured) (standaard) bij voorkeur**: Als de server een keuze biedt, gebruik niet het stuurprogramma van SSL. <br/>- **Beveiligd (preferredSecured) bij voorkeur**: Als de server een keuze biedt, betekent dit dat het stuurprogramma SSL gebruikt. <br/>- **Alleen beveiligd (onlySecured)**: Het stuurprogramma biedt geen verbinding maken als een SSL-verbinding beschikbaar is. | Nee |
 | CACertBestand | Het volledige pad naar het SSL-certificaat dat wordt gebruikt door de server. Voorbeeld: `CaCertFile=<cert path>;`| Ja, als SSL is ingeschakeld |
 
 **Voorbeeld**

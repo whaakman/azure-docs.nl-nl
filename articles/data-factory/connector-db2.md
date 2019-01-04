@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f9d1d2181649cf24784dc7ad11638946c9ee4406
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058725"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019619"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +59,12 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor DB2 gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Db2** | Ja |
 | server |Naam van de DB2-server. U kunt het volgende op de naam van de server gescheiden door puntkomma's, bijvoorbeeld poortnummer opgeven `server:port`. |Ja |
 | database |De naam van de DB2-database. |Ja |
-| authenticationType |Het type verificatie gebruikt voor verbinding met de DB2-database.<br/>De waarde is toegestaan: **Basic**. |Ja |
+| authenticationType |Het type verificatie gebruikt voor verbinding met de DB2-database.<br/>Toegestane waarde is: **Basic**. |Ja |
 | gebruikersnaam |Geef de naam van de gebruiker verbinding maakt met de DB2-database. |Ja |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
@@ -101,7 +100,7 @@ Zie het artikel gegevenssets voor een volledige lijst van de secties en eigensch
 
 Om gegevens te kopiëren uit een DB2, stel de eigenschap type van de gegevensset in **RelationalTable**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **RelationalTable** | Ja |
 | tableName | De naam van de tabel in de DB2-database. | Nee (als 'query' in de activiteitbron is opgegeven) |
@@ -131,7 +130,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren uit een DB2, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
@@ -182,8 +181,8 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Date |Datum en tijd |
 | DB2DynArray |Reeks |
 | DbClob |Reeks |
-| decimaal |decimaal |
-| DecimalFloat |decimaal |
+| Decimaal |Decimaal |
+| DecimalFloat |Decimaal |
 | Double-waarde |Double-waarde |
 | Float |Double-waarde |
 | Afbeelding |Reeks |
@@ -191,7 +190,7 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | LongVarBinary |Byte[] |
 | LongVarChar |Reeks |
 | LongVarGraphic |Reeks |
-| Numeriek |decimaal |
+| Numeriek |Decimaal |
 | Real |Enkelvoudig |
 | SmallInt |Int16 |
 | Time |TimeSpan |

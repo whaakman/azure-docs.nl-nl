@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726643"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016542"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Problemen met trage app-prestaties oplossen in Azure App Service
 Dit artikel helpt u problemen met trage app-prestaties oplossen in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -114,7 +114,7 @@ U kunt de Application Insights Profiler om te beginnen met het vastleggen van ge
 
 Application Insights Profiler voorziet in statistieken op de reactietijd voor elke webaanroep van de- en traceringen die aangeeft welke coderegel veroorzaakt de trage reacties. Soms de App Service-app is traag, omdat bepaalde code niet biedt u een praktische geschreven manier. Voorbeelden zijn opeenvolgende code die in de database voor parallelle en ongewenst vergrendeling contentions kan worden uitgevoerd. Bezig met verwijderen van deze knelpunten in de code van de app-prestaties verhoogt, maar ze zijn moeilijk te detecteren zonder in te stellen uitgebreide traces en Logboeken. De traceringen verzameld door Application Insights Profiler kunt identificeren van de regels met code waarmee de toepassing wordt vertraagd en strijden tegen deze uitdaging voor App Service-apps.
 
- Zie voor meer informatie, [live-apps in Azure App Service met Application Insights-profilering](../application-insights/app-insights-profiler.md).
+ Zie voor meer informatie, [live-apps in Azure App Service met Application Insights-profilering](../azure-monitor/app/profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Gebruik extern profileren
 In Azure App Service WebApps en API apps, mobiele back-ends en WebJobs kunnen op afstand worden geprofileerd. Selecteer deze optie als u toegang tot de resource-app hebt en u weet hoe u het probleem te reproduceren of het prestatieprobleem gebeurt er als u bekend bent met de exacte tijdsinterval.

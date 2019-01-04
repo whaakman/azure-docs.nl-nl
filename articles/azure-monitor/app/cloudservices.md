@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec6fbcc7de9a5fe15231373a23f7c8491ac8c122
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9ab256526ccba3fa84d4979ba536f6b681a7df89
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975964"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001665"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -39,7 +39,7 @@ Als u uw cloudservice wilt controleren met Application Insights, kunt u dat het 
 
 Als u deze optie kiest, wordt uw app tijdens runtime geïnstrumenteerd, zodat u beschikt over alle telemetrie die u nodig hebt voor het controleren van aanvragen, uitzonderingen en afhankelijkheden in uw webrol en ook van de prestatiemeteritems van uw werkrollen. Ook diagnostische traceringen die worden gegenereerd door uw app, worden naar Application Insights verzonden.
 
-Als dat alles is wat u nodig hebt, bent u klaar. De volgende stappen die u kunt nemen, zijn de [metrische gegevens van uw app bekijken](../../application-insights/app-insights-metrics-explorer.md), [query’s uitvoeren op uw gegevens met Analytics](../../azure-monitor/app/analytics.md) en mogelijk een [dashboard](../../azure-monitor/app/app-insights-dashboards.md) instellen. U kunt [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md) instellen en [code toevoegen aan uw webpagina’s](../../azure-monitor/app/javascript.md) om hun prestaties in de browser te controleren.
+Als dat alles is wat u nodig hebt, bent u klaar. De volgende stappen die u kunt nemen, zijn de [metrische gegevens van uw app bekijken](../../azure-monitor/app/metrics-explorer.md), [query’s uitvoeren op uw gegevens met Analytics](../../azure-monitor/app/analytics.md) en mogelijk een [dashboard](../../azure-monitor/app/app-insights-dashboards.md) instellen. U kunt [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md) instellen en [code toevoegen aan uw webpagina’s](../../azure-monitor/app/javascript.md) om hun prestaties in de browser te controleren.
 
 Maar u kunt desgewenst kiezen voor meer opties:
 
@@ -75,7 +75,7 @@ Om deze situatie te voorkomen, maakt u afzonderlijke resources voor elke buildco
 U kunt de telemetrie naar de juiste resources verzenden door de Application Insights-SDK zo in te stellen dat deze afhankelijk van de buildconfiguratie steeds een andere instrumentatiesleutel oppikt. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Een Application Insights-resource maken voor elke rol
-Als u hebt besloten om een afzonderlijke resource voor elke rol te maken - en misschien een afzonderlijke set voor elke buildconfiguratie - kunt u dat het gemakkelijkst doen door al deze resources in de Application Insights-portal te maken. (Als u vaak resources maakt, kunt u [het proces automatiseren](../../application-insights/app-insights-powershell.md).
+Als u hebt besloten om een afzonderlijke resource voor elke rol te maken - en misschien een afzonderlijke set voor elke buildconfiguratie - kunt u dat het gemakkelijkst doen door al deze resources in de Application Insights-portal te maken. (Als u vaak resources maakt, kunt u [het proces automatiseren](../../azure-monitor/app/powershell.md).
 
 1. Maak in de [Azure Portal][portal] een nieuwe Application Insights-resource. Kies ASP.NET-app als het toepassingstype. 
 
@@ -129,7 +129,7 @@ Gebruik Visual Studio om de Application Insights-SDK voor elk cloudtoepassingspr
     (In het CONFIG-bestand ziet u berichten waarin u wordt gevraagd de instrumentatiesleutel in dat bestand te plaatsen. Echter voor cloud-toepassingen is het beter om in te stellen via de ``.cscfg file``. Dit zorgt ervoor dat de rol correct wordt geïdentificeerd in de portal.)
 
 #### <a name="run-and-publish-the-app"></a>De app uitvoeren en publiceren
-Voer uw app uit en meld u aan bij Azure. Open de Application Insights-resources die u hebt gemaakt. U ziet dat in [Search](../../azure-monitor/app/diagnostic-search.md) de afzonderlijke gegevenspunten worden weergegeven en in [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md) de cumulatieve gegevens. 
+Voer uw app uit en meld u aan bij Azure. Open de Application Insights-resources die u hebt gemaakt. U ziet dat in [Search](../../azure-monitor/app/diagnostic-search.md) de afzonderlijke gegevenspunten worden weergegeven en in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) de cumulatieve gegevens. 
 
 Voeg meer telemetrie toe - zie de secties hieronder - en publiceer uw app vervolgens om live diagnostische gegevens en gebruiksfeedback te krijgen. 
 
@@ -146,7 +146,7 @@ Waar vind ik informatie van [Azure Diagnostics](https://docs.microsoft.com/azure
 * Windows-gebeurtenislogboeken worden als traceringen en aangepaste gebeurtenissen weergegeven.
 * Toepassinglogboeken, ETW-logboeken en logboeken met diagnostische gegevens over de infrastructuur worden weergegeven als traceringen.
 
-Als u prestatiemeteritems en aantallen gebeurtenissen wilt zien, opent u [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) en voegt u een nieuwe grafiek toe:
+Als u prestatiemeteritems en aantallen gebeurtenissen wilt zien, opent u [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) en voegt u een nieuwe grafiek toe:
 
 ![Gegevens van Azure Diagnostics](./media/cloudservices/23-wad.png)
 
@@ -231,8 +231,8 @@ Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund i
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Het verzenden van gegevens van Azure Diagnostics naar Application Insights configureren](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Het maken van Application Insights-resources automatiseren](../../application-insights/app-insights-powershell.md)
-* [Azure Diagnostics automatiseren](../../application-insights/app-insights-powershell-azure-diagnostics.md)
+* [Het maken van Application Insights-resources automatiseren](../../azure-monitor/app/powershell.md)
+* [Azure Diagnostics automatiseren](../../azure-monitor/app/powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md

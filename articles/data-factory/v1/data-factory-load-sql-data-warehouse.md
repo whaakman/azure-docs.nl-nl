@@ -9,17 +9,16 @@ ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061400"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020146"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB laden in Azure SQL Data Warehouse minder dan 15 minuten met Data Factory
 > [!NOTE]
@@ -42,7 +41,7 @@ In dit artikel bevat stapsgewijze instructies voor het verplaatsen van gegevens 
 > [!NOTE]
 >  Raadpleeg voor algemene informatie over de mogelijkheden van Data Factory in om gegevens te verplaatsen naar/van Azure SQL Data Warehouse [verplaatsen van gegevens en naar Azure SQL Data Warehouse met behulp van Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) artikel.
 >
-> U kunt ook bouwen met behulp van Azure portal, Visual Studio, PowerShell, pijplijnen enzovoort. Zie [zelfstudie: gegevens kopiëren van Azure-Blob naar Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een snel overzicht met stapsgewijze instructies voor het gebruik van de Kopieeractiviteit in Azure Data Factory.  
+> U kunt ook bouwen met behulp van Azure portal, Visual Studio, PowerShell, pijplijnen enzovoort. Zie [zelfstudie: Gegevens kopiëren van Azure-Blob naar Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een snel overzicht met stapsgewijze instructies voor het gebruik van de Kopieeractiviteit in Azure Data Factory.  
 >
 >
 
@@ -118,7 +117,7 @@ Met de vereiste stappen voltooid, zijn er nu klaar om te configureren van de kop
 3. In de **nieuwe data factory** deelvenster:
 
    1. Voer **LoadIntoSQLDWDataFactory** voor de **naam**.
-       De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory name 'LoadIntoSQLDWDataFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameLoadIntoSQLDWDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
+       De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding weergegeven: **Naam gegevensfactory 'LoadIntoSQLDWDataFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameLoadIntoSQLDWDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
    2. Selecteer uw Azure-**abonnement**.
    3. Voer een van de volgende stappen uit voor de resourcegroep:
       1. Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
@@ -136,14 +135,14 @@ Met de vereiste stappen voltooid, zijn er nu klaar om te configureren van de kop
    >
    >
 
-## <a name="step-1-configure-data-loading-schedule"></a>Stap 1: Gegevens laden planning configureren
+## <a name="step-1-configure-data-loading-schedule"></a>Stap 1: Schema laden van gegevens configureren
 De eerste stap is het configureren van het schema laden van gegevens.  
 
 Op de pagina **Eigenschappen**:
 
 1. Voer **CopyFromBlobToAzureSqlDataWarehouse** voor **taaknaam**
 2. Selecteer **nu één keer uitvoeren** optie.   
-3. Klik op **Volgende**.  
+3. Klik op **volgende**.  
 
     ![De Wizard kopiëren - pagina eigenschappen](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -185,7 +184,7 @@ Deze sectie leest u hoe u het configureren van de bestemming: `lineitem` tabel i
 
 ## <a name="step-4-performance-settings"></a>Stap 4: Prestatie-instellingen
 
-**Toestaan van polybase** is standaard ingeschakeld.  Klik op **Volgende**.
+**Toestaan van polybase** is standaard ingeschakeld.  Klik op **volgende**.
 
 ![Wizard voor kopiëren - pagina schematoewijzing](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e6d750d62ccd31a85cbf47e13c12be078bcb2c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726215"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023121"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -142,7 +142,7 @@ Draaitabel, klikt u op de weglatingstekens (**...** ) die aan het einde van elke
 
 ### <a name="sample-corrected-data"></a>Voorbeeld gecorrigeerde gegevens
 
-Application Insights biedt *[steekproeven correctie](../../application-insights/app-insights-sampling.md)* om te helpen Telemetrisch verkeer te verminderen. Als u sampling voor uw app in Application Insights inschakelt, krijgt u een kleiner aantal vermeldingen die zijn opgeslagen in Application Insights en Log Analytics. Terwijl de consistentie van gegevens wordt behouden in de **Application Insights-Connector** pagina's en perspectieven, u moet handmatig Corrigeer sample-gegevens voor uw aangepaste query's.
+Application Insights biedt *[steekproeven correctie](../../azure-monitor/app/sampling.md)* om te helpen Telemetrisch verkeer te verminderen. Als u sampling voor uw app in Application Insights inschakelt, krijgt u een kleiner aantal vermeldingen die zijn opgeslagen in Application Insights en Log Analytics. Terwijl de consistentie van gegevens wordt behouden in de **Application Insights-Connector** pagina's en perspectieven, u moet handmatig Corrigeer sample-gegevens voor uw aangepaste query's.
 
 Hier volgt een voorbeeld van de correctie van steekproeven in een logboek zoekquery:
 

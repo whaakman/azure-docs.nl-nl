@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1c0167fd7f6ef8a66968e70df26d1e7a6ed845b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5cd720225144a34163f8d4802b63aca6a439e2c7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975250"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017664"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -39,20 +39,20 @@ ms.locfileid: "53975250"
 
 * [Web-apps op een IIS-server, on-premises of in een virtuele machine](../azure-monitor/app/asp-net.md)
 * [Java-web-apps](../azure-monitor/app/java-get-started.md)
-* [Node.js-apps](app-insights-nodejs.md)
+* [Node.js-apps](../azure-monitor/app/nodejs.md)
 * [Web-apps op Azure](../azure-monitor/app/azure-web-apps.md)
 * [Cloudservices op Azure](../azure-monitor/app/cloudservices.md)
 * [Appservers die worden uitgevoerd in Docker](../azure-monitor/app/docker.md)
 * [Één pagina web-apps](../azure-monitor/app/javascript.md)
 * [SharePoint](app-insights-sharepoint.md)
 * [Windows desktop-app](app-insights-windows-desktop.md)
-* [Andere platforms](app-insights-platforms.md)
+* [Andere platforms](../azure-monitor/app/platforms.md)
 
 ## <a name="is-it-free"></a>Is dit gratis?
 
 Ja, voor experimentele gebruik. In de basic prijsstelling, kan uw toepassing een bepaalde toegestane hoeveelheid gegevens per maand gratis verzenden. Het gratis tegoed is groot genoeg is voor cover ontwikkelings- en publiceren van een app voor een klein aantal gebruikers. U kunt instellen dat een limiet om te voorkomen dat meer dan een opgegeven hoeveelheid gegevens die worden verwerkt.
 
-Grotere hoeveelheden telemetriegegevens worden gefactureerd op de Gb. We bieden enkele tips over het [beperken van de kosten voor uw](app-insights-pricing.md).
+Grotere hoeveelheden telemetriegegevens worden gefactureerd op de Gb. We bieden enkele tips over het [beperken van de kosten voor uw](../azure-monitor/app/pricing.md).
 
 Het Enterprise-plan leidt tot een kosten in rekening gebracht voor elke dag dat elk knooppunt van de server web telemetrie verzendt. Het is geschikt als u wilt gebruiken van continue Export op grote schaal.
 
@@ -86,7 +86,7 @@ De details zijn afhankelijk van het type van het project. Voor een webtoepassing
 * (Nieuwe alleen - projecten als u [Application Insights toevoegen aan een bestaand project][start], u moet dit handmatig doen.) Hiermee voegt u codefragmenten in de client en server code ze initialiseren met de Application Insights-resource-ID. Bijvoorbeeld, wordt code in een MVC-app ingevoegd in de basispagina Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hoe voer ik een upgrade van oudere versies van de SDK?
-Zie de [opmerkingen bij de release](app-insights-release-notes.md) voor de SDK die geschikt is voor uw type van de toepassing.
+Zie de [opmerkingen bij de release](../azure-monitor/app/release-notes.md) voor de SDK die geschikt is voor uw type van de toepassing.
 
 ## <a name="update"></a>Hoe kan ik welke Mijn project gegevens naar verzendt Azure-resource wijzigen?
 Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U kunt de gegevens verzenden naar een bestaande of nieuwe resource in Azure. De wizard update verandert de instrumentatiesleutel in ApplicationInsights.config, waarmee wordt bepaald waar uw gegevens in de SDK-server wordt verzonden. Tenzij u 'Alles bijwerken' uitschakelt, wordt de sleutel waar deze wordt weergegeven in uw webpagina's ook gewijzigd.
@@ -104,7 +104,7 @@ Van server-web-apps:
 * HTTP-aanvragen
 * [Afhankelijkheden](../azure-monitor/app/asp-net-dependencies.md). Aanroepen naar: SQL-Databases. HTTP-aanroepen naar externe services; Azure Cosmos DB, tabel, blob-opslag en wachtrij. 
 * [Uitzonderingen](../azure-monitor/app/asp-net-exceptions.md) en stack-traces.
-* [Prestatiemeteritems](app-insights-performance-counters.md) : als u [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), of de [Application Insights verzamelde schrijver](../azure-monitor/app/java-collectd.md).
+* [Prestatiemeteritems](../azure-monitor/app/performance-counters.md) : als u [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), of de [Application Insights verzamelde schrijver](../azure-monitor/app/java-collectd.md).
 * [Aangepaste gebeurtenissen en metrische gegevens](../azure-monitor/app/api-custom-events-metrics.md) dat u de code.
 * [Logboeken met traceringen](../azure-monitor/app/asp-net-trace-logs.md) als u de juiste collector configureert.
 
@@ -201,7 +201,7 @@ Gebruik één resource voor alle onderdelen of rollen in een enkele business-sys
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Waarom zijn de aantallen in zoek- en metrische gegevens over grafieken ongelijk?
 
-[Sampling](app-insights-sampling.md) vermindert het aantal telemetrie-items (aanvragen, aangepaste gebeurtenissen, enzovoort) die daadwerkelijk vanuit uw app worden verzonden naar de portal. In Search ziet u het aantal items daadwerkelijk ontvangen. In grafieken met metrische gegevens die een aantal gebeurtenissen worden weergegeven, ziet u het nummer van de oorspronkelijke gebeurtenissen die hebben plaatsgevonden. 
+[Sampling](../azure-monitor/app/sampling.md) vermindert het aantal telemetrie-items (aanvragen, aangepaste gebeurtenissen, enzovoort) die daadwerkelijk vanuit uw app worden verzonden naar de portal. In Search ziet u het aantal items daadwerkelijk ontvangen. In grafieken met metrische gegevens die een aantal gebeurtenissen worden weergegeven, ziet u het nummer van de oorspronkelijke gebeurtenissen die hebben plaatsgevonden. 
 
 Elk item dat is verzonden uitvoert een `itemCount` eigenschap die laat hoeveel oorspronkelijke gebeurtenissen dat item zien vertegenwoordigt. Als u wilt nagaan steekproeven in bewerking, kunt u deze query uitvoeren in Analytics:
 
@@ -214,7 +214,7 @@ Elk item dat is verzonden uitvoert een `itemCount` eigenschap die laat hoeveel o
 
 ### <a name="configuring-application-insights"></a>Application Insights configureren
 
-U kunt [PowerShell-scripts schrijven](app-insights-powershell.md) met behulp van Azure Resource Monitor:
+U kunt [PowerShell-scripts schrijven](../azure-monitor/app/powershell.md) met behulp van Azure Resource Monitor:
 
 * Maken en bijwerken van Application Insights-resources.
 * Stel de prijsstelling.
@@ -241,7 +241,7 @@ Dit wordt niet afhankelijk van waar uw Application Insights-resource wordt gehos
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan ik telemetrie verzenden naar de Application Insights-portal?
 
-Aangeraden u onze SDK's gebruiken en gebruik de [SDK-API](../azure-monitor/app/api-custom-events-metrics.md). Er zijn varianten van de SDK voor verschillende [platforms](app-insights-platforms.md). Deze SDK's verwerken buffer, compressie, beperking, nieuwe pogingen, enzovoort. Echter, de [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) openbaar zijn.
+Aangeraden u onze SDK's gebruiken en gebruik de [SDK-API](../azure-monitor/app/api-custom-events-metrics.md). Er zijn varianten van de SDK voor verschillende [platforms](../azure-monitor/app/platforms.md). Deze SDK's verwerken buffer, compressie, beperking, nieuwe pogingen, enzovoort. Echter, de [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) openbaar zijn.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan ik een intranet-webserver controleren?
 
@@ -299,6 +299,6 @@ De meeste Application Insights-gegevens heeft een latentie van minder dan vijf m
 <!--Link references-->
 
 [data]: ../azure-monitor/app/data-retention-privacy.md
-[platforms]: app-insights-platforms.md
+[platforms]: ../azure-monitor/app/platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

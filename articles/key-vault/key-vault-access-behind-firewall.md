@@ -1,5 +1,5 @@
 ---
-title: Toegang tot Key Vault achter een firewall | Microsoft Docs
+title: Toegang tot Key Vault achter een firewall - Azure Key Vault | Microsoft Docs
 description: Meer informatie over toegang tot Azure Key Vault vanuit een toepassing achter een firewall
 services: key-vault
 documentationcenter: ''
@@ -12,29 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 4d342efb88d3c6e560fe4d0a1c3629bf84548c73
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ddc341aae823ddaad2c6b2e8969be71ff8f918e8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157891"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998284"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Toegang tot Azure Key Vault achter een firewall
-### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>V: Mijn key vault-clienttoepassing moet zich achter een firewall bevinden. Welke poorten, hosts of IP-adressen moet ik openen om toegang tot een key vault mogelijk te maken?
+
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Welke poorten, hosts of IP-adressen moet ik openen voor het inschakelen van de clienttoepassing voor key vault achter een firewall voor toegang tot key vault?
+
 Als u toegang wilt krijgen tot een key vault, moet de clienttoepassing voor de key vault toegang hebben tot meerdere eindpunten voor verschillende functies:
 
 * Verificatie via Azure Active Directory (Azure AD).
 * Beheer van Azure Key Vault. Dit omvat het maken, lezen, bijwerken, verwijderen en instellen van toegangsbeleid via Azure Resource Manager.
 * Toegang tot en beheer van objecten (sleutels en geheimen) die zijn opgeslagen in de Key Vault zelf die via het Key Vault-specifieke eindpunt lopen (bijvoorbeeld [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
 
-Er zijn enkele verschillen, afhankelijk van uw configuratie en omgeving.   
+Er zijn enkele verschillen, afhankelijk van uw configuratie en omgeving.
 
 ## <a name="ports"></a>Poorten
+
 Al het verkeer naar de key vault voor de drie functies (verificatie, beheer en toegang tot gegevenslaag) gaat via HTTPS: poort 443. Voor CRL gaat het verkeer soms echter via HTTP (poort 80). Clients die ondersteuning bieden voor OCSP, mogen CRL niet bereiken, maar kunnen soms [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) bereiken.  
 
 ## <a name="authentication"></a>Verificatie
+
 Key vault-clienttoepassingen moet toegang hebben tot Azure Active Directory-eindpunten voor verificatie. Welk eindpunt wordt gebruikt, hangt af van de configuratie van de Azure AD-tenant en het type principal (gebruikers-principal of service-principal) en het type account, bijvoorbeeld een Microsoft-account of een werk- of schoolaccount.  
 
 | Type principal | Eindpunt:poort |
@@ -46,6 +50,7 @@ Key vault-clienttoepassingen moet toegang hebben tot Azure Active Directory-eind
 Er zijn andere, mogelijk complexe scenario's. Raadpleeg [Azure Active Directory-verificatiestroom](../active-directory/develop/authentication-scenarios.md), [Toepassingen integreren met Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) en [Active Directory-verificatieprotocollen](https://msdn.microsoft.com/library/azure/dn151124.aspx) voor meer informatie.  
 
 ## <a name="key-vault-management"></a>Key Vault-beheer
+
 Voor Key Vault-beheer (CRUD en toegangsbeleid instellen), moet de clienttoepassing voor de key vault toegang hebben tot het Azure Resource Manager-eindpunt.  
 
 | Type bewerking | Eindpunt:poort |
@@ -54,6 +59,7 @@ Voor Key Vault-beheer (CRUD en toegangsbeleid instellen), moet de clienttoepassi
 | Azure Active Directory Graph API |**Wereldwijd:**<br> graph.windows.net:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure van de Amerikaanse overheid:**<br> graph.windows.net:443<br><br> **Azure Duitsland:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Key Vault-bewerkingen
+
 Voor alle beheer- en cryptografiebewerkingen van het key vault-object (sleutels en geheimen) moet de key vault-client toegang hebben tot het eindpunt van de key vault. Het DNS-achtervoegsel van het eindpunt verschilt afhankelijk van de locatie van de key vault. Het eindpunt van de key vault heeft de indeling *kluisnaam*.*regiospecifiek-dns-achtervoegsel*, zoals beschreven in de onderstaande tabel.  
 
 | Type bewerking | Eindpunt:poort |
@@ -61,8 +67,9 @@ Voor alle beheer- en cryptografiebewerkingen van het key vault-object (sleutels 
 | Bewerkingen waaronder cryptografiebewerkingen voor sleutels, het maken, lezen, bijwerken en verwijderen van sleutels en geheimen, instellen of ophalen van tags en andere kenmerken voor key vault-objecten (sleutels of geheimen) |**Wereldwijd:**<br> &lt;kluisnaam&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;kluisnaam&gt;.vault.azure.cn:443<br><br> **Azure van de Amerikaanse overheid:**<br> &lt;kluisnaam&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Duitsland:**<br> &lt;kluisnaam&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>IP-adresbereiken
+
 De Key Vault-service maakt gebruik van andere Azure-bronnen zoals de PaaS-infrastructuur. Daarom is het niet mogelijk om een specifiek bereik van IP-adressen op te geven die key vault-eindpunten op een bepaald moment hebben. Raadpleeg het document [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653) als met uw firewall alleen IP-adresbereiken worden ondersteund. Authentication and Identity (Azure Active Directory) is een wereldwijde service waarmee failover naar andere regio's kan worden uitgevoerd of verkeer kan worden verplaatst zonder dit te melden. In dit scenario moeten alle IP-adresbereiken bij [IP-adressen voor Authentication and Identity](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) worden toegevoegd aan de firewall.
 
 ## <a name="next-steps"></a>Volgende stappen
-Ga naar de [forums van Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault) als u vragen hebt over Key Vault.
 
+Ga naar de [forums van Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault) als u vragen hebt over Key Vault.

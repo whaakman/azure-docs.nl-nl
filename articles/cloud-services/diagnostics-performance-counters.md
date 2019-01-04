@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: bae1e7de3c24ff6fbf943ef93ad449d784feb0c8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788693"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000237"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Verzamelen van prestatiemeteritems voor uw Azure-Cloudservice
 
@@ -116,7 +116,7 @@ Application Insights verzamelt automatisch de volgende prestatiemeteritems:
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Zie voor meer informatie, [systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md) en [Application Insights voor Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
+Zie voor meer informatie, [systeemprestatiemeteritems in Application Insights](../azure-monitor/app/performance-counters.md) en [Application Insights voor Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
@@ -295,6 +295,6 @@ Zoals eerder is vermeld, de prestatiemeteritems die u wenst te verzamelen zijn g
 ## <a name="more-information"></a>Meer informatie
 
 - [Application Insights voor Azure Cloudservices](../azure-monitor/app/cloudservices.md#performance-counters)
-- [Systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md)
+- [Systeemprestatiemeteritems in Application Insights](../azure-monitor/app/performance-counters.md)
 - [Een pad voor prestatiemeteritems op te geven](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure Diagnostics-Schema - prestatiemeteritems](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

@@ -1,6 +1,6 @@
 ---
-title: Transformeer gegevens met Hadoop Pig-activiteit in Azure Data Factory | Microsoft Docs
-description: Meer informatie over hoe u kunt de Pig-activiteit in een Azure data factory Pig-scripts uitvoeren op een op-verzoek/uw eigen HDInsight-cluster.
+title: Gegevens transformeren met behulp van Hadoop-Pig-activiteit in Azure Data Factory | Microsoft Docs
+description: Lees hoe u de Pig-activiteit in een Azure data factory kunt gebruiken om uit te voeren van Pig-scripts op een on-demand/uw eigen HDInsight-cluster.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -8,25 +8,24 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 9e769cc436011defe89b12680150e6f9c3b3faf8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049312"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014706"
 ---
-# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformeer gegevens met Hadoop Pig-activiteit in Azure Data Factory
+# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop-Pig-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-pig-activity.md)
+> * [Versie 1:](v1/data-factory-pig-activity.md)
 > * [Huidige versie](transform-data-using-hadoop-pig.md)
 
-De HDInsight Pig-activiteit in een Data Factory [pijplijn](concepts-pipelines-activities.md) Pig-query's uitvoert op [uw eigen](compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
+De HDInsight Pig-activiteit in een Data Factory [pijplijn](concepts-pipelines-activities.md) Pig-query's uitvoert op [uw eigen](compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft.
 
-Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Factory](introduction.md) en voer de [zelfstudie: gegevens transformeren](tutorial-transform-data-spark-powershell.md) voordat u dit artikel leest. 
+Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Factory](introduction.md) en voer de [zelfstudie: gegevens transformeren](tutorial-transform-data-spark-powershell.md) voordat het lezen van dit artikel. 
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -55,22 +54,22 @@ Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Fa
     }   
 }
 ```
-## <a name="syntax-details"></a>Details van de syntaxis
+## <a name="syntax-details"></a>Syntaxis van de details
 
-| Eigenschap            | Beschrijving                              | Vereist |
+| Eigenschap            | Description                              | Vereist |
 | ------------------- | ---------------------------------------- | -------- |
 | naam                | Naam van de activiteit                     | Ja      |
-| description         | Beschrijving van wat de activiteit wordt gebruikt | Nee       |
+| description         | Beschrijving van het doel waarvoor de activiteit wordt gebruikt | Nee       |
 | type                | Voor Hive-activiteit wordt het activiteitstype HDinsightPig | Ja      |
-| linkedServiceName   | Verwijzing naar het HDInsight-cluster geregistreerd als een gekoppelde service in de Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
-| scriptLinkedService | Verwijzing naar een Azure Storage Linked Service gebruikt voor het opslaan van de Pig-script wordt uitgevoerd. Als u deze gekoppelde Service niet opgeeft, wordt de Azure Storage Linked Service gedefinieerd in de gekoppelde HDInsight-Service wordt gebruikt. | Nee       |
-| scriptPath          | Geef het pad naar het scriptbestand opgeslagen in Azure Storage waarnaar wordt verwezen door de scriptLinkedService. De bestandsnaam is hoofdlettergevoelig. | Nee       |
-| getDebugInfo        | Geeft aan wanneer de logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door de scriptLinkedService. Toegestane waarden: None, altijd of fout. Standaardwaarde: geen. | Nee       |
-| argumenten           | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten zijn doorgegeven als opdrachtregelargumenten voor elke taak. | Nee       |
-| Hiermee worden gedefinieerd             | Geef parameters op als sleutel-waardeparen voor verwijzende binnen de Pig-script. | Nee       |
+| linkedServiceName   | Verwijzing naar het HDInsight-cluster geregistreerd als een gekoppelde service in Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
+| scriptLinkedService | Verwijzing naar een gekoppelde Azure Storage-Service gebruikt voor het opslaan van de Pig-script moet worden uitgevoerd. Als u deze gekoppelde Service niet opgeeft, wordt de Azure Storage gekoppelde Service gedefinieerd in de gekoppelde HDInsight-Service wordt gebruikt. | Nee       |
+| scriptPath          | Geef het pad naar het scriptbestand in de Azure-opslag waarnaar wordt verwezen door de scriptLinkedService met de opgeslagen. De bestandsnaam is hoofdlettergevoelig. | Nee       |
+| getDebugInfo        | Geeft aan wanneer de logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door scriptLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee       |
+| argumenten           | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten worden doorgegeven als opdrachtregelargumenten aan elke taak. | Nee       |
+| Hiermee worden gedefinieerd             | Geef parameters op als sleutel/waarde-paren voor verwijzende binnen de Pig-script. | Nee       |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen waarin wordt uitgelegd hoe voor het transformeren van gegevens op andere manieren: 
+Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegevens op andere manieren: 
 
 * [U-SQL-activiteit](transform-data-using-data-lake-analytics.md)
 * [Hive-activiteit](transform-data-using-hadoop-hive.md)
@@ -78,5 +77,5 @@ Zie de volgende artikelen waarin wordt uitgelegd hoe voor het transformeren van 
 * [Hadoop-streamingactiviteit](transform-data-using-hadoop-streaming.md)
 * [Spark-activiteit](transform-data-using-spark.md)
 * [.NET aangepaste activiteit](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning-Batchuitvoering activiteit](transform-data-using-machine-learning.md)
-* [De activiteit opgeslagen procedure](transform-data-using-stored-procedure.md)
+* [Machine Learning Batch Execution-activiteit](transform-data-using-machine-learning.md)
+* [Opgeslagen procedureactiviteit](transform-data-using-stored-procedure.md)

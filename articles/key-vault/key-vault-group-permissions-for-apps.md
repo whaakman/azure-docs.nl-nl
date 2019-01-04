@@ -1,5 +1,5 @@
 ---
-title: Veel toepassingen om een Azure-sleutelkluis toegang te verlenen tot | Microsoft Docs
+title: Veel toepassingen om een Azure-sleutelkluis - Azure Key Vault toegang te verlenen tot | Microsoft Docs
 description: Leer hoe u toestemming te verlenen voor veel toepassingen toegang tot een key vault
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 4ad6a18f9937fcc7d24bebc3ac197e23990ff59e
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: ed0d40ab62a7d75a993ce0bbdd83a5e5ec4a633a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309243"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998469"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Verschillende toepassingen toegang verlenen tot een key vault
 
@@ -37,26 +37,26 @@ Hier volgen de vereisten:
 Voer nu de volgende opdrachten uit in PowerShell:
 
 ```powershell
-# Connect to Azure AD 
-Connect-AzureAD 
- 
-# Create Azure Active Directory Security Group 
-$aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
- 
-# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
-$spn = Get-AzureADServicePrincipal –SearchString "ContosoApp1" 
-Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
- 
-# You can add several members to this group, in this fashion. 
- 
-# Set the Key Vault ACLs 
+# Connect to Azure AD 
+Connect-AzureAD 
+ 
+# Create Azure Active Directory Security Group 
+$aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
+ 
+# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
+$spn = Get-AzureADServicePrincipal –SearchString "ContosoApp1" 
+Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
+ 
+# You can add several members to this group, in this fashion. 
+ 
+# Set the Key Vault ACLs 
 Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `
--PermissionsToStorage get,list,delete,set,update,regeneratekey,getsas,listsas,deletesas,setsas,recover,backup,restore,purge 
- 
-# Of course you can adjust the permissions as required 
+-PermissionsToStorage get,list,delete,set,update,regeneratekey,getsas,listsas,deletesas,setsas,recover,backup,restore,purge 
+ 
+# Of course you can adjust the permissions as required 
 ```
 
 Als u een andere set machtigingen aan een groep van toepassingen te verlenen wilt, maakt u een afzonderlijke Azure Active Directory-beveiligingsgroep voor deze toepassingen.

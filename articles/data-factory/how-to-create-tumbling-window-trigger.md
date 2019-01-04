@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 4f124be9ef2247ab91d1e968b4533297ee8dba02
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6efccdb3034bb25e60904c858f346ff9a5695fc0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437245"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019721"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Een trigger die een pijplijn op een tumblingvenster uitvoert maken
 In dit artikel bevat stappen voor het maken, starten en controleren van een tumblingvenstertrigger. Raadpleeg voor algemene informatie over triggers en de ondersteunde typen [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
@@ -79,7 +78,7 @@ De volgende tabel bevat een overzicht van de belangrijkste JSON-elementen die be
 | JSON-element | Description | Type | Toegestane waarden | Vereist |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | Het type van de trigger. Het type is het vaste waarde "TumblingWindowTrigger." | Reeks | "TumblingWindowTrigger" | Ja |
-| **runtimeState** | Uitvoeringstijd voor de huidige status van de trigger.<br/>**Houd er rekening mee**: Dit element heeft de \<readOnly >. | Reeks | 'Gestart', 'gestopt,""Uitgeschakeld" | Ja |
+| **runtimeState** | Uitvoeringstijd voor de huidige status van de trigger.<br/>**Opmerking**: Dit element heeft de \<readOnly >. | Reeks | 'Gestart', 'gestopt,""Uitgeschakeld" | Ja |
 | **frequency** | Een tekenreeks waarmee de frequentie-eenheid waarmee de trigger wordt uitgevoerd (minuten of uur). Als de **startTime** date-waarden zijn gedetailleerder zijn dan de **frequentie** waarde, de **startTime** datums worden beschouwd als wanneer de grenzen van het venster worden berekend. Bijvoorbeeld, als de **frequentie** waarde wordt per uur en de **startTime** waarde is 2017-09-01T10:10:10Z, het eerste venster is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Reeks | 'minuut', 'uur'  | Ja |
 | **interval** | Een positief geheel getal dat het interval voor de waarde **frequency** aangeeft. Het bepaalt hoe vaak de trigger wordt uitgevoerd. Bijvoorbeeld, als de **interval** 3 is en de **frequentie** 'uur', wordt de trigger elke drie uur uitgevoerd. | Geheel getal | Een positief geheel getal zijn. | Ja |
 | **startTime**| De eerste instantie, die in het verleden worden kan. Het interval voor de eerste trigger is (**startTime**, **startTime** + **interval**). | DateTime | Een datum / tijdwaarde. | Ja |

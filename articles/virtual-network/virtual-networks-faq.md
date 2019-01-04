@@ -1,5 +1,6 @@
 ---
-title: Veelgestelde vragen over virtuele Azure-netwerk | Microsoft Docs
+title: Veelgestelde vragen over Azure-netwerk
+titlesuffix: Azure Virtual Network
 description: Antwoorden op veelgestelde vragen over virtuele netwerken van Microsoft Azure.
 services: virtual-network
 documentationcenter: na
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 686985c705b4026ccc26238fc5919296c98d5cb7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277519"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021030"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -323,7 +324,7 @@ Standaard zijn Azure-serviceresources die zijn beveiligd naar virtuele netwerken
 Als u wilt beveiligen in Azure-services naar meerdere subnetten binnen een virtueel netwerk of op meerdere virtuele netwerken, service-eindpunten op het netwerk aan clientzijde op elk van de subnetten onafhankelijk van elkaar inschakelen en vervolgens Azure-serviceresources beveiligen naar alle van de subnetten door in te stellen juiste VNet ACL's aan Azure-service.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Hoe kan ik filteren van uitgaand verkeer vanuit een virtueel netwerk naar Azure-services en nog steeds gebruikmaken van service-eindpunten?
-Als u wilt controleren of het filteren van het verkeer dat bestemd is voor een Azure-service vanuit een virtueel netwerk, kunt u een virtueel netwerkapparaat in het virtuele netwerk kunt implementeren. U kunt service-eindpunten toepassen op het subnet waarin het virtuele netwerkapparaat geïmplementeerd en beveiligde Azure-serviceresources alleen naar dit subnet via VNet-ACL's is. In dit scenario kan ook nuttig zijn als u wilt toegang tot Azure-service vanaf uw virtuele netwerk te beperken tot specifieke Azure-resources met behulp van virtueel-netwerkapparaatfilters. Zie [Egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Uitgaand verkeer met virtueel-netwerkapparaten) voor meer informatie.
+Als u het verkeer dat is bestemd voor een Azure-service vanaf het virtuele netwerk, wilt controleren of filteren, kunt u een virtueel netwerkapparaat implementeren binnen het virtuele netwerk. U kunt service-eindpunten toepassen op het subnet waarin het virtuele netwerkapparaat geïmplementeerd en beveiligde Azure-serviceresources alleen naar dit subnet via VNet-ACL's is. In dit scenario kan ook nuttig zijn als u wilt toegang tot Azure-service vanaf uw virtuele netwerk te beperken tot specifieke Azure-resources met behulp van virtueel-netwerkapparaatfilters. Zie [Egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Uitgaand verkeer met virtueel-netwerkapparaten) voor meer informatie.
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Wat gebeurt er wanneer u een Azure-service-account met virtueel netwerk toegangsbeheerlijst (ACL) ingeschakeld van buiten het VNet?
 De HTTP 403- of HTTP 404-fout is geretourneerd.

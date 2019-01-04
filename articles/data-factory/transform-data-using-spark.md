@@ -1,6 +1,6 @@
 ---
-title: Transformeer gegevens met behulp van de activiteit Spark in Azure Data Factory | Microsoft Docs
-description: Informatie over het om gegevens te transformeren door het uitvoeren van Spark programma's in een Azure data factory-pijplijn met behulp van de Spark-activiteit.
+title: Gegevens transformeren met behulp van Spark-activiteit in Azure Data Factory | Microsoft Docs
+description: Leer hoe u gegevens transformeren met Spark actieve programma's van een Azure data factory-pijplijn met behulp van de Spark-activiteit.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -8,28 +8,27 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a25505a976be9d9ae38f562591d86ca9b56b8859
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050332"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025605"
 ---
-# <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van de activiteit Spark in Azure Data Factory
+# <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Spark-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-spark.md)
+> * [Versie 1:](v1/data-factory-spark.md)
 > * [Huidige versie](transform-data-using-spark.md)
 
-De Spark-activiteit in een Data Factory [pijplijn](concepts-pipelines-activities.md) Hiermee voert u een Spark-programma op [uw eigen](compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont. Wanneer u een gekoppelde Spark-service op aanvraag, wordt Data Factory maakt automatisch een Spark-cluster voor u just-in-time om de gegevens te verwerken en vervolgens het cluster wordt verwijderd zodra de verwerking voltooid is. 
+De Spark-activiteit in een Data Factory [pijplijn](concepts-pipelines-activities.md) voert u een Spark-programma op [uw eigen](compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft. Wanneer u een gekoppelde Spark-service op aanvraag, wordt in Data Factory maakt automatisch een Spark-cluster voor u just-in-time voor het verwerken van de gegevens en vervolgens het cluster worden verwijderd nadat de verwerking voltooid is. 
 
 > [!IMPORTANT]
-> Spark activiteit biedt geen ondersteuning voor HDInsight Spark-clusters die gebruikmaken van een Azure Data Lake Store als primaire opslag.
+> Spark-activiteit biedt geen ondersteuning voor HDInsight Spark-clusters die gebruikmaken van een Azure Data Lake Store als primaire opslag.
 
-## <a name="spark-activity-properties"></a>Spark-activiteitseigenschappen
+## <a name="spark-activity-properties"></a>Eigenschappen van de Spark-activiteit
 Hier volgt de voorbeeld-JSON-definitie van een Spark-activiteit:    
 
 ```json
@@ -59,39 +58,39 @@ Hier volgt de voorbeeld-JSON-definitie van een Spark-activiteit:
 }
 ```
 
-De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie:
+De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebruikt:
 
-| Eigenschap              | Beschrijving                              | Vereist |
+| Eigenschap              | Description                              | Vereist |
 | --------------------- | ---------------------------------------- | -------- |
-| naam                  | De naam van de activiteit in de pijplijn.    | Ja      |
+| naam                  | Naam van de activiteit in de pijplijn.    | Ja      |
 | description           | Tekst die beschrijft wat de activiteit doet.  | Nee       |
-| type                  | Het activiteitstype is HDInsightSpark voor Spark-activiteit. | Ja      |
-| linkedServiceName     | Naam van de Spark gekoppelde HDInsight-Service op het Spark-programma wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
-| SparkJobLinkedService | Azure Storage gekoppelde service die de Spark taakbestand, afhankelijkheden en Logboeken bevat.  Als u een waarde op voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan de HDInsight-cluster gebruikt. De waarde van deze eigenschap kan alleen worden van een gekoppelde Azure Storage-service. | Nee       |
-| rootPath              | De Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. Raadpleeg de mapstructuur sectie (volgende sectie) voor meer informatie over de structuur van deze map. | Ja      |
-| entryFilePath         | Relatief pad naar de hoofdmap van het Spark/codepakket. De post-bestand moet een Python-bestand of een JAR-bestand. | Ja      |
-| className             | Belangrijkste Java/Spark-klasse van de toepassing      | Nee       |
-| argumenten             | Een lijst met opdrachtregelargumenten aan het programma Spark. | Nee       |
+| type                  | Voor Spark-activiteit is het activiteitstype HDInsightSpark. | Ja      |
+| linkedServiceName     | De naam van de HDInsight Spark gekoppelde Service waarop het Spark-programma wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
+| SparkJobLinkedService | Azure Storage gekoppelde service waarin de Spark taakbestand, afhankelijkheden en Logboeken.  Als u een waarde voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan het HDInsight-cluster gebruikt. De waarde van deze eigenschap kan alleen worden voor een gekoppelde Azure Storage-service. | Nee       |
+| rootPath              | Het Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. Verwijzen naar de mapstructuur sectie (volgende sectie) voor meer informatie over de structuur van deze map. | Ja      |
+| entryFilePath         | Relatief pad naar de hoofdmap van de Spark-code of pakket. De post-bestand moet een Python-bestand of een JAR-bestand. | Ja      |
+| Klassenaam             | Java/Spark-hoofdklasse van de toepassing      | Nee       |
+| argumenten             | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee       |
 | proxyUser             | De account van de gebruiker te imiteren voor het uitvoeren van het Spark-programma | Nee       |
-| sparkConfig           | Geef waarden voor Spark configuratie-eigenschappen die worden vermeld in het onderwerp: [Spark-configuratie - eigenschappen van Application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee       |
-| getDebugInfo          | Geeft aan wanneer de Spark-logboekbestanden worden gekopieerd naar de Azure-opslag door HDInsight-cluster gebruikt (of) opgegeven door sparkJobLinkedService. Toegestane waarden: None, altijd of fout. Standaardwaarde: geen. | Nee       |
+| sparkConfig           | Geef waarden op voor Spark configuratie-eigenschappen die worden vermeld in het onderwerp: [Spark-configuratie - eigenschappen voor de toepassing](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee       |
+| getDebugInfo          | Hiermee geeft u aan bij de Spark-logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door sparkJobLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee       |
 
-## <a name="folder-structure"></a>Mapstructuur
-Spark-taken zijn beter dan Pig/Hive-taken worden uitgebreid. Voor Spark taken, kunt u meerdere afhankelijkheden, zoals opgeven jar-pakketten (geplaatst in de java CLASSPATH), python-bestanden (geplaatst op de PYTHONPATH) en andere bestanden.
+## <a name="folder-structure"></a>mapstructuur
+Spark-taken zijn beter worden uitgebreid dan Pig of Hive-taken. Voor Spark-taken, kunt u meerdere afhankelijkheden zoals bieden jar-pakketten (in de java KLASSEPAD geplaatst), python-bestanden (geplaatst op de PYTHONPATH) en andere bestanden.
 
-De volgende mapstructuur maken in Azure Blob storage waarnaar wordt verwezen door de gekoppelde HDInsight-service. Vervolgens afhankelijke bestanden uploaden naar de juiste submappen in de hoofdmap dat wordt vertegenwoordigd door **entryFilePath**. Bijvoorbeeld, python-bestanden naar de submap pyFiles en jar-bestanden uploaden naar de submap potten van de hoofdmap. Tijdens runtime verwacht Data Factory-service de volgende mapstructuur in de Azure Blob-opslag:     
+De volgende mapstructuur maken in de Azure Blob-opslag waarnaar wordt verwezen door de gekoppelde HDInsight-service. Vervolgens kunt u afhankelijke bestanden uploaden naar de juiste submappen in de hoofdmap wordt vertegenwoordigd door **entryFilePath**. Bijvoorbeeld, python-bestanden naar de submap pyFiles en jar-bestanden uploaden naar de submap JAR-bestanden van de hoofdmap. Tijdens runtime verwacht Data Factory-service de volgende mapstructuur in de Azure Blob-opslag:     
 
-| Pad                  | Beschrijving                              | Vereist | Type   |
+| Pad                  | Description                              | Vereist | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.` (root)            | Het pad naar de hoofdmap van de taak Spark in gekoppelde storage-service | Ja      | Map |
-| &lt;De gebruiker gedefinieerde &gt; | Het pad verwijst naar het bestand vermelding van de Spark-taak | Ja      | File   |
-| . / jars                | Alle bestanden onder deze map worden geüpload en op de java-klassenpad van het cluster geplaatst | Nee       | Map |
+| `.` (root)            | Het pad naar de hoofdmap van de Spark-taak in de gekoppelde storage-service | Ja      | Map |
+| &lt;door de gebruiker gedefinieerde &gt; | Het pad dat verwijst naar het bestand vermelding van de Spark-taak | Ja      | File   |
+| . / jars                | Alle bestanden onder deze map worden geüpload en in het klassepad java van het cluster geplaatst | Nee       | Map |
 | . / pyFiles             | Alle bestanden onder deze map worden geüpload en op de PYTHONPATH van het cluster geplaatst | Nee       | Map |
-| . / bestanden               | Alle bestanden onder deze map worden geüpload en in de werkmap executor geplaatst | Nee       | Map |
-| . / archiveert            | Alle bestanden onder deze map zijn gecomprimeerd | Nee       | Map |
-| . / Logboeken                | De map met Logboeken van het Spark-cluster. | Nee       | Map |
+| . / -bestanden               | Alle bestanden onder deze map worden geüpload en geplaatst op de executor-werkmap | Nee       | Map |
+| . / archieven            | In deze map alle bestanden zijn gecomprimeerd | Nee       | Map |
+| . / -Logboeken                | De map met Logboeken van het Spark-cluster. | Nee       | Map |
 
-Hier volgt een voorbeeld van een opslagruimte met twee Spark taakbestanden in de Azure-blobopslag waarnaar wordt verwezen door de gekoppelde HDInsight-service.
+Hier volgt een voorbeeld van een opslagruimte met twee bestanden van Spark-taak in de Azure Blob-opslag waarnaar wordt verwezen door de gekoppelde HDInsight-service.
 
 ```
 SparkJob1
@@ -112,7 +111,7 @@ SparkJob2
     logs
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen waarin wordt uitgelegd hoe voor het transformeren van gegevens op andere manieren: 
+Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegevens op andere manieren: 
 
 * [U-SQL-activiteit](transform-data-using-data-lake-analytics.md)
 * [Hive-activiteit](transform-data-using-hadoop-hive.md)
@@ -121,5 +120,5 @@ Zie de volgende artikelen waarin wordt uitgelegd hoe voor het transformeren van 
 * [Hadoop-streamingactiviteit](transform-data-using-hadoop-streaming.md)
 * [Spark-activiteit](transform-data-using-spark.md)
 * [.NET aangepaste activiteit](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning-Batchuitvoering activiteit](transform-data-using-machine-learning.md)
-* [De activiteit opgeslagen procedure](transform-data-using-stored-procedure.md)
+* [Machine Learning Batch Execution-activiteit](transform-data-using-machine-learning.md)
+* [Opgeslagen procedureactiviteit](transform-data-using-stored-procedure.md)

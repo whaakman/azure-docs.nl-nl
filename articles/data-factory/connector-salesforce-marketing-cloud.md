@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a9916a412341d0b345bfc7a0e0f28d8e0add1846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6b45284f8fe4bd7fb45e89eeecf13ae7b9b2969b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081452"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016678"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Gegevens kopiëren van Salesforce Marketing Cloud met Azure Data Factory (Preview)
 
@@ -45,7 +44,7 @@ De volgende eigenschappen worden ondersteund voor Salesforce Marketing Cloud gek
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **salesforcemarketingcloud zijn** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **Salesforcemarketingcloud zijn** | Ja |
 | ClientId | De client-ID die is gekoppeld aan de Salesforce Marketing Cloud-toepassing.  | Ja |
 | ClientSecret | Het clientgeheim die zijn gekoppeld aan de Salesforce Marketing Cloud-toepassing. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF acitivty pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |

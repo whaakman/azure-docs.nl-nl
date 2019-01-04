@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d82becf209e44fe66711c964f825ce78d691b2d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093897"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024828"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -69,8 +68,8 @@ De volgende eigenschappen worden ondersteund voor een Azure SQL Data Warehouse g
 Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voorbeelden, voor andere verificatietypen:
 
 - [SQL-verificatie](#sql-authentication)
-- Azure AD-toepassing-tokenverificatie: [Service-principal](#service-principal-authentication)
-- Azure AD-toepassing-tokenverificatie: [beheerde identiteiten voor een Azure-resources](#managed-identity)
+- Azure AD-toepassing-token verificatie: [Service/principal](#service-principal-authentication)
+- Azure AD-toepassing-token verificatie: [Beheerde identiteiten voor Azure-resources](#managed-identity)
 
 >[!TIP]
 >Als u fout met foutcode als "UserErrorFailedToConnectToSqlServer" bereikt en wordt weergegeven, zoals 'de sessielimiet voor de database is XXX en is bereikt.', toe te voegen `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.

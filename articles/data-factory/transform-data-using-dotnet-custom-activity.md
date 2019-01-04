@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58afbdf3488850a643e7d4b8979bf860f93141df
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422879"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014111"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,17 +96,19 @@ In dit voorbeeld is de helloworld.exe een aangepaste toepassing die zijn opgesla
 
 De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die specifiek voor deze activiteit zijn. 
 
-| Eigenschap              | Beschrijving                              | Vereist |
+| Eigenschap              | Description                              | Vereist |
 | :-------------------- | :--------------------------------------- | :------- |
 | naam                  | Naam van de activiteit in de pijplijn     | Ja      |
 | description           | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                  | Voor aangepaste activiteit, het activiteitstype is **aangepaste**. | Ja      |
 | linkedServiceName     | Gekoppelde Azure Batch-Service. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.  | Ja      |
 | command               | Opdracht van de aangepaste toepassing moet worden uitgevoerd. Als de toepassing al beschikbaar op de Azure Batch Pool Node, de resourceLinkedService is en folderPath worden overgeslagen. Bijvoorbeeld, kunt u de opdracht om te worden `cmd /c dir`, systeemeigen worden ondersteund door de Batch-Pool van Windows-knooppunt. | Ja      |
-| resourceLinkedService | Azure Storage gekoppelde Service naar het opslagaccount waarin de aangepaste toepassing is opgeslagen | Nee       |
-| folderPath            | Pad naar de map van de aangepaste toepassing en alle bijbehorende afhankelijkheden<br/><br/>Als u beschikt over afhankelijkheden in submappen - dat wil zeggen, opgeslagen in een hiërarchische mapstructuur onder *folderPath* -de mapstructuur wordt momenteel afgevlakt wanneer de bestanden zijn gekopieerd naar de Azure Batch. Dat wil zeggen, worden alle bestanden gekopieerd naar één map zonder submappen. Als tijdelijke oplossing voor dit gedrag, houd rekening met de bestanden te comprimeren, het gecomprimeerde bestand kopiëren en deze vervolgens uitpakken met aangepaste code in de gewenste locatie. | Nee       |
+| resourceLinkedService | Azure Storage gekoppelde Service naar het opslagaccount waarin de aangepaste toepassing is opgeslagen | Nee&#42;       |
+| folderPath            | Pad naar de map van de aangepaste toepassing en alle bijbehorende afhankelijkheden<br/><br/>Als u beschikt over afhankelijkheden in submappen - dat wil zeggen, opgeslagen in een hiërarchische mapstructuur onder *folderPath* -de mapstructuur wordt momenteel afgevlakt wanneer de bestanden zijn gekopieerd naar de Azure Batch. Dat wil zeggen, worden alle bestanden gekopieerd naar één map zonder submappen. Als tijdelijke oplossing voor dit gedrag, houd rekening met de bestanden te comprimeren, het gecomprimeerde bestand kopiëren en deze vervolgens uitpakken met aangepaste code in de gewenste locatie. | Nee&#42;       |
 | referenceObjects      | Een matrix van bestaande gekoppelde Services en gegevenssets. De waarnaar wordt verwezen, gekoppelde Services en gegevenssets worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar resources van de Data Factory | Nee       |
 | ExtendedProperties    | Gebruiker gedefinieerde eigenschappen die kunnen worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar aanvullende eigenschappen | Nee       |
+
+&#42;De eigenschappen `resourceLinkedService` en `folderPath` moeten beide worden opgegeven of beide worden weggelaten.
 
 ## <a name="custom-activity-permissions"></a>Machtigingen voor aangepaste activiteit
 
@@ -353,7 +354,7 @@ Voor een compleet voorbeeld van hoe de end-to-end-voorbeeld voor dll-bestand en 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatische schaalaanpassing van Azure Batch
 U kunt ook maken met een Azure Batch-pool met **voor automatisch schalen** functie. U kunt bijvoorbeeld een azure batch-pool maken met 0 toegewezen virtuele machines en een formule voor automatisch schalen op basis van het aantal in behandeling zijnde taken. 
 
-De voorbeeldformule hier bereikt het volgende gedrag: wanneer de pool in eerste instantie wordt gemaakt, wordt 1 VM gestart. Metrische gegevens $PendingTasks definieert het aantal taken in die wordt uitgevoerd en actieve (in de wachtrij) staat.  De formule wordt het gemiddelde aantal in behandeling zijnde taken gevonden in de afgelopen 180 seconden en TargetDedicated dienovereenkomstig ingesteld. Het zorgt ervoor dat TargetDedicated nooit meer dan 25 VM's gaat. Dus als nieuwe taken worden verzonden en toepassingen automatisch meeschaalt en als de taken zijn voltooid, virtuele machines worden gratis één voor één en deze virtuele machines Hiermee verkleint u de automatische schaalaanpassing. startingNumberOfVMs en maxNumberofVMs kan worden aangepast aan uw behoeften.
+De voorbeeldformule hier bereikt het volgende gedrag: Wanneer de pool in eerste instantie wordt gemaakt, begint deze met 1 virtuele machine. Metrische gegevens $PendingTasks definieert het aantal taken in die wordt uitgevoerd en actieve (in de wachtrij) staat.  De formule wordt het gemiddelde aantal in behandeling zijnde taken gevonden in de afgelopen 180 seconden en TargetDedicated dienovereenkomstig ingesteld. Het zorgt ervoor dat TargetDedicated nooit meer dan 25 VM's gaat. Dus als nieuwe taken worden verzonden en toepassingen automatisch meeschaalt en als de taken zijn voltooid, virtuele machines worden gratis één voor één en deze virtuele machines Hiermee verkleint u de automatische schaalaanpassing. startingNumberOfVMs en maxNumberofVMs kan worden aangepast aan uw behoeften.
 
 Formule voor automatisch schalen:
 

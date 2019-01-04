@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory | Microsoft Docs
-description: Informatie over het kopiëren van gegevens van SAP HANA naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+description: Leer hoe u gegevens kopiëren van SAP HANA naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,62 +9,61 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048080"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022968"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-sap-hana-connector.md)
+> * [Versie 1:](v1/data-factory-sap-hana-connector.md)
 > * [Huidige versie](connector-sap-hana.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SAP HANA-database. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SAP HANA-database. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit de SAP HANA-database kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst met gegevensarchieven als bronnen/put wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens van SAP HANA-database kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die door de kopieeractiviteit ondersteund als bronnen/sinks, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-In het bijzonder ondersteunt deze SAP HANA-connector:
+Om precies ondersteunt deze SAP HANA-connector:
 
-- Kopiëren van gegevens vanaf een versie van de SAP HANA-database.
-- Kopiëren van gegevens van **HANA informatiemodellen** (zoals weergaven, analyse en berekening) en **rij/kolom tabellen** met behulp van SQL-query's.
+- Kopiëren van gegevens vanuit een willekeurige versie van SAP HANA-database.
+- Kopiëren van gegevens uit **HANA-informatiemodellen** (zoals de weergaven analyse en berekenen) en **rij/kolom tabellen** met behulp van SQL-query's.
 - Kopiëren van gegevens met **Basic** of **Windows** verificatie.
 
 > [!NOTE]
-> Om gegevens te kopiëren **in** SAP HANA-gegevens opslaat, algemene beheerprogramma voor ODBC-connector gebruiken. Zie [SAP HANA sink](connector-odbc.md#sap-hana-sink) met details. De gekoppelde services voor SAP HANA-connector en ODBC-connector zijn met een ander type dus kan niet opnieuw worden gebruikt.
+> Om gegevens te kopiëren **in** SAP HANA-gegevens opslaan, algemene ODBC-connector gebruiken. Zie [SAP HANA-sink](connector-odbc.md#sap-hana-sink) met details. De gekoppelde services voor SAP HANA-connector en ODBC-connector met een ander type zijn Opmerking dus kan niet opnieuw worden gebruikt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van deze SAP HANA-connector, moet u:
+Voor het gebruik van deze SAP HANA-connector, moet u naar:
 
-- Stel een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
-- Installeer het SAP HANA ODBC-stuurprogramma op de machine integratie Runtime. U kunt downloaden de SAP HANA ODBC-stuurprogramma van de [SAP Software Download Center](https://support.sap.com/swdc). Zoeken met het trefwoord **SAP HANA-CLIENT voor Windows**.
+- Instellen van een zelfgehoste Cloudintegratieruntime. Zie [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+- De SAP HANA ODBC-stuurprogramma op de machine Integration Runtime installeren. U kunt downloaden de SAP HANA ODBC-stuurprogramma van de [SAP Software Download Center](https://support.sap.com/swdc). Zoek met het trefwoord **SAP HANA CLIENT voor Windows**.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor SAP HANA-connector.
+De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor SAP HANA-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
 De volgende eigenschappen worden ondersteund voor SAP HANA gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapHana** | Ja |
-| server | Naam van de server waarop het exemplaar SAP HANA zich bevindt. Als de server een aangepaste poort gebruikt is, geeft u `server:port`. | Ja |
-| authenticationType | Het soort verificatie die wordt gebruikt voor verbinding met de SAP HANA-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows** | Ja |
+| server | Naam van de server waarop de SAP HANA-instantie zich bevindt. Als uw server een aangepaste poort gebruikt is, geeft u `server:port`. | Ja |
+| authenticationType | Het type verificatie gebruikt voor verbinding met de SAP HANA-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows** | Ja |
 | Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
-| wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
+| wachtwoord | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld:**
 
@@ -92,9 +91,9 @@ De volgende eigenschappen worden ondersteund voor SAP HANA gekoppelde service:
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP HANA-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP HANA-gegevensset.
 
-Om gegevens te kopiëren uit een SAP HANA, stel de eigenschap type van de gegevensset **RelationalTable**. Typ RelationalTable terwijl er geen type-specifieke eigenschappen voor de gegevensset SAP HANA van ondersteund zijn.
+Als u wilt kopiëren van gegevens van SAP HANA, stel de eigenschap type van de gegevensset in **RelationalTable**. Typ RelationalTable terwijl er geen specifieke eigenschappen die worden ondersteund voor de SAP HANA-gegevensset van zijn.
 
 **Voorbeeld:**
 
@@ -114,16 +113,16 @@ Om gegevens te kopiëren uit een SAP HANA, stel de eigenschap type van de gegeve
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door SAP HANA-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP HANA-bron.
 
 ### <a name="sap-hana-as-source"></a>SAP HANA als bron
 
-Om gegevens te kopiëren uit een SAP HANA, stelt u het brontype in de kopieerbewerking naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren van SAP HANA, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
-| query | Hiermee geeft u de SQL-query voor het lezen van gegevens uit de SAP HANA-exemplaar. | Ja |
+| query | Hiermee geeft u de SQL-query voor het lezen van gegevens van de SAP HANA-instantie. | Ja |
 
 **Voorbeeld:**
 
@@ -159,7 +158,7 @@ Om gegevens te kopiëren uit een SAP HANA, stelt u het brontype in de kopieerbew
 
 ## <a name="data-type-mapping-for-sap-hana"></a>De gegevenstypetoewijzing voor SAP HANA
 
-Bij het kopiëren van gegevens uit een SAP HANA, worden de volgende toewijzingen van SAP HANA-gegevenstypen gebruikt om tussentijdse Azure Data Factory-gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
+Het kopiëren van gegevens van SAP HANA, worden de volgende toewijzingen van SAP HANA-gegevenstypen gebruikt om Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
 
 | SAP HANA-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
@@ -169,27 +168,27 @@ Bij het kopiëren van gegevens uit een SAP HANA, worden de volgende toewijzingen
 | BOOLEAANSE WAARDE | Byte |
 | CLOB | Byte[] |
 | DATE | DateTime |
-| DECIMALE | decimale |
-| DOUBLE | Enkelvoudig |
+| DECIMAAL | Decimaal |
+| DOUBLE-WAARDE | Enkelvoudig |
 | INT | Int32 |
 | NVARCHAR | Reeks |
 | ECHTE | Enkelvoudig |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
-| TIJD | TimeSpan |
+| TIME | TimeSpan |
 | TIJDSTEMPEL | DateTime |
 | TINYINT | Byte |
 | VARCHAR | Reeks |
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 
-Er zijn enkele bekende beperkingen bij het kopiëren van gegevens uit een SAP HANA:
+Er zijn enkele bekende beperkingen bij het kopiëren van gegevens van SAP HANA:
 
-- NVARCHAR tekenreeksen worden afgekapt tot de maximale lengte van 4000 Unicode-tekens
-- SMALLDECIMAL wordt niet ondersteund.
+- NVARCHAR-tekenreeksen worden afgekapt tot de maximale lengte van 4000 Unicode-tekens
+- SMALLDECIMAL wordt niet ondersteund
 - VARBINARY wordt niet ondersteund.
-- Geldige datums tussen 12-1899/30 zijn en 12-9999/31
+- Geldige datums liggen tussen 30-12-1899 en 9999/12/31
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

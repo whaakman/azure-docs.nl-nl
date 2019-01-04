@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 76ce5f0c44dd1985fbf47d493b4566634f4894d0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6f534858194719a0d3059808073ae057f150b599
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976678"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021013"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnose-uitzonderingen in uw web-apps met Application Insights
 Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insights](../../application-insights/app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonderingen en andere gebeurtenissen op de client en de server, zodat u kunt snel onderzoek de oorzaken.
@@ -90,7 +90,7 @@ Als u wilt zien deze gebeurtenissen, open [zoeken](../../azure-monitor/app/diagn
 ![In detail analyseren](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> Als uw app veel telemetriegegevens genereert, beperkt de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen te sturen. Gebeurtenissen die deel van dezelfde bewerking uitmaken worden geselecteerd of gedeselecteerd als een groep, zodat u tussen gerelateerde gebeurtenissen kunt navigeren. [Meer informatie over steekproeven.](../../application-insights/app-insights-sampling.md)
+> Als uw app veel telemetriegegevens genereert, beperkt de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen te sturen. Gebeurtenissen die deel van dezelfde bewerking uitmaken worden geselecteerd of gedeselecteerd als een groep, zodat u tussen gerelateerde gebeurtenissen kunt navigeren. [Meer informatie over steekproeven.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -489,4 +489,4 @@ Dit wijkt af van het 'Uitzonderingen' aantal berekend door de Application Insigh
 ## <a name="next-steps"></a>Volgende stappen
 * [REST, SQL en andere aanroepen van afhankelijkheden controleren](../../azure-monitor/app/asp-net-dependencies.md)
 * [Monitor pagina laadtijden, browseruitzonderingen en AJAX-aanroepen](../../azure-monitor/app/javascript.md)
-* [Monitor-prestatiemeteritems](../../application-insights/app-insights-performance-counters.md)
+* [Monitor-prestatiemeteritems](../../azure-monitor/app/performance-counters.md)

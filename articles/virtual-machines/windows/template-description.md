@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987693"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023835"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuele machines in een Azure Resource Manager-sjabloon
 
@@ -260,7 +260,7 @@ De meeste resources, is afhankelijk van andere bronnen correct te laten werken. 
 ],
 ```
 
-Resource Manager implementeert parallel alle resources die zijn niet afhankelijk van een andere resource wordt geïmplementeerd. Wees voorzichtig bij het instellen van afhankelijkheden, omdat u uw implementatie per ongeluk verminderen kunt door onnodige afhankelijkheden op te geven. Afhankelijkheden kunnen koppelen via meerdere bronnen. Bijvoorbeeld, de netwerkinterface is afhankelijk van het openbare IP-adres en de virtuele-netwerkbronnen.
+Resource Manager implementeert parallel alle resources die niet afhankelijk zijn van een andere resource wordt geïmplementeerd. Wees voorzichtig bij het instellen van afhankelijkheden, omdat u uw implementatie per ongeluk verminderen kunt door onnodige afhankelijkheden op te geven. Afhankelijkheden kunnen koppelen via meerdere bronnen. Bijvoorbeeld, de netwerkinterface is afhankelijk van het openbare IP-adres en de virtuele-netwerkbronnen.
 
 Hoe weet u als een afhankelijkheid vereist is? Bekijk de waarden die u in de sjabloon is ingesteld. Als een element in de virtuele machine-resource definition verwijst naar een andere resource die is geïmplementeerd in dezelfde sjabloon, moet u een afhankelijkheid. Uw voorbeeld van de virtuele machine wordt bijvoorbeeld een netwerkprofiel gedefinieerd:
 
@@ -287,7 +287,7 @@ Verschillende elementen van het profiel worden gebruikt bij het definiëren van 
 
 ## <a name="disks-and-images"></a>Schijven en installatiekopieën
    
-In Azure, vhd-bestanden kunnen vertegenwoordigen [schijven of installatiekopieën](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Wanneer het besturingssysteem in een vhd-bestand is speciaal bedoeld om te worden van een specifieke virtuele machine, wordt dit aangeduid als een schijf. Wanneer het besturingssysteem in een vhd-bestand is gegeneraliseerd moet worden gebruikt om u te veel virtuele machines maken, is deze aangeduid als een installatiekopie.   
+In Azure, vhd-bestanden kunnen vertegenwoordigen [schijven of installatiekopieën](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Wanneer het besturingssysteem in een vhd-bestand is speciaal bedoeld om te worden van een specifieke virtuele machine, wordt dit aangeduid als een schijf. Wanneer het besturingssysteem in een vhd-bestand is gegeneraliseerd moet worden gebruikt om u te veel virtuele machines maken, deze aangeduid als een afbeelding.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Nieuwe virtuele machines en nieuwe schijven maken van een platforminstallatiekopie
 
@@ -374,7 +374,7 @@ U kunt eventueel gegevensschijven toevoegen aan de virtuele machines. De [aantal
 
 ## <a name="extensions"></a>Extensies
 
-Hoewel [extensies](extensions-features.md) zijn van een afzonderlijke resource, worden ze nauw zijn gekoppeld aan virtuele machines. Extensies kunnen worden toegevoegd als een onderliggende resource van de virtuele machine of als een afzonderlijke resource. Het voorbeeld wordt de [Diagnostics-extensie](extensions-diagnostics-template.md) wordt toegevoegd aan de virtuele machines:
+Hoewel [extensies](extensions-features.md) zijn van een afzonderlijke resource, worden ze nauw zijn verbonden met virtuele machines. Extensies kunnen worden toegevoegd als een onderliggende resource van de virtuele machine of als een afzonderlijke resource. Het voorbeeld wordt de [Diagnostics-extensie](extensions-diagnostics-template.md) wordt toegevoegd aan de virtuele machines:
 
 ```
 { 
@@ -436,7 +436,7 @@ Er zijn veel extensies die u op een virtuele machine installeren kunt, maar het 
 }
 ```
 
-Het script start.ps1 kunt veel configuratietaken uitvoeren. Bijvoorbeeld, zijn de gegevensschijven die zijn toegevoegd aan de virtuele machines in het voorbeeld niet geïnitialiseerd; u kunt een aangepast script gebruiken ze worden geïnitialiseerd. Als u meerdere opstarttaken hebt te doen, kunt u het bestand start.ps1 om aan te roepen andere PowerShell-scripts in Azure storage. Het voorbeeld wordt PowerShell gebruikt, maar u kunt elke scripting methode gebruiken die beschikbaar is op het besturingssysteem die u gebruikt.
+Het script start.ps1 kunt veel configuratietaken uitvoeren. Bijvoorbeeld, zijn niet de gegevensschijven die zijn toegevoegd aan de virtuele machines in het voorbeeld geïnitialiseerd; u kunt een aangepast script gebruiken ze worden geïnitialiseerd. Als u meerdere opstarttaken hebt te doen, kunt u het bestand start.ps1 om aan te roepen andere PowerShell-scripts in Azure storage. Het voorbeeld wordt PowerShell gebruikt, maar kunt u een script methode die beschikbaar is op het besturingssysteem dat u gebruikt.
 
 U ziet de status van de geïnstalleerde uitbreidingen van de instellingen van de extensies in de portal:
 
@@ -448,14 +448,15 @@ U kunt ook informatie over extensies ophalen met behulp van de **Get-AzureRmVMEx
 
 Wanneer u een sjabloon implementeert, worden de resources dat u als een groep hebt geïmplementeerd en wordt automatisch een naam aan deze geïmplementeerde groep toegewezen bijgehouden in Azure. De naam van de implementatie is hetzelfde als de naam van de sjabloon.
 
-Als u meer wilt weten over de status van resources in de implementatie, kunt u de resourcegroep-blade in Azure portal:
+Als u meer wilt weten over de status van resources in de implementatie, moet u de resourcegroep bekijken in Azure portal:
 
 ![Ophalen van informatie over de implementatie](./media/template-description/virtual-machines-deployment-info.png)
     
-Het is niet een probleem aan dezelfde sjabloon gebruiken om resources te maken of bijwerken van bestaande resources. Wanneer u opdrachten gebruiken om sjablonen te implementeren, hebt u de mogelijkheid om in te spreken die [modus](../../resource-group-template-deploy.md) u wilt gebruiken. De modus kan worden ingesteld op **voltooid** of **incrementele**. De standaardwaarde is om te doen incrementele updates. Wees voorzichtig bij het gebruik van de **voltooid** modus omdat u per ongeluk de resources verwijdert mogelijk. Als u de modus instelt op **voltooid**, Resource Manager Hiermee verwijdert u alle resources in de resourcegroep die zich niet in de sjabloon.
+Het is niet een probleem aan dezelfde sjabloon gebruiken om resources te maken of bijwerken van bestaande resources. Wanneer u opdrachten gebruiken om sjablonen te implementeren, hebt u de mogelijkheid om in te spreken die [modus](../../resource-group-template-deploy.md) u wilt gebruiken. De modus kan worden ingesteld op **voltooid** of **incrementele**. De standaardwaarde is om te doen incrementele updates. Wees voorzichtig bij het gebruik van de **voltooid** modus omdat u per ongeluk de resources verwijdert mogelijk. Als u de modus instelt op **voltooid**, Resource Manager verwijdert alle resources in de resourcegroep die zich niet in de sjabloon.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Maak uw eigen sjabloon met [Authoring Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md).
 - Implementeer de sjabloon die u hebt gemaakt met behulp van [een Windows-machine maken met Resource Manager-sjabloon](ps-template.md).
 - Informatie over het beheren van de virtuele machines die u hebt gemaakt, vindt [maken en beheren van Windows-VM's met de Azure PowerShell-module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Zie voor de JSON-syntaxis en de eigenschappen van resourcetypen in sjablonen, [verwijzing naar de Azure Resource Manager-sjabloon](/azure/templates/).

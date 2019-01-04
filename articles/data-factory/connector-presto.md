@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102007"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019262"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Gegevens kopiëren van Presto met Azure Data Factory (Preview)
 
@@ -50,7 +49,7 @@ De volgende eigenschappen worden ondersteund voor Presto gekoppelde service:
 | serverVersion | De versie van de Presto-server. (dat wil zeggen 0.148-t)  | Ja |
 | catalogus | De cataloguscontext voor alle aanvragen voor de server.  | Ja |
 | poort | De TCP-poort die de Presto server gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 8080.  | Nee |
-| authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Presto-server. <br/>Toegestane waarden zijn: **anoniem**, **LDAP** | Ja |
+| authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Presto-server. <br/>Toegestane waarden zijn: **Anonieme**, **LDAP** | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de Presto-server.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |

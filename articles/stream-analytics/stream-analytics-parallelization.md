@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091040"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000543"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Maak gebruik van query-parallellisatie in Azure Stream Analytics
 Dit artikel ziet u hoe u kunt profiteren van parallelle uitvoering in Azure Stream Analytics. Leert u hoe u Stream Analytics-taken schalen door invoer partities configureren en afstemmen van de definitie van de analytics-query.
@@ -42,11 +42,12 @@ Wanneer u met Stream Analytics werkt, kunt u profiteren van partitionering in de
 -   Azure Table
 -   BLOB-opslag (kan de partitiesleutel expliciet ingesteld)
 -   Cosmos DB (u moet expliciet de partitiesleutel instellen)
--   Event hub (u moet expliciet de partitiesleutel instellen)
+-   Eventhubs (u moet expliciet de partitiesleutel instellen)
 -   IoT Hub (u moet expliciet de partitiesleutel instellen)
 -   Service Bus
+- SQL- en SQL Data Warehouse met optionele partitioneren: Zie voor meer informatie over de [uitvoer naar Azure SQL Database-pagina](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Power BI, SQL en SQL Data Warehouse uitvoer bieden geen ondersteuning voor partitioneren. Maar u kunt nog steeds partitioneren de invoer zoals beschreven in [in deze sectie](#multi-step-query-with-different-partition-by-values) 
+Power BI biedt geen ondersteuning voor partitioneren. Maar u kunt nog steeds partitioneren de invoer zoals beschreven in [in deze sectie](#multi-step-query-with-different-partition-by-values) 
 
 Zie voor meer informatie over partities, de volgende artikelen:
 
@@ -75,8 +76,8 @@ De volgende secties worden enkele voorbeeldscenario's die perfect parallelle zij
 
 ### <a name="simple-query"></a>Eenvoudige query
 
-* Invoer: Event hub met 8 partities
-* De uitvoer: Event hub met 8 partities
+* Invoer: Event hub, met 8 partities
+* Uitvoer: Event hub, met 8 partities
 
 Query:
 
@@ -90,8 +91,8 @@ Deze query is een eenvoudige filter. Daarom moet we geen zorgen over het partiti
 
 ### <a name="query-with-a-grouping-key"></a>Query's uitvoeren met een groeperingssleutel
 
-* Invoer: Event hub met 8 partities
-* De uitvoer: Blob storage
+* Invoer: Event hub, met 8 partities
+* Uitvoer: Blob Storage
 
 Query:
 
@@ -108,20 +109,20 @@ Deze query heeft een groeperingssleutel. Daarom moeten de gebeurtenissen gegroep
 In de vorige sectie hebt gezien hoe sommige perfect parallelle scenario's. In deze sectie wordt besproken hoe scenario's die niet voldoen aan alle vereisten voor het perfect parallelle worden. 
 
 ### <a name="mismatched-partition-count"></a>Aantal niet-overeenkomende partities
-* Invoer: Event hub met 8 partities
-* De uitvoer: Event hub met 32 partities
+* Invoer: Event hub, met 8 partities
+* Uitvoer: Event hub met 32 partities
 
 In dit geval het maakt niet uit wat de query is. Als het aantal partities invoer komt niet overeen met het aantal uitvoer, de topologie is niet perfect parallel. + echter we nog steeds bepaalde niveau of parallellisering krijgen.
 
 ### <a name="query-using-non-partitioned-output"></a>Query's uitvoeren met behulp van niet-gepartitioneerde uitvoer
-* Invoer: Event hub met 8 partities
+* Invoer: Event hub, met 8 partities
 * Uitvoer: Power BI
 
-Uitvoer van de Power BI ondersteunt momenteel geen partitioneren. In dit scenario is daarom niet perfect parallelle.
+Power BI-uitvoer ondersteunt momenteel geen partitioneren. In dit scenario is daarom niet perfect parallelle.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>WebTest met meerdere stappen query's uitvoeren met verschillende waarden PARTITION BY
-* Invoer: Event hub met 8 partities
-* De uitvoer: Event hub met 8 partities
+* Invoer: Event hub, met 8 partities
+* Uitvoer: Event hub, met 8 partities
 
 Query:
 

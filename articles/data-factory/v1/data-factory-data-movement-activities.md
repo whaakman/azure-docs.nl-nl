@@ -9,17 +9,16 @@ ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299857"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014678"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Gegevens verplaatsen met behulp van Kopieeractiviteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +78,7 @@ De kopieeractiviteit in Data Factory kopieert gegevens van een brongegevensarchi
 ### <a name="supported-file-formats"></a>Ondersteunde bestandsindelingen
 Kunt u Copy-activiteit naar **kopiëren van bestanden als-is** tussen twee bestanden zijn gebaseerd, kunt u overslaan de [sectie opgemaakt](data-factory-create-datasets.md) in zowel de gegevenssetdefinities voor invoer en uitvoer. De gegevens efficiënt gekopieerd zonder een serialisatie/deserialisatie.
 
-Kopieeractiviteit ook leest uit en schrijft naar bestanden in een opgegeven indeling: **tekst, JSON, Avro, ORC en Parquet**, en compressiecodec **GZip, Deflate, BZip2 en ZipDeflate** worden ondersteund. Zie [ondersteunde indelingen voor bestanden en compressie](data-factory-supported-file-and-compression-formats.md) met details.
+Kopieeractiviteit ook leest uit en schrijft naar bestanden in een opgegeven indeling: **Tekst, JSON, Avro, ORC en Parquet**, en compressiecodec **GZip, Deflate, BZip2 en ZipDeflate** worden ondersteund. Zie [ondersteunde indelingen voor bestanden en compressie](data-factory-supported-file-and-compression-formats.md) met details.
 
 U kunt bijvoorbeeld de volgende kopieeractiviteiten doen:
 
@@ -96,28 +95,28 @@ Als bron en sink-gegevensopslag in de cloud, Data Factory maakt gebruik van een 
 
 | Geografische locatie van de doel-gegevensarchieven | De regio van het beoogde gegevensarchief | Regio die wordt gebruikt voor gegevensverplaatsing |
 |:--- |:--- |:--- |
-| Verenigde Staten | VS - oost | VS - oost |
-| &nbsp; | VS - oost 2 | VS - oost 2 |
-| &nbsp; | VS - midden | VS - midden |
-| &nbsp; | Noord-centraal VS | Noord-centraal VS |
-| &nbsp; | Zuid-centraal VS | Zuid-centraal VS |
-| &nbsp; | West-centraal VS | West-centraal VS |
-| &nbsp; | VS - west | VS - west |
-| &nbsp; | VS - west 2 | VS - west 2 |
+| Verenigde Staten | US - oost | US - oost |
+| &nbsp; | US - oost 2 | US - oost 2 |
+| &nbsp; | US - centraal | US - centraal |
+| &nbsp; | US - noord-centraal | US - noord-centraal |
+| &nbsp; | US - zuid-centraal | US - zuid-centraal |
+| &nbsp; | US - west-centraal | US - west-centraal |
+| &nbsp; | US - west | US - west |
+| &nbsp; | US - west 2 | US - west 2 |
 | Canada | Canada - oost | Canada - midden |
 | &nbsp; | Canada - midden | Canada - midden |
 | Brazilië | Brazilië - zuid | Brazilië - zuid |
-| Europa | Noord-Europa | Noord-Europa |
-| &nbsp; | West-Europa | West-Europa |
+| Europa | Europa - noord | Europa - noord |
+| &nbsp; | Europa -west | Europa -west |
 | Verenigd Koninkrijk | Verenigd Koninkrijk West | Verenigd Koninkrijk Zuid |
 | &nbsp; | Verenigd Koninkrijk Zuid | Verenigd Koninkrijk Zuid |
-| Azië en Stille Oceaan | Zuidoost-Azië | Zuidoost-Azië |
-| &nbsp; | Oost-Azië | Zuidoost-Azië |
+| Azië en Stille Oceaan | Azië - zuidoost | Azië - zuidoost |
+| &nbsp; | Azië - oost | Azië - zuidoost |
 | Australië | Australië - oost | Australië - oost |
 | &nbsp; | Australië - zuidoost | Australië - zuidoost |
-| India | Centraal-India | Centraal-India |
-| &nbsp; | West-India | Centraal-India |
-| &nbsp; | Zuid-India | Centraal-India |
+| India | India - centraal | India - centraal |
+| &nbsp; | India - west | India - centraal |
+| &nbsp; | India - zuid | India - centraal |
 | Japan | Japan - oost | Japan - oost |
 | &nbsp; | Japan - west | Japan - oost |
 | Korea | Korea - centraal | Korea - centraal |

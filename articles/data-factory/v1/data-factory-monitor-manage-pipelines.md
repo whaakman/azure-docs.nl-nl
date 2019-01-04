@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618866"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015489"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Controleren en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
 > [!div class="op_single_selector"]
@@ -88,7 +87,7 @@ De segmenten van de gegevensset in de data factory kunnen een van de volgende st
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Beschrijving</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">Wachten</td><td>ScheduleTime</td><td>De tijd is niet afkomstig zijn van het segment uit te voeren.</td>
@@ -162,7 +161,7 @@ Nadat u een data factory implementeert en de pijplijnen een ongeldige actieve pe
 
 ![Status diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-De gegevensset staat overgang stroom in de gegevensfactory is als volgt: wachten-In-voortgang/In uitvoering (Validating) > gereed/mislukt->.
+De gegevensset staat overgang stroom in data factory is het volgende: Wacht In-voortgang/In uitvoering (valideren) -> -> gereed/is mislukt.
 
 Het segment wordt gestart in een **wachten** staat, wachten op voorwaarden waaraan moet worden voldaan voordat deze wordt uitgevoerd. Vervolgens wordt de activiteit wordt uitgevoerd en het segment krijgt een **In uitvoering** staat. De activiteit is uitgevoerd, kan slagen of mislukken. Het segment is gemarkeerd als **gereed** of **mislukt**, op basis van het resultaat van de uitvoering.
 

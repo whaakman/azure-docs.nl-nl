@@ -1,6 +1,6 @@
 ---
 title: Problemen met Azure Data Factory
-description: Informatie over het oplossen van problemen met het gebruik van Azure Data Factory.
+description: Informatie over het oplossen van problemen bij het gebruik van Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -9,64 +9,63 @@ ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051862"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023019"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Problemen met Data Factory oplossen
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van Azure Data Factory. 
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory. 
 
-Dit artikel bevat tips voor probleemoplossing voor problemen bij het gebruik van Azure Data Factory. In dit artikel worden niet alle mogelijke problemen vermeld wanneer u de service, maar deze heeft een aantal problemen en algemene tips voor probleemoplossing.   
+In dit artikel vindt u tips voor probleemoplossing voor problemen bij het gebruik van Azure Data Factory. In dit artikel de lijst bevat niet alle mogelijke problemen bij het gebruik van de service, maar het geeft sommige problemen en algemene tips voor probleemoplossing.   
 
 ## <a name="troubleshooting-tips"></a>Tips voor probleemoplossing
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Fout: Het abonnement is niet geregistreerd voor gebruik van de naamruimte Microsoft.DataFactory
+### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Fout: Het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.DataFactory'
 Als u dit foutbericht ontvangt, is de resourceprovider van Azure Data Factory niet geregistreerd op uw computer. Ga als volgt te werk:
 
 1. Start Azure PowerShell.
-2. Aanmelden bij uw Azure-account met de volgende opdracht.
+2. Meld u aan bij uw Azure-account met de volgende opdracht.
 
     ```powershell
     Connect-AzureRmAccount
     ```
-3. Voer de volgende opdracht om de Azure Data Factory-provider geregistreerd.
+3. Voer de volgende opdracht om de Azure Data Factory-provider te registreren.
 
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Probleem: Niet-geautoriseerde fout bij het uitvoeren van een Data Factory-cmdlet
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Probleem: Niet gemachtigd om een Data Factory-cmdlet uit te voeren
 Waarschijnlijk gebruikt u een verkeerd Azure-account of -abonnement met de Azure PowerShell. Gebruik de volgende cmdlets om het juiste Azure-account en -abonnement te selecteren voor gebruik met de Azure PowerShell.
 
-1. Verbinding maken met-AzureRmAccount - gebruik de juiste gebruikersnaam en wachtwoord
+1. Connect-AzureRmAccount: Gebruik de juiste gebruikers-ID en wachtwoord
 2. Get-AzureRmSubscription - weergeven van alle abonnementen voor het account.
-3. SELECT-AzureRmSubscription &lt;abonnementsnaam&gt; -Selecteer het juiste abonnement. Gebruik hetzelfde account dat u kunt een gegevensfactory maken in de Azure portal.
+3. SELECT-AzureRmSubscription &lt;abonnementsnaam&gt; -Selecteer het juiste abonnement. Gebruik hetzelfde account dat u gebruikt om te maken van een data factory in Azure portal.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Probleem: Niet gestart Express-installatie van Data Management Gateway vanuit Azure-portal
+### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Probleem: Niet Express-installatie van Data Management Gateway gestart vanuit Azure portal
 Voor de snelle installatie voor Data Management Gateway is Internet Explorer vereist of een webbrowser die compatibel is met Microsoft ClickOnce. Als u de snelle installatie niet kunt starten, voert u een van de volgende handelingen uit:
 
-* Internet Explorer of een webbrowser die Microsoft ClickOnce compatibel gebruiken.
+* Internet Explorer of een met Microsoft ClickOnce compatibele webbrowser gebruiken.
 
     Als u met Chrome werkt, gaat u naar de [Chrome Web Store](https://chrome.google.com/webstore/), zoekt u op het trefwoord 'ClickOnce', en kiest en installeert u een van de ClickOnce-extensies.
 
-    Doe hetzelfde voor Firefox (install-invoegtoepassing). Klik op de knop Menu openen op de werkbalk (drie horizontale lijnen in de rechterbovenhoek). Klik vervolgens op Invoegtoepassingen, zoek op het trefwoord 'ClickOnce', kies een van de ClickOnce-extensies en installeer deze.
-* Gebruik de **handmatige installatie** koppeling weergegeven op de dezelfde blade in de portal. U kunt deze benadering download het installatiebestand en het handmatig uitvoeren. Nadat de installatie voltooid is, ziet u het dialoogvenster Data Management Gateway Configuration. Kopieer de **sleutel** uit het portalscherm en gebruik deze in Configuratiebeheer om de gateway handmatig bij de service te registreren.  
+    Doe hetzelfde voor Firefox (Installeer de invoegtoepassing). Klik op de knop Menu openen op de werkbalk (drie horizontale lijnen in de rechterbovenhoek). Klik vervolgens op Invoegtoepassingen, zoek op het trefwoord 'ClickOnce', kies een van de ClickOnce-extensies en installeer deze.
+* Gebruik de **handmatige installatie** koppeling die wordt weergegeven op de dezelfde blade in de portal. U kunt deze aanpak gebruiken om te downloaden van bestand voor installatie en het handmatig uitvoeren. Nadat de installatie voltooid is, ziet u het dialoogvenster Data Management Gateway-configuratie. Kopieer de **sleutel** uit het portalscherm en gebruik deze in Configuratiebeheer om de gateway handmatig bij de service te registreren.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Probleem: Geen verbinding maken met on-premises SQL-Server
-Start **Data Management Gateway Configuration Manager** op de gatewaycomputer en gebruik de **probleemoplossing** tabblad voor het testen van de verbinding met SQL Server van het gateway-apparaat. Zie [gateway problemen](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor tips over het oplossen van verbinding of gateway gerelateerde problemen.   
+### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Probleem: Geen verbinding maken met on-premises SQL Server
+Start **Data Management Gateway Configuratiebeheer** op de gatewaycomputer en gebruik de **probleemoplossing** tabblad voor het testen van de verbinding met SQL Server vanaf de gatewaycomputer. Zie [oplossen van problemen met gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor tips over het oplossen van de verbindingsgateway/problemen met betrekking tot.   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Probleem: Invoer segmenten zijn in het wacht voor ooit op status
-De segmenten mogelijk **wachten** status om verschillende redenen. Een veelvoorkomende reden is dat de **externe** eigenschap niet is ingesteld op **true**. Een gegevensset die wordt geproduceerd buiten het bereik van Azure Data Factory moet worden gemarkeerd met **externe** eigenschap. Deze eigenschap geeft aan dat de gegevens en externe geen back-ups door pijplijnen binnen de gegevensfactory. De gegevenssegmenten worden gemarkeerd als **Gereed** wanneer de gegevens beschikbaar zijn in het desbetreffende archief.
+### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Probleem: Invoersegmenten blijven de wachtstatus behouden
+De segmenten mogelijk **wachten** staat vanwege verschillende redenen. Een veelvoorkomende reden is dat de **externe** eigenschap niet is ingesteld op **waar**. Een gegevensset die is geproduceerd buiten het bereik van Azure Data Factory moet worden gemarkeerd met **externe** eigenschap. Deze eigenschap geeft aan dat de gegevens extern en niet worden gedekt door pijplijnen in de data factory. De gegevenssegmenten worden gemarkeerd als **Gereed** wanneer de gegevens beschikbaar zijn in het desbetreffende archief.
 
-Raadpleeg het volgende voorbeeld voor het gebruik van de eigenschap **external**. U kunt optioneel opgeven **externalData*** als u externe op true instelt.
+Raadpleeg het volgende voorbeeld voor het gebruik van de eigenschap **external**. U kunt optioneel opgeven **externalData*** wanneer u external instelt op true.
 
 Raadpleeg het artikel [Datasets](data-factory-create-datasets.md) (Gegevenssets) voor meer informatie over deze eigenschap.
 
@@ -98,33 +97,33 @@ Raadpleeg het artikel [Datasets](data-factory-create-datasets.md) (Gegevenssets)
 
 U kunt het probleem oplossen door de eigenschap **external** en de optionele sectie **externalData** toe te voegen aan de JSON-definitie van de invoertabel en de tabel vervolgens opnieuw te maken.
 
-### <a name="problem-hybrid-copy-operation-fails"></a>Probleem: Hybride kopieerbewerking mislukt
-Zie [gateway problemen](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor stappen voor het oplossen van problemen met het kopiëren van/naar een on-premises gegevens opslaan met behulp van Data Management Gateway.
+### <a name="problem-hybrid-copy-operation-fails"></a>Probleem: Hybride kopieerbewerking is mislukt
+Zie [oplossen van problemen met gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor stappen voor het oplossen van problemen bij het kopiëren van/naar een on-premises gegevens opslaan met behulp van de Data Management Gateway.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Probleem: On-demand HDInsight inrichten mislukt
-Wanneer u een gekoppelde service van het type HDInsightOnDemand gebruikt, moet u een linkedServiceName die naar een Azure Blob-opslag verwijst opgeven. De service Data Factory gebruikt deze opslag om logboekbestanden en ondersteunende bestanden voor het HDInsight-cluster op aanvraag op te slaan.  Soms mislukt het inrichten van een HDInsight-cluster op aanvraag en wordt de volgende fout weergegeven:
+Wanneer u een gekoppelde service van het type HDInsightOnDemand, moet u een linkedServiceName opgeven die naar een Azure Blob-opslag verwijst. De service Data Factory gebruikt deze opslag om logboekbestanden en ondersteunende bestanden voor het HDInsight-cluster op aanvraag op te slaan.  Soms mislukt het inrichten van een HDInsight-cluster op aanvraag en wordt de volgende fout weergegeven:
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 ```
 
-Deze fout geeft meestal aan dat de locatie van het opslagaccount, opgegeven in de linkedServiceName, zich niet bevindt in hetzelfde datacenter waar de inrichting van HDInsight plaatsvindt. Voorbeeld: als uw gegevensfactory in VS-West en Azure-opslag bevindt zich in VS-Oost, het inrichten van op aanvraag mislukt in VS-West.
+Deze fout geeft meestal aan dat de locatie van het opslagaccount, opgegeven in de linkedServiceName, zich niet bevindt in hetzelfde datacenter waar de inrichting van HDInsight plaatsvindt. Voorbeeld: als uw data factory in VS-West is en de Azure-opslag in VS-Oost is, de inrichting van op aanvraag mislukt in VS-West.
 
-Daarnaast is er een tweede JSON-eigenschap, additionalLinkedServiceNames, waar extra opslagaccounts in HDInsight op aanvraag kunnen worden opgegeven. Deze extra gekoppelde opslagaccounts moeten zich in dezelfde locatie als het HDInsight-cluster of deze mislukt met de dezelfde fout.
+Daarnaast is er een tweede JSON-eigenschap, additionalLinkedServiceNames, waar extra opslagaccounts in HDInsight op aanvraag kunnen worden opgegeven. Deze extra gekoppelde opslagaccounts moeten zich op dezelfde locatie als het HDInsight-cluster, of deze mislukt met de dezelfde fout.
 
-### <a name="problem-custom-net-activity-fails"></a>Probleem: Aangepaste activiteit .NET mislukt
+### <a name="problem-custom-net-activity-fails"></a>Probleem: Aangepaste .NET-activiteit is mislukt
 Zie [fouten opsporen in een pijplijn met een aangepaste activiteit](data-factory-use-custom-activities.md#troubleshoot-failures) voor gedetailleerde stappen.
 
-## <a name="use-azure-portal-to-troubleshoot"></a>Azure portal gebruiken om op te lossen
-### <a name="using-portal-blades"></a>Met de portal-blades
-Zie [pijplijn bewaken](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) voor stappen.
+## <a name="use-azure-portal-to-troubleshoot"></a>Azure-portal gebruiken om op te lossen
+### <a name="using-portal-blades"></a>Met behulp van portal-blades
+Zie [de pijplijn bewaken](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) voor stappen.
 
 ### <a name="using-monitor-and-manage-app"></a>App voor controle en beheer gebruiken
-Zie [bewaken en beheren van de data factory-pijplijnen bewaken en beheren van App met](data-factory-monitor-manage-app.md) voor meer informatie.
+Zie [bewaken en beheren van data factory-pijplijnen met behulp van de Monitor and Manage App](data-factory-monitor-manage-app.md) voor meer informatie.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Azure PowerShell gebruiken om op te lossen
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Azure PowerShell gebruiken voor het oplossen van een fout
-Zie [Monitor Data Factory-pijplijnen met Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) voor meer informatie.
+Zie [Monitor Data Factory-pijplijnen met behulp van Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) voor meer informatie.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

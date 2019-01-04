@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868222"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016627"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Maken van een trigger die een pijplijn volgens een schema wordt uitgevoerd
 In dit artikel bevat informatie over schematriggers en de stappen voor het maken, starten en controleren van een planningstrigger. Zie voor andere soorten triggers, [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
@@ -67,7 +66,7 @@ U kunt maken een **schematrigger** voor het plannen van een pijplijn periodiek w
     ![Triggeruitvoeringen controleren](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en controleren van een planningstrigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: een data factory maken met behulp van Azure PowerShell](quickstart-create-data-factory-powershell.md). Voeg de volgende code aan de belangrijkste methode, die wordt gemaakt en een planningstrigger die wordt uitgevoerd om de 15 minuten wordt gestart. De trigger is gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
+Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en controleren van een planningstrigger. In dit voorbeeld werken eerst Ga via de [Quick Start: Een data factory maken met behulp van Azure PowerShell](quickstart-create-data-factory-powershell.md). Voeg de volgende code aan de belangrijkste methode, die wordt gemaakt en een planningstrigger die wordt uitgevoerd om de 15 minuten wordt gestart. De trigger is gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
 
 1. Maak een JSON-bestand met de naam **MyTrigger.json** in de map C:\ADFv2QuickStartPSH\ met de volgende inhoud:
 
@@ -143,7 +142,7 @@ Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en con
 
 
 ## <a name="net-sdk"></a>.NET SDK
-Deze sectie leest u hoe u de .NET SDK gebruiken om te maken, starten en controleren van een trigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: een data factory maken met behulp van de .NET SDK](quickstart-create-data-factory-dot-net.md). Voeg de volgende code aan de belangrijkste methode, die wordt gemaakt en een planningstrigger die wordt uitgevoerd om de 15 minuten wordt gestart. De trigger is gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
+Deze sectie leest u hoe u de .NET SDK gebruiken om te maken, starten en controleren van een trigger. In dit voorbeeld werken eerst Ga via de [Quick Start: Een data factory maken met behulp van de .NET SDK](quickstart-create-data-factory-dot-net.md). Voeg de volgende code aan de belangrijkste methode, die wordt gemaakt en een planningstrigger die wordt uitgevoerd om de 15 minuten wordt gestart. De trigger is gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
 
 Als u wilt maken en starten van een planningstrigger die elk kwartier wordt uitgevoerd, voeg de volgende code toe aan de belangrijkste methode:
 
@@ -223,7 +222,7 @@ Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd
 
 
 ## <a name="python-sdk"></a>Python-SDK
-Deze sectie leest u hoe u de Python SDK gebruikt om te maken, starten en controleren van een trigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: een data factory maken met behulp van de Python-SDK](quickstart-create-data-factory-python.md). Vervolgens voegt u het volgende codeblok na het codeblok "de pijplijnuitvoering controleren" in het Python-script. Deze code maakt een planningstrigger die wordt uitgevoerd om de 15 minuten tussen de opgegeven begintijd en eindtijd ervan. Update de **start_time** variabele op de huidige UTC-tijd, en de **end_time** variabele naar één uur na de huidige UTC-tijd.
+Deze sectie leest u hoe u de Python SDK gebruikt om te maken, starten en controleren van een trigger. In dit voorbeeld werken eerst Ga via de [Quick Start: Een data factory maken met behulp van de Python-SDK](quickstart-create-data-factory-python.md). Vervolgens voegt u het volgende codeblok na het codeblok "de pijplijnuitvoering controleren" in het Python-script. Deze code maakt een planningstrigger die wordt uitgevoerd om de 15 minuten tussen de opgegeven begintijd en eindtijd ervan. Update de **start_time** variabele op de huidige UTC-tijd, en de **end_time** variabele naar één uur na de huidige UTC-tijd.
 
 ```python
     # Create a trigger
@@ -310,7 +309,7 @@ De volgende JSON-definitie wordt beschreven hoe u een planningstrigger maken met
 ### <a name="schema-overview"></a>Schemaoverzicht
 De volgende tabel bevat een overzicht van de belangrijkste schema-elementen die betrekking hebben op het terugkeerpatroon en het schema van een trigger:
 
-| JSON-eigenschap | Beschrijving |
+| JSON-eigenschap | Description |
 |:--- |:--- |
 | **startTime** | Een datum/tijdwaarde. Voor eenvoudige schema's is de waarde **startTime** van toepassing op de eerste gebeurtenis. In complexe schema's begint de trigger niet eerder dan de opgegeven waarde voor **startTime**. |
 | **endTime** | De einddatum en -tijd voor de trigger. De trigger wordt na de opgegeven einddatum en -tijd niet uitgevoerd. De waarde voor de eigenschap kan niet in het verleden liggen. Deze eigenschap is optioneel. |
@@ -357,7 +356,7 @@ Als meerdere **schedule**-elementen worden opgegeven, is de volgorde voor de eva
 In de volgende tabel worden de **schedule**-elementen in detail beschreven:
 
 
-| JSON-element | Beschrijving | Geldige waarden |
+| JSON-element | Description | Geldige waarden |
 |:--- |:--- |:--- |
 | **minutes** | Minuten van het uur waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul>
 | **hours** | Uren van de dag waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul> |
@@ -371,7 +370,7 @@ Deze sectie bevat voorbeelden van terugkeerschema's en is gericht op het object 
 
 In het voorbeeld wordt ervan uitgegaan dat de waarde **interval** 1 is en de waarde **frequency** correct is volgens de definitie van het schema. De waarde voor **frequency** kan bijvoorbeeld niet tegelijkertijd 'day' zijn én een wijziging 'monthDays' in het **schedule**-object hebben. Dergelijke beperkingen staan vermeld in de tabel in de vorige sectie.
 
-| Voorbeeld | Beschrijving |
+| Voorbeeld | Description |
 |:--- |:--- |
 | `{"hours":[5]}` | Wordt elke dag om 5:00 uur uitgevoerd. |
 | `{"minutes":[15], "hours":[5]}` | Wordt elke dag om 5:15 uur uitgevoerd. |

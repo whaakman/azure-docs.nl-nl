@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f207cdb3af3f7e328cd5843053240bbbe15980e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f1a40c09c2d08eddedd3b6b51d2a138ec403f6bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418340"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014910"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fouttolerantie van kopieeractiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,15 +34,15 @@ Kopieeractiviteit ondersteunt drie scenario's voor het detecteren, wordt overges
 
 - **Incompatibiliteit tussen het gegevenstype van de bron en het systeemeigen sink-type**. 
 
-    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob-opslag met een SQL-database met de schemadefinitie van een met drie kolommen van het gegevenstype INT. De rijen van de CSV-bestand die numerieke gegevens bevatten, zoals 123.456.789 is gekopieerd naar de sink-store. Echter, de rijen met niet-numerieke waarden, zoals 123,456, abc worden gedetecteerd als niet compatibel en worden overgeslagen.
+    Bijvoorbeeld: Gegevens uit een CSV-bestand in Blob-opslag kopiëren naar een SQL-database met de schemadefinitie van een met drie kolommen van het gegevenstype INT. De rijen van de CSV-bestand die numerieke gegevens bevatten, zoals 123.456.789 is gekopieerd naar de sink-store. Echter, de rijen met niet-numerieke waarden, zoals 123,456, abc worden gedetecteerd als niet compatibel en worden overgeslagen.
 
 - **Komt niet overeen in het aantal kolommen tussen de bron en de sink**.
 
-    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob-opslag met een SQL-database met de schemadefinitie van een dat zes kolommen bevat. De CSV-bestand-rijen met zes kolommen is gekopieerd naar de sink-store. De CSV-bestand rijen die meer of minder dan zes kolommen bevatten als niet-compatibele worden gedetecteerd en worden overgeslagen.
+    Bijvoorbeeld: Gegevens uit een CSV-bestand in Blob-opslag kopiëren naar een SQL-database met de schemadefinitie van een dat zes kolommen bevat. De CSV-bestand-rijen met zes kolommen is gekopieerd naar de sink-store. De CSV-bestand rijen die meer of minder dan zes kolommen bevatten als niet-compatibele worden gedetecteerd en worden overgeslagen.
 
 - **Schending van primaire sleutel bij het schrijven naar SQL Server/Azure SQL Database-/ Azure Cosmos DB**.
 
-    Bijvoorbeeld: gegevens kopiëren van een SQL-server naar een SQL-database. Een primaire sleutel is gedefinieerd in de sink-SQL-database, maar die geen primaire sleutel is gedefinieerd in de bron-SQL-server. De dubbele rijen die zijn opgenomen in de bron kunnen niet worden gekopieerd naar de sink. Kopieeractiviteit kopieert alleen de eerste rij van de brongegevens in de gootsteen. De volgende bronrijen met de dubbele waarde voor de primaire sleutel zijn gedetecteerd als niet-compatibel en worden overgeslagen.
+    Bijvoorbeeld: Gegevens kopiëren van een SQL-server naar een SQL-database. Een primaire sleutel is gedefinieerd in de sink-SQL-database, maar die geen primaire sleutel is gedefinieerd in de bron-SQL-server. De dubbele rijen die zijn opgenomen in de bron kunnen niet worden gekopieerd naar de sink. Kopieeractiviteit kopieert alleen de eerste rij van de brongegevens in de gootsteen. De volgende bronrijen met de dubbele waarde voor de primaire sleutel zijn gedetecteerd als niet-compatibel en worden overgeslagen.
 
 >[!NOTE]
 >- Voor het laden van gegevens in SQL Data Warehouse PolyBase van systeemeigen fouttolerantie-instellingen met PolyBase, configureren door op te geven afwijzen beleid via '[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)' in de kopieeractiviteit. U kunt nog steeds omleiding PolyBase incompatibele rijen Blob of ADLS die normaal werken zoals hieronder wordt weergegeven.
@@ -72,7 +71,7 @@ Het volgende voorbeeld bevat een JSON-definitie voor het configureren van het ov
 }
 ```
 
-Eigenschap | Beschrijving | Toegestane waarden | Vereist
+Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Geeft aan of om over te slaan van incompatibele rijen tijdens het kopiëren van of niet. | True<br/>False (standaard) | Nee
 redirectIncompatibleRowSettings | Een groep met eigenschappen die kunnen worden opgegeven wanneer u wilt registreren van incompatibele rijen. | &nbsp; | Nee

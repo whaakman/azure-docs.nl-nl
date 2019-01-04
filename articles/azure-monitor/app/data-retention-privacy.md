@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 42a15e7513fb0aa84734f0965ad8e305cabc0b28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 21b72a6999b58e7896a79766073ba5a8fa35a734
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971834"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023002"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -87,7 +87,7 @@ Onbewerkte gegevenspunten (dat wil zeggen, items die u kunt query's uitvoeren in
 
 Cumulatieve gegevens (dat wil zeggen, aantal, gemiddelde en andere statistische gegevens die u in Metric Explorer ziet) worden bewaard in een interval van 1 minuut gedurende 90 dagen.
 
-[Fouten opsporen in momentopnamen](../../application-insights/app-insights-snapshot-debugger.md) gedurende zeven dagen worden opgeslagen. Deze bewaarbeleid is ingesteld op basis van de per toepassing. Als u nodig hebt om deze waarde te verhogen, kunt u een toename van aanvragen door een ondersteuningsaanvraag opent in de Azure-portal.
+[Fouten opsporen in momentopnamen](../../azure-monitor/app/snapshot-debugger.md) gedurende zeven dagen worden opgeslagen. Deze bewaarbeleid is ingesteld op basis van de per toepassing. Als u nodig hebt om deze waarde te verhogen, kunt u een toename van aanvragen door een ondersteuningsaanvraag opent in de Azure-portal.
 
 ## <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
 De gegevens zijn zichtbaar voor u en hebt u een organisatieaccount, leden van uw team. 
@@ -294,7 +294,7 @@ Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind, beschikbaar i
 [config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md

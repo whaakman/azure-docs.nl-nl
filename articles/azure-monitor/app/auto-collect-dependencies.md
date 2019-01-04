@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 4c06436961c45268cc7ae8ff2b7a5a4f06b24858
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 68a504f43463a25a0aba8d7d72881cddbcfba816
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973108"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999336"
 ---
 # <a name="dependency-auto-collection"></a>Afhankelijkheden automatisch verzamelen
 
@@ -98,4 +98,4 @@ Hieronder volgt de momenteel ondersteunde lijst met afhankelijkheidsaanroepen di
 - Instellen van aangepaste afhankelijkheid bijhouden voor [Java](../../azure-monitor/app/java-agent.md).
 - [Schrijven van aangepaste afhankelijkheidstelemetrie](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Zie [gegevensmodel](../../azure-monitor/app/data-model.md) voor Application Insights-typen en -gegevensmodel.
-- Bekijk [platforms](../../application-insights/app-insights-platforms.md) ondersteund door Application Insights.
+- Bekijk [platforms](../../azure-monitor/app/platforms.md) ondersteund door Application Insights.

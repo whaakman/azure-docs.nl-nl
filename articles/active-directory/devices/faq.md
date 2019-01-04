@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309175"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016151"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
-**VRAAG: Kan ik het apparaat recent geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in Azure portal? Of waarom is eigenaar van het apparaat gemarkeerd als N.V.T. voor hybride Azure AD gekoppelde apparaten?**
+**VRAAG: Kan ik het apparaat recent geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in Azure portal? Of waarom is eigenaar van het apparaat gemarkeerd als N.V.T. voor hybride Azure AD gekoppelde apparaten? ** 
  **A:** Windows 10-apparaten die zijn toegevoegd aan hybrid Azure AD, worden niet weergegeven bij de apparaten van de gebruiker.
 U moet alle apparaten weergeven in Azure portal gebruiken. U kunt ook PowerShell gebruiken [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
@@ -107,14 +107,14 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 ---
 
-**VRAAG: Kunnen mijn gebruikers zich aanmelden bij Azure AD gekoppelde apparaten die zijn verwijderd of uitgeschakeld in Azure AD?**
+**VRAAG: Kunnen mijn gebruikers zich aanmelden bij Azure AD gekoppelde apparaten die zijn verwijderd of uitgeschakeld in Azure AD? ** 
  **A:** Ja. Windows heeft in de cache opgeslagen aanmeldingsmogelijkheid om toe te staan eerder aangemelde gebruikers snel toegang tot bureaublad zelfs zonder netwerkverbinding. Wanneer een apparaat is verwijderd of uitgeschakeld in Azure AD, is het niet bekend bij de Windows-apparaat. Dus eerder zijn geregistreerd gebruikers toegang houden tot het bureaublad met aanmelding in de cache. Echter, als het apparaat wordt verwijderd of uitgeschakeld, gebruikers geen toegang tot alle bronnen worden beveiligd door een apparaat gebaseerde voorwaardelijke toegang. 
 
 Gebruikers die nog niet hebt aangemeld heeft geen toegang tot het apparaat omdat er geen aanmelding in de cache is ingeschakeld voor deze. 
 
 ---
 
-**VRAAG: Kunnen uitgeschakelde of verwijderde gebruikers zich aanmelden bij Azure AD gekoppelde apparaten?**
+**VRAAG: Kunnen uitgeschakelde of verwijderde gebruikers zich aanmelden bij Azure AD gekoppelde apparaten? ** 
  **A:** Ja, maar alleen voor een beperkte periode. Wanneer een gebruiker is verwijderd of uitgeschakeld in Azure AD, is deze niet direct bekend bij de Windows-apparaat. Dus eerder zijn geregistreerd gebruikers hebben toegang tot het bureaublad met aanmelding in de cache. Zodra het apparaat (doorgaans in minder dan 4 uur) op de hoogte van de status van de gebruiker is, blokkeert Windows die gebruikers toegang krijgen tot het bureaublad. Als de gebruiker wordt verwijderd of uitgeschakeld in Azure AD, worden alle hun tokens, ingetrokken, zodat ze geen toegang alle resources tot. 
 
 Verwijderde of uitgeschakelde gebruikers die eerder in dit nog niet hebt geregistreerd heeft geen toegang tot een apparaat omdat er geen aanmelding in de cache is ingeschakeld voor deze. 
@@ -127,7 +127,7 @@ Verwijderde of uitgeschakelde gebruikers die eerder in dit nog niet hebt geregis
 
 ---
 
-**VRAAG: Hoe maak ik verbinding met een externe Azure Active Directory toegevoegd apparaat?**
+**VRAAG: Hoe maak ik verbinding met een externe Azure Active Directory toegevoegd apparaat? ** 
  **A:** Raadpleeg het artikel https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc voor meer informatie.
 
 ---
@@ -180,6 +180,9 @@ Verwijderde of uitgeschakelde gebruikers die eerder in dit nog niet hebt geregis
 
 - [Het oplossen van automatische registratie van domein lid zijn van computers met Azure AD voor Windows downlevel-clients](troubleshoot-hybrid-join-windows-legacy.md)
  
+**VRAAG: Waarom zie ik een dubbele Azure AD ingeschreven record voor mijn Windows 10-hybride Azure AD toegevoegde apparaat in de lijst met Azure AD-apparaten?**
+
+**A:** Wanneer uw gebruikers hun account aan apps op een apparaat dat lid is domein toevoegt, wordt de gebruiker kunnen worden gevraagd naar 'Account toevoegen aan Windows?'. Te klikken op 'Ja' in de prompt zou leiden tot het apparaat worden geregistreerd bij Azure AD en het type vertrouwensrelatie gemarkeerd als Azure AD geregistreerd. Wanneer u Hybrid Azure AD join in uw organisatie inschakelt, is het apparaat ontvangt ook toegevoegd aan hybrid Azure AD. Als gevolg hiervan zullen er twee apparaatstatussen voor hetzelfde apparaat weergegeven. Hybride Azure AD join heeft echter voorrang op de status geregistreerd bij Azure AD. Zodat wordt het apparaat beschouwd als hybride Azure AD join voor elke verificatie en de evaluatie voor voorwaardelijke toegang. U kunt de record van het apparaat geregistreerd bij Azure AD, veilig verwijderen van de Azure AD-portal. Raadpleeg [in deze sectie](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) in de hybride Azure AD join artikel om te begrijpen hoe om te voorkomen of opschoning dual staat op het Windows 10-computer. 
 
 ---
 

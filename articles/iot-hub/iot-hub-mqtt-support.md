@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 9df2e8762d546e6115dc1205548e927cfee7bb60
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341877"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000254"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -279,11 +279,12 @@ Wanneer een apparaat is verbonden, IoT-Hub meldingen worden verzonden naar het o
 ```json
 {
     "telemetrySendFrequency": "5m",
-    "route": null
+    "route": null,
+    "$version": 8
 }
 ```
 
-Als voor de eigenschap updates `null` waarden betekent dat het lid van de JSON-object wordt verwijderd.
+Als voor de eigenschap updates `null` waarden betekent dat het lid van de JSON-object wordt verwijderd. Ook, houd er rekening mee dat `$version` geeft aan dat de nieuwe versie van de gewenste eigenschappen-sectie van het dubbele.
 
 > [!IMPORTANT]
 > IoT Hub genereert wijzigingsmeldingen alleen wanneer apparaten zijn verbonden. Zorg ervoor dat u implementeert de [apparaat opnieuw verbinden met flow] [ lnk-devguide-twin-reconnection] te houden van de gewenste eigenschappen gesynchroniseerd tussen de IoT Hub en de apparaat-app.

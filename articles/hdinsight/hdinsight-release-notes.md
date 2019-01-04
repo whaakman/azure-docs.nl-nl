@@ -2,19 +2,19 @@
 title: Opmerkingen bij de release voor Azure HDInsight
 description: Meest recente opmerkingen bij de release voor Azure HDInsight. Krijg tips voor ontwikkelaars en details voor Hadoop, Spark, R Server, Hive en meer.
 services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/02/2019
+ms.openlocfilehash: 49087792efa5e377beadc78746bcf99c88954e9b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976967"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000071"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Opmerkingen bij de release voor Azure HDInsight
 
@@ -1308,6 +1308,16 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Optie voor het uitschakelen van scheduler |**Onderdeel beïnvloed:** Zeppelin-Server<br /><br />**Gedrag van het vorige:** In eerdere versies van Zeppelin is er geen optie voor het uitschakelen van scheduler.<br /><br />**Nieuw gedrag:** Standaard worden gebruikers niet meer scheduler, zien zoals deze is standaard uitgeschakeld.<br /><br />**Tijdelijke oplossing/verwachte actie met klant:** Als u inschakelen, scheduler wilt, moet u azeppelin.notebook.cron.enable met de waarde ' True ' geretourneerd onder aangepaste zeppelin-site in de instellingen van Ambari Zeppelin toevoegen.|
 
 ## <a name="known-issues"></a>Bekende problemen
+
+-   **HDInsight-integratie met ADLS Gen 2** zijn er twee problemen op ESP HDInsight-clusters met behulp van Azure Data Lake Storage Gen 2 en gebruiker mappen en machtigingen:
+   
+   1. Basismappen voor gebruikers worden niet ophalen van gemaakt op de hoofd-knooppunt 1. Als tijdelijke oplossing, de mappen handmatig maken en wijzigen in eigendom van de betreffende gebruiker UPN.
+   
+   2. Machtigingen voor /hdp directory is momenteel niet ingesteld op 751. Dit moet worden ingesteld op 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **Spark 2.3**
 

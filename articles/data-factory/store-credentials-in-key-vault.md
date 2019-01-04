@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944665"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016645"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Store-referentie in Azure Key Vault
 
@@ -45,7 +44,7 @@ Als u wilt verwijzen naar een referenties die zijn opgeslagen in Azure Key Vault
 
 De volgende eigenschappen worden ondersteund voor Azure Key Vault gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AzureKeyVault**. | Ja |
 | baseUrl | De Azure Key Vault-URL opgeven. | Ja |
@@ -78,7 +77,7 @@ Selecteer de ingerichte Azure Key Vault waarin uw referenties worden opgeslagen.
 
 De volgende eigenschappen worden ondersteund wanneer u een veld in de gekoppelde service verwijst naar een key vault-geheim configureren:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van het veld moet worden ingesteld op: **AzureKeyVaultSecret**. | Ja |
 | secretName | De naam van het geheim in azure key vault. | Ja |

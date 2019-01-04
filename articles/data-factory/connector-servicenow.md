@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1e91bcdf3980b0f03967c09b0b7a75aa3d3a520a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095275"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014621"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Gegevens kopiëren van ServiceNow met Azure Data Factory
 
@@ -118,8 +117,8 @@ Let op het volgende bij het opgeven van het schema en de kolom voor ServiceNow i
 - **Schema:** Geef het schema als `Actual` of `Display` in de ServiceNow-query die u kunt dat nu als de parameter van `sysparm_display_value` als waar of onwaar bij het aanroepen van [ServiceNow restful-API's](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Kolom:** voor de werkelijke waarde onder de naam van de kolom `Actual` schema is `[columne name]_value`, terwijl voor de weergegeven waarde onder `Display` schema is `[columne name]_display_value`. Houd er rekening mee de kolomnaam moet toewijzen aan het schema wordt gebruikt in de query.
 
-**Voorbeeldquery:** 
- `SELECT col_value FROM Actual.alm_asset` of 
+**Voorbeeldquery:**
+`SELECT col_value FROM Actual.alm_asset` OF 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Voorbeeld:**

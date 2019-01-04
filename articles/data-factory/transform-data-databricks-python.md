@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 17a8e6f6d6d374c6f8620ecb525727e6fee8c4b9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501874"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013176"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Gegevens transformeren met behulp van een Python-activiteit in Azure Databricks
 
-De Azure Databricks Python-activiteit in een [Data Factory-pijplijn](concepts-pipelines-activities.md) een Python-bestand in uw Azure Databricks-cluster wordt uitgevoerd. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark.
+De Azure Databricks Python-activiteit in een [Data Factory-pijplijn](concepts-pipelines-activities.md) een Python-bestand in uw Azure Databricks-cluster wordt uitgevoerd. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark.
 
 Bekijk de volgende video voor een inleiding en demonstratie van deze functie van 11 minuten:
 
@@ -63,12 +62,12 @@ Hier volgt de voorbeeld-JSON-definitie van een Databricks-Python-activiteit:
 
 De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebruikt:
 
-|Eigenschap|Beschrijving|Vereist|
+|Eigenschap|Description|Vereist|
 |---|---|---|
 |naam|Naam van de activiteit in de pijplijn.|Ja|
-|beschrijving|Tekst die beschrijft wat de activiteit doet.|Nee|
+|description|Tekst die beschrijft wat de activiteit doet.|Nee|
 |type|Voor Databricks Python-activiteit is het activiteitstype DatabricksSparkPython.|Ja|
-|linkedServiceName|De naam van de Databricks gekoppelde Service op de Python-activiteit wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.|Ja|
+|linkedServiceName|De naam van de Databricks gekoppelde Service op de Python-activiteit wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.|Ja|
 |pythonFile|De URI van het Python-bestand moet worden uitgevoerd. Alleen DBFS paden worden ondersteund.|Ja|
 |parameters|Opdrachtregelparameters die worden doorgegeven aan het Python-bestand. Dit is een matrix met tekenreeksen.|Nee|
 |Bibliotheken|Een lijst met bibliotheken die u moet worden geïnstalleerd op het cluster dat de taak wordt uitgevoerd. Kan het zijn een reeks < string, object >|Nee|

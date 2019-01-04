@@ -1,5 +1,5 @@
 ---
-title: Informatie over Azure Key Vault sleutels, geheimen en certificaten
+title: Over Azure Key Vault sleutels, geheimen en certificaten - Azure Key Vault
 description: Overzicht van Azure Key Vault REST-interface en developer-details voor sleutels, geheimen en certificaten.
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 464574716971388f3785879ba40ad3e8a624fc7f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384782"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002617"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
@@ -36,7 +36,7 @@ Zie voor meer algemene informatie over Key Vault [wat is Azure Key Vault?](/azur
 
 De volgende secties bieden algemene informatie die van toepassing zijn voor de implementatie van de service Key Vault.
 
-###  <a name="supporting-standards"></a>Ondersteuning van standaarden
+### <a name="supporting-standards"></a>Ondersteuning van standaarden
 
 De JavaScript Object Notation (JSON) en de specificaties voor JavaScript Object ondertekening en versleuteling (JOSE) zijn belangrijke achtergrondinformatie.  
 
@@ -60,7 +60,7 @@ Raadpleeg de specificaties JOSE voor relevante gegevenstypen voor sleutels, vers
 -   **Identiteit** : een identiteit van Azure Active Directory (AAD).  
 -   **IntDate** - een decimale waarde die aangeeft van het aantal seconden tussen 1970 van JSON-01-01T0:0:0Z UTC tot en met de opgegeven UTC-datum/tijd. Bekijk in het bijzonder RFC3339 voor meer informatie over date/times, in het algemeen en UTC.  
 
-###  <a name="objects-identifiers-and-versioning"></a>Objecten, -id's en versiebeheer
+### <a name="objects-identifiers-and-versioning"></a>Objecten, -id's en versiebeheer
 
 Objecten die zijn opgeslagen in Key Vault worden samengesteld wanneer er een nieuw exemplaar van een object wordt gemaakt. Elke versie is een unieke id en een URL toegewezen. Wanneer een object wordt gemaakt, heeft deze krijgt een unieke id en gemarkeerd als de huidige versie van het object. Het maken van een nieuw exemplaar met dezelfde naam van het object geeft het nieuwe object een unieke id, waardoor de huidige versie.  
 
@@ -85,7 +85,7 @@ Waar:
 
 ## <a name="key-vault-keys"></a>Key Vault sleutels
 
-###  <a name="keys-and-key-types"></a>Sleutels en sleuteltypen
+### <a name="keys-and-key-types"></a>Sleutels en sleuteltypen
 
 Cryptografische sleutels in Key Vault worden weergegeven als JSON-Websleutel [JWK]-objecten. De base JWK/JWA specificaties zijn ook uitgebreid zodat sleuteltypen uniek is voor de implementatie van de Key Vault. Sleutels die gebruikmaken van HSM's van specifieke pakketten importeert, kunt u bijvoorbeeld veilige vervoer van sleutels die alleen kan worden gebruikt in Key Vault HSM's.  
 
@@ -206,15 +206,15 @@ Toegangsbeheer voor sleutels die worden beheerd door Key Vault is opgegeven op h
 De volgende machtigingen kunnen worden verleend, op een per gebruiker / service-principal uit te voeren, in de access control entry sleutels in een kluis. Deze machtigingen spiegelen nauw de bewerkingen die zijn toegestaan op een sleutel-object:  
 
 - Machtigingen voor sleutelbeheerbewerkingen
-  - *ophalen*: Het openbare deel van een sleutel, plus de kenmerken lezen
-  - *lijst met*: De sleutels of versies van een sleutel die zijn opgeslagen in een key vault
+  - *Ophalen*: Het openbare deel van een sleutel, plus de kenmerken lezen
+  - *Lijst met*: De sleutels of versies van een sleutel die zijn opgeslagen in een key vault
   - *Update*: De kenmerken voor een sleutel bijwerken
   - *Maak*: Nieuwe sleutels maken
   - *Importeren*: Een sleutel te importeren naar een sleutelkluis
   - *Verwijder*: Het belangrijkste object verwijderen
   - *herstellen*: Een verwijderde sleutel herstellen
-  - *back-up*: Back-up van een sleutel in een key vault
-  - *herstellen*: Een back-ups herstellen van de sleutel tot een key vault
+  - *Back-up*: Back-up van een sleutel in een key vault
+  - *Herstellen*: Een back-ups herstellen van de sleutel tot een key vault
 
 - Machtigingen voor cryptografische bewerkingen
   - *ontsleutelen*: Gebruik de sleutel voor het opheffen van een reeks bytes
@@ -265,13 +265,13 @@ Toegangsbeheer voor geheimen in Key Vault wordt beheerd, is opgegeven op het niv
 De volgende machtigingen kunnen worden gebruikt, op basis van per-principal, in de access control entry geheimen in een kluis en nauw mirror van de bewerkingen die zijn toegestaan op een geheim object:  
 
 - Machtigingen voor geheimenbeheerbewerkingen
-  - *ophalen*: Een geheim lezen  
-  - *lijst met*: De geheimen of versies van een geheim opgeslagen in een Key Vault  
+  - *Ophalen*: Een geheim lezen  
+  - *Lijst met*: De geheimen of versies van een geheim opgeslagen in een Key Vault  
   - *Stel*: Een geheim maken  
   - *Verwijder*: Een geheim verwijderen  
   - *herstellen*: Herstellen van een verwijderde geheim
-  - *back-up*: Back-up van een geheim in een key vault
-  - *herstellen*: Een back-ups herstellen van een key vault-geheim
+  - *Back-up*: Back-up van een geheim in een key vault
+  - *Herstellen*: Een back-ups herstellen van een key vault-geheim
 
 - Machtigingen voor beschermde bewerkingen
   - *opschonen*: Verwijderen (definitief verwijderen) een verwijderde geheim
@@ -422,15 +422,15 @@ Als het beleid van het certificaat is ingesteld op automatische verlenging, word
  De volgende machtigingen kunnen worden gebruikt, op basis van per-principal, in de access control entry geheimen in een key vault en nauw mirrors de bewerkingen die zijn toegestaan op een geheim object:  
 
 - Machtigingen voor certificate management-bewerkingen
-  - *ophalen*: De huidige certificaatversie van het of een willekeurige versie van een certificaat ophalen 
-  - *lijst met*: De huidige certificaten of versies van een certificaat  
+  - *Ophalen*: De huidige certificaatversie van het of een willekeurige versie van een certificaat ophalen 
+  - *Lijst met*: De huidige certificaten of versies van een certificaat  
   - *Update*: Een certificaat bijwerken
   - *Maak*: Een Key Vault-certificaat maken
   - *Importeren*: Certificaat materiaal in een Key Vault-certificaat importeren
   - *Verwijder*: Een certificaat, het beleid en alle versies ervan verwijderen  
   - *herstellen*: Herstellen van een certificaat is verwijderd
-  - *back-up*: Back-up van een certificaat in een key vault
-  - *herstellen*: Een certificaat van een back-up herstellen naar een key vault
+  - *Back-up*: Back-up van een certificaat in een key vault
+  - *Herstellen*: Een certificaat van een back-up herstellen naar een key vault
   - *managecontacts*: Key Vault-certificaatcontactpersonen beheren  
   - *manageissuers*: Key Vault instanties/certificaatverleners beheren
   - *getissuers*: Ophalen van een certificaat instanties/uitgevers van certificaten
@@ -459,13 +459,13 @@ Zie voor meer informatie, [Azure Key Vault-Opslagaccountsleutels](key-vault-ovw-
 De volgende machtigingen kunnen worden gebruikt wanneer een gebruiker of de principal-toepassing autoriseren bewerkingen op een beheerde storage-account uit te voeren:  
 
 - Machtigingen voor een beheerd opslagaccount en SaS-definition-bewerkingen
-  - *ophalen*: Hiermee haalt u informatie over een storage-account 
-  - *lijst met*: Lijst met opslagaccounts beheerd door een Key Vault
+  - *Ophalen*: Hiermee haalt u informatie over een storage-account 
+  - *Lijst met*: Lijst met opslagaccounts beheerd door een Key Vault
   - *Update*: Een storage-account bijwerken
   - *Verwijder*: Een opslagaccount verwijderen  
   - *herstellen*: Herstellen van een verwijderd opslagaccount
-  - *back-up*: Back-up van een storage-account
-  - *herstellen*: Een opslagaccount van een back-up herstellen naar een Key Vault
+  - *Back-up*: Back-up van een storage-account
+  - *Herstellen*: Een opslagaccount van een back-up herstellen naar een Key Vault
   - *Stel*: Maken of bijwerken van een storage-account
   - *regeneratekey*: Opnieuw genereren van een opgegeven sleutelwaarde voor een opslagaccount
   - *getsas*: Informatie over de definitie van een SAS voor een opslagaccount ophalen

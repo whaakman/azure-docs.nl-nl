@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 776b1eb71b4f15c3376644de92205a4eeb77e4b2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345204"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020520"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,9 +51,9 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor de gekoppelde SQL Server-service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **SqlServer** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **SQL Server** | Ja |
 | connectionString |Geef connectionString informatie die nodig zijn voor het verbinding maken met de SQL Server-database met behulp van SQL-verificatie of Windows-verificatie. Raadpleeg het volgende voorbeeld. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | Gebruikersnaam |Geef de gebruikersnaam op als u van Windows-verificatie gebruikmaakt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee |
@@ -116,7 +115,7 @@ Zie het artikel gegevenssets voor een volledige lijst van de secties en eigensch
 
 Om gegevens te kopiëren van/naar SQL Server-database, stel de eigenschap type van de gegevensset in **SqlServerTable**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **SqlServerTable** | Ja |
 | tableName |De naam van de tabel of weergave in de SQL Server-exemplaar waarnaar de gekoppelde service verwijst. | Nee voor bron, Ja voor sink |
@@ -148,7 +147,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Als u wilt kopiëren van gegevens uit SQL Server, stelt u het brontype in de kopieeractiviteit naar **SqlSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SqlSource** | Ja |
 | sqlReaderQuery |Gebruik de aangepaste SQL-query om gegevens te lezen. Voorbeeld: `select * from MyTable`. |Nee |
@@ -251,7 +250,7 @@ GO
 
 Om gegevens te kopiëren naar SQL Server, stelt u het sink-type in de kopieeractiviteit naar **SqlSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op: **SqlSink** | Ja |
 | WriteBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). |Nee (standaard: 10000) |
@@ -497,7 +496,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | Float |Double-waarde |
 | image |Byte[] |
 | int |Int32 |
-| geld |decimaal |
+| money |decimaal |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
 | numerieke |decimaal |
@@ -509,7 +508,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | smallmoney |decimaal |
 | sql_variant |Object * |
 | tekst |Tekenreeks, Char] |
-| tijd |TimeSpan |
+| time |TimeSpan |
 | tijdstempel |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |GUID |
@@ -534,7 +533,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 3. Dubbelklik in het venster dezelfde **TCP/IP** starten **TCP/IP-eigenschappen** venster.
 4. Schakel over naar de **IP-adressen** tabblad. Schuif omlaag naar Zie **IPAll** sectie. Noteer de ** TCP-poort ** (de standaardwaarde is **1433**).
 5. Maak een **regel voor de Windows-Firewall** op de computer waarmee inkomend verkeer via deze poort.  
-6. **Verbinding controleren**: voor verbinding met de volledig gekwalificeerde naam SQL-Server, SQL Server Management Studio uit een andere computer te gebruiken. Bijvoorbeeld: `"<machine>.<domain>.corp.<company>.com,1433"`.
+6. **Verbinding controleren**: Voor verbinding met de volledig gekwalificeerde naam SQL-Server, SQL Server Management Studio uit een andere computer te gebruiken. Bijvoorbeeld: `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 
 ## <a name="next-steps"></a>Volgende stappen

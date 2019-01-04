@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973261"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025263"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Telemetrie exporteren vanuit Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een bepaalde gespecialiseerde manier te verwerken? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar de opslag in Microsoft Azure in JSON-indeling. Van daaruit kunt u uw gegevens downloaden en wat u code schrijven moet verwerken.  
@@ -71,14 +71,14 @@ Als u wilt de export permanent stoppen, moet u deze verwijderen. In dat geval ve
 ## <a name="analyze"></a> Welke gebeurtenissen waar u krijgen?
 De geëxporteerde gegevens is de onbewerkte telemetrie van uw toepassing ontvangen, behalve dat we locatiegegevens die we berekenen van de IP-adres van client toevoegen.
 
-Gegevens die zijn verwijderd door [steekproeven](../../application-insights/app-insights-sampling.md) is niet opgenomen in de geëxporteerde gegevens.
+Gegevens die zijn verwijderd door [steekproeven](../../azure-monitor/app/sampling.md) is niet opgenomen in de geëxporteerde gegevens.
 
 Andere berekende metrische gegevens zijn niet opgenomen. Bijvoorbeeld gemiddelde CPU-gebruik niet worden geëxporteerd, maar we Exporteer de onbewerkte telemetrie van waaruit het gemiddelde wordt berekend.
 
 De gegevens bevatten ook de resultaten van een [webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-app-availability.md) die u hebt ingesteld.
 
 > [!NOTE]
-> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt, kan de functie steekproeven werken en slechts een fractie van de gegenereerde telemetrie te verzenden. [Meer informatie over steekproeven.](../../application-insights/app-insights-sampling.md)
+> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt, kan de functie steekproeven werken en slechts een fractie van de gegenereerde telemetrie te verzenden. [Meer informatie over steekproeven.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ Op grotere schaal, houd rekening met [HDInsight](https://azure.microsoft.com/ser
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

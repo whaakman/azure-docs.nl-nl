@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: a6e9df1b5be0565e859c866b6ceb8ef44e6b271a
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812130"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001835"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics gebruiken voor het verwerken van de geëxporteerde gegevens van Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is het ideaal hulpprogramma voor het verwerken van gegevens [geëxporteerd uit Application Insights](export-telemetry.md). Stream Analytics kunt u gegevens ophalen uit een groot aantal bronnen. Deze kunt transformeren en de gegevens filteren en vervolgens te routeren naar een verscheidenheid aan Put.
@@ -64,7 +64,7 @@ Continue export voert altijd gegevens uit naar een Azure Storage-account, dus mo
 
     ![Kies gebeurtenistypen](./media/export-stream-analytics/080.png)
 
-1. Sommige gegevens worden verzameld, kunnen. Begint en laat mensen uw toepassing een tijdje gebruiken. Telemetrie komt en ziet u statistische grafieken in [metric explorer](../../application-insights/app-insights-metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md). 
+1. Sommige gegevens worden verzameld, kunnen. Begint en laat mensen uw toepassing een tijdje gebruiken. Telemetrie komt en ziet u statistische grafieken in [metric explorer](../../azure-monitor/app/metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md). 
    
     En ook de gegevens worden geëxporteerd naar uw opslag. 
 2. Inspecteer de geëxporteerde gegevens. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / Storage. (Als u deze optie niet hebt, moet u de Azure SDK installeren: Open het dialoogvenster Nieuw Project en Visual C# / Cloud / Microsoft Azure SDK voor .NET ophalen.)

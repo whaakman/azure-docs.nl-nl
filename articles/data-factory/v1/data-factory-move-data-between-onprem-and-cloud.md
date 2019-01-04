@@ -9,17 +9,16 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242837"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015828"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -63,13 +62,13 @@ In deze stap maakt u de Azure-portal gebruiken om u te maken van een Azure Data 
     ![Toevoegen aan Startboard](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory name 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Deze naam in plaats van ADFTutorialOnPremDF gebruiken tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
+   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding weergegeven: **Naam gegevensfactory 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Deze naam in plaats van ADFTutorialOnPremDF gebruiken tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
    >
    > De naam van de data factory mogelijk geregistreerd als een **DNS** naam in de toekomst en wordt daarmee ook voor iedereen zichtbaar.
    >
    >
 4. Selecteer het **Azure-abonnement** waarvoor u de gegevensfactory wilt maken.
-5. Selecteer een bestaande **resourcegroep** of maak een resourcegroep. Voor deze zelfstudie maakt u een resourcegroep met de naam: **ADFTutorialResourceGroup**.
+5. Selecteer een bestaande **resourcegroep** of maak een resourcegroep. Voor de zelfstudie maakt u een resourcegroep met de naam: **ADFTutorialResourceGroup**.
 6. Klik op **maken** op de **nieuwe data factory** pagina.
 
    > [!IMPORTANT]
@@ -154,7 +153,7 @@ In deze stap maakt u de Azure-portal gebruiken om u te maken van een Azure Data 
 12. U ziet **adftutorialgateway** onder **gegevensgateways** in de structuurweergave aan de linkerkant.  Als u erop klikt, ziet u de bijbehorende JSON.
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-In deze stap maakt u twee gekoppelde services maken: **AzureStorageLinkedService** en **SqlServerLinkedService**. De **SqlServerLinkedService** wordt een on-premises SQL Server-database en de **AzureStorageLinkedService** gekoppelde service is een Azure blob-opslag gekoppeld aan de data factory. Maakt u een pijplijn verderop in dit scenario waarmee gegevens uit de on-premises SQL Server-database gekopieerd naar de Azure blob-archief.
+In deze stap maakt maken u twee gekoppelde services: **AzureStorageLinkedService** en **SqlServerLinkedService**. De **SqlServerLinkedService** wordt een on-premises SQL Server-database en de **AzureStorageLinkedService** gekoppelde service is een Azure blob-opslag gekoppeld aan de data factory. Maakt u een pijplijn verderop in dit scenario waarmee gegevens uit de on-premises SQL Server-database gekopieerd naar de Azure blob-archief.
 
 #### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Een gekoppelde service toevoegen aan een on-premises SQL Server-database
 1. In de **Data Factory-Editor**, klikt u op **nieuw gegevensarchief** op de werkbalk en selecteer **SQL Server**.
@@ -281,7 +280,7 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
    * **folderPath** is ingesteld op **adftutorial/outfromonpremdf** waar outfromonpremdf is de map in de container adftutorial. Maak de **adftutorial** container als deze niet al bestaat.
    * De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service genereert een uitvoergegevenssegment elk uur in de **emp** tabel in de Azure SQL Database.
 
-   Als u geen opgeeft een **fileName** voor een **uitvoertabel**, de bestanden in die worden gegenereerd de **folderPath** zijn met de naam in de volgende indeling: Data.<Guid>. txt (bijvoorbeeld:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Als u geen opgeeft een **fileName** voor een **uitvoertabel**, de bestanden in die worden gegenereerd de **folderPath** zijn met de naam in de volgende indeling: De gegevens. <Guid>.txt (voorbeeld:: Data.0a405f8a-93ff-4C6F-b3be-f69616f1df7a.txt.).
 
    Om in te stellen **folderPath** en **fileName** dynamisch op basis van de **SliceStart** tijd, de eigenschap partitionedBy gebruikt. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2014-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2014/10/20 en wordt fileName ingesteld op 08.csv.
 

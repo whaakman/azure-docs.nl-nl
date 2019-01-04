@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3eeabd4c3bf099d7a0c7007bdf0c8c7e85f3381e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 702e1ef9c8593c2106be256e6fd7de602bf41aa7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889664"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019993"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Inleiding tot Service Fabric-Resourcemodel
 
@@ -84,12 +84,12 @@ Code van uw toepassing blijft zelfs buiten een Service Fabric NET draagbare en u
 
 ## <a name="packaging-and-deployment"></a>Verpakking en implementatie
 
-Service Fabric-NET-toepassingen op basis van de resourcemodel zijn verpakt als Docker-containers.  Service Fabric-NET is een gedeelde omgeving met meerdere tenants en containers bieden u een hoge mate van isolatie.  Deze toepassingen worden beschreven met behulp van een JSON-indeling of een YAML-indeling (die vervolgens wordt omgezet naar JSON). Bij het implementeren van een Mesh-toepassing in Azure Service Fabric NET, is de JSON die wordt gebruikt om te beschrijven van de toepassingen een Azure Resource Manager-sjabloon. Resources worden toegewezen aan Azure-resources.  Bij het implementeren van een Mesh-toepassing naar een Service Fabric-cluster (zelfstandige of wordt gehost op Azure), de JSON die wordt gebruikt om te beschrijven van de toepassing is een indeling die vergelijkbaar is met een Azure Resource Manager-sjabloon.  Zodra geïmplementeerd, kunnen NET-toepassingen worden beheerd via HTTP-interfaces of Azure CLI. 
+Service Fabric-NET-toepassingen op basis van de resourcemodel zijn verpakt als Docker-containers.  Service Fabric-NET is een gedeelde omgeving met meerdere tenants en containers bieden u een hoge mate van isolatie.  Deze toepassingen worden beschreven met behulp van een JSON-indeling of een YAML-indeling (die vervolgens wordt omgezet naar JSON). Bij het implementeren van een Mesh-toepassing in Azure Service Fabric NET, is de JSON die wordt gebruikt om te beschrijven van de toepassing een Azure Resource Manager-sjabloon. Resources worden toegewezen aan Azure-resources.  Bij het implementeren van een Mesh-toepassing naar een Service Fabric-cluster (zelfstandige of wordt gehost op Azure), de JSON die wordt gebruikt om te beschrijven van de toepassing is een indeling die vergelijkbaar is met een Azure Resource Manager-sjabloon.  Zodra geïmplementeerd, kunnen NET-toepassingen worden beheerd via HTTP-interfaces of Azure CLI. 
 
 
 ## <a name="next-steps"></a>Volgende stappen 
-Lees het overzicht voor meer informatie over Service Fabric NET:
-- [Service Fabric-NET-overzicht](service-fabric-mesh-overview.md)
+Lees het overzicht voor meer informatie over Service Fabric Mesh:
+- [Service Fabric Mesh - overzicht](service-fabric-mesh-overview.md)
 
 [Image1]: media/service-fabric-mesh-service-fabric-resources/AppsAndServices.png
 [Image2]: media/service-fabric-mesh-service-fabric-resources/NetworkAndGateway.png

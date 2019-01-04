@@ -8,18 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 77a3685f59c7b15473deda1894f6fd6934fafc1f
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993402"
+ms.locfileid: "54002192"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Schaalbaar streamen in HDInsight
 
 Big data-oplossingen voor realtime reageren op gegevens in beweging. Deze gegevens is doorgaans het nuttigst op de tijd van aankomst. Als de gegevensstroom inkomende groter is wordt dan op dat moment kan worden verwerkt, moet u mogelijk resources beperken. Een HDInsight-cluster kunt u kunt ook omhoog schalen om te voldoen aan uw streaming-oplossing door toe te voegen knooppunten op aanvraag.
 
+
 In een streaming-toepassing, zijn een of meer gegevensbronnen genereren van gebeurtenissen (soms in miljoenen per seconde) die snel worden opgenomen moeten dat alle nuttige informatie. De binnenkomende gebeurtenissen worden verwerkt met *stroombuffering*, ook wel genoemd *gebeurteniswachtrij*, door een service zoals [Apache Kafka](kafka/apache-kafka-introduction.md) of [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Nadat u de gebeurtenissen verzameld, kunt u vervolgens de gegevens met behulp van een realtime analytics-systeem binnen analyseren de *streamverwerking* laag, zoals [Apache Storm](storm/apache-storm-overview.md) of [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). De verwerkte gegevens kunnen worden opgeslagen in langdurige opslagsystemen, zoals [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), en wordt weergegeven in realtime op een dashboard voor bedrijfsinformatie, zoals [Power BI](https://powerbi.microsoft.com), Tableau of een aangepaste web de pagina.
+
 
 ![HDInsight Streaming-patronen](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 

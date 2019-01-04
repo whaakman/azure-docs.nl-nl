@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980790"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015519"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filteren van telemetrie in uw Java-web-app
 
@@ -31,7 +31,7 @@ De out-of-the-box-filters zijn onder andere:
 
 > [!NOTE]
 > Filters scheeftrekken de metrische gegevens van uw app. U kunt bijvoorbeeld besluiten dat een filter te verwijderen van snelle responstijden om te kunnen vaststellen trage reacties, wordt ingesteld. Maar u moet zich op de hoogte dat de gemiddelde reactietijden gerapporteerd door Application Insights vervolgens lager dan de waarde true snelheid zijn en het aantal aanvragen kleiner dan het werkelijke aantal is.
-> Als dit een probleem is, gebruikt u [steekproeven](../../application-insights/app-insights-sampling.md) in plaats daarvan.
+> Als dit een probleem is, gebruikt u [steekproeven](../../azure-monitor/app/sampling.md) in plaats daarvan.
 
 ## <a name="setting-filters"></a>Filters instellen
 
@@ -262,4 +262,4 @@ In ApplicationInsights.xml:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Sampling](../../application-insights/app-insights-sampling.md) -steekproeven als alternatief die heeft niet de metrische gegevens over scheeftrekken overwegen.
+* [Sampling](../../azure-monitor/app/sampling.md) -steekproeven als alternatief die heeft niet de metrische gegevens over scheeftrekken overwegen.

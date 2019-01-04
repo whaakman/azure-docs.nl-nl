@@ -1,6 +1,6 @@
 ---
-title: MapReduce-programma uit Azure Data Factory aanroepen
-description: Informatie over het verwerken van gegevens met MapReduce-programma's uitvoeren op een Azure HDInsight-cluster uit een Azure data factory.
+title: Aanroepen van MapReduce-programma van Azure Data Factory
+description: Informatie over het verwerken van gegevens door te voeren van MapReduce-programma's op een Azure HDInsight-cluster uit een Azure data factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,19 +9,18 @@ ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 309ddcf68d03f34ca3309d76d15cc3928037c667
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050944"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017443"
 ---
-# <a name="invoke-mapreduce-programs-from-data-factory"></a>Aanroepen van MapReduce-programma's uit Data Factory
+# <a name="invoke-mapreduce-programs-from-data-factory"></a>MapReduce-programma's van Data Factory aanroepen
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive-activiteit](data-factory-hive-activity.md) 
 > * [Pig-activiteit](data-factory-pig-activity.md)
@@ -32,30 +31,30 @@ ms.locfileid: "37050944"
 > * [Machine Learning-activiteit resources bijwerken](data-factory-azure-ml-update-resource-activity.md)
 > * [Opgeslagen procedureactiviteit](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
-> * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
+> * [Aangepaste .NET-activiteit](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [transformatie van gegevens met behulp van MapReduce-activiteit in de Data Factory](../transform-data-using-hadoop-map-reduce.md).
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [gegevens transformeren met behulp van MapReduce-activiteit in Data Factory](../transform-data-using-hadoop-map-reduce.md).
 
 
-De HDInsight MapReduce-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) MapReduce-programma's worden uitgevoerd op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
+De HDInsight MapReduce-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) MapReduce-programma's uitvoert op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux gebaseerd HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft.
 
 > [!NOTE] 
-> Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Factory](data-factory-introduction.md) en voer de zelfstudie: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest.  
+> Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Factory](data-factory-introduction.md) en de zelfstudie: [Uw eerste pijplijn bouwen](data-factory-build-your-first-pipeline.md) voordat het lezen van dit artikel.  
 
 ## <a name="introduction"></a>Inleiding
-Een pijplijn in een Azure data factory verwerkt gegevens in gekoppelde storage-services met behulp van gekoppelde compute services. Het bevat een reeks activiteiten, waarbij elke activiteit uitvoert voor een specifieke verwerking. In dit artikel wordt beschreven hoe de HDInsight-MapReduce-activiteit.
+Een pijplijn in een Azure data factory worden gegevens in gekoppelde storage-services met behulp van gekoppelde compute services verwerkt. Het bevat een reeks activiteiten waarbij elke activiteit uitvoert voor een specifieke verwerking. Dit artikel wordt beschreven met behulp van de HDInsight MapReduce-activiteit.
 
-Zie [Pig](data-factory-pig-activity.md) en [Hive](data-factory-hive-activity.md) voor meer informatie over het uitvoeren van Pig/Hive scripts op een Windows, Linux-gebaseerde HDInsight-cluster van een pijplijn met behulp van HDInsight Pig en Hive-activiteiten. 
+Zie [Pig](data-factory-pig-activity.md) en [Hive](data-factory-hive-activity.md) voor meer informatie over het uitvoeren van Pig of Hive-scripts in een Windows/Linux gebaseerd HDInsight-cluster van een pijplijn met behulp van HDInsight Pig en Hive-activiteiten. 
 
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON voor HDInsight MapReduce-activiteit
 In de JSON-definitie voor de HDInsight-activiteit: 
 
 1. Stel de **type** van de **activiteit** naar **HDInsight**.
 2. Geef de naam van de klasse voor **className** eigenschap.
-3. Geef het pad naar het JAR-bestand dat is inclusief de bestandsnaam voor **jarFilePath** eigenschap.
-4. Geef de gekoppelde service die verwijst naar de Azure Blob Storage met het JAR-bestand voor **jarLinkedService** eigenschap.   
-5. Geef geen argumenten voor de MapReduce-programma in de **argumenten** sectie. Tijdens runtime, ziet u enkele extra argumenten (bijvoorbeeld: mapreduce.job.tags) van het MapReduce-framework. Overweeg het gebruik van zowel de optie als de waarde als argumenten zoals weergegeven in het volgende voorbeeld om te onderscheiden van de argumenten met de argumenten MapReduce, (- s,--invoer,--uitvoer enz., zijn opties onmiddellijk wordt gevolgd door hun waarden).
+3. Geef het pad naar het JAR-bestand inclusief de bestandsnaam voor **jarFilePath** eigenschap.
+4. Geef de gekoppelde service die verwijst naar de Azure Blob-opslag met het JAR-bestand voor **jarLinkedService** eigenschap.   
+5. Geeft geen argumenten voor de MapReduce-programma in de **argumenten** sectie. Tijdens runtime, ziet u een paar extra argumenten (bijvoorbeeld: mapreduce.job.tags) van de MapReduce-framework. Overweeg het gebruik van optie en de waarde als argumenten, zoals wordt weergegeven in het volgende voorbeeld om te onderscheiden van de argumenten met de argumenten MapReduce, (- s,--input,--output enz., zijn opties onmiddellijk wordt gevolgd door hun waarden).
 
     ```JSON   
     {
@@ -111,16 +110,16 @@ In de JSON-definitie voor de HDInsight-activiteit:
         }
     }
     ```
-U kunt de HDInsight-MapReduce-activiteit gebruiken een MapReduce jar-bestand op een HDInsight-cluster uit te voeren. In het volgende voorbeeld JSON-definitie van een pijplijn, worden de HDInsight-activiteit is geconfigureerd voor het uitvoeren van een Mahout JAR-bestand.
+U kunt de HDInsight MapReduce-activiteit gebruiken een MapReduce-jar-bestand op een HDInsight-cluster uit te voeren. In het volgende voorbeeld van JSON-definitie van een pijplijn, worden de HDInsight-activiteit is geconfigureerd voor het uitvoeren van een Mahout-JAR-bestand.
 
 ## <a name="sample-on-github"></a>Voorbeeld op GitHub
-U kunt een voorbeeld voor het gebruik van de HDInsight-MapReduce-activiteit uit downloaden: [Data Factory-voorbeelden op GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
+U kunt een voorbeeld voor het gebruik van de HDInsight MapReduce-activiteit van downloaden: [Data Factory-voorbeelden op GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
 
 ## <a name="running-the-word-count-program"></a>Het aantal woorden programma uitvoeren
-De pijplijn in dit voorbeeld voert het programma Word-Count kaart/verkleinen op Azure HDInsight-cluster.   
+De pijplijn in dit voorbeeld voert het programma Word-Count toewijzen/verminderen in uw Azure HDInsight-cluster.   
 
 ### <a name="linked-services"></a>Gekoppelde services
-U maakt eerst een gekoppelde service voor het koppelen van de Azure-opslag die wordt gebruikt door de Azure HDInsight-cluster aan het Azure data factory. Als kopiëren en plakken van de volgende code vergeet niet om te vervangen **accountnaam** en **accountsleutel** met de naam en sleutel van uw Azure-opslag. 
+U maakt eerst een gekoppelde service om te koppelen van de Azure-opslag die wordt gebruikt door de Azure HDInsight-cluster aan de Azure data factory. Als kopiëren/plakken van de volgende code vergeet niet om te vervangen **accountnaam** en **accountsleutel** met de naam en sleutel van uw Azure Storage. 
 
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
 
@@ -136,8 +135,8 @@ U maakt eerst een gekoppelde service voor het koppelen van de Azure-opslag die w
 }
 ```
 
-#### <a name="azure-hdinsight-linked-service"></a>Azure gekoppelde HDInsight-service
-Maak vervolgens een gekoppelde service voor uw Azure HDInsight-cluster koppelen aan de Azure-gegevensfactory. Als kopiëren en plakken van de volgende code vervangt **de naam van de HDInsight-cluster** met de naam van uw HDInsight-cluster en de wijziging waarden gebruikersnaam en wachtwoord.   
+#### <a name="azure-hdinsight-linked-service"></a>Azure HDInsight gekoppelde service
+Vervolgens, maakt u een gekoppelde service om te koppelen van uw Azure HDInsight-cluster aan de Azure data factory. Als u kopiëren en plakken met de volgende code, Vervang **de naam van de HDInsight-cluster** met de naam van uw HDInsight-cluster en de gebruiker en wachtwoord waarden wijzigen.   
 
 ```JSON
 {
@@ -156,7 +155,7 @@ Maak vervolgens een gekoppelde service voor uw Azure HDInsight-cluster koppelen 
 
 ### <a name="datasets"></a>Gegevenssets
 #### <a name="output-dataset"></a>Uitvoergegevensset
-De pijplijn in dit voorbeeld vindt niet alle invoer. U kunt een uitvoergegevensset opgeven voor het HDInsight-MapReduce-activiteit. Deze gegevensset is slechts een dummy gegevensset die is vereist voor het station van de planning van de pijplijn.  
+De pijplijn in dit voorbeeld neemt geen invoeren. U kunt een uitvoergegevensset opgeven voor de HDInsight MapReduce-activiteit. Deze gegevensset is alleen een dummy gegevensset die is vereist om de planning van de pijplijn te stimuleren.  
 
 ```JSON
 {
@@ -181,16 +180,16 @@ De pijplijn in dit voorbeeld vindt niet alle invoer. U kunt een uitvoergegevenss
 ```
 
 ### <a name="pipeline"></a>Pijplijn
-De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type: HDInsightMapReduce. Enkele van de belangrijke eigenschappen in de JSON zijn: 
+De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type: HDInsightMapReduce. Enkele van de belangrijke in de JSON-eigenschappen zijn: 
 
 | Eigenschap | Opmerkingen |
 |:--- |:--- |
 | type |Het type moet worden ingesteld op **HDInsightMapReduce**. |
-| className |Naam van de klasse is: **wordcount** |
-| jarFilePath |Pad naar het jar-bestand met de klasse. Vergeet niet de naam van het cluster wijzigen als kopiëren en plakken van de volgende code. |
+| Klassenaam |Naam van de klasse is: **wordcount** |
+| jarFilePath |Pad naar het jar-bestand met de klasse. Vergeet niet de naam van het cluster te wijzigen als kopiëren/plakken van de volgende code. |
 | jarLinkedService |Gekoppelde Azure Storage-service die het jar-bestand bevat. Deze gekoppelde service verwijst naar de opslag die is gekoppeld aan het HDInsight-cluster. |
-| argumenten |Het programma wordcount heeft twee argumenten, invoer en uitvoer. Het invoerbestand is het bestand davinci.txt. |
-| frequency/interval |De waarden voor deze eigenschappen overeen met de uitvoergegevensset. |
+| argumenten |Het wordcount-programma neemt twee argumenten, invoer en uitvoer. Het invoerbestand is het bestand davinci.txt. |
+| frequency/interval |De waarden voor deze eigenschappen overeenkomen met de uitvoergegevensset. |
 | linkedServiceName |verwijst naar de gekoppelde HDInsight-service die u eerder hebt gemaakt. |
 
 ```JSON

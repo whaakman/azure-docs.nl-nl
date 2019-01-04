@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 09b5f387b0c7f765ea0835dcef79932203d68338
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390133"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014349"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformeer gegevens in Azure Data Factory
 > [!div class="op_single_selector"]
@@ -62,7 +61,7 @@ De voorspellende modellen in de Machine Learning experimenten scoren moeten opni
 Zie [gebruik Machine Learning-activiteiten](transform-data-using-machine-learning.md) voor meer informatie over deze Machine Learning-activiteiten. 
 
 ## <a name="stored-procedure-activity"></a>Opgeslagen procedureactiviteit
-U kunt de SQL Server opgeslagen Procedure-activiteit in een Data Factory-pijplijn gebruiken om aan te roepen een opgeslagen procedure in een van de volgende gegevensarchieven: Azure SQL Database, Azure SQL Data Warehouse, SQL Server-Database in uw onderneming of een Azure-VM. Zie [Stored Procedure-activiteit](transform-data-using-stored-procedure.md) artikel voor meer informatie.  
+U kunt de SQL Server opgeslagen Procedure-activiteit in een Data Factory-pijplijn gebruiken om aan te roepen een opgeslagen procedure in een van de volgende gegevensarchieven: Azure SQL-Database, Azure SQL Data Warehouse, SQL Server-Database in uw onderneming of een Azure-VM. Zie [Stored Procedure-activiteit](transform-data-using-stored-procedure.md) artikel voor meer informatie.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-activiteit van Data Lake Analytics
 Data Lake Analytics U-SQL-activiteit wordt een U-SQL-script uitgevoerd op een Azure Data Lake Analytics-cluster. Zie [Data Analytics U-SQL-activiteit](transform-data-using-data-lake-analytics.md) artikel voor meer informatie. 
@@ -87,10 +86,10 @@ U kunt een aangepaste activiteit maken om R-scripts uit te voeren op uw HDInsigh
 ## <a name="compute-environments"></a>COMPUTE-omgevingen
 U maakt een gekoppelde service voor de compute-omgeving en de gekoppelde service vervolgens gebruiken bij het definiëren van een transformatieactiviteit. Er zijn twee soorten rekenomgevingen ondersteund door Data Factory. 
 
-- **On-Demand**: In dit geval de computeromgeving volledig wordt beheerd door Data Factory. Er wordt automatisch gemaakt door de Data Factory-service voordat een taak wordt verzonden om gegevens te verwerken en verwijderd wanneer de taak is voltooid. U kunt configureren en beheren van gedetailleerde instellingen van de on-demand compute-omgeving voor het uitvoeren van taak Clusterbeheer en acties uitvoeren van de bootstrap. 
-- **Breng uw eigen**: In dit geval kunt u uw eigen IT-omgeving (bijvoorbeeld HDInsight-cluster) registreren als een gekoppelde service in Data Factory. De computeromgeving wordt beheerd door uzelf en de Data Factory-service gebruikt voor het uitvoeren van de activiteiten. 
+- **On-Demand**:  In dit geval wordt de computeromgeving volledig beheerd door Data Factory. Er wordt automatisch gemaakt door de Data Factory-service voordat een taak wordt verzonden om gegevens te verwerken en verwijderd wanneer de taak is voltooid. U kunt configureren en beheren van gedetailleerde instellingen van de on-demand compute-omgeving voor het uitvoeren van taak Clusterbeheer en acties uitvoeren van de bootstrap. 
+- **Voeg uw eigen**: In dit geval kunt u uw eigen IT-omgeving (bijvoorbeeld HDInsight-cluster) registreren als een gekoppelde service in Data Factory. De computeromgeving wordt beheerd door uzelf en de Data Factory-service gebruikt voor het uitvoeren van de activiteiten. 
 
 Zie [gekoppelde Services berekenen](compute-linked-services.md) artikel voor meer informatie over de compute-services die worden ondersteund door Data Factory. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende zelfstudie voor een voorbeeld van het gebruik van een transformatieactiviteit: [zelfstudie: gegevens transformeren met Spark](tutorial-transform-data-spark-powershell.md)
+Zie de volgende zelfstudie voor een voorbeeld van het gebruik van een transformatieactiviteit: [Zelfstudie: gegevens transformeren met Spark](tutorial-transform-data-spark-powershell.md)

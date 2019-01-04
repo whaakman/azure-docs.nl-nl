@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 0399836191050996ac3eaf0fbe59496e10e2b426
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b1f4ad523f84616391d4121dbf7eaabb2dfde060
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057267"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018616"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure Table storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +44,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 U kunt een gekoppelde Azure Storage-service maken met behulp van de accountsleutel. Het biedt de data factory met wereldwijde toegang tot opslag. De volgende eigenschappen worden ondersteund.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureTableStorage**. |Ja |
 | connectionString | Geef de informatie die nodig zijn voor het verbinding maken met opslag voor de connectionString-eigenschap. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -79,7 +78,7 @@ U kunt een gekoppelde Azure Storage-service maken met behulp van de accountsleut
 
 U kunt ook een gekoppelde Storage-service met behulp van een shared access signature maken. Het biedt de data factory met beperkte/tijdsgebonden toegang tot alle of naar een specifiek resources in de opslag.
 
-Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. U kunt deze gebruiken op een client beperkte machtigingen voor objecten in uw storage-account gedurende een opgegeven periode en met een opgegeven set machtigingen verlenen. U hebt geen delen van de toegangssleutels van uw account. De shared access signature is een URI die in de queryparameters alle informatie die nodig zijn voor geverifieerde toegang tot een opslagresource omvat. Voor toegang tot de storage-resources met de shared access signature, moet de client alleen worden doorgegeven in de handtekening voor gedeelde toegang tot de juiste constructor of methode. Zie voor meer informatie over handtekeningen voor gedeelde toegang, [Shared access signatures: inzicht in het shared access signature-model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. U kunt deze gebruiken op een client beperkte machtigingen voor objecten in uw storage-account gedurende een opgegeven periode en met een opgegeven set machtigingen verlenen. U hebt geen delen van de toegangssleutels van uw account. De shared access signature is een URI die in de queryparameters alle informatie die nodig zijn voor geverifieerde toegang tot een opslagresource omvat. Voor toegang tot de storage-resources met de shared access signature, moet de client alleen worden doorgegeven in de handtekening voor gedeelde toegang tot de juiste constructor of methode. Zie voor meer informatie over handtekeningen voor gedeelde toegang, [handtekeningen voor gedeelde toegang: Inzicht in het shared access signature-model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Data Factory ondersteunt nu zowel **service gedeelde toegangshandtekeningen** en **account gedeelde toegangshandtekeningen**. Zie voor meer informatie over deze twee typen en hoe u een van deze [typen handtekeningen voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
@@ -91,7 +90,7 @@ Een shared access signature biedt gedelegeerde toegang tot resources in uw opsla
 
 Voor het gebruik van shared access signature-verificatie, worden de volgende eigenschappen ondersteund.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureTableStorage**. |Ja |
 | sasUri | Geef de shared access signature URI voor de Storage-resources, zoals blob, container of tabel. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -133,7 +132,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren naar en van Azure Table, stel de eigenschap type van de gegevensset in **AzureTable**. De volgende eigenschappen worden ondersteund.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op **AzureTable**. |Ja |
 | tableName |De naam van de tabel in de tabel storage database-instantie waarnaar de gekoppelde service naar verwijst. |Ja |
@@ -174,7 +173,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Voor het kopiëren van gegevens uit Azure-tabel, stelt u het brontype in de kopieeractiviteit naar **AzureTableSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **AzureTableSource**. |Ja |
 | azureTableSourceQuery |Gebruik de aangepaste Table storage-query om gegevens te lezen. Zie de voorbeelden in de volgende sectie. |Nee |
@@ -200,7 +199,7 @@ Als u de pijplijnparameter gebruikt, cast-conversie de datum / tijdwaarde naar d
 
 Om gegevens te kopiëren naar Azure-tabel, stelt u het sink-type in de kopieeractiviteit naar **AzureTableSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **AzureTableSink**. |Ja |
 | azureTableDefaultPartitionKeyValue |De standaard partitiesleutelwaarde die kan worden gebruikt door de sink. |Nee |
@@ -274,7 +273,7 @@ Wanneer u gegevens wilt verplaatsen naar en van Azure Table, de volgende [toewij
 | Azure Table-gegevenstype | Data Factory tussentijdse gegevenstype | Details |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Een matrix van bytes maximaal 64 KB. |
-| Edm.Boolean |BOOL |Een Booleaanse waarde. |
+| Edm.Boolean |bool |Een Booleaanse waarde. |
 | Edm.DateTime |DateTime |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik voor de datum/tijd begint middernacht, 1 januari 1601 A.D. (C.E.), UTC. Het bereik eindigt en met 31 December 9999. |
 | Edm.Double |double |Een 64-bits drijvende-kommawaarde. |
 | Edm.Guid |GUID |Een globaal unieke id van 128-bits. |

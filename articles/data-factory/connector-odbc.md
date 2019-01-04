@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 600b64eceb3d3187349ce6c0e4a0270f24ab8621
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976550"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014264"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Gegevens kopiëren van en naar ODBC-gegevensopslag met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,11 +49,11 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **Odbc** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **ODBC** | Ja |
 | connectionString | De verbindingsreeks met uitzondering van het gedeelte van de referentie. U kunt de verbindingsreeks opgeven met een patroon zoals `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, of gebruik de systeem-DSN (gegevensbronnaam) u op de machine Integration Runtime met instellen `"DSN=<name of the DSN on IR machine>;"` (u moet nog steeds opgeven het gedeelte van de referentie in de gekoppelde service dienovereenkomstig).<br>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).| Ja |
-| authenticationType | Het type verificatie gebruikt voor verbinding met de ODBC-gegevensopslag.<br/>Toegestane waarden zijn: **Basic** en **anoniem**. | Ja |
+| authenticationType | Het type verificatie gebruikt voor verbinding met de ODBC-gegevensopslag.<br/>Toegestane waarden zijn: **Basic** en **anonieme**. | Ja |
 | Gebruikersnaam | Geef de gebruikersnaam op als u basisverificatie gebruikt. | Nee |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | referenties | De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `"RefreshToken=<secret refresh token>;"`. Dit veld markeert als een SecureString. | Nee |
@@ -119,7 +118,7 @@ Zie het artikel gegevenssets voor een volledige lijst van de secties en eigensch
 
 Om gegevens te kopiëren van/naar compatibel is met ODBC-gegevensopslag, stel de eigenschap type van de gegevensset in **RelationalTable**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **RelationalTable** | Ja |
 | tableName | Naam van de tabel in de ODBC-gegevensopslag. | Nee voor bron (als 'query' in de activiteitbron is opgegeven);<br/>Ja voor sink |
@@ -150,7 +149,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren uit ODBC-compatibele data store, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
@@ -191,7 +190,7 @@ Om gegevens te kopiëren uit ODBC-compatibele data store, stelt u het brontype i
 
 Om gegevens te kopiëren met ODBC compatibele data store, stelt u het sink-type in de kopieeractiviteit naar **OdbcSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op: **OdbcSink** | Ja |
 | writeBatchTimeout |Wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn: timespan. Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |

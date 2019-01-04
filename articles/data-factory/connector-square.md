@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 80389be735d337f72426f0745fee5717b96fa78a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100868"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013159"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Gegevens kopiëren van een vierkant met Azure Data Factory (Preview)
 
@@ -45,7 +44,7 @@ De volgende eigenschappen worden ondersteund voor vierkante gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **vierkant** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **Vierkant** | Ja |
 | host | De URL van het vierkant exemplaar. (dat wil zeggen mystore.mysquare.com)  | Ja |
 | ClientId | De client-ID die is gekoppeld aan uw vierkante toepassing.  | Ja |
 | ClientSecret | Het clientgeheim die zijn gekoppeld aan uw vierkante toepassing. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

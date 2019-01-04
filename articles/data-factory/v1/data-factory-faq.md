@@ -9,17 +9,16 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781910"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024039"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Veelgestelde vragen
 > [!NOTE]
@@ -55,7 +54,7 @@ U kunt de auteur/data factory's maken met een van de volgende hulpprogramma's / 
 * **Azure PowerShell** Zie [maken en te bewaken, Azure Data Factory met Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) voor een zelfstudie/overzicht voor het maken van een data factory met behulp van PowerShell. Zie [Data Factory Cmdlet Reference] [ adf-powershell-reference] inhoud op MSDN-bibliotheek voor een uitgebreide documentatie over Data Factory-cmdlets.
 * **.NET-klassebibliotheek** programmatisch kunt u data factory's maken met behulp van Data Factory .NET SDK. Zie [maken, bewaken en beheren van data factory's met .NET SDK](data-factory-create-data-factories-programmatically.md) voor een overzicht van het maken van een data factory met .NET SDK. Zie [Data Factory Class Library Reference] [ msdn-class-library-reference] voor een uitgebreide documentatie over Data Factory .NET SDK.
 * **REST-API** u kunt ook de REST-API die worden weergegeven door de Azure Data Factory-service maken en implementeren van data factory's gebruiken. Zie [API-naslaginformatie voor Data Factory-REST] [ msdn-rest-api-reference] voor een uitgebreide documentatie over Data Factory-REST API.
-* **Azure Resource Manager-sjabloon** Zie [zelfstudie: uw eerste Azure-gegevensfactory bouwen met Azure Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md) voor meer informatie.
+* **Azure Resource Manager-sjabloon** Zie [zelfstudie: Uw eerste Azure-gegevensfactory bouwen met Azure Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md) voor meer informatie.
 
 ### <a name="can-i-rename-a-data-factory"></a>Kan ik de naam van een data factory wijzigen?
 Nee. Net als andere Azure-resources, kan niet de naam van een Azure data factory worden gewijzigd.
@@ -72,7 +71,7 @@ De volgende tabel bevat een lijst met compute-omgevingen wordt ondersteund door 
 | --- | --- |
 | [On-demand HDInsight-cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-activiteiten: batchuitvoering en resources bijwerken](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-activiteiten: Batchuitvoering en resources bijwerken](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL datawarehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Opgeslagen procedure](data-factory-stored-proc-activity.md) |
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: e78f456a7c69e308257b450a7572f6317dfa6eec
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715440"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001920"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
@@ -106,7 +106,7 @@ Bij het gebruik van HDInsight, wordt de gegevensbestanden worden opgeslagen in e
 * Toegankelijkheid van externe services, zoals websites, hulpprogramma's voor het uploaden/downloaden van bestand, verschillende taal-SDK's en webbrowsers.
 * Grote bestandscapaciteit en grote schaalbare opslag.
 
-Zie voor meer informatie, [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en [Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/).
+Zie voor meer informatie, [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
 Wanneer u Azure Storage of Data Lake-opslag, bevindt u zich hoeft te doen niets uit HDInsight toegang tot de gegevens. Bijvoorbeeld, de volgende opdracht geeft een lijst van bestanden in de `/example/data` map, ongeacht of deze is opgeslagen in Azure Storage of Data Lake-opslag:
 
@@ -177,7 +177,7 @@ Er zijn een verschillende manieren toegang krijgen tot gegevens die zich buiten 
 Als u __Azure Storage__, Zie de volgende koppelingen voor manieren waarop u toegang hebt tot uw gegevens:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): De opdrachten van de opdrachtregelinterface voor het werken met Azure. Na het installeren, gebruiken de `az storage` opdracht voor hulp bij het gebruik van opslag, of `az storage blob` voor blob-specifieke opdrachten.
-* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Een python-script voor het werken met blobs in Azure Storage.
+* [blobxfer.PY](https://github.com/Azure/blobxfer): Een python-script voor het werken met blobs in Azure Storage.
 * Verschillende SDK's:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)

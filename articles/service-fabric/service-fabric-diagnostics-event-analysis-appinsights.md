@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f51d132d3cdc2d8aed65919df5fa225711508c60
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753092"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001767"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Gebeurtenis analyses en visualisatie met Application Insights
 
@@ -120,7 +120,7 @@ Als u in .NET ontwikkelt en zal waarschijnlijk worden met behulp van enkele van 
 
 Als u Application Insights hebt geconfigureerd als uitvoer voor uw gebeurtenissen en Logboeken, moet informatie worden weergegeven in uw Application Insights-resource in een paar minuten beginnen. Navigeer naar de Application Insights-resource, die u naar de Application Insights-resource-dashboard gaat. Klik op **zoeken** in de taakbalk van Application Insights om te zien van de meest recente traceringen die is ontvangen en kunnen ze filteren.
 
-*Metrics Explorer* een handig hulpmiddel voor het maken van aangepaste dashboards op basis van metrische gegevens die uw toepassingen, services en -cluster kunnen rapporteren. Zie [verkennen van metrische gegevens in Application Insights](../application-insights/app-insights-metrics-explorer.md) voor het instellen van een aantal grafieken voor zelf is gebaseerd op de gegevens die u verzamelt.
+*Metrics Explorer* een handig hulpmiddel voor het maken van aangepaste dashboards op basis van metrische gegevens die uw toepassingen, services en -cluster kunnen rapporteren. Zie [verkennen van metrische gegevens in Application Insights](../azure-monitor/app/metrics-explorer.md) voor het instellen van een aantal grafieken voor zelf is gebaseerd op de gegevens die u verzamelt.
 
 Te klikken op **Analytics** gaat u naar de Application Insights Analytics-portal, waar u kunt een query gebeurtenissen en traceringen met groter bereik en optionaliteit. Meer informatie over deze [analyses in Application Insights](../azure-monitor/app/analytics.md).
 

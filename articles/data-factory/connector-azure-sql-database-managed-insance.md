@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706718"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025076"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database Managed Instance met Azure Data Factory
 
@@ -48,9 +47,9 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Azure SQL Database Managed Instance gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **SqlServer** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **SQL Server** | Ja |
 | connectionString |Geef connectionString informatie die nodig zijn voor het verbinding maken met het beheerde exemplaar via SQL-verificatie of Windows-verificatie. Raadpleeg het volgende voorbeeld. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | Gebruikersnaam |Geef de gebruikersnaam op als u van Windows-verificatie gebruikmaakt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee |
@@ -112,7 +111,7 @@ Zie het artikel gegevenssets voor een volledige lijst van de secties en eigensch
 
 Om gegevens te kopiëren van/naar Azure SQL Database Managed Instance, stel de eigenschap type van de gegevensset in **SqlServerTable**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **SqlServerTable** | Ja |
 | tableName |De naam van de tabel of weergave in de database-instantie waarnaar de gekoppelde service verwijst. | Nee voor bron, Ja voor sink |
@@ -144,7 +143,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van Azure SQL Database Managed Instance, stelt u het brontype in de kopieeractiviteit naar **SqlSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SqlSource** | Ja |
 | sqlReaderQuery |Gebruik de aangepaste SQL-query om gegevens te lezen. Voorbeeld: `select * from MyTable`. |Nee |
@@ -247,7 +246,7 @@ GO
 
 Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het sink-type in de kopieeractiviteit naar **SqlSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op: **SqlSink** | Ja |
 | WriteBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). |Nee (standaard: 10000) |
@@ -292,7 +291,7 @@ Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het s
 ]
 ```
 
-**Voorbeeld 2: Een opgeslagen procedure aanroepen tijdens het kopiëren van upsert**
+**Voorbeeld 2: Aanroepen van een opgeslagen procedure tijdens het kopiëren van upsert**
 
 Meer details bekijken van [wordt aangeroepen opgeslagen procedure voor het SQL-Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -493,7 +492,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database Managed Instance, wor
 | Float |Double-waarde |
 | image |Byte[] |
 | int |Int32 |
-| geld |decimaal |
+| money |decimaal |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
 | numerieke |decimaal |
@@ -505,7 +504,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database Managed Instance, wor
 | smallmoney |decimaal |
 | sql_variant |Object * |
 | tekst |Tekenreeks, Char] |
-| tijd |TimeSpan |
+| time |TimeSpan |
 | tijdstempel |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |GUID |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: d306629e552686e180a3927108fca276bcad2aa5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e91f6ecb4ff510b1ba93b56d0bfb0bda0a156cf1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971696"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019823"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>De Application Insights-SDK configureren met ApplicationInsights.config of ApplicationInsights.xml
 De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. De [core-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt de API voor het verzenden van telemetrie naar de Application Insights. [Extra pakketten](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie *modules* en *initializers* voor het automatisch bijhouden van telemetrie van uw toepassing en de context. Door het configuratiebestand aanpassen, kunt u inschakelen of uitschakelen telemetrie-modules en initializers, en parameters voor sommige hiervan zijn ingesteld.
@@ -46,7 +46,7 @@ U kunt ook uw eigen afhankelijkheid bijhouden met behulp van code schrijven de [
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet-pakket.
 
 ### <a name="performance-collector"></a>Prestaties verzamelen
-[Systeemprestatiemeteritems verzamelt](../../application-insights/app-insights-performance-counters.md) , zoals CPU, geheugen en het netwerk laden van de IIS-installaties. U kunt opgeven welke items u wilt verzamelen, met inbegrip van prestatiemeteritems die u zelf hebt gedefinieerd.
+[Systeemprestatiemeteritems verzamelt](../../azure-monitor/app/performance-counters.md) , zoals CPU, geheugen en het netwerk laden van de IIS-installaties. U kunt opgeven welke items u wilt verzamelen, met inbegrip van prestatiemeteritems die u zelf hebt gedefinieerd.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet-pakket.
@@ -125,7 +125,7 @@ De standaard initializers worden alle ingesteld door de Web- of WindowsServer Nu
 * `OperationNameTelemetryInitializer` updates de `Name` eigenschap van de `RequestTelemetry` en de `Name` eigenschap van de `Operation` context van alle telemetrie-items op basis van de HTTP-methode, evenals de namen van ASP.NET MVC-controller en de actie die wordt aangeroepen om de aanvraag te verwerken.
 * `OperationIdTelemetryInitializer` of `OperationCorrelationTelemetryInitializer` updates de `Operation.Id` contexteigenschap van alle telemetrie-items die zijn getraceerd tijdens de verwerking van een aanvraag met de automatisch gegenereerde `RequestTelemetry.Id`.
 * `SessionTelemetryInitializer` updates de `Id` eigenschap van de `Session` context voor alle telemetrie-items met de waarde opgehaald uit de `ai_session` cookie gegenereerd door de ApplicationInsights JavaScript instrumentatie-code die wordt uitgevoerd in de browser van de gebruiker.
-* `SyntheticTelemetryInitializer` of `SyntheticUserAgentTelemetryInitializer` updates de `User`, `Session`, en `Operation` contexten eigenschappen van alle telemetrie-items bijgehouden bij het verwerken van een aanvraag van een synthetische bron, zoals een beschikbaarheidsset testen of zoeken naar engine bot. Standaard [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) synthetische telemetrie niet wordt weergegeven.
+* `SyntheticTelemetryInitializer` of `SyntheticUserAgentTelemetryInitializer` updates de `User`, `Session`, en `Operation` contexten eigenschappen van alle telemetrie-items bijgehouden bij het verwerken van een aanvraag van een synthetische bron, zoals een beschikbaarheidsset testen of zoeken naar engine bot. Standaard [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) synthetische telemetrie niet wordt weergegeven.
 
     De `<Filters>` id-eigenschappen van de aanvragen instellen.
 * `UserTelemetryInitializer` updates de `Id` en `AcquisitionDate` eigenschappen van `User` context voor alle telemetrie-items met waarden die zijn geëxtraheerd uit de `ai_user` cookie gegenereerd door de Application Insights JavaScript instrumentatie-code die wordt uitgevoerd in een van de gebruiker Browser.
@@ -154,7 +154,7 @@ Deze optie is standaard ingeschakeld. Als uw app veel telemetrie verzendt, verwi
 
 De parameter bevat het doel dat het algoritme probeert te bereiken. Elk exemplaar van de SDK werkt onafhankelijk van elkaar, dus als uw server een cluster met meerdere machines is, het daadwerkelijke volume van telemetrie dienovereenkomstig worden vermenigvuldigd.
 
-[Meer informatie over steekproeven](../../application-insights/app-insights-sampling.md).
+[Meer informatie over steekproeven](../../azure-monitor/app/sampling.md).
 
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Vast aantal steekproeven telemetrie processor (van 2.0.0-beta1)
 Er is ook een standaard [steekproeven telemetrie processor](../../azure-monitor/app/api-filtering-sampling.md) (van 2.0.1):
@@ -233,7 +233,7 @@ Bepaalt de maximale grootte in MB die is toegewezen aan de permanente opslag op 
 
 #### <a name="local-forwarder"></a>Lokale doorstuurserver
 
-[Lokale doorstuurserver](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is een agent die Application Insights verzamelt of [OpenCensus](https://opencensus.io/) telemetrie uit een groot aantal SDK's en frameworks en doorgestuurd naar Application Insights. Het is geschikt voor het uitvoeren onder Windows en Linux. Wanneer in combinatie met de Application Insights Java SDK de lokale doorstuurserver biedt volledige ondersteuning voor [Live Metrics](../../application-insights/app-insights-live-stream.md) en adaptieve steekproeven.
+[Lokale doorstuurserver](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is een agent die Application Insights verzamelt of [OpenCensus](https://opencensus.io/) telemetrie uit een groot aantal SDK's en frameworks en doorgestuurd naar Application Insights. Het is geschikt voor het uitvoeren onder Windows en Linux. Wanneer in combinatie met de Application Insights Java SDK de lokale doorstuurserver biedt volledige ondersteuning voor [Live Metrics](../../azure-monitor/app/live-stream.md) en adaptieve steekproeven.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">

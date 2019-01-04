@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: f9b1096f2d409f46e3b9e48a2d59420930150c1a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8ed645066eef93ae02722858381af77854d7d1eb
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974553"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001875"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Overzicht: Exporteren naar SQL van Application Insights met behulp van Stream Analytics
 Dit artikel wordt beschreven hoe u uw telemetriegegevens van verplaatst [Azure Application Insights] [ start] in een Azure SQL-database met behulp van [continue Export] [ export] en [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -70,7 +70,7 @@ Continue export voert altijd gegevens uit naar een Azure Storage-account, dus mo
     ![Kies gebeurtenistypen](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Sommige gegevens worden verzameld, kunnen. Begint en laat mensen uw toepassing een tijdje gebruiken. Telemetrie komt en ziet u statistische grafieken in [metric explorer](../../application-insights/app-insights-metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md). 
+1. Sommige gegevens worden verzameld, kunnen. Begint en laat mensen uw toepassing een tijdje gebruiken. Telemetrie komt en ziet u statistische grafieken in [metric explorer](../../azure-monitor/app/metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md). 
    
     En ook de gegevens worden geëxporteerd naar uw opslag. 
 2. Inspecteer de geëxporteerde gegevens in de portal - kiezen **Bladeren**, selecteer uw opslagaccount, en vervolgens **Containers** - of in Visual Studio. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / Storage. (Als u deze optie niet hebt, moet u de Azure SDK installeren: Open het dialoogvenster Nieuw Project en Visual C# / Cloud / Microsoft Azure SDK voor .NET ophalen.)
@@ -258,7 +258,7 @@ Na een paar minuten, gaat u terug naar SQL Server-beheerhulpprogramma's en bekij
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
 [start]: ../../application-insights/app-insights-overview.md
 

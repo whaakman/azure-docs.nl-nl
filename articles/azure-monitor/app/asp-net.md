@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 036daad8898d12874c86b22429627cbebfcfce37
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974723"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018752"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -102,14 +102,14 @@ Klik in de portal op een tegel of grafiek om meer details te bekijken.
 [Meer informatie over het gebruik van Application Insights in Azure Portal](../../azure-monitor/app/app-insights-dashboards.md).
 
 ## <a name="step-4-publish-your-app"></a>Stap 4: Uw app publiceren
-Publiceer uw app op de IIS-server of op Azure. Bekijk de livestream met metrische gegevens in [Live Metrics Stream](../../application-insights/app-insights-metrics-explorer.md#live-metrics-stream) om te controleren of alles goed werkt.
+Publiceer uw app op de IIS-server of op Azure. Bekijk de livestream met metrische gegevens in [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) om te controleren of alles goed werkt.
 
 Uw telemetrie wordt opgebouwd in de Application Insights-portal, waar u metrische gegevens kunt controleren, uw telemetrie kunt doorzoeken en [dashboards](../../azure-monitor/app/app-insights-dashboards.md) kunt instellen. U kunt ook de krachtige [querytaal van Log Analytics](https://aka.ms/LogAnalyticsLanguage) gebruiken om gebruik en prestaties te analyseren of om specifieke gebeurtenissen te zoeken.
 
 U kunt uw telemetrie ook blijven analyseren in [Visual Studio](../../application-insights/app-insights-visual-studio.md) met hulpprogramma's voor diagnostisch zoeken en [Trends](../../application-insights/app-insights-visual-studio-trends.md).
 
 > [!NOTE]
-> Als uw app zoveel telemetrie verzendt dat de[beperkingslimieten](../../application-insights/app-insights-pricing.md#limits-summary) worden benaderd, worden automatisch [steekproeven](../../application-insights/app-insights-sampling.md) ingeschakeld. Met steekproeven vermindert u de hoeveelheid telemetrie die vanuit uw app wordt verzonden, maar behoudt u gecorreleerde gegevens voor diagnostische doeleinden.
+> Als uw app zoveel telemetrie verzendt dat de[beperkingslimieten](../../azure-monitor/app/pricing.md#limits-summary) worden benaderd, worden automatisch [steekproeven](../../azure-monitor/app/sampling.md) ingeschakeld. Met steekproeven vermindert u de hoeveelheid telemetrie die vanuit uw app wordt verzonden, maar behoudt u gecorreleerde gegevens voor diagnostische doeleinden.
 >
 >
 
@@ -159,4 +159,4 @@ Er zijn ook andere onderwerpen die u kunt bekijken als u geïnteresseerd bent in
 
 ### <a name="automation"></a>Automation
 
-* [Het maken van een Application Insights-resource automatiseren](../../application-insights/app-insights-powershell.md)
+* [Het maken van een Application Insights-resource automatiseren](../../azure-monitor/app/powershell.md)

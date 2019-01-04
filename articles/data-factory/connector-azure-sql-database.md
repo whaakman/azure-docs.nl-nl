@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346697"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025688"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -51,7 +50,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 Deze eigenschappen worden ondersteund voor een gekoppelde Azure SQL Database-service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap moet worden ingesteld op **AzureSqlDatabase**. | Ja |
 | connectionString | Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Database-exemplaar voor de **connectionString** eigenschap. Dit veld als markeert een **SecureString** voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -63,8 +62,8 @@ Deze eigenschappen worden ondersteund voor een gekoppelde Azure SQL Database-ser
 Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voorbeelden, voor andere verificatietypen:
 
 - [SQL-verificatie](#sql-authentication)
-- [Azure AD-toepassing-tokenverificatie: Service-principal](#service-principal-authentication)
-- [Azure AD-toepassing-tokenverificatie: beheerde identiteiten voor een Azure-resources](#managed-identity)
+- [Azure AD-toepassing-token verificatie: Service-principal](#service-principal-authentication)
+- [Azure AD-toepassing-token verificatie: beheerde identiteiten voor Azure-resources](#managed-identity)
 
 >[!TIP]
 >Als u fout met foutcode als "UserErrorFailedToConnectToSqlServer" bereikt en wordt weergegeven, zoals 'de sessielimiet voor de database is XXX en is bereikt.', toe te voegen `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.
@@ -205,7 +204,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Instellen om gegevens te kopiëren van of naar Azure SQL Database, de **type** eigenschap van de gegevensset in **AzureSqlTable**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **AzureSqlTable**. | Ja |
 | tableName | De naam van de tabel of weergave in de Azure SQL Database-instantie waarnaar de gekoppelde service naar verwijst. | Nee voor bron, Ja voor sink |
@@ -237,7 +236,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Instellen om gegevens te kopiëren uit een Azure SQL Database, de **type** eigenschap in de bron van Kopieeractiviteit naar **SqlSource**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op **SqlSource**. | Ja |
 | sqlReaderQuery | Gebruik de aangepaste SQL-query om gegevens te lezen. Voorbeeld: `select * from MyTable`. | Nee |
@@ -340,7 +339,7 @@ GO
 
 Instellen om gegevens te kopiëren naar Azure SQL Database, de **type** sink-eigenschap in de Kopieeractiviteit naar **SqlSink**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **sink** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Copy-activiteit-sink moet zijn ingesteld op **SqlSink**. | Ja |
 | WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
@@ -590,7 +589,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | Float |Double-waarde |
 | image |Byte[] |
 | int |Int32 |
-| geld |decimaal |
+| money |decimaal |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
 | numerieke |decimaal |
@@ -602,7 +601,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | smallmoney |decimaal |
 | sql_variant |Object * |
 | tekst |Tekenreeks, Char] |
-| tijd |TimeSpan |
+| time |TimeSpan |
 | tijdstempel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |

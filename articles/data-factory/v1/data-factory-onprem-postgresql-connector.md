@@ -9,17 +9,16 @@ ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7357b609909c3db0bc42d58cb2cd32436c864f66
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235867"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025705"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Gegevens verplaatsen van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,7 +48,7 @@ Voor Data Management Gateway verbinding maken met de PostgreSQL-Database, instal
 ## <a name="getting-started"></a>Aan de slag
 U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises PostgreSQL-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's. 
 
-- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren. 
+- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren. 
 - U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: 
     - Azure Portal
     - Visual Studio
@@ -66,20 +65,20 @@ Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor h
 2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking. 
 3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises PostgreSQL-gegevensarchief, [JSON-voorbeeld: gegevens kopiëren van PostgreSQL naar Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) sectie van dit artikel. 
+Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises PostgreSQL-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van PostgreSQL naar Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) sectie van dit artikel. 
 
 De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar een PostgreSQL-gegevensarchief:
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor PostgreSQL gekoppelde service.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesPostgreSql** |Ja |
 | server |De naam van de PostgreSQL-server. |Ja |
 | database |De naam van de PostgreSQL-database. |Ja |
 | schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
-| authenticationType |Het type verificatie gebruikt voor verbinding met de PostgreSQL-database. Mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
+| authenticationType |Het type verificatie gebruikt voor verbinding met de PostgreSQL-database. Mogelijke waarden zijn: Anoniem, basis en Windows. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam op als u basisverificatie of Windows-verificatie. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
 | gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises PostgreSQL-database. |Ja |
@@ -89,7 +88,7 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De typeProperties sectie voor de gegevensset van het type **RelationalTable** (waaronder PostgreSQL gegevensset) heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | tableName |De naam van de tabel in de PostgreSQL-Database-instantie waarnaar de gekoppelde service verwijst. De tabelnaam is hoofdlettergevoelig. |Nee (als **query** van **RelationalSource** is opgegeven) |
 
@@ -100,7 +99,7 @@ Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de
 
 Wanneer de bron is van het type **RelationalSource** (waaronder PostgreSQL), de volgende eigenschappen zijn beschikbaar in de sectie typeProperties:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | query |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nee (als **tableName** van **gegevensset** is opgegeven) |
 
@@ -111,7 +110,7 @@ Wanneer de bron is van het type **RelationalSource** (waaronder PostgreSQL), de 
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Voorbeeld van JSON: gegevens kopiëren van PostgreSQL naar Azure Blob
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van PostgreSQL naar Azure Blob
 In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van de PostgreSQL-database naar Azure Blob Storage. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.   
 
 > [!IMPORTANT]
@@ -312,7 +311,7 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 | bigserial |serial8 |Int64 |
 | bits [(n)] | |Byte [], String | &nbsp;
 | bit verschillende [(n)] |varbit |Byte [], String |
-| booleaans |BOOL |Booleaans |
+| booleaans |bool |Booleaans |
 | Vak | |Byte [], String |&nbsp;
 | bytea | |Byte [], String |&nbsp;
 | teken [(n)] |char [(n)] |Reeks |
@@ -334,8 +333,8 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 | Regel | |Byte [], String |&nbsp;
 | lseg | |Byte [], String |&nbsp;
 | macaddr | |Byte [], String |&nbsp;
-| geld | |decimaal |&nbsp;
-| numerieke [(p, s)] |decimale waarde [(p, s)] |decimaal |
+| money | |Decimaal |&nbsp;
+| numerieke [(p, s)] |decimale waarde [(p, s)] |Decimaal |
 | numrange | |Reeks |&nbsp;
 | OID | |Int32 |&nbsp;
 | pad | |Byte [], String |&nbsp;

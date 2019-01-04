@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089698"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000560"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Azure Resource Manager-sjablonen voor het implementeren van logische apps maken
 
@@ -27,11 +27,11 @@ Zie voor meer informatie over de Resource Manager-sjablonen, [Azure Resource Man
 
 Een logische app heeft drie fundamentele onderdelen:
 
-* **Logische app-resource**: bevat informatie over zaken zoals prijzen plan, locatie en de definitie van de werkstroom.
-* **Definitie van de werkstroom**: Beschrijving van uw logische app werkstroomstappen en hoe de werkstroom moet worden uitgevoerd door de Logic Apps-engine.
+* **Logische app-resource**: Bevat informatie over zaken zoals prijzen plan, locatie en de definitie van de werkstroom.
+* **Definitie van de werkstroom**: Beschrijving van uw logische app werkstroomstappen en hoe de Logic Apps-engine van de werkstroom moet worden uitgevoerd.
 U kunt deze definitie weergeven in uw logische app **codeweergave** venster.
 In de logische app-resource, vindt u deze definitie in de `definition` eigenschap.
-* **Verbindingen**: verwijst naar een afzonderlijke resources die veilig opslaan van metagegevens over elke connector-verbindingen, zoals een verbindingsreeks en een toegangstoken.
+* **Verbindingen**: Verwijst naar een afzonderlijke resources die veilig opslaan van metagegevens over elke connector-verbindingen, zoals een verbindingsreeks en een toegangstoken.
 In de logische app-resource, uw logische app verwijst naar deze resources in de `parameters` sectie.
 
 U kunt al deze onderdelen van logische apps weergeven met behulp van een hulpprogramma zoals [Azure Resource Explorer](http://resources.azure.com).
@@ -187,7 +187,7 @@ Er is een voorbeeldscript op GitHub onder de [LogicAppConnectionAuth](https://gi
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps-Azure-pijplijnen
 
-Een veelvoorkomend scenario voor het implementeren en beheren van een omgeving is een hulpprogramma zoals Azure pijplijnen gebruiken in Azure DevOps, met een sjabloon voor logische app-implementatie. Azure DevOps bevat een [Azure-resourcegroep implementeren](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) taak die u kunt aan een build toevoegen of release-pijplijn. U moet beschikken over een [service-principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) voor autorisatie om te implementeren, en u vervolgens de release-pijplijn kunt genereren.
+Een veelvoorkomend scenario voor het implementeren en beheren van een omgeving is een hulpprogramma zoals Azure pijplijnen gebruiken in Azure DevOps, met een sjabloon voor logische app-implementatie. Azure DevOps bevat een [Azure-resourcegroep implementeren](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) taak die u kunt aan een build toevoegen of release-pijplijn. U moet beschikken over een [service-principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) voor autorisatie om te implementeren, en u vervolgens de release-pijplijn kunt genereren.
 
 1. Selecteer in de Azure-pijplijnen **leeg** zodat u een lege pijplijn maken.
 

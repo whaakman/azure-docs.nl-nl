@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 6920e1878a8d31072480a6b604e404bb9913f634
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 85541d649a0b2720e3d33b98cea7883b3725f609
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812068"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025144"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Gegevensmodel voor Application Insights-telemetrie
 
@@ -55,5 +55,5 @@ Voor het rapporteren van problemen voor het model of het schema van gegevens en 
 
 - [Schrijf aangepaste telemetrie](../../azure-monitor/app/api-custom-events-metrics.md)
 - Meer informatie over het [uitbreiden en telemetrie filteren](../../azure-monitor/app/api-filtering-sampling.md).
-- Gebruik [steekproeven](../../application-insights/app-insights-sampling.md) om hoeveelheid telemetrie op basis van het gegevensmodel te minimaliseren.
-- Bekijk [platforms](../../application-insights/app-insights-platforms.md) ondersteund door Application Insights.
+- Gebruik [steekproeven](../../azure-monitor/app/sampling.md) om hoeveelheid telemetrie op basis van het gegevensmodel te minimaliseren.
+- Bekijk [platforms](../../azure-monitor/app/platforms.md) ondersteund door Application Insights.

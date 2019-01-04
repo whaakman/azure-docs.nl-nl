@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren van de SFTP-server met behulp van Azure Data Factory | Microsoft Docs
-description: Meer informatie over de MySQL-connector in Azure Data Factory waarmee u gegevens kopiëren van een SFTP-server naar een gegevensarchief ondersteund als een sink.
+description: Meer informatie over de MySQL-connector in Azure Data Factory waarmee u gegevens kopiëren van een SFTP-server naar een gegevensarchief dat wordt ondersteund als een sink.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,61 +9,60 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 3425558ac1ffa9e8d5146a5126f01c4ac55050dc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 28802b018711b3cd95946b60a8505684089dca18
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049627"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019211"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Gegevens kopiëren van de SFTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-sftp-connector.md)
+> * [Versie 1:](v1/data-factory-sftp-connector.md)
 > * [Huidige versie](connector-sftp.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SFTP-server. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van een SFTP-server. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit de SFTP-server kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit de SFTP-server kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-In het bijzonder ondersteunt deze SFTP-connector:
+Om precies ondersteunt deze SFTP-connector:
 
 - Het kopiëren van bestanden met behulp van **Basic** of **SshPublicKey** verificatie.
-- Kopiëren van bestanden als-is of bij het parseren van bestanden met de [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md).
+- Kopiëren van bestanden als-is of bij het parseren van bestanden met de [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met SFTP.
+De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met SFTP.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
 De volgende eigenschappen worden ondersteund voor SFTP gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **Sftp**. |Ja |
+| type | De eigenschap type moet worden ingesteld op: **SFTP**. |Ja |
 | host | Naam of IP-adres van de SFTP-server. |Ja |
-| poort | De poort waarop de SFTP-server luistert.<br/>Toegestane waarden zijn: integer, standaardwaarde is **22**. |Nee |
-| skipHostKeyValidation | Geef op of validatie host-sleutel overslaan.<br/>Toegestane waarden zijn: **true**, **false** (standaard).  | Nee |
-| hostKeyFingerprint | Geef de vingerafdruk van de hostsleutel. | Ja als u de 'skipHostKeyValidation' is ingesteld op false.  |
-| authenticationType | Geef het verificatietype.<br/>Toegestane waarden zijn: **Basic**, **SshPublicKey**. Raadpleeg [Using basisverificatie](#using-basic-authentication) en [met behulp van SSH openbare-sleutelauthenticatie](#using-ssh-public-key-authentication) respectievelijk secties over meer eigenschappen en voorbeelden van JSON. |Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+| poort | De poort waarop de SFTP-server luistert.<br/>Toegestane waarden zijn: geheel getal, standaardwaarde is **22**. |Nee |
+| skipHostKeyValidation | Geef op of moet worden overgeslagen sleutelvalidatie voor de host.<br/>Toegestane waarden zijn: **waar**, **false** (standaard).  | Nee |
+| hostKeyFingerprint | Geef de vingerafdruk van de hostsleutel. | Ja als het 'skipHostKeyValidation' is ingesteld op false.  |
+| authenticationType | Geef het verificatietype.<br/>Toegestane waarden zijn: **Basic**, **SshPublicKey**. Raadpleeg [met basisverificatie](#using-basic-authentication) en [met behulp van SSH openbare sleutelverificatie](#using-ssh-public-key-authentication) respectievelijk de secties over meer eigenschappen en voorbeelden voor JSON. |Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 ### <a name="using-basic-authentication"></a>Met behulp van basisverificatie
 
-Voor het gebruik van basisverificatie, stelt u 'authenticationType'-eigenschap in op **Basic**, en geef de volgende eigenschappen naast algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
+Als u wilt gebruikmaken van basisverificatie, kunt u 'authenticationType'-eigenschap instellen op **Basic**, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | Gebruikersnaam | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
-| wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld:**
 
@@ -96,19 +95,19 @@ Voor het gebruik van basisverificatie, stelt u 'authenticationType'-eigenschap i
 
 ### <a name="using-ssh-public-key-authentication"></a>Met behulp van SSH-verificatie voor openbare sleutel
 
-Voor het gebruik van SSH-verificatie voor openbare sleutel, stelt u de eigenschap 'authenticationType' als **SshPublicKey**, en geef de volgende eigenschappen naast algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
+Voor het gebruik van SSH-verificatie voor openbare sleutel, stelt u de eigenschap 'authenticationType' als **SshPublicKey**, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | Gebruiker die toegang tot de SFTP-server heeft |Ja |
-| privateKeyPath | Geef het absolute pad naar het persoonlijke sleutelbestand waartoe integratie Runtime toegang heeft. Geldt alleen als host zichzelf soort integratie Runtime is opgegeven in 'connectVia'. | Geef ofwel de `privateKeyPath` of `privateKeyContent`.  |
-| privateKeyContent | Base64-gecodeerde SSH-inhoud met persoonlijke sleutel. Persoonlijke SSH-sleutel moet OpenSSH-indeling. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Geef ofwel de `privateKeyPath` of `privateKeyContent`. |
-| Wachtwoordzin | Geef de pass woordgroep en het wachtwoord voor het ontsleutelen van de persoonlijke sleutel als het sleutelbestand is beveiligd met een wachtwoordzin. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja als u een bestand met de persoonlijke sleutel wordt beveiligd door een wachtwoordzin. |
+| Gebruikersnaam | Gebruikers die toegang tot de SFTP-server heeft |Ja |
+| privateKeyPath | Geef het absolute pad naar het persoonlijke sleutelbestand dat toegang heeft tot Integration Runtime. Geldt alleen wanneer de zelf-hostende Integration Runtime-type is opgegeven in 'connectVia'. | Opgeven of de `privateKeyPath` of `privateKeyContent`.  |
+| privateKeyContent | Met base64 gecodeerd SSH-inhoud met persoonlijke sleutel. Persoonlijke SSH-sleutel moet OpenSSH-indeling. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Opgeven of de `privateKeyPath` of `privateKeyContent`. |
+| Wachtwoordzin | Geef de pass-woordgroep en wachtwoord in voor het ontsleutelen van de persoonlijke sleutel als bestand met de sleutel is beveiligd met een wachtwoordzin. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja als het bestand met persoonlijke sleutel wordt beveiligd door een wachtwoordzin. |
 
 > [!NOTE]
-> SFTP-connector ondersteunt RSA/DSA OpenSSH-sleutel. Zorg ervoor dat de inhoud van uw sleutelbestand begint met '---BEGIN [RSA/DSA] PRIVÉSLEUTEL---'. Als het persoonlijke sleutelbestand een ppk-format-bestand is, gebruikt u de Putty hulpprogramma ppk converteren naar OpenSSH-indeling. 
+> SFTP-connector ondersteunt RSA/DSA OpenSSH-sleutel. Zorg ervoor dat uw inhoud sleutelbestand begint met '---BEGIN [RSA/DSA] PRIVATE KEY---'. Als het bestand met persoonlijke sleutel een bestand ppk-indeling is, gebruikt u de Putty hulpprogramma converteren naar ppk OpenSSH-indeling. 
 
-**Voorbeeld 1: SshPublicKey verificatie met behulp van persoonlijke sleutels filePath**
+**Voorbeeld 1: SshPublicKey verificatie met behulp van de persoonlijke sleutel filePath**
 
 ```json
 {
@@ -137,7 +136,7 @@ Voor het gebruik van SSH-verificatie voor openbare sleutel, stelt u de eigenscha
 }
 ```
 
-**Voorbeeld 2: SshPublicKey verificatie met behulp van persoonlijke sleutels inhoud**
+**Voorbeeld 2: SshPublicKey verificatie met behulp van de persoonlijke sleutel inhoud**
 
 ```json
 {
@@ -171,23 +170,23 @@ Voor het gebruik van SSH-verificatie voor openbare sleutel, stelt u de eigenscha
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de SFTP-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund voor SFTP-gegevensset.
 
-Om gegevens te kopiëren van SFTP, stel de eigenschap type van de gegevensset **FileShare**. De volgende eigenschappen worden ondersteund:
+Om gegevens te kopiëren van SFTP, stel de eigenschap type van de gegevensset in **bestandsshare**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op: **bestandsshare** |Ja |
-| folderPath | Pad naar de map. Wildcard-filter wordt niet ondersteund. Bijvoorbeeld: map/submap / |Ja |
-| fileName |  **Naam of het jokerteken filter** voor de bestanden onder de opgegeven 'folderPath'. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle bestanden in de map. <br/><br/>Voor het filter toegestane jokertekens zijn: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of een enkel teken).<br/>-Voorbeeld 1: `"fileName": "*.csv"`<br/>-Voorbeeld 2: `"fileName": "???20180427.txt"`<br/>Gebruik `^` Escape als uw werkelijke bestandsnaam bevat jokertekens of deze escape-teken in. |Nee |
-| Indeling | Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerde winkels (binaire kopiëren), de sectie indeling in de definities van beide invoer en uitvoer gegevensset.<br/><br/>Als u wilt parseren van bestanden met een specifieke indeling, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Json-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [parketvloeren indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor scenario binaire kopiëren) |
-| compressie | Geef het type en de compressie van de gegevens. Zie voor meer informatie [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus: **optimale** en **snelst**. |Nee |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **Bestandsshare** |Ja |
+| folderPath | Pad naar de map. Filteren op jokerteken wordt niet ondersteund. Bijvoorbeeld: map/submap / |Ja |
+| fileName |  **Naam of het jokerteken filter** voor de bestanden die onder het opgegeven 'folderPath'. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle bestanden in de map. <br/><br/>Voor het filter toegestane jokertekens zijn: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken).<br/>-Voorbeeld 1: `"fileName": "*.csv"`<br/>-Voorbeeld 2: `"fileName": "???20180427.txt"`<br/>Gebruik `^` als escape voor als de bestandsnaam van uw werkelijke jokertekens of deze escape-teken in. |Nee |
+| Indeling | Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestanden (binaire kopie), het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer.<br/><br/>Als u bestanden met een specifieke indeling parseren wilt, worden de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie, [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Json-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor binaire kopie-scenario) |
+| Compressie | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus zijn: **Optimale** en **snelste**. |Nee |
 
 >[!TIP]
->Geef alle bestanden onder een map wilt kopiëren, **folderPath** alleen.<br>Geef voor het kopiëren van één bestand met een bepaalde naam **folderPath** met maponderdeel en **fileName** met bestandsnaam.<br>Wilt kopiëren van een subset van de bestanden in een map, geeft **folderPath** met maponderdeel en **fileName** met jokertekenfilter.
+>Alle bestanden in een map wilt kopiëren, geef **folderPath** alleen.<br>Voor het kopiëren van één bestand met een specifieke naam, geef **folderPath** met maponderdeel en **fileName** met bestandsnaam.<br>Als u wilt kopiëren van een subset van de bestanden in een map, geef **folderPath** met maponderdeel en **fileName** met filteren op jokerteken.
 
 >[!NOTE]
->Als u met de eigenschap 'fileFilter' voor bestandsfilter, nog steeds wordt ondersteund als-is, terwijl u gebruik van de nieuwe filter mogelijkheid is toegevoegd aan 'bestandsnaam' voortaan worden voorgesteld.
+>Als u 'fileFilter'-eigenschap voor bestandsfilter, nog steeds wordt ondersteund als-is, terwijl u gebruik van het nieuwe filter mogelijkheid toegevoegd aan 'fileName' voortaan worden voorgesteld.
 
 **Voorbeeld:**
 
@@ -221,16 +220,16 @@ Om gegevens te kopiëren van SFTP, stel de eigenschap type van de gegevensset **
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door SFTP-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de SFTP-bron.
 
 ### <a name="sftp-as-source"></a>SFTP als bron
 
-Om gegevens te kopiëren van SFTP, stelt u het brontype in de kopieerbewerking naar **FileSystemSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren van SFTP, stelt u het brontype in de kopieeractiviteit naar **FileSystemSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **FileSystemSource** |Ja |
-| recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. Opmerking Wanneer recursieve is ingesteld op true en sink is bestandsgebaseerde opslag, lege map/subbewerkingen-folder niet worden gekopieerd/gemaakt op de sink.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
+| recursieve | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Houd er rekening mee wanneer recursieve is ingesteld op true en sink is opslag op basis van bestanden, lege map/ondergeschikt-folder worden niet gekopieerd/gemaakt bij de sink.<br/>Toegestane waarden zijn: **waar** (standaard), **false** | Nee |
 
 **Voorbeeld:**
 
@@ -266,4 +265,4 @@ Om gegevens te kopiëren van SFTP, stelt u het brontype in de kopieerbewerking n
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).
+Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24b737b8403c185bc118b18473cadb3535ad1c34
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808720"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002073"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen op grafieken met metrische gegevens in Application Insights
 
-Aantekeningen op [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [systeem bouwen voor Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
+Aantekeningen op [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [systeem bouwen voor Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
 > In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](../../application-insights/app-insights-usage-workbooks.md)**. Voor meer informatie over de currrent metrische gegevens-ervaring, kunt u raadplegen [in dit artikel](../../azure-monitor/platform/metrics-charts.md).
@@ -107,4 +107,4 @@ Het is eenvoudig om het script, bijvoorbeeld om aantekeningen te maken voor het 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Werkitems maken](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automatisering met PowerShell](../../application-insights/app-insights-powershell.md)
+* [Automatisering met PowerShell](../../azure-monitor/app/powershell.md)

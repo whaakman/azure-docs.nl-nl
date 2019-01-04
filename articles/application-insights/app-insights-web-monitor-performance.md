@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9af2dd3a17eb150d44bf69cda86e480a083a3164
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6731b19984c0b2e0a663e93b2a6ef00c530a4d48
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971202"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014638"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Prestaties in webtoepassingen controleren
 
@@ -116,7 +116,7 @@ Hier volgen enkele tips voor het zoeken en oplossen van problemen met prestaties
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Zoeken en herstellen van knelpunten met de ervaring voor het onderzoeken van prestaties
 
-Traag presterende bewerkingen controleren in uw Web-app kunt u de ervaring voor het onderzoeken van prestaties. Kunt u snel een bepaalde trage bewerking selecteren en gebruik [Profiler](app-insights-profiler.md) hoofdmap ertoe leiden dat de trage bewerkingen omlaag naar de code. Met behulp van de van de nieuwe duurdistributie die wordt weergegeven voor de geselecteerde bewerking dat kunt u snel in een oogopslag beoordelen hoe ernstig de ervaring is voor uw klanten. U kunt zien hoeveel van uw gebruikersinteracties betrokken zijn voor elke trage bewerking. In het volgende voorbeeld hebben we besloten te nader bekijken op de ervaring voor de bewerking GET Customers/Details. In de duurdistributie, kunnen we zien dat er drie pieken zijn. Meest linkse piek is ongeveer 400 ms en geweldige reactie van de gebruikerservaring vertegenwoordigt. Middelste piek is rond 1.2 s en vertegenwoordigt een middelmatige ervaring. Ten slotte op de 3.6 s hebben we een andere small piek die het 99e percentiel ervaring die onze klanten te laten ontevreden leidt waarschijnlijk tot vertegenwoordigt. Deze ervaring is tien keer langzamer dan de geweldige ervaring voor dezelfde bewerking. 
+Traag presterende bewerkingen controleren in uw Web-app kunt u de ervaring voor het onderzoeken van prestaties. Kunt u snel een bepaalde trage bewerking selecteren en gebruik [Profiler](../azure-monitor/app/profiler.md) hoofdmap ertoe leiden dat de trage bewerkingen omlaag naar de code. Met behulp van de van de nieuwe duurdistributie die wordt weergegeven voor de geselecteerde bewerking dat kunt u snel in een oogopslag beoordelen hoe ernstig de ervaring is voor uw klanten. U kunt zien hoeveel van uw gebruikersinteracties betrokken zijn voor elke trage bewerking. In het volgende voorbeeld hebben we besloten te nader bekijken op de ervaring voor de bewerking GET Customers/Details. In de duurdistributie, kunnen we zien dat er drie pieken zijn. Meest linkse piek is ongeveer 400 ms en geweldige reactie van de gebruikerservaring vertegenwoordigt. Middelste piek is rond 1.2 s en vertegenwoordigt een middelmatige ervaring. Ten slotte op de 3.6 s hebben we een andere small piek die het 99e percentiel ervaring die onze klanten te laten ontevreden leidt waarschijnlijk tot vertegenwoordigt. Deze ervaring is tien keer langzamer dan de geweldige ervaring voor dezelfde bewerking. 
 
 ![GET Customers/Details drie duur van pieken](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -159,8 +159,8 @@ De ervaring voor het onderzoeken van prestaties bevat relevante inzichten naast 
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
-[snapshot]: app-insights-snapshot-debugger.md
+[livestream]: ../azure-monitor/app/live-stream.md
+[snapshot]: ../azure-monitor/app/snapshot-debugger.md
 
 
 

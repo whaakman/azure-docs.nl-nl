@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631478"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021132"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI-certificaten voorbereiden voor gebruik in de implementatie of de rotatie
 De certificaatbestanden [verkregen van uw Certificeringsinstantie keuze](azure-stack-get-pki-certs.md) moet worden geïmporteerd en geëxporteerd met eigenschappen die overeenkomen met de Azure Stack-certificaatvereisten.
@@ -73,7 +73,14 @@ Open MMC Certificate Manager-console en maak verbinding met het certificaatarchi
 
 1. Selecteer **Ja, de persoonlijke sleutel exporteren**, en klik vervolgens op **volgende**.
 
-1. Selecteer in de sectie bestandsindeling voor Export **alle uitgebreide eigenschappen exporteren** en klik vervolgens op **volgende**.
+1. In de sectie bestandsindeling voor Export:
+    
+    - Selecteer **indien mogelijk alle certificaten in het certificaat opnemen**.  
+    - Selecteer **alle uitgebreide eigenschappen exporteren**.  
+    - Selecteer **inschakelen certificaat privacy**.  
+    - Klik op **volgende**.  
+    
+    ![De wizard Certificaat exporteren met de opties geselecteerd](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. Selecteer **wachtwoord** en een wachtwoord opgeven voor de certificaten. Onthoud dit wachtwoord omdat deze wordt gebruikt als een implementatieparameter. Selecteer **Volgende**.
 
@@ -82,4 +89,5 @@ Open MMC Certificate Manager-console en maak verbinding met het certificaatarchi
 1. Selecteer **Voltooien**.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Valideren van PKI-certificaten](azure-stack-validate-pki-certs.md)

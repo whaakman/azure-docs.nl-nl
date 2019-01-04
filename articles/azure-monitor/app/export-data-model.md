@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: a3cab6af86a18e23199437c91b6d07102e783cd1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c906f313ae367fcc660d1ce1df0b3d667c7f04a3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971270"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016102"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights Export Data Model
 Deze tabel bevat de eigenschappen van telemetrie verzonden vanaf de [Application Insights](../../application-insights/app-insights-overview.md) SDK's aan de portal.
 U ziet deze eigenschappen in de gegevensuitvoer van [continue Export](export-telemetry.md).
-Ze worden ook weergegeven in de eigenschappenfilters in [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md) en [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md).
+Ze worden ook weergegeven in de eigenschappenfilters in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) en [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md).
 
 Die u moet weten:
 
@@ -158,7 +158,7 @@ Aangepaste gebeurtenissen die worden gegenereerd door [TrackEvent()](../../azure
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| aantal gebeurtenissen [0] |geheel getal |100 / ([steekproeven](../../application-insights/app-insights-sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
+| aantal gebeurtenissen [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
 | de naam van de gebeurtenis [0] |string |De naam van de gebeurtenis.  Maximale lengte van 250. |
 | url van de gebeurtenis [0] |string | |
 | gebeurtenis [0] urlData.base |string | |
@@ -170,7 +170,7 @@ Rapporten [uitzonderingen](../../azure-monitor/app/asp-net-exceptions.md) op de 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
 | de assembly basicException [0] |string | |
-| aantal basicException [0] |geheel getal |100 / ([steekproeven](../../application-insights/app-insights-sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
+| aantal basicException [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
 | exceptionGroup basicException [0] |string | |
 | exceptionType basicException [0] |string | |
 | failedUserCodeMethod basicException [0] |string | |
@@ -211,7 +211,7 @@ Verzonden door TrackDependency. Gebruikt voor het rapportprestaties en het gebru
 | asynchrone remoteDependency [0] |booleaans | |
 | baseName remoteDependency [0] |string | |
 | Opdrachtnaam remoteDependency [0] |string |Bijvoorbeeld "home/index" |
-| aantal remoteDependency [0] |geheel getal |100 / ([steekproeven](../../application-insights/app-insights-sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
+| aantal remoteDependency [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
 | dependencyTypeName remoteDependency [0] |string |HTTP, SQL... |
 | durationMetric.value remoteDependency [0] |getal |Tijd van de aanroep van antwoord met de afhankelijkheid is voltooid |
 | remoteDependency [0]-id |string | |
@@ -229,7 +229,7 @@ Verzonden door [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| aantal aanvragen [0] |geheel getal |100 / ([steekproeven](../../application-insights/app-insights-sampling.md) tarief). Bijvoorbeeld: 4 =&gt; 25%. |
+| aantal aanvragen [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Bijvoorbeeld: 4 =&gt; 25%. |
 | aanvraag [0] durationMetric.value |getal |Tijd van aanvraag dat binnenkomt op antwoord. 1e7 1s == |
 | aanvraag [0]-id |string |Bewerkings-id |
 | de Aanvraagnaam van de [0] |string |GET/POST + basis-url.  Maximale lengte van 250 |
@@ -264,7 +264,7 @@ Verzonden door trackPageView() of [stopTrackPage](../../azure-monitor/app/api-cu
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| aantal paginaweergaven [0] |geheel getal |100 / ([steekproeven](../../application-insights/app-insights-sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
+| aantal paginaweergaven [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
 | durationMetric.value weergeven [0] |geheel getal |Waarde (optioneel) instellen in trackPageView() of startTrackPage() - stopTrackPage(). Niet gelijk zijn aan clientPerformance waarden. |
 | Weergavenaam [0] |string |Paginatitel.  Maximale lengte van 250 |
 | url weergeven [0] |string | |
@@ -279,7 +279,7 @@ Rapporten [webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-ap
 | --- | --- | --- |
 | beschikbaarheid [0] availabilityMetric.name |string |availability |
 | beschikbaarheid [0] availabilityMetric.value |getal |1.0 of 0,0 |
-| telling beschikbaarheid [0] |geheel getal |100 / ([steekproeven](../../application-insights/app-insights-sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
+| telling beschikbaarheid [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
 | beschikbaarheid [0] dataSizeMetric.name |string | |
 | beschikbaarheid [0] dataSizeMetric.value |geheel getal | |
 | beschikbaarheid [0] durationMetric.name |string | |
@@ -341,7 +341,7 @@ Het doel van de andere velden is om toe te staan van metrische gegevens kunnen w
 
 In de bovenstaande tabellen hebben we de velden zelden gebruikt count, min, max, stdDev en sampledValue weggelaten.
 
-In plaats van vooraf verzamelen metrische gegevens, kunt u [steekproeven](../../application-insights/app-insights-sampling.md) als u nodig hebt om te verminderen de hoeveelheid telemetrie.
+In plaats van vooraf verzamelen metrische gegevens, kunt u [steekproeven](../../azure-monitor/app/sampling.md) als u nodig hebt om te verminderen de hoeveelheid telemetrie.
 
 ### <a name="durations"></a>Duur
 Duur worden weergegeven in tienden van een wachttijden van microseconden, tenzij anders vermeld, zodat 10000000.0 betekent 1 seconde dat.

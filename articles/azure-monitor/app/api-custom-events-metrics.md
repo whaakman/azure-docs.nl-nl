@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0a31f5450ad5847951393e18e8af648060eb2e1f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2fa7c4c7dc3af28dcc49371a086c2e7555278b99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971355"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015216"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -51,7 +51,7 @@ Als u nog een verwijzing op Application Insights-SDK hebt:
 
   * [ASP.NET-project](../../azure-monitor/app/asp-net.md)
   * [Java-project](../../azure-monitor/app/java-get-started.md)
-  * [Node.js-project](../../application-insights/app-insights-nodejs.md)
+  * [Node.js-project](../../azure-monitor/app/nodejs.md)
   * [JavaScript in elke webpagina](../../azure-monitor/app/javascript.md) 
 * Neem in uw apparaat- of webservercode het volgende op:
 
@@ -113,7 +113,7 @@ In Node.js-projecten, kunt u `new applicationInsights.TelemetryClient(instrument
 
 ## <a name="trackevent"></a>TrackEvent
 
-In Application Insights, een *aangepaste gebeurtenis* is van een gegevenspunt geldt dat u kunt weergeven in [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) als een samengevoegd aantal, en in [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md) als afzonderlijke exemplaren. (Deze is niet verwant aan de MVC- of andere framework "events".)
+In Application Insights, een *aangepaste gebeurtenis* is van een gegevenspunt geldt dat u kunt weergeven in [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) als een samengevoegd aantal, en in [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md) als afzonderlijke exemplaren. (Deze is niet verwant aan de MVC- of andere framework "events".)
 
 Invoegen `TrackEvent` aanroepen in uw code voor het tellen van diverse gebeurtenissen. Hoe vaak gebruikers ervoor kiezen een bepaalde functie, hoe vaak ze specifieke doelen kan bereiken of misschien hoe vaak ze bepaalde typen fouten maken.
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 De telemetrie is beschikbaar in de `customEvents` in tabel [Application Insights Analytics](analytics.md). Elke rij vertegenwoordigt een aanroep van `trackEvent(..)` in uw app.
 
-Als [steekproeven](../../application-insights/app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen een van beide overgedragen. Als u het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvents | summarize sum(itemCount)`.
+Als [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen een van beide overgedragen. Als u het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -440,7 +440,7 @@ Zie [aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../../a
 
 In [Application Insights Analytics](analytics.md), weergeven van aanvragen in de `requests` tabel.
 
-Als [steekproeven](../../application-insights/app-insights-sampling.md) is uitgevoerd, de eigenschap itemCount ziet u een waarde groter is dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackRequest() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal aanvragen en gemiddelde duur gesegmenteerd op aanvraag namen, zoals code gebruiken:
+Als [steekproeven](../../azure-monitor/app/sampling.md) is uitgevoerd, de eigenschap itemCount ziet u een waarde groter is dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackRequest() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal aanvragen en gemiddelde duur gesegmenteerd op aanvraag namen, zoals code gebruiken:
 
 ```kusto
 requests
@@ -451,7 +451,7 @@ requests
 
 Uitzonderingen verzenden naar Application Insights:
 
-* Naar [ze tellen](../../application-insights/app-insights-metrics-explorer.md), als een indicatie van de frequentie van een probleem.
+* Naar [ze tellen](../../azure-monitor/app/metrics-explorer.md), als een indicatie van de frequentie van een probleem.
 * Naar [afzonderlijke exemplaren bekijken](../../azure-monitor/app/diagnostic-search.md).
 
 De rapporten bevatten de stack-traces.
@@ -522,7 +522,7 @@ De SDK's catch veel uitzonderingen automatisch, zodat u altijd niet hoeven te Tr
 
 In [Application Insights Analytics](analytics.md), uitzonderingen weergegeven in de `exceptions` tabel.
 
-Als [steekproeven](../../application-insights/app-insights-sampling.md) worden uitgevoerd, de `itemCount` eigenschap bevat een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackException() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal uitzonderingen gesegmenteerd op type uitzondering, zoals code gebruiken:
+Als [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd, de `itemCount` eigenschap bevat een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackException() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal uitzonderingen gesegmenteerd op type uitzondering, zoals code gebruiken:
 
 ```kusto
 exceptions
@@ -603,7 +603,7 @@ In [zoeken](../../azure-monitor/app/diagnostic-search.md), u kunt eenvoudig filt
 
 In [Application Insights Analytics](analytics.md), aanroepen van TrackTrace weergegeven in de `traces` tabel.
 
-Als [steekproeven](../../application-insights/app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 houdt in dat van 10 aanroepen naar `trackTrace()`, een van deze alleen in het proces steekproeven worden verzonden. Als u het juiste aantal trace-aanroepen, moet u daarom code zoals `traces | summarize sum(itemCount)`.
+Als [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 houdt in dat van 10 aanroepen naar `trackTrace()`, een van deze alleen in het proces steekproeven worden verzonden. Als u het juiste aantal trace-aanroepen, moet u daarom code zoals `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -678,7 +678,7 @@ Als u de standaard afhankelijkheid bijhouden-module in C# uitschakelen, bewerken
 
 In [Application Insights Analytics](analytics.md), trackDependency belt weergeven de `dependencies` tabel.
 
-Als [steekproeven](../../application-insights/app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackDependency() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal afhankelijkheden gesegmenteerd op target-component, zoals code gebruiken:
+Als [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackDependency() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal afhankelijkheden gesegmenteerd op target-component, zoals code gebruiken:
 
 ```kusto
 dependencies
@@ -764,7 +764,7 @@ Als uw app gebruikers in accounts groepen, kunt u ook een id voor het account (m
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-In [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md), kunt u een grafiek telt **gebruikers, geverifieerd**, en **gebruikersaccounts**.
+In [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), kunt u een grafiek telt **gebruikers, geverifieerd**, en **gebruikersaccounts**.
 
 U kunt ook [zoeken](../../azure-monitor/app/diagnostic-search.md) voor gegevenspunten van de client met de namen van de specifieke gebruikers en accounts.
 
@@ -897,7 +897,7 @@ requests
 U ziet dat:
 
 * Wanneer u een waarde uit de customDimensions of customMeasurements JSON halen, het dynamisch type heeft, en dus moet u dit casten `tostring` of `todouble`.
-* Rekening te houden met de mogelijkheid om [steekproeven](../../application-insights/app-insights-sampling.md), moet u `sum(itemCount)`, niet `count()`.
+* Rekening te houden met de mogelijkheid om [steekproeven](../../azure-monitor/app/sampling.md), moet u `sum(itemCount)`, niet `count()`.
 
 ## <a name="timed"></a> Timing-gebeurtenissen
 
@@ -1141,7 +1141,7 @@ Als u een van deze waarden zelf instellen, kunt u de desbetreffende regel verwij
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-Gebruiken om te voorkomen dat de limiet hebt bereikt, [steekproeven](../../application-insights/app-insights-sampling.md).
+Gebruiken om te voorkomen dat de limiet hebt bereikt, [steekproeven](../../azure-monitor/app/sampling.md).
 
 Om te bepalen hoe lang gegevens worden bewaard, Zie [bewaren van gegevens en privacy](../../azure-monitor/app/data-retention-privacy.md).
 

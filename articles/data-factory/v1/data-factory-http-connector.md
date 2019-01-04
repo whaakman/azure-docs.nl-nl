@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 06eb11132d7e3968850aadb4bfdaa53261f14ada
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167469"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017256"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Gegevens verplaatsen van een HTTP-bron met behulp van Azure Data Factory
 
@@ -36,7 +35,7 @@ Data Factory ondersteunt momenteel alleen om gegevens te verplaatsen van een HTT
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Ondersteunde scenario's en verificatietypen
 
-U kunt deze HTTP-connector gebruiken om op te halen van gegevens uit *zowel een cloud en een eindpunt van de HTTP/S on-premises* met behulp van de HTTP **ophalen** of **POST** methoden. De volgende verificatietypen worden ondersteund: **anoniem**, **Basic**, **Digest**, **Windows**, en  **ClientCertificate**. Let op het verschil tussen deze connector en de [Web-connector voor tabel](data-factory-web-table-connector.md). De Web-connector voor tabel haalt inhoud uit een HTML-webpagina.
+U kunt deze HTTP-connector gebruiken om op te halen van gegevens uit *zowel een cloud en een eindpunt van de HTTP/S on-premises* met behulp van de HTTP **ophalen** of **POST** methoden. De volgende verificatietypen worden ondersteund: **Anonieme**, **Basic**, **Digest**, **Windows**, en **ClientCertificate**. Let op het verschil tussen deze connector en de [Web-connector voor tabel](data-factory-web-table-connector.md). De Web-connector voor tabel haalt inhoud uit een HTML-webpagina.
 
 Wanneer u gegevens van een on-premises HTTP-eindpunt kopiëren, moet u Data Management Gateway installeren in de on-premises-omgeving of in een Azure-VM. Zie voor meer informatie over Data Management Gateway en voor stapsgewijze instructies voor het instellen van de gateway, [om gegevens te verplaatsen tussen on-premises locaties en de cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -44,7 +43,7 @@ Wanneer u gegevens van een on-premises HTTP-eindpunt kopiëren, moet u Data Mana
 
 U kunt een pijplijn met een kopieeractiviteit om gegevens te verplaatsen van een HTTP-bron met behulp van verschillende hulpprogramma's of API's maken:
 
-- De eenvoudigste manier om een pijplijn te maken is het gebruik van de wizard kopiëren van gegevens. Zie voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren van gegevens, [zelfstudie: een pijplijn maken met behulp van de wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
+- De eenvoudigste manier om een pijplijn te maken is het gebruik van de wizard kopiëren van gegevens. Zie voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren van gegevens, [zelfstudie: Een pijplijn maken met behulp van de wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
 - U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: de **Azure-portal**, **Visual Studio**, **Azure PowerShell**, een **Azure Resource Manager sjabloon**, wordt de **.NET API**, of de **REST-API**. Zie voor stapsgewijze instructies voor het maken van een pijplijn met copy activity de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Zie voor JSON-die gegevens kopiëren van een HTTP-bron naar Azure Blob-opslag voorbeelden, [JSON voorbeelden](#json-examples).
 
@@ -52,7 +51,7 @@ U kunt een pijplijn met een kopieeractiviteit om gegevens te verplaatsen van een
 
 De volgende tabel beschrijft de JSON-elementen die specifiek voor de HTTP-gekoppelde service zijn:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | type | De **type** eigenschap moet worden ingesteld op **Http**. | Ja |
 | url | De basis-URL naar de webserver. | Ja |
@@ -67,7 +66,7 @@ Zie voor meer informatie over het instellen van referenties voor een gegevensbro
 
 Stel **authenticationType** naar **Basic**, **Digest**, of **Windows**. Naast de algemene HTTP-Connectoreigenschappen die worden beschreven in de voorgaande secties, stel de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | gebruikersnaam | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
 | wachtwoord | Het wachtwoord voor de gebruiker (**gebruikersnaam**). | Ja |
@@ -95,7 +94,7 @@ Stel **authenticationType** naar **Basic**, **Digest**, of **Windows**. Naast de
 
 Als u wilt gebruikmaken van basisverificatie instellen **authenticationType** naar **ClientCertificate**. Naast de algemene HTTP-Connectoreigenschappen die worden beschreven in de voorgaande secties, stel de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | embeddedCertData | De met Base64 gecodeerde inhoud van de binaire gegevens van het PFX-bestand. | Geef óf een **embeddedCertData** of **certThumbprint** |
 | certThumbprint | De vingerafdruk van het certificaat dat is geïnstalleerd op de gatewaycomputer certificatenstore. Gelden alleen wanneer u gegevens van een on-premises HTTP-bron kopiëren. | Geef óf een **embeddedCertData** of **certThumbprint** |
@@ -159,15 +158,15 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 De **typeProperties** sectie verschilt voor elk type gegevensset. De **typeProperties** sectie bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor een gegevensset met de **Http** type heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** van de gegevensset moet worden ingesteld op **Http**. | Ja |
 | relativeurl bevatten | Een relatieve URL naar de resource die de gegevens bevat. Als het pad is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. <br><br> Kan de URL van een dynamische, kunt u [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md). Voorbeeld: **relativeUrl**: **$$Text.Format ('/ Mijn/rapport? maand = {0: yyyy}-{0:MM} & fmt csv =', slicestart-waarde)**. | Nee |
 | requestMethod | De HTTP-methode. Toegestane waarden zijn **ophalen** en **POST**. | Nee <br />(de standaardwaarde is **ophalen**) |
 | additionalHeaders | Extra kopteksten die HTTP-aanvraag. | Nee |
 | RequestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
-| Indeling | Als u wilt *de gegevens opgehaald uit een HTTP-eindpunt als-is* zonder deze parseren, gaat de **indeling** instelling. <br><br> Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, de volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, en **ParquetFormat**. Zie voor meer informatie, [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nee |
-| Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus: **optimale** en **snelst**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
+| Indeling | Als u wilt *de gegevens opgehaald uit een HTTP-eindpunt als-is* zonder deze parseren, gaat de **indeling** instelling. <br><br> Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, worden de volgende bestandsindelingen ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Zie voor meer informatie, [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nee |
+| Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus: **Optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 
 **Voorbeeld: Met behulp van de methode GET (standaard)**
 
@@ -222,9 +221,9 @@ Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activi
 
 Op dit moment, wanneer de bron in de Kopieeractiviteit is van de **HttpSource** typt, worden de volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. De time-out is een antwoord, niet de time-out voor lezen van gegevens van de reactie. | Nee<br />(standaardwaarde: **00:01:40**) |
+| httpRequestTimeout | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. De time-out is een antwoord, niet de time-out voor lezen van gegevens van de reactie. | Nee<br />(standaardwaarde: **00: 01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Ondersteunde indelingen voor bestanden en compressie
 

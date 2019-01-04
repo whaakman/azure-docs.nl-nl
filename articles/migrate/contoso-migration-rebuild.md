@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0c44e57f99ea8fea91fd8178400c648e8dcd982b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309807"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002498"
 ---
-# <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: opnieuw opbouwen van een on-premises app naar Azure
+# <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: Opnieuw opbouwen van een on-premises-app naar Azure
 
 In dit artikel ziet u hoe Contoso worden gemigreerd en worden de SmartHotel360-app in Azure. Contoso migreert van de app-front-end virtuele machine naar Azure App Services-Web-apps. De back-end van de app is gebouwd met behulp van microservices is geïmplementeerd in containers die worden beheerd door Azure Kubernetes Service (AKS). De site communiceert met Azure Functions om huisdier foto-functionaliteit te bieden. 
 
@@ -24,33 +24,33 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
-[Artikel 1: overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de artikel-serie en de voorbeeld-apps die we gebruiken. | Beschikbaar
+[Artikel 1: Overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de artikel-serie en de voorbeeld-apps die we gebruiken. | Beschikbaar
 [Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen. | Beschikbaar
 [Artikel 3: On-premises resources evalueren](contoso-migration-assessment.md)  | Laat zien hoe een evaluatie van een on-premises twee lagen SmartHotel360 app waarop VMware wordt uitgevoerd in Contoso. Contoso beoordeelt de virtuele machines van een app met de [Azure Migrate](migrate-overview.md) -service en de SQL Server-database van de app met de [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
-[Artikel 4: Een app op Azure VM's en een beheerde SQL-exemplaar opnieuw hosten](contoso-migration-rehost-vm-sql-managed-instance.md) | Ziet u hoe Contoso een lift-and-shift-migratie naar Azure voor de SmartHotel360-app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database naar een SQL beheerd exemplaar, met behulp van de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar
+[Artikel 4: Opnieuw hosten van een app op Azure VM's en een beheerd exemplaar van SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Ziet u hoe Contoso een lift-and-shift-migratie naar Azure voor de SmartHotel360-app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database naar een SQL beheerd exemplaar, met behulp van de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar
 [Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | Ziet u hoe Contoso de SmartHotel360-app met behulp van Site Recovery alleen VM's migreren. | Beschikbaar
 [Artikel 6: Een app op Azure VM's en SQL Server Always On Availability Group opnieuw hosten](contoso-migration-rehost-vm-sql-ag.md) | Ziet u hoe Contoso migreert de SmartHotel360-app. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app en de Database Migration service de app-database migreren naar een SQL Server-cluster dat is beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
-[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Ziet u hoe Contoso heeft een lift-and-shift-migratie van de Linux-osTicket-app op virtuele machines van Azure met Site Recovery | Beschikbaar
-[Artikel 8: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Ziet u hoe Contoso de osTicket Linux app overzet naar virtuele Azure-machines met behulp van Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
-[Artikel 9: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Ziet u hoe Contoso de SmartHotel360-app is gemigreerd naar een Azure-Web-App en de app-database migreert naar Azure SQL Server-exemplaar | Beschikbaar
+[7-artikel: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Ziet u hoe Contoso heeft een lift-and-shift-migratie van de Linux-osTicket-app op virtuele machines van Azure met Site Recovery | Beschikbaar
+[8-artikel: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Ziet u hoe Contoso de osTicket Linux app overzet naar virtuele Azure-machines met behulp van Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
+[9-artikel: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Ziet u hoe Contoso de SmartHotel360-app is gemigreerd naar een Azure-Web-App en de app-database migreert naar Azure SQL Server-exemplaar | Beschikbaar
 [Artikel 10: Een Linux-app naar Azure WebApps en Azure MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | Ziet u hoe Contoso de osTicket Linux app migreert naar Azure Web Apps op meerdere locaties, geïntegreerd met GitHub voor continue levering. Zij migreren de app-database naar een Azure MySQL-exemplaar. | Beschikbaar
-[Artikel 11: Herstructureren TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Ziet u hoe Contoso migreert de on-premises Team Foundation Server (TFS)-implementatie is door te migreren naar Azure DevOps-Services in Azure. | Beschikbaar
-[Artikel 12: Opnieuw ontwerpen van een app naar Azure-containers en SQL Database](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
-Artikel 13: Opnieuw opbouwen van een app naar Azure | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | In dit artikel
-[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
+[11-artikel: Herstructureren van TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Ziet u hoe Contoso migreert de on-premises Team Foundation Server (TFS)-implementatie is door te migreren naar Azure DevOps-Services in Azure. | Beschikbaar
+[12-artikel: Een app in Azure-containers en SQL-Database opnieuw modelleren](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
+13-artikel: Opnieuw opbouwen van een app naar Azure | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | In dit artikel
+[14-artikel: Schalen van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
-In dit artikel worden de twee lagen Windows gemigreerd door Contoso. NET SmartHotel360-app die worden uitgevoerd op virtuele VMware-machines naar Azure. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
+In dit artikel worden de twee lagen Windows gemigreerd door Contoso. NET SmartHotel360-app die worden uitgevoerd op virtuele VMware-machines naar Azure. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360-Backend).
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
 De IT-team leiderschap heeft nauw samengewerkt met zakelijke partners om te begrijpen wat ze willen bereiken bij deze migratie:
 
-- **Adres van de groei van het bedrijf**: Contoso groeit en wil leveren van gedifferentieerde ervaringen voor klanten met een Contoso-websites.
+- **Adres van de groei van het bedrijf**: Contoso-groeit en wil leveren van gedifferentieerde ervaringen voor klanten met een Contoso-websites.
 - **Flexibiliteit**: Contoso moet in staat om te reageren sneller dan de wijzigingen in de marketplace, waarmee het succes in een globale economie zijn. 
-- **Schaal**: wanneer het bedrijf is groeit, het Contoso IT-team kunnen groeien hetzelfde tempo systemen moet opgeven.
+- **Schaal**: Wanneer het bedrijf is groeit, moet het Contoso IT-team systemen die kunnen groeien met de snelheid die dezelfde opgeven.
 - **Kosten**: Contoso wil licentiekosten minimaliseren.
 
-## <a name="migration-goals"></a>Migratie-doelen
+## <a name="migration-goals"></a>Migratiedoelen
 
 Het Contoso-cloud-team heeft vastgemaakt omlaag app-vereisten voor de migratie. Deze vereisten zijn gebruikt voor het bepalen van de beste migratiemethode:
  - De app in Azure blijft als kritiek omdat het is vandaag. Het moet ook uitvoeren en eenvoudig schalen.
@@ -136,12 +136,12 @@ Dit is wat Contoso nodig heeft voor dit scenario:
 Hier ziet u hoe Contoso de migratie wordt uitgevoerd:
 
 > [!div class="checklist"]
-> * **Stap 1: Inrichten AKS en ACR**: Contoso richt de beheerde AKS-cluster en Azure-containerregister met behulp van PowerShell
-> * **Stap 2: Bouw de Docker-containers**: ze CI instellen voor Docker-containers met behulp van Azure DevOps en push ze naar de ACR.
-> * **Stap 3: Implementatie van back-end microservices**: implementatie van de rest van de infrastructuur die zal worden gebruikt door de back-end microservices.
-> * **Stap 4: Een front-infrastructuur implementeren**: implementatie van de front-end-infrastructuur, met inbegrip van blob-opslag voor de huisdier telefoons, Cosmos DB en Vision-API.
-> * **Stap 5: De back-end migreren**: ze microservices implementeren en uitvoeren in AKS, voor het migreren van de back-end.
-> * **Stap 6: Publiceer de front-end**: ze de SmartHotel360-app publiceren naar de Azure App service en de functie-App die wordt aangeroepen door de huisdier-service.
+> * **Stap 1: Richt AKS en ACR**: Contoso richt de beheerde AKS-cluster en Azure-containerregister met behulp van PowerShell
+> * **Stap 2: Bouw de Docker-containers**: Ze CI instellen voor Docker-containers met behulp van Azure DevOps en push ze naar de ACR.
+> * **Stap 3: Implementatie van back-end microservices**: Ze implementeren de rest van de infrastructuur die zal worden gebruikt door de back-end microservices.
+> * **Stap 4: Front-end-infrastructuur implementeren**: Ze implementeren de front-infrastructuur, met inbegrip van blob-opslag voor de huisdier telefoons, Cosmos DB en Vision-API.
+> * **Stap 5: Migreren van de back-end**: Ze microservices implementeren en uitvoeren in AKS, voor het migreren van de back-end.
+> * **Stap 6: Publiceren van de front-end**: Ze publiceren de SmartHotel360-app naar de Azure App service en de functie-App die wordt aangeroepen door de huisdier service.
 
 
 
@@ -213,7 +213,7 @@ De Contoso-beheerders inrichten gaat als volgt:
 
 
 
-## <a name="step-2-configure-the-back-end-pipeline"></a>Stap 2: Configureer de back-end-pijplijn
+## <a name="step-2-configure-the-back-end-pipeline"></a>Stap 2: Configureren van de back-end-pijplijn
 
 ### <a name="create-an-azure-devops-project-and-build"></a>Een Azure DevOps-project maken en bouwen
 
@@ -226,7 +226,7 @@ Contoso een Azure DevOps-project maakt en configureert u een CI-bouwen voor het 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. Ze importeren de [GitHub-opslagplaats](https://github.com/Microsoft/SmartHotel360-Azure-backend.git).
+3. Ze importeren de [GitHub-opslagplaats](https://github.com/Microsoft/SmartHotel360-Backend).
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
@@ -363,7 +363,7 @@ Ze maken de pijplijn:
 14. Wanneer de implementatie voltooid is, worden ze uitgevoerd de volgende opdracht uit om de status van services, met behulp van de Azure Cloud Shell te controleren: **kubectl services ophalen**.
 
 
-## <a name="step-3-provision-front-end-services"></a>Stap 3: Een front-end-services inrichten
+## <a name="step-3-provision-front-end-services"></a>Stap 3: De front-end-services inrichten
 
 Beheerders van Contoso moet de infrastructuur die wordt gebruikt door de front-end-apps implementeren. Maken van een blob storage-container voor het opslaan van huisdier afbeeldingen. de Cosmos-database voor het opslaan van documenten met de huisdier informatie; en de Vision-API voor de website. 
 
@@ -460,7 +460,7 @@ Beheerders van Contoso inrichten in Azure portal, de functie-App.
 3. Nadat de app is geïmplementeerd, worden ze, blader naar het adres van de app om te controleren of dat deze correct is gemaakt.
 
 
-## <a name="step-4-set-up-the-front-end-pipeline"></a>Stap 4: De front-pijplijn instellen
+## <a name="step-4-set-up-the-front-end-pipeline"></a>Stap 4: De front-end-pijplijn instellen
 
 Contoso-beheerders maken twee verschillende projecten voor de front-end-site. 
 
@@ -527,7 +527,7 @@ Contoso-beheerders kunnen nu de website publiceren.
 7. Nadat de build is voltooid, ze configureren van een release-pijplijn met de **Azure App Service-implementatie**.
 8. Ze bieden een fasenaam **fasering**.
 
-    ![Naam van de omgeving](./media/contoso-migration-rebuild/vsts-publishfront4.png)
+    ![Omgevingsnaam](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
 9. Ze een artefact toevoegen en selecteer de build die ze zojuist hebt geconfigureerd.
 
@@ -548,7 +548,7 @@ Contoso-beheerders kunnen nu de website publiceren.
 14. Ze selecteren **Azure App Service-implementatie met de sleuf**, en de naam van de omgeving **Prod**.
 15. Ze klikt u op **1 en 2 taken**, en selecteer het abonnement, de naam van app service, en de **staging** sleuf.
 
-    ![Naam van de omgeving](./media/contoso-migration-rebuild/vsts-publishfront10.png)
+    ![Omgevingsnaam](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
 16. Ze verwijderen de **Azure App Service implementeren in sleuf** vanuit de pipeline. Het is er tijdens de vorige stappen geplaatst.
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9abd567f629cf405a5e7414a23f43ea2fc613b72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: dcc54b0f67b9bf08df602c3eb9a4bcb0ea699ee7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088070"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023427"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Gegevens kopiëren van of PayPal-nummer met Azure Data Factory (Preview)
 
@@ -45,7 +44,7 @@ De volgende eigenschappen worden ondersteund voor PayPal gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **of PayPal-nummer** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **Of PayPal-nummer** | Ja |
 | host | De URL van het exemplaar of PayPal-nummer. (dat wil zeggen, api.sandbox.paypal.com)  | Ja |
 | ClientId | De client-ID die is gekoppeld aan uw toepassing of PayPal-nummer.  | Ja |
 | ClientSecret | Het clientgeheim die zijn gekoppeld aan uw toepassing of PayPal-nummer. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure Key Vault | Microsoft Docs
+title: Aan de slag met Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Gebruik deze handleiding om aan de slag te gaan met Azure Sleutelkluis en een geharde container in Azure te maken om cryptografiesleutels en geheimen op te slaan in Azure.
 services: key-vault
 documentationcenter: ''
@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 72e17d5628be307d6c73cd2bba7576d0e734af15
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864893"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999064"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
+
 Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van PowerShell en leidt u stapsgewijs door de volgende activiteiten:
+
 - Een beveiligde container (een kluis) maken in Azure.
 - KeyVault gebruiken om cryptografische sleutels en geheimen in Azure op te slaan en te beheren.
 - Een toepassing gebruik laten maken van die sleutel of wachtwoord.
@@ -32,6 +34,7 @@ Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen v
 Zie [deze equivalente zelfstudie](key-vault-manage-with-cli2.md) voor instructies om een platformonafhankelijke opdrachtregelinterface te maken.
 
 ## <a name="requirements"></a>Vereisten
+
 Voordat u doorgaat, moet u bevestigen dat u hebt:
 
 - **Een Azure-abonnement**. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/).
@@ -59,6 +62,7 @@ U kunt ook de volgende artikelen lezen om vertrouwd te raken met het Azure Resou
 * [Azure PowerShell gebruiken met Resource Manager](../powershell-azure-resource-manager.md)
 
 ## <a id="connect"></a>Verbinding maken met uw abonnementen
+
 Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
 
 ```PowerShell
@@ -88,6 +92,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het configureren van Azure PowerShell.
 
 ## <a id="resource"></a>Een nieuwe resourcegroep maken
+
 Als u Azure Resource Manager gebruikt, worden alle gerelateerde resources gemaakt binnen een resourcegroep. In deze zelfstudie maken we de resourcegroep **ContosoResourceGroup**:
 
 ```powershell
@@ -95,6 +100,7 @@ New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East US'
 ```
 
 ## <a id="vault"></a>Een sleutelkluis maken
+
 Gebruik de cmdlet [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) om een sleutelkluis te maken. Deze cmdlet heeft drie verplichte parameters: een **resourcegroepnaam**, een **sleutelkluisnaam** en de **geografische locatie**.
 
 Als u bijvoorbeeld het volgende gebruikt:
@@ -122,6 +128,7 @@ Uw Azure-account is nu gemachtigd om alle bewerkingen op deze sleutelkluis uit t
 >
 
 ## <a id="add"></a>Een sleutel of geheim toevoegen aan de sleutelkluis
+
 Mogelijk hebt u meerdere manieren nodig om te kunnen communiceren met Key Vault en sleutels of geheimen.
 
 ### <a name="azure-key-vault-generates-a-software-protected-key"></a>In Azure Key Vault wordt een softwarematig beveiligde sleutel gegenereerd.
@@ -193,7 +200,7 @@ Als u de URI voor dit geheim wilt weergeven, typt u het volgende:
 ```powershell
 $secret.Id
 ```
-Als u uw geheim wilt bekijken, typt u: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`. U kunt het geheim ook in de portal weergeven.
+Als u het geheim wilt weergeven, typt u: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'` Of u kunt het geheim ook bekijken op de portal.
 
 ![geheim](./media/key-vault-get-started/secret-value.png)
 
@@ -204,6 +211,7 @@ Als u de waarde in het geheim als tekst zonder opmaak wilt weergeven:
 Nu, uw sleutelkluis en sleutel of geheim gereed zijn voor toepassingen om te gebruiken. Nu verleent u toepassingen om ze te gebruiken.  
 
 ## <a id="register"></a>Een toepassing registreren met Azure Active Directory
+
 Deze stap wordt doorgaans uitgevoerd door een ontwikkelaar op een afzonderlijke computer. De stap is niet specifiek voor Azure Key Vault. Voor gedetailleerde stappen voor het registreren van een toepassing met Azure Active Directory, lees dan het artikel met de titel [toepassingen integreren met Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) of [portal gebruiken om te maken van een Azure Active Directory toepassing en serviceprincipal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md)
 
 > [!IMPORTANT]
@@ -222,8 +230,10 @@ De toepassing registreren in Azure Active Directory:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik aan de linkerkant op **App-registraties**. Als u app-registraties niet ziet, klikt u op **meer services**.  
-    > [!NOTE]
-    > U moet de directory selecteren die ook het Azure-abonnement bevat waarmee u de sleutelkluis hebt gemaakt. 
+
+> [!NOTE]
+> U moet de directory selecteren die ook het Azure-abonnement bevat waarmee u de sleutelkluis hebt gemaakt.
+
 3. Klik op **Nieuwe toepassing registreren**.
 4. Geef op de blade **Maken** een naam voor uw toepassing op, selecteer **WEBTOEPASSING EN/OF WEB-API** (de standaardinstelling) en geef de **AANMELDINGS-URL** voor uw webtoepassing op. Als u deze informatie op dit moment niet hebt, kunt u deze maken voor deze stap (u kunt bijvoorbeeld http://test1.contoso.com opgeven). Het maakt niet uit of deze sites bestaan. 
 
@@ -240,9 +250,11 @@ De toepassing registreren in Azure Active Directory:
 10. U gaat de **toepassings-id**- en **sleutel**gegevens in de volgende stap gebruiken om machtigingen voor uw kluis in te stellen.
 
 ## <a id="authorize"></a>De toepassing toestemming geven om de sleutel of het geheim te gebruiken
+
 Er zijn twee manieren om de toepassing toegang te geven tot de sleutel of het geheim in de kluis.
 
 ### <a name="using-powershell"></a>PowerShell gebruiken
+
 Gebruik de cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) om PowerShell te gebruiken.
 
 Bijvoorbeeld, als de naam van uw kluis **ContosoKeyVault** en de toepassing die u wilt toestaan dat een client-ID van 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed heeft en u wilt toestaan dat de toepassing te ontsleutelen en meld u aan met de sleutels in uw kluis, voert u de volgende cmdlet:
@@ -256,7 +268,9 @@ Als u dezelfde toepassing wilt autoriseren voor het lezen van geheimen in uw klu
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
+
 De autorisatie van een toepassing voor het gebruik van sleutels of geheimen wijzigen:
 1. Selecteer **Toegangsbeleid** vanaf de resourceblade van Key Vault
 2. Klik op de knop [+ nieuwe toevoegen] aan de bovenkant van de blade
@@ -265,6 +279,7 @@ De autorisatie van een toepassing voor het gebruik van sleutels of geheimen wijz
 5. Selecteer in de vervolgkeuzelijst **Geheime machtigingen** Ophalen zodat de toepassing geheimen in de kluis lezen mag
 
 ## <a id="HSM"></a>Met een Hardware Security Module (HSM) werken
+
 Voor de zekerheid kunt u sleutels in HSM's (Hardware Security Module) importeren of genereren die de HSM-grens nooit verlaten. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Als deze vereiste niet van toepassing is op u, kunt u deze sectie overslaan om naar [De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen](#delete) te gaan.
 
 Om deze met HSM beveiligde sleutels te maken, moet u de [Azure Sleutelkluis Premium-servicelaag gebruiken voor ondersteuning voor met HSM beveiligde sleutels](https://azure.microsoft.com/pricing/details/key-vault/). Deze functionaliteit is niet beschikbaar voor Azure China.
@@ -274,7 +289,6 @@ Wanneer u de sleutelkluis maakt, voegt u de parameter **-SKU** toe:
 ```powershell
 New-AzureRmKeyVault -Name 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
 ```
-
 
 U kunt softwarematige beveiligde sleutels (zoals hiervoor) en met HSM beveiligde sleutels toevoegen aan deze sleutelkluis. Als u een sleutel wilt maken die is beveiligd met HSM, stelt u de parameter **-Destination** in op HSM:
 
@@ -297,6 +311,7 @@ $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstH
 Zie [Met HSM beveiligde sleutels voor Azure Key Vault genereren en overdragen](key-vault-hsm-protected-keys.md) voor gedetailleerde instructies om dit BYOK-pakket te genereren.
 
 ## <a id="delete"></a>De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen
+
 Als u de sleutelkluis en de sleutel of het geheim in de kluis niet meer nodig hebt, kunt u de sleutelkluis verwijderen met de cmdlet [verwijderen AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault):
 
 ```powershell
@@ -310,13 +325,14 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ```
 
 ## <a id="other"></a>Overige Azure PowerShell-cmdlets
+
 Overige opdrachten die handig kunnen zijn voor het beheren van Azure Sleutelkluis:
 
-- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: met deze opdracht worden alle sleutels en geselecteerde eigenschappen weergegeven in een tabel.
-- `$Keys[0]`: met deze opdracht geeft u een volledige lijst met eigenschappen voor de opgegeven sleutel weer.
-- `Get-AzureKeyVaultSecret`: met deze opdracht worden alle geheime namen en geselecteerde eigenschappen weergegeven in een tabel.
-- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: voorbeeld van hoe u een specifieke sleutel verwijdert.
-- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: voorbeeld van hoe u een specifiek geheim verwijdert.
+- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: Deze opdracht worden alle sleutels en geselecteerde eigenschappen weergegeven in een tabel.
+- `$Keys[0]`: Met deze opdracht geeft een volledige lijst van eigenschappen voor de opgegeven sleutel
+- `Get-AzureKeyVaultSecret`: Deze opdracht worden alle geheime namen en geselecteerde eigenschappen weergegeven in een tabel.
+- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Voorbeeld van hoe u een specifieke sleutel verwijdert.
+- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Voorbeeld van hoe u een specifiek geheim verwijdert.
 
 ## <a name="next-steps"></a>Volgende stappen
 

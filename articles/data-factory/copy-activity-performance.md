@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084070"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020880"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -263,9 +262,9 @@ Het is raadzaam dat u deze stappen voor het afstemmen van de prestaties van uw D
 
 Als de kopieeractiviteit wordt uitgevoerd op een zelfgehoste Cloudintegratieruntime, Let op het volgende:
 
-**Setup**: raden wij aan dat u een toegewezen machine Host Integration Runtime. Zie [overwegingen voor het gebruik van zelfgehoste Cloudintegratieruntime](concepts-integration-runtime.md).
+**Setup**: U wordt aangeraden dat u een toegewezen machine Host Integration Runtime. Zie [overwegingen voor het gebruik van zelfgehoste Cloudintegratieruntime](concepts-integration-runtime.md).
 
-**Uitschalen**: een enkele logische zelfgehoste Cloudintegratieruntime met een of meer knooppunten meerdere Kopieeractiviteit wordt uitgevoerd op hetzelfde moment tegelijkertijd kan fungeren. Als u zware nodig voor hybride verplaatsing van gegevens met een groot aantal uitvoeringen van activiteit gelijktijdige kopiëren of met een grote hoeveelheid gegevens hebt te kopiëren, kunt u overwegen om te [scale-out zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md#high-availability-and-scalability) om meer resource die u wilt inrichten te kopiëren.
+**Uitschalen**: Met een enkele logische zelfgehoste Integration Runtime met een of meer knooppunten kan meerdere Kopieeractiviteit wordt uitgevoerd op hetzelfde moment gelijktijdig fungeren. Als u zware nodig voor hybride verplaatsing van gegevens met een groot aantal uitvoeringen van activiteit gelijktijdige kopiëren of met een grote hoeveelheid gegevens hebt te kopiëren, kunt u overwegen om te [scale-out zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md#high-availability-and-scalability) om meer resource die u wilt inrichten te kopiëren.
 
 ## <a name="considerations-for-the-source"></a>Overwegingen voor de bron
 
@@ -286,8 +285,8 @@ Zie voor Microsoft-gegevensarchieven, [bewaking en afstemming van onderwerpen](#
 
 ### <a name="relational-data-stores"></a>Op opgeslagen relationele gegevens
 
-* **Een gegevenspatroon**: uw tabelschema is van invloed op de doorvoer van de kopie. Een grote rijgrootte biedt u een betere prestaties dan kleine rijgrootte, om te kopiëren van de dezelfde hoeveelheid gegevens. De reden is dat de database minder batches van gegevens die minder rijen bevatten efficiënter kunt ophalen.
-* **Query of een opgeslagen procedure**: de logica van de query of een opgeslagen procedure die u in de bron van Kopieeractiviteit opgeeft voor het ophalen van gegevens efficiënter te optimaliseren.
+* **Een gegevenspatroon**: Uw tabelschema is van invloed op de doorvoer van de kopie. Een grote rijgrootte biedt u een betere prestaties dan kleine rijgrootte, om te kopiëren van de dezelfde hoeveelheid gegevens. De reden is dat de database minder batches van gegevens die minder rijen bevatten efficiënter kunt ophalen.
+* **Query of een opgeslagen procedure**: Optimaliseer de logica van de query of een opgeslagen procedure die u in de bron van Kopieeractiviteit opgeeft voor het ophalen van gegevens efficiënter.
 
 ## <a name="considerations-for-the-sink"></a>Overwegingen voor de sink
 
@@ -303,12 +302,12 @@ Raadpleeg voor Microsoft-gegevensarchieven, [bewaking en afstemming van onderwer
 
 ### <a name="file-based-data-stores"></a>Opgeslagen gegevens op basis van bestanden
 
-* **Kopieer gedrag**: als u gegevens van een ander bestand op basis van gegevensarchief kopieert, Copy-activiteit heeft drie opties via de **copyBehavior** eigenschap. Deze hiërarchie behoudt, hiërarchie worden samengevoegd of bestanden worden samengevoegd. Hiërarchie relatiegegevens of behouden heeft weinig of geen performance overhead, maar samenvoegen van bestanden zorgt ervoor dat de prestatieoverhead te verhogen.
+* **Kopieer gedrag**: Als u gegevens van een ander bestand op basis van gegevensarchief kopieert, Copy-activiteit heeft drie opties via de **copyBehavior** eigenschap. Deze hiërarchie behoudt, hiërarchie worden samengevoegd of bestanden worden samengevoegd. Hiërarchie relatiegegevens of behouden heeft weinig of geen performance overhead, maar samenvoegen van bestanden zorgt ervoor dat de prestatieoverhead te verhogen.
 * **Bestand-indeling en compressie**: Zie de [aandachtspunten voor serialisatie en deserialisatie](#considerations-for-serialization-and-deserialization) en [overwegingen voor compressie](#considerations-for-compression) secties voor meer manieren om prestaties te verbeteren.
 
 ### <a name="relational-data-stores"></a>Op opgeslagen relationele gegevens
 
-* **Kopieer gedrag**: afhankelijk van de eigenschappen die u hebt ingesteld voor **sqlSink**, Kopieeractiviteit schrijft gegevens naar de doeldatabase op verschillende manieren.
+* **Kopieer gedrag**: Afhankelijk van de eigenschappen die u hebt ingesteld voor **sqlSink**, Kopieeractiviteit schrijft gegevens naar de doeldatabase op verschillende manieren.
   * Standaard voegt de data movement service wordt gebruikt de bulksgewijs kopiëren-API om gegevens in te voegen modus, waarbij de beste prestaties biedt.
   * Als u een opgeslagen procedure in de sink is geconfigureerd, is de database de één rij met gegevens van toepassing op een tijdstip in plaats van als bulksgewijs laden. Prestaties aanzienlijk wordt geweigerd. Als uw gegevensset is groot, indien van toepassing is, overweeg over te schakelen voor het gebruik van de **preCopyScript** eigenschap.
   * Als u configureert de **preCopyScript** eigenschap voor elke activiteit kopiëren uitvoeren, het script door de service wordt geactiveerd en u de bulksgewijs kopiëren-API gebruiken voor het invoegen van de gegevens. Bijvoorbeeld, als u wilt overschrijven de hele tabel met de meest recente gegevens, kunt u een script voor het eerst alle records verwijderen voordat u de nieuwe gegevens uit de bron voor bulksgewijs laden.
@@ -319,7 +318,7 @@ Raadpleeg voor Microsoft-gegevensarchieven, [bewaking en afstemming van onderwer
 ### <a name="nosql-stores"></a>NoSQL-archieven
 
 * Voor **Table storage**:
-  * **Partitie**: gegevens schrijven naar een interleaved partities aanzienlijk vermindert de prestaties. De brongegevens op partitiesleutel sorteren, zodat de gegevens efficiënt in één partitie is ingevoegd achter elkaar, of aanpassen van de logica voor het schrijven van de gegevens naar één partitie.
+  * **Partitie**: Gegevens schrijven naar een interleaved partities aanzienlijk vermindert de prestaties. De brongegevens op partitiesleutel sorteren, zodat de gegevens efficiënt in één partitie is ingevoegd achter elkaar, of aanpassen van de logica voor het schrijven van de gegevens naar één partitie.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Overwegingen voor serialisatie en deserialisatie
 
@@ -333,17 +332,17 @@ Serialisatie en deserialisatie kunnen optreden wanneer uw gegevensset voor invoe
   * Brongegevens om te streamen, transformeren en deze vervolgens te serialiseren in de indeling van de uitvoer die u hebt aangegeven als invoer- en data-sets beide hebben verschillende bestandsindelingen of verschillende configuraties, zoals scheidingstekens, data movement service worden gedeserialiseerd. Deze bewerking resulteert in een veel belangrijker performance overhead in vergelijking met andere scenario's.
 * Wanneer u kopieert bestanden naar/van een gegevensarchief dat niet op basis van bestanden (bijvoorbeeld in een store, op basis van bestanden naar een relationele archief), wordt de stap serialisatie of deserialisatie is vereist. Deze stap resulteert in van aanzienlijke prestatieoverhead.
 
-**Bestandsindeling**: de bestandsindeling die u kiest voor het kan kopiëren prestaties beïnvloeden. Avro is bijvoorbeeld een compacte binaire indeling die metagegevens op met de gegevens slaat. Het biedt een brede ondersteuning in het Hadoop-ecosysteem voor het verwerken en uitvoeren van query's. Avro is echter duurder voor serialisatie en deserialisatie, wat in het onderste exemplaar doorvoer in vergelijking met de tekstindeling resulteert. Uw keuze van de bestandsindeling in de stroom voor de verwerking van zuinigste maken. Beginnen met welke vorm de gegevens worden opgeslagen in brongegevens of moet worden geëxtraheerd uit externe systemen; de beste indeling voor opslag, analytische verwerking en uitvoeren van query's; en in welke indeling moet de gegevens worden geëxporteerd naar de datamarts voor hulpprogramma's voor rapportage en visualisatie. Soms een bestandsindeling die is suboptimale voor lezen en schrijven prestaties mogelijk zijn een goede keuze wanneer u rekening houden met het algemene analytische proces.
+**Bestandsindeling**: De bestandsindeling die u kiest kan kopiëren prestaties beïnvloeden. Avro is bijvoorbeeld een compacte binaire indeling die metagegevens op met de gegevens slaat. Het biedt een brede ondersteuning in het Hadoop-ecosysteem voor het verwerken en uitvoeren van query's. Avro is echter duurder voor serialisatie en deserialisatie, wat in het onderste exemplaar doorvoer in vergelijking met de tekstindeling resulteert. Uw keuze van de bestandsindeling in de stroom voor de verwerking van zuinigste maken. Beginnen met welke vorm de gegevens worden opgeslagen in brongegevens of moet worden geëxtraheerd uit externe systemen; de beste indeling voor opslag, analytische verwerking en uitvoeren van query's; en in welke indeling moet de gegevens worden geëxporteerd naar de datamarts voor hulpprogramma's voor rapportage en visualisatie. Soms een bestandsindeling die is suboptimale voor lezen en schrijven prestaties mogelijk zijn een goede keuze wanneer u rekening houden met het algemene analytische proces.
 
 ## <a name="considerations-for-compression"></a>Overwegingen voor compressie
 
 Als uw gegevensset voor invoer- of een bestand is, kunt u Copy Activity om uit te voeren van compressie of decompressie als gegevens naar de bestemming schrijft instellen. Wanneer u compressie kiest, maakt u een balans tussen input/output (I/O) en de CPU. Comprimeren van de kosten van de gegevens een extra in compute-resources. Maar hierna het i/o-netwerk en opslag verlaagt. Afhankelijk van uw gegevens ziet u een boost in de algemene doorvoer van de kopie.
 
-**Codec**: elke compressiecodec heeft voordelen. Bijvoorbeeld, bzip2 heeft de laagste kopie doorvoer, maar u krijgt de beste prestaties van Hive-query met bzip2 omdat u deze voor verwerking opsplitsen kunt. Gzip is de meest met gelijke taakverdeling optie en deze het vaakst wordt gebruikt. Kies de codec die het beste bij uw end-to-end-scenario.
+**Codec**: Elke compressiecodec heeft voordelen. Bijvoorbeeld, bzip2 heeft de laagste kopie doorvoer, maar u krijgt de beste prestaties van Hive-query met bzip2 omdat u deze voor verwerking opsplitsen kunt. Gzip is de meest met gelijke taakverdeling optie en deze het vaakst wordt gebruikt. Kies de codec die het beste bij uw end-to-end-scenario.
 
 **Niveau**: U kunt kiezen uit twee opties voor elke compressiecodec: snelste gecomprimeerde en optimaal gecomprimeerd. De snelste gecomprimeerde optie worden de gegevens zo snel mogelijk, gecomprimeerd, zelfs als het resulterende bestand is niet optimaal gecomprimeerd. De optimaal gecomprimeerde optie meer tijd in de taakwachtrij doorbrengt op compressie en resulteert in een minimale hoeveelheid gegevens. U kunt beide opties om te zien waarmee u betere algehele prestaties in uw geval testen.
 
-**Overweging**: als u wilt kopiëren van een grote hoeveelheid gegevens tussen een on-premises gegevensopslag en de cloud, kunt u overwegen [gefaseerd kopiëren](#staged-copy) met gebruik van compressie. Tijdelijke opslag is nuttig wanneer de bandbreedte van uw bedrijfsnetwerk en uw Azure-services de beperkende factor is en u wilt dat de gegevensset voor invoer en uitvoer gegevensset beide in niet-gecomprimeerde vorm.
+**Overweging**: Als u wilt kopiëren van een grote hoeveelheid gegevens tussen een on-premises gegevensopslag en de cloud, kunt u overwegen [gefaseerd kopiëren](#staged-copy) met gebruik van compressie. Tijdelijke opslag is nuttig wanneer de bandbreedte van uw bedrijfsnetwerk en uw Azure-services de beperkende factor is en u wilt dat de gegevensset voor invoer en uitvoer gegevensset beide in niet-gecomprimeerde vorm.
 
 ## <a name="considerations-for-column-mapping"></a>Overwegingen voor kolomtoewijzing
 
@@ -359,17 +358,17 @@ Als de grootte van gegevens die u wilt kopiëren groot is, kunt u uw zakelijke l
 
 Wees voorzichtig bij het aantal gegevenssets en een Data Factory verbinding maken met hetzelfde gegevensarchief op hetzelfde moment vereisen kopieeractiviteiten. Veel gelijktijdige kopie taken mogelijk beperken van een gegevensarchief en leiden tot verminderde prestaties, kopie taak interne nieuwe pogingen, en in sommige gevallen, fouten bij de uitvoering.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Voorbeeldscenario: kopiëren vanuit een on-premises SQL Server naar Blob-opslag
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Voorbeeldscenario: Kopiëren van een on-premises SQL Server naar Blob-opslag
 
-**Scenario**: een pijplijn is gebouwd om te kopiëren van gegevens uit een on-premises SQL Server naar Blob storage in CSV-indeling. Als u sneller de taak voor het kopiëren, moeten de CSV-bestanden worden gecomprimeerd naar bzip2-indeling.
+**Scenario**: Een pijplijn is gebouwd om gegevens te kopiëren uit een on-premises SQL Server naar Blob-opslag in CSV-indeling. Als u sneller de taak voor het kopiëren, moeten de CSV-bestanden worden gecomprimeerd naar bzip2-indeling.
 
-**Test- en analyse**: de doorvoer van de Kopieeractiviteit is minder dan 2 MBps, dit is veel lager is dan de benchmark prestaties.
+**Test- en analyse**: De doorvoer van de Kopieeractiviteit is minder dan 2 MBps, dat is veel lager is dan de benchmark prestaties.
 
-**Analyse van prestaties en afstemmen**: voor het oplossen van het prestatieprobleem, laten we kijken hoe de gegevens worden verwerkt en verplaatst.
+**Analyse van prestaties en afstemmen**: Voor het oplossen van het prestatieprobleem, laten we kijken hoe de gegevens worden verwerkt en verplaatst.
 
-1. **Gegevens lezen**: integratieruntime een verbinding met SQL Server wordt geopend en stuurt de query. SQL-Server reageert door te sturen van de gegevensstroom voor integratieruntime via het intranet.
-2. **Serialiseren en gegevens comprimeren**: integratieruntime serialiseert de gegevensstroom naar de CSV-indeling en de gegevens naar een stream bzip2 worden gecomprimeerd.
-3. **Gegevens schrijven**: integratieruntime wordt de stroom bzip2 geüpload naar Blob storage via Internet.
+1. **Gegevens lezen**: Integratieruntime een verbinding met SQL Server wordt geopend en stuurt de query. SQL-Server reageert door te sturen van de gegevensstroom voor integratieruntime via het intranet.
+2. **Serialiseren en gegevens comprimeren**: Integratieruntime serialiseert de gegevensstroom naar de CSV-indeling en de gegevens naar een stream bzip2 worden gecomprimeerd.
+3. **Gegevens schrijven**: Integratieruntime wordt de stroom bzip2 geüpload naar Blob storage via Internet.
 
 Zoals u zien kunt, de gegevens worden verwerkt en verplaatst op sequentiële wijze streaming: SQL Server > LAN > integratieruntime > WAN > Blob storage. **De algehele prestaties worden geregeld door de minimale doorvoer via de pijplijn**.
 
@@ -377,14 +376,14 @@ Zoals u zien kunt, de gegevens worden verwerkt en verplaatst op sequentiële wij
 
 Een of meer van de volgende factoren kan leiden tot de bottleneck in de prestaties:
 
-* **Bron**: SQL Server zelf heeft lage doorvoer vanwege de zware belastingen.
+* **Bron**: SQL-Server zelf heeft lage doorvoer vanwege de zware belastingen.
 * **Zelf-hostende Integratieruntime**:
-  * **LAN**: integratieruntime bevindt zich ver van de SQL Server-machine en een verbinding met een lage bandbreedte heeft.
-  * **Integratieruntime**: integratieruntime heeft bereikt de load-beperkingen voor de volgende bewerkingen uitvoeren:
-    * **Serialisatie**: traag doorvoer tijdens het serialiseren van de gegevensstroom naar de CSV-indeling heeft.
+  * **LAN**: Integratieruntime bevindt zich ver van de SQL Server-machine en een verbinding met een lage bandbreedte heeft.
+  * **Integratieruntime**: Integratieruntime heeft bereikt van de load-beperkingen voor de volgende bewerkingen uitvoeren:
+    * **Serialisatie**: Tijdens het serialiseren van de gegevensstroom naar de CSV-indeling is traag doorvoer.
     * **Compressie**: U hebt ervoor gekozen een trage compressiecodec (bijvoorbeeld, bzip2, namelijk 2,8 MBps met Core i7).
-  * **WAN**: de bandbreedte tussen het bedrijfsnetwerk en uw Azure-services is laag (bijvoorbeeld T1 = 1,544 kbps. Tijdstip T2 = 6,312 kbps).
-* **Sink-**: Blob-opslag heeft lage doorvoer. (In dit scenario is niet waarschijnlijk omdat de SLA wordt gegarandeerd minimaal 60 MBps.)
+  * **WAN**: Is een lage bandbreedte tussen het bedrijfsnetwerk en uw Azure-services (bijvoorbeeld T1 = 1,544 kbps. Tijdstip T2 = 6,312 kbps).
+* **Sink-**: BLOB-opslag heeft lage doorvoer. (In dit scenario is niet waarschijnlijk omdat de SLA wordt gegarandeerd minimaal 60 MBps.)
 
 In dit geval kan bzip2 gegevenscompressie worden vertraagd de hele pijplijn. Overschakelen naar een compressiecodec gzip, kan dit knelpunt vereenvoudigen.
 
@@ -392,12 +391,12 @@ In dit geval kan bzip2 gegevenscompressie worden vertraagd de hele pijplijn. Ove
 
 Hier zijn prestaties controleren en afstemmen van verwijzingen voor enkele van de ondersteunde gegevensarchieven:
 
-* Azure Storage (inclusief Blob storage en Table storage): [schaalbaarheidsdoelen van Azure Storage](../storage/common/storage-scalability-targets.md) en [controlelijst voor de prestaties en schaalbaarheid van Azure Storage](../storage/common/storage-performance-checklist.md)
+* Azure Storage (inclusief Blob storage en Table storage): [Azure Storage-schaalbaarheidsdoelen](../storage/common/storage-scalability-targets.md) en [controlelijst voor de prestaties en schaalbaarheid van Azure Storage](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: U kunt [bewaken van de prestaties](../sql-database/sql-database-single-database-monitor.md) en controleert u het percentage van database transaction unit (DTU)
 * Azure SQL datawarehouse: De mogelijkheid wordt gemeten in datawarehouse units (dwu's); Zie [beheren rekenkracht in Azure SQL Data Warehouse (overzicht)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure Cosmos DB: [prestatieniveaus in Azure Cosmos DB](../cosmos-db/performance-levels.md)
-* On-premises SQL Server: [controleren en afstemmen van prestaties](https://msdn.microsoft.com/library/ms189081.aspx)
-* On-premises bestandsserver: [afstemmen van prestaties voor bestandsservers](https://msdn.microsoft.com/library/dn567661.aspx)
+* Azure Cosmos DB: [Prestatieniveaus in Azure Cosmos DB](../cosmos-db/performance-levels.md)
+* On-premises SQL Server: [Controleren en afstemmen van prestaties](https://msdn.microsoft.com/library/ms189081.aspx)
+* On-premises bestandsserver: [Prestaties afstemmen voor bestandsservers](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de andere artikelen van de Kopieeractiviteit:

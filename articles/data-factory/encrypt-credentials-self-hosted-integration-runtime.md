@@ -1,6 +1,6 @@
 ---
 title: Versleutelen van de referenties in Azure Data Factory | Microsoft Docs
-description: Informatie over het versleutelen en referenties voor uw on-premises gegevensopslagexemplaren opslaan op een machine met host zichzelf integratie runtime.
+description: Informatie over het versleutelen en referenties voor uw on-premises gegevensopslagexemplaren opslaan op een computer met de zelf-hostende integratieruntime.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -9,26 +9,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b577c276627c3a187215cd0da551428fbb32791f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8e8a4cabd948783278981c61fa718e51b679ad72
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050903"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014162"
 ---
-# <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Versleutelen van referenties voor on-premises gegevensopslagexemplaren in Azure Data Factory
-U kunt versleutelen en opslaan van referenties voor uw on-premises gegevensopslagexemplaren (gekoppelde services met gevoelige informatie) op een computer met de host zichzelf integratie runtime. 
+# <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Referenties voor on-premises gegevensarchieven in Azure Data Factory coderen
+U kunt versleutelen en opslaan van referenties voor uw on-premises gegevensopslagexemplaren (gekoppelde services met gevoelige informatie) op een computer met de zelf-hostende integratieruntime. 
 
-U geeft een JSON-definitie-bestand met de referenties voor de <br/>[**Nieuwe AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet voor het produceren van een JSON-definitiebestand voor uitvoer met de versleutelde referenties. Vervolgens gebruikt u de bijgewerkte JSON-definitie voor de gekoppelde services maken.
+Doorgeven van een JSON-definitie-bestand met de referenties voor de <br/>[**Nieuwe AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet voor het produceren van een uitvoer JSON-definitie-bestand met de versleutelde referenties. Vervolgens gebruikt u de bijgewerkte JSON-definitie de gekoppelde services te maken.
 
-## <a name="author-sql-server-linked-service"></a>De auteur van SQL Server gekoppelde service
-Maak een JSON-bestand met de naam **SqlServerLinkedService.json** in een andere map met de volgende inhoud:  
+## <a name="author-sql-server-linked-service"></a>De auteur van gekoppelde SQL Server-service
+Maak een JSON-bestand met de naam **SqlServerLinkedService.json** in een map met de volgende inhoud:  
 
-Vervang `<servername>`, `<databasename>`, `<username>`, en `<password>` met waarden voor uw SQL-Server voordat u het bestand opslaat. En vervang `<integration runtime name>` met de naam van uw integratie-runtime. 
+Vervang `<servername>`, `<databasename>`, `<username>`, en `<password>` met waarden voor uw SQL-Server voordat u het bestand opslaat. En vervang `<integration runtime name>` met de naam van uw integratieruntime. 
 
 ```json
 {
@@ -50,19 +49,19 @@ Vervang `<servername>`, `<databasename>`, `<username>`, en `<password>` met waar
 ```
 
 ## <a name="encrypt-credentials"></a>Referenties versleutelen
-Voor het versleutelen van gevoelige gegevens uit de JSON-nettolading op een lokale host zichzelf integratie runtime uitvoeren **nieuw AzureRmDataFactoryV2LinkedServiceEncryptedCredential**, en geef op de JSON-nettolading. Deze cmdlet zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI en op de host zichzelf integratie runtime-knooppunt lokaal opgeslagen. De nettolading van de uitvoer kan worden omgeleid naar een andere JSON-bestand (in dit geval 'encryptedLinkedService.json'), waarin versleutelde referenties.
+Voer voor het versleutelen van de gevoelige gegevens uit de JSON-nettolading in een on-premises zelf-hostende integratieruntime **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**, en de JSON-nettolading doorgeven. Deze cmdlet zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI en op het zelf-hostende integration runtime-knooppunt lokaal opgeslagen. De uitvoerpayload kan worden omgeleid naar een andere JSON-bestand (in dit geval 'encryptedLinkedService.json'), die bevat de versleutelde referenties.
 
 ```powershell
 New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
 ```
 
 ## <a name="use-the-json-with-encrypted-credentials"></a>De JSON met versleutelde referenties gebruiken
-De JSON-bestand voor uitvoer van de vorige opdracht met de versleutelde referentie nu gebruiken voor het instellen van de **SqlServerLinkedService**.
+Gebruik nu het JSON-bestand voor uitvoer van de vorige opdracht met de versleutelde referentie voor het instellen van de **SqlServerLinkedService**.
 
 ```powershell
 Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de beveiligingsoverwegingen voor gegevensverplaatsing [Data movement beveiligingsoverwegingen](data-movement-security-considerations.md).
+Zie voor meer informatie over de beveiligingsoverwegingen voor het verplaatsen van gegevens [beveiligingsoverwegingen voor Data movement](data-movement-security-considerations.md).
 

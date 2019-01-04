@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe9c33f5a872c60ad30faf7cc5074004f5d6fc50
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 58ccfefa0a0d76334734c67688ef50230881e945
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973791"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018797"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Het scheiden van telemetrie van ontwikkeling, testen en productie
 
@@ -78,15 +78,15 @@ In de [portal.azure.com](https://portal.azure.com), een Application Insights-res
 
 ![Klik op Nieuw > Application Insights](./media/app-insights-separate-resources/01-new.png)
 
-* **Toepassingstype** is van invloed op wat u ziet op de overzichtsblade en de eigenschappen die beschikbaar zijn in [metric explorer](app-insights-metrics-explorer.md). Als u het type van de app niet ziet, kiest u een van de webtypen voor webpagina's.
-* **Resourcegroep** is nuttig voor het beheren van eigenschappen zoals [toegangsbeheer](app-insights-resources-roles-access-control.md). U kunt afzonderlijke resourcegroepen gebruiken voor ontwikkeling, testen en productie.
+* **Toepassingstype** is van invloed op wat u ziet op de overzichtsblade en de eigenschappen die beschikbaar zijn in [metric explorer](../azure-monitor/app/metrics-explorer.md). Als u het type van de app niet ziet, kiest u een van de webtypen voor webpagina's.
+* **Resourcegroep** is nuttig voor het beheren van eigenschappen zoals [toegangsbeheer](../azure-monitor/app/resources-roles-access-control.md). U kunt afzonderlijke resourcegroepen gebruiken voor ontwikkeling, testen en productie.
 * **Abonnement** is uw account betaling in Azure.
 * **Locatie** is waar we uw gegevens bewaren. Op dit moment worden niet gewijzigd. 
 * **Toevoegen aan dashboard** hebt u een snelle toegang tegel voor uw resource op de startpagina van Azure. 
 
 Het maken van de resource duurt een paar seconden. Hier ziet u een waarschuwing wanneer dit voltooid.
 
-(U kunt schrijven een [PowerShell-script](app-insights-powershell-script-create-resource.md) voor het automatisch maken van een resource.)
+(U kunt schrijven een [PowerShell-script](../azure-monitor/app/powershell-script-create-resource.md) voor het automatisch maken van een resource.)
 
 ### <a name="getting-the-instrumentation-key"></a>De instrumentatiesleutel ophalen
 De instrumentatiesleutel identificeert de bron die u hebt gemaakt. 
@@ -98,7 +98,7 @@ U moet de instrumentatiesleutels van alle resources waarop uw app de gegevens wo
 ## <a name="filter-on-build-number"></a>Filteren op build-nummer
 Wanneer u een nieuwe versie van uw app publiceert, moet u mogelijk het scheiden van de telemetrie van verschillende builds.
 
-U kunt de eigenschap toepassingsversie instellen, zodat u kunt filteren [zoeken](../azure-monitor/app/diagnostic-search.md) en [metric explorer](app-insights-metrics-explorer.md) resultaten.
+U kunt de eigenschap toepassingsversie instellen, zodat u kunt filteren [zoeken](../azure-monitor/app/diagnostic-search.md) en [metric explorer](../azure-monitor/app/metrics-explorer.md) resultaten.
 
 ![Filteren op een eigenschap](./media/app-insights-separate-resources/050-filter.png)
 
@@ -148,7 +148,7 @@ Als u de toepassingsversie wilt bijhouden, zorgt u ervoor dat `buildinfo.config`
     </PropertyGroup>
 ```
 
-Wanneer de buildgegevens beschikbaar zijn, voegt de Application Insights-webmodule automatisch **Toepassingsversie** als eigenschap toe aan elk telemetrie-item. Dit biedt de mogelijkheid om op versie te filteren wanneer u [diagnostische zoekopdrachten](../azure-monitor/app/diagnostic-search.md) uitvoert of [metrische gegevens verkent](app-insights-metrics-explorer.md).
+Wanneer de buildgegevens beschikbaar zijn, voegt de Application Insights-webmodule automatisch **Toepassingsversie** als eigenschap toe aan elk telemetrie-item. Dit biedt de mogelijkheid om op versie te filteren wanneer u [diagnostische zoekopdrachten](../azure-monitor/app/diagnostic-search.md) uitvoert of [metrische gegevens verkent](../azure-monitor/app/metrics-explorer.md).
 
 Let er echter op dat het buildversienummer alleen wordt gegenereerd door Microsoft Build Engine en niet door de ontwikkelaarsbuild in Visual Studio.
 

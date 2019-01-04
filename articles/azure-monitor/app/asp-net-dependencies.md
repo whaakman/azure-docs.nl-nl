@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: de260560f141691fc1a7c0dd3bfad262d2d79598
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969859"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025569"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: Bijhouden van afhankelijkheid
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Het is doorgaans een service die wordt aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](../../application-insights/app-insights-overview.md) meet hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
@@ -121,7 +121,7 @@ Er lijkt te zijn van een wijd na het aanroepen van de eerste afhankelijkheid, zo
 
 ### <a name="profile-your-live-site"></a>Profileren van uw live site
 
-Er is geen idee waar de tijd komt? De [Application Insights profiler](../../application-insights/app-insights-profiler.md) traceringen HTTP-aanroepen naar de live site en ziet u welke functies in uw code heeft de meeste tijd.
+Er is geen idee waar de tijd komt? De [Application Insights profiler](../../azure-monitor/app/profiler.md) traceringen HTTP-aanroepen naar de live site en ziet u welke functies in uw code heeft de meeste tijd.
 
 ## <a name="failed-requests"></a>Mislukte aanvragen
 Mislukte aanvragen kunnen ook zijn gekoppeld aan de mislukte aanroepen van afhankelijkheden. Nogmaals, kunnen we doorklikken voor het opsporen van het probleem.

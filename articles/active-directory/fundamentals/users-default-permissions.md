@@ -12,18 +12,18 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096569"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022781"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?
-In Azure Active Directory (Azure AD) wordt aan alle gebruikers een reeks standaardmachtigingen verleend. De toegang van een gebruiker wordt bepaald door het type gebruiker, zijn/haar [rollidmaatschappen](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) en eigendom van afzonderlijke objecten. Dit artikel beschrijft deze standaardmachtigingen en bevat een vergelijking van de standaardinstellingen voor lid- en gastgebruikers.
+In Azure Active Directory (Azure AD) wordt aan alle gebruikers een reeks standaardmachtigingen verleend. De toegang van gebruikers bestaat uit het type van de gebruiker, hun [rollidmaatschappen](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), en het eigendom van de afzonderlijke objecten. Dit artikel beschrijft deze standaardmachtigingen en bevat een vergelijking van de standaardinstellingen voor lid- en gastgebruikers.
 
 ## <a name="member-and-guest-users"></a>Lid- en gastgebruikers
-De reeks standaardmachtigingen die wordt ontvangen, is afhankelijk van de vraag of de gebruiker een systeemeigen lid van de tenant (lidgebruiker) of de gebruiker een gast voor B2B-samenwerking (gastgebruiker) is. Zie [Wat is Azure AD B2B-samenwerking?](../b2b/what-is-b2b.md) voor meer informatie over B2B-samenwerking en gastgebruikers. 
+De reeks standaardmachtigingen die wordt ontvangen, is afhankelijk van de vraag of de gebruiker een systeemeigen lid van de tenant (lidgebruiker) of de gebruiker een gast voor B2B-samenwerking (gastgebruiker) is. Zie voor meer informatie over B2B-samenwerking [wat is Azure AD B2B-samenwerking?](../b2b/what-is-b2b.md) voor meer informatie over gastgebruikers. 
 * Lidgebruikers kunnen toepassingen registreren, hun eigen profielfoto en mobiele telefoonnummer beheren, hun eigen wachtwoord wijzigen en B2B-gasten uitnodigen. Gebruikers kunnen bovendien (op een paar uitzonderingen na) alle directorygegevens lezen. 
 * Azure AD B2B-gastgebruikers hebben beperkte directorymachtigingen. Gastgebruikers kunnen bijvoorbeeld afgezien van hun eigen profielgegevens niet bladeren door informatie van de tenant. Een gastgebruiker kan echter informatie over een andere gebruiker ophalen door de Principal-naam van gebruiker of de object-id te verstrekken. Een gast kan niet alle informatie over andere tenantobjecten bekijken, zoals groepen en toepassingen.
 

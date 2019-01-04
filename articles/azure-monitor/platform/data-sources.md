@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 0349e3f482923a236ea29332abfc3a9206828ba7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976882"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020129"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Bronnen van de gegevens in Azure Monitor
 Dit artikel beschrijft de bronnen van de gegevens die zijn verzameld door Azure Monitor voor het bewaken van de status en prestaties van uw resources en de toepassingen die daarop worden uitgevoerd. Deze resources mogelijk in Azure, in een andere cloud of on-premises.  Zie [gegevens verzameld door Azure Monitor](data-collection.md) voor meer informatie over hoe deze gegevens worden opgeslagen en hoe u deze kunt bekijken.
@@ -96,7 +96,7 @@ Wanneer u Application Insights voor een toepassing inschakelt door een instrumen
 Ook kunt u Application Insights aan [maken van een aangepaste meetwaarde](../../azure-monitor/app/api-custom-events-metrics.md).  Hiermee kunt u uw eigen logica voor het berekenen van een numerieke waarde en vervolgens opslaan die waarde met andere metrische gegevens die kunnen worden geopend via de Metric Explorer en kan worden gebruikt voor het definiëren [voor automatisch schalen](../../azure-monitor/platform/autoscale-custom-metric.md) en metrische waarschuwingen.
 
 ### <a name="dependencies"></a>Afhankelijkheden
-Als u wilt bewaken verschillende logische bewerkingen van een toepassing, moet u [verzamelen van telemetrie over meerdere onderdelen](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights biedt ondersteuning [telemetriecorrelatie gedistribueerd](../../azure-monitor/app/correlation.md) waarin de afhankelijkheden tussen onderdelen, zodat u ze samen te analyseren.
+Als u wilt bewaken verschillende logische bewerkingen van een toepassing, moet u [verzamelen van telemetrie over meerdere onderdelen](../../azure-monitor/app/transaction-diagnostics.md). Application Insights biedt ondersteuning [telemetriecorrelatie gedistribueerd](../../azure-monitor/app/correlation.md) waarin de afhankelijkheden tussen onderdelen, zodat u ze samen te analyseren.
 
 ### <a name="availability-tests"></a>Beschikbaarheidstests
 [Beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md) in Application Insights kunt u voor het testen van de beschikbaarheid en reactiesnelheid van uw toepassing vanaf verschillende locaties op het openbare Internet. U kunt een eenvoudige ping-test om te bevestigen dat de toepassing actief is of Visual Studio gebruiken voor het maken van een WebTest die een gebruikersscenario simuleert.  Beschikbaarheidstests vereisen instrumentatie in de toepassing.

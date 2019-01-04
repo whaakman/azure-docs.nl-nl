@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b7f49571aa78a262a464f9626b7b98a85f8187f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973329"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022951"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
 Search is een functie van [Application Insights](../../application-insights/app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
@@ -129,7 +129,7 @@ Hier volgen de uitdrukkingen zoeken die u kunt gebruiken:
 ## <a name="sampling"></a>Steekproeven
 Als uw app veel telemetrie genereert (en u de ASP.NET-SDK-versie 2.0.0-beta3 of hoger), de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen sturen vermindert. Gebeurtenissen die gerelateerd zijn aan dezelfde aanvraag zijn echter geselecteerd of gedeselecteerd als een groep, zodat u tussen gerelateerde gebeurtenissen kunt navigeren. 
 
-[Meer informatie over steekproeven](../../application-insights/app-insights-sampling.md).
+[Meer informatie over steekproeven](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Werkitem maken
 U kunt een bug in GitHub of Azure DevOps met de details van een telemetrie-item maken. 
@@ -153,7 +153,7 @@ Naast de out-of-the-box-telemetrie die is verzonden door Application Insights-SD
 ## <a name="questions"></a>Q &AMP; A
 ### <a name="limits"></a>Hoeveel gegevens worden bewaard?
 
-Zie de [limieten samenvatting](../../application-insights/app-insights-pricing.md#limits-summary).
+Zie de [limieten samenvatting](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Hoe kan ik POST-gegevens in mijn serveraanvragen bekijken?
 We niet de POST-gegevens automatisch vastleggen, maar u kunt [TrackTrace of log aanroepen](../../azure-monitor/app/asp-net-trace-logs.md). De POST-gegevens in de parameter bericht geplaatst. U kunt niet filteren op het bericht op dezelfde manier die u op Eigenschappen filteren kunt, maar de maximale grootte is langer.

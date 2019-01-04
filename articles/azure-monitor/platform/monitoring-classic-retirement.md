@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eae0dc1d38b06a451091d79946bc95ed722ac861
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5e882bf0a9b7cbc8a3e96c0184cc1ad53893e989
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994811"
+ms.locfileid: "53999217"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -31,9 +31,9 @@ Azure Monitor nieuwere metrische platform wordt nu bewaking afkomstig van Applic
 
 De nieuwe geïntegreerde bewaking en waarschuwingen voor Application Insights bevat:
 
-- **Metrische gegevens van Application Insights-Platform** – waarmee u populaire vooraf gemaakte metrische gegevens van Application Insights-product. Zie dit artikel voor meer informatie over het gebruik van [Platform metrische gegevens voor Application Insights op de nieuwe Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
+- **Metrische gegevens van Application Insights-Platform** – waarmee u populaire vooraf gemaakte metrische gegevens van Application Insights-product. Zie dit artikel voor meer informatie over het gebruik van [Platform metrische gegevens voor Application Insights op de nieuwe Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Application Insights beschikbaarheid en Web-test** -waarmee u de mogelijkheid om de reactiesnelheid en beschikbaarheid van uw web-app of de server vast te stellen. Zie dit artikel voor meer informatie over het gebruik van [Beschikbaarheidstests en waarschuwingen voor Application Insights op de nieuwe Azure Monitor](../../azure-monitor/app/monitor-web-app-availability.md).
-- **Metrische gegevens van Application Insights aangepaste** – Hiermee kunt u definiëren en hun eigen metrische gegevens voor controle en meldingen te verzenden. Zie dit artikel voor meer informatie over het gebruik van [aangepaste metrische gegevens voor Application Insights op de nieuwe Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- **Metrische gegevens van Application Insights aangepaste** – Hiermee kunt u definiëren en hun eigen metrische gegevens voor controle en meldingen te verzenden. Zie dit artikel voor meer informatie over het gebruik van [aangepaste metrische gegevens voor Application Insights op de nieuwe Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Application Insights-Foutafwijkingen (onderdeel van Slimme detectie)** – die automatisch ontvangt u een melding in bijna realtime als er een abnormale toename van mislukte aanvragen voor HTTP- of afhankelijkheidsaanroepen optreedt in uw web-app. Foutafwijkingen (onderdeel van Slimme detectie) als onderdeel van de nieuwe Azure Monitor, Application Insights is binnenkort beschikbaar en we zullen dit document bijwerken met koppelingen op de volgende iteratie als deze is geïmplementeerd-out in de komende maanden.
 
 ## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Geïntegreerde metrische gegevens en waarschuwingen voor andere Azure-resources

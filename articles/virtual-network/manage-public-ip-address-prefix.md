@@ -1,13 +1,10 @@
 ---
-title: Maken, wijzigen of verwijderen van een Azure openbare IP-adresvoorvoegsel | Microsoft Docs
+title: Maken, wijzigen of verwijderen van een Azure openbare IP-adresvoorvoegsel
+titlesuffix: Azure Virtual Network
 description: Informatie over het maken, wijzigen of verwijderen van een openbare IP-adresvoorvoegsel.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427570"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015284"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Maken, wijzigen of verwijderen van een openbare IP-adresvoorvoegsel
 
@@ -53,7 +50,7 @@ Openbare IP-adresvoorvoegsels hebben een kosten in rekening gebracht. Zie voor m
    |---|---|---|
    |Abonnement|Ja|Moet bestaan in dezelfde [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) als de resource die u wilt koppelen aan het openbare IP-adres.|
    |Resourcegroep|Ja|Kan bestaan in de dezelfde of verschillende, [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) als de resource die u wilt koppelen aan het openbare IP-adres.|
-   |Naam|Ja|De naam moet uniek zijn binnen de resourcegroep die u selecteert.|
+   |Name|Ja|De naam moet uniek zijn binnen de resourcegroep die u selecteert.|
    |Regio|Ja|Moet bestaan in dezelfde [regio](https://azure.microsoft.com/regions)als het openbare IP-adressen u adressen uit het bereik moet toewijzen. Voorvoegsel is momenteel is de Preview-versie in West-Centraal VS, VS-West, VS-West 2, VS-midden, Noord-Europa, West-Europa en Zuidoost-Azië.|
    |Voorvoegselgrootte|Ja| De grootte van het voorvoegsel dat u nodig hebt. Een/28 of 16 IP-adressen is de standaardinstelling. 
 
@@ -75,7 +72,7 @@ Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. V
 
    |Instelling|Vereist?|Details|
     |---|---|---|
-    |Naam|Ja|De naam van het openbare IP-adres moet uniek zijn binnen de resourcegroep die u selecteert.|
+    |Name|Ja|De naam van het openbare IP-adres moet uniek zijn binnen de resourcegroep die u selecteert.|
    |Time-out voor inactiviteit (minuten)|Nee|Het aantal minuten dat een TCP- of HTTP-verbinding open zonder afhankelijkheid van clients voor het verzenden van keepalive-berichten. |
    |DNS-naamlabel|Nee|Moet uniek zijn binnen Azure-regio die voor het maken van de naam van de in (voor alle abonnementen en alle klanten). Azure wordt automatisch geregistreerd de naam en IP-adres in de DNS, zodat u verbinding met een resource met de naam maken kunt. Azure voegt een standaard-subnet, zoals *location.cloudapp.azure.com* (indien de locatie de locatie die u selecteert is) op de naam u opgeeft, voor het maken van de volledig gekwalificeerde DNS-naam. Zie voor meer informatie, [Azure DNS gebruiken met een openbaar IP-adres van Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
@@ -84,7 +81,7 @@ Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. V
 1. In het vak met de tekst *zoeken naar resources* aan de bovenkant van de Azure-portal, typt u *openbare ip-adresvoorvoegsel*. Wanneer **openbare IP-adresvoorvoegsels** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de naam van het openbare IP-adresvoorvoegsel dat u wilt weergeven, instellingen voor wijzigen of verwijderen uit de lijst.
 3. Voer een van de volgende opties, afhankelijk van of u wilt weergeven, verwijderen of wijzigen van het openbare IP-adresvoorvoegsel.
-    - **Weergave**: de **overzicht** sectie bevat belangrijke instellingen voor het openbare IP-adresvoorvoegsel, zoals voorvoegsel.
+    - **Weergave**: De **overzicht** sectie bevat belangrijke instellingen voor het openbare IP-adresvoorvoegsel, zoals voorvoegsel.
     - **Verwijder**: Selecteer wilt verwijderen van het openbare IP-adresvoorvoegsel **verwijderen** in de **overzicht** sectie. Als de adressen binnen het voorvoegsel zijn gekoppeld aan resources voor openbaar IP-adres, moet u eerst het openbare IP-adres-resources te verwijderen. Zie [verwijderen van een openbaar IP-adres](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Opdrachten**
@@ -98,7 +95,7 @@ Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. V
 
 Om uit te voeren taken op openbare IP-adresvoorvoegsels, moet uw account worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is toegewezen de nodige acties die worden vermeld in de volgende tabel:
 
-| Bewerking                                                                   | Naam                                                           |
+| Bewerking                                                                   | Name                                                           |
 | ---------                                                                | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Een openbare IP-adresvoorvoegsel lezen                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Maken of bijwerken van een openbare IP-adresvoorvoegsel                    |

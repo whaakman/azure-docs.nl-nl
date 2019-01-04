@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 112b41aa41706a807a82e708fe1fb4173fd084ca
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3f3af4b9ca7369cb14f0e91915f9f35086dc761c
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837525"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999619"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
 Azure Cosmos DB repliceert uw gegevens transparant voor alle Azure-regio's die zijn gekoppeld aan uw Cosmos-account. Cosmos DB heeft meerdere lagen van redundantie voor uw gegevens, zoals wordt weergegeven in de volgende afbeelding:
 
-![Partitioneren van resource](./media/high-availability/figure1.png)
+![Fysieke partitioneren](./media/high-availability/figure1.png)
 
 - De gegevens in Cosmos containers is horizontaal gepartitioneerd.
 
@@ -49,9 +49,9 @@ Regionale storingen niet ongebruikelijk en Azure Cosmos DB zorgt ervoor dat de d
 
 - Accounts voor meerdere regio's geconfigureerd met meerdere schrijfregio's is maximaal beschikbaar zijn voor zowel schrijfbewerkingen en leesbewerkingen. Regionale failovers worden onmiddellijk en eventuele wijzigingen van de toepassing vereisen.
 
-- Accounts voor meerdere regio's met een één-schrijfregio: tijdens een storing in de regio schrijven, deze accounts wordt hoge mate beschikbaar blijven voor leesbewerkingen. Echter, wordt het schrijven van moet u 'inschakelen automatische failover' op uw Cosmos-account voor de failover de betrokken regio naar een andere regio die is gekoppeld. De failover wordt uitgevoerd in volgorde van de regio prioriteit die u hebt opgegeven. Uiteindelijk, wanneer het betrokken gebied weer online is, wordt de niet-gerepliceerde gegevens aanwezig zijn in de betrokken schrijfregio gedurende de storing beschikbaar gesteld via de feed conflicten. Toepassingen kunnen lezen de conflicten feed, de conflicten op basis van toepassingsspecifieke logica en de bijgewerkte gegevens teruggeschreven naar de container van Cosmos waar nodig. Zodra de eerder betrokken schrijfregio wordt hersteld, wordt deze automatisch beschikbaar gesteld als een leesregio. U kunt aanroepen van een handmatige failover en het configureren van de betrokken regio als de schrijfregio. U kunt een handmatige failover doen met behulp van [Azure CLI of Azure-portal](how-to-manage-database-account.md#manual-failover).  
+- Accounts voor meerdere regio's met een één-schrijfregio: Tijdens een storing in de regio schrijven, wordt deze accounts hoge mate beschikbaar blijven voor leesbewerkingen. Echter, wordt het schrijven van moet u 'inschakelen automatische failover' op uw Cosmos-account voor de failover de betrokken regio naar een andere regio die is gekoppeld. De failover wordt uitgevoerd in volgorde van de regio prioriteit die u hebt opgegeven. Uiteindelijk, wanneer het betrokken gebied weer online is, wordt de niet-gerepliceerde gegevens aanwezig zijn in de betrokken schrijfregio gedurende de storing beschikbaar gesteld via de feed conflicten. Toepassingen kunnen lezen de conflicten feed, de conflicten op basis van toepassingsspecifieke logica en de bijgewerkte gegevens teruggeschreven naar de container van Cosmos waar nodig. Zodra de eerder betrokken schrijfregio wordt hersteld, wordt deze automatisch beschikbaar gesteld als een leesregio. U kunt aanroepen van een handmatige failover en het configureren van de betrokken regio als de schrijfregio. U kunt een handmatige failover doen met behulp van [Azure CLI of Azure-portal](how-to-manage-database-account.md#manual-failover).  
 
-- Accounts voor meerdere regio's met een één-schrijfregio: tijdens een storing leesregio deze accounts wordt hoge mate beschikbaar blijven voor lees- en schrijfbewerkingen. Het betrokken gebied automatisch vanuit de schrijfregio wordt afgebroken en offline worden gemarkeerd. De Cosmos DB SDK's worden gelezen aanroepen naar de volgende beschikbare regio in de lijst met voorkeursregio omgeleid. Als geen van de regio's in de lijst met voorkeursregio beschikbaar is, terugvallen gesprekken automatisch op de huidige schrijfregio. Er zijn geen wijzigingen zijn vereist in uw toepassingscode om af te handelen leesregio onderbreking. Uiteindelijk, wanneer het betrokken gebied weer online is, de eerder betrokken leesregio wordt automatisch een synchronisatie met de huidige schrijfregio en beschikbaar opnieuw om te lezen aanvragen verwerken. Opeenvolgende leesbewerkingen worden omgeleid naar de herstelde regio zonder wijzigingen in uw toepassingscode. Tijdens de failover zowel lukt van een eerder mislukte regio, blijven lezen consistentiegarantie worden herkend door Cosmos DB.
+- Accounts voor meerdere regio's met een één-schrijfregio: Deze accounts wordt tijdens een storing leesregio hoge mate beschikbaar blijven voor lees- en schrijfbewerkingen. Het betrokken gebied automatisch vanuit de schrijfregio wordt afgebroken en offline worden gemarkeerd. De Cosmos DB SDK's worden gelezen aanroepen naar de volgende beschikbare regio in de lijst met voorkeursregio omgeleid. Als geen van de regio's in de lijst met voorkeursregio beschikbaar is, terugvallen gesprekken automatisch op de huidige schrijfregio. Er zijn geen wijzigingen zijn vereist in uw toepassingscode om af te handelen leesregio onderbreking. Uiteindelijk, wanneer het betrokken gebied weer online is, de eerder betrokken leesregio wordt automatisch een synchronisatie met de huidige schrijfregio en beschikbaar opnieuw om te lezen aanvragen verwerken. Opeenvolgende leesbewerkingen worden omgeleid naar de herstelde regio zonder wijzigingen in uw toepassingscode. Tijdens de failover zowel lukt van een eerder mislukte regio, blijven lezen consistentiegarantie worden herkend door Cosmos DB.
 
 - Accounts voor één regio kunnen verloren gaan beschikbaarheid na een regionale onderbreking. Het is raadzaam ten minste twee regio's (bij voorkeur ten minste twee schrijfregio's) met de Cosmos-account instellen om te hoge beschikbaarheid te allen tijde.
 

@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 7f8eacf11f2333abc348efaa82c92ecbe05136ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 29105f97385b11e59ccd3af9d13521ea803bfdb0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966174"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024226"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integration Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
 
-- **Gegevensverplaatsing**: gegevens verplaatsen tussen gegevensarchieven in openbare netwerken en gegevensopslag in een particulier netwerk (on-premises of virtueel particulier netwerk). Deze optie biedt ondersteuning voor ingebouwde connectors, indelingsconversie, kolomtoewijzing en hoogwaardige en schaalbare gegevensoverdracht.
-- **Activiteitverzending**: transformatieactiviteiten die worden uitgevoerd op verschillende rekenservices zoals Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server en meer verzenden en controleren.
-- **SSIS-pakketuitvoering**: systeemeigen SSIS-pakketten (SQL Server Integration Services) uitvoeren in een beheerde Azure-rekenomgeving.
+- **Gegevensverplaatsing**: Gegevens verplaatsen tussen gegevensarchieven in openbare netwerken en gegevensopslag in een particulier netwerk (on-premises of virtueel particulier netwerk). Deze optie biedt ondersteuning voor ingebouwde connectors, indelingsconversie, kolomtoewijzing en hoogwaardige en schaalbare gegevensoverdracht.
+- **Verzending van de activiteit**:  Verzenden en controleren transformatieactiviteiten die worden uitgevoerd op verschillende rekenservices zoals Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server en meer.
+- **SSIS-pakketuitvoering**: Systeemeigen SQL Server Integration Services (SSIS)-pakketten uitvoeren in een beheerde Azure compute-omgeving.
 
 In de Data Factory definieert een activiteit de actie die moet worden uitgevoerd. Een gekoppelde service definieert een doelgegevensarchief of een rekenservice. Een Integration Runtime vormt de brug tussen de activiteit en de gekoppelde services.  Er wordt naar verwezen door de gekoppelde service en biedt de rekenomgeving waarop de activiteit wordt uitgevoerd of waaruit deze wordt opgehaald.  Op deze manier kan de activiteit optimaal worden uitgevoerd in de regio die het dichtst mogelijk bij het doelgegevensarchief of de rekenservice ligt, terwijl wordt voldaan aan vereisten rondom beveiliging en naleving.
 
@@ -52,7 +51,7 @@ Het volgende diagram toont hoe verschillende typen Integration Runtime gecombine
 Een Azure Integration Runtime is geschikt voor:
 
 - Het uitvoeren van kopieeractiviteit tussen gegevensarchieven in de cloud
-- Het verzenden van de volgende transformatieactiviteiten in openbare netwerken: HDInsight Hive-activiteit, HDInsight Pig-activiteit, HDInsight MapReduce-activiteit, HDInsight Spark-activiteit, HDInsight Streaming-activiteit, Machine Learning Batch Execution-activiteit, Machine Learning Update Resource-activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste .NET-activiteit, webactiviteit, opzoekactiviteit en ophaalactiviteit voor metagegevens.
+- Verzenden van de volgende transformatieactiviteiten in openbare netwerken: HDInsight Hive-activiteit, HDInsight Pig-activiteit, HDInsight MapReduce-activiteit, HDInsight Spark-activiteit, HDInsight Streaming-activiteit, Machine Learning Batch Execution-activiteit, Machine Learning Update Resource-activiteiten, Stored Procedure-activiteit Data Lake Analytics U-SQL-activiteit, aangepaste .net-activiteit, webactiviteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-netwerkomgeving
 Azure Integration Runtime ondersteunt verbindingen met gegevensarchieven en rekenservices in openbare netwerken met openbaar toegankelijke eindpunten. Gebruik een zelf-hostende Integration Runtime voor een Azure Virtual Network-omgeving.
@@ -70,7 +69,7 @@ Zie voor informatie over het maken en configureren van een Azure-IR 'Azure IR ma
 Een zelf-hostende IR is geschikt voor:
 
 - Het uitvoeren van kopieeractiviteit tussen een gegevensarchief in de cloud en een gegevensarchief in een privénetwerk.
-- Het verzenden van de volgende transformatieactiviteiten via on-premises rekenresources of in Azure Virtual Network: HDInsight Hive-activiteit (BYOC), HDInsight Pig-activiteit (BYOC), HDInsight MapReduce-activiteit (BYOC), HDInsight Spark-activiteit (BYOC), HDInsight Streaming-activiteit (BYOC), Machine Learning Batch Execution-activiteit, Machine Learning Update Resource-activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste .NET-activiteit, opzoekactiviteit en ophaalactiviteit voor metagegevens.
+- Verzenden van de volgende transformatieactiviteiten op basis van rekenresources in On-premises of in Azure Virtual Network: HDInsight Hive-activiteit (BYOC), HDInsight Pig-activiteit (BYOC), HDInsight MapReduce-activiteit (BYOC), HDInsight Spark-activiteit (BYOC), HDInsight Streaming-activiteit (BYOC), Machine Learning Batch Execution-activiteit, Machine Learning Update Resource activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste .net-activiteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens.
 
 > [!NOTE] 
 > Gebruik zelf-gehoste Integration Runtime om gegevensarchieven te ondersteunen waarvoor een eigen stuurprogramma zoals SAP Hana, MySQL, enz. is vereist.  Zie voor meer informatie [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -97,7 +96,7 @@ Zie voor meer informatie het artikel 'Azure-SSIS IR maken en configureren' bij d
 Zie de volgende artikelen voor meer informatie over Azure-SSIS Runtime: 
 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
-- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). In dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Database Managed Instance en toevoegen van de IR aan een virtueel netwerk. 
+- [Procedures: Een Azure-SSIS integratieruntime maken](create-azure-ssis-integration-runtime.md). In dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Database Managed Instance en toevoegen van de IR aan een virtueel netwerk. 
 - [Een Azure-SSIS IR controleren](monitor-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel leest u hoe u informatie over een Azure-SSIS IR ophaalt. Daarnaast bevat het artikel beschrijvingen van statuswaarden die worden gebruikt in de geretourneerde informatie. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 
 - [Een Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk van Azure. Er wordt ook beschreven hoe u Azure Portal gebruikt om een virtueel netwerk te configureren voor het deelnemen van Azure-SSIS IR aan het virtueel netwerk. 

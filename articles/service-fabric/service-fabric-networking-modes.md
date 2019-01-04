@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866063"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024787"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerkmodi voor service Fabric-containers
 
@@ -35,7 +35,7 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
 
 ## <a name="set-up-open-networking-mode"></a>Open netwerken modus instellen
 
-1. Instellen van de Azure Resource Manager-sjabloon. In de **instelling fabricSettings** sectie, schakelt u de DNS-Service en de IP-Provider: 
+1. Instellen van de Azure Resource Manager-sjabloon. In de **instelling fabricSettings** sectie van de Cluster-bron, het inschakelen van de DNS-Service en de IP-Provider: 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
                 }
             ],
     ```
+    
+2. Instellen van de netwerk-profiel-sectie van de virtuele-Machineschaalset resource. Hiermee kunt meerdere IP-adressen worden geconfigureerd op elk knooppunt van het cluster. Het volgende voorbeeld stelt u vijf IP-adressen per knooppunt voor een Windows/Linux Service Fabric-cluster. U kunt vijf exemplaren van de service luistert op de poort op elk knooppunt hebben. Als u wilt de vijf IP-adressen worden toegankelijk is vanaf de Azure Load Balancer, inschrijven voor de vijf IP-adressen in de Azure Load Balancer-back-end-adresgroep zoals hieronder wordt weergegeven.  U ziet ook moet u de variabelen toevoegen aan de bovenkant van de sjabloon in de sectie met variabelen.
 
-2. De sectie netwerk profiel instellen om toe te staan van meerdere IP-adressen worden geconfigureerd op elk knooppunt van het cluster. Het volgende voorbeeld stelt u vijf IP-adressen per knooppunt voor een Windows/Linux Service Fabric-cluster. U kunt vijf exemplaren van de service luistert op de poort op elk knooppunt hebben. Als u wilt de vijf IP-adressen worden toegankelijk is vanaf de Azure Load Balancer, inschrijven voor de vijf IP-adressen in de Azure Load Balancer-back-end-adresgroep zoals hieronder wordt weergegeven.
+    Deze sectie toevoegen aan variabelen:
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Deze sectie toevoegen aan de virtuele-Machineschaalset resource:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {
@@ -205,7 +212,7 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
    |Instelling |Waarde | |
    | --- | --- | --- |
    |Prioriteit |2000 | |
-   |Naam |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |Bron |VirtualNetwork | |
    |Doel | VirtualNetwork | |
    |Service | DNS (UDP/53) | |

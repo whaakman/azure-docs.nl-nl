@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8ab6782a63c019bea11d047af8588c4489d8b580
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812119"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002209"
 ---
 # <a name="what-is-distributed-tracing"></a>Wat is gedistribueerd traceren?
 
@@ -51,7 +51,7 @@ Met de juiste Application Insights-SDK geïnstalleerd en geconfigureerd, worden 
 
 Naast de Application Insights SDK's, Application Insights biedt ook ondersteuning voor gedistribueerde tracering via [OpenCensus](https://opencensus.io/). OpenCensus is een open-source, leverancieronafhankelijke, één distributie van bibliotheken voor metrische gegevens verzamelen en gedistribueerde tracering voor services. Hiermee wordt ook de open source-community om in te schakelen gedistribueerde tracering met populaire technologieën zoals Redis Memcached of MongoDB. [Microsoft werkt op OpenCensus samen met enkele andere controle- en cloud partners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-Gedistribueerde tracering mogelijkheden eerst toevoegen aan een toepassing OpenCensus, [installeren en configureren van de Application Insights lokale doorstuurserver](./../../application-insights/opencensus-local-forwarder.md). Configureren van daaruit OpenCensus om te routeren gedistribueerde traceringsgegevens via de lokale doorstuurserver. Beide [Python](./../../application-insights/opencensus-python.md) en [gaat](./../../application-insights/opencensus-go.md) worden ondersteund.
+Gedistribueerde tracering mogelijkheden eerst toevoegen aan een toepassing OpenCensus, [installeren en configureren van de Application Insights lokale doorstuurserver](./../../azure-monitor/app/opencensus-local-forwarder.md). Configureren van daaruit OpenCensus om te routeren gedistribueerde traceringsgegevens via de lokale doorstuurserver. Beide [Python](./../../azure-monitor/app/opencensus-python.md) en [gaat](./../../azure-monitor/app/opencensus-go.md) worden ondersteund.
 
 De website OpenCensus onderhoudt API-referentiedocumentatie voor [Python](https://opencensus.io/api/python/trace/usage.html) en [gaat](https://godoc.org/go.opencensus.io), en diverse andere handleidingen voor het gebruik van OpenCensus. 
 

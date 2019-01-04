@@ -1,6 +1,6 @@
 ---
 title: Gegevens verplaatsen van een FTP-server met behulp van Azure Data Factory | Microsoft Docs
-description: Meer informatie over het verplaatsen van gegevens van een FTP-server met behulp van Azure Data Factory.
+description: Meer informatie over het verplaatsen van gegevens van een ftp_server met behulp van Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,76 +9,75 @@ ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bbbbaab6090941141abd7a2bbd2eac6dbf9fd354
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52c89804c87348843bb7a4006ab38e4d417740ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051539"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025433"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Gegevens verplaatsen van een FTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](data-factory-ftp-connector.md)
+> * [Versie 1:](data-factory-ftp-connector.md)
 > * [Versie 2 (huidige versie)](../connector-ftp.md)
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [FTP-connector in V2](../connector-ftp.md).
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [FTP-connector in V2](../connector-ftp.md).
 
-Dit artikel wordt uitgelegd hoe u de kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een FTP-server. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont.
+In dit artikel wordt uitgelegd hoe u van de kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een FTP-server. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.
 
-U kunt gegevens uit een FTP-server kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst met gegevensarchieven als PUT wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data Factory ondersteunt momenteel alleen zwevend gegevens van een FTP-server naar andere gegevensarchieven, maar niet verplaatsen van gegevens van andere gegevens worden opgeslagen met een FTP-server. Deze ondersteuning biedt voor zowel on-premises en in de cloud van de FTP-servers.
+U kunt gegevens kopiëren van een FTP-server naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data Factory ondersteunt momenteel alleen om gegevens te verplaatsen van een FTP-server naar andere gegevensarchieven, maar niet om gegevens te verplaatsen uit de andere gegevens worden opgeslagen met een FTP-server. Deze biedt ondersteuning voor zowel on-premises en FTP-servers in de cloud.
 
 > [!NOTE]
-> De kopieeractiviteit verwijdert het bronbestand niet nadat deze is gekopieerd naar de bestemming. Als u verwijderen van het bronbestand na een geslaagde kopie wilt, maakt u een aangepaste activiteit voor het verwijderen van het bestand en gebruikt u de activiteit in de pijplijn. 
+> De kopieeractiviteit worden het bronbestand niet worden verwijderd nadat deze is gekopieerd naar de bestemming. Als u verwijderen van het bronbestand na een geslaagde kopieerbewerking wilt, maken van een aangepaste activiteit als u wilt verwijderen van het bestand en het gebruik van de activiteit in de pijplijn. 
 
-## <a name="enable-connectivity"></a>Connectiviteit inschakelen
-Als u overstapt gegevens uit een **lokale** FTP-server aan een cloud gegevens opslaan (bijvoorbeeld naar Azure Blob-opslag), installeren en gebruiken van Data Management Gateway. Data Management Gateway is een clientagent die is geïnstalleerd op uw on-premises machine en cloudservices voor verbinding met een on-premises resource maakt. Zie voor meer informatie [Data Management Gateway](data-factory-data-management-gateway.md). Voor stapsgewijze instructies voor het instellen de gateway boven en gebruik, Zie [verplaatsen van gegevens tussen lokale locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md). U kunt de gateway verbinding maken met een FTP-server, zelfs als de server zich op een Azure-infrastructuur als een dienst (IaaS) virtuele machine (VM).
+## <a name="enable-connectivity"></a>Connectiviteit
+Als u gegevens van verplaatst een **on-premises** FTP-server aan een cloud gegevens opslaan (bijvoorbeeld naar Azure Blob storage), installeren en gebruiken van Data Management Gateway. De Data Management Gateway is een clientagent die is geïnstalleerd op uw on-premises computer en maakt cloudservices verbinding maken met een on-premises resource. Zie voor meer informatie, [Data Management Gateway](data-factory-data-management-gateway.md). Voor stapsgewijze instructies voor het instellen-up van de gateway en u ziet [om gegevens te verplaatsen tussen on-premises locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md). U kunt de gateway verbinding maken met een FTP-server gebruiken, zelfs als de server zich op een Azure-infrastructuur als een service (IaaS) virtuele machine (VM).
 
-Het is mogelijk voor het installeren van de gateway op de lokale machine of de IaaS VM als de FTP-server. We raden echter aan dat u de gateway installeren op een afzonderlijke computer of op IaaS VM om bronconflicten te voorkomen, en voor betere prestaties. Wanneer u de gateway op een afzonderlijke computer installeert, is de machine moet toegang hebben tot de FTP-server.
+Het is mogelijk de gateway installeren op dezelfde on-premises computer of IaaS-VM als de FTP-server. We raden echter aan dat u de gateway installeert op een afzonderlijke computer of op IaaS-VM om bronconflicten te voorkomen, en voor betere prestaties. Wanneer u de gateway op een afzonderlijke computer installeert, is de machine moet toegang hebben tot de FTP-server.
 
 ## <a name="get-started"></a>Aan de slag
-U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens van een FTP-bron verplaatst met behulp van verschillende hulpprogramma's of API's.
+U kunt een pijplijn maken met een kopieeractiviteit die gegevens van een FTP-bron verplaatst met behulp van verschillende hulpprogramma's of API's.
 
-De eenvoudigste manier om een pijplijn maken is met de **Data Factory-Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht.
+De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard van Data Factory**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht.
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
-Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
+Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
-1. Maak **gekoppelde services** slaat om invoer- en gegevens te koppelen aan uw gegevensfactory.
-2. Maak **gegevenssets** vertegenwoordigt de invoer- en -gegevens voor de kopieerbewerking.
+1. Maak **gekoppelde services** opgeslagen om invoer- en gegevens te koppelen aan uw data factory.
+2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking.
 3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer.
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API) gebruikt, kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling. Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren van een FTP-gegevensarchief de [JSON-voorbeeld: gegevens kopiëren van de FTP-server naar Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) sectie van dit artikel.
+Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling. Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een FTP-gegevensarchief, de [JSON-voorbeeld: Gegevens kopiëren van de FTP-server naar Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) sectie van dit artikel.
 
 > [!NOTE]
-> Zie voor meer informatie over ondersteunde indelingen voor de bestands- en compressie te gebruiken, [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
+> Zie voor meer informatie over ondersteunde indelingen van bestanden en compressie gebruiken [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-De volgende secties bevatten informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor FTP.
+De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met FTP.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-gekoppelde service.
 
-| Eigenschap | Beschrijving | Vereist | Standaard |
+| Eigenschap | Description | Vereist | Standaard |
 | --- | --- | --- | --- |
 | type |Stel dit in op FtpServer. |Ja |&nbsp; |
 | host |Geef de naam of IP-adres van de FTP-server. |Ja |&nbsp; |
-| authenticationType |Geef het verificatietype. |Ja |Basic, anonieme |
+| authenticationType |Geef het verificatietype. |Ja |Basic-, anonieme |
 | gebruikersnaam |De gebruiker die toegang tot de FTP-server heeft opgeven. |Nee |&nbsp; |
 | wachtwoord |Geef het wachtwoord voor de gebruiker (gebruikersnaam). |Nee |&nbsp; |
 | encryptedCredential |Geef de versleutelde referenties voor toegang tot de FTP-server. |Nee |&nbsp; |
-| gatewayName |Geef de naam van de gateway in Data Management Gateway verbinding maken met een on-premises FTP-server. |Nee |&nbsp; |
+| gatewayName |Geef de naam van de gateway in de Data Management Gateway verbinding maken met een on-premises FTP-server. |Nee |&nbsp; |
 | poort |Geef de poort waarop de FTP-server luistert. |Nee |21 |
-| enableSsl |Geef op of FTP gebruiken via een SSL/TLS-kanaal. |Nee |true |
+| enableSsl |Geef op of u FTP via een SSL/TLS-kanaal. |Nee |true |
 | enableServerCertificateValidation |Geef op of validatie van het servercertificaat SSL inschakelen wanneer u FTP via SSL/TLS-kanaal. |Nee |true |
 
 >[!NOTE]
->De FTP-connector ondersteunt toegang tot FTP-server zonder versleuteling of een expliciete SSL/TLS-versleuteling; Deze biedt geen ondersteuning voor impliciete SSL/TLS-versleuteling.
+>De FTP-connector biedt ondersteuning voor toegang tot FTP-server zonder versleuteling of een expliciete SSL/TLS-versleuteling; het biedt geen ondersteuning voor impliciete SSL/TLS-versleuteling.
 
 ### <a name="use-anonymous-authentication"></a>Gebruik anonieme verificatie
 
@@ -95,7 +94,7 @@ De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-g
 }
 ```
 
-### <a name="use-username-and-password-in-plain-text-for-basic-authentication"></a>Gebruik van gebruikersnaam en wachtwoord voor basisverificatie in tekst zonder opmaak
+### <a name="use-username-and-password-in-plain-text-for-basic-authentication"></a>Gebruik van gebruikersnaam en wachtwoord in tekst zonder opmaak voor basisverificatie
 
 ```JSON
 {
@@ -132,7 +131,7 @@ De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-g
 }
 ```
 
-### <a name="use-encryptedcredential-for-authentication-and-gateway"></a>EncryptedCredential gebruiken voor verificatie en gateway
+### <a name="use-encryptedcredential-for-authentication-and-gateway"></a>EncryptedCredential gebruiken voor verificatie en -gateway
 
 ```JSON
 {
@@ -150,27 +149,27 @@ De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-g
 ```
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
-Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets [gegevenssets maken](data-factory-create-datasets.md). Secties zoals structuur, beschikbaarheid en beleid van een gegevensset JSON zijn identiek voor alle typen van de gegevensset.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, [gegevenssets maken](data-factory-create-datasets.md). Secties, zoals de structuur, beschikbaarheid en het beleid van een gegevensset JSON zijn vergelijkbaar voor alle typen van de gegevensset.
 
-De **typeProperties** sectie verschilt voor elk type dataset. Het levert informatie die specifiek is voor het type dataset. De **typeProperties** sectie voor een gegevensset van het type **FileShare** heeft de volgende eigenschappen:
+De **typeProperties** sectie verschilt voor elk type gegevensset. Het bevat informatie die specifiek is voor het gegevenssettype. De **typeProperties** sectie voor een gegevensset van het type **bestandsshare** heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie [voorbeeld gekoppelde service en gegevensset definities](#sample-linked-service-and-dataset-definitions) voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** mappaden op basis van het segment start en eindtijden datum. |Ja |
-| fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een bepaald bestand in de map. Als u geen waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset, de naam van het gegenereerde bestand is in de volgende indeling: <br/><br/>Gegevens. <Guid>.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nee |
-| fileFilter |Geef een filter om te worden gebruikt voor het selecteren van een subset van de bestanden in de **folderPath**, in plaats van alle bestanden.<br/><br/>Toegestane waarden zijn: `*` (meerdere tekens) en `?` (willekeurig teken).<br/><br/>Voorbeeld 1: `"fileFilter": "*.log"`<br/>Voorbeeld 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is van toepassing op een bestandsshare-invoergegevensset. Deze eigenschap wordt niet ondersteund met Hadoop Distributed File System (HDFS). |Nee |
-| partitionedBy |Hiermee geeft u een dynamische **folderPath** en **fileName** voor tijd reeksgegevens. Bijvoorbeeld, kunt u een **folderPath** met parameters die voor elk uur van gegevens. |Nee |
-| Indeling | De volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt kopiëren van bestanden, omdat ze tussen winkels op basis van bestanden (binaire kopiëren), slaat u de sectie indeling in de definities van beide invoer en uitvoer gegevensset. |Nee |
-| compressie | Geef het type en de compressie van de gegevens. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**, en ondersteunde niveaus zijn **optimale** en **snelste**. Zie voor meer informatie [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
-| useBinaryTransfer |Geef op of de binaire overdrachtsmodus gebruiken. De waarden zijn true zijn voor binaire modus (dit is de standaardwaarde) en false voor ASCII. Deze eigenschap kan alleen worden gebruikt als het type van de bijbehorende gekoppelde service van het type: FtpServer. |Nee |
+| folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie [voorbeeld gekoppelde service en de gegevensset definities](#sample-linked-service-and-dataset-definitions) voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** mappaden op basis van het segment de status begin en einde en tijden. |Ja |
+| fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een specifiek bestand in de map. Als u een waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer **fileName** niet is opgegeven voor een uitvoergegevensset, de naam van het gegenereerde bestand bevindt zich in de volgende indeling: <br/><br/>De gegevens. <Guid>.txt (voorbeeld: Data.0a405f8a-93ff-4C6F-b3be-f69616f1df7a.txt) |Nee |
+| fileFilter |Geef een filter op dat moet worden gebruikt voor het selecteren van een subset van de bestanden in de **folderPath**, in plaats van alle bestanden.<br/><br/>Toegestane waarden zijn: `*` (meerdere tekens) en `?` (Eén teken).<br/><br/>Voorbeeld 1: `"fileFilter": "*.log"`<br/>Voorbeeld 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is van toepassing voor een invoergegevensset van de bestandsshare. Deze eigenschap wordt niet ondersteund met Hadoop Distributed File System (HDFS). |Nee |
+| partitionedBy |Hiermee geeft u een dynamisch **folderPath** en **fileName** voor time series-gegevens. Bijvoorbeeld, kunt u een **folderPath** die voor elk uur gegevens met parameters. |Nee |
+| Indeling | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt kopiëren van bestanden, omdat ze tussen winkels op basis van bestanden (binaire kopie zijn), slaat u het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. |Nee |
+| Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**, en ondersteunde niveaus zijn **optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
+| useBinaryTransfer |Geef op of de binaire overdrachtsmodus gebruiken. De waarden zijn true voor binaire modus (dit is de standaardwaarde), en ONWAAR voor ASCII. Deze eigenschap kan alleen worden gebruikt bij het type van de bijbehorende gekoppelde service is van het type: FtpServer. |Nee |
 
 > [!NOTE]
-> **Bestandsnaam** en **fileFilter** niet gelijktijdig worden gebruikt.
+> **fileName** en **fileFilter** kunnen niet gelijktijdig worden gebruikt.
 
 ### <a name="use-the-partionedby-property"></a>Gebruik de eigenschap partionedBy
-Zoals vermeld in de vorige sectie, kunt u een dynamische **folderPath** en **fileName** voor time series-gegevens met de **partitionedBy** eigenschap.
+Zoals vermeld in de vorige sectie, kunt u een dynamisch **folderPath** en **fileName** voor time series-gegevens met de **partitionedBy** eigenschap.
 
-Zie voor meer informatie over tijd reeks gegevenssets, planning en segmenten, [gegevenssets maken](data-factory-create-datasets.md), [planning en uitvoering](data-factory-scheduling-and-execution.md), en [pijplijnen maken](data-factory-create-pipelines.md).
+Zie voor meer informatie over time series-gegevenssets, planning en segmenten, [gegevenssets maken](data-factory-create-datasets.md), [planning en uitvoering](data-factory-scheduling-and-execution.md), en [het maken van pijplijnen](data-factory-create-pipelines.md).
 
 #### <a name="sample-1"></a>Voorbeeld 1
 
@@ -181,7 +180,7 @@ Zie voor meer informatie over tijd reeks gegevenssets, planning en segmenten, [g
     { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 ],
 ```
-In dit voorbeeld {segment} is vervangen door de waarde van de Data Factory systeemvariabele SliceStart, in de opgegeven indeling (YYYYMMDDHH). De SliceStart verwijst voor het starten van de tijd van het segment. Het mappad verschilt voor elk segment. (Bijvoorbeeld wikidatagateway/wikisampledataout/2014100103 of wikidatagateway/wikisampledataout/2014100104.)
+In dit voorbeeld {segment} wordt vervangen door de waarde van Data Factory systeemvariabele slicestart-waarde, in de opgegeven indeling (YYYYMMDDHH). De slicestart-waarde verwijst naar de begintijd van het segment. Pad naar de map verschilt voor elk segment. (Bijvoorbeeld wikidatagateway/wikisampledataout/2014100103 of wikidatagateway/wikisampledataout/2014100104.)
 
 #### <a name="sample-2"></a>Voorbeeld 2
 
@@ -196,23 +195,23 @@ In dit voorbeeld {segment} is vervangen door de waarde van de Data Factory syste
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-In dit voorbeeld wordt het jaar, maand, dag en tijd van de SliceStart worden uitgepakt in verschillende variabelen die worden gebruikt door de **folderPath** en **fileName** eigenschappen.
+In dit voorbeeld wordt het jaar, maand, dag en tijd van de slicestart-waarde zijn uitgepakt naar afzonderlijke variabelen die worden gebruikt door de **folderPath** en **fileName** eigenschappen.
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
-Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten [pijplijnen maken](data-factory-create-pipelines.md). Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en beleidsregels zijn beschikbaar voor alle typen activiteiten.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, [het maken van pijplijnen](data-factory-create-pipelines.md). Eigenschappen zoals naam, beschrijving, invoer en uitvoer tabellen en beleidsregels zijn beschikbaar voor alle soorten activiteiten.
 
-Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit aan de andere kant variëren met elk activiteitstype. Voor de kopieeractiviteit wordt de type-eigenschappen variëren afhankelijk van de typen van bronnen en Put.
+Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit, daarentegen, variëren met elk activiteitstype. Voor de kopieeractiviteit wordt de type-eigenschappen variëren afhankelijk van de typen van bronnen en sinks.
 
 In de kopieeractiviteit, wanneer de bron van het type **FileSystemSource**, de volgende eigenschap is beschikbaar in **typeProperties** sectie:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| recursieve |Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen, of alleen uit de opgegeven map. |True, False (standaard) |Nee |
+| recursieve |Geeft aan of de gegevens recursief worden gelezen uit de submappen, of alleen voor de opgegeven map. |True, False (standaard) |Nee |
 
-## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-voorbeeld: gegevens kopiëren van de FTP-server naar Azure Blob
-Dit voorbeeld laat zien hoe gegevens kopiëren van een FTP-server naar Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de PUT vermeld in de [ondersteunde gegevensarchieven en indelingen](data-factory-data-movement-activities.md#supported-data-stores-and-formats), met behulp van de kopieeractiviteit in Data Factory.  
+## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van de FTP-server naar Azure Blob
+Dit voorbeeld laat zien hoe u gegevens kopiëren van een FTP-server naar Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de sinks vermeld in de de [ondersteunde gegevensarchieven en indelingen](data-factory-data-movement-activities.md#supported-data-stores-and-formats), met behulp van de kopieeractiviteit in Data Factory.  
 
-De volgende voorbeelden geven voorbeeld JSON definities die u een pijplijn maken kunt met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
 * Een gekoppelde service van het type [FtpServer](#linked-service-properties)
 * Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
@@ -220,14 +219,14 @@ De volgende voorbeelden geven voorbeeld JSON definities die u een pijplijn maken
 * Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
 * Een [pijplijn](data-factory-create-pipelines.md) met de kopieeractiviteit die gebruikmaakt van [FileSystemSource](#copy-activity-properties) en [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
-Het voorbeeld kopieert gegevens van een FTP-server naar een Azure-blob elk uur. De JSON-eigenschappen die in deze voorbeelden worden beschreven in de secties na de voorbeelden.
+Het voorbeeld worden gegevens gekopieerd van een FTP-server naar een Azure-blob elk uur. De JSON-eigenschappen die in deze voorbeelden worden beschreven in de secties na de voorbeelden.
 
-### <a name="ftp-linked-service"></a>Gekoppelde FTP-service
+### <a name="ftp-linked-service"></a>FTP-gekoppelde service
 
-Basisverificatie, wordt dit voorbeeld met de gebruikersnaam en wachtwoord in tekst zonder opmaak. U kunt ook een van de volgende manieren gebruiken:
+In dit voorbeeld maakt gebruik van basisverificatie, met de gebruikersnaam en wachtwoord in tekst zonder opmaak. U kunt ook een van de volgende manieren gebruiken:
 
 * Anonieme verificatie
-* Basisverificatie met versleutelde referenties
+* Basisverificatie wordt gebruikt met de versleutelde referenties
 * FTP via SSL/TLS (FTPS)
 
 Zie de [FTP gekoppelde service](#linked-service-properties) sectie voor verschillende soorten verificatie die u kunt gebruiken.
@@ -261,9 +260,9 @@ Zie de [FTP gekoppelde service](#linked-service-properties) sectie voor verschil
 ```
 ### <a name="ftp-input-dataset"></a>FTP-invoergegevensset
 
-Deze gegevensset verwijst naar de FTP-map `mysharedfolder` en de bestandsnaam `test.csv`. De pijplijn kopieert het bestand naar de bestemming.
+Deze gegevensset verwijst naar de FTP-map `mysharedfolder` en de bestandsnaam `test.csv`. De pijplijn wordt het bestand gekopieerd naar de bestemming.
 
-Instelling **externe** naar **true** informeert de Data Factory-service in de gegevensset extern is aan de gegevensfactory en niet wordt geproduceerd door een activiteit in de gegevensfactory.
+Instellen van **externe** naar **waar** informeert de Data Factory-service de dataset bevindt zich buiten de data factory en wordt niet gemaakt door een activiteit in de data factory.
 
 ```JSON
 {
@@ -287,7 +286,7 @@ Instelling **externe** naar **true** informeert de Data Factory-service in de ge
 
 ### <a name="azure-blob-output-dataset"></a>Azure Blob-uitvoergegevensset
 
-Gegevens worden geschreven naar een nieuwe blob elk uur (frequentie: uur, interval: 1). Het pad naar de blob wordt dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Het mappad maakt gebruik van het jaar, maand, dag en uur delen van de begintijd.
+Gegevens worden geschreven naar een nieuwe blob elk uur (frequentie: uur en interval: 1). Het pad naar de map voor de blob wordt dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Pad naar de map maakt gebruik van het jaar, maand, dag en uur onderdelen van de begintijd.
 
 ```JSON
 {
@@ -346,9 +345,9 @@ Gegevens worden geschreven naar een nieuwe blob elk uur (frequentie: uur, interv
 ```
 
 
-### <a name="a-copy-activity-in-a-pipeline-with-file-system-source-and-blob-sink"></a>Een kopieeractiviteit in een pijplijn met systeem bron- en blob bestandssink
+### <a name="a-copy-activity-in-a-pipeline-with-file-system-source-and-blob-sink"></a>Een kopieeractiviteit in een pijplijn met de bestand system bron- en blob-sink
 
-De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor gebruik van de invoer- en uitvoergegevenssets en elk uur is gepland. In de pijplijn-JSON-definitie de **bron** type is ingesteld op **FileSystemSource**, en de **sink** type is ingesteld op **BlobSink**.
+De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor het gebruik van de invoer- en uitvoergegevenssets en is gepland voor elk uur uitgevoerd. In de pijplijn-JSON-definitie heeft de **bron** type is ingesteld op **FileSystemSource**, en de **sink** type is ingesteld op **BlobSink**.
 
 ```JSON
 {
@@ -388,11 +387,11 @@ De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor gebruik van d
 }
 ```
 > [!NOTE]
-> Zie het toewijzen van kolommen uit de bron-gegevensset naar kolommen uit de dataset sink [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).
+> Zie het toewijzen van kolommen in de brongegevensset op kolommen uit de sink-gegevensset [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:
 
-* Zie voor meer informatie over de belangrijkste factoren die prestaties impact van gegevensverplaatsing (kopieeractiviteit) in de Data Factory en verschillende manieren om te optimaliseren, de [activiteit prestaties en prestatieafstemming handleiding kopiëren](data-factory-copy-activity-performance.md).
+* Zie voor meer informatie over de belangrijkste factoren die invloed prestaties van de verplaatsing van gegevens (kopieeractiviteit) in Data Factory en de verschillende manieren om te optimaliseren, de [en afstemmingshandleiding van activiteit kopiëren](data-factory-copy-activity-performance.md).
 
-* Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

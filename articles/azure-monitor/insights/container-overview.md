@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5fad6b29f250c94166e7023b65ea0ca4a4c6bd8b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 310a528dc41632b3864033305177d074231cef4f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974638"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998367"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Overzicht van de bewaking van Containers in Azure
 Met Azure, kunt u effectief bewaken en beheren van uw workloads op Azure met Kubernetes of Docker-containers geïmplementeerd. Het is belangrijk om te begrijpen hoe containers met meerdere microservice-toepassingen worden uitgevoerd om te kunnen leveren van een betrouwbare service op schaal en de controle-ondersteuningsabonnement. In dit artikel geeft een kort overzicht van het beheer en de bewakingsmogelijkheden in Azure om te begrijpen en die geschikt zijn gebaseerd op uw vereisten.
@@ -27,6 +27,6 @@ Met behulp van [Azure Monitor voor containers](container-insights-overview.md), 
 
 Voor containers die worden uitgevoerd buiten de gehoste service voor Azure Kubernetes, de Log Analytics [oplossing voor Windows- en Docker-Container](../../azure-monitor/insights/containers.md) kunt u weergeven en beheren van uw Windows- en Docker-container-hosts. Van uw Log Analytics-werkruimte, kunt u inventarisgegevens, prestaties en gebeurtenissen van knooppunten en de containers weergeven in de omgeving. Vindt u gedetailleerde controle-informatie met opdrachten die worden gebruikt met containers en u kunt containers oplossen weer te geven en gecentraliseerde logboeken zoeken zonder dat u hoeft voor externe toegang tot Docker of Windows-hosts.
 
-Als u wilt bereiken holistische of end-to-end bewaking van de toepassing, moet een afhankelijkheid of er een Azure is of on-premises resource, worden gecontroleerd met Azure Monitor of Log Analytics.  Niveau van de toepassing moet worden opgenomen om toe te voegen een extra laag van health-status, zowel op het niveau van het platform en de toepassing met behulp van Application Insights. Op het niveau van het platform, zijn er Application Insights-SDK's voor [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), en [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Voor microservice-toepassingen, er is ondersteuning voor [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../application-insights/app-insights-nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), evenals een aantal andere [talen/frameworks](../../application-insights/app-insights-platforms.md). 
+Als u wilt bereiken holistische of end-to-end bewaking van de toepassing, moet een afhankelijkheid of er een Azure is of on-premises resource, worden gecontroleerd met Azure Monitor of Log Analytics.  Niveau van de toepassing moet worden opgenomen om toe te voegen een extra laag van health-status, zowel op het niveau van het platform en de toepassing met behulp van Application Insights. Op het niveau van het platform, zijn er Application Insights-SDK's voor [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), en [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Voor microservice-toepassingen, er is ondersteuning voor [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../application-insights/app-insights-nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), evenals een aantal andere [talen/frameworks](../../azure-monitor/app/platforms.md). 
 
 Anders problemen gaat niet-geïdentificeerde die mogelijk invloed op de beschikbaarheid van de toepassing en serviceniveaudoelen niet voldaan aan.  

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: db3142837c5bb2c5758e47ddf017da284b2e0f0e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723003"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017732"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler configureren
 
@@ -43,7 +43,7 @@ Afhankelijk van hoe de as-omgeving is geconfigureerd, kan de aanroep om te contr
 Profiler kan handmatig met één klik worden geactiveerd. Stel dat u een test voor de prestaties van webtoepassingen worden uitgevoerd. Moet u traceringen om te begrijpen hoe uw web-app wordt uitgevoerd onder belasting. Controle over wanneer traceringen worden vastgelegd met is cruciaal omdat u weet wanneer belastingstest wordt uitgevoerd, maar het interval van steekproeven mogelijk worden gemist.
 De volgende stappen laten zien hoe dit scenario werkt:
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Optioneel) Stap 1: Het verkeer naar uw web-app genereren op basis van een WebTest voor prestaties
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Optioneel) Stap 1: Verkeer naar uw web-app genereren op basis van een WebTest voor prestaties
 
 Als uw web-app is al het inkomende verkeer of als u alleen wilt handmatig genereren verkeer, kunt u deze sectie overslaan en doorgaan naar stap 2.
 
@@ -86,7 +86,7 @@ Er zijn twee redenen waarom u deze fout ziet:
 Volg deze stappen om te controleren en installeren van de meest recente Profiler:
 
 1. Ga naar App-instellingen voor App-Services en controleer of de volgende instellingen zijn geconfigureerd:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: vervangen door de juiste instrumentatiesleutel voor Application Insights.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Vervangen door de juiste instrumentatiesleutel voor Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 als een van deze instellingen zijn niet ingesteld, gaat u naar het deelvenster voor het inschakelen van Application Insights voor het installeren van de recentste site-extensie.
 
@@ -103,7 +103,7 @@ Volg deze stappen om te controleren en installeren van de meest recente Profiler
     ![Wijzigen en opslaan van app insights][change-and-save-appinsights]
 
 1. Ga terug naar **App-instellingen** tabblad voor de App Service om te controleren van de volgende items voor de app-instellingen zijn ingesteld:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: vervangen door de juiste instrumentatiesleutel voor application insights.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Vervangen door de juiste instrumentatiesleutel voor application insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
@@ -116,15 +116,15 @@ Volg deze stappen om te controleren en installeren van de meest recente Profiler
 ## <a name="next-steps"></a>Volgende stappen
 [Traceringen Profiler inschakelen en weergeven](app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
-[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
-[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
-[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
-[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
-[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
-[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
-[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
-[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
-[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
-[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
-[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png
+[profiler-on-demand]: ./media/app-insights-profiler-settings/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler-settings/configure-profiler-entry.png
+[create-performance-test]: ./media/app-insights-profiler-settings/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler-settings/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler-settings/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler-settings/load-test-inprogress.png
+[enable-app-insights]: ./media/app-insights-profiler-settings/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler-settings/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler-settings/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler-settings/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler-settings/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler-settings/profiler-timeout.png

@@ -9,17 +9,16 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167117"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024906"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Naar of van Oracle on-premises gegevens kopiëren met behulp van Azure Data Factory
 
@@ -56,7 +55,7 @@ De gateway is vereist, zelfs als de Oracle wordt gehost in een Azure-infrastruct
 
 Deze connector Oracle bieden ondersteuning voor twee versies van stuurprogramma's:
 
-- **Microsoft-stuurprogramma voor Oracle (aanbevolen)**: vanaf Data Management Gateway versie 2.7, een Microsoft-stuurprogramma voor Oracle is automatisch geïnstalleerd met de gateway. U hoeft niet te installeren of bijwerken van het stuurprogramma voor het maken van verbinding met Oracle. U kunt ook betere kopieerprestaties ervaren door dit stuurprogramma. Deze versies van Oracle-databases worden ondersteund:
+- **Microsoft-stuurprogramma voor Oracle (aanbevolen)**: Een Microsoft-stuurprogramma voor Oracle, dat is vanaf Data Management Gateway versie 2.7, wordt automatisch geïnstalleerd met de gateway. U hoeft niet te installeren of bijwerken van het stuurprogramma voor het maken van verbinding met Oracle. U kunt ook betere kopieerprestaties ervaren door dit stuurprogramma. Deze versies van Oracle-databases worden ondersteund:
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10.2)
@@ -82,7 +81,7 @@ Als u de wizard kopiëren om de kopieerpijplijn gebruikt, is het stuurprogrammat
 
 U kunt een pijplijn met een kopieeractiviteit maken. De pijplijn verplaatst gegevens naar of van een on-premises Oracle-database met behulp van verschillende hulpprogramma's of API's.
 
-Er is de eenvoudigste manier om een pijplijn te maken met de wizard kopiëren. Zie [zelfstudie: een pijplijn maken met behulp van de wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren van gegevens.
+Er is de eenvoudigste manier om een pijplijn te maken met de wizard kopiëren. Zie [zelfstudie: Een pijplijn maken met behulp van de wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren van gegevens.
 
 U kunt een van de volgende hulpprogramma's ook gebruiken om een pijplijn te maken: de **Azure-portal**, **Visual Studio**, **Azure PowerShell**, een **Azure Resource Manager sjabloon**, wordt de **.NET API**, of de **REST-API**. Zie de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
@@ -101,7 +100,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die u gebru
 
 De volgende tabel beschrijft de JSON-elementen die specifiek voor de Oracle gekoppelde service zijn:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | type |De **type** eigenschap moet worden ingesteld op **OnPremisesOracle**. |Ja |
 | driverType | Geef op welke stuurprogramma om te gebruiken om gegevens te kopiëren van of naar een Oracle-database. Toegestane waarden zijn **Microsoft** en **ODP** (standaard). Zie [ondersteunde versie en installatie](#supported-versions-and-installation) voor stuurprogramma voor meer informatie. | Nee |
@@ -111,7 +110,7 @@ De volgende tabel beschrijft de JSON-elementen die specifiek voor de Oracle geko
 **Voorbeeld: Met behulp van de Microsoft-stuurprogramma**
 
 > [!TIP]
-> Als er een fout met de tekst "ORA 01025: UPI parameter buiten het bereik ' en de Oracle-versie 8i, toevoegen `WireProtocolMode=1` met de verbindingstekenreeks en probeer het opnieuw:
+> Als er een fout met de tekst "ORA 01025: UPI parameter buiten het bereik' en de Oracle-versie 8i is, voegen `WireProtocolMode=1` met de verbindingstekenreeks en probeer het opnieuw:
 
 ```json
 {
@@ -153,7 +152,7 @@ De secties van een gegevensset JSON-bestand, zoals de structuur, beschikbaarheid
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor de gegevensset van het type **OracleTable** heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | tableName |De naam van de tabel in de Oracle-database waarnaar de gekoppelde service verwijst. |Nee (als **oracleReaderQuery** of **OracleSource** is opgegeven) |
 
@@ -172,7 +171,7 @@ Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activi
 
 In de Kopieeractiviteit, wanneer de bron is de **OracleSource** type, de volgende eigenschappen zijn beschikbaar in de **typeProperties** sectie:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | oracleReaderQuery |De aangepaste query gebruiken om gegevens te lezen. |Een SQL-query-tekenreeks. Bijvoorbeeld, "Selecteer \* van **MyTable**'. <br/><br/>Als niet is opgegeven, wordt deze SQL-instructie uitgevoerd: ' Selecteer \* van **MyTable**" |Nee<br />(als **tableName** van **gegevensset** is opgegeven) |
 
@@ -180,9 +179,9 @@ In de Kopieeractiviteit, wanneer de bron is de **OracleSource** type, de volgend
 
 **OracleSink** ondersteunt de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| writeBatchTimeout |De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out. |**TimeSpan**<br/><br/> Voorbeeld: 00:30:00 (30 minuten) |Nee |
+| writeBatchTimeout |De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out. |**TimeSpan**<br/><br/> Voorbeeld: 00:30:00 uur (30 minuten) |Nee |
 | WriteBatchSize |Gegevens invoegen in de SQL-tabel wanneer de waarde van de buffergrootte is bereikt **writeBatchSize**. |Geheel getal (aantal rijen) |Nee (standaard: 100) |
 | sqlWriterCleanupScript |Hiermee geeft u een query voor de Kopieeractiviteit om uit te voeren zodat de gegevens van een bepaald segment wordt opgeschoond. |Een query-instructie. |Nee |
 | sliceIdentifierColumnName |Hiermee geeft u de naam van de kolom voor de Kopieeractiviteit in te vullen met een automatisch gegenereerde segment-id.  De waarde voor **sliceIdentifierColumnName** wordt gebruikt voor het opschonen van gegevens van een bepaald segment wanneer opnieuw uitgevoerd. |De naam van de kolom van een kolom met gegevenstype van **binary(32)**. |Nee |
@@ -377,7 +376,7 @@ De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor het gebruik v
 }
 ```
 
-**Voorbeeld: Gegevens kopiëren van Azure Blob-opslag naar Oracle**
+**Voorbeeld: Gegevens uit Azure Blob storage kopiëren naar Oracle**
 
 Dit voorbeeld laat zien hoe u gegevens kopiëren van een Azure Blob storage-account naar een on-premises Oracle-database. U kunt echter gegevens kopiëren *rechtstreeks* uit een van de bronnen die worden vermeld in [ondersteunde gegevensarchieven en indelingen](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.  
 

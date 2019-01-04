@@ -9,17 +9,16 @@ ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b2d9bdd8a7faee81794beef7cf6a764aeea666ae
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275999"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020112"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +80,7 @@ Hier volgen de twee hoofdstappen die u als onderdeel van dit scenario uitvoert:
 2. Maak een Azure-gegevensfactory met een pijplijn met behulp van de aangepaste activiteit.
 
 ### <a name="create-a-custom-activity"></a>Een aangepaste activiteit maken
-Als u wilt maken van een aangepaste .NET-activiteit, een **.NET-klassebibliotheek** project met een klasse die wordt geïmplementeerd die **IDotNetActivity** interface. Deze interface is slechts één methode: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) en de handtekening is:
+Als u wilt maken van een aangepaste .NET-activiteit, een **.NET-klassebibliotheek** project met een klasse die wordt geïmplementeerd die **IDotNetActivity** interface. Deze interface heeft slechts één methode: [Voer](https://msdn.microsoft.com/library/azure/mt603945.aspx) en de handtekening is:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -419,14 +418,14 @@ Hier volgen de stappen die u in deze sectie uitvoeren:
 > [!NOTE]
 > Maak de **bestand.txt** en dit uploaden naar een blob-container, als u dat nog niet hebt gedaan. Zie de instructies in de voorgaande sectie.   
 
-### <a name="step-1-create-the-data-factory"></a>Stap 1: Maak de data factory
+### <a name="step-1-create-the-data-factory"></a>Stap 1: De data factory maken
 1. Na het aanmelden bij Azure portal, voer de volgende stappen uit:
    1. Klik op **een resource maken** in het menu links.
    2. Klik op **gegevens en analyses** in de **nieuw** blade.
    3. Klik op de blade **Gegevensanalyse** op **Gegevensfactory**.
    
     ![Menu nieuwe Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. In de **nieuwe data factory** blade Voer **CustomActivityFactory** voor de naam. De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory name 'CustomActivityFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld **yournameCustomActivityFactory**) en probeer het opnieuw.
+2. In de **nieuwe data factory** blade Voer **CustomActivityFactory** voor de naam. De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding weergegeven: **Naam gegevensfactory 'CustomActivityFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld **yournameCustomActivityFactory**) en probeer het opnieuw.
 
     ![Nieuwe Azure Data Factory-blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Klik op **GROEPSNAAM voor ACCOUNTRESOURCES**, en selecteer een bestaande resourcegroep of maak een resourcegroep.
@@ -437,7 +436,7 @@ Hier volgen de stappen die u in deze sectie uitvoeren:
     
     ![Blade Gegevensfactory](media/data-factory-use-custom-activities/data-factory-blade.png)
 
-### <a name="step-2-create-linked-services"></a>Stap 2: Maak gekoppelde services
+### <a name="step-2-create-linked-services"></a>Stap 2: Gekoppelde services maken
 Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. In deze stap koppelt u uw Azure Storage-account en de Azure Batch-account aan uw data factory.
 
 #### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
@@ -482,7 +481,7 @@ Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld a
 
     
 
-### <a name="step-3-create-datasets"></a>Stap 3: Maak gegevenssets
+### <a name="step-3-create-datasets"></a>Stap 3: Gegevenssets maken
 In deze stap maakt u gegevenssets voor invoer-en uitvoergegevens.
 
 #### <a name="create-input-dataset"></a>Invoergegevensset maken
@@ -562,7 +561,7 @@ In deze stap maakt u gegevenssets voor invoer-en uitvoergegevens.
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Houd er rekening mee dat alle bestanden in een map invoer deel van een segment met de uitmaken hierboven genoemde uitvoertijd. Wanneer dit segment wordt verwerkt, wordt de aangepaste activiteit scant via elk bestand en maakt een regel in het uitvoerbestand met het aantal exemplaren van zoekterm ('Microsoft'). Als er drie bestanden in de inputfolder, er zijn drie regels in het uitvoerbestand voor elk segment per uur: 2016-11-16-00.txt 2016-11-16:01:00:00.txt, enzovoort.
+    Houd er rekening mee dat alle bestanden in een map invoer deel van een segment met de uitmaken hierboven genoemde uitvoertijd. Wanneer dit segment wordt verwerkt, wordt de aangepaste activiteit scant via elk bestand en maakt een regel in het uitvoerbestand met het aantal exemplaren van zoekterm ('Microsoft'). Als er drie bestanden in de inputfolder, zijn er drie regels in het uitvoerbestand voor elk segment per uur: 2016-11-16-00.txt 2016-11-16:01:00:00.txt, enzovoort.
 3. Implementatie van de **OutputDataset**, klikt u op **implementeren** op de opdrachtbalk.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Een pijplijn die gebruikmaakt van de aangepaste activiteit maken en uitvoeren
@@ -687,7 +686,7 @@ Het oplossen van bestaat uit enkele basistechnieken:
     ```
     Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
     ``` 
-2. Als u de volgende fout ziet, controleert u of de naam van de klasse in het bestand CS komt overeen met de naam die u hebt opgegeven voor de **EntryPoint** eigenschap in de pijplijn-JSON. In het scenario, de naam van de klasse is: MyDotNetActivity en het ingangspunt in de JSON is: MyDotNetActivityNS. **MyDotNetActivity**.
+2. Als u de volgende fout ziet, controleert u of de naam van de klasse in het bestand CS komt overeen met de naam die u hebt opgegeven voor de **EntryPoint** eigenschap in de pijplijn-JSON. In het scenario is de naam van de klasse: MyDotNetActivity en het ingangspunt in de JSON is: MyDotNetActivityNS. **MyDotNetActivity**.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
@@ -729,7 +728,7 @@ Het oplossen van bestaat uit enkele basistechnieken:
 Als u de code voor de aangepaste activiteit bijwerkt, bouw het en upload het zipbestand met nieuwe binaire bestanden naar de blob-opslag.
 
 ## <a name="appdomain-isolation"></a>AppDomain isolatie
-Zie [Cross AppDomain voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) die laat zien hoe u een aangepaste activiteit die niet tot assembly-versies die worden gebruikt door de Data Factory startprogramma voor apps beperkt is maken (voorbeeld: WindowsAzure.Storage verze 4.3.0, Newtonsoft.Json v6.0.x, enz.).
+Zie [Cross AppDomain voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) die laat zien hoe u een aangepaste activiteit die niet tot assembly-versies die worden gebruikt door de Data Factory startprogramma voor apps beperkt is maken (voorbeeld: Verze 4.3.0 WindowsAzure.Storage Newtonsoft.Json v6.0.x, enz.).
 
 ## <a name="access-extended-properties"></a>Toegang tot uitgebreide eigenschappen
 U kunt aangeven dat uitgebreide eigenschappen in de activiteits-JSON zoals wordt weergegeven in het volgende voorbeeld:
@@ -748,7 +747,7 @@ U kunt aangeven dat uitgebreide eigenschappen in de activiteits-JSON zoals wordt
 ```
 
 
-In het voorbeeld zijn er twee uitgebreide eigenschappen: **SliceStart** en **DataFactoryName**. De waarde van de slicestart-waarde is gebaseerd op de systeemvariabele slicestart-waarde. Zie [systeemvariabelen](data-factory-functions-variables.md) voor een lijst met ondersteunde systeemvariabelen. De waarde voor DataFactoryName is vastgelegd CustomActivityFactory.
+Er zijn twee uitgebreide eigenschappen in het voorbeeld: **SliceStart** en **DataFactoryName**. De waarde van de slicestart-waarde is gebaseerd op de systeemvariabele slicestart-waarde. Zie [systeemvariabelen](data-factory-functions-variables.md) voor een lijst met ondersteunde systeemvariabelen. De waarde voor DataFactoryName is vastgelegd CustomActivityFactory.
 
 Voor toegang tot deze uitgebreide eigenschappen in de **Execute** methode, code gebruiken die vergelijkbaar is met de volgende code:
 
@@ -769,7 +768,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ## <a name="auto-scaling-of-azure-batch"></a>Automatische schaalaanpassing van Azure Batch
 U kunt ook maken met een Azure Batch-pool met **voor automatisch schalen** functie. U kunt bijvoorbeeld een azure batch-pool maken met 0 toegewezen virtuele machines en een formule voor automatisch schalen op basis van het aantal in behandeling zijnde taken. 
 
-De voorbeeldformule hier bereikt het volgende gedrag: wanneer de pool in eerste instantie wordt gemaakt, wordt 1 VM gestart. Metrische gegevens $PendingTasks definieert het aantal taken in die wordt uitgevoerd en actieve (in de wachtrij) staat.  De formule wordt het gemiddelde aantal in behandeling zijnde taken gevonden in de afgelopen 180 seconden en TargetDedicated dienovereenkomstig ingesteld. Het zorgt ervoor dat TargetDedicated nooit meer dan 25 VM's gaat. Dus als nieuwe taken worden verzonden en toepassingen automatisch meeschaalt en als de taken zijn voltooid, virtuele machines worden gratis één voor één en deze virtuele machines Hiermee verkleint u de automatische schaalaanpassing. startingNumberOfVMs en maxNumberofVMs kan worden aangepast aan uw behoeften.
+De voorbeeldformule hier bereikt het volgende gedrag: Wanneer de pool in eerste instantie wordt gemaakt, begint deze met 1 virtuele machine. Metrische gegevens $PendingTasks definieert het aantal taken in die wordt uitgevoerd en actieve (in de wachtrij) staat.  De formule wordt het gemiddelde aantal in behandeling zijnde taken gevonden in de afgelopen 180 seconden en TargetDedicated dienovereenkomstig ingesteld. Het zorgt ervoor dat TargetDedicated nooit meer dan 25 VM's gaat. Dus als nieuwe taken worden verzonden en toepassingen automatisch meeschaalt en als de taken zijn voltooid, virtuele machines worden gratis één voor één en deze virtuele machines Hiermee verkleint u de automatische schaalaanpassing. startingNumberOfVMs en maxNumberofVMs kan worden aangepast aan uw behoeften.
 
 Formule voor automatisch schalen:
 

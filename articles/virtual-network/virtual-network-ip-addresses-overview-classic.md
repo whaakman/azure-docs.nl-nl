@@ -1,13 +1,10 @@
 ---
-title: IP-adrestypen in Azure (klassiek) | Microsoft Docs
+title: IP-adrestypen in Azure (klassiek)
+titlesuffix: Azure Virtual Network
 description: Meer informatie over openbare en privé IP-adressen (klassiek) in Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011679"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024566"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adrestypen en toewijzingsmethoden (klassiek) in Azure
 U kunt IP-adressen toewijzen aan Azure-resources om te communiceren met andere Azure-resources, uw on-premises netwerk en internet. Er zijn twee soorten IP-adressen die u in Azure gebruiken kunt: openbare en privéclouds.
@@ -30,7 +27,7 @@ Openbare IP-adressen worden gebruikt voor communicatie met Internet, met inbegri
 Privé-IP-adressen worden gebruikt voor communicatie in een Azure-netwerk (VNet), een service in de cloud en uw on-premises netwerk wanneer u een VPN-gateway of ExpressRoute-circuit met uw netwerk uitbreiden naar Azure.
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties Resource Manager gebruiken. Meer informatie over IP-adressen in Resource Manager met het lezen van de [IP-adressen](virtual-network-ip-addresses-overview-arm.md) artikel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Resource Manager en klassieke](../resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties Resource Manager gebruiken. Meer informatie over IP-adressen in Resource Manager met het lezen van de [IP-adressen](virtual-network-ip-addresses-overview-arm.md) artikel.
 
 ## <a name="public-ip-addresses"></a>Openbare IP-adressen
 Openbare IP-adressen gebruikt om Azure-resources om te communiceren met Internet en Azure openbare services zoals [Azure Cache voor Redis](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL-databases](../sql-database/sql-database-technical-overview.md), en [Azure storage](../storage/common/storage-introduction.md).
@@ -44,7 +41,7 @@ Een openbaar IP-adres is gekoppeld aan de volgende resourcetypen:
 * Toepassingsgateways
 
 ### <a name="allocation-method"></a>Toewijzingsmethode
-Wanneer u een openbaar IP-adres moet worden toegewezen aan een Azure-resource, is het *dynamisch* toegewezen vanuit een pool van beschikbare openbare IP-adres binnen de locatie van de resource is gemaakt. Dit IP-adres wordt vrijgegeven wanneer de resource is gestopt. In het geval van een cloudservice, dit gebeurt wanneer alle rolinstanties zijn stopgezet, die kunnen worden voorkomen met behulp van een *statische* (gereserveerde) IP-adres (Zie [Cloudservices](#Cloud-services)).
+Wanneer u een openbaar IP-adres moet worden toegewezen aan een Azure-resource, is het *dynamisch* toegewezen vanuit een pool van beschikbare openbare IP-adres binnen de locatie van de resource is gemaakt. Dit IP-adres wordt vrijgegeven wanneer de resource is gestopt. Met cloudservice, gebeurt dit wanneer alle rolinstanties zijn gestopt, die kunnen worden voorkomen met behulp van een *statische* (gereserveerde) IP-adres (Zie [Cloudservices](#Cloud-services)).
 
 > [!NOTE]
 > De lijst met IP-adresbereiken waaruit openbare IP-adressen worden toegewezen aan Azure-resources wordt gepubliceerd op [Azure Datacenter IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -52,7 +49,7 @@ Wanneer u een openbaar IP-adres moet worden toegewezen aan een Azure-resource, i
 > 
 
 ### <a name="dns-hostname-resolution"></a>DNS-hostnaamomzetting
-Wanneer u een cloudservice of een IaaS-VM maakt, moet u een cloud service DNS-naam die uniek voor alle resources in Azure is op te geven. Hiermee maakt u een toewijzing in de Azure beheerde DNS-servers voor *dnsname*. cloudapp.net naar het openbare IP-adres van de resource. Bijvoorbeeld, als u een cloudservice maakt met een cloud service DNS-naam van **contoso**, de volledig gekwalificeerde domeinnaam (FQDN) **contoso.cloudapp.net** omgezet in een openbare IP-adres (VIP) van de cloudservice. U kunt deze FDQN gebruiken voor het maken van een aangepaste domein-CNAME-record die verwijst naar het openbare IP-adres in Azure.
+Wanneer u een cloudservice of een IaaS-VM maakt, moet u een cloud service DNS-naam die uniek is voor alle resources in Azure op te geven. Hiermee maakt u een toewijzing in de Azure beheerde DNS-servers voor *dnsname*. cloudapp.net naar het openbare IP-adres van de resource. Bijvoorbeeld, als u een cloudservice maakt met een cloud service DNS-naam van **contoso**, de volledig gekwalificeerde domeinnaam (FQDN) **contoso.cloudapp.net** omgezet in een openbare IP-adres (VIP) van de cloud de service. U kunt deze FDQN gebruiken voor het maken van een aangepaste domein-CNAME-record die verwijst naar het openbare IP-adres in Azure.
 
 ### <a name="cloud-services"></a>Cloud services
 Een cloudservice heeft altijd een openbaar IP-adres aangeduid als een virtueel IP-adres (VIP). U kunt eindpunten maken in een cloudservice om te koppelen van verschillende poorten in het VIP naar interne poorten op VM's en rolexemplaren in de cloudservice. 
@@ -65,7 +62,7 @@ Statisch (gereserveerd), openbare IP-adressen worden vaak gebruikt in de scenari
 
 * firewall-regels worden ingesteld door eindgebruikers vereist.
 * afhankelijk van externe DNS-naamomzetting, en een dynamische IP-adres moet bij het bijwerken van de A-records.
-* externe webservices die op basis van IP-beveiligingsmodel verbruikt.
+* externe webservices die gebruikmaken van IP-gebaseerd beveiligingsmodel verbruikt.
 * maakt gebruik van SSL-certificaten die zijn gekoppeld aan een IP-adres.
 
 > [!NOTE]
@@ -107,7 +104,7 @@ In de Azure-klassieke implementatiemodel, kunt een privé IP-adres worden toegew
 * Toepassingsgateway
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>IaaS-VM's en PaaS-rolexemplaren
-Virtuele machines (VM's) die zijn gemaakt met het klassieke implementatiemodel worden altijd in een cloudservice, die vergelijkbaar is met PaaS-rolexemplaren geplaatst. Het gedrag van privé-IP-adressen zijn dus vergelijkbaar voor deze resources.
+Virtuele machines (VM's) die zijn gemaakt met het klassieke implementatiemodel worden altijd in een cloudservice, die vergelijkbaar is met PaaS-rolexemplaren geplaatst. Het gedrag van privé-IP-adressen is dus vergelijkbaar voor deze resources.
 
 Het is belangrijk te weten dat een service in de cloud kan worden geïmplementeerd op twee manieren:
 
@@ -130,7 +127,7 @@ Statische privé-IP-adressen worden vaak gebruikt voor:
 #### <a name="internal-dns-hostname-resolution"></a>Interne DNS-hostnaamomzetting
 Alle Azure-VM's en PaaS-rolinstanties zijn geconfigureerd met [Azure beheerde DNS-servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) standaard, tenzij u expliciet aangepaste DNS-servers configureert. Deze DNS-servers bieden een interne naamomzetting voor virtuele machines en rolinstanties die zich in dezelfde service VNet of in de cloud bevinden.
 
-Wanneer u een virtuele machine maakt, wordt er een toewijzing van de hostnaam aan het bijbehorende privé-IP-adres toegevoegd aan de via Azure beheerde DNS-servers. In het geval van een VM meerdere NIC's, de hostnaam toegewezen aan het privé IP-adres van de primaire NIC Deze toewijzingsinformatie is echter beperkt tot de resources binnen de dezelfde cloudservice of de VNet.
+Wanneer u een virtuele machine maakt, wordt er een toewijzing van de hostnaam aan het bijbehorende privé-IP-adres toegevoegd aan de via Azure beheerde DNS-servers. Met virtuele machine meerdere NIC's, de hostnaam toegewezen aan het privé IP-adres van de primaire NIC Deze toewijzingsinformatie is echter beperkt tot de resources binnen de dezelfde cloudservice of de VNet.
 
 In geval van een *zelfstandige* cloudservice, kunt u zich kunnen omzetten van hostnamen van alle VM's / rolexemplaren binnen dezelfde cloudservice alleen. In het geval van een cloudservice die binnen een VNet zich kunt u kunnen omzetten van hostnamen van alle exemplaren van virtuele machines/rol binnen het VNet.
 

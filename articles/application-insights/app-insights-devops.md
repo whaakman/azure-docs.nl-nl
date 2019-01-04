@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: e9c3f9018965908ae065cedb63149190080d7f07
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1a160cd6d81ab7cb760a85ee7cbdbedf55c17167
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970233"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998230"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -156,7 +156,7 @@ Wanneer een waarschuwing wordt gegenereerd, kan Application Insights automatisch
 ## <a name="but-what-about"></a>Maar hoe zit...?
 * [Privacy- en storage](../azure-monitor/app/data-retention-privacy.md) -uw telemetrie wordt bewaard in Azure beveiligde servers.
 * Prestaties - de impact is zeer laag. Telemetrie in batch wordt verwerkt.
-* [Prijzen](app-insights-pricing.md) : U kunt aan de slag gratis, en die blijft terwijl u in laag volume bent.
+* [Prijzen](../azure-monitor/app/pricing.md) : U kunt aan de slag gratis, en die blijft terwijl u in laag volume bent.
 
 
 ## <a name="video"></a>Video
@@ -167,6 +167,6 @@ Wanneer een waarschuwing wordt gegenereerd, kan Application Insights automatisch
 Aan de slag met Application Insights is eenvoudig. De belangrijkste opties zijn:
 
 * Instrumenteer een web-app al actief. Dit biedt u alle telemetrie van de ingebouwde prestatiecontrole. Het is beschikbaar voor [Java](../azure-monitor/app/java-live.md) en [IIS-servers](../azure-monitor/app/monitor-performance-live-website-now.md), en ook voor [Azure App Service](app-insights-overview.md).
-* Instrumenteer uw project tijdens de ontwikkeling. U kunt dit doen voor [ASP.NET](../azure-monitor/app/asp-net.md) of [Java](../azure-monitor/app/java-get-started.md) apps, evenals [Node.js](app-insights-nodejs.md) en een groot aantal [andere typen](app-insights-platforms.md). 
+* Instrumenteer uw project tijdens de ontwikkeling. U kunt dit doen voor [ASP.NET](../azure-monitor/app/asp-net.md) of [Java](../azure-monitor/app/java-get-started.md) apps, evenals [Node.js](../azure-monitor/app/nodejs.md) en een groot aantal [andere typen](../azure-monitor/app/platforms.md). 
 * Instrument [elke webpagina](../azure-monitor/app/javascript.md) door een korte codefragment toe te voegen.
 

@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren naar/van Azure SQL Data Warehouse | Microsoft Docs
-description: Informatie over het kopiëren van gegevens van Azure SQL Data Warehouse met behulp van Azure Data Factory
+description: Informatie over het kopiëren van gegevens naar/van Azure SQL Data Warehouse met behulp van Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,108 +9,107 @@ ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 678913796edafe86e19d8907e3a2e29ec15ffa90
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: def99a1b98970c09f28e7bfc7f44084c0f5b3c6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047074"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018392"
 ---
-# <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure SQL Data Warehouse met behulp van Azure Data Factory
+# <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](data-factory-azure-sql-data-warehouse-connector.md)
+> * [Versie 1:](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versie 2 (huidige versie)](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Azure SQL Data Warehouse-connector in V2](../connector-azure-sql-data-warehouse.md).
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Azure SQL Data Warehouse-connector in V2](../connector-azure-sql-data-warehouse.md).
 
-Dit artikel wordt uitgelegd hoe u de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van Azure SQL Data Warehouse. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont.  
+In dit artikel wordt uitgelegd hoe u van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen naar/van Azure SQL Data Warehouse. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.  
 
 > [!TIP]
-> Gebruik PolyBase gegevens laadt in Azure SQL Data Warehouse zodat de beste prestaties. De [gebruik PolyBase gegevens laadt in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) sectie bevat informatie. Zie voor een overzicht met een gebruiksvoorbeeld [1 TB laden in Azure SQL Data Warehouse onder 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+> Voor het bereiken van optimale prestaties, gebruikt u PolyBase om gegevens te laden in Azure SQL Data Warehouse. De [gebruik PolyBase om gegevens te laden in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) sectie vindt u informatie. Zie voor een overzicht met een use case [1 TB laden in Azure SQL Data Warehouse minder dan 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
-U kunt gegevens kopiëren **van Azure SQL Data Warehouse** opslaat in de volgende gegevens:
+U kunt gegevens kopiëren **van Azure SQL Data Warehouse** opgeslagen in de volgende gegevens:
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-U kunt gegevens kopiëren van de volgende gegevensarchieven **met Azure SQL Data Warehouse**:
+U kunt gegevens kopiëren van de volgende gegevensarchieven **naar Azure SQL Data Warehouse**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!TIP]
-> Wanneer gegevens uit SQL Server of Azure SQL Database kopiëren naar Azure SQL Data Warehouse, als de tabel niet in het doelarchief bestaat, maken Data Factory automatisch in de tabel in SQL Data Warehouse met behulp van het schema van de tabel in het gegevensarchief van de bron. Zie [automatisch maken van de tabel](#auto-table-creation) voor meer informatie.
+> Bij het kopiëren van gegevens uit SQL Server of Azure SQL Database naar Azure SQL Data Warehouse, als de tabel niet in het doelarchief bestaat, kan Data Factory automatisch maken in de tabel in SQL Data Warehouse met behulp van het schema van de tabel in de bron-gegevensopslag. Zie [automatisch van het maken van tabellen](#auto-table-creation) voor meer informatie.
 
-## <a name="supported-authentication-type"></a>Ondersteund verificatietype
-Azure SQL Data Warehouse connector ondersteuning voor basisverificatie.
+## <a name="supported-authentication-type"></a>Ondersteunde verificatietype
+Azure SQL Data Warehouse-connector ondersteuning voor basisverificatie.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens worden verplaatst van een Azure SQL Data Warehouse met behulp van verschillende hulpprogramma's voor API's.
+U kunt een pijplijn maken met een kopieeractiviteit die gegevens naar/van een Azure SQL Data Warehouse verplaatst met behulp van verschillende hulpprogramma's / API's.
 
-De eenvoudigste manier om een pijplijn waarmee gegevens van Azure SQL Data Warehouse worden gekopieerd maken is met de wizard kopiëren. Zie [zelfstudie: gegevens laden in SQL Data Warehouse met Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren.
+De eenvoudigste manier om een pijplijn waarmee gegevens naar/van Azure SQL Data Warehouse worden gekopieerd te maken is met de wizard kopiëren. Zie [zelfstudie: Gegevens laden in SQL Data Warehouse met Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
-Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
+Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
-1. Maak een **gegevensfactory**. Een gegevensfactory kan één of meer pijplijnen bevatten. 
-2. Maak **gekoppelde services** slaat om invoer- en gegevens te koppelen aan uw gegevensfactory. Bijvoorbeeld, als u gegevens uit een Azure blob-opslag met een Azure SQL datawarehouse kopieert, maakt u twee gekoppelde services om te koppelen van uw Azure storage-account en de Azure SQL datawarehouse aan uw gegevensfactory. Zie voor de gekoppelde service-eigenschappen die specifiek voor Azure SQL Data Warehouse zijn, [gekoppelde service-eigenschappen](#linked-service-properties) sectie. 
-3. Maak **gegevenssets** vertegenwoordigt de invoer- en -gegevens voor de kopieerbewerking. In het voorbeeld in de laatste stap wordt vermeld, maakt u een gegevensset om op te geven van de blob-container en de map waarin de invoergegevens. En maken van een andere dataset om op te geven van de tabel in het Azure SQL datawarehouse waarin de gegevens die zijn gekopieerd uit de blobopslag. Zie voor eigenschappen van gegevensset die specifiek voor Azure SQL Data Warehouse zijn, [eigenschappen van gegevensset](#dataset-properties) sectie.
-4. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. In het voorbeeld eerder vermeld, gebruikt u BlobSource als een bron- en SqlDWSink als een sink voor de kopieeractiviteit. Op dezelfde manier als u van Azure SQL Data Warehouse naar Azure Blob Storage kopiëren wilt, gebruikt u SqlDWSource en BlobSink in de kopieerbewerking. Zie voor activiteitseigenschappen kopiëren die specifiek voor Azure SQL Data Warehouse zijn, [activiteitseigenschappen kopiëren](#copy-activity-properties) sectie. Klik op de koppeling in de vorige sectie voor de gegevensopslag voor meer informatie over het gebruik van een gegevensarchief als een bron of een sink.
+1. Maak een **gegevensfactory**. Een data factory kan één of meer pijplijnen bevatten. 
+2. Maak **gekoppelde services** opgeslagen om invoer- en gegevens te koppelen aan uw data factory. Bijvoorbeeld, als u gegevens van een Azure blob-opslag met een Azure SQL datawarehouse kopieert, u twee gekoppelde services om uw Azure storage-account en Azure SQL datawarehouse koppelt aan uw gegevensfactory. Zie voor de gekoppelde service-eigenschappen die specifiek voor Azure SQL Data Warehouse zijn, [gekoppelde service-eigenschappen](#linked-service-properties) sectie. 
+3. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking. In het voorbeeld dat wordt vermeld in de vorige stap, maakt u een gegevensset om op te geven van de blob-container en map die de invoergegevens bevat. En u maakt een andere gegevensset om op te geven van de tabel in Azure SQL datawarehouse waarin de gegevens die zijn gekopieerd uit de blob-opslag. Zie voor de gegevensseteigenschappen die specifiek voor Azure SQL Data Warehouse zijn, [gegevensseteigenschappen](#dataset-properties) sectie.
+4. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. In het voorbeeld eerder vermeld, gebruikt u BlobSource als bron- en SqlDWSink als een sink voor de kopieeractiviteit. Op dezelfde manier als u van Azure SQL Data Warehouse naar Azure Blob Storage kopiëren wilt, gebruikt u SqlDWSource en BlobSink in de kopieeractiviteit. Zie voor kopiëren-activiteitseigenschappen die specifiek voor Azure SQL Data Warehouse zijn, [eigenschappen van de kopieeractiviteit](#copy-activity-properties) sectie. Klik op de koppeling in de vorige sectie voor de gegevensopslag voor meer informatie over het gebruik van een gegevensarchief als een bron of een sink.
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en pijplijn) automatisch voor u gemaakt. Wanneer u extra/API's (met uitzondering van de .NET API) gebruikt, kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor voorbeelden met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar/van een Azure SQL Data Warehouse, [JSON voorbeelden](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) sectie van dit artikel.
+Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor voorbeelden met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar/van een Azure SQL Data Warehouse [JSON voorbeelden](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) sectie van dit artikel.
 
-De volgende secties bevatten informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor Azure SQL Data Warehouse:
+De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Azure SQL Data Warehouse:
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
-De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn voor Azure SQL Data Warehouse gekoppelde service.
+De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor Azure SQL Data Warehouse gekoppelde service.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **AzureSqlDW** |Ja |
-| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Data Warehouse-exemplaar voor de eigenschap connectionString. Alleen basisverificatie wordt ondersteund. |Ja |
+| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Data Warehouse-exemplaar voor de connectionString-eigenschap. Alleen basisverificatie wordt ondersteund. |Ja |
 
 > [!IMPORTANT]
-> Configureer [Azure SQL Database-Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) en de databaseserver worden [toestaan van Azure Services voor toegang tot de server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Bovendien configureren als u gegevens naar Azure SQL Data Warehouse kopiëren wilt van buiten Azure met inbegrip van on-premises gegevensbronnen met data factory-gateway, de juiste IP-adresbereik voor de machine die gegevens te naar Azure SQL Data Warehouse verzenden is.
+> Configureer [Azure SQL Database-Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) en de database-server [Azure-Services toegang tot de server toestaan](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Daarnaast configureren als u gegevens naar Azure SQL Data Warehouse kopieert van buiten Azure met inbegrip van on-premises gegevensbronnen met data factory-gateway, juiste IP-adresbereik voor de machine die gegevens te naar Azure SQL Data Warehouse verzenden is.
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
-Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets van de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties zoals structuur, beschikbaarheid en beleid van een gegevensset JSON zijn identiek voor alle gegevensset typen (Azure SQL, Azure blob-, Azure-tabel, enz.).
+Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties, zoals de structuur, beschikbaarheid en het beleid van een gegevensset JSON zijn vergelijkbaar voor alle typen van gegevensset (Azure SQL, Azure-blob, Azure-tabel, enz.).
 
 De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor de gegevensset van het type **AzureSqlDWTable** heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| tableName |Naam van de tabel of weergave in de Azure SQL Data Warehouse-database waarnaar de gekoppelde service verwijst. |Ja |
+| tableName |De naam van de tabel of weergave in de Azure SQL Data Warehouse-database waarnaar de gekoppelde service verwijst. |Ja |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
-Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
+Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle soorten activiteiten.
 
 > [!NOTE]
-> De Kopieeractiviteit slechts één invoer en slechts één uitvoer produceert.
+> De Kopieeractiviteit slechts één invoer en produceert slechts één uitvoer.
 
-Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
+Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit is afhankelijk van elk activiteitstype. Ze verschillen voor de kopieeractiviteit, afhankelijk van de typen van bronnen en sinks.
 
 ### <a name="sqldwsource"></a>SqlDWSource
-Wanneer de bron is van het type **SqlDWSource**, de volgende eigenschappen beschikbaar zijn in **typeProperties** sectie:
+Wanneer de bron is van het type **SqlDWSource**, de volgende eigenschappen zijn beschikbaar in **typeProperties** sectie:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Gebruik de aangepaste query om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: Selecteer * from MijnTabel. |Nee |
-| sqlReaderStoredProcedureName |Naam van de opgeslagen procedure die gegevens uit de brontabel leest. |Naam van de opgeslagen procedure. De laatste SQL-instructie moet een SELECT-instructie in de opgeslagen procedure. |Nee |
-| storedProcedureParameters |Parameters voor de opgeslagen procedure. |Naam/waarde-paren. Namen en hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de parameters van opgeslagen procedure. |Nee |
+| sqlReaderQuery |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: Selecteer * uit MyTable. |Nee |
+| sqlReaderStoredProcedureName |De naam van de opgeslagen procedure die gegevens uit de brontabel leest. |De naam van de opgeslagen procedure. De laatste SQL-instructie moet een SELECT-instructie in de opgeslagen procedure. |Nee |
+| storedProcedureParameters |Parameters voor de opgeslagen procedure. |Naam/waarde-paren. Namen en hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de opgeslagen-procedureparameters. |Nee |
 
-Als de **sqlReaderQuery** is opgegeven voor de SqlDWSource met de kopieerbewerking wordt deze query uitgevoerd op basis van de Azure SQL Data Warehouse-bron om de gegevens te verkrijgen.
+Als de **sqlReaderQuery** is opgegeven voor de SqlDWSource de Kopieeractiviteit deze query wordt uitgevoerd op basis van de bron van de Azure SQL Data Warehouse de gegevens op te halen.
 
-U kunt ook een opgeslagen procedure opgeven door te geven de **sqlReaderStoredProcedureName** en **storedProcedureParameters** (als de opgeslagen procedure parameters nodig heeft).
+U kunt ook een opgeslagen procedure opgeven door op te geven de **sqlReaderStoredProcedureName** en **storedProcedureParameters** (als de opgeslagen procedure parameters zijn vereist).
 
-Als u geen sqlReaderQuery of sqlReaderStoredProcedureName opgeeft, worden de kolommen die zijn gedefinieerd in de sectie van de structuur van de gegevensset JSON worden gebruikt voor het bouwen van een query uitvoeren op basis van de Azure SQL Data Warehouse. Voorbeeld: `select column1, column2 from mytable`. Als de definitie van de gegevensset heeft niet de structuur, worden alle kolommen uit de tabel geselecteerd.
+Als u sqlReaderQuery of sqlReaderStoredProcedureName niet opgeeft, worden de kolommen die zijn gedefinieerd in de structuur van de gegevensset JSON gebruikt voor het bouwen van een query wilt uitvoeren op basis van de Azure SQL Data Warehouse. Voorbeeld: `select column1, column2 from mytable`. Als de definitie van de gegevensset niet de structuur heeft, worden alle kolommen uit de tabel geselecteerd.
 
-#### <a name="sqldwsource-example"></a>Voorbeeld van SqlDWSource
+#### <a name="sqldwsource-example"></a>Voorbeeld van de SqlDWSource
 
 ```JSON
 "source": {
@@ -144,19 +143,19 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** ondersteunt de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Geef een query voor de Kopieeractiviteit uitvoeren zodat de gegevens van een bepaald segment wordt opgeschoond. Zie voor meer informatie [herhaalbaarheid sectie](#repeatability-during-copy). |Een query-instructie. |Nee |
-| allowPolyBase |Geeft aan of PolyBase (indien van toepassing) gebruiken in plaats van BULKINSERT mechanisme. <br/><br/> **Met PolyBase is de aanbevolen manier om gegevens te laden in SQL Data Warehouse.** Zie [gebruik PolyBase gegevens laadt in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sectie voor beperkingen en meer informatie. |True <br/>False (standaard) |Nee |
-| polyBaseSettings |Een groep met eigenschappen die kunnen worden opgegeven wanneer de **allowPolybase** eigenschap is ingesteld op **true**. |&nbsp; |Nee |
-| rejectValue |Hiermee geeft u het nummer of het percentage van de rijen die kunnen worden afgewezen voordat de query is mislukt. <br/><br/>Meer informatie over opties voor het weigeren van de PolyBase in de **argumenten** sectie van [maken EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) onderwerp. |0 (standaard), 1, 2... |Nee |
-| rejectType |Hiermee geeft u op of de optie rejectValue is opgegeven als een letterlijke waarde of een percentage. |In waarde (standaard), Percentage |Nee |
-| rejectSampleValue |Bepaalt het aantal rijen om op te halen voordat de PolyBase berekent het percentage van de geweigerde rijen opnieuw. |1, 2, … |Ja, als **rejectType** is **percentage** |
-| useTypeDefault |Geeft aan hoe de ontbrekende waarden in tekstbestanden met scheidingstekens verwerken wanneer PolyBase gegevens uit het tekstbestand ophaalt.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [maken EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (standaard) |Nee |
-| writeBatchSize |Gegevens invoegen in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
-| writeBatchTimeout |Wachttijd voor de batch-insert-bewerking te voltooien voordat er een optreedt time-out. |TimeSpan<br/><br/> Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
+| sqlWriterCleanupScript |Geef een query voor de Kopieeractiviteit om uit te voeren waarbij de gegevens van een bepaald segment wordt opgeschoond. Zie voor meer informatie, [herhaalbaarheid sectie](#repeatability-during-copy). |Een query-instructie. |Nee |
+| allowPolyBase |Hiermee wordt aangegeven of het gebruik van PolyBase (indien van toepassing) in plaats van BULKINSERT mechanisme. <br/><br/> **Met PolyBase is de aanbevolen manier om gegevens te laden in SQL Data Warehouse.** Zie [gebruik PolyBase om gegevens te laden in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sectie voor beperkingen en meer informatie. |True <br/>False (standaard) |Nee |
+| polyBaseSettings |Een groep met eigenschappen die kunnen worden opgegeven wanneer de **allowPolybase** eigenschap is ingesteld op **waar**. |&nbsp; |Nee |
+| rejectValue |Hiermee geeft u het getal of het percentage van de rijen die kunnen worden afgewezen voordat de query is mislukt. <br/><br/>Meer informatie over van de PolyBase-weigeringsopties in de **argumenten** sectie van [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) onderwerp. |0 (standaardinstelling), 1, 2... |Nee |
+| rejectType |Hiermee geeft u op of de optie rejectValue is opgegeven als een letterlijke waarde of een percentage. |Waarde (standaard), Percentage |Nee |
+| rejectSampleValue |Bepaalt het aantal rijen om op te halen voordat de PolyBase berekent het percentage van geweigerde rijen opnieuw. |1, 2, … |Ja, als **rejectType** is **percentage** |
+| useTypeDefault |Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (standaard) |Nee |
+| WriteBatchSize |Gegevens invoegen in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
+| writeBatchTimeout |Wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out. |TimeSpan<br/><br/> Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
 
-#### <a name="sqldwsink-example"></a>Voorbeeld van SqlDWSink
+#### <a name="sqldwsink-example"></a>Voorbeeld van de SqlDWSink
 
 ```JSON
 "sink": {
@@ -165,13 +164,13 @@ GO
 }
 ```
 
-## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Gebruik PolyBase gegevens laadt in Azure SQL Data Warehouse
-Met behulp van **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** is een efficiënte manier van het laden van grote hoeveelheid gegevens in Azure SQL Data Warehouse met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een groot voordeel in de doorvoer. Zie [prestaties referentienummer kopiëren](data-factory-copy-activity-performance.md#performance-reference) met gedetailleerde vergelijking. Zie voor een overzicht met een gebruiksvoorbeeld [1 TB laden in Azure SQL Data Warehouse onder 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Gebruik van PolyBase om gegevens te laden in Azure SQL Data Warehouse
+Met behulp van **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** is een efficiënte manier om grote hoeveelheden gegevens in Azure SQL Data Warehouse laden met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een grote toename in de doorvoer. Zie [prestaties referentienummer kopiëren](data-factory-copy-activity-performance.md#performance-reference) met gedetailleerde vergelijking. Zie voor een overzicht met een use case [1 TB laden in Azure SQL Data Warehouse minder dan 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
-* Als de brongegevens **Azure Blob- of Azure Data Lake Store**, en de indeling is compatibel met PolyBase, kunt u rechtstreeks kopiëren naar Azure SQL Data Warehouse met PolyBase. Zie **[Direct kopiëren met PolyBase](#direct-copy-using-polybase)** met details.
-* Als uw brongegevensarchief en de indeling wordt oorspronkelijk niet ondersteund door PolyBase, kunt u de **[gefaseerde kopiëren met PolyBase](#staged-copy-using-polybase)** in plaats daarvan functie. Dit biedt u ook betere doorvoer door automatisch converteren van de gegevens naar de PolyBase-compatibele indeling en opslaan van gegevens in Azure Blob-opslag. Vervolgens worden gegevens geladen in SQL Data Warehouse.
+* Als de brongegevens bevinden zich in **Azure Blob of Azure Data Lake Store**, en de indeling is compatibel met PolyBase, kunt u rechtstreeks naar Azure SQL Data Warehouse met PolyBase kopiëren. Zie **[Direct kopiëren met behulp van PolyBase](#direct-copy-using-polybase)** met details.
+* Als uw bron-gegevensopslag en -indeling is oorspronkelijk niet ondersteund in polybase, kunt u de **[gefaseerd kopiëren met behulp van PolyBase](#staged-copy-using-polybase)** functie in plaats daarvan. Het biedt u ook betere doorvoer door automatisch de gegevens in PolyBase-indeling converteren en opslaan van gegevens in Azure Blob-opslag. Vervolgens worden de gegevens geladen in SQL Data Warehouse.
 
-Stel de `allowPolyBase` eigenschap **true** zoals weergegeven in het volgende voorbeeld voor Azure Data Factory PolyBase gebruiken om gegevens te kopiëren naar Azure SQL Data Warehouse. Wanneer u allowPolyBase ingesteld op true, kunt u PolyBase specifieke eigenschappen met behulp van de `polyBaseSettings` eigenschappengroep. Zie de [SqlDWSink](#SqlDWSink) sectie voor meer informatie over de eigenschappen die u met polyBaseSettings gebruiken kunt.
+Stel de `allowPolyBase` eigenschap **waar** zoals wordt weergegeven in het volgende voorbeeld voor Azure Data Factory met PolyBase gegevens te kopiëren naar Azure SQL Data Warehouse. Wanneer u allowPolyBase ingesteld op true, kunt u PolyBase specifieke eigenschappen met behulp van de `polyBaseSettings` eigenschappengroep. Zie de [SqlDWSink](#SqlDWSink) sectie voor meer informatie over de eigenschappen die u met polyBaseSettings gebruiken kunt.
 
 ```JSON
 "sink": {
@@ -187,20 +186,20 @@ Stel de `allowPolyBase` eigenschap **true** zoals weergegeven in het volgende vo
 }
 ```
 
-### <a name="direct-copy-using-polybase"></a>Directe kopiëren met PolyBase
-SQL Data Warehouse PolyBase ondersteuning rechtstreeks voor Azure-Blob en Azure Data Lake Store (met behulp van de service-principal) als bron en met vereisten voor een specifieke indeling. Als de brongegevens voldoet aan de criteria die in deze sectie beschreven, kunt u rechtstreeks van brongegevensarchief kopiëren naar Azure SQL Data Warehouse met PolyBase. Anders kunt u [gefaseerde kopiëren met PolyBase](#staged-copy-using-polybase).
+### <a name="direct-copy-using-polybase"></a>Directe kopiëren met behulp van PolyBase
+SQL Data Warehouse PolyBase ondersteuning rechtstreeks voor Azure BLOB Storage en Azure Data Lake Store (met behulp van service-principal) als bron en met vereisten voor een specifieke indeling. Als de brongegevens voldoet aan de criteria die in deze sectie beschreven, kunt u rechtstreeks vanuit de bron-gegevensopslag kopiëren naar Azure SQL Data Warehouse gebruik van PolyBase. Anders kunt u [gefaseerd kopiëren met behulp van PolyBase](#staged-copy-using-polybase).
 
 > [!TIP]
-> Om gegevens te kopiëren van Data Lake Store met SQL Data Warehouse efficiënt, meer wilt weten van [Azure Data Factory kunt u zelfs gemakkelijker en handige om inzichten bloot te van gegevens bij het gebruik van Data Lake Store met SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Meer informatie om gegevens te kopiëren van Data Lake Store met SQL Data Warehouse efficiënt, [Azure Data Factory kunt u nog gemakkelijker en handige om inzichten te verwerven in gegevens bij het gebruik van Data Lake Store met SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
-Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de instellingen en automatisch terugvalt op het BULKINSERT mechanisme voor de verplaatsing van gegevens.
+Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert of de instellingen en automatisch terugvalt op het mechanisme BULKINSERT voor de verplaatsing van gegevens.
 
-1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore met verificatie van de service-principal**.  
-2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStore**, en de indeling Typ onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat** met de volgende configuraties:
+1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore met service-principal verificatie**.  
+2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStore**, en de indeling typt u onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat** met de volgende configuraties:
 
    1. `rowDelimiter` moet **\n**.
-   2. `nullValue` is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
-   3. `encodingName` is ingesteld op **utf-8**, namelijk **standaard** waarde.
+   2. `nullValue` is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **waar**.
+   3. `encodingName` is ingesteld op **utf-8**, die is **standaard** waarde.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, en `skipLineCount` zijn niet opgegeven.
    5. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
 
@@ -221,18 +220,18 @@ Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de
     },
     ```
 
-3. Er is geen `skipHeaderLineCount` onder **BlobSource** of **AzureDataLakeStore** voor de kopieeractiviteit in de pijplijn.
-4. Er is geen `sliceIdentifierColumnName` onder **SqlDWSink** voor de kopieeractiviteit in de pijplijn. (PolyBase zorgt ervoor dat alle gegevens worden bijgewerkt of niet in een enkel uitvoering bijgewerkt wordt. Als u de **herhaalbaarheid**, kunt u `sqlWriterCleanupScript`).
+3. Er is geen `skipHeaderLineCount` bij **BlobSource** of **AzureDataLakeStore** voor de kopieeractiviteit in de pijplijn.
+4. Er is geen `sliceIdentifierColumnName` bij **SqlDWSink** voor de kopieeractiviteit in de pijplijn. (PolyBase zorgt ervoor dat alle gegevens worden bijgewerkt of niet in een enkele uitvoeren bijgewerkt wordt. Om te realiseren **herhaalbaarheid**, kunt u `sqlWriterCleanupScript`).
 5. Er is geen `columnMapping` wordt gebruikt in de bijbehorende in kopie activiteit.
 
-### <a name="staged-copy-using-polybase"></a>Gefaseerde kopiëren met PolyBase
-Als de brongegevens niet voldoet aan de criteria die zijn geïntroduceerd in de vorige sectie, kunt u kopiëren van gegevens via een tussentijdse staging Azure Blob Storage (kan niet voor Premium-opslag) inschakelen. In dit geval voert Azure Data Factory automatisch transformaties op de gegevens die moeten voldoen aan de vereisten van de indeling van PolyBase gegevens en gebruik vervolgens PolyBase om gegevens te laden in SQL Data Warehouse en op de laatste opschoning uw tijdelijke gegevens van de Blob-opslag. Zie [kopie gefaseerde](data-factory-copy-activity-performance.md#staged-copy) voor meer informatie over de werking kopiëren van gegevens via een gefaseerde installatie Azure-Blob in het algemeen.
+### <a name="staged-copy-using-polybase"></a>Gefaseerd kopiëren met behulp van PolyBase
+Als de brongegevens niet voldoet aan de criteria die zijn geïntroduceerd in de vorige sectie, kunt u kopiëren van gegevens via een tussentijdse staging Azure Blob-opslag (Premium-opslag kan niet worden) inschakelen. In dit geval voert Azure Data Factory automatisch transformaties op de gegevens om te voldoen aan de vereisten voor het opmaken van PolyBase gegevens en gebruik vervolgens PolyBase om gegevens te laden in SQL Data Warehouse en op de laatste opschoning uw tijdelijke gegevens uit de Blob-opslag. Zie [gefaseerd kopiëren](data-factory-copy-activity-performance.md#staged-copy) voor meer informatie over de werking kopiëren van gegevens via een gefaseerde installatie Azure-Blob in het algemeen.
 
 > [!NOTE]
-> Wanneer kopiëren van gegevens uit een on-premises gegevens opslaan in Azure SQL Data Warehouse met PolyBase en fasering, als uw Data Management Gateway-versie lager dan 2.4 is Java Runtime Environment (Java Runtime Environment) is vereist op uw computer met de gateway die wordt gebruikt voor het transformeren van de brongegevens in de juiste notatie. Stelt dat u een upgrade van uw gateway uit naar de meest recente uitvoeren om te voorkomen dat deze afhankelijkheid.
+> Wanneer kopiëren van gegevens vanuit een on-premises gegevens opslaan in Azure SQL Data Warehouse met PolyBase en fasering, als uw versie van Data Management Gateway lager dan 2,4 is Java Runtime Environment (Java Runtime Environment) is vereist op de gatewaycomputer die wordt gebruikt om uw brongegevens te transformeren in de juiste indeling. Stelt dat u de gateway naar de nieuwste versie om te voorkomen dat deze afhankelijkheid upgraden.
 >
 
-Deze functie wilt gebruiken, maakt u een [gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) die verwijst naar de Azure Storage-Account met de tussentijdse blobopslag, geeft u de `enableStaging` en `stagingSettings` eigenschappen voor de Kopieeractiviteit, zoals wordt weergegeven in de volgende code:
+Deze functie wilt gebruiken, maakt u een [gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) die verwijst naar de Azure Storage-Account waarvoor de tussentijdse blob-opslag, geeft u de `enableStaging` en `stagingSettings` eigenschappen voor de Kopieeractiviteit, zoals wordt weergegeven in de volgende code:
 
 ```json
 "activities":[  
@@ -258,60 +257,60 @@ Deze functie wilt gebruiken, maakt u een [gekoppelde Azure Storage-service](data
 ]
 ```
 
-## <a name="best-practices-when-using-polybase"></a>Aanbevolen procedures voor met PolyBase
-De volgende secties bevatten aanvullende aanbevolen procedures voor de waarden die worden vermeld in [aanbevolen procedures voor Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+## <a name="best-practices-when-using-polybase"></a>Aanbevolen procedures bij het gebruik van PolyBase
+De volgende secties vindt u aanvullende aanbevolen procedures voor de velden die worden vermeld in [aanbevolen procedures voor Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
-### <a name="required-database-permission"></a>Vereiste databasemachtiging
-Voor het gebruik van PolyBase, moet de gebruiker wordt gebruikt om gegevens te laden in SQL Data Warehouse heeft de [machtiging "Beheer"](https://msdn.microsoft.com/library/ms191291.aspx) op de doeldatabase. Een manier om dat te bereiken is het toevoegen van die gebruiker als lid van de rol 'db_owner'. Meer informatie over hoe dat door de volgende [in deze sectie](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+### <a name="required-database-permission"></a>Machtiging vereist database
+Voor het gebruik van PolyBase, moet de gebruiker wordt gebruikt om gegevens te laden in SQL Data Warehouse heeft de ["bevoegdheid"](https://msdn.microsoft.com/library/ms191291.aspx) voor de doeldatabase. Een manier om te realiseren dat is het toevoegen van die gebruiker als lid van ' db_owner '. Leer hoe u dit doen door het volgende [in deze sectie](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
-### <a name="row-size-and-data-type-limitation"></a>Typ de beperking rijgrootte en gegevens
-Polybase-belastingen zijn beperkt tot laden rijen beide kleiner is dan **1 MB** en kan niet worden geladen VARCHR(MAX), NVARCHAR(MAX) of VARBINARY(MAX). Raadpleeg [hier](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+### <a name="row-size-and-data-type-limitation"></a>Typ beperking rijgrootte en gegevens
+Polybase-loads zijn beperkt tot het laden van rijen beide kleiner is dan **1 MB** en kan niet worden geladen naar VARCHR(MAX), NVARCHAR(MAX) of VARBINARY(MAX). Raadpleeg [hier](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-Als u hebt de brongegevens met rijen van de omvang is groter dan 1 MB, wilt u mogelijk de brontabellen verticaal gesplitst in verschillende kleine netwerken waarbij de grootste rijgrootte van elk van de limiet niet overschrijdt. De tabellen voor kleinere kunnen vervolgens worden geladen met PolyBase en samengevoegd in Azure SQL Data Warehouse.
+Als u de brongegevens met rijen groter zijn dan 1 MB hebt, kunt u de brontabellen verticaal gesplitst in verschillende kleine netwerken waarbij de grootste rijgrootte van elk van deze de limiet niet overschrijden. De kleinere tabellen kunnen vervolgens worden geladen met PolyBase en samengevoegd in Azure SQL Data Warehouse.
 
-### <a name="sql-data-warehouse-resource-class"></a>De bronklasse SQL Data Warehouse
-Overweeg om de best mogelijke doorvoer behalen, grotere bronklasse toewijzen aan de gebruiker wordt gebruikt om gegevens te laden in SQL Data Warehouse met PolyBase. Meer informatie over hoe dat door de volgende [wijzigen van een voorbeeld van een gebruiker resource klasse](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).
+### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resourceklasse
+Als u wilt bereiken best mogelijke doorvoer, kunt u grotere resourceklasse toewijzen aan de gebruiker die wordt gebruikt om gegevens te laden in SQL Data Warehouse met PolyBase. Leer hoe u dit doen door het volgende [wijzigen van een voorbeeld van een gebruiker resource klasse](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName in Azure SQL Data Warehouse
-De volgende tabel bevat voorbeelden op het opgeven van de **tableName** eigenschap in de gegevensset JSON voor verschillende combinaties van schema en de tabelnaam.
+De volgende tabel bevat voorbeelden om op te geven over de **tableName** eigenschap in de gegevensset JSON voor de verschillende combinaties van schema en de tabelnaam.
 
-| DB Schema | Tabelnaam | JSON-eigenschap tableName |
+| DB-Schema | Tabelnaam | tableName JSON-eigenschap |
 | --- | --- | --- |
-| dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MijnTabel] |
-| dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MijnTabel] |
+| dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MyTable] |
+| dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MyTable] |
 | dbo |My.Table |[My.Table] of [dbo]. [My.Table] |
 | dbo1 |My.Table |[dbo1]. [My.Table] |
 
-Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden opgeven voor de eigenschap tableName JSON.  
+Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden voor de eigenschap tableName JSON op te geven.  
 
 ```
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
 ### <a name="columns-with-default-values"></a>Kolommen met standaardwaarden
-PolyBase-functie in de Data Factory accepteert alleen op dit moment is hetzelfde aantal kolommen in de doeltabel. Stel, u hebt een tabel met vier kolommen en een ervan is gedefinieerd met een standaardwaarde. De invoergegevens moet nog steeds vier kolommen bevatten. Een invoergegevensset 3 kolommen bieden zou resulteert in een fout die vergelijkbaar is met het volgende bericht:
+PolyBase-functie in Data Factory accepteert momenteel alleen hetzelfde aantal kolommen in de doeltabel. Stel, u hebt een tabel met vier kolommen en een van deze met de standaardwaarde is gedefinieerd. De ingevoerde gegevens moet nog steeds vier kolommen bevatten. Een invoergegevensset 3 kolommen bieden zou resulteert in een fout die vergelijkbaar is met het volgende bericht:
 
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
-NULL-waarde is een speciale vorm van de standaardwaarde. Als de kolom waarvoor null is toegestaan, kan de invoergegevens (in blob) voor de kolom leeg zijn (kan niet worden ontbreekt uit de invoer gegevensset). PolyBase voegt NULL zijn voor deze in de Azure SQL Data Warehouse.  
+NULL-waarde is een speciale vorm van de standaardwaarde. Als de kolom null-waarden is, de ingevoerde gegevens (in blob) voor die kolom kan niet leeg zijn (kan niet worden ontbreekt in de invoergegevensset). PolyBase voegt null zijn voor deze in de Azure SQL Data Warehouse.  
 
-## <a name="auto-table-creation"></a>Maken van de tabel automatisch
-Als u Wizard kopiëren gebruikt voor gegevens van SQL Server of Azure SQL Database kopiëren naar Azure SQL Data Warehouse en de tabel die overeenkomt met de brontabel niet in het doelarchief bestaat, maken Data Factory automatisch in de tabel in het datawarehouse door u het bron-tabelschema sing.
+## <a name="auto-table-creation"></a>Automatische tabel maken
+Als u Wizard kopiëren gebruikt voor gegevens van SQL Server of Azure SQL Database kopiëren naar Azure SQL Data Warehouse en de tabel die overeenkomt met de brontabel niet in het doelarchief bestaat, kan Data Factory automatisch maken in de tabel in het datawarehouse door u het bron-tabelschema sing.
 
-Data Factory maakt in de tabel in het doelarchief met dezelfde tabelnaam in het gegevensarchief van de bron. De gegevenstypen voor kolommen worden gekozen op basis van de toewijzing van het volgende type zijn. Indien nodig, voert deze typeconversies om op te lossen eventuele incompatibiliteiten tussen bron- en doelserver stores. Round Robin tabeldistributie worden ook gebruikt.
+Data Factory maakt de tabel in het doelarchief met de naam van de dezelfde tabel in de bron-gegevensopslag. De gegevenstypen voor kolommen worden gekozen op basis van de toewijzing van het volgende type zijn. Indien nodig, voert het typeconversies om op te lossen eventuele incompatibiliteiten tussen bron- en doelserver. Round Robin-distributie voor tabel worden ook gebruikt.
 
-| Type gegevensbron SQL Database-kolom | Doel-SQL DW-kolomtype (de maximale grootte) |
+| Kolomtype voor bron SQL-Database | Doel-SQL DW-kolomtype (de maximale grootte) |
 | --- | --- |
 | Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | bits | bits |
-| decimale | decimale |
-| Numeriek | decimale |
+| Decimaal | Decimaal |
+| Numeriek | Decimaal |
 | Float | Float |
-| Money | Money |
+| geld | geld |
 | Real | Real |
 | SmallMoney | SmallMoney |
 | Binair bestand | Binair bestand |
@@ -335,43 +334,43 @@ Data Factory maakt in de tabel in het doelarchief met dezelfde tabelnaam in het 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 ## <a name="type-mapping-for-azure-sql-data-warehouse"></a>Toewijzing van het type voor Azure SQL Data Warehouse
-Zoals vermeld in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel kopieerbewerking wordt automatische typeconversies van brontypen opvangen typen met de volgende stappen 2-benadering uitgevoerd:
+Zoals vermeld in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel kopieeractiviteit voert automatische conversie van de typen gegevensbronnen met sink-type met de volgende stappen 2-benadering:
 
 1. Systeemeigen brontypen converteren naar .NET-type
-2. Converteren van .NET-type naar systeemeigen sink-type
+2. .NET-type converteren naar systeemeigen sink-type
 
-Bij het verplaatsen van gegevens naar & van Azure SQL Data Warehouse, worden de volgende toewijzingen gebruikt vanuit de SQL-type aan .NET-type en vice versa.
+Bij het verplaatsen van gegevens naar en van Azure SQL Data Warehouse, worden de volgende toewijzingen gebruikt van SQL-type naar .NET-type en vice versa.
 
 De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 
 | SQL Server Database Engine-type | .NET framework-type |
 | --- | --- |
 | bigint |Int64 |
-| Binaire |Byte[] |
-| bits |Boole-waarde |
+| binaire bestanden |Byte[] |
+| bits |Booleaans |
 | CHAR |Tekenreeks, Char] |
-| datum |DateTime |
+| date |DateTime |
 | Datum en tijd |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimale |decimale |
+| decimaal |decimaal |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double |
-| installatiekopie |Byte[] |
+| Float |Double-waarde |
+| image |Byte[] |
 | int |Int32 |
-| Money |decimale |
+| money |decimaal |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
-| numerieke |decimale |
+| numerieke |decimaal |
 | nvarchar |Tekenreeks, Char] |
 | echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimale |
+| smallmoney |decimaal |
 | sql_variant |Object * |
 | tekst |Tekenreeks, Char] |
-| tijd |TimeSpan |
+| time |TimeSpan |
 | tijdstempel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |
@@ -379,13 +378,13 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | varchar |Tekenreeks, Char] |
 | xml |Xml |
 
-U kunt ook kolommen uit de bron-gegevensset naar kolommen uit sink gegevensset in de definitie van de activiteit kopiëren toewijzen. Zie voor meer informatie [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).
+Ook kunt u kolommen uit de brongegevensset op kolommen uit de sink-gegevensset in het definitie van de activiteit kopiëren toewijzen. Zie voor meer informatie, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="json-examples-for-copying-data-to-and-from-sql-data-warehouse"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van SQL Data Warehouse
-De volgende voorbeelden geven voorbeeld JSON definities die u een pijplijn maken kunt met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe om gegevens te kopiëren naar en van Azure SQL Data Warehouse en Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de PUT vermeld [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en van Azure SQL Data Warehouse en Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 ### <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Voorbeeld: Gegevens kopiëren van Azure SQL Data Warehouse naar Azure Blob
-Het voorbeeld worden de volgende Data Factory-entiteiten gedefinieerd:
+Het voorbeeld definieert de volgende Data Factory-entiteiten:
 
 1. Een gekoppelde service van het type [AzureSqlDW](#linked-service-properties).
 2. Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -393,7 +392,7 @@ Het voorbeeld worden de volgende Data Factory-entiteiten gedefinieerd:
 4. Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. Een [pijplijn](data-factory-create-pipelines.md) met de Kopieeractiviteit die gebruikmaakt van [SqlDWSource](#copy-activity-properties) en [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-De voorbeeld-tijdreeks (elk uur, dagelijks, enz.) worden gegevens gekopieerd van een tabel in Azure SQL Data Warehouse-database naar een blob elk uur. De JSON-eigenschappen die in deze voorbeelden worden beschreven in de secties na de voorbeelden.
+Het voorbeeld time series (per uur, dagelijks, enzovoort) worden gegevens gekopieerd van een tabel in Azure SQL Data Warehouse-database naar een blob elk uur. De JSON-eigenschappen die in deze voorbeelden worden beschreven in de secties na de voorbeelden.
 
 **Azure SQL Data Warehouse gekoppelde service:**
 
@@ -408,7 +407,7 @@ De voorbeeld-tijdreeks (elk uur, dagelijks, enz.) worden gegevens gekopieerd van
   }
 }
 ```
-**Azure Blob-opslag gekoppelde service:**
+**Gekoppelde Azure Blob storage-service:**
 
 ```JSON
 {
@@ -423,9 +422,9 @@ De voorbeeld-tijdreeks (elk uur, dagelijks, enz.) worden gegevens gekopieerd van
 ```
 **Azure SQL Data Warehouse invoergegevensset:**
 
-Het voorbeeld wordt ervan uitgegaan dat u hebt een tabel 'MijnTabel' gemaakt in Azure SQL Data Warehouse en bevat een kolom met de naam 'timestampcolumn' voor de reeksgegevens.
+Het voorbeeld wordt ervan uitgegaan dat u hebt een tabel 'MyTable' gemaakt in Azure SQL Data Warehouse en bevat een kolom met de naam 'timestampcolumn' voor time series-gegevens.
 
-Instelling 'extern': 'true' informeert de Data Factory-service dat de dataset extern is aan de gegevensfactory en niet wordt geproduceerd door een activiteit in de gegevensfactory.
+Instellen van "extern": "true" informeert de Data Factory-service dat de dataset bevindt zich buiten de data factory en niet door een activiteit in de data factory gemaakt wordt.
 
 ```JSON
 {
@@ -453,7 +452,7 @@ Instelling 'extern': 'true' informeert de Data Factory-service dat de dataset ex
 ```
 **Azure Blob-uitvoergegevensset:**
 
-Gegevens worden geschreven naar een nieuwe blob elk uur (frequentie: uur, interval: 1). Het pad naar de blob wordt dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Het mappad maakt gebruik van jaar, maand, dag en uur delen van de begintijd.
+Gegevens worden geschreven naar een nieuwe blob elk uur (frequentie: uur en interval: 1). Het pad naar de map voor de blob wordt dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Pad naar de map wordt gebruikt voor jaar, maand, dag en uur onderdelen van de begintijd.
 
 ```JSON
 {
@@ -513,7 +512,7 @@ Gegevens worden geschreven naar een nieuwe blob elk uur (frequentie: uur, interv
 
 **De kopieeractiviteit in een pijplijn met SqlDWSource en BlobSink:**
 
-De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor gebruik van de invoer- en uitvoergegevenssets en elk uur is gepland. In de pijplijn-JSON-definitie de **bron** type is ingesteld op **SqlDWSource** en **sink** type is ingesteld op **BlobSink**. De SQL-query die is opgegeven voor de **SqlReaderQuery** eigenschap selecteert u de gegevens in het afgelopen uur te kopiëren.
+De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor het gebruik van de invoer- en uitvoergegevenssets en is gepland voor elk uur uitgevoerd. In de pijplijn-JSON-definitie heeft de **bron** type is ingesteld op **SqlDWSource** en **sink** type is ingesteld op **BlobSink**. De SQL-query die is opgegeven voor de **SqlReaderQuery** eigenschap selecteert u de gegevens in het afgelopen uur te kopiëren.
 
 ```JSON
 {  
@@ -562,16 +561,16 @@ De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor gebruik van d
 }
 ```
 > [!NOTE]
-> In het voorbeeld **sqlReaderQuery** is opgegeven voor de SqlDWSource. De Kopieeractiviteit wordt deze query uitgevoerd op basis van de Azure SQL Data Warehouse-bron om de gegevens te verkrijgen.
+> In het voorbeeld **sqlReaderQuery** is opgegeven voor de SqlDWSource. De Kopieeractiviteit wordt deze query uitgevoerd op basis van de bron van de Azure SQL Data Warehouse de gegevens op te halen.
 >
-> U kunt ook een opgeslagen procedure opgeven door te geven de **sqlReaderStoredProcedureName** en **storedProcedureParameters** (als de opgeslagen procedure parameters nodig heeft).
+> U kunt ook een opgeslagen procedure opgeven door op te geven de **sqlReaderStoredProcedureName** en **storedProcedureParameters** (als de opgeslagen procedure parameters zijn vereist).
 >
-> Als u geen sqlReaderQuery of sqlReaderStoredProcedureName opgeeft, worden de kolommen die zijn gedefinieerd in de sectie van de structuur van de gegevensset JSON worden gebruikt voor het bouwen van een query (Selecteer column1, column2 from MijnTabel) als u wilt uitvoeren op Azure SQL Data Warehouse. Als de definitie van de gegevensset heeft niet de structuur, worden alle kolommen uit de tabel geselecteerd.
+> Als u sqlReaderQuery of sqlReaderStoredProcedureName niet opgeeft, worden de kolommen die zijn gedefinieerd in de structuur van de gegevensset JSON gebruikt voor het bouwen van een query (Selecteer Kolom1, Kolom2 van mytable) om te worden uitgevoerd op basis van de Azure SQL Data Warehouse. Als de definitie van de gegevensset niet de structuur heeft, worden alle kolommen uit de tabel geselecteerd.
 >
 >
 
 ### <a name="example-copy-data-from-azure-blob-to-azure-sql-data-warehouse"></a>Voorbeeld: Gegevens kopiëren van Azure-Blob naar Azure SQL Data Warehouse
-Het voorbeeld worden de volgende Data Factory-entiteiten gedefinieerd:
+Het voorbeeld definieert de volgende Data Factory-entiteiten:
 
 1. Een gekoppelde service van het type [AzureSqlDW](#linked-service-properties).
 2. Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -579,7 +578,7 @@ Het voorbeeld worden de volgende Data Factory-entiteiten gedefinieerd:
 4. Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureSqlDWTable](#dataset-properties).
 5. Een [pijplijn](data-factory-create-pipelines.md) met de kopieeractiviteit die gebruikmaakt van [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) en [SqlDWSink](#copy-activity-properties).
 
-De voorbeeld-kopieën timeseries gegevens (elk uur, dagelijks, etc.) van Azure-blob naar een tabel in Azure SQL Data Warehouse-database om het uur. De JSON-eigenschappen die in deze voorbeelden worden beschreven in de secties na de voorbeelden.
+De voorbeeld-kopieën time series-gegevens (elk uur, dagelijks, enzovoort) van Azure blob naar een tabel in Azure SQL Data Warehouse-database om het uur. De JSON-eigenschappen die in deze voorbeelden worden beschreven in de secties na de voorbeelden.
 
 **Azure SQL Data Warehouse gekoppelde service:**
 
@@ -594,7 +593,7 @@ De voorbeeld-kopieën timeseries gegevens (elk uur, dagelijks, etc.) van Azure-b
   }
 }
 ```
-**Azure Blob-opslag gekoppelde service:**
+**Gekoppelde Azure Blob storage-service:**
 
 ```JSON
 {
@@ -607,9 +606,9 @@ De voorbeeld-kopieën timeseries gegevens (elk uur, dagelijks, etc.) van Azure-b
   }
 }
 ```
-**Azure Blob invoergegevensset:**
+**Azure Blob-invoergegevensset:**
 
-Gegevens wordt opgehaald uit een nieuwe blob elk uur (frequentie: uur, interval: 1). Pad en naam van de map voor de blob worden dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Het mappad gebruikt jaar, maand en dag deel uit van de begintijd en de bestandsnaam wordt gebruikt voor het uur deel van de begintijd. "extern": "true" instelling informeert de Data Factory-service dat deze tabel extern is aan de gegevensfactory en niet wordt geproduceerd door een activiteit in de gegevensfactory.
+Gegevens wordt opgehaald uit een nieuwe blob elk uur (frequentie: uur en interval: 1). Pad en naam van de map voor de blob worden dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Pad naar de map gebruikt jaar, maand en dag deel uit van de begintijd en de bestandsnaam wordt gebruikt voor het uur deel van de begintijd. "extern": "true" instelling de Data Factory-service wordt geïnformeerd dat deze tabel bevindt zich buiten de data factory en niet door een activiteit in de data factory wordt geproduceerd.
 
 ```JSON
 {
@@ -675,9 +674,9 @@ Gegevens wordt opgehaald uit een nieuwe blob elk uur (frequentie: uur, interval:
   }
 }
 ```
-**Azure SQL Data Warehouse uitvoergegevensset:**
+**Azure SQL Data Warehouse-uitvoergegevensset:**
 
-Het voorbeeld worden gegevens gekopieerd naar een tabel met de naam "MijnTabel" in Azure SQL Data Warehouse. De tabel maken in Azure SQL Data Warehouse met hetzelfde aantal kolommen, zoals u verwacht dat de Blob-CSV-bestand bevatten. Nieuwe rijen worden toegevoegd aan de tabel om het uur.
+Het voorbeeld worden gegevens gekopieerd naar een tabel met de naam 'MyTable' in Azure SQL Data Warehouse. Als u verwacht de Blob-CSV-bestand dat bevat, moet u de tabel maken in Azure SQL Data Warehouse met hetzelfde aantal kolommen. Nieuwe rijen zijn toegevoegd aan de tabel om het uur.
 
 ```JSON
 {
@@ -697,7 +696,7 @@ Het voorbeeld worden gegevens gekopieerd naar een tabel met de naam "MijnTabel" 
 ```
 **De kopieeractiviteit in een pijplijn met BlobSource en SqlDWSink:**
 
-De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor gebruik van de invoer- en uitvoergegevenssets en elk uur is gepland. In de pijplijn-JSON-definitie de **bron** type is ingesteld op **BlobSource** en **sink** type is ingesteld op **SqlDWSink**.
+De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor het gebruik van de invoer- en uitvoergegevenssets en is gepland voor elk uur uitgevoerd. In de pijplijn-JSON-definitie heeft de **bron** type is ingesteld op **BlobSource** en **sink** type is ingesteld op **SqlDWSink**.
 
 ```JSON
 {  
@@ -746,7 +745,7 @@ De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor gebruik van d
    }
 }
 ```
-Voor een overzicht, Zie de [1 TB laden in Azure SQL Data Warehouse onder 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md) en [gegevens laden met Azure Data Factory](../../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) artikel in de documentatie van Azure SQL Data Warehouse.
+Voor een overzicht, Zie [1 TB laden in Azure SQL Data Warehouse minder dan 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md) en [gegevens laden met Azure Data Factory](../../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) artikel in de documentatie van Azure SQL Data Warehouse.
 
-## <a name="performance-and-tuning"></a>Prestaties en het afstemmen
-Zie [uitvoering van de activiteit & afstemmen handleiding](data-factory-copy-activity-performance.md) voor meer informatie over de belangrijkste factoren die prestaties impact van gegevensverplaatsing (Kopieeractiviteit) in Azure Data Factory en verschillende manieren om te optimaliseren.
+## <a name="performance-and-tuning"></a>Prestaties en afstemmen
+Zie [prestaties kopiëren en Afstemmingshandleiding](data-factory-copy-activity-performance.md) voor meer informatie over de belangrijkste factoren die invloed prestaties van de verplaatsing van gegevens (Kopieeractiviteit) in Azure Data Factory en de verschillende manieren om te optimaliseren.

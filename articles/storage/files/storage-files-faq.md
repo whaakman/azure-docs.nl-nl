@@ -4,15 +4,15 @@ description: Vind antwoorden op veelgestelde vragen over Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 10/04/2018
+ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972079"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001529"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -182,7 +182,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="ad-support-regions"></a>
 **Is de Preview-versie van Azure AD via SMB voor Azure Files beschikbaar in alle Azure-regio's?**
 
-    De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: Noord-Europa.
+    De Preview-versie is beschikbaar in alle openbare regio's.
 
 * <a id="ad-support-on-premises"></a>
 **Azure AD-verificatie via SMB voor Azure Files (Preview) biedt ondersteuning voor verificatie met behulp van Azure AD vanaf on-premises machines?**
@@ -262,7 +262,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 ## <a name="share-snapshots"></a>Momentopnamen van shares
 
-### <a name="share-snapshots-general"></a>Momentopnamen van bestandsshares: Algemeen
+### <a name="share-snapshots-general"></a>Momentopnamen van shares: Algemeen
 * <a id="what-are-snaphots"></a>
 **Wat zijn de momentopnamen van bestandsshares?**  
     U kunt momentopnamen van Azure-bestandsshares gebruiken om te maken van een alleen-lezen versie van uw bestandsshares. U kunt ook Azure Files gebruiken om te kopiëren van een eerdere versie van de back-inhoud naar dezelfde share, naar een alternatieve locatie in Azure of on-premises voor meer wijzigingen. Zie voor meer informatie over momentopnamen van shares, de [overzicht van de momentopname delen](storage-snapshots-files.md).

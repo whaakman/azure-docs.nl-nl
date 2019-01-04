@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f155ee7dbea697c72bbd53b933a7410faa828b6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089918"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017800"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Gegevens kopiëren van Phoenix met Azure Data Factory 
 
@@ -46,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor Phoenix gekoppelde service:
 | host | Het IP-adres of de hostnaam naam van de Phoenix-server. (dat wil zeggen, 192.168.222.160)  | Ja |
 | poort | De TCP-poort die de Phoenix-server wordt gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 8765. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de Phoenix-server. (dat wil zeggen, /gateway/sandbox/phoenix/version). Geef `/hbasephoenix0` als HDInsights cluster.  | Nee |
-| authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Phoenix-server. <br/>Toegestane waarden zijn: **anoniem**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Phoenix-server. <br/>Toegestane waarden zijn: **Anonieme**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de Phoenix-server.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: b8c7abacbf99bfbf68b7dd76a01011c8220bf9f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608457"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001274"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -105,13 +105,19 @@ Wanneer u uw database van een servicelaag op basis van DTU, met de standaard PIT
 U kunt de PITR back-up standaardbewaartermijn met behulp van de Azure-Portal, PowerShell of de REST-API wijzigen. De ondersteunde waarden zijn: 7, 14, 21, 28 of 35 dagen. De volgende voorbeelden laten zien hoe u PITR retentie wijzigen op 28 dagen.
 
 > [!NOTE]
-> Thes APIs is alleen van invloed op de bewaarperiode PITR. Als u LTR voor uw database hebt geconfigureerd, zullen niet worden beïnvloed. Zie voor meer informatie over het wijzigen van de periode van de bewaarperiode LTR [langetermijnretentie](sql-database-long-term-retention.md).
+> Deze API's is alleen van invloed op de bewaarperiode PITR. Als u LTR voor uw database hebt geconfigureerd, zullen niet worden beïnvloed. Zie voor meer informatie over het wijzigen van de periode van de bewaarperiode LTR [langetermijnretentie](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Back-up bewaarperiode PITR met behulp van de Azure-portal wijzigen
 
-Als u wilt wijzigen van de periode van PITR back-upretentie met behulp van de Azure portal, Ga naar de database waarvan de bewaarperiode liggen die u wilt wijzigen en klik vervolgens op **overzicht**.
+Gebaseerd op welke server-object u wijzigt de periode van PITR back-upretentie met behulp van de Azure-portal wijzigen, gaat u naar het object met de server waarvan u wilt wijzigen in de Portal en selecteer vervolgens de gewenste optie bewaarperiode. 
 
-![Wijziging PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### <a name="change-pitr-for-a-logical-server"></a>Het wijzigen van PITR voor een logische server
+
+![Wijziging PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>Het wijzigen van PITR voor een beheerd exemplaar
+
+![Wijziging PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Wijzigen van de back-up bewaarperiode PITR met behulp van PowerShell
 

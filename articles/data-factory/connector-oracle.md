@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275683"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016904"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,14 +55,14 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor de Oracle gekoppelde service.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Oracle**. | Ja |
-| connectionString | Hiermee geeft u de informatie die nodig zijn voor het verbinding maken met de Oracle-Database-exemplaar. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Verbindingstype ondersteund**: kunt u **Oracle-SID** of **Oracle-servicenaam** voor het identificeren van uw database:<br>-Als u beveiligings-id: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Als u de naam van de Service: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
+| connectionString | Hiermee geeft u de informatie die nodig zijn voor het verbinding maken met de Oracle-Database-exemplaar. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Verbindingstype ondersteund**: U kunt **Oracle-SID** of **Oracle-servicenaam** voor het identificeren van uw database:<br>-Als u beveiligings-id: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Als u de naam van de Service: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!TIP]
->Als u fout uitspraak bereikt "ORA 01025: UPI parameter buiten het bereik ' en de Oracle-van versie 8i, toevoegen `WireProtocolMode=1` met de verbindingstekenreeks en probeer het opnieuw.
+>Als u fout uitspraak bereikt "ORA 01025: UPI parameter buiten het bereik' en de Oracle-is van het versie-8i, toevoegen `WireProtocolMode=1` met de verbindingstekenreeks en probeer het opnieuw.
 
 **Versleuteling op Oracle-verbinding inschakelen**, hebt u twee opties:
 
@@ -133,7 +132,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Als u wilt kopiëren van gegevens van en tot Oracle, stel de eigenschap type van de gegevensset in **OracleTable**. De volgende eigenschappen worden ondersteund.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op **OracleTable**. | Ja |
 | tableName |De naam van de tabel in de Oracle-database waarnaar de gekoppelde service verwijst. | Ja |
@@ -165,7 +164,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van Oracle, stelt u het brontype in de kopieeractiviteit naar **OracleSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **OracleSource**. | Ja |
 | oracleReaderQuery | Gebruik de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `"SELECT * FROM MyTable"`. | Nee |
@@ -208,7 +207,7 @@ Als u geen 'oracleReaderQuery' opgeeft, de kolommen die zijn gedefinieerd in de 
 
 Om gegevens te kopiëren naar Oracle, stelt u het sink-type in de kopieeractiviteit naar **OracleSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **OracleSink**. | Ja |
 | WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn gehele getallen (aantal rijen). |Nee (de standaardinstelling is 10.000) |

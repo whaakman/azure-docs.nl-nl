@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343550"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021081"
 ---
 # <a name="border-connectivity"></a>Rand-connectiviteit 
 Planning van integratie van het netwerk is een belangrijk vereist item voor geslaagde implementatie van de geïntegreerde Azure Stack-systemen, bewerking en beheren. Rand connectiviteit planning begint met het wel of niet gebruik van dynamische routering met border gateway protocol (BGP) te kiezen. Dit is vereist voor het toewijzen van een 16-bits autonoom systeemnummer BGP (openbaar of privé) of met behulp van statische routering, waarbij een standaard statische route is toegewezen aan de rand-apparaten.
@@ -29,9 +29,9 @@ Planning van integratie van het netwerk is een belangrijk vereist item voor gesl
 > De top van rack (TOR) switches vereisen Layer 3-uplinks met Point-to-Point IP-adressen (/ 30 netwerken) geconfigureerd op de fysieke interfaces. Het wordt niet ondersteund voor het gebruik van laag 2 uplinks met TOR-switches ondersteunen Azure Stack-bewerkingen. 
 
 ## <a name="bgp-routing"></a>BGP-routering
-Met behulp van een dynamisch routeringsprotocol zoals BGP zorgt ervoor dat uw systeem altijd op de hoogte van wijzigingen in het netwerk is en vereenvoudigt het beheer. 
+Met behulp van een dynamisch routeringsprotocol zoals BGP zorgt ervoor dat uw systeem altijd op de hoogte van wijzigingen in het netwerk is en vereenvoudigt het beheer. Voor herkent beveiliging kan een wachtwoord worden ingesteld op de BGP-peering tussen de TOR- en de rand. 
 
-Zoals u in het volgende diagram, is adverteren van de privé IP-adres ruimte op de TOR-switch beperkt met behulp van een voorvoegsel-lijst. De lijst met voorvoegsels definieert het particuliere IP-subnetten en toe te passen als een route-kaart op de verbinding tussen de TOR- en de rand.
+Zoals u in het volgende diagram, wordt adverteren van de privé IP-adres ruimte op de TOR-switch geblokkeerd met behulp van een voorvoegsel-lijst. De lijst met voorvoegsels weigert de aankondiging van het particuliere netwerk en deze wordt toegepast als een route-kaart op de verbinding tussen de TOR- en de rand.
 
 De Software Load Balancer (SLB) die worden uitgevoerd binnen de Azure Stack-oplossing van collega's op de TOR-apparaten, zodat deze de VIP-adressen dynamisch kunt adverteren.
 

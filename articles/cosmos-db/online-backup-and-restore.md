@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 39c4a6108f4a5133e2c77904dcd67bf235801956
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0d6a370884e6648aaf131892759ee45b29ed3693
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265131"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001648"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Online back-up en gegevens op aanvraag voor herstellen in Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Met Azure Cosmos DB zijn niet alleen uw gegevens, maar ook de back-ups van uw ge
 De back-ups zijn uitgevoerd zonder gevolgen voor de prestaties of beschikbaarheid van uw toepassing. Azure Cosmos DB kunt u gegevensback-up op de achtergrond zonder eventuele extra ingerichte doorvoer (ru's) verbruikt of die betrekking hebben op de prestaties en beschikbaarheid van uw database.
 
 Azure Cosmos DB slaat automatische back-ups in Azure Blob-opslag terwijl de werkelijke gegevens lokaal aanwezig is in Azure Cosmos DB. Om te waarborgen van de lage latentie, de momentopname van de back-up wordt opgeslagen in Azure Blob-opslag in dezelfde regio als de huidige schrijfregio (of een van de schrijfregio's, hebt u een configuratie met meerdere masters) van uw Cosmos DB database-account. Voor bescherming tegen regionale na noodgevallen, wordt elke momentopname van de back-upgegevens in Azure Blob-opslag opnieuw gerepliceerd naar een andere regio via geo-redundante opslag (GRS). De regio waarnaar de back-up worden gerepliceerd is gebaseerd op de regio van de gegevensbron en de regionaal paar die zijn gekoppeld aan de bronregio. Zie voor meer informatie, de [lijst met geografisch redundante paren van Azure-regio's](../best-practices-availability-paired-regions.md) artikel. U kunt geen rechtstreeks toegang hebben tot deze back-up. Azure Cosmos DB wordt deze back-up alleen gebruiken als een back-up herstellen wordt gestart.
-De volgende afbeelding ziet u hoe een Azure Cosmos-container met de drie primaire resourcepartities in VS-West is een back-up in een externe Azure Blob Storage-account in VS-West en vervolgens gerepliceerd naar VS-Oost:
+De volgende afbeelding ziet u hoe een Azure Cosmos-container met alle drie primaire fysieke partities in VS-West is een back-up in een externe Azure Blob Storage-account in VS-West en vervolgens gerepliceerd naar VS-Oost:
 
 ![Periodieke volledige back-ups van alle Cosmos DB-entiteiten in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 

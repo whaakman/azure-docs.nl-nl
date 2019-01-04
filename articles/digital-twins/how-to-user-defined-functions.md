@@ -1,20 +1,20 @@
 ---
 title: Over het maken van de gebruiker gedefinieerde functies in Azure, digitale dubbels | Microsoft Docs
-description: Richtlijn voor het maken van de gebruiker gedefinieerde functies, vergelijkingsprogramma voor en roltoewijzingen met digitale dubbels van Azure.
+description: Het maken van de gebruiker gedefinieerde functies, vergelijkingsprogramma voor en roltoewijzingen in Azure, digitale dubbels.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 06c6d2935358650eb9f7ef1cda55d5292e203daf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993398"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019925"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Over het maken van de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -73,19 +73,13 @@ Met JSON-hoofdtekst:
 
 ## <a name="create-a-user-defined-function"></a>Een door de gebruiker gedefinieerde functie maken
 
-Nadat de vergelijkingsprogramma voor zijn gemaakt, upload het codefragment functie met de volgende HTTP geverifieerde **POST** aanvraag:
+Nadat de vergelijkingsprogramma voor zijn gemaakt, uploadt u het fragment functie met de volgende geverifieerde meerdelige HTTP POST-aanvraag:
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
-
-> [!IMPORTANT]
-> - Controleer of dat de headers omvatten: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - De opgegeven hoofdtekst wordt gedeeltelijk:
->   - Het eerste deel bevat de vereiste UDF-metagegevens.
->   - Het tweede gedeelte bevat de logica van de compute JavaScript.
-> - In de **USER_DEFINED_BOUNDARY** sectie, vervangt de **spaceId** (`YOUR_SPACE_IDENTIFIER`) en **vergelijkingsprogramma voor**(`YOUR_MATCHER_IDENTIFIER`) waarden.
-> - Houd er rekening mee de JavaScript-UDF als opgegeven `Content-Type: text/javascript`.
 
 Gebruik de volgende JSON-hoofdtekst:
 
@@ -116,6 +110,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | De naam van een meerdelige inhoud grens |
 | YOUR_SPACE_IDENTIFIER | De ruimte-id  |
 | YOUR_MATCHER_IDENTIFIER | De ID van de matcher die u wilt gebruiken |
+
+1. Controleer of dat de headers omvatten: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Controleer of de hoofdtekst is multipart:
+
+   - Het eerste deel bevat de metagegevens van de vereiste door de gebruiker gedefinieerde functie.
+   - Het tweede gedeelte bevat de logica van de compute JavaScript.
+
+1. In de **USER_DEFINED_BOUNDARY** sectie, vervangt de **spaceId** (`YOUR_SPACE_IDENTIFIER`) en **vergelijkingsprogramma voor** (`YOUR_MATCHER_IDENTIFIER`) waarden.
+1. Controleer of dat de gebruiker gedefinieerde JavaScript-functie wordt opgegeven als `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Voorbeeld van de functies
 
@@ -192,14 +195,14 @@ Zie voor een meer complexe voorbeeldcode van de gebruiker gedefinieerde functie 
 
 Een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voeren onder maken. Als er geen roltoewijzing voor de gebruiker gedefinieerde functie bestaat, geen deze de juiste machtigingen om te communiceren met de API voor beheer of toegang hebben tot acties uitvoeren op de graph-objecten. Acties die door een gebruiker gedefinieerde functie kan worden uitgevoerd zijn opgegeven en wordt gedefinieerd via op rollen gebaseerd toegangsbeheer in de Azure digitale dubbels Management API's. De gebruiker gedefinieerde functies kunnen bijvoorbeeld binnen het bereik worden beperkt door bepaalde functies of bepaalde access control-paden op te geven. Zie voor meer informatie de [rollen gebaseerd toegangsbeheer](./security-role-based-access-control.md) documentatie.
 
-1. [Query uitvoeren op het systeem-API](./security-create-manage-role-assignments.md#all) voor alle rollen om op te halen van de rol-ID die u wilt toewijzen aan uw UDF. Doen door te maken van een geverifieerde HTTP GET-aanvraag naar:
+1. [Query uitvoeren op het systeem-API](./security-create-manage-role-assignments.md#all) voor alle rollen om op te halen van de rol-ID die u wilt toewijzen aan de gebruiker gedefinieerde functie. Doen door te maken van een geverifieerde HTTP GET-aanvraag naar:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Houd de gewenste rol-ID. Deze wordt doorgegeven als het JSON-hoofdtekst kenmerk **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) hieronder.
 
-1. **object-id** (`YOUR_USER_DEFINED_FUNCTION_ID`) de UDF-id die eerder is gemaakt.
+1. **object-id** (`YOUR_USER_DEFINED_FUNCTION_ID`) de gebruiker gedefinieerde functie-id die eerder is gemaakt.
 1. Zoek de waarde van **pad** (`YOUR_ACCESS_CONTROL_PATH`) door het opvragen van uw opslagruimten met `fullpath`.
 1. Kopieer de geretourneerde `spacePaths` waarde. U gebruikt die hieronder. Een geverifieerde HTTP GET-aanvraag te maken:
 
@@ -211,7 +214,7 @@ Een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voeren onder
     | --- | --- |
     | YOUR_SPACE_NAME | De naam van de ruimte die u wilt gebruiken |
 
-1. Plak de geretourneerde `spacePaths` waarde in **pad** een roltoewijzing UDF maken met het maken van een geverifieerde HTTP POST-aanvraag naar:
+1. Plak de geretourneerde `spacePaths` waarde in **pad** een roltoewijzing voor de gebruiker gedefinieerde functie maken met het maken van een geverifieerde HTTP POST-aanvraag naar:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +233,12 @@ Een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voeren onder
     | Waarde | Vervangen door |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | De id voor de gewenste rol |
-    | YOUR_USER_DEFINED_FUNCTION_ID | De ID voor de UDF die u wilt gebruiken |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | De ID op te geven de UDF-type |
+    | YOUR_USER_DEFINED_FUNCTION_ID | De ID voor de gebruiker gedefinieerde functie die u wilt gebruiken |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | De ID op te geven welk van de gebruiker gedefinieerde functie |
     | YOUR_ACCESS_CONTROL_PATH | De access control-pad |
 
 >[!TIP]
-> Lees het artikel [maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md) voor meer informatie over de UDF met betrekking tot beheer van API-bewerkingen en eindpunten.
+> Lees het artikel [maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md) voor meer informatie over de gebruiker gedefinieerde functie Management API-bewerkingen en eindpunten.
 
 ## <a name="send-telemetry-to-be-processed"></a>Verzenden van telemetrie moeten worden verwerkt
 

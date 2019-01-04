@@ -1,6 +1,6 @@
 ---
-title: Transformeer gegevens met Hadoop-Streamingactiviteit - Azure | Microsoft Docs
-description: Meer informatie over hoe u de Hadoop-Streamingactiviteit kunt gebruiken in een Azure data factory om gegevens te transformeren met Hadoop-Streaming programma's uitvoeren op een op-verzoek/uw eigen HDInsight-cluster.
+title: Gegevens transformeren met behulp van Hadoop-Streamingactiviteit - Azure | Microsoft Docs
+description: Lees hoe u de Hadoop-Streamingactiviteit in een Azure data factory kunt gebruiken om gegevens te transformeren door het uitvoeren van Hadoop-Streaming-programma's op een on-demand/uw eigen HDInsight-cluster.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,19 +9,18 @@ ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3d5832f63a3ebe7583d18fcd863c8cc60b9b045d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048761"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025170"
 ---
-# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformeer gegevens met Hadoop-Streamingactiviteit in Azure Data Factory
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop-Streamingactiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive-activiteit](data-factory-hive-activity.md) 
 > * [Pig-activiteit](data-factory-pig-activity.md)
@@ -32,21 +31,21 @@ ms.locfileid: "37048761"
 > * [Machine Learning-activiteit resources bijwerken](data-factory-azure-ml-update-resource-activity.md)
 > * [Opgeslagen procedureactiviteit](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
-> * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
+> * [Aangepaste .NET-activiteit](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [transformeer gegevens met Hadoop-streaming van activiteit in de Data Factory](../transform-data-using-hadoop-streaming.md).
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [gegevens transformeren met behulp van Hadoop-streaming-activiteit in Data Factory](../transform-data-using-hadoop-streaming.md).
 
 
-U kunt de activiteit HDInsightStreamingActivity aanroepen van een Hadoop-Streaming-taak van een Azure Data Factory-pijplijn. De volgende JSON-fragment toont de syntaxis voor het gebruik van de HDInsightStreamingActivity in een pijplijn-JSON-bestand. 
+U kunt de activiteit HDInsightStreamingActivity aanroepen van een Hadoop-Streaming-taak van een Azure Data Factory-pijplijn. De volgende JSON-fragment ziet u de syntaxis voor het gebruik van de HDInsightStreamingActivity in een pijplijn-JSON-bestand. 
 
-De HDInsight Streaming-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) Hadoop-Streaming programma's worden uitgevoerd op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
+De HDInsight Streaming-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) uitvoeren van Hadoop-Streaming-programma's op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux gebaseerd HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft.
 
 > [!NOTE] 
-> Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Factory](data-factory-introduction.md) en voer de zelfstudie: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest. 
+> Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Factory](data-factory-introduction.md) en de zelfstudie: [Uw eerste pijplijn bouwen](data-factory-build-your-first-pipeline.md) voordat het lezen van dit artikel. 
 
 ## <a name="json-sample"></a>JSON-voorbeeld
-Het HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Naam van de container die wordt gebruikt door het HDInsight-cluster is standaard de naam van het cluster zelf. Als de clusternaam van uw myhdicluster is, zou de naam van de blob-container die is gekoppeld myhdicluster zijn. 
+Het HDInsight-cluster wordt automatisch gevuld met voorbeeld van de programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Naam van de container die wordt gebruikt door het HDInsight-cluster is standaard de naam van het cluster zelf. Bijvoorbeeld als de clusternaam van uw myhdicluster is, is de naam van de blob-container die zijn gekoppeld myhdicluster. 
 
 ```JSON
 {
@@ -96,28 +95,28 @@ Het HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.
 
 Houd rekening met de volgende punten:
 
-1. Stel de **linkedServiceName** naar de naam van de gekoppelde service die naar uw HDInsight verwijst-cluster op het streaming mapreduce-taak wordt uitgevoerd.
-2. Het type van de activiteit instellen **HDInsightStreaming**.
-3. Voor de **mapper** eigenschap, geef de naam van de uitvoerbare toewijzen. In het voorbeeld is cat.exe de uitvoerbare toewijzen.
-4. Voor de **reducer** eigenschap, de naam van de uitvoerbare reducer opgeven. In het voorbeeld is wc.exe de uitvoerbare reducer.
-5. Voor de **invoer** eigenschap type, geeft u het invoerbestand (inclusief de locatie) voor de toewijzing. In het voorbeeld: ' wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt ': adfsample is de blob-container, gegevens-voorbeeld/Gutenberg is de map en davinci.txt is de blob.
-6. Voor de **uitvoer** eigenschap type, het uitvoerbestand (inclusief de locatie) voor de reducer opgeven. De uitvoer van de Hadoop-Streaming-taak wordt geschreven naar de locatie die is opgegeven voor deze eigenschap.
-7. In de **filePaths** sectie, geeft u de paden voor de toewijzing en reducer uitvoerbare bestanden. In het voorbeeld: 'adfsample/example/apps/wc.exe' adfsample is de blob-container, bijvoorbeeld/apps is de map en wc.exe is het uitvoerbare bestand.
-8. Voor de **fileLinkedService** -eigenschap geeft u de gekoppelde Azure Storage-service die de Azure-opslag met de bestanden die zijn opgegeven in de sectie filePaths vertegenwoordigt.
+1. Stel de **linkedServiceName** op de naam van de gekoppelde service die naar uw HDInsight verwijst-cluster op waarop de streaming mapreduce-taak wordt uitgevoerd.
+2. Instellen van het type van de activiteit in op **HDInsightStreaming**.
+3. Voor de **mapper** eigenschap, geef de naam van uitvoerbaar bestand toewijzen. In het voorbeeld is cat.exe het toewijzen van de uitvoerbare.
+4. Voor de **reducer** eigenschap, de naam van uitvoerbaar reducer opgeven. In het voorbeeld is wc.exe de uitvoerbare reducer.
+5. Voor de **invoer** type-eigenschap, geeft u het invoerbestand (met inbegrip van de locatie) voor het toewijzen van de. In het voorbeeld: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is de blob-container, gegevens-voorbeeld/Gutenberg is de map en davinci.txt wordt de blob.
+6. Voor de **uitvoer** type-eigenschap, geeft u het uitvoerbestand (met inbegrip van de locatie) voor de reducer. De uitvoer van de Hadoop-Streaming-taak is geschreven naar de locatie die is opgegeven voor deze eigenschap.
+7. In de **filePaths** sectie, geeft u de paden voor de toewijzing en reducer uitvoerbare bestanden. In het voorbeeld: "adfsample/example/apps/wc.exe" adfsample wordt de blob-container, voorbeeld-apps is de map en wc.exe is het uitvoerbare bestand.
+8. Voor de **fileLinkedService** eigenschap opgeven van de gekoppelde Azure Storage-service die de Azure-opslag met de bestanden die zijn opgegeven in de sectie filePaths vertegenwoordigt.
 9. Voor de **argumenten** eigenschap, geef de argumenten voor de streaming-taak.
-10. De **getDebugInfo** eigenschap is een optioneel element. Wanneer deze is ingesteld op mislukt, worden de logboeken gedownload alleen bij fouten. Wanneer deze is ingesteld op Always, worden altijd logboeken ongeacht de uitvoeringsstatus gedownload.
+10. De **getDebugInfo** eigenschap is een optioneel element. Wanneer deze is ingesteld op mislukt, worden de logboeken alleen bij fout gedownload. Wanneer deze is ingesteld op altijd, worden de logboeken altijd, ongeacht de uitvoeringsstatus gedownload.
 
 > [!NOTE]
-> In het voorbeeld ziet u een uitvoergegevensset opgeven voor het Hadoop-Streamingactiviteit voor de **levert** eigenschap. Deze gegevensset is slechts een dummy gegevensset die is vereist voor het station van de planning van de pijplijn. U hoeft niet te geven van een invoergegevensset voor de activiteit voor het **invoer** eigenschap.  
+> Zoals u in het voorbeeld, u een uitvoergegevensset opgeven voor de Hadoop-Streamingactiviteit voor de **levert** eigenschap. Deze gegevensset is alleen een dummy gegevensset die is vereist om de planning van de pijplijn te stimuleren. U hoeft niet om op te geven van een invoergegevensset van de activiteit voor de **invoer** eigenschap.  
 > 
 > 
 
 ## <a name="example"></a>Voorbeeld
-De pijplijn in dit scenario voert het programma voor streaming kaart/verminderen van aantal woorden in uw Azure HDInsight-cluster. 
+De pijplijn in dit scenario voert het aantal woorden-programma voor streaming toewijzen/verminderen in uw Azure HDInsight-cluster. 
 
 ### <a name="linked-services"></a>Gekoppelde services
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
-U maakt eerst een gekoppelde service voor het koppelen van de Azure-opslag die wordt gebruikt door de Azure HDInsight-cluster aan het Azure data factory. Vergeet niet te vervangen door de naam en sleutel van uw Azure Storage accountnaam en accountsleutel als kopiëren en plakken van de volgende code. 
+U maakt eerst een gekoppelde service om te koppelen van de Azure-opslag die wordt gebruikt door de Azure HDInsight-cluster aan de Azure data factory. Vergeet niet accountnaam en accountsleutel vervangen door de naam en sleutel van uw Azure Storage als kopiëren/plakken van de volgende code. 
 
 ```JSON
 {
@@ -131,8 +130,8 @@ U maakt eerst een gekoppelde service voor het koppelen van de Azure-opslag die w
 }
 ```
 
-#### <a name="azure-hdinsight-linked-service"></a>Azure gekoppelde HDInsight-service
-Maak vervolgens een gekoppelde service voor uw Azure HDInsight-cluster koppelen aan de Azure-gegevensfactory. Als kopiëren en plakken van de volgende code vervangen door de naam van de HDInsight-cluster met de naam van uw HDInsight-cluster en waarden van gebruikersnaam en wachtwoord wijzigen. 
+#### <a name="azure-hdinsight-linked-service"></a>Azure HDInsight gekoppelde service
+Vervolgens, maakt u een gekoppelde service om te koppelen van uw Azure HDInsight-cluster aan de Azure data factory. Als kopiëren/plakken van de volgende code vervangen door de naam van de HDInsight-cluster met de naam van uw HDInsight-cluster en waarden van gebruikersnaam en wachtwoord te wijzigen. 
 
 ```JSON
 {
@@ -151,7 +150,7 @@ Maak vervolgens een gekoppelde service voor uw Azure HDInsight-cluster koppelen 
 
 ### <a name="datasets"></a>Gegevenssets
 #### <a name="output-dataset"></a>Uitvoergegevensset
-De pijplijn in dit voorbeeld vindt niet alle invoer. U kunt een uitvoergegevensset opgeven voor de activiteit voor het streamen van HDInsight. Deze gegevensset is slechts een dummy gegevensset die is vereist voor het station van de planning van de pijplijn. 
+De pijplijn in dit voorbeeld neemt geen invoeren. U opgeven een uitvoergegevensset voor de HDInsight Streaming-activiteit. Deze gegevensset is alleen een dummy gegevensset die is vereist om de planning van de pijplijn te stimuleren. 
 
 ```JSON
 {
@@ -178,7 +177,7 @@ De pijplijn in dit voorbeeld vindt niet alle invoer. U kunt een uitvoergegevenss
 ### <a name="pipeline"></a>Pijplijn
 De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type: **HDInsightStreaming**. 
 
-Het HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Naam van de container die wordt gebruikt door het HDInsight-cluster is standaard de naam van het cluster zelf. Als de clusternaam van uw myhdicluster is, zou de naam van de blob-container die is gekoppeld myhdicluster zijn.  
+Het HDInsight-cluster wordt automatisch gevuld met voorbeeld van de programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Naam van de container die wordt gebruikt door het HDInsight-cluster is standaard de naam van het cluster zelf. Bijvoorbeeld als de clusternaam van uw myhdicluster is, is de naam van de blob-container die zijn gekoppeld myhdicluster.  
 
 ```JSON
 {

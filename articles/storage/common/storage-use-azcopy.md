@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 01/03/2019
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c0672ddb3e6791fae3b9b8c04e9ff98827c9e22f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256728"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019297"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevens overdragen met het AzCopy voor Windows
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure Blob-, bestands- en Table-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
@@ -448,9 +448,9 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytab
 
 De optie `/EntityOperation` geeft aan hoe u entiteiten in de tabel invoegen. Mogelijke waarden zijn:
 
-* `InsertOrSkip`: Hiermee slaat een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet in de tabel bestaat.
-* `InsertOrMerge`: Hiermee voegt een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet in de tabel bestaat.
-* `InsertOrReplace`: Vervangt een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet in de tabel bestaat.
+* `InsertOrSkip`: Slaat een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet in de tabel bestaat.
+* `InsertOrMerge`: Voegt een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet in de tabel bestaat.
+* `InsertOrReplace`: Vervangen door een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet in de tabel bestaat.
 
 Houd er rekening mee dat kunt u de optie opgeven `/PKRS` in het scenario voor importeren. In tegenstelling tot de export-scenario, waarin u de optie moet opgeven `/PKRS` voor het starten van gelijktijdige bewerkingen, AzCopy gelijktijdige bewerkingen wordt standaard gestart bij het importeren van een tabel. Het aantal gelijktijdige bewerkingen gestart is gelijk aan het aantal coreprocessors; u kunt echter een ander aantal gelijktijdige met optie opgeven `/NC`. Typ voor meer informatie, `AzCopy /?:NC` op de opdrachtregel.
 
@@ -458,7 +458,7 @@ Houd er rekening mee dat AzCopy biedt alleen ondersteuning voor JSON, niet-CSV i
 
 ### <a name="import-entities-into-a-table-from-blob-storage"></a>Entiteiten importeren in een tabel van Blob-opslag
 
-Wordt ervan uitgegaan dat een Blob-container bevat het volgende: een JSON-bestand dat een Azure-tabel en het bijbehorende manifest-bestand.
+Wordt ervan uitgegaan dat een Blob-container bevat het volgende: Een JSON-bestand voor een Azure-tabel en het bijbehorende manifest-bestand.
 
     myaccount_mytable_20140103T112020.manifest
     myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
@@ -642,13 +642,13 @@ Parameters voor AzCopy worden hieronder beschreven. U kunt ook een van de volgen
 
 Hiermee geeft u de brongegevens waaruit u wilt kopiëren. De bron kan zijn voor de systeemmap van een bestand, een blob-container, een virtuele map van de blob, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="destdestination"></a>/ Dest: 'doel'
 
 Hiermee geeft u de bestemming om naar te kopiëren. Het doel mag een bestandssysteemmap, een blob-container, een virtuele map van de blob, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="patternfile-pattern"></a>/ Patroon: "bestandspatroon"
 
@@ -664,13 +664,13 @@ AzCopy maakt gebruik van hoofdlettergevoelige overeenkomende wanneer de/Source e
 
 Het patroon van de standaard-bestand gebruikt wanneer er geen bestandspatroon is opgegeven is *.* voor een locatie in het bestandssysteem of een lege voorvoegsel voor een Azure-opslaglocatie. Opgeven van meerdere-bestandpatronen wordt niet ondersteund.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="destkeystorage-key"></a>/ DestKey: 'storage-key'
 
 Hiermee geeft u de opslagaccountsleutel voor de doelresource.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
@@ -680,13 +680,13 @@ Als de doelresource een blob-container, een bestandsshare of een tabel is, kunt 
 
 Als de bron- als beide blobs, klikt u vervolgens de bestemmings-blob moet zich bevinden in hetzelfde opslagaccount als de bron-blob.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="sourcekeystorage-key"></a>/ SourceKey: 'storage-key'
 
 Hiermee geeft u de opslagaccountsleutel voor de bron-resource.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 
@@ -696,13 +696,13 @@ Als de bron-resource een blob-container is en een sleutel noch een SAS is opgege
 
 Als de bron een bestandsshare is of een sleutel of een SAS tabel moet worden opgegeven.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="s"></a>/S
 
 Hiermee geeft u een recursieve modus voor kopieerbewerkingen. In de modus voor recursieve kopieert AzCopy alle blobs of bestanden die overeenkomen met het opgegeven bestandspatroon, inclusief verbindingen in submappen.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="blobtypeblock--page--append"></a>/ BlobType: 'block' | "page" | "toevoegen"
 
@@ -712,13 +712,13 @@ Hiermee geeft u op of de bestemmings-blob een blok-blob, een pagina-blob of een 
 
 ### <a name="checkmd5"></a>/ CheckMD5
 
-Een MD5-hash voor gedownloade gegevens berekend en controleert of de MD5-hash die zijn opgeslagen in de blob of inhoud-MD5-eigenschap van het bestand komt overeen met de berekende hash. De MD5-controle is standaard uitgeschakeld, zodat u deze optie om uit te voeren van de MD5-controle bij het downloaden van gegevens moet opgeven.
+Een MD5-hash voor gedownloade gegevens berekend en controleert of de MD5-hash die zijn opgeslagen in de blob of inhoud-MD5-eigenschap van het bestand komt overeen met de berekende hash. Als de waarden niet overeenkomen, mislukt AzCopy om de gegevens te downloaden. De MD5-controle is standaard uitgeschakeld, zodat u deze optie om uit te voeren van de MD5-controle bij het downloaden van gegevens moet opgeven.
 
-Houd er rekening mee dat Azure Storage biedt geen garantie dat de MD5-hash die zijn opgeslagen voor de blob of het bestand bijgewerkt is. Het is de verantwoordelijkheid van de client om bij te werken van de MD5 als de blob of het bestand wordt gewijzigd.
+Houd er rekening mee dat Azure Storage biedt geen garantie dat de MD5-hash die zijn opgeslagen voor de blob of het bestand bijgewerkt is. Het is de verantwoordelijkheid van de client om bij te werken van de MD5 als de blob of het bestand wordt gewijzigd. In het geval van schijfkopieën (beheerd of niet-beheerde schijven), Azure-VM's, de MD5-waarde als de wijziging van de inhoud van de schijf niet bijwerken, daarom /CheckMD5 genereert een fout opgetreden bij het downloaden van installatiekopieën van schijven.
 
-De inhoud-MD5-eigenschap voor een Azure blob of file AzCopy altijd ingesteld na het uploaden naar de service.  
+AzCopy v8 stelt altijd de inhoud-MD5-eigenschap voor een Azure blob of een bestand nadat het uploaden naar de service.  
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="snapshot"></a>/ Momentopname
 
@@ -736,7 +736,7 @@ Uitvoer uitgebreide statusberichten in een logboekbestand.
 
 Het logboekbestand heet standaard AzCopyVerbose.log in `%LocalAppData%\Microsoft\Azure\AzCopy`. Als u de locatie van een bestaande voor deze optie opgeeft, wordt het uitgebreide logboek naar dat bestand toegevoegd.  
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="zjournal-file-folder"></a>/ Z: [logboek-bestanden en mappen]
 
@@ -754,7 +754,7 @@ Het logboekbestand wordt verwijderd na voltooiing van de bewerking.
 
 Houd er rekening mee dat een bewerking van een logboekbestand gemaakt met een eerdere versie van AzCopy hervatten niet wordt ondersteund.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="parameter-file"></a>/@:"parameter-File"
 
@@ -766,13 +766,13 @@ Antwoord-bestanden kunnen opmerkingen regels die met het symbool beginnen # beva
 
 U kunt meerdere antwoord-bestanden opgeven. Houd er echter rekening mee AzCopy biedt geen ondersteuning voor geneste antwoord bestanden.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="y"></a>/Y
 
 Vragen om bevestiging van alle AzCopy onderdrukt. Deze optie kan ook het gebruik van alleen-schrijven SAS-tokens voor scenario's uploaden van gegevens, wanneer /XO en /XN zijn niet opgegeven.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="l"></a>/L
 
@@ -784,30 +784,30 @@ Het gedrag van deze optie wordt ook bepaald door de locatie van de brongegevens 
 
 AzCopy is lijst en lezen toestemming van de locatie van deze vereist wanneer u deze optie.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="mt"></a>/MT
 
 Hiermee stelt u het gedownloade bestand laatst gewijzigd tijd moet dezelfde zijn als de bron-blob of van het bestand.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="xn"></a>/XN
 
 Sluit een nieuwere bron-resource. De resource is niet gekopieerd als de laatst gewijzigd van de bron hetzelfde is of nieuwer zijn dan de bestemming.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="xo"></a>/XO
 Niet van toepassing op een oudere bron-resource. De resource is niet gekopieerd als de laatst gewijzigd van de bron hetzelfde is of ouder zijn dan de bestemming.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="a"></a>/A
 
 Alleen bestanden die het kenmerk Archief hebt geüpload.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
 
@@ -826,7 +826,7 @@ Beschikbare kenmerken zijn onder andere:
 * O = offlinebestanden
 * Ik = niet-geïndexeerde bestanden
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
 
@@ -845,7 +845,7 @@ Beschikbare kenmerken zijn onder andere:
 * O = offlinebestanden
 * Ik = niet-geïndexeerde bestanden
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="delimiterdelimiter"></a>/ Scheidingsteken: "scheidingsteken"
 
@@ -865,19 +865,19 @@ AzCopy standaard wordt gestart voor een bepaald aantal gelijktijdige bewerkingen
 
 De bovenste limiet voor gelijktijdige bewerkingen is 512.
 
-**Van toepassing op:** Blobs, bestanden, tabellen
+**Van toepassing op:** BLOBs, bestanden, tabellen
 
 ### <a name="sourcetypeblob--table"></a>/ SourceType: 'Blob' | 'Tabel'
 
 Hiermee wordt aangegeven dat de `source` resource is een blob die beschikbaar zijn in de lokale ontwikkelomgeving, die worden uitgevoerd in de opslagemulator.
 
-**Van toepassing op:** Blobs, tabellen
+**Van toepassing op:** BLOBs, tabellen
 
 ### <a name="desttypeblob--table"></a>/ DestType: 'Blob' | 'Tabel'
 
 Hiermee wordt aangegeven dat de `destination` resource is een blob die beschikbaar zijn in de lokale ontwikkelomgeving, die worden uitgevoerd in de opslagemulator.
 
-**Van toepassing op:** Blobs, tabellen
+**Van toepassing op:** BLOBs, tabellen
 
 ### <a name="pkrskey1key2key3"></a>/ PKRS: ' key1 #key2 key3 #... '
 
@@ -893,7 +893,7 @@ Elke bewerking exporteert een van drie partitie sleutelbereiken, zoals hieronder
 
   [bb, laatste partitiesleutel]
 
-**Van toepassing op:** tabellen
+**Van toepassing op:** Tabellen
 
 ### <a name="splitsizefile-size"></a>/ SplitSize: "bestandsgrootte"
 
@@ -903,7 +903,7 @@ Als deze optie niet opgegeven is, exporteert AzCopy tabelgegevens naar één bes
 
 Als de gegevens van de tabel wordt geëxporteerd naar een blob en de grootte van het geëxporteerde bestand met de limiet van 200 GB voor de blobgrootte bereikt, klikt u vervolgens splitst AzCopy het geëxporteerde bestand, zelfs als deze optie is niet opgegeven.
 
-**Van toepassing op:** tabellen
+**Van toepassing op:** Tabellen
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: "InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
@@ -913,7 +913,7 @@ Hiermee geeft u de tabelgedrag voor het importeren van gegevens.
 * InsertOrMerge - samenvoegingen van een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet bestaat in de tabel.
 * InsertOrReplace - wordt vervangen door een bestaande entiteit of een nieuwe entiteit ingevoegd als deze niet bestaat in de tabel.
 
-**Van toepassing op:** tabellen
+**Van toepassing op:** Tabellen
 
 ### <a name="manifestmanifest-file"></a>/ Manifest: 'manifest-bestand'
 
@@ -923,7 +923,7 @@ Deze optie is optioneel tijdens de exportbewerking, AzCopy genereert een manifes
 
 Deze optie is vereist tijdens de importbewerking voor het opsporen van de gegevensbestanden.
 
-**Van toepassing op:** tabellen
+**Van toepassing op:** Tabellen
 
 ### <a name="synccopy"></a>/ SyncCopy
 
@@ -933,7 +933,7 @@ AzCopy standaard maakt gebruik van server-side asynchrone kopiëren. Geef deze o
 
 U kunt deze optie gebruiken bij het kopiëren van bestanden in Blob-opslag in File storage, of van Blob-opslag met File storage of vice versa.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="setcontenttypecontent-type"></a>/ SetContentType: 'inhoudstype'
 
@@ -943,7 +943,7 @@ AzCopy wordt het type inhoud voor een blob of file ingesteld op application/octe
 
 Als u deze optie geen waarde opgeeft, stelt AzCopy elke blob of inhoudstype op basis van het de bestandsextensie van het bestand.
 
-**Van toepassing op:** Blobs, bestanden
+**Van toepassing op:** BLOBs, bestanden
 
 ### <a name="payloadformatjson--csv"></a>/ PayloadFormat: 'JSON' | "CSV"
 
@@ -951,7 +951,7 @@ Hiermee geeft u de indeling van het geëxporteerde tabelbestand.
 
 Als deze optie niet opgegeven is, wordt standaard AzCopy exporteert gegevensbestand van de tabel in JSON-indeling.
 
-**Van toepassing op:** tabellen
+**Van toepassing op:** Tabellen
 
 ## <a name="known-issues-and-best-practices"></a>Bekende problemen en aanbevolen procedures
 
@@ -981,7 +981,7 @@ Voor de eigenschap 'AzureStorageUseV1MD5':
 * Waar - de standaardwaarde, AzCopy .NET MD5-implementatie gebruikt.
 * ONWAAR – FIPS-compatibele MD5-algoritme maakt gebruik van AzCopy.
 
-Compatibele FIPS-algoritmen zijn standaard uitgeschakeld in Windows. U kunt deze instelling wijzigen op uw computer. Typ in het venster uitvoeren (Windows + R) secpol.msc openen de **lokaal beveiligingsbeleid** venster. In de **beveiligingsinstellingen** venster, Ga naar **beveiligingsinstellingen** > **lokaal beleid** > **beveiligingsopties**. Zoek de **Systeemcryptografie: gebruik compatibele FIPS-algoritmen voor versleuteling, hashing en ondertekening** beleid. Dubbelklik op het beleid om te zien van de waarde die wordt weergegeven de **beveiligingsinstelling** kolom.
+Compatibele FIPS-algoritmen zijn standaard uitgeschakeld in Windows. U kunt deze instelling wijzigen op uw computer. Typ in het venster uitvoeren (Windows + R) secpol.msc openen de **lokaal beveiligingsbeleid** venster. In de **beveiligingsinstellingen** venster, Ga naar **beveiligingsinstellingen** > **lokaal beleid** > **beveiligingsopties**. Zoek de **Systeemcryptografie: FIPS-compatibele algoritmes gebruiken voor versleuteling, hashing en ondertekening** beleid. Dubbelklik op het beleid om te zien van de waarde die wordt weergegeven de **beveiligingsinstelling** kolom.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -997,10 +997,10 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:
 * [Maak kennis met de verplaatsing van Azure Storage-bibliotheek Gegevensvoorbeeld](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Maak kennis met synchrone kopiëren en aangepaste inhoudstype](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Geoptimaliseerd voor scenario's voor grootschalige kopiëren](https://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Ondersteuning voor geografisch redundante opslag met leestoegang](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Gegevens overdragen met modus voor opnieuw starten en SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Kopiëren van de Blob cross-account met behulp](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploaden/downloaden van bestanden voor Azure-Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Gegevens overdragen met de modus voor opnieuw starten en SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Met behulp van cross-account kopiëren van de Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Bestanden uploaden/downloaden voor Azure-Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: 03344cf989e1381f97b108e82b8d63e9c4653404
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: fd635682d1b5dc7c3ab784208ac485872d5c7099
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809796"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998996"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory-verificatie inschakelen via SMB voor Azure Files (preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -61,9 +61,6 @@ Voordat u Azure AD via SMB voor Azure Files inschakelt, zorg er dan voor dat u h
 4.  **Selecteer of maak een Azure-bestandsshare.**
 
     Selecteer een nieuwe of bestaande bestandsshare die is gekoppeld aan hetzelfde abonnement als uw Azure AD-tenant. Zie voor meer informatie over het maken van een nieuwe bestandsshare [een bestandsshare maken in Azure Files](storage-how-to-create-file-share.md). 
-
-    De Azure AD-tenant moet worden geïmplementeerd in een regio die wordt ondersteund voor de Preview-versie van Azure AD via SMB. De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: VS-West, VS-West 2, VS Zuid-centraal, VS-Oost, VS-Oost 2, VS-midden, VS Noord-centraal, Australië-Oost, West-Europa, Noord-Europa.
-
     Voor optimale prestaties wordt aangeraden dat de bestandsshare zich in dezelfde regio als de virtuele machine van waaruit u plant voor toegang tot de share.
 
 5.  **Azure Files-connectiviteit controleren door het koppelen van Azure-bestandsshares met behulp van de sleutel van uw opslagaccount.**

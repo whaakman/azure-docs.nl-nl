@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082643"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014128"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -55,7 +54,7 @@ Kopieeractiviteit verloopt via de volgende fasen om gegevens te kopiëren van ee
 
 U kunt Copy-activiteit naar **bestanden als kopiëren-is** tussen twee bestanden zijn gebaseerd, in dat geval de gegevens worden gekopieerd efficiënt zonder een serialisatie/deserialisatie.
 
-Copy Activity biedt ook ondersteuning voor lezen van en schrijven naar bestanden in een opgegeven indeling: **tekst, JSON, Avro, ORC en Parquet**, en compressiecodec **GZip, Deflate, BZip2 en ZipDeflate** worden ondersteund. Zie [ondersteunde indelingen voor bestanden en compressie](supported-file-formats-and-compression-codecs.md) met details.
+Copy Activity biedt ook ondersteuning voor lezen van en schrijven naar bestanden in een opgegeven indeling: **Tekst, JSON, Avro, ORC en Parquet**, en compressiecodec **GZip, Deflate, BZip2 en ZipDeflate** worden ondersteund. Zie [ondersteunde indelingen voor bestanden en compressie](supported-file-formats-and-compression-codecs.md) met details.
 
 U kunt bijvoorbeeld de volgende kopieeractiviteiten doen:
 

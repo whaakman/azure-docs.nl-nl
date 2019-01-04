@@ -9,17 +9,16 @@ ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0cd90b8d1b901f9e8a506674b3f04167b48899
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968780"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022016"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens verplaatsen van Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +42,7 @@ Data Factory ondersteunt momenteel alleen gegevens te verplaatsen van Amazon Red
 ## <a name="getting-started"></a>Aan de slag
 U kunt een pijplijn maken met een kopieeractiviteit om gegevens te verplaatsen van een Amazon Redshift-bron met behulp van verschillende hulpprogramma's en API's.
 
-Er is de eenvoudigste manier om een pijplijn te maken met de Kopieerwizard van Azure Data Factory. Zie voor een snel overzicht over het maken van een pijplijn met behulp van de Wizard kopiëren, de [zelfstudie: een pijplijn maken met behulp van de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
+Er is de eenvoudigste manier om een pijplijn te maken met de Kopieerwizard van Azure Data Factory. Zie voor een snel overzicht over het maken van een pijplijn met behulp van de Wizard kopiëren, de [zelfstudie: Een pijplijn maken met behulp van de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
 U kunt ook een pijplijn maken met behulp van de Azure-portal, Visual Studio, Azure PowerShell of andere hulpprogramma's. Azure Resource Manager-sjablonen, de .NET-API of de REST-API kan ook worden gebruikt om de pijplijn te maken. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
@@ -53,7 +52,7 @@ Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor h
 2. Gegevenssets vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking maken. 
 3. Een pijplijn maken met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
 
-Wanneer u de Wizard kopiëren hebt gebruikt, worden automatisch JSON-definities voor deze Data Factory-entiteiten gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De [JSON-voorbeeld: gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag](#json-example-copy-data-from-amazon-redshift-to-azure-blob) toont de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een Amazon Redshift-gegevensarchief.
+Wanneer u de Wizard kopiëren hebt gebruikt, worden automatisch JSON-definities voor deze Data Factory-entiteiten gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De [JSON-voorbeeld: Gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag](#json-example-copy-data-from-amazon-redshift-to-azure-blob) toont de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een Amazon Redshift-gegevensarchief.
 
 De volgende secties beschrijven de JSON-eigenschappen die worden gebruikt voor het definiëren van de Data Factory-entiteiten voor Amazon Redshift.
 
@@ -61,7 +60,7 @@ De volgende secties beschrijven de JSON-eigenschappen die worden gebruikt voor h
 
 De volgende tabel bevat beschrijvingen voor de JSON-elementen die specifiek voor een Amazon Redshift gekoppelde service zijn.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | **type** |Deze eigenschap moet worden ingesteld op **AmazonRedshift**. |Ja |
 | **server** |De IP-adres of de hostnaam naam van de Amazon Redshift-server. |Ja |
@@ -76,7 +75,7 @@ Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor 
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in de store. **De typeProperties** sectie voor een gegevensset van het type **RelationalTable**, waaronder de Amazon Redshift-gegevensset, heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | **Tabelnaam** |De naam van de tabel in de Amazon Redshift-database waarnaar de gekoppelde service verwijst. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
@@ -86,7 +85,7 @@ Zie voor een lijst van eigenschappen die beschikbaar zijn voor het definiëren v
 
 Voor de Kopieeractiviteit, wanneer de bron van het type **AmazonRedshiftSource**, de volgende eigenschappen zijn beschikbaar in **typeProperties** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | **Query** | De aangepaste query gebruiken om de gegevens te lezen. |Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
 | **redshiftUnloadSettings** | Bevat de eigenschapgroep bij het gebruik van de Redshift **UNLOAD** opdracht. | Nee |
@@ -95,7 +94,7 @@ Voor de Kopieeractiviteit, wanneer de bron van het type **AmazonRedshiftSource**
 
 U kunt ook kunt u de **RelationalSource** type, waaronder Amazon Redshift, met de volgende eigenschap in de **typeProperties** sectie. Houd er rekening mee de Redshift biedt geen ondersteuning voor dit brontype **UNLOAD** opdracht.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | **Query** |De aangepaste query gebruiken om de gegevens te lezen. | Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
 
@@ -139,7 +138,7 @@ Voor dit voorbeeld use-case Kopieeractiviteit eerst verwijdert de gegevens van A
 }
 ```
 
-## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Voorbeeld van JSON: gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag
+## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>JSON-voorbeeld: Gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag
 Dit voorbeeld laat zien hoe u gegevens kopiëren van een Amazon Redshift-database naar Azure Blob Storage. Gegevens kunnen worden gekopieerd naar een [ondersteund sink](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit.  
 
 Het voorbeeld heeft de volgende data factory-entiteiten:
@@ -334,7 +333,7 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SMALLINT |Int16 |
 | GEHEEL GETAL ZIJN |Int32 |
 | BIGINT |Int64 |
-| DECIMAAL |decimaal |
+| DECIMAAL |Decimaal |
 | ECHTE |Enkelvoudig |
 | DUBBELE PRECISIE |Double-waarde |
 | BOOLEAANSE WAARDE |Reeks |

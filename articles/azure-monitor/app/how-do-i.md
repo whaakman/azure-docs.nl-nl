@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 188c6148e169da62dec342e1695bf20ca57e3256
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974876"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999678"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hoe kan ik ... in Application Insights?
 ## <a name="get-an-email-when-"></a>Ontvang een e-mail wanneer...
@@ -54,7 +54,7 @@ Aangezien de waarschuwingen hebben twee statussen, hebt u een lage waarde verzen
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Maak een grafiek in [metric explorer](../../application-insights/app-insights-metrics-explorer.md) om te zien van uw waarschuwingen:
+Maak een grafiek in [metric explorer](../../azure-monitor/app/metrics-explorer.md) om te zien van uw waarschuwingen:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -77,7 +77,7 @@ Enkele punten om in overweging te nemen:
 [PowerShell gebruiken voor het maken van nieuwe waarschuwingen](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>PowerShell gebruiken voor het beheren van Application Insights
-* [Nieuwe resources maken](../../application-insights/app-insights-powershell-script-create-resource.md)
+* [Nieuwe resources maken](../../azure-monitor/app/powershell-script-create-resource.md)
 * [Nieuwe waarschuwingen maken](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Afzonderlijke telemetrie van verschillende versies
@@ -91,7 +91,7 @@ Enkele punten om in overweging te nemen:
 
 ## <a name="visualize-data"></a>Gegevens visualiseren
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Dashboard met metrische gegevens van meerdere apps
-* In [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md), uw grafiek aanpassen en sla deze op als een favoriet. Deze vastmaken aan het Azure-dashboard.
+* In [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), uw grafiek aanpassen en sla deze op als een favoriet. Deze vastmaken aan het Azure-dashboard.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard met gegevens uit andere bronnen en Application Insights
 * [Telemetrie exporteren naar Power BI](../../application-insights/app-insights-export-power-bi.md).
@@ -132,7 +132,7 @@ Als u een lijst van gebruikers met gegevens, zoals welke pagina's wilt ze bekijk
 * Beperk het aantal Ajax-aanroepen die zijn gerapporteerd voor de weergave van elke pagina in uw webpagina's. In het codefragment script na `instrumentationKey:...` , invoegen: `,maxAjaxCallsPerView:3` (of een geschikt aantal).
 * Als u [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), de statistische functie van batches van metrische waarden berekent voordat het resultaat wordt verzonden. Er is een overbelasting van TrackMetric() dat voor die.
 
-Meer informatie over [prijzen en quota voor](../../application-insights/app-insights-pricing.md).
+Meer informatie over [prijzen en quota voor](../../azure-monitor/app/pricing.md).
 
 ## <a name="disable-telemetry"></a>Telemetrie uitschakelen
 Naar **dynamisch stoppen en starten** het verzamelen en verzenden van telemetrie van de server:
@@ -159,5 +159,5 @@ Tussen de metrische gegevens die u in metrics explorer weergeven kunt zijn een s
 * **UNIX-server** - [Installeer collectd](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Om meer prestatiemeteritems weer te geven
-* Eerste, [toevoegen van een nieuwe grafiek](../../application-insights/app-insights-metrics-explorer.md) en kijk of het item in de basic die we bieden.
-* Als dit niet het geval is, [het item toevoegen aan de set die worden verzameld door de prestatiemeteritemmodule](../../application-insights/app-insights-performance-counters.md).
+* Eerste, [toevoegen van een nieuwe grafiek](../../azure-monitor/app/metrics-explorer.md) en kijk of het item in de basic die we bieden.
+* Als dit niet het geval is, [het item toevoegen aan de set die worden verzameld door de prestatiemeteritemmodule](../../azure-monitor/app/performance-counters.md).

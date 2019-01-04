@@ -6,15 +6,15 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744226"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023082"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -261,6 +261,15 @@ Dit probleem op te lossen aanpassen van de **DirectoryCacheEntrySizeMax** regist
  
 U kunt bijvoorbeeld instellen op 0x100000 en controleren of de prestaties beter worden.
 
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Fout AadDsTenantNotFound bij het inschakelen van Azure Active Directory-verificatie voor Azure Files 'Kan geen actieve tenants met tenant-Id aad-tenant-id vinden'
+
+### <a name="cause"></a>Oorzaak
+
+Fout AadDsTenantNotFound gebeurt er wanneer u te probeert [Azure Active Directory (AAD)-verificatie inschakelen voor Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) op een storage-account waar [AAD-domein Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) is niet gemaakt op de AAD de tenant van het gekoppelde abonnement.  
+
+### <a name="solution"></a>Oplossing
+
+AAD DS inschakelen op de AAD-tenant van het abonnement dat is geïmplementeerd voor uw storage-account. U hebt beheerdersbevoegdheden van de AAD-tenant te maken van een beheerd domein nodig. Als u niet de beheerder van de Azure AD-tenant, neem contact op met de beheerder en volg de stapsgewijze instructies voor het [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.

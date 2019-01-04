@@ -11,18 +11,18 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 2188451e987aad7e4edfaa2097a828ab9714d706
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4a77f73f4d87f7def7c8a841c7a59aed04b9bee2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793771"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020044"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Bewaken en fouten opsporen in een Azure Batch .NET-toepassing met Application Insights
 
 [Application Insights](../application-insights/app-insights-overview.md) biedt een elegante en krachtige manier voor ontwikkelaars om te controleren en fouten opsporen toepassingen die zijn geïmplementeerd met Azure-services. Gebruik Application Insights te bewaken van prestatiemeteritems en uitzonderingen, alsmede instrument uw code met aangepaste metrische gegevens en tracering. Integratie van Application Insights met uw Azure Batch-toepassing, kunt u meer inzicht in problemen en onderzoeken van problemen in near-real-time.
 
-In dit artikel laat zien hoe toevoegen en configureren van de Application Insights-bibliotheek in uw Azure Batch .NET-oplossing en code van uw toepassing instrumenteren. U ziet ook manieren voor het bewaken van uw toepassing via Azure portal en aangepaste dashboards kunt bouwen. Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../application-insights/app-insights-platforms.md).
+In dit artikel laat zien hoe toevoegen en configureren van de Application Insights-bibliotheek in uw Azure Batch .NET-oplossing en code van uw toepassing instrumenteren. U ziet ook manieren voor het bewaken van uw toepassing via Azure portal en aangepaste dashboards kunt bouwen. Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../azure-monitor/app/platforms.md).
 
 Een voorbeeld van C#-oplossing met code ter ondersteuning van dit artikel vindt u op [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). In dit voorbeeld instrumentation code Application Insights wordt de [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) voorbeeld. Als u niet bekend met dit voorbeeld, probeer het bouwen en uitvoeren van TopNWords eerst bent. Dit doet, krijgt u inzicht in een algemene Batch-werkstroom van de verwerking van een reeks blobs voor invoer parallel op meerdere rekenknooppunten. 
 
@@ -338,12 +338,12 @@ pool.StartTask = new StartTask()
 
 ## <a name="throttle-and-sample-data"></a>Vertraging en voorbeeldgegevens 
 
-Vanwege de grootschalige aard van Azure Batch-toepassingen in productie, is het raadzaam om de hoeveelheid gegevens die zijn verzameld door Application Insights voor het beheren van kosten te beperken. Zie [steekproeven in Application Insights](../application-insights/app-insights-sampling.md) voor sommige methoden om dit te bereiken.
+Vanwege de grootschalige aard van Azure Batch-toepassingen in productie, is het raadzaam om de hoeveelheid gegevens die zijn verzameld door Application Insights voor het beheren van kosten te beperken. Zie [steekproeven in Application Insights](../azure-monitor/app/sampling.md) voor sommige methoden om dit te bereiken.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [Application Insights](../application-insights/app-insights-overview.md).
 
-* Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../application-insights/app-insights-platforms.md).
+* Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../azure-monitor/app/platforms.md).
 
 

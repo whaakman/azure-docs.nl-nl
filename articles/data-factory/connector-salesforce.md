@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409574"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015080"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +60,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor de service Salesforce die zijn gekoppeld.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type |De eigenschap type moet worden ingesteld op **Salesforce**. |Ja |
 | environmentUrl | Geef de URL van het exemplaar van Salesforce. <br> -Standaard is `"https://login.salesforce.com"`. <br> -Om gegevens te kopiëren van sandbox, geef `"https://test.salesforce.com"`. <br> -Om gegevens te kopiëren uit aangepaste domein, opgeven, bijvoorbeeld `"https://[domain].my.salesforce.com"`. |Nee |
@@ -73,7 +72,7 @@ De volgende eigenschappen worden ondersteund voor de service Salesforce die zijn
 >[!IMPORTANT]
 >Wanneer u gegevens naar Salesforce kopiëren, kan de standaard Azure Integration Runtime kan niet worden gebruikt voor het uitvoeren van de kopie. Met andere woorden, als uw bron gekoppelde service beschikt niet over een opgegeven integration-runtime expliciet [maken van een Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Salesforce-exemplaar. Koppel de Salesforce gekoppelde service zoals in het volgende voorbeeld.
 
-**Voorbeeld: De referenties van de Store in Data Factory**
+**Voorbeeld: Store-referenties in Data Factory**
 
 ```json
 {
@@ -99,7 +98,7 @@ De volgende eigenschappen worden ondersteund voor de service Salesforce die zijn
 }
 ```
 
-**Voorbeeld: De referenties van de Store in Key Vault**
+**Voorbeeld: Store-referenties in Key Vault**
 
 ```json
 {
@@ -139,7 +138,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van en naar Salesforce, stel de eigenschap type van de gegevensset in **SalesforceObject**. De volgende eigenschappen worden ondersteund.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **SalesforceObject**.  | Ja |
 | objectApiName | De Salesforce-objectnaam om gegevens uit te halen. | Nee voor bron, Ja voor sink |
@@ -168,9 +167,9 @@ Om gegevens te kopiëren van en naar Salesforce, stel de eigenschap type van de 
 ```
 
 >[!NOTE]
->Voor achterwaartse compatibiliteit: wanneer u gegevens van Salesforce, kopieert als u de vorige "RelationalTable" type gegevensset gebruikt, blijft deze werken terwijl ziet u een suggestie om over te schakelen naar de nieuwe 'SalesforceObject'-type.
+>Voor achterwaartse compatibiliteit: Wanneer u gegevens van Salesforce, kopieert als u de vorige "RelationalTable" type gegevensset gebruikt, blijft deze werken terwijl ziet u een suggestie om over te schakelen naar de nieuwe 'SalesforceObject'-type.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op **RelationalTable**. | Ja |
 | tableName | Naam van de tabel in Salesforce. | Nee (als 'query' in de bron van de activiteit is opgegeven) |
@@ -183,7 +182,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Voor het kopiëren van gegevens uit Salesforce, stelt u het brontype in de kopieeractiviteit naar **SalesforceSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **SalesforceSource**. | Ja |
 | query |De aangepaste query gebruiken om gegevens te lezen. U kunt [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query of 92 SQL-query. Bekijk meer tips in [tips query](#query-tips) sectie. Als de query is niet opgegeven, worden alle gegevens van de Salesforce-object dat is opgegeven in 'objectApiName' in de gegevensset worden opgehaald. | Nee (als 'objectApiName' in de gegevensset is opgegeven) |
@@ -227,21 +226,21 @@ Voor het kopiëren van gegevens uit Salesforce, stelt u het brontype in de kopie
 ```
 
 >[!NOTE]
->Voor achterwaartse compatibiliteit: wanneer u gegevens van Salesforce, kopieert als u de vorige versie van de 'RelationalSource'-type, de bron blijven werken terwijl ziet u een suggestie om over te schakelen naar de nieuwe 'SalesforceSource'-type.
+>Voor achterwaartse compatibiliteit: Wanneer u gegevens van Salesforce, kopieert als u de vorige versie van de 'RelationalSource'-type gebruikt, wordt de bron blijven werken terwijl ziet u een suggestie om over te schakelen naar de nieuwe 'SalesforceSource'-type.
 
 ### <a name="salesforce-as-a-sink-type"></a>SalesForce als een sink-type
 
 Om gegevens te kopiëren naar Salesforce, stelt u het sink-type in de kopieeractiviteit naar **SalesforceSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **SalesforceSink**. | Ja |
 | WriteBehavior | Het gedrag van het schrijven voor de bewerking.<br/>Toegestane waarden zijn **invoegen** en **Upsert**. | Nee (de standaardinstelling is invoegen) |
 | externalIdFieldName | De naam van de externe ID-veld voor de upsert-bewerking. Het opgegeven veld moet worden gedefinieerd als 'Externe Id-veld' in het Salesforce-object. Er kan geen NULL-waarden in de bijbehorende invoergegevens. | Ja voor "Upsert" |
 | WriteBatchSize | Het aantal rijen van de gegevens die naar Salesforce is geschreven in elke batch. | Nee (de standaardinstelling is 5.000) |
-| ignoreNullValues | Hiermee wordt aangegeven of NULL-waarden van invoergegevens tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een upsert of update-bewerking. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **De waarde False**: de gegevens in het doelobject op NULL bijwerken wanneer u een upsert of update-bewerking. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
+| ignoreNullValues | Hiermee wordt aangegeven of NULL-waarden van invoergegevens tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **De waarde True**: Laat de gegevens in het doelobject ongewijzigd wanneer u een upsert of update-bewerking. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **De waarde False**: Als u een upsert of update-bewerking doet, moet u de gegevens in het doelobject bijwerken op NULL. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
 
-**Voorbeeld: Salesforce sink in een kopieeractiviteit**
+**Voorbeeld: SalesForce-sink in een kopieeractiviteit**
 
 ```json
 "activities":[
@@ -314,15 +313,15 @@ Wanneer u gegevens van Salesforce worden gekopieerd, worden de volgende toewijzi
 |:--- |:--- |
 | Automatisch nummer |Reeks |
 | Selectievakje |Booleaans |
-| Valuta |decimaal |
+| Valuta |Decimaal |
 | Date |DateTime |
 | Datum/tijd |DateTime |
 | Email |Reeks |
 | Id |Reeks |
 | Opzoekrelatie |Reeks |
 | Met meerdere keuzemogelijkheden |Reeks |
-| Aantal |decimaal |
-| Procent |decimaal |
+| Aantal |Decimaal |
+| Procent |Decimaal |
 | Telefoon |Reeks |
 | Selectielijst |Reeks |
 | Tekst |Reeks |

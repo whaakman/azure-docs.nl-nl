@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 79d9ab603b8548269647b7922c6eb01dcc228c4c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993209"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019585"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure voor on-demand Red Hat Enterprise Linux-machines in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehoste opslagplaats, aangepaste opslagplaatsen maken met Azure-specifieke inhoud en het beschikbaar maken voor virtuele machines door eindgebruikers.
@@ -48,22 +48,23 @@ Sommige klanten willen hun RHEL VM's naar een bepaalde kleine RHEL-versie vergre
 > Dit geldt alleen voor RHEL 7.2 7.5
 
 1. Niet-EUS opslagplaatsen uitschakelen:
-    ```
+    ```bash
     sudo yum --disablerepo=* remove rhui-azure-rhel7
     ```
 
 1. EUS opslagplaatsen toevoegen:
-    ```
+    ```bash
     yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
     ```
 
 1. De variabele releasever vergrendelen:
-    ```
+    ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
 
     >[!NOTE]
     > De bovenstaande instructies, de secundaire versie van RHEL naar de huidige secundaire versie wordt vergrendeld. Voer een specifieke secundaire versie als u wilt bijwerken en een vergrendeling van naar een hoger secundaire versie aan die niet de nieuwste versie. Bijvoorbeeld, `echo 7.5 > /etc/yum/vars/releasever` uw RHEL-versie op RHEL 7,5 wordt vergrendeld
+
 1. Uw RHEL VM bijwerken
     ```bash
     sudo yum update

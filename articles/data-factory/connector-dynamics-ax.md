@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 1dca3621b31d74d2ae40156672009b15ba30e3f4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 48c6fb178b61fd65e0fbf6122d541bef5e3e9830
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339532"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014383"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Gegevens kopiëren van Dynamics AX met behulp van Azure Data Factory (Preview)
 
@@ -135,7 +134,7 @@ Om gegevens te kopiëren van Dynamics AX, stel de **bron** type in de Kopieeract
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op **DynamicsAXSource**. | Ja |
-| query | OData-queryopties voor het filteren van gegevens. Voorbeeld: `"?$select=Name,Description&$top=5"`.<br/><br/>**Houd er rekening mee**: De connector worden gegevens gekopieerd van de gecombineerde URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Zie voor meer informatie, [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
+| query | OData-queryopties voor het filteren van gegevens. Voorbeeld: `"?$select=Name,Description&$top=5"`.<br/><br/>**Opmerking**: De connector worden gegevens gekopieerd van de gecombineerde URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Zie voor meer informatie, [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
 
 **Voorbeeld**
 

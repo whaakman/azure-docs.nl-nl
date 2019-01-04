@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f5fb62a04f1829726796b674a8e6e72951e6bb35
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9c574d5e5cecaa4618bbd44fae8a2200930ab2e3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083373"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019449"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Gegevens kopiëren van HBase met Azure Data Factory 
 
@@ -46,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | host | Het IP-adres of de hostnaam naam van de HBase-server. (d.w.z.)  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Ja |
 | poort | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 9090. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de HBase-server, bijvoorbeeld `/hbaserest0` bij het gebruik van HDInsights cluster. | Nee |
-| authenticationType | De verificatiemethode om toegang te gebruiken voor verbinding met de HBase-server. <br/>Toegestane waarden zijn: **anoniem**, **Basic** | Ja |
+| authenticationType | De verificatiemethode om toegang te gebruiken voor verbinding met de HBase-server. <br/>Toegestane waarden zijn: **Anonieme**, **Basic** | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de HBase-exemplaar.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |

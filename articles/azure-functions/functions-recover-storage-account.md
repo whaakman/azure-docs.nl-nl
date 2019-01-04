@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604970"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000016"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Problemen oplossen met "functions-runtime is niet bereikbaar"
 
@@ -37,6 +37,7 @@ We behandelen de vier meest voorkomende foutgevallen, identificeren en over het 
 1. Toepassingsinstellingen voor Storage-Account verwijderd
 1. Opslagaccountreferenties is ongeldig
 1. Storage-Account is niet toegankelijk
+1. Uitvoering van het quotum voor dagelijkse volledige
 
 ## <a name="storage-account-deleted"></a>Storage-account is verwijderd
 
@@ -79,6 +80,13 @@ Uw functie-App moet toegang hebben tot het opslagaccount. Veelvoorkomende proble
 * Functie-Apps geïmplementeerd naar App Service-omgevingen zonder de juiste netwerk-regels waarmee verkeer van en naar het storage-account
 * De storage-account firewall is ingeschakeld en niet worden geconfigureerd zodat verkeer naar en van functies. [Lees meer over de storage-account firewall-configuratie hier](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Uitvoering van het quotum voor dagelijkse volledige
+
+Als u het quotum voor een dagelijkse uitvoering geconfigureerd hebt, uw functie-App tijdelijk uitgeschakeld en veel van de portal besturingselementen wordt niet beschikbaar. 
+
+* Als u wilt controleren, controle platformfuncties openen > functie-App-instellingen in de portal. U ziet het volgende bericht weergegeven als u overschreden
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Het quotum verwijderen en opnieuw starten van uw app om het probleem te verhelpen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

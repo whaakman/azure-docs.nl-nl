@@ -1,19 +1,19 @@
 ---
 title: Azure digitale dubbels openbare preview-Servicelimieten | Microsoft Docs
-description: Informatie over dat Azure digitale dubbels openbare preview-Servicelimieten
+description: Krijg inzicht in dat Azure digitale dubbels openbare preview-Servicelimieten.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d9686b9bcc6cb89fabf4fdaa79bf5b8c6c45ddc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961752"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020622"
 ---
 # <a name="public-preview-service-limits"></a>Servicebeperkingen van de openbare preview
 
@@ -35,21 +35,25 @@ Elk Azure-abonnement kunt maken of slechts één exemplaar van Azure digitale du
 
 Op zijn beurt kan elk exemplaar van Azure digitale dubbels hebben:
 
-- Een **IoTHub** resource.
-- Een **EventHub** -eindpunt voor het gebeurtenistype **DeviceMessage**.
+- Precies één **IoTHub** resource.
+- Precies één **EventHub** -eindpunt voor het gebeurtenistype **DeviceMessage**.
 - Maximaal drie **EventHub**, **ServiceBus**, of **EventGrid** eindpunten van het gebeurtenistype **SensorChange**, **SpaceChange** , **TopologyOperation**, of **UdfCustom**.
 
-## <a name="management-api-limits"></a>Beheer-API-limieten
+> [!NOTE]
+> Sommige parameters die gewoonlijk zijn gedefinieerd in het maken van de bovenstaande Azure IoT-entiteiten zijn niet vereist tijdens de openbare preview.
+> - Raadpleeg de [Swagger-referentiedocumentatie](./how-to-use-swagger.md) voor de meest recente API-specificaties.
 
-De aanvraag frequentielimieten toe voor uw API Management zijn:
+## <a name="azure-digital-twins-management-api-limits"></a>Azure digitale dubbels Management API-limieten
 
-- 100 aanvragen per seconde naar de API Management.
-- Maximaal 1000 objecten geretourneerd door een enkele Management-API-query. 
+De aanvraag frequentielimieten toe voor uw Azure API voor beheer van digitale dubbels zijn:
+
+- 100 aanvragen per seconde naar de Azure API voor beheer van digitale dubbels.
+- Maximaal 1000 objecten geretourneerd door een enkele Azure-API voor het beheer van digitale Twins-query.
 
 > [!IMPORTANT]
 > Als u de limiet van 1000-object overschrijdt, kunt u een foutbericht krijgt en moet Vereenvoudig de query.
 
-## <a name="udf-rate-limits"></a>Frequentielimieten UDF
+## <a name="user-defined-functions-rate-limits"></a>De gebruiker gedefinieerde functies frequentielimieten
 
 De volgende limieten instellen voor het totale aantal alle de gebruiker gedefinieerde functieaanroepen naar uw Azure digitale Twins-exemplaar:
 
@@ -59,7 +63,7 @@ De volgende limieten instellen voor het totale aantal alle de gebruiker gedefini
 > [!NOTE]
 > De volgende acties kunnen leiden tot extra frequentielimieten tijdelijk worden toegepast:
 > - Wijzigingen in de metagegevens van een object topologie
-> - Wijzigingen in de UDF-definitie
+> - Wijzigingen in de definitie van de gebruiker gedefinieerde functie
 > - Apparaten die telemetrie voor de eerste keer verzenden
 
 ## <a name="device-telemetry-limits"></a>Apparaatlimieten telemetrie

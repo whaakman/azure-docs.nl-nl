@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620333"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017154"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -60,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 en Dynamics CRM Online
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Dynamics**. | Ja |
 | deploymentType | Het implementatietype van de Dynamics-instantie. Het moet **'Online'** voor Dynamics online. | Ja |
@@ -76,7 +75,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 >[!NOTE]
 >De Dynamics-connector gebruikt voor het optionele "organisatienaam" eigenschap gebruiken om uw Dynamics CRM/365 Online exemplaar te identificeren. Terwijl deze werken blijft, is het worden voorgesteld om op te geven van de eigenschap voor de nieuwe 'serviceUri' in plaats daarvan te krijgen van betere prestaties voor detectie.
 
-**Voorbeeld: Office 365-verificatie met behulp van Dynamics online**
+**Voorbeeld: Dynamics online met behulp van Office 365-verificatie**
 
 ```json
 {
@@ -106,7 +105,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 
 *De aanvullende eigenschappen die zich tot Dynamics online verhouden zijn 'hostnaam' en 'poort'.*
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Dynamics**. | Ja |
 | deploymentType | Het implementatietype van de Dynamics-instantie. Het moet **"OnPremisesWithIfd"** voor Dynamics on-premises met IFD.| Ja |
@@ -155,7 +154,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Als u wilt kopiëren van gegevens van en naar Dynamics, stel de eigenschap type van de gegevensset in **DynamicsEntity**. De volgende eigenschappen worden ondersteund.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op **DynamicsEntity**. |Ja |
 | entityName | De logische naam van de entiteit om op te halen. | Nee voor bron (als 'query' in de bron van de activiteit is opgegeven), Ja voor sink |
@@ -209,7 +208,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van Dynamics, stelt u het brontype in de kopieeractiviteit naar **DynamicsSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **DynamicsSource**. | Ja |
 | query | FetchXML is een eigen querytaal die wordt gebruikt in Dynamics (online en on-premises). Zie het volgende voorbeeld Zie voor meer informatie, [query's met FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nee (als 'entityName' in de gegevensset is opgegeven) |
@@ -273,12 +272,12 @@ Om gegevens te kopiëren van Dynamics, stelt u het brontype in de kopieeractivit
 
 Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieeractiviteit naar **DynamicsSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **DynamicsSink**. | Ja |
 | WriteBehavior | Het gedrag van het schrijven van de bewerking.<br/>Toegestane waarde is **"Upsert"**. | Ja |
 | WriteBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
-| ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van velden voor sleutels) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert/bijwerken. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **De waarde False**: de gegevens in het doelobject op NULL bijwerken wanneer u een bewerking upsert/bijwerken. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
+| ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van velden voor sleutels) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **De waarde True**: Laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert/bijwerken. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **De waarde False**: Als u een upsert-/ Bijwerkbewerking doet, moet u de gegevens in het doelobject bijwerken op NULL. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
 
 >[!NOTE]
 >De standaardwaarde van de sink "**writeBatchSize**'en de kopieeractiviteit'**[parallelCopies](copy-activity-performance.md#parallel-copy)**' zijn beide 10 voor de Dynamics-sink. 100 records worden daarom verzonden naar Dynamics het gelijktijdig.
@@ -333,14 +332,14 @@ Configureer het bijbehorende gegevenstype voor de Data Factory in de gegevensset
 | AttributeTypeCode.Boolean | Booleaans | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
-| AttributeType.Decimal | decimaal | ✓ | ✓ |
+| AttributeType.Decimal | Decimaal | ✓ | ✓ |
 | AttributeType.Double | Double-waarde | ✓ | ✓ |
 | AttributeType.EntityName | Reeks | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (met één doel die is gekoppeld) |
 | AttributeType.ManagedProperty | Booleaans | ✓ | |
 | AttributeType.Memo | Reeks | ✓ | ✓ |
-| AttributeType.Money | decimaal | ✓ | ✓ |
+| AttributeType.Money | Decimaal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |

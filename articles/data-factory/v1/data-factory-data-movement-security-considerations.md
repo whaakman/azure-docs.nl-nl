@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960682"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015743"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor het verplaatsen van gegevens
 
@@ -99,7 +98,7 @@ De referenties voor uw on-premises gegevensarchieven worden lokaal opgeslagen (n
 #### <a name="javascript-cryptography-library-based-encryption"></a>Versleuteling op basis van een bibliotheek met JavaScript cryptografie
 U kunt de referenties van de gegevensopslag met behulp van versleutelen [cryptografie met JavaScript-bibliotheek](https://www.microsoft.com/download/details.aspx?id=52439) uit de [Wizard kopiëren](data-factory-copy-wizard.md). Wanneer u deze optie selecteert, wordt de Wizard kopiëren opgehaald van de openbare sleutel van de gateway en gebruikt voor het versleutelen van de referenties van de gegevensopslag. De referenties worden door de gatewaycomputer ontsleuteld en worden beschermd door Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
 
-**Ondersteunde browsers:** IE8, IE9, IE10, IE11, Microsoft Edge, en meest recente Firefox, Chrome, Opera, Safari-browser. 
+**Ondersteunde browsers:** IE8, IE9, IE10, IE11, Microsoft Edge, en de meest recente Firefox, Chrome, Opera, Safari-browser. 
 
 #### <a name="click-once-credentials-manager-app"></a>Klik op-één keer referenties manager-app
 U kunt de klik starten-eenmaal op basis van referentie manager app vanuit Azure portal/kopiëren Wizard bij het ontwerpen van pijplijnen. Deze toepassing zorgt ervoor dat referenties niet worden doorgegeven als tekst zonder opmaak via de kabel. Standaard wordt de poort **8050** op de machine met de gateway voor veilige communicatie. Indien nodig, kan deze poort kan worden gewijzigd.  
@@ -149,7 +148,7 @@ In een onderneming, een **bedrijfsfirewall** wordt uitgevoerd op de centrale-rou
 
 De volgende tabel bevat **uitgaande poort** en vereisten voor het domein voor de **bedrijfsfirewall**.
 
-| Domeinnamen | Uitgaande poorten | Beschrijving |
+| Domeinnamen | Uitgaande poorten | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Vereist door de gateway verbinding maken met services voor gegevensverplaatsing in Data Factory |
 | `*.core.windows.net` | 443 | Gebruikt door de gateway verbinding maken met Azure Storage-Account wanneer u de [gefaseerd kopiëren](data-factory-copy-activity-performance.md#staged-copy) functie. | 
@@ -162,7 +161,7 @@ De volgende tabel bevat **uitgaande poort** en vereisten voor het domein voor de
 
 De volgende tabel bevat **binnenkomende poort** vereisten voor de **windows firewall**.
 
-| Poorten voor inkomend verkeer | Beschrijving | 
+| Poorten voor inkomend verkeer | Description | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Vereist door de toepassing Referentiebeheer veilig referenties instellen voor on-premises gegevensopslagexemplaren op de gateway. | 
 
@@ -181,14 +180,14 @@ De volgende cloud-gegevensarchieven vereisen zwarte lijst plaatsen van IP-adres 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-**Vraag:** kan de Gateway worden gedeeld met andere data factory's?
-**Antwoord:** We bieden geen ondersteuning voor deze functie nog. We werken actief erop.
+**Vraag:** Kan de Gateway worden gedeeld met andere data factory's?
+**Antwoord:** We bieden deze functie nog geen ondersteuning. We werken actief erop.
 
-**Vraag:** wat zijn de Poortvereisten voor de gateway om te werken?
+**Vraag:** Wat zijn de Poortvereisten voor de gateway om te werken?
 **Antwoord:** Gateway maakt op basis van HTTP-verbindingen met het openbare internet. De **uitgaande poorten 443 en 80** moet worden geopend voor de gateway deze verbinding te maken. Open **binnenkomende poort 8050** alleen op het machineniveau van de (niet op het niveau van de firewall van het bedrijf) voor de toepassing Referentiebeheer. Als Azure SQL Database of Azure SQL Data Warehouse wordt gebruikt als bron / bestemming, dan hebt u nodig hebt om te openen **1433** ook poort. Zie voor meer informatie, [Firewall-configuraties en IP-adressen voor opname in de whitelist](#firewall-configurations-and-whitelisting-ip-address-of gateway) sectie. 
 
-**Vraag:** wat de vereisten voor certificaten voor de Gateway zijn?
-**Antwoord:** huidige gateway vereist een certificaat dat wordt gebruikt door de toepassing Referentiebeheer om referenties van de gegevensopslag veilig in te stellen. Dit certificaat is een zelfondertekend certificaat gemaakt en geconfigureerd door de gateway-installatie. U kunt uw eigen TLS / SSL-certificaat in plaats daarvan. Zie voor meer informatie, [klikt u op-één keer credential manager-toepassing](#click-once-credentials-manager-app) sectie. 
+**Vraag:** Wat zijn de vereisten voor certificaten voor de Gateway?
+**Antwoord:** Huidige gateway vereist een certificaat dat wordt gebruikt door de toepassing Referentiebeheer om referenties van de gegevensopslag veilig in te stellen. Dit certificaat is een zelfondertekend certificaat gemaakt en geconfigureerd door de gateway-installatie. U kunt uw eigen TLS / SSL-certificaat in plaats daarvan. Zie voor meer informatie, [klikt u op-één keer credential manager-toepassing](#click-once-credentials-manager-app) sectie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over de prestaties van kopieeractiviteit [en afstemmingshandleiding van activiteit kopiëren](data-factory-copy-activity-performance.md).

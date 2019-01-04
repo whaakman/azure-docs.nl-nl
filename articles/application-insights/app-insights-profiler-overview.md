@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c7266d840a8d60275a40cf31291d3a8f524131f9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726896"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016736"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiel productie-apps in Azure met Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Profiler inschakelen voor uw toepassing
@@ -26,7 +26,7 @@ Application Insights Profiler biedt prestatietraces voor toepassingen die in pro
 
 De profiler werkt met .net-toepassingen die zijn geïmplementeerd op de volgende Azure-services. Specifieke instructies voor het inschakelen van de profiler voor elk servicetype zijn in de onderstaande koppelingen.
 
-* [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric-toepassingen](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtuele Machines en virtuele machine Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -49,10 +49,10 @@ Selecteer een voorbeeld om een uitsplitsing van de code-niveau van de tijd beste
 
 De trace-explorer bevat de volgende informatie:
 
-* **Hot Path tonen**: wordt geopend de hoogste blad knooppunt, of ten minste iets sluiten. In de meeste gevallen is dit knooppunt in de buurt van het prestatieknelpunt.
-* **Label**: de naam van de functie of de gebeurtenis. De structuur wordt een combinatie van code en gebeurtenissen die hebben plaatsgevonden (zoals SQL- en HTTP-gebeurtenissen) weergegeven. De eerste gebeurtenis vertegenwoordigt de totale aanvraagduur.
-* **Verstreken**: het tijdsinterval tussen het begin van de bewerking en het einde van de bewerking.
-* **Wanneer**: de tijd waarop de functie of het evenement werd uitgevoerd ten opzichte van andere functies.
+* **Hot Path tonen**: Wordt geopend de hoogste blad knooppunt of ten minste iets sluiten. In de meeste gevallen is dit knooppunt in de buurt van het prestatieknelpunt.
+* **Label**: De naam van de functie of de gebeurtenis. De structuur wordt een combinatie van code en gebeurtenissen die hebben plaatsgevonden (zoals SQL- en HTTP-gebeurtenissen) weergegeven. De eerste gebeurtenis vertegenwoordigt de totale aanvraagduur.
+* **Verstreken**: Het tijdsinterval tussen het begin van de bewerking en het einde van de bewerking.
+* **Wanneer**: De tijd waarop de functie of het evenement werd uitgevoerd ten opzichte van andere functies.
 
 ## <a name="how-to-read-performance-data"></a>Het lezen van prestatiegegevens
 
@@ -124,11 +124,11 @@ Profiler wordt willekeurig twee minuten elk uur uitgevoerd op elke virtuele mach
 
 ## <a name="next-steps"></a>Volgende stappen
 Application Insights Profiler inschakelen voor uw Azure-toepassing
-* [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric-toepassingen](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtuele Machines en virtuele machine Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-[performance-blade]: ./media/app-insights-profiler/performance-blade-v2-examples.png
-[trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
+[performance-blade]: ./media/app-insights-profiler-overview/performance-blade-v2-examples.png
+[trace-explorer]: ./media/app-insights-profiler-overview/trace-explorer.png

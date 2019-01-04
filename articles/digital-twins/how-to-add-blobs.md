@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974507"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017563"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in Azure, digitale dubbels
 
@@ -28,23 +28,7 @@ Azure ondersteunt het digitale dubbels blobs te koppelen aan apparaten, spaties 
 
 Gedeeltelijk aanvragen kunt u blobs uploaden naar specifieke eindpunten en hun respectieve functionaliteiten.
 
-> [!IMPORTANT]
-> Gedeeltelijk-aanvragen vereisen drie soorten informatie:
-> * Een **Content-Type** header:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * Een **Content-Disposition**: `form-data; name="metadata"`
-> * De inhoud van het bestand te uploaden
->
-> De **Content-Type** en **Content-Disposition** gegevens kan variëren afhankelijk van het scenario voor gebruik.
-
-Gedeeltelijk aanvragen bij de Azure digitale dubbels Management API's hebben twee delen:
-
-* BLOB-metagegevens, zoals een bijbehorende MIME-type, zoals wordt weergegeven in de **Content-Type** en **Content-Disposition** informatie
-
-* BLOB-inhoud (de ongestructureerde inhoud van het bestand)  
-
-Geen van de twee delen is vereist voor **PATCH** aanvragen. Beide zijn vereist voor **POST** of bewerkingen voor maken.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>De metagegevens van de blob
 

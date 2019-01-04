@@ -12,21 +12,21 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2afbea68c017805e9bd7db43b03face0705608b7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6bb3215e63e2fc672cde5746e6a9867df899ee88
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42358744"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016695"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Visual Studio installeren en verbinding maken met Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt Visual Studio gebruiken om te schrijven en implementeren van Azure Resource Manager [sjablonen](azure-stack-arm-templates.md) naar Azure Stack. De stappen in dit artikel doorloopt u Visual Studio installeren op de [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of op een externe computer als u van plan met Azure Stack via bent de [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+U kunt Visual Studio gebruiken om te schrijven en implementeren van Azure Resource Manager [sjablonen](azure-stack-arm-templates.md) naar Azure Stack. De stappen in dit artikel helpen u bij het installeren van Visual Studio op [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of op een externe computer als u van plan bent te gebruiken van Azure Stack via [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Visual Studio installeren
 
@@ -65,29 +65,30 @@ Zodra u bent aangemeld, kunt u [sjablonen implementeren](azure-stack-deploy-temp
 3. Vouw **omgeving** in de **navigatiedeelvenster** en selecteer **Accounts**.
 
 4. Selecteer **toevoegen**, en voer de gebruiker Azure Resource Manager-eindpunt.  
-  Voor de Azure Stack Development kit, de URL is: `https://management.local.azurestack/external`.  
-  Voor Azure Stack-systemen de URL geïntegreerde is: `https://management.[Region}.[External FQDN]`.
+  Voor de Azure Stack Development Kit, de URL is: `https://management.local.azurestack/external`.  
+  De URL is voor geïntegreerde Azure Stack-systemen: `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
 5. Selecteer **Toevoegen**.  
 
-    Visual Studio de Azure Resource Manager-aanroepen en detecteert de eindpunten voor Azure Directory Federated Services (AD FS) met inbegrip van de verificatie-eindpunt.
+    Visual Studio Azure Resource Manager-aanroepen en detecteert de eindpunten, met inbegrip van de verificatie-eindpunt voor Azure Directory Federated Services (AD FS).
 
     ![Schermopname van Cloud Explorer één keer aangemeld en verbonden met Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
 
 6. Selecteer **Cloud Explorer** uit de **weergave** menu.
-7. Selecteer **-Account toevoegen** en meld u aan met uw AD FS-referenties.  
 
-    ![X](./media/azure-stack-install-visual-studio/image7.png)
+1. Selecteer **-Account toevoegen** en meld u aan met uw AD FS-referenties.  
+
+    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
 
     Cloud Explorer vraagt de beschikbare abonnementen. U kunt een selecteren een abonnement beschikbaar om te beheren.
 
-    ![X](./media/azure-stack-install-visual-studio/image8.png)
+    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
 
 8. Bladeren door uw bestaande resources, resourcegroepen of sjablonen implementeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Meer informatie over [co-existentie](https://msdn.microsoft.com/library/ms246609.aspx) met andere versies van Visual Studio.
- - [Sjablonen ontwikkelen voor Azure Stack](azure-stack-develop-templates.md)
+ - Meer informatie over Visual Studio [naast elkaar](https://msdn.microsoft.com/library/ms246609.aspx) met andere versies van Visual Studio.
+ - [Sjablonen ontwikkelen voor Azure Stack](azure-stack-develop-templates.md).

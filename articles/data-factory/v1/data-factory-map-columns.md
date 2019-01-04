@@ -1,6 +1,6 @@
 ---
-title: Toewijzing van gegevensset kolommen in Azure Data Factory | Microsoft Docs
-description: Informatie over het toewijzen van kolommen in de gegevensbron aan kolommen van de bestemming.
+title: Toewijzing van kolommen in Azure Data Factory | Microsoft Docs
+description: Leer hoe u kolommen in de gegevensbron worden toegewezen aan de doelkolommen.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -8,40 +8,39 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f1dd8c4c5e38547492887425bb5732d87d5f8071
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045881"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017460"
 ---
-# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Bronkolommen gegevensset toewijzen aan bestemming gegevensset kolommen
+# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Bronkolommen voor de gegevensset worden toegewezen aan de gegevensset doelkolommen
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van de Data Factory. 
+> Dit artikel is van toepassing op versie 1 van Data Factory. 
 
-Kolomtoewijzing kan worden gebruikt om op te geven hoe kolommen opgegeven in de 'structuur"van tabeltoewijzing van bron naar kolommen opgegeven in de 'structuur' van tabel sink. De **columnMapping** eigenschap is beschikbaar in de **typeProperties** sectie van de kopieeractiviteit.
+Kolomtoewijzing kan worden gebruikt om op te geven hoe kolommen opgegeven in de 'structuur"van de toewijzing van bron-tabel met kolommen opgegeven in de 'structuur" van sink-tabel. De **columnMapping** eigenschap is beschikbaar in de **typeProperties** sectie van de kopieeractiviteit.
 
 Kolomtoewijzing ondersteunt de volgende scenario's:
 
-* Alle kolommen in de structuur van de gegevensset bron worden toegewezen aan alle kolommen in de structuur van de gegevensset sink.
-* Een subset van de kolommen in de structuur van de gegevensbron dataset wordt toegewezen aan alle kolommen in de structuur van de gegevensset sink.
+* Alle kolommen in de structuur van de gegevensset bron worden toegewezen aan alle kolommen in de structuur van de sink-gegevensset.
+* Een subset van de kolommen in de structuur van de gegevensset gegevensbron is toegewezen aan alle kolommen in de structuur van de sink-gegevensset.
 
-Hier volgen de fouten die ertoe leiden dat een uitzondering:
+Hier volgen foutcondities die leiden tot een uitzondering:
 
-* Minder kolommen of meer kolommen in de 'structuur' van tabel sink dan opgegeven in de toewijzing.
+* Minder kolommen of meer kolommen in de 'structuur"van de sink-tabel dan opgegeven in de toewijzing.
 * Dubbele toewijzing.
-* Resultaat van de SQL-query heeft niet de naam van een kolom die is opgegeven in de toewijzing.
+* Resultaat van de SQL-query heeft geen naam van een kolom die is opgegeven in de toewijzing.
 
 > [!NOTE]
-> De volgende voorbeelden zijn voor Azure SQL en Azure Blob, maar zijn van toepassing op een gegevensopslag die ondersteuning biedt voor rechthoekige gegevenssets. Dataset en definities van de gekoppelde service in de voorbeelden om te verwijzen naar gegevens in de relevante gegevens aanpassen.
+> De volgende voorbeelden voor Azure SQL en Azure Blob maar zijn van toepassing op elk gegevensarchief die ondersteuning biedt voor rechthoekige gegevenssets. Gegevensset en de gekoppelde servicedefinities in de voorbeelden om te verwijzen naar gegevens in de relevante gegevens aanpassen.
 
-## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Voorbeeld 1 – toewijzingskolommen van Azure SQL naar Azure blob
-In dit voorbeeld heeft een structuur van de invoertabel en deze verwijst naar een SQL-tabel in een Azure SQL database.
+## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Voorbeeld 1: kolom toewijzen uit Azure SQL naar Azure-blob
+In dit voorbeeld heeft een structuur van de invoertabel en of deze verwijst naar een SQL-tabel in een Azure SQL database.
 
 ```json
 {
@@ -74,7 +73,7 @@ In dit voorbeeld heeft een structuur van de invoertabel en deze verwijst naar ee
 }
 ```
 
-In dit voorbeeld wordt de uitvoertabel heeft een structuur en deze verwijst naar een blob in Azure blob storage.
+In dit voorbeeld wordt de uitvoertabel heeft een structuur en of deze verwijst naar een blob in een Azure blob-opslag.
 
 ```json
 {
@@ -107,7 +106,7 @@ In dit voorbeeld wordt de uitvoertabel heeft een structuur en deze verwijst naar
 }
 ```
 
-De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen van bron toegewezen aan kolommen in sink (**columnMappings**) met behulp van de **conversieprogramma** eigenschap.
+De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen uit de bron die zijn toegewezen aan kolommen in sink (**columnMappings**) met behulp van de **Translator** eigenschap.
 
 ```json
 {
@@ -137,12 +136,12 @@ De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen v
         }
 }
 ```
-**Stroom van de toewijzing van kolom:**
+**Kolom toewijzing stroom:**
 
 ![Kolom toewijzing stroom](./media/data-factory-map-columns/column-mapping-flow.png)
 
-## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Voorbeeld 2: toewijzingskolommen met SQL-query uit Azure SQL naar Azure blob
-In dit voorbeeld wordt een SQL-query om gegevens te extraheren uit de SQL Azure in plaats van de tabelnaam en de kolomnamen van de te geven in de sectie 'structuur' gebruikt. 
+## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Voorbeeld 2: kolom toewijzing met SQL-query uit Azure SQL naar Azure-blob
+In dit voorbeeld wordt een SQL-query gebruikt om gegevens te extraheren uit Azure SQL in plaats van op te geven de tabelnaam en de kolomnamen in de sectie "structuur". 
 
 ```json
 {
@@ -174,7 +173,7 @@ In dit voorbeeld wordt een SQL-query om gegevens te extraheren uit de SQL Azure 
         }
 }
 ```
-De queryresultaten worden in dit geval eerst toegewezen aan kolommen die is opgegeven in 'structuur' van de bron. De kolommen van bron 'structuur' worden vervolgens toegewezen aan kolommen in sink 'structuur' met regels die zijn opgegeven in de columnMappings.  Stel dat de query retourneert 5 kolommen, twee of meer kolommen dan die zijn opgegeven in de 'structuur' van de bron.
+In dit geval worden de resultaten van de query eerst toegewezen aan kolommen die zijn opgegeven in 'structuur"van de bron. De kolommen van bron "structuur" worden vervolgens toegewezen aan kolommen in sink "structuur" met regels die zijn opgegeven in de columnMappings.  Stel dat de query retourneert 5 kolommen, twee of meer kolommen dan die zijn opgegeven in de 'structuur"van de bron.
 
 **Kolom toewijzing stroom**
 
@@ -183,4 +182,4 @@ De queryresultaten worden in dit geval eerst toegewezen aan kolommen die is opge
 ## <a name="next-steps"></a>Volgende stappen
 Zie het artikel voor een zelfstudie over het gebruik van de Kopieeractiviteit: 
 
-- [Gegevens kopiëren van Blob-opslag naar SQL-Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Gegevens kopiëren van Blob Storage naar SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

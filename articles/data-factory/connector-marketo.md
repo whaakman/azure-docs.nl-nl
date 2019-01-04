@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c3210a560c079f66cd21dbb30be4a4b823a6502
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 332687d14593024bb4354e2cd59ff0d50ae0aaef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078205"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017307"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Gegevens kopiëren van Marketo met Azure Data Factory (Preview)
 
@@ -34,7 +33,7 @@ U kunt gegevens uit Marketo kopiëren naar een ondersteunde sink-gegevensopslag.
 Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
 
 >[!NOTE]
->Deze connector Marketo is gebaseerd op de Marketo REST-API. Houd er rekening mee dat de Marketo heeft [limiet voor gelijktijdige aanvraag](http://developers.marketo.com/rest-api/) op servicezijde. Als u fouten zeggen bereikt "Fout bij het gebruik van REST-API: maximale snelheid overschreden '100' met in-20' seconden (606) ' of ' Fout bij het gebruik van REST-API: limiet voor gelijktijdige toegang"10"bereikt (615 kan) ', overwegen om te beperken van de uitvoeringen van de activiteit gelijktijdige kopiëren naar Verminder het aantal aanvragen naar de service.
+>Deze connector Marketo is gebaseerd op de Marketo REST-API. Houd er rekening mee dat de Marketo heeft [limiet voor gelijktijdige aanvraag](http://developers.marketo.com/rest-api/) op servicezijde. Als u fouten zeggen bereikt "Fout bij het gebruik van REST-API: Max. frequentie overschreden '100' met in-20' seconden (606) ' of ' Fout bij het gebruik van REST-API: Gelijktijdige toegang beperken via '10' (615 kan) bereikt ", overwegen om te beperken van de uitvoeringen van de activiteit gelijktijdige kopiëren als u wilt verkleinen het aantal aanvragen naar de service.
 
 ## <a name="getting-started"></a>Aan de slag
 

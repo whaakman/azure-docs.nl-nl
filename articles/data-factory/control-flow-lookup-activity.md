@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426788"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019304"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-activiteit in Azure Data Factory
 
@@ -54,7 +53,7 @@ De volgende gegevensbronnen worden ondersteund voor een Lookup-activiteit. Het g
 ```
 
 ## <a name="type-properties"></a>Type-eigenschappen
-Naam | Beschrijving | Type | Vereist?
+Name | Description | Type | Vereist?
 ---- | ----------- | ---- | --------
 Gegevensset | Bevat de gegevensset-referentie voor de zoekopdracht. Informatie van de **gegevensseteigenschappen** sectie in elke betreffende connector-artikel. | Sleutel/waarde-paar | Ja
 source | Bevat de eigenschappen van gegevensset-specifieke gegevensbron, gelijk zijn aan de Kopieeractiviteit-bron. Informatie van de **Kopieeractiviteit eigenschappen** sectie in elke betreffende connector-artikel. | Sleutel/waarde-paar | Ja
@@ -106,7 +105,7 @@ In dit voorbeeld kopieert Kopieeractiviteit gegevens vanuit een SQL-tabel in uw 
 In dit voorbeeld ziet u lookup voor alleen de eerste rij. Voor het opzoeken van alle rijen en om te koppelen van de resultaten met ForEach-activiteit, raadpleegt u de voorbeelden in [meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pijplijn
-Deze pijplijn bevat twee activiteiten: opzoeken en kopiëren. 
+Deze pijplijn bevat twee activiteiten: Lookup- en kopiëren. 
 
 - De Lookup-activiteit is geconfigureerd voor het gebruik van **LookupDataset**, die verwijst naar een locatie in Azure Blob-opslag. De Lookup-activiteit leest de naam van de SQL-tabel uit een JSON-bestand op deze locatie. 
 - Kopieeractiviteit maakt gebruik van de uitvoer van de Lookup-activiteit, dit de naam van de SQL-tabel is. De **tableName** eigenschap in de **SourceDataset** is geconfigureerd voor het gebruik van de uitvoer van de Lookup-activiteit. Activiteit kopieën gegevens kopiëren van de SQL-tabel naar een locatie in Azure Blob-opslag. De locatie wordt opgegeven door de **SinkDataset** eigenschap. 

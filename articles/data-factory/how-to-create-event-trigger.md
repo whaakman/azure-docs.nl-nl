@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3fb9f98e94191c019b78c5666d2ff5336cc895eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429385"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021863"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 
@@ -82,7 +81,7 @@ Deze sectie bevat voorbeelden van triggerinstellingen voor de op basis van gebeu
 > [!IMPORTANT]
 > U moet nemen de `/blobs/` segment van het pad, zoals wordt weergegeven in de volgende voorbeelden wordt telkens wanneer u de container en map, container bestand of de container, map en en bestand.
 
-| Eigenschap | Voorbeeld | Beschrijving |
+| Eigenschap | Voorbeeld | Description |
 |---|---|---|
 | **Blobpad begint met** | `/containername/` | Gebeurtenissen voor elke blob ontvangt in de container. |
 | **Blobpad begint met** | `/containername/blobs/foldername/` | Ontvangt u gebeurtenissen voor alle blobs in de `containername` container en `foldername` map. |

@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 2e7b7d9b0a194b13de9bdf759f4f3be645ed7c2e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442166"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001699"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Visual Studio gebruiken om te schrijven en beheren van uw Service Fabric-toepassingen vereenvoudigen
 U kunt uw Azure Service Fabric-toepassingen en services via Visual Studio kunt beheren. Nadat u hebt [uw ontwikkelomgeving instellen](service-fabric-get-started.md), kunt u Visual Studio te maken van Service Fabric-toepassingen, services, of het pakket, register toevoegen en implementeren van toepassingen in uw lokale ontwikkelcluster.
@@ -47,7 +47,7 @@ Visual Studio bevatten een eigenschap genaamd **toepassing foutopsporingsmodus**
 
 #### <a name="application-debug-modes"></a>Toepassing Foutopsporingsmodi
 
-1. **Aktualizovat Aplikaci** in deze modus kunt u snel wijzigen en fouten opsporen in uw code en ondersteunt het bewerken van statische webbestanden tijdens het opsporen van fouten. In deze modus werkt alleen als het lokale ontwikkelingscluster wijzigen in [1-knooppunt modus]. Dit is de standaardinstelling toepassing foutopsporingsmodus. (/ service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Aktualizovat Aplikaci** in deze modus kunt u snel wijzigen en fouten opsporen in uw code en ondersteunt het bewerken van statische webbestanden tijdens het opsporen van fouten. In deze modus werkt alleen als uw lokale ontwikkelcluster in [modus 1-Node](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Dit is de standaardinstelling toepassing foutopsporingsmodus.
 2. **Toepassing verwijderen** zorgt ervoor dat de toepassing moet worden verwijderd wanneer de debug-sessie wordt beëindigd.
 3. **Automatische Upgrade** blijft de toepassing wordt uitgevoerd wanneer de debug-sessie wordt beëindigd. De volgende foutopsporingssessie zal de implementatie worden beschouwd als een upgrade. Het upgradeproces bewaart alle gegevens die u hebt ingevoerd in een vorige foutopsporingssessie.
 4. **Zachovat Aplikaci** de toepassing in het cluster blijft actief wanneer de debug-sessie wordt beëindigd. Aan het begin van de volgende foutopsporingssessie, wordt de toepassing verwijderd.

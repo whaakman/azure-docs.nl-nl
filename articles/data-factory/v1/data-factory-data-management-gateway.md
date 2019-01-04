@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698754"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022305"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -51,7 +50,7 @@ Data management gateway biedt de volgende mogelijkheden:
 ### <a name="command-flow-and-data-flow"></a>Opdracht stroom en de gegevensstroom
 Wanneer u een kopieeractiviteit om gegevens tussen on-premises en cloud te kopiëren, de activiteit maakt gebruik van een gateway voor gegevensoverdracht van on-premises gegevensbron naar de cloud en vice versa.
 
-Hier wordt de gegevensstroom op hoog niveau voor en een overzicht van de stappen voor het kopiëren met data gateway: ![gegevensstroom met behulp van gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Dit is de gegevensstroom op hoog niveau voor en samenvatting van de stappen voor het kopiëren met data gateway: ![Gegevensstroom met behulp van gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. Data-ontwikkelaar maakt een gateway voor een Azure Data Factory met behulp van de [Azure-portal](https://portal.azure.com) of [PowerShell-Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. Data-ontwikkelaar maakt een gekoppelde service voor een on-premises gegevensarchief door de gateway op te geven. Data-ontwikkelaar gebruikt als onderdeel van het instellen van de gekoppelde service, de instelling referenties toepassing verificatietypen en referenties op te geven.  Het dialoogvenster referenties instellen-toepassing communiceert met het gegevensarchief voor het testen van verbinding en de gateway naar de referenties op te slaan.
@@ -140,7 +139,7 @@ Er zijn twee firewalls moet u rekening houden: **bedrijfsfirewall** die worden u
 
 Op het niveau van de firewall van het bedrijf, moet u de volgende domeinen bevinden en uitgaande poorten configureren:
 
-| Domeinnamen | Poorten | Beschrijving |
+| Domeinnamen | Poorten | Description |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Gebruikt voor communicatie met back-end Data Movement Service |
 | *.core.windows.net |443 |Gebruikt voor tijdelijke kopiëren met behulp van Azure-Blob (indien geconfigureerd)|
@@ -182,9 +181,9 @@ Gateway maakt gebruik van de proxy-server verbinding maken met de cloudservice. 
 
 Er zijn drie opties:
 
-* **Gebruik geen proxy**: Gateway elke proxy niet expliciet gebruikt voor het verbinding maken met cloudservices.
-* **Systeemproxy gebruiken**: Gateway maakt gebruik van de proxy-instellingen die is geconfigureerd in diahost.exe.config en diawp.exe.config.  Als er geen proxy is geconfigureerd in diahost.exe.config en diawp.exe.config, wordt de status van gateway verbonden met cloudservice rechtstreeks zonder tussenkomst van proxy.
-* **Aangepaste proxy gebruikt**: de HTTP-proxy instellen voor gebruik in plaats van configuraties in diahost.exe.config en diawp.exe.config-gateway configureren.  Adres en poort zijn vereist.  Gebruikersnaam en wachtwoord zijn optioneel, afhankelijk van de instelling van de verificatie van uw proxy.  Alle instellingen zijn versleuteld met het referentiecertificaat van de gateway en lokaal opgeslagen op de gatewaycomputer host.
+* **Gebruik geen proxy**: Gateway niet expliciet gebruikt de proxy voor het verbinding maken met cloudservices.
+* **Systeemproxy gebruiken**: Gateway maakt gebruik van de proxy-instellingen die in diahost.exe.config en diawp.exe.config is geconfigureerd.  Als er geen proxy is geconfigureerd in diahost.exe.config en diawp.exe.config, wordt de status van gateway verbonden met cloudservice rechtstreeks zonder tussenkomst van proxy.
+* **Aangepaste proxy gebruikt**: De HTTP-proxy instellen voor gebruik in plaats van configuraties in diahost.exe.config en diawp.exe.config-gateway configureren.  Adres en poort zijn vereist.  Gebruikersnaam en wachtwoord zijn optioneel, afhankelijk van de instelling van de verificatie van uw proxy.  Alle instellingen zijn versleuteld met het referentiecertificaat van de gateway en lokaal opgeslagen op de gatewaycomputer host.
 
 De data management gateway Host-Service wordt automatisch opnieuw opgestart nadat u de bijgewerkte proxy-instellingen hebt opgeslagen.
 
@@ -236,7 +235,7 @@ Naast deze punten moet u ook om te controleren of dat Microsoft Azure is in de l
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Mogelijke problemen voor de firewall en proxy-server-problemen
 Als u fouten die vergelijkbaar is met de volgende query optreden, is het waarschijnlijk veroorzaakt door onjuiste configuratie van de firewall of proxy-server, waarmee de gateway verbinding maken met Data Factory worden geblokkeerd om zichzelf te verifiëren. Raadpleeg de vorige sectie om te controleren of uw firewall en proxy-server correct zijn geconfigureerd.
 
-1. Als u probeert om de gateway te registreren, krijgt u de volgende fout: 'kan niet registreren van de gateway sleutel. Voordat u de gateway sleutel opnieuw te registreren, bevestigt u dat de data management gateway een verbonden status heeft is en de Data Management Gateway Host-Service wordt gestart."
+1. Als u probeert om de gateway te registreren, krijgt u de volgende fout: 'Kan niet registreren van de gateway sleutel. Voordat u de gateway sleutel opnieuw te registreren, bevestigt u dat de data management gateway een verbonden status heeft is en de Data Management Gateway Host-Service wordt gestart."
 2. Wanneer u Configuration Manager opent, ziet u de status als "Niet-verbonden" of "Verbinding maken." Bij het weergeven van Windows-gebeurtenislogboeken, onder 'Logboeken' > 'Toepassingen en Services Logs' > 'Data Management Gateway', ziet u foutberichten, zoals de volgende fout: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
@@ -360,9 +359,9 @@ U kunt de near-real-time-momentopname van Resourcegebruik (CPU, geheugen, networ
 
 De volgende tabel bevat beschrijvingen van de kolommen in de **Gatewayknooppunten** lijst:  
 
-Bewaking van eigenschap | Beschrijving
+Bewaking van eigenschap | Description
 :------------------ | :---------- 
-Naam | De naam van de logische-gateway en de knooppunten die zijn gekoppeld aan de gateway. Knooppunt is een on-premises Windows-computer waarop de gateway is geïnstalleerd. Zie voor meer informatie over meer dan één knooppunt (maximaal vier knooppunten) die in één logische gateway [Data Management Gateway - hoge beschikbaarheid en schaalbaarheid](data-factory-data-management-gateway-high-availability-scalability.md).    
+Name | De naam van de logische-gateway en de knooppunten die zijn gekoppeld aan de gateway. Knooppunt is een on-premises Windows-computer waarop de gateway is geïnstalleerd. Zie voor meer informatie over meer dan één knooppunt (maximaal vier knooppunten) die in één logische gateway [Data Management Gateway - hoge beschikbaarheid en schaalbaarheid](data-factory-data-management-gateway-high-availability-scalability.md).    
 Status | De status van de logische-gateway en de gateway-knooppunten. Voorbeeld: Online/Offline/Limited/enz. Zie voor meer informatie over deze statussen [gatewaystatus](#gateway-status) sectie. 
 Versie | Toont de versie van de logische gateway en de gateway-knooppunt. De versie van de logische gateway wordt bepaald op basis van de versie van het merendeel van de knooppunten in de groep. Als er knooppunten met verschillende versies in de logische gateway-instellingen, alleen de knooppunten met het versienummer hetzelfde als de functie logische gateway correct zijn. Anderen in de beperkte modus zijn en moeten handmatig worden bijgewerkt (alleen als automatisch bijwerken is mislukt). 
 Beschikbaar geheugen | Beschikbaar geheugen op een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afaa5ae622f962dcffec52dbdbea8a754ba260ab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281690"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025382"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -47,7 +46,7 @@ Visueel ontwerpen met Azure-opslagplaatsen Git-integratie ondersteunt broncodebe
 ### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Een Azure-opslagplaatsen Git-opslagplaats met Azure Data Factory configureren
 U kunt een Azure-opslagplaatsen Git-opslagplaats met een data factory configureren via twee methoden.
 
-#### <a name="method1"></a> Van configuratiemethode 1 (Azure-opslagplaatsen Git-opslagplaats): we pagina aan de slag
+#### <a name="method1"></a> Van configuratiemethode 1 (Azure-opslagplaatsen Git-opslagplaats): Pagina Aan de slag
 
 In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
 
@@ -59,9 +58,9 @@ De **instellingen opslagplaats** configuratie deelvenster wordt weergegeven:
 
 Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen opslagplaats:
 
-| Instelling | Beschrijving | Waarde |
+| Instelling | Description | Waarde |
 |:--- |:--- |:--- |
-| **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/>**Houd er rekening mee**: GitHub wordt momenteel niet ondersteund. | Azure-opslagplaatsen Git |
+| **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/>**Opmerking**: GitHub wordt momenteel niet ondersteund. | Azure-opslagplaatsen Git |
 | **Azure Active Directory** | De naam van uw Azure AD-tenant. | <your tenant name> |
 | **Organisatie van de Azure-opslagplaatsen** | De naam van uw Azure-opslagplaatsen-organisatie. U vindt de naam van uw Azure-opslagplaatsen organisatie op `https://{organization name}.visualstudio.com`. U kunt [aanmelden bij uw organisatie Azure-opslagplaatsen](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en -opslagplaatsen en projecten weergegeven. | <your organization name> |
 | **ProjectName** | De naam van uw Azure-opslagplaatsen-project. U vindt de naam van uw Azure-opslagplaatsen project op `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -164,7 +163,7 @@ Bekijk de volgende video voor een 9 minuten durende inleiding en demonstratie va
 
 U kunt een GitHub-opslagplaats met een data factory configureren via twee methoden.
 
-**Van configuratiemethode 1 (openbare opslagplaats): we pagina aan de slag**
+**Van configuratiemethode 1 (openbare opslagplaats): Laten we pagina aan de slag**
 
 In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
 
@@ -196,7 +195,7 @@ Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de
 
 U kunt een opslagplaats met GitHub Enterprise configureren met een data factory via twee methoden.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Van configuratiemethode 1 (Enterprise-opslagplaats): we pagina aan de slag
+ #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Van configuratiemethode 1 (Enterprise-opslagplaats): Pagina Aan de slag
 
 In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
 

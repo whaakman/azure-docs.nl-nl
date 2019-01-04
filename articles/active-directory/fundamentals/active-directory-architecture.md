@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076109"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013295"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Wat is de Azure Active Directory-architectuur?
 Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer informatie over de functies van Azure AD.
@@ -34,7 +34,7 @@ In dit artikel worden de volgende elementen van de architectuur besproken:
  *  Datacenters
 
 ### <a name="service-architecture-design"></a>Servicearchitectuurontwerp
-De meest voorkomende manier om te bouwen, een toegankelijk en kan worden gebruikt en gegevensrijk systeem gaat via onafhankelijke bouwstenen of schaaleenheden voor de Azure AD-gegevenslaag, eenheden heten *partities*. 
+De meest voorkomende manier om te bouwen, een toegankelijk en kan worden gebruikt en gegevensrijk systeem is tot en met onafhankelijke bouwstenen of schaaleenheden. Voor de Azure AD-gegevenslaag, eenheden heten *partities*. 
 
 De gegevenslaag heeft meerdere front-end-services die mogelijkheden bieden voor lezen/schrijven. Het volgende diagram laat zien hoe de onderdelen van een partitie met één map worden geleverd in de gehele geografisch gedistribueerde datacenters. 
 
@@ -66,7 +66,7 @@ Ontwerp van Azure AD-partities is vereenvoudigd in vergelijking met de enterpris
 
 **Fouttolerantie**
 
-Een systeem is beschikbaarder als het tolerant is voor fouten in hardware, software en het netwerk. Voor elke mappartitie bestaat een maximaal beschikbare hoofdreplica: de primaire replica. Op deze replica worden alleen schrijfbewerkingen naar de partitie uitgevoerd. Deze replica wordt voortdurend en nauwlettend gecontroleerd. Indien er een fout wordt gedetecteerd, kunnen schrijfbewerkingen onmiddellijk worden verplaatst naar een andere replica (die dan de nieuwe primaire replica wordt). Tijdens de failover kan er een verlies van schrijfbeschikbaarheid optreden. Dit duurt meestal maar 1-2 minuten. De leesbeschikbaarheid wordt gedurende deze tijd niet beïnvloed.
+Een systeem is beschikbaarder als het tolerant is voor fouten in hardware, software en het netwerk. Voor elke partitie in de directory bestaat een maximaal beschikbare hoofdreplica: De primaire replica. Op deze replica worden alleen schrijfbewerkingen naar de partitie uitgevoerd. Deze replica wordt voortdurend en nauwlettend gecontroleerd. Indien er een fout wordt gedetecteerd, kunnen schrijfbewerkingen onmiddellijk worden verplaatst naar een andere replica (die dan de nieuwe primaire replica wordt). Tijdens de failover kan er een verlies van schrijfbeschikbaarheid optreden. Dit duurt meestal maar 1-2 minuten. De leesbeschikbaarheid wordt gedurende deze tijd niet beïnvloed.
 
 Leesbewerkingen (die vele malen vaker voorkomen dan schrijfbewerkingen) worden alleen opgeslagen in secundaire replica's. Aangezien secundaire replica's idempotent zijn, kan het verlies van een van de replica's in een bepaalde partitie eenvoudig worden gecompenseerd door de leesbewerkingen naar een andere replica te leiden. Meestal is dit dan een replica in hetzelfde datacenter.
 

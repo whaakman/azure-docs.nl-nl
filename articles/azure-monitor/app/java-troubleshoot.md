@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: a3af54b01de1966240484c7266e7906490d7db4e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1b2e1300c200619f5d1177e9761ad948c62c1239
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980810"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013805"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Probleemoplossing voor en antwoorden op vragen over Application Insights voor Java
 Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen enkele tips.
@@ -48,7 +48,7 @@ Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen 
 * Bekijkt u de juiste AI-resource? Neem komt overeen met de sleutel van uw toepassing met de bron waar u telemetrie verwacht. Ze moeten hetzelfde zijn.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Ik zie niet alle gegevens die ik verwacht
-* Open het gebruik en geschatte kosten pagina en controleer of [steekproeven](../../application-insights/app-insights-sampling.md) worden uitgevoerd. (de verzending van 100% betekent dat steekproeven niet in werking.) De Application Insights-service kan worden ingesteld om te accepteren van slechts een fractie van de telemetrie die van uw app binnenkomt. Hiermee houdt u binnen uw maandelijkse quotum van telemetrie.
+* Open het gebruik en geschatte kosten pagina en controleer of [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd. (de verzending van 100% betekent dat steekproeven niet in werking.) De Application Insights-service kan worden ingesteld om te accepteren van slechts een fractie van de telemetrie die van uw app binnenkomt. Hiermee houdt u binnen uw maandelijkse quotum van telemetrie.
 * Hebt u SDK steekproeven ingeschakeld? Zo ja, zou tegen het tarief dat voor alle toepasselijke typen gegevens worden verzameld.
 * Voert u een oudere versie van Java-SDK? Vanaf versie 2.0.1, hebben we fault tolerance mechanisme voor het afhandelen van onregelmatige netwerk en back-end-fouten, evenals de persistentie van de gegevens op lokale stations geïntroduceerd.
 * Bent u ophalen beperkingen op vanwege overmatige telemetrie? Als u informatie over logboekregistratie inschakelt, ziet u een logboek bericht 'App is beperkt'. Onze huidige limiet is 32 kB telemetrie-items per seconde.
@@ -165,7 +165,7 @@ Maakt gebruik van Application Insights `org.apache.http`. Dit is verplaatst in A
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md
 [usage]: javascript.md
 

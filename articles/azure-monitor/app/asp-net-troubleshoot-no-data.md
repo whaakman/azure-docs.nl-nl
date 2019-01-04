@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e1b06328f02ebad77f98acc480c146793f124c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2695f4e2dcd2441b0a8845bd194d4e393e1d7ca
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970455"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020469"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
 *In Application Insights Zie ik slechts een fractie van de gebeurtenissen die worden gegenereerd door mijn app.*
 
-* Als u het gedeelte van het dezelfde consistent ziet, is het waarschijnlijk vanwege adaptieve [steekproeven](../../application-insights/app-insights-sampling.md). U kunt dit controleren zoeken (op de overzichtsblade) openen en zoek naar een exemplaar van een aanvraag of een andere gebeurtenis. Aan de onderkant van de sectie met eigenschappen klikt u op '...' voor volledige informatie. Als aantal > 1 aanvragen en vervolgens steekproeven worden uitgevoerd. 
-* Anders is het mogelijk dat u ondervindt een [limiet](../../application-insights/app-insights-pricing.md#limits-summary) voor uw prijsplan. Deze limieten gelden per minuut.
+* Als u het gedeelte van het dezelfde consistent ziet, is het waarschijnlijk vanwege adaptieve [steekproeven](../../azure-monitor/app/sampling.md). U kunt dit controleren zoeken (op de overzichtsblade) openen en zoek naar een exemplaar van een aanvraag of een andere gebeurtenis. Aan de onderkant van de sectie met eigenschappen klikt u op '...' voor volledige informatie. Als aantal > 1 aanvragen en vervolgens steekproeven worden uitgevoerd. 
+* Anders is het mogelijk dat u ondervindt een [limiet](../../azure-monitor/app/pricing.md#limits-summary) voor uw prijsplan. Deze limieten gelden per minuut.
 
 ## <a name="no-data-from-my-server"></a>Er zijn geen gegevens van mijn server
 *Ik mijn app hebt geïnstalleerd op de webserver en nu kan ik geen telemetriegegevens van deze niet ziet. Het is gegaan OK op mijn dev-machine.*
@@ -51,7 +51,7 @@ Mogelijke oorzaken:
 
 * Communicatie met de Application Insights-portal is mislukt; of
 * Er is een probleem met uw Azure-account;
-* U hebt alleen [leestoegang tot het abonnement of de groep waar u probeert te maken van de nieuwe resource](../../application-insights/app-insights-resources-roles-access-control.md).
+* U hebt alleen [leestoegang tot het abonnement of de groep waar u probeert te maken van de nieuwe resource](../../azure-monitor/app/resources-roles-access-control.md).
 
 FIX:
 
@@ -95,7 +95,7 @@ De aanmelding voor Microsoft die u hebt voor het laatst op uw standaardbrowser g
 * U hebt meer dan één Microsoft-account - misschien een werk- en een persoonlijk Microsoft-account? De aanmelding die u hebt voor het laatst op uw standaardbrowser gebruikt is voor een ander account dan het account dat toegang tot heeft [Application Insights toevoegen aan het project](../../azure-monitor/app/asp-net.md). 
   
   * FIX: Klik op de naam op van uw rechtsboven in het browservenster en meld u af. Meld u vervolgens aan met het account dat toegang heeft. Klik vervolgens op de linker navigatiebalk op Application Insights en selecteer uw app.
-* Iemand anders Application Insights hebt toegevoegd aan het project en ze bent vergeten om u te bieden [toegang tot de resourcegroep](../../application-insights/app-insights-resources-roles-access-control.md) waarin deze is gemaakt. 
+* Iemand anders Application Insights hebt toegevoegd aan het project en ze bent vergeten om u te bieden [toegang tot de resourcegroep](../../azure-monitor/app/resources-roles-access-control.md) waarin deze is gemaakt. 
   
   * FIX: Als ze een organisatie-account gebruikt, kunnen ze u toevoegen aan het team; of ze kunnen u afzonderlijke toegang verlenen tot de resourcegroep.
 
@@ -167,7 +167,7 @@ Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-se
 * Hebt u uw maandelijkse quotum van gegevenspunten bereikt? Open de instellingen/quotum en prijzen om erachter te komen. Als dit het geval is, kunt u uw abonnement upgraden of betalen voor extra capaciteit. Zie de [prijzen schema](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Ik zie niet alle gegevens die ik verwacht
-Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger, gebruikt de [adaptieve steekproeven](../../application-insights/app-insights-sampling.md) functie kan werken en slechts een percentage van uw telemetrie te verzenden. 
+Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger, gebruikt de [adaptieve steekproeven](../../azure-monitor/app/sampling.md) functie kan werken en slechts een percentage van uw telemetrie te verzenden. 
 
 U kunt deze uitschakelen, maar dit wordt niet aanbevolen. Steekproeven is zo ontworpen dat gerelateerde telemetrie correct wordt verzonden, voor diagnostische doeleinden. 
 

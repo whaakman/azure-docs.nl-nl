@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bb36111da04ad44f5c13ef3dce2b1684784094e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808381"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015063"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
 [Power BI](https://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](app-insights-overview.md).
@@ -119,7 +119,7 @@ Als het verminderen van de gegevensset die afkomstig zijn van de Analytics-query
  ```
 
 ## <a name="about-sampling"></a>Over steekproeven
-Afhankelijk van de hoeveelheid gegevens die door uw toepassing worden verzonden, is het raadzaam om te gebruiken van de functie voor adaptieve steekproeven, waarmee slechts een percentage van uw telemetrie wordt verzonden. Hetzelfde geldt als u de steekproeven handmatig hebt ingesteld in de SDK of bij het opnemen. [Meer informatie over steekproeven](app-insights-sampling.md).
+Afhankelijk van de hoeveelheid gegevens die door uw toepassing worden verzonden, is het raadzaam om te gebruiken van de functie voor adaptieve steekproeven, waarmee slechts een percentage van uw telemetrie wordt verzonden. Hetzelfde geldt als u de steekproeven handmatig hebt ingesteld in de SDK of bij het opnemen. [Meer informatie over steekproeven](../azure-monitor/app/sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI-adapter (afgeschaft)
 Deze methode maakt u een voltooid dashboard van telemetrie voor u. De initiële gegevensset is vooraf gedefinieerd, maar u kunt meer gegevens toevoegen aan deze.

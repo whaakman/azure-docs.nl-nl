@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: aace01fedd0c2ab538d4e11b418907f962128d0e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163115"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019429"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Execute Pipeline-activiteit in Azure Data Factory
 De Execute Pipeline-activiteit kunt een Data Factory-pijplijn om aan te roepen een andere pijplijn.
@@ -60,7 +59,7 @@ De Execute Pipeline-activiteit kunt een Data Factory-pijplijn om aan te roepen e
 ```
 
 ## <a name="type-properties"></a>Type-eigenschappen
-Eigenschap | Beschrijving | Toegestane waarden | Vereist
+Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | De naam van de execute pipeline-activiteit. | Reeks | Ja
 type | Moet worden ingesteld op: **ExecutePipeline**. | Reeks | Ja

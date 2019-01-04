@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 9a724f8e319e652b85941810a6312c35a5036120
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444025"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025722"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van de SQL Server opgeslagen Procedure-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +26,7 @@ ms.locfileid: "52444025"
 Gebruik van activiteiten voor gegevenstransformatie in een Data Factory [pijplijn](concepts-pipelines-activities.md) transformeren en verwerken van onbewerkte gegevens in voorspellingen en inzichten. De activiteit opgeslagen Procedure is een van de activiteiten voor gegevenstransformatie die ondersteuning biedt voor Data Factory. In dit artikel is gebaseerd op de [gegevens transformeren](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten in Data Factory geeft.
 
 > [!NOTE]
-> Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Factory](introduction.md) en de zelfstudie: [zelfstudie: gegevens transformeren](tutorial-transform-data-spark-powershell.md) voordat het lezen van dit artikel. 
+> Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Factory](introduction.md) en de zelfstudie: [Zelfstudie: gegevens transformeren](tutorial-transform-data-spark-powershell.md) voordat het lezen van dit artikel. 
 
 U kunt de activiteit opgeslagen Procedure gebruiken om aan te roepen een opgeslagen procedure in een van de volgende gegevensarchieven in uw onderneming of op een Azure-machine (VM): 
 
@@ -36,9 +35,9 @@ U kunt de activiteit opgeslagen Procedure gebruiken om aan te roepen een opgesla
 - SQL Server-Database.  Als u SQL Server gebruikt, installeert u zelf-hostende integratieruntime op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer die toegang tot de database heeft. Zelf-Hostende integratieruntime is een onderdeel waarmee gegevens verbonden gegevensbronnen on-premises/op virtuele Azure-machine met cloudservices op een veilige, beheerde manier. Zie [zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
 
 > [!IMPORTANT]
-> Het kopiëren van gegevens in Azure SQL Database of SQL Server, kunt u de **SqlSink** in de kopieeractiviteit om aan te roepen een opgeslagen procedure met behulp van de **sqlWriterStoredProcedureName** eigenschap. Zie voor meer informatie over de eigenschap connector artikelen te volgen: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Aanroepen van een opgeslagen procedure tijdens het kopiëren van gegevens in een Azure SQL Data Warehouse met behulp van een kopieeractiviteit wordt niet ondersteund. Maar u kunt de opgeslagen procedure-activiteit gebruiken voor het aanroepen van een opgeslagen procedure in een SQL Data Warehouse. 
+> Het kopiëren van gegevens in Azure SQL Database of SQL Server, kunt u de **SqlSink** in de kopieeractiviteit om aan te roepen een opgeslagen procedure met behulp van de **sqlWriterStoredProcedureName** eigenschap. Voor meer informatie over de eigenschap, naar het volgende connector artikelen: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Aanroepen van een opgeslagen procedure tijdens het kopiëren van gegevens in een Azure SQL Data Warehouse met behulp van een kopieeractiviteit wordt niet ondersteund. Maar u kunt de opgeslagen procedure-activiteit gebruiken voor het aanroepen van een opgeslagen procedure in een SQL Data Warehouse. 
 >
-> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL datawarehouse](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -67,7 +66,7 @@ Dit is de JSON-indeling voor het definiëren van een activiteit opgeslagen Proce
 
 De volgende tabel beschrijft deze JSON-eigenschappen:
 
-| Eigenschap                  | Beschrijving                              | Vereist |
+| Eigenschap                  | Description                              | Vereist |
 | ------------------------- | ---------------------------------------- | -------- |
 | naam                      | Naam van de activiteit                     | Ja      |
 | description               | Beschrijving van het doel waarvoor de activiteit wordt gebruikt | Nee       |

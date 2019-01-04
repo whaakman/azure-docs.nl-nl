@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 5f03f4fe1422f1665d857269c98a50827ed75d55
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958354"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999166"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Bestaande Java Service Fabric-toepassingen bijwerken voor het ophalen van Java-bibliotheken van Maven
 We hebben onlangs de binaire bestanden van Java Service Fabric verplaatst van de Service Fabric Java SDK naar Maven-hosting. U kunt nu **mavencentral** gebruiken om de meest recente Service Fabric Java-afhankelijkheden op te halen. Deze Quick Start helpt u om uw bestaande Java-toepassingen bij te werken, zodat deze compatibel zijn met de op Maven gebaseerde build. Deze toepassingen werden eerder gemaakt voor gebruik met Service Fabric Java SDK, met behulp van een Yeoman-sjabloon of Eclipse.
@@ -220,7 +220,7 @@ task copyDeps <<{
     }
 }
 ```
-Over het algemeen kunt u een goed beeld krijgen van een script voor het bouwen van een stateless Service Fabric Java-service door de voorbeelden te raadplegen die we hebben samengesteld om u snel op weg te helpen. Hier vindt u bijvoorbeeld de [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) voor het voorbeeld met EchoServer.
+Over het algemeen kunt u een goed beeld krijgen van een script voor het bouwen van een stateless Service Fabric Java-service door de voorbeelden te raadplegen die we hebben samengesteld om u snel op weg te helpen. Hier vindt u bijvoorbeeld de [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) voor het voorbeeld met EchoServer.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Actor-service van Service Fabric migreren
 

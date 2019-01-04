@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423725"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020775"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
 De ForEach-activiteit definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
@@ -70,7 +69,7 @@ De eigenschappen worden verderop in dit artikel beschreven. De eigenschap items 
 
 ## <a name="type-properties"></a>Type-eigenschappen
 
-Eigenschap | Beschrijving | Toegestane waarden | Vereist
+Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | Naam van de voor elke activiteit. | Reeks | Ja
 type | Moet worden ingesteld op **ForEach** | Reeks | Ja
@@ -86,7 +85,7 @@ Als **isSequential** is ingesteld op false, de activiteit gegevensbrontabellen l
 Geef in de ForEach-activiteit, een matrix te worden herhaald voor de eigenschap **items**. " Gebruik `@item()` om te herhalen met een één-opsomming in ForEach-activiteit. Bijvoorbeeld, als **items** is een matrix: [1, 2, 3], `@item()` retourneert 1 in de eerste versie 2 in de tweede iteratie en 3 in de derde iteratie.
 
 ## <a name="iterating-over-a-single-activity"></a>Iteratie van een enkele activiteit
-**Scenario:** kopiëren uit het hetzelfde bronbestand in Azure-Blob naar meerdere doelbestanden in Azure Blob.
+**Scenario:** Kopiëren van de dezelfde bron-bestand in Azure-Blob naar meerdere doelbestanden in Azure Blob.
 
 ### <a name="pipeline-definition"></a>De pijplijndefinitie van de
 
@@ -237,7 +236,7 @@ Het is mogelijk om te herhalen meerdere activiteiten (bijvoorbeeld: kopiëren en
 
 ```
 ### <a name="example"></a>Voorbeeld
-**Scenario:** Iterate via een InnerPipeline binnen een ForEach-activiteit met Execute Pipeline-activiteit. De binnenste pijplijn kopieert met schemadefinities met parameters.
+**Scenario:** Een InnerPipeline binnen een ForEach-activiteit met Execute Pipeline-activiteit herhalen. De binnenste pijplijn kopieert met schemadefinities met parameters.
 
 #### <a name="master-pipeline-definition"></a>De definitie van de master-pijplijn
 

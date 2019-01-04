@@ -9,17 +9,16 @@ ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38667435"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020333"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +40,7 @@ Een activiteit kan nul of meer duren **gegevenssets**, en een of meer uitvoergeg
 
 Voordat u een gegevensset maakt, maakt u een **gekoppelde service** uw gegevensopslag aan de data factory koppelen. Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindingsinformatie bevatten die Data Factory nodig heeft om verbinding te maken met externe bronnen. Gegevenssets worden gegevens in de gekoppelde gegevensarchieven, zoals SQL-tabellen, bestanden, mappen en documenten identificeren. Bijvoorbeeld, gekoppelde een Azure Storage-service wordt een storage-account aan de data factory. Een Azure Blob-gegevensset geeft de blob-container en de map met de blobs voor invoer om te worden verwerkt. 
 
-Hier volgt een voorbeeldscenario. Om gegevens te kopiëren van Blob-opslag met een SQL-database, maakt u twee gekoppelde services: Azure Storage en Azure SQL Database. Vervolgens maakt u twee gegevenssets: Azure Blob-gegevensset (die verwijst naar de gekoppelde Azure Storage-service) en Azure SQL Table-gegevensset (die verwijst naar de gekoppelde Azure SQL Database-service). De Azure Storage en de gekoppelde Azure SQL Database-services bevatten verbindingsreeksen die Data Factory tijdens runtime gebruikt verbinding maken met uw Azure Storage en Azure SQL Database, respectievelijk. De Azure Blob-gegevensset specificeert de blob-container en de blob-map met de blobs voor invoer in uw Blob storage. De Azure SQL Table-gegevensset bevat de SQL-tabel in uw SQL-database waarnaar de gegevens zijn om te worden gekopieerd.
+Hier volgt een voorbeeldscenario. Om gegevens te kopiëren van Blob-opslag met een SQL-database, moet u twee gekoppelde services maken: Azure Storage en Azure SQL-Database. Vervolgens maakt u twee gegevenssets: Azure Blob-gegevensset (die verwijst naar de gekoppelde Azure Storage-service) en Azure SQL Table-gegevensset (die verwijst naar de gekoppelde Azure SQL Database-service). De Azure Storage en de gekoppelde Azure SQL Database-services bevatten verbindingsreeksen die Data Factory tijdens runtime gebruikt verbinding maken met uw Azure Storage en Azure SQL Database, respectievelijk. De Azure Blob-gegevensset specificeert de blob-container en de blob-map met de blobs voor invoer in uw Blob storage. De Azure SQL Table-gegevensset bevat de SQL-tabel in uw SQL-database waarnaar de gegevens zijn om te worden gekopieerd.
 
 Het volgende diagram toont de relaties tussen de pijplijn, activiteit, gegevensset en gekoppelde service in Data Factory: 
 
@@ -80,12 +79,12 @@ Een gegevensset in Data Factory wordt in JSON-indeling als volgt gedefinieerd:
 
 De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:   
 
-| Eigenschap | Beschrijving | Vereist | Standaard |
+| Eigenschap | Description | Vereist | Standaard |
 | --- | --- | --- | --- |
 | naam |Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](data-factory-naming-rules.md) voor naamgevingsregels. |Ja |N.v.t. |
 | type |Het type van de gegevensset. Geef een van de typen die worden ondersteund door Data Factory (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie, [gegevenssettype](#Type). |Ja |N.v.t. |
 | structuur |Het schema van de gegevensset.<br/><br/>Zie voor meer informatie, [gegevenssetstructuur](#Structure). |Nee |N.v.t. |
-| typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure-Blob, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#Type). |Ja |N.v.t. |
+| typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob-, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#Type). |Ja |N.v.t. |
 | external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. Als de invoergegevensset voor een activiteit wordt niet door de huidige pijplijn geproduceerd, moet u deze markering instellen op true. Deze markering instellen op true voor de invoergegevensset van de eerste activiteit in de pijplijn.  |Nee |false |
 | availability | Definieert het segmenteringsmodel (bijvoorbeeld elk uur of dagelijks) of het segmenteringshulplijnen model voor de gegevensset voor productie. Elke eenheid van de gegevens verwerkt en geproduceerd door het uitvoeren van een activiteit wordt een gegevenssegment genoemd. Als de beschikbaarheid van een uitvoergegevensset is ingesteld op dagelijks (frequentie: dag, interval: 1), wordt een segment dagelijks geproduceerd. <br/><br/>Zie voor meer informatie, [beschikbaarheid van gegevenssets](#Availability). <br/><br/>Zie voor meer informatie over de gegevensset voor het verwerkingsvenster, de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.v.t. |
 | policy |Definieert de criteria of de voorwaarde die moeten voldoen aan de gegevensset segmenten. <br/><br/>Zie voor meer informatie, de [gegevensset beleid](#Policy) sectie. |Nee |N.v.t. |
@@ -193,12 +192,12 @@ structure:
 
 Elke kolom in de structuur bevat de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | naam |Naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom.  |Nee |
 | cultuur |. NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. |Nee |
-| indeling |Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. |Nee |
+| Indeling |Tekenreeks die moet worden gebruikt wanneer het type een .NET-type is-indeling: `Datetime` of `Datetimeoffset`. |Nee |
 
 De volgende richtlijnen kunnen u bepalen waar structuur informatie op te nemen, en wat u wilt opnemen de **structuur** sectie.
 
@@ -236,9 +235,9 @@ De uitvoergegevensset wordt geproduceerd per uur in de pijplijn starten en de ei
 
 De volgende tabel beschrijft de eigenschappen die u in de beschikbaarheidssectie gebruiken kunt:
 
-| Eigenschap | Beschrijving | Vereist | Standaard |
+| Eigenschap | Description | Vereist | Standaard |
 | --- | --- | --- | --- |
-| frequency |Hiermee geeft u de tijdseenheid voor de gegevensset segment productie.<br/><br/><b>Ondersteunde frequentie</b>: minuut, uur, dag, Week, maand |Ja |N.v.t. |
+| frequency |Hiermee geeft u de tijdseenheid voor de gegevensset segment productie.<br/><br/><b>Ondersteunde frequentie</b>: Minuut, uur, dag, Week, maand |Ja |N.v.t. |
 | interval |Hiermee geeft u een vermenigvuldiger voor de frequentie.<br/><br/>"X Synchronisatiefrequentie-interval" bepaalt hoe vaak het segment wordt geproduceerd. Bijvoorbeeld, als u de gegevensset om te worden gesegmenteerd op uurbasis, moet u instellen <b>frequentie</b> naar <b>uur</b>, en <b>interval</b> naar <b>1</b>.<br/><br/>Houd er rekening mee dat als u opgeeft **frequentie** als **minuut**, moet u het interval instellen op niet kleiner zijn dan 15. |Ja |N.v.t. |
 | stijl |Hiermee geeft u op of het segment aan het begin of einde van het interval moet worden gemaakt.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Als **frequentie** is ingesteld op **maand**, en **stijl** is ingesteld op **EndOfInterval**, het segment op de laatste dag van maand wordt geproduceerd. Als **stijl** is ingesteld op **StartOfInterval**, het segment op de eerste dag van maand wordt geproduceerd.<br/><br/>Als **frequentie** is ingesteld op **dag**, en **stijl** is ingesteld op **EndOfInterval**, in het afgelopen uur van de dag het segment wordt geproduceerd.<br/><br/>Als **frequentie** is ingesteld op **uur**, en **stijl** is ingesteld op **EndOfInterval**, het segment aan het einde van het uur wordt geproduceerd. Het segment wordt bijvoorbeeld voor een segment voor de periode van 1-2 uur worden geproduceerd om 2 uur. |Nee |EndOfInterval |
 | anchorDateTime |Hiermee definieert u de absolute positie in de tijd die door de scheduler wordt gebruikt voor het berekenen van de grenzen van de gegevensset-segment. <br/><br/>Houd er rekening mee dat als deze propoerty onderdelen van een datum die meer gedetailleerde dan de opgegeven frequentie heeft, de gedetailleerdere onderdelen worden genegeerd. Bijvoorbeeld, als de **interval** is **per uur** (frequentie: uur en interval: 1), en de **anchorDateTime** bevat **minuten en seconden**, en vervolgens de minuten en seconden delen van **anchorDateTime** worden genegeerd. |Nee |01/01/0001 |
@@ -283,10 +282,10 @@ De volgende gegevensset wordt maandelijks, en de 3e van elke maand om 8:00 uur w
 De **beleid** sectie in de definitie van de criteria of de voorwaarde die moeten voldoen aan de gegevensset segmenten definieert.
 
 ### <a name="validation-policies"></a>Validatiebeleid voor
-| Beleidsnaam | Beschrijving | Toegepast op | Vereist | Standaard |
+| Beleidsnaam | Description | Toegepast op | Vereist | Standaard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valideert dat de gegevens in **Azure Blob-opslag** voldoet aan de minimale grootte (in MB). |Azure Blob Storage |Nee |N.v.t. |
-| minimumRows |Valideert dat de gegevens in een **Azure SQL-database** of een **Azure table** het minimum aantal rijen bevat. |<ul><li>Azure SQL-database</li><li>Azure-tabel</li></ul> |Nee |N.v.t. |
+| minimumRows |Valideert dat de gegevens in een **Azure SQL-database** of een **Azure table** het minimum aantal rijen bevat. |<ul><li>Azure SQL Database</li><li>Azure-tabel</li></ul> |Nee |N.v.t. |
 
 #### <a name="examples"></a>Voorbeelden
 **minimumSizeMB:**
@@ -319,7 +318,7 @@ Externe gegevenssets zijn die niet worden gegenereerd door een actieve pijplijn 
 
 Tenzij een gegevensset wordt geproduceerd door Data Factory, deze moet worden gemarkeerd als **externe**. Deze instelling in het algemeen geldt voor de invoer van de eerste activiteit in een pijplijn, tenzij de activiteit of het koppelen van de pijplijn wordt gebruikt.
 
-| Naam | Beschrijving | Vereist | Standaardwaarde |
+| Name | Description | Vereist | Standaardwaarde |
 | --- | --- | --- | --- |
 | dataDelay |De tijd te stellen de controle van de beschikbaarheid van de externe gegevens voor het opgegeven segment. Bijvoorbeeld, kunt u een per uur controleren met behulp van deze instelling uitstellen.<br/><br/>De instelling is alleen van toepassing op de huidige tijd.  Bijvoorbeeld, als het is nu om 13:00 uur en deze waarde 10 minuten is, begint de validatie om 1:10 uur.<br/><br/>Houd er rekening mee dat deze instelling heeft geen invloed op segmenten in het verleden. Segmenten met **eindtijd gegevenssegment** + **dataDelay** < **nu** zonder enige vertraging worden verwerkt.<br/><br/>Keer groter zijn dan 23:59 uur moeten worden opgegeven met behulp van de `day.hours:minutes:seconds` indeling. Bijvoorbeeld, om op te geven 24 uur, gebruik geen 24:00:00 uur. Gebruik in plaats daarvan 1.00:00:00. Als u 24:00:00, wordt dit beschouwd als 24 dagen (24.00:00:00). Geef 1:04:00:00 1 dag en vier uur. |Nee |0 |
 | retryInterval |De wachttijd tussen een storing en de volgende poging. Deze instelling geldt voor de huidige tijd. Als de vorige is mislukt probeert, de volgende poging is na de **retryInterval** periode. <br/><br/>Als het nu om 13:00 uur, beginnen we de eerste poging. Als de duur van de eerste van validatiecontrole is 1 minuut en de bewerking is mislukt, de volgende poging is 1:00 + 1 min (duur) + 1 minuut (interval voor opnieuw proberen) = 13:02 uur. <br/><br/>Er is geen vertraging voor segmenten in het verleden. De nieuwe poging gebeurt onmiddellijk. |Nee |00:01:00 uur (1 minuut) |

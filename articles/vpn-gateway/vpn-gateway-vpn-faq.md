@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: yushwang
-ms.openlocfilehash: a6390203ecc4ae672f968b19d83eafc8a552ec3a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994832"
+ms.locfileid: "54002056"
 ---
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
 
@@ -42,7 +42,7 @@ De volgende cross-premises verbindingen worden ondersteund:
 * Punt-naar-site: VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKE v2. Voor deze verbinding is geen VPN-apparaat vereist. Zie [Punt-naar-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) voor meer informatie.
 * VNet-naar-VNet: dit type verbinding is hetzelfde als de site-naar-site-configuratie. VNet-naar-VNet is een VPN-verbinding via IPsec (IKE v1 en IKE v2). Hiervoor is geen VPN-apparaat vereist. Zie [VNet-naar-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) voor meer informatie.
 * Multi-site: dit is een variant op een site-naar-site-configuratie waarmee u meerdere on-premises sites kunt verbinden met een virtueel netwerk. Zie [Multi-site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) voor meer informatie.
-* ExpressRoute: ExpressRoute is een directe verbinding van uw WAN met Azure en geen VPN-verbinding via het openbare internet. Raadpleeg het [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md) en de [Veelgestelde vragen over ExpressRoute](../expressroute/expressroute-faqs.md) voor meer informatie.
+* ExpressRoute: ExpressRoute is een particuliere verbinding naar Azure vanaf uw WAN, niet een VPN-verbinding via het openbare Internet. Raadpleeg het [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md) en de [Veelgestelde vragen over ExpressRoute](../expressroute/expressroute-faqs.md) voor meer informatie.
 
 Zie [Informatie over VPN Gateway](vpn-gateway-about-vpngateways.md) voor meer informatie over VPN-gatewayverbindingen.
 

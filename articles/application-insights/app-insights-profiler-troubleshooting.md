@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fc30dc928afbee0de2cd0d11a147c08b9f47cef1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720436"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024617"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -94,7 +94,7 @@ Als u Profiler configureert, zijn er updates naar de web-app-instellingen. U kun
 
 U kunt op dit moment Profiler inschakelen op maximaal vier Azure-web-apps en implementatiesites gebruiken die worden uitgevoerd in de dezelfde service-plan. Als u meer web-apps dan die wordt uitgevoerd in een app service-abonnement hebt, ziet u mogelijk een Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException gegenereerd door de profiler. De profiler afzonderlijk voor elke web-app wordt uitgevoerd en probeert een ETW-sessie voor elke app te starten. Maar er zijn een beperkt aantal ETW-sessies die in één keer actief kan zijn. Als de webtaak Profiler te veel actieve profilering sessies rapporteren is, verplaatst u enkele web-apps naar een andere service-plan.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Implementatiefout: Directory niet leeg ' D:\\home\\site\\wwwroot\\App_Data\\taken
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Implementatiefout: Map niet leeg ' D:\\home\\site\\wwwroot\\App_Data\\taken
 
 Als u opnieuw wilt uw web-app aan een Web-Apps-resource met de Profiler is ingeschakeld implementeren, ziet u mogelijk het volgende bericht:
 
@@ -128,12 +128,12 @@ D:\ProgramData\ApplicationInsightsProfiler\config.json
 ```
 Controleer of de ikey op de opdrachtregel profiler juist is. 
 
-Derde, met behulp van het pad gevonden in het bovenstaande config.json-bestand, Controleer het logboekbestand profiler. U ziet gegevens voor foutopsporing die de instellingen voor die de profiler wordt gebruikt en de status en foutberichten van de profiler aangeeft. Als de profiler wordt uitgevoerd terwijl de toepassing is ontvangen van aanvragen, ziet u dit bericht: activiteit gedetecteerd van de iKey. Wanneer de tracering is geüpload, ziet u dit bericht: Start met uploaden van de tracering. 
+Derde, met behulp van het pad gevonden in het bovenstaande config.json-bestand, Controleer het logboekbestand profiler. U ziet gegevens voor foutopsporing die de instellingen voor die de profiler wordt gebruikt en de status en foutberichten van de profiler aangeeft. Als de profiler wordt uitgevoerd terwijl de toepassing aanvragen ontvangt, ziet u dit bericht: Activiteit van iKey gedetecteerd. Wanneer de tracering is geüpload, ziet u dit bericht: Start met uploaden van de tracering. 
 
 
-[profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png
-[Profiler-webtaak]:./media/app-insights-profiler/Profiler-webjob.png
-[Profiler-webtaak-logboek]:./media/app-insights-profiler/Profiler-webjob-log.png
+[profiler-search-telemetry]:./media/app-insights-profiler-troubleshooting/Profiler-Search-Telemetry.png
+[Profiler-webtaak]:./media/app-insights-profiler-troubleshooting/Profiler-webjob.png
+[Profiler-webtaak-logboek]:./media/app-insights-profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

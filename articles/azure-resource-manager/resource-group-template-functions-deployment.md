@@ -4,22 +4,20 @@ description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebru
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407351"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022339"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Van implementatiefuncties voor Azure Resource Manager-sjablonen 
 
@@ -97,6 +95,8 @@ U kunt deployment() gebruiken om te koppelen aan een andere sjabloon op basis va
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+Als u een sjabloon uit de implementatiegeschiedenis in de portal implementeren, wordt de sjabloon wordt geïmplementeerd als een lokaal bestand. De `templateLink` eigenschap is niet geretourneerd in de implementatie-functie. Als de sjabloon is gebaseerd op `templateLink` kan een koppeling naar een andere sjabloon, de portal niet gebruiken om opnieuw te implementeren. In plaats daarvan gebruikt u de opdrachten die u gebruikt voor het oorspronkelijk implementeren de sjabloon.
 
 ### <a name="example"></a>Voorbeeld
 

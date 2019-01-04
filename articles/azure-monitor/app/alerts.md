@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0f16f61e99e059c8cf21ec4ffa85eef0a04702bc
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 63045ce1ac06bfb87595675395a411978a17f95a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972989"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017052"
 ---
 # <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
 [Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
@@ -41,7 +41,7 @@ Open de blade waarschuwingsregels en gebruik vervolgens de knop toevoegen.
 * De resource voordat de andere eigenschappen instellen. **Kies de resource "(onderdelen)"** als u wilt instellen van waarschuwingen over metrische gegevens voor prestaties of het gebruik.
 * De naam die u aan de waarschuwing toewijst moet uniek zijn binnen de resourcegroep (niet alleen uw toepassing).
 * Wees voorzichtig om te weten de eenheden waarin u wordt gevraagd om in te voeren van de drempelwaarde.
-* Als u het selectievakje '... e-mail sturen naar eigenaars', worden waarschuwingen verzonden via e-mail naar iedereen die toegang tot deze resourcegroep heeft. Als u wilt deze set personen wilt uitbreiden, voeg deze toe aan de [resourcegroep of abonnement](../../application-insights/app-insights-resources-roles-access-control.md) (niet de bron).
+* Als u het selectievakje '... e-mail sturen naar eigenaars', worden waarschuwingen verzonden via e-mail naar iedereen die toegang tot deze resourcegroep heeft. Als u wilt deze set personen wilt uitbreiden, voeg deze toe aan de [resourcegroep of abonnement](../../azure-monitor/app/resources-roles-access-control.md) (niet de bron).
 * Als u 'Extra e-mailadressen' opgeeft, worden meldingen verzonden naar deze personen of groepen (of u dit selectievakje inschakelt het vak 'e-eigenaren...'). 
 * Stel een [webhook adres](../../azure-monitor/platform/alerts-webhooks.md) als u een web-app die op waarschuwingen reageert hebt ingesteld. Deze wordt aangeroepen wanneer de waarschuwing is geactiveerd en wanneer het probleem is opgelost. (Maar houd er rekening mee dat momenteel, queryparameters niet worden doorgegeven als webhookeigenschappen).
 * U kunt uitschakelen of inschakelen van de waarschuwing: de knoppen aan de bovenkant van de blade zien.
@@ -51,7 +51,7 @@ Open de blade waarschuwingsregels en gebruik vervolgens de knop toevoegen.
 * Gebruikt u een organisatie-account? Als u eigenaar of bijdrager toegang tot de bron van deze toepassing hebt, kunt u waarschuwingen instellen. Bekijk de blade toegangsbeheer. [Meer informatie over toegangsbeheer][roles].
 
 > [!NOTE]
-> In de blade waarschuwingen ziet u dat er al een waarschuwing set up is: [Proactive Diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md). De automatische waarschuwing controleert een bepaalde metrische gegevens, fout snelheid van aanvragen. Tenzij u besluit de proactieve waarschuwing uitschakelen, moet u niet uw eigen melding instellen op de snelheid van aanvragen voor fout. 
+> In de blade waarschuwingen ziet u dat er al een waarschuwing set up is: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). De automatische waarschuwing controleert een bepaalde metrische gegevens, fout snelheid van aanvragen. Tenzij u besluit de proactieve waarschuwing uitschakelen, moet u niet uw eigen melding instellen op de snelheid van aanvragen voor fout. 
 > 
 > 
 
@@ -89,10 +89,10 @@ Populaire waarschuwingen zijn onder andere:
 * **Serverreactietijd** voor de serverkant van webtoepassingen. En het instellen van waarschuwingen, te controleren op deze metrische gegevens om te zien als dit niet goed met hoge aanvraagsnelheden varieert: variant kan erop wijzen dat uw app wordt uitgevoerd uit middelen te halen. 
 * **Serveruitzonderingen** : als u wilt zien, hebt u enkele [aanvullende instellingen](../../azure-monitor/app/asp-net-exceptions.md).
 
-Vergeet niet dat [snelheid van proactieve foutdiagnoses](../../application-insights/app-insights-proactive-failure-diagnostics.md) automatisch de snelheid waarmee uw app op aanvragen met foutcodes reageert bewaken. 
+Vergeet niet dat [snelheid van proactieve foutdiagnoses](../../azure-monitor/app/proactive-failure-diagnostics.md) automatisch de snelheid waarmee uw app op aanvragen met foutcodes reageert bewaken. 
 
 ## <a name="automation"></a>Automation
-* [PowerShell gebruiken voor het instellen van waarschuwingen automatiseren](../../application-insights/app-insights-powershell-alerts.md)
+* [PowerShell gebruiken voor het instellen van waarschuwingen automatiseren](../../azure-monitor/app/powershell-alerts.md)
 * [Webhooks gebruiken om te reageren op waarschuwingen automatiseren](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Video
@@ -101,14 +101,14 @@ Vergeet niet dat [snelheid van proactieve foutdiagnoses](../../application-insig
 
 ## <a name="see-also"></a>Zie ook
 * [Webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Instellen van waarschuwingen automatiseren](../../application-insights/app-insights-powershell-alerts.md)
+* [Instellen van waarschuwingen automatiseren](../../azure-monitor/app/powershell-alerts.md)
 * [Proactieve diagnostische gegevens](../../application-insights/app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
-[platforms]: ../../application-insights/app-insights-platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[platforms]: ../../azure-monitor/app/platforms.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
 

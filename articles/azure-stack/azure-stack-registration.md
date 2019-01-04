@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811015"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002481"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -309,6 +309,11 @@ U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie 
     [ ![De tegel beheer regio](media/azure-stack-registration/admin1sm.png "regio management tegel") ](media/azure-stack-registration/admin1.png#lightbox)
 
 3. Selecteer **eigenschappen**. Deze blade ziet u de status en details van uw omgeving. De status kan zijn **geregistreerde** of **niet geregistreerd**. Als geregistreerd, ook ziet u de ID van de Azure-abonnement dat u gebruikt voor het registreren van uw Azure Stack, samen met de registratie-resourcegroep en de naam.
+
+U kunt ook kunt u controleren of uw registratie geslaagd is met behulp van de Marketplace-management-functie. Als u een lijst met items voor de marketplace in de Marketplace-beheerblade ziet, is uw registratie is gelukt. Echter in niet-verbonden omgevingen zal u niet mogelijk om te zien van marketplace-items in beheer van Marketplace. Echter, kunt u het hulpprogramma voor offline om te controleren of de registratie.
+
+> [!NOTE]
+> Nadat de registratie is voltooid, wordt de actieve waarschuwing voor het registreren van niet langer worden weergegeven. In niet-verbonden scenario's ziet u een bericht waarin wordt gevraagd u te registreren en activeren van uw Azure Stack, zelfs als u hebt geregistreerd voor beheer van Marketplace.
 
 ## <a name="renew-or-change-registration"></a>Vernieuwen of wijzigen van inschrijving
 

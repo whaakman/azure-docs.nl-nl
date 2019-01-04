@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: c0f68304a73f8489668fafb98c51bd1e78b7588f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972648"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021880"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigatie en Dashboards in de Application Insights-portal
 Nadat u hebt [Application Insights instellen voor uw project](../../application-insights/app-insights-overview.md), telemetrische gegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource van uw project in de [Azure-portal](https://portal.azure.com).
@@ -96,7 +96,7 @@ Wanneer u een dashboard hebt gemaakt, kunt u deze delen met andere gebruikers.
 
 ![Klik in de header dashboard delen](./media/app-insights-dashboards/41.png)
 
-Meer informatie over [rollen en toegangsbeheer](../../application-insights/app-insights-resources-roles-access-control.md).
+Meer informatie over [rollen en toegangsbeheer](../../azure-monitor/app/resources-roles-access-control.md).
 
 ## <a name="create-dashboards-programmatically"></a>Dashboards via een programma maken
 U kunt automatiseren dashboard maken met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) en een eenvoudige JSON-editor.
@@ -109,7 +109,7 @@ De overzichtsblade is de gateway naar meer informatie over uw app.
 ### <a name="overview-blade-buttons"></a>Overzicht van blade knoppen
 ![Overzicht van blade bovenste navigatiebalk](./media/app-insights-dashboards/app-overview-top-nav.png)
 
-* [**Metrics Explorer** ](../../application-insights/app-insights-metrics-explorer.md) -maken van uw eigen diagrammen van prestaties en het gebruik.
+* [**Metrics Explorer** ](../../azure-monitor/app/metrics-explorer.md) -maken van uw eigen diagrammen van prestaties en het gebruik.
 * [**Search** ](../../azure-monitor/app/diagnostic-search.md) - onderzoek specifieke exemplaren van gebeurtenissen, zoals aanvragen, uitzonderingen, of logtraceringen.
 * [**Analytics** ](../../azure-monitor/app/analytics.md) -krachtige query's over uw telemetrie.
 * **Tijdsbereik** -aanpassen van het bereik dat door de grafieken op de blade weergegeven.
@@ -123,14 +123,14 @@ De overzichtsblade is de gateway naar meer informatie over uw app.
 
 * **Overzicht** -gaat u terug naar de blade app-overzicht.
 * **Activiteitenlogboek** -waarschuwingen en gebeurtenissen van Azure met beheerdersrechten.
-* [**Toegangsbeheer** ](../../application-insights/app-insights-resources-roles-access-control.md) -toegang bieden voor leden van een team en anderen.
+* [**Toegangsbeheer** ](../../azure-monitor/app/resources-roles-access-control.md) -toegang bieden voor leden van een team en anderen.
 * [**Tags** ](../../azure-resource-manager/resource-group-using-tags.md) -tags gebruiken voor het groeperen van uw app met anderen.
 
 ONDERZOEKEN
 
 * [**Overzicht van de toepassing** ](app-map.md) -actieve toewijzing van de onderdelen van uw toepassing, die is afgeleid van afhankelijkheidsinformatie.
 * [**Slimme detectie** ](../../application-insights/app-insights-proactive-diagnostics.md) -recente waarschuwingen bekijken.
-* [**Live Stream** ](../../application-insights/app-insights-live-stream.md) : een vaste set van vrijwel directe metrische gegevens, handig bij het implementeren van een nieuwe build of foutopsporing.
+* [**Live Stream** ](../../azure-monitor/app/live-stream.md) : een vaste set van vrijwel directe metrische gegevens, handig bij het implementeren van een nieuwe build of foutopsporing.
 * [**Beschikbaarheid / Webtests** ](../../azure-monitor/app/monitor-web-app-availability.md) -reguliere aanvragen verzenden naar uw web-app uit om de world.*
 * [**Fouten, prestaties** ](../../application-insights/app-insights-web-monitor-performance.md) -uitzonderingen, foutpercentages en reactietijden voor aanvragen voor uw app en voor verzoeken van uw app naar [afhankelijkheden](../../azure-monitor/app/asp-net-dependencies.md).
 * [**Prestaties** ](../../application-insights/app-insights-web-monitor-performance.md) -reactietijd, de reactietijden van afhankelijkheden.
@@ -145,14 +145,14 @@ CONFIGUREREN
 * [Waarschuwingen](../../azure-monitor/app/alerts.md) -configuratie van de metrische waarschuwing.
 * [Continue export](../../azure-monitor/app/export-telemetry.md) -exporteren van telemetrie naar Azure storage configureren.
 * [Prestatietesten](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) -instellen van een synthetische werklast op uw website.
-* [Quotum en prijzen](../../application-insights/app-insights-pricing.md) en [opnamesteekproeven](../../application-insights/app-insights-sampling.md).
+* [Quotum en prijzen](../../azure-monitor/app/pricing.md) en [opnamesteekproeven](../../azure-monitor/app/sampling.md).
 * **API-toegang** -maken [release-aantekeningen](annotations.md) en voor de Data Access-API.
 * [**Werkitems** ](../../azure-monitor/app/diagnostic-search.md#create-work-item) -verbinding maken met een werk volgsysteem zodat u fouten maken kunt tijdens de inspectie van telemetrie.
 
 INSTELLINGEN
 
 * [**Hiermee vergrendelt u** ](../../azure-resource-manager/resource-group-lock-resources.md) -Azure-resources vergrendelen
-* [**Automatiseringsscript** ](../../application-insights/app-insights-powershell.md) -exporteren van een definitie van de Azure-resource, zodat u deze als sjabloon gebruiken kunt om nieuwe resources te maken.
+* [**Automatiseringsscript** ](../../azure-monitor/app/powershell.md) -exporteren van een definitie van de Azure-resource, zodat u deze als sjabloon gebruiken kunt om nieuwe resources te maken.
 
 
 ## <a name="video"></a>Video
@@ -163,6 +163,6 @@ INSTELLINGEN
 
 |  |  |
 | --- | --- |
-| [Metrics explorer](../../application-insights/app-insights-metrics-explorer.md)<br/>Metrische gegevens filteren en te segmenteren |![Een voorbeeld van zoekopdracht](./media/app-insights-dashboards/64.png) |
+| [Metrics explorer](../../azure-monitor/app/metrics-explorer.md)<br/>Metrische gegevens filteren en te segmenteren |![Een voorbeeld van zoekopdracht](./media/app-insights-dashboards/64.png) |
 | [Diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md)<br/>Zoeken en gebeurtenissen, gerelateerde gebeurtenissen controleren en maken van bugs |![Een voorbeeld van zoekopdracht](./media/app-insights-dashboards/61.png) |
 | [Analytische gegevens](../../azure-monitor/app/analytics.md)<br/>Krachtige querytaal |![Een voorbeeld van zoekopdracht](./media/app-insights-dashboards/63.png) |

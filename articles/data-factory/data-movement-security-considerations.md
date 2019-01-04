@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970625"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015709"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,8 +42,8 @@ Als u wel interesse in Azure, naleving en hoe Azure beveiligt met een eigen infr
 
 In dit artikel bekijken we beveiligingsoverwegingen in de volgende twee verkeer scenario's: 
 
-- **Cloudscenario**: In dit scenario, zowel de bron en bestemming voor de openbaar toegankelijk is via het internet zijn. Het gaat hierbij om beheerde cloud storage-services zoals Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-services zoals Salesforce en web-protocollen, zoals FTP- en OData. Een volledige lijst met ondersteunde gegevensbronnen in [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Hybride scenario**: In dit scenario wordt uw bron- of de bestemming is achter een firewall of binnen een bedrijfsnetwerk on-premises. Of het gegevensarchief is in een particulier netwerk of een virtueel netwerk (meestal de bron) en is niet openbaar toegankelijk is. Databaseservers die worden gehost op virtuele machines kunnen ook worden onderverdeeld in dit scenario.
+- **Cloudscenario**: In dit scenario zijn zowel de bron en bestemming voor de openbaar toegankelijk is via het internet. Het gaat hierbij om beheerde cloud storage-services zoals Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-services zoals Salesforce en web-protocollen, zoals FTP- en OData. Een volledige lijst met ondersteunde gegevensbronnen in [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Hybride scenario**: In dit scenario is de bron of bestemming voor de achter een firewall of binnen een bedrijfsnetwerk on-premises. Of het gegevensarchief is in een particulier netwerk of een virtueel netwerk (meestal de bron) en is niet openbaar toegankelijk is. Databaseservers die worden gehost op virtuele machines kunnen ook worden onderverdeeld in dit scenario.
 
 ## <a name="cloud-scenarios"></a>Cloud-scenario 's
 
@@ -149,7 +148,7 @@ In een onderneming is een bedrijfsfirewall wordt uitgevoerd op de centrale-route
 
 De volgende tabel bevat de vereisten voor uitgaande poort en het domein voor zakelijke firewalls:
 
-| Domeinnamen                  | Uitgaande poorten | Beschrijving                              |
+| Domeinnamen                  | Uitgaande poorten | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Vereist door de zelf-hostende integratieruntime verbinding maken met services voor gegevensverplaatsing in Data Factory. |
 | `*.frontend.clouddatahub.net` | 443            | Vereist door de zelf-hostende integratieruntime verbinding maken met de Data Factory-service. |
@@ -163,7 +162,7 @@ De volgende tabel bevat de vereisten voor uitgaande poort en het domein voor zak
 
 De volgende tabel bevat de vereisten van de binnenkomende poort voor de Windows Firewall:
 
-| Poorten voor inkomend verkeer | Beschrijving                              |
+| Poorten voor inkomend verkeer | Description                              |
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Vereist voor de PowerShell-cmdlet voor versleuteling, zoals beschreven in [versleutelen referenties voor on-premises gegevensarchieven in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), en door de toepassing Referentiebeheer veilig referenties instellen voor on-premises gegevensopslagexemplaren in de zelf-hostende integratieruntime. |
 
