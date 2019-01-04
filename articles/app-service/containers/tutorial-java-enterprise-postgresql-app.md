@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344224"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539718"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Zelfstudie: een Java EE- en Postgres-web-app in Azure maken
 
@@ -170,7 +170,7 @@ U wordt ten sterkste aangeraden de inhoud van deze bestanden te lezen, met name 
 
 ### <a name="ftp-the-configuration-files"></a>Configuratiebestanden via FTP verzenden
 
-De inhoud van `wildfly_config/` moet via FTP naar onze App Service-exemplaar worden verzonden. U kunt uw FTP-referenties ophalen door op de knop **Publicatieprofiel ophalen** te klikken in de App Service-blade in de Azure-portal. De gebruikersnaam en het wachtwoord voor de FTP staan in het gedownloade XML-document. Zie [dit document](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials) voor meer informatie over het publicatieprofiel.
+De inhoud van `wildfly_config/` moet via FTP naar onze App Service-exemplaar worden verzonden. U kunt uw FTP-referenties ophalen door op de knop **Publicatieprofiel ophalen** te klikken in de App Service-blade in de Azure-portal. De gebruikersnaam en het wachtwoord voor de FTP staan in het gedownloade XML-document. Zie [dit document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials) voor meer informatie over het publicatieprofiel.
 
 U kunt de vier bestanden in `wildfly_config/` naar `/home/site/deployments/tools/` overdragen met een FTP-programma naar keuze. (Draag alleen de bestanden over, niet de hele map.)
 

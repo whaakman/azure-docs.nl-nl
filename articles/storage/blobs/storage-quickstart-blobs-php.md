@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 6ecb87af9cc75898aa8734b329dce01f70511a27
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712905"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787882"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Objecten overdragen naar/van Azure Blob-opslag met PHP
 In deze snelstart leert u hoe u PHP kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. 
@@ -43,14 +43,14 @@ Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Als u d
 ## <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 In de toepassing moet u de naam en de sleutel van uw opslagaccount opgeven om een **BlobRestProxy**-exemplaar voor uw toepassing te maken. U wordt aangeraden deze id's binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Gebruik een van de volgende voorbeelden, afhankelijk van uw besturingssysteem, voor het maken van de omgevingsvariabele. Vervang de waarden **youraccountname** en **youraccountkey** door uw accountnaam en -sleutel.
 
-# <a name="linux-tablinux"></a>[Linux] (#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# <a name="windows-tabwindows"></a>[Windows] (#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: c2202a194c3912bd9a8b8f534df792e6f1a3543b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991592"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998690"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Beginnen met controleren van de Node.js-webtoepassing
 
@@ -52,7 +52,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
    | **Naam**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
    | **Toepassingstype** | Node.js-toepassing | Type app dat u wilt controleren |
    | **Resourcegroep**     | myResourceGroup      | Naam voor de nieuwe resourcegroep waarin App Insights-gegevens worden gehost |
-   | **Locatie** | VS - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
+   | **Locatie** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 2. Klik op **Create**.
 
@@ -124,7 +124,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
    ![Grafiek voor metrische servergegevens](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-Bekijk de [extra Node./js-documentatie voor App Insights](app-insights-nodejs.md) voor meer informatie over het controleren van Node.js.
+Bekijk de [extra Node./js-documentatie voor App Insights](../azure-monitor/app/nodejs.md) voor meer informatie over het controleren van Node.js.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

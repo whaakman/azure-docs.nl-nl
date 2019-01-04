@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 364a8b6574b06aa2403ea028fecd0676ba0342a7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8653d8da8b180fb657169523e83a651d822343e4
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256210"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605028"
 ---
 # <a name="create-a-signalr-service"></a>Een SignalR-service maken 
 
@@ -48,7 +48,7 @@ Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de 
 | Opdracht | Opmerkingen |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az signalr create](/cli/azure/group#az-group-create) | Hiermee maakt u een resource voor de Azure SignalR-service. |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Hiermee maakt u een resource voor de Azure SignalR-service. |
 | [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Hiermee vraagt u de sleutels op die door uw toepassing worden gebruikt om realtime updates van inhoud te pushen met SignalR. |
 
 

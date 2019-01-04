@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 17c1cce5c20570f36505ce67a472280b03ef8f0e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991589"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744516"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
@@ -33,7 +33,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 - [.NET Core 2.0 SDK installeren](https://www.microsoft.com/net/core)
 - U hebt een Azure-abonnement en een bestaande .NET Core-webtoepassing nodig.
 
-Als u geen ASP.NET Core-webtoepassing hebt, kunt u onze stapsgewijze handleiding gebruiken om [een ASP.NET Core-app te maken en Application Insights toe te voegen](app-insights-asp-net-core.md).
+Als u geen ASP.NET Core-webtoepassing hebt, kunt u onze stapsgewijze handleiding gebruiken om [een ASP.NET Core-app te maken en Application Insights toe te voegen](../azure-monitor/app/asp-net-core.md).
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -56,7 +56,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
    | **Naam**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
    | **Toepassingstype** | ASP.NET-webtoepassing | Type app dat u wilt controleren |
    | **Resourcegroep**     | myResourceGroup      | Naam voor de nieuwe resourcegroep waarin App Insights-gegevens worden gehost |
-   | **Locatie** | VS - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
+   | **Locatie** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 2. Klik op **Create**.
 

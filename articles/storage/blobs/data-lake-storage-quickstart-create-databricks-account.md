@@ -8,12 +8,12 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.openlocfilehash: 14ea060ca29d181023086ad241db59d275d2c581
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c820d2172c3e38d9d744e645d7c0e8b4749b42cd
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973596"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743371"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snelstart: Een Apache Spark-taak uitvoeren in Azure Databricks met behulp van Azure Portal
 
@@ -137,7 +137,7 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
     ```scala    
     spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
 
-    dbutils.fs.ls("abfs://<file-system-name>@<account-name>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
     ```
 
 5. Geef de code op in de eerste cel en druk op **SHIFT + ENTER** om deze uit te voeren.

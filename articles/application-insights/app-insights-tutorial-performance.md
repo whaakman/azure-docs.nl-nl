@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42812868"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744408"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Prestatieproblemen vinden en diagnosticeren met behulp van Azure Application Insights
 
@@ -35,7 +35,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 - Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
-- Implementeer een .NET-toepassing in Azure en [schakel de Application Insights-SDK](app-insights-asp-net.md)in.
+- Implementeer een .NET-toepassing in Azure en [schakel de Application Insights-SDK](../azure-monitor/app/asp-net.md)in.
 - [Schakel de Application Insights-profiler in](app-insights-profiler.md#installation) voor uw toepassing.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
