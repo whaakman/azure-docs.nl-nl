@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: c0123008e5b15d6d3edce27245a7ed1fa6c431e7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e5ee2f40526837fbe0251e1fdda6847db1c51288
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015038"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634351"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight
 
-In deze zelfstudie gaat u een CSV-bestand met onbewerkte gegevens importeren in een cluster van HDInsight, waarna u de gegevens transformeert met behulp van [Apache Hive](https://hive.apache.org/) in Azure HDInsight. Als de gegevens zijn getransformeerd, laadt u die gegevens met behulp van [Apache Sqoop](http://sqoop.apache.org/) in een Azure SQL-database. In dit artikel gebruikt u vluchtgegevens die vrij beschikbaar zijn.
+In deze zelfstudie gaat u een CSV-bestand met onbewerkte gegevens importeren in een cluster van HDInsight, waarna u de gegevens transformeert met behulp van [Apache Hive](https://hive.apache.org/) in Azure HDInsight. Als de gegevens zijn getransformeerd, laadt u die gegevens met behulp van [Apache Sqoop](https://sqoop.apache.org/) in een Azure SQL-database. In dit artikel gebruikt u vluchtgegevens die vrij beschikbaar zijn.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in Azure HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 Deze zelfstudie bestaat uit de volgende taken: 
@@ -76,7 +76,7 @@ Er zijn veel manieren om gegevens te uploaden naar de opslag die is gekoppeld aa
 
     Vervang *FILENAME* door de naam van het ZIP-bestand. Vervang *USERNAME* door de SSH-aanmelding voor het HDInsight-cluster. Vervang *CLUSTERNAME* door de naam van het HDInsight-cluster.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Als u een wachtwoord gebruikt om uw SSH-aanmelding te verifiëren, wordt u gevraagd om het wachtwoord. Als u een openbare sleutel gebruikt, moet u mogelijk de parameter `-i` gebruiken en het pad naar de bijbehorende persoonlijke sleutel opgeven. Bijvoorbeeld `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Nadat het uploaden is voltooid, maakt u via SSH verbinding met het cluster. Voer op de opdrachtprompt de volgende opdracht in:
@@ -212,7 +212,7 @@ Als u al een SQL-database hebt, moet u de naam van de server opvragen. Ga hiervo
 
 ![Gegevens van Azure SQL-server opvragen](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Gegevens van Azure SQL-server opvragen")
 
-> [!NOTE]
+> [!NOTE]  
 > Er zijn veel manieren om verbinding te maken met SQL Database en een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
 
 
@@ -330,7 +330,7 @@ Zie de volgende artikelen voor andere manieren om te werken met gegevens in HDIn
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
@@ -346,4 +346,4 @@ Zie de volgende artikelen voor andere manieren om te werken met gegevens in HDIn
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
