@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984975"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002651"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
-Streaming-eenheden (su's) vertegenwoordigt de computerbronnen die zijn toegewezen voor het uitvoeren van een taak. Hoe hoger de waarde van SUs, hoe meer resources van de CPU en geheugen worden toegewezen voor uw taak. Deze capaciteit kunt die u zich op de querylogica richten en de noodzaak voor het beheren van de hardware voor het uitvoeren van uw Stream Analytics-taak tijdig samenvattingen.
+Streaming-eenheden (su's) vertegenwoordigt de computerbronnen die zijn toegewezen voor het uitvoeren van een taak. Hoe hoger het aantal streaming-eenheden, hoe meer CPU- en geheugenresources worden toegewezen voor uw taak. Deze capaciteit kunt die u zich op de querylogica richten en de noodzaak voor het beheren van de hardware voor het uitvoeren van uw Stream Analytics-taak tijdig samenvattingen.
 
-Als u wilt bereiken met lage latentie verwerking, uitvoeren Azure Stream Analytics-taken de verwerking in het geheugen. Bij het uitvoeren van onvoldoende geheugen, mislukt de streaming-taak. Als gevolg hiervan voor een productietaak is het belangrijk een streamingtaak Resourcegebruik te bewaken en zorg ervoor dat er voldoende resources toegewezen om te voorkomen dat de 24/7-taken.
+Om verwerking met lage latentie te bereiken, voeren Azure Stream Analytics-taken alle verwerking in het geheugen uit. Bij het uitvoeren van onvoldoende geheugen, mislukt de streaming-taak. Als gevolg hiervan voor een productietaak is het belangrijk een streamingtaak Resourcegebruik te bewaken en zorg ervoor dat er voldoende resources toegewezen om te voorkomen dat de 24/7-taken.
 
-De SU % gebruik metrische gegevens, die varieert van 0% tot 100%, wordt het geheugengebruik van uw workload beschreven. Deze waarde is voor een streaming-taak met minimale voetafdruk, meestal tussen 10 tot 20%. Als gebruikspercentage voor laag is en invoergebeurtenissen ophalen nog moeten worden uitgevoerd, moet uw workload waarschijnlijk meer rekenresources, waarvoor u het aantal SUs te verhogen. Het is raadzaam om te houden van de metriek SU dan 80% ter compensatie van af en toe pieken. Microsoft raadt aan om een waarschuwing instellen op 80% SU-gebruik metrische gegevens om te voorkomen dat bronuitputting. Zie voor meer informatie, [zelfstudie: waarschuwingen instellen voor Azure Stream Analytics-taken](stream-analytics-set-up-alerts.md).
+De SU % gebruik metrische gegevens, die varieert van 0% tot 100%, wordt het geheugengebruik van uw workload beschreven. Deze waarde is voor een streaming-taak met minimale voetafdruk, meestal tussen 10 tot 20%. Als gebruikspercentage voor laag is en invoergebeurtenissen ophalen nog moeten worden uitgevoerd, moet uw workload waarschijnlijk meer rekenresources, waarvoor u het aantal SUs te verhogen. Het is raadzaam om te houden van de metriek SU dan 80% ter compensatie van af en toe pieken. Microsoft raadt aan om een waarschuwing instellen op 80% SU-gebruik metrische gegevens om te voorkomen dat bronuitputting. Zie [Zelfstudie: Waarschuwingen instellen voor Azure Stream Analytics-taken](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Stream Analytics Streaming-eenheden (su's) configureren
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
@@ -48,7 +48,7 @@ Het aantal vereiste su's voor een bepaalde taak kiezen, is afhankelijk van de pa
 
 In het algemeen is de aanbevolen procedure is om te beginnen met 6 su's voor query's die geen gebruik **PARTITION BY**. Vervolgens kunt u de positie sweet bepalen met behulp van een methode voor vallen en opstaan waarin u het aantal SUs wijzigen nadat u representatieve hoeveelheden gegevens doorgeven en het SU-% gebruik metrische gegevens bekijkt. Het maximum aantal streamingeenheden dat kan worden gebruikt door een Stream Analytics-taak is afhankelijk van het aantal stappen in de query die is gedefinieerd voor de taak en het aantal partities in elke stap. U kunt meer informatie over de limieten [hier](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-Zie voor meer informatie over het kiezen van het juiste aantal su's op deze pagina: [Scale Azure Stream Analytics-taken om doorvoer te vergroten](stream-analytics-scale-jobs.md)
+Zie voor meer informatie over het kiezen van het juiste aantal su's op deze pagina: [Schalen van Azure Stream Analytics-taken voor een betere doorvoer](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > Hoeveel su's zijn vereist voor een bepaalde taak is afhankelijk van de partitieconfiguratie voor de invoer en de query die is opgegeven voor de taak. U kunt maximaal uw quotum in su's voor een taak selecteren. Elk Azure-abonnement heeft standaard een quotum van maximaal 200 su's voor alle analytics-taken in een bepaalde regio. Als u wilt verhogen su's voor uw abonnementen buiten dit quotum, neem contact op met [Microsoft Support](https://support.microsoft.com). Geldige waarden voor su's per taak zijn 1, 3, 6, en in stappen van 6.
@@ -57,13 +57,15 @@ Zie voor meer informatie over het kiezen van het juiste aantal su's op deze pagi
 
 Tijdelijke (tijdgebaseerde) query-elementen zijn de kernset aan stateful operators geleverd door Stream Analytics. Stream Analytics beheert de status van deze bewerkingen intern namens gebruiker, door het beheer van geheugenverbruik, plaatsen van controlepunten voor tolerantie en herstel van de status tijdens upgrades van de service. Hoewel de Stream Analytics wordt volledig beheerd voor de Staten, zijn er een aantal aanbevolen werkwijzen besproken waarmee gebruikers rekening moeten houden.
 
+Houd er rekening mee dat een taak met de logica van complexe query gebruikspercentage voor hoge hebben kan, zelfs wanneer deze niet voortdurend invoergebeurtenissen ontvangt. Dit kan gebeuren wanneer een plotselinge piek in de invoer- en gebeurtenissen. De taak kan blijven onderhouden van de status in het geheugen als de query complex is.
+
 ## <a name="stateful-query-logicin-temporal-elements"></a>Stateful querylogica in de tijdelijke elementen
 Een van de unieke mogelijkheid van Azure Stream Analytics-taak is stateful verwerking, zoals statische functies in vensters, tijdelijke joins en tijdelijke analytische functies uit te voeren. Elk van deze operators houdt de statusinformatie. De maximale venstergrootte voor deze query-elementen is zeven dagen. 
 
 Het concept tijdelijk venster wordt weergegeven in de verschillende elementen van de Stream Analytics-query:
-1. Statistische functies in vensters: groep door van Tumbling, Hopping plaatsvindt, en schuiven windows
+1. Statistische functies in vensters: GROEP door van Tumbling, Hopping plaatsvindt, en schuiven windows
 
-2. Tijdelijke joins: lid met de functie DATEDIFF
+2. Tijdelijke joins: ONTMOET DATEDIFF-functie
 
 3. Tijdelijke analytische functies: ISFIRST, LAST en LAG met LIMIT DURATION
 

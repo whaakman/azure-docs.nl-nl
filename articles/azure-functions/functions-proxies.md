@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538987"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017103"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -47,13 +47,13 @@ U kunt met Azure Functions-proxy's aanvragen en antwoorden van de back-end wijzi
 
 Standaard is de back-end-aanvraag als een kopie van de oorspronkelijke aanvraag geïnitialiseerd. Naast het instellen van de back-end-URL, kunt u wijzigingen aanbrengt aan de HTTP-methode, kopteksten en queryreeksparameters. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen] en [parameters van de aanvraag van de oorspronkelijke client].
 
-Back-end-aanvragen in de portal kunnen worden gewijzigd door expading de *aanvraag negeren* sectie van de detailpagina van de proxy. 
+Back-end-aanvragen in de portal kunnen worden gewijzigd door het uitbreiden van de *aanvraag negeren* sectie van de detailpagina van de proxy. 
 
 ### <a name="modify-response"></a>Het antwoord worden gewijzigd
 
 Standaard wordt het antwoord van de client als een kopie van het antwoord van de back-end geïnitialiseerd. U kunt wijzigingen aanbrengen aan van de reactie statuscode, reden, headers en hoofdtekst. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen], [parameters van de aanvraag van de oorspronkelijke client], en [parameters uit het antwoord van de back-end].
 
-Back-end-aanvragen in de portal kunnen worden gewijzigd door expading de *antwoord negeren* sectie van de detailpagina van de proxy. 
+Back-end-aanvragen in de portal kunnen worden gewijzigd door het uitbreiden van de *antwoord negeren* sectie van de detailpagina van de proxy. 
 
 ## <a name="using-variables"></a>Variabelen gebruiken
 
@@ -176,12 +176,13 @@ De proxy-gedrag kan worden beheerd door verschillende app-instellingen. Ze worde
 
 ### <a name="reservedChars"></a> Gereserveerde tekens (tekenreeks opmaak)
 
-Proxy's lezen alle tekenreeksen zonder interpretatie, met uitzondering van accolades en slashes
+Proxy's lezen alle tekenreeksen uit een JSON-bestand, met behulp van \ als een escapeteken. Proxy's kunnen ook accolades interpreteren. Zie een volledige set met de volgende voorbeelden.
 
 |Teken|Escape-teken|Voorbeeld|
 |-|-|-|
 |{of}|{{of}}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Een object requestOverrides definiëren
 
