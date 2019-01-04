@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970192"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544682"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -215,7 +215,7 @@ Moderne hulpprogramma's voor het verkennen en visualiseren van gegevens, zoals P
 
 ## <a name="monitoring-and-diagnostics"></a>Controle en diagnose
 
-Azure Analysis Services is geïntegreerd met metrische gegevens van Azure en biedt een groot aantal resourcespecifieke metrische gegevens waarmee u de prestaties en de status van uw servers kunt volgen. Zie [Monitor server metrics](analysis-services-monitor.md) (Metrische servergegevens bewaken) voor meer informatie. Leg metrische gegevens vast met [diagnostische logboeken van Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Bewaak en verzend logbestanden naar [Azure Storage](https://azure.microsoft.com/services/storage/), stream ze naar [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)en exporteer ze naar [Log Analytics](https://azure.microsoft.com/services/log-analytics/), een service van [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Zie [Registratie in diagnoselogboek instellen](analysis-services-logging.md) voor meer informatie.
+Azure Analysis Services is geïntegreerd met metrische gegevens van Azure en biedt een groot aantal resourcespecifieke metrische gegevens waarmee u de prestaties en de status van uw servers kunt volgen. Zie [Monitor server metrics](analysis-services-monitor.md) (Metrische servergegevens bewaken) voor meer informatie. Leg metrische gegevens vast met [diagnostische logboeken van Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md). Bewaak en verzend logbestanden naar [Azure Storage](https://azure.microsoft.com/services/storage/), stream ze naar [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)en exporteer ze naar [Log Analytics](https://azure.microsoft.com/services/log-analytics/), een service van [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Zie [Registratie in diagnoselogboek instellen](analysis-services-logging.md) voor meer informatie.
 
 Azure Analysis Services ondersteunt ook het gebruik van [DMV's (dynamische beheerweergaven)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV’s zijn gebaseerd op SQL-syntaxis en werken samen met schemarijensets die metagegevens en bewakingsgegevens over serverexemplaren retourneren.
 

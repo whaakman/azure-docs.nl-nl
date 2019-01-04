@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c5f1c5add069be99f7a6f467f6e3e2bd9c2b3535
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 082170d6f8bfb687195de87cde4247697571b0d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543085"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715916"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 Met Visual Studio kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's. In dit artikel gaat u een web-app en SQL Database implementeren.  
@@ -132,7 +132,7 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
     ![Knop Parameters bewerken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 4. Geef waarden op voor de lege parameters en selecteer **Opslaan**. De lege parameters zijn **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** en **databaseName**.
    
-    Met **hostingPlanName** geeft u de naam op voor het te maken [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+    Met **hostingPlanName** geeft u de naam op voor het te maken [App Service-plan](../app-service/overview-hosting-plans.md). 
    
     Met **administratorLogin** geeft u de gebruikersnaam op voor de SQL Server-beheerder. Gebruik geen veelvoorkomende beheerdersnamen als **sa** of **admin**. 
    

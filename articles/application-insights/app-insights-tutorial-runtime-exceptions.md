@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 820f43a8caa5e0d6d9960985fd1d46271071b0fb
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084004"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742827"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Runtime-uitzonderingen vinden en diagnosticeren met behulp van Azure Application Insights
 
@@ -39,7 +39,7 @@ Vereisten voor het voltooien van deze zelfstudie:
     - Azure-ontwikkeling
 - Download en installeer de [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) inschakelen
-- Implementeer een .NET-toepassing in Azure en [schakel de Application Insights-SDK](app-insights-asp-net.md)in. 
+- Implementeer een .NET-toepassing in Azure en [schakel de Application Insights-SDK](../azure-monitor/app/asp-net.md)in. 
 - De zelfstudie volgt de identificatie van een uitzondering in uw toepassing; wijzig dus uw code in uw ontwikkelings- of testomgeving om een uitzondering te genereren. 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.

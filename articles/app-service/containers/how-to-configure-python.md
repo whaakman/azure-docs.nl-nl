@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249631"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717395"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Een Python-app configureren voor Azure App Service met Linux
 
@@ -104,16 +104,16 @@ U kunt ook aanvullende argumenten voor Gunicorn aan de opdracht toevoegen, zoals
 
 Voer de volgende stappen uit als u een aangepaste opdracht wilt opgeven:
 
-1. Navigeer naar de pagina [Toepassingsinstellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) in de Azure Portal.
+1. Navigeer naar de pagina [Toepassingsinstellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) in Azure Portal.
 
-1. In de **Runtime**-instellingen stelt u de optie **Stack** in op **Python 3.7** en voert u de opdracht rechtstreeks in het **Opstartbestand** in.
+1. In de **Runtime**-instellingen stelt u de optie **Stack** in op **Python 3.7** en voert u de opdracht rechtstreeks in het veld **Opstartbestand** in.
 
     U kunt de opdracht ook opslaan in een tekstbestand in de hoofdmap van uw project, bijvoorbeeld met de naam als *startup.txt*. Implementeer dat bestand vervolgens in App Service en geef nu in het veld **Opstartbestand** de bestandsnaam op. Met deze optie kunt u de opdracht beheren in de opslagplaats van de broncode in plaats van via de Azure Portal.
 
 1. Selecteer **Opslaan**. De App Service wordt automatisch opnieuw opgestart en na een paar seconden ziet u dat de aangepaste opstartopdracht is toegepast.
 
 > [!Note]
-> App Service negeert eventuele fouten die optreden tijdens de verwerking van een bestand met een aangepaste opstartopdracht en vervolgt het opstartproces door te zoeken naar Django- en Flask-apps. Als u het verwachte gedrag niet ziet, controleer dan of uw opstartbestand is toegepast op App Service en of het geen fouten bevat.
+> App Service negeert eventuele fouten die optreden tijdens de verwerking van een bestand met een aangepaste opstartopdracht en vervolgt het opstartproces door te zoeken naar Django- en Flask-apps. Als u het verwachte gedrag niet ziet, controleert u of uw opstartbestand is toegepast op App Service en of het geen fouten bevat.
 
 ### <a name="default-behavior"></a>Standaardgedrag
 
@@ -127,9 +127,9 @@ Als de App Service geen aangepaste opdracht, Django-app of Flask-app vindt, word
   - Start de App Service opnieuw op en wacht 15-20 seconden voordat u de app opnieuw controleert.
   - Zorg ervoor dat u App Service voor Linux gebruikt in plaats van een Windows-exemplaar. Voer vanuit de Azure CLI de opdracht `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind` uit, waarbij u `<resource_group_name>` en `<app_service_name>` dienovereenkomstig vervangt. Als het goed is, ziet u `app,linux` als uitvoer. Als dit niet het geval is, maakt u de App Service opnieuw en kiest u Linux.
     - Gebruik SSH of de Kudu-console om rechtstreeks verbinding te maken met de App Service en controleer of uw bestanden in *site/wwwroot* staan. Als uw bestanden niet bestaan, controleert u uw implementatieproces en implementeert u de app opnieuw.
-  - Als uw bestanden bestaan, heeft App Service uw specifieke opstartbestand niet kunnen identificeren. Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepast opstartopdracht](#custom-startup-command).
+  - Als uw bestanden bestaan, heeft App Service uw specifieke opstartbestand niet kunnen identificeren. Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepaste opstartopdracht](#custom-startup-command).
   
 - **U ziet het bericht 'Service niet beschikbaar' in de browser.** De browser heeft een time-out gegenereerd in afwachting van een reactie van App Service. Dat betekent dat de App Service de Gunicorn-server heeft gestart, maar dat de argumenten die de app-code opgeeft onjuist zijn.
   - Vernieuw de browser, met name als u gebruikmaakt van de laagste prijscategorieën in uw App Service-plan. Het is bijvoorbeeld mogelijk dat het opstarten van de app langer duurt wanneer gebruik wordt gemaakt van de gratis prijscategorie en reageert na het vernieuwen van de browser.
-  - Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepast opstartopdracht](#custom-startup-command).
-  - Gebruik SSH of de Kudu-console om verbinding te maken met de App Service en bestudeer vervolgens de logboeken met diagnostische gegevens die zijn opgeslagen in de map *LogFiles*. Voor meer informatie over logboekregistratie raadpleegt u [Diagnostische logboekregistratie voor web-apps inschakelen in Azure App Service](../web-sites-enable-diagnostic-log.md).
+  - Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepaste opstartopdracht](#custom-startup-command).
+  - Gebruik SSH of de Kudu-console om verbinding te maken met de App Service en bestudeer vervolgens de logboeken met diagnostische gegevens die zijn opgeslagen in de map *LogFiles*. Voor meer informatie over logboekregistratie raadpleegt u [Diagnostische logboekregistratie voor web-apps inschakelen in Azure App Service](../troubleshoot-diagnostic-logs.md).

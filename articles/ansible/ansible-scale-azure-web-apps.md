@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: kyliel
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 4ec5a0691ce73a2ffebe07b316ce5b1dde8c2b49
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249376"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601862"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Web-apps van Azure App Service schalen met Ansible
-Met [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (of kortweg Web Apps) worden webtoepassingen, REST API's en mobiele back-ends gehost. U kunt programmeren in uw favoriete taal&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP of Python.
+Met [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (of kortweg Web Apps) worden webtoepassingen, REST API's en mobiele back-ends gehost. U kunt programmeren in uw favoriete taal&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP of Python.
 
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. Dit artikel laat zien hoe u Ansible gebruikt voor het schalen van uw app in Azure App Service.
 

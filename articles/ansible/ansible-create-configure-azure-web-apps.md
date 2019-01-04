@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261752"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726728"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Web-apps van Azure App Service maken met Ansible
-Met [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (of kortweg Web Apps) worden webtoepassingen, REST API's en mobiele back-ends gehost. U kunt programmeren in uw favoriete taal&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP of Python.
+Met [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (of kortweg Web Apps) worden webtoepassingen, REST API's en mobiele back-ends gehost. U kunt programmeren in uw favoriete taal&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP of Python.
 
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. In dit artikel leest u hoe u Ansible gebruikt om een web-app te maken met de Java-runtime. 
 
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Een app-service maken met behulp van Traffic Manager
 U kunt [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) gebruiken om te bepalen hoe aanvragen van web-clients worden gedistribueerd naar apps in Azure App Service. Wanneer App Service-eindpunten worden toegevoegd aan een Azure Traffic Manager-profiel, wordt met Traffic Manager de status van de App Service-apps bijgehouden. Statussen omvatten: actief, gestopt en verwijderd. In Traffic Manager wordt vervolgens bepaald of deze eindpunten verkeer kunnen ontvangen.
 
-In App Service wordt een app uitgevoerd in een [App Service-plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+In App Service wordt een app uitgevoerd in een [App Service-plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 ). Een App Service-plan definieert een set rekenresources waarmee een web-app kan worden uitgevoerd. U kunt het App Service-plan en de web-app in verschillende groepen beheren.
 
 Deze sectie bevat een voorbeeld-Ansible-playbook waarmee de volgende resources worden gedefinieerd:
