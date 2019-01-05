@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086944"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040656"
 ---
-# <a name="how-to-configure-password-writeback"></a>Instructies: Het terugschrijven van wachtwoorden configureren
-
-Het is raadzaam dat u de functie voor automatisch bijwerken van [Azure AD Connect](../hybrid/how-to-connect-install-express.md) wanneer u het terugschrijven van wachtwoorden.
+# <a name="how-to-configure-password-writeback"></a>Uitleg: Configureer wachtwoord terugschrijven
 
 De volgende stappen wordt ervan uitgegaan dat u Azure AD Connect al hebt geconfigureerd in uw omgeving met behulp van de [Express](../hybrid/how-to-connect-install-express.md) of [aangepaste](../hybrid/how-to-connect-install-custom.md) instellingen.
 
@@ -38,7 +36,25 @@ Voor het oplossen van problemen met taken met betrekking tot het terugschrijven 
 > [!WARNING]
 > Wachtwoord terugschrijven wordt niet meer voor klanten die werken met Azure AD Connect-versies 1.0.8641.0 en oudere wanneer de [Azure Access Control service (ACS) op 7 November 2018 buiten gebruik is gesteld](../develop/active-directory-acs-migration.md). Azure AD Connect-versies 1.0.8641.0 en ouder wordt geen bestanden meer worden het terugschrijven van wachtwoorden op dat moment omdat ze afhankelijk van ACS voor deze functionaliteit zijn.
 >
-> Om te voorkomen dat een onderbreking in de service, een upgrade uitvoeren van een eerdere versie van Azure AD Connect naar een nieuwere versie, Zie het artikel [Azure AD Connect: upgraden van een eerdere versie naar de meest recente](../hybrid/how-to-upgrade-previous-version.md)
+> Om te voorkomen dat een onderbreking in de service, een upgrade uitvoeren van een eerdere versie van Azure AD Connect naar een nieuwere versie, Zie het artikel [Azure AD Connect: Upgrade van een vorige versie naar de nieuwste versie](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor wachtwoord terugschrijven
+
+**Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back is een premium-functie van Azure AD**. Zie voor meer informatie over de licentieverlening voor de [Azure Active Directory-site prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Voor het gebruik van het terugschrijven van wachtwoorden, moet u een van de volgende licenties zijn toegewezen op uw tenant hebben:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 of A3
+* Enterprise Mobility + Security E5 of A5
+* Microsoft 365 E3 of A3
+* Microsoft 365 E5 of A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor 'Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back van'* en vereisen dat u met een van de voorgaande plannen voor deze functionaliteit te werken.
 >
 
 ## <a name="active-directory-permissions"></a>Machtigingen voor Active Directory

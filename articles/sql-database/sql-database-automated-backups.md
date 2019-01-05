@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001274"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035420"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -42,7 +42,7 @@ U kunt deze back-ups te gebruiken:
 
 ## <a name="how-long-are-backups-kept"></a>Hoe lang worden back-ups opgeslagen
 
-Elke SQL-Database heeft een back-up bewaartermijn tussen 7 en 35 dagen die afhankelijk zijn van de [aankoopmodel en servicelaag](#pitr-retention-period). U kunt de bewaarperiode voor back-up voor een logische Azure-Server-database bijwerken. Zie voor meer informatie, [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period).
+Elke SQL-Database heeft een back-up bewaartermijn tussen 7 en 35 dagen die afhankelijk zijn van de aankopen model en de servicelaag. U kunt de back-up bijwerken) de bewaarperiode voor een logische Azure-Server-database. Zie voor meer informatie, [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period).
 
 Als u een database verwijdert, blijven SQL-Database de back-ups op dezelfde manier als zou voor een online-database. Als u een Basic-database met een bewaarperiode van zeven dagen verwijdert, wordt bijvoorbeeld een back-up die vier dagen oud is drie dagen opgeslagen.
 
@@ -109,7 +109,7 @@ U kunt de PITR back-up standaardbewaartermijn met behulp van de Azure-Portal, Po
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Back-up bewaarperiode PITR met behulp van de Azure-portal wijzigen
 
-Gebaseerd op welke server-object u wijzigt de periode van PITR back-upretentie met behulp van de Azure-portal wijzigen, gaat u naar het object met de server waarvan u wilt wijzigen in de Portal en selecteer vervolgens de gewenste optie bewaarperiode. 
+Gebaseerd op welke server-object u wijzigt de periode van PITR back-upretentie met behulp van de Azure-portal wijzigen, gaat u naar het object met de server waarvan u wilt wijzigen in de Portal en selecteer vervolgens de gewenste optie bewaarperiode.
 
 #### <a name="change-pitr-for-a-logical-server"></a>Het wijzigen van PITR voor een logische server
 

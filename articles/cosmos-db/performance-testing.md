@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d2863e39b5f28c56e2b9045513aa83326d8b8c7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135352"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043189"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos DB
 
@@ -37,16 +37,16 @@ Als u naar client-side-configuratie-opties om Azure Cosmos DB-prestaties te verb
 ## <a name="run-the-performance-testing-application"></a>De toepassing van de prestatietests uitvoeren
 De snelste manier om te beginnen is compileren en uitvoeren van de .NET-voorbeeld, zoals beschreven in de volgende stappen uit. U kunt ook de broncode analyseren en vergelijkbare configuraties implementeren op uw eigen clienttoepassingen.
 
-**Stap 1:** downloaden van het project uit [Azure Cosmos DB-voorbeeld voor Prestatietesten](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), of de GitHub-opslagplaats splitsen.
+**Stap 1:** Downloaden van het project uit [Azure Cosmos DB-voorbeeld voor Prestatietesten](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), of de GitHub-opslagplaats splitsen.
 
-**Stap 2:** de instellingen wijzigen voor EndpointUrl, AuthorizationKey, CollectionThroughput en DocumentTemplate (optioneel) in App.config.
+**Stap 2:** Wijzig de instellingen voor EndpointUrl, AuthorizationKey, CollectionThroughput en DocumentTemplate (optioneel) in App.config.
 
 > [!NOTE]
 > Voordat u verzamelingen met hoge doorvoer inricht, verwijzen naar de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) om in te schatten van de kosten per verzameling. Azure Cosmos DB kosten opslag en doorvoer onafhankelijk van elkaar op uurbasis in rekening gebracht. U kunt kosten besparen door te verwijderen of de doorvoer van uw Azure Cosmos DB-verzamelingen na het testen van verlagen.
 > 
 > 
 
-**Stap 3:** compileren en uitvoeren van de console-app vanaf de opdrachtregel. Hier ziet u de volgende uitvoer:
+**Stap 3:** Compileren en uitvoeren van de console-app vanaf de opdrachtregel. Hier ziet u de volgende uitvoer:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,7 +89,7 @@ De snelste manier om te beginnen is compileren en uitvoeren van de .NET-voorbeel
     Press any key to exit...
 
 
-**Stap 4 (indien nodig):** de gerapporteerde doorvoer (RU/s) van het hulpprogramma moet gelijk zijn of hoger is dan de ingerichte doorvoer van de verzameling of een set van verzamelingen. Als dat niet het geval is, de DegreeOfParallelism in kleine stapjes verhogen u kan helpen bij de limiet is bereikt. Als de doorvoer van uw client-app plateaus, start u meerdere exemplaren van de app op aanvullende virtuele machines. Als u hulp nodig hebt bij deze stap, e- askcosmosdb@microsoft.com of een ondersteuningsticket vanuit de [Azure-portal](https://portal.azure.com).
+**Stap 4 (indien nodig):** De gerapporteerde doorvoer (RU/s) van het hulpprogramma moet gelijk zijn of hoger is dan de ingerichte doorvoer van de verzameling of een set van verzamelingen. Als dat niet het geval is, de DegreeOfParallelism in kleine stapjes verhogen u kan helpen bij de limiet is bereikt. Als de doorvoer van uw client-app plateaus, start u meerdere exemplaren van de app op aanvullende virtuele machines. Als u hulp nodig hebt bij deze stap, e- askcosmosdb@microsoft.com of een ondersteuningsticket vanuit de [Azure-portal](https://portal.azure.com).
 
 Nadat u de app die wordt uitgevoerd hebt, kunt u proberen verschillende [indexeringsbeleid](index-policy.md) en [consistentieniveaus](consistency-levels.md) om te begrijpen van de invloed ervan op de doorvoer en latentie. U kunt ook de broncode analyseren en vergelijkbare configuraties die u kunt uw eigen testsuites of productie-Apps implementeren.
 

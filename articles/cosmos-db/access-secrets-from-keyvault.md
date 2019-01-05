@@ -1,19 +1,20 @@
 ---
 title: Key Vault gebruiken voor het opslaan en openen van Azure Cosmos DB-sleutels
 description: Azure Key Vault gebruiken voor het opslaan en toegang tot Azure Cosmos DB-verbindingsreeks, sleutels, URI van.
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: f5d494006ebafab37bd10591ad02671e192d73e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837389"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036185"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Key Vault gebruiken voor het opslaan en openen van Azure Cosmos DB-sleutels
 
@@ -32,7 +33,7 @@ De volgende stappen zijn vereist voor het opslaan en lezen van Azure Cosmos DB-t
 1. Aanmelden bij [Azure-Portal](https://portal.azure.com/).  
 2. Selecteer **een resource maken > Beveiliging > Key Vault**.  
 3. Geef in de sectie **Sleutelkluis maken** de volgende gegevens op:  
-   * **Naam:** bieden een unieke naam voor uw Key Vault.  
+   * **Naam:** Geef een unieke naam voor uw Key Vault.  
    * **Abonnement:** Kies het abonnement dat u wilt gebruiken.  
    * Kies **Nieuw** bij **Resourcegroep** en voer de naam van een resourcegroep in.  
    * Kies een locatie in de vervolgkeuzelijst locatie.  

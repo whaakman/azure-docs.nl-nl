@@ -1,5 +1,5 @@
 ---
-title: Connnect een Raspberry Pi tot uw Azure IoT Central-toepassing (Python) | Microsoft Docs
+title: Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (Python) | Microsoft Docs
 description: Als ontwikkelaar in een apparaat, hoe u verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing met behulp van Python.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 90837092390cd2550805658471ff7aa884773371
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f39832b50ed983e7d8a0bfc0a06366870717fa3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239590"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051982"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (Python)
 
@@ -25,7 +25,7 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een Raspberry
 
 Als u wilt de stappen in dit artikel hebt voltooid, moet u de volgende onderdelen:
 
-* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
+* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 * Een Raspberry Pi-apparaat met het besturingssysteem Raspbian. U moet een monitor, toetsenbord en muis die zijn verbonden met uw Raspberry Pi voor toegang tot de GUI-omgeving. De Raspberry Pi moet kunnen [verbinding maken met het internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
 * (Optioneel) een [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) bestuur van de invoegtoepassing voor de Raspberry Pi. Deze bord verzamelt telemetriegegevens van diverse sensoren tot verzendt naar uw Azure IoT Central-toepassing. Als u geen een **Sense Hat** -bord, kunt u in plaats daarvan een emulator gebruiken (beschikbaar als onderdeel van de installatiekopie Raspberry Pi).
 
@@ -45,7 +45,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
     - Huidige
     - Snelheid van ventilator
     - IR in-/ uitschakelen.
-- Eigenschappen
+- Properties
     - Aantal apparaateigenschappen die
     - Cloud-locatie-eigenschap
 
@@ -116,7 +116,7 @@ Instellingen voor in-/ uitschakelen
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AAN      | UIT      | Uit     |
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
 | Type            | Weergavenaam | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |

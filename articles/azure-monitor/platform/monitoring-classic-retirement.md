@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5e882bf0a9b7cbc8a3e96c0184cc1ad53893e989
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 15a3073cde3f9e9ec8c70212cc3b1a591e703915
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999217"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052220"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -51,7 +51,7 @@ Oudere klassiek bewaking en waarschuwingen wordt buiten gebruik gesteld op 30 ju
 
 - Oudere (klassiek) metrische gegevens en waarschuwingen voor Azure-resources als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](../../azure-monitor/platform/alerts-classic.overview.md) van Azure portal; toegankelijk als [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Oudere (klassiek) platform en aangepaste metrische gegevens voor Application Insights, evenals waarschuwingen op deze als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](../../azure-monitor/platform/alerts-classic.overview.md) van Azure portal en toegankelijk als [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
-- Oudere (klassiek) Foutafwijkingen waarschuwing momenteel beschikbaar als [Slimme detectie in Application Insights](../../application-insights/app-insights-proactive-diagnostics.md) in de Azure-portal; met waarschuwingen geconfigureerd wordt weergegeven in [waarschuwingen (klassiek) sectie](../../azure-monitor/platform/alerts-classic.overview.md) van Azure Portal
+- Oudere (klassiek) Foutafwijkingen waarschuwing momenteel beschikbaar als [Slimme detectie in Application Insights](../../azure-monitor/app/proactive-diagnostics.md) in de Azure-portal; met waarschuwingen geconfigureerd wordt weergegeven in [waarschuwingen (klassiek) sectie](../../azure-monitor/platform/alerts-classic.overview.md) van Azure Portal
 
 Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure portal-pagina](../../azure-monitor/platform/alerts-classic-portal.md), en [ Resource-sjabloon](../../azure-monitor/platform/alerts-enable-template.md) bruikbaar blijven tot het einde van juni 2019. 
 

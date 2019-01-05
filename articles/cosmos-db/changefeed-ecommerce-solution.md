@@ -1,19 +1,18 @@
 ---
 title: Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 description: Dit artikel wordt beschreven hoe wijzigingenfeed kan worden gebruikt door een handelsversie-bedrijf Gebruikerspatronen begrijpen, voert u gegevens in realtime analyses en visualisatie.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b04a31ec46194d68dbbc5e5a4eb2b600968d7be5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090751"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037103"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
@@ -31,7 +30,7 @@ Het volgende diagram staat voor de gegevensstroom en de onderdelen die betrokken
 
 ![Project visual](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Gegevens genereren:** gegevenssimulator wordt gebruikt voor het genereren van retailgegevens die gebeurtenissen, zoals een gebruiker een item bekijken, een item toe te voegen aan hun winkelwagen en het aanschaffen van een item vertegenwoordigt. U kunt grote verzameling voorbeeldgegevens genereren met behulp van de gegevensgenerator. De gegenereerde voorbeeldgegevens bevat documenten in de volgende indeling:
+1. **Gegevens genereren:** Gegevenssimulator wordt gebruikt voor het genereren van retailgegevens die gebeurtenissen, zoals een gebruiker een item bekijken, een item toe te voegen aan hun winkelwagen en het aanschaffen van een item vertegenwoordigt. U kunt grote verzameling voorbeeldgegevens genereren met behulp van de gegevensgenerator. De gegenereerde voorbeeldgegevens bevat documenten in de volgende indeling:
    
    ```json
    {      
@@ -42,15 +41,15 @@ Het volgende diagram staat voor de gegevensstroom en de onderdelen die betrokken
    }
    ```
 
-2. **Cosmos DB:** de gegenereerde gegevens zijn opgeslagen in een Azure Cosmos DB-verzameling.  
+2. **Cosmos DB:** De gegenereerde gegevens zijn opgeslagen in een Azure Cosmos DB-verzameling.  
 
-3. **Wijzigingenfeed:** de wijzigingenfeed wordt geluisterd naar wijzigingen in de Azure Cosmos DB-verzameling. Telkens wanneer een nieuw document wordt toegevoegd aan de verzameling (dat is wanneer een gebeurtenis optreedt die een gebruiker een item bekijkt een item toe te voegen aan hun winkelwagen of aanschaffen van een item), de wijzigingenfeed wordt activeren een [Azure-functie](../azure-functions/functions-overview.md).  
+3. **Feed wijzigen:** De wijzigingenfeed wordt geluisterd naar wijzigingen in de Azure Cosmos DB-verzameling. Telkens wanneer een nieuw document wordt toegevoegd aan de verzameling (dat is wanneer een gebeurtenis optreedt die een gebruiker een item bekijkt een item toe te voegen aan hun winkelwagen of aanschaffen van een item), de wijzigingenfeed wordt activeren een [Azure-functie](../azure-functions/functions-overview.md).  
 
-4. **Azure-functie:** de Azure-functie verwerkt de nieuwe gegevens en verzendt ze naar een [Azure Event Hub](../event-hubs/event-hubs-about.md).  
+4. **Azure-functie:** De Azure-functie verwerkt de nieuwe gegevens en verzendt ze naar een [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 
-5. **Event Hub:** deze gebeurtenissen worden opgeslagen in de Azure Event Hub en stuurt naar [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) voor verdere analyse.  
+5. **Event Hub:** Deze gebeurtenissen worden opgeslagen in de Azure Event Hub en stuurt naar [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) voor verdere analyse.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics query's uit om de gebeurtenissen verwerken en realtime gegevensanalyses uitvoeren definieert. Deze gegevens wordt dan gezonden naar [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics definieert query's uit om de gebeurtenissen verwerken en realtime gegevensanalyses uitvoeren. Deze gegevens wordt dan gezonden naar [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI wordt gebruikt voor het visualiseren van de gegevens die door Azure Stream Analytics worden verzonden. U kunt een dashboard om te zien hoe de metrische gegevens wijzigen in realtime kunt bouwen.  
 

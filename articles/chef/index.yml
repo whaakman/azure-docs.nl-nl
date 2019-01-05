@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 87bef3568e45f3d966d90d980403c83c96aa461f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7e320bdc98de75141aed4783d343571971287f37
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300865"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052528"
 documentType: LandingData
 title: Documentatie over Chef Software op Azure
 metadata:
@@ -12,7 +12,7 @@ metadata:
   description: Chef Software levert een DevOps-automatiseringsplatform voor Linux en Windows. Hiermee kunnen zowel fysieke als virtuele serverconfiguraties worden beheerd. Leer aan de hand van onze snelstarts en zelfstudies hoe u producten van Chef Software gebruikt om IaC-recepten (infrastructure-as-code) te automatiseren en virtuele machines in Azure te beheren en implementeren.
   ms.service: chef
   keywords: chef, azure, devops, zelfstudies, voorbeelden, verwijzing
-  author: tomarcher
+  author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing page

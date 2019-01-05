@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 63ee308c50a2d5399dd395dc90c2666fae0bbf49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: be7cb2e602f1c8c0c8471c866d68c28e0ec37498
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999455"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042339"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
 Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](../../application-insights/app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Voeg het script in vlak vóór de `</head>`-tag op elke pagina die u wilt volgen. Als uw website een basispagina heeft, kunt u daar het script plaatsen. Bijvoorbeeld:
 
 * In een ASP.NET-MVC-project plaatst u het in `View\Shared\_Layout.cshtml`
-* Op een SharePoint-site opent u in het Configuratiescherm [Site-instellingen / basispagina](../../application-insights/app-insights-sharepoint.md).
+* Op een SharePoint-site opent u in het Configuratiescherm [Site-instellingen / basispagina](../../azure-monitor/app/sharepoint.md).
 
 Het script bevat de instrumentatiesleutel die de gegevens naar uw Application Insights-resource stuurt. 
 
@@ -118,7 +118,7 @@ Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de bro
 
 ![Open de resource van uw app in portal.azure.com en klik op Instellingen, Browser](./media/javascript/03.png)
 
-Nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Zie [Probleemoplossing](../../application-insights/app-insights-troubleshoot-faq.md).
+Nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Zie [Probleemoplossing](../../azure-monitor/app/troubleshoot-faq.md).
 
 De blade Browser is een [Metrics Explorer-blade](../../azure-monitor/app/metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
 
@@ -227,7 +227,7 @@ De naam van de pagina mag dezelfde tekens als een URL bevatten, maar alles na '#
 ## <a name="usage-tracking"></a>Gebruik bijhouden
 Wilt u weten wat gebruikers met uw app doen?
 
-* [Meer informatie over de analysehulpmiddelen van de gebruiker-gedrag](../../application-insights/app-insights-usage-overview.md)
+* [Meer informatie over de analysehulpmiddelen van de gebruiker-gedrag](../../azure-monitor/app/usage-overview.md)
 * [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](../../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -238,7 +238,7 @@ Wilt u weten wat gebruikers met uw app doen?
 
 
 ## <a name="next"></a> Volgende stappen
-* [Bijhouden van gebruik](../../application-insights/app-insights-usage-overview.md)
+* [Bijhouden van gebruik](../../azure-monitor/app/usage-overview.md)
 * [Aangepaste gebeurtenissen en metrische gegevens](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Bouwen-meten-leren](../../application-insights/app-insights-usage-overview.md)
+* [Bouwen-meten-leren](../../azure-monitor/app/usage-overview.md)
 

@@ -1,13 +1,10 @@
 ---
-title: Maken en koppelen van de service-eindpuntbeleid - Azure portal | Microsoft Docs
+title: Maken en koppelen van de service-eindpuntbeleid - Azure portal
+titlesuffix: Azure Virtual Network
 description: Meer informatie over het instellen van en de bijbehorende service-eindpuntbeleidsregels met behulp van de Azure-portal in dit artikel.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633007"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054432"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Maken, wijzigen of verwijderen van de service-eindpuntbeleid met behulp van de Azure portal
 
@@ -47,9 +44,9 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 3. Invoeren of selecteren, de volgende informatie in **grondbeginselen** 
 
    - Abonnement: Selecteer uw abonnement voor het beleid.    
-   - Resourcegroep: Selecteer **nieuw** en voer *myResourceGroup*.     
+   - Resourcegroep: Selecteer **Nieuwe maken** en voer *myResourceGroup* in.     
    - Naam: myEndpointPolicy
-   - Locatie: VS-West-Centraal     
+   - Locatie: US - west-centraal     
  
    ![Grondbeginselen van beleid voor service-eindpunt maken](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
@@ -64,10 +61,10 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
    
    ![Service-eindpunt beleidsdefinities maken](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Optioneel: Invoeren of selecteren, de volgende informatie in **Tags**:
+5. Optioneel: Typ of selecteer, de volgende informatie in **Tags**:
    
-   - Sleutel: Selecteer de sleutel voor het beleid. Bijvoorbeeld: schuld     
-   - Waarde: Voer een waarde-paar voor de sleutel. Bijvoorbeeld: Financiën
+   - Sleutel: Selecteer de sleutel voor het beleid. Bijvoorbeeld: Schuld     
+   - Waarde: Voer de waarde-paar voor de sleutel. Bijvoorbeeld: Financiën
 
 6. Selecteer **beoordelen en maken**. De informatie en klik op valideren **maken**. Als u wilt meer wijzigingen aanbrengen, klikt u op **vorige**. 
 
@@ -103,7 +100,7 @@ Voordat u een beleid aan een subnet koppelen kunt, moet u een virtueel netwerk e
    - Adresruimte: 10.0.0.0/16      
    - Abonnement: Selecteer uw abonnement. Beleid moet zich in hetzelfde abonnement bevinden als het VNet     
    - Resourcegroep: Selecteer **gebruik bestaande** en selecteer vervolgens *myResourceGroup*     
-   - Locatie: VS-West-Centraal     
+   - Locatie: US - west-centraal     
    - Subnetnaam: persoonlijke     
    - Adresbereik: 10.0.0.0/24
      

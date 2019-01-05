@@ -1,8 +1,7 @@
 ---
-title: Met Azure Traffic Manager - verkeersrouteringsmethoden | Microsoft Docs
+title: Met Azure Traffic Manager - routeringsmethoden voor verkeer
 description: Hiermee geeft u inzicht in de verschillende verkeersrouteringsmethoden van Traffic Manager gebruikt de artikelen
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139330"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054721"
 ---
 # <a name="traffic-manager-routing-methods"></a>Methoden voor het doorsturen van Traffic Manager
 
@@ -27,7 +26,7 @@ De volgende methoden voor het doorsturen van verkeer zijn beschikbaar in Traffic
 * **[Prioriteit](#priority):** Selecteer **prioriteit** wanneer u wilt gebruiken van een primaire service-eindpunt voor al het verkeer en geef de back-ups in geval de primaire of de back-eindpunten zijn niet beschikbaar.
 * **[Gewogen](#weighted):** Selecteer **gewogen** wanneer u wilt dat verkeer distribueert naar een set met eindpunten, hetzij gelijkmatig of op basis van gewicht, dat u definieert.
 * **[Prestaties](#performance):** Selecteer **prestaties** wanneer u eindpunten in verschillende geografische locaties en eindgebruikers om de "dichtstbijzijnde" eindpunt in termen van de laagste netwerklatentie te gebruiken.
-* **[Geografische](#geographic):** Selecteer **geografische** zodat gebruikers worden omgeleid naar specifieke eindpunten (Azure, externe of geneste) op basis van welke geografische locatie hun DNS-query is afkomstig uit. Dit biedt uitgebreide mogelijkheden met Traffic Manager hebben klanten om in te schakelen van scenario's waarbij de geografische regio van de gebruiker weten en routering toe op basis van die belangrijk is. Voorbeelden zijn onder meer gegevens soevereiniteit mandaten, lokalisatie van content & gebruiker ervaring naleven en verkeer vanuit verschillende regio's te meten.
+* **[Geografische](#geographic):** Selecteer **geografisch** zodat gebruikers worden omgeleid naar specifieke eindpunten (Azure, externe of geneste) op basis van welke geografische locatie hun DNS-query is afkomstig uit. Dit biedt uitgebreide mogelijkheden met Traffic Manager hebben klanten om in te schakelen van scenario's waarbij de geografische regio van de gebruiker weten en routering toe op basis van die belangrijk is. Voorbeelden zijn onder meer gegevens soevereiniteit mandaten, lokalisatie van content & gebruiker ervaring naleven en verkeer vanuit verschillende regio's te meten.
 * **[Meerdere waarden](#multivalue):** Selecteer **met meerdere waarden** voor Traffic Manager-profielen die alleen IPv4/IPv6-adressen als eindpunten kunnen hebben. Wanneer een query wordt ontvangen voor dit profiel, worden alle eindpunten in orde worden geretourneerd.
 * **[Subnet](#subnet):** Selecteer **Subnet** verkeersrouteringsmethode sets eindgebruikers IP-adresbereiken koppelen aan een specifieke eindpunt binnen een Traffic Manager-profiel. Wanneer een aanvraag wordt ontvangen, wordt het eindpunt heeft geretourneerd wordt het toegewezen voor de IP-bronadres van de aanvraag. 
 
@@ -57,9 +56,9 @@ Voor elke DNS-query wordt ontvangen, wordt geen beschikbaar eindpunt willekeurig
 
 De gewogen methode kunt enkele handige scenario's:
 
-* Geleidelijke toepassingsupgrade: een percentage van het verkeer routeren naar een nieuw eindpunt toe te wijzen en het verkeer, geleidelijk na verloop van tijd tot 100% te verhogen.
-* Toepassingen migreren naar Azure: een profiel maken met Azure en externe eindpunten. Het gewicht van de eindpunten om de voorkeur van de nieuwe eindpunten te wijzigen.
-* Cloudbursting voor extra capaciteit: snelle uitbreiding van een on-premises implementatie naar de cloud door de gegevens achter een Traffic Manager-profiel. Als u extra capaciteit in de cloud nodig hebt, kunt u toevoegen of meer eindpunten inschakelen en opgeven welk deel van het verkeer wordt gerouteerd naar elk eindpunt.
+* Upgrade van de geleidelijke toepassing: Toewijzen van een percentage van het verkeer routeren naar een nieuw eindpunt en het verkeer, geleidelijk na verloop van tijd tot 100% te verhogen.
+* Toepassingen migreren naar Azure: Een profiel maken met Azure en externe eindpunten. Het gewicht van de eindpunten om de voorkeur van de nieuwe eindpunten te wijzigen.
+* Cloud-bursting voor extra capaciteit: Snelle uitbreiding van een on-premises implementatie naar de cloud door de gegevens achter een Traffic Manager-profiel. Als u extra capaciteit in de cloud nodig hebt, kunt u toevoegen of meer eindpunten inschakelen en opgeven welk deel van het verkeer wordt gerouteerd naar elk eindpunt.
 
 Naast het gebruik van de Azure-portal, kunt u met behulp van Azure PowerShell, CLI en de REST API's gewichten configureren.
 

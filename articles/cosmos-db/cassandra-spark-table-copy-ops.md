@@ -1,20 +1,19 @@
 ---
 title: Tabel kopiëren bewerkingen op Azure Cosmos DB Cassandra-API van Spark.
 description: Dit artikel wordt uitgelegd hoe u het kopiëren van gegevens tussen tabellen in Azure Cosmos DB Cassandra-API
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 4be80bfa7354f4a4b6a13a7a34150c7052a2117b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227126"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034159"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Tabel kopiëren bewerkingen op Azure Cosmos DB Cassandra-API van Spark
 
@@ -147,6 +146,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>Volgende stappen
 
- * Aan de slag met [maken van een Cassandra-API-account, -database en een tabel](create-cassandra-api-account-java.md) met behulp van een Java-toepassing.
- * [Laden van voorbeeldgegevens aan de Cassandra-API-tabel](cassandra-api-load-data.md) met behulp van een Java-toepassing.
- * [Gegevens van de Cassandra-API-account op te vragen](cassandra-api-query-data.md) met behulp van een Java-toepassing.
+ * Ga aan de slag met het [maken van een Cassandra-API-account, -database en een tabel](create-cassandra-api-account-java.md) met behulp van een Java-toepassing.
+ * [Laad voorbeeldgegevens in de Cassandra-API-tabel](cassandra-api-load-data.md) met behulp van een Java-toepassing.
+ * [Zoek in gegevens in de Cassandra-API-account](cassandra-api-query-data.md) met behulp van een Java-toepassing.

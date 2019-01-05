@@ -7,12 +7,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: eee80563a838e6d453278735abf96fa5a6996f19
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 35577f103979bf5f767e3b9d42548ed488e365c8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041897"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Met behulp van de Azure Cosmos DB-change feed processor-bibliotheek
 
@@ -32,17 +33,17 @@ Als u twee zonder server Azure functions dezelfde container bewaking en het gebr
 
 Er zijn vier belangrijke onderdelen van de implementatie van de change feed processor-bibliotheek: 
 
-1. **De bewaakte container:** de bewaakte container heeft de gegevens op basis waarvan de wijzigingenfeed is gegenereerd. Alle toevoegingen en wijzigingen in de bewaakte container worden weerspiegeld in de wijzigingenfeed van de container.
+1. **De bewaakte container:** De bewaakte container heeft de gegevens op basis waarvan de wijzigingenfeed is gegenereerd. Alle toevoegingen en wijzigingen in de bewaakte container worden weerspiegeld in de wijzigingenfeed van de container.
 
-1. **De container lease:** de lease container coördinaten voor het verwerken van de feed over meerdere werknemers wijzigen. Een afzonderlijke container wordt gebruikt voor het opslaan van de leases met één lease per partitie. Het is nuttig voor het opslaan van deze container lease op een ander account met de schrijfregio dichter in de buurt waar de change feed processor wordt uitgevoerd. Een lease-object bevat de volgende kenmerken:
+1. **De lease-container:** De container lease coördineert de verwerking van de feed over meerdere werknemers wijzigen. Een afzonderlijke container wordt gebruikt voor het opslaan van de leases met één lease per partitie. Het is nuttig voor het opslaan van deze container lease op een ander account met de schrijfregio dichter in de buurt waar de change feed processor wordt uitgevoerd. Een lease-object bevat de volgende kenmerken:
 
    * Eigenaar: Hiermee geeft u de host die eigenaar is van de lease.
 
-   * Voortzetting: Geeft de positie (vervolgtoken) in de feed voor een bepaalde partitie wijzigen.
+   * Voortzetting van: Hiermee geeft u de positie (vervolgtoken) in de feed voor een bepaalde partitie wijzigen.
 
-   * Tijdstempel: Laatste keer dat de lease is bijgewerkt. de tijdstempel kan worden gebruikt om te controleren of de lease is verlopen.
+   * Timestamp: Laatste keer dat de lease is bijgewerkt. de tijdstempel kan worden gebruikt om te controleren of de lease is verlopen.
 
-1. **De processor host:** elke host wordt bepaald hoeveel partities verwerken op basis van hoeveel andere instanties van hosts actieve leases hebben.
+1. **De processor host:** Elke host bepaalt het aantal partities verwerken op basis van hoeveel andere instanties van hosts actieve leases hebben.
 
    * Wanneer een host wordt gestart, krijgt deze leases om de werkbelasting in balans tussen alle hosts. Een host wordt leases, regelmatig vernieuwd, zodat de lease actief blijven.
 
@@ -52,7 +53,7 @@ Er zijn vier belangrijke onderdelen van de implementatie van de change feed proc
 
    Het aantal hosts kan op dit moment niet groter zijn dan het aantal partities (lease).
 
-1. **De consument:** consumenten of werknemers, worden threads die de wijzigingenfeed verwerking gestart door elke host uitvoeren. Elke host processor kan meerdere consumenten hebben. Elke consument leest de wijziging feed van de partitie die is toegewezen aan en ontvangt van de host van wijzigingen en verlopen van leases.
+1. **De consument:** Consumenten of werknemers, zijn threads die de wijzigingenfeed verwerking gestart door elke host uitvoeren. Elke host processor kan meerdere consumenten hebben. Elke consument leest de wijziging feed van de partitie die is toegewezen aan en ontvangt van de host van wijzigingen en verlopen van leases.
 
 Om verder te begrijpen hoe deze vier onderdelen van de wijzigingenfeed processor werk samen, bekijk een voorbeeld in het volgende diagram. De bewaakte verzameling documenten worden opgeslagen en 'Plaats' gebruikt als de partitiesleutel. We zien dat de blauwe partitie enzovoort documenten met het veld 'Plaats' uit "A-E" bevat. Er zijn twee hosts, elk met twee consumenten van de vier partities parallel lezen. De pijlen geven de consumenten lezen van een specifieke positie in de feed wijzigen. In de eerste partitie vertegenwoordigt de donkerder blauw ongelezen wijzigingen terwijl de lichtblauw de wijzigingen al lezen op de wijzigingenfeed vertegenwoordigt. De hosts de leaseverzameling gebruiken voor het opslaan van een waarde 'voortzetting' om de positie van de huidige lezen voor elke consument bij te houden.
 

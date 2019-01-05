@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713456"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054891"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Algemene scenario's met Service Fabric onderzoeken
 
@@ -140,7 +140,7 @@ Controleer deze koppelingen voor de volledige lijst prestatiemeteritems op betro
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Stel waarschuwingen in AI](../azure-monitor/app/alerts.md) om te worden geïnformeerd over wijzigingen in de prestaties of gebruik
-* [Slimme detectie in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) voert een proactieve analyse van de telemetrie wordt verzonden naar AI om u te waarschuwen voor mogelijke prestatieproblemen
+* [Slimme detectie in Application Insights](../azure-monitor/app/proactive-diagnostics.md) voert een proactieve analyse van de telemetrie wordt verzonden naar AI om u te waarschuwen voor mogelijke prestatieproblemen
 * Meer informatie over Log Analytics [waarschuwingen](../log-analytics/log-analytics-alerts.md) voor detectie en diagnostiek.
 * Voor clusters van on-premises biedt Log Analytics een gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Log Analytics. Meer informatie over die in [computers zonder internettoegang verbinden met Log Analytics met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md)
 * Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Log Analytics

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf0ffa6069cf8882a541b2a0a82ad96bfb4043ee
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025609"
+ms.locfileid: "54040231"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Bewaking en Diagnose met een latentie van 1 seconde
 
@@ -202,7 +202,7 @@ Zijn er geen gegevens? Als uw toepassing zich in een beveiligd netwerk: Live Met
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Bewaking met Application Insights wordt gebruikt](../../application-insights/app-insights-usage-overview.md)
+* [Bewaking met Application Insights wordt gebruikt](../../azure-monitor/app/usage-overview.md)
 * [Met behulp van diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md)
 * [Profiler](../../azure-monitor/app/profiler.md)
 * [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md)

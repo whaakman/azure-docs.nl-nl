@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000254"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052033"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -81,9 +81,9 @@ Als een apparaat de apparaat-SDK's gebruiken kan, kan deze nog steeds verbinding
 
   Zie voor meer informatie over het genereren van SAS-tokens, de apparaat-sectie van [beveiligingstokens van IoT-Hub met behulp van][lnk-sas-tokens].
 
-  Wanneer u test, kunt u ook de platformoverschrijdende gebruiken [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie) of de [Device Explorer] [ lnk-device-explorer]hulpprogramma voor het snel genereren van een SAS-token dat u kunt kopiëren en plakken in uw eigen code:
+  Wanneer u test, kunt u ook de platformoverschrijdende gebruiken [Azure IoT-Tools voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) of de [Device Explorer] [ lnk-device-explorer] hulpprogramma voor het snel genereren van een SAS-token dat u kunt kopiëren en plak in uw eigen code:
 
-Voor Azure IoT Hub-Toolkit:
+Voor Azure IoT-hulpprogramma's:
 
   1. Vouw de **AZURE IOT HUB-apparaten** tabblad in de linkeronderhoek van Visual Studio Code.
   2. Met de rechtermuisknop op uw apparaat en selecteer **genereren van SAS-Token voor apparaat**.

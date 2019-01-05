@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994637"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033805"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -175,7 +175,7 @@ Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt 
 
   Wanneer een nieuw exemplaar wordt gemaakt, wordt een unieke id automatisch gegenereerd als de DNS-Zone en opgenomen in de DNS-naam van het exemplaar. Een meerdere domeinen (SAN)-certificaat voor dit exemplaar is ingericht met het SAN-veld in de vorm van `zone_id.database.windows.net`. Dit certificaat kan worden gebruikt voor verificatie van de clientverbindingen met een exemplaar in de dezelfde DNS-zone. Om ervoor te zorgen van niet-onderbroken verbinding met het primaire exemplaar na een failover zowel de primaire en secundaire moet exemplaren in dezelfde DNS-zone. Wanneer uw toepassing gereed voor productie-implementatie is, het maken van een secundair exemplaar in een andere regio en zorg ervoor dat de DNS-zone met het primaire exemplaar deelt. Dit wordt gedaan door op te geven een `DNS Zone Partner` optionele parameter met de Azure-portal, PowerShell of de REST-API.
 
-  Zie voor meer informatie over het maken van de secundaire-exemplaar in de dezelfde DNS-zone als het primaire exemplaar [failover-groepen beheren met beheerde instanties (preview)](#managing-failover-groups-with-managed-instances-preview).
+  Zie voor meer informatie over het maken van de secundaire-exemplaar in de dezelfde DNS-zone als het primaire exemplaar [failover-groepen beheren met beheerde instanties (preview)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Replicatieverkeer tussen de twee exemplaren inschakelen**
 
@@ -349,7 +349,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 | API | Description |
 | --- | --- |
 | [Maken of bijwerken van de Failovergroep](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Hiermee maken of bijwerken van een failovergroep |
-| [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Hiermee verwijdert u de failovergroep van de server |
+| [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Hiermee verwijdert u de failovergroep van de server |
 | [Failover (gepland)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Failover-schakeling van de huidige primaire server naar deze server. |
 | [Geforceerde Failover verlies van gegevens toestaan](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |ails via van de huidige primaire server naar deze server. Met deze bewerking kan leiden tot verlies van gegevens. |
 | [Get-Failovergroep](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Hiermee haalt u een failovergroep. |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bbb338d2b1d359d8e141b18a2beacd8b7faafe9c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7d1f75df9318c53a6d9e38c4d7b68587cf9a0d4b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53326545"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057372"
 ---
 **HDD's van Standard beheerde virtuele machine**
 
@@ -25,11 +25,11 @@ ms.locfileid: "53326545"
 
 **Standaard beheerde virtuele machine SSD 's**
 
-| Type van de Standard-SSD-schijf  | E10               | E15               | E20             | E30 | E40              | E50              | E60 *             | E70 *             | E80 *             |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Schijfgrootte in GiB           | 128             | 256             | 512            | 1,024  | 2048            | 4.095     | 8.192     | 16.384     | 32.767    |
-| IOP's per schijf       | Maximaal 500              | Maximaal 500              | Maximaal 500              | Maximaal 500 | Maximaal 500              | Maximaal 500              | Maximaal 500             | Maximaal 500              | Maximaal 1.300              | Maximaal 2000              | Maximaal 2000              |
-| Doorvoer per schijf | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde| Maximaal 300 MiB/sec |  Maximaal 500 MiB/sec | Maximaal 500 MiB/sec |
+| Type van de Standard-SSD-schijf  | E10               | E15               | E20             | E30              | E40              | E50              | E60 *             | E70 *             | E80 *             |
+|---------------------|---------------------|---------------------|-----------------|------------------|------------------|------------------|-------------------|-------------------|-------------------|
+| Schijfgrootte in GiB    | 128                 | 256                 | 512             | 1,024            | 2048            | 4.095            | 8.192             | 16.384            | 32.767            |
+| IOP's per schijf       | Maximaal 500           | Maximaal 500           | Maximaal 500       | Maximaal 500        | Maximaal 500        | Maximaal 500        | Maximaal 1.300       | Maximaal 2000       | Maximaal 2000       |
+| Doorvoer per schijf | Maximaal 60 MB per seconde     | Maximaal 60 MB per seconde     | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde  | Maximaal 60 MB per seconde  | Maximaal 60 MB per seconde  | Maximaal 300 MiB/sec | Maximaal 500 MiB/sec | Maximaal 500 MiB/sec |
 
 **Premium beheerde schijven van virtuele machines: limieten per schijf**
 

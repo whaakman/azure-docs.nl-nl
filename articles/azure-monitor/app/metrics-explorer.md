@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: aaa34d27e73c1691e69ea2f6860226639217f0c6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6341ffe33984a7f40f9d4120ca6726a082463474
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003392"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039704"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Metrische gegevens in Application Insights verkennen
 Metrische gegevens in [Application Insights] [ start] zijn gemeten waarden en aantallen gebeurtenissen die worden verzonden in telemetrie van uw toepassing. Ze helpen u prestatieproblemen detecteren en bekijk de trends in hoe uw toepassing wordt gebruikt. Er is een breed scala aan standaard metrische gegevens en u kunt ook uw eigen aangepaste metrische gegevens en gebeurtenissen maken.
@@ -200,7 +200,7 @@ In een grafiek met metrische gegevens, kunt u het pictogram Analytics rechtstree
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Bewaking met Application Insights wordt gebruikt](../../application-insights/app-insights-usage-overview.md)
+* [Bewaking met Application Insights wordt gebruikt](../../azure-monitor/app/usage-overview.md)
 * [Met behulp van diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f85934b0c800ca354cc9cff02132a40c8eccea57
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bbe843f3481c6cd15f2c14386088cbb8d2d355d6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014842"
+ms.locfileid: "54053122"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Gebruik de CLI-extensie voor Azure Machine Learning-service
 
@@ -119,11 +119,15 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken om te werken met experi
     az ml project attach --experiment-name myhistory
     ```
 
-* Start een uitvoering van uw experiment. Wanneer u deze opdracht gebruikt, Geef een compute-doel. In dit voorbeeld `local` maakt gebruik van de lokale computer met het trainen van het model door de `train.py` script:
+* Start een uitvoering van uw experiment. Wanneer u deze opdracht gebruikt, geef de naam van de `.runconfig` -bestand met de configuratie van de uitvoering. De compute-doel maakt gebruik van de configuratie uitvoeren om de trainingsomgeving voor het model te maken. In dit voorbeeld wordt de configuratie van de uitvoering wordt geladen uit de `./aml_config/myrunconfig.runconfig` bestand.
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    Standaard `.runconfig` bestanden met de naam `docker.runconfig` en `local.runconfig` worden gemaakt wanneer u een project met de `az ml project attach` opdracht. Mogelijk moet u deze voordat u ze naar een model te trainen wijzigen. 
+
+    U kunt ook maken met een uitvoerconfiguratieprofiel programmatisch met behulp van de [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) klasse. Nadat u hebt gemaakt, kunt u vervolgens de `save()` methode voor het maken van de `.runconfig` bestand.
 
 * Een lijst met ingediende experimenten bekijken:
 

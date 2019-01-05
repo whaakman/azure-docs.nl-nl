@@ -1,18 +1,18 @@
 ---
 title: Werken met Azure Cosmos DB-databases, containers en objecten
 description: In dit artikel wordt beschreven hoe u het maken en gebruiken van Azure Cosmos DB-databases, containers en objecten
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7f4c03c4335f9936d78890ad2e3903d0986f86d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 23400331db3bd63eeeb843c9772604fabf5a87d1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025671"
+ms.locfileid: "54043767"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Werken met Azure Cosmos-databases, containers en objecten
 

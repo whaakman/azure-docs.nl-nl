@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 00ad005fff54940dbec468e0fde105e936579378
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 42850cc5f8280b29811f9607557f38507262694a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410968"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034400"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Werken met JavaScript language integrated query-API met Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Zie voor meer informatie de [documentatie voor Cosmos DB-Server Side JavaScript]
 De volgende tabel bevat verschillende SQL-query's en de bijbehorende JavaScript-query's. Eigenschappen (bijvoorbeeld item.id) zijn net als bij SQL-query's hoofdlettergevoelig.
 
 > [!NOTE]
-> `__` (dubbel-onderstrepingsteken) is een alias voor `getContext().getCollection()` bij het gebruik van de JavaScript API-query.
+> `__` (dubbele onderstreping) is een alias naar `getContext().getCollection()` bij gebruik van de JavaScript-query-API.
 
 |**SQL**|**JavaScript API-Query**|**Beschrijving**|
 |---|---|---|

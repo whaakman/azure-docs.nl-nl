@@ -1,5 +1,5 @@
 ---
-title: Connnect een Raspberry Pi tot uw Azure IoT Central-toepassing (C#) | Microsoft Docs
+title: Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#) | Microsoft Docs
 description: Als ontwikkelaar in een apparaat, hoe u verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing met behulp van C#.
 author: viv-liu
 ms.author: viviali
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50956720"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051387"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
@@ -26,7 +26,7 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een Raspberry
 Als u wilt de stappen in dit artikel hebt voltooid, moet u de volgende onderdelen:
 
 * [.NET core 2](https://www.microsoft.com/net) geïnstalleerd op uw ontwikkelcomputer. U moet ook een geschikte code-editor, zoals hebben [Visual Studio Code](https://code.visualstudio.com/).
-* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
+* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 * Een Raspberry Pi-apparaat met het besturingssysteem Raspbian.
 
 
@@ -46,7 +46,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
     - Huidige
     - Snelheid van ventilator
     - IR in-/ uitschakelen.
-- Eigenschappen
+- Properties
     - Aantal apparaateigenschappen die
     - Cloud-locatie-eigenschap
 
@@ -359,7 +359,7 @@ Instellingen voor in-/ uitschakelen
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AAN      | UIT      | Uit     |
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
 | Type            | Weergavenaam | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |

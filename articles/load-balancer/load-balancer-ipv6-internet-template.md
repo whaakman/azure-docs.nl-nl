@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 2374df3a457e0f4730dcaa6d69ea3f2e0fa6e9cc
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163205"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039789"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Een internetgerichte load balancer-oplossing met IPv6 met behulp van een sjabloon implementeren
 
@@ -133,3 +133,7 @@ De voorbeeldsjabloon die wordt gebruikt in dit artikel bevat de volgende variabe
 | lbName |Geef de naam van de load balancer. Deze naam wordt weergegeven in de portal of met de CLI of PowerShell-opdracht met betrekking tot het gebruikt. |
 
 De resterende variabelen in de sjabloon bevat de afgeleide waarden die worden toegewezen wanneer de resources in Azure gemaakt. Deze variabelen niet wijzigen.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Zie voor de JSON-syntaxis en de eigenschappen van een load balancer in een sjabloon, [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

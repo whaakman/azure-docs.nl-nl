@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c23ff8a22284416a9c87750e4ca0448e0690de0e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f828ebf9131be014d2ea572b3314b1aacd630d14
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017511"
+ms.locfileid: "54050337"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Application Insights handmatig configureren voor .NET-toepassingen
 
@@ -99,7 +99,7 @@ Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hierv
     `<InstrumentationKey>` *de instrumentatiesleutel die u hebt gekopieerd* `</InstrumentationKey>`
 * Zorg ervoor dat de eigenschappen van ApplicationInsights.config in Solution Explorer zijn ingesteld op **Buildactie = Inhoud, Naar uitvoermap kopiëren = Kopiëren**.
 
-Het is handig om de instrumentatiesleutel in code in te stellen als u [de sleutel voor verschillende buildconfiguraties wilt toepassen](app-insights-separate-resources.md). Als u de sleutel in code instelt, hoeft u deze niet in het `.config`-bestand in te stellen.
+Het is handig om de instrumentatiesleutel in code in te stellen als u [de sleutel voor verschillende buildconfiguraties wilt toepassen](../azure-monitor/app/separate-resources.md). Als u de sleutel in code instelt, hoeft u deze niet in het `.config`-bestand in te stellen.
 
 ## <a name="run"></a> Uw project uitvoeren
 Gebruik **F5** om uw toepassing te starten en uit te proberen. Open verschillende pagina’s om telemetrie te genereren.
@@ -115,13 +115,13 @@ Zoek naar gegevens in de overzichtsgrafieken. Aanvankelijk ziet u slechts één 
 
 ![Klik verder voor meer gegevens](./media/app-insights-windows-services/12-first-perf.png)
 
-Klik in een grafiek voor gedetailleerdere metrische gegevens. [Meer informatie over metrische gegevens.](app-insights-web-monitor-performance.md)
+Klik in een grafiek voor gedetailleerdere metrische gegevens. [Meer informatie over metrische gegevens.](../azure-monitor/app/web-monitor-performance.md)
 
 ### <a name="no-data"></a>Zijn er geen gegevens?
 * Gebruik de toepassing om verschillende pagina's te openen, zodat er telemetrie wordt gegenereerd.
 * Open de tegel [Zoeken](../azure-monitor/app/diagnostic-search.md) om afzonderlijke gebeurtenissen te bekijken. Soms kan het even duren voordat de metrische gegevens van gebeurtenissen zijn opgehaald.
 * Wacht een paar seconden en klik op **Vernieuwen**. De grafieken worden regelmatig vernieuwd, maar u kunt ze ook handmatig vernieuwen als u op bepaalde gegevens wacht.
-* Zie [Probleemoplossing](app-insights-troubleshoot-faq.md).
+* Zie [Probleemoplossing](../azure-monitor/app/troubleshoot-faq.md).
 
 ## <a name="publish-your-app"></a>Uw app publiceren
 Implementeer nu uw toepassing naar uw server of naar Azure en bekijk hoe de gegevens worden verzameld.

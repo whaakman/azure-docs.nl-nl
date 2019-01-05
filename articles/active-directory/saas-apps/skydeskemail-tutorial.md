@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 058aad72ea8e5741bc632b3c27c032613683ae78
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444079"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Zelfstudie: Azure Active Directory-integratie met SkyDesk e-mailadres
 
@@ -59,17 +59,17 @@ Voor het configureren van de integratie van SkyDesk e-mailbericht in Azure AD, m
 
 **Als u wilt SkyDesk e-mailadres van de galerie toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **SkyDesk e**.
 
@@ -112,10 +112,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/skydeskemail-tutorial/tutorial_skydeskemail_url.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://mail.skydesk.jp/portal/<companyname>`
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [SkyDesk e-mailclient ondersteuningsteam](https://www.skydesk.sg/support/) om de waarde. 
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [SkyDesk e-mailclient ondersteuningsteam](https://www.skydesk.jp/apps/support/) om de waarde. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -177,11 +177,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     f. Klik op **Ok** de wijzigingen op te slaan.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -220,7 +220,7 @@ In deze sectie maakt u een gebruiker met de naam van Britta Simon in SkyDesk e-m
     ![Eenmalige aanmelding configureren](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 >[!NOTE] 
->Als u nodig hebt om bulksgewijs gebruikers te maken, moet u contact opnemen met de [SkyDesk e-mailclient ondersteuningsteam](https://www.skydesk.sg/support/).
+>Als u nodig hebt om bulksgewijs gebruikers te maken, moet u contact opnemen met de [SkyDesk e-mailclient ondersteuningsteam](https://www.skydesk.jp/apps/support/).
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD

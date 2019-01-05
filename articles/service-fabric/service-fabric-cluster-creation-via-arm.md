@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 94ff3aca84eb27df5171df2a7a3b2b0f708a1d24
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624225"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043784"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Gebruik de volgende opdracht om te maken van de cluster, hebt u een certificaat 
 Als dit een CA ondertekend certificaat dat u uiteindelijk wordt gebruik voor andere doeleinden dan ook, klikt u vervolgens het verdient aanbeveling dat u een afzonderlijke resourcegroep specifiek voor uw key vault bieden. Het is raadzaam dat u de key vault in een eigen resourcegroep geplaatst. Deze actie kunt u de reken- en -resourcegroepen op, met inbegrip van de resourcegroep waarin uw Service Fabric-cluster, zonder verlies van uw sleutels en geheimen verwijderen. **De resourcegroep waarin uw key vault *moet zich in dezelfde regio* als het cluster dat wordt gebruikt.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Gebruik de standaard vijf knooppunten, één knooppunt type sjabloon die wordt geleverd in de module
-De sjabloon die wordt gebruikt, is beschikbaar op de [voorbeelden van Azure: Windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+De sjabloon die wordt gebruikt, is beschikbaar op de [Azure-voorbeelden: Windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Implementatie van het cluster met behulp van PowerShell:
 
@@ -288,6 +288,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="next-steps"></a>Volgende stappen
 Op dit moment hebt u een beveiligd cluster worden uitgevoerd in Azure. Volgende [verbinding maken met uw cluster](service-fabric-connect-to-secure-cluster.md) en leer hoe u [toepassingsgeheimen beheren](service-fabric-application-secret-management.md).
+
+Zie voor de JSON-syntaxis en de eigenschappen van een sjabloon wilt gebruiken, [Microsoft.ServiceFabric/clusters sjabloonverwijzing](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps

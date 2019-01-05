@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: a79faa1dc5a28e5e2ac37ea164c341b855b3bb80
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3ad657fb695d88ffc75a37ee566ce59126906748
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339719"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038429"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Duurzame functies met behulp van de Azure portal maken
 
@@ -139,4 +139,4 @@ Uw eerste duurzame functie is nu actief en werkend in Azure.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over algemene patronen van duurzame functies](durable-functions-overview.md)
+> [Meer informatie over algemene patronen van duurzame functies](durable-functions-concepts.md)

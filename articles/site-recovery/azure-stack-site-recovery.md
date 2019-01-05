@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976576"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039466"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack-VM's repliceren naar Azure
 
@@ -142,7 +142,7 @@ Voor elke machine die u wilt repliceren, moet u de IP-adres vinden:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Stap 2: Maak een kluis en een replicatiedoel selecteren
 
-1. Selecteer in Azure Portal **Een resource maken** > **Controle en beheer** > **Backup en Site Recovery**.
+1. Selecteer in de Azure portal, **een resource maken** > **beheerhulpprogramma** > **back-up en siteherstel**.
 2. Voer in **Naam** een beschrijvende naam in om de kluis aan te duiden. 
 3. In **resourcegroep**, maak of Selecteer een resourcegroep. We maken gebruik van **contosoRG**.
 4. In **locatie**, voer de Azure-regio. gebruiken we **Europa - west**.

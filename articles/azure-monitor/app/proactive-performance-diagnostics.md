@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 77b278d939b7d2676ade03af75e48c1e2df184f9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028376"
+ms.locfileid: "54054508"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
@@ -108,7 +108,7 @@ Waar is het probleem? Is de server traag reageren, is de pagina erg lang duurt o
 
 Open de blade Browsers met metrische gegevens. De gesegmenteerde weergave van de browser laden tijd wordt aangegeven waar de gaan. 
 
-* Als **aanvraagtijd verzenden** is hoog, de server reageert langzaam of de aanvraag is een bericht met een grote hoeveelheid gegevens. Bekijk de [maatstaven voor prestaties](../../application-insights/app-insights-web-monitor-performance.md#metrics) voor het onderzoeken van reactietijden.
+* Als **aanvraagtijd verzenden** is hoog, de server reageert langzaam of de aanvraag is een bericht met een grote hoeveelheid gegevens. Bekijk de [maatstaven voor prestaties](../../azure-monitor/app/web-monitor-performance.md#metrics) voor het onderzoeken van reactietijden.
 * Instellen van [bijhouden van afhankelijkheid](../../azure-monitor/app/asp-net-dependencies.md) om te zien of de traagheid veroorzaakt door externe services of uw database wordt.
 * Als **antwoord ontvangen van** overheersende, wordt de pagina en de afhankelijke onderdelen - JavaScript, CSS, afbeeldingen en verder (maar niet asynchroon geladen gegevens) lang zijn. Instellen van een [beschikbaarheidstest](../../azure-monitor/app/monitor-web-app-availability.md), en zorg ervoor dat u de optie voor het laden van afhankelijke onderdelen. Wanneer u bepaalde resultaten, opent u de details van een resultaat en vouwt u het om te zien hoe lang het laden van verschillende bestanden.
 * Hoge **Client verwerkingstijd** stelt scripts langzaam worden uitgevoerd. Als de reden niet duidelijk is, kunt u code timing toevoegen en verzendtijden in trackMetric aanroepen.

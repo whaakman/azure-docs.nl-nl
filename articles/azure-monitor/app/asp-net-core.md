@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 19830ade92e5d2a046abc8a2ad00c086a5bf62ec
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972784"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054840"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights voor ASP.NET Core
 
@@ -62,7 +62,7 @@ Deze functionaliteit testen:
    ![Schermopname van Visual Studio Application Insights zoeken](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> Voor meer informatie over hoe Visual Studio verlichting van functies, zoals [Application Insights-zoekopdracht](../../application-insights/app-insights-visual-studio.md) en [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) lokaal voordat u Application Insights aan uw ASP.NET Core-project toevoegen, Zie [ Application Insights-zoekopdracht Vervolg](#application-insights-search-continued).
+> Voor meer informatie over hoe Visual Studio verlichting van functies, zoals [Application Insights-zoekopdracht](../../azure-monitor/app/visual-studio.md) en [CodeLens](../../azure-monitor/app/visual-studio-codelens.md) lokaal voordat u Application Insights aan uw ASP.NET Core-project toevoegen, Zie [ Application Insights-zoekopdracht Vervolg](#application-insights-search-continued).
 
 ## <a name="add-application-insights-telemetry"></a>Application Insights Telemetry toevoegen
 
@@ -404,7 +404,7 @@ Het probleem met het gebruik van een van deze methoden is dat ze alleen Applicat
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Verken Gebruikersstromen](../../application-insights/app-insights-usage-flows.md) om te begrijpen hoe gebruikers navigeren via uw app.
+* [Verken Gebruikersstromen](../../azure-monitor/app/usage-flows.md) om te begrijpen hoe gebruikers navigeren via uw app.
 * [Momentopname verzamelen configureren](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) om te zien van de status van de broncode en variabelen op dit moment wordt er een uitzondering gegenereerd.
 * [Gebruik de API](../../azure-monitor/app/api-custom-events-metrics.md) voor het verzenden van uw eigen gebeurtenissen en metrische gegevens voor een gedetailleerdere weergave van de prestaties en het gebruik van uw app.
 * Gebruik [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md) om te controleren of uw app continu van over de hele wereld.

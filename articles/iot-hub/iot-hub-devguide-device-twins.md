@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 7f66c87322aadafaa7167dff4190de6d08e5d18d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338410"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053020"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaatdubbels in IoT Hub
 
@@ -382,4 +382,4 @@ Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, Zie
 
 * [Het gebruik van de apparaatdubbel](iot-hub-node-node-twin-getstarted.md)
 * [Apparaatdubbeleigenschappen gebruiken](tutorial-device-twins.md)
-* [Apparaatbeheer met Azure IoT Hub-Toolkit voor Visual Studio Code](iot-hub-device-management-iot-toolkit.md)
+* [Apparaatbeheer met Azure IoT-hulpprogramma's voor VS Code](iot-hub-device-management-iot-toolkit.md)

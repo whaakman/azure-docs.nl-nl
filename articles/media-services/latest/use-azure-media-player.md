@@ -1,5 +1,5 @@
 ---
-title: Afspelen met Azure Media Player - Azure | Microsoft Docs
+title: Afspelen met Azure MediaPlayer - Azure | Microsoft Docs
 description: In dit onderwerp biedt een overzicht van Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -11,26 +11,42 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 4677fc9a56db3190073b3f310a51632055510bc2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cf419af1e6a45ded5fd1c4b363ff06a9388351d5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028351"
+ms.locfileid: "54033041"
 ---
-# <a name="play-back-with-azure-media-player"></a>Afspelen met Azure Media Player
+# <a name="azure-media-player-overview"></a>Overzicht van Azure Media Player
 
-[Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) is een web-videospeler gebouwd om af te spelen media-inhoud van Microsoft Azure Media Services op een groot aantal browsers en apparaten. Azure Media Player maakt gebruik van industriële standaarden, zoals HTML5, Media bron-extensies (MSE) en Encrypted Media Extensions (EME) voor een geavanceerde adaptieve streamingervaring. Wanneer deze standaarden niet beschikbaar op een apparaat of in een browser zijn, gebruikt Azure Media Player Flash en Silverlight als fallback-technologie. Ontwikkelaars heeft, welke afspeeltechnologie gebruikt, een geïntegreerde JavaScript-interface voor toegang tot API's. Hiermee wordt inhoud van Azure Media Services om te worden afgespeeld op hele-tal van apparaten en browsers zonder extra inspanningen.
+Azure Media Player is een web-videospeler gebouwd om af te spelen media-inhoud van Microsoft Azure Media Services op een groot aantal browsers en apparaten. Azure Media Player maakt gebruik van industriële standaarden, zoals HTML5, Media bron-extensies (MSE) en Encrypted Media Extensions (EME) voor een geavanceerde adaptieve streamingervaring. Wanneer deze standaarden niet beschikbaar op een apparaat of in een browser zijn, gebruikt Azure Media Player Flash en Silverlight als fallback-technologie. Ontwikkelaars heeft, welke afspeeltechnologie gebruikt, een geïntegreerde JavaScript-interface voor toegang tot API's. Hiermee wordt inhoud van Azure Media Services om te worden afgespeeld op hele-tal van apparaten en browsers zonder extra inspanningen.
 
 Microsoft Azure Media Services kan inhoud worden aangeboden met HLS, DASH, Smooth Streaming-indelingen voor het afspelen van inhoud. Azure Media Player houdt rekening met deze verschillende indelingen en automatisch de beste koppeling op basis van de platform-en browsermogelijkheden speelt. Media Services kan ook dynamische versleuteling van activa met PlayReady-versleuteling of AES-128-bits envelop codering. Azure Media Player profiteert u van de ontsleuteling van PlayReady en AES-128 bits versleutelde inhoud wanneer op de juiste wijze geconfigureerd. 
 
 [Start uw gratis proefversie](http://azure.microsoft.com/en-us/pricing/free-trial/)
 
-## <a name="monitor-diagnostics-of-a-video-stream"></a>Diagnostische gegevens van een videostream bewaken
+## <a name="use-azure-media-player-demo-page"></a>U kunt Azure Media Player-demo-pagina
+
+### <a name="start-using"></a>Gaan gebruiken
+
+U kunt de [Azure Media Player-demo pagina](http://aka.ms/amp) Azure Media Services-voorbeelden of uw eigen stroom af te spelen.  
+
+Als u wilt een nieuwe video afspelen, plakt u een andere URL en druk op **Update**.
+
+Voor het configureren van verschillende opties voor afspelen (bijvoorbeeld, technische, taal of versleuteling), drukt u op **geavanceerde opties**.
+
+![Azure Media Player](./media/azure-media-player/home-page.png)
+
+### <a name="monitor-diagnostics-of-a-video-stream"></a>Diagnostische gegevens van een videostream bewaken
 
 U kunt de [Azure Media Player-demo pagina](http://aka.ms/amp) voor het bewaken van diagnostische gegevens van een videostream. 
 
-! [Azure Media Player diagnostics] [amp_diagnostics]
+![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
+
+## <a name="set-up-azure-media-player-in-your-html"></a>Instellen van Azure Media Player in uw HTML-code
+
+Azure Media Player kan eenvoudig worden ingesteld. Het duurt slechts een paar minuten basic afspelen van media-inhoud ophalen van uw Media Services-account. Zie [documentatie voor Azure Media Player](https://aka.ms/ampdocs) voor meer informatie over het instellen en configureren van Azure Media Player. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,19 +1,19 @@
 ---
 title: Tabellen voor de ondersteuning van schaalbaarheid en prestaties van Azure Cosmos DB
-description: 'Azure ontwerphandleiding voor Table Storage: Ontwerpen van schaalbare en performante tabellen in Azure Cosmos DB en Azure Storage-tabel'
-author: SnehaGunda
-ms.author: sngun
+description: 'Ontwerphandleiding voor Azure Storage-tabel: Ontwerpen van schaalbare en performante tabellen in Azure Cosmos DB en Azure Storage-tabel'
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140945"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044175"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Ontwerpen van schaalbare en performante tabellen
 
@@ -132,7 +132,7 @@ De accountnaam, de tabelnaam, en **PartitionKey** samen bepalen de partitie in d
 
 Een knooppunt van de afzonderlijke services in de tabel-service een of meer partities en de service schalen voltooien door dynamische taakverdeling partities over knooppunten. Als een knooppunt belast wordt, de table-service kunt *splitsen* het bereik van partities afgehandeld door dat knooppunt aan andere knooppunten; wanneer netwerkverkeer afneemt, de service kunt *samenvoegen* de partitie kan variëren van stille knooppunten terug op een enkel knooppunt.  
 
-Raadpleeg het artikel voor meer informatie over de interne details van de Table-service, en met name hoe partities worden beheerd door de service, [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Raadpleeg het artikel voor meer informatie over de interne details van de Table-service, en met name hoe partities worden beheerd door de service, [Microsoft Azure Storage: Een maximaal beschikbare Cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Entiteit-groepstransacties
 Entiteit-groepstransacties (EGTs) zijn in de tabel-service, het enige ingebouwde mechanisme voor het uitvoeren van atomic updates voor meerdere entiteiten. EGTs worden ook aangeduid als *batch transacties* in sommige documentatie. EGTs kan alleen worden uitgevoerd op entiteiten die zijn opgeslagen in dezelfde partitie (delen dezelfde partitiesleutel in een bepaalde tabel), zodat telkens wanneer u atomische transactionele gedrag voor meerdere entiteiten die u nodig hebt om ervoor te zorgen dat deze entiteiten in dezelfde partitie. Dit is vaak een reden voor het bewaren van meerdere Entiteitstypen in dezelfde tabel (en de partitie) en meerdere tabellen voor verschillende Entiteitstypen niet gebruiken. Een enkele EGT kan worden uitgevoerd op maximaal 100 entiteiten.  Als u meerdere gelijktijdige EGTs voor verwerking verzendt, is het belangrijk om ervoor te zorgen dat die EGTs worden niet uitgevoerd op entiteiten die zijn gebruikt voor EGTs anders verwerking kan worden uitgesteld.
@@ -582,11 +582,11 @@ Om in te schakelen lookup gesorteerd op achternaam met de entiteitsstructuur die
 * Index entiteiten maken in dezelfde partitie als de werknemer-entiteiten.  
 * Index entiteiten maken in een afzonderlijke partitie of een tabel.  
 
-<u>Optie #1: Gebruik blob storage</u>  
+<u>Optie #1: Blob storage gebruiken</u>  
 
 Voor de eerste optie, u een blob maken voor elke unieke achternaam en in elke blob-archief een lijst van de **PartitionKey** (afdeling) en **RowKey** (werknemer-id) waarden voor werknemers die in dat laatste naam hebben. Wanneer u toevoegen of verwijderen van een werknemer, moet u ervoor zorgen dat de inhoud van de relevante blob uiteindelijk consistent met de werknemer-entiteiten is.  
 
-<u>Optie #2:</u> index entiteiten maken in dezelfde partitie  
+<u>Optie #2:</u> Index entiteiten maken in dezelfde partitie  
 
 Gebruik voor de tweede optie, index-entiteiten die opslaan van de volgende gegevens:  
 
@@ -608,7 +608,7 @@ De volgende stappen wordt beschreven hoe die u volgen moet wanneer u nodig hebt 
 2. De lijst van werknemer-id's in het veld EmployeeIDs parseren.  
 3. Als u aanvullende informatie over elk van deze werknemers (zoals hun e-mailadressen), ophalen van elk van de werknemer entiteiten met behulp van **PartitionKey** 'Verkoop'-waarde en **RowKey** waarden van de lijst met werknemers die u hebt verkregen in stap 2.  
 
-<u>Optie #3:</u> index entiteiten maken in een afzonderlijke partitie of tabel  
+<u>Optie #3:</u> Index entiteiten maken in een afzonderlijke partitie of tabel  
 
 Gebruik voor de derde optie, index-entiteiten die opslaan van de volgende gegevens:  
 
@@ -1300,7 +1300,7 @@ De rest van deze sectie beschrijft een aantal van de functies in de Storage-clie
 #### <a name="retrieving-heterogeneous-entity-types"></a>Bij het ophalen van heterogene Entiteitstypen
 Als u van de Storage-clientbibliotheek gebruikmaakt, hebt u drie opties voor het werken met meerdere Entiteitstypen.  
 
-Als u welk type van de entiteit die zijn opgeslagen met een specifieke weet **RowKey** en **PartitionKey** waarden, en vervolgens u het entiteitstype opgeven kunt wanneer u de entiteit ophalen, zoals wordt weergegeven in de vorige twee voorbeelden die entiteiten van het type ophalen **EmployeeEntity**: [die een point-query uitvoert met behulp van de Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library) en [bij het ophalen van meerdere entiteiten met behulp van LINQ](#retrieving-multiple-entities-using-linq).  
+Als u welk type van de entiteit die zijn opgeslagen met een specifieke weet **RowKey** en **PartitionKey** waarden, en vervolgens u het entiteitstype opgeven kunt wanneer u de entiteit ophalen, zoals wordt weergegeven in de vorige twee voorbeelden die entiteiten van het type ophalen **EmployeeEntity**: [Uitvoeren van een point-query met de Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library) en [bij het ophalen van meerdere entiteiten met behulp van LINQ](#retrieving-multiple-entities-using-linq).  
 
 De tweede optie is om het gebruik van de **DynamicTableEntity** type (een eigenschappenverzameling) in plaats van een concreet POCO entiteitstype (deze optie kan ook de prestaties verbeteren omdat niet hoeft te serialiseren en deserialiseren van de entiteit naar .NET-typen). De volgende C#-code mogelijk meerdere entiteiten van verschillende typen opgehaald uit de tabel, maar retourneert alle entiteiten als **DynamicTableEntity** exemplaren. Vervolgens wordt de **EntityType** eigenschap om te bepalen van het type van elke entiteit:  
 
@@ -1509,7 +1509,7 @@ De clienttoepassing meerdere asynchrone methoden zoals deze kunt aanroepen, en e
 ### <a name="credits"></a>Credits
 We willen graag Bedankt dat de volgende leden van de Azure-team voor hun bijdragen: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah en Serdar Ozler, evenals Tom Hollander van Microsoft DX. 
 
-We willen ook graag Bedankt dat de volgende Microsoft-MVPs voor hun waardevolle feedback tijdens controle cycli: Igor Papirov en Edward Bakker.
+We willen ook de volgende Microsoft-MVPs voor hun waardevolle feedback bedanken tijdens de controle-cycli: Igor Papirov en Edward Bakker.
 
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png

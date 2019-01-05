@@ -11,21 +11,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/03/2019
+ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945464"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035267"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse firewall-regels
 
 Microsoft Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) een relationele databaseservice voor Azure en andere toepassingen op basis van het Internet. Om uw gegevens te beschermen, verhinderen firewalls alle toegang tot de databaseserver totdat u opgeeft welke computers zijn gemachtigd. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
 
 > [!NOTE]
-> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. 
-
+> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 > [!IMPORTANT]
 > In dit artikel biedt *niet* zijn van toepassing op **Azure SQL Database Managed Instance**. Raadpleeg het volgende artikel over [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over welke netwerkconfiguratie is vereist.
 
@@ -58,9 +57,9 @@ Verbindingspogingen van internet en Azure moeten eerst de firewall passeren voor
 
 Microsoft raadt u aan met behulp van firewallregels op databaseniveau indien mogelijk om beveiliging te verbeteren en uw database draagbaarder te maken. Gebruik firewallregels op serverniveau voor beheerders en wanneer u veel databases met dezelfde toegangsvereisten hebt en u niet elke database afzonderlijk wilt configureren.
 
-> [!Important]
+> [!IMPORTANT]
 > Windows Azure SQL Database ondersteunt maximaal 128 firewallregels.
-> [!Note]
+> [!NOTE]
 > Voor meer informatie over draagbare databases in de context van bedrijfscontinuïteit raadpleegt u [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md) (Verificatievereisten voor herstel na noodgevallen).
 
 ### <a name="connecting-from-the-internet"></a>Verbinding maken vanuit internet
@@ -102,7 +101,7 @@ Om een firewallregel op serverniveau in Azure portal, kunt u ofwel gaan naar de 
 
 ### <a name="from-database-overview-page"></a>Overzichtspagina voor database
 
-1. Klik op de overzichtspagina voor de database te een firewallregel op serverniveau **serverfirewall instellen** op de werkbalk zoals weergegeven in de volgende afbeelding: de **Firewall-instellingen** pagina voor de SQL-Database-server wordt geopend.
+1. Klik op de overzichtspagina voor de database te een firewallregel op serverniveau **serverfirewall instellen** op de werkbalk zoals weergegeven in de volgende afbeelding: De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend.
 
       ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -120,7 +119,7 @@ De overzichtspagina voor uw server wordt geopend, met de volledig gekwalificeerd
 
 ## <a name="manage-firewall-rules-using-transact-sql"></a>Firewallregels beheren met behulp van Transact-SQL
 
-| Catalogusweergave of opgeslagen procedure | Niveau | Beschrijving |
+| Catalogusweergave of opgeslagen procedure | Niveau | Description |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Geeft de huidige firewallregels op serverniveau weer |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Hiermee worden de firewallregels op serverniveau gemaakt of bijgewerkt |
@@ -150,7 +149,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>Firewallregels beheren met behulp van Azure PowerShell
 
-| Cmdlet | Niveau | Beschrijving |
+| Cmdlet | Niveau | Description |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Retourneert de huidige firewallregels op serverniveau |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Maakt een nieuwe firewallregel op serverniveau |
@@ -170,7 +169,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Firewallregels beheren met behulp van Azure CLI
 
-| Cmdlet | Niveau | Beschrijving |
+| Cmdlet | Niveau | Description |
 | --- | --- | --- |
 |[AZ sql server firewall-regel maken](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Hiermee maakt u een serverfirewallregel|
 |[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Geeft een lijst van de firewall-regels op een server|
@@ -190,7 +189,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Firewallregels beheren met behulp van REST-API
 
-| API | Niveau | Beschrijving |
+| API | Niveau | Description |
 | --- | --- | --- |
 | [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) (Lijst met firewallregels) |Server |Geeft de huidige firewallregels op serverniveau weer |
 | [Firewallregels maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Hiermee worden de firewallregels op serverniveau gemaakt of bijgewerkt |
@@ -223,7 +222,7 @@ Houd rekening met de volgende punten als toegang tot de service Microsoft Azure 
 
 - **Lokale firewallconfiguratie:**
 
-  Voordat de computer toegang heeft tot Azure SQL Database, moet u mogelijk maken een firewall-uitzondering voor TCP-poort 1433 op de computer. Als u verbindingen maakt binnen de grenzen van de Azure-cloud, moet u mogelijk aanvullende poorten openen. Zie voor meer informatie de **SQL-Database: buiten vs binnen** sectie van [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Voordat de computer toegang heeft tot Azure SQL Database, moet u mogelijk maken een firewall-uitzondering voor TCP-poort 1433 op de computer. Als u verbindingen maakt binnen de grenzen van de Azure-cloud, moet u mogelijk aanvullende poorten openen. Zie voor meer informatie de **SQL-Database: Buiten vs binnen** sectie van [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Netwerkadresomzetting (NAT):**
 
@@ -248,7 +247,7 @@ Houd rekening met de volgende punten als toegang tot de service Microsoft Azure 
 
 - Zie voor een snel starten voor het maken van een database en een firewallregel op serverniveau [maken van een Azure SQL database](sql-database-get-started-portal.md).
 - Voor hulp bij het maken van een verbinding met een Azure SQL-database vanuit open-source toepassingen of toepassingen van derden raadpleegt u [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snelstartcodevoorbeelden voor clients met SQL Database).
-- Zie voor informatie over de extra poorten die u mogelijk nodig hebt om te openen, de **SQL-Database: buiten vs binnen** sectie van [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Zie voor informatie over de extra poorten die u mogelijk nodig hebt om te openen, de **SQL-Database: Buiten vs binnen** sectie van [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Zie voor een overzicht van Azure SQL Database-beveiliging, [uw database beveiligen](sql-database-security-overview.md)
 
 <!--Image references-->

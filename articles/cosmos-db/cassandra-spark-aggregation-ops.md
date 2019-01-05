@@ -1,21 +1,19 @@
 ---
 title: Statistische bewerkingen op tabellen uit Spark Cassandra-API van Azure Cosmos DB
 description: In dit artikel bevat informatie over eenvoudige aggregatiebewerkingen uit te voeren op basis van de Cassandra-API van Azure Cosmos DB-tabellen uit Spark
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: basics, DDL, DML
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 385a365ac3b81bca70a71eeed7ca1876c9df49b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 56cd2284fb4bf7dabb280170757c128b8f985433
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224992"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037307"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Statistische bewerkingen op tabellen uit Spark Cassandra-API van Azure Cosmos DB 
 
@@ -93,15 +91,15 @@ Kies een [opslagoptie]( https://spark.apache.org/docs/2.2.0/rdd-programming-guid
 
 * MEMORY_AND_DISK: Winkels RDD als gedeserialiseerde Java-objecten in de JVM. Als de RDD niet in het geheugen past, slaat u de partities die niet passen op schijf, en indien nodig, lees de hulpbronnen vanaf de locatie die zijn opgeslagen.
 
-* MEMORY_ONLY_SER (Java/Scala): Winkels RDD als geserialiseerd Java-objecten-1-byte-matrix per partitie. Deze optie is de ruimte-efficiëntie in vergelijking met gedeserialiseerde objecten, met name wanneer u een snelle serializer, maar meer CPU-intensieve te lezen.
+* MEMORY_ONLY_SER (Java/Scala): Winkels RDD als geserialiseerde objecten-1-byte-matrix met Java per partitie. Deze optie is de ruimte-efficiëntie in vergelijking met gedeserialiseerde objecten, met name wanneer u een snelle serializer, maar meer CPU-intensieve te lezen.
 
-* MEMORY_AND_DISK_SER (Java/Scala): Deze opslagoptie is, zoals MEMORY_ONLY_SER, het enige verschil is dat deze morsen partities die niet in het schijfgeheugen van de in plaats van ze recomputing passen wanneer ze zijn later nodig.
+* MEMORY_AND_DISK_SER (Java/Scala): Deze opslagoptie, zoals MEMORY_ONLY_SER, het enige verschil is dat deze morsen partities die niet in het schijfgeheugen van de in plaats van ze recomputing passen wanneer ze zijn later nodig.
 
 * DISK_ONLY: Slaat de RDD-partities op de schijf alleen.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: Hetzelfde als de bovenstaande niveaus elke partitie op twee clusterknooppunten, maar worden gerepliceerd.
+* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: Hetzelfde als de bovenstaande niveaus repliceert, maar elke partitie op twee clusterknooppunten.
 
-* (Experimenteel) OFF_HEAP: vergelijkbaar met MEMORY_ONLY_SER, maar de gegevens opslaat in uit heap-geheugen, en moet uit heap-geheugen moet vooraf worden ingeschakeld. 
+* OFF_HEAP (experimenteel): Net als bij MEMORY_ONLY_SER, maar de gegevens worden opgeslagen in off-heap-geheugen en hiervoor uit heap-geheugen moet vooraf worden ingeschakeld. 
 
 ```scala
 //Workaround

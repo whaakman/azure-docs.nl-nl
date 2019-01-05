@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715752"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050112"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
 
@@ -29,14 +29,14 @@ Met de ontwikkelaarsreferenties van tijdens het ontwikkelen van lokale is veilig
 
 De `Microsoft.Azure.Services.AppAuthentication` bibliotheek beheert verificatie automatisch, op zijn beurt waarmee u zich richten op uw oplossing in plaats van uw referenties.
 
-De `Microsoft.Azure.Services.AppAuthentication` bibliotheek biedt ondersteuning voor lokale ontwikkeling met Microsoft Visual Studio, Azure CLI of Azure AD-geïntegreerde verificatie. Wanneer geïmplementeerd in Azure App Services of een Azure-virtuele Machine (VM), gebruikt de bibliotheek automatisch [beheerde identiteiten voor een Azure-services](/azure/active-directory/msi-overview). Er zijn geen wijzigingen code of configuratie nodig. De bibliotheek ondersteunt ook direct gebruik van Azure AD [clientreferenties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) wanneer een beheerde identiteit is niet beschikbaar, of wanneer de beveiligingscontext van de ontwikkelaar kan niet worden bepaald tijdens de lokale ontwikkeling.
+De `Microsoft.Azure.Services.AppAuthentication` bibliotheek biedt ondersteuning voor lokale ontwikkeling met Microsoft Visual Studio, Azure CLI of Azure AD-geïntegreerde verificatie. Wanneer geïmplementeerd voor een Azure-resource die ondersteuning biedt voor een beheerde identiteit, gebruikt de bibliotheek automatisch [beheerde identiteiten voor een Azure-resources](/azure/active-directory/msi-overview). Er zijn geen wijzigingen code of configuratie nodig. De bibliotheek ondersteunt ook direct gebruik van Azure AD [clientreferenties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) wanneer een beheerde identiteit is niet beschikbaar, of wanneer de beveiligingscontext van de ontwikkelaar kan niet worden bepaald tijdens de lokale ontwikkeling.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Met behulp van de bibliotheek
 
 Voor .NET-toepassingen, de eenvoudigste manier om te werken met een beheerde identiteit is via de `Microsoft.Azure.Services.AppAuthentication` pakket. Hier wordt aan de slag:
 
-1. Voeg een verwijzing naar de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet-pakket aan uw toepassing.
+1. Voeg verwijzingen toe aan de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-pakketten aan uw toepassing. 
 
 2. Voeg de volgende code toe:
 
@@ -44,16 +44,13 @@ Voor .NET-toepassingen, de eenvoudigste manier om te werken met een beheerde ide
     using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.Azure.KeyVault;
 
-    // ...
+    // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-    azureServiceTokenProvider.KeyVaultTokenCallback));
-
-    // or
-
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
-       "https://management.azure.com/").ConfigureAwait(false);
+    // Optional: Request an access token to other Azure services
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
 De `AzureServiceTokenProvider` klasse in de cache van het token in het geheugen opgeslagen en opgehaald uit Azure AD net voordat het verloopt. Als gevolg hiervan, u hoeft niet langer om te controleren is verlopen voordat de `GetAccessTokenAsync` methode. Roept de methode als u wilt dat het token wordt gebruikt. 
@@ -234,8 +231,5 @@ De volgende opties worden ondersteund:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [beheerde identiteiten voor een Azure-resources](/azure/app-service/overview-managed-identity).
-
-- Verschillende manieren om te leren [verifiëren en autoriseren van apps](/azure/app-service/overview-authentication-authorization).
-
-- Meer informatie over Azure AD [verificatiescenario's](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).
+- Meer informatie over [beheerde identiteiten voor een Azure-resources](/azure/active-directory/managed-identities-azure-resources/).
+- Meer informatie over [scenario's Azure AD-verificatie](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).

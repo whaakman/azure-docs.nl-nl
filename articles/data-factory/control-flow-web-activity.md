@@ -12,44 +12,44 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 1c657fd7b3059dcf46a371b133a5d078e02f0599
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014196"
+ms.locfileid: "54054280"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
-De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
+De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit.
 
 ## <a name="syntax"></a>Syntaxis
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -92,10 +92,10 @@ De volgende tabel ziet u de vereisten voor JSON-inhoud:
 Als verificatie niet vereist is, omvatten niet de eigenschap 'verificatie'.
 
 ### <a name="basic"></a>Basic
-Geef de gebruikersnaam en wachtwoord voor gebruik met de basisverificatie. 
+Geef de gebruikersnaam en wachtwoord voor gebruik met de basisverificatie.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -103,12 +103,12 @@ Geef de gebruikersnaam en wachtwoord voor gebruik met de basisverificatie.
 ```
 
 ### <a name="client-certificate"></a>Clientcertificaat
-Met base64 gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven. 
+Met base64 gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -125,7 +125,7 @@ Hiermee geeft u de resource-uri waarvoor het toegangstoken wordt aangevraagd met
 ```
 
 ## <a name="request-payload-schema"></a>Verzoek nettolading schema
-Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de van de hoofdteksteigenschap de nettolading die wordt verzonden naar het eindpunt. U kunt de gekoppelde services en gegevenssets als onderdeel van de nettolading doorgeven. Dit is het schema voor de nettolading van de: 
+Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de van de hoofdteksteigenschap de nettolading die wordt verzonden naar het eindpunt. U kunt de gekoppelde services en gegevenssets als onderdeel van de nettolading doorgeven. Dit is het schema voor de nettolading van de:
 
 ```json
 {
@@ -144,11 +144,11 @@ Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de van de hoofdteksteig
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>Voorbeeld
-In dit voorbeeld wordt de webactiviteit in de pijplijn een REST-eindpunt. Deze doorstuurt een gekoppelde Azure SQL-service en een Azure SQL-gegevensset naar het eindpunt. De REST-eindpunt maakt gebruik van de Azure SQL-verbindingsreeks verbinding maken met de Azure SQL-server en retourneert de naam van het exemplaar van SQL server. 
+In dit voorbeeld wordt de webactiviteit in de pijplijn een REST-eindpunt. Deze doorstuurt een gekoppelde Azure SQL-service en een Azure SQL-gegevensset naar het eindpunt. De REST-eindpunt maakt gebruik van de Azure SQL-verbindingsreeks verbinding maken met de Azure SQL-server en retourneert de naam van het exemplaar van SQL server.
 
 ### <a name="pipeline-definition"></a>De pijplijndefinitie van de
 
@@ -242,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 
+Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [Voor elke activiteit](control-flow-for-each-activity.md)

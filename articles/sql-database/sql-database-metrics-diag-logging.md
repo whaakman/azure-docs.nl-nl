@@ -11,28 +11,28 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601556"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044566"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
 Azure SQL Database, elastische pools Managed Instance en databases in Managed Instance kunnen stream metrische gegevens en diagnostische logboeken voor prestatiebewaking van eenvoudiger. U kunt een database om te verzenden, Resourcegebruik, werkrollen en sessies en connectiviteit met een van de volgende Azure-resources configureren:
 
-* **Azure SQL Analytics**: aan de intelligente bewaking van uw Azure-databases met rapporten, waarschuwingen en risicobeperking aanbevelingen.
-* **Azure Event Hubs**: SQL Database-telemetrie integreren met uw aangepaste bewakingsoplossingen of actieve pijplijnen.
-* **Azure Storage**: voor het archiveren van grote hoeveelheden telemetriegegevens voor een fractie van de prijs.
+- **Azure SQL Analytics**: aan de intelligente bewaking van uw Azure-databases met rapporten, waarschuwingen en risicobeperking aanbevelingen.
+- **Azure Event Hubs**: SQL Database-telemetrie integreren met uw aangepaste bewakingsoplossingen of actieve pijplijnen.
+- **Azure Storage**: voor het archiveren van grote hoeveelheden telemetriegegevens voor een fractie van de prijs.
 
     ![Architectuur](./media/sql-database-metrics-diag-logging/architecture.png)
 
 Zie voor meer informatie over de metrische gegevens en logboekbestanden categorieën die door de verschillende Azure-services worden ondersteund:
 
-* [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Overzicht van diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Overzicht van diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Dit artikel bevat richtlijnen om u te helpen u bij het inschakelen van diagnostische gegevens telemetrie voor databases, elastische pools en Managed Instance. Ook kunt u informatie over het configureren van Azure SQL Analytics als een hulpprogramma voor bewaking voor het weergeven van database-telemetrie voor diagnostische gegevens.
 
@@ -101,7 +101,6 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 
 > [!NOTE]
 > Auditlogboeken voor beveiliging kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [SQL Audit-Logboeken in Azure Log Analytics en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
-
 > [!TIP]
 > Herhaal deze stappen voor elke Azure SQL-Database die u wilt bewaken.
 
@@ -112,17 +111,17 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 Volg deze stappen zodat streaming van diagnostische gegevens telemetrie voor databases in het beheerde exemplaar:
 
 1. Ga naar de database in het beheerde exemplaar.
-1. Selecteer **diagnostische instellingen**.
-1. Selecteer **diagnostische gegevens inschakelen** als er geen vorige instellingen bestaat, of selecteer **instelling bewerken** bewerken van een vorige instelling.
+2. Selecteer **diagnostische instellingen**.
+3. Selecteer **diagnostische gegevens inschakelen** als er geen vorige instellingen bestaat, of selecteer **instelling bewerken** bewerken van een vorige instelling.
    - U kunt maximaal drie (3) parallelle verbindingen met stream diagnostische gegevens telemetrie kunt maken.
    - Selecteer **+ diagnostische instelling toevoegen** parallelle streaming van diagnostische gegevens naar meerdere resources configureren.
 
    ![Diagnostische gegevens voor beheerd exemplaar van database inschakelen](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. Voer een instellingnaam in voor uw eigen referentie.
-1. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
-1. Schakel de selectievakjes voor databasetelemetrie diagnostische gegevens: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** en **fouten**.
-1. Selecteer **Opslaan**.
+4. Voer een instellingnaam in voor uw eigen referentie.
+5. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
+6. Schakel de selectievakjes voor databasetelemetrie diagnostische gegevens: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** en **fouten**.
+7. Selecteer **Opslaan**.
 
    ![Diagnostische gegevens voor beheerd exemplaar in de database configureren](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
@@ -170,7 +169,7 @@ U kunt een Managed Instance-resource instellen om de volgende diagnostische gege
 
 | Resource | Bewaking van telemetrie |
 | :------------------- | ------------------- |
-| **Beheerd exemplaar** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) bevat het aantal vCores, gemiddelde CPU-percentage, i/o-aanvragen, bytes gelezen of weggeschreven, gereserveerde opslagruimte en opslagruimte gebruikt. |
+| **Beheerd exemplaar** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) bevat het aantal vCores, gemiddelde CPU-percentage, i/o-aanvragen, bytes gelezen of weggeschreven, gereserveerde opslagruimte en opslagruimte gebruikt. |
 
 Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor een Managed Instance-resource, de volgende stappen uit:
 
@@ -338,11 +337,11 @@ Nadat u de geselecteerde gegevens worden gestreamd naar Event Hubs, bent u een s
 
 U kunt gestreamde metrische gegevens in Event Hubs te gebruiken:
 
-* **Servicestatus weergeven door het streamen van gegevens naar Power BI hot pad**. Met behulp van Event Hubs, Stream Analytics en Power BI, kunt u eenvoudig uw metrische gegevens en diagnostische gegevens in bijna realtime inzichten in uw Azure-services te transformeren. Zie voor een overzicht van het instellen van een event hub, gegevens verwerken met Stream Analytics, en gebruik Power BI als uitvoer, [Stream Analytics en Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+- **Servicestatus weergeven door het streamen van gegevens naar Power BI hot pad**. Met behulp van Event Hubs, Stream Analytics en Power BI, kunt u eenvoudig uw metrische gegevens en diagnostische gegevens in bijna realtime inzichten in uw Azure-services te transformeren. Zie voor een overzicht van het instellen van een event hub, gegevens verwerken met Stream Analytics, en gebruik Power BI als uitvoer, [Stream Analytics en Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-* **Stream logboeken naar derden logboekregistratie en telemetrie stromen**. Met behulp van Event Hubs streamen, krijgt u uw logboeken metrische en diagnostische gegevens in verschillende oplossingen van derden controleren en log analytics.
+- **Stream logboeken naar derden logboekregistratie en telemetrie stromen**. Met behulp van Event Hubs streamen, krijgt u uw logboeken metrische en diagnostische gegevens in verschillende oplossingen van derden controleren en log analytics.
 
-* **Een aangepaste Telemetrie-en logboekregistratie platform**. Doet u al beschikken over een platform op maat gemaakte telemetrie of van plan bent te maken van een? De zeer schaalbare publish-subscribe aard van Event Hubs kunt u logboeken met diagnostische gegevens flexibel opnemen. Zie [Dan Rosanova van handleiding voor het gebruik van Event Hubs in een wereldwijde schaal telemetrie-platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+- **Een aangepaste Telemetrie-en logboekregistratie platform**. Doet u al beschikken over een platform op maat gemaakte telemetrie of van plan bent te maken van een? De zeer schaalbare publish-subscribe aard van Event Hubs kunt u logboeken met diagnostische gegevens flexibel opnemen. Zie [Dan Rosanova van handleiding voor het gebruik van Event Hubs in een wereldwijde schaal telemetrie-platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="stream-into-storage"></a>Stream naar Storage
 
@@ -386,7 +385,7 @@ Als u van Azure SQL Analytics gebruikmaakt, kunt u uw gegevensverbruik voor opna
 
 ## <a name="metrics-and-logs-available"></a>Metrische gegevens en logboeken beschikbaar
 
-Verzamelde bewaking telemetrie kan worden gebruikt voor uw eigen _aangepaste analyse_ en _toepassingsontwikkeling_ met behulp van [SQL Analytics-taal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries). 
+Verzamelde bewaking telemetrie kan worden gebruikt voor uw eigen _aangepaste analyse_ en _toepassingsontwikkeling_ met behulp van [SQL Analytics-taal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="all-metrics"></a>Alle metrische gegevens
 
@@ -690,12 +689,12 @@ Meer informatie over de [Intelligent Insights-logboekindeling](sql-database-inte
 
 Voor meer informatie over het inschakelen van logboekregistratie en om te begrijpen van de metrische gegevens en meld u categorieën die worden ondersteund door de verschillende Azure-services, Zie:
 
-* [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Overzicht van diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Overzicht van diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Voor meer informatie over Event Hubs, lezen:
 
-* [Wat is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Wat is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Zie voor meer informatie over Azure Storage, [hoe u metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

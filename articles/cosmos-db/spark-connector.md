@@ -1,19 +1,17 @@
 ---
 title: Verbinding maken met Apache Spark op Azure Cosmos DB
 description: Meer informatie over de Azure Cosmos DB Spark-connector waarmee u verbinding maken met Apache Spark op Azure Cosmos DB. U kunt gedistribueerde aggregaties uitvoeren op het systeem met meerdere tenants, wereldwijd gedistribueerde database van Microsoft.
-keywords: Apache spark
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: fd1fa105a880acb0d2b18a3b69ba8d475d8f82a3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d80de23f815d96ba78f023f46a530561d5ec39d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081588"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034638"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Versnel de analyse van big data met behulp van de Apache Spark op Azure Cosmos DB-connector
  

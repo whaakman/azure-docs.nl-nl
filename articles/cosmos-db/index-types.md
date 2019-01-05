@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628998"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034081"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Typen van de index in Azure Cosmos DB
 
 Er zijn meerdere opties waar u het indexeringsbeleid voor een pad configureren. U kunt een of meer indexering definities voor elk pad opgeven:
 
-- **Gegevenstype:** tekenreeks, getal, punt, Polygon of LineString (kan slechts één vermelding per gegevenstype per pad bevatten).
+- **Gegevenstype:** Tekenreeks, getal, punt, Polygon of LineString (kan slechts één vermelding per gegevenstype per pad bevatten).
 
 - **Index-type:** Hash (gelijkheid query's), bereik (gelijkheid, bereik of ORDER BY-query's) of Spatial (ruimtelijke query's).
 
-- **Precisie:** voor een hashindex dit varieert van 1 tot en met 8 voor zowel tekenreeksen en getallen en de standaardwaarde is 3. Voor de index van een bereik is de maximale precisiewaarde -1. Dit kan verschillen tussen 1 en 100 (maximumprecisie) voor de tekenreeks of numerieke waarden.
+- **Precisie:** Dit varieert van 1 tot en met 8 voor tekenreeksen en cijfers voor een hashindex en de standaardwaarde is 3. Voor de index van een bereik is de maximale precisiewaarde -1. Dit kan verschillen tussen 1 en 100 (maximumprecisie) voor de tekenreeks of numerieke waarden.
 
 ## <a name="index-kind"></a>Index-type
 
@@ -31,7 +31,7 @@ Azure Cosmos DB biedt ondersteuning voor Hash-index en bereik index voor elk pad
 
 - **Bereik index** biedt ondersteuning voor efficiënte gelijkheid query's, bereik-query's (met behulp van >, <>, =, < =,! =), en ORDER BY-query's. ORDER By-query's standaard vereist ook maximale index precisie (-1). Het gegevenstype mag tekenreeks of getal.
 
-- **Ruimtelijke index** ondersteunt efficiënte ruimtelijke (binnen en afstand) query's. Het gegevenstype mag punt, Polygon of LineString. Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment, zoals {"type": "Punt", "coördinaten": [0.0, 10.0]}. Azure Cosmos DB biedt ondersteuning voor automatische indexering van punt veelhoek en LineString gegevenstypen.
+- **Ruimtelijke index** ondersteunt efficiënte ruimtelijke (binnen en afstand) query's. Het gegevenstype mag punt, Polygon of LineString. Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment, zoals {"type": 'Point', "coördinaten": [0.0, 10.0]}. Azure Cosmos DB biedt ondersteuning voor automatische indexering van punt veelhoek en LineString gegevenstypen.
 
 Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke indexen kunnen worden gebruikt voor het bieden van:
 
@@ -39,7 +39,7 @@ Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke index
 | ---------- | ---------------- |
 | Hash  | Hash-via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Hash voor/eigenschappen / [] /? (of / of/eigenschappen /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer taggen van verzameling c JOIN-tag IN c.props waar tag = 5  |
 | Bereik  | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop > 5<br><br>Selecteer uit verzameling c ORDER BY c.prop   |
-| Ruimtelijk     | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit de verzameling-c<br><br>WAAR ST_DISTANCE (c.prop, {"type": "Wijst", "coördinaten": [0.0, 10.0]}) < 40<br><br>Selecteer uit verzameling c waar ST_WITHIN(c.prop, {"type": "Polygon",...})--met het indexeren van punten ingeschakeld<br><br>Selecteer uit verzameling c waar ST_WITHIN({"type": "Point",...}, c.prop)--met indexering voor veelhoeken ingeschakeld.     |
+| Ruimtelijk     | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit de verzameling-c<br><br>WAAR ST_DISTANCE (c.prop, {"type": 'Point', "coördinaten": [0.0, 10.0]}) < 40<br><br>Selecteer in de verzameling c waar ST_WITHIN(c.prop, {"type": "Veelhoek',...}) --met het indexeren van punten ingeschakeld<br><br>Selecteer in de verzameling c waar ST_WITHIN({"type": 'Point',...}, c.prop)--met indexering voor veelhoeken ingeschakeld.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Standaardgedrag index soorten
 
@@ -65,5 +65,5 @@ Zie voor meer informatie over het indexeren in Azure Cosmos DB, de volgende arti
 
 - [Overzicht van het indexeren](index-overview.md)
 - [Indexeringsbeleid](indexing-policies.md)
-- [Index paden](index-paths.md)
+- [Indexpaden](index-paths.md)
 

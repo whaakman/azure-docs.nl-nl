@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 7126a47bd90168c7d86fe9fcc05fab0a60955063
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: dc3a0974eed7b044e137b45ec367c56d7534cee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180775"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054075"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registreren van uw persoonlijke apparaat op het netwerk van uw organisatie
-Registreer uw persoonlijke apparaat, doorgaans een telefoon of tablet, op het netwerk van uw organisatie. Nadat het apparaat is geregistreerd, is het mogelijk zijn voor toegang tot beperkte resources van uw organisatie.
+Registreer uw persoonlijke apparaat (meestal een telefoon of tablet) op het netwerk van uw organisatie. Nadat het apparaat is geregistreerd, is het mogelijk zijn voor toegang tot beperkte resources van uw organisatie.
 
 >[!Note]
 >In dit artikel wordt een Windows-apparaat voor demonstratiedoeleinden te gebruiken, maar u kunt ook de iOS-, Android- of macOS-apparaten registreren.
@@ -34,7 +34,7 @@ Terwijl u bent bezig met het registreren van uw apparaat op het netwerk van uw o
 
 - (Optioneel) op basis van de mogelijkheden van uw organisatie, u mogelijk worden automatisch geregistreerd bij beheer van mobiele apparaten, zoals Microsoft Intune. Zie voor meer informatie over het inschrijven in Microsoft Intune [uw apparaat inschrijven bij Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
 
-- Gaat u door het proces aanmelden met behulp van de gebruikersnaam en het wachtwoord voor uw persoonlijke Microsoft-account.
+- Gaat u door het proces aanmelden met behulp van de gebruikersnaam en het wachtwoord voor uw werk of school-account.
 
 ## <a name="to-register-your-windows-device"></a>Om uw Windows-apparaat te registreren
 
@@ -44,30 +44,26 @@ Volg deze stappen voor het registreren van uw persoonlijke apparaat in uw netwer
 
     ![Accounts in het scherm instellingen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Selecteer **e & accounts**, en selecteer vervolgens **deelnemen aan een Microsoft-account**.
+2. Selecteer **toegang tot werk of school**, en selecteer vervolgens **Connect** uit de **toegang tot werk of school** scherm.
 
-    ![E & accounts en de koppelingen van een Microsoft-account toevoegen](./media/user-help-register-device-on-network/register-device-email-and-accounts.png)
+    ![Toegang tot werk- of schoolaccount scherm met de optie verbinding maken is gemarkeerd](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. Op de **uw Microsoft-account toevoegen** scherm, typt u uw e-mailadres voor uw persoonlijke Microsoft-account.
+3. Op de **toevoegen van een account voor werk of school** scherm, typt u in uw e-mailadres voor uw werk of school-account en selecteer vervolgens **volgende**. Bijvoorbeeld alain@contoso.com.
 
-    ![Het scherm van de Microsoft-account met e-mailadres toevoegen](./media/user-help-register-device-on-network/register-device-add-accounts.png)
-
-4. Op de **wachtwoord opgeven** scherm, typt u het wachtwoord voor uw persoonlijke Microsoft-account en selecteer vervolgens **aanmelden**.
-
-    ![Scherm wachtwoord invoeren](./media/user-help-register-device-on-network/register-device-enter-password.png)
+4. Meld u aan bij uw werk- of schoolaccount en selecteer vervolgens **aanmelden**.
 
 5. Voltooi de rest van het registratieproces, met inbegrip van uw verzoek voor identiteitverificatie goed te keuren (als u verificatie in twee stappen gebruiken) en het instellen van Windows Hello (indien nodig).
 
-## <a name="to-make-sure-youre-registered"></a>Om te controleren of bent u geregistreerd
+## <a name="to-verify-that-youre-registered"></a>Om te controleren of u bent geregistreerd
 U kunt ervoor zorgen dat u bent geregistreerd door te kijken op uw instellingen.
 
 1. Open **instellingen**, en selecteer vervolgens **Accounts**.
 
     ![Accounts in het scherm instellingen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Selecteer **e & accounts**, en zorg ervoor dat u uw persoonlijke Microsoft-account bekijken.
+2. Selecteer **toegang tot werk of school**, en zorg ervoor dat u uw werk- of schoolaccount ziet.
 
-    ![Toegang tot werk- of schoolaccount scherm met verbonden contoso-account](./media/user-help-register-device-on-network/register-device-verify-account.png)
+    ![Toegang tot werk- of schoolaccount scherm met verbonden contoso-account](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u uw persoonlijke apparaat aan het netwerk van uw organisatie hebt geregistreerd, kunt u moet toegang hebben tot de meeste van uw resources.

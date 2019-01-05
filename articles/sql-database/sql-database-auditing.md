@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/25/2018
-ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/03/2019
+ms.openlocfilehash: 598d2b86e7aeeac9525f37b1ab9422d854e75392
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973195"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034026"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -224,10 +224,10 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 
 **PowerShell-cmdlets (met inbegrip van WHERE-component ondersteuning voor het filteren van aanvullende)**:
 
-- [Maken of bijwerken van de Database Blob controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Maken of bijwerken van de Server Blob controlebeleid (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
-- [Database controlebeleid ophalen (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Server Blob controlebeleid ophalen (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
+- [Maken of bijwerken van de Database Blob controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Maken of bijwerken van de Server Blob controlebeleid (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [Database controlebeleid ophalen (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Server Blob controlebeleid ophalen (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Zie voor een voorbeeldscript [controle en detectie van bedreigingen met behulp van PowerShell configureren](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -249,7 +249,7 @@ Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 
 ## <a id="subheading-10"></a>SQL database auditing met behulp van ARM-sjablonen beheren
 
-U kunt beheren met Azure SQL database auditing met behulp van [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) sjablonen, zoals wordt weergegeven in deze voorbeelden:
+U kunt beheren met Azure SQL database auditing met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen, zoals wordt weergegeven in deze voorbeelden:
 
 - [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Azure blob storage-account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Een Azure SQL-Server met controle ingeschakeld auditlogboeken schrijven naar Log Analytics implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)

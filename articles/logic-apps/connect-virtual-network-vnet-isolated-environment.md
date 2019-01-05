@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/06/2018
-ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 41ba0816dde63bc611dcb5be544609b88dfe9158
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997509"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052629"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps via een integratie van service-omgeving (ISE)
 
@@ -111,7 +111,7 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
    | **Locatie** | Ja | <*Azure-datacenter-regio*> | De Azure-datacenter-regio waar u om uw omgeving te implementeren | 
    | **Capaciteit** | Ja | 0, 1, 2, 3 | Het aantal verwerkingseenheden moet worden gebruikt voor deze resource ISE | 
    | **Virtueel netwerk** | Ja | <*Azure--naam-virtueel netwerk*> | De Azure-netwerk waarin u invoeren van uw omgeving wilt, zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Als u een netwerk hebt, kunt u een maken hier. <p>**Belangrijke**: U kunt *alleen* deze injectie uitvoeren bij het maken van uw ISE. Echter, voordat u deze relatie maken kunt, zorg ervoor dat u al [instellen van op rollen gebaseerd toegangsbeheer in uw virtuele netwerk voor Azure Logic Apps](#vnet-access). | 
-   | **Subnets** | Ja | <*IP-adresbereik*> | Een ISE vereist is vier *leeg* subnetten. Deze subnetten undelegated voor elke service en worden gebruikt voor het maken van resources in uw omgeving. U *kan niet worden gewijzigd* deze IP-bereiken nadat u uw omgeving hebt gemaakt. <p><p>Elk subnet maken [Volg de stappen onder deze tabel](#create-subnet). Elk subnet moet voldoen aan deze criteria voldoen: <p>-Mag niet bestaan in hetzelfde adresbereik voor het geselecteerde virtuele netwerk en eventuele andere privé IP-adressen waarin het virtuele netwerk is verbonden. <br>-Maakt gebruik van een naam die niet met een getal of een afbreekstreepje begint. <br>-Hiermee wordt de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Een klasse B-adresruimte vereist. <br>-Bevat een `/27`. Elk subnet Hier geeft bijvoorbeeld aan een 32-bits-adresbereik: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, en `10.0.0.96/27`. <br>-Moet niet leeg zijn. |
+   | **Subnets** | Ja | <*IP-adresbereik*> | Een ISE vereist is vier *leeg* subnetten. Deze subnetten undelegated voor elke service en worden gebruikt voor het maken van resources in uw omgeving. U *kan niet worden gewijzigd* deze IP-bereiken nadat u uw omgeving hebt gemaakt. <p><p>Elk subnet maken [Volg de stappen onder deze tabel](#create-subnet). Elk subnet moet voldoen aan deze criteria voldoen: <p>-Maakt gebruik van een naam die niet met een getal of een afbreekstreepje begint. <br>-Hiermee wordt de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Een klasse B-adresruimte vereist. <br>-Bevat een `/27`. Elk subnet Hier geeft bijvoorbeeld aan een 32-bits-adresbereik: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, en `10.0.0.96/27`. <br>-Moet niet leeg zijn. |
    |||||
 
    <a name="create-subnet"></a>
@@ -128,8 +128,8 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    1. Op de **subnet toevoegen** deelvenster deze informatie verstrekken.
 
-      * **Naam**: de naam voor uw subnet
-      * **Adresbereik (CIDR-blok)**: bereik van uw subnet in het virtuele netwerk en in CIDR-indeling
+      * **Naam**: De naam voor uw subnet
+      * **Adresbereik (CIDR-blok)**: Bereik van uw subnet in het virtuele netwerk en in CIDR-indeling
 
       ![Subnetgegevens van het toevoegen](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 

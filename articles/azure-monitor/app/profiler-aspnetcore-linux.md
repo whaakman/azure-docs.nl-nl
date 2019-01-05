@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 952a87d05cb4040aa4d9aa652f8aeb814396549f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: db2972019e81ab413857d49ffa65eade3ff061ec
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028296"
+ms.locfileid: "54051183"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profileren van ASP.NET Core Azure Linux-web-apps met Application Insights Profiler
 
@@ -31,7 +31,7 @@ Nadat u alle stappen hebt voltooid, kan uw app Profiler-traceringen, zoals de tr
 ## <a name="prerequisites"></a>Vereisten
 De volgende instructies zijn van toepassing op alle omgevingen voor Windows, Linux en Mac-ontwikkeling:
 
-* Installeer de [.NET Core SDK 2.1.2 of hoger](https://www.microsoft.com/net/download/windows/build).
+* Installeer de [.NET Core SDK 2.1.2 of hoger](https://dotnet.microsoft.com/download/archives).
 * Git installeren door de instructies op [aan de slag - installeren van Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## <a name="set-up-the-project-locally"></a>Het project lokaal instellen

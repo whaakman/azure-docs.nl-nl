@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: 34f69340e0e7cad583ba0b8797a076a4fd6e3097
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019492"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038582"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Een Azure-Cache voor Redis met behulp van een sjabloon maken
 In dit onderwerp leert u over het maken van een Azure Resource Manager-sjabloon die een Azure-Cache voor Redis implementeert. De cache kan worden gebruikt met een bestaand opslagaccount voor diagnostische gegevens. U leert ook hoe om te definiëren welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
 Diagnostische instellingen worden op dit moment gedeeld voor alle caches in dezelfde regio voor een abonnement. Bijwerken van een cache in de regio is van invloed op alle caches in de regio.
 
-Zie voor meer informatie over het maken van sjablonen, [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).
+Zie voor meer informatie over het maken van sjablonen, [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md). Zie voor meer informatie over de JSON-syntaxis en de eigenschappen voor cache-resourcetypen, [Microsoft.Cache resourcetypen](/azure/templates/microsoft.cache/allversions).
 
 Zie voor de volledige sjabloon, [Azure Cache voor Redis-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 

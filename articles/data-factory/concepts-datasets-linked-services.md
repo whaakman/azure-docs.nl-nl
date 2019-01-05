@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: c9c9f07eab395df716a4575338f881f07d573b74
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019126"
+ms.locfileid: "54044243"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-create-datasets.md)
 > * [Huidige versie](concepts-datasets-linked-services.md)
 
-Dit artikel wordt beschreven welke gegevenssets bent, hoe ze worden gedefinieerd in JSON-indeling, en hoe ze worden gebruikt Azure Data Factory-pijplijnen. 
+Dit artikel wordt beschreven welke gegevenssets bent, hoe ze worden gedefinieerd in JSON-indeling, en hoe ze worden gebruikt Azure Data Factory-pijplijnen.
 
-Als u niet bekend bent met Data Factory, raadpleegt u [Inleiding tot Azure Data Factory](introduction.md) voor een overzicht. 
+Als u niet bekend bent met Data Factory, raadpleegt u [Inleiding tot Azure Data Factory](introduction.md) voor een overzicht.
 
 ## <a name="overview"></a>Overzicht
 Een gegevensfactory kan één of meer pijplijnen hebben. Een **pijplijn** is een logische groepering van **activiteiten** die samen een taak uitvoeren. Met activiteiten in een pijplijn definieert u welk acties moeten worden uitgevoerd voor uw gegevens. Bijvoorbeeld, kunt u een kopieeractiviteit om gegevens te kopiëren uit een on-premises SQL Server naar Azure Blob storage. Vervolgens kunt u een Hive-activiteit die een Hive-script uitvoert op een Azure HDInsight-cluster om gegevens te verwerken van Blob-opslag om uitvoergegevens te produceren. U kunt tot slot een tweede kopieeractiviteit gebruiken om het kopiëren van de uitvoergegevens naar Azure SQL Data Warehouse, boven op welke business intelligence (BI) reporting oplossingen zijn gemaakt. Zie voor meer informatie over pijplijnen en activiteiten [pijplijnen en activiteiten](concepts-pipelines-activities.md) in Azure Data Factory.
@@ -70,7 +70,7 @@ typeProperties | De type-eigenschappen zijn verschillend voor elk gegevensarchie
 connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Nee
 
 ## <a name="linked-service-example"></a>Voorbeeld van de gekoppelde service
-De volgende gekoppelde service is een gekoppelde Azure Storage-service. U ziet dat het type is ingesteld voor opslag van Azureverzonden. De eigenschappen van het type voor de gekoppelde Azure Storage-service zijn een verbindingsreeks. De Data Factory-service gebruikt deze verbindingsreeks verbinding maken met het gegevensarchief tijdens runtime. 
+De volgende gekoppelde service is een gekoppelde Azure Storage-service. U ziet dat het type is ingesteld voor opslag van Azureverzonden. De eigenschappen van het type voor de gekoppelde Azure Storage-service zijn een verbindingsreeks. De Data Factory-service gebruikt deze verbindingsreeks verbinding maken met het gegevensarchief tijdens runtime.
 
 ```json
 {
@@ -101,7 +101,7 @@ Een gegevensset in Data Factory wordt in JSON-indeling als volgt gedefinieerd:
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "structure": [
             {
@@ -136,7 +136,7 @@ In het volgende voorbeeld vertegenwoordigt de gegevensset een tabel met de naam 
         "type": "AzureSqlTable",
         "linkedServiceName": {
                 "referenceName": "MyAzureSqlLinkedService",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "typeProperties":
         {
@@ -166,9 +166,9 @@ In het voorbeeld in de vorige sectie, het type van de gegevensset is ingesteld o
         "type": "AzureBlob",
         "linkedServiceName": {
                 "referenceName": "MyAzureStorageLinkedService",
-                 "type": "LinkedServiceReference",
-        }, 
- 
+                "type": "LinkedServiceReference",
+        },
+
         "typeProperties": {
             "fileName": "input.log",
             "folderPath": "adfgetstarted/inputdata",
@@ -218,14 +218,14 @@ U kunt gegevenssets maken met behulp van een van deze hulpprogramma's of de SDK'
 
 ## <a name="current-version-vs-version-1-datasets"></a>Huidige versie vergeleken met versie 1-gegevenssets
 
-Hier zijn enkele verschillen tussen Data Factory en Data Factory versie 1-gegevenssets: 
+Hier zijn enkele verschillen tussen Data Factory en Data Factory versie 1-gegevenssets:
 
 - De eigenschap external wordt niet ondersteund in de huidige versie. Deze wordt vervangen door een [trigger](concepts-pipeline-execution-triggers.md).
 - De eigenschappen van beleid en de beschikbaarheid worden niet ondersteund in de huidige versie. Afhankelijk van de begintijd voor een pijplijn [triggers](concepts-pipeline-execution-triggers.md).
-- Scoped gegevenssets (gegevenssets die zijn gedefinieerd in een pijplijn) worden niet ondersteund in de huidige versie. 
+- Scoped gegevenssets (gegevenssets die zijn gedefinieerd in een pijplijn) worden niet ondersteund in de huidige versie.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van pijplijnen en gegevenssets met behulp van een van deze hulpprogramma's of de SDK's. 
+Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van pijplijnen en gegevenssets met behulp van een van deze hulpprogramma's of de SDK's.
 
 - [Snelstartgids: een gegevensfactory maken met .NET](quickstart-create-data-factory-dot-net.md)
 - [Snelstartgids: een data factory maken met PowerShell](quickstart-create-data-factory-powershell.md)

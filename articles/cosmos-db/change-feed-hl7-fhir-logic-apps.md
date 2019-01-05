@@ -1,19 +1,18 @@
 ---
 title: Voor bronnen HL7 FHIR - Azure Cosmos DB-wijzigingenfeed
 description: Meer informatie over het instellen van wijzigingsmeldingen voor HL7 FHIR gezondheidszorg patiëntendossiers met Azure Logic Apps, Azure Cosmos DB en Service Bus.
-keywords: HL7 fhir
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0ff92ad58cc8b7206b7061c88f8aadbb701870f0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089221"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044515"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>De hoogte te brengen patiënten van HL7 FHIR gezondheidszorg record wordt gewijzigd met Logic Apps en Azure Cosmos DB
 
@@ -38,9 +37,9 @@ Op hoog niveau vereist het project de volgende stappen uit voor werkstroom:
 
 ## <a name="solution-architecture"></a>Oplossingsarchitectuur
 Deze oplossing vereist drie Logic Apps om te voldoen aan de bovenstaande vereisten en de werkstroom van de oplossing te voltooien. De drie logische apps zijn:
-1. **Toewijzing van HL7 FHIR app**: het document HL7 C-CDA ontvangt, zet u deze naar de Resource FHIR aan en klik vervolgens opgeslagen in Azure Cosmos DB.
-2. **EHR app**: query's van de Azure Cosmos DB FHIR-opslagplaats en de reactie op een Service Bus-wachtrij wordt opgeslagen. Deze logische app maakt gebruik van een [API-app](#api-app) om nieuwe en gewijzigde documenten te halen.
-3. **Proces melding app**: een e-mailbericht met de resource FHIR documenten in de hoofdtekstaanvraag verzendt.
+1. **Toewijzing van HL7 FHIR app**: Het document HL7 C-CDA ontvangt, getransformeerd naar de Resource FHIR en slaat deze op Azure Cosmos DB.
+2. **EHR app**: Query's van de Azure Cosmos DB FHIR-opslagplaats en slaat het antwoord op een Service Bus-wachtrij. Deze logische app maakt gebruik van een [API-app](#api-app) om nieuwe en gewijzigde documenten te halen.
+3. **Proces melding app**: Verzendt een e-mailbericht met de resource FHIR documenten in de hoofdtekst.
 
 ![De drie logische Apps gebruikt in deze gezondheidszorg HL7 FHIR-oplossing](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
@@ -57,16 +56,16 @@ Azure Cosmos DB is de opslagplaats voor de FHIR-resources, zoals wordt weergegev
 Logische Apps worden verwerkt het werkstroomproces. De volgende schermafbeeldingen tonen de Logic apps gemaakt voor deze oplossing. 
 
 
-1. **Toewijzing van HL7 FHIR app**: het document HL7 C-CDA ontvangen en transformeren naar een FHIR-resource met behulp van de Enterprise Integration Pack voor logische Apps. Het Enterprise Integration Pack verwerkt de toewijzing van de C-CDA naar FHIR-resources.
+1. **Toewijzing van HL7 FHIR app**: Het document HL7 C-CDA ontvangen en transformeren naar een FHIR-resource met behulp van de Enterprise Integration Pack voor logische Apps. Het Enterprise Integration Pack verwerkt de toewijzing van de C-CDA naar FHIR-resources.
 
     ![De logische App die wordt gebruikt voor het ontvangen van gezondheidszorg HL7 FHIR-records](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **EHR app**: query uitvoeren op de Azure Cosmos DB FHIR-opslagplaats en sla het antwoord op een Service Bus-wachtrij. De code voor de app GetNewOrModifiedFHIRDocuments is lager dan.
+2. **EHR app**: Query uitvoeren op de Azure Cosmos DB FHIR-opslagplaats en sla het antwoord op een Service Bus-wachtrij. De code voor de app GetNewOrModifiedFHIRDocuments is lager dan.
 
     ![De logische App gebruikt om aan te vragen uit Azure Cosmos DB](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **Proces melding app**: verzenden van een e-mailbericht met de resource FHIR documenten in de hoofdtekst.
+3. **Proces melding app**: Een e-mail verzenden met behulp van de resource FHIR documenten in de hoofdtekst.
 
     ![De logische App die de e-mailbericht met de HL7 FHIR-resource in de hoofdtekstaanvraag verzendt](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
@@ -88,12 +87,12 @@ We gebruiken de [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/l
 - Database-id
 - CollectionId
 - De naam van het Type HL7 FHIR-Resource
-- Booleaanse waarde: Start vanaf het begin
+- Booleaanse waarde: Vanaf begin starten
 - Int: Het aantal geretourneerde documenten
 
 **Uitvoer**
-- Geslaagd: Statuscode: 200, antwoord: lijst met documenten (JSON-matrix)
-- : Foutcode Status: 404, antwoord: "Er zijn geen documenten gevonden voor '*resourcenaam '* resourcetype"
+- Geslaagd: Statuscode: 200, antwoord: Lijst met documenten (JSON-matrix)
+- Fout: Statuscode: 404, antwoord: "Er zijn geen documenten gevonden voor '*resourcenaam '* resourcetype"
 
 <a id="api-app-source"></a>
 

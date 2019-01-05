@@ -1,18 +1,17 @@
 ---
 title: Meer informatie over het beveiligen van toegang tot gegevens in Azure Cosmos DB
 description: Meer informatie over concepten voor toegangsbeheer in Azure Cosmos DB, met inbegrip van hoofdsleutels, alleen-lezensleutels, gebruikers en machtigingen.
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: c203334b0ea1b47aa1884155f477e34bd8f2e1db
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a3bf6557bce10eddabaa52cc4a997ed661a8fc31
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724756"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041336"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Toegang tot Azure Cosmos DB-gegevens beveiligen
 In dit artikel biedt een overzicht van het beveiligen van toegang tot gegevens die zijn opgeslagen in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

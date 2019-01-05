@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879363"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053190"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Platformondersteuning voor Azure IoT SDK 's
 
@@ -20,9 +20,9 @@ De [Azure IoT SDK's](iot-hub-devguide-sdks.md) zijn een set van bibliotheken om 
 
 Microsoft ondersteunt een groot aantal besturingssystemen/platforms/frameworks en kan worden uitgebreid met de Azure IoT C-SDK. Sommige worden officieel ondersteund door het team, gegroepeerd in lagen, waarbij het niveau van ondersteuning voor gebruikers kunnen verwachten. *Volledig ondersteunde platforms* betekent dat Microsoft:
 
-    * Continu bouwt en end-to-end-tests op de hoofd- en de LTS ondersteund versie (s) wordt uitgevoerd.  Voor testdekkingsgraad in verschillende versies, testen we in het algemeen op basis van de meest recente LTS en de meest populaire versie.  Andere versies van hetzelfde platform worden mogelijk ondersteund via versiecompatibiliteit platform.
-    * Biedt richtlijnen voor de installatie of pakketten indien van toepassing.
-    * Biedt volledige ondersteuning voor de platforms op GitHub.
+- Continu bouwt en end-to-end-tests op de hoofd- en de LTS ondersteund versie (s) wordt uitgevoerd.  Voor testdekkingsgraad in verschillende versies, testen we in het algemeen op basis van de meest recente LTS en de meest populaire versie.  Andere versies van hetzelfde platform worden mogelijk ondersteund via versiecompatibiliteit platform.
+- Biedt richtlijnen voor de installatie of pakketten indien van toepassing.
+- Biedt volledige ondersteuning voor de platforms op GitHub.
 
 Bovendien een lijst met partners is overgezet onze C-SDK naar meer platformen en ze de platform abstraction layer (PAL) worden onderhouden. [Azure Certified voor IoT-Apparaatcatalogus](https://catalog.azureiotsolutions.com/) ook functies een lijst van de verschillende SDK's van de OS-platformen zijn getest op basis van. De SDK's ook regelmatig bouwen op deze platforms met beperkte testen en ondersteunen:
 

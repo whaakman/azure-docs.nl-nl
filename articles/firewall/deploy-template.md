@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865821"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038956"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Firewall van Azure met behulp van een sjabloon implementeren
 
@@ -41,7 +41,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
    
    - **Resourcegroep**: Selecteer **nieuw**, typ een naam voor de resourcegroep en selecteer **OK**. 
    - **Virtuele-netwerknaam**: Typ een naam voor de nieuwe VNet. 
-   - **Admin Username**: Typ een gebruikersnaam voor het beheerdersaccount van de gebruiker.
+   - **Gebruikersnaam van beheerder**: Typ een gebruikersnaam voor het beheerdersaccount van de gebruiker.
    - **Beheerderswachtwoord**: Typ een administrator-wachtwoord. 
    
 1. Lees de voorwaarden en bepalingen, en selecteer vervolgens **ik ga akkoord met de voorwaarden en bepalingen bovenstaande**.
@@ -51,6 +51,8 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
    Het duurt een paar minuten om de resources te maken. 
    
 1. Verken de resources die zijn gemaakt met de firewall. 
+
+Zie voor meer informatie over de JSON-syntaxis en de eigenschappen voor een firewall in een sjabloon, [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

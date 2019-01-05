@@ -12,15 +12,15 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 286c46f760dda4991fd89651bc3a01424d8a5502
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100715"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054789"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Uw organisatie aanmelden bij Azure Active Directory gebruiken
-Zich aanmelden voor Azure Active Directory (Azure AD) een nieuwe Microsoft Azure-abonnement met behulp van:
+Meld u aan voor Azure Active Directory (Azure AD) of een nieuw Microsoft Azure-abonnement, met behulp van:
 
 - **Microsoft-account.** Gebruik uw persoonlijke Microsoft-account voor het ophalen van de toegang tot Azure en alle consumenten gerichte Microsoft-producten en cloudservices, zoals Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE of Office 365. Automatisch aanmelden voor een Outlook.com-postvak, maakt een Microsoft-account. Zie voor meer informatie, [overzicht van Microsoft-account](https://account.microsoft.com/account).
 

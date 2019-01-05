@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8cbd09beffb8d86ab35e5fc1cf15c37b1bef9eb2
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002277"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050605"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -32,7 +32,7 @@ Dit artikel beschrijft de specifieke stappen voor het gebruik van Azure Monitor 
 Om te kunnen krijgen observability binnen uw gehele omgeving, moet u inschakelen bewaking op uw web-apps en services. Hiermee kunt u gemakkelijk visualiseren end-to-end-transacties en verbindingen voor alle onderdelen.
 
 - [Met Azure DevOps Projects](../devops-project/overview.md) een vereenvoudigde ervaring met uw bestaande code en Git-opslagplaats, of kies een van de voorbeeldtoepassingen te maken van een pijplijn voor continue integratie (CI) en continue levering (CD) naar Azure.
-- [Doorlopende bewaking in uw DevOps-release-pijplijn](../application-insights/app-insights-vsts-continuous-monitoring.md) kunt u poort of terugdraaien van de implementatie aanpassen aan de gegevens te controleren.
+- [Doorlopende bewaking in uw DevOps-release-pijplijn](../azure-monitor/app/continuous-monitoring.md) kunt u poort of terugdraaien van de implementatie aanpassen aan de gegevens te controleren.
 - [Statusmonitor](../azure-monitor/app/monitor-performance-live-website-now.md) kunt u het instrumenteren van een live .NET-app op Windows met Azure Application Insights, zonder te hoeven wijzigen of opnieuw implementeren van uw code.
 - Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../application-insights/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), of [andere programmeertalen](../azure-monitor/app/platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
 
@@ -64,7 +64,7 @@ Continue integratie / continue implementatie kunt u automatisch integreren en wi
 
 - Gebruik [Azure pijplijnen](/azure/devops/pipelines) continue implementatie implementeren en automatiseren van uw hele proces van code doorvoeren naar productie op basis van uw CI/CD-tests.
 - Gebruik [kwaliteit Gates](/devops/pipelines/release/approvals/gates) om te integreren in uw vóór de implementatie of na de implementatie controleren. Dit zorgt ervoor dat u voldoet aan de health/prestatie metrische gegevens (KPI's) als uw toepassingen van dev naar productie en eventuele verschillen in de infrastructuur-omgeving verplaatsen of schaal uw KPI's niet nadelig beïnvloedt.
-- [Afzonderlijke exemplaren van de controle behouden](../application-insights/app-insights-separate-resources.md) tussen de verschillende omgevingen, zoals ontwikkelen, testen, Canarische en productie. Dit zorgt ervoor dat de verzamelde gegevens relevant voor de gekoppelde toepassingen en infrastructuur is. Als u nodig hebt voor het correleren van gegevens tussen omgevingen, kunt u [meerdere resource-grafieken in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) of maak [cross-resource-query's in Log Analytics](log-query/cross-workspace-query.md).
+- [Afzonderlijke exemplaren van de controle behouden](../azure-monitor/app/separate-resources.md) tussen de verschillende omgevingen, zoals ontwikkelen, testen, Canarische en productie. Dit zorgt ervoor dat de verzamelde gegevens relevant voor de gekoppelde toepassingen en infrastructuur is. Als u nodig hebt voor het correleren van gegevens tussen omgevingen, kunt u [meerdere resource-grafieken in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) of maak [cross-resource-query's in Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Bruikbare waarschuwingen maken met acties
@@ -80,16 +80,16 @@ Een essentieel onderdeel van de bewaking wordt beheerders van actuele en voorspe
 Ervoor te zorgen dat uw ontwikkel- en operations toegang tot de dezelfde Telemetrie en hulpprogramma's hebben, kunnen ze patronen in uw gehele omgeving weergeven en de gemiddelde tijd om te detecteren (MTTD) en de gemiddelde tijd om te herstellen (MTTR) kunt minimaliseren.
 
 - Voorbereiden [aangepaste dashboards](../application-insights/app-insights-tutorial-dashboards.md) op basis van algemene metrische gegevens en logboeken voor de verschillende rollen in uw organisatie. Dashboards kunnen gegevens uit alle Azure-resources kunnen combineren.
-- Voorbereiden [werkmappen](../application-insights/app-insights-usage-workbooks.md) om ervoor te zorgen kennis delen tussen ontwikkel- en bewerkingen. Deze kunnen worden voorbereid als dynamische rapporten met grafieken met metrische gegevens en logboeken-query's, of zelfs als het oplossen van problemen handleidingen voorbereid door ontwikkelaars helpen klantenondersteuning of bewerkingen voor het afhandelen van eenvoudige problemen.
+- Voorbereiden [werkmappen](../azure-monitor/app/usage-workbooks.md) om ervoor te zorgen kennis delen tussen ontwikkel- en bewerkingen. Deze kunnen worden voorbereid als dynamische rapporten met grafieken met metrische gegevens en logboeken-query's, of zelfs als het oplossen van problemen handleidingen voorbereid door ontwikkelaars helpen klantenondersteuning of bewerkingen voor het afhandelen van eenvoudige problemen.
 
 ## <a name="continuously-optimize"></a>Blijf optimaliseren
  Bewaking is een van de fundamentele aspecten van de populaire Build-meten-leren filosofie, dat wordt aanbevolen continu bijhouden van uw KPI's en het gedrag van metrische gegevens over gebruikers en vervolgens streven naar ze via planning iteraties te optimaliseren. Azure Monitor kunt u het verzamelen van metrische gegevens en logboeken die relevant zijn voor uw bedrijf en toe te voegen nieuwe gegevenspunten in de volgende implementatie zo nodig.
 
 - Gebruik hulpprogramma's in Application Insights aan [gedrag van eindgebruikers en engagement bijhouden](../application-insights/app-insights-tutorial-users.md).
-- Gebruik [impactanalyse](../application-insights/app-insights-usage-impact.md) kunt u welke onderdelen zich richten op station om belangrijke KPI's te prioriteren.
+- Gebruik [impactanalyse](../azure-monitor/app/usage-impact.md) kunt u welke onderdelen zich richten op station om belangrijke KPI's te prioriteren.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over de onderdelen van het verschil van [Azure Monitor](overview.md).
-- [Doorlopende bewaking toevoegen](../application-insights/app-insights-vsts-continuous-monitoring.md) aan uw release-pijplijn.
+- [Doorlopende bewaking toevoegen](../azure-monitor/app/continuous-monitoring.md) aan uw release-pijplijn.

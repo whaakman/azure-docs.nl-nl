@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 5ff6e29fc4d7607c44541c7947404a0bc0301207
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c7b4da7292600f3d477d5c16263660eb6d4d4226
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581484"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051269"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Geavanceerd automatisch schalen configureren met behulp van Resource Manager-sjablonen voor VM-Schaalsets
 U kunt in- en scale-out in Virtual Machine Scale Sets op basis van prestaties metrische drempels, door een terugkerend schema, of door een bepaalde datum. U kunt ook e-mail en webhook-meldingen voor schaalacties configureren. In dit scenario ziet u een voorbeeld van het configureren van al deze objecten met behulp van Resource Manager-sjabloon voor een VM-Schaalset.
@@ -247,3 +247,5 @@ Gebruik deze koppelingen voor meer informatie over automatisch schalen.
 [Automatisch schalen met behulp van CLI beheren](cli-samples.md#autoscale)
 
 [Webhook & e-mailmeldingen voor automatisch schalen configureren](autoscale-webhook-email.md)
+
+[Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings) sjabloonverwijzing

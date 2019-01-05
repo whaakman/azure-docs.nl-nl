@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9ab256526ccba3fa84d4979ba536f6b681a7df89
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 710b584777abc312388c3857ced06ce196416a31
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001665"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042934"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -242,6 +242,6 @@ Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund i
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md 

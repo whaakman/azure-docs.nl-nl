@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fc23efb206496bd36922da39adc0ff32abb78907
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05a0e0d88f09853274d6bc6b65f66cf66369f77d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608668"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044192"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -236,6 +236,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Gebeurtenis vastleggen SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [Gebeurtenis vastleggen SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM is een uitgebreide beveiligingsplatform dat voorziet in geavanceerde beveiligingsprogramma's met nalevingsmogelijkheden voor controle gereed is voor. | Gebeurtenis vastleggen |
 | ![Exivity - oplossing voor hybride Cloudopslag facturering](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - oplossing voor hybride Cloudopslag facturering](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | Een facturering die voldoen aan de vereisten van het leveren van vrijwel elke IT-services kunnen hulpprogramma model of geïmplementeerd in de on-premises, openbare cloud of hybride omgevingen. | Exivity |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [Virtuele F5 Big-IP-editie](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Geavanceerde Load Balancing, GSLB, netwerkfirewall, DNS, WAF en toegang tot Apps. | F5-netwerken |
+| ![FortiGate Next Generation Firewall](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Firewall-technologie volledige content- en netwerkbescherming met een uitgebreid pakket krachtige beveiligingsfuncties biedt. Toepassingsbeheer, antivirus, IPS, webfiltering en VPN, gecombineerd met geavanceerde functies zoals beveiligingsproblemen werken samen om te bepalen en de nieuwste complexe beveiligingsbedreigingen te beperken. | Fortinet |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Gebaseerd op HDP 2,5 100% open-source platform voor Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky hybride-Cloudbeveiliging](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | De Kaspersky hybride Cloud Security kunt een naadloos gecoördineerd en adaptieve cybersecurity-ecosysteem. | Kaspersky Lab |
 | ![KEMP LoadMaster Load Balancer ADC inhoud Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC inhoud Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Load Balancer uit laag 4-7 Application Delivery Controller (ADC), inhoud Switch en Traffic Manager. | KEMP Technologies, Inc. |

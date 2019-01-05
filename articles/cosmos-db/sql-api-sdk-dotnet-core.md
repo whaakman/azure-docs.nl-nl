@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Core-API, SDK en resources'
 description: Meer informatie over de SQL .NET Core-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB .NET Core SDK.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413503"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053548"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 * Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen.
 * Ondersteuning voor stromen.
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Verbetering van de logica voor opnieuw proberen tijdens de failover voor een opgeslagen procedure uitvoeren van aanroepen.
+
+* -En-klare DocumentClientEventSource singleton. 
+
+* Time-out van GatewayAddressCache niet naleven ConnectionPolicy RequestTimeout oplossen.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,6 +233,7 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |December 24 mei 2018 |--- |
 | [2.2.0](#2.2.0) |07 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |

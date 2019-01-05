@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306660"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051438"
 ---
 # <a name="visualize-data-with-power-bi"></a>Gegevens visualiseren met Power BI
 In deze zelfstudie leert u hoe u Power BI gebruikt om verbinding te maken met SQL Data Warehouse en hoe u enkele eenvoudige visualisaties maakt.
@@ -77,7 +77,7 @@ Nu kunt u Power BI gebruiken om de voorbeeldgegevens uit AdventureWorksDW te ana
 
 U kunt de voortgang op elk moment opslaan door op **Bestand** te klikken en **Opslaan** te selecteren.
 
-## <a name="using-direct-connnect"></a>Met behulp van directe Connnect
+## <a name="using-direct-connect"></a>Verbinding maken met behulp van directe
 Als met Azure SQL Database, SQL Data Warehouse Direct Connect ondersteuning biedt voor logische pushdown naast de analytische mogelijkheden van Power BI. Met Direct verbinding kunt maken, 's query verzonden naar uw Azure SQL Data Warehouse in realtime terwijl u de gegevens verkent.  Deze functie, gecombineerd met de schaal van SQL Data Warehouse, kunt u dynamische rapporten maken in minuten op basis van terabytes aan gegevens. Bovendien kan de introductie van het openen in Power BI-knop gebruikers Power BI rechtstreeks verbinden met hun SQL Data Warehouse zonder het verzamelen van gegevens van andere onderdelen van Azure.
 
 Als u Direct verbinding maken:

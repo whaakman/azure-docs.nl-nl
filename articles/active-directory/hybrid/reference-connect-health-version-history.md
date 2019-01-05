@@ -14,17 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8ca04fef8a17c43c9d1f761e36d8da7f1e07d4d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 08d1589b8b215471983dc76a836dd89f83fd8204
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283577"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053395"
 ---
-# <a name="azure-ad-connect-health-version-release-history"></a>Versiegeschiedenis van status Azure AD Connect
+# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Releasegeschiedenis van versie
 Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerkt met nieuwe functies en functionaliteit. In dit artikel bevat de versies en functies die zijn uitgebracht.
-Azure AD Connect Health for Sync is geïntegreerd met Azure AD Connect-installatie. Meer informatie over [releasegeschiedenis van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+Azure AD Connect Health for Sync is geïntegreerd met Azure AD Connect-installatie. Meer informatie over [releasegeschiedenis van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) voor feedback van de functie, de stemmen op [verbinding maken met de gezondheid van User Voice-kanaal](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="november-2018"></a>November 2018
+**Nieuwe functies voor algemene beschikbaarheid:** 
+* Azure AD Connect Health for Sync - vaststellen en herstellen van de synchronisatiefouten dubbel kenmerk uit de portal
+
+**Agent bijwerken:** 
+*  Azure AD Connect Health-agent voor AD DS (versie 3.1.24.0) 
+1. Transport Layer Security (TLS)-protocol versie 1.2 naleving en gedwongen uitvoering
+2. Globale catalogus waarschuwingsruis te verminderen
+3. Health-agent registratie oplossingen voor problemen
+
+*   Azure AD Connect Health-agent voor AD FS (versie 3.1.24.0)
+1. Transport Layer Security (TLS)-protocol versie 1.2 naleving en gedwongen uitvoering
+2. Ondersteuning van Test-ADFSRequestToken voor gelokaliseerd besturingssysteem
+3. Disgnostic agent EventHandler vergrendelingsprobleem opgelost
+4. Health-agent registratie oplossingen voor problemen
 
 ## <a name="august-2018"></a>Augustus 2018 
 *  Azure AD Connect Health-agent voor synchronisatie (versie 3.1.7.0) die zijn uitgebracht met Azure AD Connect versie 1.1.880.0    
@@ -133,7 +148,7 @@ Azure AD Connect Health for Sync is geïntegreerd met Azure AD Connect-installat
 
 * Synchronisatie-foutrapporten voor Azure AD Connect
 
-**Nieuwe functies:**
+**Nieuwe functies**
 
 * Azure AD Connect Health voor AD FS - veld IP-adres is beschikbaar in het rapport over top 50 van gebruikers met een ongeldige gebruikersnaam/wachtwoord.
 
@@ -147,12 +162,12 @@ Azure AD Connect Health for Sync is geïntegreerd met Azure AD Connect-installat
 
 * Azure AD Connect Health-agent voor AD FS (versie 2.6.91.1512)
 
-**Nieuwe functies:**
+**Nieuwe functies**
 
 * [Hulpprogramma voor test-connectiviteit voor Azure AD Connect Health-Agents](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)
 
 ## <a name="november-2015"></a>November 2015
-**Nieuwe functies:**
+**Nieuwe functies**
 
 * Ondersteuning voor [op rollen gebaseerd toegangsbeheer](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
@@ -165,7 +180,7 @@ Azure AD Connect Health for Sync is geïntegreerd met Azure AD Connect-installat
 * Oplossingen voor fouten gezien tijdens agent-registraties.
 
 ## <a name="september-2015"></a>September 2015
-**Nieuwe functies:**
+**Nieuwe functies**
 
 * Onjuiste gebruikersnaam wachtwoord rapport voor AD FS
 * Ondersteuning voor niet-geverifieerde HTTP-Proxy configureren
@@ -180,7 +195,7 @@ Azure AD Connect Health for Sync is geïntegreerd met Azure AD Connect-installat
 ## <a name="june-2015"></a>Juni 2015
 **Initiële versie van Azure AD Connect Health voor AD FS en AD FS-Proxy.**
 
-**Nieuwe functies:**
+**Nieuwe functies**
 
 * Waarschuwingen voor het controleren van AD FS en AD FS-Proxy-servers met e-mailmeldingen.
 * Eenvoudige toegang tot AD FS-topologie en patronen in AD FS-prestatiemeteritems.

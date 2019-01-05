@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 50f5cf48838e5578dc94c61b4463f94e76f886e6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92a3caefaa0185aa4bd86fbf66d6279e49b0f5c1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028370"
+ms.locfileid: "54053227"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-apps
 
@@ -166,7 +166,7 @@ De volgende omgevingen worden ondersteund:
 
 ### <a name="configure-snapshot-collection-for-other-net-applications"></a>Momentopname verzamelen voor andere .NET-toepassingen configureren
 
-1. Als uw toepassing is niet al zijn geïnstrumenteerd met Application Insights, aan de slag met [Application Insights inschakelen en het instellen van de instrumentatiesleutel](../../application-insights/app-insights-windows-desktop.md).
+1. Als uw toepassing is niet al zijn geïnstrumenteerd met Application Insights, aan de slag met [Application Insights inschakelen en het instellen van de instrumentatiesleutel](../../azure-monitor/app/windows-desktop.md).
 
 2. Voeg de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
@@ -478,4 +478,4 @@ Als uw toepassing verbinding met Internet via een proxy of firewall maakt, moet 
 
 * [Snappoints instellen in uw code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) momentopnamen ophalen zonder te wachten op een uitzondering.
 * [Diagnose-uitzonderingen in uw web-apps](../../azure-monitor/app/asp-net-exceptions.md) wordt uitgelegd hoe u meer uitzonderingen zichtbaar maken voor Application Insights.
-* [Slimme detectie](../../application-insights/app-insights-proactive-diagnostics.md) automatisch detecteert afwijkende prestaties.
+* [Slimme detectie](../../azure-monitor/app/proactive-diagnostics.md) automatisch detecteert afwijkende prestaties.

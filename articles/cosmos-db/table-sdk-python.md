@@ -1,23 +1,21 @@
 ---
 title: Azure Cosmos DB tabel-API voor Python
 description: Meer informatie over de Azure Cosmos DB Table-API met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: sngun
-ms.custom: ''
-ms.openlocfilehash: 165dbaf3faec90498cf42bad39257e26662da072
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 257d55fd0c7d843934c4f07a798247c5271d8ed7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869852"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044294"
 ---
-# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB tabel-API SDK voor Python: releaseopmerkingen en resources
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB Table-API-SDK voor Python: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)

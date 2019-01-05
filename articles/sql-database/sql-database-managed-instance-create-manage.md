@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: 7fb6917e129c015536143a707fd2a89fc5423a99
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 01/03/2019
+ms.openlocfilehash: 30efbcd5ba36ea912a7238eef9e300085cb1d3d1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323077"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040197"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Beheerde API-naslaginformatie voor Azure SQL Database beheerde instanties
 
 U kunt maken en beheren van Azure SQL Database Managed Instances met behulp van de Azure portal, PowerShell, Azure CLI, REST-API en Transact-SQL. In dit artikel vindt u een overzicht van functies en -API die u gebruiken kunt om te maken en configureren van Managed Instance.
 
-## <a name="azure-portal-create-a-managed-instance"></a>Azure-portal: Een beheerd exemplaar maken
+## <a name="azure-portal-create-a-managed-instance"></a>Azure Portal: Een beheerd exemplaar maken
 
 Zie voor een snelstart u voor het maken van een Azure SQL Database Managed Instance, [Quick Start: Maken van een beheerd exemplaar voor Azure SQL Database](sql-database-managed-instance-get-started.md).
 
@@ -37,9 +37,13 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azu
 | Cmdlet | Description |
 | --- | --- |
 |[Nieuwe AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Hiermee maakt u een beheerd exemplaar voor Azure SQL Database |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlInstance)|Retourneert informatie over Azure SQL Managed Instance|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlInstance)|Hiermee stelt u eigenschappen voor een Azure SQL Database Managed Instance|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlInstance)|Hiermee verwijdert u een beheerde Database-exemplaar voor Azure SQL|
+|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Retourneert informatie over Azure SQL Managed Instance|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Hiermee stelt u eigenschappen voor een Azure SQL Database Managed Instance|
+|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Hiermee verwijdert u een beheerde Database-exemplaar voor Azure SQL|
+|[Nieuwe AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Hiermee maakt u een Azure SQL Database Managed Instance-database|
+|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Retourneert informatie over beheerd exemplaar voor Azure SQL database|
+|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Hiermee verwijdert u een exemplaar van beheerde Database van Azure SQL-database|
+|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Hiermee herstelt u een beheerd Database exemplaar van Azure SQL-database|
 
 ## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI: Logische servers en databases beheren
 
@@ -47,15 +51,19 @@ Maken en beheren van Azure SQL-server, databases en firewalls met [Azure CLI](/c
 
 > [!TIP]
 > Zie voor een Azure CLI-Quick Start [werkt met SQL beheerd exemplaar met behulp van Azure CLI met](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
->
 
 | Cmdlet | Description |
 | --- | --- |
-|[AZ sql mi maken](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-create) |Hiermee maakt u een beheerd exemplaar|
-|[lijst met AZ sql mi](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-list)|Een lijst met beschikbare beheerde exemplaren|
-|[AZ sql mi weergeven](/cli/azure/sql/db#az-sql-mi-show)|De details ophalen voor een beheerd exemplaar|
-|[AZ sql mi-update](/cli/azure/sql/db#az-sql-mi-update)|Updates van een beheerd exemplaar|
-|[AZ sql mi verwijderen](/cli/azure/sql/db#az-sql-mi-delete)|Hiermee verwijdert u een beheerd exemplaar|
+|[AZ sql mi maken](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Hiermee maakt u een beheerd exemplaar|
+|[lijst met AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Een lijst met beschikbare beheerde exemplaren|
+|[AZ sql mi weergeven](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|De details ophalen voor een beheerd exemplaar|
+|[AZ sql mi-update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Updates van een beheerd exemplaar|
+|[AZ sql mi verwijderen](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Hiermee verwijdert u een beheerd exemplaar|
+|[AZ sql DEELB maken](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Hiermee maakt u een beheerde database|
+|[lijst met AZ sql DEELB](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Een lijst met beschikbare beheerde databases|
+|[AZ sql DEELB herstellen](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Een beheerde database herstellen|
+|[AZ sql DEELB update](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Een beheerde database-updates|
+|[AZ sql DEELB verwijderen](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Hiermee verwijdert u een beheerde database|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Logische servers en databases beheren
 

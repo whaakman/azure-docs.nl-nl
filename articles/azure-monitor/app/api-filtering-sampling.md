@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 193e024b4691b76b08bcbe15ace35ccafd45c394
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 095ecdccde930db20ee858bfce7fc0811163cdd9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023444"
+ms.locfileid: "54038259"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filteren en voorverwerking van telemetrie in Application Insights-SDK
 
@@ -372,4 +372,4 @@ Wat is het verschil tussen de telemetrie processors en telemetrie initializers?
 ## <a name="next"></a>Volgende stappen
 * [Logboeken en gebeurtenissen voor zoeken](../../azure-monitor/app/diagnostic-search.md)
 * [Steekproeven](../../azure-monitor/app/sampling.md)
-* [Problemen oplossen](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Problemen oplossen](../../azure-monitor/app/troubleshoot-faq.md)

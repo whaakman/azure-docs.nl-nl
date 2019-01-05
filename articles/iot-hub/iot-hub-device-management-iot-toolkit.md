@@ -1,25 +1,24 @@
 ---
-title: Azure IoT-Apparaatbeheer met Azure IoT Hub Toolkit-extensie voor Visual Studio Code | Microsoft Docs
-description: Gebruik de Azure IoT Hub Toolkit-extensie voor Visual Studio Code voor Azure IoT Hub-Apparaatbeheer, met daarin de directe methoden en beheeropties van de Apparaatdubbel-gewenste eigenschappen.
+title: Azure IoT-Apparaatbeheer met Azure IoT-hulpprogramma's voor Visual Studio Code | Microsoft Docs
+description: Gebruik de Azure IoT-Tools voor Visual Studio Code voor Azure IoT Hub-Apparaatbeheer, met daarin de directe methoden en beheeropties van de Apparaatdubbel-gewenste eigenschappen.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
-ms.date: 8/3/2018
+ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 4b7de0652172de5120e88e7c597fc31037ddbbb3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ec19045892b975fed7611c7747fa7b2bb4b1515c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339556"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051133"
 ---
-# <a name="use-azure-iot-hub-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Azure IoT Hub Toolkit-extensie voor Visual Studio Code gebruiken voor het beheer van Azure IoT Hub-apparaten
+# <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Azure IoT-hulpprogramma's voor Visual Studio Code gebruiken voor het beheer van Azure IoT Hub-apparaten
 
 ![Diagram voor end-to-end](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit) is een nuttig Visual Studio Code-extensie die IoT Hub-beheer vergemakkelijkt. Het wordt geleverd met opties die u gebruiken kunt diverse taken uit te voeren.
+[Azure IoT-hulpprogramma's](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is een nuttig Visual Studio Code-extensie die IoT Hub beheer en ontwikkeling van IoT-toepassingen gemakkelijker maakt. Het wordt geleverd met opties die u gebruiken kunt diverse taken uit te voeren.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -36,18 +35,18 @@ Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (m
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-Leert u met behulp van Azure IoT Hub Toolkit-extensie voor Visual Studio Code met verschillende beheeropties voor op uw ontwikkelcomputer.
+Leert u met behulp van Azure IoT-hulpprogramma's voor Visual Studio Code met verschillende beheeropties voor op uw ontwikkelcomputer.
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
-Azure IoT Hub Toolkit-extensie voor Visual Studio Code uitvoeren met verschillende opties.
+Azure IoT-hulpprogramma's voor Visual Studio Code uitvoeren met verschillende opties.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
 * Een actief Azure-abonnement.
 * Een Azure IoT-hub in uw abonnement.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Hub-Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+* [Azure IoT-hulpprogramma's voor VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Meld u aan voor toegang tot uw IoT-hub
 
@@ -98,6 +97,6 @@ Berichten van uw IoT-hub worden verzonden naar uw apparaat, de volgende stappen 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe Azure IoT Hub Toolkit-extensie voor Visual Studio Code gebruiken met verschillende opties.
+U hebt geleerd over het gebruik van hulpprogramma's voor Azure IoT-extensie voor Visual Studio Code met verschillende opties.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

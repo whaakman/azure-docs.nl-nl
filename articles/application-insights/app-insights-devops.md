@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a160cd6d81ab7cb760a85ee7cbdbedf55c17167
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 31ab9f37bcb4ea32caa48edf9460fa7ffcdf764d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998230"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052067"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -94,7 +94,7 @@ De Power BI-module real Madrid gebruikt om de telemetrie weer te geven.
 ![Power BI-weergave van Application Insights-telemetrie](./media/app-insights-devops/080.png)
 
 ## <a name="smart-detection"></a>Slimme detectie
-[Proactieve diagnostische gegevens](app-insights-proactive-diagnostics.md) is een recente functie. Zonder speciale configuratie door u, Application Insights automatisch detecteert en waarschuwt u over ongebruikelijke pieken in foutpercentages in uw app. Is het verstandig om te negeren een achtergrond van incidentele fouten optreden, en ook de pieken die zijn gewoon verhouding staan tot een toename van aanvragen. Bijvoorbeeld werkt als er een storing in een van de services die u afhankelijk bent of als de nieuwe bouwen die u zojuist hebt geïmplementeerd niet zo goed, dan u erover weet Als u kijken naar uw e-mailadres. (En er zijn webhooks, zodat u kunt andere apps activeren.)
+[Proactieve diagnostische gegevens](../azure-monitor/app/proactive-diagnostics.md) is een recente functie. Zonder speciale configuratie door u, Application Insights automatisch detecteert en waarschuwt u over ongebruikelijke pieken in foutpercentages in uw app. Is het verstandig om te negeren een achtergrond van incidentele fouten optreden, en ook de pieken die zijn gewoon verhouding staan tot een toename van aanvragen. Bijvoorbeeld werkt als er een storing in een van de services die u afhankelijk bent of als de nieuwe bouwen die u zojuist hebt geïmplementeerd niet zo goed, dan u erover weet Als u kijken naar uw e-mailadres. (En er zijn webhooks, zodat u kunt andere apps activeren.)
 
 Een ander aspect van deze functie voert een dagelijkse diepgaande analyse van uw telemetrie, zoeken naar ongebruikelijke patronen van de prestaties die moeilijk te detecteren. Bijvoorbeeld, vindt er trage prestaties die zijn gekoppeld met een bepaald geografisch gebied of met een bepaalde browser-versie.
 

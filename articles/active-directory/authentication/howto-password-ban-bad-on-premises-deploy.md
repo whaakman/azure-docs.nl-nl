@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033601"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Voorbeeld: Azure AD-wachtwoordbeveiliging implementeren
+# <a name="preview-deploy-azure-ad-password-protection"></a>Preview: Wachtwoordbeveiliging in Azure AD implementeren
 
 |     |
 | --- |
@@ -86,6 +86,9 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van de Azure AD-wac
 2. Het wachtwoord voor Proxy-Service-software met behulp van het AzureADPasswordProtectionProxy.msi MSI-pakket installeren.
    * De software-installatie vereist niet opnieuw worden opgestart. De software-installatie kan worden geautomatiseerd met behulp van de standaardprocedures van het MSI-bestand, bijvoorbeeld: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
 
+      > [!NOTE]
+      > De service Windows Firewall moet worden uitgevoerd voordat u het AzureADPasswordProtectionProxy.msi MSI-pakket installeert of anders een fout bij de installatie wordt uitgevoerd. Als de Windows Firewall is geconfigureerd voor het niet wordt uitgevoerd, wordt de tijdelijke oplossing is tijdelijk inschakelen en starten van de Windows Firewall-service tijdens het installatieproces. De proxysoftware heeft geen specifieke afhankelijkheid van de Windows Firewall-software na de installatie. Als u een firewall van derden gebruikt, moet deze nog steeds worden geconfigureerd om te voldoen aan de vereisten voor de implementatie (binnenkomende toegang tot poort 135 en geven de RPC-proxy-serverpoort of dynamisch of statisch). [Zie de vereisten voor de implementatie](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+
 3. Open een PowerShell-venster als beheerder.
    * De Azure AD-wachtwoordbeveiliging Proxy-software bevat een nieuwe PowerShell-module met de naam AzureADPasswordProtection. De volgende stappen zijn gebaseerd op het uitvoeren van verschillende cmdlets van deze PowerShell-module en wordt ervan uitgegaan dat u hebt een nieuwe PowerShell-venster geopend en de nieuwe module als volgt hebt geïmporteerd:
       * `Import-Module AzureADPasswordProtection`
@@ -142,7 +145,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van de Azure AD-wac
    > [!NOTE]
    > Opdat `Register-AzureADPasswordProtectionForest` te voltooien ten minste één Windows Server 2012 of hoger domain controller moet beschikbaar zijn in het domein van de proxyserver. Er is echter geen vereiste dat de DC-agentsoftware worden geïnstalleerd op een domeincontroller voordat u deze stap.
 
-6. Optioneel: De Azure AD wachtwoord beveiliging proxy-service om te luisteren naar een specifieke poort configureren.
+6. Optioneel: De Azure AD wachtwoord protection proxy-service om te luisteren naar een specifieke poort configureren.
    * RPC via TCP wordt gebruikt door de Azure AD-wachtwoordbeveiliging DC-agentsoftware op de domeincontrollers om te communiceren met de proxy-service van Azure AD wachtwoord beveiliging. Standaard luistert de beveiliging in Azure AD wachtwoord wachtwoord beleid Proxy-service op alle beschikbare dynamische RPC-eindpunt. Indien nodig vanwege de netwerktopologie of firewall-vereisten, kan de service in plaats daarvan worden geconfigureerd om te luisteren naar een specifieke TCP-poort.
       * Gebruik voor het configureren van de service moet worden uitgevoerd in een statische poort de `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
          ```

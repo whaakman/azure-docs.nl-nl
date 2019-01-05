@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 7513ce90437ebf3d06d4ceb0ea5a83610db5f7dd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/04/2019
+ms.openlocfilehash: a94f55449535faf0f4d061e3368f408843361063
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742691"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051965"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure-opslag gebruiken met Azure HDInsight-clusters
 
-Voor het analyseren van gegevens in HDInsight-cluster, u kunt de gegevens opslaan in Azure Storage, [Azure Data Lake Storage Gen 1 / Azure Data Lake Storage Gen2] of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
+Voor het analyseren van gegevens in HDInsight-cluster, kunt u ofwel de gegevens opslaan in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
 
 Apache Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Tijdens het HDInsight-cluster maken, geeft u een blob-container in Azure Storage als het standaardbestandssysteem of met HDInsight 3.6, kunt u ook Azure Storage of Azure Data Lake Storage Gen 1 / Azure Data Lake Storage Gen 2 als de standaard-bestanden systeem met een paar uitzonderingen. Zie voor de ondersteuning van het gebruik van Data Lake Storage Gen 1 als de standaard- en de gekoppelde opslag [beschikbaarheid voor HDInsight-cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -31,13 +31,16 @@ Azure Storage is een robuuste, algemene opslagoplossing die naadloos kan worden 
 
 | Type opslagaccount | Ondersteunde services | Ondersteunde prestatielagen | Ondersteunde toegangslagen |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Algemeen gebruik V2   | Blob               | Standard                    | Hot, Cool Archive3    |
+| Algemeen gebruik V2   | Blob               | Standard                    | Hot, Cool archief *    |
 | Algemeen gebruik V1   | Blob               | Standard                    | N/A                    |
-| Blob Storage         | Blob               | Standard                    | Hot, Cool Archive3    |
+| Blob Storage         | Blob               | Standard                    | Hot, Cool archief *    |
 
 Het wordt afgeraden om de standaard- blobcontainer te gebruiken voor het opslaan van bedrijfsgegevens. Het is een goede gewoonte om de standaard-blobcontainer na ieder gebruik te verwijderen om de opslagkosten te verlagen. De standaardcontainer bevat toepassings- en systeemlogboeken. Breng de logboeken over naar een andere locatie voordat u de container verwijdert.
 
 Het delen van een blobcontainer als het standaardbestandssysteem voor meerdere clusters wordt niet ondersteund.
+ 
+ > [!NOTE]  
+ > De Archive Storage-toegangslaag is een offline-laag die een enkele uren latentie bij het ophalen en wordt niet aanbevolen voor gebruik met HDInsight. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">Archive Storage-toegangslaag</a>.
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight-opslagarchitectuur
 Het volgende diagram biedt een abstracte weergave van de HDInsight-opslagarchitectuur bij gebruik van Azure Storage:

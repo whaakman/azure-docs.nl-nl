@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8ad5b167977059f0749da4221effd427427920e9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140316"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040214"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB-databaseversleuteling-at-rest
 
@@ -36,26 +36,26 @@ De basisprincipes van een gebruikersaanvraag is als volgt:
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>V: hoe veel meer kost Azure Storage als de Storage-Serviceversleuteling is ingeschakeld?
-Antwoord: Er is geen extra kosten.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>VRAAG: Hoe veel meer kost Azure Storage als de Storage-Serviceversleuteling is ingeschakeld?
+A: Er is geen extra kosten.
 
-### <a name="q-who-manages-the-encryption-keys"></a>V: die de versleutelingssleutels worden beheerd?
-A: de sleutels worden beheerd door Microsoft.
+### <a name="q-who-manages-the-encryption-keys"></a>VRAAG: Wie de versleutelingssleutels beheert?
+A: De sleutels worden beheerd door Microsoft.
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>V: hoe vaak worden versleutelingssleutels gedraaid?
+### <a name="q-how-often-are-encryption-keys-rotated"></a>VRAAG: Hoe vaak worden versleutelingssleutels gedraaid?
 A: Microsoft heeft een set van interne richtlijnen voor codering sleutelroulatie, waarbij Cosmos DB. De specifieke richtlijnen zijn niet gepubliceerd. Microsoft publiceren de [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), die wordt gezien als een subset van de interne richtlijnen en aanbevolen procedures voor nuttig is voor ontwikkelaars.
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>V: kan ik mijn eigen versleutelingssleutels gebruiken?
-A: cosmos DB is een PaaS-service, en we hard gewerkt om u te houden van de service eenvoudig te gebruiken. Ons opgevallen dat deze vraag is vaak gevraagd als een proxy-vraag voor het voldoen aan een nalevingsvereiste zoals PCI-DSS. We hebben als onderdeel van het bouwen van deze functie, met naleving auditors om ervoor te zorgen dat klanten die gebruikmaken van Cosmos DB aan hun eisen voldoen zonder de noodzaak om te sleutels zelf beheren.
+### <a name="q-can-i-use-my-own-encryption-keys"></a>VRAAG: Kan ik mijn eigen versleutelingssleutels gebruiken?
+A: Cosmos DB is een PaaS-service, en we hard gewerkt om u te houden van de service eenvoudig te gebruiken. Ons opgevallen dat deze vraag is vaak gevraagd als een proxy-vraag voor het voldoen aan een nalevingsvereiste zoals PCI-DSS. We hebben als onderdeel van het bouwen van deze functie, met naleving auditors om ervoor te zorgen dat klanten die gebruikmaken van Cosmos DB aan hun eisen voldoen zonder de noodzaak om te sleutels zelf beheren.
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>V: wat regio's hebt u versleuteling is ingeschakeld?
-A: alle regio's van Azure Cosmos DB hebt versleuteling is ingeschakeld voor alle gebruikersgegevens.
+### <a name="q-what-regions-have-encryption-turned-on"></a>VRAAG: Welke regio's hebben versleuteling ingeschakeld?
+A: Alle regio's van Azure Cosmos DB hebt versleuteling is ingeschakeld voor alle gebruikersgegevens.
 
-### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>V: versleuteling beïnvloedt de prestaties van latentie en doorvoer Sla's?
-Antwoord: Er is geen impact of de wijzigingen op de prestaties van SLA's nu dat versleuteling-at-rest wordt ingeschakeld voor alle bestaande en nieuwe accounts. U kunt meer lezen over de [SLA voor Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) pagina om te bekijken van de meest recente garanties.
+### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>VRAAG: Versleuteling van invloed zijn op de prestaties van latentie en doorvoer Sla's?
+A: Er is geen impact of de wijzigingen op de prestaties van SLA's nu dat versleuteling-at-rest wordt ingeschakeld voor alle bestaande en nieuwe accounts. U kunt meer lezen over de [SLA voor Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) pagina om te bekijken van de meest recente garanties.
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>V: de lokale emulator ondersteunt versleuteling-at-rest?
-A: de emulator is een hulpprogramma voor het ontwikkelen en testen van zelfstandige en gebruikt niet de key management-services die de beheerde Cosmos DB-service gebruikt. Onze aanbeveling is het inschakelen van BitLocker op stations waar u gevoelige emulator testgegevens opslaat. De [emulator biedt ondersteuning voor het wijzigen van de standaardgegevensmap](local-emulator.md) of via een bekende locatie.
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>VRAAG: Ondersteunt de lokale emulator versleuteling-at-rest?
+A: De emulator is een hulpprogramma voor het ontwikkelen en testen van zelfstandige en gebruikt niet de key management-services die de beheerde Cosmos DB-service gebruikt. Onze aanbeveling is het inschakelen van BitLocker op stations waar u gevoelige emulator testgegevens opslaat. De [emulator biedt ondersteuning voor het wijzigen van de standaardgegevensmap](local-emulator.md) of via een bekende locatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

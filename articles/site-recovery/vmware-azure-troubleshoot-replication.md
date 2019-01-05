@@ -1,106 +1,121 @@
 ---
-title: Problemen met replicatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Azure Site Recovery | Microsoft Docs
-description: Dit artikel bevat informatie over probleemoplossing voor algemene problemen met replicatie tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Azure Site Recovery.
+title: Oplossen van problemen met replicatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van Azure Site Recovery | Microsoft Docs
+description: Dit artikel bevat informatie over probleemoplossing voor algemene problemen met replicatie tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 30f128e75feb149453b642739f57c3a16ade524f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790653"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053088"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
-U ontvangt mogelijk een bericht specifieke fout bij het beveiligen van uw virtuele VMware-machines of fysieke servers met Azure Site Recovery. In dit artikel beschrijft enkele veelvoorkomende problemen die optreden tijdens het repliceren van on-premises virtuele VMware-machines en fysieke servers naar Azure met [Azure Site Recovery](site-recovery-overview.md).
-
+U kunt een specifiek foutbericht tegenkomen wanneer u uw virtuele VMware-machines of fysieke servers beschermen met behulp van Azure Site Recovery. In dit artikel beschrijft enkele veelvoorkomende problemen die optreden mogelijk wanneer u on-premises VMware-machines en fysieke servers naar Azure met behulp van repliceren [siteherstel](site-recovery-overview.md).
 
 ## <a name="initial-replication-issues"></a>Initiële replicatie oplossen
 
-In veel gevallen zijn initiële replicatie-fouten die we op ondersteuning optreden vanwege problemen met de netwerkverbinding tussen de serverproces bronserver of verwerken van server naar Azure. De meeste gevallen kunt u deze problemen kunt oplossen door de onderstaande stappen te volgen.
+Initiële replicatiefouten worden vaak veroorzaakt door problemen met de netwerkverbinding tussen de bron- en de processerver of tussen de processerver en Azure. In de meeste gevallen kunt u deze problemen kunt oplossen door de stappen in de volgende secties te voltooien.
 
-### <a name="verify-the-source-machine"></a>Controleer of de bron-VM
-* Gebruik van de bronserver machine vanaf de opdrachtregel, Telnet te pingen van de processerver met https-poort (standaard 9443), zoals hieronder wordt weergegeven om te zien of er problemen met de netwerkverbinding of de firewall port blokkerende problemen zijn.
+### <a name="check-the-source-machine"></a>Controleer de bron-VM
 
-    `telnet <PS IP address> <port>`
-> [!NOTE]
-    > Gebruik van Telnet, PING niet gebruiken om te controleren.  Als Telnet niet is geïnstalleerd, volgt u de lijst met stappen [hier](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
+De volgende lijst toont manieren waarop u op de bronmachine controleren kunt:
 
-Kan geen verbinding maken, binnenkomende poort 9443 op de processerver toestaan als controleren als het probleem nog steeds beëindigd. Er zijn enkele gevallen waar de processerver is achter DMZ, die het probleem is veroorzaakt.
+*  Op de opdrachtregel op de bronserver, moet u Telnet gebruiken om te pingen van de processerver via het HTTPS-poort (de standaard HTTPS-poort is 9443) met de volgende opdracht. Voor problemen met de netwerkverbinding en problemen dat blok de firewallpoort wordt gecontroleerd.
 
-* Controleer de status van service `InMage Scout VX Agent – Sentinel/OutpostStart` als deze niet wordt uitgevoerd en controleer of als het probleem blijft bestaan.   
+   `telnet <process server IP address> <port>`
 
-### <a name="verify-the-process-server"></a>Controleer of de processerver
+   > [!NOTE]
+   > Telnet gebruiken om te controleren. Gebruik geen `ping`. Als Telnet niet is geïnstalleerd, voert u de stappen in [Telnet-Client installeren](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
-* **Controleer als processerver actief van gegevens naar Azure pushen is**
+   Als u geen verbinding met de processerver maken, kunt u de binnenkomende poort 9443 op de processerver. Bijvoorbeeld, u moet mogelijk binnenkomende poort 9443 op de processerver is toegestaan als het netwerk een perimeternetwerk heeft of gescreend subnet wordt genoemd. Controleer vervolgens of het probleem nog steeds voordoet.
 
-Open in proces-servermachine Taakbeheer (druk op Ctrl-Shift-Esc). Ga naar het tabblad prestaties en klikt u op de koppeling 'Open Broncontrole'. Uit Resource Manager, gaat u naar het tabblad netwerk. Controleer als cbengine.exe in 'Processen met Network Activity' actief groot (in MB/s) van de gegevens worden verzonden.
+*  Controleer de status van de **InMage Scout VX Agent-Sentinel/OutpostStart** service. Als de service niet actief is, start de service en Ga na of het probleem nog steeds voordoet.   
 
-![Replicatie inschakelen](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+### <a name="check-the-process-server"></a>Controleer de processerver
 
-Als dat niet het geval is, volgt u de onderstaande stappen uitvoeren:
+De volgende lijst toont manieren waarop u op de processerver controleren kunt:
 
-* **Controleer of de processerver is geen verbinding maken van Azure Blob**: Selecteer en controleer cbengine.exe om de 'TCP-verbindingen"om te zien of er connectiviteit van de processerver naar Azure Storage blob URL weer te geven.
+*  **Controleer of de processerver actief van gegevens naar Azure pushen is**.
 
-![Replicatie inschakelen](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+   1. Open Taakbeheer (druk op Ctrl + Shift + Esc) op de processerver.
+   2. Selecteer de **prestaties** tabblad, en selecteer vervolgens de **Open Broncontrole** koppeling. 
+   3. Op de **Broncontrole** weergeeft, schakelt de **netwerk** tabblad. Onder **processen met Network Activity**, controleert u of **cbengine.exe** actief een grote hoeveelheid gegevens verzendt.
 
-Als geen Ga vervolgens naar het Configuratiescherm > Services, Controleer of de volgende services actief en werkend zijn:
+        ![Schermafbeelding van de volumes onder processen met netwerkactiviteit](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-     * cxprocessserver
-     * InMage Scout VX Agent – Sentinel/Outpost
-     * Microsoft Azure Recovery Services Agent
-     * Microsoft Azure Site Recovery Service
-     * tmansvc
-     *
-(Opnieuw) Elke service, die niet wordt uitgevoerd en de controle starten als het probleem blijft bestaan.
+   Als cbengine.exe is niet een grote hoeveelheid gegevens verzendt, voltooi de stappen in de volgende secties.
 
-* **Controleer of de processerver is geen verbinding maken met Azure openbaar IP-adres met behulp van poort 443**
+*  **Controleer of de processerver verbinding met Azure Blob-opslag maken kunt**.
 
-Open de meest recente CBEngineCurr.errlog van `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` en zoek naar: 443 en verbinding poging is mislukt.
+   Selecteer **cbengine.exe**. Onder **TCP-verbindingen**, controleert u of er naar de URL van de Blog van het Azure-opslag met van de processerver is.
 
-![Replicatie inschakelen](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+   ![Schermafbeelding van verbinding tussen cbengine.exe en de URL van de Azure Blob-opslag](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-Als er problemen zijn, klikt u vervolgens vanaf de opdrachtregel processerver telnet gebruiken om te pingen van uw Azure openbare IP-adres (gemaskeerd bovenstaande afbeelding) gevonden in de CBEngineCurr.currLog met behulp van poort 443.
+   Als er geen connectiviteit van de processerver op de Blog van het Azure storage-URL, in het Configuratiescherm is, selecteert u **Services**. Controleren of de volgende services worden uitgevoerd:
 
-      telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
-Als u kan geen verbinding maken, klikt u vervolgens controleren of het toegangsprobleem vanwege een firewall of Proxy, zoals beschreven in de volgende stap.
+   *  cxprocessserver
+   *  InMage Scout VX Agent-Sentinel/Outpost
+   *  Microsoft Azure Recovery Services-agent
+   *  Microsoft Azure Site Recovery-service
+   *  tmansvc
 
+   Starten of opnieuw starten van een service die actief is. Controleer of het probleem nog steeds voordoet.
 
-* **Controleer als IP-adressen gebaseerde firewallregels op de processerver toegang niet blokkeert**: Als u een IP-adressen gebaseerde firewallregels gebruikt op de server, downloadt u de volledige lijst van Microsoft Azure Datacenter IP-bereiken van [hier](https://www.microsoft.com/download/details.aspx?id=41653) en toe te voegen aan uw firewallconfiguratie om ervoor te zorgen dat communicatie met Azure (en de poort HTTPS (443)).  Sta de IP-adresbereiken voor de Azure-regio van uw abonnement en voor de regio US - west toe (deze worden gebruikt voor toegangs- en identiteitsbeheer).
+*  **Controleer of de processerver verbinding met Azure openbaar IP-adres maken kan via poort 443**.
 
-* **Controleer als URL-gebaseerde firewall op de processerver toegang niet blokkeert**:  Als u een URL-gebaseerde firewall-regels op de server, controleert u of dat de volgende URL's worden toegevoegd aan de firewall-configuratie.
+   Open in %programfiles%\Microsoft Azure Recovery Services-Agent\Temp, de meest recente CBEngineCurr.errlog-bestand. Zoek in het bestand **443** of voor de tekenreeks **verbindingspoging is mislukt**.
+
+   ![Schermafbeelding van de fout zich in de map Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+
+   Als er problemen worden weergegeven, klikt u op de opdrachtregel op de processerver, kunt u Telnet gebruiken om te pingen van uw Azure openbare IP-adres (het IP-adres wordt gemaskeerd in de vorige afbeelding). U kunt uw Azure openbare IP-adres vinden in het bestand CBEngineCurr.currLog via poort 443:
+
+   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+
+   Als u geen verbinding kunt maken, moet u controleren of het toegangsprobleem afkomstig vanwege een firewall of proxy-instellingen, is zoals beschreven in de volgende stap.
+
+*  **Controleer of de IP-adressen gebaseerde firewall op de processerver blokkeert de toegang**.
+
+   Als u IP-adressen gebaseerde firewallregels op de server gebruikt, downloadt u de volledige lijst van [Microsoft Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). De IP-adresbereiken toevoegen aan uw firewallconfiguratie om ervoor te zorgen dat de firewall naar Azure (en de standaard HTTPS-poort 443)-communicatie toestaat. IP-adresbereiken voor de Azure-regio van uw abonnement en de regio VS-Azure West (gebruikt voor toegangsbeheer en identiteitsbeheer) toestaan.
+
+*  **Controleer of een URL-gebaseerde firewall op de processerver blokkeert de toegang**.
+
+   Als u een URL-gebaseerde firewall-regel op de server gebruikt, voegt u de URL's die worden vermeld in de volgende tabel om de configuratie van de firewall:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-* **Controleer als Proxy-instellingen op de processerver toegang niet blokkeert**.  Als u een proxyserver, controleert u of dat de naam van de proxy-server wordt omgezet door de DNS-server.
-Om te controleren wat u hebt opgegeven op het moment van de installatie van de configuratieserver. Ga naar de registersleutel
+*  **Controleer of proxy-instellingen op de processerver blokkeert de toegang**.
 
-    `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
+   Als u een proxyserver gebruikt, zorgt u ervoor dat de naam van de proxyserver wordt omgezet door de DNS-server. Om te controleren of de waarde die u hebt opgegeven bij het instellen van de configuratieserver, gaat u naar de registersleutel **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
 
-Nu ervoor te zorgen dat dezelfde instellingen worden gebruikt door Azure Site Recovery-agent om gegevens te verzenden.
-Zoeken in Microsoft Azure Backup
+   Vervolgens kunt u zorgen dat dezelfde instellingen worden gebruikt door de Azure Site Recovery-agent om gegevens te verzenden: 
+      
+   1. Zoeken naar **van Microsoft Azure Backup**. 
+   2. Open **Microsoft Azure Backup**, en selecteer vervolgens **actie** > **eigenschappen wijzigen**. 
+   3. Op de **proxyconfiguratie** tabblad ziet u de proxy-adres. Het proxyadres moet hetzelfde zijn als de proxy-adres dat wordt weergegeven in de registerinstellingen zijn. Als dat niet het geval is, moet u hetzelfde adres wijzigen.
 
-Open het en klikt u op actie > Eigenschappen wijzigen. Onder het tabblad Proxy-configuratie ziet u de proxy-adres hetzelfde moet zoals aangegeven in de registerinstellingen. Als dat niet het geval is, wijzig deze aan hetzelfde adres.
+*  **Controleer of de bandbreedte beperken op de processerver wordt beperkt**.
 
+   De bandbreedte vergroten en controleer vervolgens of het probleem nog steeds voordoet.
 
-* **Controleer als vertraging bandbreedte niet op de processerver wordt beperkt**:  De bandbreedte vergroten en controleer of het probleem nog steeds bestaat.
+## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>Broncomputer niet wordt weergegeven in de Azure-portal
 
-## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>Bron-VM moet worden beveiligd met Site Recovery niet wordt weergegeven op de Azure portal
+Wanneer u probeert om te selecteren van de bronmachine replicatie in te schakelen met behulp van Site Recovery, de computer mogelijk niet beschikbaar voor een van de volgende redenen:
 
-Bij het kiezen van de bronmachine replicatie met Azure Site Recovery in te schakelen, de computer mogelijk niet beschikbaar voor u kunt doorgaan met de volgende oorzaken hebben
+*  Als twee virtuele machines onder het vCenter hetzelfde exemplaar UUID hebt, wordt de eerste virtuele machine is gedetecteerd door de configuratieserver wordt weergegeven in de Azure-portal. U lost dit probleem, zorg ervoor dat er geen twee virtuele machines hetzelfde exemplaar UUID.
+*  Zorg ervoor dat u de referenties van de juiste vCenter toegevoegd bij het instellen van de configuratieserver met behulp van de OVF-sjabloon of geïntegreerde setup. Als u wilt controleren of de referenties die u hebt toegevoegd tijdens de installatie, Zie [referenties wijzigen voor automatische detectie](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+*  Als de machtigingen voor toegang tot vCenter die niet de vereiste machtigingen hebt, is mislukt voor het detecteren van virtuele machines kan optreden. Zorg ervoor dat de machtigingen die worden beschreven in [een account voorbereiden voor automatische detectie](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) worden toegevoegd aan het account van de vCenter-gebruiker.
+*  Als de virtuele machine is al beveiligd met Site Recovery, de virtuele machine niet beschikbaar om te selecteren voor beveiliging in de portal. Zorg ervoor dat de virtuele machine die u in de portal zoekt al is niet beveiligd door een andere gebruiker of onder een ander abonnement.
 
-* Als er twee virtuele machines onder het vCenter met dezelfde instantie UUID, klikt u vervolgens de eerste virtuele machine is gedetecteerd door de configuratieserver zijn worden weergegeven in de portal. Zorg ervoor dat er geen twee virtuele machines hetzelfde exemplaar UUID hebben om op te lossen.
-* Zorg ervoor dat u hebt toegevoegd de juiste vCenter-referenties tijdens het instellen van van de configuratie met behulp van OVF-sjabloon of geïntegreerde set up. Als u wilt controleren of de referenties die zijn toegevoegd, raadpleegt u de richtlijnen voor gedeelde [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* Als de machtigingen die voor toegang tot vCenter niet voldoende bevoegdheden hebben, kan dit leiden tot fouten in het detecteren van virtuele machines. Zorg ervoor dat de machtigingen die [hier](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) worden toegevoegd aan het account van de vCenter-gebruiker.
-* Als de virtuele machine is al beveiligd met Site Recovery, wordt klikt u vervolgens het niet meer beschikbaar voor beveiliging. Zorg ervoor dat de virtuele machine die u in de portal zoekt is nog niet beveiligd door een andere gebruiker of onder andere abonnementen.
+## <a name="protected-virtual-machines-arent-available-in-the-portal"></a>Beveiligde virtuele machines zijn niet beschikbaar in de portal
 
-## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Beveiligde virtuele machines uit grijs worden weergegeven in de portal
-
-Virtuele machines die worden gerepliceerd in Site Recovery worden grijs weergegeven als er dubbele vermeldingen in het systeem. Raadpleeg de richtlijnen gegeven [hier](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) verwijderen van de verouderde vermeldingen en los het probleem.
+Virtuele machines die worden gerepliceerd in Site Recovery niet beschikbaar zijn in de Azure-portal als er dubbele vermeldingen in het systeem. Zie voor meer informatie over het verwijderen van verouderde vermeldingen en los het probleem, [Azure Site Recovery van VMware naar Azure: Het opschonen van dubbele of verouderde vermeldingen](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u meer hulp nodig hebt, klikt u vervolgens boek uw query [Azure Site Recovery-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We hebben een actieve community en een van onze technici kunnen om u te helpen.
+
+Als u meer hulp nodig hebt, stel uw vraag in de [Azure Site Recovery-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We hebben een actieve community en een van onze technici u kan helpen.

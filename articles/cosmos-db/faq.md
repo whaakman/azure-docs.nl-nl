@@ -1,20 +1,18 @@
 ---
 title: Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 description: Vind antwoorden op veelgestelde vragen over Azure Cosmos DB, een wereldwijd gedistribueerde, multi-model databaseservice. Meer informatie over de capaciteit, prestatieniveaus en te schalen.
-keywords: Databasevragen, veelgestelde vragen, documentdb, azure, Microsoft azure
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ede900e135960141ed65b54dc876b1c0c2b90aaa
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e8467912ad2b9b5199e3c8d66c80d8e238db1f57
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809264"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043206"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 
@@ -213,7 +211,7 @@ Dit is beperking van JavaScript. JavaScript getallen met dubbele precisie drijve
 
 Het maken van machtigingen met ResourceTokens is toegestaan op het niveau van de container en de onderliggende objecten (zoals documenten, bijlagen). Dit houdt in dat bij het maken van een machtiging op de database of het accountniveau van een op dat moment is niet toegestaan.
 
-## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Van Azure Cosmos DB-API voor MongoDB
+## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB-API voor MongoDB
 
 ### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Wat is de Azure Cosmos DB-API voor MongoDB?
 

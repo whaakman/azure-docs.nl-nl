@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0fb2c3daf19ce07d9641cbc5504cb3b598ad5b0d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847997"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034452"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Indexeringsbeleid in Azure Cosmos DB
 
@@ -21,17 +21,17 @@ U kunt overschrijven de standaardbeleidsregels voor indexering van beleid voor e
 
 * **Index typen configureren**: Daarnaast om een bereik geïndexeerde paden, u kunt andere typen toevoegen van indexen zoals ruimtelijke.
 
-* **Configureren van index modi**: met behulp van het indexeringsbeleid voor een container, kunt u verschillende modi voor indexering zoals *consistente* of *geen*.
+* **Configureren van index modi**: Met behulp van het indexeringsbeleid voor een container, kunt u verschillende modi voor indexering zoals *consistente* of *geen*.
 
 ## <a name="indexing-modes"></a>Modi indexeren 
 
 Azure Cosmos DB ondersteunt twee modi voor indexering die u voor een Azure Cosmos-container configureren kunt. U kunt de volgende twee modi voor indexering via het indexeringsbeleid kunt configureren: 
 
-* **Consistente**: als van de container van een Azure Cosmos-beleid is ingesteld op een consistente, de query's op een specifieke container, volgt u de dezelfde consistentieniveau als het account dat is opgegeven voor punt-leesbewerkingen (bijvoorbeeld: sterk, gebonden veroudering, sessie, of uiteindelijke). 
+* **Consistente**: Als van de container van een Azure Cosmos-beleid is ingesteld op een consistente, de query's op een specifieke container, volgt u de dezelfde consistentieniveau als het account dat is opgegeven voor punt-leesbewerkingen (bijvoorbeeld: sterk, gebonden veroudering, sessie, of uiteindelijke). 
 
   De index wordt synchroon bijgewerkt tijdens het bijwerken van de items. Bijvoorbeeld, resulteert invoegen, vervangen, update en delete-bewerkingen op een item in de index-update. Consistente indexeren biedt ondersteuning voor consistente-query's leiden die invloed hebben op de doorvoer van schrijfbewerkingen. De beperking van het schrijven-doorvoer is afhankelijk van de 'paden opgenomen in het indexeren van' en het 'consistentieniveau'. Consistente indexeren modus snel is ontworpen om te schrijven en query onmiddellijk werkbelastingen.
 
-* **Geen**: een container met een geen Indexmodus geen index die is gekoppeld heeft. Dit wordt vaak gebruikt als Azure Cosmos-database wordt gebruikt als een sleutel / waarde-opslag en items zijn alleen toegankelijk voor de ID-eigenschap.
+* **Geen**: Een container met een geen Indexmodus geen index die is gekoppeld heeft. Dit wordt vaak gebruikt als Azure Cosmos-database wordt gebruikt als een sleutel / waarde-opslag en items zijn alleen toegankelijk voor de ID-eigenschap.
 
   > [!NOTE]
   > De modus voor indexering configureren als een geen heeft een neveneffect van het verwijderen van alle bestaande indexen. U moet deze optie gebruiken als uw patronen voor databasetoegang ID vereisen of self link alleen.

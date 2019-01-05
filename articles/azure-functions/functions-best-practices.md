@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78882742549632e7f1f6362f9e3ad0ae0034ffda
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634673"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039330"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimaliseer de prestaties en betrouwbaarheid van Azure Functions
 
@@ -37,7 +37,7 @@ Indien mogelijk wordt herstructureren grote functies in kleinere functie ingeste
 
 ### <a name="cross-function-communication"></a>Cross-functie-communicatie
 
-[Duurzame functies](durable/durable-functions-overview.md) en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) zijn gemaakt voor het beheren van statusovergangen en de communicatie tussen meerdere functies.
+[Duurzame functies](durable/durable-functions-concepts.md) en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) zijn gemaakt voor het beheren van statusovergangen en de communicatie tussen meerdere functies.
 
 Als geen duurzame functies of Logic Apps om te integreren met meerdere functies, maar het is doorgaans een aanbevolen procedure voor het gebruik van storage-wachtrijen voor cross-communicatie van de functie.  De belangrijkste reden is storage-wachtrijen zijn goedkoper en eenvoudiger om in te richten. 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f0f1464adde2c80706fbced7309877447644d19e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022951"
+ms.locfileid: "54040435"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
 Search is een functie van [Application Insights](../../application-insights/app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
@@ -166,4 +166,4 @@ We niet de POST-gegevens automatisch vastleggen, maar u kunt [TrackTrace of log 
 * [Schrijven van complexe query's in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Logboeken en aangepaste telemetrie verzenden naar Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Beschikbaarheid en reactiesnelheid tests instellen](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Problemen oplossen](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Problemen oplossen](../../azure-monitor/app/troubleshoot-faq.md)

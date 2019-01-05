@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: e9f322198cf94232dd2d87aa1f27dbbd6a282b72
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: c1ef32256569d1718f6848a968585216f43f333a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994994"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033448"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>Kies de juiste SQL Server-optie in Azure - PaaS of IaaS
 
@@ -87,10 +87,11 @@ De volgende tabel geeft een overzicht van de belangrijkste kenmerken van de SQL 
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Zakelijke redenen om Azure SQL Database of SQL Server op Azure Virtual Machines te kiezen
 
 Er zijn diverse factoren kunnen invloed hebben op uw beslissing om PaaS of IaaS voor het hosten van uw SQL-databases te kiezen:
+
 - [Kosten](#cost) -optie voor zowel PaaS en IaaS zijn base prijs waarin behandeld wordt onderliggende infrastructuur en licenties. Met IaaS-optie moet u echter extra tijd en resources voor het beheren van uw database, terwijl in PaaS u deze beheerfuncties opgenomen in de prijs ontvangt investeren. IaaS-optie kunt u afsluiten voor uw resources uit te voeren terwijl u ze niet de kosten verlagen terwijl PaaS-versie wordt altijd uitgevoerd, tenzij worden gebruikt als u verwijderen en opnieuw maken van uw resources wanneer ze wel nodig zijn.
 - [Beheer](#administration) -PaaS-opties verminderen de hoeveelheid tijd die u nodig hebt om te investeren voor het beheren van de database. Het echter ook verhinderen dat u sommige aangepaste beheertaken die prestaties van uw workload kunnen verbeteren.
 - [Service Level Agreement](#service-level-agreement-sla) -zowel IaaS en PaaS bieden hoge, branche standaard SLA. PaaS-optie garandeert 99,99% SLA, terwijl IaaS SLA van 99,95% voor de infrastructuur garandeert, wat betekent dat u wilt het implementeren van aanvullende mechanismen om de beschikbaarheid van uw databases te garanderen. In het uitzonderlijke geval, als u wilt implementeren van hoge beschikbaarheid-oplossing die is die overeenkomt met PaaS, u mogelijk aanvullende SQL Server in virtuele machine maken en configureren van AlwaysOn Availability groups, die mogelijk dubbel de kosten van uw database.
-- [Verplaatsen naar de cloud](#time-to-move-to-cloud) -SQL-Server in Azure VM is de exacte overeenkomst van uw omgeving, zodat de migratie van on-premises naar Azure SQL-VM is niet anders dan de databases verplaatsen van een on-premises naar de andere server. Managed Instance kunt ook zeer eenvoudig migreren; Er kunnen wel enkele wijzigingen die u nodig hebt om toe te passen voordat u naar beheerd exemplaar migreert.
+- [Verplaatsen naar Azure](#market) -SQL-Server in Azure VM is de exacte overeenkomst van uw omgeving, zodat de migratie van on-premises naar Azure SQL-VM is niet anders dan de databases verplaatsen van een on-premises naar de andere server. Managed Instance kunt ook zeer eenvoudig migreren; Er kunnen wel enkele wijzigingen die u nodig hebt om toe te passen voordat u naar beheerd exemplaar migreert.
 
 Deze factoren zal worden besproken in de volgende secties voor meer informatie.
 
@@ -102,10 +103,8 @@ Of u nu een startup bent die geld nodig heeft of een team in een goedlopend bedr
 
 Op dit moment **SQL-Database** wordt verkocht als een service en is beschikbaar in verschillende Servicelagen met andere prijzen voor resources, die allemaal worden per uur gefactureerd tegen een vast tarief op basis van de servicelaag en compute-grootte die u kiest.
 U kunt met één SQL-Database een servicelaag die past bij uw behoeften uit een breed scala aan prijzen die vanaf 5$ / maand voor Basic-laag.
-Met SQL Database Managed Instance kunt u ook uw eigen licentie brengen. Zie voor meer informatie over licentieverlening bring-your-own [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) of gebruik [Azure Hybrid Benefit calculator](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) om te zien hoe u **Bespaar tot 40%**.
+Met SQL Database Managed Instance kunt u ook uw eigen licentie brengen. Zie voor meer informatie over licentieverlening bring-your-own [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) of gebruik [Azure Hybrid Benefit calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) om te zien hoe u **Bespaar tot 40%**.
 Bovendien wordt uitgaand internetverkeer in rekening gebracht bij u tegen het reguliere [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/). U kunt dynamisch aanpassen van de service-lagen en compute-grootten zodat deze overeenkomt met de uiteenlopende doorvoerbehoeften van uw toepassing. Voor de meest recente informatie over de huidige ondersteunde servicecategorieën, Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). U kunt ook maken [elastische pools](sql-database-elastic-pool.md) pieken voor het delen van resources met database-exemplaren te verlagen en geschikt voor gebruik.
-
-
 
 Met **SQL Database** wordt de databasesoftware automatisch geconfigureerd, hersteld en bijgewerkt door Microsoft, waardoor uw beheerkosten worden verlaagd. Bovendien kunt u met de [ingebouwde back-up](sql-database-automated-backups.md)mogelijkheden aanzienlijk op kosten besparen, vooral wanneer u een groot aantal databases hebt.
 

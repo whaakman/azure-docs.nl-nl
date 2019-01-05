@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 39709377a83226c90626221f0f5a98f3d7d5c74a
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555843"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051200"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
 
@@ -93,9 +93,9 @@ De volgende container OS-installatiekopieën kunnen worden gebruikt om services 
 
 ## <a name="developer-experience-issues"></a>Problemen met Developer-ervaring
 
-### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>DNS-omzetting van een uitgaande container werkt niet
+### <a name="dns-resolution-and-outgoing-traffic-from-a-container-doesnt-work"></a>Uitgaande verkeer uit een container en DNS-omzetting werkt niet
 
-Service-naar-servicecommunicatie kan onder bepaalde omstandigheden mislukken. Dit wordt onderzocht. Om te verhelpen:
+Als u een container die uitgaand verkeer hebt, inclusief verbinden met een DNS-service verzendt mislukken dit onder bepaalde omstandigheden. Dit wordt onderzocht. Om te verhelpen:
 
 - Gebruik Windows Fall Creators update (versie 1709) of hoger als basis om de containerinstallatiekopie.
 - Als u alleen de naam van de service niet werkt, probeert u de volledig gekwalificeerde naam: ServiceName.ApplicationName.

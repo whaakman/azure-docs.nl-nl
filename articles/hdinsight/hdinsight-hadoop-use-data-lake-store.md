@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfbce1afcefe7f03636d42ffa363fe29b47259e8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742555"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052765"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Data Lake Storage gebruiken met Azure HDInsight-clusters
 
-Voor het analyseren van gegevens in HDInsight-cluster, kunt u ofwel de gegevens opslaan in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md), of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
+Voor het analyseren van gegevens in HDInsight-cluster, kunt u ofwel de gegevens opslaan in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
 
 In dit artikel leert u hoe Data Lake Storage werkt met HDInsight-clusters. Zie [Azure Storage gebruiken met Azure HDInsight-clusters](hdinsight-hadoop-use-blob-storage.md) voor informatie over de werking van Azure Storage met HDInsight-clusters. Zie voor meer informatie over het maken van een HDInsight-cluster [Apache Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 

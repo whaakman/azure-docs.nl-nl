@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1a5f756c4fac92260e77b24ca2cde6abccf0797a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015063"
+ms.locfileid: "54042781"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
 [Power BI](https://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](app-insights-overview.md).
@@ -65,7 +65,7 @@ Installeer [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Het rapport handmatig vernieuwen met intervallen of een geplande vernieuwing op de optiepagina instellen.
 
 ### <a name="export-a-funnel"></a>Een trechter exporteren
-1. [Controleer uw trechter](usage-funnels.md).
+1. [Controleer uw trechter](../azure-monitor/app/usage-funnels.md).
 2. Selecteer **Power BI**.
 
    ![Schermafbeelding van de Power BI-knop](./media/app-insights-export-power-bi/button.png)

@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317344"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043886"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Snelstartgids: Meld u aan gebruikers en een toegangstoken van een JavaScript-toepassing te verkrijgen
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Snelstart: Meld u aan gebruikers en een toegangstoken van een JavaScript-toepassing te verkrijgen
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -31,7 +31,18 @@ In deze snelstartgids leert u hoe u een codevoorbeeld van die u laat hoe een Jav
 ![Hoe de voorbeeld-app werkt die is gegenereerd door deze snelstart](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Uw toepassing registreren en de app uit de snelstart downloaden
+> ## <a name="register-and-download-your-quickstart-application"></a>Registreren en uw toepassing snelstartgids downloaden
+> U hebt twee opties voor het starten van de snelstarttoepassing:
+> * [Express] [Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Handmatig] [Optie 2: registreer de toepassing en configureer handmatig de toepassing en het codevoorbeeld](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
+>
+> 1. Ga naar de [Azure Portal - Toepassingsregistratie (preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Voer een naam in voor de toepassing en klik op **Registreren**.
+> 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Optie 2: registreer de toepassing en configureer handmatig de toepassing en het codevoorbeeld
 >
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
 >
@@ -47,19 +58,19 @@ In deze snelstartgids leert u hoe u een codevoorbeeld van die u laat hoe een Jav
 > 1. Selecteer **Opslaan**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Stap 1: uw toepassing configureren in de Azure-portal
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Stap 1: uw toepassing configureren in Azure Portal
 > Voor het codevoorbeeld voor deze Quick Start om te werken, moet u Voeg een omleidings-URI als `http://localhost:30662/` en in te schakelen **impliciete**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijzigingen aanbrengt voor mij]()
+> > [Breng deze wijzigingen voor mij aan]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Al geconfigureerd](media/quickstart-v2-javascript/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken.
 
-#### <a name="step-2-download-the-project"></a>Stap 2: Het project downloaden
+#### <a name="step-2-download-the-project"></a>Stap 2: Downloaden van het project
 
 U kunt een van deze opties die geschikt is voor uw ontwikkelomgeving.
 * [Download de projectbestanden core - voor een webserver, zoals Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [Het Visual Studio-project downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [Download het Visual Studio-project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Pak het zip-bestand naar een lokale map, bijvoorbeeld **C:\Azure-Samples**.
 
@@ -95,7 +106,7 @@ var applicationConfig = {
 > De server is geconfigureerd om te luisteren op poort 30662 in de *server.js* in het bestand [Node.js](https://nodejs.org/en/download/) project en de *.csproj* in het bestand [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)project.
 >
 
-#### <a name="step-4-run-the-project"></a>Stap 4: Voer het project
+#### <a name="step-4-run-the-project"></a>Stap 4: Het project uitvoeren
 
 * Als u Node.js:
 

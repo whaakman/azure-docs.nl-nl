@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: adca39fd86563ad4e494995feb843b76b76806d6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f95db9b1c8119784d2b1d9cfb9dd005fc42ac3e4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019447"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033788"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Een Web-App en de Azure Cache voor Redis met behulp van een sjabloon maken
 In dit onderwerp leert u over het maken van een Azure Resource Manager-sjabloon die een Azure-Web-App met Azure Cache voor Redis implementeert. U leert hoe om te definiëren welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
-Zie voor meer informatie over het maken van sjablonen, [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).
+Zie voor meer informatie over het maken van sjablonen, [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md). Zie voor meer informatie over de JSON-syntaxis en de eigenschappen voor cache-resourcetypen, [Microsoft.Cache resourcetypen](/azure/templates/microsoft.cache/allversions).
 
 Zie voor de volledige sjabloon, [Web-App met Azure Cache voor Redis-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 

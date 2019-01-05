@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679593"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050588"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Architectuurkeuzes voor externe bewaking
 
@@ -51,7 +51,7 @@ Azure IoT Hub wordt gebruikt als de cloudgateway oplossing voor externe controle
 
 Voor de connectiviteit van IoT-apparaten, kunt u het volgende gebruiken:
 
-- De [IoT Hub apparaat-SDK's](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) voor het implementeren van een systeemeigen clienttoepassing voor uw apparaat. De SDK's bieden dan geen wrappers rondom de IoT Hub REST-API en scenario's, zoals nieuwe pogingen.
+- De [IoT Hub apparaat-SDK's](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) voor het implementeren van een systeemeigen clienttoepassing voor uw apparaat. De SDK's bieden dan geen wrappers rondom de IoT Hub REST-API en scenario's, zoals nieuwe pogingen.
 - De integratie met Azure IoT Edge implementeren en beheren van aangepaste modules in containers worden uitgevoerd op uw apparaten.
 - De integratie met automatische Apparaatbeheer in IoT Hub om verbonden apparaten bulksgewijs te beheren.
 

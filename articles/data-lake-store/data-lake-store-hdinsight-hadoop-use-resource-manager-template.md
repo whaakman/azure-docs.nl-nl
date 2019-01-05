@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0f6f485bb251bfae942c258b9be879c0aff5f5b9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5b98513625a6179585601320d45996396fca7207
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955677"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035900"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Een HDInsight-cluster met Azure Data Lake Storage Gen1 met behulp van Azure Resource Manager-sjabloon maken
 > [!div class="op_single_selector"]
@@ -66,6 +66,12 @@ Get-AzureRmSubscription
 # Select a subscription
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
+
+De sjabloon implementeert deze resourcetypen:
+
+* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
 ## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Voorbeeldgegevens uploaden naar Data Lake Storage Gen1
 De Resource Manager-sjabloon maakt u een nieuw account voor Data Lake Storage Gen1 en associeert deze met het HDInsight-cluster. Nu moet u enkele voorbeeldgegevens uploaden naar Data Lake Storage Gen1. U moet deze gegevens later in de zelfstudie taken uit te voeren vanuit een HDInsight-cluster die toegang hebben tot gegevens in het Data Lake Storage Gen1-account. Zie voor instructies over het uploaden van gegevens, [een bestand uploaden naar uw Data Lake Storage Gen1 account](data-lake-store-get-started-portal.md#uploaddata). Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance Data** uit de [Azure Data Lake Git-opslagplaats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData) gebruiken.

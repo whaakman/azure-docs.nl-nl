@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/04/201
 ms.author: sethm
-ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 89a9a5418e0eab210c1132570beda20a39635677
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713932"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034659"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Key Vault in Azure Stack met behulp van de portal beheren
 
-U kunt Key Vault in Azure Stack kunt beheren met behulp van de Azure Stack-portal. Dit artikel helpt u aan de slag om te maken en beheren van een key vault in Azure Stack.
+U kunt Key Vault in Azure Stack kunt beheren met behulp van de Azure Stack-portal. In dit artikel wordt beschreven hoe u maken en beheren van een key vault in Azure Stack.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,19 +33,17 @@ U moet zich abonneren op een aanbieding met inbegrip van de Azure Key Vault-serv
 
 1. Aanmelden bij de [gebruikersportal](https://portal.local.azurestack.external).
 
-2. Selecteer in het dashboard, **+ een resource maken** > **beveiliging en identiteit** > **Key Vault**.
+2. Selecteer in het dashboard, **+ een resource maken**, klikt u vervolgens **beveiliging en identiteit**, klikt u vervolgens **Key Vault**.
 
     ![Key Vault-scherm](media/azure-stack-kv-manage-portal/image1.png)
 
-3. In de **Key Vault maken** deelvenster toewijzen een **naam** voor uw kluis. Namen van de kluis kunnen alleen alfanumerieke tekens en speciale tekens afbreekstreepjes (-) bevatten. Deze mag niet beginnen met een cijfer.
+3. In de **Key Vault maken** deelvenster toewijzen een **naam** voor uw kluis. Namen van de kluis kunnen alleen alfanumerieke tekens en het koppelteken (-) bevatten. Deze mag niet beginnen met een cijfer.
 
 4. Kies een **abonnement** uit de lijst met beschikbare abonnementen. Alle abonnementen die worden geboden door de service Key Vault worden weergegeven in de vervolgkeuzelijst.
 
-5. Selecteer een bestaande **Resourcegroep** of maak een nieuwe.
+5. Selecteer een bestaande **resourcegroep**, of maak een nieuwe.
 
-6. Selecteer de **prijscategorie**.
-    >[!NOTE]
-    > Sleutel-kluizen in de ondersteuning voor Azure Stack Development Kit **Standard** alleen SKU's.
+6. Selecteer de **prijscategorie**. In de Azure Stack Development Kit (ASDK), ondersteuning voor sleutelkluizen **Standard** alleen SKU's.
 
 7. Kies een van de bestaande **toegangsbeleid** of maak een nieuwe. Een toegangsbeleid kunt u machtigingen voor een gebruiker, toepassing of een beveiligingsgroep bewerkingen bij deze kluis uit te voeren.
 
@@ -55,7 +53,7 @@ U moet zich abonneren op een aanbieding met inbegrip van de Azure Key Vault-serv
 
 ## <a name="manage-keys-and-secrets"></a>Sleutels en geheimen beheren
 
-Nadat u een kluis hebt gemaakt, gebruikt u de volgende stappen uit om te maken en beheren van sleutels en geheimen in de kluis.
+Nadat u een kluis hebt gemaakt, gebruikt u de volgende procedure voor het maken en beheren van sleutels en geheimen in de kluis.
 
 ### <a name="create-a-key"></a>Een sleutel maken
 
@@ -67,7 +65,7 @@ Nadat u een kluis hebt gemaakt, gebruikt u de volgende stappen uit om te maken e
 
 4. In de **maakt u een sleutel** deelvenster in de lijst van **opties**, kiest u de methode die u wilt gebruiken om een sleutel te maken. U kunt **genereren** een nieuwe sleutel **uploaden** een bestaande sleutel, of gebruik **back-up herstellen** om te selecteren van een back-up van een sleutel.
 
-5. Voer een **naam** voor uw sleutel. Naam van de sleutel kan alleen alfanumerieke tekens en speciale tekens afbreekstreepjes (-) bevatten.
+5. Voer een **naam** voor uw sleutel. Naam van de sleutel mag alleen alfanumerieke tekens en het koppelteken (-) bevatten.
 
 6. Configureer desgewenst het **activeringsdatum instellen** en **vervaldatum instellen** waarden voor uw sleutel.
 
@@ -80,13 +78,14 @@ Nadat de sleutel is gemaakt, kunt u het selecteren onder **sleutels** en weergev
 ### <a name="create-a-secret"></a>Een geheim maken
 
 1. Aanmelden bij de [gebruikersportal](https://portal.local.azurestack.external).
+
 2. Selecteer in het dashboard, **alle resources**, selecteert u de sleutelkluis die u eerder hebt gemaakt en selecteer vervolgens de **geheimen** tegel.
 
 3. Onder **geheimen**, selecteer **toevoegen**.
 
 4. Onder **een geheim maken**, in de lijst van **uploadopties**, kies een optie waarmee u wilt maken van een geheim. U kunt een geheim maken **handmatig** als u een waarde voor het geheim of upload opgeven een **certificaat** van uw lokale computer.
 
-5. Voer een **naam** voor de geheime sleutel. De geheime naam mag alleen alfanumerieke tekens en speciale tekens afbreekstreepjes (-).
+5. Voer een **naam** voor de geheime sleutel. De geheime naam mag alleen alfanumerieke tekens en het koppelteken (-) bevatten.
 
 6. (Optioneel) Geef de **inhoudstype**, en configureer de waarden voor **activeringsdatum instellen** en **vervaldatum instellen** voor de geheime sleutel.
 

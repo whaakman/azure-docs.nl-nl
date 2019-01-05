@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998388"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037409"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
 
@@ -68,7 +68,7 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 
    * **type**. Het type resource dat door de sjabloon wordt aangemaakt. In dit geval wordt het type is `Microsoft.Network/applicationGateways`, die staat voor een toepassingsgateway.
    * **Naam**. Naam voor de resource. Let op het gebruik van `[parameters('applicationGatewayName')]`, wat betekent dat de naam is opgegeven als invoer door u of door een parameterbestand tijdens de implementatie.
-   * **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt tijdens het maken van de toepassingsgateway gebruik van het virtuele netwerk en het openbare IP-adres.
+   * **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt tijdens het maken van de toepassingsgateway gebruik van het virtuele netwerk en het openbare IP-adres. Zie voor de JSON-syntaxis en eigenschappen van een application gateway in sjabloon [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).
 
 1. Ga terug naar [ https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/ ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Klik op **azuredeploy-parameters.json**, en klik vervolgens op **RAW**.
@@ -118,7 +118,7 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>De Azure Resource Manager-sjabloon implementeren met PowerShell
 
-Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) en volg de instructies om te melden bij Azure en selecteer uw abonnement.
+Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [Hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) en volg de instructies om te melden bij Azure en selecteer uw abonnement.
 
 1. Meld u aan bij PowerShell
 
@@ -226,9 +226,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar: [Configure an application gateway for SSL offload](tutorial-ssl-cli.md) (Een toepassingsgateway voor SSL-offload configureren) als u SSL-offload wilt configureren.
+Als u configureren van SSL-offload wilt, gaat u naar: [Een toepassingsgateway voor SSL-offload configureren](tutorial-ssl-cli.md).
 
-Ga naar: [Create an application gateway with an internal load balancer (ILB)](redirect-internal-site-cli.md) (Een toepassingsgateway met een interne load balancer (ILB) maken) als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer.
+Als u configureren van een toepassingsgateway met een interne load balancer gebruiken wilt, gaat u naar: [Een toepassingsgateway maken met een interne load balancer (ILB)](redirect-internal-site-cli.md).
 
 Als u meer informatie wilt over de algemene opties voor taakverdeling, gaat u naar:
 

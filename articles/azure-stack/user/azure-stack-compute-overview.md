@@ -6,40 +6,40 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 61b923b278d13bdcf97e05859c36b14bf9edba6e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227160"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050985"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Kennismaking met virtuele machines in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure Stack kunt u virtuele machines (VM's) als één type van een on-demand en schaalbare computing-resource. Wanneer u meer controle over de computeromgeving dan andere opties nodig hebt, kunt u een virtuele machine kiezen. Dit artikel bevat informatie voordat u uw virtuele machine maakt.
+Azure Stack biedt virtuele machines (VM's) als één type van een on-demand en schaalbare computing-resource. Wanneer u meer controle over de computeromgeving nodig hebt, kunt u een virtuele machine kiezen. Dit artikel bevat informatie voordat u uw eerste virtuele machine maakt.
 
 Een VM in Azure Stack biedt u de flexibiliteit van virtualisatie zonder de noodzaak voor het beheren van clusters of afzonderlijke computers. U moet wel aan de virtuele machine onderhouden door taken uitvoeren zoals het configureren, patchen en installeren van de software die erop wordt uitgevoerd.
 
 U kunt virtuele machines van Azure Stack op verschillende manieren gebruiken. Bijvoorbeeld:
 
 - **Ontwikkelen en testen**  
-    Azure Stack-VM's bieden een snelle en eenvoudige manier om een computer met een specifieke configuratie vereist om code te maken en testen van een toepassing.
+    Virtuele machines in Azure Stack kunt u een computer met een specifieke configuratie vereist om code te maken en testen van een toepassing.
 
 - **Toepassingen in de cloud**  
-    Omdat de vraag naar uw toepassing kan variëren, kan het zinvol economische uit te voeren op een virtuele machine in Azure Stack. U betaalt voor extra virtuele machines wanneer u ze nodig hebt en schakelt ze uit wanneer u ze niet meer nodig hebt.
+    Omdat de vraag naar uw toepassing kan variëren, kan het zinvol economische uit te voeren op een virtuele machine in Azure Stack. U betaalt voor extra virtuele machines wanneer u ze nodig hebt en ze schakelt uit wanneer u dit niet doet.
 
 - **Uitgebreid datacenter**  
-    Virtuele machines in een Azure Stack-netwerk kunnen eenvoudig worden verbonden met het netwerk van uw organisatie of met Azure.
+    Virtuele machines in een Azure Stack-netwerk kunnen worden verbonden met het netwerk van uw organisatie of met Azure.
 
-De virtuele machines die uw toepassing gebruikt kunnen vergroten of de schaal vergroten tot wat vereist is om te voldoen aan uw behoeften.
+De virtuele machines die uw toepassing gebruikt kunnen omhoog of uitschalen, naar wat vereist is om te voldoen aan uw behoeften.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Waar moet ik over nadenken voordat ik een VM maak?
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Wat moet ik over nadenken voordat het maken van een virtuele machine
 
-Er zijn altijd talrijke Ontwerpoverwegingen bij het samenstellen van de infrastructuur van een toepassing in Azure Stack. Deze aspecten van een virtuele machine zijn belangrijk om na te denken over voordat u begint met het maken van uw infrastructuur:
+Er zijn altijd Ontwerpoverwegingen bij het samenstellen van de infrastructuur van een toepassing in Azure Stack. Deze aspecten van een virtuele machine zijn belangrijk om na te denken over voordat u begint met het maken van uw infrastructuur:
 
 - De namen van de toepassingsresources van uw.
 - De grootte van de virtuele machine.
@@ -52,30 +52,29 @@ Er zijn altijd talrijke Ontwerpoverwegingen bij het samenstellen van de infrastr
 
 Een virtuele machine heeft een naam krijgt toegewezen en er een computernaam geconfigureerd als onderdeel van het besturingssysteem. De naam van een VM mag uit maximaal 15 tekens bestaan.
 
-Als u Azure Stack om aan te maken van de besturingssysteemschijf, zijn de computernaam en naam van de virtuele machine hetzelfde. Als u uploaden en uw eigen installatiekopie gebruikt die een eerder geconfigureerd besturingssysteem bevat en een virtuele machine maken, is het mogelijk dat de namen van de andere. Wanneer u uw eigen installatiekopie uploaden, maken van de computernaam in het besturingssysteem en de virtuele machine hetzelfde als een best practice te noemen.
+Als u Azure Stack om aan te maken van de besturingssysteemschijf, zijn de computernaam en naam van de virtuele machine hetzelfde. Als u uploaden en uw eigen installatiekopie gebruikt die een eerder geconfigureerd besturingssysteem bevat en een virtuele machine maken, is het mogelijk dat de namen van de andere. Wanneer u uw eigen installatiekopiebestand uploaden als een best practice, zorg ervoor dat de computernaam in het besturingssysteem en de naam van de virtuele machine zijn hetzelfde.
 
 ### <a name="vm-size"></a>VM-grootte
 
-De grootte van de virtuele machine die u gebruikt, wordt bepaald door de werkbelasting die u wilt uitvoeren. De grootte die u vervolgens kiest, bepaalt factoren als processorsnelheid, geheugen en opslagcapaciteit. Azure Stack biedt nog tal van grootten voor verschillende manieren van gebruik.
+De grootte van de virtuele machine die u gebruikt, wordt bepaald door de werkbelasting die u wilt uitvoeren. De grootte die u vervolgens kiest, bepaalt factoren als processorsnelheid, geheugen en opslagcapaciteit. Azure Stack biedt tal van grootten voor verschillende manieren van gebruik.
 
 ### <a name="vm-limits"></a>VM-limieten
 
-Uw abonnement heeft standaard-quotumlimiet die gevolgen voor de implementatie van veel VM's voor uw project hebben kan. De huidige limiet per abonnement is 20 VM's per regio.
+Uw abonnement heeft standaard-quotumlimiet die gevolgen voor de implementatie van virtuele machines voor uw project hebben kan. De huidige limiet per abonnement is 20 VM's per regio.
 
 ### <a name="operating-system-disks-and-images"></a>Schijven en installatiekopieën voor een besturingssysteem
 
-Virtuele machines maken gebruik van virtuele harde schijven (VHD's) voor de opslag van het besturingssysteem (OS) en de gegevens. VHD's worden ook gebruikt voor de installatiekopieën waarmee u een besturingssysteem kunt installeren.
-Azure Stack biedt een marketplace voor gebruik met verschillende versies en typen van besturingssystemen. Marketplace-installatiekopieën worden aangeduid met installatiekopie-uitgever, aanbieding, sku en versie (versie wordt meestal gespecificeerd als meest recente.)
+Virtuele machines maken gebruik van virtuele harde schijven (VHD's) voor de opslag van het besturingssysteem (OS) en de gegevens. VHD's worden ook gebruikt voor de installatiekopieën waarmee u een besturingssysteem kunt installeren. Azure Stack biedt een marketplace voor gebruik met verschillende versies en typen van besturingssystemen. Marketplace-installatiekopieën worden aangeduid met installatiekopie-uitgever, aanbieding, SKU en versie (de versie wordt meestal gespecificeerd als **nieuwste**.)
 
-De volgende tabel ziet u enkele manieren dat u de gegevens voor een installatiekopie kunt vinden:
+De volgende tabel laat zien hoe de gegevens voor een installatiekopie vinden:
 
-|Methode|Beschrijving|
+|Methode|Description|
 |---------|---------|
 |Azure Stack-portal|De waarden worden automatisch opgegeven wanneer u een installatiekopie selecteert om te gebruiken.|
 |PowerShell voor Azure Stack|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST-API’s     |[Uitgevers van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Aanbiedingen van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Afbeelding van lijst met SKU 's](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST-API’s     |[Uitgevers van installatiekopieën weergeven](/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Aanbiedingen van installatiekopieën weergeven](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Afbeelding van lijst met SKU 's](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
-U kunt kiezen om te uploaden en uw eigen installatiekopie gebruiken. Als u dit doet, worden de naam van de uitgever, aanbieding en sku niet gebruikt.
+U kunt kiezen om te uploaden en uw eigen installatiekopie gebruiken. Als u dit doet, worden de naam van de uitgever, aanbieding en SKU niet gebruikt.
 
 ### <a name="extensions"></a>Extensies
 
@@ -83,7 +82,7 @@ VM-extensies geven uw VM meer mogelijkheden via de post-implementatieconfigurati
 Deze algemene taken kunnen worden uitgevoerd met extensies:
 
 - **Aangepaste scripts uitvoeren**  
-    De aangepaste Scriptextensie kunt u werkbelastingen op de virtuele machine configureren door het uitvoeren van uw script wanneer de virtuele machine is ingericht.
+    De aangepaste scriptextensie helpt u bij het configureren van werkbelastingen op de virtuele machine door het uitvoeren van uw script wanneer de virtuele machine is ingericht.
 
 - **Configuraties implementeren en beheren**  
     De extensie PowerShell Desired State Configuration (DSC) helpt u bij het instellen van DSC op een virtuele machine voor het beheren van configuraties en omgevingen.
@@ -93,10 +92,9 @@ Deze algemene taken kunnen worden uitgevoerd met extensies:
 
 ### <a name="related-resources"></a>Gerelateerde resources
 
-De resources in de volgende tabel worden gebruikt door de virtuele machine en moeten bestaan of worden gemaakt wanneer de virtuele machine wordt gemaakt.
+De resources in de volgende tabel worden gebruikt door de virtuele machine en moeten bestaan of worden gemaakt wanneer de virtuele machine wordt gemaakt:
 
-
-|Resource|Vereist|Beschrijving|
+|Resource|Vereist|Description|
 |---------|---------|---------|
 |Resourcegroep|Ja|De VM moet zijn opgenomen in een resourcegroep.|
 |Storage-account|Nee|De virtuele machine hoeft niet de storage-account voor het opslaan van de virtuele harde schijven als schijven beheerd. <br>De virtuele machine hoeft het opslagaccount voor het opslaan van de virtuele harde schijven als niet-beheerde schijven.|
@@ -107,9 +105,7 @@ De resources in de volgende tabel worden gebruikt door de virtuele machine en mo
 
 ## <a name="create-your-first-vm"></a>Uw eerste virtuele machine maken
 
-U hebt verschillende mogelijkheden om een VM te maken. Uw keuze is afhankelijk van uw omgeving.
-De volgende tabel bevat informatie om u te helpen uw VM te maken is gestart.
-
+U hebt verschillende mogelijkheden om een VM te maken. Uw keuze is afhankelijk van uw omgeving. De volgende tabel bevat informatie waarmee u aan de slag uw VM te maken:
 
 |Methode|Artikel|
 |---------|---------|
@@ -131,14 +127,13 @@ U kunt virtuele machines via een browser gebaseerde portal, opdrachtregelprogram
 
 De volgende tabel ziet u enkele van de manieren waarop die u informatie over een VM kunt ophalen.
 
-
-|Methode|Beschrijving|
+|Methode|Description|
 |---------|---------|
 |Azure Stack-portal|In het hubmenu op virtuele Machines en selecteer vervolgens de virtuele machine in de lijst. Op de pagina voor de virtuele machine hebt u toegang tot informatie inzien, waarden instellen en metrische gegevens controleren.|
-|Azure PowerShell|Beheren van virtuele machines is in Azure en Azure Stack vergelijkbaar. Zie de volgende Azure onderwerp voor meer informatie over het gebruik van PowerShell:<br>[Maken en beheren van Windows VM's met de Azure PowerShell-module](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Client-SDK 's|Met behulp van C# voor het beheren van virtuele machines is in Azure en Azure Stack vergelijkbaar. Zie de volgende Azure onderwerp voor meer informatie:<br>[Windows-machines in Azure met behulp van C# maken en beheren](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Beheren van virtuele machines is in Azure en Azure Stack vergelijkbaar. Zie de volgende Azure onderwerp voor meer informatie over het gebruik van PowerShell:<br>[Maken en beheren van Windows VM's met de Azure PowerShell-module](../../virtual-machines/windows/tutorial-manage-vm.md#understand-vm-sizes)|
+|Client-SDK 's|Met behulp van C# voor het beheren van virtuele machines is in Azure en Azure Stack vergelijkbaar. Zie de volgende Azure onderwerp voor meer informatie:<br>[Windows-machines in Azure met behulp van C# maken en beheren](../../virtual-machines/windows/csharp.md)|
 
-### <a name="connect-to-your-vm"></a>Verbinding maken met uw virtuele machine
+### <a name="connect-to-your-vm"></a>Verbinding maken met uw VM
 
 U kunt de **Connect** knop in de Azure Stack-portal verbinding maken met uw virtuele machine.
 

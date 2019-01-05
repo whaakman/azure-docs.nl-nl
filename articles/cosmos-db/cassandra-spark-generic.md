@@ -1,20 +1,19 @@
 ---
 title: Werken met Azure Cosmos DB Cassandra-API van Spark
 description: Dit artikel is de hoofdpagina voor Cosmos DB Cassandra-API-integratie van Spark.
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847130"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037222"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Verbinding maken met Azure Cosmos DB Cassandra-API van Spark
 
@@ -26,16 +25,16 @@ In dit artikel is een tussen een reeks artikelen over Cassandra-API van Azure Co
 * Inrichten van uw keuze van Spark-omgeving [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Anderen].
 
 ## <a name="dependencies-for-connectivity"></a>Afhankelijkheden voor connectiviteit
-* **Spark-connector voor Cassandra:** Spark-connector wordt gebruikt voor verbinding met Azure Cosmos DB Cassandra-API.  Bepalen welke en de versie van de connector zich bevindt [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) die compatibel is met de Spark- en Scala-versies van uw Spark-omgeving.
+* **Spark-connector voor Cassandra:** Spark-connector wordt gebruikt om verbinding maken met de Cassandra-API van Azure Cosmos DB.  Bepalen welke en de versie van de connector zich bevindt [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) die compatibel is met de Spark- en Scala-versies van uw Spark-omgeving.
 
-* **Azure Cosmos DB-helper-bibliotheek voor Cassandra-API:** naast de Spark-connector, moet u een ander bibliotheektype bespreken [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) van Azure Cosmos DB. Deze bibliotheek bevat klassen beleid van aangepaste verbinding factory en probeer het opnieuw.
+* **Azure Cosmos DB-hulpbibliotheek voor Cassandra-API:** Naast de Spark-connector, moet u een ander bibliotheektype bespreken [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) van Azure Cosmos DB. Deze bibliotheek bevat klassen beleid van aangepaste verbinding factory en probeer het opnieuw.
 
   Het beleid voor opnieuw proberen in Azure Cosmos DB is geconfigureerd voor het afhandelen van HTTP-status code 429 ("tarief grote aanvraag') uitzonderingen. De Cassandra-API van Azure Cosmos DB vertaalt deze uitzonderingen overbelaste fouten op het systeemeigen Cassandra-protocol en u kunt het opnieuw met de back-laag. Omdat Azure Cosmos DB ingerichte doorvoer model gebruikt, wordt aanvraag beperkende uitzonderingen optreden wanneer de Inkomend/uitgaand verkeer toename van de tarieven. Het beleid voor opnieuw proberen beschermt uw spark-taken op basis van gegevens pieken die tijdelijk groter is dan de doorvoer die is toegewezen voor uw verzameling.
 
   > [!NOTE] 
   > Het beleid voor opnieuw proberen kan uw spark-taken op basis van alleen tijdelijke pieken beschermen. Als u niet voldoende ru's vereist voor het uitvoeren van uw workload hebt geconfigureerd, klikt u vervolgens het beleid voor opnieuw proberen is niet van toepassing en het beleid voor opnieuw proberen klasse opnieuw wordt gegenereerd van de uitzondering.
 
-* **Details voor Azure Cosmos DB-account verbinding:** Cassandra-API in uw Azure-accountnaam, -eindpunt-account en -sleutel.
+* **Azure Cosmos DB-account Verbindingsdetails:** Uw Cassandra-API van Azure-accountnaam, account-eindpunt en sleutel.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Parameters voor Spark-connector voor configuratie van doorvoer
 

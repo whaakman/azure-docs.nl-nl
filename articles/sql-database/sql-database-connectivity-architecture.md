@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715899"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038208"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -26,18 +26,17 @@ In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteits
 > [!IMPORTANT]
 > **[Toekomstige wijzigingen] Voor service-eindpunt-verbindingen met Azure SQL-servers, een `Default` connectiviteit gedrag wordt gewijzigd in `Redirect`.**
 >
-> Wijzigen is al vanaf 10 November 2018 voor regio's Zuid-Brazilië en West-Europa. Voor alle andere regio's wijziging worden van kracht vanaf 2 januari 2019.
+> Wijziging geldt voor alle regio's op of vóór 2 januari 2019.
 >
 > Om te voorkomen dat connectiviteit via een service-eindpunt belangrijke in bestaande omgevingen als gevolg van deze wijziging, gebruiken we telemetrie Doe het volgende:
 > - Voor servers die worden gedetecteerd die zijn toegankelijk via service-eindpunten voor de wijziging, schakelen we het verbindingstype voor `Proxy`.
 > - Voor alle andere servers, schakelen we de verbinding type zal worden overgeschakeld naar de `Redirect`.
 >
-> De invloed van service-eindpuntgebruikers in de volgende scenario's mogelijk nog steeds: 
-> - Toepassing verbinding maakt met een bestaande server niet regelmatig worden, zodat onze telemetrie is niet de informatie over deze toepassingen vastleggen 
-> - Logica voor automatische implementatie maakt een logische server, ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy` 
+> De invloed van service-eindpuntgebruikers in de volgende scenario's mogelijk nog steeds:
+> - Toepassing verbinding maakt met een bestaande server niet regelmatig worden, zodat onze telemetrie is niet de informatie over deze toepassingen vastleggen
+> - Logica voor automatische implementatie maakt een logische server, ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy`
 >
 > Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags) voor poorten 11000 12000. Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
-
 > [!NOTE]
 > Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 
@@ -131,7 +130,6 @@ U kunt het beleid van de Azure SQL Database-verbinding voor een Azure SQL Databa
 
 > [!IMPORTANT]
 > Dit script moet de [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
->
 
 De volgende PowerShell-script laat zien hoe het verbindingsbeleid wijzigen.
 

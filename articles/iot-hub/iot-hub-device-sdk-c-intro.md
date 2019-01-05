@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339260"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053905"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device-SDK voor C
 
@@ -75,11 +75,11 @@ Er zijn verschillende open-source-hulpprogramma's voor het beheren van uw IoT-hu
 
 * Een Windows-toepassing met de naam [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Een platformoverschrijdende Visual Studio Code-extensie met de naam [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit).
+* Een platformoverschrijdende Visual Studio Code-extensie met de naam [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 * Een Python platformoverschrijdende CLI met de naam [de IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-Deze zelfstudie wordt gebruikgemaakt van de grafische *apparatenverkenner* hulpprogramma. U kunt de *Azure IoT Hub Toolkit-extensie voor VS Code* als u in VS Code ontwikkelt. U kunt ook de *de IoT-extensie voor Azure CLI 2.0* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
+Deze zelfstudie wordt gebruikgemaakt van de grafische *apparatenverkenner* hulpprogramma. U kunt de *Azure IoT-hulpprogramma's voor VS Code* als u in VS Code ontwikkelt. U kunt ook de *de IoT-extensie voor Azure CLI 2.0* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
 
 Het hulpprogramma device explorer gebruikt de Azure IoT-service-bibliotheken voor het uitvoeren van verschillende functies op IoT-Hub, zoals het toevoegen van apparaten. Als u het hulpprogramma device explorer op een apparaat, krijgt u een verbindingsreeks voor uw apparaat. U hebt deze verbindingsreeks om uit te voeren van de voorbeeldtoepassingen nodig.
 

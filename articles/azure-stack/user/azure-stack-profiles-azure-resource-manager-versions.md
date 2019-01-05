@@ -10,29 +10,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380213"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036236"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure Stack
 
 U vindt de resourceprovider en de versienummers voor elke API-profiel dat door Azure Stack wordt gebruikt in dit artikel. De tabellen in dit artikel worden de versies die worden ondersteund voor elke resourceprovider en de API-versies van de profielen. Elke resourceprovider bevat een set van resourcetypen en specifieke versienummers.
 
 De API-profiel maakt gebruik van drie naamgevingsregels:
- - meest recente
- - Jjjj-mm-dd-hybride
- - jjjj-mm-dd-profiel
+
+ - **meest recente**
+ - **yyyy-mm-dd-hybrid**
+ - **jjjj-mm-dd-profiel**
 
 Zie voor een uitleg van de API-profielen en -versie worden uitgerold voor Azure Stack, [beheren API-versieprofielen in Azure Stack](azure-stack-version-profiles.md).
 
 > [!Note]  
-> De **nieuwste** API-profiel bevat de nieuwste versie van de resource provider API-versie, en niet wordt vermeld in dit artikel.
+> De **nieuwste** API-profiel bevat de meest recente versie van de resourceprovider API en niet wordt vermeld in dit artikel.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Overzicht van 2018-03-01-hybride
 
@@ -60,7 +61,7 @@ Zie voor meer een lijst van de versies voor elk resourcetype voor de providers i
 
 | Resourceprovider | API-versie |
 |------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
+| Microsoft.Compute | 30-03-2016 |
 | Microsoft.Network | 2015-06-15 |
 | Microsoft.Storage (gegevenslaag) | 2015-04-05  |
 | Microsoft.Storage (Controlelaag) | 2016-01-01   |
@@ -76,13 +77,13 @@ Zie voor meer een lijst van de versies voor elk resourcetype voor de providers i
 | Resources_Locks | 2016-09-01 |
 | Abonnementen | 1-06-2016 |
 
-Zie voor meer een lijst van de versies voor elk resourcetype voor de providers in het api-profiel, [Details voor de 2018-03-01-hybride](#details-for-the-2018-03-01-hybrid)
+Voor een lijst van de versies van elk resourcetype voor de providers in het API-profiel, Zie de volgende sectie.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Details van de 2018-03-01-hybride
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-Op rollen gebaseerd toegangsbeheer kunt u de acties die gebruikers in uw organisatie op resources uitvoeren kunnen kunt beheren. Deze set bewerkingen kunt u rollen definiëren, rollen toewijzen aan gebruikers of groepen en informatie over machtigingen verkrijgen. Zie voor meer informatie, [autorisatie](https://docs.microsoft.com/rest/api/authorization/).
+Op rollen gebaseerd toegangsbeheer kunt u de acties die gebruikers in uw organisatie op resources uitvoeren kunnen kunt beheren. Deze set bewerkingen kunt u rollen definiëren, rollen toewijzen aan gebruikers of groepen en informatie over machtigingen verkrijgen. Zie voor meer informatie, [autorisatie](/rest/api/authorization/).
 
 | Resourcetypen | API-versies |
 |---------------------|--------------------|
@@ -108,24 +109,24 @@ Op rollen gebaseerd toegangsbeheer kunt u de acties die gebruikers in uw organis
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-De Azure Compute API's bieden u programmatische toegang tot virtuele machines en hun ondersteunende resources. Zie voor meer informatie, [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
+De Azure Compute API's bieden u programmatische toegang tot virtuele machines en hun ondersteunende resources. Zie voor meer informatie, [Azure Compute](/rest/api/compute/).
 
 | Resourcetype | API-versie |
 |---------------------------------------------------------------|-------------|
-| Beschikbaarheidssets | 2016-03-30 |
-| Locaties | 2016-03-30 |
-| Locaties/operations | 2016-03-30 |
-| Locaties /-uitgever | 2016-03-30 |
-| Locaties/vormen van gebruik | 2016-03-30 |
-| Locaties/vmSizes | 2016-03-30 |
-| Bewerkingen | 2016-03-30 |
-| Virtuele machines | 2016-03-30 |
-| Virtuele Machines/extensies | 2016-03-30 |
-| Virtual Machine Scale Sets | 2016-03-30 |
-| Virtual Machine Scale Sets/extensies | 2016-03-30 |
-| Virtual Machine Scale Sets /-netwerkinterfaces | 2016-03-30 |
-| Virtual Machine Scale Sets/virtuele Machines | 2016-03-30 |
-| Virtuele Machines Scale Sets/virtuele machines/netwerkinterfaces | 2016-03-30 |
+| Beschikbaarheidssets | 30-03-2016 |
+| Locaties | 30-03-2016 |
+| Locaties/operations | 30-03-2016 |
+| Locaties /-uitgever | 30-03-2016 |
+| Locaties/vormen van gebruik | 30-03-2016 |
+| Locaties/vmSizes | 30-03-2016 |
+| Bewerkingen | 30-03-2016 |
+| Virtuele machines | 30-03-2016 |
+| Virtuele Machines/extensies | 30-03-2016 |
+| Virtual Machine Scale Sets | 30-03-2016 |
+| Virtual Machine Scale Sets/extensies | 30-03-2016 |
+| Virtual Machine Scale Sets /-netwerkinterfaces | 30-03-2016 |
+| Virtual Machine Scale Sets/virtuele Machines | 30-03-2016 |
+| Virtuele Machines Scale Sets/virtuele machines/netwerkinterfaces | 30-03-2016 |
 
 ### <a name="microsoftgallery"></a>Microsoft.Gallery
 
@@ -155,7 +156,7 @@ De Azure Compute API's bieden u programmatische toegang tot virtuele machines en
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-Beheren van uw kluizen en de sleutels, geheimen en certificaten binnen uw sleutelkluizen. Zie voor meer informatie, [Azure Key Vault REST API-verwijzing](https://docs.microsoft.com/rest/api/keyvault/).
+Beheren van uw kluizen en de sleutels, geheimen en certificaten binnen uw sleutelkluizen. Zie voor meer informatie de [Azure Key Vault REST API-verwijzing](/rest/api/keyvault/).
 
 | Resourcetypen | API-versies |
 |-------------------------|--------------|
@@ -166,7 +167,7 @@ Beheren van uw kluizen en de sleutels, geheimen en certificaten binnen uw sleute
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Operations-aanroepresultaat is een weergave van de lijst beschikbare Network cloud-bewerkingen. Zie voor meer informatie, [bewerking REST-API](https://docs.microsoft.com/rest/api/operation/).
+De operations-aanroepresultaat is een weergave van de lijst met beschikbare network cloud bewerkingen. Zie voor meer informatie, [bewerking REST-API](/rest/api/operation/).
 
 | Resourcetypen | API-versies |
 |---------------------------|--------------|
@@ -188,7 +189,7 @@ Operations-aanroepresultaat is een weergave van de lijst beschikbare Network clo
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implementeren en beheren. U organiseert gerelateerde resources in resourcegroepen en implementeert uw resources met JSON-sjablonen. Zie voor een inleiding tot het implementeren en beheren van resources met Resource Manager, [overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implementeren en beheren. U organiseert gerelateerde resources in resourcegroepen en implementeert uw resources met JSON-sjablonen. Zie voor een inleiding tot het implementeren en beheren van resources met Resource Manager, de [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 | Resourcetypen | API-versies |
 |-----------------------------------------|-------------------|
@@ -220,7 +221,7 @@ Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implem
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
-De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op programmatische wijze beheren. Zie voor meer informatie, [Azure Storage Resource Provider REST API-verwijzing](https://docs.microsoft.com/rest/api/storagerp/).
+De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op programmatische wijze beheren. Zie voor meer informatie de [Azure Storage Resource Provider REST API-verwijzing](/rest/api/storagerp/).
 
 | Resourcetypen | API-versies |
 |-------------------------|--------------|
@@ -228,7 +229,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Locaties | 2016-01-01 |
 | Locaties/quota | 2016-01-01 |
 | Bewerkingen | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
+| storageAccounts | 2016-01-01 |
 | Het gebruik van | 2016-01-01 |
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Details van de 2018-03-01-hybride
@@ -250,20 +251,20 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 
 | Resourcetype | API-versie |
 |---------------------------------------------------------------|-------------|
-| Beschikbaarheidssets | 2016-03-30 |
-| Locaties | 2016-03-30 |
-| Locaties/operations | 2016-03-30 |
-| Locaties /-uitgever | 2016-03-30 |
-| Locaties/vormen van gebruik | 2016-03-30 |
-| Locaties/vmSizes | 2016-03-30 |
-| Bewerkingen | 2016-03-30 |
-| Virtuele machines | 2016-03-30 |
-| Virtuele Machines/extensies | 2016-03-30 |
-| Virtual Machine Scale Sets | 2016-03-30 |
-| Virtual Machine Scale Sets/extensies | 2016-03-30 |
-| Virtual Machine Scale Sets /-netwerkinterfaces | 2016-03-30 |
-| Virtual Machine Scale Sets/virtuele Machines | 2016-03-30 |
-| Virtuele Machines Scale Sets/virtuele machines/netwerkinterfaces | 2016-03-30 |
+| Beschikbaarheidssets | 30-03-2016 |
+| Locaties | 30-03-2016 |
+| Locaties/operations | 30-03-2016 |
+| Locaties /-uitgever | 30-03-2016 |
+| Locaties/vormen van gebruik | 30-03-2016 |
+| Locaties/vmSizes | 30-03-2016 |
+| Bewerkingen | 30-03-2016 |
+| Virtuele machines | 30-03-2016 |
+| Virtuele Machines/extensies | 30-03-2016 |
+| Virtual Machine Scale Sets | 30-03-2016 |
+| Virtual Machine Scale Sets/extensies | 30-03-2016 |
+| Virtual Machine Scale Sets /-netwerkinterfaces | 30-03-2016 |
+| Virtual Machine Scale Sets/virtuele Machines | 30-03-2016 |
+| Virtuele Machines Scale Sets/virtuele machines/netwerkinterfaces | 30-03-2016 |
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -323,7 +324,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Locaties | 2016-01-01 |
 | Locaties/quota | 2016-01-01 |
 | Bewerkingen | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
+| storageAccounts | 2016-01-01 |
 | Het gebruik van | 2016-01-01 |
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438010"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035692"
 ---
 # <a name="routing-events-and-messages"></a>Routering van gebeurtenissen en berichten
 
@@ -65,6 +65,7 @@ Op dit moment ondersteunt de volgende Azure digitale dubbels **eigenschap EventT
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over Azure digitale dubbels preview limieten, [Servicelimieten voor openbare preview-versie](concepts-service-limits.md).
+
 - Als u wilt uitproberen een voorbeeld van Azure digitale Twins, Zie de [Snelstartgids voor het vinden van beschikbare ruimten](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->

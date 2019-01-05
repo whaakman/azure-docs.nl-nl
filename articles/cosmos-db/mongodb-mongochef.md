@@ -2,21 +2,19 @@
 title: Verbinding maken met Azure Cosmos DB-API voor MongoDB Studio 3T gebruiken
 titleSuffix: Azure Cosmos DB
 description: Leer hoe u verbinding maken met Cosmos DB met behulp van Studio 3T en Azure Cosmos DB-API voor MongoDB.
-keywords: mongochef, studio 3T
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: rimman
+author: sivethe
+ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 396db84186e00fefe14ac55b9a36497c6674cb43
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c679d2e6b7dc8998016e79d265f368504d6def3d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811236"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038407"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Verbinding maken met Cosmos-account Studio 3T gebruiken
 

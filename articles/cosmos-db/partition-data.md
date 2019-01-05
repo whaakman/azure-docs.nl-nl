@@ -1,17 +1,17 @@
 ---
 title: Partitionering en horizontaal schalen in Azure Cosmos DB
 description: Meer informatie over hoe partitionering werkt in Azure Cosmos DB, over het configureren van de partitionering en partitioneren van sleutels en hoe de juiste partitiesleutel voor uw toepassing kiest.
-author: aliuy
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-ms.openlocfilehash: 38f587fc24478beff3ab236207de3ed8a892c915
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 667dbab6613b83d0e72762b8bbad738d0d7697d8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998945"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034434"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering en horizontaal schalen in Azure Cosmos DB
 

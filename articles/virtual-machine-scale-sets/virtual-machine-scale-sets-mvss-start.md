@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741876"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036559"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Meer informatie over schaalsetsjablonen virtuele machine
 [Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. In deze reeks zelfstudies ziet over het maken van een sjabloon voor minimaal levensvatbare schaalsets en hoe u deze sjabloon aan de behoeften van verschillende scenario's te wijzigen. Alle voorbeelden afkomstig zijn van dit [GitHub-opslagplaats](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ Vervolgens wordt de sectie met resources van de sjabloon. Hier kunt definiëren 
    "resources": [
 ```
 
-Alle resources vereisen `type`, `name`, `apiVersion`, en `location` eigenschappen. De eerste resource van dit voorbeeld heeft een type `Microsft.Network/virtualNetwork`en de naam `myVnet`, en apiVersion `2016-03-30`. (De meest recente versie van de API voor een resourcetype, Zie de [Azure REST API-documentatie](https://docs.microsoft.com/rest/api/).)
+Alle resources vereisen `type`, `name`, `apiVersion`, en `location` eigenschappen. De eerste resource van dit voorbeeld heeft een type [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)en de naam `myVnet`, en apiVersion `2016-03-30`. (De meest recente versie van de API voor een resourcetype, Zie de [verwijzing naar de Azure Resource Manager-sjabloon](/azure/templates/).)
 
 ```json
      {
@@ -124,7 +124,7 @@ Er is in dit geval slechts één element in de lijst, het virtuele netwerk van h
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Scale seteigenschappen opgeven
-Schaalsets hebben veel eigenschappen voor het aanpassen van de virtuele machines in de schaalset. Zie voor een volledige lijst van deze eigenschappen, de [Virtual Machine scale sets REST API-documentatie](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Voor deze zelfstudie zijn slechts enkele veelgebruikte eigenschappen worden ingesteld.
+Schaalsets hebben veel eigenschappen voor het aanpassen van de virtuele machines in de schaalset. Zie voor een volledige lijst van deze eigenschappen, de [sjabloonverwijzing](/azure/templates/microsoft.compute/virtualmachinescalesets). Voor deze zelfstudie zijn slechts enkele veelgebruikte eigenschappen worden ingesteld.
 ### <a name="supply-vm-size-and-capacity"></a>VM-grootte en capaciteit op te geven
 De schaalset moet weten welke grootte van virtuele machine te maken ('sku-naam') en hoeveel dergelijke virtuele machines te maken ('sku-capaciteit'). Als u wilt zien welke VM-grootten beschikbaar zijn, Zie de [VM-grootten documentatie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

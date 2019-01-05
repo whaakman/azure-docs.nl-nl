@@ -1,19 +1,17 @@
 ---
 title: Lambda-architectuur met Azure Cosmos DB en HDInsight (Apache Spark)
 description: In dit artikel wordt beschreven hoe u voor het implementeren van een lambda-architectuur met behulp van Azure Cosmos DB, HDInsight en Spark
-keywords: Lambda-architectuur
-services: cosmos-db
 ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3c59b96146928a066c70113cb3fb1cd1915d9c8b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084009"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034009"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Een lambda-architectuur implementeren op het Azure-platform 
 
@@ -105,7 +103,7 @@ Voor meer informatie over Azure Cosmos DB-wijzigingenfeed, Zie:
 
 * [Werken met de change feed support in Azure Cosmos DB](change-feed.md)
 * [Maak kennis met de Azure cosmos DB-wijziging Feed Processor-bibliotheek](https://azure.microsoft.com/blog/introducing-the-azure-cosmosdb-change-feed-processor-library/)
-* [Stream het verwerken van wijzigingen: De Azure cosmos DB-wijzigingenfeed + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
+* [Stream verwerken van wijzigingen: Azure cosmos DB-wijzigingenfeed + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
 
 ## <a name="batch-and-serving-layers"></a>Batch ten behoeve van lagen
 Omdat de nieuwe gegevens zijn geladen in Azure Cosmos DB (waar de wijzigingenfeed wordt gebruikt voor de snelheidslaag), dit is de locatie waar de **master gegevensset** (een onveranderbare, alleen toevoegen set van onbewerkte gegevens) zich bevindt. Vanaf dit punt en hoger, gebruikt u HDInsight (Apache Spark) om uit te voeren van de vooraf compute-functies van de **batchlaag** naar **leveringslaag**, zoals wordt weergegeven in de volgende afbeelding:
@@ -120,7 +118,7 @@ Wat is het belangrijk is in deze lagen:
  4. De **snelheidslaag** verderop in dit artikel wordt besproken.
  5. Alle query's kunnen worden beantwoord door de resultaten van de batch en realtime weergaven samenvoegen of ze afzonderlijk te pingen.
 
-### <a name="code-example-pre-computing-batch-views"></a>Codevoorbeeld: vooraf computing batch weergaven
+### <a name="code-example-pre-computing-batch-views"></a>Codevoorbeeld: Vooraf computing batch weergaven
 Om te laten zien hoe u voor het uitvoeren van vooraf berekende weergaven op basis van uw **master gegevensset** van Apache Spark op Azure Cosmos DB, gebruik de volgende codefragmenten uit de notebooks [Lambda-architectuur Rearchitected - Batchlaag ](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) en [Lambda-architectuur Rearchitected - Batch om te voldoen aan laag](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb). In dit scenario gebruikt u de Twitter-gegevens die zijn opgeslagen in Azure Cosmos DB.
 
 Laten we beginnen met het maken van de van configuratieverbinding met de Twitter-gegevens in Azure Cosmos DB met behulp van de PySpark-code hieronder.
@@ -260,12 +258,12 @@ Met dit ontwerp hoeft u slechts twee beheerde services, Azure Cosmos DB en HDIns
 
 ### <a name="resources"></a>Resources
 
- * **Nieuwe gegevens**: de [stream van Twitter-feed naar CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), dit is het mechanisme voor nieuwe gegevens pushen naar Azure Cosmos DB.
- * **Batchlaag:** de batchlaag bestaat uit de *master gegevensset* (een onveranderbare, alleen toevoegen set van onbewerkte gegevens) en de mogelijkheid voor het berekenen van vooraf batch weergaven van de gegevens die worden doorgegeven in de **leveringslaag** .
+ * **Nieuwe gegevens**: De [stream van Twitter-feed naar CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), dit is het mechanisme voor nieuwe gegevens pushen naar Azure Cosmos DB.
+ * **Batchlaag:** De batchlaag bestaat uit de *master gegevensset* (een onveranderbare, alleen toevoegen set van onbewerkte gegevens) en de mogelijkheid voor het berekenen van vooraf batch weergaven van de gegevens die worden doorgegeven in de **leveringslaag**.
     * De **Lambda-architectuur Rearchitected - Batchlaag** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) query's de *master gegevensset* het aantal weergaven van de batch.
- * **Leveringslaag:** de **leveringslaag** bestaat uit vooraf berekende gegevens, wat resulteert in een batch-weergaven (zoals aggregaties, specifieke slicers, enzovoort) voor snelle query's.
+ * **Leveringslaag:** De **leveringslaag** bestaat uit vooraf berekende gegevens, wat resulteert in een batch-weergaven (zoals aggregaties, specifieke slicers, enzovoort) voor snelle query's.
     * De **Lambda-architectuur Rearchitected - Batch op voor de laag** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) verstuurd van de batchgegevens naar de leveringslaag; dat wil zeggen, Spark query's van een batch-verzameling van tweets, verwerkt en opgeslagen in een andere verzameling (een berekende-batch).
-* **Snelheidslaag:** de **snelheidslaag** bestaat uit met behulp van de Azure Cosmos DB-wijzigingenfeed om te lezen en direct reageren op Spark. De gegevens kan ook worden opgeslagen op *berekend RT* zodat andere systemen kunnen opvragen de verwerkte realtime gegevens in plaats van uitvoeren van een realtime query zelf.
+* **Snelheidslaag:** De **snelheidslaag** bestaat uit met behulp van de Azure Cosmos DB-wijzigingenfeed om te lezen en direct reageren op Spark. De gegevens kan ook worden opgeslagen op *berekend RT* zodat andere systemen kunnen opvragen de verwerkte realtime gegevens in plaats van uitvoeren van een realtime query zelf.
     * De [Streaming Query van het Cosmos DB wijzigen Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala-script wordt een streaming-query uitgevoerd vanuit de Azure Cosmos DB-wijzigingenfeed voor het berekenen van een interval aantal van de spark-shell.
     * De [Streaming Tags Query van het Cosmos DB wijzigen Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala-script wordt een streaming-query uitgevoerd vanuit de Azure Cosmos DB-wijzigingenfeed voor het berekenen van een interval aantal tags van de spark-shell.
   

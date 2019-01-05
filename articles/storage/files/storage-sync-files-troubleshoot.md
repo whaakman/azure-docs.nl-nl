@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794546"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055146"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -145,11 +145,13 @@ De status van een server-eindpunt van 'Geen activiteit' betekent dat het servere
 
 Een servereindpunt kan synchronisatieactiviteiten niet aanmelden voor de volgende redenen:
 
-- De server heeft het maximum aantal gelijktijdige synchronisatiesessies bereikt. Azure File Sync ondersteunt momenteel 2 ActiveSync sessies per processor- of maximaal 8 active synchronisatiesessies per server.
+- De server heeft een actieve sessie VSS-synchronisatie (SnapshotSync). Wanneer een synchronisatiesessie VSS actief voor een servereindpunt is, kunnen een synchronisatiesessie start totdat de VSS-synchronisatiesessie is voltooid andere servereindpunten op hetzelfde volume niet starten.
 
-- De server heeft een actieve sessie VSS-synchronisatie (SnapshotSync). Wanneer een synchronisatiesessie VSS actief voor een servereindpunt is, kunnen een synchronisatiesessie start totdat de VSS-synchronisatiesessie is voltooid andere servereindpunten op de server niet starten.
+    Huidige synchronisatie-activiteit op een server, Zie [hoe controleer ik de voortgang van een huidige synchronisatiesessie?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Huidige synchronisatie-activiteit op een server, Zie [hoe controleer ik de voortgang van een huidige synchronisatiesessie?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- De server heeft het maximum aantal gelijktijdige synchronisatiesessies bereikt. 
+    - Agent-versie 4.x en hoger: Limiet is afhankelijk van beschikbare systeemresources.
+    - Agentversie 3.x: 2 active synchronisatiesessies per processor- of maximaal 8 active synchronisatiesessies per server.
 
 > [!Note]  
 > Als de status van de server op de blade geregistreerde servers 'Offline weergegeven' is, voert u de stappen die zijn beschreven de [servereindpunt heeft een status van 'Geen activiteit' of 'In behandeling' en de status van de server op de blade geregistreerde servers "Weergegeven als offline" ](#server-endpoint-noactivity) sectie.
@@ -244,13 +246,14 @@ Als u wilt zien deze fouten, voer de **FileSyncErrorsReport.ps1** PowerShell-scr
 **ItemResults logboek - synchronisatiefouten per item**  
 | HRESULT | HRESULT (decimaal) | Fouttekenreeks | Probleem | Herstel |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | Het bestand permanente fouten tijdens synchronisatie heeft geproduceerd en dus alleen worden geprobeerd om te synchroniseren één keer per dag. De onderliggende fout kan worden gevonden in een eerdere gebeurtenislogboek. | In R2-agents (2.0) en hoger, de oorspronkelijke fout in plaats van deze is opgehaald. Upgrade uitvoeren naar de meest recente agent zien van de onderliggende fout of bekijk eerdere logboeken voor de oorzaak van de oorspronkelijke fout vinden. |
-| 0x7B | 123 | ERROR_INVALID_NAME | De naam van het bestand of map is ongeldig. | Wijzig de naam van het bestand of map in kwestie. Zie [Azure Files richtlijnen voor de naamgeving](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) en de lijst met niet-ondersteunde tekens hieronder. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | De naam van het bestand of map is ongeldig. | Wijzig de naam van het bestand of map in kwestie. Zie [Azure Files richtlijnen voor de naamgeving](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) en de lijst met niet-ondersteunde tekens hieronder. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Een bestand is gewijzigd, maar de wijziging nog niet is gedetecteerd door synchronisatie. Synchronisatie wordt hersteld nadat deze wijziging wordt gedetecteerd. | Er is geen actie vereist. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. Azure File Sync maakt een tijdelijke VSS-momentopname eenmaal per dag op de server om bestanden te synchroniseren met open ingangen. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Wijziging van een bestand of directory kan niet nog worden gesynchroniseerd omdat een afhankelijke map nog niet is gesynchroniseerd. Dit item wordt gesynchroniseerd nadat de afhankelijke wijzigingen zijn gesynchroniseerd. | Er is geen actie vereist. |
+| 0x7B | 123 | ERROR_INVALID_NAME | De naam van het bestand of map is ongeldig. | Wijzig de naam van het bestand of map in kwestie. Zie [verwerking van niet-ondersteunde tekens](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) voor meer informatie. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | De naam van het bestand of map is ongeldig. | Wijzig de naam van het bestand of map in kwestie. Zie [verwerking van niet-ondersteunde tekens](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) voor meer informatie. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. Azure File Sync maakt een tijdelijke VSS-momentopname eenmaal per dag op de server om bestanden te synchroniseren met open ingangen. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Een bestand is gewijzigd, maar de wijziging nog niet is gedetecteerd door synchronisatie. Synchronisatie wordt hersteld nadat deze wijziging wordt gedetecteerd. | Er is geen actie vereist. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Het bestand kan niet worden gesynchroniseerd omdat de limiet voor het delen van Azure bestand is bereikt. | U lost dit probleem, Zie [u de Azure file share storage limiet bereikt](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) sectie in de gids voor probleemoplossing. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Deze fout kan optreden als het bestand is versleuteld met een niet-ondersteunde oplossing (zoals NTFS EFS) of het bestand een status in behandeling heeft. | Als het bestand is versleuteld met een niet-ondersteunde oplossing, ontsleutelen van het bestand en een ondersteunde encryption-oplossing te gebruiken. Zie voor een lijst van ondersteuningsoplossingen, [versleutelingsoplossingen](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) sectie in de handleiding voor capaciteitsplanning. Als het bestand in een verwijdering status in behandeling is, wordt het bestand verwijderd zodra alle geopende bestandsingangen zijn gesloten. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie; dit bestand moet daarom opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
 
 #### <a name="handling-unsupported-characters"></a>Verwerking van niet-ondersteunde tekens

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: twhitney
-ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5432266bd042b527156852aaf30fef09f3bf8c72
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299874"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053293"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -193,6 +193,11 @@ De poorttoewijzing opgeven in de juiste indeling. Voor dit artikel, moet u opgev
    </ServiceManifestImport>
 ``` 
 
+We raden aan dat u het wachtwoord van de opslagplaats te versleutelen, raadpleegt u [ versleutelde geheimen in Service Fabric-toepassingen beheren](service-fabric-application-secret-management.md)
+
+### <a name="configure-cluster-wide-credentials"></a>Referenties voor brede, door het cluster configureren
+Raadpleeg [documentatie die hier beschikbaar](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
 Met de release 6.3 runtime isolatie van de virtuele machine wordt ondersteund voor Linux-containers, waardoor ondersteunt twee isolatiemodi voor containers: proces en Hyper-v. Met de Hyper-v-isolatiemodus zijn de kernels scheiding tussen elke container en de containerhost. De Hyper-v-isolatie is geïmplementeerd met behulp van [wissen Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). De isolatiemodus is opgegeven voor Linux-clusters in de `ServicePackageContainerPolicy` -element in het manifestbestand van de toepassing. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardwaarde is de isolatiemodus. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
@@ -210,7 +215,7 @@ Met de release 6.3 runtime isolatie van de virtuele machine wordt ondersteund vo
 
 
 ## <a name="configure-resource-governance"></a>Resourcebeheer configureren
-[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht). In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst. Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
+[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Resourcelimieten kunnen worden ingesteld voor de volgende resources: Geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht). In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst. Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
 
 ```xml
 <ServiceManifestImport>

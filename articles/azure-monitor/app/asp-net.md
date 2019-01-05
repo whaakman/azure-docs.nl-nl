@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a68b312d4b2a35bdaf2f2973c403c750645352b9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018752"
+ms.locfileid: "54054920"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -84,7 +84,7 @@ In het zoekvenster van Visual Studio Application Insights ziet u de telemetriege
 > [!Tip]
 > Als u geen gegevens ziet, controleert u of het tijdsbereik correct is en klikt u op het pictogram Zoeken.
 
-[Meer informatie over Application Insights-hulpprogramma's in Visual Studio](../../application-insights/app-insights-visual-studio.md).
+[Meer informatie over Application Insights-hulpprogramma's in Visual Studio](../../azure-monitor/app/visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Telemetrie bekijken in de webportal
@@ -106,7 +106,7 @@ Publiceer uw app op de IIS-server of op Azure. Bekijk de livestream met metrisch
 
 Uw telemetrie wordt opgebouwd in de Application Insights-portal, waar u metrische gegevens kunt controleren, uw telemetrie kunt doorzoeken en [dashboards](../../azure-monitor/app/app-insights-dashboards.md) kunt instellen. U kunt ook de krachtige [querytaal van Log Analytics](https://aka.ms/LogAnalyticsLanguage) gebruiken om gebruik en prestaties te analyseren of om specifieke gebeurtenissen te zoeken.
 
-U kunt uw telemetrie ook blijven analyseren in [Visual Studio](../../application-insights/app-insights-visual-studio.md) met hulpprogramma's voor diagnostisch zoeken en [Trends](../../application-insights/app-insights-visual-studio-trends.md).
+U kunt uw telemetrie ook blijven analyseren in [Visual Studio](../../azure-monitor/app/visual-studio.md) met hulpprogramma's voor diagnostisch zoeken en [Trends](../../azure-monitor/app/visual-studio-trends.md).
 
 > [!NOTE]
 > Als uw app zoveel telemetrie verzendt dat de[beperkingslimieten](../../azure-monitor/app/pricing.md#limits-summary) worden benaderd, worden automatisch [steekproeven](../../azure-monitor/app/sampling.md) ingeschakeld. Met steekproeven vermindert u de hoeveelheid telemetrie die vanuit uw app wordt verzonden, maar behoudt u gecorreleerde gegevens voor diagnostische doeleinden.
@@ -147,14 +147,14 @@ Er zijn ook andere onderwerpen die u kunt bekijken als u geïnteresseerd bent in
 
 ### <a name="analysis"></a>Analyse
 
-* **[Met Application Insights werken in Visual Studio](../../application-insights/app-insights-visual-studio.md)**<br/>Bevat informatie over foutopsporing met telemetrie, het doorzoeken van diagnostische gegevens en het in detail analyseren van code.
+* **[Met Application Insights werken in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Bevat informatie over foutopsporing met telemetrie, het doorzoeken van diagnostische gegevens en het in detail analyseren van code.
 * **[Werken met de Application Insights-portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Bevat informatie over dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie.
 * **[Analyse](../../azure-monitor/log-query/get-started-portal.md)**: de krachtige querytaal.
 
 ### <a name="alerts"></a>Waarschuwingen
 
 * [Beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md): Maak tests om ervoor te zorgen dat uw site zichtbaar is op het web.
-* [Slimme diagnostische gegevens](../../application-insights/app-insights-proactive-diagnostics.md): Deze tests worden automatisch uitgevoerd, zodat u hoeft niets te stellen. Deze geeft aan of een app een ongebruikelijk aantal mislukte aanvragen heeft.
+* [Slimme diagnostische gegevens](../../azure-monitor/app/proactive-diagnostics.md): Deze tests worden automatisch uitgevoerd, zodat u hoeft niets te stellen. Deze geeft aan of een app een ongebruikelijk aantal mislukte aanvragen heeft.
 * [Metrische waarschuwingen](../../azure-monitor/app/alerts.md): Stel deze in om u te waarschuwen als een metriek een drempelwaarde overschrijdt. U kunt deze instellen op aangepaste metrische gegevens die u in uw app codeert.
 
 ### <a name="automation"></a>Automation

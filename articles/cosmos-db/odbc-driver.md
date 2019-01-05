@@ -1,19 +1,17 @@
 ---
 title: Verbinding maken met Azure Cosmos DB, waarbij van BI analytics-hulpprogramma 's
 description: Informatie over het gebruik van het Azure Cosmos DB ODBC-stuurprogramma om te maken van tabellen en weergaven zodat genormaliseerde gegevens kunnen worden weergegeven in BI en data analytics-software.
-keywords: ODBC, odbc-stuurprogramma
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d1ea0a51d9637c1ca1dba214e969e6835dfb241c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136355"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034469"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met behulp van analysehulpprogramma's voor BI met het ODBC-stuurprogramma
 
@@ -59,10 +57,10 @@ Aan de slag met het ODBC-stuurprogramma.
 1. In de **Setup van Azure Cosmos DB ODBC-stuurprogramma SDN** venster, vult u in de volgende informatie: 
 
     ![Het venster Azure Cosmos DB ODBC-stuurprogramma DSN-instellingen](./media/odbc-driver/odbc-driver-dsn-setup.png)
-    - **Naam van de gegevensbron**: uw eigen beschrijvende naam voor de ODBC-DSN. Deze naam uniek is voor uw Azure Cosmos DB-account is, dus op de juiste wijze naam als u meerdere accounts hebt.
-    - **Beschrijving**: een korte beschrijving van de gegevensbron.
+    - **Naam van gegevensbron**: Uw eigen beschrijvende naam voor de ODBC-DSN. Deze naam uniek is voor uw Azure Cosmos DB-account is, dus op de juiste wijze naam als u meerdere accounts hebt.
+    - **Beschrijving**: Een korte beschrijving van de gegevensbron.
     - **Host**: URI voor uw Azure Cosmos DB-account. U kunt dit ophalen via de pagina sleutels voor Azure Cosmos DB in Azure portal, zoals wordt weergegeven in de volgende schermafbeelding. 
-    - **Toegang tot sleutel**: de primaire of secundaire alleen-lezen of alleen-lezen-sleutel van de Azure Cosmos DB-sleutels pagina in Azure portal, zoals wordt weergegeven in de volgende schermafbeelding. Het is raadzaam om dat de alleen-lezen-sleutel te gebruiken als de DSN-naam wordt gebruikt voor de alleen-lezen gegevens verwerken en rapportage.
+    - **Toegang tot sleutel**: De primaire of secundaire alleen-lezen of alleen-lezen-sleutel op de pagina Azure Cosmos DB sleutels in Azure portal zoals weergegeven in de volgende schermafbeelding. Het is raadzaam om dat de alleen-lezen-sleutel te gebruiken als de DSN-naam wordt gebruikt voor de alleen-lezen gegevens verwerken en rapportage.
     ![Op de pagina Azure Cosmos DB-sleutels](./media/odbc-driver/odbc-driver-keys.png)
     - **De toegangssleutel voor versleutelen**: Selecteer de beste keuze op basis van de gebruikers van deze machine. 
     
@@ -71,7 +69,7 @@ Aan de slag met het ODBC-stuurprogramma.
 1. Klik op **geavanceerde opties** en stel de volgende waarden:
     - **Query uitvoeren op consistentie**: Selecteer de [consistentieniveau](consistency-levels.md) voor uw activiteiten. De standaardwaarde is de sessie.
     - **Aantal nieuwe pogingen**: Voer het aantal keren dat een bewerking opnieuw als de eerste aanvraag niet wordt voltooid vanwege de frequentielimiet service.
-    - **Schemabestand**: U hebt een aantal opties hier.
+    - **Schemabestand**: Hebt u een aantal opties hier.
         - Standaard, waardoor deze vermelding is (lege), scant het stuurprogramma voor de eerste pagina van de gegevens voor alle verzamelingen om te bepalen van het schema van elke verzameling. Dit staat bekend als de toewijzing van de verzameling. Zonder een schemabestand dat is gedefinieerd, wordt het stuurprogramma is voor het uitvoeren van de scan voor elke sessie stuurprogramma en kan leiden tot een hogere opstarttijd van een toepassing met behulp van de DSN. Het is raadzaam dat u altijd een schemabestand voor een DSN koppelen.
         - Als u al een schemabestand hebt (mogelijk een App die u hebt gemaakt met de [Schema-Editor](#schema-editor)), klikt u op **Bladeren**, gaat u naar het bestand, klikt u op **opslaan**, en klik vervolgens op **OK**.
         - Als u een nieuw schema maken wilt, klikt u op **OK**, en klik vervolgens op **Schema-Editor** in het hoofdvenster. Vervolgens gaat u verder met de [Schema-Editor](#schema-editor) informatie. Nadat het nieuwe schemabestand is gemaakt, moet u gaat u terug naar de **geavanceerde opties** venster om op te nemen van de zojuist gemaakte schemabestand.

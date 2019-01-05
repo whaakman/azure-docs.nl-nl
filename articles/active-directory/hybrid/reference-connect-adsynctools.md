@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADSyncTools PowerShell-referentie | Microsoft Docs'
+title: 'Azure AD Connect: Naslagdocumentatie voor PowerShell-ADSyncTools | Microsoft Docs'
 description: Dit document bevat referentie-informatie voor de ADSyncTools.psm1 PowerShell-module.
 author: billmath
 manager: mtillman
@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426482"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054959"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell-referentie
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Naslagdocumentatie voor PowerShell-ADSyncTools
 De volgende documentatie bevat referentie-informatie voor de ADSyncTools.psm1 PowerShell-Module die is opgenomen in Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESCHRIJVING
-Retourneert een AD-object te doen: ondersteuning voor meerdere forests
+Retourneert een AD-object te doen: Ondersteuning voor meerdere forests
 
 ### <a name="examples"></a>VOORBEELDEN
 
@@ -470,7 +470,7 @@ Zie about_CommonParameters voor meer informatie (https://go.microsoft.com/fwlink
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>SAMENVATTING
-Ophalen van de geschiedenis van de AAD-Connnect uitvoeren
+Get AAD Connect Uitvoeringsgeschiedenis
 
 ### <a name="syntax"></a>SYNTAXIS
 
@@ -479,7 +479,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESCHRIJVING
-Functie die resulteert in de Uitvoeringsgeschiedenis van AAD Connnect in XML-indeling
+Functie die resulteert in de geschiedenis uitvoeren van AAD Connect in XML-indeling
 
 ### <a name="examples"></a>VOORBEELDEN
 
@@ -526,7 +526,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>BESCHRIJVING
-Functie AAD Connnect Run History query's en uitvoer van alle gebruikers die de fout te melden: "SourceAnchor-kenmerk is gewijzigd."
+Query's AAD Connect Run History functioneren en uitvoer van alle gebruikers die de fout te melden: "SourceAnchor-kenmerk is gewijzigd."
 
 ### <a name="examples"></a>VOORBEELDEN
 
@@ -593,7 +593,7 @@ Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFrom
 ```
 
 ### <a name="description"></a>BESCHRIJVING
-Genereert een bestand met alle Azure AD-gesynchroniseerde gebruikers met de waarde ImmutableID in GUID-indeling vereisten: MSOnline PowerShell-Module
+Hiermee genereert u een bestand met alle Azure AD-gesynchroniseerde gebruikers met de waarde ImmutableID in GUID-indeling vereisten: MSOnline PowerShell-Module
 
 ### <a name="examples"></a>VOORBEELDEN
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Met dit script neemt alle objecten van een doel voor organisatie-eenheid in uw Active Directory-domein - gefilterd op objectklasse (gebruiker/Computer) en Hiermee verwijdert u alle verlopen certificaten aanwezig zijn in het kenmerk UserCertificate.
 Standaard (BackupOnly modus), die deze wordt alleen back-up van verlopen certificaten naar een bestand en niet alle wijzigingen in AD.
 Als u gebruik - BackupOnly $false en vervolgens een certificaat verlopen aanwezig zijn in kenmerk UserCertificate voor deze objecten wordt verwijderd uit AD na wordt gekopieerd naar bestand.
-Elk certificaat worden back-ups voor een gescheiden filename: ObjectClass_ObjectGUID_CertThumprint.cer het script maakt ook een logboekbestand waarin alle gebruikers met certificaten die zijn ongeldig of verlopen met inbegrip van de werkelijke actie (CSV-indeling Overgeslagen/geëxporteerde/verwijderd).
+Elk certificaat worden back-ups voor een gescheiden filename: Het script ObjectClass_ObjectGUID_CertThumprint.cer maakt ook een logboekbestand in CSV-indeling waarin alle gebruikers met certificaten die zijn ongeldig of verlopen met inbegrip van de werkelijke uitgevoerde actie (overgeslagen/geëxporteerde/verwijderd).
 
 ### <a name="examples"></a>VOORBEELDEN
 
@@ -1227,7 +1227,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>BESCHRIJVING
-Gebruikers van de updates met de nieuwe ConsistencyGuid (ImmutableId)-waarde die is overgenomen uit de ConsistencyGuid rapport deze functie biedt ondersteuning voor de switch WhatIf Opmerking: ConsistencyGuid rapport moet worden geïmporteerd met tabblad scheidingsteken
+Gebruikers met de nieuwe ConsistencyGuid (ImmutableId)-waarde die is overgenomen uit de ConsistencyGuid rapport deze functie ondersteunt de switch WhatIf Opmerking updates: ConsistencyGuid rapport moet worden geïmporteerd met tabblad scheidingsteken
 
 ### <a name="examples"></a>VOORBEELDEN
 

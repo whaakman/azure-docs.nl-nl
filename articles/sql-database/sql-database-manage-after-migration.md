@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 7b40496d22ffed8096ac40efcb96ec55a8ba63ca
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652792"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052714"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -108,7 +108,7 @@ Er zijn meerdere technieken beschikken die u gebruiken kunt voor het bereiken va
 
 Een firewall voorkomt dat toegang tot uw server een externe entiteit door toe te staan alleen specifieke entiteiten toegang tot uw logische server. Standaard alle verbindingen en databases op de logische server zijn niet toegestaan, behalve de verbindingen die afkomstig is van andere Azure-Services in. U kunt de toegang met uw server alleen op entiteiten (bijvoorbeeld een developer-machine) die u goedkeuren, doordat het IP-adres van die computer via de firewall openen met een firewall-regel. U kunt er ook om op te geven van een bereik van IP-adressen die u wilt toegang krijgt tot de logische server. Bijvoorbeeld, kunnen ontwikkelaars machine IP-adressen in uw organisatie in één keer worden toegevoegd door een adresbereik in de pagina van de Firewall-instellingen op te geven.
 
-U kunt firewallregels op serverniveau of op het databaseniveau van de maken. Server-level firewall-regels kunnen ofwel worden gemaakt met behulp van Azure portal of met SSMS. Voor meer informatie over het instellen van een server en database-level firewall-regel, Zie: [Firewall-regels maken in SQL-Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
+U kunt firewallregels op serverniveau of op het databaseniveau van de maken. Server-level firewall-regels kunnen ofwel worden gemaakt met behulp van Azure portal of met SSMS. Voor meer informatie over het instellen van een server en database-level firewall-regel, Zie: [Firewall-regels maken in SQL-Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Service-eindpunten
 
@@ -130,11 +130,11 @@ Poort 1433. SQL Database communiceert via deze poort. Voor verbinding uit vanuit
 
 #### <a name="sql-database-auditing"></a>SQL Database Auditing
 
-Met SQL Database, kunt u controleren voor het bijhouden van databasegebeurtenissen. [SQL Database Auditing](sql-database-auditing.md) registreert databasegebeurtenissen en schrijft deze naar een controlelogboekbestand in uw Azure Storage-Account. Controleren is heel handig als u van plan bent krijgt u inzicht in mogelijke beveiliging en beleid schendingen, naleving van regelgeving enzovoort. Hiermee kunt u definiëren en configureren van bepaalde categorieën van gebeurtenissen die u denkt moet controleren en op basis van dat u vooraf geconfigureerde rapporten en een dashboard voor een overzicht van gebeurtenissen in uw database kunt ophalen. U kunt deze controlebeleid op het databaseniveau van de of op het serverniveau van de kunt toepassen. Een handleiding voor het inschakelen van controle voor uw server /-database, Zie: [Inschakelen van SQL Database Auditing](sql-database-security-tutorial.md#enable-sql-database-auditing-if-necessary).
+Met SQL Database, kunt u controleren voor het bijhouden van databasegebeurtenissen. [SQL Database Auditing](sql-database-auditing.md) registreert databasegebeurtenissen en schrijft deze naar een controlelogboekbestand in uw Azure Storage-Account. Controleren is heel handig als u van plan bent krijgt u inzicht in mogelijke beveiliging en beleid schendingen, naleving van regelgeving enzovoort. Hiermee kunt u definiëren en configureren van bepaalde categorieën van gebeurtenissen die u denkt moet controleren en op basis van dat u vooraf geconfigureerde rapporten en een dashboard voor een overzicht van gebeurtenissen in uw database kunt ophalen. U kunt deze controlebeleid op het databaseniveau van de of op het serverniveau van de kunt toepassen. Een handleiding voor het inschakelen van controle voor uw server /-database, Zie: [Inschakelen van SQL Database Auditing](sql-database-security-tutorial.md#enable-security-features).
 
 #### <a name="threat-detection"></a>Detectie van bedreigingen
 
-Met [detectie van bedreigingen](sql-database-threat-detection.md), krijgt u de mogelijkheid om te reageren op beveiligings- of beleid schendingen die zijn gedetecteerd door te controleren heel eenvoudig. U hoeft niet te worden van een beveiligingsexpert om potentiële bedreigingen of schendingen in uw systeem. Detectie van bedreigingen heeft ook enkele ingebouwde mogelijkheden, zoals SQL-injectie detectie. SQL-injectie is een poging te wijzigen of de gegevens en een gebruikelijk manier om in het algemeen is een aanval op een databasetoepassing in gevaar brengen. SQL Database Threat Detection uitgevoerd meerdere sets met algoritmen om mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals afwijkende patronen voor databasetoegang (zoals toegang vanaf een ongewone locatie of door een ongebruikelijke) te detecteren. Security officers of andere aangewezen beheerders ontvangen een e-mailbericht als een bedreiging wordt gedetecteerd op de database. Elke melding bevat informatie over de verdachte activiteiten en aanbevelingen voor het verder te onderzoeken en tegenhouden. Voor informatie over het inschakelen van detectie van bedreigingen, Zie: [Inschakelen van SQL Database Threat Detection](sql-database-security-tutorial.md#enable-sql-database-threat-detection).
+Met [detectie van bedreigingen](sql-database-threat-detection.md), krijgt u de mogelijkheid om te reageren op beveiligings- of beleid schendingen die zijn gedetecteerd door te controleren heel eenvoudig. U hoeft niet te worden van een beveiligingsexpert om potentiële bedreigingen of schendingen in uw systeem. Detectie van bedreigingen heeft ook enkele ingebouwde mogelijkheden, zoals SQL-injectie detectie. SQL-injectie is een poging te wijzigen of de gegevens en een gebruikelijk manier om in het algemeen is een aanval op een databasetoepassing in gevaar brengen. SQL Database Threat Detection uitgevoerd meerdere sets met algoritmen om mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals afwijkende patronen voor databasetoegang (zoals toegang vanaf een ongewone locatie of door een ongebruikelijke) te detecteren. Security officers of andere aangewezen beheerders ontvangen een e-mailbericht als een bedreiging wordt gedetecteerd op de database. Elke melding bevat informatie over de verdachte activiteiten en aanbevelingen voor het verder te onderzoeken en tegenhouden. Voor informatie over het inschakelen van detectie van bedreigingen, Zie: [Inschakelen van SQL Database Threat Detection](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Hoe kan ik beveiligen mijn gegevens in het algemeen op SQL-Database
 

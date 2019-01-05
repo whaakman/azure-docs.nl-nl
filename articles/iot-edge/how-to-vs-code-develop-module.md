@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 12/14/2018
+ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb3d19d35a15d5476594948b035a39ae703f1c3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5eb896978e9b04a6ad87fe1f669d9155e9cc1433
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551361"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053208"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge
 
@@ -31,7 +31,7 @@ Voor modules die zijn geschreven C#, Node.js of Java, er zijn twee manieren om f
 
 Installeer [Visual Studio Code](https://code.visualstudio.com/) eerste en voeg de volgende extensies:
 
-- [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+- [Hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Docker-extensie](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio extensie (s) specifiek zijn voor de taal die u ontwikkelt in:
   - C#, met inbegrip van Azure Functions: [C#-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
@@ -73,7 +73,7 @@ Tenzij u uw module in C ontwikkelt, moet u ook de op Python gebaseerde [Azure Io
 
 ## <a name="create-a-new-solution-template"></a>Een nieuwe oplossingssjabloon maken
 
-De volgende stappen laten zien over het maken van een IoT Edge-module in uw favoriete talen (met inbegrip van Azure Functions, die zijn geschreven in C#) met behulp van Visual Studio Code en de Azure IoT Edge-extensie. Begint u met het maken van een oplossing en genereert vervolgens de eerste module in die oplossing. Elke oplossing kan meerdere modules bevatten.
+De volgende stappen laten zien over het maken van een IoT Edge-module in uw favoriete talen (met inbegrip van Azure Functions, die zijn geschreven in C#) met behulp van Visual Studio Code en de Azure IoT-hulpprogramma's. Begint u met het maken van een oplossing en genereert vervolgens de eerste module in die oplossing. Elke oplossing kan meerdere modules bevatten.
 
 1. Selecteer **weergave** > **Command Palette**.
 

@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2af3e75e3810284d9740a3d87d681d9ee31f14d3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253201"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052833"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
-Tijdens het uploaden van video's met Video Indexer-API, hebt u twee opties voor uploaden: 
+Tijdens het uploaden van video's met Video Indexer-API, hebt u de volgende opties uploaden: 
 
 * uw video uploaden via een URL (aanbevolen),
 * het videobestand verzenden als een bytematrix in de aanvraagbody.

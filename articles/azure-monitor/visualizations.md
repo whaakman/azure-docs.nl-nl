@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728343"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049959"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van logboek- en metrische gegevens die zijn opgeslagen in Azure Monitor.
@@ -71,7 +71,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 
 
 ## <a name="application-insights-workbooks"></a>Application Insights-werkmappen
-[Werkmappen](../application-insights/app-insights-usage-workbooks.md) interactieve documenten die inzicht in uw gegevens, onderzoek en samenwerking binnen het team bieden. Specifieke voorbeelden waarin werkmappen nuttig zijn zijn voor probleemoplossing handleidingen en postmortem incident.
+[Werkmappen](../azure-monitor/app/usage-workbooks.md) interactieve documenten die inzicht in uw gegevens, onderzoek en samenwerking binnen het team bieden. Specifieke voorbeelden waarin werkmappen nuttig zijn zijn voor probleemoplossing handleidingen en postmortem incident.
 
 ![Workbook](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ U kunt gegevens in Logboeken en metrische gegevens in Azure Monitor openen via h
 - Meer informatie over de [gegevens verzameld door Azure Monitor](platform/data-collection.md).
 - Meer informatie over [Azure-dashboards](../azure-portal/azure-portal-dashboards.md).
 - Meer informatie over [weergaven in Azure Monitor](platform/view-designer.md).
-- Meer informatie over [werkmappen in Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Meer informatie over [werkmappen in Application Insights](../azure-monitor/app/usage-workbooks.md).
 - Meer informatie over [logboekgegevens importeren in Power BI](../azure-monitor/platform/powerbi.md).
 - Meer informatie over de [Grafana Azure Monitor-gegevensbron invoegtoepassing](../azure-monitor/platform/grafana-plugin.md).
 

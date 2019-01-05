@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268441"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053973"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -51,9 +51,7 @@ Zie voor meer informatie over het toewijzen van machtigingen aan gegevens van Co
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Maken van een budget in de Azure portal
 
-U kunt het budget van een Azure-abonnement maken voor een bepaalde maand, kwartaal of jaar. Uw navigeerbare inhoud in de Azure-portal bepaalt u of u een budget voor een abonnement of voor een resourcegroep maken.
-
-In de Azure-portal, gaat u naar **kostenbeheer en facturering** &gt; **abonnementen** &gt; Selecteer een abonnement &gt; **budgetten**. In dit voorbeeld is het budget dat u hebt gemaakt voor het abonnement dat u hebt geselecteerd.
+U kunt het budget van een Azure-abonnement maken voor een bepaalde maand, kwartaal of jaar. Uw navigeerbare inhoud in de Azure-portal bepaalt u of u een budget voor een abonnement of voor een resourcegroep maken. Bijvoorbeeld, in de Azure-portal, Ga naar **abonnementen** &gt; Selecteer een abonnement &gt; **budgetten**. In dit voorbeeld is het budget dat u hebt gemaakt voor het abonnement dat u hebt geselecteerd. Als u maken van een budget voor een resourcegroep wilt, gaat u naar **resourcegroepen** > Selecteer een resourcegroep > **budgetten**.
 
 Nadat u budgetten maakt, worden ze een eenvoudige weergave van uw huidige uitgaven op basis hiervan weergegeven.
 

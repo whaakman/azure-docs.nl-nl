@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 587ba52a1a30d187268119567b84d2dd8e471b8d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e6552984fd629810fd5e422c92ef9ee8ecd2b342
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300588"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053105"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -330,6 +330,62 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ServiceManifestImport>
 ```
 
+### <a name="configure-cluster-wide-credentials"></a>Referenties voor brede, door het cluster configureren
+
+V6.3 starten, kan Service Fabric gebruiker referenties voor brede, door het cluster dat kunnen worden gebruikt als standaardreferenties opslagplaats door toepassingen configureren.
+
+U kunt in-of uitschakelen de functie door een 'UseDefaultRepositoryCredentials'-kenmerk toe te voegen aan ContainerHostPolicies in ApplicationManifest.xml met een "true/false" Booleaanse waarde.
+
+```xml
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code" UseDefaultRepositoryCredentials="true">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
+```
+
+Service Fabric gebruikt u de standaardreferenties van de opslagplaats die u in het ClusterManifest onder de sectie Hosting opgeven kunt ziet.  Als UseDefaultRepositoryCredentials is ingesteld op true, Service Fabric wordt nu alleen de volgende waarden in het clustermanifest:
+
+* DefaultContainerRepositoryAccountName (tekenreeks)
+* DefaultContainerRepositoryPassword (tekenreeks)
+* IsDefaultContainerRepositoryPasswordEncrypted (bool)
+* DefaultContainerRepositoryPasswordType(string)---Ondersteund vanaf v6.4
+
+Hier volgt een voorbeeld van wat u in de sectie Hosting in ClusterManifestTemplate.json kunt toevoegen. Meer informatie over [cluster instelling configureren](service-fabric-cluster-fabric-settings.md) en [ wachtwoord versleutelen](service-fabric-application-secret-management.md)
+
+```json
+      {
+        "name": "Hosting",
+        "parameters": [
+          {
+            "name": "EndpointProviderEnabled",
+            "value": "true"
+          },
+          {
+            "name": "DefaultContainerRepositoryAccountName",
+            "value": "someusername"
+          },
+          {
+            "name": "DefaultContainerRepositoryPassword",
+            "value": "somepassword"
+          },
+          {
+            "name": "IsDefaultContainerRepositoryPasswordEncrypted",
+            "value": "false"
+          },
+          {
+            "name": "DefaultContainerRepositoryPasswordType",
+            "value": "PlainText"
+          }
+        ]
+      },
+```
+
+
 ## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
 Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de procesisolatiemodus delen alle containers die worden uitgevoerd op dezelfde hostcomputer de kernel met de host. Met de Hyper-V-isolatiemodus hebben de kernels een scheiding tussen elke Hyper-V-container en de containerhost. De isolatiemodus is in het manifestbestand van de toepassing opgegeven in het element `ContainerHostPolicies`. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardwaarde is de isolatiemodus op Windows Server-hosts. Alleen Hyper-V-isolatiemodus wordt op hosts met Windows 10 ondersteund, zodat de container wordt uitgevoerd in Hyper-V-isolatiemodus, ongeacht de instelling voor de isolatie-modus. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
 
@@ -342,7 +398,7 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
    >
 
 ## <a name="configure-resource-governance"></a>Resourcebeheer configureren
-[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht). In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst. Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
+[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Resourcelimieten kunnen worden ingesteld voor de volgende resources: Geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht). In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst. Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
 
 ```xml
 <ServiceManifestImport>
@@ -386,9 +442,9 @@ Voer bij **Verbindingseindpunt** het beheereindpunt voor het cluster in. Bijvoor
 
 Klik op **Publish**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een webhulpprogramma voor het inspecteren en beheren van toepassingen en knooppunten in een Service Fabric-cluster. Open een browser, ga naar http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ en volg de implementatie van de toepassing. De toepassing wordt geïmplementeerd, maar heeft een foutstatus totdat de installatiekopie is gedownload op de clusterknooppunten (wat enige tijd kan duren, afhankelijk van de grootte van de installatiekopie): ![Fout][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een webhulpprogramma voor het inspecteren en beheren van toepassingen en knooppunten in een Service Fabric-cluster. Open een browser, ga naar http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ en volg de implementatie van de toepassing. De toepassing wordt geïmplementeerd, maar heeft een foutstatus totdat de installatiekopie is gedownload op de clusterknooppunten (wat kunnen enige tijd duren, afhankelijk van de grootte van de installatiekopie): ![Fout][1]
 
-De toepassing is gereed bij een ```Ready```-status: ![Gereed][2]
+De toepassing is gereed wanneer deze ```Ready``` status: ![Gereed][2]
 
 Open een browser en ga naar http://containercluster.westus2.cloudapp.azure.com:8081. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 

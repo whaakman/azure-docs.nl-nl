@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6ec178a8cb457973f39ea2dd929a3486a7696c55
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972189"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041285"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Veelgestelde vragen over Azure Backup
 
@@ -63,7 +63,7 @@ Azure Backup kunt back-up van virtuele machines met maximaal 16 schijven. Onders
 Azure Backup ondersteunt [standard-SSD-beheerde schijven](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD beheerde schijven bieden een nieuw type duurzame opslag voor virtuele Azure-machines. Ondersteuning voor SSD beheerde schijven wordt aangeboden in de [meest recente versie](backup-upgrade-to-vm-backup-stack-v2.md) van de Azure-VM back-up-stack V2.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kunnen we back-up van een virtuele machine met een schijf Write Accelerator WA ingeschakeld?
-Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up. Uitsluiting van de schijf voor virtuele machines met schijven WA-functionaliteit wordt alleen ondersteund voor abonnementen die zijn bijgewerkt naar de Azure VM Backup-stack V2. Als u wilt bijwerken naar de Azure VM Backup-stack V2, ziet deze [artikel](backup-upgrade-to-vm-backup-stack-v2.md). Deze functie is momenteel beschikbaar in Japan-Oost, Noord-Europa, Zuidoost-Azië, VS-Oost, West vs2, West-Europa en VS-Oost 2.
+Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up. Uitsluiting van de schijf voor virtuele machines met schijven WA-functionaliteit wordt alleen ondersteund voor abonnementen die zijn bijgewerkt naar de Azure VM Backup-stack V2. Om te upgraden naar Azure VM Backup-stack V2, ziet deze [artikel](backup-upgrade-to-vm-backup-stack-v2.md). Deze functie is momenteel beschikbaar in Japan-Oost, Noord-Europa, Zuidoost-Azië, VS-Oost, West vs2, West-Europa en VS-Oost 2.
 
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Een virtuele machine met Write Accelerator (WA) schijven, en SAP HANA zijn geïnstalleerd. Hoe maak ik een back-up?

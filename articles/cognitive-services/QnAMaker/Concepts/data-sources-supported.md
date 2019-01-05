@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994127"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038497"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -149,6 +149,23 @@ Als u geen bestaande inhoud voor het vullen van de knowledge base, kunt u vragen
 ## <a name="formatting-considerations"></a>Overwegingen voor opmaak
 
 Na het importeren van een bestand of een URL, wordt deze omgezet in Markdown en opgeslagen in deze indeling. Als tijdens de conversie niet correct koppelingen in uw bestanden en de URL's converteert is, moet u de vragen en antwoorden bewerken op de **bewerken** pagina. 
+
+|Indeling|Doel|
+|--|--|
+|`\n\n`| Nieuwe regel|
+|`\n*`|Opsommingsteken voor een geordende lijst|
+
+## <a name="editing-your-knowledge-base-locally"></a>Uw knowledge base lokaal bewerken
+
+Zodra een kennisdatabase is gemaakt, is het raadzaam dat u wijzigingen aanbrengt in de knowledge base-tekst in de [QnA Maker portal](https://qnamaker.ai), in plaats van exporteren en importeren door middel van lokale bestanden. Echter, kunnen er tijden dat u wilt een kennisdatabase lokaal bewerken. 
+
+Exporteren van de knowledge base van de **instellingen** pagina en vervolgens op de knowledge base met Microsoft Excel bewerken. Als u kiest voor het gebruik van een andere toepassing om uw geëxporteerde TSV-bestand te bewerken, de toepassing kan leiden tot fouten in de syntaxis omdat deze niet volledig compatibel TSV. Van Microsoft Excel TSV-bestanden in het algemeen introduceren geen opmaak fouten. 
+
+Wanneer u klaar bent met uw bewerkingen, importeer de TSV-bestand van de **instellingen** pagina. Hiermee wordt de huidige knowledge base volledig vervangen door de geïmporteerde knowledge base. 
+
+## <a name="testing-your-markdown"></a>Testen van uw Markdown
+
+Gebruik de **[CommonMark](https://commonmark.org/help/tutorial/index.html)** zelfstudie voor het valideren van uw Markdown. De zelfstudie is een **uitproberen** functie voor snelle kopiëren/plakken validatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

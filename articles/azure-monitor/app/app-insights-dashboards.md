@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021880"
+ms.locfileid: "54052476"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigatie en Dashboards in de Application Insights-portal
 Nadat u hebt [Application Insights instellen voor uw project](../../application-insights/app-insights-overview.md), telemetrische gegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource van uw project in de [Azure-portal](https://portal.azure.com).
@@ -129,12 +129,12 @@ De overzichtsblade is de gateway naar meer informatie over uw app.
 ONDERZOEKEN
 
 * [**Overzicht van de toepassing** ](app-map.md) -actieve toewijzing van de onderdelen van uw toepassing, die is afgeleid van afhankelijkheidsinformatie.
-* [**Slimme detectie** ](../../application-insights/app-insights-proactive-diagnostics.md) -recente waarschuwingen bekijken.
+* [**Slimme detectie** ](../../azure-monitor/app/proactive-diagnostics.md) -recente waarschuwingen bekijken.
 * [**Live Stream** ](../../azure-monitor/app/live-stream.md) : een vaste set van vrijwel directe metrische gegevens, handig bij het implementeren van een nieuwe build of foutopsporing.
 * [**Beschikbaarheid / Webtests** ](../../azure-monitor/app/monitor-web-app-availability.md) -reguliere aanvragen verzenden naar uw web-app uit om de world.*
-* [**Fouten, prestaties** ](../../application-insights/app-insights-web-monitor-performance.md) -uitzonderingen, foutpercentages en reactietijden voor aanvragen voor uw app en voor verzoeken van uw app naar [afhankelijkheden](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Prestaties** ](../../application-insights/app-insights-web-monitor-performance.md) -reactietijd, de reactietijden van afhankelijkheden.
-* [Servers](../../application-insights/app-insights-web-monitor-performance.md) -prestatiemeteritems. Beschikbaar als u [Installeer Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Fouten, prestaties** ](../../azure-monitor/app/web-monitor-performance.md) -uitzonderingen, foutpercentages en reactietijden voor aanvragen voor uw app en voor verzoeken van uw app naar [afhankelijkheden](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Prestaties** ](../../azure-monitor/app/web-monitor-performance.md) -reactietijd, de reactietijden van afhankelijkheden.
+* [Servers](../../azure-monitor/app/web-monitor-performance.md) -prestatiemeteritems. Beschikbaar als u [Installeer Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Browser** -weergave en prestaties van AJAX-pagina. Beschikbaar als u [instrumenteer uw webpagina's](../../azure-monitor/app/javascript.md).
 * **Gebruik** -pagina weergeven, gebruikers,- en sessieaantallen. Beschikbaar als u [instrumenteer uw webpagina's](../../azure-monitor/app/javascript.md).
 

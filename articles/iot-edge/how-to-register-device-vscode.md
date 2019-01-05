@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6d1abedf7186aaef4a13c7c958609c9de50299b8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2b851e7f2ebdbff08fa09002765fbd7d7927deba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968839"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051166"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registreer een nieuwe Azure IoT Edge-apparaat vanuit Visual Studio Code
 
@@ -26,7 +26,7 @@ In dit artikel bevat informatie over het registreren van een nieuwe IoT Edge-app
 
 * Een [IoT-hub](../iot-hub/iot-hub-create-through-portal.md) in uw Azure-abonnement
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) voor Visual Studio Code
+* [Hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) voor Visual Studio Code
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Meld u aan voor toegang tot uw IoT-hub
 

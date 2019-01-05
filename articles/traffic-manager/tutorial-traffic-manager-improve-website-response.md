@@ -1,13 +1,10 @@
 ---
-title: Zelfstudie - verkeer routeren voor het verbeteren van de website-antwoord met behulp van Azure Traffic Manager | Microsoft Docs
+title: Zelfstudie - verkeer routeren voor het verbeteren van de website-antwoord met behulp van Azure Traffic Manager
 description: Deze zelfstudie artikel wordt beschreven hoe u een Traffic Manager-profiel voor het bouwen van een zeer responsieve website te maken.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
-editor: ''
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -15,33 +12,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: fcbacb14ae1cf0d8fa31d84e281c96fab5e3b0d3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392502"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052084"
 ---
-# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Zelfstudie: Verbeteren met Traffic Manager website-antwoord 
+# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Zelfstudie: Website-antwoord met Traffic Manager te verbeteren 
 
 In deze zelfstudie wordt beschreven hoe u Traffic Manager gebruiken om te maken van een zeer responsieve website door te leiden van gebruikersverkeer naar de website met de laagste latentie. Het datacenter met de laagste latentie is normaal gesproken degene die zich het dichtst in de geografische afstand.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maken van twee virtuele machines met een basic-website op IIS
-> * Test-twee virtuele machines om weer te geven van Traffic Manager in de actie maken
-> * Configureren van DNS-naam voor de virtuele machines waarop IIS wordt uitgevoerd
+> * Twee virtuele machines maken met daarop een eenvoudige website in IIS
+> * Twee virtuele machines voor tests maken om Traffic Manager in actie te zien
+> * DNS-naam configureren voor de VM’s met behulp van IIS
 > * Voor de prestaties verbeterd website een Traffic Manager-profiel maken
-> * VM-eindpunten toevoegen aan Traffic Manager-profiel
+> * VM-eindpunten toevoegen aan het Traffic Manager-profiel
 > * Traffic Manager in werking zien
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-Als u wilt de Traffic Manager in actie bekijken, wordt in deze zelfstudie moet u het volgende implementeert:
-- twee exemplaren van basic websites die worden uitgevoerd in verschillende regio's Azure - **VS-Oost** en **West-Europa**.
-- twee test-VM's voor het testen van het Traffic Manager - een virtuele machine in **VS-Oost** en de tweede virtuele machine in **West-Europa**. De test-VM's worden gebruikt om te laten zien hoe Traffic Manager gebruikersverkeer routeert naar de website die wordt uitgevoerd in dezelfde regio bevinden als het biedt de laagste latentie.
+U moet voor deze zelfstudie de volgende zaken implementeren om de Traffic Manager in actie te zien:
+- twee exemplaren van basiswebsites die worden uitgevoerd in verschillende Azure-regio’s: **US - oost** en **West-Europa**.
+- twee virtuele machines voor het testen van de Traffic Manager - Een VM in **VS-Oost** en de tweede VM in **Europa - west**. De test-VM's worden gebruikt om te laten zien hoe Traffic Manager gebruikersverkeer routeert naar de website die wordt uitgevoerd in dezelfde regio bevinden als het biedt de laagste latentie.
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
@@ -49,22 +46,22 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ### <a name="create-websites"></a>Websites maken
 
-In deze sectie maakt u twee website-instanties die de twee service-eindpunten voor Traffic Manager-profiel in twee Azure-regio's bieden. Het maken van de twee websites, bevat de volgende stappen uit:
-1. Maak twee VM's voor het uitvoeren van een basic-website, één in **VS-Oost**, en de andere in **West-Europa**.
-2. IIS-server installeren op elke virtuele machine en werk de standaardpagina van de website die wordt beschreven van de naam van de VM die een gebruiker is verbonden met wanneer de website te bezoeken.
+In dit gedeelte maakt u twee website-instanties die de twee service-eindpunten voor het Traffic Manager-profiel vormen in twee Azure-regio’s. Om de twee websites te maken, moeten de volgende stappen worden uitgevoerd:
+1. Maak twee virtuele machines om een eenvoudige website uit te voeren: een in **VS-Oost** en de andere in **Europa - west**.
+2. Installeer IIS-server op elke VM en werk de standaardpagina van de website bij die de naam beschrijft van de virtuele machine waarmee een gebruiker is verbonden als deze de website bezoekt.
 
 #### <a name="create-vms-for-running-websites"></a>Virtuele machines maken voor het uitvoeren van websites
-In deze sectie maakt u twee virtuele machines maken *myIISVMEastUS* en *myIISVMWEurope* in de **VS-Oost** en **West-Europa** Azure-regio's.
+In deze sectie maakt u twee VM’s *myIISVMEastUS* en *myIISVMWEurope* in de Azure-regio’s **US - oost** en **West-europa**.
 
-1. In de rechterbovenhoek linkerbovenhoek van de Azure portal, selecteer **een resource maken** > **Compute** > **virtuele machine met Windows Server 2016**.
+1. Selecteer **Een resource maken** > **Compute** > **Virtuele machine met Windows Server 2016** in de linkerbovenhoek van Azure Portal.
 2. Voer de volgende informatie voor **Basisinformatie** in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Maken**:
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myIISVMEastUS|
+    |Name|myIISVMEastUS|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resourcegroep| Selecteer **nieuw** en typ vervolgens *myResourceGroupTM1*.|
+    |Resourcegroep| Selecteer **Nieuw** en typ *myResourceGroupTM1*.|
     |Locatie| Selecteer **US - oost**.|
     |||
 4. Selecteer een VM-grootte onder **Kies een grootte**.
@@ -72,9 +69,9 @@ In deze sectie maakt u twee virtuele machines maken *myIISVMEastUS* en *myIISVMW
     
     |Instelling|Waarde|
     |---|---|
-    |Virtueel netwerk| Selecteer **virtueel netwerk**in **virtueel netwerk maken**, voor **naam**, voer *myVNet1*, voor het subnet, voer  *mySubnet*.|
-    |Netwerkbeveiligingsgroep|Selecteer **Basic**, en in **openbare binnenkomende poorten selecteren** vervolgkeuzelijst, selecteer **HTTP** en **RDP** |
-    |Diagnostische gegevens over opstarten|Selecteer **uitgeschakelde**.|
+    |Virtueel netwerk| Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet1* en voor het subnet  *mySubnet* in.|
+    |Netwerkbeveiligingsgroep|Selecteer **Basic** en selecteer in de vervolgkeuzelijst **Openbare binnenkomende poorten selecteren** de opties **HTTP** en **RDP** |
+    |Diagnostische gegevens over opstarten|Selecteer **Uitgeschakeld**.|
     |||
 6. Selecteer onder **Maken** in het **Overzicht** **Maken** om de implementatie van de VM te starten.
 
@@ -85,7 +82,7 @@ In deze sectie maakt u twee virtuele machines maken *myIISVMEastUS* en *myIISVMW
     |Resourcegroep | Selecteer **Nieuw** en typ *myResourceGroupTM2*|
     |Locatie|Europa -west|
     |VM-naam | myIISVMWEurope|
-    |Virtueel netwerk | Selecteer **virtueel netwerk**in **virtueel netwerk maken**, voor **naam**, voer *myVNet2*, voor het subnet, voer  *mySubnet*.|
+    |Virtueel netwerk | Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet2* en voor het subnet  *mySubnet* in.|
     |||
 8. Het maken van de VM's duurt enkele minuten. Ga niet verder met de overige stappen voordat beide VM's zijn gemaakt.
 
@@ -93,10 +90,10 @@ In deze sectie maakt u twee virtuele machines maken *myIISVMEastUS* en *myIISVMW
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>IIS installeren en de standaardwebpagina aanpassen
 
-In deze sectie maakt u de IIS-server installeren op de twee virtuele machines - *myIISVMEastUS*  & *myIISVMWEurope*, en werk vervolgens de standaardpagina van de website. De aangepaste website wordt de naam van de virtuele machine waarmee u verbinding maakt wanneer u de website via een webbrowser bezoekt.
+In dit gedeelte installeert u de IIS-server op de twee virtuele machines - *myIISVMEastUS*  & *myIISVMWEurope* en werkt u daarna de standaardpagina van de website bij. De aangepaste websitepagina geeft de naam weer van de virtuele machine waarmee u verbinding maakt als u de website in een webbrowser bezoekt.
 
-1. Selecteer **alle resources** in het menu links en klik vervolgens in de lijst met resources op *myIISVMEastUS* die bevindt zich in de *myResourceGroupTM1* resourcegroep.
-2. Op de **overzicht** pagina, klikt u op **Connect**, en klik vervolgens in **verbinding maken met virtuele machine**, selecteer **downloaden RDP-bestand**. 
+1. Selecteer in het linkermenu **Alle resources** en klik in de lijst met resources op *myIISVMEastUS*, die zich in de resourcegroep *myresourceGroupTM1* bevindt.
+2. Klik op de pagina **Overzicht** op **Verbinding maken** en selecteer vervolgens in **Verbinding maken met virtuele machine** de optie **RDP-bestand downloaden**. 
 3. Open het gedownloade RDP-bestand. Selecteer **Verbinding maken** wanneer hierom wordt gevraagd. Voer de gebruikersnaam en het wachtwoord in die u hebt opgegeven bij het maken van de virtuele machine. Mogelijk moet u **Meer opties** en vervolgens **Een ander account gebruiken** selecteren om de aanmeldingsgegevens op te geven die u hebt ingevoerd tijdens het maken van de VM. 
 4. Selecteer **OK**.
 5. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Als u de waarschuwing ontvangt, selecteert u **Ja** of **Doorgaan** om door te gaan met de verbinding.
@@ -113,29 +110,29 @@ In deze sectie maakt u de IIS-server installeren op de twee virtuele machines - 
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 
-     ![IIS installeren en aanpassen van webpagina](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
+     ![IIS installeren en de webpagina aanpassen](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 8. Sluit de RDP-verbinding met *myIISVMEastUS*.
-9. Herhaal stap 1-8 met door het maken van een RDP-verbinding met de virtuele machine *myIISVMWEurope* binnen de *myResourceGroupTM2* resourcegroep IIS installeren en aanpassen van de standaard-webpagina.
+9. Herhaal stap 1 tot en met 8 door een RDP-verbinding te maken met de VM *myIISVMWEurope* in de resourcegroep *myResourceGroupTM2*, zodat u IIS kunt installeren en de standaardwebpagina kunt aanpassen.
 
-#### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configureren van DNS-namen voor de virtuele machines waarop IIS wordt uitgevoerd
+#### <a name="configure-dns-names-for-the-vms-running-iis"></a>DNS-namen voor virtuele machines configureren met behulp van IIS
 
-Traffic Manager routes gebruikersverkeer op basis van DNS-naam van de service-eindpunten. In deze sectie configureert u de DNS-namen voor de IIS-servers - *myIISVMEastUS* en *myIISVMWEurope*.
+Traffic Manager routeert gebruikersverkeer op basis van de DNS-naam van de service-eindpunten. In deze sectie configureert u de DNS-namen voor de IIS-servers - *myIISVMEastUS* en *myIISVMWEurope*.
 
-1. Klik op **alle resources** selecteren in het menu links en klik in de lijst met resources *myIISVMEastUS* die bevindt zich in de *myResourceGroupTM1* resourcegroep.
-2. Op de **overzicht** pagina onder **DNS-naam**, selecteer **configureren**.
-3. Op de **configuratie** pagina, onder het label van DNS-naam, Voeg een unieke naam en selecteer vervolgens **opslaan**.
-4. Herhaal stap 1-3 voor de virtuele machine met de naam *myIISVMWEurope* die bevindt zich in de *myResourceGroupTM1* resourcegroep.
+1. Klik in het linkermenu op **Alle resources** en selecteer *myIISVMEastUS* in de lijst met resources, die zich in de resourcegroep *myresourceGroupTM1* bevindt.
+2. Selecteer op de pagina **Overzicht** onder **DNS-naam** de optie **Configureren**.
+3. Voeg op de pagina **Configuratie** onder het label DNS-naam een unieke naam toe en selecteer vervolgens **Opslaan**.
+4. Herhaal stap 1 tot en met 3 voor de VM met de naam *myIISVMWEurope* die zich in de resourcegroep *myResourceGroupTM1* bevindt.
 
-### <a name="create-test-vms"></a>Maken van test-VM's
+### <a name="create-test-vms"></a>Test-VM’s maken
 
-In deze sectie maakt u een virtuele machine maken (*mVMEastUS* en *myVMWestEurope*) in elke Azure-regio (**VS-Oost** en **West-Europa**. U gebruikt deze VM's om te testen hoe Traffic Manager verkeer routeert naar de dichtstbijzijnde IIS-server wanneer u naar de website bladert.
+In deze sectie maakt u een virtuele machine maken (*mVMEastUS* en *myVMWestEurope*) in elke Azure-regio (**VS-Oost** en **West-Europa**. U zult deze virtuele machines gebruiken om te testen hoe Traffic Manager verkeer naar de dichtstbijzijnde IIS-server routeert als u de website bezoekt.
 
-1. In de rechterbovenhoek linkerbovenhoek van de Azure portal, selecteer **een resource maken** > **Compute** > **virtuele machine met Windows Server 2016**.
+1. Selecteer **Een resource maken** > **Compute** > **Virtuele machine met Windows Server 2016** in de linkerbovenhoek van Azure Portal.
 2. Voer de volgende informatie voor **Basisinformatie** in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Maken**:
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVMEastUS|
+    |Name|myVMEastUS|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resourcegroep| Selecteer **Bestaande** en selecteer vervolgens *myResourceGroupTM1*.|
@@ -145,19 +142,19 @@ In deze sectie maakt u een virtuele machine maken (*mVMEastUS* en *myVMWestEurop
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer **OK**:
     |Instelling|Waarde|
     |---|---|
-    |Virtueel netwerk| Selecteer **virtueel netwerk**in **virtueel netwerk maken**, voor **naam**, voer *myVNet3*, voor het subnet, voer  *mySubnet*.|
-    |Netwerkbeveiligingsgroep|Selecteer **Basic**, en in **openbare binnenkomende poorten selecteren** vervolgkeuzelijst, selecteer **HTTP** en **RDP** |
-    |Diagnostische gegevens over opstarten|Selecteer **uitgeschakelde**.|
+    |Virtueel netwerk| Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet3* en voor het subnet *mySubnet* in.|
+    |Netwerkbeveiligingsgroep|Selecteer **Basic** en selecteer in de vervolgkeuzelijst **Openbare binnenkomende poorten selecteren** de opties **HTTP** en **RDP** |
+    |Diagnostische gegevens over opstarten|Selecteer **Uitgeschakeld**.|
     |||
 
 6. Selecteer onder **Maken** in het **Overzicht** **Maken** om de implementatie van de VM te starten.
 
-7. Volg de stappen 1-5 nogmaals, met de volgende wijzigingen:
+7. Volg de stappen 1-5 nogmaals, maar dan met de volgende wijzigingen:
 
     |Instelling|Waarde|
     |---|---|
     |VM-naam | *myVMWEurope*|
-    |Resourcegroep | Selecteer **bestaande**, en typ vervolgens *myResourceGroupTM2*|
+    |Resourcegroep | Selecteer **Bestaande** en typ vervolgens *myResourceGroupTM2*|
     |Virtueel netwerk | Selecteer **virtueel netwerk**in **virtueel netwerk maken**, voor **naam**, voer *myVNet4*, voor het subnet, voer  *mySubnet*.|
     |||
 
@@ -170,7 +167,7 @@ Maak een Traffic Manager-profiel met gebruikersverkeer verwezen door deze te ver
 2. Voer in  **Traffic Manager-profiel maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
-    | Naam                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en de resultaten in de DNS-naam, trafficmanager.net, die wordt gebruikt voor toegang tot uw Traffic Manager-profiel.                                   |
+    | Name                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en resulteert in de DNS-naam, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.                                   |
     | Routeringsmethode          | Selecteer de **prestaties** routeringsmethode.                                       |
     | Abonnement            | Selecteer uw abonnement.                          |
     | Resourcegroep          | Selecteer **nieuw** en voer *myResourceGroupTM1*. |
@@ -190,9 +187,9 @@ Toevoegen van de twee virtuele machines met de IIS-servers - *myIISVMEastUS*  & 
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
     | Type                    | Azure-eindpunt                                   |
-    | Naam           | myEastUSEndpoint                                        |
+    | Name           | myEastUSEndpoint                                        |
     | Doelbrontype           | Openbaar IP-adres                          |
-    | Doelbron          | **Kies een openbaar IP-adres** om de lijst met resources met openbare IP-adressen onder hetzelfde abonnement weer te geven. In **Resource**, selecteert u het openbare IP-adres met de naam *myIISVMEastUS-IP-*. Dit is het openbare IP-adres van de IIS-server-VM in VS-Oost.|
+    | Doelbron          | **Kies een openbaar IP-adres** om het overzicht van resources met openbare IP-adressen onder hetzelfde abonnement weer te geven. Selecteer in **Resource** het openbare IP-adres met de naam *myIISVMEastUS-ip*. Dit is het openbare IP-adres van de IIS-server VM in VS-Oost.|
     |        |           |
 
 4. Herhaal stappen 2 en 3 om toe te voegen een ander eindpunt met de naam *myWestEuropeEndpoint* voor het openbare IP-adres *myIISVMWEurope-IP-* dat is gekoppeld aan de virtuele machine met de naam van de IIS-server *myIISVMWEurope* .
@@ -202,32 +199,32 @@ Toevoegen van de twee virtuele machines met de IIS-servers - *myIISVMEastUS*  & 
   
 
 ## <a name="test-traffic-manager-profile"></a>Traffic Manager-profiel testen
-In deze sectie maakt testen u hoe Traffic Manager gebruikersverkeer routeert naar de dichtstbijzijnde virtuele machines met de website voor minimale latentie. Als u wilt de Traffic Manager in actie weergeven, voert u de volgende stappen uit:
+In deze sectie maakt testen u hoe Traffic Manager gebruikersverkeer routeert naar de dichtstbijzijnde virtuele machines met de website voor minimale latentie. Voer de volgende stappen uit om de Traffic Manager in actie te zien:
 1. Bepaal de DNS-naam van uw Traffic Manager-profiel.
-2. Traffic Manager als volgt in actie weergeven:
+2. Zie Traffic Manager als volgt in werking:
     - Van de virtuele testmachine (*myVMEastUS*) dat zich bevindt in de **VS-Oost** regio, in een webbrowser, blader naar de DNS-naam van uw Traffic Manager-profiel.
     - Van de virtuele testmachine (*myVMEastUS*) dat zich bevindt in de **West-Europa** regio, in een webbrowser, blader naar de DNS-naam van uw Traffic Manager-profiel.
 
-### <a name="determine-dns-name-of-traffic-manager-profile"></a>Bepalen van de DNS-naam van Traffic Manager-profiel
-In deze zelfstudie kunt voor het gemak u de DNS-naam van het Traffic Manager-profiel gaat u naar de websites. 
+### <a name="determine-dns-name-of-traffic-manager-profile"></a>De DNS-naam van het Traffic Manager-profiel vaststellen
+In deze zelfstudie maakt u voor het gemak gebruik van de DNS-naam van het Traffic Manager-profiel om de websites te bezoeken. 
 
-U kunt de DNS-naam van het Traffic Manager-profiel als volgt bepalen:
+U kunt de DNS-naam van het Traffic Manager-profiel als volgt vaststellen:
 
 1.  Zoek in de zoekbalk van de portal de naam van het **Traffic Manager-profiel** dat u in de vorige sectie hebt gemaakt. Klik op het Traffic Manager-profiel in de resultaten die worden weergegeven.
 1. Klik op **Overzicht**.
-2. Het **Traffic Manager-profiel** geeft de DNS-naam weer van het Traffic Manager-profiel dat u zojuist hebt gemaakt. In productie-implementaties configureert u een aangepaste domeinnaam om te verwijzen naar de Traffic Manager-domeinnaam, met behulp van een DNS CNAME-record.
+2. Het **Traffic Manager-profiel** geeft de DNS-naam weer van het Traffic Manager-profiel dat u zojuist hebt gemaakt. In productie-implementaties configureert u een aangepaste domeinnaam om met behulp van een DNS CNAME-record naar de Traffic Manager-domeinnaam te verwijzen.
 
    ![DNS-naam van Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Traffic Manager in werking zien
-In deze sectie ziet u het Traffic Manager is de actie. 
+In dit gedeelte kunt u Traffic Manager in werking zien. 
 
-1. Selecteer **alle resources** in het menu links en klik vervolgens in de lijst met resources op *myVMEastUS* die bevindt zich in de *myResourceGroupTM1* resourcegroep.
-2. Op de **overzicht** pagina, klikt u op **Connect**, en klik vervolgens in **verbinding maken met virtuele machine**, selecteer **downloaden RDP-bestand**. 
+1. Selecteer in het linkermenu **Alle resources** en klik in de lijst met resources op *myVMEastUS*, die zich in de resourcegroep *myresourceGroupTM1* bevindt.
+2. Klik op de pagina **Overzicht** op **Verbinding maken** en selecteer vervolgens in **Verbinding maken met virtuele machine** de optie **RDP-bestand downloaden**. 
 3. Open het gedownloade RDP-bestand. Selecteer **Verbinding maken** wanneer hierom wordt gevraagd. Voer de gebruikersnaam en het wachtwoord in die u hebt opgegeven bij het maken van de virtuele machine. Mogelijk moet u **Meer opties** en vervolgens **Een ander account gebruiken** selecteren om de aanmeldingsgegevens op te geven die u hebt ingevoerd tijdens het maken van de VM. 
 4. Selecteer **OK**.
 5. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Als u de waarschuwing ontvangt, selecteert u **Ja** of **Doorgaan** om door te gaan met de verbinding. 
-1. In een webbrowser op de virtuele machine *myVMEastUS*, typt u de DNS-naam van uw Traffic Manager-profiel om uw website weer te geven. Omdat de virtuele machine zich in **VS-Oost**, u worden doorgestuurd naar de dichtstbijzijnde website die wordt gehost op de dichtstbijzijnde IIS-server *myIISVMEastUS* die bevindt zich in **VS-Oost**.
+1. Typ in een webbrowser op de VM *myVMEastUS* de DNS-naam van uw Traffic Manager-profiel om uw website weer te geven. Omdat de virtuele machine zich in **VS-Oost**, u worden doorgestuurd naar de dichtstbijzijnde website die wordt gehost op de dichtstbijzijnde IIS-server *myIISVMEastUS* die bevindt zich in **VS-Oost**.
 
    ![Traffic Manager-profiel testen](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
@@ -235,8 +232,8 @@ In deze sectie ziet u het Traffic Manager is de actie.
 
    ![Traffic Manager-profiel testen](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
    
-## <a name="delete-the-traffic-manager-profile"></a>Traffic Manager-profiel verwijderen
-Wanneer u niet meer nodig hebt, verwijdert u de resourcegroepen (**ResourceGroupTM1** en **ResourceGroupTM2**). Om dit te doen, selecteert u de resourcegroep (**ResourceGroupTM1** of **ResourceGroupTM2**), en selecteer vervolgens **verwijderen**.
+## <a name="delete-the-traffic-manager-profile"></a>Het Traffic Manager-profiel verwijderen
+Verwijder de resourcegroepen (**ResourceGroupTM1** en **ResourceGroupTM2**) als deze niet meer nodig zijn. Selecteer daarvoor de resourcegroep (**ResourceGroupTM1** of **ResourceGroupTM2**) en selecteer vervolgens **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

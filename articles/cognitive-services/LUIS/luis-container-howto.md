@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970267"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055044"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -66,7 +66,7 @@ Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandlin
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-Voor een volledige beschrijving van de beschikbare labels, zoals `latest` in de voorgaande opdracht gebruikt, Zie [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/) op Docker Hub.
+Voor een volledige beschrijving van de beschikbare labels, zoals `latest` in de voorgaande opdracht gebruikt, Zie [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) op Docker Hub.
 
 > [!TIP]
 > U kunt de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht om een lijst van uw gedownloade containerinstallatiekopieën. De volgende opdracht worden bijvoorbeeld de ID, de opslagplaats en het label van elke gedownloade containerinstallatiekopie, opgemaakt als een tabel:

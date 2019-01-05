@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: adddbc03b5ec61944e95a2e0fff8767c41d96b0e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834635"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033754"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indexeren in Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Een pseudo-hoofdknooppunt wordt gemaakt als de werkelijke knooppunten die overee
 
 Azure Cosmos DB-projecten items als JSON-documenten en index als structuren. Vervolgens kunt u aan het beleid voor paden in de structuur afstemmen. U kunt opnemen in of paden uitsluiten van het indexeren. Dit kan bieden verbeterde schrijfprestaties en verlaag de indexopslag voor scenario's waarbij de querypatronen vooruit bekend. Zie voor meer informatie, [Index paden](index-paths.md).
 
-## <a name="indexing-under-the-hood"></a>Indexering: achter de schermen
+## <a name="indexing-under-the-hood"></a>Indexering: Achter de schermen
 
 Azure Cosmos-database is van toepassing automatische indexering tot de gegevens, waarbij elk pad in een boomstructuur worden geïndexeerd, tenzij u configureert om bepaalde paden uitsluiten.
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 71f024c81983fcb9c3e99bdf633a5bde306452b8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873237"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051234"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastische Database-clientbibliotheek met Entity Framework
 Dit document bevat de wijzigingen in een Entity Framework-toepassing die nodig zijn om te integreren met de [hulpmiddelen voor Elastic Database](sql-database-elastic-scale-introduction.md). De focus ligt op het samenstellen van [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) met het Entity Framework **Code First** benadering. De [Code-: nieuwe Database](https://msdn.microsoft.com/data/jj193542.aspx) zelfstudie voor EF fungeert als de actieve voorbeeld in dit document. De voorbeeldcode bij dit document is onderdeel van de hulpmiddelen voor elastic database stellen van de voorbeelden in de Visual Studio-codevoorbeelden.
@@ -42,10 +42,10 @@ Als u deze databases hebt gemaakt, vult u de tijdelijke aanduidingen in **Progra
 ## <a name="entity-framework-workflows"></a>Entity Framework-werkstromen
 Entity Framework ontwikkelaars afhankelijk zijn van een van de volgende vier werkstromen om toepassingen te bouwen en om ervoor te zorgen persistentie van de objecten voor toepassingen: 
 
-* **Code First (nieuwe Database)**: EF de ontwikkelaar heeft het model gemaakt in de toepassingscode en EF genereert vervolgens de database uit. 
-* **Code First (bestaande Database)**: de ontwikkelaar kunt EF de toepassingscode voor het model genereren vanuit een bestaande database.
-* **Eerste model**: de ontwikkelaar maakt het model in de ontwerpfunctie voor EF en EF maakt vervolgens de database uit het model.
-* **Eerste database**: EF hulpprogramma's voor het afleiden van het model van een bestaande database maakt gebruik van de ontwikkelaar. 
+* **Code First (nieuwe Database)**: De ontwikkelaar EF maakt het model in de toepassingscode en EF genereert vervolgens de database uit. 
+* **Code First (bestaande Database)**: De ontwikkelaar kunt EF de toepassingscode voor het model genereren vanuit een bestaande database.
+* **Eerste model**: De ontwikkelaar maakt het model in de ontwerpfunctie voor EF en EF maakt vervolgens de database uit het model.
+* **Eerste database**: De ontwikkelaar gebruikt EF hulpprogramma's voor het afleiden van het model van een bestaande database. 
 
 Alle deze methoden zijn afhankelijk van de DbContext-klasse voor het beheren van databaseverbindingen en database-schema voor een toepassing met transparant. Verschillende constructors op de basis DbContext-klasse kunnen verschillende niveaus van controle over verbinding maken, uitvoeren van de database bootstrap en schema's. Uitdagingen ontstaan voornamelijk uit het feit dat de database verbinding management via EF met de mogelijkheden voor verbinding van de gegevensafhankelijke routering interfaces opgegeven samen door de client-bibliotheek elastische database. 
 
@@ -59,9 +59,9 @@ De shard-Toewijzingsbeheer beveiligt gebruikers tegen inconsistent weergaven in 
 ## <a name="requirements"></a>Vereisten
 Als u werkt met de clientbibliotheek voor elastic database- en Entity Framework-API's, die u wilt behouden van de volgende eigenschappen: 
 
-* **Scale-out**: toevoegen of verwijderen van databases van de gegevenslaag van de shard-toepassing die nodig zijn voor de behoeften van de capaciteit van de toepassing. Dit betekent dat de controle over het maken en verwijderen van databases en het gebruik van de elastische database shard-Toewijzingsbeheer API's voor het beheren van databases en -toewijzingen van shardlets. 
-* **Consistentie**: de toepassing de veiligheidsmaatregelen voor sharding en maakt gebruik van de gegevensafhankelijke routering mogelijkheden van de clientbibliotheek. Om te voorkomen beschadigd of verkeerd queryresultaten, worden verbindingen geleverd door de shard-toewijzing. Dit houdt ook validatie en consistentie.
-* **Code First**: het gemak van de EF code eerste paradigma behouden. Klassen in de toepassing worden in Code First transparant toegewezen aan de onderliggende databasestructuren. De code van de toepassing communiceert met DbSets die de meeste aspecten die betrokken zijn bij het verwerken van de onderliggende database maskeren.
+* **Scale-out**: Toevoegen of verwijderen van databases van de gegevenslaag van de shard-toepassing die nodig zijn voor de behoeften van de capaciteit van de toepassing. Dit betekent dat de controle over het maken en verwijderen van databases en het gebruik van de elastische database shard-Toewijzingsbeheer API's voor het beheren van databases en -toewijzingen van shardlets. 
+* **Consistentie**: De toepassing de veiligheidsmaatregelen voor sharding en de gegevensafhankelijke routering mogelijkheden van de clientbibliotheek gebruikt. Om te voorkomen beschadigd of verkeerd queryresultaten, worden verbindingen geleverd door de shard-toewijzing. Dit houdt ook validatie en consistentie.
+* **Code First**: Het gemak van de EF code eerste paradigma behouden. Klassen in de toepassing worden in Code First transparant toegewezen aan de onderliggende databasestructuren. De code van de toepassing communiceert met DbSets die de meeste aspecten die betrokken zijn bij het verwerken van de onderliggende database maskeren.
 * **Schema**: Entity Framework verwerkt de initiële database-schema wordt gemaakt en de ontwikkeling van de volgende schema via migraties. Met behoud van deze mogelijkheden, is aanpassing van uw app eenvoudig als de gegevens zich verder ontwikkelt. 
 
 De volgende richtlijnen geïnstrueerd hoe om te voldoen aan deze vereisten voor Code First-toepassingen met hulpmiddelen voor elastic database. 
@@ -189,7 +189,7 @@ De bovenstaande codevoorbeelden ziet u de standaard-constructor herschrijft vere
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Shard-schema-implementatie via EF-migraties
 Automatische Schemabeheer is voor uw gemak geleverd door de Entity Framework. In de context van toepassingen die gebruikmaken van hulpprogramma's voor elastische databases, die u wilt bewaren deze mogelijkheid voor het automatisch inrichten van het schema naar de zojuist gemaakte shards wanneer databases worden toegevoegd aan de shard-toepassing. De primaire use-case is om de capaciteit in de gegevenslaag voor shard-toepassingen met EF te vergroten. Afhankelijk van de EF-mogelijkheden voor schemabeheer, vermindert u de database-beheer zonder veel moeite met een shard-toepassing die is gebouwd op EF. 
 
-Schema-implementatie via EF-migraties werkt het beste op **nog niet gelezen verbindingen**. Dit is in tegenstelling tot het scenario voor het gegevensafhankelijke routering die is gebaseerd op de geopende verbinding geleverd door de databaseclient-API van elastic. Een ander verschil is de vereiste consistentie: tijdens het wenselijk om ervoor te zorgen consistent voor alle gegevensafhankelijke routering verbindingen om te beveiligen tegen gelijktijdige shard-kaart manipuleren, het is niet een probleem met de initiële distributie van het schema aan een nieuwe database heeft nog niet zijn geregistreerd in de shard-toewijzing en nog niet is toegewezen aan shardlets bevatten. Daarom kunt u vertrouwen op reguliere databaseverbindingen voor dit scenario, in plaats van gegevensafhankelijke routering.  
+Schema-implementatie via EF-migraties werkt het beste op **nog niet gelezen verbindingen**. Dit is in tegenstelling tot het scenario voor het gegevensafhankelijke routering die is gebaseerd op de geopende verbinding geleverd door de databaseclient-API van elastic. Een ander verschil is de vereiste consistentie: Tijdens het wenselijk om ervoor te zorgen consistent voor alle gegevensafhankelijke routering verbindingen om te beveiligen tegen gelijktijdige shard-kaart manipuleren, is het niet een probleem met de eerste schema-implementatie naar een nieuwe database die nog niet zijn geregistreerd in de shard-toewijzing en nog niet toegewezen shardlets kan bevatten. Daarom kunt u vertrouwen op reguliere databaseverbindingen voor dit scenario, in plaats van gegevensafhankelijke routering.  
 
 Dit leidt tot een benadering waarbij schema-implementatie via EF-migraties is nauw gekoppeld aan de registratie van de nieuwe database als een shard in de shard-toewijzing van de toepassing. Dit is afhankelijk van de volgende vereisten: 
 
@@ -236,13 +236,13 @@ In dit voorbeeld toont de methode **RegisterNewShard** die de shard registreert 
         } 
 
         // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connnectionString) 
+        private static string SetInitializerForConnection(string connectionString) 
         { 
             // You want existence checks so that the schema can get deployed 
             Database.SetInitializer<ElasticScaleContext<T>>( 
         new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connnectionString; 
+            return connectionString; 
         } 
 
 Een mogelijk gebruikt de versie van de constructor overgenomen van de basisklasse. Maar de code nodig om ervoor te zorgen dat de standaard-initialisatiefunctie voor EF wordt gebruikt wanneer verbinding wordt gemaakt. De korte detour daarom in de statische methode voordat u aan de constructor basisklasse door de verbindingsreeks. Houd er rekening mee dat de registratie van shards moet worden uitgevoerd in een ander toepassingsdomein of om ervoor te zorgen dat de initialisatiefunctie-instellingen voor EF geen conflict veroorzaken. 

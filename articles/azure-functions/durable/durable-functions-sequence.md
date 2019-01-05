@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339583"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043954"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Werken in duurzame functies - Hallo reeks voorbeeld-koppeling
 
-Koppeling van de functie verwijst naar het patroon van het uitvoeren van een reeks functies in een bepaalde volgorde. De uitvoer van een functie moet vaak worden toegepast op de invoer van een andere functie. In dit artikel beschrijft de chaining reeks die u maakt wanneer u de Snelstartgids duurzame functies hebt voltooid ([ C# ](durable-functions-create-first-csharp.md) of [JavaScript](quickstart-js-vscode.md)). Zie voor meer informatie over duurzame functies [duurzame functies overzicht](durable-functions-overview.md).
+Koppeling van de functie verwijst naar het patroon van het uitvoeren van een reeks functies in een bepaalde volgorde. De uitvoer van een functie moet vaak worden toegepast op de invoer van een andere functie. In dit artikel beschrijft de chaining reeks die u maakt wanneer u de Snelstartgids duurzame functies hebt voltooid ([ C# ](durable-functions-create-first-csharp.md) of [JavaScript](quickstart-js-vscode.md)). Zie voor meer informatie over duurzame functies [duurzame functies patronen en technische concepten](durable-functions-concepts.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -142,7 +142,7 @@ Zoals u ziet de `runtimeStatus` van het exemplaar is *voltooid* en de `output` b
 > [!NOTE]
 > De HTTP POST-eindpunt dat aan de slag van de orchestrator-functie is geïmplementeerd in de voorbeeld-app als een HTTP-functie met de naam 'HttpStart' activeren. U kunt vergelijkbare starter logica voor andere triggers van het type, zoals implementeren `queueTrigger`, `eventHubTrigger`, of `timerTrigger`.
 
-Bekijk de logboeken van de uitvoering van de functie. De `E1_HelloSequence` functie aan de slag en meerdere keren voltooid vanwege de replay-gedrag dat wordt beschreven in de [overzicht](durable-functions-overview.md). Er zijn aan de andere kant, alleen voor de drie uitvoeringen van `E1_SayHello` omdat deze functie-uitvoeringen niet opnieuw doen ophalen afgespeeld.
+Bekijk de logboeken van de uitvoering van de functie. De `E1_HelloSequence` functie aan de slag en meerdere keren voltooid vanwege de replay-gedrag dat wordt beschreven in de [overzicht](durable-functions-concepts.md). Er zijn aan de andere kant, alleen voor de drie uitvoeringen van `E1_SayHello` omdat deze functie-uitvoeringen niet opnieuw doen ophalen afgespeeld.
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio-voorbeeldcode
 

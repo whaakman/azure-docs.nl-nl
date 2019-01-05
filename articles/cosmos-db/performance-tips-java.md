@@ -1,20 +1,18 @@
 ---
 title: Azure Cosmos DB tips voor betere prestaties voor Java
 description: Informatie over client-configuratieopties voor het verbeteren van de prestaties van de Azure Cosmos DB-database
-keywords: over het verbeteren van de prestaties van de database
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: afbeb8211baea6da363a5e0162e92a0588581346
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 62b561d35d4cacd27555163ce666e98c12d792d8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872982"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044124"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Tips voor betere prestaties voor Azure Cosmos DB en Java
 
@@ -31,7 +29,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 ## <a name="networking"></a>Netwerken
 <a id="direct-connection"></a>
 
-1. **Verbindingsmodus: gebruik DirectHttps**
+1. **Verbindingsmodus: Gebruik DirectHttps**
 
     Hoe een client verbinding maakt met Azure Cosmos DB heeft belangrijke gevolgen voor de prestaties, met name wat betreft waargenomen client-side-latentie. Er is een belangrijke configuratie-instelling beschikbaar voor het configureren van de client [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) : de [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  De twee beschikbare ConnectionModes zijn:
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3505d65b55807010904494079532fe5741e6df77
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601165"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055180"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor Australië beveiligd
 
@@ -201,7 +201,7 @@ De volgende Log Analytics [beheeroplossingen](https://docs.microsoft.com/azure/l
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt gebruikers bij het bijhouden van prestaties, beveiliging en trends te identificeren doordat organisaties om te controleren, waarschuwingen maken en archiveren van gegevens, inclusief bijhouden API-aanroepen in hun Azure-resources.
 
-Azure Network Watcher: [Azure Network Watcher] 9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) voorziet in hulpprogramma's als u wilt bewaken, diagnosticeren, bekijk metrische gegevens, en in- of uitschakelen Logboeken voor resources in een Azure-netwerk.  Noordelijke entiteiten moeten Network Watcher-stroomlogboeken voor nsg's en virtuele Machines implementeren. Deze logboeken moeten worden opgeslagen in een speciale storage-account dat alleen beveiligingslogboeken worden opgeslagen in en toegang tot het opslagaccount dat moet worden beveiligd met rollen gebaseerd toegangsbeheer.
+Azure Network Watcher: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) voorziet in hulpprogramma's als u wilt bewaken, diagnosticeren, bekijk metrische gegevens, en in- of uitschakelen Logboeken voor resources in een Azure-netwerk.  Noordelijke entiteiten moeten Network Watcher-stroomlogboeken voor nsg's en virtuele Machines implementeren. Deze logboeken moeten worden opgeslagen in een speciale storage-account dat alleen beveiligingslogboeken worden opgeslagen in en toegang tot het opslagaccount dat moet worden beveiligd met rollen gebaseerd toegangsbeheer.
 
 ## <a name="threat-model"></a>Risicomodel
 

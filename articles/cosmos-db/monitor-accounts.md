@@ -1,19 +1,18 @@
 ---
 title: Controleer metrische gegevens voor prestaties en opslag in Azure Cosmos DB
 description: Informatie over het bewaken van uw Azure Cosmos DB-account voor metrische gegevens voor prestaties, zoals aanvragen en serverfouten, en metrische gegevens over gebruik, zoals het gebruik van opslag.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c307bbbef7b9eecc980dc6013c317f1ee231a0c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135879"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034298"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Controleer metrische gegevens voor prestaties en opslag in Azure Cosmos DB
 

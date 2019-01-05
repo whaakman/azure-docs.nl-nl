@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336523"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037273"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Overzicht van de functietypen en -functies voor duurzame functies (Azure Functions)
 
@@ -37,7 +37,7 @@ Meer informatie over en voorbeelden vindt u de [duurzame functies binding artike
 
 ### <a name="orchestrator-functions"></a>Orchestrator-functies
 
-Orchestrator-functies zijn de kern van een duurzame functie.  Orchestrator-functies worden beschreven de manier en de volgorde die acties worden uitgevoerd.  Orchestrator-functies beschrijven de indelen in code (C# of JavaScript), zoals wordt weergegeven in de [duurzame functies overzicht](durable-functions-overview.md).  Een indeling kunt hebben verschillende soorten acties, zoals [activiteitsfuncties](#activity-functions), [onderliggende indelingen](#sub-orchestrations), [wachten op externe gebeurtenissen](#external-events), en [ timers](#durable-timers).  
+Orchestrator-functies zijn de kern van een duurzame functie.  Orchestrator-functies worden beschreven de manier en de volgorde die acties worden uitgevoerd.  Orchestrator-functies beschrijven de indelen in code (C# of JavaScript) zoals weergegeven in de [duurzame functies patronen en technische concepten](durable-functions-concepts.md).  Een indeling kunt hebben verschillende soorten acties, zoals [activiteitsfuncties](#activity-functions), [onderliggende indelingen](#sub-orchestrations), [wachten op externe gebeurtenissen](#external-events), en [ timers](#durable-timers).  
 
 Een orchestrator-functie moet worden geactiveerd door een [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 

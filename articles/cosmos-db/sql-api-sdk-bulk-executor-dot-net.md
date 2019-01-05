@@ -3,17 +3,17 @@ title: 'Azure Cosmos DB: Bulksgewijs Executor .NET API, SDK en resources'
 description: Meer informatie over het bulksgewijs Executor .NET API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB bulksgewijs Executor .NET SDK.
 author: tknandu
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 8be453ae479e88d441a240ce472f3314b3f4de31
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8675c5ff90f7be2dc0b3ac80eb593adb613ba860
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809740"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039755"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulksgewijs Executor-bibliotheek: Informatie downloaden 
 

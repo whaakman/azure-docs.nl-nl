@@ -1,19 +1,17 @@
 ---
 title: Beveiliging - Azure Cosmos DB-database
 description: Meer informatie over hoe Azure Cosmos DB biedt beveiliging en gegevens Databasebeveiliging voor uw gegevens.
-keywords: nosql-database security, informatiebeveiliging, gegevensbeveiliging, versleuteling van de database, databasebeveiliging, beveiligingsbeleid, beveiligingstesten
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5fcf04c57f957b670d813de8ffe2d945f70cb3c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093417"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038769"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB-database-beveiliging
 
@@ -78,11 +76,11 @@ Laten we even stilstaan bij elkaar in detail.
 |Versleuteling 'at rest'|Alle gegevens die zijn opgeslagen in Azure Cosmos DB is versleuteld in rust. Meer informatie in [Azure Cosmos DB versleuteling-at-rest](./database-encryption-at-rest.md)|
 |Gecorrigeerde servers|Als een beheerde database hoeft Azure Cosmos DB te beheren en vullen van de servers, die automatisch voor u heeft gedaan.|
 |Beheerdersaccounts met sterke wachtwoorden|Het is moeilijk te geloven moeten we ook nog deze vereiste, maar in tegenstelling tot sommige van onze concurrenten, is het niet mogelijk om een Administrator-account zonder een wachtwoord in Azure Cosmos DB.<br><br> Beveiliging via SSL en HMAC geheime gebaseerde verificatie is standaard sparen.|
-|Beveiliging en bescherming-certificeringen|Voor de meeste tot aan de gegevenslijst met van certificeringen, Zie de algemene [naleving van Azure site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) en de meest recente [Azure conformiteitsdocument](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) met alle certificeringen (zoek Cosmos). Voor een meer gerichte leest u uitchecken van het bericht 25 April 2018 [Azure #CosmosDB: veilige, particuliere en compatibele](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) waaronder Soc's 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High en nog veel meer.
+|Beveiliging en bescherming-certificeringen|Voor de meeste tot aan de gegevenslijst met van certificeringen, Zie de algemene [naleving van Azure site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) en de meest recente [Azure conformiteitsdocument](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) met alle certificeringen (zoek Cosmos). Voor een meer gerichte leest u uitchecken van het bericht 25 April 2018 [Azure #CosmosDB: Veilige, particuliere en compatibele](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) waaronder Soc's 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High en nog veel meer.
 
-De volgende schermafbeelding ziet u Active directory-integratie (RBAC) met behulp van toegangsbeheer (IAM) in Azure portal: ![toegangsbeheer (IAM) in Azure portal - beveiliging van de database aan te tonen](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
+De volgende schermafbeelding ziet u Active directory-integratie (RBAC) met behulp van toegangsbeheer (IAM) in Azure portal: ![Toegangsbeheer (IAM) in Azure portal - beveiliging van de database aan te tonen](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 
-De volgende schermafbeelding ziet u hoe u logboekregistratie en activiteit van controlelogboeken voor het bewaken van uw account kunt gebruiken: ![activiteitenlogboeken voor Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+De volgende schermafbeelding ziet u hoe u logboekregistratie en activiteit van controlelogboeken voor het bewaken van uw account kunt gebruiken: ![Activiteitenlogboeken voor Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

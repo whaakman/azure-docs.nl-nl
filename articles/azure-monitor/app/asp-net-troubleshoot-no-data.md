@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2695f4e2dcd2441b0a8845bd194d4e393e1d7ca
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 18416f4208a77c27290b7e524b207fc681f06fdb
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020469"
+ms.locfileid: "54050809"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -39,7 +39,7 @@ ms.locfileid: "54020469"
 ## <a name="q01"></a>Geen optie 'Application Insights toevoegen' in Visual Studio
 *Wanneer ik met de rechtermuisknop op een bestaand project in Solution Explorer, weergegeven niet alle opties voor Application Insights.*
 
-* Niet alle typen .NET-project worden ondersteund door de hulpprogramma's. Web- en WCF-projecten worden ondersteund. Voor andere projecttypen zoals toepassingen voor desktop- of service, kunt u nog steeds [een Application Insights SDK handmatig toevoegen aan uw project](../../application-insights/app-insights-windows-desktop.md).
+* Niet alle typen .NET-project worden ondersteund door de hulpprogramma's. Web- en WCF-projecten worden ondersteund. Voor andere projecttypen zoals toepassingen voor desktop- of service, kunt u nog steeds [een Application Insights SDK handmatig toevoegen aan uw project](../../azure-monitor/app/windows-desktop.md).
 * Zorg ervoor dat u hebt [Visual Studio 2013 Update 3 of hoger](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Dit is vooraf geïnstalleerd met analyses voor ontwikkelaars-hulpprogramma's, waardoor de Application Insights-SDK.
 * Selecteer **extra**, **extensies en Updates** en controleert u of **Developer Analytics Tools** is geïnstalleerd en ingeschakeld. Als dit het geval is, klikt u op **Updates** om te zien of er een update beschikbaar is.
 * Open het dialoogvenster Nieuw Project en kies ASP.NET-webtoepassing. Als u de optie van de Application Insights ziet, klikt u vervolgens de hulpprogramma's geïnstalleerd. Als dat niet het geval is, probeert te verwijderen en vervolgens opnieuw de Application Insights-hulpprogramma's te installeren.
@@ -154,7 +154,7 @@ De gegevens afkomstig van scripts in de webpagina's.
 Zie [afhankelijkheidstelemetrie](../../azure-monitor/app/asp-net-dependencies.md) en [uitzonderingstelemetrie](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Er zijn geen prestatiegegevens
-Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-services](../../azure-monitor/app/java-collectd.md), [Windows-bureaublad-apps](../../application-insights/app-insights-windows-desktop.md), [IIS web-apps en services als u statusmonitor installeert](../../azure-monitor/app/monitor-performance-live-website-now.md), en [Azure Cloudservices](../../application-insights/app-insights-overview.md). u vindt deze onder instellingen voor Servers.
+Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-services](../../azure-monitor/app/java-collectd.md), [Windows-bureaublad-apps](../../azure-monitor/app/windows-desktop.md), [IIS web-apps en services als u statusmonitor installeert](../../azure-monitor/app/monitor-performance-live-website-now.md), en [Azure Cloudservices](../../application-insights/app-insights-overview.md). u vindt deze onder instellingen voor Servers.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Er zijn geen gegevens (server) sinds ik de app is gepubliceerd naar Mijn server
 * Controleer dat u daadwerkelijk alle Microsoft gekopieerd. Application Insights-dll-bestanden naar de server, samen met Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

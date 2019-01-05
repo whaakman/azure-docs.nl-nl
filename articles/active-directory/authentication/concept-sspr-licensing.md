@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158995"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043036"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Vereisten voor licentieverlening voor Azure AD Self-service voor wachtwoord opnieuw instellen
 
-Azure Active Directory (Azure AD) is beschikbaar in vier edities: gratis, Basic, Premium P1 en Premium P2. Er zijn diverse verschillende functies die van self-service voor wachtwoord opnieuw instellen, met inbegrip van wijzigen, herstellen, ontgrendelen en terugschrijven van wachtwoorden, die beschikbaar zijn in de verschillende edities van Azure AD. In dit artikel wordt geprobeerd om te worden de verschillen uitgelegd. Meer informatie over de functies die zijn opgenomen in elke Azure AD-editie te vinden in de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) is beschikbaar in vier edities: Gratis, Basic, Premium P1 en Premium P2. Er zijn diverse verschillende functies die van self-service voor wachtwoord opnieuw instellen, met inbegrip van wijzigen, herstellen, ontgrendelen en terugschrijven van wachtwoorden, die beschikbaar zijn in de verschillende edities van Azure AD. In dit artikel wordt geprobeerd om te worden de verschillen uitgelegd. Meer informatie over de functies die zijn opgenomen in elke Azure AD-editie te vinden in de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Vergelijk functies en -edities
 
@@ -41,7 +41,7 @@ Azure AD-selfservice wachtwoord opnieuw instellen is een licentie per gebruiker,
    * Deze functionaliteit is opgenomen in Azure AD Premium P1 of P2 Premium-edities.
 
 > [!WARNING]
-> Zelfstandige Office 365-abonnementen licentieverlening **bieden geen ondersteuning voor het terugschrijven van wachtwoorden** en vereist Azure AD Premium P1 of P2 Premium-edities voor deze functionaliteit wilt werken.
+> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor 'Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back van'* en een abonnement met Azure AD Premium P1 of P2 Premium-edities voor deze functionaliteit te vereisen werk.
 >
 
 Extra licentie-informatie, inclusief kosten, vindt u op de volgende pagina's:

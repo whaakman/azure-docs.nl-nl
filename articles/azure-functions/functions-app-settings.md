@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 336fe8241a65009e9e100dccd12d88f45df4751d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8b364e2a51db8ee8d97fc981ac3df0d1fa5650ef
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999353"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037069"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
-App-instellingen in een functie-app bevatten globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, wordt deze instellingen zijn [omgevingsvariabelen](functions-run-local.md#local-settings-file). In dit artikel geeft een lijst van de app-instellingen die beschikbaar in de functie-apps zijn.
+App-instellingen in een functie-app bevatten globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, worden deze instellingen gebruikt als lokale [omgevingsvariabelen](functions-run-local.md#local-settings-file). In dit artikel geeft een lijst van de app-instellingen die beschikbaar in de functie-apps zijn.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 

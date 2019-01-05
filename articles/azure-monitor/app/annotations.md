@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9aa77caa690bfb51dd0e5d43e15d246614f1cc71
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002073"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050180"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen op grafieken met metrische gegevens in Application Insights
 
 Aantekeningen op [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [systeem bouwen voor Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
-> In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](../../application-insights/app-insights-usage-workbooks.md)**. Voor meer informatie over de currrent metrische gegevens-ervaring, kunt u raadplegen [in dit artikel](../../azure-monitor/platform/metrics-charts.md).
+> In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](../../azure-monitor/app/usage-workbooks.md)**. Voor meer informatie over de currrent metrische gegevens-ervaring, kunt u raadplegen [in dit artikel](../../azure-monitor/platform/metrics-charts.md).
 
 ![Voorbeeld van aantekeningen met zichtbaar correlatie met serverreactietijd](./media/annotations/00.png)
 

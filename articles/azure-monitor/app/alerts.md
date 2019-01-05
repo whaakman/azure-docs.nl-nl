@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 63045ce1ac06bfb87595675395a411978a17f95a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d3d2aa78ef853903263b4b497f0e399241ac8ce9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017052"
+ms.locfileid: "54050826"
 ---
 # <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
 [Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
@@ -29,7 +29,7 @@ Er zijn drie soorten waarschuwingen:
 
 * **Metrische waarschuwingen** laat u weten wanneer een metriek een drempelwaarde voor een bepaalde - zoals reactietijd, aantal uitzonderingen, CPU-gebruik of paginaweergaven. 
 * [**Webtests** ] [ availability] zien wanneer uw site beschikbaar is op het internet of reageert traag is. [Meer informatie][availability].
-* [**Proactieve diagnostische gegevens** ](../../application-insights/app-insights-proactive-diagnostics.md) worden automatisch geconfigureerd om u te waarschuwen over ongebruikelijke prestatiepatronen.
+* [**Proactieve diagnostische gegevens** ](../../azure-monitor/app/proactive-diagnostics.md) worden automatisch geconfigureerd om u te waarschuwen over ongebruikelijke prestatiepatronen.
 
 We richten ons op metrische waarschuwingen in dit artikel.
 
@@ -102,7 +102,7 @@ Vergeet niet dat [snelheid van proactieve foutdiagnoses](../../azure-monitor/app
 ## <a name="see-also"></a>Zie ook
 * [Webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Instellen van waarschuwingen automatiseren](../../azure-monitor/app/powershell-alerts.md)
-* [Proactieve diagnostische gegevens](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Proactieve diagnostische gegevens](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

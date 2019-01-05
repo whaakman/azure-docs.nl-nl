@@ -1,23 +1,22 @@
 ---
 title: Schaal doorvoer in Azure Cosmos DB
 description: Dit artikel wordt beschreven hoe Azure Cosmos DB schaalt de doorvoer elastisch
-services: cosmos-db
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 5834bf88b63209d2374cfea71fc0f01a1f7451c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160661"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033431"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Schaal doorvoer in Azure Cosmos DB
 
-In Azure Cosmos DB, ingerichte doorvoer wordt weergegeven als aanvraag eenheden per seconde (RU/s, plural: ru's). RU's meten van de kosten voor zowel uit lees- en schrijfbewerkingen op basis van de container van Cosmos zoals wordt weergegeven in de volgende afbeelding:
+In Azure Cosmos DB, ingerichte doorvoer wordt weergegeven als aanvraag eenheden per seconde (RU/s, plural: RU's). RU's meten van de kosten voor zowel uit lees- en schrijfbewerkingen op basis van de container van Cosmos zoals wordt weergegeven in de volgende afbeelding:
 
 ![Aanvraageenheden](./media/scale-throughput/figure1.png)
 

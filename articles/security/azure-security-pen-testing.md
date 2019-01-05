@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 4096cf3a44b7c32ed94fdd2ef5dcbad9db08a386
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3f7d44a2a34f6b52c2229cf6491e99c65d5bb525
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060568"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052986"
 ---
 # <a name="pen-testing"></a>Pen testen
 Een van de voordelen van het gebruik van Azure voor het testen van toepassingen en -implementatie, is dat u snel omgevingen die zijn gemaakt.  U hoeft te breken over de aanschaf, ophalen, en "gestapel en stapelen ' uw eigen on-premises hardware.
@@ -40,7 +40,7 @@ Vanaf 15 juni 2017, Microsoft vereist niet langer voorafgaande goedkeuring voor 
 Standaard tests uit die u kunt uitvoeren, zijn onder andere:
 
 * Testen op uw eindpunten om de [Open Web Application Security Project (OWASP) top 10 beveiligingsproblemen](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-* [Fuzzy testen](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) van uw eindpunten
+* [Fuzzy testen](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) van uw eindpunten
 * [Scannen van poorten](https://en.wikipedia.org/wiki/Port_scanner) van uw eindpunten
 
 Een type van de test die u niet kunt uitvoeren is een soort [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) aanval. Dit omvat een DoS-aanval zelf te initiëren of het uitvoeren van de bijbehorende tests die mogelijk te bepalen, laten zien of simuleren van elk type DoS-aanval.

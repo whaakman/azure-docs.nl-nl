@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343935"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042458"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>-Exemplaren in duurzame functies (Azure Functions) beheren
+# <a name="manage-instances-in-durable-functions-in-azure"></a>-Exemplaren in duurzame functies in Azure beheren
 
 [Duurzame functies](durable-functions-overview.md) orchestration-exemplaren kunnen worden gestart, beëindigd, opgevraagd en meldingsgebeurtenissen verzonden. Alle instantiebeheer wordt gedaan met behulp van de [orchestration-client-binding](durable-functions-bindings.md). In dit artikel gaat in op de details van elke bewerking voor het beheer van exemplaar.
 
@@ -116,10 +116,10 @@ De methode retourneert een JSON-object met de volgende eigenschappen:
 * **Uitvoer**: De uitvoer van de functie als een JSON-waarde (als de functie is voltooid). Als de orchestrator-functie is mislukt, bevat deze eigenschap de foutdetails. Als de orchestrator-functie is beëindigd, bevat deze eigenschap de opgegeven reden voor de beëindiging (indien aanwezig).
 * **runtimeStatus**: Een van de volgende waarden:
   * **In behandeling**: Het exemplaar is gepland, maar is nog niet begonnen uitgevoerd.
-  * **Met**: Het exemplaar is gestart.
+  * **Uitvoeren**: Het exemplaar is gestart.
   * **Voltooid**: Het exemplaar is normaal gesproken voltooid.
   * **ContinuedAsNew**: Het exemplaar opnieuw is opgestart zelf met de geschiedenis van een nieuwe. Dit is een tijdelijke situatie.
-  * **Kan geen**: Het exemplaar is mislukt met een fout.
+  * **Mislukt**: Het exemplaar is mislukt met een fout.
   * **Beëindigd**: Het exemplaar is onverwacht gestopt.
 * **Geschiedenis**: De uitvoeringsgeschiedenis van de indeling. Dit veld wordt alleen ingevuld als `showHistory` is ingesteld op `true`.
 
@@ -520,7 +520,7 @@ Een mislukte orchestration-exemplaar kan worden *teruggespoeld* in een eerder st
 > [!NOTE]
 > Deze API is niet bedoeld om te worden van een vervanging voor de juiste foutafhandeling en beleid voor opnieuw proberen. In plaats daarvan is het bedoeld om te worden gebruikt alleen in gevallen waar de orchestration-instanties om onverwachte redenen mislukken. Zie voor meer informatie over beleid voor fout verwerking en probeer het opnieuw, de [foutafhandeling](durable-functions-error-handling.md) onderwerp.
 
-Een voorbeeld van de use-case voor *terugspoelen* is een werkstroom met betrekking tot een reeks [menselijke goedkeuringen](durable-functions-overview.md#pattern-5-human-interaction). Stel dat er zijn een reeks activiteitsfuncties zodat iemand op de hoogte dat hun goedkeuring is vereist en uit het realtime antwoord wachten. Nadat alle van de goedkeuring activiteiten hebben ontvangen antwoorden of is een time-out, een andere activiteit mislukt vanwege een onjuiste configuratie van toepassing, zoals een ongeldige databaseverbindingsreeks. Het resultaat is een fout orchestration diep in de werkstroom. Met de `RewindAsync` (.NET) of `rewindAsync` (JavaScript) API, fout in de configuratie voor een beheerder van de toepassing kunt oplossen en *terugspoelen* de mislukte orchestration terug naar de status direct vóór de fout. Geen van de stappen menselijke tussenkomst moet opnieuw worden goedgekeurd en de indeling kan nu worden uitgevoerd.
+Een voorbeeld van de use-case voor *terugspoelen* is een werkstroom met betrekking tot een reeks [menselijke goedkeuringen](durable-functions-concepts.md#human). Stel dat er zijn een reeks activiteitsfuncties zodat iemand op de hoogte dat hun goedkeuring is vereist en uit het realtime antwoord wachten. Nadat alle van de goedkeuring activiteiten hebben ontvangen antwoorden of is een time-out, een andere activiteit mislukt vanwege een onjuiste configuratie van toepassing, zoals een ongeldige databaseverbindingsreeks. Het resultaat is een fout orchestration diep in de werkstroom. Met de `RewindAsync` (.NET) of `rewindAsync` (JavaScript) API, fout in de configuratie voor een beheerder van de toepassing kunt oplossen en *terugspoelen* de mislukte orchestration terug naar de status direct vóór de fout. Geen van de stappen menselijke tussenkomst moet opnieuw worden goedgekeurd en de indeling kan nu worden uitgevoerd.
 
 > [!NOTE]
 > De *terugspoelen* terugspoelen orchestration exemplaren die gebruikmaken van duurzame timers wordt niet ondersteund door de functie.

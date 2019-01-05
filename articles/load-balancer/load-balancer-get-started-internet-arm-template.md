@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: c77cdf23e73a174ca68744ea543a41ce0a1de9f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f6a0ce0c9d863b5ab4922e7228a873ed5398600
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095700"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033278"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Een openbare load balancer maken met behulp van een sjabloon
 
@@ -80,3 +80,5 @@ Volg onderstaande stappen als u de sjabloon wilt implementeren met de Azure CLI.
 [Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
+
+Zie voor de JSON-syntaxis en de eigenschappen van een load balancer in een sjabloon, [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

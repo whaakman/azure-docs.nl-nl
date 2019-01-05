@@ -1,19 +1,19 @@
 ---
 title: SQL-syntaxis in Azure Cosmos DB
 description: In dit artikel wordt uitgelegd dat de SQL-query-syntaxis in Azure Cosmos DB, andere operatoren en trefwoorden die beschikbaar zijn in deze taal gebruikt.
-author: LalithaMV
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: eec3846319a93e94ca362d9ef6815a73d0ca958a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142560"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044379"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -474,7 +474,7 @@ ORDER BY <sort_specification>
 |**Categorie**|**Details**|  
 |-|-|  
 |**Rekenkundige**|Operator verwacht invoerwaarde(n) (s) zijn. Uitvoer is ook een getal. Als een van de invoer is **niet-gedefinieerde** of type dan het getal klikt u vervolgens het resultaat is **niet-gedefinieerde**.|  
-|**Bitsgewijze**|Operator verwacht invoerwaarde(n) ondertekende 32-bits geheel getal (s). Uitvoer is ook 32-bits geheel getal.<br /><br /> Een niet-integer-waarde wordt afgerond. Positieve waarde wordt afgerond naar beneden en negatieve getallen naar boven afgerond.<br /><br /> Een waarde buiten het bereik van de 32-bits geheel getal wordt geconverteerd, door te nemen van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoer is **niet-gedefinieerde** of typ dan het getal, dan is het resultaat **niet-gedefinieerde**.<br /><br /> **Opmerking:** het bovenstaande gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
+|**Bitsgewijze**|Operator verwacht invoerwaarde(n) ondertekende 32-bits geheel getal (s). Uitvoer is ook 32-bits geheel getal.<br /><br /> Een niet-integer-waarde wordt afgerond. Positieve waarde wordt afgerond naar beneden en negatieve getallen naar boven afgerond.<br /><br /> Een waarde buiten het bereik van de 32-bits geheel getal wordt geconverteerd, door te nemen van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoer is **niet-gedefinieerde** of typ dan het getal, dan is het resultaat **niet-gedefinieerde**.<br /><br /> **Opmerking:** De bovenstaande gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
 |**Logische**|Operator verwacht invoerwaarde(n) Boolean(s) zijn. Uitvoer is ook een Booleaanse waarde.<br />Als een van de invoer is **niet-gedefinieerde** of typ dan Booleaanse waarde, wordt het resultaat **niet-gedefinieerde**.|  
 |**Vergelijking**|Operator verwacht invoerwaarde(n) hetzelfde type en niet zijn niet gedefinieerd. Uitvoer is een Booleaanse waarde.<br /><br /> Als een van de invoer is **niet-gedefinieerde** of de invoer hebben verschillende typen en vervolgens het resultaat is **niet-gedefinieerde**.<br /><br /> Zie **volgorde van de waarden voor vergelijking** tabel voor details bestellen-waarde.|  
 |**Tekenreeks**|Operator verwacht invoerwaarde(n) meer zijn. Uitvoer is ook een tekenreeks.<br />Als een van de invoer is **niet-gedefinieerde** of andere dan tekenreeks typt en vervolgens het resultaat is **niet-gedefinieerde**.|  
@@ -517,7 +517,7 @@ ORDER BY <sort_specification>
   
  In Cosmos DB, worden de typen van waarden zijn vaak niet bekend totdat ze zijn opgehaald uit de database. Ter ondersteuning van efficiënte uitvoering van query's, hebben de meeste van de operators strikte eisen. Operators op zichzelf kunnen ook niet uitvoeren voor impliciete conversies.  
   
- Dit betekent dat een query, zoals: Selecteer * uit ROOT r waar r.Age = 21, retourneert alleen documenten waarvoor de eigenschap leeftijd gelijk zijn aan het getal 21. Documenten met de eigenschap leeftijd is gelijk aan de tekenreeks '21' of de tekenreeks '0021' wordt niet overeenkomen, als de expressie "21" = 21 tot niet-gedefinieerde evalueert. Hiermee kunt u een beter gebruik van indexen, omdat het opzoeken van een bepaalde waarde (zoals het aantal 21) is veel sneller dan zoeken naar een onbeperkt aantal potentiële komt overeen met (het nummer 21 of tekenreeksen "21", "021", "21,0"...). Dit wijkt af van de manier waarop JavaScript operators op basis van waarden van verschillende typen evalueert.  
+ Dit betekent dat een query zoals: Selecteer * uit ROOT r waar r.Age = 21, retourneert alleen documenten waarvoor de eigenschap leeftijd gelijk zijn aan het getal 21. Documenten met de eigenschap leeftijd is gelijk aan de tekenreeks '21' of de tekenreeks '0021' wordt niet overeenkomen, als de expressie "21" = 21 tot niet-gedefinieerde evalueert. Hiermee kunt u een beter gebruik van indexen, omdat het opzoeken van een bepaalde waarde (zoals het aantal 21) is veel sneller dan zoeken naar een onbeperkt aantal potentiële komt overeen met (het nummer 21 of tekenreeksen "21", "021", "21,0"...). Dit wijkt af van de manier waarop JavaScript operators op basis van waarden van verschillende typen evalueert.  
   
  **Matrices en objecten gelijkheid en vergelijking**  
   
@@ -1051,7 +1051,7 @@ EXP (<numeric_expression>)
   
  De exponent van een getal is de constante **e** verheven tot de macht van het getal. Bijvoorbeeld, EXP(1.0) = e ^ 1.0 = 2.71828182845905 en EXP(10) = e ^ 10 = 22026.4657948067.  
   
- De exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (logboek (n)) = n. En de natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: LOG (EXP (n)) = n.  
+ De exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (logboek (n)) = n. En de natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: LOGBOEK (EXP (n)) = n.  
   
  **Voorbeelden**  
   
@@ -1108,7 +1108,7 @@ LOG (<numeric_expression> [, <base>])
   
  De natuurlijke logaritme is de logaritme voor de base **e**, waarbij **e** is een constante irrational ongeveer gelijk zijn aan 2.718281828.  
   
- De natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: LOG (EXP (n)) = n. En de exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (logboek (n)) = n.  
+ De natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: LOGBOEK (EXP (n)) = n. En de exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (logboek (n)) = n.  
   
  **Voorbeelden**  
   
