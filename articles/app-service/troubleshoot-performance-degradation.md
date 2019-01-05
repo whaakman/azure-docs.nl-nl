@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016542"
+ms.locfileid: "54052152"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Problemen met trage app-prestaties oplossen in Azure App Service
 Dit artikel helpt u problemen met trage app-prestaties oplossen in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -92,7 +92,7 @@ Elke App Service-app biedt een uitbreidbaar management-eindpunt waarmee u kunt h
 - Broncode-editors, zoals [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Beheerhulpprogramma's voor verbonden bronnen, zoals een MySQL-database verbonden met een app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is een site-extensie die is ook beschikbaar voor prestatiebewaking. Opnieuw opbouwen uw code met een SDK voor het gebruik van Application Insights. U kunt ook een extensie die toegang tot aanvullende gegevens biedt installeren. De SDK kunt u code schrijven om te controleren van het gebruik en prestaties van uw app in meer detail. Zie voor meer informatie, [prestaties in webtoepassingen bewaken](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is een site-extensie die is ook beschikbaar voor prestatiebewaking. Opnieuw opbouwen uw code met een SDK voor het gebruik van Application Insights. U kunt ook een extensie die toegang tot aanvullende gegevens biedt installeren. De SDK kunt u code schrijven om te controleren van het gebruik en prestaties van uw app in meer detail. Zie voor meer informatie, [prestaties in webtoepassingen bewaken](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 

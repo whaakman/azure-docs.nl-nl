@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 63f0c1846a6e32dc5a5fcc9b1162d343890387a1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363120"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053514"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Sjablonen implementeren met behulp van de Azure Stack-portal
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 De portal kunt u Azure Resource Manager-sjablonen implementeren met Azure Stack.
 
 ## <a name="to-deploy-a-template"></a>Om een sjabloon te implementeren
 
 1. Aanmelden bij de portal, selecteer **+ een resource maken**, en selecteer vervolgens **aangepaste**.
-2. Selecteer **sjabloonimplementatie**.
+2. Selecteer **Sjabloonimplementatie**.
 3. Selecteer **template bewerken**, en plak de code van uw JSON-sjabloon in het code-venster. Selecteer **Opslaan**.
 4. Selecteer **parameters bewerken**, geef waarden op voor de parameters die worden weergegeven, en selecteer vervolgens **OK**.
 5. Selecteer **abonnement**. Kies het abonnement dat u wilt gebruiken, en selecteer vervolgens **OK**.
@@ -40,6 +40,6 @@ De portal kunt u Azure Resource Manager-sjablonen implementeren met Azure Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het implementeren van sjablonen:
+Zie het volgende artikel voor meer informatie over het implementeren van sjablonen:
 
-[Sjablonen implementeren met PowerShell](azure-stack-deploy-template-powershell.md)
+- [Sjablonen implementeren met PowerShell](azure-stack-deploy-template-powershell.md)

@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457286"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052390"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Voorbeeld 1: een eenvoudige DMZ bouwen met nsg's met een Azure Resource Manager-sjabloon
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -51,8 +49,8 @@ Er is een koppeling naar een Azure Resource Manager-sjabloon die de omgeving die
 
 **In deze omgeving te scheppen** (gedetailleerde instructies vindt u in de sectie Verwijzingen van dit document);
 
-1. Implementeren van de Azure Resource Manager-sjabloon op: [Azure Quickstart-sjablonen][Template]
-2. Installeren van de voorbeeldtoepassing op: [voorbeeldscript van toepassing][SampleApp]
+1. Op de Azure Resource Manager-sjabloon implementeren: [Azure Quickstart-sjablonen][Template]
+2. Installeer de voorbeeldtoepassing op: [Voorbeeldscript voor toepassing][SampleApp]
 
 >[!NOTE]
 >Voor RDP voor back-end servers in dit geval wordt de IIS-server gebruikt als een 'jump-box." Eerste RDP naar de IIS-server en klik in het RDP-IIS-Server naar de back-endserver. Een openbaar IP-adres kan ook worden gekoppeld aan elke NIC voor eenvoudiger RDP-server.
@@ -350,7 +348,7 @@ Volg deze stappen voor het implementeren van de sjabloon die in dit voorbeeld ui
 Als u wilt verwijderen van deze implementatie, verwijdert u de resourcegroep en alle onderliggende resources worden ook verwijderd.
 
 #### <a name="sample-application-scripts"></a>Voorbeeldscripts voor toepassing
-Nadat de sjabloon is uitgevoerd, kunt u de webserver en appserver met een eenvoudige webtoepassing waarmee de testen met deze configuratie DMZ instellen. Als u wilt installeren een voorbeeldtoepassing voor deze en andere DMZ-voorbeelden, een is opgegeven op de volgende koppeling: [voorbeeldscript van toepassing][SampleApp]
+Nadat de sjabloon is uitgevoerd, kunt u de webserver en appserver met een eenvoudige webtoepassing waarmee de testen met deze configuratie DMZ instellen. Als u wilt installeren een voorbeeldtoepassing voor deze en andere voorbeelden DMZ, heeft opgegeven op de volgende koppeling: [Voorbeeldscript voor toepassing][SampleApp]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632684"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051849"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure App Service-Windows
 
@@ -147,7 +147,7 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Mijn node-toepassing is te veel CPU verbruikt
 
-Ontvangt u mogelijk een aanbeveling van Azure App Service op de portal over hoog cpu-verbruik. U kunt ook monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het CPU-gebruik op de [Azure Portal-Dashboard](../application-insights/app-insights-web-monitor-performance.md), Controleer de MAX-waarden voor CPU, zodat u de piek-waarden niet mist.
+Ontvangt u mogelijk een aanbeveling van Azure App Service op de portal over hoog cpu-verbruik. U kunt ook monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het CPU-gebruik op de [Azure Portal-Dashboard](../azure-monitor/app/web-monitor-performance.md), Controleer de MAX-waarden voor CPU, zodat u de piek-waarden niet mist.
 Als u denkt dat uw toepassing worden te veel CPU verbruikt en u kunt geen reden, kunt u uw knooppunttoepassing om erachter te profileren.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profileren van uw node-toepassing in Azure App Service met V8-Profiler
@@ -220,7 +220,7 @@ U kunt zien dat 95% van de tijd die is verbruikt door de functie WriteConsoleLog
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Mijn node-toepassing is te veel geheugen verbruikt
 
-Als uw toepassing te veel geheugen verbruikt worden, ziet u een kennisgeving van Azure App Service op de portal over hoog geheugenverbruik. U kunt monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het geheugengebruik op de [Azure Portal-Dashboard](../application-insights/app-insights-web-monitor-performance.md), Controleer de MAX-waarden voor het geheugen, zodat u de piek-waarden niet mist.
+Als uw toepassing te veel geheugen verbruikt worden, ziet u een kennisgeving van Azure App Service op de portal over hoog geheugenverbruik. U kunt monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het geheugengebruik op de [Azure Portal-Dashboard](../azure-monitor/app/web-monitor-performance.md), Controleer de MAX-waarden voor het geheugen, zodat u de piek-waarden niet mist.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Detectie- en Heap Diff lekken voor node.js
 

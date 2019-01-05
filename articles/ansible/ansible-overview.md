@@ -3,17 +3,17 @@ title: Wanneer u Ansible gebruikt met Azure
 description: Inleiding tot het gebruik van Ansible voor het automatisch inrichten van clouds, Configuratiebeheer en toepassingsimplementaties.
 ms.service: ansible
 keywords: ansible, azure, devops, overzicht, cloud inrichten, Configuratiebeheer, de implementatie van toepassing, ansible-modules, ansible-playbooks
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: 22eeb3993cd408a8369236683da3db466a348a30
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d684c4238a7550ca3ec34629fffdc9791db55954
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956751"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052697"
 ---
 # <a name="ansible-with-azure"></a>Ansible met Azure
 

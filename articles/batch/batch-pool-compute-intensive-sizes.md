@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584459"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051693"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Gebruik van RDMA of GPU-exemplaren in de Batch-pools
 
@@ -100,7 +100,7 @@ U hebt verschillende mogelijkheden voor het installeren van vereiste software of
 
 CUDA-toepassingen op een pool van Windows NC knooppunten uitgevoerd, moet u NVDIA GPU-stuurprogramma's installeren. De volgende stappen uit voor voorbeeld gebruiken een toepassingspakket voor het installeren van de NVIDIA GPU-stuurprogramma's. U kunt deze optie selecteren als uw werkbelasting, is afhankelijk van een specifieke versie van de GPU-stuurprogramma.
 
-1. Download een installatiepakket voor de GPU-stuurprogramma's op Windows Server 2016 van de [NVIDIA website](http://us.download.nvidia.com/Windows/) - bijvoorbeeld [versie 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Sla het bestand lokaal via een korte naam, zoals *GPUDriverSetup.exe*.
+1. Download een installatiepakket voor de GPU-stuurprogramma's op Windows Server 2016 van de [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - bijvoorbeeld [versie 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Sla het bestand lokaal via een korte naam, zoals *GPUDriverSetup.exe*.
 2. Maak een zipbestand van het pakket.
 3. Uploaden van het pakket aan uw Batch-account. Zie voor stappen de [toepassingspakketten](batch-application-packages.md) richtlijnen. Geef een toepassings-id bijvoorbeeld *GPUDriver*, en de versie zoals *411.82*.
 1. Met behulp van de Batch-API's of Azure-portal, een pool maakt in de configuratie van de virtuele machine met het gewenste aantal knooppunten en de schaal. De volgende tabel ziet u voorbeelden van instellingen voor het installeren van de NVIDIA GPU-stuurprogramma's op de achtergrond met behulp van een begintaak:

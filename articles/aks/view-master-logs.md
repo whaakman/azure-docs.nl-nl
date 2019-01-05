@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 5d8aa2c25bf79278b10b96f93733e3abf89e4783
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971178"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040741"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -31,18 +31,15 @@ Log Analytics is ingeschakeld en beheerd in Azure portal. Om in te schakelen log
 1. Selecteer de resourcegroep voor uw AKS-cluster, zoals *myResourceGroup*. Selecteer de resourcegroep waarin uw afzonderlijke AKS-cluster-resources, zoals niet *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Aan de linkerkant, kies **diagnostische instellingen**.
 1. Selecteer uw AKS-cluster, zoals *myAKSCluster*, kiest u voor **diagnostische gegevens inschakelen**.
-1. Voer een naam, zoals *myAKSLogs*, selecteert u de optie om **verzenden naar Log Analytics**.
+1. Voer een naam, zoals *myAKSClusterLogs*, selecteert u de optie om **verzenden naar Log Analytics**.
     * Kies aan *configureren* Log Analytics, en selecteer vervolgens een bestaande werkruimte of **nieuwe werkruimte maken**.
     * Als u nodig hebt om een werkruimte te maken, geeft u een naam, een resourcegroep en een locatie.
-1. In de lijst met beschikbare logboeken, selecteert u de logboeken die u inschakelen wilt, zoals *kube-apiserver*, *kube-controller-manager*, en *kube-scheduler*. U kunt retourneren en de verzamelde Logboeken niet wijzigen wanneer de Log Analytics zijn ingeschakeld.
+1. Selecteer in de lijst met beschikbare logboeken, de logboeken die u wilt inschakelen. Standaard de *kube-apiserver*, *kube-controller-manager*, en *kube-scheduler* logboeken zijn ingeschakeld. U kunt extra logboeken zoals inschakelen *kube-audit* en *cluster-automatisch schalen*. U kunt retourneren en de verzamelde Logboeken niet wijzigen wanneer de Log Analytics zijn ingeschakeld.
 1. Wanneer u klaar bent, selecteert u **opslaan** om van de geselecteerde logboeken te verzamelen.
 
 Het volgende voorbeeld schermafbeelding van de portal wordt de *diagnostische instellingen* venster en vervolgens de optie voor het maken van een Log Analytics-werkruimte:
 
 ![Inschakelen van Log Analytics-werkruimte voor Log Analytics van AKS-cluster](media/view-master-logs/enable-oms-log-analytics.png)
-
->[!NOTE]
->OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Een test-schil op het AKS-cluster plannen
 
@@ -111,7 +108,7 @@ Zie voor meer informatie over het opvragen en filteren van uw logboekgegevens [w
 
 De volgende tabel worden om te analyseren van de logboekgegevens, het schema voor elke gebeurtenis:
 
-| Veldnaam               | Beschrijving |
+| Veldnaam               | Description |
 |--------------------------|-------------|
 | *ResourceId*             | Azure-resource die het logboek geproduceerd |
 | *tijd*                   | Timestamp van wanneer het logboek is geüpload |
