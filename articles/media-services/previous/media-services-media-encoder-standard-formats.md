@@ -22,7 +22,7 @@ ms.locfileid: "53384731"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Formats and Codecs (Indelingen en codecs voor Media Encoder Standard)
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Media Services die u gebruikt:"]
 > * [Versie 2](media-services-media-encoder-standard-formats.md)
 > * [Versie 3](../latest/media-encoder-standard-formats.md)
 
