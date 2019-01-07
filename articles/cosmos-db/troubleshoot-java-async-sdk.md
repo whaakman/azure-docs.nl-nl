@@ -1,20 +1,20 @@
 ---
 title: Problemen vaststellen en oplossen van Azure Cosmos DB Java asynchrone SDK
 description: Gebruik functies zoals client-side-logboekregistratie en andere hulpprogramma's van derden om te identificeren, onderzoeken en oplossen van problemen met Azure Cosmos DB.
-services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
-ms.component: cosmosdb-sql
-ms.openlocfilehash: 951c26ea5b5c77cf205e7793834d564889b9a635
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.subservice: cosmosdb-sql
+ms.reviewer: sngun
+ms.openlocfilehash: 86e5a0a0cf4c820efdcc65505d11e2fb0c198f0b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876100"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039840"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Oplossen van problemen wanneer u de Async Java SDK met Azure Cosmos DB SQL API-accounts gebruiken
 In dit artikel bevat informatie over veelvoorkomende problemen, oplossingen, diagnostische stappen en hulpprogramma's wanneer u de [Async Java-SDK](sql-api-sdk-async-java.md) met Azure Cosmos DB SQL API-accounts.
@@ -63,7 +63,7 @@ Als uw app op Azure Virtual Machines geïmplementeerd zonder een openbaar IP-adr
 Als u een HTTP-proxy gebruikt, zorg ervoor dat het aantal verbindingen die zijn geconfigureerd in de SDK kan ondersteunen `ConnectionPolicy`.
 U wordt geconfronteerd anders verbindingsproblemen.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Ongeldig patroon coderen: Netty i/o-thread blokkeren
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Ongeldige codering patroon: Netty i/o-thread blokkeren
 
 De SDK gebruikt de [Netty](https://netty.io/) i/o-bibliotheek om te communiceren met Azure Cosmos DB. De SDK heeft asynchrone APIs en maakt gebruik van niet-blokkerende i/o-API's van Netty. De SDK i/o-werk wordt uitgevoerd in Netty i/o-threads. Het aantal threads voor i/o-Netty is geconfigureerd om hetzelfde als het aantal CPU-kernen van de app-machine. 
 
