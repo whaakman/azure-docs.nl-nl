@@ -22,7 +22,7 @@ ms.locfileid: "50211601"
 ---
 # <a name="azure-media-services-overview"></a>Overzicht van Azure Media Services 
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Media Services die u gebruikt:"]
 > * [Versie 2](media-services-overview.md)
 > * [Versie 3](../latest/media-services-overview.md)
 

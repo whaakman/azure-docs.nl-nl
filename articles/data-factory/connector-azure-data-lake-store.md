@@ -20,7 +20,7 @@ ms.lasthandoff: 12/14/2018
 ms.locfileid: "53387026"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-azure-datalake-connector.md)
 > * [Huidige versie](connector-azure-data-lake-store.md)
 
