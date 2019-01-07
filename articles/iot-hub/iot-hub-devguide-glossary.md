@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7599fbe05b99466ed1d1a3db17156888cf9ea353
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338283"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055078"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -40,8 +40,8 @@ Er zijn _apparaat-SDK's_ beschikbaar voor meerdere talen waarmee u kunt maken [a
 ## <a name="azure-iot-service-sdks"></a>Azure IoT service SDK 's
 Er zijn _service-SDK's_ beschikbaar voor meerdere talen waarmee u kunt maken [back-end-apps](#back-end-app) die communiceren met een IoT-hub. De IoT Hub-zelfstudies laten zien hoe u deze service-SDK's gebruiken. U vindt de broncode en meer informatie over de service-SDK's in deze GitHub [opslagplaats](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-hub-toolkit"></a>Azure IoT Hub-Toolkit
-De [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit) is een platformoverschrijdende, open-source Visual Studio Code-extensie die helpt u bij het beheren van Azure IoT Hub en apparaten in VS Code. Met Azure IoT Hub Toolkit kunnen IoT-ontwikkelaars ontwikkelen met IoT-project in VS Code eenvoudig.
+## <a name="azure-iot-tools"></a>Hulpprogramma's voor Azure IoT
+De [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is een platformoverschrijdende, open-source Visual Studio Code-extensie die helpt u bij het beheren van Azure IoT Hub en apparaten in VS Code. Met Azure IoT-hulpprogramma's kunnen IoT-ontwikkelaars ontwikkelen met IoT-project in VS Code eenvoudig.
 
 ## <a name="azure-portal"></a>Azure Portal
 De [Microsoft Azure portal](https://portal.azure.com) is een centrale plaats waar u kunt inrichten en beheren van uw Azure-resources. De inhoud met behulp van georganiseerd _blades_.
