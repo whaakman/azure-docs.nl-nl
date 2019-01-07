@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1dc312598fa9bbacedc085480b0771adeb2d182a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731164"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017001"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Problemen met analyses in Application Insights oplossen
 Problemen met [Application Insights Analytics](analytics.md)? Begin hier. Analytics is de krachtige zoekfunctie van Azure Application Insights.
@@ -78,7 +78,7 @@ Bron van toepassing is verwijderd uit de Application Insights en is t beschikbaa
 
 U bent niet gemachtigd voor het openen van deze toepassing in Analytics.
 
-* Krijgt u de koppeling van iemand anders? Vraag deze om te controleren of u zich in de [lezers of bijdragers voor deze resourcegroep](../../application-insights/app-insights-resources-roles-access-control.md).
+* Krijgt u de koppeling van iemand anders? Vraag deze om te controleren of u zich in de [lezers of bijdragers voor deze resourcegroep](../../azure-monitor/app/resources-roles-access-control.md).
 * Hebt u de koppeling met andere referenties opgeslagen? Open de [Azure-portal](https://portal.azure.com), meld u af en probeer het vervolgens deze koppeling weer de juiste referenties op te geven.
 
 ## <a name="html-storage"></a>403 ... HTML5-opslag

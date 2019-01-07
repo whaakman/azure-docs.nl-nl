@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren van Azure Data Factory met HDFS | Microsoft Docs
-description: Ontdek hoe u gegevens kopiëren van een cloud of on-premises HDFS-bron naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+title: Gegevens kopiëren van HDFS met Azure Data Factory | Microsoft Docs
+description: Leer hoe u gegevens kopiëren van een cloud of on-premises HDFS-bron naar een ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,58 +9,57 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 034c9a321f402bada87290f6aa72fc7e416ef2c6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054541"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019857"
 ---
-# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Gegevens kopiëren van Azure Data Factory met HDFS
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Gegevens uit HDFS met Azure Data Factory kopiëren
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-hdfs-connector.md)
+> * [Versie 1:](v1/data-factory-hdfs-connector.md)
 > * [Huidige versie](connector-hdfs.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit HDFS. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van HDFS. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit HDFS kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst met gegevensarchieven als bronnen/put wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit HDFS kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die door de kopieeractiviteit ondersteund als bronnen/sinks, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-In het bijzonder ondersteunt deze HDFS-connector:
+Om precies ondersteunt deze HDFS-connector:
 
 - Het kopiëren van bestanden met behulp van **Windows** (Kerberos) of **anoniem** verificatie.
 - Het kopiëren van bestanden met behulp van **webhdfs** protocol of **ingebouwde DistCp** ondersteunen.
-- Kopiëren van bestanden als-is of bij het parseren van/genereren van bestanden met de [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md).
+- Kopiëren van bestanden als-is of het parseren van/genereren van bestanden met de [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om gegevens te kopiëren uit een HDFS die niet openbaar toegankelijk is, moet u voor het instellen van een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](concepts-integration-runtime.md) artikel voor meer informatie.
+Om gegevens te kopiëren van een HDFS die niet openbaar toegankelijk is, moet u voor het instellen van een zelfgehoste Cloudintegratieruntime. Zie [zelfgehoste Cloudintegratieruntime](concepts-integration-runtime.md) artikel voor meer informatie.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor HDFS.
+De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek op HDFS.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
 De volgende eigenschappen worden ondersteund voor HDFS gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Hdfs**. | Ja |
-| url |URL naar de HDFS |Ja |
-| authenticationType | Toegestane waarden zijn: **anoniem**, of **Windows**. <br><br> Gebruik **Kerberos-verificatie** voor HDFS-connector raadpleegt u [in deze sectie](#use-kerberos-authentication-for-hdfs-connector) voor het instellen van uw on-premises omgeving dienovereenkomstig. |Ja |
+| url |URL naar het HDFS |Ja |
+| authenticationType | Toegestane waarden zijn: **Anonieme**, of **Windows**. <br><br> Gebruik **Kerberos-verificatie** voor HDFS-connector, raadpleegt u [in deze sectie](#use-kerberos-authentication-for-hdfs-connector) voor het instellen van uw on-premises omgeving dienovereenkomstig. |Ja |
 | Gebruikersnaam |Gebruikersnaam voor Windows-verificatie. Geef voor Kerberos-verificatie, `<username>@<domain>.com`. |Ja (voor Windows-verificatie) |
-| wachtwoord |Wachtwoord voor Windows-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (voor Windows-verificatie) |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+| wachtwoord |Wachtwoord voor Windows-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (voor Windows-verificatie) |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
-**Voorbeeld: anonieme verificatie gebruikt**
+**Voorbeeld: met behulp van anonieme verificatie**
 
 ```json
 {
@@ -106,20 +105,20 @@ De volgende eigenschappen worden ondersteund voor HDFS gekoppelde service:
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de HDFS-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door HDFS-gegevensset.
 
-Stel de eigenschap type van de gegevensset om gegevens te kopiëren uit HDFS, **FileShare**. De volgende eigenschappen worden ondersteund:
+Als u wilt kopiëren van gegevens uit HDFS, stel de eigenschap type van de gegevensset in **bestandsshare**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op: **bestandsshare** |Ja |
-| folderPath | Pad naar de map. Wildcard-filter wordt niet ondersteund. Bijvoorbeeld: map/submap / |Ja |
-| fileName |  **Naam of het jokerteken filter** voor de bestanden onder de opgegeven 'folderPath'. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle bestanden in de map. <br/><br/>Voor het filter toegestane jokertekens zijn: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of een enkel teken).<br/>-Voorbeeld 1: `"fileName": "*.csv"`<br/>-Voorbeeld 2: `"fileName": "???20180427.txt"`<br/>Gebruik `^` Escape als uw werkelijke bestandsnaam bevat jokertekens of deze escape-teken in. |Nee |
-| Indeling | Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerde winkels (binaire kopiëren), de sectie indeling in de definities van beide invoer en uitvoer gegevensset.<br/><br/>Als u wilt parseren van bestanden met een specifieke indeling, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Json-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [parketvloeren indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor scenario binaire kopiëren) |
-| compressie | Geef het type en de compressie van de gegevens. Zie voor meer informatie [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus: **optimale** en **snelst**. |Nee |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **Bestandsshare** |Ja |
+| folderPath | Pad naar de map. Filteren op jokerteken wordt niet ondersteund. Bijvoorbeeld: map/submap / |Ja |
+| fileName |  **Naam of het jokerteken filter** voor de bestanden die onder het opgegeven 'folderPath'. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle bestanden in de map. <br/><br/>Voor het filter toegestane jokertekens zijn: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken).<br/>-Voorbeeld 1: `"fileName": "*.csv"`<br/>-Voorbeeld 2: `"fileName": "???20180427.txt"`<br/>Gebruik `^` als escape voor als de bestandsnaam van uw werkelijke jokertekens of deze escape-teken in. |Nee |
+| Indeling | Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestanden (binaire kopie), het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer.<br/><br/>Als u bestanden met een specifieke indeling parseren wilt, worden de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie, [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Json-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor binaire kopie-scenario) |
+| Compressie | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus zijn: **Optimale** en **snelste**. |Nee |
 
 >[!TIP]
->Geef alle bestanden onder een map wilt kopiëren, **folderPath** alleen.<br>Geef voor het kopiëren van één bestand met een bepaalde naam **folderPath** met maponderdeel en **fileName** met bestandsnaam.<br>Wilt kopiëren van een subset van de bestanden in een map, geeft **folderPath** met maponderdeel en **fileName** met jokertekenfilter.
+>Alle bestanden in een map wilt kopiëren, geef **folderPath** alleen.<br>Voor het kopiëren van één bestand met een specifieke naam, geef **folderPath** met maponderdeel en **fileName** met bestandsnaam.<br>Als u wilt kopiëren van een subset van de bestanden in een map, geef **folderPath** met maponderdeel en **fileName** met filteren op jokerteken.
 
 **Voorbeeld:**
 
@@ -151,22 +150,22 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren uit HDFS, **
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door HDFS-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door HDFS-bron.
 
 ### <a name="hdfs-as-source"></a>HDFS als bron
 
-Om gegevens te kopiëren uit HDFS, stelt u het brontype in de kopieerbewerking naar **HdfsSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Als u wilt kopiëren van gegevens uit HDFS, stelt u het brontype in de kopieeractiviteit naar **HdfsSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **HdfsSource** |Ja |
-| recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. Opmerking Wanneer recursieve is ingesteld op true en sink is bestandsgebaseerde opslag, lege map/subbewerkingen-folder niet worden gekopieerd/gemaakt op de sink.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
-| distcpSettings | Eigenschappengroep bij gebruik van HDFS DistCp. | Nee |
-| resourceManagerEndpoint | Het eindpunt Yarn ResourceManager | Ja, als DistCp |
-| tempScriptPath | Pad naar een map gebruikt voor het opslaan van tijdelijke DistCp opdrachtscript. Het scriptbestand wordt gegenereerd door de Data Factory en wordt verwijderd nadat de taak kopiëren voltooid. | Ja, als DistCp |
-| distcpOptions | Aanvullende opties voor het opgegeven DistCp-opdracht. | Nee |
+| recursieve | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Houd er rekening mee wanneer recursieve is ingesteld op true en sink is opslag op basis van bestanden, lege map/ondergeschikt-folder worden niet gekopieerd/gemaakt bij de sink.<br/>Toegestane waarden zijn: **waar** (standaard), **false** | Nee |
+| distcpSettings | Eigenschappengroep wanneer HDFS DistCp gebruiken. | Nee |
+| resourceManagerEndpoint | Het eindpunt van de Yarn ResourceManager | Ja als DistCp gebruiken |
+| tempScriptPath | Pad naar een map gebruikt voor het opslaan van tijdelijke DistCp opdrachtscript. Het scriptbestand wordt gegenereerd door Data Factory en wordt verwijderd nadat de taak voor het kopiëren is voltooid. | Ja als DistCp gebruiken |
+| distcpOptions | Extra opties opgegeven voor de opdracht DistCp. | Nee |
 
-**Voorbeeld: HDFS-bron in de kopieeractiviteit middels de verwijderen**
+**Voorbeeld: HDFS-bron in de kopieeractiviteit middels de laden ongedaan maken**
 
 ```json
 "source": {
@@ -179,31 +178,31 @@ Om gegevens te kopiëren uit HDFS, stelt u het brontype in de kopieerbewerking n
 }
 ```
 
-Meer informatie over het gebruik van DistCp om gegevens te kopiëren uit HDFS efficiënt uit de volgende sectie.
+Meer informatie over het gebruik van DistCp gegevens uit HDFS efficiënt in de volgende sectie te kopiëren.
 
-## <a name="use-distcp-to-copy-data-from-hdfs"></a>DistCp gebruiken om gegevens te kopiëren uit HDFS
+## <a name="use-distcp-to-copy-data-from-hdfs"></a>DistCp gebruiken om te kopiëren van gegevens uit HDFS
 
-[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is een systeemeigen Hadoop-opdrachtregelprogramma voor gedistribueerde kopiëren in een Hadoop-cluster. Wanneer een opdracht Distcp uitvoert, het eerst alle bestanden worden gekopieerd, maakt u meerdere taken van de kaart in de Hadoop-cluster wordt een lijst en elke taak kaart doet binaire kopiëren van bron opvangen.
+[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is een systeemeigen Hadoop-opdrachtregelprogramma voor het gedistribueerde kopiëren in een Hadoop-cluster. Wanneer een opdracht Distcp uitvoert, wordt eerst alle bestanden worden gekopieerd, maakt u meerdere taken van de kaart in het Hadoop-cluster wordt een lijst, en elke kaart taak binaire kopie van bron naar het sink-doet.
 
-Activiteit ondersteuning DistCp met kopiëren van bestanden als kopiëren-is in de Azure-Blob (inclusief [tijdelijke kopie](copy-activity-performance.md) of Azure Data Lake Store in dat geval uw cluster power in plaats van op de Runtime Self-hosted-integratie kunnen volledig gebruikmaken . Dit biedt betere doorvoer van kopiëren met name als uw cluster zeer belangrijk is. Op basis van uw configuratie in Azure Data Factory, kopieeractiviteit automatisch maken van een opdracht distcp, dienen bij de Hadoop-cluster en controleren van de status van het exemplaar.
+DistCp gebruiken om te kopiëren van bestanden als ondersteuning voor activiteit kopiëren-is in Azure Blob (met inbegrip van [gefaseerd kopiëren](copy-activity-performance.md) of Azure Data Lake Store, in welk geval het kan volledig benut de kracht van uw cluster in plaats van die worden uitgevoerd op de zelfgehoste Cloudintegratieruntime . Met name als uw cluster is een zeer krachtig en biedt betere doorvoer van de kopie. Op basis van uw configuratie in Azure Data Factory, kopieeractiviteit automatisch maken van een opdracht distcp indienen bij uw Hadoop-cluster en de kopiestatus controleren.
 
 ### <a name="prerequsites"></a>Prerequsites
 
-DistCp gebruiken om te kopiëren bestanden als-is uit HDFS Azure-Blob (inclusief gefaseerde kopiëren) of Azure Data Lake Store Zorg ervoor dat uw Hadoop-cluster voldoet aan de onderstaande vereisten:
+DistCp gebruiken om te kopiëren bestanden als-is van HDFS tot Azure-Blob (met inbegrip van gefaseerd kopiëren) of Azure Data Lake Store, zorg ervoor dat uw Hadoop-cluster voldoet aan de volgende vereisten:
 
 1. MapReduce en Yarn-services zijn ingeschakeld.
 2. Yarn-versie is 2.5 of hoger.
-3. HDFS-server is geïntegreerd met uw gegevensopslag doel - Azure Blob- of Azure Data Lake Store:
+3. HDFS-server is geïntegreerd met uw gegevensopslag doel - Azure Blob of Azure Data Lake Store:
 
-    - Azure Blob-bestandssysteem is standaard ondersteund sinds Hadoop 2.7. U hoeft alleen te jar pad opgeeft in Hadoop env config.
-    - Azure Data Lake Store bestandssysteem wordt verpakt vanaf Hadoop 3.0.0-alpha1. Als uw Hadoop-cluster lager dan deze versie is, moet u handmatig importeren ADLS gerelateerde jar-pakketten (azure datalake store.jar) in een cluster met [hier](https://hadoop.apache.org/releases.html), en pad van de jar in Hadoop env configuratie opgeven.
+    - Azure Blob-bestandssysteem systeem zelf wordt ondersteund sinds Hadoop 2.7. U hoeft alleen jar pad opgeven in Hadoop env-configuratie.
+    - Azure Data Lake Store-bestandssysteem is verpakt vanaf Hadoop 3.0.0-alpha1. Als uw Hadoop-cluster lager dan deze versie is, moet u handmatig importeren ADLS gerelateerde jar-pakketten (azure-datalake-store.jar) in het cluster op basis van [hier](https://hadoop.apache.org/releases.html), en de jar-pad opgeven in Hadoop env config.
 
-4. Bereid een tijdelijke map in HDFS. Deze tijdelijke map wordt gebruikt voor het opslaan van DistCp shell-script, zodat deze KB-niveau inneemt.
-5. Zorg ervoor dat het gebruikersaccount dat is opgegeven in de gekoppelde Service HDFS gemachtigd om te een)-toepassing in Yarn; verzenden b) de machtiging submap maken, lezen/schrijven bestanden onder boven de tijdelijke map hebben.
+4. Bereid een tijdelijke map in HDFS. Deze tijdelijke map wordt gebruikt voor het opslaan van DistCp shell-script, zodat het KB-niveau ruimte wordt innemen.
+5. Zorg ervoor dat het gebruikersaccount dat is opgegeven in de gekoppelde Service HDFS gemachtigd om te een)-toepassing in Yarn; verzenden (b) de machtiging submap maken, lezen/schrijven bestanden onder de tijdelijke map hebben.
 
 ### <a name="configurations"></a>Configuraties
 
-Hieronder volgt een voorbeeld van de activiteit configuratie gegevens uit HDFS kopiëren naar Azure Blob met DistCp:
+Hieronder volgt een voorbeeld van de configuratie van activiteit kopiëren om gegevens te kopiëren uit HDFS naar Azure Blob DistCp gebruiken:
 
 **Voorbeeld:**
 
@@ -241,32 +240,32 @@ Hieronder volgt een voorbeeld van de activiteit configuratie gegevens uit HDFS k
 ]
 ```
 
-## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Kerberos-verificatie gebruiken voor HDFS-connector
+## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Kerberos-verificatie voor HDFS-connector gebruiken
 
-Er zijn twee opties voor het instellen van de on-premises omgeving om het gebruik van Kerberos-verificatie in HDFS-connector. U kunt de beter past bij uw aanvraag.
-* Optie 1: [Join Self-hosted integratie Runtime-machine in Kerberos-realm](#kerberos-join-realm)
-* Optie 2: [wederzijdse vertrouwensrelatie tussen Windows-domein en Kerberos-realm inschakelen](#kerberos-mutual-trust)
+Er zijn twee opties voor het instellen van de on-premises-omgeving om Kerberos-verificatie gebruiken in HDFS-connector. U kunt dat de beter aansluit op uw situatie.
+* Optie 1: [Zelfgehoste Cloudintegratieruntime machine toevoegen in Kerberos-realm](#kerberos-join-realm)
+* Optie 2: [Wederzijdse vertrouwensrelatie tussen Windows-domein- en Kerberos-realm inschakelen](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Optie 1: Join Self-hosted integratie Runtime-machine in Kerberos-realm
+### <a name="kerberos-join-realm"></a>Optie 1: Zelfgehoste Cloudintegratieruntime machine toevoegen in Kerberos-realm
 
 #### <a name="requirements"></a>Vereisten
 
-* De machine Self-hosted integratie Runtime moet deelnemen aan het Kerberos-realm en kan niet deelnemen aan een Windows-domein.
+* De machine zelfgehoste Cloudintegratieruntime moet deelnemen aan het Kerberos-realm en kan niet deelnemen aan een Windows-domein.
 
-#### <a name="how-to-configure"></a>Het configureren van
+#### <a name="how-to-configure"></a>Configureren
 
-**Op de machine Self-hosted integratie Runtime:**
+**Op de machine zelfgehoste Cloudintegratieruntime:**
 
-1.  Voer de **Ksetup** hulpprogramma voor configuratie van het Kerberos KDC-server en de standaardrealm.
+1.  Voer de **Ksetup** hulpprogramma om de Kerberos KDC-server en de realm te configureren.
 
-    De machine moet worden geconfigureerd als lid van een werkgroep, omdat een Kerberos-realm af van een Windows-domein wijkt. Dit kan worden bereikt door het Kerberos-realm instellen en als volgt een KDC-server toe te voegen. Vervang *REALM.COM* met uw eigen respectieve realm indien nodig.
+    De machine moet worden geconfigureerd als een lid van een werkgroep, omdat een Kerberos-realm af van een Windows-domein wijkt. Dit kan worden bereikt door het Kerberos-realm en als volgt een KDC-server toe te voegen. Vervang *REALM.COM* met uw eigen respectieve realm indien nodig.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
     **Opnieuw opstarten** de machine na het uitvoeren van deze opdrachten 2.
 
-2.  Controleer of de configuratie met **Ksetup** opdracht. De uitvoer moet als volgt:
+2.  Controleer de configuratie met **Ksetup** opdracht. De uitvoer moet, zoals:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -275,23 +274,23 @@ Er zijn twee opties voor het instellen van de on-premises omgeving om het gebrui
 
 **In Azure Data Factory:**
 
-* Configureert de HDFS-connector met **Windows-verificatie** samen met uw Kerberos principal-naam en wachtwoord verbinding maken met de HDFS-gegevensbron. Controleer [eigenschappen van de gekoppelde Service HDFS](#linked-service-properties) sectie over configuratie-informatie.
+* Configureer de HDFS-connector op basis **Windows-verificatie** samen met uw Kerberos principal-naam en het wachtwoord voor het verbinding maken met de HDFS-gegevensbron. Controleer [eigenschappen van de gekoppelde Service HDFS](#linked-service-properties) sectie voor informatie over de configuratie.
 
-### <a name="kerberos-mutual-trust"></a>Optie 2: Wederzijdse vertrouwensrelatie tussen Windows-domein en Kerberos-realm inschakelen
+### <a name="kerberos-mutual-trust"></a>Optie 2: Wederzijdse vertrouwensrelatie tussen Windows-domein- en Kerberos-realm inschakelen
 
 #### <a name="requirements"></a>Vereisten
 
-*   De machine Self-hosted integratie Runtime moet lid worden van een Windows-domein.
-*   U moet de machtiging voor het bijwerken van de domeincontroller-instellingen.
+*   De machine zelfgehoste Cloudintegratieruntime moet een Windows-domein toevoegen.
+*   U moet zijn gemachtigd om de instellingen van de domeincontroller te werken.
 
-#### <a name="how-to-configure"></a>Het configureren van
+#### <a name="how-to-configure"></a>Configureren
 
 > [!NOTE]
-> REALM.COM en AD.COM in de volgende zelfstudie vervangen door uw eigen respectieve realm en de domeincontroller naar behoefte.
+> Vervangen door REALM.COM en AD.COM in de volgende zelfstudie als u uw eigen respectieve realm en de domeincontroller naar behoefte.
 
-**Op de KDC-server:**
+**Op KDC-server:**
 
-1.  De configuratie van de KDC in bewerken **krb5.conf** bestand om te laten KDC vertrouwt Windows-domein die verwijst naar de volgende configuratiesjabloon. Standaard de configuratie bevindt zich op **/etc/krb5.conf**.
+1.  Bewerken in de configuratie van de KDC **krb5.conf** bestand om te laten KDC vertrouwt Windows-domein verwijst naar de volgende configuratiesjabloon. Standaard de configuratie bevindt zich in **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -327,13 +326,13 @@ Er zijn twee opties voor het instellen van de on-premises omgeving om het gebrui
               REALM.COM = .
              }
 
-  **Opnieuw opstarten** na de configuratie van de KDC-service.
+  **Opnieuw opstarten** de KDC-service na de configuratie.
 
-2.  Voorbereiden van een principal met de naam **krbtgt/REALM.COM@AD.COM** in de KDC-server met de volgende opdracht:
+2.  Voorbereiden van een principal met de naam **krbtgt/REALM.COM@AD.COM** in de KDC-server met de volgende opdracht uit:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.  In **hadoop.security.auth_to_local** HDFS-serviceconfiguratie bestand, het toevoegen van `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.  In **hadoop.security.auth_to_local** HDFS-serviceconfiguratie-bestand, toe te voegen `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **Op de domeincontroller:**
 
@@ -342,37 +341,37 @@ Er zijn twee opties voor het instellen van de on-premises omgeving om het gebrui
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Een vertrouwensrelatie van Windows-domein voor Kerberos-Realm. [wachtwoord] is het wachtwoord voor de principal **krbtgt/REALM.COM@AD.COM**.
+2.  Vertrouwensrelatie van Windows-domein voor Kerberos-Realm. [wachtwoord] is het wachtwoord voor de principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.  Selecteer de versleutelingsalgoritme die worden gebruikt in Kerberos.
+3.  Schakel versleuteling algoritme dat wordt gebruikt in Kerberos.
 
-    1. Ga aan serverbeheer > Groepsbeleidsbeheer > Domain > groepsbeleidsobjecten > standaard of actieve domeinbeleid en bewerken.
+    1. Ga aan de Server Manager > Groepsbeleidsbeheer > domein > groepsbeleidsobjecten > standaard of beleid van het actieve domein en bewerken.
 
-    2. In de **Editor voor Groepsbeleidsbeheer** pop-upvenster, Ga naar Computerconfiguratie > beleidsregels > Windows-instellingen > Beveiligingsinstellingen > lokaal beleid > beveiligingsopties, en configureer **netwerk beveiliging: Configureer versleutelingstypen voor Kerberos toegestaan**.
+    2. In de **Editor voor Groepsbeleidsbeheer** pop-upvenster, Ga naar Computerconfiguratie > beleidsregels > Windows-instellingen > Beveiligingsinstellingen > lokaal beleid > beveiligingsopties, en configureer **netwerk beveiliging: Voor Kerberos toegestane versleutelingstypen configureren**.
 
-    3. Selecteer het versleutelingsalgoritme die u wilt gebruiken wanneer verbinding met de KDC. Doorgaans kunt u gewoon alle opties selecteren.
+    3. Selecteer het versleutelingsalgoritme die u wilt gebruiken wanneer verbinding met KDC. Over het algemeen kunt u gewoon alle opties selecteren.
 
         ![Configuratie-versleutelingstypen voor Kerberos](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
-    4. Gebruik **Ksetup** opdracht voor het opgeven van het versleutelingsalgoritme in de specifieke REALM moet worden gebruikt.
+    4. Gebruik **Ksetup** opdracht voor het opgeven van het versleutelingsalgoritme op de specifieke REALM moet worden gebruikt.
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.  De toewijzing tussen de domeinaccount en Kerberos-principal maken om te gebruiken van Kerberos-principal in de Windows-domein.
+4.  Maak de toewijzing tussen het domeinaccount en Kerberos-principal om Kerberos-principal gebruiken in Windows-domein.
 
     1. Start de beheerprogramma's > **Active Directory: gebruikers en Computers**.
 
     2. Geavanceerde functies configureren door te klikken op **weergave** > **geavanceerde functies**.
 
-    3. Zoek de account waarmee u wilt toewijzingen maken en klik met de rechtermuisknop om weer te geven **naamstoewijzingen** > klikt u op **Kerberos-namen** tabblad.
+    3. Zoek de account die u wilt maken, toewijzingen en om weer te geven met de rechtermuisknop op **naamstoewijzingen** > klikt u op **Kerberos-namen** tabblad.
 
-    4. Een principal van de realm toevoegen.
+    4. Voeg een principal van de realm.
 
-        ![Beveiligings-id toewijzen](media/connector-hdfs/map-security-identity.png)
+        ![Toewijzen van beveiligings-id](media/connector-hdfs/map-security-identity.png)
 
-**Op de machine Self-hosted integratie Runtime:**
+**Op de machine zelfgehoste Cloudintegratieruntime:**
 
 * Voer de volgende **Ksetup** opdrachten een realm-vermelding toe te voegen.
 
@@ -381,8 +380,8 @@ Er zijn twee opties voor het instellen van de on-premises omgeving om het gebrui
 
 **In Azure Data Factory:**
 
-* Configureert de HDFS-connector met **Windows-verificatie** samen met uw domeinaccount of Kerberos-Principal verbinding maken met de HDFS-gegevensbron. Controleer [eigenschappen van de gekoppelde Service HDFS](#linked-service-properties) sectie over configuratie-informatie.
+* Configureer de HDFS-connector op basis **Windows-verificatie** samen met uw domeinaccount of Kerberos-Principal verbinding maken met de HDFS-gegevensbron. Controleer [eigenschappen van de gekoppelde Service HDFS](#linked-service-properties) sectie voor informatie over de configuratie.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

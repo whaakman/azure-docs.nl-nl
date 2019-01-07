@@ -1,6 +1,6 @@
 ---
-title: Logboeken van de Azure-resources integreren met uw SIEM-systemen | Microsoft Docs
-description: Meer informatie over de integratie van Azure Log, de belangrijkste mogelijkheden en hoe het werkt.
+title: Logboeken van Azure-resources met uw SIEM-systemen integreren | Microsoft Docs
+description: Meer informatie over Azure-Logboekintegratie, de belangrijkste mogelijkheden en hoe het werkt.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -15,66 +15,66 @@ ms.workload: na
 ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 3c875060a7abdf4431026e79ce966efdc89e4e77
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f20da4ab60eeec3e9c353445f6bc20449b9c1cb6
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236175"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584476"
 ---
-# <a name="introduction-to-azure-log-integration"></a>Inleiding tot Azure-logboekanalyse-integratie
+# <a name="introduction-to-azure-log-integration"></a>Inleiding tot Azure-Logboekintegratie
 
 >[!IMPORTANT]
-> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft. Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads uitgeschakeld door 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
-Integratie van Azure Log is beschikbaar voor het vereenvoudigen van de taak van de integratie van Azure gesteld logboeken met uw on-premises Security Information en Event Management SIEM ()-systeem.
+Azure-Logboekintegratie is beschikbaar voor vereenvoudigde integratie van Azure logboeken met uw on-premises Security Information and Event Management (SIEM)-systeem.
 
- De aanbevolen methode voor het integreren van Azure Logboeken is het gebruik van de leverancier van uw SIEM-connectors. Monitor voor Azure biedt de mogelijkheid om de logboeken van de stream in event hubs en SIEM-leveranciers connectoren voor de logboeken van de event hub verder te integreren in de SIEM kunnen schrijven.  Volg de instructies in voor een beschrijving van hoe dit werkt, [Monitor stroom bewaking voor gegevens van event hubs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Dit artikel worden ook de siem's waarvoor al direct Azure connectors beschikbaar zijn.  
+ De aanbevolen methode voor logboeken integreren in Azure is het gebruik van uw SIEM leverancier s connectors. Azure Monitor biedt de mogelijkheid om de logboeken streamen naar eventhubs en SIEM-leveranciers connectoren voor de logboeken van de event hub verder te integreren in de SIEM kunnen schrijven.  Volg de instructies in voor een beschrijving van hoe dit werkt, [Monitor stream controleren voor gegevens van gebeurtenishubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Het artikel bevat ook de siem's waarvoor al directe Azure-connectors beschikbaar zijn.  
 
 > [!IMPORTANT]
-> Als uw primaire interesse met het verzamelen van Logboeken van de virtuele machine, omvatten de meeste leveranciers van SIEM deze optie in de oplossing. Met behulp van de SIEM is-connector van de leverancier altijd het aanbevolen alternatief is.
+> Als uw primaire interesse met het verzamelen van Logboeken van de virtuele machine, bevatten de meeste SIEM-leveranciers met deze optie in de oplossing. Met behulp van de SIEM is-connector van de leverancier altijd de voorkeur alternatief.
 
-De documentatie over de Azure Log-integratiefunctie wel onderhouden totdat u de functie is afgeschaft.
+De documentatie op de Azure-Logboekintegratie-functie wordt nog steeds wordt onderhouden totdat de functie is afgeschaft.
 
-Lees verder voor meer informatie over de functie Azure Log integratie:
+Lees verder voor meer informatie over de functie Azure-Logboekintegratie:
 
-Integratie van Azure logboek verzamelt Windows-gebeurtenissen van Windows-Logboeken, [Azure activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center waarschuwingen](../security-center/security-center-intro.md), en [Azure Diagnostics logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) uit Azure-resources. Integratie helpt uw SIEM-oplossing een uniforme dashboard of opgeven voor alle activa, lokaal of in de cloud. Een dashboard kunt u ontvangen, samenvoegen, correleren en waarschuwingen voor beveiligingsgebeurtenissen te analyseren.
+Azure-Logboekintegratie Windows-gebeurtenissen verzamelt van Windows-Logboeken, [Azure-activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md), [Azure Security Center-waarschuwingen](../security-center/security-center-intro.md), en [Azure Diagnostics-logboeken](../azure-monitor/platform/diagnostic-logs-overview.md) uit Azure-resources. Integratie van uw SIEM-oplossing of geef op via het uniforme dashboard voor al uw activa, helpt on-premises of in de cloud. Een dashboard kunt u ontvangen, samenvoegen, correleren en analyseren van waarschuwingen voor beveiligingsgebeurtenissen.
 
 > [!NOTE]
-> Integratie van Azure Log ondersteunt momenteel alleen commerciële Azure en Azure Government clouds. Andere clouds worden niet ondersteund.
+> Azure-Logboekintegratie ondersteunt momenteel alleen Azure commerciële en Azure Government-clouds. Andere clouds worden niet ondersteund.
 
-![Het proces voor de integratie van Azure-logboek][1]
+![Het proces van het Azure-Logboekintegratie][1]
 
-## <a name="what-logs-can-i-integrate"></a>Welke logboeken kan ik worden geïntegreerd?
+## <a name="what-logs-can-i-integrate"></a>Welke logboeken Integreer ik?
 
-Azure produceert uitgebreide logboekregistratie in voor elke Azure-service. De logboeken staan drie logboek typen:
+Azure levert uitgebreide logboekregistratie in voor elke Azure-service. De logboeken staan drie typen van de logboeken:
 
-* **Besturingselement/management-logboeken**: inzicht in de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) maken, bijwerken en DELETE-bewerkingen. Een Azure activiteitenlogboek is een voorbeeld van dit type van het logboek.
-* **Gegevens vlak logboeken**: inzicht in gebeurtenissen die worden gegenereerd wanneer u een Azure-resource. Een voorbeeld van dit type logboekbestand is de Windows-logboeken **System**, **beveiliging**, en **toepassing** kanalen in een virtuele Windows-computer. Een ander voorbeeld is de logboekregistratie van Azure Diagnostics, dat u via de Azure-Monitor configureert.
-* **Verwerkte gebeurtenissen**: Geef geanalyseerde gebeurtenis en informatie over waarschuwingen die worden verwerkt voor u. Een voorbeeld van dit type gebeurtenis is Azure Security Center-waarschuwingen. Azure Security Center verwerkt en uw abonnement om op te geven van waarschuwingen die relevant voor uw huidige beveiligingspostuur zijn analyseert.
+* **Beheer/beheer logboeken**: Bieden inzicht in de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) maken, bijwerken en DELETE-bewerkingen. Een Azure-activiteitenlogboek volgt een voorbeeld van dit type van het logboek.
+* **Gegevens vlak logboeken**: Bieden inzicht in gebeurtenissen die worden gegenereerd wanneer u een Azure-resource. Een voorbeeld van dit type logboekbestand is de Windows-logboeken **System**, **Security**, en **toepassing** kanalen in een Windows-machine. Een ander voorbeeld is de Azure Diagnostics-logboekregistratie, waardoor u via Azure Monitor configureren.
+* **Gebeurtenissen verwerkt**: Geef geanalyseerde gebeurtenis en informatie over waarschuwingen die worden verwerkt voor u. Een voorbeeld van dit type gebeurtenis is Azure Security Center-waarschuwingen. Azure Security Center worden verwerkt en analyseert uw abonnement voor waarschuwingen die relevant voor uw huidige beveiligingsstatus zijn.
 
-Integratie van Azure Log ondersteunt ArcSight, QRadar en Splunk. Neem contact op met de leverancier van uw SIEM om te beoordelen of de leverancier een eigen connector heeft. Gebruik de Azure Log-integratie niet als een systeemeigen connector beschikbaar is.
+Azure-Logboekintegratie ondersteunt ArcSight, QRadar en Splunk. Neem contact op met de leverancier van uw SIEM om te beoordelen of de leverancier een eigen connector heeft. Gebruik de Azure-Logboekintegratie niet als een systeemeigen connector beschikbaar is.
 
-Als er geen andere opties beschikbaar zijn, kunt u overwegen Azure Log-integratie. De volgende tabel bevat onze aanbevelingen:
+Als er geen andere opties beschikbaar zijn, overweeg het gebruik van Azure-Logboekintegratie. De volgende tabel bevat onze aanbevelingen:
 
-|SIEM | Klant al gebruikmaakt van de Azure-logboekanalyse integrator | Klant onderzoekt SIEM integratie-opties|
+|SIEM | Klant al gebruikmaakt van de Azure log integrator | Klant onderzoekt SIEM-integratie-opties|
 |---------|--------------------------|-------------------------------------------|
-|**splunk** | Beginnen met migreren naar de [Azure Monitor-invoegtoepassing voor Splunk](https://splunkbase.splunk.com/app/3534/). | Gebruik de [Splunk connector](https://splunkbase.splunk.com/app/3534/). |
-|**QRadar** | Om te migreren of te beginnen met behulp van de QRadar-connector die wordt beschreven in de laatste sectie van [stroom Azure voor het bewaken van gegevens naar een event hub voor verbruik door een extern hulpprogramma](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). | Gebruik van de QRadar-connector die wordt beschreven in de laatste sectie van [stroom Azure voor het bewaken van gegevens naar een event hub voor verbruik door een extern hulpprogramma](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Blijven de Azure-logboekanalyse integrator gebruiken totdat een connector beschikbaar is en vervolgens migreren naar de oplossing op basis van een connector.  | Overweeg het gebruik van Azure-logboekanalyse als alternatief. Niet vrijgeven aan Azure Log integratie tenzij u bereid bent te doorlopen van het migratieproces zodra de connector beschikbaar. |
+|**Splunk** | Kunt u migreren naar de [Azure Monitor-invoegtoepassing voor Splunk](https://splunkbase.splunk.com/app/3534/). | Gebruik de [Splunk connector](https://splunkbase.splunk.com/app/3534/). |
+|**QRadar** | Migratie naar of gebruikmaken van de QRadar-connector die wordt beschreven in de laatste sectie van [Stream Azure-bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Gebruik van de QRadar-connector die wordt beschreven in de laatste sectie van [Stream Azure-bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
+|**ArcSight** | Echter ook doorgaan met de Azure log integrator totdat een connector beschikbaar is, en vervolgens migreren naar de oplossing op basis van een connector.  | Overweeg het gebruik van Azure Log Analytics als alternatief. Geen onboarding voor Azure-Logboekintegratie, tenzij u bereid bent te doorlopen van het migratieproces zodra de connector beschikbaar. |
 
 > [!NOTE]
-> Hoewel Azure Log-integratie een gratis oplossing is, zijn er Azure-opslagkosten in verband met informatie van logboek bestandsopslag.
+> Hoewel Azure-Logboekintegratie gratis oplossing is, er zijn met een Azure storage-kosten voor gegevensopslag log-bestand.
 
-Als u hulp nodig hebt, kunt u een [ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer voor de service **logboek integratie**.
+Als u hulp nodig hebt, kunt u een [ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer voor de service, **Logboekintegratie**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel is geïntroduceerd aan Azure Log-integratie. Zie de volgende artikelen voor meer informatie over de integratie van Azure-logboek en de verschillende typen logboeken die worden ondersteund:
+In dit artikel hebt u kennisgemaakt met de Azure-Logboekintegratie. Zie de volgende artikelen voor meer informatie over Azure-Logboekintegratie en de typen logboeken die worden ondersteund:
 
-* [Aan de slag met Azure Log integratie](security-azure-log-integration-get-started.md). Deze zelfstudie leert u de installatie van Azure Log-integratie. Ook wordt beschreven hoe u logboeken van Windows Azure Diagnostics (af) opslag, Azure activiteitenlogboeken, Azure Security Center-waarschuwingen en auditlogboeken van Azure Active Directory integreren.
-* [Integratie van Azure Log Veelgestelde vragen (FAQ)](security-azure-log-integration-faq.md). Deze Veelgestelde vragen over de antwoorden op veelgestelde vragen over Azure Log-integratie.
-* Meer informatie over het [stream Azure voor het bewaken van gegevens naar een event hub voor verbruik door een extern hulpprogramma](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+* [Aan de slag met Azure-Logboekintegratie](security-azure-log-integration-get-started.md). In deze zelfstudie helpt u bij de installatie van Azure-Logboekintegratie. Ook wordt beschreven hoe u logboeken van Windows Azure Diagnostics (WAD), opslag, Azure-activiteitenlogboeken, waarschuwingen van Azure Security Center en auditlogboeken van Azure Active Directory integreren.
+* [Veelgestelde vragen (FAQ) Azure-Logboekintegratie](security-azure-log-integration-faq.md). Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over Azure-Logboekintegratie.
+* Meer informatie over het [streamen van Azure-bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png

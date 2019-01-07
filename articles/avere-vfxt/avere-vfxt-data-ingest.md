@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bf16c0fbc7090bf9b548796765502cde1731aef9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633950"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050486"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Om gegevens te verplaatsen naar het cluster vFXT - parallelle gegevens opnemen 
 
@@ -19,7 +19,7 @@ Nadat u een nieuw vFXT cluster hebt gemaakt, wordt uw eerste taak mogelijk om ge
 
 Omdat het Avere vFXT-cluster een schaalbare meerdere clientcache is, is de snelste en meest efficiënte manier om gegevens te kopiëren naar het met meerdere clients. Deze techniek parallelizes opname van de bestanden en -objecten.
 
-![Diagram van verplaatsing van gegevens van meerdere client, met meerdere threads: linksboven, heeft een pictogram voor on-premises hardware opslag meerdere pijlen die afkomstig zijn van deze. De pijlen verwijzen naar vier clientcomputers. Vanaf elke clientcomputer verwijzen drie pijlen naar de vFXT Avere. Uit de vFXT Avere verwijzen meerdere pijlen naar Blob-opslag.](media/avere-vfxt-parallel-ingest.png) 
+![Diagram van verplaatsing van gegevens van meerdere client, met meerdere threads: Bovenaan links, heeft een pictogram voor on-premises hardware opslag meerdere pijlen die afkomstig zijn van deze. De pijlen verwijzen naar vier clientcomputers. Vanaf elke clientcomputer verwijzen drie pijlen naar de vFXT Avere. Uit de vFXT Avere verwijzen meerdere pijlen naar Blob-opslag.](media/avere-vfxt-parallel-ingest.png) 
 
 De ``cp`` of ``copy`` opdrachten die vaak worden gebruikt voor het gebruik voor het overbrengen van gegevens uit één opslagsysteem naar een andere zijn single-threaded processen die slechts één bestand tegelijk kopiëren. Dit betekent dat de server slechts één bestand per keer - dit een verspilling van resources van het cluster is is opnemen.
 
@@ -167,7 +167,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>Manifesten van bestand maken
 
-Na wat de benaderingen boven (meerdere kopie-threads per bestemming, meerdere bestemmingen per client, meerdere clients per netwerk toegankelijk is via bron-bestandssysteem), houd rekening met deze aanbeveling: bestandslijsten bouwen en deze vervolgens gebruiken met kopiëren opdrachten over meerdere clients.
+Na wat de benaderingen boven (meerdere kopie-threads per bestemming, meerdere bestemmingen per client, meerdere clients per netwerk toegankelijk is via bron-bestandssysteem), houd rekening met deze aanbeveling: Bestand manifesten bouwen en deze vervolgens gebruiken met kopieeropdrachten over meerdere clients.
 
 In dit scenario maakt gebruik van de UNIX ``find`` opdracht voor het maken van de manifesten van bestanden of mappen:
 
@@ -272,7 +272,7 @@ Voor het gebruik van msrsync voor het vullen van een Azure-cloud-volume met een 
 1. Installeer msrsync en de vereisten (rsync en Python 2.6 of hoger)
 1. Bepaal het totale aantal bestanden en mappen worden gekopieerd.
 
-   Bijvoorbeeld, gebruik het hulpprogramma Avere ``prime.py`` met argumenten ```prime.py --directory /path/to/some/directory``` (beschikbaar met het downloaden van url https://raw.githubusercontent.com/Azure/Avere/master/src/dataingestor/prime.py).
+   Bijvoorbeeld, gebruik het hulpprogramma Avere ``prime.py`` met argumenten ```prime.py --directory /path/to/some/directory``` (beschikbaar met het downloaden van url https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py).
 
    Als geen ``prime.py``, kunt u het aantal items met de Gnu berekenen ``find`` hulpprogramma als volgt:
 
