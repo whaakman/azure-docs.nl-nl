@@ -21,7 +21,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54022050"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Gegevens verplaatsen van een Web-tabelbron met Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
 > * [Versie 1:](data-factory-web-table-connector.md)
 > * [Versie 2 (huidige versie)](../connector-web-table.md)
 
