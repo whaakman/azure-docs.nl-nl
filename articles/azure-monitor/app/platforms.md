@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: bf8eac34f5fa334568e3c808968b12412f785380
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f882cc9414f5230a6d0e74afd602bdaa1b779941
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050338"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073931"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Analyses voor ontwikkelaars: programmeertalen, platforms en integraties
 Deze items zijn implementaties van [Application Insights](../../application-insights/app-insights-overview.md) die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
@@ -40,7 +40,7 @@ Deze items zijn implementaties van [Application Insights](../../application-insi
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET - voor apps die al live zijn](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Android](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
@@ -48,7 +48,7 @@ Deze items zijn implementaties van [Application Insights](../../application-insi
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
 * [J2EE](../../azure-monitor/app/java-get-started.md)
@@ -57,7 +57,7 @@ Deze items zijn implementaties van [Application Insights](../../application-insi
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [Universele Windows-app](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [Universele Windows-app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows-bureaubladtoepassingen, -services en -werkrollen](../../azure-monitor/app/windows-desktop.md)
 * [Overige](#projects)
@@ -83,7 +83,7 @@ Deze items zijn implementaties van [Application Insights](../../application-insi
 ## <a name="export-and-data-analysis"></a>Exporteren en gegevensanalyse
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Stream Analytics](../../application-insights/app-insights-export-power-bi.md)
+* [Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 
 ## <a name="projects"></a> Uw eigen SDK bouwen
 Als er nog geen SDK beschikbaar is voor uw programmeertaal of platform, kunt u er ook zelf een bouwen. Bekijk de code van de bestaande SDK's die worden beschreven in het [Application Insights SDK-project op GitHub](https://github.com/Microsoft/AppInsights-Home).

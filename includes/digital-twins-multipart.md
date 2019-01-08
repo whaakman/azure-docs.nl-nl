@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 1c6579776b86decb78c172578cbe55a66c05d78f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026550"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079252"
 ---
 > [!NOTE]
 > Gedeeltelijk aanvragen moeten doorgaans drie onderdelen:
@@ -34,3 +34,5 @@ Gedeeltelijk aanvragen via een programma kunnen worden gemaakt (via C#), via een
 > * BLOB-inhoud die met de ongestructureerde inhoud van een bestand dat moet worden geüpload
 >
 > Geen van de twee delen is vereist voor **PATCH** aanvragen. Beide zijn vereist voor **POST** of bewerkingen voor maken.
+
+De [bezetting Quick Start-broncode](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) bevat volledige C# voorbeelden die laten zien hoe meerdelige-aanvragen op basis van de Azure digitale dubbels Management API's.

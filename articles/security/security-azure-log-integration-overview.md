@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: f20da4ab60eeec3e9c353445f6bc20449b9c1cb6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: e9b547b6b582e38a51196815522132dd807c971b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584476"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079031"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Inleiding tot Azure-Logboekintegratie
 
@@ -29,7 +29,7 @@ ms.locfileid: "53584476"
 
 Azure-Logboekintegratie is beschikbaar voor vereenvoudigde integratie van Azure logboeken met uw on-premises Security Information and Event Management (SIEM)-systeem.
 
- De aanbevolen methode voor logboeken integreren in Azure is het gebruik van uw SIEM leverancier s connectors. Azure Monitor biedt de mogelijkheid om de logboeken streamen naar eventhubs en SIEM-leveranciers connectoren voor de logboeken van de event hub verder te integreren in de SIEM kunnen schrijven.  Volg de instructies in voor een beschrijving van hoe dit werkt, [Monitor stream controleren voor gegevens van gebeurtenishubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Het artikel bevat ook de siem's waarvoor al directe Azure-connectors beschikbaar zijn.  
+ De aanbevolen methode voor logboeken integreren in Azure is het gebruik van van de leverancier van uw SIEM-connectors. Azure Monitor biedt de mogelijkheid om de logboeken streamen naar eventhubs en SIEM-leveranciers connectoren voor de logboeken van de event hub verder te integreren in de SIEM kunnen schrijven.  Volg de instructies in voor een beschrijving van hoe dit werkt, [Monitor stream controleren voor gegevens van gebeurtenishubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Het artikel bevat ook de siem's waarvoor al directe Azure-connectors beschikbaar zijn.  
 
 > [!IMPORTANT]
 > Als uw primaire interesse met het verzamelen van Logboeken van de virtuele machine, bevatten de meeste SIEM-leveranciers met deze optie in de oplossing. Met behulp van de SIEM is-connector van de leverancier altijd de voorkeur alternatief.

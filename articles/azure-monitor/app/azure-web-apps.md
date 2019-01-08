@@ -1,6 +1,6 @@
 ---
-title: Azure App Service-prestaties controleren | Microsoft Docs
-description: Prestaties controleren voor Azure-web-apps. Laad- en reactietijd voor grafieken, afhankelijkheidsinformatie en waarschuwingen instellen voor prestaties.
+title: Bewaken van prestaties van Azure app services | Microsoft Docs
+description: Prestaties controleren voor Azure app services. Laad- en reactietijd voor grafieken, afhankelijkheidsinformatie en waarschuwingen instellen voor prestaties.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96a7b775ec051f3511a179ebd4e879f50b9af32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3e027b92114bdf8cebf6e6bf239ebd9beb4943d6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019637"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073336"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
 In de [Azure Portal](https://portal.azure.com) kunt u instellen prestatiebewaking van toepassingen voor uw web-apps, mobiele back-ends en API-apps in [Azure App Service](../../app-service/overview.md). Met [Azure Application Insights](../../application-insights/app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
@@ -25,20 +25,20 @@ In de [Azure Portal](https://portal.azure.com) kunt u instellen prestatiebewakin
 ## <a name="run-time-or-build-time"></a>Runtime of buildtime
 U kunt de controle configureren door de app op twee manieren te instrumenteren:
 
-* **Runtime**: u kunt een uitbreiding van de prestatiecontrole selecteren wanneer uw web-app al gepubliceerd is. Het is niet nodig uw app opnieuw te bouwen of opnieuw te installeren. U ontvangt een standaardset aan pakketten voor het controleren van reactietijden, succespercentages, uitzonderingen, afhankelijkheden, enzovoort. 
+* **Runtime-** -kunt u een prestatiebewaking van de extensie wanneer uw appservice al gepubliceerd is. Het is niet nodig uw app opnieuw te bouwen of opnieuw te installeren. U ontvangt een standaardset aan pakketten voor het controleren van reactietijden, succespercentages, uitzonderingen, afhankelijkheden, enzovoort. 
 * **Buildtime**: u kunt een pakket installeren in uw app in ontwikkeling. Deze optie is veelzijdiger. Naast dezelfde standaardpakketten kunt u code schrijven voor het aanpassen van de telemetrie of voor het verzenden van uw eigen telemetrie. U kunt specifieke activiteiten of gebeurtenissen vastleggen volgens de semantiek van uw app-domein. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Runtime-instrumentatiesleutel met Application Insights
-Als u al een web-app uitvoert in Azure, is er al sprake van enige controle: frequentie van aanvragen en fouten. Voeg Application Insights toe om de controle uit te breiden met reactietijden, controle van het aanroepen van afhankelijkheden, slimme detectie en de krachtige Log Analytics-querytaal. 
+Als u al een appservice in Azure uitvoert, u al sprake van enige controle: tarieven voor aanvragen en fouten. Voeg Application Insights toe om de controle uit te breiden met reactietijden, controle van het aanroepen van afhankelijkheden, slimme detectie en de krachtige Log Analytics-querytaal. 
 
-1. **Selecteer Application Insights** in het Azure-configuratiescherm voor uw web-app.
+1. **Selecteer Application Insights** in de Azure-Configuratiescherm voor uw appservice.
 
     ![Kies Application Insights onder instellingen.](./media/azure-web-apps/settings-app-insights.png)
 
    * Te kiezen om een nieuwe resource te maken, tenzij u al een Application Insights-resource voor deze toepassing instellen. 
 
     > [!NOTE]
-    > Wanneer u klikt op **OK** te maken van de nieuwe resource wordt u gevraagd naar **controle-instellingen toepassen**. Selecteren **doorgaan** uw nieuwe Application Insights-resource wordt gekoppeld aan uw web-app, dit ook **activeert u opnieuw opstarten van uw web-app**. 
+    > Wanneer u klikt op **OK** te maken van de nieuwe resource wordt u gevraagd naar **controle-instellingen toepassen**. Selecteren **doorgaan** uw nieuwe Application Insights-resource wordt gekoppeld aan uw appservice, doet dit het geval is, wordt ook **activeert u opnieuw opstarten van uw appservice**. 
 
     ![Uw web-app instrumenteren](./media/azure-web-apps/create-resource.png)
 
@@ -46,7 +46,7 @@ Als u al een web-app uitvoert in Azure, is er al sprake van enige controle: freq
 
     ![Kies opties per platform](./media/azure-web-apps/choose-options.png)
 
-3. **Instrumenteer uw web-app** nadat Application Insights is geïnstalleerd.
+3. **Instrumenteer uw appservice** nadat Application Insights is geïnstalleerd.
 
    **Schakel bewaking aan clientzijde in** voor paginaweergave- en gebruikerstelemetrie.
 
@@ -95,6 +95,17 @@ Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED zorgt ervoor dat onvolledige HTML-antwoord in NET CORE web-apps.
+
+Inschakelen van Javascript via App Services kan leiden tot html-antwoorden worden afgekapt.
+
+- Tijdelijke oplossing 1: de toepassingsinstelling APPINSIGHTS_JAVASCRIPT_ENABLED ingesteld op false of volledig verwijderen en opnieuw opstarten
+- Tijdelijke oplossing 2: sdk doorgegeven via programmacode toevoegen en verwijderen van extensie (Profiler en Snapshot debugger wordt niet met deze configuratie)
+
+We volgen dit probleem [hier](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voer de profiler uit in uw live app](../../azure-monitor/app/profiler.md).

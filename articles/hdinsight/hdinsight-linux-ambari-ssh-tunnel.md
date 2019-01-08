@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 3cf13dc7b3a57435e4e93d6f01da482a2b992bb9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743853"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065304"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, JobHistory, NameNode, Apache Oozie en andere webgebruikersinterfaces
 
@@ -126,10 +126,10 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
 
 Zodra het cluster eenmaal is ingesteld, gebruikt u de volgende stappen uit om te controleren of u toegang hebt tot service webgebruikersinterfaces van de Ambari:
 
-1. Ga in uw browser naar http://headnodehost:8080. De `headnodehost` adres via de tunnel wordt verzonden naar het cluster en oplossen met het hoofdknooppunt dat Ambari op wordt uitgevoerd. Wanneer u hierom wordt gevraagd, voert u de naam van de gebruiker beheerder (beheerder) en het wachtwoord voor uw cluster. U kunt worden gevraagd een tweede keer door de Ambari-Webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
+1. Ga in uw browser naar http\:/ / headnodehost:8080. De `headnodehost` adres via de tunnel wordt verzonden naar het cluster en oplossen met het hoofdknooppunt dat Ambari op wordt uitgevoerd. Wanneer u hierom wordt gevraagd, voert u de naam van de gebruiker beheerder (beheerder) en het wachtwoord voor uw cluster. U kunt worden gevraagd een tweede keer door de Ambari-Webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
 
    > [!NOTE]  
-   > Wanneer u de http://headnodehost:8080 adres om verbinding met het cluster te maken, u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinding maken via internet met behulp van HTTPS, gebruikt u https://clustername.azurehdinsight.net, waarbij **clustername** is de naam van het cluster.
+   > Wanneer met de HTTP-\://headnodehost:8080 adres voor de verbinding met het cluster, u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinding maken via internet met behulp van HTTPS, gebruik van https\:/ / clustername.azurehdinsight.net, waar **clustername** is de naam van het cluster.
 
 2. Selecteer in de Ambari-Webgebruikersinterface, HDFS in de lijst aan de linkerkant van de pagina.
 
@@ -149,7 +149,7 @@ Zodra het cluster eenmaal is ingesteld, gebruikt u de volgende stappen uit om te
     ![Afbeelding van de gebruikersinterface NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]  
-   > U ziet de URL voor deze pagina. moet er ongeveer als **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Deze URI wordt met behulp van de interne volledig gekwalificeerde domeinnaam (FQDN) van het knooppunt en is alleen toegankelijk wanneer u een SSH-tunnel.
+   > U ziet de URL voor deze pagina. moet er ongeveer als **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Deze URI wordt met behulp van de interne volledig gekwalificeerde domeinnaam (FQDN) van het knooppunt en is alleen toegankelijk wanneer u een SSH-tunnel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

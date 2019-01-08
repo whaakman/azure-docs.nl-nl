@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1db4f4be7ab883e6be52b52bd93a43468829bed5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054508"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076622"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
@@ -80,7 +80,7 @@ E-mailberichten over slimme detectie prestatieafwijkingen zijn beperkt tot één
 
   * Nog niet, maar u kunt:
     * [Waarschuwingen instellen](../../azure-monitor/app/alerts.md) waarmee wordt aangegeven dat wanneer een metriek een drempelwaarde overschrijdt.
-    * [Telemetrie exporteren](../../azure-monitor/app/export-telemetry.md) naar een [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) of [naar PowerBI](../../application-insights/app-insights-export-power-bi.md), waar u ze kunt analyseren zelf.
+    * [Telemetrie exporteren](../../azure-monitor/app/export-telemetry.md) naar een [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) of [naar PowerBI](../../azure-monitor/app/export-power-bi.md ), waar u ze kunt analyseren zelf.
 * *Hoe vaak wordt de analyse uitgevoerd?*
 
   * We dagelijks wordt uitgevoerd de analyse op de telemetrie van de vorige dag (volledige dag in UTC-tijdzone).

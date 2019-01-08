@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845192"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061020"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
 
@@ -33,7 +33,7 @@ In dit overzicht wordt beschreven hoe een ISE biedt uw logische apps en integrat
 
 ## <a name="isolated-versus-global"></a>Ten opzichte van globale (geïsoleerd)
 
-Als u een geïntegreerde service environment (ISE) in Azure maakt, selecteert u een Azure-netwerk waarin uw *invoeren* omgeving. Azure heeft een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk geïmplementeerd. Deze actie wordt een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources gemaakt. Als u een logische app maakt, selecteert u in deze omgeving als locatie van uw app, die uw logische app direct toegang tot de resources in uw virtuele netwerk biedt. 
+Wanneer u een geïntegreerde service environment (ISE) in Azure maakt, selecteert u de Azure-netwerk waar u *invoeren* uw ISE. Azure heeft een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk geïmplementeerd. Deze actie wordt een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources gemaakt. Als u een logische app maakt, selecteert u in deze omgeving als locatie van uw app, die uw logische app direct toegang tot de resources in uw virtuele netwerk biedt. 
 
 Logische apps in een ISE bieden de dezelfde gebruikerservaringen en vergelijkbare mogelijkheden als de globale Logic Apps-service. Niet alleen kunt u de dezelfde ingebouwde acties en connectors in de globale Logic Apps-service, maar u kunt ook de ISE-specifieke connectors gebruiken. Dit is bijvoorbeeld sommige standaard-connectors die worden geboden door versies die worden uitgevoerd in een ISE:
  

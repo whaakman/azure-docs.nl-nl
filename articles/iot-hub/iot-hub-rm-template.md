@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b1aca07fe60a328dac9d3724454a21835026a53
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687768"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063842"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Een IoT-hub maken met Azure Resource Manager-sjabloon (.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "38687768"
 Azure Resource Manager kunt u maken en beheren van Azure IoT-hubs via een programma. Deze zelfstudie leert u hoe u een Azure Resource Manager-sjabloon gebruiken om te maken van een IoT-hub uit een C#-programma.
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Azure Resource Manager en klassiek](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel bevat informatie over het Azure Resource Manager-implementatiemodel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Azure Resource Manager en klassieke](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel bevat informatie over het Azure Resource Manager-implementatiemodel.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -203,6 +203,7 @@ Nu u een IoT-hub met behulp van een Azure Resource Manager-sjabloon met een C#-p
 
 * Meer informatie over de mogelijkheden van de [REST API voor IoT Hub-resourceprovider][lnk-rest-api].
 * Lezen [overzicht van Azure Resource Manager] [ lnk-azure-rm-overview] voor meer informatie over de mogelijkheden van Azure Resource Manager.
+* Zie voor de JSON-syntaxis en de eigenschappen voor gebruik in sjablonen, [Microsoft.Devices resourcetypen](/azure/templates/microsoft.devices/iothub-allversions).
 
 Zie de volgende artikelen voor meer informatie over het ontwikkelen van IoT-Hub:
 

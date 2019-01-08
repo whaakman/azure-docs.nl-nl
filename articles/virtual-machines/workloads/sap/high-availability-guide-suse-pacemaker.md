@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076352"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074373"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -483,12 +483,12 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 Het stonith instellen-apparaat maakt gebruik van een Service-Principal te autoriseren op basis van Microsoft Azure. Volg deze stappen voor het maken van een Service-Principal.
 
-1. Ga naar <https://portal.azure.com>
+1. Ga naar < https\://portal.azure.com >
 1. Open de Azure Active Directory-blade  
    Ga naar eigenschappen en noteer de map-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
 1. Klik op Add.
-1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld http://localhost) en klik op maken
+1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld http\://localhost) en klik op maken
 1. De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
 1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
 1. Voer een beschrijving in voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
@@ -525,7 +525,7 @@ Gebruik de volgende inhoud voor het invoerbestand. U moet de inhoud voor uw abon
 
 De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofdstuk aan de Service-Principal toewijzen. De rol van eigenaar niet meer gebruiken.
 
-1. Ga naar https://portal.azure.com
+1. Ga naar https\://portal.azure.com
 1. Open de blade alle resources
 1. Selecteer de virtuele machine van het eerste clusterknooppunt
 1. Klik op de Access control (IAM)

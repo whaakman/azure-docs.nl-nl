@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 4a77f73f4d87f7def7c8a841c7a59aed04b9bee2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 69ba67eb74333e8316b739fc2f264434643cab95
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020044"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075138"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Bewaken en fouten opsporen in een Azure Batch .NET-toepassing met Application Insights
 
@@ -35,11 +35,11 @@ Een voorbeeld van C#-oplossing met code ter ondersteuning van dit artikel vindt 
 
 * [Batch-account en gekoppelde storage-account](batch-account-create-portal.md)
 
-* [Application Insights-resource](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights-resource](../azure-monitor/app/create-new-resource.md )
   
    * De Azure portal gebruiken voor het maken van een Application Insights *resource*. Selecteer de *algemene* **toepassingstype**.
 
-   * Kopieer de [instrumentatiesleutel](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) vanuit de portal. Verderop in dit artikel is verplicht.
+   * Kopieer de [instrumentatiesleutel](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) vanuit de portal. Verderop in dit artikel is verplicht.
   
   > [!NOTE]
   > U kunt mogelijk [in rekening gebracht](https://azure.microsoft.com/pricing/details/application-insights/) voor de gegevens die zijn opgeslagen in Application Insights. Dit omvat de diagnose en controle van gegevens die in dit artikel worden besproken.

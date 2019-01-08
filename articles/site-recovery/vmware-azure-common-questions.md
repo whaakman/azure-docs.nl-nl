@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974689"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077382"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -108,6 +108,12 @@ Ja, kunt u nieuwe virtuele machines toevoegen aan een bestaande replicatiegroep 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan ik virtuele machines die worden gerepliceerd door toe te voegen of het formaat van schijven wijzigen?
 
 U kunt de schijfgrootte wijzigen voor VMware-replicatie naar Azure. Als u wilt toevoegen van nieuwe schijven moet u de schijf toevoegen en weer inschakelen van beveiliging voor de virtuele machine.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan ik on-premises machines migreren naar een nieuwe Vcenter zonder enige impact op de doorlopende replicatie?
+Wijziging van de Vcenter- of de migratie is niet het geval is, van invloed op doorlopende replicatie. U moet instellen voor automatisch Systeemherstel met de nieuwe Vcenter en replicatie inschakelen voor machines.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan ik repliceren naar cache/doel-opslagaccount met een Vnet (met Azure storage-firewalls) geconfigureerd voor?
+Azure Site Recovery biedt Nee, geen ondersteuning voor replicatie naar de opslag op Vnet.
 
 ## <a name="configuration-server"></a>Configuratieserver
 
@@ -225,9 +231,10 @@ Azure is ontworpen voor herstelbaarheid. Site Recovery is ontworpen voor failove
 Ja, als u een failover naar Azure, kunt u failover naar een andere locatie als de oorspronkelijke map is niet beschikbaar. [Meer informatie](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Waarom heb ik een VPN of ExpressRoute voor failback nodig?
-
 Wanneer u een failback van Azure, gegevens van Azure is gekopieerd naar uw on-premises virtuele machine en persoonlijke toegang is vereist.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>Kan ik het formaat van de virtuele Azure-machine na een failover?
+U kunt de grootte van de doel-VM Nee, niet wijzigen na de failover.
 
 
 ## <a name="automation-and-scripting"></a>Automation en scripting

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247072"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078113"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Een virtuele machine op Azure Marketplace publiceren
 
@@ -31,35 +31,23 @@ De volgende technische en niet-technische vereisten van toepassing op een virtue
 
 ### <a name="technical"></a>Technisch
 
--   [Technische vereisten voor het maken van een VM-installatiekopie voor de Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Technische vereisten voor het maken van een VM-installatiekopie voor de Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
 -   [Een Linux VHD maken en uploaden](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Maken en testen van een Linux-VM vanaf een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Een Windows VHD maken en uploaden ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Maken en testen van een Windows-VM op basis van een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
-
--   [Het oplossen van veelvoorkomende problemen aangetroffen tijdens het maken van VHD](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
+-   [Het oplossen van veelvoorkomende problemen aangetroffen tijdens het maken van VHD](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 -   [Aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>Niet-technische (zakelijke vereisten)
 
  -   Uw bedrijf (of een dochteronderneming) bevindt zich in een land/regio de verkopen via de Azure Marketplace wordt ondersteund
-
 -   Uw product een licentie moet worden verleend op een manier die compatibel is met de factureringsmodellen ondersteund door de Azure Marketplace
-
 -   U bent verantwoordelijk voor het maken van technische ondersteuning beschikbaar voor klanten in een commercieel redelijke manier. Deze ondersteuning kan gratis worden betaald, of via communityondersteuning.
-
 -   U bent zelf verantwoordelijk voor licentiëring van uw software en eventuele afhankelijkheden voor software van derden.
-
--   U kunt u inhoud die voldoet aan de criteria voor uw aanbieding wilt laten vermelden op Azure Marketplace en in de Azure Management Portal.
-
+-   U kunt u inhoud die voldoet aan de criteria voor uw aanbieding wilt laten vermelden op Azure Marketplace en in de Azure-portal.
 -   U gaat ermee akkoord met de voorwaarden van de Deelnamebeleid voor Azure Marketplace en de overeenkomst voor uitgevers.
-
 -   U stemt ermee in om te voldoen aan de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [privacyverklaring van Microsoft](https://www.microsoft.com/privacystatement/default.aspx), en [overeenkomst van Microsoft Azure Certified-programma](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
@@ -116,7 +104,7 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in Azure Marketplace
 
     **Naam**
 
-    De weergavenaam voor uw aanbieding. Deze naam wordt weergegeven in Azure Marketplace en in Azure Portal. De naam mag maximaal 50 tekens bevatten. Gebruik de volgende richtlijnen voor de aanbiedingsnaam van:
+    De weergavenaam voor uw aanbieding. Deze naam wordt weergegeven in Azure Marketplace en in Azure portal. De naam mag maximaal 50 tekens bevatten. Gebruik de volgende richtlijnen voor de aanbiedingsnaam van:
     -  Gebruik een merknaam voor het product die makkelijk te herkennen is. 
     - Neem hier de naam van uw bedrijf niet, tenzij dat is hoe de aanbieding is gebracht.
     - Als u bent deze aanbieding op uw eigen website marketing, zorg er dan voor dat de naam is identiek aan de naam op uw website.
@@ -140,7 +128,7 @@ Nadat u een SKU toegevoegd, wordt deze weergegeven in de lijst van SKU's in de w
 
 ### <a name="hide-this-sku"></a>Deze SKU verbergen
 
-Gebruik deze instelling voor het beheren van inzicht SKU. Als 'Deze SKU verbergen' is uitgeschakeld, de SKU is zichtbaar in [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Azure Portal](https://portal.azure.com/) aan klanten. U kunt de SKU verbergen als u wilt dat alleen het beschikbaar is via oplossingssjablonen en niet voor aankoop afzonderlijk.
+Gebruik deze instelling voor het beheren van inzicht SKU. Als 'Deze SKU verbergen' is uitgeschakeld, de SKU is zichtbaar in [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Azure-portal](https://portal.azure.com/) aan klanten. U kunt de SKU verbergen als u wilt dat alleen het beschikbaar is via oplossingssjablonen en niet voor aankoop afzonderlijk.
 
 ### <a name="cloud-availability"></a>Beschikbaarheid van de cloudservice
 
@@ -177,7 +165,7 @@ U beheert de licentieverlening van de software die wordt uitgevoerd op de virtue
 
 #### <a name="usage-based-monthly-billed-sku"></a>Gebruik op basis van de maand gefactureerd SKU
 
-Klanten in rekening gebracht op basis van per uur op basis van de tarieven die zijn ingesteld door de uitgevers op de VM-grootten. In geval van **facturering per uur** model van de SKU's, worden de totale prijs de som van de softwarekosten in rekening gebracht door de uitgever en de infrastructuur hoeft te investeren in rekening gebracht door Microsoft. De totale kosten wordt weergegeven aan de klant als een prijs per uur en maandelijkse wanneer ze de aankoop overweegt. De facturering worden in dit geval wordt op maandbasis.
+Klanten in rekening gebracht op basis van per uur op basis van de tarieven die zijn ingesteld door de uitgevers op de VM-grootten. Als de **facturering per uur** model wordt gebruikt, is de totale prijs de som van de softwarekosten in rekening gebracht door de uitgever en de infrastructuur hoeft te investeren in rekening gebracht door Microsoft. De totale kosten wordt weergegeven aan de klant als een prijs per uur en maandelijkse wanneer ze de aankoop overweegt. De facturering worden in dit geval wordt op maandbasis.
 
 In het model op basis van gebruik, moet u er extra instellingen die vereist zijn door u zijn.
 
@@ -188,21 +176,21 @@ Hier de klant niet in rekening gebracht voor softwarekosten voor de eerste 30/90
 
 **Per Core prijzen**
 
-U kunt instellen voor uw SKU per kern-prijzen. Voor dit, u hoeft in te voeren een basisprijs voor een enkele kern en we auto-compute de prijzen voor de rest van de kernen. De prijzen in Amerikaanse dollars opgeven in de portal en we auto-berekent de prijzen voor andere regio's. U kunt de prijzen in de andere regio's controleren met behulp van **prijzen gegevens exporteren**
+U kunt instellen voor uw SKU per kern-prijzen. Voor deze optie, u hoeft in te voeren een basisprijs voor een enkele kern en we auto-compute de prijzen voor de rest van de kernen. De prijzen in Amerikaanse dollars opgeven in de portal en we auto-berekent de prijzen voor andere regio's. U kunt de prijzen in de andere regio's controleren met behulp van **prijzen gegevens exporteren**
 
 ![Per Core prijzen](./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png)
 
 
 **Discrete prijzen**
 
-U kunt instellen met de prijzen voor elke sets kernen afzonderlijk als u graag zou willen elk kerngeheugen afzonderlijk prijs.
+U kunt instellen met de prijzen voor elke set kernen afzonderlijk als u graag zou willen elk kerngeheugen afzonderlijk prijs.
 
 ![Discrete prijzen](./media/cloud-partner-portal-publish-virtual-machine/publishvm7.png)
 
 **Prijzen voor exporteren / importeren**
 
-U hebt de flexibiliteit voor het exporteren van de prijzen die via de portal te wijzigen via de excel-interface is geconfigureerd. Hiermee kunt u ook controleren of de prijzen per regio en de prijzen in de lokale valuta's.
-Te klikken op **Export prijzen** worden gedownload van een excel-bestand met prijsinformatie vooraf is ingevuld. Kunt u zich aan deze in de excel bewerken en gebruik vervolgens **importeren prijzen** voor het importeren van de wijzigingen die zijn aangebracht.
+U hebt de flexibiliteit voor het exporteren van de prijzen die via de portal te wijzigen via de excel-interface is geconfigureerd. Deze optie kunt u controleren of per regio prijzen en prijzen in de lokale valuta's.
+Te klikken op **Export prijzen** worden gedownload van een Excel-bestand met prijsinformatie vooraf is ingevuld. U wordt mogelijk om te bewerken van deze gegevens in het werkblad en vervolgens **importeren prijzen** voor het importeren van de wijzigingen die zijn aangebracht.
 De geïmporteerde prijzen weer in de portal ook.
 
 In deze prijzen excel, worden de prijzen voor de verschillende regio's weergegeven in de lokale valuta. De exchange-snelheid die we gebruiken wordt dagelijks vernieuwd.
@@ -219,24 +207,18 @@ In deze prijzen excel, worden de prijzen voor de verschillende regio's weergegev
 
 De volgende sectie om te voltooien, is de sectie VM-installatiekopieën. Voordat u verdergaat met deze sectie, moet u de VHD die u wilt publiceren gereed hebben. Hier volgen enkele koppelingen die u helpen u bij het maken van uw VHD:
 
--   [Technische vereisten voor het maken van een VM-installatiekopie voor de Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Technische vereisten voor het maken van een VM-installatiekopie voor de Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [Het maken en uploaden van een VHD met Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Maken en testen van een Linux-VM vanaf een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Het maken en uploaden van een Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Maken en testen van een Windows-VM op basis van een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [Het oplossen van veelvoorkomende problemen aangetroffen tijdens het maken van VHD](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 
--   [Het oplossen van veelvoorkomende problemen aangetroffen tijdens het maken van VHD](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
-Zodra u uw VHD gereed hebt, kunt u beginnen met het invullen van deze sectie.
-Hier volgen enkele details voor een aantal velden.
+Zodra u uw VHD gereed hebt, kunt u beginnen met het invullen van deze sectie.  Hier volgen enkele details voor een aantal velden.
 
 ### <a name="recommended-vm-sizes"></a>Aanbevolen VM-grootten
 
-Selecteer maximaal zes aanbevolen VM-groottes. Dit zijn aanbevelingen die aan de klant op Azure Marketplace en de blade prijscategorie in de Azure Portal worden weergegeven wanneer deze besluit uw installatiekopie te kopen en implementeren. **Dit zijn alleen aanbevelingen. De klant kan elke VM-grootte die geschikt is voor de vermelde schijven in uw installatiekopie te selecteren.**  De volgende schermafbeelding ziet u de aanbevolen VM-grootten die een klant wordt weergegeven in de Azure-Portal.
+Selecteer maximaal zes aanbevolen VM-groottes. Deze aanbevelingen worden weergegeven aan klanten in Azure Marketplace en in de blade prijscategorie in Azure portal wanneer deze besluit uw installatiekopie te kopen en implementeren. *Deze grootten zijn dan aanbevelingen. De klant kan elke VM-grootte die geschikt is voor de vermelde schijven in uw installatiekopie te selecteren.*  De volgende schermopname ziet u de aanbevolen VM-grootten die een klant te zien krijgen in de Azure-portal.
 
 
 ![Aanbevolen VM-grootten](./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png)
@@ -248,9 +230,9 @@ Geef op de poorten die u wilt openen en beschikbaar gesteld. Deze poorten zijn g
 
 ### <a name="adding-vm-images"></a>VM-installatiekopieën toevoegen
 
-De volgende stap is het toevoegen van een VM-installatiekopie voor uw SKU. U kunt maximaal 8 schijf versies per SKU toevoegen. Alleen de hoogste versie schijfnummer voor een bepaalde SKU wordt weergegeven in Azure Marketplace. Anderen zijn zichtbaar via API's.
+De volgende stap is het toevoegen van een VM-installatiekopie voor uw SKU. U kunt maximaal acht versies van schijf per SKU toevoegen. Alleen de hoogste versie schijfnummer voor een bepaalde SKU wordt weergegeven in Azure Marketplace. Anderen zijn zichtbaar via API's.
 
-Onder **schijf versie**, selecteer **+ nieuwe versie**. Dit bevat de volgende velden die u nodig hebt om in te vullen.
+Onder **schijf versie**, selecteer **+ nieuwe versie**. Deze optie geeft de volgende velden die u nodig hebt om in te vullen.
 
 #### <a name="vm-image-version"></a>De versie van de VM-installatiekopie
 
@@ -258,13 +240,13 @@ De versie van de VM-installatiekopie moet volgen de [semantische versie](http://
 
 #### <a name="os-vhd-url"></a>URL VAN DE VHD MET BESTURINGSSYSTEEM
 
-Voer de [handtekening voor gedeelde toegang URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) gemaakt voor het besturingssysteem VHD.
+Voer de [handtekening voor gedeelde toegang URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) gemaakt voor het besturingssysteem VHD.
 
 Als er gegevensschijven die zijn gekoppeld aan deze SKU zijn, kunt u deze schijven toevoegen door het selecteren van de **+ nieuwe gegevensschijf** koppeling. Deze actie geeft aanvullende velden voor u om in te vullen.
 
 #### <a name="lun-vhd-url"></a>LUN VHD URL
 
-Voer de [handtekening voor gedeelde toegang URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) voor de gegevensschijf van uw.
+Voer de [handtekening voor gedeelde toegang URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) voor de gegevensschijf van uw.
 
 #### <a name="lun-number"></a>Aantal LUN
 
@@ -286,7 +268,7 @@ Een nummer toewijzen aan deze LUN. Dit nummer wordt gereserveerd voor de gegeven
 
 ## <a name="to-configure-the-marketplace"></a>Het configureren van de Marketplace
 
-Gebruik de Marketplace-weergave voor het configureren van de velden die worden weergegeven voor de aanbieding op [Azure Marketplace](https://azuremarketplace.microsoft.com) en klik op [Azure Portal](https://portal.azure.com/).
+Gebruik de Marketplace-weergave voor het configureren van de velden die worden weergegeven voor de aanbieding op [Azure Marketplace](https://azuremarketplace.microsoft.com) en klik op [Azure-portal](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Preview-versie abonnement-id 's
 
@@ -294,9 +276,9 @@ De lijst met Azure-abonnement-id's die u toegang hebben tot de aanbieding wilt w
 
 ### <a name="suggested-categories"></a>Aanbevolen categorieën
 
-Selecteer maximaal 5 categorieën in de opgegeven lijst dat uw aanbieding beste is gekoppeld. De geselecteerde categorieën worden gebruikt om uw aanbieding worden toegewezen aan de productcategorieën die beschikbaar zijn in [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Azure Portal](https://portal.azure.com/).
+Selecteer maximaal vijf categorieën in de opgegeven lijst dat uw aanbieding beste is gekoppeld. De geselecteerde categorieën worden gebruikt om uw aanbieding worden toegewezen aan de productcategorieën die beschikbaar zijn in [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Azure-portal](https://portal.azure.com/).
 
-De volgende voorbeelden ziet de marketplace-gegevens in de Azure Marketplace en de Azure-Portal.
+De volgende voorbeelden ziet de marketplace-gegevens in de Azure Marketplace en de Azure-portal.
 
 **Azure Marketplace**
 
@@ -316,7 +298,6 @@ De volgende voorbeelden ziet de marketplace-gegevens in de Azure Marketplace en 
 ![publishvm12](./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png)
 
 
-
 ![publishvm13](./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png)
 
 
@@ -329,11 +310,11 @@ Volg deze richtlijnen voor het logo's uploaden naar de Cloud Partner-Portal:
 -   De themakleuren van het Azure-portal zijn wit en zwart. Vermijd het gebruik van deze kleuren als de achtergrondkleur van uw logo's. Gebruik een kleur die uw logo's opvallende in Azure portal. We adviseren eenvoudige primaire kleuren.
 
     >[!Note] 
-    >Als u van een transparante achtergrond gebruikmaakt, moet u ervoor zorgen dat de logo's / tekst worden niet wit, zwart-wit of blauw.
+    >Als u van een transparante achtergrond gebruikmaakt, moet u ervoor zorgen dat de logo's / tekst worden niet wit, zwart of blauw.
 
 -   Gebruik geen achtergrond met een kleurovergang in het logo.
 
--   Plaats tekst op het logo. Dit omvat uw bedrijf of een merk. Het uiterlijk van uw logo moet *platte* en vermijd kleurovergangen.
+-   Plaats de tekst, met inbegrip van uw bedrijf of de naam van het merk, op het logo.  Het uiterlijk van uw logo moet *platte* en vermijd kleurovergangen.
 
 -   Het logo mag niet worden uitgebreid.
 
@@ -343,9 +324,9 @@ De Hero-logo is optioneel. De publisher kunt niet een Hero-logo uploaden. Worden
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Richtlijnen voor het pictogram van Hero-logo
 
--   De weergavenaam van de uitgever, plan titel en de lange samenvatting van de aanbieding worden weergegeven met een witte gekleurde lettertype. Vermijd het gebruik van een lichte kleur op de achtergrond. Zwart-wit en transparante achtergrond zijn niet toegestaan voor de Hero-pictogrammen.
+-   De weergavenaam van de uitgever, plan titel en de lange samenvatting van de aanbieding worden weergegeven met een lettertype wit gekleurd. Vermijd het gebruik van een lichte kleur op de achtergrond. Zwart, wit en transparante achtergrond zijn niet toegestaan voor de Hero-pictogrammen.
 
--   De uitgever weergavenaam, plan titel, de aanbieding voor lange samenvatting en de knop maken zijn ingesloten via een programma in de Hero-logo wanneer van de aanbieding weergegeven. Voer de tekst bij het ontwerpen van de Hero-logo. Laat een lege ruimte aan de rechterkant van het logo. Deze ruimte moet 415 x 100 pixels en wordt gecompenseerd door 370 pixels vanaf de linkerkant.
+-   De uitgever weergavenaam, plan titel, de aanbieding voor lange samenvatting en de knop maken zijn ingesloten via een programma in de Hero-logo wanneer de aanbieding wordt vermeld. Voer de tekst bij het ontwerpen van de Hero-logo. Laat een lege ruimte aan de rechterkant van het logo. Deze ruimte moet 415 x 100 pixels en wordt gecompenseerd door 370 pixels vanaf de linkerkant.
 
 ![Voorbeeld van hero-logo](./media/cloud-partner-portal-publish-virtual-machine/publishvm14.png)
 

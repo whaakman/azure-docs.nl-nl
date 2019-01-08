@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3bf24a4ed17986ff948a7396e608a51ae38208a5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255309"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076498"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Micrometer gebruiken met Azure Application Insights-SDK voor Java
 Micrometer bewaking metingen metrische toepassingsgegevens voor JVM-gebaseerde toepassing code en kunt u de gegevens exporteren naar uw favoriete bewakingssystemen. In dit artikel leert u hoe u Micrometer met Application Insights voor zowel Spring Boot en Spring Boot-toepassingen.
@@ -27,7 +27,7 @@ De volgende afhankelijkheden toe aan het bestand pom.xml of build.gradle toevoeg
 * [Application Insights spring boot-starter-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA of hoger
 * Micrometer Azure Registry 1.1.0 of hoger
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 of hoger (deze backports de autoconfig-code in de Spring-framework).
-* [Application Insights-Resource](app-insights-create-new-resource.md)
+* [Application Insights-Resource](../azure-monitor/app/create-new-resource.md )
 
 Stappen
 
@@ -65,7 +65,7 @@ De volgende afhankelijkheden toe aan het bestand pom.xml of build.gradle toevoeg
 
 * Application Insights Spring boot starter 2.1.2 of hoger
 * Azure-spring-opstart-metrics-starters 2.0.7 of hoger  
-* [Application Insights-Resource](app-insights-create-new-resource.md)
+* [Application Insights-Resource](../azure-monitor/app/create-new-resource.md )
 
 Stappen:
 
@@ -126,7 +126,7 @@ De volgende afhankelijkheden toe aan het bestand pom.xml of build.gradle toevoeg
 * [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) of hoger
 * [Webfilter registreren](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * Micrometer Azure Registry 1.1.0 of hoger
-* [Application Insights-Resource](app-insights-create-new-resource.md)
+* [Application Insights-Resource](../azure-monitor/app/create-new-resource.md )
 
 Stappen:
 

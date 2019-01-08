@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 458b615ea872b62a412a71cbbb0b3827ccb4d9b8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580923"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064471"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Logboekintegratie Veelgestelde vragen
 
@@ -31,7 +31,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen (FAQ) over Azure-Logboe
 
 Azure-Logboekintegratie is een service voor het besturingssysteem van Windows die u gebruiken kunt om te integreren met uw on-premises security information en event management (SIEM) systemen onbewerkte logboeken van uw Azure-resources. Deze integratie biedt via het uniforme dashboard voor al uw activa, on-premises of in de cloud. U kunt vervolgens aggregeren, correleren, analyseren en ontvang een waarschuwing voor beveiligingsgebeurtenissen die zijn gekoppeld aan uw toepassingen.
 
-De aanbevolen methode voor het integreren van Logboeken in Azure wordt met behulp van uw SIEM-connector leverancier s Azure Monitor en volgende [instructies](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Echter, als uw SIEM leverancier t een connector voor Azure Monitor bieden, u mogelijk gebruik van Azure-Logboekintegratie als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure-Logboekintegratie) totdat deze een connector beschikbaar is.
+De aanbevolen methode voor het integreren van Logboeken in Azure wordt met behulp van de leverancier van uw SIEM-connector voor Azure Monitor en volgende [instructies](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Echter, als de leverancier van uw SIEM niet een connector voor Azure Monitor biedt, u mogelijk gebruik van Azure-Logboekintegratie als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure-Logboekintegratie) totdat deze een connector beschikbaar is.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Is de Azure-Logboekintegratie software gratis?
 

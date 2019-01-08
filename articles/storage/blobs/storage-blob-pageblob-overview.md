@@ -1,35 +1,35 @@
 ---
-title: De unieke functies van Azure-pagina-blobs | Microsoft Docs
+title: Overzicht van Azure-pagina-blobs | Microsoft Docs
 description: Een overzicht van Azure-pagina-blobs en hun voordelen, waaronder gebruiksvoorbeelden met voorbeelden van scripts.
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022685"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063927"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>De unieke functies van Azure-pagina-blobs
+# <a name="overview-of-azure-page-blobs"></a>Overzicht van Azure-pagina-blobs
 
-Azure Storage biedt drie typen van blob-opslag: blok-Blobs, toevoeg-Blobs en pagina-blobs. Blok-blobs bestaan uit blokken en zijn ideaal voor het opslaan van tekst of binaire bestanden en voor het uploaden van grote bestanden efficiënt. Toevoeg-blobs ook bestaan uit blokken, maar ze zijn geoptimaliseerd voor toevoegbewerkingen, waardoor ze ideaal voor scenario's voor logboekregistratie. Pagina-blobs bestaan uit 512-byte-pagina's omhoog naar 8 TB in totale grootte en zijn ontworpen voor frequente willekeurige lees-/ schrijfbewerkingen. Pagina-blobs vormen de basis van Azure IaaS-schijven. In dit artikel is gericht op uitleg van de functies en voordelen van pagina-blobs.
+Azure Storage biedt drie typen van blob-opslag: Blok-Blobs, toevoeg-Blobs en pagina-blobs. Blok-blobs bestaan uit blokken en zijn ideaal voor het opslaan van tekst of binaire bestanden en voor het uploaden van grote bestanden efficiënt. Toevoeg-blobs ook bestaan uit blokken, maar ze zijn geoptimaliseerd voor toevoegbewerkingen, waardoor ze ideaal voor scenario's voor logboekregistratie. Pagina-blobs bestaan uit 512-byte-pagina's omhoog naar 8 TB in totale grootte en zijn ontworpen voor frequente willekeurige lees-/ schrijfbewerkingen. Pagina-blobs vormen de basis van Azure IaaS-schijven. In dit artikel is gericht op uitleg van de functies en voordelen van pagina-blobs.
 
 Pagina-blobs zijn een verzameling van 512-byte-pagina's, waardoor de mogelijkheid om willekeurige bereiken in bytes voor lezen/schrijven. Daarom kan de pagina-blobs zijn ideaal voor het opslaan van gegevens op basis van een index en sparse-structuren, zoals besturingssysteem en gegevensschijven voor virtuele Machines en Databases. Bijvoorbeeld, Azure SQL-database maakt gebruik van pagina-blobs als de onderliggende permanente opslag voor de databases. Pagina-blobs worden bovendien ook vaak gebruikt voor bestanden die zijn bijgewerkt op basis van een bereik.  
 
-Belangrijke functies van Azure-pagina-blobs zijn de REST-interface, de duurzaamheid van de onderliggende opslag en de mogelijkheden voor naadloze migratie naar Azure. Deze functies worden gedetailleerd besproken in de volgende sectie beschreven. Bovendien Azure pagina-blobs die momenteel worden ondersteund op twee soorten opslag: Premium-opslag- en Standard-opslag. Premium Storage is speciaal ontworpen voor workloads waarvoor consistent hoge prestaties en lage latentie, waardoor premium-pagina-blobs ideaal voor databases voor opslag van krachtige gegevens vereist.  Standard-opslag is kostenefficiënter voor het uitvoeren van niet gevoelig werkbelastingen.
+Belangrijke functies van Azure-pagina-blobs zijn de REST-interface, de duurzaamheid van de onderliggende opslag en de mogelijkheden voor naadloze migratie naar Azure. Deze functies worden gedetailleerd besproken in de volgende sectie beschreven. Bovendien worden Azure pagina-blobs momenteel ondersteund op twee soorten opslag: Premium-opslag- en Standard-opslag. Premium Storage is speciaal ontworpen voor workloads waarvoor consistent hoge prestaties en lage latentie, waardoor premium-pagina-blobs ideaal voor databases voor opslag van krachtige gegevens vereist.  Standard-opslag is kostenefficiënter voor het uitvoeren van niet gevoelig werkbelastingen.
 
 ## <a name="sample-use-cases"></a>Voorbeelden van use cases
 
 Laten we bespreken enkele gebruiksvoorbeelden voor pagina-blobs die beginnen met Azure IaaS-schijven. Azure-pagina-blobs vormen de ruggengraat van de virtuele schijven platform voor Azure IaaS. Azure-besturingssysteem en de gegevensschijven worden geïmplementeerd als virtuele schijven waaruit gegevens worden blijvend opgeslagen in het Azure Storage-platform en vervolgens geleverd aan de virtuele machines voor maximale prestaties. Azure-schijven zijn opgeslagen in Hyper-V [VHD-indeling](https://technet.microsoft.com/library/dd979539.aspx) en opgeslagen als een [pagina-blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Azure Storage. Naast het gebruik van virtuele schijven voor Azure IaaS VM's, inschakelen pagina-blobs ook voor PaaS en DBaaS scenario's zoals Azure SQL DB-service, die momenteel pagina-blobs gebruikt voor het opslaan van SQL-gegevens, zodat snel, willekeurig lees-/ schrijfbewerkingen voor de database. Een ander voorbeeld zou zijn als u een PaaS-service voor toegang tot gedeelde media voor samenwerkingstoepassingen video bewerken hebt, pagina-blobs snelle toegang tot willekeurige locaties in de media inschakelen. Ook kunt met snelle en efficiënte bewerken en samenvoegen van de dezelfde media door meerdere gebruikers. 
 
 Eerste partij Microsoft-services zoals Azure Site Recovery, Azure Backup, evenals veel ontwikkelaars van derden hebben toonaangevende innovaties met behulp van pagina-blob REST-interface geïmplementeerd. Hier volgen enkele van de unieke scenario's geïmplementeerd op Azure: 
-* Beheer van incrementele momentopnamen toepassing omgeleid: toepassingen kunnen gebruikmaken van pagina-blob-momentopnamen en REST-API's voor het opslaan van de controlepunten van de toepassing zonder kostbare duplicatie van gegevens. Azure Storage biedt ondersteuning voor lokale momentopnamen voor pagina-blobs, die geen kopiëren van de gehele blob is vereist. Deze momentopname van de openbare API's kunnen ook toegang tot en het kopiëren van de verschillen tussen momentopnamen.
-* Livemigratie van toepassingen en gegevens van on-premises naar de cloud: de on-premises gegevens kopiëren en gebruiken van REST-API's om te schrijven rechtstreeks naar een Azure-pagina-blob, terwijl de on-premises virtuele machine blijft om uit te voeren. Wanneer het doel is bijgewerkt, kunt u snel een failover voor Azure-VM met behulp van die gegevens. Op deze manier kunt u uw virtuele machines migreren en virtuele schijven van on-premises naar de cloud met minimale downtime, omdat de migratie van gegevens op de achtergrond treedt op wanneer u echter ook doorgaan met de virtuele machine en de downtime die nodig is voor failover zijn kort (in minuten).
+* Beheer van incrementele momentopnamen toepassing omgeleid: Toepassingen kunnen gebruikmaken van pagina-blob-momentopnamen en REST-API's voor het opslaan van de controlepunten van de toepassing zonder kostbare duplicatie van gegevens. Azure Storage biedt ondersteuning voor lokale momentopnamen voor pagina-blobs, die geen kopiëren van de gehele blob is vereist. Deze momentopname van de openbare API's kunnen ook toegang tot en het kopiëren van de verschillen tussen momentopnamen.
+* Live migratie van toepassingen en gegevens van on-premises naar de cloud: De on-premises gegevens kopiëren en REST-API's gebruiken om te schrijven rechtstreeks naar een Azure-pagina-blob, terwijl de on-premises virtuele machine blijft om uit te voeren. Wanneer het doel is bijgewerkt, kunt u snel een failover voor Azure-VM met behulp van die gegevens. Op deze manier kunt u uw virtuele machines migreren en virtuele schijven van on-premises naar de cloud met minimale downtime, omdat de migratie van gegevens op de achtergrond treedt op wanneer u echter ook doorgaan met de virtuele machine en de downtime die nodig is voor failover zijn kort (in minuten).
 * [Op basis van een SAS](../common/storage-dotnet-shared-access-signature-part-1.md) gedeelde toegang, waardoor scenario's met meerdere lezers en één-schrijver met ondersteuning voor gelijktijdigheidsbeheer.
 
 ## <a name="page-blob-features"></a>Functies voor pagina-blobs

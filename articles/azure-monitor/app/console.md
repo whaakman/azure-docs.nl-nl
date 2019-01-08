@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: c3381ac2dcc3755bb0aedb5f36e398ebc5842959
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 57c0b930982f3a8b82ef7c077bfcdae6dfa23aac
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798010"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077110"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights voor .NET-consoletoepassingen
 [Application Insights](../../application-insights/app-insights-overview.md) kunt u uw web-App voor beschikbaarheid, prestaties en gebruik te bewaken.
@@ -27,7 +27,7 @@ U moet een abonnement met [Microsoft Azure](https://azure.com). Aanmelden met ee
 
 ## <a name="getting-started"></a>Aan de slag
 
-* Maak in de [Azure Portal](https://portal.azure.com) [een Application Insights-resource](../../application-insights/app-insights-create-new-resource.md). Kies voor het toepassingstype, **algemene**.
+* Maak in de [Azure Portal](https://portal.azure.com) [een Application Insights-resource](../../azure-monitor/app/create-new-resource.md ). Kies voor het toepassingstype, **algemene**.
 * Kopieer de instrumentatiesleutel. Zoek de sleutel in de **Essentials** vervolgkeuzelijst van de nieuwe resource die u hebt gemaakt. 
 * Installeer de meest recente [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pakket.
 * Stel de instrumentatiesleutel in uw code voor het bijhouden van alle telemetrie (of een set APPINSIGHTS_INSTRUMENTATIONKEY omgevingsvariabele). Hierna zou het mogelijk handmatig telemetrie bijhouden en deze wordt weergegeven op de Azure-portal

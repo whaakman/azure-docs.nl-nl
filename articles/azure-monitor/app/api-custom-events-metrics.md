@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7422e7145acfece9c9da3277c8d92c949220dbab
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bbb849b19d523c315e192110ce71c4f382e04657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039313"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077909"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -1076,7 +1076,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dynamische instrumentatiesleutel
 
-Om te voorkomen dat een combinatie van telemetrie van ontwikkeling, testen en productie-omgevingen, kunt u [maakt u afzonderlijke Application Insights-resources](../../application-insights/app-insights-create-new-resource.md) en wijzigt u de sleutels, afhankelijk van de omgeving.
+Om te voorkomen dat een combinatie van telemetrie van ontwikkeling, testen en productie-omgevingen, kunt u [maakt u afzonderlijke Application Insights-resources](../../azure-monitor/app/create-new-resource.md ) en wijzigt u de sleutels, afhankelijk van de omgeving.
 
 In plaats van de instrumentatiesleutel ophalen uit het configuratiebestand, kunt u dit instellen in uw code. Stel de sleutel in een initialiseringsmethode, zoals global.aspx.cs in een ASP.NET-service:
 
@@ -1170,7 +1170,7 @@ Om te bepalen hoe lang gegevens worden bewaard, Zie [bewaren van gegevens en pri
     Geen. U hoeft niet te zabalit trycatch-componenten. Als er problemen voor de SDK, wordt deze berichten zich in de console-uitvoer voor foutopsporing en--als de berichten van--doorzoeken van diagnostische gegevens ontvangt.
 * *Is er een REST-API voor het ophalen van gegevens uit de portal?*
 
-    Ja, de [data access-API](https://dev.applicationinsights.io/). Andere manieren om gegevens te extraheren, bijvoorbeeld [van Analytics exporteren naar Power BI](../../application-insights/app-insights-export-power-bi.md) en [continue export](../../azure-monitor/app/export-telemetry.md).
+    Ja, de [data access-API](https://dev.applicationinsights.io/). Andere manieren om gegevens te extraheren, bijvoorbeeld [van Analytics exporteren naar Power BI](../../azure-monitor/app/export-power-bi.md ) en [continue export](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Volgende stappen
 

@@ -3,28 +3,28 @@ title: Lussen die acties herhalen of verwerken van matrices - Azure Logic Apps t
 description: Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5ba5e5abef4ebdc58c44cbe7f5ba584efe8abfc7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+manager: jeconnoc
+ms.date: 01/05/2019
+ms.topic: article
+ms.openlocfilehash: 728152c8f9e7d4cceb4b1c8165bbf087927f58e8
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233103"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063315"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 
-Als u wilt doorlopen en matrices in uw logische app, kunt u een ['Foreach'-lus](#foreach-loop) of een [opeenvolgende 'Foreach'-lus](#sequential-foreach-loop). De herhalingen voor een standaard 'Foreach'-lus parallel uit te voeren terwijl de herhalingen voor een opeenvolgende 'Foreach'-lus een op een tijdstip wordt uitgevoerd. Zie voor het maximum aantal matrixitems waarmee "Foreach" lussen kunnen worden verwerkt in een enkele logische app, [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md). 
+Voor het verwerken van een matrix in uw logische app, kunt u een ['Foreach'-lus](#foreach-loop). Deze lus een of meer acties voor elk item in de matrix. Zie voor beperkingen met betrekking tot het aantal matrixitems die 'Foreach' kunnen worden verwerkt, [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md). 
 
-> [!TIP] 
+Als u wilt herhalen acties totdat een voorwaarde wordt voldaan, of een status verandert, kunt u een ['Tot'-lus](#until-loop). Uw logische app de acties binnen de lus wordt uitgevoerd, en controleert vervolgens of de voorwaarde of status. Als de voorwaarde wordt voldaan, wordt de lus gestopt. Anders wordt de lus wordt herhaald. Zie voor beperkingen met betrekking tot het aantal 'Tot' Lussen in een logische app uitvoeren, [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md). 
+
+> [!TIP]
 > Als u een trigger die een matrix ontvangt en een werkstroom voor elk matrixitem wilt uitvoeren, kunt u *debatch* matrix met de [ **SplitOn** activeren van de eigenschap](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
-  
-Als u wilt herhalen acties totdat een voorwaarde is voldaan of sommige status is gewijzigd, gebruikt u een ['Tot'-lus](#until-loop). Uw logische app eerst alle acties die binnen de lus wordt uitgevoerd en daarna de voorwaarde als laatste stap. Als de voorwaarde wordt voldaan, wordt de lus gestopt. Anders wordt de lus wordt herhaald. Zie voor het maximum aantal "Tot" lussen in een enkele logische app, [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md). 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -36,21 +36,31 @@ Als u wilt herhalen acties totdat een voorwaarde is voldaan of sommige status is
 
 ## <a name="foreach-loop"></a>'Foreach'-lus
 
-Als u wilt herhalen acties voor elk item in een matrix, gebruikt u een lus "Foreach" in uw werkstroom voor logische Apps. U kunt meerdere acties opnemen in een lus 'Foreach' en kunt u "Foreach" lussen in elkaar nesten. Standaard cycli in een standaard 'Foreach'-lus parallel worden uitgevoerd. Zie voor het maximum aantal parallelle cycli die kunnen worden uitgevoerd met lussen 'Foreach", [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md).
+Een "Foreach-lus' wordt herhaald voor een of meer acties voor elk matrixitem en werkt alleen op matrices. Iteraties in een lus 'Foreach' parallel worden uitgevoerd. Echter, u iteraties één tegelijk kunt uitvoeren door het instellen van een [opeenvolgende 'Foreach'-lus](#sequential-foreach-loop). 
 
-> [!NOTE] 
-> Een 'Foreach'-lus werkt alleen met een matrix en acties in de lus gebruiken de `@item()` verwijzing voor het verwerken van elk item in de matrix. Als u gegevens die zich niet in een matrix opgeeft, wordt de werkstroom voor logische Apps mislukt. 
+Hier volgen enkele overwegingen wanneer u "Foreach" lussen gebruiken:
 
-Bijvoorbeeld, deze logische app verzendt u een dagelijkse samenvatting van RSS-feed van een website. De app maakt gebruik van een 'Foreach'-lus die een e-mailbericht verzendt voor elk nieuw item is gevonden.
+* In de geneste lussen iteraties altijd worden opeenvolgend uitgevoerd, niet parallel. Als u wilt uitvoeren van bewerkingen voor items in een geneste lus parallel, maken en [een onderliggende logische app aanroepen](../logic-apps/logic-apps-http-endpoint.md).
+
+* Als u voorspelbare resultaten van bewerkingen voor variabelen in lussen, moet u deze lussen worden opeenvolgend uitgevoerd.
+
+* Acties in een 'Foreach'-lus gebruiken de [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+de expressie om te verwijzen naar en verwerken van elk item in de matrix. Als u gegevens die zich niet in een matrix opgeeft, wordt de werkstroom voor logische Apps mislukt. 
+
+In dit voorbeeld van logische app verzendt een dagelijks overzicht voor de RSS-feed van een website. De app gebruikt een lus "Foreach" waarmee een e-mailbericht voor elk nieuw item wordt verzonden.
 
 1. [In dit voorbeeld logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) met een Outlook.com- of Office 365 Outlook-account.
 
 2. Tussen de RSS-trigger en verzenden van e-mailactie, Voeg een lus 'Foreach'. 
 
-   Als u wilt toevoegen een lus tussen fasen, gaat u de aanwijzer over de pijl waaraan u wilt toevoegen van de lus. 
-   Kies de **plusteken** (**+**) die wordt weergegeven, en kies vervolgens **toevoegen een voor elke**.
+   1. Als u wilt toevoegen een lus tussen fasen, de aanwijzer over de pijl tussen deze stappen. 
+   Kies de **plusteken** (**+**) die wordt weergegeven, schakelt u **een actie toevoegen**.
 
-   ![Een lus "Foreach" tussen fasen toevoegen](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+      ![Selecteer 'Een actie toevoegen'](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+
+   1. Kies onder het zoekvak **alle**. Typ 'voor elke' als filter in het zoekvak in. Selecteer deze actie uit de lijst met acties: **Voor elk - besturingselement**
+
+      ![Lus 'voor elke' toevoegen](media/logic-apps-control-flow-loops/select-for-each.png)
 
 3. Bouw nu de lus. Onder **een uitvoer selecteren uit de vorige stappen** nadat de **dynamische inhoud toevoegen** lijst wordt weergegeven, selecteert u de **Feedkoppelingen** matrix, maar dit de uitvoer van de RSS-trigger is. 
 
@@ -63,7 +73,7 @@ Bijvoorbeeld, deze logische app verzendt u een dagelijkse samenvatting van RSS-f
 
    ![Selecteer matrix](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. Uit te voeren voor elk matrixitem, sleept u de **een e-mailbericht verzenden** actie in de **voor elk** lus. 
+4. Als u wilt een actie uitgevoerd voor elk matrixitem, sleept u de **een e-mailbericht verzenden** actie in de lus. 
 
    Uw logische app ziet er ongeveer als volgt uit:
 
@@ -79,86 +89,90 @@ Als u in de codeweergave voor uw logische app werkt, kunt u definiëren de `Fore
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "body": {
-                        "Body": "@{item()}",
-                        "Subject": "New CNN post @{triggerBody()?['publishDate']}",
-                        "To": "me@contoso.com"
-                    },
-                    "host": {
-                        "api": {
-                            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                        },
-                        "connection": {
-                            "name": "@parameters('$connections')['office365']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/Mail"
-                },
-                "runAfter": {}
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": {
+            "type": "ApiConnection",
+            "inputs": {
+               "body": {
+                  "Body": "@{item()}",
+                  "Subject": "New CNN post @{triggerBody()?['publishDate']}",
+                  "To": "me@contoso.com"
+               },
+               "host": {
+                  "api": {
+                     "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                  },
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
+         }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {}
+   }
+}
 ```
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>'Foreach'-lus: opeenvolgende
+## <a name="foreach-loop-sequential"></a>'Foreach'-lus: Sequentieel
 
-Standaard elke cyclus in een lus "Foreach" wordt voor elk matrixitem parallel worden uitgevoerd. Als u wilt uitvoeren elke cyclus sequentieel worden verwerkt, de **sequentieel** optie in de lus 'Foreach'.
+Standaard cycli in een lus 'Foreach' parallel worden uitgevoerd. Als u wilt uitvoeren elke cyclus sequentieel worden verwerkt, instellen van de lus **sequentieel** optie. Lussen "Foreach" moeten worden opeenvolgend uitgevoerd wanneer u geneste lussen of variabelen in lussen waar u voorspelbare resultaten verwacht. 
 
 1. Kies in de rechterbovenhoek van de lus **weglatingstekens** (**...** ) > **Instellingen**.
 
    ![Kies '...' op 'Foreach'-lus, > 'Instellingen'](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-2. Schakel de **sequentieel** instellen, en kies vervolgens **gedaan**.
+1. Schakel de **gelijktijdigheidsbeheer** instelling. Verplaats de **graad van parallelle uitvoering** schuifregelaar **1**, en kies **gedaan**.
 
-   !['Foreach'-lus opeenvolgende instelling inschakelen](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![De instelling "Gelijktijdigheidsbeheer" inschakelen](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-U kunt ook instellen de **operationOptions** parameter `Sequential` in JSON-definitie van uw logische app. Bijvoorbeeld:
+Als u met JSON-definitie van uw logische app werkt, kunt u de `Sequential` optie door toe te voegen de `operationOptions` parameter, bijvoorbeeld:
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {               
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-        "operationOptions": "Sequential"
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": { }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {},
+      "operationOptions": "Sequential"
+   }
+}
 ```
 
 <a name="until-loop"></a>
 
 ## <a name="until-loop"></a>"Tot" lus
   
-Om acties te herhalen totdat een voorwaarde is voldaan of sommige status is gewijzigd, gebruikt u een lus 'Tot' in uw werkstroom voor logische Apps. Hier volgen enkele algemene scenario's waarin u een lus 'Tot kunt':
+Om te worden herhaald acties totdat een voorwaarde wordt voldaan, of een status wordt gewijzigd, plaatst u deze acties in een lus 'Tot'. Hier volgen enkele algemene scenario's waarin u een lus 'Tot kunt':
 
-* Een eindpunt aanroepen totdat u het antwoord dat u wilt.
-* Een record in een database maken, wachten tot een bepaald veld in die record is goedgekeurd en gaan met de verwerking. 
+* Een eindpunt aanroepen totdat u het gewenste antwoord.
 
-Bijvoorbeeld, om 8:00 uur per dag, deze logische app een variabele verhoogd totdat de waarde van de variabele is gelijk aan 10. De logische app verzendt vervolgens een e-mailbericht wordt bevestigd de huidige waarde dat. Hoewel dit voorbeeld wordt Office 365 Outlook gebruikt, kunt u een e-mailprovider die door Logic Apps worden ondersteund ([Controleer de lijst met connectors hier](https://docs.microsoft.com/connectors/)). Als u een ander e-mailaccount gebruikt, zijn de algemene stappen hetzelfde, maar ziet de gebruikersinterface er misschien iets anders uit. 
+* Een record in een database maken. Wachten tot een bepaald veld in die record is goedgekeurd. Gaan met de verwerking. 
 
-1. Een lege, logische app maken. Zoek in Logic App Designer "terugkeerpatroon" en selecteer deze trigger: **planning - terugkeerpatroon** 
+Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een variabele totdat de waarde van de variabele is gelijk aan 10. De logische app verzendt vervolgens een e-mailbericht wordt bevestigd de huidige waarde dat. 
 
-   ![Trigger "Planning--terugkeerpatroon" toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+> [!NOTE]
+> Deze stappen gebruiken Office 365 Outlook, maar u kunt een e-mailprovider die ondersteuning biedt voor logische Apps gebruiken. 
+> [Controleer de lijst met connectors hier](https://docs.microsoft.com/connectors/). Als u een ander e-mailaccount gebruikt, blijven de algemene stappen gelijk, maar uw gebruikersinterface kan er iets anders uitzien. 
 
-2. Geef op wanneer de trigger wordt geactiveerd door in te stellen de interval, de frequentie en het uur van de dag. Om het uur, kies **geavanceerde opties weergeven**.
+1. Een lege, logische app maken. In Logic App Designer, onder het zoekvak typt, kiest u **alle**. Zoeken naar "terugkeerpatroon". Selecteer deze trigger uit de lijst met triggers: **Herhaling - schema**
 
-   ![Trigger "Planning--terugkeerpatroon" toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+   !['--Terugkeerschema' trigger toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+
+1. Geef op wanneer de trigger wordt geactiveerd door in te stellen de interval, de frequentie en het uur van de dag. Om het uur, kies **geavanceerde opties weergeven**.
+
+   ![Terugkerend schema instellen](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
    | Eigenschap | Waarde |
    | -------- | ----- |
@@ -167,11 +181,11 @@ Bijvoorbeeld, om 8:00 uur per dag, deze logische app een variabele verhoogd totd
    | **Deze uren** | 8 |
    ||| 
 
-3. Kies onder de trigger **nieuwe stap** > **een actie toevoegen**. Zoek naar 'variabelen' en selecteer vervolgens deze actie: **variabelen - variabele initialiseren**
+1. Kies onder de trigger **nieuwe stap**. Zoek naar 'variabelen' en selecteer deze actie: **Variabele - variabelen initialiseren**
 
-   ![Toevoegen van "Variabelen - variabele initialiseren" actie](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![De actie 'Initialize variabele - variabelen' toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
-4. Instellen van uw variabele met de volgende waarden:
+1. Instellen van uw variabele met de volgende waarden:
 
    ![Eigenschappen van de variabele instellen](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
@@ -182,38 +196,46 @@ Bijvoorbeeld, om 8:00 uur per dag, deze logische app een variabele verhoogd totd
    | **Waarde** | 0 | De variabele de beginwaarde | 
    |||| 
 
-5. Onder de **variabele initialiseren** actie, kiest u **nieuwe stap** > **meer**. Selecteer deze lus: **een do until toevoegen**
+1. Onder de **variabele initialiseren** actie, kiest u **nieuwe stap**. 
 
-   ![Lus 'do until' toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+1. Kies onder het zoekvak **alle**. Zoek naar 'tot' en selecteer deze actie: **Totdat - besturingselement**
 
-6. Voorwaarde voor het afsluiten van de lus kunt maken met het selecteren van de **limiet** variabele en de **is gelijk** operator. Voer **10** als de vergelijkingswaarde.
+   !["Tot" lus toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+
+1. Voorwaarde voor het afsluiten van de lus kunt maken met het selecteren van de **limiet** variabele en de **is gelijk** operator. Voer **10** als de vergelijkingswaarde.
 
    ![Voorwaarde voor het afsluiten voor het stoppen van de lus bouwen](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-7. Binnen de lus, kiest u **een actie toevoegen**. Zoek naar 'variabelen' en voegt u deze actie: **variabelen - variabele verhogen**
+1. Binnen de lus, kiest u **een actie toevoegen**. 
+
+1. Kies onder het zoekvak **alle**. Zoek naar 'variabelen' en selecteer deze actie: **Variabele verhogen - variabelen**
 
    ![Actie voor het verhogen van de variabele toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-8. Voor **naam**, selecteer de **limiet** variabele. Voor **waarde**, voer '1'. 
+1. Voor **naam**, selecteer de **limiet** variabele. Voor **waarde**, voer '1'. 
 
    ![Verhogen 'Limiet' met 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Onder maar buiten de lus, een actie toevoegen waarmee e-mail wordt verzonden. Meld u aan bij uw e-mailaccount als dat wordt gevraagd.
+1. Buiten en onder de lus, kiest u **nieuwe stap**. 
+
+1. Kies onder het zoekvak **alle**. Zoeken en een actie toevoegen waarmee e-mailadres, bijvoorbeeld verzendt: 
 
    ![Actie toevoegen waarmee e-mail wordt verzonden](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
-10. Eigenschappen van het e-mailbericht instellen. Voeg de **limiet** variabele aan het onderwerp. Op die manier kunt u bevestigen de huidige waarde van de variabele voldoet aan de opgegeven criteria, bijvoorbeeld:
+1. Meld u aan bij uw e-mailaccount als dat wordt gevraagd.
+
+1. Het e-mailadres van de actie-eigenschappen instellen. Voeg de **limiet** variabele aan het onderwerp. Op die manier kunt u bevestigen de huidige waarde van de variabele voldoet aan de opgegeven criteria, bijvoorbeeld:
 
     ![E-eigenschappen instellen](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Eigenschap | Waarde | Beschrijving |
+    | Eigenschap | Waarde | Description |
     | -------- | ----- | ----------- | 
     | **Aan** | *<email-address@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
     | **Onderwerp** | Huidige waarde voor de 'Limiet' is **limiet** | Geef het e-mailonderwerp. Zorg ervoor dat u voor dit voorbeeld wordt de **limiet** variabele. | 
     | **Hoofdtekst** | <*email-content*> | Geef de inhoud van het e-bericht die u wilt verzenden. Voer de tekst die u in dit voorbeeld. | 
     |||| 
 
-11. Sla uw logische app op. Als u wilt testen handmatig uw logische app, op de werkbalk van de ontwerper, kies **uitvoeren**.
+1. Sla uw logische app op. Als u wilt testen handmatig uw logische app, op de werkbalk van de ontwerper, kies **uitvoeren**.
 
     Nadat uw logica uitgevoerd wordt, krijgt u een e-mailbericht met de inhoud die u hebt opgegeven:
 
@@ -223,10 +245,10 @@ Bijvoorbeeld, om 8:00 uur per dag, deze logische app een variabele verhoogd totd
 
 Een lus 'Tot' heeft standaardlimieten die niet meer kan worden uitgevoerd als een van deze voorwaarden is gebeurd:
 
-| Eigenschap | Standaardwaarde | Beschrijving | 
+| Eigenschap | Standaardwaarde | Description | 
 | -------- | ------------- | ----------- | 
-| **Aantal** | 60 | Het maximale aantal lussen die worden uitgevoerd voordat de lus wordt afgesloten. De standaardwaarde is 60 cycli. | 
-| **Timeout** | PT1H | De maximale hoeveelheid tijd om uit te voeren een lus voordat u de lus wordt afgesloten. De standaardinstelling is één uur en is opgegeven in de ISO 8601-notatie. <p>De time-outwaarde wordt geëvalueerd voor elke lus-cyclus. Als geen actie op de hoogte langer duurt dan de time-outlimiet, de huidige cyclus niet stoppen, maar de volgende cyclus niet starten omdat de voorwaarde van de limiet is niet voldaan. | 
+| **Aantal** | 60 | Het hoogste aantal lussen die worden uitgevoerd voordat de lus wordt afgesloten. De standaardwaarde is 60 cycli. | 
+| **Timeout** | PT1H | De meeste hoeveelheid tijd om uit te voeren een lus voordat u de lus wordt afgesloten. De standaardinstelling is één uur en is opgegeven in de ISO 8601-notatie. <p>De time-outwaarde wordt geëvalueerd voor elke lus-cyclus. Als geen actie op de hoogte langer duurt dan de time-outlimiet, wordt de huidige cyclus niet stoppen. De volgende cyclus niet echter worden gestart omdat de voorwaarde van de limiet is niet voldaan. | 
 |||| 
 
 Als u wilt deze standaardlimieten wijzigen, kiest u **geavanceerde opties weergeven** in de vorm van de actie lus.
@@ -239,73 +261,74 @@ Als u in de codeweergave voor uw logische app werkt, kunt u een `Until` lus in J
 
 ``` json
 "actions": {
-    "Initialize_variable": {
-        // Definition for initialize variable action
-    },
-    "Send_an_email": {
-        // Definition for send email action
-    },
-    "Until": {
-        "type": "Until",
-        "actions": {
-            "Increment_variable": {
-                "type": "IncrementVariable",
-                "inputs": {
-                    "name": "Limit",
-                    "value": 1
-                },
-                "runAfter": {}
-            }
-        },
-        "expression": "@equals(variables('Limit'), 10)",
-        // To prevent endless loops, an "Until" loop 
-        // includes these default limits that stop the loop. 
-        "limit": { 
-            "count": 60,
-            "timeout": "PT1H"
-        },
-        "runAfter": {
-            "Initialize_variable": [
-                "Succeeded"
-            ]
-        },
-    }
-},
+   "Initialize_variable": {
+      // Definition for initialize variable action
+   },
+   "Send_an_email": {
+      // Definition for send email action
+   },
+   "Until": {
+      "type": "Until",
+      "actions": {
+         "Increment_variable": {
+            "type": "IncrementVariable",
+            "inputs": {
+               "name": "Limit",
+               "value": 1
+            },
+            "runAfter": {}
+         }
+      },
+      "expression": "@equals(variables('Limit'), 10)",
+      // To prevent endless loops, an "Until" loop 
+      // includes these default limits that stop the loop. 
+      "limit": { 
+         "count": 60,
+         "timeout": "PT1H"
+      },
+      "runAfter": {
+         "Initialize_variable": [
+            "Succeeded"
+         ]
+      }
+   }
+}
 ```
 
-Deze lus 'Tot' roept een ander voorbeeld: een HTTP-eindpunt dat een resource wordt gemaakt en stopt wanneer de hoofdtekst van het HTTP-antwoord geretourneerd met de status 'Voltooid'. Om te voorkomen dat een oneindige lus, stopt de lus ook als een van deze voorwaarden is gebeurd:
+In dit voorbeeld "Tot" lus roept een HTTP-eindpunt, waarmee een resource wordt gemaakt. De lus stopt wanneer de hoofdtekst van het HTTP-antwoord geretourneerd met `Completed` status. Om te voorkomen dat een oneindige lus, stopt de lus ook als een van deze voorwaarden is gebeurd:
 
-* De lus is uitgevoerd 10 keer zoals is opgegeven door de `count` kenmerk. De standaardwaarde is 60 keer. 
-* De lus heeft geprobeerd om uit te voeren voor twee uur zoals opgegeven door de `timeout` kenmerk in ISO 8601-notatie. De standaardwaarde is één uur.
+* De lus uitgevoerd 10 keer zoals is opgegeven door de `count` kenmerk. De standaardwaarde is 60 keer. 
+
+* De lus uitgevoerd gedurende twee uur zoals opgegeven door de `timeout` kenmerk in ISO 8601-notatie. De standaardwaarde is één uur.
   
 ``` json
 "actions": {
-    "myUntilLoopName": {
-        "type": "Until",
-        "actions": {
-            "Create_new_resource": {
-                "type": "Http",
-                "inputs": {
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    },
-                    "url": "https://domain.com/provisionResource/create-resource",
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    }
-                },
-                "runAfter": {},
-                "type": "ApiConnection"
-            }
-        },
-        "expression": "@equals(triggerBody(), 'Completed')",
-        "limit": {
-            "count": 10,
-            "timeout": "PT2H"
-        },
-        "runAfter": {}
-    }
-},
+   "myUntilLoopName": {
+      "type": "Until",
+      "actions": {
+         "Create_new_resource": {
+            "type": "Http",
+            "inputs": {
+               "body": {
+                  "resourceId": "@triggerBody()"
+               },
+               "url": "https://domain.com/provisionResource/create-resource",
+               "body": {
+                  "resourceId": "@triggerBody()"
+               }
+            },
+            "runAfter": {},
+            "type": "ApiConnection"
+         }
+      },
+      "expression": "@equals(triggerBody(), 'Completed')",
+      "limit": {
+         "count": 10,
+         "timeout": "PT2H"
+      },
+      "runAfter": {}
+   }
+}
 ```
 
 ## <a name="get-support"></a>Ondersteuning krijgen

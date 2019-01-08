@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: e6552984fd629810fd5e422c92ef9ee8ecd2b342
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 13637e4de0d555bdd0e70c69097b204c286eb24c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053105"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063825"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -332,9 +332,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ### <a name="configure-cluster-wide-credentials"></a>Referenties voor brede, door het cluster configureren
 
-V6.3 starten, kan Service Fabric gebruiker referenties voor brede, door het cluster dat kunnen worden gebruikt als standaardreferenties opslagplaats door toepassingen configureren.
+Service Fabric kunt te beginnen met de 6.3-runtime, u referenties voor brede, door het cluster dat kunnen worden gebruikt als standaardreferenties opslagplaats door toepassingen configureren.
 
-U kunt in-of uitschakelen de functie door een 'UseDefaultRepositoryCredentials'-kenmerk toe te voegen aan ContainerHostPolicies in ApplicationManifest.xml met een "true/false" Booleaanse waarde.
+U kunt inschakelen of uitschakelen van de functie door toe te voegen de `UseDefaultRepositoryCredentials` kenmerk `ContainerHostPolicies` in ApplicationManifest.xml met een `true` of `false` waarde.
 
 ```xml
 <ServiceManifestImport>
@@ -348,14 +348,14 @@ U kunt in-of uitschakelen de functie door een 'UseDefaultRepositoryCredentials'-
 </ServiceManifestImport>
 ```
 
-Service Fabric gebruikt u de standaardreferenties van de opslagplaats die u in het ClusterManifest onder de sectie Hosting opgeven kunt ziet.  Als UseDefaultRepositoryCredentials is ingesteld op true, Service Fabric wordt nu alleen de volgende waarden in het clustermanifest:
+Service Fabric gebruikt vervolgens de standaardreferenties van de opslagplaats die u kunt opgeven in het ClusterManifest onder de `Hosting` sectie.  Als `UseDefaultRepositoryCredentials` is `true`, Service Fabric leest de volgende waarden van het ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (tekenreeks)
 * DefaultContainerRepositoryPassword (tekenreeks)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType(string)---Ondersteund vanaf v6.4
+* DefaultContainerRepositoryPasswordType (tekenreeks)---ondersteund door de 6.4 runtime
 
-Hier volgt een voorbeeld van wat u in de sectie Hosting in ClusterManifestTemplate.json kunt toevoegen. Meer informatie over [cluster instelling configureren](service-fabric-cluster-fabric-settings.md) en [ wachtwoord versleutelen](service-fabric-application-secret-management.md)
+Hier volgt een voorbeeld van wat u kunt toevoegen in de `Hosting` sectie in het bestand ClusterManifestTemplate.json. Zie voor meer informatie, [wijziging Azure Service Fabric-clusterinstellingen](service-fabric-cluster-fabric-settings.md) en [toepassingsgeheimen beheren Azure Service Fabric](service-fabric-application-secret-management.md)
 
 ```json
       {
@@ -384,7 +384,6 @@ Hier volgt een voorbeeld van wat u in de sectie Hosting in ClusterManifestTempla
         ]
       },
 ```
-
 
 ## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
 Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de procesisolatiemodus delen alle containers die worden uitgevoerd op dezelfde hostcomputer de kernel met de host. Met de Hyper-V-isolatiemodus hebben de kernels een scheiding tussen elke Hyper-V-container en de containerhost. De isolatiemodus is in het manifestbestand van de toepassing opgegeven in het element `ContainerHostPolicies`. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardwaarde is de isolatiemodus op Windows Server-hosts. Alleen Hyper-V-isolatiemodus wordt op hosts met Windows 10 ondersteund, zodat de container wordt uitgevoerd in Hyper-V-isolatiemodus, ongeacht de instelling voor de isolatie-modus. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.

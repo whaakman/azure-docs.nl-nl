@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548915"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065678"
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van de beveiliging van Azure-netwerk
 
@@ -104,7 +104,7 @@ Bijvoorbeeld, mogelijk hebt u een virtueel apparaat voor netwerkbeveiliging in h
 
 [Geforceerde tunneling](https://www.petri.com/azure-forced-tunneling) is een mechanisme dat u gebruiken kunt om ervoor te zorgen dat uw services zijn niet toegestaan om een verbinding aan apparaten op internet te zetten. Houd er rekening mee dat dit wijkt af van het accepteren van binnenkomende verbindingen en klikt u vervolgens reageren op deze. Front-end-webservers moeten reageren op aanvragen van internet-hosts en dus internet afkomstig verkeer is toegestaan inkomend verkeer naar deze webservers en de webservers kunnen reageren.
 
-Wat u foutenrapporten wilt toestaan dat is een front-end-webserver aan een uitgaande aanvraag starten. Dergelijke aanvragen mogelijk een beveiligingsrisico weer omdat deze verbindingen kunnen worden gebruikt om malware te downloaden. Zelfs als u dat deze-front-endservers om te starten, uitgaande aanvragen met het internet wilt, is het raadzaam om te zorgen dat ze via uw on-premises web proxy's. Hiermee kunt u profiteren van URL-filtering en logboekregistratie.
+Wat u niet wilt toestaan dat is een front-end-webserver aan een uitgaande aanvraag starten. Dergelijke aanvragen mogelijk een beveiligingsrisico weer omdat deze verbindingen kunnen worden gebruikt om malware te downloaden. Zelfs als u dat deze-front-endservers om te starten, uitgaande aanvragen met het internet wilt, is het raadzaam om te zorgen dat ze via uw on-premises web proxy's. Hiermee kunt u profiteren van URL-filtering en logboekregistratie.
 
 In plaats daarvan, zou u geforceerde tunneling gebruiken om dit te voorkomen. Wanneer u de geforceerde tunneling inschakelt, worden alle verbindingen met internet via uw on-premises gateway geforceerd. U kunt configureren om geforceerde tunnels zijn door te profiteren van udr's.
 
@@ -127,7 +127,7 @@ Bijvoorbeeld, zijn uw beveiligingsvereisten voor onder andere:
 * Toegangsbeheer voor toepassingen
 * Extra DDoS-beveiliging (boven de DDoS protection wordt geleverd door de Azure-infrastructuur zelf)
 
-U kunt toegang tot de beveiligingsfuncties van deze verbeterde netwerk met behulp van een Azure-partner. U kunt de meest recente Azure-partner-netwerk beveiligingsoplossingen vinden door naar de pagina de [Azure Marketplace](https://azure.microsoft.com/marketplace/), en zoekt u beveiligings- en netwerkbeveiliging.
+U kunt toegang tot de beveiligingsfuncties van deze verbeterde netwerk met behulp van een Azure-partner. U kunt de meest recente Azure-partner-netwerk beveiligingsoplossingen vinden door naar de pagina de [Azure Marketplace](https://azure.microsoft.com/marketplace/), en het zoeken naar "beveiliging" en "netwerkbeveiliging."
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -171,7 +171,7 @@ Meer informatie:
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Uw on-premises netwerk verbinden met een virtueel netwerk met een VPN-verbinding
 
-Mogelijk wilt u uw hele bedrijfsnetwerk, of delen van het verbinden met een virtueel netwerk. Dit is gebruikelijk in hybride IT-scenario's, waar organisaties [hun on-premises datacentrum uitbreiden naar Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In veel gevallen hosten organisaties delen van een service in Azure en delen on-premises. Bijvoorbeeld, kunnen ze doen wanneer een oplossing front-end webservers in Azure omvat en on-premises back-end-databases. Deze typen cross-premises verbindingen maken ook beheer van Azure bevindt resources meer beveiligen, en scenario's, zoals Active Directory-domeincontrollers uitbreiden naar Azure.
+Mogelijk wilt u uw hele bedrijfsnetwerk, of delen van het verbinden met een virtueel netwerk. Dit is gebruikelijk in hybride IT-scenario's, waar organisaties [hun on-premises datacentrum uitbreiden naar Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In veel gevallen hosten organisaties delen van een service in Azure en delen on-premises. Bijvoorbeeld, kunnen ze doen wanneer een oplossing front-end webservers in Azure omvat en on-premises back-end-databases. Deze typen 'cross-premises' verbindingen maken ook beheer van Azure bevindt resources meer beveiligen, en scenario's, zoals Active Directory-domeincontrollers uitbreiden naar Azure.
 
 Een manier om uit te voeren, dit is met een [site-naar-site VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). Het verschil tussen een site-naar-site-VPN- en een punt-naar-site-VPN is dat de laatste verbinding moet voor een apparaat met een virtueel netwerk maken. Een site-naar-site-VPN verbindt een heel netwerk (zoals uw on-premises netwerk) met een virtueel netwerk. Site-naar-site VPN-verbindingen met een virtueel netwerk gebruiken de zwaar beveiligde IPsec-tunnelmodus VPN-protocol.
 
@@ -199,7 +199,7 @@ Meer informatie:
 
 Het is mogelijk te veel virtuele netwerken gebruiken om uw implementaties. Er zijn verschillende redenen waarom u dit kunt doen. Voor een vereenvoudigd beheer kunt u, of kunt u betere beveiliging. Ongeacht de reden voor het plaatsen van resources op verschillende virtuele netwerken, is er mogelijk dat u resources op elk van de netwerken met elkaar verbinden.
 
-Een optie is voor services op één virtueel netwerk verbinding maken met services op een ander virtueel netwerk, met lussen terug via internet. De verbinding wordt gestart op één virtueel netwerk, verloopt via het internet en vervolgens weer naar het virtuele doelnetwerk. Deze optie wordt aangegeven dat de verbinding met de beveiligingskwesties op te lossen een internet-communicatie.
+Een optie is voor services op één virtueel netwerk verbinding maken met services op een ander virtueel netwerk, met "terug lussen" via het internet. De verbinding wordt gestart op één virtueel netwerk, verloopt via het internet en vervolgens weer naar het virtuele doelnetwerk. Deze optie wordt aangegeven dat de verbinding met de beveiligingskwesties op te lossen een internet-communicatie.
 
 Een betere optie is mogelijk te maken van een site-naar-site-VPN dat verbinding tussen twee virtuele netwerken maakt. Deze methode maakt gebruik van dezelfde [IPSec-tunnelmodus](https://technet.microsoft.com/library/cc786385.aspx) protocol als de cross-premises site-naar-site VPN-verbinding wordt gebruikt, zoals hierboven vermeld.
 
@@ -213,7 +213,7 @@ Een andere manier om uw virtuele netwerken te verbinden is [VNET-peering](../vir
 
 ## <a name="availability"></a>Beschikbaarheid
 
-Beschikbaarheid is een belangrijk onderdeel van een security-programma. Als uw gebruikers en systemen kunnen t toegang heeft tot wat ze nodig hebben voor toegang tot via het netwerk, de service kan worden beschouwd als aangetast. Azure heeft netwerktechnologieën die ondersteuning bieden voor de volgende mechanismen voor hoge beschikbaarheid:
+Beschikbaarheid is een belangrijk onderdeel van een security-programma. Als uw gebruikers en systemen geen toegang tot wat ze nodig hebben voor toegang tot via het netwerk, de service kan worden beschouwd als aangetast. Azure heeft netwerktechnologieën die ondersteuning bieden voor de volgende mechanismen voor hoge beschikbaarheid:
 
 * HTTP-gebaseerde taakverdeling
 * Niveau voor netwerktaakverdeling
@@ -222,7 +222,7 @@ Beschikbaarheid is een belangrijk onderdeel van een security-programma. Als uw g
 Taakverdeling is een mechanisme dat is ontworpen voor het gelijkmatig verdelen verbindingen tussen meerdere apparaten. De doelstellingen van taakverdeling zijn:
 
 * Om beschikbaarheid te vergroten. Wanneer u saldo-verbindingen op meerdere apparaten laadt, zijn een of meer van de apparaten niet beschikbaar zonder verlies van de service. De services die worden uitgevoerd op de resterende online apparaten kunnen nog steeds de inhoud van de service.
-* Voor betere prestaties. Wanneer u saldo verbindingen laadt op meerdere apparaten, moet een enkel apparaat-t verwerken van de verwerking. In plaats daarvan de capaciteit en geheugenbronnen eisen voor het uitvoeren van de inhoud is verdeeld over meerdere apparaten.
+* Voor betere prestaties. Wanneer u saldo verbindingen op meerdere apparaten laadt, geen een enkel apparaat voor het afhandelen van de verwerking. In plaats daarvan de capaciteit en geheugenbronnen eisen voor het uitvoeren van de inhoud is verdeeld over meerdere apparaten.
 
 ### <a name="http-based-load-balancing"></a>HTTP-gebaseerde taakverdeling
 
@@ -231,7 +231,7 @@ Organisaties die worden uitgevoerd op basis van web services vaak vereisen dat e
 Azure Application Gateway biedt HTTP-gebaseerde taakverdeling voor uw web gebaseerde services. Application Gateway ondersteunt:
 
 * Cookies gebaseerde sessieaffiniteit. Deze functionaliteit zorgt ervoor dat de verbindingen met een van de servers achter deze load balancer tussen de client en server intact blijft. Dit zorgt ervoor dat de stabiliteit van transacties.
-* SSL-offload. Wanneer een client verbinding met de load balancer maakt, worden die sessie worden versleuteld met behulp van het protocol HTTPS (SSL). U kunt echter om betere prestaties, het HTTP (niet-versleutelde)-protocol gebruiken om verbinding tussen de load balancer en de server achter de load balancer te maken. Dit wordt aangeduid als SSL-offload, omdat de webservers achter de load balancer don t de processoroverhead die betrokken zijn bij versleuteling optreden. De webservers kunnen daarom serviceaanvragen sneller.
+* SSL-offload. Wanneer een client verbinding met de load balancer maakt, worden die sessie worden versleuteld met behulp van het protocol HTTPS (SSL). U kunt echter om betere prestaties, het HTTP (niet-versleutelde)-protocol gebruiken om verbinding tussen de load balancer en de server achter de load balancer te maken. Dit heet 'SSL-offload,' omdat de webservers achter de load balancer de processoroverhead die betrokken zijn bij de versleuteling niet werkt. De webservers kunnen daarom serviceaanvragen sneller.
 * URL-routering op basis van inhoud. Deze functie maakt het mogelijk is voor de load balancer om beslissingen te nemen over waar u kunt de volgende verbindingen op basis van de doel-URL. Dit biedt veel meer flexibiliteit dan oplossingen waarmee u load balancing beslissingen op basis van IP-adressen.
 
 Meer informatie:
@@ -256,7 +256,7 @@ Meer informatie:
 
 ### <a name="global-load-balancing"></a>Globale taakverdeling
 
-Sommige organisaties wil het hoogste niveau van beschikbaarheid mogelijk. Er is een manier om dit doel te bereiken om toepassingen te hosten in wereldwijd verspreide datacenters. Wanneer een toepassing wordt gehost in datacenters overal ter wereld, die het mogelijk voor een hele geopolitieke regio niet beschikbaar en nog steeds de toepassing ingesteld en geactiveerd.
+Sommige organisaties wil het hoogste niveau van beschikbaarheid mogelijk. Er is een manier om dit doel te bereiken om toepassingen te hosten in wereldwijd verspreide datacenters. Wanneer een toepassing wordt gehost in datacenters over de hele wereld, is het mogelijk dat een hele geopolitieke regio niet beschikbaar en nog steeds van de toepassing en worden uitgevoerd.
 
 Deze strategie load balancing kan ook prestatievoordelen opleveren. U kunt aanvragen voor de service naar het datacenter die het dichtst bij het apparaat dat ervoor zorgt dat de aanvraag sturen.
 
@@ -268,11 +268,11 @@ Meer informatie:
 
 ## <a name="name-resolution"></a>Naamomzetting
 
-Naamomzetting is een belangrijke functie voor alle services die u in Azure hosten. Vanuit het beveiligingsoogpunt kan inbreuk op de naam van het probleem zou moeten functie leiden tot een aanvaller omleiden van aanvragen van uw sites op een aanvaller s-site. Beveiligde naamomzetting is een vereiste voor alle services in de cloud worden gehost.
+Naamomzetting is een belangrijke functie voor alle services die u in Azure hosten. Vanuit het beveiligingsoogpunt kan inbreuk op de naam van het probleem zou moeten functie leiden tot een aanvaller omleiden van aanvragen van uw sites van een aanvaller. Beveiligde naamomzetting is een vereiste voor alle services in de cloud worden gehost.
 
 Er zijn twee soorten naamomzetting die u afhandelen moet:
 
-* Interne naamomzetting. Dit wordt gebruikt door de services op uw virtuele netwerken, uw on-premises netwerken of beide. Namen die worden gebruikt voor interne naamomzetting zijn niet toegankelijk via internet. Voor een optimale beveiliging het s belangrijk uw interne naam resolutie-schema is niet toegankelijk voor externe gebruikers.
+* Interne naamomzetting. Dit wordt gebruikt door de services op uw virtuele netwerken, uw on-premises netwerken of beide. Namen die worden gebruikt voor interne naamomzetting zijn niet toegankelijk via internet. Voor een optimale beveiliging is het belangrijk dat uw interne naam resolutie-schema niet toegankelijk voor externe gebruikers is.
 * Externe naamomzetting. Dit wordt gebruikt door mensen en apparaten die buiten uw on-premises netwerken en virtuele netwerken. Dit zijn de namen die zichtbaar zijn voor het internet en worden gebruikt om te leiden van verbinding met uw cloud-gebaseerde services.
 
 Voor interne naamomzetting hebt u twee opties:
@@ -292,7 +292,7 @@ Voor het omzetten van de externe naam hebt u twee opties:
 
 Veel grote organisaties hosten hun eigen DNS-servers on-premises. Ze kunnen dit doen omdat ze de netwerken expertise en wereldwijde aanwezigheid om dit te doen.
 
-In de meeste gevallen het s beter voor het hosten van uw DNS-naam van oplossingsservices met een serviceprovider. Deze serviceproviders hebben de expertise van netwerk en wereldwijde aanwezigheid om ervoor te zorgen zeer hoge beschikbaarheid voor uw services voor naamomzetting. Beschikbaarheid is essentieel voor DNS-services, omdat als uw naamomzettingsservices mislukken, niemand kunnen de services van uw internetgerichte bereiken.
+In de meeste gevallen is het beter voor het hosten van uw services voor DNS-naamomzetting met een serviceprovider. Deze serviceproviders hebben de expertise van netwerk en wereldwijde aanwezigheid om ervoor te zorgen zeer hoge beschikbaarheid voor uw services voor naamomzetting. Beschikbaarheid is essentieel voor DNS-services, omdat als uw naamomzettingsservices mislukken, niemand kunnen de services van uw internetgerichte bereiken.
 
 Azure voorziet u van een maximaal beschikbare en zeer goed presterende externe DNS-oplossing in de vorm van Azure DNS. Deze externe naam resolutie-oplossing maakt gebruik van de wereldwijde Azure DNS-infrastructuur. Hiermee kunt u voor het hosten van uw domein in Azure, met behulp van dezelfde referenties, API's, hulpprogramma's en facturering als uw andere Azure-services. Als onderdeel van Azure neemt deze ook de krachtige beveiliging-besturingselementen die zijn ingebouwd in het platform.
 
@@ -303,7 +303,7 @@ Meer informatie:
 
 ## <a name="perimeter-network-architecture"></a>Perimeter-netwerkarchitectuur
 
-Veel grote organisaties perimeternetwerken gebruiken bij het segmenteren van hun netwerken, en een buffer-zone tussen internet en hun services. De perimeter-gedeelte van het netwerk wordt beschouwd als een laag-beveiligingszone en geen waardevolle activa in dat netwerksegment worden geplaatst. U alles zien doorgaans network security apparaten waarvoor een netwerkinterface in de perimeter-netwerksegment. Een andere netwerkinterface is verbonden met een netwerk met virtuele machines en services die binnenkomende verbindingen via internet accepteren.
+Veel grote organisaties perimeternetwerken gebruiken bij het segmenteren van hun netwerken, en een buffer-zone tussen internet en hun services. De perimeter-gedeelte van het netwerk wordt beschouwd als een laag-beveiligingszone en geen waardevolle activa in dat netwerksegment worden geplaatst. Hier ziet u meestal beveiliging netwerkapparaten waarvoor een netwerkinterface in de perimeter-netwerksegment. Een andere netwerkinterface is verbonden met een netwerk met virtuele machines en services die binnenkomende verbindingen via internet accepteren.
 
 In een aantal verschillende manieren kunt u perimeternetwerken ontwerpen. De beslissing om een perimeternetwerk en welk type perimeter network te gebruiken als u besluit te gebruiken, te implementeren, is afhankelijk van de beveiligingsvereisten van uw netwerk.
 
@@ -313,7 +313,7 @@ Meer informatie:
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS Protection
 
-DDoS-aanvallen (Distributed Denial of Service-aanvallen) vormen een van de grootste beschikbaarheids- en beveiligingsproblemen voor klanten die hun toepassingen verplaatsen naar de cloud. Een DDoS-aanval wil een toepassing s bronnen, waardoor de toepassing niet beschikbaar voor legitieme gebruikers. DDoS-aanvallen kunnen worden gericht op elk eindpunt dat openbaar bereikbaar is via internet.
+DDoS-aanvallen (Distributed Denial of Service-aanvallen) vormen een van de grootste beschikbaarheids- en beveiligingsproblemen voor klanten die hun toepassingen verplaatsen naar de cloud. Een DDoS-aanval wil de bronnen van een toepassing, waardoor de toepassing niet beschikbaar voor legitieme gebruikers. DDoS-aanvallen kunnen worden gericht op elk eindpunt dat openbaar bereikbaar is via internet.
 Microsoft biedt DDoS protection, ook wel **Basic** als onderdeel van het Azure-Platform. Dit wordt geleverd zonder kosten en bevat altijd op bewakings- en realtime oplossing voor algemene op netwerkniveau-aanvallen. Naast de die deel uitmaakt van DDoS protection **Basic** kunt u de **Standard** optie. DDoS Protection Standard-functies zijn onder andere:
 
 * **Systeemeigen platform-integratie:** Geïntegreerd in Azure. Bevat configuratie via de Azure-portal. DDoS Protection standaard begrijpt dat uw resources en resourceconfiguratie.
@@ -321,10 +321,10 @@ Microsoft biedt DDoS protection, ook wel **Basic** als onderdeel van het Azure-P
 * **Verkeer altijd controleren:** Uw verkeerspatronen van toepassingen worden bewaakt 24 uur per dag, 7 dagen per week, op zoek naar indicatoren van DDoS-aanvallen. Risicobeperking wordt uitgevoerd wanneer het beveiligingsbeleid voor apps worden overschreden.
 * **Risicobeperking rapporten aanvallen** aanval risicobeperking rapporten samengevoegde netwerk stroomgegevens gebruiken om aan te bieden gedetailleerde informatie over aanvallen die gericht is op uw resources.
 * **Risicobeperking Flow logboeken aanvallen** aanval risicobeperking Flow Logboeken kunt u bekijken van het verwijderde verkeer doorgestuurd verkeer en andere gegevens van de aanval in bijna realtime tijdens een actieve DDoS-aanval.
-* **Adaptieve afstemming:** Profileren van intelligente verkeer leert de s-verkeer van uw toepassing gedurende een periode, selecteert en het profiel dat het meest geschikt is voor uw service-updates. Het profiel wordt aangepast wanneer verkeer na verloop van tijd verandert. Laag-3 in laag 7 protection: Biedt volledige stack DDoS protection, gebruikt in combinatie met een web application firewall.
+* **Adaptieve afstemming:** Intelligente verkeer profilering leert van verkeer van uw toepassing gedurende een periode, selecteert en het profiel dat het meest geschikt is voor uw service-updates. Het profiel wordt aangepast wanneer verkeer na verloop van tijd verandert. Laag-3 in laag 7 protection: Biedt volledige stack DDoS protection, gebruikt in combinatie met een web application firewall.
 * **Uitgebreide risicobeperking schaal:** Meer dan 60 verschillende aanval typen kunnen worden verholpen, met wereldwijde capaciteit, om te beveiligen tegen het grootste bekende DDoS-aanvallen.
 * **Aanval metrische gegevens:** Samengevatte metrische gegevens van elke aanval zijn toegankelijk zijn via Azure Monitor.
-* **Aanval waarschuwingen:** Waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval s, met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals Microsoft Azure Log Analytics, Splunk, Azure Storage, e-mailadres en de Azure-portal.
+* **Aanval waarschuwingen:** Waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval, met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals Microsoft Azure Log Analytics, Splunk, Azure Storage, e-mailadres en de Azure-portal.
 * **Kosten garantie:**  Overdracht van gegevens en toepassingen scale-out servicetegoeden voor gedocumenteerde DDoS-aanvallen.
 * **DDoS-snelle responsieve** DDoS Protection Standard-klanten hebben nu toegang tot Rapid Response team tijdens een actieve aanval. DRR kan helpen bij onderzoek van de aanval, aangepaste oplossingen tijdens een aanval en na aanval analyse.
 

@@ -1,6 +1,6 @@
 ---
-title: Regelmatig actieve taken en werkstromen maken met Azure Logic Apps | Microsoft Docs
-description: Automatiseren van taken en werkstromen die worden uitgevoerd volgens een schema met de connector terugkeerpatroon in Azure Logic Apps
+title: Plannen en uitvoeren van geautomatiseerde taken en werkstromen met Azure Logic Apps | Microsoft Docs
+description: Geplande en terugkerende taken automatiseren met de connector terugkeerpatroon in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,24 +10,24 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
-ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/08/2019
+ms.openlocfilehash: 369bdba063f8582b8343682dcbbc990d2f63e21a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127051"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078062"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Maken en uitvoeren van terugkerende taken en werkstromen met Azure Logic Apps
 
-Plannen van taken, acties, werkbelasting of processen die worden regelmatig uitgevoerd, kunt u een werkstroom voor logische Apps die met begint de **planning - terugkeerpatroon** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). Met deze trigger kunt u een datum en tijd voor het starten van het terugkeerpatroon en een terugkeerpatroon op voor het uitvoeren van taken, zoals deze voorbeelden en meer kunt instellen:
+Als u wilt plannen acties, werkbelasting of processen die worden regelmatig uitgevoerd, maakt u een werkstroom voor logische Apps die met begint de **planning - terugkeerpatroon** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). U kunt een datum en tijd voor het starten van de werkstroom en een terugkeerpatroon op voor het uitvoeren van taken, zoals deze voorbeelden en meer instellen:
 
-* Interne gegevens ophalen: [uitvoeren van een in SQL opgeslagen procedure](../connectors/connectors-create-api-sqlazure.md) elke dag.
-* Externe gegevens ophalen: ophalen van weerberichten van NOAA om de 15 minuten.
-* Rapportgegevens: per E-mail een overzicht van alle orders groter is dan een bepaald bedrag in de afgelopen week.
-* Gegevens verwerken: comprimeren vandaag heeft geüploade afbeeldingen elke weekdag tijdens de daluren.
-* Opschonen van gegevens: verwijderen van alle tweets die ouder is dan drie maanden.
-* Gegevens archiveren: facturen pushen naar een back-upservice elke maand.
+* Interne gegevens ophalen: [Uitvoeren van een in SQL opgeslagen procedure](../connectors/connectors-create-api-sqlazure.md) elke dag.
+* Externe gegevens ophalen: Pull-weerberichten van NOAA om de 15 minuten.
+* Rapportgegevens: E-mail een overzicht van alle orders groter is dan een bepaald bedrag in de afgelopen week.
+* Gegevens verwerken: Comprimeren van vandaag geüploade afbeeldingen elke weekdag tijdens de daluren.
+* Opschonen van gegevens: Verwijder alle tweets die ouder is dan drie maanden.
+* Archiveer gegevens: Verzenden van facturen naar een back-upservice elke maand.
 
 Deze trigger ondersteunt bijvoorbeeld veel patronen:
 
@@ -37,7 +37,9 @@ Deze trigger ondersteunt bijvoorbeeld veel patronen:
 * Uitvoeren en herhaalt u elke week, maar alleen voor specifieke dagen, zoals zaterdag en zondag.
 * Uitvoeren en herhaalt u elke week, maar alleen voor specifieke dagen en tijden, zoals maandag tot en met vrijdag om 8:00 uur en 17:00 uur.
 
-Wanneer de trigger met terugkeerpatroon wordt elke keer geactiveerd, worden de Logic Apps maakt en een nieuw exemplaar van de werkstroom van uw logische app wordt uitgevoerd.
+Wanneer de trigger met terugkeerpatroon wordt elke keer geactiveerd, worden de Logic Apps maakt en een nieuw exemplaar van de werkstroom van uw logische app wordt uitgevoerd. 
+
+Als u wilt uw logische app direct te activeren en één keer zonder periodiek wordt uitgevoerd, Zie [uitvoeren taken slechts één keer](#run-once) verderop in dit onderwerp.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -49,9 +51,9 @@ Wanneer de trigger met terugkeerpatroon wordt elke keer geactiveerd, worden de L
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). Maak een lege logische app of meer [over het maken van een lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Nadat de ontwerper van logische Apps wordt weergegeven, in het zoekvak, typ "terugkeerpatroon" als filter. Selecteer de **planning - terugkeerpatroon** trigger. 
+2. Nadat de ontwerper van logische Apps wordt weergegeven, onder het zoekvak typt, kiest u **alle**. Typ "terugkeerpatroon" als filter in het zoekvak. Selecteer deze trigger uit de lijst met triggers: **Herhaling - schema** 
 
-   ![Planning - trigger met terugkeerpatroon](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   !['--Terugkeerschema' trigger selecteren](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    Deze trigger is nu de eerste stap in uw logische app.
 
@@ -93,13 +95,13 @@ Wanneer de trigger met terugkeerpatroon wordt elke keer geactiveerd, worden de L
 
 U kunt deze eigenschappen voor de trigger terugkeerpatroon configureren.
 
-| Naam | Vereist | Naam van eigenschap | Type | Beschrijving | 
+| Name | Vereist | Naam van eigenschap | Type | Description | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequentie** | Ja | frequency | Reeks | De tijdseenheid voor het terugkeerpatroon: **tweede**, **minuut**, **uur**, **dag**, **Week**, of  **Maand** | 
-| **Interval** | Ja | interval | Geheel getal | Een positief geheel getal dat wordt beschreven hoe vaak de werkstroom wordt uitgevoerd, is afhankelijk van de frequentie. <p>Het standaardinterval is 1. Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uur: 1-12.000-uur </br>-Minuut: 1-72.000 minuten </br>-Het tweede: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval 6 is en de frequency 'Maand' is, is klikt u vervolgens het terugkeerpatroon elke 6 maanden. | 
+| **Frequentie** | Ja | frequency | Reeks | De tijdseenheid voor het terugkeerpatroon: **Tweede**, **minuut**, **uur**, **dag**, **Week**, of **maand** | 
+| **Interval** | Ja | interval | Geheel getal | Een positief geheel getal dat wordt beschreven hoe vaak de werkstroom wordt uitgevoerd, is afhankelijk van de frequentie. <p>Het standaardinterval is 1. Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uur: 1-12.000-uur </br>-Minuut: 1-72,000 minuten </br>-Seconde: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval 6 is en de frequency 'Maand' is, is klikt u vervolgens het terugkeerpatroon elke 6 maanden. | 
 | **Tijdzone** | Nee | timeZone | Reeks | Geldt alleen wanneer u een begintijd opgeeft omdat deze trigger niet accepteren [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Selecteer de tijdzone die u wilt toepassen. | 
-| **Begintijd** | Nee | startTime | Reeks | Geef een begintijd die in deze indeling: <p>JJJJ-MM-ddTUU als u een tijdzone selecteren <p>-of- <p>JJJJ-MM-ddTHH als u niet een tijdzone selecteren <p>Bijvoorbeeld als u wilt dat 18 September 2017 om 14:00 uur, geeft ' 2017-09-18T14:00:00 ' en selecteer een tijdzone zoals Pacific Time. Of geef ' 2017-09-18T14:00:00Z ' zonder een tijdzone. <p>**Opmerking:** de begintijd moet volgen de [ISO 8601 datum tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Als u een tijdzone niet selecteert, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze "Z" verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). <p>Voor eenvoudige schema's van de begintijd is de eerste keer voorkomt, terwijl voor complexe schema's, de trigger alle eerder dan de begintijd wordt niet gestart. [*Wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken?*](#start-time) | 
-| **Deze dagen** | Nee | weekDays | Tekenreeks of tekenreeksmatrix van | Als u 'Week' selecteert, kunt u een of meer dagen als u wilt uitvoeren van de werkstroom: **maandag**, **dinsdag**, **woensdag**, **donderdag** , **Vrijdag**, **zaterdag**, en **zondag** | 
+| **Begintijd** | Nee | startTime | Reeks | Geef een begintijd die in deze indeling: <p>JJJJ-MM-ddTUU als u een tijdzone selecteren <p>-of- <p>JJJJ-MM-ddTHH als u niet een tijdzone selecteren <p>Bijvoorbeeld als u wilt dat 18 September 2017 om 14:00 uur, geeft ' 2017-09-18T14:00:00 ' en selecteer een tijdzone zoals Pacific Time. Of geef ' 2017-09-18T14:00:00Z ' zonder een tijdzone. <p>**Opmerking:** De begintijd moet volgen de [ISO 8601 datum tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Als u een tijdzone niet selecteert, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze "Z" verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). <p>Voor eenvoudige schema's van de begintijd is de eerste keer voorkomt, terwijl voor complexe schema's, de trigger alle eerder dan de begintijd wordt niet gestart. [*Wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken?*](#start-time) | 
+| **Deze dagen** | Nee | weekDays | Tekenreeks of tekenreeksmatrix van | Als u 'Week', kunt u een of meer dagen als u wilt uitvoeren van de werkstroom selecteren: **Maandag**, **dinsdag**, **woensdag**, **donderdag**, **vrijdag**, **zaterdag**, en **Zondag** | 
 | **Deze uren** | Nee | hours | Geheel getal of een matrix met gehele getallen | Als u 'Day' of 'Week' selecteert, kunt u een of meer gehele getallen tussen 0 en 23 als de uren van de dag waarop u wilt uitvoeren van de werkstroom. <p>Bijvoorbeeld, als u "10", "12" en "14" opgeeft, krijgt u 10 uur, 12 PM en 2 uur als de merken uur. | 
 | **Deze minuten** | Nee | minutes | Geheel getal of een matrix met gehele getallen | Als u 'Day' of 'Week' selecteert, kunt u een of meer gehele getallen tussen 0 en 59 als de minuten van het uur waarop u wilt uitvoeren van de werkstroom. <p>Bijvoorbeeld, u kunt "30" opgeven als de minuut is ingeschakeld en met behulp van het vorige voorbeeld uur van de dag, krijgt u 10:30 uur, 12:30 PM en 14:30 uur. | 
 ||||| 
@@ -109,39 +111,46 @@ U kunt deze eigenschappen voor de trigger terugkeerpatroon configureren.
 Hier volgt een voorbeeld [definitie van de trigger terugkeerpatroon](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>Veelgestelde vragen
 
+<a name="run-once"></a>
+
+**VRAAG:** Wat gebeurt er als ik wil een logische app alleen onmiddellijk en één keer uitvoeren? </br>
+**A:** Als u wilt uw logische app direct te activeren en één keer zonder periodiek wordt uitgevoerd, kunt u de **Scheduler: Eenmaal uitvoeren van taken** sjabloon. Nadat u een nieuwe logische app hebt gemaakt, maar voor het openen van de ontwerpfunctie voor Logic Apps, onder de **sjablonen** sectie van de **categorie** in de lijst met **planning**, en selecteer vervolgens de sjabloon:
+
+![Selecteer ' Scheduler: Eenmaal taken uitvoeren'-sjabloon](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+Of, als u een sjabloon voor lege logische app, start u uw logische app met de **wanneer een HTTP-aanvraag wordt ontvangen - aanvraag** trigger. Begintijd van de trigger als een parameter doorgeven. Voor de volgende stap toevoegen de **vertragen tot - plannen** actie, en geef de tijd voor wanneer de volgende actie wordt uitgevoerd.
+
 <a name="example-recurrences"></a>
 
-**V:** wat andere herhalingsplanningen voorbeeld zijn? </br>
+**VRAAG:** Wat zijn andere herhalingsplanningen voorbeeld? </br>
 **A:** Hier vindt u meer voorbeelden:
 
 | Terugkeerpatroon | Interval | Frequentie | Begintijd | Deze dagen | Deze uren | Deze minuten | Opmerking |
@@ -171,14 +180,14 @@ Hier volgt een voorbeeld [definitie van de trigger terugkeerpatroon](../logic-ap
 
 <a name="start-time"></a>
 
-**V:** wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken? </br>
-**A:** hier zijn enkele patronen die laten zien hoe u terugkeerpatroon met de datum en tijd kunt beheren en hoe deze herhaling in de Logic Apps-engine wordt uitgevoerd:
+**VRAAG:** Wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken? </br>
+**A:** Hier zijn enkele patronen die laten zien hoe u terugkeerpatroon met de datum en tijd kunt beheren en hoe deze herhaling in de Logic Apps-engine wordt uitgevoerd:
 
 | Begintijd | Recurrence zonder schedule | Recurrence met schedule | 
 | ---------- | --------------------------- | ------------------------ | 
 | {geen} | De eerste werkbelasting onmiddellijk uitgevoerd. <p>Toekomstige workloads op basis van de laatste uitvoeringstijd worden uitgevoerd. | De eerste werkbelasting onmiddellijk uitgevoerd. <p>Toekomstige workloads op basis van de opgegeven planning worden uitgevoerd. | 
-| Begintijd in het verleden | Berekent de uitvoeringstijden op basis van de opgegeven begintijd uitgevoerd en verwijderingen afgelopen uitvoeren. De eerste werkbelasting op de volgende toekomst uitvoeringstijd wordt uitgevoerd. <p>Wordt uitgevoerd toekomstige werkbelastingen op basis van berekeningen van de laatste keer is uitgevoerd. <p>Zie het voorbeeld onder deze tabel voor meer informatie. | De eerste werkbelasting wordt uitgevoerd *nooit* dan de begintijd, op basis van de planning die wordt berekend op basis van de begintijd. <p>Toekomstige workloads op basis van de opgegeven planning worden uitgevoerd. <p>**Opmerking:** als u een terugkeerpatroon opgeven met een schema, maar geen uren of minuten voor de planning opgeeft, wordt toekomstige uitvoeringstijden zijn berekend met behulp van de uren of minuten, respectievelijk van de eerste uitvoeringstijd. | 
-| Begintijd op dit moment of in de toekomst | De eerste werkbelasting op de opgegeven begintijd uitgevoerd. <p>Wordt uitgevoerd toekomstige werkbelastingen op basis van berekeningen van de laatste keer is uitgevoerd. | De eerste werkbelasting wordt uitgevoerd *nooit* dan de begintijd, op basis van de planning die wordt berekend op basis van de begintijd. <p>Toekomstige workloads op basis van de opgegeven planning worden uitgevoerd. <p>**Opmerking:** als u een terugkeerpatroon opgeven met een schema, maar geen uren of minuten voor de planning opgeeft, wordt toekomstige uitvoeringstijden zijn berekend met behulp van de uren of minuten, respectievelijk van de eerste uitvoeringstijd. | 
+| Begintijd in het verleden | Berekent de uitvoeringstijden op basis van de opgegeven begintijd uitgevoerd en verwijderingen afgelopen uitvoeren. De eerste werkbelasting op de volgende toekomst uitvoeringstijd wordt uitgevoerd. <p>Wordt uitgevoerd toekomstige werkbelastingen op basis van berekeningen van de laatste keer is uitgevoerd. <p>Zie het voorbeeld onder deze tabel voor meer informatie. | De eerste werkbelasting wordt uitgevoerd *nooit* dan de begintijd, op basis van de planning die wordt berekend op basis van de begintijd. <p>Toekomstige workloads op basis van de opgegeven planning worden uitgevoerd. <p>**Opmerking:** Als u een terugkeerpatroon met een schema opgeven, maar geen uren of minuten voor de planning opgeven, zijn klikt u vervolgens toekomstige uitvoeringstijden berekend met behulp van de uren of minuten, respectievelijk van de eerste uitvoeringstijd. | 
+| Begintijd op dit moment of in de toekomst | De eerste werkbelasting op de opgegeven begintijd uitgevoerd. <p>Wordt uitgevoerd toekomstige werkbelastingen op basis van berekeningen van de laatste keer is uitgevoerd. | De eerste werkbelasting wordt uitgevoerd *nooit* dan de begintijd, op basis van de planning die wordt berekend op basis van de begintijd. <p>Toekomstige workloads op basis van de opgegeven planning worden uitgevoerd. <p>**Opmerking:** Als u een terugkeerpatroon met een schema opgeven, maar geen uren of minuten voor de planning opgeven, zijn klikt u vervolgens toekomstige uitvoeringstijden berekend met behulp van de uren of minuten, respectievelijk van de eerste uitvoeringstijd. | 
 ||||
 
 **Voorbeeld voor een eerdere begintijd met terugkeerpatroon, maar geen Schedule is opgegeven** 

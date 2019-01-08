@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144588"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078793"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure-toepassingen: Beheerder Toepassingsbieding Publicatiehandleiding voor
 
@@ -41,7 +41,7 @@ Gebruik de Azure-app: app-aanbieding voor type beheerd wanneer de volgende voorw
 |Geïmplementeerd op Azure-abonnement van een klant | Beheerde Apps moeten worden geïmplementeerd in het abonnement van de klant en kunnen worden beheerd door een 3e partij | 
 |Facturering en betaling naar gebruik    |  De resources worden ingericht in Azure-abonnement van de klant. Betalen per gebruik (PAYGO) virtuele machines zullen worden verwerkt met de klant via Microsoft, in rekening gebracht via een van de klant Azure-abonnement (PAYGO) 
 In het geval van een bring-your-own-license, terwijl Microsoft brengt kosten in rekening infrastructuurkosten in rekening gebracht bij de klantabonnement, wordt u transact uw softwarelicenties kosten voor de klant rechtstreeks        |
-|Azure-compatibele virtuele harde schijf (VHD)    |   Virtuele machines moeten worden gebouwd op Windows of Linux.<ul> <li>Voor meer informatie over het maken van een VHD met Linux-, gaat u naar de maken een sectie (Linux-indeling) met Azure compatibele VHD zich bevindt op [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Voor meer informatie over het maken van een Windows VHD, gaat u naar de maken een sectie (Windows-indeling) met Azure compatibele VHD zich bevindt op [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-compatible-VHD-Windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul>      |
+|Azure-compatibele virtuele harde schijf (VHD)    |   Virtuele machines moeten worden gebouwd op Windows of Linux.<ul> <ul> <li>Zie voor meer informatie over het maken van een Linux VHD [op Azure onderschreven Linux-distributies](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Zie voor meer informatie over het maken van een Windows VHD [maken van een Azure-compatibele VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
 > Beheerde apps moeten worden geïmplementeerd via Marketplace zijn. Als communicatie met klanten een probleem is, u moet contact opnemen met geïnteresseerde klanten nadat u het delen van leads hebt ingeschakeld.  
@@ -50,8 +50,8 @@ In het geval van een bring-your-own-license, terwijl Microsoft brengt kosten in 
 ## <a name="next-steps"></a>Volgende stappen
 Als u dit nog niet hebt gedaan, 
 
-- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace
+- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace.
 
 Als u bent geregistreerd en het maken van een nieuwe aanbieding of werken aan een bestaande resourcegroep
 
-- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uw aanbieding voltooien
+- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uitvoeren van uw aanbieding.

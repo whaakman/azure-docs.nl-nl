@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244046"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065389"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Overwegingen met betrekking tot Azure Resource Manager-sjabloon
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Als u uw toepassing ontwikkelt, is het belangrijk om te controleren of de sjabloon overdraagbaarheid tussen Azure en Azure Stack. Dit artikel bevat overwegingen voor het ontwikkelen van Azure Resource Manager [sjablonen](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), zodat u kunt prototype van uw toepassing en test deze implementatie in Azure zonder toegang tot een Azure Stack-omgeving.
 
 ## <a name="resource-provider-availability"></a>Provider voor resourcebeschikbaarheid
 
-De sjabloon die u van plan bent om te implementeren moet alleen gebruiken voor Microsoft Azure-services die al beschikbaar of in de Preview-versie in Azure Stack zijn.
+De sjabloon die u wilt implementeren moet alleen gebruiken voor Microsoft Azure-services die al beschikbaar of in de Preview-versie in Azure Stack zijn.
 
 ## <a name="public-namespaces"></a>Openbare-naamruimten
 
-Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt naamruimten dan de openbare cloud van Azure. Als gevolg hiervan niet vastgelegd openbare eindpunten in Azure Resource Manager-sjablonen wanneer u probeert te implementeren voor Azure Stack. U kunt dynamisch bouwen met service-eindpunten met behulp van de *verwijzing* en *samenvoegen* functies voor het ophalen van waarden van de resourceprovider tijdens de implementatie. Bijvoorbeeld, in plaats van hardcoderen *blob.core.windows.net* in uw sjabloon, haalt de [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) dynamisch instellen de *osDisk.URI* eindpunt:
+Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt naamruimten dan de openbare cloud van Azure. Openbare eindpunten in Azure Resource Manager-sjablonen vastgelegde mislukt als gevolg hiervan, wanneer u probeert te implementeren voor Azure Stack. U kunt dynamisch bouwen met service-eindpunten met behulp van de `reference` en `concatenate` functies voor het ophalen van waarden van de resourceprovider tijdens de implementatie. Bijvoorbeeld, in plaats van hard-coding *blob.core.windows.net* in uw sjabloon, haalt de [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) dynamisch instellen de *osDisk.URI* eindpunt:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -56,7 +56,7 @@ Azure-versies kunnen verschillen tussen Azure en Azure Stack. Elke resource vere
 
 ## <a name="template-functions"></a>Sjabloonfuncties
 
-Azure Resource Manager [functies](../../azure-resource-manager/resource-group-template-functions.md) bieden mogelijkheden voor het ontwikkelen van dynamische sjablonen. Een voorbeeld: u kunt functies voor taken zoals:
+Azure Resource Manager [functies](../../azure-resource-manager/resource-group-template-functions.md) bieden de mogelijkheden die zijn vereist voor het bouwen van dynamische sjablonen. Een voorbeeld: u kunt functies voor taken zoals:
 
 * Samenvoegen of bijsnijden tekenreeksen.
 * Verwijzen naar waarden van andere bronnen.

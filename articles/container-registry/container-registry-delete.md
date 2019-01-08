@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857768"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065168"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Verwijderen van installatiekopieën van containers in Azure Container Registry
 
@@ -60,7 +60,7 @@ In een privéregister zoals Azure Container Registry bevat naam van de installat
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-Zie voor een discussie over de installatiekopie taggen van aanbevolen procedures, de [Docker tags: Best practices voor docker-installatiekopieën taggen en versiebeheer] [ tagging-best-practices] blogbericht op MSDN.
+Zie voor een discussie over de installatiekopie taggen van aanbevolen procedures, de [Docker labelen: Aanbevolen procedures voor docker-installatiekopieën taggen en versiebeheer] [ tagging-best-practices] blogbericht op MSDN.
 
 ### <a name="layer"></a>Laag
 
@@ -239,20 +239,20 @@ Zoals vermeld in de [Manifest digest](#manifest-digest) sectie pushen van een aa
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-Zoals u in de uitvoer van de laatste stap in de reeks ziet, er wordt nu een zwevende manifest waarvan `"tags"` eigenschap `null`. Dit manifest wordt nog steeds aanwezig in het register, samen met een unieke laaggegevens waarnaar deze verwijst. **Zwevende verwijderen zoals afbeeldingen en hun laaggegevens, moet u verwijderen door manifest digest**.
+Zoals u in de uitvoer van de laatste stap in de reeks ziet, er wordt nu een zwevende manifest waarvan `"tags"` eigenschap is een lege matrix. Dit manifest wordt nog steeds aanwezig in het register, samen met een unieke laaggegevens waarnaar deze verwijst. **Zwevende verwijderen zoals afbeeldingen en hun laaggegevens, moet u verwijderen door manifest digest**.
 
 ### <a name="list-untagged-images"></a>Lijst met niet-gelabelde afbeeldingen
 
 U kunt alle niet-gelabelde afbeeldingen weergeven in uw opslagplaats met de volgende Azure CLI-opdracht. Vervang `<acrName>` en `<repositoryName>` met waarden die geschikt is voor uw omgeving.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Verwijderen van alle niet-gelabelde afbeeldingen
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

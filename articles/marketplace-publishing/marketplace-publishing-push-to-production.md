@@ -3,7 +3,7 @@ title: Implementeren van uw aanbieding in Azure Marketplace | Microsoft Docs
 description: Meer informatie over en stapsgewijs door de instructies voor het implementeren van uw aanbieding--VM-installatiekopie, developer-service, gegevensservice, enz.--in de Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714278"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076108"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Implementeren van uw aanbieding in Azure Marketplace
 Wanneer u tevreden bent met uw aanbieding (dat wil zeggen, u hebt getest klantscenario's, marketing-inhoud, enzovoort) en u bent klaar om te starten, aanvragen **sturen naar productie** op de **publiceren** tabblad.  
@@ -50,7 +51,7 @@ Wanneer u tevreden bent met uw aanbieding (dat wil zeggen, u hebt getest klantsc
 ## <a name="production-checklist-for-all-virtual-machine-offers"></a>Controlelijst voor productie voor alle virtuele Machine-aanbiedingen
 * Zorg ervoor dat u een Microsoft Azure Certified-partner
 * Klik op het tabblad SKU's moeten de optie 'verbergen deze SKU van de Marketplace omdat moet altijd worden gekocht via een oplossingssjabloon"worden gemarkeerd als Ja alleen als de SKU een onderdeel van een oplossingssjabloon is. In alle andere gevallen, moet deze optie altijd worden gemarkeerd als Nee.
-* Houd er rekening mee: U moet niet de SKU zichtbaarheid instelling wijzigen wanneer de SKU wordt vermeld. We bieden geen ondersteuning voor deze functionaliteit.
+* Houd er rekening mee: U moet niet wijzigen de SKU zichtbaarheid instellen wanneer de SKU wordt vermeld. We bieden geen ondersteuning voor deze functionaliteit.
 * Zorg ervoor dat de logo's aan de richtlijnen voor het logo van Azure Marketplace hieronder voldoen.
 * Beschrijving van aanbieding en SKU mag niet hetzelfde zijn.
 * SKU's titel en bieden lange samenvatting mag niet hetzelfde zijn.
@@ -62,15 +63,15 @@ Wanneer u tevreden bent met uw aanbieding (dat wil zeggen, u hebt getest klantsc
 * Het Azure-ontwerp heeft een eenvoudig kleurenpalet. Houd het aantal primaire en secundaire kleuren op uw logo laag.
 * De themakleuren van het Azure-portal zijn wit en zwart. Vermijd daarom het gebruik van deze kleuren als de achtergrondkleur van uw logo's. Sommige kleur die uw logo's opvallende in Azure portal gebruiken. We adviseren eenvoudige primaire kleuren. Als u transparante achtergrond gebruikt, zorg ervoor dat het logo/tekst is geen witte of zwarte wordt weergegeven.
 * Gebruik niet een kleurovergang achtergrond op het logo.
-* Voorkomen dat tekst, zelfs uw bedrijf of de naam van het merk, geplaatst op het logo.
+* Plaats tekst, zelfs in uw bedrijf, of een naam, het logo huisstijl.
 * Het uiterlijk van uw logo moet 'vast' en vermijd kleurovergangen.
 * Het logo mag niet worden uitgebreid.
 
 **Aanvullende richtlijnen voor de Hero-logo:**
 
 * De Hero-logo is optioneel. De publisher kunt niet een Hero-logo uploaden. **Maar eenmaal geüploade de hero-pictogram kan niet worden verwijderd uit de publicatie portal. Op dat moment moet de partner de Azure Marketplace-richtlijnen voor de Hero pictogrammen anders die de aanbieding niet worden goedgekeurd volgen naar productie.**
-* De weergavenaam van de uitgever, SKU titel en de lange samenvatting aanbieding worden weergegeven in de kleur wit. Daarom moet u niet een lichte kleur houden op de achtergrond van het Hero-pictogram. Zwart-wit en transparante achtergrond is niet toegestaan voor Hero pictogrammen.
-* De uitgever van de weergegeven naam, SKU titel, de aanbieding voor lange samenvatting en de knop maken wanneer de aanbieding wordt weergegeven via een programma in de Hero-logo zijn ingesloten. U moet dus niet als er geen tekst invoeren bij het ontwerpen van de Hero-logo. Laat alleen lege ruimte aan de rechterkant omdat de tekst (dat wil zeggen weergavenaam van de uitgever, SKU titel, de aanbieding voor lange samenvatting) worden opgenomen via een programma door ons hier. De lege ruimte voor de tekst moet 415 x 100 aan de rechterkant (en deze wordt gecompenseerd door 370px vanaf de linkerkant).
+* De weergavenaam van de uitgever, SKU titel en de lange samenvatting van de aanbieding worden weergegeven in de kleur wit. Daarom moet u niet een lichte kleur houden op de achtergrond van het Hero-pictogram. Zwart, wit en transparante achtergrond is niet toegestaan voor de Hero-pictogrammen.
+* De uitgever van de weergegeven naam, SKU titel, de aanbieding voor lange samenvatting en de knop maken wanneer de aanbieding wordt weergegeven via een programma in de Hero-logo zijn ingesloten. U moet dus niet als er geen tekst invoeren bij het ontwerpen van de Hero-logo. Laat alleen lege ruimte aan de rechterkant omdat de tekst (dat wil zeggen, weergavenaam van de uitgever, SKU titel, de aanbieding voor lange samenvatting) worden opgenomen via een programma door ons hier. De lege ruimte voor de tekst moet 415 x 100 aan de rechterkant (en deze wordt gecompenseerd door 370 pixels vanaf de linkerkant).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Biedt aanvullende productie controlelijst voor het al genoemde virtuele Machine
 * Controleer of er al een aanbieding met dezelfde naam van uw bedrijf bieden. Als u Ja kiest, moet u een nieuwe versie van de SKU van het bestaande aanbod in plaats van het maken van een nieuwe aanbieding voor dubbele toevoegen.
@@ -81,7 +82,7 @@ Wanneer u tevreden bent met uw aanbieding (dat wil zeggen, u hebt getest klantsc
 Wanneer de aanbieding live meteen, test u de klantscenario's voor het valideren van alle de opdrachten en functies alleen goed in de productieomgeving als werken getest en gevalideerd in de faseringsomgeving.
 
 ## <a name="see-also"></a>Zie ook
-* [Aan de slag: een aanbieding publiceren op Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Aan de slag: Een aanbieding publiceren op Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

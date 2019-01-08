@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846467"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077552"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -80,7 +80,7 @@ Onze Marketplace Voorbereidingsteam valideert de registratiegegevens van de mark
 U gebruikt de [Cloud Partner-Portal](https://cloudpartner.azure.com) wilt maken, publiceren en beheren van marketplace-aanbiedingen. Nadat u het welkomstbericht goedkeuring ontvangen, kunt u direct aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com) met uw Microsoft-account voor toegang tot aanvullende technische informatie over het publiceren op marketplace en het maken van uw aanbieding. 
 *   Voor meer informatie over het gebruik van Cloud Partner-Portal, [Ga naar het artikel aan de slag in de sectie meer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). U moet zijn aangemeld op de Cloud Partner-Portal voor toegang tot deze gegevens.
 *   Als u vragen hebt of wilt, zoals plannen voor een aanroep van onboarding-overzicht, andere artikelen in deze handleiding Publisher bekijken of een ondersteuningsaanvraag onder probleemtype > Marketplace Onboarding uit in de Cloud Partner-Portal.
-*   Als u het welkomstbericht hebt ontvangen, controleert u de map Ongewenste e-mail voor een e-mailbericht met de onderwerpregel "Welkom bij de Microsoft Marketplace!." Als er is geen e-mailadres in de map Ongewenste e-mail, [contact op met Microsoft ondersteuning](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Selecteer op de ondersteuningspagina: probleemtype > Marketplace Onboarding.  Onze Marketplace Publisher Onboarding-Team is met u kunnen helpen bij uw vragen. 
+*   Als u het welkomstbericht hebt ontvangen, controleert u de map Ongewenste e-mail voor een e-mailbericht met de onderwerpregel "Welkom bij de Microsoft Marketplace!." Als er is geen e-mailadres in de map Ongewenste e-mail, [contact op met Microsoft ondersteuning](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Selecteer de volgende zaken op de ondersteuningspagina: Probleemtype > Marketplace Onboarding.  Onze Marketplace Publisher Onboarding-Team is met u kunnen helpen bij uw vragen. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. Registreren in Dev Center (voor Transact alleen optie publiceren) 
@@ -97,15 +97,15 @@ De afzonderlijke registratie [Dev Center](https://developer.microsoft.com/store/
 Wanneer u hebt de [Dev Center](https://developer.microsoft.com/store/register) registratie, uw Cloud Partner-profiel met een koppeling uw [Dev Center](https://developer.microsoft.com/store/register) rekening (Zie de gedetailleerde stappen). Deze stap moet worden voltooid voordat u uw transact-aanbieding publiceert. 
 
 >[!Note]
->Om te vervallen de kosten $99 Developer Center registratie, voltooi de [marketplace registratieformulier](https://azuremarketplace.microsoft.com/en-us/sell/signup) en u ontvangt een e-mail met uw promotiecode. 
+>Om te vervallen de kosten $99 Developer Center registratie, voltooi de [marketplace registratieformulier](https://azuremarketplace.microsoft.com/sell/signup) en u ontvangt een e-mail met uw promotiecode. 
 
 >[!Important]
 >Voordat u een Microsoft Developer Center-account maakt, Controleer of dat uw organisatie nog geen een Dev Center-account om te voorkomen dat dubbele accounts. Voor meer informatie gaat u naar de [registreren in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) sectie.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over de marketplace-storefronts: [AppSource vergelijken en de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Het type aanbieding voor uw oplossing bepalen](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Meer informatie over de marketplace-storefronts: [Vergelijking van AppSource en de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*   [Bepaalt het type aanbieding voor uw oplossing](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 0468c41f0813277b6ba6d3be8ad89c3178dd1420
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f13d3f780e24d71babb1bda48a9b85d1208e3c4c
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094668"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074594"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-modules
 
@@ -95,3 +95,4 @@ Als u dit nog niet hebt gedaan,
 Als u bent geregistreerd en het maken van een nieuwe aanbieding of werken aan een bestaande resourcegroep
 
 - Aanmelden bij [Cloud Partner-Portal](https://cloudpartner.azure.com/) maken of uitvoeren van uw aanbieding.
+- Zie [IoT Edge module aanbieding publiceren overzicht](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) voor meer informatie over hoe u een IoT Edge-module-aanbieding publiceert.

@@ -3,7 +3,7 @@ title: Overzicht van hoe u maken en implementeren van een aanbieding op Marketpl
 description: Informatie over de stappen die nodig zijn om te worden van een goedgekeurde Microsoft-ontwikkelaar en maken en implementeren van een installatiekopie van virtuele machine, sjabloon, data-service of ontwikkelaar-service in de Azure Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 2c8c97d8f5477e7640df87030ed6ef27c4c7b979
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7c2f33755628d6ee4880f1965545cde019b72c5e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310076"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073830"
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publiceren en beheren van een aanbieding op Azure Marketplace
 
@@ -35,7 +36,7 @@ Als een Azure-uitgever, u kunt distribueren en uw innovatieve oplossing of servi
 ## <a name="supported-types-of-solutions"></a>Ondersteunde typen oplossingen
 Het eerste wat dat u wilt doen als een uitgever is om te definiëren wat voor soort oplossing aangeboden door uw bedrijf. De Marketplace ondersteunt de volgende typen aanbiedingen:
 
-|Oplossingstype|Virtuele machine|Oplossingssjabloon|
+|Type oplossing|Virtuele machine|Oplossingssjabloon|
 |---|---|---|
 |**Definitie**|Vooraf geconfigureerde installatiekopieën met een volledig geïnstalleerd besturingssysteem en een of meer toepassingen. Een VM-installatiekopie bevat de informatie die nodig zijn om te maken en implementeren van virtuele machines in de Azure Virtual Machines-service.|Een gegevensstructuur die kan verwijzen naar een of meer afzonderlijke Azure-services, waaronder services die zijn gepubliceerd door andere verkopers. Azure-abonnees kunnen gebruiken op een of meer aanbiedingen implementeren op een enkele, gecoördineerde wijze.|
 |**Voorbeeld**|U hebt gemaakt en een virtuele machine met een innovatieve databaseservice gevalideerd als een Azure publisher. Andere Azure-abonnees wilt aanschaffen en deze virtuele machine implementeren in hun cloud service-omgevingen.|Als een Azure-uitgever, hebt u een set services van gebundeld in Azure waarmee u snel te implementeren, cloudservices met taakverdeling, verbeterde beveiliging en hoge beschikbaarheid. Andere Azure-abonnees kunnen tijd besparen door de sjabloon van de oplossing die voldoet aan hun doel te kopen. Ze geen handmatig zoeken, aanschaffen, implementeren en configureren van de dezelfde of gelijksoortige Azure-services.|

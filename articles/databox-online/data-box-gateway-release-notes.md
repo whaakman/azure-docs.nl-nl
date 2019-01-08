@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/07/2019
 ms.author: alkohli
-ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 31bcc5ed447b32f4474ecef6a8a9f79377061975
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164566"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078980"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Releaseopmerkingen voor Azure Data Box-Gateway-Preview
 
@@ -31,7 +31,10 @@ De volgende tabel bevat een samenvatting van problemen in deze release worden op
 
 | Nee. | Probleem |
 | --- | --- |
-| 1 | In deze release, wanneer een bestand dat is geüpload door een ander hulpprogramma (AzCopy) wordt vernieuwd en wordt bijgewerkt op een manier die toeneemt/breidt de bestandsgrootte en vervolgens de volgende fout wordt waargenomen: *fout 400: InvalidBlobOrBlock (de opgegeven blob of block inhoud is ongeldig.)*|
+| **1.** | In deze release, wanneer een bestand dat is geüpload door een ander hulpprogramma (AzCopy) wordt vernieuwd en wordt bijgewerkt op een manier die de bestandsgrootte toeneemt/doorloopt vervolgens de volgende fout in acht wordt genomen: *Fout 400: InvalidBlobOrBlock (de opgegeven blob of block-inhoud is ongeldig.)*|
+| **2.** |Vanwege een fout in deze release, ziet u mogelijk exemplaren van foutcode 110 in *error.xml* met onherkenbare itemnamen. | 
+| **3.** |Vanwege een fout in deze release ziet u mogelijk exemplaren van foutcode 2003 tijdens het uploaden van bestanden. | 
+| **4.** |In deze release kunt u slechts één share vernieuwen op een tijdstip. | 
 
 
 ## <a name="known-issues-in-preview-release"></a>Bekende problemen in de Preview-versie
@@ -42,15 +45,12 @@ De volgende tabel bevat een overzicht van de bekende problemen voor de Data Box-
 | --- | --- | --- | --- |
 | **1.** |Updates |De Data Box-Gateway-apparaten die zijn gemaakt in het eerdere voorbeeld releases kunnen niet worden bijgewerkt naar deze versie. |De installatiekopieën van virtuele schijven van de nieuwe versie downloaden en configureren en implementeren van nieuwe apparaten. Ga voor meer informatie naar [voorbereidingen voor het implementeren van Azure Data Box Gateway](data-box-gateway-deploy-prep.md). |
 | **2.** |Ingerichte gegevensschijf |Nadat u een gegevensschijf van een bepaalde opgegeven grootte hebt ingericht en de bijbehorende Data Box-Gateway hebt gemaakt, u moet niet verkleinen de gegevensschijf. Er wordt geprobeerd voor het verkleinen van de resultaten van de schijf in een verlies van de lokale gegevens op het apparaat. | |
-| **3.** |Vernieuwen |In deze release kunt u slechts één share vernieuwen op een tijdstip. | |
-| **4.** |Naam wijzigen |Naam wijzigen van objecten wordt niet ondersteund. |Neem contact op met Microsoft Support als deze functie is van cruciaal belang voor uw werkstroom. |
-| **5.** |Exemplaar| Als een alleen-lezen-bestand wordt gekopieerd naar het apparaat, wordt de alleen-lezen eigenschap niet behouden. | |
-| **6.** |Logboeken| Vanwege een fout in deze release, ziet u mogelijk exemplaren van foutcode 110 in *error.xml* met onherkenbare itemnamen. | |
-| **7.** |Uploaden | Vanwege een fout in deze release ziet u mogelijk exemplaren van foutcode 2003 tijdens het uploaden van bestanden. | |
-| **8.** |Bestandstypen | De volgende typen van de Linux-bestanden worden niet ondersteund: teken bestanden, bestanden blokkeren, sockets, pipes, symbolische koppelingen.  |Deze bestanden zijn gekopieerd resultaten in 0 heeft een lengte van bestanden die worden gemaakt op de NFS delen. Deze bestanden blijven in een foutstatus en er wordt ook gerapporteerd *error.xml*. |
-| **9.** |Verwijderen | Vanwege een fout in deze release, als een NFS-share is verwijderd, kan klikt u vervolgens de share niet worden verwijderd. De status van de share wordt weergegeven *verwijderen*.  |Dit gebeurt alleen als de share met behulp van de naam van een niet-ondersteund bestandstype. |
-| **10.** |Vernieuwen | Machtigingen en toegangsbeheerlijsten (ACL's) blijven niet behouden via een vernieuwingsbewerking.  | |
-| **11.** |Online-help |De Help-koppelingen in de Azure-portal kan niet koppelen aan documentatie.|De Help-koppelingen werken in de algemeen beschikbare versie. |
+| **3.** |Naam wijzigen |Naam wijzigen van objecten wordt niet ondersteund. |Neem contact op met Microsoft Support als deze functie is van cruciaal belang voor uw werkstroom. |
+| **4.** |Exemplaar| Als een alleen-lezen-bestand wordt gekopieerd naar het apparaat, wordt de alleen-lezen eigenschap niet behouden. | |
+| **5.** |Bestandstypen | De volgende typen van de Linux-bestanden worden niet ondersteund: teken bestanden, bestanden blokkeren, sockets, pipes, symbolische koppelingen.  |Deze bestanden zijn gekopieerd resultaten in 0 heeft een lengte van bestanden die worden gemaakt op de NFS delen. Deze bestanden blijven in een foutstatus en er wordt ook gerapporteerd *error.xml*. |
+| **6.** |Verwijderen | Vanwege een fout in deze release, als een NFS-share is verwijderd, kan klikt u vervolgens de share niet worden verwijderd. De status van de share wordt weergegeven *verwijderen*.  |Dit gebeurt alleen als de share met behulp van de naam van een niet-ondersteund bestandstype. |
+| **7.** |Vernieuwen | Machtigingen en toegangsbeheerlijsten (ACL's) blijven niet behouden via een vernieuwingsbewerking.  | |
+| **8.** |Online-help |De Help-koppelingen in de Azure-portal kan niet koppelen aan documentatie.|De Help-koppelingen werken in de algemeen beschikbare versie. |
 
 
 

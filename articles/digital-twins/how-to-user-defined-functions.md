@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 06c6d2935358650eb9f7ef1cda55d5292e203daf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019925"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076243"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Over het maken van de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -73,15 +73,17 @@ Met JSON-hoofdtekst:
 
 ## <a name="create-a-user-defined-function"></a>Een door de gebruiker gedefinieerde functie maken
 
-Nadat de vergelijkingsprogramma voor zijn gemaakt, uploadt u het fragment functie met de volgende geverifieerde meerdelige HTTP POST-aanvraag:
+Het maken van een door de gebruiker gedefinieerde functie omvat het maken van een meerdelige HTTP-aanvraag naar de Azure digitale dubbels Management API's.
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+Nadat de vergelijkingsprogramma voor zijn gemaakt, uploadt u het fragment functie met de volgende geverifieerde meerdelige HTTP POST-aanvraag naar:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-Gebruik de volgende JSON-hoofdtekst:
+Gebruik de volgende tekst:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY

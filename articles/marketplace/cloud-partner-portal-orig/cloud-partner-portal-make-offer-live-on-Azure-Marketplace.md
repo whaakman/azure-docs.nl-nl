@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ff3ca665382efc9133a4c4ce3f3fde25c03c5e52
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ad22f1944d3fe9a088b66da4cf4df7136db497f7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810073"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075328"
 ---
 <a name="make-your-virtual-machine-offer-live-on-azure-marketplace"></a>Uw virtuele machine live-aanbieding op Azure Marketplace
 =========================================================
@@ -51,13 +51,13 @@ Laten we elk van de publicatie stappen doorlopen, bespreken wat er gebeurt bij e
 
 Als u 'Publiceren' klikt, is een geautomatiseerde controle vindt plaats om te controleren of dat u alle vereiste velden in uw aanbieding hebt ingevuld. Als alle velden zijn niet gevuld, een waarschuwing wordt weergegeven naast het veld en u moet voor het vullen van het nauwkeurig klikt u op 'Publiceren' opnieuw.
 
-Nadat u deze stap correct hebt voltooid, wordt een pop-upvenster weergegeven waarin wordt gevraagd om een e-mailadres. Dit is het e-mailbericht waaraan u publishing statusmeldingen voor de rest van het publicatieproces ontvangt. Nadat u uw e-mailadres hebt ingediend, wordt deze stap is voltooid.
+Nadat u deze stap correct hebt voltooid, een pop-upvenster wordt u gevraagd een e-mailadres. Dit is het e-mailbericht waaraan u publishing statusmeldingen voor de rest van het publicatieproces ontvangt. Nadat u uw e-mailadres hebt ingediend, wordt deze stap is voltooid.
 
 ![Aanbieding Go Live reeks 4: uw aanbieding publiceren](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publishyouroffer.png)
 
 **Certificeringsinstantie (\<5 dagen)**
 
-Deze stap is waar we een aantal tests om te controleren of uw VM-installatiekopie voldoet aan de vereisten voor Azure Certified uitvoeren. Alle richtlijnen die u moet ervoor zorgen geeft u de vereisten voor hardwarecertificering zijn [hier](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
+Deze stap is waar we een aantal tests om te controleren of uw VM-installatiekopie voldoet aan de vereisten voor Azure Certified uitvoeren. Alle richtlijnen die u moet ervoor zorgen geeft u de vereisten voor hardwarecertificering zijn [hier](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md).
 
 Omdat deze stap enkele dagen duren kan, kunt u zich buiten de Cloud Partner-Portal. We sturen u een e-mailmelding als er fouten optreden die u afhandelen moet. Als alles met succes is geslaagd, wordt het proces automatisch verdergaan met de Provisioning-stap.
 
@@ -75,17 +75,17 @@ Bovendien, als u de functie leiden generatie hebt geconfigureerd, zullen we dit 
 
 U ontvangt een e-mailmelding die uw aanbieding met succes is voltooid voor de stappen die nodig zijn voor toegang tot de aanbieding in preview. Tijdens deze stap moet u voorbeeld van uw aanbieding en zorg ervoor dat alles ziet er als het zijn moet en waarmee uw virtuele machine correct wordt geïmplementeerd in de faseringsomgeving.
 
-**Alleen in de whitelist opgenomen abonnementen kunnen doen deze verificatie.**\*
+*Alleen in de whitelist opgenomen abonnementen kunnen doen deze verificatie.*
 
 **Aftekening van de uitgever**
 
-Als u controleren of alles er goed uitziet en goed werkt in de Preview-versie, bent u klaar om live te gaan. Om dit te doen, klikt u op Go Live onder de status van tabblad en we zullen stappen voor het maken van uw aanbieding live in productie en op de website. Meestal duurt het enkele uren vanaf het moment dat u op Go Live en wanneer de aanbieding beschikbaar via de website is. We sturen u een e-mailmelding wanneer uw aanbieding officieel live op de website is.
+Als u controleren of alles er goed uitziet en goed werkt in de Preview-versie, bent u klaar om live te gaan. Klik op **Go Live** onder de **Status** tabblad en we zullen stappen voor het maken van uw aanbieding live in productie en op de website. Meestal duurt het enkele uren vanaf het moment dat u op Go Live en wanneer de aanbieding beschikbaar via de website is. We sturen u een e-mailmelding wanneer uw aanbieding officieel live op de website is.
 
 ![Bieden van Go Live reeks 5: live gaan](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
 
 **Live**
 
-Uw aanbieding is nu Live op Azure Marketplace en Azure-Portal en klanten kunnen weergeven en uw virtuele machine implementeren in hun Azure-abonnementen. Op elk gewenst moment kunt u klikt u op het tabblad alle aanbiedingen en de status bekijken voor uw aanbiedingen die zijn vermeld in de rechterkolom. U kunt klikken op de status om te zien van de publicatiestatus van de stroom in de details voor uw aanbieding.
+Uw aanbieding is nu Live op Azure Marketplace en Azure portal en klanten kunnen weergeven en uw virtuele machine implementeren in hun Azure-abonnementen. Op elk gewenst moment kunt u klikt u op het tabblad alle aanbiedingen en de status bekijken voor uw aanbiedingen die zijn vermeld in de rechterkolom. U kunt klikken op de status om te zien van de publicatiestatus van de stroom in de details voor uw aanbieding.
 
 <a name="error-handling"></a>Foutafhandeling
 --------------
@@ -94,7 +94,7 @@ Tijdens het publicatieproces, kan een fout optreden. Als er een fout is opgetred
 
 ![Bieden van Go Live reeks 6 - foutbericht](./media/cloud-partner-portal-offer-go-live-azure-marketplace/errormessage.png)
 
-Als er fouten tijdens het publicatieproces optreden, bent u vereist voor het los deze op en klik op 'Publiceren' om het proces opnieuw te starten. U moet beginnen aan het begin van de publicatie stappen aan de vereisten valideren bij het publiceren van opnieuw na elke fout-oplossing.
+Als er fouten tijdens het publicatieproces optreden, bent u vereist voor het oplossen van deze problemen, en klik vervolgens op 'Publiceren' om het proces opnieuw te starten. U moet beginnen aan het begin van de publicatie stappen aan de vereisten valideren bij het opnieuw na elke fout-oplossing te publiceren.
 
 Als u een fout bij het oplossen van problemen, moet u een ondersteuningsaanvraag om hulp te krijgen van onze ondersteuningsmedewerkers openen.
 

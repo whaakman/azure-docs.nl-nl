@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 45db2d02a434f2d7e7f3187c0d87c0b68ecf5235
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051999"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076974"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Gebruiksanalyse met Application Insights
 
@@ -30,7 +30,7 @@ De beste ervaring wordt verkregen door het installeren van Application Insights 
 
 1. **Servercode:** Installeer de juiste module voor uw [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), of [andere](../../azure-monitor/app/platforms.md) -App.
 
-    * *Wilt u zich geen servercode installeren? Alleen [maken van een Azure Application Insights-resource](../../application-insights/app-insights-create-new-resource.md).*
+    * *Wilt u zich geen servercode installeren? Alleen [maken van een Azure Application Insights-resource](../../azure-monitor/app/create-new-resource.md ).*
 
 2. **Webpagina-code:** Het volgende script toevoegen aan uw webpagina's voor de afsluitende ``</head>``. Vervang de instrumentatiesleutel door de juiste waarde voor uw Application Insights-resource:
 
@@ -47,7 +47,7 @@ De beste ervaring wordt verkregen door het installeren van Application Insights 
     ```
     Zie de [naslagdocumentatie over de JavaScript SDK API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md) als u meer wilt weten over geavanceerdere configuraties voor het controleren van websites.
 
-3. **Mobiele app-code:** De App Center SDK gebruiken om te verzamelen van gebeurtenissen van uw app en exemplaren van deze gebeurtenissen verzenden naar Application Insights voor analyse door [stappen in dit artikel](../../application-insights/app-insights-mobile-center-quickstart.md).
+3. **Mobiele app-code:** De App Center SDK gebruiken om te verzamelen van gebeurtenissen van uw app en exemplaren van deze gebeurtenissen verzenden naar Application Insights voor analyse door [stappen in dit artikel](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 4. **Telemetrie ontvangen:** Uw project in de foutopsporingsmodus uitvoeren voor een paar minuten en zoek vervolgens de resultaten in de blade overzicht in Application Insights.
 

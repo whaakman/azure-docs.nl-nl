@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 8cbd09beffb8d86ab35e5fc1cf15c37b1bef9eb2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a3a4039e8b9c372212655718a40a57fedcfa188d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050605"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075784"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -34,7 +34,7 @@ Om te kunnen krijgen observability binnen uw gehele omgeving, moet u inschakelen
 - [Met Azure DevOps Projects](../devops-project/overview.md) een vereenvoudigde ervaring met uw bestaande code en Git-opslagplaats, of kies een van de voorbeeldtoepassingen te maken van een pijplijn voor continue integratie (CI) en continue levering (CD) naar Azure.
 - [Doorlopende bewaking in uw DevOps-release-pijplijn](../azure-monitor/app/continuous-monitoring.md) kunt u poort of terugdraaien van de implementatie aanpassen aan de gegevens te controleren.
 - [Statusmonitor](../azure-monitor/app/monitor-performance-live-website-now.md) kunt u het instrumenteren van een live .NET-app op Windows met Azure Application Insights, zonder te hoeven wijzigen of opnieuw implementeren van uw code.
-- Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../application-insights/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), of [andere programmeertalen](../azure-monitor/app/platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
+- Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../application-insights/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), of [andere programmeertalen](../azure-monitor/app/platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
 
 
 
@@ -79,7 +79,7 @@ Een essentieel onderdeel van de bewaking wordt beheerders van actuele en voorspe
 ## <a name="prepare-dashboards-and-workbooks"></a>Werkmappen en dashboards voorbereiden
 Ervoor te zorgen dat uw ontwikkel- en operations toegang tot de dezelfde Telemetrie en hulpprogramma's hebben, kunnen ze patronen in uw gehele omgeving weergeven en de gemiddelde tijd om te detecteren (MTTD) en de gemiddelde tijd om te herstellen (MTTR) kunt minimaliseren.
 
-- Voorbereiden [aangepaste dashboards](../application-insights/app-insights-tutorial-dashboards.md) op basis van algemene metrische gegevens en logboeken voor de verschillende rollen in uw organisatie. Dashboards kunnen gegevens uit alle Azure-resources kunnen combineren.
+- Voorbereiden [aangepaste dashboards](../azure-monitor/learn/tutorial-app-dashboards.md) op basis van algemene metrische gegevens en logboeken voor de verschillende rollen in uw organisatie. Dashboards kunnen gegevens uit alle Azure-resources kunnen combineren.
 - Voorbereiden [werkmappen](../azure-monitor/app/usage-workbooks.md) om ervoor te zorgen kennis delen tussen ontwikkel- en bewerkingen. Deze kunnen worden voorbereid als dynamische rapporten met grafieken met metrische gegevens en logboeken-query's, of zelfs als het oplossen van problemen handleidingen voorbereid door ontwikkelaars helpen klantenondersteuning of bewerkingen voor het afhandelen van eenvoudige problemen.
 
 ## <a name="continuously-optimize"></a>Blijf optimaliseren

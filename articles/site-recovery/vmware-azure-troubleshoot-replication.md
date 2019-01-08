@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 30f128e75feb149453b642739f57c3a16ade524f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c53dc81da9469c0628adbd3751dc818997fa4d05
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053088"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063675"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
@@ -28,7 +28,9 @@ De volgende lijst toont manieren waarop u op de bronmachine controleren kunt:
 
 *  Op de opdrachtregel op de bronserver, moet u Telnet gebruiken om te pingen van de processerver via het HTTPS-poort (de standaard HTTPS-poort is 9443) met de volgende opdracht. Voor problemen met de netwerkverbinding en problemen dat blok de firewallpoort wordt gecontroleerd.
 
+
    `telnet <process server IP address> <port>`
+
 
    > [!NOTE]
    > Telnet gebruiken om te controleren. Gebruik geen `ping`. Als Telnet niet is geïnstalleerd, voert u de stappen in [Telnet-Client installeren](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).

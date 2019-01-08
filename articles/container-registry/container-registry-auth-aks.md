@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752534"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078776"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Verifiëren met Azure Container Registry uit Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Toegang met Kubernetes-geheim
 
-In sommige gevallen moet u mogelijk niet de vereiste rol toewijzen aan de automatisch gegenereerde AKS service-principal verlenen van toegang tot ACR. Bijvoorbeeld, vanwege het beveiligingsmodel van uw organisatie, u mogelijk niet gemachtigd in uw Azure AD-directory een rol toewijzen aan de AKS gegenereerde service-principal. In dat geval kunt u een nieuwe service-principal maken en vervolgens het toegang geven tot de container registry met behulp van een Kubernetes-geheim installatiekopie pull.
+In sommige gevallen moet u mogelijk niet de vereiste rol toewijzen aan de automatisch gegenereerde AKS service-principal verlenen van toegang tot ACR. Bijvoorbeeld, vanwege het beveiligingsmodel van uw organisatie, u mogelijk niet gemachtigd in uw Azure Active Directory-tenant een rol toewijzen aan de AKS gegenereerde service-principal. Een rol toewijzen aan een service-principal, is uw Azure AD-account aan schrijfmachtigingen hebben voor uw Azure AD-tenant vereist. Als u geen machtiging hebt, kunt u een nieuwe service-principal maken en vervolgens het toegang geven tot de container registry met behulp van een Kubernetes-geheim installatiekopie pull.
 
 Het volgende script gebruiken om te maken van een nieuwe service-principal (gebruikt u de referenties voor de Kubernetes-geheim installatiekopie pull). Wijzig de `ACR_NAME` variabele voor uw omgeving voordat u het script is uitgevoerd.
 

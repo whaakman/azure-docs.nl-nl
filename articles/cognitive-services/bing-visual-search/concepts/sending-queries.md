@@ -3,25 +3,25 @@ title: Zoekquery's verzenden naar de Bing visuele zoekopdrachten-API
 titlesuffix: Azure Cognitive Services
 description: Meer informatie over de REST-API-parameters in de Bing visuele zoekopdrachten-API gebruikt.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: aahill
-ms.openlocfilehash: 073570b428ffed395d90ee1cd6a734f66a1b0908
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.author: aahi
+ms.openlocfilehash: 4f1f52c7954b4985d0da24f51eb199e2cbeac3a6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745442"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063587"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Zoekquery's verzenden naar de Bing visuele zoekopdrachten-API
 
 In dit artikel beschrijft de parameters en de kenmerken van aanvragen die worden verzonden naar de Bing visuele zoekopdrachten-API, evenals de antwoordobject.
 
-Verzamel inzichten over een afbeelding kunt u opvragen op drie manieren: 
+Krijgt u inzicht in een afbeelding op drie manieren: 
 
 - met behulp van een token inzichten die u via een installatiekopie in een vorige aanroep aan een van de [Bing afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) eindpunten.
 - Verzenden van de URL van een afbeelding.

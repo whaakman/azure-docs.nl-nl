@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083900"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064943"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Hulp zoeken en openen van een ondersteuningsticket voor Azure Active Directory
 Microsoft biedt wereldwijde technische, voorverkoop, facturering en ondersteuning voor abonnementen voor Azure Active Directory (Azure AD). Ondersteuning is online en telefonisch voor Microsoft Azure betaalde en proefabonnementen beschikbaar. Telefonische ondersteuning en Onlineondersteuning facturering zijn beschikbaar in extra talen. 
@@ -51,7 +51,7 @@ Als u geen antwoorden kunt vinden met behulp van bronnen voor zelfhulp, kunt u e
    
 4. Voor **Service**, selecteer **Azure Active Directory**, en selecteer vervolgens **volgende**.
 
-5. Op de **probleem** blade, selecteer een [ernst](https://azure.microsoft.com/support/plans/response/)).
+5. Op de **probleem** blade, selecteer een [ernst](https://azure.microsoft.com/support/plans/response/).
   
 6. Selecteer een **probleemtype**, en selecteer vervolgens een **categorie** voor dat type. Op dit moment krijgt u Help-informatie ook voor de probleemcategorie van uw.
   
@@ -68,9 +68,9 @@ Als u geen antwoorden kunt vinden met behulp van bronnen voor zelfhulp, kunt u e
 
 1. Aanmelden bij [het Office 365-beheercentrum](https://portal.office.com) met een account met een Enterprise Mobility + Security (EMS)-licentie.
 
-2. Op de **ondersteuning** tegel, selecteer **nieuwe serviceaanvraag**: ![schermafbeelding van Office 365-portal](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. Op de **ondersteuning** tegel, selecteer **nieuwe serviceaanvraag**: ![Schermafbeelding van Office 365-portal](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 
-3. Op de **ondersteunen overzicht** weergeeft, schakelt **identiteitsbeheer** of **beheer van gebruikers en domein**: ![categorieën schermopname van Azure AD-ondersteuning](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Op de **overzicht van** weergeeft, schakelt **identiteitsbeheer** of **beheer van gebruikers en domein**: ![Schermopname van Azure AD-ondersteuning categorieën](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 
 4. Voor **functie**, selecteert u de Azure AD-functie waarvoor u ondersteuning wilt.
 

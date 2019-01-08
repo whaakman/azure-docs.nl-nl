@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 3be22e7f8e69ded8ccc8956cc7fd7c6d71fe5fa1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 51f3861d53ac5dac80b53fad9a4efe7b276807fe
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497725"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065406"
 ---
 # <a name="develop-for-azure-stack"></a>Ontwikkelen voor Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt aan de slag vandaag, het ontwikkelen van toepassingen, zelfs als u geen toegang tot een Azure Stack-omgeving. Omdat Azure Stack Microsoft Azure-services die worden uitgevoerd in uw datacenter biedt, kunt u dezelfde hulpprogramma's en processen te ontwikkelen met betrekking tot Azure Stack, zoals u zou met Azure doen. 
+U kunt aan de slag vandaag, het ontwikkelen van toepassingen, zelfs als u geen toegang tot een Azure Stack-omgeving. Omdat Azure Stack Microsoft Azure-services die worden uitgevoerd in uw datacenter biedt, kunt u dezelfde hulpprogramma's en processen te ontwikkelen met betrekking tot Azure Stack, zoals u zou met Azure doen.
 
 ## <a name="development-considerations"></a>Overwegingen bij de ontwikkeling
 
@@ -40,5 +40,5 @@ Enige voorbereiding en overeenkomstig de richtlijnen in de volgende onderwerpen,
 
 Zie de volgende artikelen voor meer informatie over het ontwikkelen van Azure Stack:
 
-- [Azure Resource Manager sjabloon aanbevolen procedures](azure-stack-develop-templates.md)
-- [Azure Stack-Quickstart-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Azure Resource Manager sjabloon aanbevolen procedures](azure-stack-develop-templates.md)
+* [Azure Stack-Quickstart-sjablonen op GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates)

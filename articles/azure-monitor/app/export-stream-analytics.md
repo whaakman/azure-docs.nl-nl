@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ca9148093660f3ed223fd2117e85d309c919e040
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001835"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076923"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics gebruiken voor het verwerken van de geëxporteerde gegevens van Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is het ideaal hulpprogramma voor het verwerken van gegevens [geëxporteerd uit Application Insights](export-telemetry.md). Stream Analytics kunt u gegevens ophalen uit een groot aantal bronnen. Deze kunt transformeren en de gegevens filteren en vervolgens te routeren naar een verscheidenheid aan Put.
@@ -25,7 +25,7 @@ ms.locfileid: "54001835"
 In dit voorbeeld maken we een adapter die neemt gegevens uit Application Insights, naam en sommige velden worden verwerkt en geeft het in Power BI.
 
 > [!WARNING]
-> Er zijn veel beter en eenvoudiger [aanbevolen manier om weer te geven van Application Insights-gegevens in Power BI](../../application-insights/app-insights-export-power-bi.md). Het pad dat hier wordt geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens te verwerken.
+> Er zijn veel beter en eenvoudiger [aanbevolen manier om weer te geven van Application Insights-gegevens in Power BI](../../azure-monitor/app/export-power-bi.md ). Het pad dat hier wordt geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens te verwerken.
 > 
 > 
 
@@ -198,7 +198,7 @@ Wacht totdat de taak wordt uitgevoerd.
 
 ## <a name="see-results-in-power-bi"></a>Resultaten worden weergegeven in Power BI
 > [!WARNING]
-> Er zijn veel beter en eenvoudiger [aanbevolen manier om weer te geven van Application Insights-gegevens in Power BI](../../application-insights/app-insights-export-power-bi.md). Het pad dat hier wordt geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens te verwerken.
+> Er zijn veel beter en eenvoudiger [aanbevolen manier om weer te geven van Application Insights-gegevens in Power BI](../../azure-monitor/app/export-power-bi.md ). Het pad dat hier wordt geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens te verwerken.
 > 
 > 
 

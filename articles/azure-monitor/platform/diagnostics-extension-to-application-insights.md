@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c22c97efed7c70b554acd449ed15c6641e377b6a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2580d49fb7ab0779f81f1315b9765a0dc4745cb6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788494"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078215"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Cloud Service, virtuele Machine of Service Fabric diagnostische gegevens verzenden naar Application Insights
 Cloudservices, virtuele Machines, Virtual Machine Scale Sets en Service Fabric alle gebruiken de Azure Diagnostics-extensie om gegevens te verzamelen.  Azure diagnostics verzendt gegevens naar Azure Storage-tabellen.  U kunt echter ook alle pipe of een subset van de gegevens naar andere locaties met behulp van Azure Diagnostics-extensie 1.5 of hoger.
@@ -61,7 +61,7 @@ Van de voorbeeldconfiguratie van een sink voor Application Insights:
 - De **Sink** *naam* kenmerk is een tekenreekswaarde die een unieke identificatie van de sink.
 
 - De **ApplicationInsights** element Hiermee geeft u de instrumentatiesleutel van de Application insights-resource waarnaar de gegevens van Azure diagnostics is verzonden.
-    - Als u een bestaande Application Insights-resource hebt, raadpleegt u [Maak een nieuwe Application Insights-resource](../../application-insights/app-insights-create-new-resource.md) voor meer informatie over het maken van een resource en de instrumentatiesleutel ophalen.
+    - Als u een bestaande Application Insights-resource hebt, raadpleegt u [Maak een nieuwe Application Insights-resource](../../azure-monitor/app/create-new-resource.md ) voor meer informatie over het maken van een resource en de instrumentatiesleutel ophalen.
     - Als u een Cloudservice met de Azure SDK 2.8 of hoger ontwikkelt, wordt deze instrumentatiesleutel automatisch ingevuld. De waarde is gebaseerd op de **APPINSIGHTS_INSTRUMENTATIONKEY** service van configuratie-instelling bij het verpakken van de Cloud Service-project. Zie [Application Insights gebruiken met Cloudservices](../../azure-monitor/app/cloudservices.md).
 
 - De **kanalen** element bevat een of meer **kanaal** elementen.

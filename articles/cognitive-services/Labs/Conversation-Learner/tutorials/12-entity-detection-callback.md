@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 147887151abd5c1f7455b0efbf9aadbc2d884183
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a96cfcb07252dc4a9089eab2decaec9efb01a67b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796741"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064984"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Het gebruik van entiteit detectie terugbellen
 
@@ -95,7 +95,7 @@ Dit is de callback-code:
 6. Klik op de knop 'Acties Score'.
     - Op de knop activeert de callback van de detectie van entiteit
     - De callback-code stelt u de waarde CityResolved entiteit correct naar "new york"
-7. Selecteer de respons ' new york is is heel fijn. "
+7. Selecteer het antwoord, "new york is heel fijn."
 
 Dit patroon is karakteristiek voor veel bot-scenario's. Gebruiker uitingen en uitgepakte entiteiten worden geleverd aan uw bedrijfslogica en die logica transformeert de utterance in canonieke vorm, die vervolgens wordt opgeslagen in programmatische entiteiten voor latere wordt van het dialoogvenster.
 

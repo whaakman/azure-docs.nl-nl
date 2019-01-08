@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 18416f4208a77c27290b7e524b207fc681f06fdb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2387af0ddd9f6f3ecbe91afaaca66d89f070c036
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050809"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076037"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -58,7 +58,7 @@ FIX:
 * Controleer dat u hebt opgegeven aanmeldingsreferenties voor de juiste Azure-account. 
 * In uw browser, Controleer of u toegang tot hebt de [Azure-portal](https://portal.azure.com). Instellingen openen en kijk of er verder geen beperkingen.
 * [Application Insights toevoegen aan een bestaand project](../../azure-monitor/app/asp-net.md): Klik met de rechtermuisknop op uw project in Solution Explorer en kies 'Add Application Insights'.
-* Als deze nog steeds niet werkt, volgt u de [handmatige procedure](../../application-insights/app-insights-windows-services.md) toevoegen van een resource in de portal en vervolgens de SDK toevoegen aan uw project. 
+* Als deze nog steeds niet werkt, volgt u de [handmatige procedure](../../azure-monitor/app/windows-services.md) toevoegen van een resource in de portal en vervolgens de SDK toevoegen aan uw project. 
 
 ## <a name="emptykey"></a>Ik krijg de foutmelding 'instrumentatiesleutel mag niet leeg zijn'
 Er is iets fout gegaan tijdens installatie Application Insights of misschien een adapter voor logboekregistratie.

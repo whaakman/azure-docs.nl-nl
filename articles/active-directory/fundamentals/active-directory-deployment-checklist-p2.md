@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078228"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064709"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 licentieverlening functie controlelijst
 
@@ -33,7 +33,7 @@ Deze handleiding wordt ervan uitgegaan dat u hebt Azure AD Premium P2-licenties,
 
 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
-## <a name="plan-and-deploy-day-1-30"></a>Plannen en implementeren: 1-30 dagen
+## <a name="plan-and-deploy-day-1-30"></a>Plannen en implementeren: 1 tot 30 dagen
 
 - Opgeven van meer dan één globale beheerder (einde-glas account)
    - [Beheerdersaccounts voor EMS-toegang beheren in Azure AD](../users-groups-roles/directory-emergency-access.md)
@@ -75,7 +75,7 @@ Deze handleiding wordt ervan uitgegaan dat u hebt Azure AD Premium P2-licenties,
    - [Gebruiksscenario's en overwegingen voor de implementatie voor Azure AD Join](../devices/azureadjoin-plan.md)
 - [Beheren van Windows Hello voor bedrijven in uw organisatie](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>Plannen en implementeren: dag 90 en hoger
+## <a name="plan-and-deploy-day-90-and-beyond"></a>Plannen en implementeren: Dag 90 en hoger
 
 - [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [Azure AD directory rolinstellingen in PIM configureren](../privileged-identity-management/pim-how-to-change-default-settings.md)
@@ -84,7 +84,7 @@ Deze handleiding wordt ervan uitgegaan dat u hebt Azure AD Premium P2-licenties,
 - De levensduur van zuinigste beheren
    - Azure AD heeft een aanpak voor het beheer van levenscyclus van identiteit
    - Handmatige stappen van de levenscyclus van uw werknemer-account, om te voorkomen dat onbevoegde toegang verwijderen:
-      - Identiteiten van de bron van de waarheid (HR-systeem) naar Azure AD synchroniseren. koppelen aan het HR-systemen ondersteund)
+      - Identiteiten van de bron van de waarheid (HR-systeem) naar Azure AD synchroniseren.
       - [Dynamische groepen gebruiken om gebruikers automatisch toewijzen aan groepen op basis van hun kenmerken van HR (of de bron is), zoals afdeling, titel, regio, en andere kenmerken.](../users-groups-roles/groups-dynamic-membership.md)
       - [Gebruik toegangsbeheer op basis van een groep inrichting op automatisch gebruikers inrichten voor SaaS-toepassingen.](../manage-apps/what-is-access-management.md)
 

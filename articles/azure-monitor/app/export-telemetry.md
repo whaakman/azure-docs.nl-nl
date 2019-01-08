@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025263"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076770"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Telemetrie exporteren vanuit Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een bepaalde gespecialiseerde manier te verwerken? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar de opslag in Microsoft Azure in JSON-indeling. Van daaruit kunt u uw gegevens downloaden en wat u code schrijven moet verwerken.  
@@ -27,7 +27,7 @@ Voordat u continue export instelt, zijn er enkele alternatieven die u wilt gebru
 * De knop exporteren aan de bovenkant van een blade met metrische gegevens of een zoekopdracht kunt u overbrengen van tabellen en grafieken met een Excel-werkblad.
 
 * [Analytics](../../azure-monitor/app/analytics.md) biedt een krachtige querytaal voor telemetrie. Het kan ook resultaten exporteren.
-* Als u op zoek bent naar [Verken uw gegevens in Power BI](../../application-insights/app-insights-export-power-bi.md), kunt u dat doen zonder gebruik van continue Export.
+* Als u op zoek bent naar [Verken uw gegevens in Power BI](../../azure-monitor/app/export-power-bi.md ), kunt u dat doen zonder gebruik van continue Export.
 * De [REST-API voor gegevenstoegang](https://dev.applicationinsights.io/) kunt u via een programma toegang krijgen tot uw telemetrie.
 * U kunt setup ook openen [continue export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 

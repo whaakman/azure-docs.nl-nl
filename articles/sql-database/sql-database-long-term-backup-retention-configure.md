@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: ed3203cde8bad8c506bacf3607faecfbcde2cd75
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6be0603c8332a6d1bd6c965a167b14f5a22362e6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606857"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064216"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
@@ -33,7 +33,7 @@ De volgende secties laten zien hoe u de Azure portal gebruiken voor het configur
 
 U kunt SQL-Database te configureren [automatische back-ups](sql-database-long-term-retention.md) voor een periode die langer is dan de retentietermijn van uw servicecategorie. 
 
-1. In de Azure-portal, selecteert u uw SQL-server en klik vervolgens op **back-ups beheren**. Op de **-beleid configureren** tabblad, selecteert u het selectievakje voor de database op die u wilt instellen of wijzigen op de lange termijn bewaarbeleid voor back-up.
+1. In de Azure-portal, selecteert u uw SQL-server en klik vervolgens op **back-ups beheren**. Op de **-beleid configureren** tabblad *schakelt u het selectievakje voor de database op die u wilt instellen of wijzigen op de lange termijn back-up bewaarbeleid*. Als het selectievakje naast de database niet is ingeschakeld, de wijzigingen voor het beleid niet van toepassing op die database.  
 
    ![koppeling van de back-ups beheren](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 

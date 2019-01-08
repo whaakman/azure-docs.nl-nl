@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fcfb3943109adbc095b90073f041662fb5c65b56
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958658"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078878"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Publicatiehandleiding voor virtuele Machine-aanbieding
 
@@ -66,14 +66,15 @@ Het type van de aanbieding virtuele machine gebruiken wanneer u een virtueel app
 | Vereiste | Details |  
 |:--- |:--- | 
 | Facturering en betaling naar gebruik | Uw virtuele machine moet ondersteunen BYOL of betalen per gebruik maandelijkse facturering. |  
-| Azure-compatibele virtuele harde schijf (VHD) | Virtuele machines moeten worden gebouwd op Windows of Linux.<ul> <li>Voor meer informatie over het maken van een VHD met Linux-, gaat u naar de maken een sectie (Linux-indeling) met Azure compatibele VHD zich bevindt op [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Voor meer informatie over het maken van een Windows VHD, gaat u naar de maken een sectie (Windows-indeling) met Azure compatibele VHD zich bevindt op [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-compatible-VHD-Windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Azure-compatibele virtuele harde schijf (VHD) | Virtuele machines moeten worden gebouwd op Windows of Linux. <ul> <li>Zie voor meer informatie over het maken van een Linux VHD [op Azure onderschreven Linux-distributies](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Zie voor meer informatie over het maken van een Windows VHD [maken van een Azure-compatibele VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u dit nog niet hebt gedaan, 
 
-- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace
+- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace.
 
 Als u bent geregistreerd en het maken van een nieuwe aanbieding of werken aan een bestaande resourcegroep
 
-- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uw aanbieding voltooien
+- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uitvoeren van uw aanbieding.
+- Zie [virtuele machine-aanbieding](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) voor meer informatie.

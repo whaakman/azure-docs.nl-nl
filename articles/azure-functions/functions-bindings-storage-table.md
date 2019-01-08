@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bd85214efc3c8f67d41563e3ca46a1e2278c4868
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999542"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062670"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -509,7 +509,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**RowKey** |**RowKey** | Optioneel. De rijsleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
 |**toets maken** |**toets maken** | Optioneel. Het maximale aantal entiteiten om te lezen in JavaScript. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
 |**filter** |**Filter** | Optioneel. Een OData-filter-expressie voor de tabel invoer in JavaScript. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
-|**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -767,7 +767,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**Tabelnaam** |**Tabelnaam** | De naam van de tabel.| 
 |**partitionKey** |**partitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor informatie over hoe u deze eigenschap wilt gebruiken.| 
 |**RowKey** |**RowKey** | De rijsleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor informatie over hoe u deze eigenschap wilt gebruiken.| 
-|**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -779,7 +779,7 @@ De Table storage uitvoer binding ondersteunt de volgende scenario's:
 
   In C# en C#-script, toegang krijgen tot de entiteit van de tabel uitvoer met behulp van een methodeparameter zoals `out T paramName` of de functie waarde retourneren. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` elk serialiseerbaar type zijn als de partitiesleutel en rijsleutel worden geleverd door de *function.json* bestand of de `Table` kenmerk. Anders `T` moet een type met `PartitionKey` en `RowKey` eigenschappen. In dit scenario `T` gewoonlijk `ITableEntity` of is afgeleid van `TableEntity`, maar dit hoeft te.
 
-* **Een of meer rijen schrijven in C# of C#**
+* **Schrijven van een of meer rijen in C# of C# script**
 
   In C# en C#-script, toegang krijgen tot de entiteit van de tabel uitvoer met behulp van een methodeparameter `ICollector<T> paramName` of `IAsyncCollector<T> paramName`. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar dit hoeft te. De partitiesleutel en de rij waarden in sleutel *function.json* of de `Table` kenmerkconstructie niet in dit scenario worden gebruikt.
 

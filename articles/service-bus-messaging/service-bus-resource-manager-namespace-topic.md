@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 08b4ef6ea59123524500188428eb0bc03d85138b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 671c0ea11c832d635eb92eda64669c3aab12b1e9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409980"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062635"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte maken met een onderwerp en abonnement met behulp van een Azure Resource Manager-sjabloon
 
@@ -130,6 +130,8 @@ Hiermee maakt u een standard Service Bus-naamruimte van het type **Messaging**, 
         }]
     }]
 ```
+
+Zie voor JSON-syntaxis en eigenschappen [naamruimten](/azure/templates/microsoft.servicebus/namespaces), [onderwerpen](/azure/templates/microsoft.servicebus/namespaces/topics), en [abonnementen](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

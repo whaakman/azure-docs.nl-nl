@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9abf1eebe8174160bd671d83086ed641708b98eb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017563"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073948"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in Azure, digitale dubbels
 
 BLOBs zijn niet-gestructureerde representaties van algemene bestandstypen, zoals afbeeldingen en Logboeken. BLOBs bijhouden van wat voor soort gegevens die ze geven met behulp van een MIME-type (bijvoorbeeld: ' afbeelding/jpeg') en metagegevens (naam, beschrijving, type, enzovoort).
 
-Azure ondersteunt het digitale dubbels blobs te koppelen aan apparaten, spaties en gebruikers. BLOBs kunnen bestaan uit een profielafbeelding voor een gebruiker, een apparaat foto, een video, een kaart of een logboek.
+Azure ondersteunt het digitale dubbels blobs te koppelen aan apparaten, spaties en gebruikers. BLOBs kunnen bestaan uit een profielafbeelding voor een gebruiker, apparaat foto, een video, een kaart, een firmware-zip, JSON-gegevens, een logboek, enzovoort.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -32,7 +32,7 @@ Gedeeltelijk aanvragen kunt u blobs uploaden naar specifieke eindpunten en hun r
 
 ### <a name="blob-metadata"></a>De metagegevens van de blob
 
-Naast **Content-Type** en **Content-Disposition**, meerdelige aanvragen moeten de juiste JSON-hoofdtekst opgeven. Welke JSON-hoofdtekst om in te dienen, is afhankelijk van het type HTTP-aanvraagbewerking die wordt uitgevoerd.
+Naast **Content-Type** en **Content-Disposition**, meerdelige blobaanvragen digitale dubbels Azure de juiste JSON-hoofdtekst moeten opgeven. Welke JSON-hoofdtekst om in te dienen, is afhankelijk van het type HTTP-aanvraagbewerking die wordt uitgevoerd.
 
 De vier belangrijkste JSON schema's zijn:
 
@@ -48,12 +48,15 @@ Meer informatie over het gebruik van de naslagdocumentatie door te lezen [over h
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Om een **POST** -aanvraag die een tekstbestand als een blob geüpload en associeert deze met een spatie:
+Als u wilt een tekstbestand als een blob uploaden en deze koppelen aan een spatie, moet u een geverifieerde HTTP POST-aanvraag naar:
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+Met de volgende tekst:
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -96,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+In beide voorbeelden:
+
+1. Controleer of dat de headers omvatten: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Controleer of de hoofdtekst is multipart:
+
+   - Het eerste deel bevat de vereiste blob-metagegevens.
+   - Het tweede gedeelte bevat het tekstbestand.
+
+1. Controleer of dat het tekstbestand dat is opgegeven als `Content-Type: text/plain`.
+
 ## <a name="api-endpoints"></a>API-eindpunten
 
 De volgende secties beschrijven de core blob-gerelateerde API-eindpunten en hun functies.
@@ -106,7 +119,7 @@ U kunt blobs koppelen aan apparaten. De volgende afbeelding toont de Swagger-ref
 
 ![Apparaat-blobs][2]
 
-Bijvoorbeeld, als u wilt bijwerken of een blob maken en koppelen van de blob aan een apparaat, moet u een **PATCH** aanvragen:
+Bijvoorbeeld, als u wilt bijwerken of een blob maken en koppelen van de blob aan een apparaat, moet u een geverifieerde vullen van de HTTP-aanvraag naar:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -132,7 +145,7 @@ U kunt ook blobs koppelen naar spaties. De volgende afbeelding geeft een lijst v
 
 ![Ruimte blobs][3]
 
-Bijvoorbeeld, als u wilt terugkeren van een blob die is gekoppeld aan een spatie, moet u een **ophalen** aanvragen:
+Bijvoorbeeld, als u wilt terugkeren van een blob die is gekoppeld aan een spatie, moet u een geverifieerde HTTP GET-aanvraag naar:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -142,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | De gewenste blob-ID |
 
-Maken van een **PATCH** aanvraag voor hetzelfde eindpunt kunt u een beschrijving van de metagegevens van update en maak een nieuwe versie van de blob. De HTTP-aanvraag wordt gedaan via de **PATCH** methode, samen met eventuele vereiste metagegevens en meerdelige formuliergegevens.
+Een PATCH-aanvraag naar hetzelfde eindpunt updates van metagegevens beschrijvingen en maakt nieuwe versies van de blob. De HTTP-aanvraag wordt gedaan via de PATCH-methode, samen met eventuele vereiste metagegevens en meerdelige formuliergegevens.
 
 Voltooide bewerkingen retourneren een **SpaceBlob** -object dat aan het volgende schema voldoet. U kunt deze gebruiken voor geretourneerde gegevens.
 
@@ -157,7 +170,7 @@ U kunt blobs koppelen aan de gebruiker-modellen (bijvoorbeeld om te koppelen van
 
 ![Gebruiker-blobs][4]
 
-Bijvoorbeeld, om op te halen van een blob die is gekoppeld aan een gebruiker, moet u een **ophalen** aanvraag met gegevens die vereiste formulier:
+Bijvoorbeeld, om op te halen van een blob die is gekoppeld aan een gebruiker, moet u een geverifieerde HTTP GET-aanvraag met gegevens die vereiste formulier:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID

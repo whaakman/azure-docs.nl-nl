@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993957"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063230"
 ---
-# <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>De prijscategorie van Azure Maps rechts kiezen
+# <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Kies de prijscategorie van Azure Maps rechts
 
-Azure kaarten biedt twee Prijscategorieën. Het doel van dit artikel is bij het recht voor prijscategorie voor uw behoeften te kiezen. Om te helpen de juiste prijscategorie kiezen, Stel uzelf twee vragen:
+Azure kaarten biedt twee Prijscategorieën. Het doel van dit artikel is bij het recht voor prijscategorie voor uw behoeften te kiezen. Om te helpen de juiste prijscategorie kiezen, Stel uzelf de volgende twee vragen.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Welke mogelijkheden georuimtelijke plan ik gebruiken?
-Als u dat denkt uw servicevereisten wordt voldaan door de georuimtelijke core API's, wordt de S0-laag is geschikt voor u. Als u wilt meer geavanceerde mogelijkheden voor uw toepassing, zoals areal + hybride beeldmateriaal, route bereik aan batch-geocodering enz., kunt u kiest voor levering van de prijscategorie S1. De onderstaande tabel met **prijzen laag mogelijkheden** zullen u voorzien van een beter idee van de behoeften van uw toepassing en wordt ook hulp die u kiest een prijscategorie meest geschikt is voor uw toepassing.
+De S0-laag is geschikt voor u als de georuimtelijke core API's te voldoen aan de servicevereisten van uw. Als u meer geavanceerde mogelijkheden voor uw toepassing wilt, kunt u overwegen voor de prijscategorie S1. Voorbeeld van de mogelijkheden zijn areal plus gecombineerde beelden, aan een bereik van de route en geocodering van batch. De **prijzen laag mogelijkheden** tabel die volgt, kunt u een beter idee van de behoeften van uw toepassing. Hiermee kunt u ook Kies een prijscategorie meest geschikt is voor uw toepassing.
 
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Het aantal gelijktijdige gebruikers wilt ik ondersteuning? 
-S0 en S1 Prijscategorieën kunnen verschillende hoeveelheden doorvoer van gegevens worden verwerkt. Voordat u een Azure-kaarten prijscategorie, rekening houden met vraag uzelf op vragen zoals hoeveel gelijktijdige gebruikers wilt u ondersteunen? De prijscategorie aankan tot S0 **50 query's per seconde** en de prijscategorie aankan S1 **meer dan 50 query's per seconde**.
+De Prijscategorieën S0 en S1 verschillende hoeveelheden doorvoer van gegevens worden verwerkt. Voordat u een Azure-kaarten prijscategorie kiezen, vraagt u zelf enkele vragen. Een voorbeeld is "het aantal gelijktijdige gebruikers ik wilt ondersteunen?" De prijscategorie S0 verwerkt tot **50 query's per seconde**. De S1-ingangen voor prijzen laag **meer dan 50 query's per seconde**.
 
 ### <a name="pricing-tier-capabilities"></a>Prijzen van de mogelijkheden van laag
 
@@ -34,31 +34,32 @@ S0 en S1 Prijscategorieën kunnen verschillende hoeveelheden doorvoer van gegeve
 | Renderen                                  |        ✓           |     ✓    |
 | Verkeer                                 |        ✓           |     ✓    |
 | Tijdzones                              |        ✓           |     ✓    |
-| * Beelden en gecombineerde beelden (preview)     |        ✓           |     ✓    |
-| * Route bereik (Preview)                  |        ✓           |     ✓    |
-| * Locatie van de 2 IP (preview)                |        ✓           |     ✓    |
-| * Veelhoeken van zoeken (Preview)         |        ✓           |     ✓    |
-| * Batch Geocodering (preview)              |        ✓           |     ✓    |
-| * Batch Routing (preview)                |        ✓           |     ✓    |
-| * Matrix Routing (preview)               |        ✓           |     ✓    |
+| * Beelden en gecombineerde beelden (preview)  |        ✓           |     ✓    |
+| * Route bereik (preview)                  |        ✓           |     ✓    |
+| * 2 IP-locatie (preview)                |        ✓           |     ✓    |
+| * Veelhoeken van zoeken (preview)         |        ✓           |     ✓    |
+| * Batch geocodering (preview)              |        ✓           |     ✓    |
+| * Batch-routering (preview)                |        ✓           |     ✓    |
+| * Matrix routering (preview)               |        ✓           |     ✓    |
 
-> [!Note]
-> Toegang tot deze mogelijkheden van S0 prijscategorie wordt afgeschaft na 4 februari 2019.
+\* Toegang tot deze mogelijkheden van de S0 prijscategorie wordt afgeschaft na 4 februari 2019.
 
-Enkele aanvullende gegevenspunten waard zijn, wat voor soort enterprise hebt u of hoe essentieel de toepassing is wordt gemaakt?
+Deze aanvullende gegevenspunten zijn moet overwegen:
+* Wat voor soort enterprise hebt u?
+* Hoe essentieel is de toepassing wordt gemaakt?
 
-Zie de tabel met **prijscategorie gericht klanten** een beter idee van de Prijscategorieën S0 en S1 te krijgen. Zie voor meer informatie over prijzen voor Azure-kaarten, [prijzen van Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
+Zie de **klanten prijscategorie gericht** tabel een beter idee van de Prijscategorieën S0 en S1 te krijgen. Zie voor meer informatie, [prijzen van Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
 ### <a name="pricing-tier-targeted-customers"></a>Prijscategorie gericht klanten
 
-| Prijscategorie  |        Potentiële klanten                                                                |
+| Prijscategorie  |     Potentiële klanten                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>De prijscategorie S0 is voor klanten die kleine of middelgrote bedrijven. Het is een recht prijscategorie voor u, als u grote aantallen gelijktijdige gebruikers niet verwacht en uw servicevereisten wordt voldaan door de georuimtelijke core API's, zoals aangegeven door de bovenstaande tabel. Deze laag is algemeen beschikbaar en is van toepassing voor toepassingen in alle fasen van de productie van proof-of-concept-ontwikkeling en vroege toepassing productie en de implementatie testen.<p>|
-| S1            |    <p>De prijscategorie S1 is bedoeld voor klanten die moeten worden ondersteuning voor grootschalige enterprise, essentiële toepassingen, grote aantallen gelijktijdige gebruikers, of geavanceerde georuimtelijke services vereist.</p>|
+| S0            |    <p>De prijscategorie S0 is voor klanten die kleine of middelgrote bedrijven. Het is het recht voor prijscategorie voor u, als u niet verwacht grote aantallen gelijktijdige gebruikers dat. Het is ook geschikt als de georuimtelijke core API's die worden weergegeven in de voorgaande tabel voldoet aan de servicevereisten van uw. Deze laag is algemeen beschikbaar. Dit werkt voor toepassingen in alle fasen van de productie: van proof of concept-ontwikkeling en vroege toepassing productie en de implementatie testen.<p>|
+| S1            |    <p>De prijscategorie S1 is voor klanten die moeten worden ondersteuning voor grootschalige enterprise, essentiële toepassingen of grote aantallen gelijktijdige gebruikers. Het is ook voor klanten die behoefte hebben aan geavanceerde georuimtelijke services.</p>|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het weergeven en de prijscategorie wijzigen:
+Meer informatie over het weergeven en wijzigen van Prijscategorieën:
 
-> [!div class="nextstepaction"]
-> [Prijscategorie beheren](how-to-manage-pricing-tier.md)
+> [!div class="nextstepaction"] 
+> [Een prijscategorie beheren](how-to-manage-pricing-tier.md)

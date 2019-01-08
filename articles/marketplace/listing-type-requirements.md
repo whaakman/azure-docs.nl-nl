@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868664"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073999"
 ---
 # <a name="requirements-by-listing-type"></a>Vereisten van het Type aanbieding  
 De technische en marketingmateriaal inhoud vereisten variëren per winkel, aanbiedingtype en het type van de aanbieding. Bekijk de volgende specificaties om te controleren of de naleving.  
@@ -29,7 +29,7 @@ De technische en marketingmateriaal inhoud vereisten variëren per winkel, aanbi
 2. Type aanbieding en aanbieding Type vereisten:  
     *   Ga voor meer informatie over de typen van de aanbieding en typen naar het bepalen van het Type aanbieding voor de pagina met uw oplossing zich bevindt in [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  
 
-## <a name="storefront-requirements-appsource"></a>Vereisten voor StoreFront: AppSource  
+## <a name="storefront-requirements-appsource"></a>StoreFront vereisten: AppSource  
 De volgende tabel beschrijft de vereisten voor het publiceren op AppSource.  
 
 | Vereiste | Details | Vereist of aanbevolen |  
@@ -40,7 +40,7 @@ De volgende tabel beschrijft de vereisten voor het publiceren op AppSource.
 | ***Software als een app service (SaaS) voor bedrijven*** | Uw app moet voldoen aan de volgende vereisten.<ul> <li>Een line-of-business SaaS-app</li> <li>Bedrijfsproces gericht</li> <li>Bedoeld voor zakelijke klanten</li> <li>Gebruikers met hun werkreferenties aan te melden bij, zoals gebruikersnaam en wachtwoord</li> </ul> | Vereist |  
 | ***Gratis proefperiode is afgelopen en evaluatiesoftware*** | Uw app moet bevatten een de volgende opties in de order voor een klant uw app gedurende een beperkte periode gratis te gebruiken.<ul> <li>Geef een `try` methode, zodat klanten met een proefversie van uw app in AppSource beginnen kunnen</li> <li>Geef een `request trial` optie in de AppSource, zodat klanten kunnen vragen om een evaluatieversie van uw app</li> </ul>De gratis proefversie die u opgeeft moet de klant bieden een vooraf ingestelde periode voor het uitproberen van uw app zonder extra kosten. | Vereist |  
 | ***Eenvoudig kunnen worden geconfigureerd, kant-en-klare oplossing*** | Uw app moet zijn eenvoudig en snel te configureren en instellen met geen aanpassingen vereist. | Vereist |  
-| ***Leads beheren*** | U moet uw CRM accepteren leadgegevens voordat u ontvangen van de webwinkel leads inschakelen.<ul> <li>Voorbeelden van referentiematerialen zijn Marketo, Microsoft Dynamics of Salesforce</li> </ul> | Vereist |  
+| ***Leadbeheer*** | Schakel in uw CRM accepteren leadgegevens voordat u ontvangen van de webwinkel leidt.<ul> <li>Voorbeelden van referentiematerialen zijn Marketo, Microsoft Dynamics of Salesforce</li> </ul> | Vereist |  
 | ***Privacybeleid en de gebruiksvoorwaarden*** | Uw app moet een koppeling naar de pagina van uw privacy-beleid met behulp van een openbare URL opgeven. De gebruiksrechtovereenkomst moeten worden opgegeven tijdens het publiceren als tekst. | Vereist |  
 | ***Ondersteuning*** | Uw app moet een koppeling naar de ondersteuningspagina van uw klant via een openbare URL opgeven. Als uw app een proefversie, moet klikt u vervolgens u ondersteunen zonder extra kosten tijdens de proefperiode is afgelopen. | Vereist |  
 
@@ -52,7 +52,7 @@ Hier volgen de vereisten voor het aanbieden van typen in Azure Marketplace.
 | ***Beleidsregels voor deelname aan*** | Uw app moet voldoen aan het deelnamebeleid voor Azure Marketplace.<ul> <li>Ga naar pagina te op het vinden Deelnamebeleid voor van de Azure Marketplace voor meer informatie over de beleidsregels voor deelname aan [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />Transact<br />trial |  
 | ***Integratie met Microsoft*** | Uw aanbieding moet gebruiken of uitbreiden van Microsoft Azure-servicetypen zoals compute, netwerk of opslag. Uw aanbieding uit te lijnen aan een bestaande Azure Marketplace-categorie, zoals databases, beveiliging of netwerken.<ul> <li>Voor meer informatie over de Marketplace-aanbiedingen, gaat u naar de pagina te vinden op Marketplace-Apps [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />Transact<br />trial |  
 | ***Doelgroep*** | Uw aanbieding moet voor IT-professionals, cloudontwikkelaars of andere technische klantrollen. | list<br />Transact<br />trial |  
-| ***Leads beheren*** | U moet uw CRM (Marketo, Microsoft Dynamics of Salesforce) om te accepteren leadgegevens voordat u ontvangen van de webwinkel leads inschakelen. | list<br />Transact<br />trial |  
+| ***Leadbeheer*** | Schakel in uw CRM (Marketo, Microsoft Dynamics of Salesforce) om te accepteren leadgegevens voordat u ontvangen van de webwinkel leidt. | list<br />Transact<br />trial |  
 | ***Privacybeleid en de gebruiksvoorwaarden*** | Uw app moet een koppeling naar de pagina van uw privacy-beleid met behulp van een openbare URL opgeven. De gebruiksrechtovereenkomst moeten worden opgegeven tijdens het publiceren als tekst. | list<br />Transact<br />trial |  
 | ***Ondersteuning*** | Uw aanbieding moet een koppeling naar de ondersteuningspagina van uw klant via een openbare URL opgeven. Als uw aanbieding een proefversie is, moet klikt u vervolgens u ondersteunen zonder extra kosten tijdens de proefperiode is afgelopen. | Transact<br />trial |    
 
@@ -64,19 +64,19 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Adviesservices | AppSource | [Vereisten: AppSource: lijst: adviesservices](#requirements-appsource-list-consulting-services) |  
-| Adviesservices | Azure Marketplace | [Vereisten: Azure Marketplace: lijst: adviesservices](#requirements-azure-marketplace-list-consulting-services) |  
+| Adviesdiensten | AppSource | [Vereisten: AppSource: Lijst met: Adviesservices](#requirements-appsource-list-consulting-services) |  
+| Adviesdiensten | Azure Marketplace | [Vereisten: Azure Marketplace: Lijst met: Adviesservices](#requirements-azure-marketplace-list-consulting-services) |  
 | Contact opnemen | AppSource | [](#) |  
-| Contact opnemen | Azure Marketplace | [Vereisten: AppSource: lijst: contact met mij](#requirements-azure-marketplace-list-contact-me) |  
+| Contact opnemen | Azure Marketplace | [Vereisten: AppSource: Lijst met: Contact met mij](#requirements-azure-marketplace-list-contact-me) |  
 
-#### <a name="requirements-appsource-list-consulting-service"></a>Vereisten: AppSource: lijst: adviesservice  
+#### <a name="requirements-appsource-list-consulting-service"></a>Vereisten: AppSource: Lijst met: Consulting Services  
 
 | Vereisten | Details |  
 |:--- |:--- |  
 | Kenmerken van de service-aanbieding | Uw advies-service moet voldoen aan de volgende criteria voldoen.<ul> <li>Lever een engagement vaste bereik, vaste duur, vaste prijs (of gratis).</li> <li>De plaatsen volgens voornamelijk voor voorverkoop.</li> <li>Beperkt tot één klant.</li> <li>Uitvoeren op de site.</li> </ul> |  
 | Vereisten voor Consulting Services partner | U voldoet aan de criteria in het desbetreffende gebied voor uw service.<table><tr><th>Oplossingsgebied</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Silver- of Gold Cloud Customer Relationship Management competentie hebben.</td></tr><tr><td>Dynamics 365 voor Finance and Operations, Enterprise edition</td><td>Silver- of Gold Enterprise Resource Planning competentie en opbrengst van uw cloudbewerkingen in de afsluitende 12 maanden van $25.000 of meer hebben.</td></tr><tr><td>Dynamics 365 voor Finance and Operations, Business edition</td><td>Fungeren als Cloud Services-Provider (CSP) of digitale Partner van Record (DPOR) voor een of meer klanten.</td></tr><tr><td>Power BI</td><td>Voldoen aan de criteria Solution Partner.</td></tr><tr><td>PowerApps</td><td>Een oplossing Partnershowcase hebt.</td></tr></table><ul> <li>Voor meer informatie over klantrelatiebeheer, gaat u naar de Cloud Customer Relationship Management-pagina te vinden op [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Voor meer informatie over het plannen van resources, gaat u naar de Enterprise Resource Planning pagina zich bevindt op [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Ga naar de pagina te vinden op Cloud Services-Provider voor meer informatie over CSP [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Voor meer informatie over DPOR, gaat u naar de Digital Partner of Record en koppeling van de Partner-pagina te vinden op [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Voor meer informatie over solution partner criteria, gaat u naar het overzicht van de Partner van de oplossing en Incentives document dat zich bevindt in [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Voor meer informatie over partnershowcase, gaat u naar de pagina te vinden op Partnershowcase [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
-#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Vereisten: Azure Marketplace: lijst: adviesservice  
+#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Vereisten: Azure Marketplace: Lijst met: Consulting Services  
 
 | Vereisten | Details |  
 |:--- |:--- |  
@@ -91,14 +91,14 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Gratis / SaaS-proef | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
-| Gratis / SaaS-proef | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: gratis proefversie / SaaS-proef](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Interactieve demo | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
-| Interactieve demo | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: interactieve demo](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
-| Test drive | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: u kunt uitproberen](#requirements-azure-marketplace-trial-test-drive) |  
+| Gratis / SaaS-proef | AppSource | [Vereisten voor het Type van aanbieding: Proefversie](#listing-type-requirements-trial) |  
+| Gratis / SaaS-proef | Azure Marketplace | [Vereisten: Azure Marketplace: Proefversie: Gratis proefversie / SaaS-proef](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Interactieve demo | AppSource | [Vereisten voor het Type van aanbieding: Proefversie](#listing-type-requirements-trial) |  
+| Interactieve demo | Azure Marketplace | [Vereisten: Azure Marketplace: Proefversie: Interactieve demo](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Test drive | AppSource | [Vereisten voor het Type van aanbieding: Proefversie](#listing-type-requirements-trial) |  
+| Test drive | Azure Marketplace | [Vereisten: Azure Marketplace: Proefversie: U kunt uitproberen](#requirements-azure-marketplace-trial-test-drive) |  
 
-#### <a name="requirements-azure-marketplace-trial"></a>Vereisten: Azure Marketplace: proefversie  
+#### <a name="requirements-azure-marketplace-trial"></a>Vereisten: Azure Marketplace: Proefversie  
 
 | Vereiste | Details |  
 |:--- |:--- |  
@@ -107,19 +107,19 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 | Beschikbaarheid / uptime | Uw SaaS-app of -platform moet een uptime van ten minste 99,9% hebben. |  
 | Azure Active Directory | Uw aanbieding moet toestaan dat Azure Active Directory (Azure AD) voor federatieve eenmalige aanmelding (SSO) (Azure AD federatieve SSO) met toestemming ingeschakeld. |  
 
-#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Vereisten: Azure Marketplace: proefversie: gratis proefversie / SaaS-proef  
+#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Vereisten: Azure Marketplace: Proefversie: Gratis proefversie / SaaS-proef  
 
 | Voordeel | Vereiste |  
 |:--- |:--- |  
 | Hiermee kunt een klant om te proberen uw product voordat kopen via een geautomatiseerde methode voor de conversie naar betaald gebruik. Bovendien kunnen bewijzen van concept voor de klant en de gezamenlijke samenwerking met Microsoft-verkoopteam. | Uw oplossing is een virtuele machine of sjabloon-oplossing.<br /><br />Uw oplossing is een SaaS-aanbieding en bieden van een multitenant SaaS-product.<br /><br />U hebt een eerste sessie aan de slag van een klant snel te gaan.<br /><br />U hebt één tenant, maar klanten als gastgebruikers wilt toevoegen. |  
 
-#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Vereisten: Azure Marketplace: proefversie: interactieve demo  
+#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Vereisten: Azure Marketplace: Proefversie: Interactieve demo  
 
 | Voordeel | Vereiste |  
 |:--- |:--- |  
 | Kunnen uw klanten om te zien van uw oplossing in actie zonder de complexiteit van het instellen van. | Uw oplossing vereist complexe instellingen die moeilijk te bereiken binnen de proefperiode is afgelopen. |  
 
-#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Vereisten: Azure Marketplace: proefversie: u kunt uitproberen  
+#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Vereisten: Azure Marketplace: Proefversie: Test drive  
 
 | Voordeel | Vereiste |  
 |:--- |:--- |  
@@ -133,11 +133,11 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 
 | Type aanbieding | Storefront | Details |   
 |:---        |:---        | :--- |  
-| Azure-apps: beheerde app | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Azure-apps: beheerde app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure-apps: oplossingssjabloon | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Azure-apps: oplossingssjabloon](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Azure-apps: Beheerde app | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Azure-apps: Beheerde app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure-apps: Oplossingssjabloon | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Azure-apps: Oplossingssjabloon](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
 | Containers | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS-app  | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
-| Virtuele machine | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: virtuele machine](#requirements-azure-marketplace-transact-virtual-machine) |  
+| Virtuele machine | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Virtuele machine](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 <!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 
@@ -159,14 +159,13 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 | Landingspagina van transactie | Een Azure gezamenlijke transactie landingspagina hosten. Uw startpagina kan uw klanten uw SaaS-service-account maken en beheren. |  
 | SaaS-abonnement API | Geef een service die communiceert met de SaaS-abonnement te maken, bijwerken en verwijderen van een gebruiker account en service-plan. Alle kritieke API-wijzigingen moeten worden ondersteund binnen 24 uur. Niet-kritieke API wijzigingen worden regelmatig bijgewerkt. |  
 
-#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Vereisten: Azure Marketplace: Transact: virtuele machine  
+#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Vereisten: Azure Marketplace: Transact: Virtuele machine  
 
 | Vereiste | Details |  
 |:--- |:--- | 
 | Facturering en betaling naar gebruik | Uw virtuele machine moet ondersteunen BYOL of betalen per gebruik maandelijkse facturering. |  
-| Azure-compatibele virtuele harde schijf (VHD) | Virtuele machines moeten worden gebouwd op Windows of Linux.<ul> <li>Voor meer informatie over het maken van een VHD met Linux-, gaat u naar de maken een sectie (Linux-indeling) met Azure compatibele VHD zich bevindt op [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Voor meer informatie over het maken van een Windows VHD, gaat u naar de maken een sectie (Windows-indeling) met Azure compatibele VHD zich bevindt op [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-compatible-VHD-Windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Azure-compatibele virtuele harde schijf (VHD) | Virtuele machines moeten worden gebouwd op Windows of Linux.<ul> <li>Zie voor meer informatie over het maken van een Linux VHD [op Azure onderschreven Linux-distributies](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Zie voor meer informatie over het maken van een Windows VHD [maken van een Azure-compatibele VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Volgende stappen
 *   Ga naar de [Azure Marketplace en AppSource Uitgevershandleiding voor](./marketplace-publishers-guide.md) pagina.  
- 
----  
+

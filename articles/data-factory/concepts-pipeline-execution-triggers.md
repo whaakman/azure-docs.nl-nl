@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 6d0524471ddc62e1ff6285bd0c80049917e726a6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014944"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064369"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Versie 1:](v1/data-factory-scheduling-and-execution.md)
 > * [Huidige versie](concepts-pipeline-execution-triggers.md)
 
-Een _pijplijnuitvoering_ in Azure Data Factory definieert een exemplaar van een pijplijnuitvoering. Stel dat u een pijplijn hebt die wordt uitgevoerd om 8:00 uur, 9:00 uur en 10:00 uur. In dit geval wordt de pijplijn drie keer afzonderlijk uitgevoerd, ook wel pijplijnuitvoeringen genoemd. Elke pijplijnuitvoering heeft een unieke id. Een uitvoerings-id is een GUID die de betreffende specifieke pijplijnuitvoering definieert. 
+Een _pijplijnuitvoering_ in Azure Data Factory definieert een exemplaar van een pijplijnuitvoering. Stel dat u een pijplijn hebt die wordt uitgevoerd om 8:00 uur, 9:00 uur en 10:00 uur. In dit geval wordt de pijplijn drie keer afzonderlijk uitgevoerd, ook wel pijplijnuitvoeringen genoemd. Elke pijplijnuitvoering heeft een unieke id. Een uitvoerings-id is een GUID die de betreffende specifieke pijplijnuitvoering definieert.
 
 Pijplijnuitvoeringen worden doorgaans geïnstantieerd doordat argumenten worden doorgegeven aan parameters die u in de pijplijn definieert. U kunt een pijplijn handmatig uitvoeren of door middel van een _trigger_. Dit artikel bevat informatie over beide manieren om een pijplijn uit te voeren.
 
@@ -84,7 +84,7 @@ U kunt de pijplijn handmatig uitvoeren met een van de volgende methoden:
 - Python-SDK
 
 ### <a name="rest-api"></a>REST-API
-In de volgende voorbeeldopdracht wordt getoond hoe u de pijplijn handmatig kunt uitvoeren met behulp van de REST-API:  
+In de volgende voorbeeldopdracht wordt getoond hoe u de pijplijn handmatig kunt uitvoeren met behulp van de REST-API:
 
 ```
 POST
@@ -175,7 +175,7 @@ Schematriggers voeren pijplijnen uit volgens een wandklokschema. De trigger onde
 Zie [Schematriggers maken](how-to-create-schedule-trigger.md) voor meer informatie over schematriggers en voorbeelden.
 
 ## <a name="schedule-trigger-definition"></a>Schematrigger: definitie
-Wanneer u een schematrigger maakt, geeft u het schema en een terugkeerpatroon op met behulp van een JSON-definitie. 
+Wanneer u een schematrigger maakt, geeft u het schema en een terugkeerpatroon op met behulp van een JSON-definitie.
 
 Als u wilt dat de schematrigger een pijplijnuitvoering activeert, moet u een verwijzing naar de betreffende pijplijn opnemen in de definitie van de trigger. Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren.
 
@@ -292,7 +292,7 @@ In de volgende tabel ziet u hoe de eigenschap **startTime** de uitvoering van ee
 
 Laten we eens kijken naar een voorbeeld van wat er gebeurt wanneer de startTime in het verleden ligt en er een terugkeerpatroon (recurrence), maar geen schema (schedule) is opgegeven. Neem aan dat de huidige tijd 2017-04-08 13:00 is, de starttijd 2017-04-07 14:00 en het terugkeerpatroon om de dag. (De waarde **recurrence** wordt gedefinieerd door de eigenschap **frequency** in te stellen op 'dag' en de eigenschap **interval** op 2.) U ziet dat de waarde **startTime** in het verleden ligt en plaatsvindt vóór de huidige tijd.
 
-In deze omstandigheden vindt de eerste uitvoering plaats op 2017-04-09 at 14:00. De scheduler-engine berekent uitvoeringen vanaf de startTime. Alle uitvoeringen in het verleden worden genegeerd. De engine gebruikt de eerstvolgende uitvoering die in de toekomst plaatsvindt. In dit scenario is de starttijd 2017-04-07 om 14:00 uur. De volgende uitvoering is twee dagen daarna op 2017-04-09 om 14:00 uur.
+In deze omstandigheden is de eerste uitvoering 2017-04-09 om 14:00 uur. De scheduler-engine berekent uitvoeringen vanaf de startTime. Alle uitvoeringen in het verleden worden genegeerd. De engine gebruikt de eerstvolgende uitvoering die in de toekomst plaatsvindt. In dit scenario is de starttijd 2017-04-07 om 14:00 uur. De volgende uitvoering is twee dagen daarna op 2017-04-09 om 14:00 uur.
 
 De eerste uitvoeringstijd is de hetzelfde, zelfs als **startTime** 2017-04-05 14:00 of 2017-04-01 14:00 is. Na de eerste uitvoering worden volgende uitvoeringen berekend met behulp van het schema. Daarom vinden de volgende uitvoeringen plaats op 2017-04-11 om 14:00 uur, op 2017-04-13 om 14:00 uur en op 2017-04-15 om 14:00 uur enzovoort.
 
@@ -312,7 +312,7 @@ In de volgende tabel worden de **schedule**-elementen in detail beschreven:
 | **minutes** | Minuten van het uur waarop de trigger wordt uitgevoerd. |- Geheel getal<br />- Matrix van gehele getallen|
 | **hours** | Uren van de dag waarop de trigger wordt uitgevoerd. |- Geheel getal<br />- Matrix van gehele getallen|
 | **weekDays** | Dagen van de week waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een weekfrequentie.|<br />- maandag<br />- dinsdag<br />- woensdag<br />- donderdag<br />- vrijdag<br />- zaterdag<br />- zondag<br />- Matrix met dagwaarden (maximale grootte van de matrix is 7)<br /><br />Dagwaarden zijn niet hoofdlettergevoelig|
-| **monthlyOccurrences** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. |-Matrix met **monthlyOccurrence** objecten: `{ "day": day,  "occurrence": occurrence }`<br />- Het attribuut **day** is de dag van de week waarop de trigger wordt uitgevoerd. Zo betekent de eigenschap **monthlyOccurrences** met een waarde **day** van `{Sunday}` dat er elke zondag van de maand een uitvoering is. Het attribuut **day** is verplicht.<br />- Het attribuut **occurrence** slaat op het uitvoeren van de trigger op de opgegeven dag, **day**, tijdens de maand. Zo betekent de eigenschap **monthlyOccurrences** met de waarden **day** en **occurrence** van `{Sunday, -1}` dat er elke laatste zondag van de maand een uitvoering is. Het attribuut **occurrence** is optioneel.|
+| **monthlyOccurrences** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. |-Matrix met **monthlyOccurrence** objecten: `{ "day": day, "occurrence": occurrence }`<br />- Het attribuut **day** is de dag van de week waarop de trigger wordt uitgevoerd. Zo betekent de eigenschap **monthlyOccurrences** met een waarde **day** van `{Sunday}` dat er elke zondag van de maand een uitvoering is. Het attribuut **day** is verplicht.<br />- Het attribuut **occurrence** slaat op het uitvoeren van de trigger op de opgegeven dag, **day**, tijdens de maand. Zo betekent de eigenschap **monthlyOccurrences** met de waarden **day** en **occurrence** van `{Sunday, -1}` dat er elke laatste zondag van de maand een uitvoering is. Het attribuut **occurrence** is optioneel.|
 | **monthDays** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. |- Alle waarden < = -1 en > =-31<br />- Alle waarden > = 1 en < =31<br />- Matrix met waarden|
 
 ## <a name="tumbling-window-trigger"></a>Tumblingvenstertrigger
@@ -372,7 +372,7 @@ In de volgende tabel wordt een vergelijking weergegeven tussen de tumblingvenste
 | **Mogelijkheid voor nieuwe uitvoerpogingen** | Ondersteund. Nieuwe pogingen van pijplijnuitvoeringen vinden plaats volgens het standaardbeleid van 0 of volgens een beleid dat de gebruiker in de triggerdefinitie heeft opgegeven. Automatisch opnieuw geprobeerd wanneer een pijplijn uitvoering mislukt vanwege de gelijktijdigheid/server/bandbreedtebeperkingen (dat wil zeggen, statuscodes 400: Gebruikersfout; 429: Te veel aanvragen; en 500: Interne serverfout). | Wordt niet ondersteund. |
 | **Gelijktijdigheid** | Ondersteund. Gebruikers kunnen expliciet gelijktijdigheidsbeperkingen voor de trigger instellen. Het is mogelijk om tussen de 1 en 50 door triggers geactiveerde pijplijnuitvoeringen gelijktijdig uit te voeren. | Wordt niet ondersteund. |
 | **Systeemvariabelen** | Ondersteunt het gebruik van de systeemvariabelen **WindowStart** en **WindowEnd**. Gebruikers kunnen voor de triggerdefinitie gebruikmaken van `triggerOutputs().windowStartTime` en `triggerOutputs().windowEndTime` als systeemvariabelen in de trigger. De waarden worden respectievelijk als de begin- en eindtijd van het tijdvenster gebruikt. Voor bijvoorbeeld een tumblingvenstertrigger die elk uur wordt uitgevoerd in het tijdvenster 1:00 uur tot 2:00 uur, is de definitie `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` en `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Wordt niet ondersteund. |
-| **Pipeline-trigger-relatie** | Ondersteunt een een-op-een-relatie. Slechts één pijplijn kan worden geactiveerd. | Ondersteunt veel-op-veel-relaties. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren. | 
+| **Pipeline-trigger-relatie** | Ondersteunt een een-op-een-relatie. Slechts één pijplijn kan worden geactiveerd. | Ondersteunt veel-op-veel-relaties. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende zelfstudies:

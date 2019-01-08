@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52b18f3f6f1166650fb13694f3eed54c28bbc0a9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c41444f94e4685d246de225500c8a5beefc74944
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731149"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065610"
 ---
 # <a name="analytics-in-application-insights"></a>Analyses in Application Insights
 Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](../../application-insights/app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is. Als u Application Insights al hebt geconfigureerd voor een van uw apps vervolgens u de gegevens van uw app analyseren kunt door te Analytics openen vanuit uw app [overzichtsblade](../../azure-monitor/app/app-insights-dashboards.md).
@@ -48,7 +48,7 @@ We telt het aantal records per land (of gegevens die worden gevonden in de kolom
 De taal heeft veel voordelen bieden:
 
 * [Filter](/azure/kusto/query/whereoperator) uw onbewerkte app-telemetrie met velden, met inbegrip van uw aangepaste eigenschappen en metrische gegevens.
-* [Deelnemen aan](/azure/kusto/query/joinoperator) meerdere tabellen aanvragen correleren met paginaweergaven, afhankelijkheidsaanroepen, uitzonderingen en traceringen in logboekbestanden.
+* [Deelnemen aan](/azure/kusto/query/joinoperator) meerdere tabellen - te correleren met paginaweergaven, afhankelijkheidsaanroepen, uitzonderingen en logboektraceringen aanvragen.
 * Krachtige statistische [aggregaties](/azure/kusto/query/summarizeoperator).
 * Direct en krachtige visualisaties.
 * [REST-API](https://dev.applicationinsights.io/) waarmee u kunt query's uitvoeren via een programma, bijvoorbeeld vanuit PowerShell.

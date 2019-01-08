@@ -3,7 +3,7 @@ title: Beheren van uw virtuele machine-installatiekopie in de Azure Marketplace 
 description: Gedetailleerde richtlijnen voor het beheren van uw virtuele machine-installatiekopie in de Azure Marketplace na de initiële publicatie
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
@@ -14,28 +14,29 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7aea357c22a928d8af96791bf9cb4bd3c94f37b4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252969"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077059"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Na productie-handleiding voor de virtuele machine-aanbiedingen in de Azure Marketplace
 In dit artikel wordt uitgelegd hoe u een live virtuele machine-aanbieding in Azure Marketplace kunt bijwerken. Dit leidt u door het proces van het toevoegen van een of meer nieuwe SKU's op een bestaande aanbieding. Ook leidt u door het proces van het verwijderen van een live virtuele machine-aanbieding of de SKU van de Marketplace.
 
 Nadat een aanbieding/SKU tijdelijk worden opgeslagen de [Azure-portal](http://portal.azure.com), kunt u de volgende tekstvakken niet wijzigen:
 
-* **ID bieden**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **bieden id**.
-* **SKU-id**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **SKU's** > **Voeg een SKU toe**.
-* **Uitgever Namespace**: In de portal voor publiceren, Ga naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf**(te vinden onder "Stap 2 registreren van uw bedrijf") > **Publisher Namespace** > **Namespace**.
+* **ID bieden**: In de publicatie-portal, gaat u naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **bieden id**.
+* **SKU-id**: In de publicatie-portal, gaat u naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **SKU's** > **Voeg een SKU toe**.
+* **Uitgever Namespace**: In de publicatie-portal, gaat u naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf** (te vinden onder ' stap 2 registreren uw Bedrijf") > **Publisher Namespace** > **Namespace**.
 
 Nadat de aanbieding/SKU wordt vermeld in de [Marketplace](https://azure.microsoft.com/marketplace), kunt u de volgende tekstvakken niet wijzigen:
 
-* **ID bieden**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **bieden id**.
-* **SKU-id**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **SKU's** > **Voeg een SKU toe**.
-* **Uitgever Namespace**: In de portal voor publiceren, Ga naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf**(te vinden onder 'Stap 2 registreren') **Publisher Namespace** > **Namespace**.
-* **Poorten**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **Open poorten**.
+* **ID bieden**: In de publicatie-portal, gaat u naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **bieden id**.
+* **SKU-id**: In de publicatie-portal, gaat u naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **SKU's** > **Voeg een SKU toe**.
+* **Uitgever Namespace**: In de publicatie-portal, gaat u naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf** (te vinden onder "Stap 2 registreren") **Publisher Namespace** > **Namespace**.
+* **Poorten**: In de publicatie-portal, gaat u naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **Open poorten**.
 * **Wijziging van de vermelde SKU('s) prijzen**
 * **Facturering modelwijziging van de vermelde SKU('s)**
 * **Het verwijderen van regio's van de vermelde SKU('s) facturering**
@@ -310,7 +311,7 @@ Als u wilt herstellen het factureringsmodel voor productiewaarden, de volgende s
 
 2. Ga naar de **virtuele machines** tabblad, en selecteer uw aanbieding.
 3. Klik in het menu aan de linkerkant op de **SKU's** tabblad.
-4. Klik op de **bewerken** knop om terug te zetten van de facturering van maandabonnementen. In het venster dat wordt geopend, selecteert of wist u de **van facturering en licenties extern van Azure (ook wel Bring Your Own License) wordt uitgevoerd** selectievakje.
+4. Klik op de **bewerken** knop om terug te zetten van de facturering van maandabonnementen. In het venster dat wordt geopend, selecteert u of schakelt u de **van facturering en licenties extern van Azure (ook wel Bring Your Own License) wordt uitgevoerd** selectievakje.
 
     ![Facturering bewerken](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
 5. Volg de stappen in 'Revert de prijs van de lijst met productiewaarden ' in dit artikel.
@@ -336,4 +337,4 @@ Als u de zichtbaarheidsinstelling van een vermelde SKU op de productiewaarde, de
 * [Algemene problemen publiceren in de Marketplace](marketplace-publishing-support-common-issues.md)
 * [Ondersteuning krijgen als uitgever](marketplace-publishing-get-publisher-support.md)
 * [On-premises voor een VM-installatiekopie maken](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Maak een virtuele machine waarop Windows wordt uitgevoerd in de Azure previewportal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Een virtuele machine waarop Windows wordt uitgevoerd in Azure portal maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

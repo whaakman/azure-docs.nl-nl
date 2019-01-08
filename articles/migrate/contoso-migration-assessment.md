@@ -8,35 +8,35 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635013"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065491"
 ---
-# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: on-premises workloads evalueren voor migratie naar Azure
+# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: On-premises workloads evalueren voor migratie naar Azure
 
 In dit artikel beoordeelt Contoso zijn on-premises SmartHotel360-app voor migratie naar Azure.
 
-In dit artikel maakt deel uit van een serie die documenten hoe het fictieve bedrijf Contoso de on-premises bronnen naar de Microsoft Azure-cloud migreert. De serie bevat achtergrond informatie en gedetailleerde implementatie-scenario's die laten zien hoe u voor het instellen van de infrastructuur van een migratie, de geschiktheid van on-premises bronnen voor migratie beoordelen en verschillende typen migraties worden uitgevoerd. Scenario's toeneemt in complexiteit. Artikelen wordt toegevoegd aan de reeks na verloop van tijd.
+In dit artikel maakt deel uit van een serie die documenten hoe het fictieve bedrijf Contoso de on-premises bronnen naar de Microsoft Azure-cloud migreert. De serie bevat achtergrondinformatie en gedetailleerde implementatie-scenario's die laten zien hoe u voor het instellen van de infrastructuur van een migratie, de geschiktheid van on-premises bronnen voor migratie beoordelen en verschillende typen migraties worden uitgevoerd. Scenario's toeneemt in complexiteit. Artikelen wordt toegevoegd aan de reeks na verloop van tijd.
 
 Artikel | Details | Status
 --- | --- | ---
-[Artikel 1: overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
+[Artikel 1: Overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
 [Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle artikelen in de reeks. | Beschikbaar
-Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel360-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | In dit artikel
+Artikel 3: On-premises resources voor migratie naar Azure evalueren | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel360-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | In dit artikel
 [Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel360-app uitgevoerd. De front-end met behulp van de Azure Site Recovery-service-app worden gemigreerd. Deze migreert de app-database naar een Azure SQL Database Managed Instance met behulp van de Azure Database Migration Service. | Beschikbaar
 [Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | De VM's van de SmartHotel360-app migreert Contoso naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
-[Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep opnieuw hosten](contoso-migration-rehost-vm-sql-ag.md) | Contoso migreert de SmartHotel360-app met behulp van Site Recovery voor het migreren van virtuele machines van de app en de Database Migration Service voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
-[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso is een lift-and-shift-migratie van de Linux-osTicket-app naar Azure-VM's, met behulp van de Site Recovery-service voltooid. | Beschikbaar
-[Artikel 8: Een Linux-app op Azure VM's en Azure Database for MySQL Rehost](contoso-migration-rehost-linux-vm-mysql.md) | De Linux-app osTicket migreert Contoso naar Azure-VM's met behulp van Site Recovery. Deze migreert de app-database naar Azure Database for MySQL via MySQL Workbench. | Beschikbaar
-[Artikel 9: Een app in een Azure-web-app en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso-migreert de SmartHotel360-app naar een Azure-web-app en de app-database migreert naar een Azure SQL Server-exemplaar met de database Migration Assistant. | Beschikbaar
+[Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep rehost](contoso-migration-rehost-vm-sql-ag.md) | Contoso migreert de SmartHotel360-app met behulp van Site Recovery voor het migreren van virtuele machines van de app en de Database Migration Service voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
+[7-artikel: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso is een lift-and-shift-migratie van de Linux-osTicket-app naar Azure-VM's, met behulp van de Site Recovery-service voltooid. | Beschikbaar
+[8-artikel: Een Linux-app op Azure VM's en Azure Database for MySQL rehost](contoso-migration-rehost-linux-vm-mysql.md) | De Linux-app osTicket migreert Contoso naar Azure-VM's met behulp van Site Recovery. Deze migreert de app-database naar Azure Database for MySQL via MySQL Workbench. | Beschikbaar
+[9-artikel: Een app in een Azure-web-app en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso-migreert de SmartHotel360-app naar een Azure-web-app en de app-database migreert naar een Azure SQL Server-exemplaar met de database Migration Assistant. | Beschikbaar
 [Artikel 10: Een Linux-app in een Azure-web-app en de Azure Database for MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere Azure-regio's met behulp van Azure Traffic Manager, geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar
-[Artikel 11: Herstructureren Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
-[Artikel 12: Opnieuw ontwerpen van een app in Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
-[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
+[11-artikel: Herstructureren van Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
+[12-artikel: Een app in Azure-containers en Azure SQL Database opnieuw modelleren](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
+[13-artikel: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[14-artikel: Schalen van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 
 ## <a name="overview"></a>Overzicht
@@ -70,8 +70,8 @@ Het Contoso IT de leiding heeft nauw samengewerkt met zakelijke partners van het
 
 - **Adres van de groei van het bedrijf**: Contoso groeit. Als gevolg toegenomen druk op de on-premises systemen en de infrastructuur van het bedrijf.
 - **De efficiëntie verhogen**: Contoso moet voor het verwijderen van onnodige procedures en processen voor de ontwikkelaars en gebruikers te stroomlijnen. De zakelijke behoeften IT zijn snel en om niet afval tijd of geld, dus het bedrijf kunnen sneller leveren op eisen van klanten.
-- **De veerkracht vergroten**: Contoso IT moet sneller te reageren op de behoeften van het bedrijf. Het moet mogelijk sneller dan de wijzigingen die plaatsvinden in de marketplace voor het bedrijf om in een globale economie succesvol te kunnen reageren. IT bij Contoso moet niet ophalen in de manier waarop of een zakelijke upblokkering worden.
-- **Schaal**: als van het bedrijf met succes groeit, Contoso IT-systemen die hetzelfde tempo kunnen groeien moet opgeven.
+- **De veerkracht vergroten**:  Contoso IT moet sneller te reageren op de behoeften van het bedrijf. Het moet mogelijk sneller dan de wijzigingen die plaatsvinden in de marketplace voor het bedrijf om in een globale economie succesvol te kunnen reageren. IT bij Contoso moet niet ophalen in de manier waarop of een zakelijke upblokkering worden.
+- **Schaal**: Als van het bedrijf is groeit, moet: Contoso IT-systemen die hetzelfde tempo kunnen groeien opgeven.
 
 ## <a name="assessment-goals"></a>Evaluatie van de doelstellingen
 
@@ -86,7 +86,7 @@ Het Contoso-cloud-team heeft de doelstellingen voor de migratie-evaluaties geïd
 
 Contoso maakt gebruik van Microsoft-hulpprogramma's voor de migratie-analyse. De hulpprogramma's zijn afgestemd op de doelstellingen van het bedrijf en moeten voorzien van Contoso alle gegevens die nodig zijn.
 
-Technologie | Beschrijving | Kosten
+Technologie | Description | Kosten
 --- | --- | ---
 [Gegevensmigratieassistent](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso maakt gebruik van Data Migration Assistant om te beoordelen en detecteert compatibiliteitsproblemen die invloed kunnen hebben op de databasefunctionaliteit in Azure. Data Migration Assistant beoordeelt de functiepariteit tussen SQL-bronnen en doelen. Dit is de aanbevolen verbeteringen in de prestaties en betrouwbaarheid. | Data Migration Assistant is een gratis, downloadbare-hulpprogramma.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso maakt gebruik van de service Azure Migrate voor de beoordeling van de virtuele VMware-machines. Azure Migrate beoordeelt de geschiktheid voor migratie van de machines. Het biedt formaat wijzigen en kostenramingen voor het uitvoeren in Azure.  | Vanaf mei 2018 is Azure Migrate een gratis service.
@@ -136,11 +136,11 @@ Hier ziet u hoe Contoso de evaluatie uitvoert:
 
 > [!div class="checklist"]
 > * **Stap 1: Download en installeer Data Migration Assistant**: Contoso bereidt u Data Migration Assistant voor evaluatie van de on-premises SQL Server-database.
-> * **Stap 2: De database met behulp van Data Migration Assistant beoordelen**: Contoso wordt uitgevoerd en analyseert de evaluatie van de database.
-> * **Stap 3: Voorbereiden voor de evaluatie van de virtuele machine met behulp van Azure Migrate**: Contoso stelt u de on-premises-accounts en past u de instellingen voor VMware.
+> * **Stap 2: Beoordeling van de database met behulp van Data Migration Assistant**: Contoso wordt uitgevoerd en analyseert de evaluatie van de database.
+> * **Stap 3: Voorbereiden voor de evaluatie van de virtuele machine met behulp van Azure Migrate**: Contoso stelt on-premises-accounts en past u de instellingen voor VMware.
 > * **Stap 4: On-premises VM's detecteren met behulp van Azure Migrate**: Contoso maakt u een Azure Migrate collector-VM. Vervolgens wordt de collector voor het detecteren van virtuele machines voor evaluatie uitgevoerd door Contoso.
-> * **Stap 5: Afhankelijkheidsanalyse voorbereiden met behulp van Azure Migrate**: Contoso installeert Azure Migrate-agents op de virtuele machines, zodat het bedrijf afhankelijkheidstoewijzing tussen virtuele machines zien kan.
-> * **Stap 6: De virtuele machines met behulp van Azure Migrate beoordelen**: Contoso afhankelijkheden controleert, groepen van de virtuele machines en de evaluatie wordt uitgevoerd. Wanneer de evaluatie uitgevoerd is, analyseert Contoso de evaluatie in voorbereiding voor migratie.
+> * **Stap 5: Met behulp van Azure Migrate afhankelijkheidsanalyse voorbereiden**: Contoso installeert Azure Migrate-agents op de virtuele machines, zodat het bedrijf afhankelijkheidstoewijzing tussen virtuele machines zien kan.
+> * **Stap 6: De virtuele machines met behulp van Azure Migrate beoordelen**: Contoso controleert afhankelijkheden, de virtuele machines, groepen en de evaluatie wordt uitgevoerd. Wanneer de evaluatie uitgevoerd is, analyseert Contoso de evaluatie in voorbereiding voor migratie.
 
 ## <a name="step-1-download-and-install-data-migration-assistant"></a>Stap 1: Download en installeer Data Migration Assistant
 
@@ -186,11 +186,11 @@ Resultaten worden weergegeven zodra ze beschikbaar zijn. Als Contoso problemen o
 
 1. In de **compatibiliteitsproblemen** rapporteren, Contoso wordt gecontroleerd of er problemen zijn op elk compatibiliteitsniveau. Compatibiliteitsniveaus worden als volgt aan SQL Server-versies toegewezen:
 
-    - 100: SQL Server 2008/Azure SQL Database
-    - 110: SQL Server 2012/Azure SQL Database
-    - 120: SQL Server 2014/Azure SQL Database
-    - 130: SQL Server 2016/Azure SQL Database
-    - 140: SQL Server 2017/Azure SQL Database
+    - 100: SQL Server 2008/Azure SQL-Database
+    - 110: SQL Server 2012/Azure SQL-Database
+    - 120: SQL Server 2014/Azure SQL-Database
+    - 130: SQL Server 2016/Azure SQL-Database
+    - 140: SQL Server 2017/Azure SQL-Database
 
     ![Data Migration Assistant - compatibiliteit van rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
 
@@ -209,7 +209,7 @@ Resultaten worden weergegeven zodra ze beschikbaar zijn. Als Contoso problemen o
 > - Evaluaties samenvoegen in een [SQL Server-database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
 > - Evaluaties samenvoegen in een [Power BI-rapport](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
-## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>Stap 3: Voorbereiden voor de evaluatie van de virtuele machine met behulp van Azure Migrate
+## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>Stap 3: Evaluatie van de virtuele machine met behulp van Azure Migrate voorbereiden
 
 Contoso moet maken van een VMware-account die Azure Migrate gebruiken kunt voor het automatisch detecteren van virtuele machines voor evaluatie, controleert u of rechten voor het maken van een virtuele machine, houd er rekening mee de poorten die moeten worden geopend en stel het niveau van de instellingen voor statistieken.
 
@@ -217,9 +217,9 @@ Contoso moet maken van een VMware-account die Azure Migrate gebruiken kunt voor 
 
 VM-detectie vereist een alleen-lezen-account in vCenter-Server met de volgende eigenschappen:
 
-- **Gebruikerstype**: ten minste een alleen-lezen-gebruiker.
-- **Machtigingen**: voor het datacenter-object, selecteert u de **doorgeven naar de onderliggende objecten** selectievakje. Voor **rol**, selecteer **alleen-lezen**.
-- **Details**: de gebruiker is toegewezen op het datacentrumniveau van het, met toegang tot alle objecten in het datacenter.
+- **Gebruikerstype**: Ten minste een alleen-lezen-gebruiker.
+- **Machtigingen**: Voor de datacenter-object, selecteert u de **doorgeven naar de onderliggende objecten** selectievakje. Voor **rol**, selecteer **alleen-lezen**.
+- **Details**: De gebruiker is toegewezen op het datacentrumniveau van het, met toegang tot alle objecten in het datacenter.
 - Om toegang te beperken, wijzen de **geen toegang** rol met de **doorgeven naar onderliggend** object aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
 
 ### <a name="verify-permissions-to-create-a-vm"></a>Machtigingen voor het maken van een virtuele machine verifiëren
@@ -430,7 +430,7 @@ Nadat de MMA is geïnstalleerd, installeert Contoso de Agent voor afhankelijkhed
     wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin && sudo sh InstallDependencyAgent-Linux64.bin -s
     ```
 
-## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Stap 6: Uitvoeren en analyseren van evaluatie van de VM
+## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Stap 6: De evaluatie van de virtuele machine uitvoeren en analyseren
 
 Contoso kan nu Controleer VM-afhankelijkheden en maak een groep. Vervolgens wordt de beoordeling van de groep uitgevoerd.
 

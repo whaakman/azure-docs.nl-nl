@@ -1,6 +1,6 @@
 ---
-title: Toegang tot gegevensbronnen on-premises voor Azure Logic Apps | Microsoft Docs
-description: Maken en instellen van de on-premises gegevensgateway, zodat u gegevensbronnen on-premises vanuit logische apps openen kunt
+title: Toegang tot gegevensbronnen on-premises van Azure Logic Apps | Microsoft Docs
+description: Verbinding maken met on-premises gegevens gegevensbronnen vanuit logische apps met het maken van een on-premises gegevensgateway
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,19 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413703"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064063"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Verbinding maken met gegevensbronnen on-premises van Azure Logic Apps met on-premises gegevensgateway
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Verbinding maken met on-premises gegevensbronnen vanuit Azure Logic Apps
 
-Voor toegang tot gegevensbronnen on-premises van uw logische apps, kunt u een data gateway-resource in Azure maken zodat uw logische apps kunnen gebruiken de [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). Dit artikel wordt beschreven hoe u uw Azure-gateway-resource maakt *nadat* u [downloaden en installeren van de gateway op uw lokale computer](../logic-apps/logic-apps-gateway-install.md). 
+Voor toegang tot gegevensbronnen on-premises van uw logische apps, maakt u een on-premises data gateway-resource in Azure portal. Uw logische apps kunnen vervolgens worden gebruikt de [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). Dit artikel wordt beschreven hoe u uw Azure-gateway-resource maakt *nadat* u [downloaden en installeren van de gateway op uw lokale computer](../logic-apps/logic-apps-gateway-install.md). 
+
+> [!TIP]
+> Voor verbinding met virtuele Azure-netwerken, houd rekening met het maken van een [ *integratieserviceomgeving* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) in plaats daarvan. 
 
 Zie de volgende artikelen voor meer informatie over het gebruik van de gateway met andere services:
 
@@ -65,7 +68,7 @@ Nadat u de gateway op een lokale computer installeert, kunt u vervolgens een Azu
    | **Naam** | De naam voor uw gateway-resource | 
    | **Abonnement** | De naam van uw Azure-abonnement, moet hetzelfde abonnement als uw logische app. Het standaardabonnement is gebaseerd op het Azure-account waarmee u zich. | 
    | **Resourcegroep** | De naam voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) voor het ordenen van verwante bronnen | 
-   | **Locatie** | Azure beperkt deze locatie bij dezelfde regio die is geselecteerd voor de gateway-cloudservice tijdens [gatewayinstallatie](../logic-apps/logic-apps-gateway-install.md). <p>**Houd er rekening mee**: Zorg ervoor dat deze gateway Resourcelocatie komt overeen met de servicelocatie van de gateway-cloud. De gatewayinstallatie mogelijk anders niet weergegeven in de lijst met geïnstalleerde gateways voor u om te selecteren in de volgende stap. U kunt verschillende regio's gebruiken voor uw gateway en voor uw logische app. | 
+   | **Locatie** | Azure beperkt deze locatie bij dezelfde regio die is geselecteerd voor de gateway-cloudservice tijdens [gatewayinstallatie](../logic-apps/logic-apps-gateway-install.md). <p>**Opmerking**: Zorg ervoor dat deze gateway Resourcelocatie komt overeen met de servicelocatie van de gateway-cloud. De gatewayinstallatie mogelijk anders niet weergegeven in de lijst met geïnstalleerde gateways voor u om te selecteren in de volgende stap. U kunt verschillende regio's gebruiken voor uw gateway en voor uw logische app. | 
    | **De Installatienaam van de** | Als de gatewayinstallatie is niet nog is geselecteerd, selecteert u de gateway die u eerder hebt geïnstalleerd. | 
    | | | 
 

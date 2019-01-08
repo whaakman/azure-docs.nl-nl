@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 73e1fac5ba9fbb981c92ff8d32064f7d34729ef7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 06a9cf124708984444bc2bc19f2529a3c0f75283
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812112"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074356"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>HockeyApp-gegevens in Application Insights verkennen
 
 > [!NOTE]
-> HockeyApp is niet meer beschikbaar voor nieuwe toepassingen. Bestaande implementaties van HockeyApp blijven werken. Visual Studio App Center is nu de aanbevolen service van Microsoft voor het bewaken van de nieuwe mobiele apps. [Meer informatie over het instellen van uw apps met App Center en Application Insights](../../application-insights/app-insights-mobile-center-quickstart.md).
+> HockeyApp is niet meer beschikbaar voor nieuwe toepassingen. Bestaande implementaties van HockeyApp blijven werken. Visual Studio App Center is nu de aanbevolen service van Microsoft voor het bewaken van de nieuwe mobiele apps. [Meer informatie over het instellen van uw apps met App Center en Application Insights](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is een service voor het bewaken van live-desktop- en mobiele apps. U kunt van HockeyApp, aangepaste verzenden en traceren van telemetrie naar-gebruik controleren en te helpen bij het diagnoseproces (naast het ophalen van crashgegevens). Deze stroom van telemetrie kan worden opgevraagd met de krachtige [Analytics](../../azure-monitor/app/analytics.md) functie van [Azure Application Insights](../../application-insights/app-insights-overview.md). Bovendien kunt u [exporteren van de aangepaste en traceren van telemetrie](export-telemetry.md). Als u wilt deze functies inschakelt, moet u een brug die aangepaste HockeyApp-gegevens naar Application Insights doorstuurt instellen.
 
@@ -33,7 +33,7 @@ Open in HockeyApp, accountinstellingen, [API-Tokens](https://rink.hockeyapp.net/
 
 ![Een HockeyApp-API-token ophalen](./media/hockeyapp-bridge-app/01.png)
 
-Open de Microsoft Azure portal en [maken van een Application Insights-resource](../../application-insights/app-insights-create-new-resource.md). Toepassingstype ingesteld op 'HockeyApp bridge-toepassing':
+Open de Microsoft Azure portal en [maken van een Application Insights-resource](../../azure-monitor/app/create-new-resource.md ). Toepassingstype ingesteld op 'HockeyApp bridge-toepassing':
 
 ![Nieuwe Application Insights-resource](./media/hockeyapp-bridge-app/02.png)
 

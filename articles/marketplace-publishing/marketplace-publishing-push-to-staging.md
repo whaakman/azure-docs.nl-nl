@@ -3,7 +3,7 @@ title: Voorbereiden en testen van uw aanbieding voor implementatie naar de Azure
 description: Gedetailleerde instructies voor die inhoud marketing, abonnementen te configureren en testen van uw aanbieding voordat u implementeert in Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: f1e6e779731564f714cc100d25a53da8732dca74
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714956"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075988"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Het maken van de aanbieding met marketinginhoud voltooien
 In deze stap van het publicatieproces moet u voor bepaalde marketinginhoud en meer informatie over uw aanbieding en/of SKU's in de Azure Marketplace. Bijvoorbeeld, krijgt u een beschrijving van uw product, bedrijfslogo, prijs plannen, details van abonnementen en andere informatie die nodig zijn voor uw aanbieding en/of SKU overgaat tot fasering. Deze informatie wordt gebruikt als marketinginhoud in Azure portal. Nu begint u dit proces in de [portal voor publiceren][link-pubportal].
 
-## <a name="step-1-provide-marketplace-marketing-content"></a>Stap 1: Marketplace marketing inhoud opgeven
-**Engels is de standaardinstelling en enige ondersteunde taal.** Zorg ervoor dat alle opgegeven informatie die in de velden in het Engels. U kunt alle informatie op elk gewenst moment bewerken totdat u overgaat tot fasering.
+## <a name="step-1-provide-marketplace-marketing-content"></a>Stap 1: Marketplace marketing inhoud leveren
+*Engels is de standaardinstelling en enige ondersteunde taal.*  Controleer of alle opgegeven informatie die in de velden in het Engels is. U kunt alle informatie op elk gewenst moment bewerken totdat u overgaat tot fasering.
 
 1. Ga naar de portal voor publiceren [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. Klik in het menu links op de **Marketing** tabblad.
@@ -78,8 +79,8 @@ Alle de logo's uploaden in de Portal voor publiceren moeten Volg de onderstaande
 **Aanvullende richtlijnen voor de Hero-logo-pictogram (optioneel)**
 
 * De Hero-logo is optioneel. De publisher kunt niet een Hero-logo uploaden. **Maar eenmaal geüploade de hero-pictogram kan niet worden verwijderd uit de publicatie portal. Op dat moment moet de partner de Azure Marketplace-richtlijnen voor de Hero pictogrammen anders die de aanbieding niet worden goedgekeurd volgen naar productie.**
-* De weergavenaam van de uitgever, plan titel en de lange samenvatting aanbieding worden weergegeven in de kleur wit. Daarom moet u niet een lichte kleur houden op de achtergrond van het Hero-pictogram. Zwart-wit en transparante achtergrond is niet toegestaan voor Hero pictogrammen.
-* De weergavenaam van de uitgever, plan titel, de aanbieding voor lange samenvatting en de knop maken zijn ingesloten via een programma in de Hero-logo zodra de aanbieding wordt weergegeven. U moet dus niet als er geen tekst invoeren bij het ontwerpen van de Hero-logo. Laat alleen lege ruimte aan de rechterkant omdat de tekst (dat wil zeggen publisher weergavenaam, plan de titel, de aanbieding voor lange samenvatting) worden opgenomen via een programma door ons hier. De lege ruimte voor de tekst moet 415 x 100 aan de rechterkant (en deze wordt gecompenseerd door 370px vanaf de linkerkant).
+* De weergavenaam van de uitgever, plan titel en de lange samenvatting aanbieding worden weergegeven in de kleur wit. Daarom moet u niet een lichte kleur houden op de achtergrond van het Hero-pictogram. Zwart, wit en transparante achtergrond is niet toegestaan voor de Hero-pictogrammen.
+* De weergavenaam van de uitgever, plan titel, de aanbieding voor lange samenvatting en de knop maken zijn ingesloten via een programma in de Hero-logo zodra de aanbieding wordt weergegeven. U moet dus niet als er geen tekst invoeren bij het ontwerpen van de Hero-logo. Laat alleen lege ruimte aan de rechterkant omdat de tekst (dat wil zeggen, uitgever weergavenaam, plan de titel, de aanbieding voor lange samenvatting) worden opgenomen via een programma door ons hier. De lege ruimte voor de tekst moet 415 x 100 aan de rechterkant (en deze wordt gecompenseerd door 370 pixels vanaf de linkerkant).
   
   ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -104,7 +105,7 @@ Op de **juridische** tabblad, geeft u een koppeling naar uw beleidsrichtlijnen/g
 
 ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-**Opmerking:** voor virtuele Machine-aanbiedingen, zodra een aanbieding/SKU tijdelijk worden opgeslagen in de Azure-Portal, u kunt niet wijzigen de velden hieronder:
+**Opmerking:** Virtuele Machine biedt wijzigen niet u de onderstaande velden zodra een aanbieding/SKU tijdelijk worden opgeslagen in de Azure-portal:
 
 * **Aanbiedings-id:** [portal voor publiceren -> virtuele Machines -> uw aanbieding VM-installatiekopieën -> tabblad id bieden ->]
 * **SKU-id:** [portal voor publiceren -> virtuele Machines -> Selecteer uw aanbieding -> tabblad -> SKU's, Voeg een SKU toe]
@@ -123,9 +124,9 @@ Zodra de aanbieding/SKU wordt vermeld in de Azure Marketplace, wijzigen niet u v
 
 ## <a name="step-2-set-your-prices"></a>Stap 2: Uw prijzen instellen
 ### <a name="pricing-models"></a>Prijzen modellen
-| Prijsmodel | Beschrijving |
+| Prijsmodel | Description |
 | --- | --- |
-| Basis |Vaste maandbedrag voor betaalde op moment van aankoop; bijvoorbeeld $10 per maand. |
+| Basis |Vaste maandbedrag voor betaalde op moment van aankoop; bijvoorbeeld: $10 per maand. |
 | Verbruik (ook wel) Gebruik, meter) |Betalen per gebruik, dat is gedefinieerd door de uitgever van de aanbieding. Overschrijding kan niet worden gedefinieerd per seat per gebruiker, enz., omdat er geen concept van een fractie van een gebruiker of de mogelijkheid om u te doen naar rato. Gebruik wordt gerapporteerd door de partner op uurbasis. Klant betaalt op de van maandelijkse factureringscyclus, in plaats van een soortgelijke maandelijkse plannen. |
 | Gratis proefversie |Klant kan gratis, gebruiken voor een beperkte periode, en vervolgens de normale tarieven voor daarna betalen. |
 | Gratis laag |Plan is altijd gratis. |
@@ -144,15 +145,15 @@ Zodra de aanbieding/SKU wordt vermeld in de Azure Marketplace, wijzigen niet u v
 | Developer-service |Ja |Ja |Ja |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Uw VM-prijzen instellen
-Voor virtuele machines, hebben we nu de volgende **3 soorten of factureringsmodellen:**
+Voor virtuele machines, hebben we nu de volgende **drie typen factureringsmodellen:**
 
-* **Per uur:** klanten in rekening gebracht op basis van per uur op basis van de tarieven die zijn ingesteld door de uitgevers op de VM-grootten. In geval van **facturering per uur** model van de SKU's, worden de totale prijs de som van de softwarekosten in rekening gebracht door de uitgever en de infrastructuur hoeft te investeren in rekening gebracht door Microsoft. De totale kosten zal worden getoond aan de klant als een prijs per uur en maandelijkse wanneer ze de aankoop overweegt (Zie de onderstaande schermafbeelding). **Uitgever ontvangt 80% van de softwarekosten in rekening gebracht door hen.** Daarom kunt u prijzen voor de berekening dienovereenkomstig voordat instellen voor uw SKU's maken.
+* **Per uur:** Klanten in rekening gebracht op basis van per uur op basis van de tarieven die zijn ingesteld door de uitgevers op de VM-grootten. In geval van **facturering per uur** model van de SKU's, worden de totale prijs de som van de softwarekosten in rekening gebracht door de uitgever en de infrastructuur hoeft te investeren in rekening gebracht door Microsoft. De totale kosten zal worden getoond aan de klant als een prijs per uur en maandelijkse wanneer ze de aankoop overweegt (Zie de onderstaande schermafbeelding). **Uitgever ontvangt 80% van de softwarekosten in rekening gebracht door hen.** Daarom de berekening dienovereenkomstig maken voordat u de prijzen voor uw SKU's.
   
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1-01.png)
-* **Gratis proefversie:** dit is een andere versie van het model per uur. Hier de klant niet in rekening gebracht voor softwarekosten voor de eerste 30 days(Free) na de implementatie van de virtuele machine. Na 30days ze in rekening gebracht op basis van per uur op basis van de tarieven die zijn ingesteld door de uitgevers in het model per uur.
-* **Bring-Your-Own-License (BYOL):** de uitgevers beheren de licentieverlening van de software die wordt uitgevoerd op de virtuele machine.
+* **Gratis proefversie:** Deze optie is een andere versie van het model per uur. Hier de klant niet in rekening gebracht voor softwarekosten voor de eerste 30 days(Free) na de implementatie van de virtuele machine. Na 30 dagen ze in rekening gebracht op basis van per uur op basis van de tarieven die zijn ingesteld door de uitgevers in het model per uur.
+* **Bring-Your-Own-License (BYOL):** De uitgevers beheren de licentieverlening van de software die wordt uitgevoerd op de virtuele machine.
 
-**Belangrijk:** zodra de aanbieding/SKU wordt vermeld in de Azure Marketplace, u kunt de onderstaande velden niet wijzigen.
+**Belangrijk:** Zodra de aanbieding/SKU wordt vermeld in de Azure Marketplace, kunt u de onderstaande velden niet wijzigen.
 
 * **Wijziging van de vermelde SKU('s) prijzen**
 * **Facturering Modelwijziging van de vermelde SKU('s)**
@@ -174,22 +175,22 @@ U moet zorgvuldig overwegen waar u uw SKU's beschikbaar maken. Sommige landen zi
 > 
 > 
 
-### <a name="211-how-to-setup-hourly-pricing-model-for-a-sku"></a>2.1.1 over het instellen van per uur prijsmodel voor een SKU
-Volg de stappen hieronder tot het instellen van prijzen model per uur voor een SKU:
+### <a name="211-how-to-set-up-hourly-pricing-model-for-a-sku"></a>2.1.1 over het instellen van het model per uur voor een SKU-prijzen
+Volg de stappen hieronder voor het instellen van het prijsmodel voor een SKU per uur:
 
-1. Meld u aan bij de [portal voor publiceren](https://publish.windowsazure.com).
+1. Meld u aan bij naar de [portal voor publiceren](https://publish.windowsazure.com).
 2. Navigeer naar de **virtuele MACHINES** tabblad en selecteert u uw aanbieding.
-3. Klik in het menu links naast de **SKU's** tabblad.
+3. Klik in het menu links op de **SKU's** tabblad.
 4. Zorg ervoor dat de SKU is gemarkeerd als 'Model per uur facturering'. Als dit niet het geval is, klikt u op de **bewerken** knop om terug te zetten van de facturering van maandabonnementen. Er wordt een venster geopend. Schakel het selectievakje 'facturering en licenties kunt u doen extern vanuit Azure (ook wel Bring Your Own License)' en de wijzigingen opslaan.
-5. Als u inschakelen, gratis proefversie voor de eerste 30days van de SKU-implementatie wilt, selecteert u de optie 'Één maand' voor de vraag 'Is een gratis proefversie beschikbaar?' Anders selecteert u de optie 'Geen proefversie'. Nu de stappen hieronder.
-6. Klik in het menu links naast de **prijzen** tabblad.
+5. Als u inschakelen, gratis proefversie voor de eerste 30 dagen van de SKU-implementatie wilt, selecteert u de optie 'Één maand' voor de vraag 'Is een gratis proefversie beschikbaar?' Anders selecteert u de optie 'Geen proefversie'. Nu de stappen hieronder.
+6. Klik in het menu links op de **prijzen** tabblad.
 7. Selecteer de regio van uw basis.
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
-8. De prijzen voor alle kernen instellen. **U moet prijs opgeven voor de cores van een SKU, zelfs als deze niet wordt ondersteund door uw SKU.**
+8. De prijzen voor alle kernen instellen. *Geef een prijs voor de cores van een SKU, zelfs als deze niet wordt ondersteund door uw SKU.*
    
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
-9. De prijzen voor de andere regio's handmatig instellen of u kunt de wizard AUTOPRICE gebruiken om in te stellen de prijzen voor andere regio's op basis van de basis regio. Gebruik de wizard AUTOPRICE Klik op de knop **AUTOPRICE andere markten op basis van op prijzen IN de Verenigde Staten.** **Opmerking:** van de knop label kan afwijken afhankelijk van de regio die u hebt geselecteerd. Omdat we Verenigde Staten hebt geselecteerd tijdens het maken van dit document, zodat de knop label als "Automatisch prijs andere markten op basis van de prijzen in de Verenigde Staten" in de onderstaande schermafbeelding.
+9. De prijzen voor de andere regio's handmatig instellen of u kunt de wizard AUTOPRICE gebruiken om in te stellen de prijzen voor andere regio's op basis van de basis regio. Gebruik de wizard AUTOPRICE Klik op de knop **AUTOPRICE andere markten op basis van op prijzen IN de Verenigde Staten.** **Opmerking:** Label van de knop kan afwijken afhankelijk van de regio die u hebt geselecteerd. Omdat we Verenigde Staten hebt geselecteerd tijdens het maken van dit document, zodat de knop label als "Automatisch prijs andere markten op basis van de prijzen in de Verenigde Staten" in de onderstaande schermafbeelding.
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 10. De wizard automatisch prijs wordt geopend. De eerste pagina geeft de selectie voor base markt. De sectie maken en verplaatsen naar de volgende pagina door te klikken op de knop '->'.
@@ -203,16 +204,16 @@ Volg de stappen hieronder tot het instellen van prijzen model per uur voor een S
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 13. Pagina 4 wordt weergegeven voor de exchange-tarieven. Klik op de knop Voltooien om de stappen te voltooien.
 
-### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 over het instellen van BYOL prijsmodel voor een SKU
-Volg de stappen hieronder om in te stellen BYOL prijsmodel voor een SKU:
+### <a name="212-how-to-set-up-byol-pricing-model-for-a-sku"></a>2.1.2 over het instellen van BYOL prijsmodel voor een SKU
+Volg de stappen voor het instellen van BYOL-model voor een SKU-prijzen hieronder:
 
-1. Meld u aan bij de [portal voor publiceren](https://publish.windowsazure.com).
+1. Aanmelden bij de [portal voor publiceren](https://publish.windowsazure.com).
 2. Navigeer naar de **virtuele MACHINES** tabblad en selecteert u uw aanbieding.
-3. Klik in het menu links naast de **SKU's** tabblad.
+3. Klik in het menu links op de **SKU's** tabblad.
 4. Zorg ervoor dat de SKU is gemarkeerd als 'Bring your own license SKU'. Als dat niet het geval is, klikt u op de knop bewerken om terug te zetten van de facturering van maandabonnementen. Er wordt een venster geopend. Schakel het selectievakje 'facturering en licenties kunt u doen extern vanuit Azure (ook wel Bring Your Own License)' en de wijzigingen opslaan.
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
-5. Klik in het menu links naast de **prijzen** tabblad.
+5. Klik in het menu links op de **prijzen** tabblad.
 6. Selecteer de base regio en de SKU beschikbaar in de regio door het controleren van het selectievakje in voor de SKU in de sectie EXTERNALLY-LICENSED (BYOL) SKU beschikbaarheid (Zie de onderstaande schermafbeelding).
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
@@ -221,7 +222,7 @@ Volg de stappen hieronder om in te stellen BYOL prijsmodel voor een SKU:
 ### <a name="22-set-your-developer-service-prices"></a>2.2. De prijzen van uw Developer-service instellen
 Abonnementen kunnen elke combinatie van base + verbruik, waarbij base de maandelijkse prijs en overschrijding is de prijs van betalen per gebruik zijn. (Zie hieronder voor meer informatie.)
 
-**Voorbeeld:** Contoso developer-versie van service
+**Voorbeeld:**  Contoso developer-versie van service
 
 | Plannen | Prijs | Bevat | Migratiepad |
 | --- | --- | --- | --- |
@@ -233,7 +234,7 @@ Abonnementen kunnen elke combinatie van base + verbruik, waarbij base de maandel
 | Silver Plus |$20/ maand + $ 0,15/meter01 + $ 0,01/meter02 |Basic-functionaliteit en een quotum van 10.000 van functie X en 100 van Y-functie.  Nadat u het quotum voor de functie X wordt gebruikt, kan de klant betalen per gebruik via meter01.  Nadat u de functie Y-quota is gebruikt, kan de klant betalen per gebruik via meter02. |Kunt migreren naar Brons Plus en Gold plannen |
 | Goudkleurig |$ 1.000/maand |Quotum van 10.000 X 1000 van functie Y, functie en onbeperkte van functie Z. |Op alle abonnementen, behalve gratis kunt migreren |
 
-## <a name="step-3-provide-support-information"></a>Stap 3: Bieden ondersteuning voor gegevens
+## <a name="step-3-provide-support-information"></a>Stap 3: Geef informatie over ondersteuning
 De gegevens van de contactpersoon worden voor interne communicatie tussen de partner en Microsoft alleen gebruikt. De URL voor ondersteuning is beschikbaar voor de eindgebruikers.
 
 1. Ga naar de **ondersteuning** kop aan de linkerkant van de portal voor publiceren.
@@ -241,8 +242,8 @@ De gegevens van de contactpersoon worden voor interne communicatie tussen de par
 3. Voer gegevens in onder **Customer Support**. Als u alleen e-mailondersteuning opgeeft, een dummy-telefoonnummer invoeren en uw opgegeven e-mailadres in plaats daarvan worden gebruikt.
 4. Voer de URL voor ondersteuning.
 
-## <a name="step-4-choose-azure-marketplace-categories"></a>Stap 4: De Azure Marketplace-categorieën kiezen
-De **categorieën** tabblad bevat diverse selecties. Uw aanbieding kan vallen onder een van deze, en u kunt maximaal vijf categorieën selecteren.
+## <a name="step-4-choose-azure-marketplace-categories"></a>Stap 4: Azure Marketplace-categorieën kiezen
+De **categorieën** tabblad bevat diverse selecties. U kunt maximaal vijf categorieën selecteren.
 
 ## <a name="how-your-marketing-will-appear"></a>Hoe uw marketing worden weergegeven
 Hieronder vindt u een gedetailleerde weergave van hoe de aanbieding marketinggegevens wordt gebruikt op de [Azure Marketplace-website](https://azure.microsoft.com/marketplace/) en in de [Azure-portal](https://portal.azure.com).
@@ -262,10 +263,10 @@ Hieronder vindt u een gedetailleerde weergave van hoe de aanbieding marketinggeg
 
 *Beschrijving van de prijsinformatie op de website van Azure Marketplace bieden*
 
-### <a name="azure-portal"></a>Azure-portal
+### <a name="azure-portal"></a>Azure Portal
 ![tekenen](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-*Overzicht van aanbiedingen in Azure Portal*
+*Overzicht van aanbiedingen in Azure portal*
 
 ![tekenen](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
@@ -278,7 +279,7 @@ Nu dat uw Marketplace-inhoud is geladen, laten we verdergaan met het testen van 
 * [Testen van uw aanbieding van de sjabloon oplossing in fasering](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## <a name="see-also"></a>Zie ook
-* [Aan de slag: een aanbieding publiceren op Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Aan de slag: Een aanbieding publiceren op Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

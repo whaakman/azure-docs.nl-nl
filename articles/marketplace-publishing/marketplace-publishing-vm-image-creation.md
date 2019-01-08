@@ -3,7 +3,7 @@ title: Het maken van een VM-installatiekopie voor de Azure Marketplace | Microso
 description: Gedetailleerde instructies voor het maken van een VM-installatiekopie voor de Azure Marketplace voor anderen om aan te schaffen.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6737e16efa93370b5b5d2b46026fce3bbc22d38f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686361"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075155"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van een VM-installatiekopie voor de Azure Marketplace
 In dit artikel **stap 2**, helpt u bij het voorbereiden van de virtuele harde schijven (VHD's) dat u op Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces verschilt, afhankelijk van of u een SKU op basis van Linux of Windows is gebaseerd. In dit artikel bevat informatie over beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [van accountaanmaking en registratie][link-acct-creation].
@@ -30,14 +31,14 @@ In deze sectie leert u definieert de aanbiedingen en hun bijbehorende SKU's.
 Een aanbieding fungeert als "ouder" voor alle bijbehorende SKU's. U kunt meerdere aanbiedingen hebben. Het is aan u om te besluiten hoe u uw aanbiedingen wilt structureren. Wanneer een aanbieding wordt doorgestuurd voor fasering, wordt deze samen met alle bijbehorende SKU's doorgestuurd. Overweeg zorgvuldig de SKU-id's, omdat deze zichtbaar in de URL is:
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Azure preview-portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
+* Azure-portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 Een SKU is de commerciële naam voor een VM-installatiekopie. Een VM-installatiekopie bevat een besturingssysteemschijf en nul of meer gegevensschijven. In essentie is dit het volledige opslagprofiel voor een virtuele machine. Één VHD is per schijf nodig. Even zelfs lege gegevensschijven vereisen dat u een VHD moet worden gemaakt.
 
 Ongeacht het te gebruiken besturingssysteem voegt u alleen het minimum aantal gegevensschijven toe dat voor de SKU is vereist. Klanten schijven die deel van een installatiekopie op het moment van implementatie uitmaken niet verwijderen, maar kunnen altijd schijven toevoegen tijdens of na de implementatie als ze deze nodig hebt.
 
 > [!IMPORTANT]
-> **Het aantal schijven in een nieuwe Afbeeldingversie niet wijzigen.** Als u moet de configuratie van gegevensschijven in de afbeelding, definieert u een nieuwe SKU. Publiceren van een nieuwe installatiekopieversie met een andere schijf aantallen wordt hebben het potentieel van belangrijke nieuwe implementatie op basis van de versie van de nieuwe installatiekopie in geval van automatisch schalen, automatische implementaties van oplossingen op basis van ARM-sjablonen en andere scenario's.
+> *Het aantal schijven in een nieuwe Afbeeldingversie niet wijzigen.* Als u moet de configuratie van gegevensschijven in de afbeelding, definieert u een nieuwe SKU. Publiceren van een nieuwe installatiekopieversie met een andere schijf aantallen wordt hebben het potentieel van belangrijke nieuwe implementatie op basis van de versie van de nieuwe installatiekopie in geval van automatisch schalen, automatische implementaties van oplossingen op basis van ARM-sjablonen en andere scenario's.
 >
 >
 
@@ -59,7 +60,7 @@ Nadat u een aanbieding hebt toegevoegd, moet u voor het definiëren en identific
 3. Als u op Windows gebaseerde SKU's gebruikt, volgt u de voorgestelde koppelingen voor het verkrijgen van de goedgekeurde versies van Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Een Azure-compatibele VHD maken (gebaseerd op Linux)
-Deze sectie richt zich op de aanbevolen procedures voor het maken van een VM op basis van Linux-installatiekopie voor de Azure Marketplace. Voor stapsgewijze instructies raadpleegt u de volgende documentatie: [een aangepaste Linux-VM-installatiekopie maken](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Deze sectie richt zich op de aanbevolen procedures voor het maken van een VM op basis van Linux-installatiekopie voor de Azure Marketplace. Raadpleeg de volgende documentatie voor stapsgewijze instructies: [Een aangepaste Linux-VM-installatiekopie maken](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Een Azure-compatibele VHD maken (Windows-indeling)
 Deze sectie richt zich op de stappen voor het maken van een SKU op basis van Windows Server voor de Azure Marketplace.
@@ -81,13 +82,13 @@ Deze koppelingen zijn ook te vinden in de Portal voor Publiceren onder aan de SK
 >
 
 ### <a name="32-create-your-windows-based-vm"></a>3.2 Windows gebaseerde virtuele machine maken
-U kunt uw virtuele machine op basis van een goedgekeurde basisinstallatiekopie in een paar eenvoudige stappen kunt maken vanuit de Microsoft Azure-portal. Hier volgt een overzicht van het proces:
+U kunt uw virtuele machine op basis van een goedgekeurde basisinstallatiekopie in een paar eenvoudige stappen kunt maken vanuit de Microsoft Azure-portal. De volgende lijst bevat een overzicht van het proces:
 
 1. Selecteer in de pagina basisinstallatiekopie **virtuele Machine maken** om te worden omgeleid naar de nieuwe [Microsoft Azure portal][link-azure-portal].
 
     ![tekenen][img-acom-1]
 2. Meld u aan bij de portal met de Microsoft-account en het wachtwoord voor de Azure-abonnement die u wilt gebruiken.
-3. Volg de aanwijzingen voor het maken van een virtuele machine met behulp van de basisinstallatiekopie die u hebt geselecteerd. U moet een host (naam van de computer), de naam van de gebruiker (geregistreerd als een beheerder) en wachtwoord voor de virtuele machine opgeven.
+3. Volg de aanwijzingen voor het maken van een virtuele machine met behulp van de basisinstallatiekopie die u hebt geselecteerd. Geef een host (naam van de computer), de naam van de gebruiker (geregistreerd als een beheerder), en het wachtwoord voor de virtuele machine.
 
     ![tekenen][img-portal-vm-create]
 4. Selecteer de grootte van de virtuele machine te implementeren:
@@ -110,7 +111,7 @@ U kunt uw virtuele machine op basis van een goedgekeurde basisinstallatiekopie i
 
     a.    Als u van plan de VHD bent op locatie ontwikkelen, de locatie niet van belang omdat u de installatiekopie uploaden naar Azure later opnieuw wordt.
 
-    b.    Als u van plan bent de installatiekopie in Azure te ontwikkelen, kunt u het gebruik van een van de in de VS gebaseerde Microsoft Azure-regio's vanaf het begin overwegen. Dit is sneller van de VHD-kopieerproces dat Microsoft namens u uitvoert wanneer u uw installatiekopie voor certificering inzendt.
+    b.    Als u van plan bent de installatiekopie in Azure te ontwikkelen, kunt u het gebruik van een van de in de VS gebaseerde Microsoft Azure-regio's vanaf het begin overwegen. Deze selectie, versnelt het VHD-kopieerproces dat Microsoft namens u uitvoert wanneer u uw installatiekopie voor certificering inzendt.
 
     ![tekenen][img-portal-vm-location]
 7. Klik op **Create**. De virtuele machine wordt gestart om te implementeren. Binnen enkele minuten beschikt u over een geslaagde implementatie en kunt u beginnen met het maken van de installatiekopie voor uw SKU.
@@ -168,7 +169,7 @@ De basisinstallatiekopieën bevatten de meest recente patches tot aan de publica
 Wanneer u aanvullende configuratie nodig hebt, kunt u overwegen een geplande taak die wordt uitgevoerd bij het opstarten alle laatste wijzigingen aanbrengen in de virtuele machine nadat deze is geïmplementeerd:
 
 * Het wordt aanbevolen om de taak zichzelf na een geslaagde uitvoering te laten verwijderen.
-* Er is geen configuratie afhankelijk zijn van andere schijven dan stations C of D, omdat dit de enige twee schijven zijn die altijd gegarandeerd aanwezig zijn. Station C is de besturingssysteemschijf en station D is de tijdelijke lokale schijf.
+* Er is geen configuratie afhankelijk zijn van andere schijven dan stations C of D, omdat deze schijven de enige twee die altijd gegarandeerd zijn aanwezig zijn. Station C is de besturingssysteemschijf en station D is de tijdelijke lokale schijf.
 
 ### <a name="37-generalize-the-image"></a>3.7 generaliseer de installatiekopie
 Alle installatiekopieën in de Azure Marketplace moeten worden ingezet op een generieke manier herbruikbaar zijn. Met andere woorden, moet het besturingssysteem VHD worden gegeneraliseerd:
@@ -178,10 +179,10 @@ Alle installatiekopieën in de Azure Marketplace moeten worden ingezet op een ge
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Richtlijnen voor hoe het besturingssysteem Sysprep is opgegeven in stap van de volgende MSDN-artikel: [maken en uploaden van een Windows Server-VHD voor Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Instructies over het sysprep het besturingssysteem is opgegeven in stap van de volgende MSDN-artikel: [Maken en een Windows Server-VHD uploaden naar Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="4-deploy-a-vm-from-your-vhds"></a>4. Een VM implementeren vanaf uw VHD 's
-Nadat u uw VHD's (de gegeneraliseerde VHD besturingssysteem en nul of meer gegevens VHD's) naar Azure storage-account hebt geüpload, kunt u ze kunt registreren als een gebruiker VM-installatiekopie. Vervolgens kunt u die afbeelding testen. Houd er rekening mee dat omdat uw VHD-besturingssysteem is gegeneraliseerd, u kunt geen rechtstreeks de virtuele machine implementeren door op te geven van de VHD-URL.
+Nadat u uw VHD's (de gegeneraliseerde VHD besturingssysteem en nul of meer gegevens VHD's) naar Azure storage-account hebt geüpload, kunt u ze kunt registreren als een gebruiker VM-installatiekopie. Vervolgens kunt u die afbeelding testen. Omdat de VHD van het besturingssysteem is gegeneraliseerd, kunt u de virtuele machine niet rechtstreeks implementeren door op te geven van de VHD-URL.
 
 Voor meer informatie over VM-installatiekopieën, controleert u de volgende blogberichten:
 
@@ -225,7 +226,7 @@ Voor het implementeren van een virtuele machine van de VM-installatiekopie van e
 
 **Implementeren van een virtuele machine via PowerShell**
 
-U kunt de volgende cmdlets gebruiken voor het implementeren van een grote virtuele machine via de gegeneraliseerde VM-installatiekopie zojuist hebt gemaakt.
+U kunt de volgende cmdlets gebruiken voor het implementeren van een grote virtuele machine van de zojuist gemaakte gegeneraliseerde VM-installatiekopie.
 
     $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
@@ -276,7 +277,7 @@ Wanneer de test is voltooid, ontvangt u de resultaten ('Pass'/'Fail'/'Warning' (
 
 ![Testcases voor Windows VM-installatiekopie][img-cert-vm-test-win]
 
-Als een van de test mislukt, wordt uw installatiekopie niet gecertificeerd. Als dit het geval is, raadpleegt u de vereisten en breng de gewenste wijzigingen.
+Als een van de test mislukt, wordt uw installatiekopie niet gecertificeerd. Als dit probleem optreedt, raadpleegt u de vereisten en breng de gewenste wijzigingen.
 
 Na de geautomatiseerde test wordt u gevraagd extra invoer bieden op uw VM-installatiekopie via een scherm vragenlijst.  Voltooien van de vragen en selecteer vervolgens **volgende**.
 
@@ -289,18 +290,18 @@ Nadat u de vragenlijst hebt voltooid, kunt u aanvullende informatie zoals een SS
 ![Testresultaten voor certificering opslaan][img-cert-vm-results]
 
 ### <a name="52-get-the-shared-access-signature-uri-for-your-vm-images"></a>5.2 de shared access signature-URI ophalen voor uw VM-installatiekopieën
-Gedurende het publicatieproces geeft u de uniform resource-id (URI's) die verwijzen naar elk van de VHD's die u voor uw SKU hebt gemaakt. Tijdens het certificeringsproces moet Microsoft toegang hebben tot deze VHD's. Daarom moet u een shared access signature URI voor elke VHD maken. Dit is de URI die moet worden ingevoerd in de **installatiekopieën** tabblad in de Portal voor publiceren.
+Gedurende het publicatieproces geeft u de uniform resource-id (URI's) die verwijzen naar elk van de VHD's die u voor uw SKU hebt gemaakt. Tijdens het certificeringsproces moet Microsoft toegang hebben tot deze VHD's. Daarom moet u een shared access signature URI voor elke VHD maken. Deze URI moet worden ingevoerd op de **installatiekopieën** tabblad in de Portal voor publiceren.
 
 De handtekening voor gedeelde toegang gemaakt van de URI moet voldoen aan de volgende vereisten:
 
-Opmerking: de volgende instructies zijn alleen van toepassing op niet-beheerde schijven die het enige type dat wordt ondersteund zijn.
+De volgende instructies zijn alleen van toepassing op niet-beheerde schijven, die het enige type dat wordt ondersteund.
 
 * Bij het genereren van handtekening voor gedeelde toegang URI's voor uw VHD's, zijn machtigingen lijst en lezen zijn voldoende. Verleen geen toegang voor schrijven ('Write') of verwijderen ('Delete').
 * De duur van de toegang moet minimaal drie (3) weken uit wanneer de shared access signature URI wordt gemaakt.
 * Als u wilt beveiligen voor UTC-tijd, de dag vóór de huidige datum te selecteren. Als de huidige datum 6 oktober 2014 is, selecteert u bijvoorbeeld 10/5/2014.
 
 SAS-URL kan worden gegenereerd op meerdere manieren voor het delen van uw VHD voor Azure Marketplace.
-Hier volgen de 3 aanbevolen hulpprogramma's:
+Hieronder vindt u de drie aanbevolen hulpprogramma's:
 
 1.  Azure Opslagverkenner
 2.  Microsoft Storage Explorer
@@ -323,7 +324,7 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azur
 
     ![tekenen](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. Geef de storage-accountnaam, de opslagaccountsleutel en het domein van opslageindpunten. Dit is het opslagaccount in uw Azure-abonnement waar u uw VHD hebt opgeslagen in Azure portal.
+5. Geef de storage-accountnaam, de opslagaccountsleutel en het domein van opslageindpunten. Dit opslagaccount is in uw Azure-abonnement waar u uw VHD hebt opgeslagen in Azure portal.
 
     ![tekenen](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
@@ -347,11 +348,11 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azur
 
     ![tekenen](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
-    a. **Toegang toegestaan vanaf:** selecteren om te waarborgen voor de UTC-tijd, de dag vóór de huidige datum. Als de huidige datum 6 oktober 2014 is, selecteert u bijvoorbeeld 10/5/2014.
+    a. **Toegang toegestaan vanaf:** Als u wilt beveiligen voor UTC-tijd, de dag vóór de huidige datum te selecteren. Als de huidige datum 6 oktober 2014 is, selecteert u bijvoorbeeld 10/5/2014.
 
-    b. **Toegang toegestaan:** een datum selecteert die is ten minste drie weken na de **toegang toegestaan vanaf** datum.
+    b. **Toegang krijgen:** Selecteer een datum die ten minste drie weken na de **toegang toegestaan vanaf** datum.
 
-    c. **Acties die zijn toegestaan:** selecteert u de **lijst** en **lezen** machtigingen.
+    c. **Acties die zijn toegestaan:** Selecteer de **lijst** en **lezen** machtigingen.
 
     d. Als u uw VHD-bestand correct hebt geselecteerd, wordt het bestand wordt weergegeven in **blobnaam voor toegang tot** met de extensie .vhd.
 
@@ -360,12 +361,12 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azur
     f. In **gegenereerd gedeeld Access Signature-URI van deze container**, controleren op de volgende gemarkeerde bovenstaande:
 
        - Zorg ervoor dat uw installatiekopie bestandsnaam en **".vhd"** zijn in de URI.
-       - Aan het einde van de handtekening, zorg ervoor dat **"rl ="** wordt weergegeven. Dit toont aan dat toegang voor lezen en de lijst met succes is opgegeven.
-       - Controleer in het midden van de handtekening, **"sr = c '** wordt weergegeven. Dit toont aan dat u toegang tot de container niveau hebt
+       - Aan het einde van de handtekening, zorg ervoor dat **"rl ="** wordt weergegeven. Deze waarde ziet u dat toegang voor lezen en de lijst met succes is opgegeven.
+       - Controleer in het midden van de handtekening, **"sr = c '** wordt weergegeven. Deze waarde ziet u dat u toegang tot de container niveau hebt
 
 11. Om ervoor te zorgen dat de gegenereerde shared access signature-URI werkt, klikt u op **Test in Browser**. Deze moet het downloadproces beginnen.
 
-12. Kopieer de shared access signature URI. Dit is de URI die u in de Portal voor Publiceren moet plakken.
+12. Kopieer de shared access signature URI. Plak deze URI in de publicatie Portal.
 
 13. Herhaal stap 6-10 voor elke VHD in de SKU.
 
@@ -395,11 +396,11 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Micr
 
     ![tekenen](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.  **Begintijd:** selecteren om te waarborgen voor de UTC-tijd, de dag vóór de huidige datum. Als de huidige datum 6 oktober 2014 is, selecteert u bijvoorbeeld 10/5/2014.
+    a.  **Begintijd:** Als u wilt beveiligen voor UTC-tijd, de dag vóór de huidige datum te selecteren. Als de huidige datum 6 oktober 2014 is, selecteert u bijvoorbeeld 10/5/2014.
 
-    b.  **Verlooptijd:** een datum selecteert die is ten minste drie weken na de **begintijd** datum.
+    b.  **Verlooptijd:** Selecteer een datum die ten minste drie weken na de **begintijd** datum.
 
-    c.  **Machtigingen:** selecteert u de **lijst** en **lezen** machtigingen
+    c.  **Machtigingen:** Selecteer de **lijst** en **lezen** machtigingen
 
 8.  Shared access signature voor containers URI kopiëren
 
@@ -418,12 +419,12 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Micr
     TestRGVM201631920152.vhd is de naam van de VHD en vervolgens VHD SAS-URL `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Zorg ervoor dat uw installatiekopie bestandsnaam en **".vhd"** zijn in de URI.
-    - Controleer in het midden van de handtekening, **"sp rl ="** wordt weergegeven. Dit toont aan dat toegang voor lezen en de lijst met succes is opgegeven.
-    - Controleer in het midden van de handtekening, **"sr = c '** wordt weergegeven. Dit toont aan dat u toegang tot de container niveau hebt
+    - Controleer in het midden van de handtekening, **"sp rl ="** wordt weergegeven. Deze waarde ziet u dat toegang voor lezen en de lijst met succes is opgegeven.
+    - Controleer in het midden van de handtekening, **"sr = c '** wordt weergegeven. Deze waarde ziet u dat u toegang tot de container niveau hebt
 
 9.  Om ervoor te zorgen dat de gegenereerde shared access signature-URI werkt, moet u deze in de browser testen. Het downloadproces moet worden gestart
 
-10. Kopieer de shared access signature URI. Dit is de URI die u in de Portal voor Publiceren moet plakken.
+10. Kopieer de shared access signature URI. Plak deze URI in de publicatie Portal.
 
 11. Herhaal deze stappen voor elke VHD in de SKU.
 
@@ -435,7 +436,7 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azur
 
 1.  Downloaden van Microsoft Azure CLI uit [hier](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). U vindt hier ook koppelingen naar de andere **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** en  **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
-2.  Zodra de App is gedownload, geïnstalleerd.
+2.  Zodra de App is gedownload, installeert u dit hulpprogramma.
 
 3.  Maak een Bash-(of andere uitvoerbare gelijkwaardige script) bestand met de volgende code en lokaal opslaan
 
@@ -451,16 +452,16 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azur
 
     b. **`<VHD Blob Name>`**: Geef de naam van uw VHD-blob.
 
-    Selecteer een datum die ten minste drie weken na de begindatum (standaard ingesteld op de tijd van genereren van sas-token). Een voorbeeldwaarde is: **2018-10-11T23:56Z**.
+    Selecteer een datum die ten minste drie weken na de begindatum (standaard ingesteld op de tijd van genereren van sas-token). Een voorbeeldwaarde is: `2018-10-11T23:56Z`.
 
-    Hieronder volgt de voorbeeldcode na het bijwerken van de juiste parameters exporteren AZURE_STORAGE_ACCOUNT = vhdstorage1ba78dfb6bc2d8 VERLOPEN = $(-d "3 weken" datum + %Y-%m-% dT % H: % MZ) CONTAINER_SAS = $(az storage container genereren van sas - n VHD's--machtigingen rl--verstrijken $ VERVALLEN - otsv) BLOB_URL = $(az storage blob url - c VHD's - n osdisk_1ba78dfb6b.vhd - otsv) $BLOB_URL echo\?$CONTAINER_SAS
+    Hieronder volgt de voorbeeldcode na het bijwerken van de juiste parameters exporteren AZURE_STORAGE_ACCOUNT = vhdstorage1ba78dfb6bc2d8 verstrijken = $(-d "drie weken" datum + %Y-%m-% dT % H: % MZ) CONTAINER_SAS = $(az storage container genereren van sas - n VHD's--machtigingen rl-- verlopen $EXPIRY - otsv) BLOB_URL = $(az storage blob url - c VHD's - n osdisk_1ba78dfb6b.vhd - otsv) $BLOB_URL echo\?$CONTAINER_SAS
 
 4.  Voer het script uit en biedt u de SAS-URL voor het toegangsniveau van de container.
 
 5.  Controleer uw SAS-URL.
 
     - Zorg ervoor dat uw installatiekopie-bestand met de naam en '.vhd' zich in de URI.
-    -   Controleer in het midden van de handtekening, "sp rl =" wordt weergegeven. Dit toont aan dat toegang voor lezen en de lijst met succes is opgegeven.
+    -   Controleer in het midden van de handtekening, "sp rl =" wordt weergegeven. Deze waarde ziet u dat toegang voor lezen en de lijst met succes is opgegeven.
     -   Controleer in het midden van de handtekening, "sr = c ' wordt weergegeven. Dit toont aan dat u toegang tot de container niveau hebt
 
     Voorbeeld:
@@ -469,7 +470,7 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azur
 
 8.  Om ervoor te zorgen dat de gegenereerde shared access signature-URI werkt, moet u deze in de browser testen. Het downloadproces moet worden gestart
 
-9.  Kopieer de shared access signature URI. Dit is de URI die u in de Portal voor Publiceren moet plakken.
+9.  Kopieer de shared access signature URI. Plak deze URI in de publicatie Portal.
 
 10. Herhaal deze stappen voor elke VHD in de SKU.
 
@@ -483,7 +484,7 @@ Nadat u uw aanbieding en SKU hebt gemaakt, moet u de details van de afbeelding d
 4. Vul de eigenschappen onder de **SKU's** sectie.
 5. Onder **besturingssysteemfamilie**, klikt u op het type van het besturingssysteem die is gekoppeld aan het besturingssysteem-VHD.
 6. In de **besturingssysteem** vak, beschrijven van het besturingssysteem. Denk na over een indeling, zoals besturingssysteemfamilie, type, versie en updates. Een voorbeeld is 'Windows Server Datacenter 2014 R2'.
-7. Selecteer maximaal zes aanbevolen VM-groottes. Dit zijn aanbevelingen die aan de klant in de blade prijscategorie in de Azure Portal worden weergegeven wanneer deze besluit uw installatiekopie te kopen en implementeren. **Dit zijn alleen aanbevelingen. De klant kan elke VM-grootte die geschikt is voor de vermelde schijven in uw installatiekopie te selecteren.**
+7. Selecteer maximaal zes aanbevolen VM-groottes. Deze grootten zijn aanbevelingen die aan de klant in de blade prijscategorie in de Azure Portal worden weergegeven wanneer deze besluit uw installatiekopie te kopen en implementeren. **Dit zijn alleen aanbevelingen. De klant kan elke VM-grootte die geschikt is voor de vermelde schijven in uw installatiekopie te selecteren.**
 8. Voer de versie in. Het versieveld bevat een semantische versie om het product en de updates te identificeren:
    * Versies moeten zijn van het formulier X.Y.Z, waarbij X, Y en Z gehele getallen zijn.
    * Afbeeldingen in verschillende SKU's kunnen verschillende primaire en secundaire versies hebben.
@@ -507,10 +508,10 @@ Nadat u uw aanbieding en SKU hebt gemaakt, moet u de details van de afbeelding d
 |Fout bij het kopiëren van installatiekopieën – SAS-Url "st" en "se" parameters nog geen datum / tijd-specificatie|Fout: Kopiëren van afbeeldingen. Kan geen blob vanwege onjuiste SAS-Url voor downloaden |SAS-Url Start- en einddatum parameters ("st", 'se') zijn vereist om volledige datum / tijd-specificatie, zoals 11-02-2017T00:00:00Z, en niet alleen de datum of verkort versies voor de tijd. Het is mogelijk aan het optreden van dit scenario met behulp van Azure CLI versie 2.0 of hoger. Zorg dat de volledige datum / tijd-specificatie en opnieuw genereren van de SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Volgende stap
-Als u klaar bent met de SKU-details, kunt u verder gaan naar de [Azure Marketplace-handleiding voor marketing content][link-pushstaging]. In deze stap van het publicatieproces, bieden u de marketinginhoud, prijzen en andere informatie die nodig is voor **stap 3: uw virtuele machine testen aanbieden in fasering**, waarin u verschillende use-casescenario's testen voordat u implementeert de aanbieding voor Azure Marketplace voor openbare zichtbaarheid en inkoop.  
+Als u klaar bent met de SKU-details, kunt u verder gaan naar de [Azure Marketplace-handleiding voor marketing content][link-pushstaging]. In deze stap van het publicatieproces, bieden u de marketinginhoud, prijzen en andere informatie die nodig is voor **stap 3: Testen van uw virtuele machine aanbieden in fasering**, waarin u verschillende use-casescenario's testen voordat u de aanbieding op Azure Marketplace voor openbare zichtbaarheid en de aankoop implementeert.  
 
 ## <a name="see-also"></a>Zie ook
-* [Aan de slag: een aanbieding publiceren op Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Aan de slag: Een aanbieding publiceren op Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

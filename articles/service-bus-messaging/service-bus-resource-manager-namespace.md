@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282727"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062064"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte met een Azure Resource Manager-sjabloon maken
 In deze snelstartgids maakt u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte van het type **Messaging** met een **Standard** SKU. Het artikel definieert ook de parameters die zijn opgegeven voor het uitvoeren van de implementatie. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen. Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen. Zie voor de volledige sjabloon, de [Service Bus-naamruimte sjabloon] [ Service Bus namespace template] op GitHub.
@@ -96,7 +96,7 @@ Maak een JSON-bestand met de naam **MyServiceBusNamespace.json** met de volgende
 }
 ```
 
-Deze sjabloon maakt u een standard Service Bus-naamruimte.
+Deze sjabloon maakt u een standard Service Bus-naamruimte. Zie voor JSON-syntaxis en eigenschappen [naamruimten](/azure/templates/microsoft.servicebus/namespaces) verwijzing naar de sjabloon.
 
 ## <a name="create-the-parameters-json"></a>De parameters-JSON maken
 De sjabloon die u in de vorige stap hebt gemaakt, heeft een sectie met de naam `Parameters`. U definiëren parameters voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de doelomgeving. Deze sjabloon definieert de volgende parameters: **serviceBusNamespaceName**, **serviceBusSku**, en **locatie**. Zie voor meer informatie over SKU's van Service Bus, [Service Bus-SKU's](https://azure.microsoft.com/pricing/details/service-bus/) te maken.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123479"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074713"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden Publicatiehandleiding voor
 
@@ -34,8 +34,8 @@ SaaS-toepassingen zijn beschikbaar in zowel Azure Storefronts de volgende tabel 
 | AppSource | Ja (contact met mij opnemen) | Ja (Power BI/Dynamics) |
 | Azure Marketplace | Nee | Ja (SaaS-Apps) |   
 
-**Lijst met:** de publicatieoptie vermelding bestaat uit een contactpersoon Me aanbiedingtype en wordt gebruikt wanneer de deelname van een evaluatieversie of transactieniveau op niet haalbaar is. Het voordeel van deze benadering is dat Hiermee uitgevers met een oplossing in de markt begint onmiddellijk met het ontvangen van leads die kunnen worden omgezet in deals kunnen te verhogen van uw bedrijf.  
-**Proefversie/transactie:** de klant beschikt over de optie voor het rechtstreeks kopen of vraag een proefversie voor uw oplossing. Leveren van een proefversie, verhoogt het niveau van de engagement aangeboden aan klanten en kan klanten voor het verkennen van uw oplossing voor het kopen. Met een evaluatie-ervaring, hebt u betere kans promotie in de storefronts en u kunt verwachten meer en uitgebreidere leads van interacties met klanten. Proefversies moeten ten minste gratis ondersteuning bevatten voor de duur van de proefperiode is afgelopen.  
+**Lijst met:**  De publicatieoptie vermelding bestaat uit een contactpersoon Me type aanbieding en wordt gebruikt wanneer de deelname van een evaluatieversie of transactieniveau op niet haalbaar is. Het voordeel van deze benadering is dat Hiermee uitgevers met een oplossing in de markt begint onmiddellijk met het ontvangen van leads die kunnen worden omgezet in deals kunnen te verhogen van uw bedrijf.  
+**Proefversie/transactie:**  De klant beschikt over de optie voor het rechtstreeks kopen of vraag een proefversie voor uw oplossing. Leveren van een proefversie, verhoogt het niveau van de engagement aangeboden aan klanten en kan klanten voor het verkennen van uw oplossing voor het kopen. Met een evaluatie-ervaring, hebt u betere kans promotie in de storefronts en u kunt verwachten meer en uitgebreidere leads van interacties met klanten. Proefversies moeten ten minste gratis ondersteuning bevatten voor de duur van de proefperiode is afgelopen.  
 
 | Aanbieding voor SaaS-Apps | Zakelijke vereisten | Technische vereisten |  
 | --- | --- | --- |  
@@ -94,7 +94,7 @@ Zelfstudies, video, controleert u het volgende:
 * [Microsoft Azure-video's die zijn gericht op Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Gratis training voor Azure Active Directory is beschikbaar op  
-* [Microsoft Azure for IT Pros Content-serie: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Microsoft Azure for IT Pros Content-serie: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Bovendien biedt Azure Active Directory een site om te controleren op Updates van de Service   
 * [Azure AD-Service-updates](https://azure.microsoft.com/updates/?product=active-directory)
@@ -145,10 +145,11 @@ Microsoft als host fungeert voor de commercetransactie. Microsoft factureert de 
 | Abonnement API | U beschikbaar maakt voor een service die met de SaaS-abonnement communiceren kan te maken, bijwerken en verwijderen van een gebruiker account en service-plan. Kritieke API-wijzigingen moeten worden ondersteund binnen 24 uur. Niet-kritieke API-wijzigingen worden regelmatig uitgebracht. |  
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u dit nog niet hebt gedaan, 
+Als u dit nog niet hebt gedaan,
 
-- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace
+- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace.
 
 Als u bent geregistreerd en het maken van een nieuwe aanbieding of werken aan een bestaande resourcegroep
 
-- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uw aanbieding voltooien
+- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uitvoeren van uw aanbieding.
+- Zie [aanbieding van Azure SaaS-toepassing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) voor meer informatie.

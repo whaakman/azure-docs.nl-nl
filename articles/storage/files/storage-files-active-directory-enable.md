@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: fd635682d1b5dc7c3ab784208ac485872d5c7099
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: deb91e1b881afe59d47f677fbee1c307da51f4e5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998996"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062210"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory-verificatie inschakelen via SMB voor Azure Files (preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -153,14 +153,15 @@ De volgende aangepaste rolsjabloon biedt machtigingen voor share-niveau wijzigen
   "IsCustom": true,
   "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshare/*"
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action"
   ],
   "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/*"
-  ],
-  "NotDataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermission",
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actasadmin"
+    "*"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"
@@ -178,10 +179,10 @@ De volgende aangepaste rolsjabloon biedt de leesmachtigingen share-niveau, een i
   "IsCustom": true,
   "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshare/read"
+    "*/read"
   ],
   "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read"
+    "*/read"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"

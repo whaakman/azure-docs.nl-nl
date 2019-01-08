@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4e4ca1ca4878a2a405b12413e4378a2cb79aef6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999115"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077450"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Docker-toepassingen bewaken in Application Insights
 
@@ -36,9 +36,9 @@ Bij het uitvoeren van de [Application Insights-installatiekopie](https://hub.doc
 
 ## <a name="set-up-your-application-insights-resource"></a>Uw Application Insights-resource instellen
 
-1. Meld u aan bij [Microsoft Azure portal](https://azure.com) en open de Application Insights-resource voor uw app; of [Maak een nieuwe](../../application-insights/app-insights-create-new-resource.md). 
+1. Meld u aan bij [Microsoft Azure portal](https://azure.com) en open de Application Insights-resource voor uw app; of [Maak een nieuwe](../../azure-monitor/app/create-new-resource.md ). 
    
-    *Welke resource moet ik gebruiken?* Als de apps die u op de host uitvoert zijn ontwikkeld door iemand anders, dan u moet [Maak een nieuwe Application Insights-resource](../../application-insights/app-insights-create-new-resource.md). Dit is waar u weergeven en analyseren van de telemetrie. (Selecteer 'Algemeen' voor het app-type.)
+    *Welke resource moet ik gebruiken?* Als de apps die u op de host uitvoert zijn ontwikkeld door iemand anders, dan u moet [Maak een nieuwe Application Insights-resource](../../azure-monitor/app/create-new-resource.md ). Dit is waar u weergeven en analyseren van de telemetrie. (Selecteer 'Algemeen' voor het app-type.)
    
     Maar als u de ontwikkelaar van de apps bent en we hopen u dat [Application Insights-SDK toegevoegd](../../azure-monitor/app/java-live.md) aan elk van deze. Als ze alle echt onderdelen van een enkele business-toepassing, wordt u al deze telemetrie verzenden naar één resource configureren en kunt u die dezelfde resource om de Docker-levenscyclus en prestaties van gegevens weer te geven mogelijk. 
    

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: db2972019e81ab413857d49ffa65eade3ff061ec
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bfd6f59ca61d14bc8187aa7c56c29ac44b40b8e9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051183"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074274"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profileren van ASP.NET Core Azure Linux-web-apps met Application Insights Profiler
 
@@ -136,7 +136,7 @@ Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld:
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Application Insights voor het bewaken van uw web-apps toevoegen
 
-1. [Maak een Application Insights-resource](./../../application-insights/app-insights-create-new-resource.md).
+1. [Maak een Application Insights-resource](./../../azure-monitor/app/create-new-resource.md ).
 
 2. Kopieer de **iKey** waarde van de Application Insights-resource en stel de volgende instellingen in uw web-apps:
 

@@ -3,7 +3,7 @@ title: Het oplossen van veelvoorkomende problemen tijdens het maken van VHD | Mi
 description: Antwoorden op veelgestelde vragen voor probleemoplossing en problemen tijdens het maken van de VHD.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: ''
 editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: e58a5f8901b2ab53d47095e1d5fd232783e3b1ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713394"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079133"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Het oplossen van veelvoorkomende problemen aangetroffen tijdens het maken van VHD
 In dit artikel is bedoeld om een Azure Marketplace-uitgever en/of CO-beheerder die mogelijk een probleem of Veelgestelde vragen hebben tijdens het publiceren en beheren van hun virtuele machine-oplossingen.
@@ -52,6 +53,6 @@ In dit artikel is bedoeld om een Azure Marketplace-uitgever en/of CO-beheerder d
 9. Is een 32-bits-app in de Azure Marketplace ondersteund?
    
    Raadpleeg de koppeling voor meer informatie over het ondersteuningsbeleid voor: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
-10. Telkens wanneer ik wil een installatiekopie maken van mijn VHD's, verschijnt het foutbericht '. VHD is al geregistreerd bij de installatiekopieopslagplaats als de resource' in PowerShell. Een andere afbeelding voordat ik niet hebben gemaakt en heeft ik een afbeelding met deze naam vinden in Azure. Hoe kan ik dit oplossen?
+10. Telkens wanneer ik wil een installatiekopie maken van mijn VHD's, verschijnt het foutbericht '. VHD is al geregistreerd bij de installatiekopieopslagplaats als de resource' in PowerShell. Een andere afbeelding voordat ik niet hebben gemaakt en heeft ik een afbeelding met deze naam vinden in Azure. Hoe kan ik dit probleem oplossen?
     
-    Dit gebeurt meestal als de gebruiker een virtuele machine vanaf deze VHD ingericht en er een vergrendeling op deze VHD. Controleer of dat er geen virtuele machine toegewezen vanaf deze VHD is. Als de fout nog steeds blijft bestaan, neem verhogen een ondersteuningsticket via deze koppeling of van de publicatie portal met betrekking tot dit (details worden vermeld in het antwoord van de vraag 11).
+    Dit probleem treedt meestal op als de gebruiker een virtuele machine vanaf deze VHD ingericht en er een vergrendeling op deze VHD. Controleer of er geen virtuele machine toegewezen vanaf deze VHD. Als de fout zich blijft voordoen, til een ondersteuningsticket via deze koppeling of van de publicatie portal (details worden vermeld in het antwoord van de vraag 11).

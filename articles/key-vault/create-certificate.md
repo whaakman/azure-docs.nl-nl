@@ -10,24 +10,23 @@ ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d2f9327841e0c6193a89df6459b4d8fffb14c05e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f2ba077b23a1fb12d1b547f8c9e3013135db1d87
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302840"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076022"
 ---
 # <a name="certificate-creation-methods"></a>Methoden voor het maken van certificaten
 
  Een Key Vault (KV)-certificaat kan worden gemaakt of geïmporteerd in een key vault. Als u een certificaat KV maakt is de persoonlijke sleutel gemaakt binnen de key vault en nooit worden blootgesteld aan de eigenaar van het certificaat. De volgende zijn manieren om te maken van een certificaat in Key Vault:  
 
--   **Een zelfondertekend certificaat maken:** Hiermee wordt een openbaar / persoonlijk sleutelpaar te maken en deze koppelen aan een certificaat. Het certificaat zal worden ondertekend door een eigen sleutel.  
+-   **Een zelfondertekend certificaat maken:** Dit wordt een openbaar / persoonlijk sleutelpaar te maken en deze koppelen aan een certificaat. Het certificaat zal worden ondertekend door een eigen sleutel.  
 
--    **Maak een nieuw certificaat handmatig:** dit wordt gemaakt van een openbaar / persoonlijk sleutelpaar en een X.509-aanvraag voor Certificaatondertekening genereren. De aanvraag voor Certificaatondertekening kan worden ondertekend door uw Statusregistratie-instanties of de certificeringsinstantie (CA). De ondertekende x509 certificaat kan worden samengevoegd met de in behandeling sleutel worden gekoppeld aan het voltooien van het certificaat KV in Key Vault. Hoewel deze methode zijn meer stappen vereist, biedt u met betere beveiliging omdat de persoonlijke sleutel is gemaakt in en tot Key Vault beperkt. Dit wordt uitgelegd in het onderstaande diagram.  
+-    **Maak handmatig een nieuw certificaat:** Dit maakt een openbaar / persoonlijk sleutelpaar en een X.509-aanvraag voor Certificaatondertekening genereren. De aanvraag voor Certificaatondertekening kan worden ondertekend door uw Statusregistratie-instanties of de certificeringsinstantie (CA). De ondertekende x509 certificaat kan worden samengevoegd met de in behandeling sleutel worden gekoppeld aan het voltooien van het certificaat KV in Key Vault. Hoewel deze methode zijn meer stappen vereist, biedt u met betere beveiliging omdat de persoonlijke sleutel is gemaakt in en tot Key Vault beperkt. Dit wordt uitgelegd in het onderstaande diagram.  
 
 ![Een certificaat maken met uw eigen certificeringsinstantie](media/certificate-authority-1.png)  
 
@@ -39,7 +38,7 @@ De volgende beschrijvingen komen overeen met de groene letters stappen in het vo
 4. De door u gekozen CA reageert met een een X509 certificaat.
 5. Uw toepassing klaar is voor het nieuwe certificaat maken met een fusie van de X509 certificaat van uw Certificeringsinstantie.
 
--   **Maak een certificaat met de provider van een bekende verlener:** voor deze methode moet u een eenmalige taak voor het maken van een verlener-object. Zodra een verlener-object is gemaakt in uw key vault, de naam ervan in het beleid van het certificaat KV kan worden verwezen. Een aanvraag voor het maken van een certificaat KV maakt een sleutelpaar in de kluis en communiceren met de uitgever provider-service met behulp van de gegevens in het object waarnaar wordt verwezen, uitgever om een x509 certificaat. De x509 certificaat wordt opgehaald uit de service verlener en wordt samengevoegd met het sleutelpaar om uit te voeren van de KV certificaat maken.  
+-   **Maak een certificaat met een bekende verlener-provider:** Deze methode moet u een eenmalige taak voor het maken van een verlener-object. Zodra een verlener-object is gemaakt in uw key vault, de naam ervan in het beleid van het certificaat KV kan worden verwezen. Een aanvraag voor het maken van een certificaat KV maakt een sleutelpaar in de kluis en communiceren met de uitgever provider-service met behulp van de gegevens in het object waarnaar wordt verwezen, uitgever om een x509 certificaat. De x509 certificaat wordt opgehaald uit de service verlener en wordt samengevoegd met het sleutelpaar om uit te voeren van de KV certificaat maken.  
 
 ![Maak een certificaat met een Key Vault is een partnerschap aangegaan certificeringsinstantie](media/certificate-authority-2.png)  
 

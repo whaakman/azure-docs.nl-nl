@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 99a8ac29167db4619d68cfa51de6a747d5ae9a51
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040231"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079167"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Bewaking en Diagnose met een latentie van 1 seconde
 
@@ -38,7 +38,7 @@ Met Live Metrics Stream, kunt u het volgende doen:
 
 ## <a name="get-started"></a>Aan de slag
 
-1. Als u nog niet hebt [Application Insights geïnstalleerd](../../azure-monitor/app/asp-net.md) in uw ASP.NET-web-app of [app voor Windows server](../../application-insights/app-insights-windows-services.md), doet u dat nu. 
+1. Als u nog niet hebt [Application Insights geïnstalleerd](../../azure-monitor/app/asp-net.md) in uw ASP.NET-web-app of [app voor Windows server](../../azure-monitor/app/windows-services.md), doet u dat nu. 
 2. **Update naar de nieuwste versie** van het pakket Application Insights. In Visual Studio met de rechtermuisknop op uw project en kies **Nuget-pakketten beheren**. Open de **Updates** tabblad controle **Include prerelease**, en selecteer alle Microsoft.ApplicationInsights.*-pakketten.
 
     Implementeer uw app opnieuw.

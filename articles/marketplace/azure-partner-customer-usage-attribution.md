@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602168"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077739"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -36,10 +36,8 @@ Klant gebruik attribution is vereist op alle [oplossingssjablonen](./cloud-partn
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager-sjablonen gebruiken
 
-Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een klant met behulp van Resource Manager-sjablonen. Hebt u een Resource Manager-sjabloon die beschikbaar is in de Azure Marketplace, op GitHub, of als een snelstartgids, moet het proces voor het wijzigen van de sjabloon om in te schakelen van een methode voor het nieuwe bijhouden rechtstreeks doorsturen. Als u een Azure Resource Manager-sjabloon niet gebruikt, worden hier enkele koppelingen naar informatie waarmee u beter inzicht in de Resource Manager-sjablonen en hoe u een te maken: 
+Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een klant met behulp van Resource Manager-sjablonen. Hebt u een Resource Manager-sjabloon die beschikbaar is in de Azure Marketplace, op GitHub, of als een snelstartgids, moet het proces voor het wijzigen van de sjabloon om in te schakelen van een methode voor het nieuwe bijhouden rechtstreeks doorsturen. Zie voor meer informatie, [maken en implementeren van uw eerste Resource Manager-sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*   [Uw eerste Resource Manager-sjabloon maken en implementeren](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Maken van een oplossingssjabloon voor Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>Een GUID toevoegen aan uw sjabloon
 
@@ -270,11 +268,15 @@ Microsoft biedt partners met een weergave van implementaties van klanten hun sja
 
 **Wie kan een GUID toevoegen aan een sjabloon?**
 
-De tracerings-resource is bedoeld om van de partner-oplossing verbinden met gebruik van Azure van de klant. Gegevens over gebruik is gekoppeld aan de identiteit van een partner Microsoft Partner Network (MPN-ID). 
+De tracerings-resource is bedoeld om van de partner-oplossing verbinden met gebruik van Azure van de klant. Gegevens over gebruik is gekoppeld aan de identiteit van een partner Microsoft Partner Network (MPN-ID). Rapportage is beschikbaar voor partners in de CPP.
 
 **Nadat een GUID wordt toegevoegd, kan het worden gewijzigd?**
  
 Ja, een klant of implementatiepartner kan de sjabloon aanpassen en kunt wijzigen of verwijderen van de GUID. Het is raadzaam dat partners proactief de rol van de resource en de GUID voor hun klanten en partners beschrijven om te voorkomen dat de verwijdering of bewerkingen voor het bijhouden van GUID. De GUID wijzigt, worden alleen nieuwe, niet-bestaande implementaties en resources verwijderd.
+
+**Wanneer reporting beschikbaar zal zijn?**
+
+Een bètaversie van rapportage moet zijn binnenkort beschikbaar. Reporting wordt in de CPP worden geïntegreerd.
 
 **Kan ik de sjablonen die zijn geïmplementeerd vanuit een niet-Microsoft-opslagplaats, zoals GitHub bijhouden?**
 

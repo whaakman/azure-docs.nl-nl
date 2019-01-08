@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039425"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062941"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
 
@@ -59,6 +59,24 @@ Als de geselecteerde werkruimte is niet gekoppeld aan een Automation-Account, zi
 
 ![Er is geen werkruimte](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+Bij het inschakelen van oplossingen, worden alleen bepaalde regio's worden ondersteund voor het koppelen van een Log Analytics-werkruimte en een Automation-Account.
+
+De volgende tabel bevat de ondersteunde toewijzingen:
+
+|**Log Analytics-werkruimte regio**|**Azure Automation-regio**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|VS-Oost|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|West-Europa|West-Europa|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 Schakel het selectievakje naast een virtuele machine die u niet wilt inschakelen. Virtuele machines die kan niet worden ingeschakeld, zijn al uitgeschakeld.
 
 Klik op **inschakelen** de oplossing in te schakelen. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
@@ -80,13 +98,13 @@ Nadat u deze oplossingen hebt verwijderd, kunt u de volgende stappen uit als u w
 
 1. Open uw Automation-account vanuit Azure portal, en op de Automation-account selecteren pagina **gekoppelde werkruimte** onder de sectie **gerelateerde Resources** aan de linkerkant.
 
-1. Klik op de pagina van de werkruimte ontkoppelen **werkruimte ontkoppelen**.
+2. Klik op de pagina van de werkruimte ontkoppelen **werkruimte ontkoppelen**.
 
    ![Pagina voor werkruimte ontkoppelen](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    U ontvangt een prompt waarin u wordt gevraagd of u wilt doorgaan.
 
-1. Terwijl Azure Automation probeert te ontkoppelen van het account uw Log Analytics-werkruimte, u kunt de voortgang volgen onder **meldingen** in het menu.
+3. Terwijl Azure Automation probeert te ontkoppelen van het account uw Log Analytics-werkruimte, u kunt de voortgang volgen onder **meldingen** in het menu.
 
 Als u de oplossing Update Management gebruikt, kunt indien gewenst u verwijderen van de volgende items die niet meer nodig zijn nadat u de oplossing te verwijderen.
 
@@ -106,37 +124,37 @@ Wanneer onboarding meerdere machines, kunnen er machines die als **kan niet word
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Virtuele machine rapporteert aan een andere werkruimte: '\<workspaceName\>'.  De configuratie wijzigen om deze te gebruiken voor het inschakelen van
 
-**Oorzaak**: deze fout ziet u dat de virtuele machine die u vrijgeven rapporten aan een andere werkruimte wilt.
+**Oorzaak**: Deze fout ziet u dat de virtuele machine die u vrijgeven rapporten aan een andere werkruimte wilt.
 
-**Oplossing**: klik op **gebruiken als de configuratie** te wijzigen van de betreffende Automation-Account en de Log Analytics-werkruimte.
+**Oplossing**: Klik op **gebruiken als de configuratie** te wijzigen van de betreffende Automation-Account en de Log Analytics-werkruimte.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Virtuele machine rapporteert aan een werkruimte die is niet beschikbaar in dit abonnement
 
-**Oorzaak**: de werkruimte die de virtuele machine rapporteert aan:
+**Oorzaak**: De werkruimte die de virtuele machine rapporteert aan:
 
 * Is in een ander abonnement of
 * Niet meer bestaat, of
 * Is in een resourcegroep die u geen toegangsmachtigingen voor hebt
 
-**Oplossing**: het automation-account gekoppeld aan de werkruimte waarin de virtuele machine en vrijgeven de virtuele machine gevonden door het veranderen van de scopeconfiguratie.
+**Oplossing**: Het automation-account gekoppeld aan de werkruimte waarin de virtuele machine en vrijgeven de virtuele machine gevonden door het veranderen van de scopeconfiguratie.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>De versie van de VM-besturingssysteem of distributie wordt niet ondersteund
 
-**Oorzaak:** de oplossing wordt niet ondersteund voor alle Linux-distributies of alle versies van Windows.
+**Oorzaak:** De oplossing wordt niet ondersteund voor alle Linux-distributies of alle versies van Windows.
 
-**Oplossing:** verwijzen naar de [lijst van ondersteunde clients](automation-update-management.md#clients) voor de oplossing.
+**Oplossing:** Raadpleeg de [lijst van ondersteunde clients](automation-update-management.md#clients) voor de oplossing.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Klassieke virtuele machines kunnen niet worden ingeschakeld
 
-**Oorzaak**: virtuele machines die gebruikmaken van het klassieke implementatiemodel worden niet ondersteund.
+**Oorzaak**: Virtuele machines die gebruikmaken van het klassieke implementatiemodel worden niet ondersteund.
 
-**Oplossing**: de virtuele machine migreren naar het resource manager-implementatiemodel. Zie voor meer informatie hoe u dit doet, [classic deployment model resources migreren](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Oplossing**: De virtuele machine migreren naar het resource manager-implementatiemodel. Zie voor meer informatie hoe u dit doet, [classic deployment model resources migreren](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>Virtuele machine is gestopt. (toewijzing opgeheven)
 
-**Oorzaak**: de virtuele machine in niet in een **met** staat.
+**Oorzaak**: De virtuele machine in niet in een **met** staat.
 
-**Oplossing**: om onboarding een virtuele machine naar een oplossing voor de virtuele machine moet worden uitgevoerd. Klik op de **VM starten** inlinekoppeling naar de virtuele machine starten zonder de pagina wordt genavigeerd.
+**Oplossing**: Om moet onboarding een virtuele machine naar een oplossing voor de virtuele machine worden uitgevoerd. Klik op de **VM starten** inlinekoppeling naar de virtuele machine starten zonder de pagina wordt genavigeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

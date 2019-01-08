@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000560"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065729"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Azure Resource Manager-sjablonen voor het implementeren van logische apps maken
 
@@ -34,7 +34,7 @@ In de logische app-resource, vindt u deze definitie in de `definition` eigenscha
 * **Verbindingen**: Verwijst naar een afzonderlijke resources die veilig opslaan van metagegevens over elke connector-verbindingen, zoals een verbindingsreeks en een toegangstoken.
 In de logische app-resource, uw logische app verwijst naar deze resources in de `parameters` sectie.
 
-U kunt al deze onderdelen van logische apps weergeven met behulp van een hulpprogramma zoals [Azure Resource Explorer](http://resources.azure.com).
+U kunt al deze onderdelen van logische apps weergeven met behulp van een hulpprogramma zoals [Azure Resource Explorer](http://resources.azure.com). Zie voor JSON-syntaxis en eigenschappen [Microsoft.Logic resourcetypen](/azure/templates/microsoft.logic/allversions).
 
 Als u een sjabloon voor een logische app voor gebruik met brongroepimplementaties, moet u de resources definiëren en parameteriseren indien nodig.
 Bijvoorbeeld, als u een ontwikkeling, testen en productie-omgeving implementeert, wilt u waarschijnlijk gebruiken verschillende verbindingsreeksen naar een SQL-database in elke omgeving.

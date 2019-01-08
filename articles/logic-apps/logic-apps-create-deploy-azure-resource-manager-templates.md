@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230809"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062890"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen maken en implementeren
 
-Met Azure Logic Apps biedt Azure Resource Manager-sjablonen die u gebruiken kunt, niet alleen om logische apps voor het automatiseren van werkstromen te maken, maar ook om de resources en parameters die worden gebruikt voor de implementatie te definiëren. U kunt deze sjabloon gebruiken voor uw eigen zakelijke scenario's of de sjabloon om te voldoen aan uw behoeften aanpassen. Meer informatie over de [Resource Manager-sjabloon voor logische apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) en [structuur van Azure Resource Manager-sjabloon en de syntaxis](../azure-resource-manager/resource-group-authoring-templates.md).
+Met Azure Logic Apps biedt Azure Resource Manager-sjablonen die u gebruiken kunt, niet alleen om logische apps voor het automatiseren van werkstromen te maken, maar ook om de resources en parameters die worden gebruikt voor de implementatie te definiëren. U kunt deze sjabloon gebruiken voor uw eigen zakelijke scenario's of de sjabloon om te voldoen aan uw behoeften aanpassen. Meer informatie over de [Resource Manager-sjabloon voor logische apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) en [structuur van Azure Resource Manager-sjabloon en de syntaxis](../azure-resource-manager/resource-group-authoring-templates.md). Zie voor JSON-syntaxis en eigenschappen [Microsoft.Logic resourcetypen](/azure/templates/microsoft.logic/allversions).
 
 ## <a name="define-the-logic-app"></a>De logische app definiëren
 
@@ -79,7 +79,7 @@ De sjabloon maakt gebruik van parameterwaarden voor de naam van de logische app 
 
 Hier volgen beschrijvingen voor de parameters in de sjabloon:
 
-| Parameter | Beschrijving | Voorbeeld van JSON-definitie | 
+| Parameter | Description | Voorbeeld van JSON-definitie | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Hiermee definieert u de naam van de logische app die sjabloon wordt gemaakt. | "logicAppName": {"type": "string", "metagegevens": {'description': "myExampleLogicAppName"}} |
 | `testUri` | Definieert de locatie voor het testen van ping. | "testUri": {"type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 

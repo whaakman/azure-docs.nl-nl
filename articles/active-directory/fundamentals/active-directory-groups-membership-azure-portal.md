@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104268"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061892"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Toevoegen of verwijderen van een groep uit een andere groep met behulp van Azure Active Directory
 In dit artikel helpt u bij het toevoegen en verwijderen van een groep van een andere groep met behulp van Azure Active Directory.
@@ -29,7 +29,7 @@ In dit artikel helpt u bij het toevoegen en verwijderen van een groep van een an
 U kunt een bestaande beveiligingsgroep op een andere bestaande beveiligingsgroep (ook wel bekend als geneste groepen), het maken van een lid van groep (subgroep) en een bovenliggende groep toevoegen. De lid-groep neemt de kenmerken en eigenschappen van de bovenliggende groep, zodat u de configuratie.
 
 >[!Important]
->Wordt momenteel niet ondersteund:<ul><li>Groepen toevoegen aan een groep gesynchroniseerd met on-premises Active Directory</li><li>Beveiligingsgroepen toevoegen aan Office 365-groepen</li><li>Office 365-groepen toe te voegen aan beveiligingsgroepen of andere Office 365-groepen</li><li>Apps toewijzen aan geneste groepen</li><li>Licenties toe te passen op geneste groepen</li></ul>
+>Wordt momenteel niet ondersteund:<ul><li>Groepen toevoegen aan een groep gesynchroniseerd met on-premises Active Directory.</li><li>Beveiligingsgroepen toevoegen aan Office 365-groepen.</li><li>Office 365-groepen toevoegen aan beveiligingsgroepen of andere Office 365-groepen.</li><li>Apps toewijzen aan geneste groepen.</li><li>Licenties toepassen op geneste groepen.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Een groep toevoegen als een lid van een andere groep
 

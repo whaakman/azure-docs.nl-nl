@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e620deae1a73c110dd22133a12155166a55b999
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cb2383ee8a921aa2c9c4e3b536edc203dd883200
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052016"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074441"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -141,7 +141,7 @@ We controleren of het IP-adres (IPv4 of IPv6) van de webclient met behulp van [G
 
 U kunt configureren dat de `ClientIpHeaderTelemetryInitializer` overnemen van het IP-adres van een andere koptekst. In sommige systemen, bijvoorbeeld, wordt deze verplaatst door een proxy, load balancer of een CDN `X-Originating-IP`. [Meer informatie](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-U kunt [Power BI gebruiken](../../application-insights/app-insights-export-power-bi.md) om de aanvraagtelemetrie van uw op een kaart weer te geven.
+U kunt [Power BI gebruiken](../../azure-monitor/app/export-power-bi.md ) om de aanvraagtelemetrie van uw op een kaart weer te geven.
 
 
 ## <a name="data"></a>Hoelang gegevens bewaard in de portal? Is het veilig?

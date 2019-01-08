@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231624"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063213"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Variabelen voor het opslaan en beheren van waarden in Azure Logic Apps maken
 
@@ -28,7 +28,10 @@ U kunt variabelen voor de gegevenstypen, zoals geheel getal, drijvende komma, Bo
 * Wijs een andere waarde toe aan de variabele.
 * Invoegen of *append* van de variabele waarde als de laatste keer in een tekenreeks of een matrix.
 
-Variabelen bestaan en globale alleen in de logische app-instantie waarin ze zijn gemaakt. Ze bewaren tevens, voor elke lus herhalingen binnen een exemplaar van de logische app. Wanneer u verwijst naar een variabele, gebruikt u de naam van de variabele als het token, niet van de actie naam, dit is de gebruikelijke manier om te verwijzen naar de uitvoer van een actie.
+Variabelen bestaan en globale alleen in de logische app-instantie waarin ze zijn gemaakt. Ze bewaren tevens, voor elke lus herhalingen binnen een exemplaar van de logische app. Wanneer u verwijst naar een variabele, gebruikt u de naam van de variabele als het token, niet van de actie naam, dit is de gebruikelijke manier om te verwijzen naar de uitvoer van een actie. 
+
+> [!IMPORTANT]
+> Standaard cycli in een lus 'Foreach' parallel worden uitgevoerd. Wanneer u variabelen in lussen gebruiken, voert u de lus [sequentieel](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) zodat variabelen voorspelbare resultaten worden geretourneerd. 
 
 Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>. 
 
@@ -38,7 +41,7 @@ Als u wilt volgen in dit artikel, zijn dit de items die u nodig hebt:
 
 * De logische app waar u een variabele maken 
 
-  Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Een [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) als de eerste stap in uw logische app 
 
@@ -71,9 +74,9 @@ U kunt een variabele maken en de gegevens van het type en de initiële waarde - 
 
    | Eigenschap | Vereist | Waarde |  Beschrijving |
    |----------|----------|-------|--------------|
-   | Naam | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
+   | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
    | Type | Ja | <*variabele-type*> | Het gegevenstype voor de variabele | 
-   | Waarde | Nee | <*Start-waarde*> | De beginwaarde van uw variabele <p><p>**Tip**: hoewel dit optioneel is, stelt u deze waarde in als een best practice, zodat u altijd weet de beginwaarde voor de variabele wat. | 
+   | Waarde | Nee | <*Start-waarde*> | De beginwaarde van uw variabele <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd weet de beginwaarde voor de variabele wat. | 
    ||||| 
 
    ![Variabele initialiseren](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -207,8 +210,8 @@ Om te verhogen of *verhoging* toevoegen van een variabele met een constante waar
 
    | Eigenschap | Vereist | Waarde |  Beschrijving |
    |----------|----------|-------|--------------|
-   | Naam | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
-   | Waarde | Nee | <*incrementele waarde*> | De waarde die wordt gebruikt voor het verhogen van de variabele. De standaardwaarde is een. <p><p>**Tip**: hoewel dit optioneel is, stelt u deze waarde in als een best practice, zodat u altijd de waarde weet voor uw variabele verhoogd. | 
+   | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
+   | Waarde | Nee | <*incrementele waarde*> | De waarde die wordt gebruikt voor het verhogen van de variabele. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de waarde weet voor uw variabele verhoogd. | 
    |||| 
 
    Bijvoorbeeld: 
@@ -327,8 +330,8 @@ Hier worden de eigenschappen voor de **variabele verlagen** actie:
 
 | Eigenschap | Vereist | Waarde |  Beschrijving |
 |----------|----------|-------|--------------|
-| Naam | Ja | <*naam van de variabele*> | De naam van de variabele verlagen | 
-| Waarde | Nee | <*incrementele waarde*> | De waarde voor de variabele afneemt. De standaardwaarde is een. <p><p>**Tip**: hoewel dit optioneel is, stelt u deze waarde in als een best practice, zodat u altijd de specifieke waarde voor afneemt uw variabele weet. | 
+| Name | Ja | <*naam van de variabele*> | De naam van de variabele verlagen | 
+| Waarde | Nee | <*incrementele waarde*> | De waarde voor de variabele afneemt. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de specifieke waarde voor afneemt uw variabele weet. | 
 ||||| 
 
 Als u van de ontwerpfunctie voor de weergave-editor overschakelt, volgt u de manier waarop de **variabele verlagen** actie wordt weergegeven in het definitie logische app, dat zich in de JSON-indeling.
@@ -362,7 +365,7 @@ Hier worden de eigenschappen voor de **variabele instellen** actie:
 
 | Eigenschap | Vereist | Waarde |  Beschrijving | 
 |----------|----------|-------|--------------| 
-| Naam | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
+| Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
 | Waarde | Ja | <*nieuwe waarde*> | De waarde die u wilt toewijzen van de variabele. Beide moeten hetzelfde gegevenstype hebben. | 
 ||||| 
 
@@ -420,7 +423,7 @@ Hier worden de eigenschappen voor de **toevoegen aan...**  acties:
 
 | Eigenschap | Vereist | Waarde |  Beschrijving | 
 |----------|----------|-------|--------------| 
-| Naam | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
+| Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
 | Waarde | Ja | <*toevoeg-waarde*> | De waarde die u toevoegen wilt, en die elk type kan hebben | 
 |||||  
 

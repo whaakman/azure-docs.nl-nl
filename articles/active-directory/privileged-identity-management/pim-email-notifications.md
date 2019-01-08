@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846892"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065338"
 ---
 # <a name="email-notifications-in-pim"></a>E-mailmeldingen in PIM
 
@@ -35,7 +35,7 @@ E-mailberichten verzonden uit PIM voor zowel Azure AD en Azure-resourcerollen he
 
 Deze e-mailberichten bevatten een **PIM** voorvoegsel in de onderwerpregel. Hier volgt een voorbeeld:
 
-- PIM: Alain Charon is permanent toegewezen voor de rol van lezer van de back-up
+- PIM: Alain Charon is permanent toegewezen aan de rol van lezer van de back-up
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>PIM-e-mailberichten voor Azure AD-rollen
 
@@ -43,16 +43,15 @@ PIM verzonden e-mailberichten wanneer de volgende voor Azure AD-rollen gebeurten
 
 - Wanneer een activering van bevoorrechte rollen is in afwachting van goedkeuring
 - Wanneer een aanvraag voor activering van bevoorrechte rol is voltooid
-- Wanneer een bevoorrechte rol wordt toegewezen als in aanmerking komend
 - Wanneer Azure AD PIM is ingeschakeld
 
 Wie deze e-mailberichten voor Azure AD-rollen ontvangt is afhankelijk van uw rol, de gebeurtenis en de meldingen instellen:
 
-| Gebruiker | Rolactivering is in afwachting van goedkeuring | De aanvraag voor rolactivering is voltooid | Rol is toegewezen als in aanmerking komend | PIM is ingeschakeld |
-| --- | --- | --- | --- | --- |
-| Beheerder met bevoorrechte rol</br>(Geactiveerd/geschikte) | Ja</br>(alleen als er geen expliciete goedkeurders zijn opgegeven) | Ja* | Ja | Ja |
-| Beveiligingsbeheerder</br>(Geactiveerd/geschikte) | Nee | Ja* | Ja | Ja |
-| Globale beheerder</br>(Geactiveerd/geschikte) | Nee | Ja* | Ja | Ja |
+| Gebruiker | Rolactivering is in afwachting van goedkeuring | De aanvraag voor rolactivering is voltooid | PIM is ingeschakeld |
+| --- | --- | --- | --- |
+| Beheerder met bevoorrechte rol</br>(Geactiveerd/geschikte) | Ja</br>(alleen als er geen expliciete goedkeurders zijn opgegeven) | Ja* | Ja |
+| Beveiligingsbeheerder</br>(Geactiveerd/geschikte) | Nee | Ja* | Ja |
+| Globale beheerder</br>(Geactiveerd/geschikte) | Nee | Ja* | Ja |
 
 \* Als de [ **meldingen** instelling](pim-how-to-change-default-settings.md#notifications) is ingesteld op **inschakelen**.
 
@@ -68,7 +67,7 @@ Een wekelijkse samenvatting PIM-e-mail voor Azure AD-rollen wordt verzonden Priv
 
 De e-mailbericht bevat vier tegels:
 
-| Tegel | Beschrijving |
+| Naast elkaar | Description |
 | --- | --- |
 | **Gebruikers die zijn geactiveerd** | Aantal keren dat gebruikers hun in aanmerking komende rol binnen de tenant geactiveerd. |
 | **Gebruikers permanent gemaakt** | Aantal keren dat gebruikers met een in aanmerking komende toewijzing is permanent gemaakt worden. |

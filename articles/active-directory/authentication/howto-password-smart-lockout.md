@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 80b1896c55d00a4ac8e5dea62afc08ace1a84249
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435273"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078521"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slimme accountvergrendeling
 
@@ -70,6 +70,14 @@ Als u wilt controleren of wijzigen van de vergrendeling van het smart-waarden vo
 > Als de eerste aanmelding nadat een vergrendeling van het is ook mislukt, de account vergrendeld opnieuw. Als een account herhaaldelijk wordt vergrendeld, wordt de vergrendelingsduur verhoogd.
 
 ![Het Azure AD slimme vergrendeling van het beleid in de Azure-portal aanpassen](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+
+## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>Bepalen of de functie Smartlockout of niet werkt
+
+Wanneer de drempel smartlockout wordt geactiveerd, ontvangt u het volgende bericht wanneer het account is vergrendeld:
+
+**Uw account is tijdelijk vergrendeld om te voorkomen dat het gebruik door onbevoegden. Probeer het later opnieuw, en als u nog steeds problemen ondervindt, neem dan contact op met uw beheerder.**
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
 [Meer informatie over het blokkeren van onjuiste wachtwoorden in uw organisatie met behulp van Azure AD.](howto-password-ban-bad.md)

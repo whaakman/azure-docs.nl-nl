@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255759"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065627"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -23,33 +23,13 @@ Zie voor meer informatie over het maken van een Azure storage-account, [een opsl
 
 ## <a name="types-of-storage-accounts"></a>Typen opslagaccounts
 
-Azure Storage biedt drie typen opslagaccounts. Elk type biedt ondersteuning voor verschillende functies en heeft een eigen prijsmodel. Houd rekening met deze verschillen voordat u een opslagaccount om te bepalen welk type account dat wordt aanbevolen voor uw toepassingen kunt maken. De typen opslagaccounts zijn:
-
-* **[Voor algemeen gebruik v2-accounts](#general-purpose-v2-accounts)**  (aanbevolen voor de meeste scenario's)
-* **[Voor algemeen gebruik v1-accounts](#general-purpose-v1-accounts)**
-* **[BLOB storage-accounts](#blob-storage-accounts)** 
-
-De volgende tabel beschrijft de soorten opslagaccounts en de bijbehorende mogelijkheden:
-
-| Type opslagaccount | Ondersteunde services                       | Ondersteunde prestatielagen | Ondersteunde toegangslagen               | Opties voor gegevensreplicatie                                                | Implementatiemodel<sup>1</sup>  | Versleuteling<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| Algemeen gebruik V2   | BLOB, bestand, wachtrij, tabel en schijf       | Standard, Premium           | Hot, Cool archief<sup>3</sup> | LRS-, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager | Versleuteld  |
-| Algemeen gebruik V1   | BLOB, bestand, wachtrij, tabel en schijf       | Standard, Premium           | N/A                                  | LRS, GRS, RA-GRS                                                   | Resource Manager, klassiek  | Versleuteld  |
-| Blob Storage         | BLOB (blok-blobs en toevoeg-blobs alleen) | Standard                    | Hot, Cool archief<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Resource Manager  | Versleuteld  |
-
-<sup>1</sup>met het Azure Resource Manager-implementatiemodel wordt aanbevolen. Opslagaccounts met behulp van het klassieke implementatiemodel kunnen nog steeds worden gemaakt op bepaalde locaties en bestaande klassieke accounts worden nog steeds ondersteund. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie: implementatiemodellen en de status van uw resources begrijpen](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>alle opslagaccounts zijn versleuteld met behulp van Storage Service Encryption (SSE) voor data-at-rest. Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](storage-service-encryption.md).
-
-<sup>3</sup>de Archive-laag is beschikbaar op het niveau van een afzonderlijke blob alleen, niet op het niveau van de storage-account. Alleen blok-blobs en toevoeg-blobs kunnen worden gearchiveerd. Zie voor meer informatie, [Azure Blob storage: Hot, Cool, en Archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>zone-redundante opslag (ZRS) is alleen beschikbaar voor algemeen gebruik v2 standard storage-accounts. Zie voor meer informatie over ZRS [Zone-redundante opslag (ZRS): toepassingen met hoge beschikbaarheid Azure Storage](storage-redundancy-zrs.md). Zie voor meer informatie over andere opties voor gegevensreplicatie [Azure Storage-replicatie](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>V2-accounts voor algemeen gebruik
 
 Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfuncties van Azure en alle functionaliteit van voor algemeen gebruik v1 en Blob storage-accounts. Voor algemeen gebruik v2-accounts bieden de laagste per GB capaciteit prijzen voor Azure Storage, evenals de bedrijfstak van concurrerende transactieprijzen in. Algemeen gebruik v2-opslagaccounts bieden ondersteuning voor deze Azure Storage-services:
 
-- BLOBs (alle typen: blok, toevoegen, pagina)
+- BLOBs (alle typen: Blokkeren, pagina toevoegen)
 - Bestanden
 - Disks
 - Wachtrijen
@@ -98,7 +78,7 @@ Neem de volgende regels in acht als u het opslagaccount een naam geeft:
 Algemene opslagaccounts kunnen worden geconfigureerd voor een van de volgende prestatielagen:
 
 * Een standard-prestatielaag voor het opslaan van blobs, bestanden, tabellen, wachtrijen en schijven van de virtuele machine van Azure.
-* Een premium-prestatielaag voor het opslaan van virtuele-machineschijven van Azure alleen. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md) voor een gedetailleerd overzicht van Premium-opslag.
+* Een premium-prestatielaag voor het opslaan van virtuele-machineschijven van Azure alleen. Zie [Premium Storage: Opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md) voor een gedetailleerd overzicht van Premium-opslag.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Toegangslagen voor blok-blob-gegevens
 
@@ -133,7 +113,7 @@ Alle gegevens in uw storage-account is versleuteld aan de servicezijde. Zie voor
 
 ## <a name="storage-account-endpoints"></a>Eindpunten van opslagaccount
 
-Een opslagaccount biedt een unieke naamruimte in Azure voor uw gegevens. Elk object dat u in Azure Storage opslaat, heeft een adres met de naam van uw unieke account. De combinatie van de accountnaam en het Azure Storage service-eindpunt vormt de eindpunten voor uw storage-account.
+Een opslagaccount biedt een unieke naamruimte in Azure voor uw gegevens. Elk object dat u in Azure Storage opslaat, heeft een adres dat uw unieke accountnaam bevat. De combinatie van de accountnaam en het service-eindpunt voor Azure Storage vormen de eindpunten voor uw opslagaccount.
 
 Bijvoorbeeld, als de naam van uw opslagaccount voor algemeen gebruik *mystorageaccount*, en vervolgens de Standaardeindpunten voor dat account zijn:
 
@@ -157,9 +137,9 @@ Elke aanvraag ten opzichte van uw storage-account moet worden toegestaan. Op het
 
 U kunt toegang verlenen tot de gegevens in uw opslagaccount met behulp van een van de volgende methoden:
 
-- **Azure Active Directory:** gebruik Azure Active Directory (Azure AD) referenties voor het verifiëren van een gebruiker, groep of andere identiteit voor toegang tot blob- en wachtrijservices gegevens (preview). Als verificatie van een identiteit geslaagd is, retourneert een token maken voor gebruik in het autoriseren van de aanvraag voor Azure Blob-opslag of Queue storage met Azure AD. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (preview)](storage-auth-aad.md).
-- **Gedeelde sleutel autorisatie:** toegangssleutel voor uw opslagaccount te maken van een verbindingsreeks die uw toepassing tijdens runtime worden gebruikt voor toegang tot Azure-opslag gebruiken. De waarden in de verbindingsreeks gebruikt om samen te stellen de *autorisatie* -header die wordt doorgegeven aan Azure Storage. Zie voor meer informatie, [configureren van Azure Storage-verbindingsreeksen](storage-configure-connection-string.md).
-- **Handtekening voor gedeelde toegang:** gebruiken een shared access signature voor toegang tot resources in uw opslagaccount delegeren als u geen Azure AD-verificatie. Een shared access signature is een token dat alle informatie die nodig zijn voor het autoriseren van een aanvraag naar Azure Storage op de URL wordt ingekapseld. U kunt de storage-resource, machtigingen en het interval op waarover de machtigingen geldig zijn opgeven als onderdeel van de shared access signature. Zie voor meer informatie, [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Azure Active Directory:** Gebruik Azure Active Directory (Azure AD)-referenties voor het verifiëren van een gebruiker, groep of andere identiteit voor toegang tot blob- en wachtrijservices gegevens (preview). Als verificatie van een identiteit geslaagd is, retourneert een token maken voor gebruik in het autoriseren van de aanvraag voor Azure Blob-opslag of Queue storage met Azure AD. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (preview)](storage-auth-aad.md).
+- **Gedeelde sleutel-autorisatie:** Gebruik uw toegangssleutel voor opslagaccount te maken van een verbindingsreeks die uw toepassing tijdens runtime worden gebruikt voor toegang tot Azure Storage. De waarden in de verbindingsreeks gebruikt om samen te stellen de *autorisatie* -header die wordt doorgegeven aan Azure Storage. Zie voor meer informatie, [configureren van Azure Storage-verbindingsreeksen](storage-configure-connection-string.md).
+- **Handtekening voor gedeelde toegang:** Een shared access signature gebruiken voor toegang tot resources in uw opslagaccount delegeren als u geen Azure AD-verificatie. Een shared access signature is een token dat alle informatie die nodig zijn voor het autoriseren van een aanvraag naar Azure Storage op de URL wordt ingekapseld. U kunt de storage-resource, machtigingen en het interval op waarover de machtigingen geldig zijn opgeven als onderdeel van de shared access signature. Zie voor meer informatie, [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Verifiëren van gebruikers of toepassingen die gebruikmaken van Azure AD-referenties biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere middelen van autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. U kunt ook blijven gebruiken van handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw opslagaccount verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid. 

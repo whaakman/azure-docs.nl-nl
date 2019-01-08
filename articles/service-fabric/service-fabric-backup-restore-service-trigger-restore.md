@@ -1,6 +1,6 @@
 ---
 title: Herstellen van back-ups in Azure Service Fabric | Microsoft Docs
-description: Gebruik van Service Fabric periodieke back-up en herstellen van de functie voor het herstellen van gegevens van back-up van uw toepassingsgegevens.
+description: Gebruik de periodieke back-up en herstellen van de functie in Service Fabric voor het herstellen van gegevens vanuit een back-up van uw toepassingsgegevens.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -14,46 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 69604decab354368f336b85bfa1497671f0c3101
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730159"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064828"
 ---
-#  <a name="restoring-backup-in-azure-service-fabric"></a>Herstellen van back-ups in Azure Service Fabric
+# <a name="restoring-backup-in-azure-service-fabric"></a>Herstellen van back-ups in Azure Service Fabric
 
+Azure Service Fabric kunt betrouwbare Stateful services en Reliable Actors handhaven een veranderlijke, gezaghebbende status nadat een aanvraag en respons transactie is voltooid. Een stateful service mogelijk gedurende een lange periode uitvallen of gegevens gaan verloren vanwege een noodgeval. Als dit gebeurt, wordt de service moet worden hersteld vanuit de meest recente acceptabele back-up, zodat deze kan blijven werken.
 
-Betrouwbare Stateful services en Reliable Actors in Service Fabric kan veranderlijke, gezaghebbende status, buiten de aanvraag en antwoord of een volledige transactie onderhouden. Als een stateful service gedurende een lange periode uitvalt of gegevens vanwege een noodgeval verliest, moet deze mogelijk worden hersteld naar de meest recente acceptabele back-up van de status om door te gaan met het leveren van de service nadat deze terugkomen.
+U kunt bijvoorbeeld configureren dat een service voor het back-up van de gegevens voor bescherming tegen de volgende scenario's:
 
-Service wilt bijvoorbeeld back-up van de gegevens om u te beschermen tegen de volgende scenario's:
-
-- In het geval van het permanente verlies van gegevens van een hele Service Fabric-cluster. **(De aanvraag van herstel na noodgevallen - DR)**
-- Permanente verlies van een meerderheid van de replica's van een servicepartitie. **(In geval van verlies van gegevens)**
-- Administratieve fouten waarbij de status per ongeluk wordt verwijderd of beschadigd. Een beheerder met voldoende bevoegdheden verwijdert bijvoorbeeld per ongeluk de service. **(Geval van verlies van gegevens)**
-- Fouten in de service die leiden gegevensbeschadiging tot. Beschadiging van gegevens kan bijvoorbeeld gebeuren wanneer een upgrade van de code service begint beschadigde gegevens schrijven naar een betrouwbare verzameling. In dat geval, zowel de code en de gegevens mogelijk teruggezet naar een eerdere toestand. **(In geval van beschadiging van gegevens)**
-
+- **Geval van herstel na noodgevallen**: Permanent verlies van een hele Service Fabric-cluster.
+- **Geval van verlies van gegevens**: Permanente verlies van een meerderheid van de replica's van een servicepartitie.
+- **Geval van verlies van gegevens**: Per ongeluk verwijderen of beschadiging van de service. Een beheerder verwijdert bijvoorbeeld per ongeluk de service.
+- **Geval van beschadiging van gegevens**: Fouten in de service kunnen gegevens beschadigd raken. Beschadiging van gegevens kan bijvoorbeeld gebeuren wanneer de upgrade van een service-code beschadigde gegevens naar een betrouwbare verzameling schrijft. In dat geval moet wellicht u zowel de code en de gegevens te herstellen naar een eerdere toestand.
 
 ## <a name="prerequisites"></a>Vereisten
-* Herstellen als u wilt activeren, de _Fault Analysis Service (FAS)_ moet worden ingeschakeld voor het cluster
-* De back-up moet terugzetten moet worden genomen door _back-up herstellen Service (BRS)_
-* De herstelbewerking kan alleen worden geactiveerd op een partitie.
 
-## <a name="triggering-restore"></a>Activeren van de herstelbewerking
+- Voor het activeren van een herstelbewerking de _Fault Analysis Service (FAS)_ moet zijn ingeschakeld voor het cluster.
+- De _back-up herstellen Service (BRS)_ de back-up gemaakt.
+- De herstelbewerking kan alleen worden geactiveerd op een partitie.
 
-De terugzetbewerking kan worden voor het gebruik van de volgende scenario 's 
-* Gegevens herstellen in geval van _herstel na noodgevallen_ (DR)
-* Gegevens herstellen in geval van _gegevensbeschadiging / verlies van gegevens_
+## <a name="triggered-restore"></a>Geactiveerde herstellen
 
+Een terugzetbewerking kan worden geactiveerd voor het gebruik van de volgende scenario's:
 
+- Gegevens herstellen voor _herstel na noodgevallen_.
+- Gegevens herstellen voor _gegevens beschadigd/gegevensverlies_.
 
-### <a name="data-restore-in-the-event-of-disaster-recovery-dr"></a>Gegevens herstellen in geval van _herstel na noodgevallen_ (DR)
-In het geval van een hele Service Fabric-cluster wordt verbroken, kunnen de gegevens voor de partities van de betrouwbare Stateful service en Reliable Actors worden hersteld naar een ander cluster. De gewenste back-up kan worden geselecteerd in de inventarisatie van [GetBackupAPI met Details van de back-upopslag](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). De back-up-opsomming kan zijn voor een toepassing, service of partitie.
+### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Het herstellen van gegevens in het geval van herstel na noodgevallen
 
-Hiermee kunnen wordt ervan uitgegaan dat het verloren cluster is het cluster dat wordt vermeld in [inschakelen periodieke back-up voor betrouwbare Stateful service en Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), die waren `SampleApp` geïmplementeerd, waarbij de partitie is dat back-upbeleid ingeschakeld en back-ups plaatsvinden in Azure Storage. 
+Als een hele Service Fabric-cluster verloren gegaan is, kunt u de gegevens voor de partities van de betrouwbare Stateful service en betrouwbare actoren herstellen. De gewenste back-up kan worden geselecteerd in de lijst wanneer u [GetBackupAPI met details van de back-upopslag](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). De back-opsomming kan zijn voor een toepassing, service of partitie.
 
+Voor het volgende voorbeeld wordt ervan uitgegaan dat het verloren cluster hetzelfde cluster waarnaar wordt verwezen in [inschakelen periodieke back-up voor betrouwbare Stateful service en Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In dit geval `SampleApp` wordt geïmplementeerd met back-upbeleid ingeschakeld, en de back-ups zijn geconfigureerd voor Azure Storage.
 
-Voer de volgende PowerShell-script voor het aanroepen van de REST-API voor het inventariseren van de back-ups gemaakt voor alle partities in de `SampleApp` toepassing in Service Fabric-cluster gaan verloren. De opsomming API vereist opslaggegevens, waarin de back-ups van een toepassing worden opgeslagen, voor het inventariseren van beschikbare back-ups. 
+Voer een PowerShell-script voor het gebruik van de REST-API om terug te keren een lijst van de back-ups gemaakt voor alle partities in de `SampleApp` toepassing. De API vereist dat de back-upopslag-gegevens om de beschikbare back-ups weer te geven.
 
 ```powershell
 $StorageInfo = @{
@@ -79,6 +77,7 @@ $response = Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'a
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Voorbeeld van uitvoer voor de bovenstaande uitvoeren:
 
 ```
@@ -104,7 +103,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 *
 BackupId                : 69436834-c810-4163-9386-a7a800f78359
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -116,12 +115,10 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3764
 CreationTimeUtc         : 2018-04-06T21:25:36Z
-FailureError            : 
+FailureError            :
 ```
 
-
-
-Voor het activeren van het herstellen, moeten we Kies de gewenste back-up. Laat de gewenste back-up voor de huidige noodherstel (DR) zijn de volgende back-up
+Als u wilt de terugzetbewerking kan worden geactiveerd, kiest u een van de back-ups. De huidige back-up voor herstel na noodgevallen kan bijvoorbeeld de volgende back-up:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -134,36 +131,42 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 ```
 
-Voor de API terugzetten, moet u aan de __BackupId__ en __back-uplocatie__ details. De partitie in de alternatieve cluster moet gekozen volgens de [partitieschema](service-fabric-concepts-partitioning.md#get-started-with-partitioning). Het is de verantwoordelijkheid van de gebruiker op de doelpartitie om terug te zetten van de back-up van het andere cluster aan de hand van het partitieschema in oorspronkelijke verloren cluster hebt gekozen.
+Voor de API terugzetten, moet u opgeven de _BackupId_ en _back-uplocatie_ details.
 
-Wordt ervan uitgegaan dat de partitie-ID op alternatieve cluster `1c42c47f-439e-4e09-98b9-88b8f60800c6`, die verwijst naar de partitie-ID van het oorspronkelijke cluster `974bd92a-b395-4631-8a7f-53bd4ae9cf22` door het vergelijken van de hoge en lage sleutel voor _(UniformInt64Partition) variabele partitioneren_.
+U moet ook een doelpartitie kiezen in het andere cluster zoals beschreven in de [partitieschema](service-fabric-concepts-partitioning.md#get-started-with-partitioning). De alternatieve cluster back-up wordt hersteld naar de partitie die is opgegeven in het partitieschema van het oorspronkelijke cluster gaan verloren.
+
+Als de partitie-ID op alternatieve cluster `1c42c47f-439e-4e09-98b9-88b8f60800c6`, kunt u deze toewijzen aan de partitie-ID van het oorspronkelijke cluster `974bd92a-b395-4631-8a7f-53bd4ae9cf22` door het vergelijken van de hoge en lage sleutel voor _(UniformInt64Partition) variabele partitioneren_.
 
 Voor _met de naam partitioneren_, de naamwaarde voor het identificeren van de doelpartitie in andere cluster wordt vergeleken.
 
-Het herstel op basis van de partitie van de back-cluster is aangevraagd door de volgende [API herstellen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
+U het herstel op basis van de partitie van de back-cluster met behulp van de volgende aanvragen [herstellen API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
-```powershell 
-$RestorePartitionReference = @{ 
+```powershell
+$RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
-    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' 
-} 
- 
+    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+}
+
 $body = (ConvertTo-Json $RestorePartitionReference) 
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/1c42c47f-439e-4e09-98b9-88b8f60800c6/$/Restore?api-version=6.4" 
- 
+
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
-``` 
-De voortgang van de terugzetbewerking kan worden [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress)
+```
 
-### <a name="data-restore-in-the-event-of-data-corruption--data-loss"></a>Gegevens herstellen in geval van _gegevensbeschadiging / verlies van gegevens_
+U kunt de voortgang van een herstelpunt met volgen [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
 
-Voor het geval van _gegevensverlies_ of _gegevensbeschadiging_ de gegevens voor de partities van de betrouwbare Stateful service en Reliable Actors kunnen worden hersteld naar een van de gekozen back-ups. Het volgende voorbeeld is de voortzetting van voorbeeld zoals vermeld in [inschakelen periodieke back-up voor betrouwbare Stateful service en Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), waarbij de partitie een back-upbeleid ingeschakeld heeft en back-up met een gewenste frequentie duurt in een Azure-opslag. 
+### <a name="data-restore-for-data-corruptiondata-loss"></a>Gegevens herstellen voor _gegevensbeschadiging_/_verlies van gegevens_
 
-De gewenste back-up is geselecteerd in de uitvoer van [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In dit scenario wordt is de back-up gegenereerd op basis van hetzelfde cluster in het verleden.
-Voor het activeren van het herstellen, moeten we de gewenste back-up in de lijst kiezen. Laat ons gewenste back-up voor de huidige _gegevensverlies_ / _gegevensbeschadiging_ worden de volgende back-up
+Voor _gegevensverlies_ of _gegevensbeschadiging_, partities op de back-up voor betrouwbare Stateful service en Reliable Actors-partities kunnen worden hersteld naar een van de gekozen back-ups.
+
+Het volgende voorbeeld is een vervolg van [inschakelen periodieke back-up voor betrouwbare Stateful service en Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In dit voorbeeld wordt een back-upbeleid is ingeschakeld voor de partitie en de service is back-ups maken met een gewenste frequentie in Azure Storage.
+
+Selecteer een back-up uit de uitvoer van [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In dit scenario wordt de back-up van hetzelfde cluster als voordat gegenereerd.
+
+Als u wilt de terugzetbewerking kan worden geactiveerd, kiest u een back-up in de lijst. Voor de huidige _gegevensverlies_/_gegevensbeschadiging_, selecteert u de volgende back-up:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -176,50 +179,48 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 ```
 
-Voor de API terugzetten, moet u aan de __BackupId__ en __back-uplocatie__ details. Nadat het cluster heeft back-up ingeschakeld voor de Service Fabric _back-up herstellen Service (BRS)_ identificeert de juiste opslaglocatie van de gekoppelde back-upbeleid.
+Voor de restore-API, geeft u de _BackupId_ en _back-uplocatie_ details. Het cluster heeft back-up waardoor de Service Fabric _back-up herstellen Service (BRS)_ identificeert de juiste opslaglocatie van de gekoppelde back-upbeleid.
 
 ```powershell
-$RestorePartitionReference = @{ 
-    BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4', 
-    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' 
-} 
- 
-$body = (ConvertTo-Json $RestorePartitionReference) 
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Restore?api-version=6.4" 
- 
+$RestorePartitionReference = @{
+    BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
+    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+}
+
+$body = (ConvertTo-Json $RestorePartitionReference)
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Restore?api-version=6.4"
+
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-De voortgang van de terugzetbewerking kan worden [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress)
+U kunt de voortgang terugzetten volgen met behulp van [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
 
+## <a name="track-restore-progress"></a>Restore-voortgang bijhouden
 
-## <a name="tracking-restore-progress"></a>Bijhouden van de voortgang herstellen
-
-Een partitie van een betrouwbare Stateful service of een Reliable Actor accepteert slechts één aanvraag voor herstellen op een tijdstip. Een nieuwe aanvraag kan worden geaccepteerd, alleen wanneer de huidige restore-aanvraag is voltooid. Meerdere aanvragen van de herstelbewerking kunnen worden geactiveerd in verschillende partities op een moment.
+Een partitie van een betrouwbare Stateful service of een Reliable Actor accepteert slechts één aanvraag voor herstellen op een tijdstip. Een partitie accepteert alleen een andere aanvraag na de huidige restore-aanvraag is voltooid. Meerdere aanvragen van de terugzetbewerking kunnen worden geactiveerd in verschillende partities op hetzelfde moment.
 
 ```powershell
-$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4" 
- 
-$response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3' 
- 
-$restoreResponse = (ConvertFrom-Json $response.Content) 
+$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
+
+$response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
+
+$restoreResponse = (ConvertFrom-Json $response.Content)
 $restoreResponse | Format-List
 ```
 
-de voortgang van de aanvraag voor herstellen in de volgende volgorde
+De voortgang van de aanvraag voor herstellen in de volgende volgorde:
 
-1. __Geaccepteerde__ -de status herstellen als _geaccepteerde_ geeft aan dat de aanvraag is geactiveerd met de juiste aanvraagparameters.
+1. **Geaccepteerd**: Een _geaccepteerde_ terugzetten heeft, betekent dit dat de gevraagde partitie met de parameters van de juiste aanvraag is geactiveerd.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-    
-2. __InProgress__ -de status herstellen als _InProgress_ geeft aan dat de partitie een terugzetbewerking met de back-up die worden vermeld in de aanvraag ietwat. De partitie ontvangt een melding _dataloss_ staat.
+2. **InProgress**: Een _InProgress_ terugzetten heeft, betekent dit dat een herstelbewerking in de partitie met de back-up die worden vermeld in de aanvraag plaatsvindt. De partitie-rapporten de _dataloss_ staat.
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -227,25 +228,24 @@ de voortgang van de aanvraag voor herstellen in de volgende volgorde
     RestoredLsn   : 3552
     ```
     
-3. __Succes__/ __fout__/ __time-out__ -een aangevraagde terugzetbewerking kan worden uitgevoerd in een van de volgende statussen. Elke Amerikaanse staat zijn de gegevens van de volgende betekenis en reactie.
-       
-    * __Succes__ -de status herstellen als _succes_ geeft aan dat de status van de partitie is hersteld. Het antwoord biedt RestoreEpoch en RestordLSN voor de partitie, samen met de tijd in UTC. 
-    
+3. **Succes**, **fout**, of **time-out**: Een aangevraagde terugzetbewerking kan worden uitgevoerd in een van de volgende statussen. Elke Amerikaanse staat zijn de gegevens van de volgende betekenis en antwoord:
+    - **Succes**: Een _succes_ terugzetten status geeft de status van een partitie heeft gekregen. De partitie-rapporten _RestoreEpoch_ en _RestordLSN_ Staten samen met de tijd in UTC.
+
         ```
         RestoreState  : Success
         TimeStampUtc  : 2018-11-22T11:22:33Z
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
-        ```
-        
-    *. __Fout__ -de status herstellen als _fout_ geeft aan dat de uitval van de restore-aanvraag. De oorzaak van het probleem zal worden vermeld in de aanvraag.
+        ```        
+    - **Fout**: Een _fout_ status herstellen geeft aan dat de uitval van de restore-aanvraag. De oorzaak van de fout wordt gerapporteerd.
+
         ```
         RestoreState  : Failure
         TimeStampUtc  : 0001-01-01T00:00:00Z
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    *. __Time-out__ -de status herstellen als _time-out_ geeft aan dat de aanvraag heeft de timeout. Nieuwe restore-aanvraag met groter [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) wordt aanbevolen; standaard time-out is 10 minuten. Het wordt aanbevolen om ervoor te zorgen dat de partitie uit gegevens verloren gaan status, is voordat u opnieuw herstel aanvraagt.
+    - **Time-out**: Een _time-out_ terugzetten heeft, betekent dit dat de aanvraag heeft een time-out. Maak een nieuwe aanvraag voor herstellen met groter [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). De standaardtime-out is 10 minuten. Zorg ervoor dat de partitie niet in een status van de verlies van gegevens voordat u opnieuw herstel aanvraagt.
      
         ```
         RestoreState  : Timeout
@@ -254,15 +254,13 @@ de voortgang van de aanvraag voor herstellen in de volgende volgorde
         RestoredLsn   : 0
         ```
 
-## <a name="auto-restore"></a>Automatisch herstel
+## <a name="automatic-restore"></a>Automatisch herstel
 
-De partities voor de betrouwbare Stateful service en de betrouwbare actoren in het Service Fabric-cluster kunnen worden geconfigureerd voor _automatisch herstel_. Tijdens het maken van het back-upbeleid, het beleid kunt hebben `AutoRestore` ingesteld op _waar_.  Inschakelen van _automatisch herstel_ voor een partitie, herstelt u de gegevens van de meest recente back-up als verlies van gegevens wordt gerapporteerd.
- 
- [Automatisch herstel activering in de back-upbeleid](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
+U kunt betrouwbare Stateful service configureren en Reliable Actors-partities in de Service Fabric-cluster voor _automatisch herstel_. Stel in het back-upbeleid `AutoRestore` naar _waar_. Inschakelen van _automatisch herstel_ herstelt automatisch gegevens van de meest recente partitie back-up wanneer verlies van gegevens wordt gemeld. Zie voor meer informatie:
 
-
-[RestorePartition API-verwijzing](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-[GetPartitionRestoreProgress API-verwijzing](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [Automatisch herstel activering in de back-upbeleid](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
+- [RestorePartition API-verwijzing](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
+- [GetPartitionRestoreProgress API-verwijzing](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Understanding periodieke back-upconfiguratie](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 710b584777abc312388c3857ced06ce196416a31
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 170ba8e85318ab3774aef95b0a62e452bc2c5e24
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042934"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077858"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -217,7 +217,7 @@ Als u een totaalbeeld van uw systeem wilt krijgen, kunt u de belangrijkste contr
 
 Als u in uw systeem andere Azure-services gebruikt, zoals Stream Analytics, kunt u ook de controlegrafieken daarvan weergeven. 
 
-Als u een mobiele client-app hebt, gebruikt u [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Maak query’s in [Analytics](../../azure-monitor/app/analytics.md) om de aantallen gebeurtenissen weer te geven en aan het dashboard vast te maken.
+Als u een mobiele client-app hebt, gebruikt u [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Maak query’s in [Analytics](../../azure-monitor/app/analytics.md) om de aantallen gebeurtenissen weer te geven en aan het dashboard vast te maken.
 
 ## <a name="example"></a>Voorbeeld
 In [het voorbeeld](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) wordt een service gecontroleerd die een webrol en twee werkrollen heeft.

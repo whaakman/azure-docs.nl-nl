@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420095"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065797"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>On-premises gegevensgateway installeren voor Azure Logic Apps
 
@@ -238,7 +238,7 @@ De gateway maakt een uitgaande verbinding met [Azure Service Bus](https://azure.
 
 De gateway maakt gebruik van deze volledig gekwalificeerde domeinnamen:
 
-| Domeinnamen | Uitgaande poorten | Beschrijving | 
+| Domeinnamen | Uitgaande poorten | Description | 
 | ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -276,10 +276,9 @@ U kunt afdwingen dat de gateway communiceren met de Azure Service Bus via HTTPS 
 
 ## <a name="windows-service-account"></a>Windows-serviceaccount
 
-De on-premises gegevensgateway wordt uitgevoerd als een Windows-service met de naam 'On-premises gegevensgatewayservice' maar "NT SERVICE\PBIEgwService" voor de accountreferenties 'Aanmelden als gebruikt'. De on-premises gegevensgateway heeft standaard machtigingen 'Aanmelden als service' voor de computer waarop u de gateway installeert. Als u wilt maken en onderhouden van de gateway in Azure portal, het Windows-serviceaccount moet ten minste **Inzender** machtigingen. 
+Op de computer waarop u de on-premises gegevensgateway installeert, wordt de gateway uitgevoerd als een Windows-service-account met de naam 'On-premises gegevensgatewayservice'. De gateway gebruikt, de naam 'NT SERVICE\PBIEgwService' voor de accountreferenties 'Aanmelden als'. De gateway heeft standaard machtigingen 'Aanmelden als service' op de computer waarop u de gateway installeert. Het Windows-serviceaccount voor de gateway is meestal wijkt af van het account dat u gebruikt om verbinding te maken naar on-premises gegevensbronnen en van het werk of schoolaccount dat u gebruikt voor het ondertekenen van naar de cloud services.
 
-> [!NOTE]
-> Het Windows-serviceaccount verschilt van het account dat wordt gebruikt voor het verbinden met on-premises gegevensbronnen en van het account voor werk of school gebruikt voor aanmelding bij cloud services.
+Voor u maken en onderhouden van de gateway in Azure portal, deze Windows-serviceaccount moet ten minste **Inzender** machtigingen. U kunt deze machtigingen controleren [toegang met RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md). 
 
 <a name="restart-gateway"></a>
 
@@ -329,58 +328,58 @@ Deze stappen wordt beschreven wat er gebeurt wanneer een gebruiker in de cloud c
 
 ### <a name="general"></a>Algemeen
 
-**Q**: heb ik een gateway nodig voor gegevensbronnen in de cloud, zoals Azure SQL Database? <br/>
-**Een**: Nee, de gateway verbinding maakt met on-premises gegevensbronnen alleen.
+**Q**: Heb ik een gateway nodig voor gegevensbronnen in de cloud, zoals Azure SQL Database? <br/>
+**EEN**: Nee, de gateway wordt verbonden met alleen on-premises gegevensbronnen.
 
-**Q**: de gateway hoeft te worden geïnstalleerd op dezelfde computer als de gegevensbron? <br/>
-**Een**: Nee, de gateway verbinding maakt met de gegevensbron met behulp van de opgegeven verbindingsgegevens. De gateway als een clienttoepassing in dit opzicht beschouwen. De gateway moet alleen de mogelijkheid om te verbinden met de naam van de server die is opgegeven.
+**Q**: Hoeft de gateway te worden geïnstalleerd op dezelfde computer als de gegevensbron? <br/>
+**EEN**: Nee, de gateway maakt verbinding met de gegevensbron met behulp van de opgegeven verbindingsgegevens. De gateway als een clienttoepassing in dit opzicht beschouwen. De gateway moet alleen de mogelijkheid om te verbinden met de naam van de server die is opgegeven.
 
 <a name="why-azure-work-school-account"></a>
 
 **Q**: Waarom moet ik een werk- of schoolaccount aanmelden? <br/>
-**Een**: U kunt alleen werk-of schoolaccount gebruiken tijdens de installatie van de on-premises gegevensgateway. Uw account aanmelden wordt opgeslagen in een tenant die wordt beheerd door Azure Active Directory (Azure AD). Uw Azure AD-account UPN (User Principal Name) komt meestal overeen met het e-mailadres.
+**EEN**: U kunt alleen werk-of schoolaccount gebruiken tijdens de installatie van de on-premises gegevensgateway. Uw account aanmelden wordt opgeslagen in een tenant die wordt beheerd door Azure Active Directory (Azure AD). Uw Azure AD-account UPN (User Principal Name) komt meestal overeen met het e-mailadres.
 
-**Q**: waar worden mijn referenties opgeslagen? <br/>
-**Een**: de referenties die u voor een gegevensbron invoert, worden versleuteld en opgeslagen in de gatewaycloudservice. De referenties worden bij de on-premises gegevensgateway ontsleuteld.
+**Q**: Waar worden mijn referenties opgeslagen? <br/>
+**EEN**: De referenties die u voor een gegevensbron invoert, worden versleuteld en opgeslagen in de gatewaycloudservice. De referenties worden bij de on-premises gegevensgateway ontsleuteld.
 
-**Q**: zijn er vereisten voor netwerkbandbreedte? <br/>
-**Een**: Controleer of de netwerkverbinding met een goede doorvoersnelheid heeft. Elke omgeving is anders en de hoeveelheid gegevens die worden verzonden, kan invloed hebben op de resultaten. Probeer om te garanderen een doorvoerniveau tussen uw on-premises gegevensbron en de Azure-datacenters, [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Om te helpen uw doorvoer te meten, probeert u een extern hulpprogramma, zoals Azure Speed Test.
+**Q**: Zijn er vereisten voor netwerkbandbreedte? <br/>
+**EEN**: Controleer of de netwerkverbinding met een goede doorvoersnelheid heeft. Elke omgeving is anders en de hoeveelheid gegevens die worden verzonden, kan invloed hebben op de resultaten. Probeer om te garanderen een doorvoerniveau tussen uw on-premises gegevensbron en de Azure-datacenters, [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Om te helpen uw doorvoer te meten, probeert u een extern hulpprogramma, zoals Azure Speed Test.
 
-**Q**: Wat is de vertraging voor het uitvoeren van query's met een gegevensbron van de gateway? Wat is de beste architectuur? <br/>
-**Een**: netwerklatentie, verminderen de gateway zo dicht bij de gegevensbron mogelijk te installeren. Als u de gateway op de daadwerkelijke gegevensbron installeren kunt, wordt deze nabijheid beperkt de latentie minimaal. Overweeg ook nabijheid met Azure-datacenters. Bijvoorbeeld, als de service wordt gebruikt voor het datacentrum VS-West en u SQL Server die wordt gehost in een Azure-VM hebt, kunt klikt u vervolgens u uw Azure-VM in de regio VS-West te. Deze nabijheid latentie wordt geminimaliseerd en voorkomt u kosten voor uitgaand verkeer op de virtuele machine van Azure.
+**Q**: Wat is de latentie voor het uitvoeren van query's met een gegevensbron van de gateway? Wat is de beste architectuur? <br/>
+**EEN**: U kunt de netwerklatentie beperken door de gateway als dicht bij de gegevensbron mogelijk te installeren. Als u de gateway op de daadwerkelijke gegevensbron installeren kunt, wordt deze nabijheid beperkt de latentie minimaal. Overweeg ook nabijheid met Azure-datacenters. Bijvoorbeeld, als de service wordt gebruikt voor het datacentrum VS-West en u SQL Server die wordt gehost in een Azure-VM hebt, kunt klikt u vervolgens u uw Azure-VM in de regio VS-West te. Deze nabijheid latentie wordt geminimaliseerd en voorkomt u kosten voor uitgaand verkeer op de virtuele machine van Azure.
 
-**Q**: hoe worden resultaten teruggezonden naar de cloud? <br/>
-**Een**: de resultaten worden verzonden via Azure Service Bus.
+**Q**: Hoe worden resultaten teruggezonden naar de cloud? <br/>
+**EEN**: De resultaten worden verzonden via Azure Service Bus.
 
-**Q**: zijn er inkomende verbindingen met de gateway vanuit de cloud? <br/>
-**Een**: Nee, de gateway gebruikt uitgaande verbindingen naar Azure Service Bus.
+**Q**: Zijn er inkomende verbindingen met de gateway vanuit de cloud? <br/>
+**EEN**: Nee, de gateway gebruikt uitgaande verbindingen naar Azure Service Bus.
 
 **Q**: Wat gebeurt er als ik uitgaande verbindingen Blokkeer? Wat moet ik openen? <br/>
-**Een**: Zie de poorten en hosts de gateway gebruikt.
+**EEN**: Zie de poorten en hosts de gateway gebruikt.
 
-**Q**: Wat is de Windows-service met de naam? <br/>
-**Een**: op het tabblad webservices in Taakbeheer wordt de servicenaam 'PBIEgwService' of Power BI Enterprise Gateway-Service. In de console Services is de servicenaam 'On-premises gegevensgatewayservice'. De Windows-service gebruikt 'NT SERVICE\PBIEgwService' als de Service-SID (SSID).
+**Q**: Wat heet de Windows-service? <br/>
+**EEN**: De servicenaam is op het tabblad webservices in Taakbeheer 'PBIEgwService' of Power BI Enterprise Gateway-Service. In de console Services is de servicenaam 'On-premises gegevensgatewayservice'. De Windows-service gebruikt 'NT SERVICE\PBIEgwService' als de Service-SID (SSID).
 
-**Q**: kan de gateway Windows-service worden uitgevoerd met een Azure Active Directory-account? <br/>
-**Een**: Nee, de Windows-service moet een geldig Windows-account.
+**Q**: Kan de Windows-gatewayservice uitvoeren met Azure Active Directory-account? <br/>
+**EEN**: Nee, de Windows-service moet een geldig Windows-account.
 
 ### <a name="disaster-recovery"></a>Herstel na noodgeval
 
-**Q**: welke opties zijn beschikbaar voor herstel na noodgevallen? <br/>
-**Een**: U kunt de herstelsleutel gebruiken om te herstellen of verplaatsen van een gateway. Geef de herstelsleutel op tijdens de installatie van de gateway.
+**Q**: Welke opties zijn beschikbaar voor herstel na noodgevallen? <br/>
+**EEN**: U kunt de herstelsleutel gebruiken om te herstellen of verplaatsen van een gateway. Geef de herstelsleutel op tijdens de installatie van de gateway.
 
 **Q**: Wat is het voordeel van de herstelsleutel? <br/>
-**Een**: de herstelsleutel biedt een manier om te migreren of de gateway-instellingen te herstellen na een noodgeval.
+**EEN**: De herstelsleutel biedt een manier om te migreren of de gateway-instellingen herstellen na een noodgeval.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 In deze sectie worden enkele veelvoorkomende problemen die hebt u mogelijk tijdens het instellen en gebruiken van de on-premises gegevensgateway.
 
 **Q**: Waarom is mijn gatewayinstallatie mislukt? <br/>
-**Een**: dit probleem kan zich voordoen als de antivirussoftware op de doelcomputer verouderd is. U kunt de antivirussoftware bijwerken of uitschakelen van de antivirussoftware, maar alleen tijdens de installatie van de gateway en vervolgens de software opnieuw inschakelen.
+**EEN**: Dit probleem kan gebeuren als de antivirussoftware op de doelcomputer verouderd is. U kunt de antivirussoftware bijwerken of uitschakelen van de antivirussoftware, maar alleen tijdens de installatie van de gateway en vervolgens de software opnieuw inschakelen.
 
-**Q**: Waarom zie ik geen mijn gatewayinstallatie wanneer ik de gateway-resource in Azure maakt? <br/>
-**Een**: dit probleem kan gebeuren om volgende redenen:
+**Q**: Waarom zie ik niet de gatewayinstallatie van de wanneer ik de gateway-resource in Azure maakt? <br/>
+**EEN**: Dit probleem kan gebeuren om volgende redenen:
 
 * De gatewayinstallatie is al geregistreerd en geclaimd door een andere gateway-resource in Azure. Gateway-installaties worden niet weergegeven in de lijst met instanties nadat de gateway-resources zijn gemaakt voor hen.
 Om te controleren of uw gateway registraties in Azure portal, Bekijk al uw Azure-resources met de **On-premises gegevensgateways** Typ voor *alle* Azure-abonnementen. 
@@ -389,11 +388,11 @@ Om te controleren of uw gateway registraties in Azure portal, Bekijk al uw Azure
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**Q**: waar zijn de gatewaylogboeken? <br/>
-**Een**: Zie de [ **logboeken** sectie](#logs) verderop in dit artikel.
+**Q**: Waar zijn de gatewaylogboeken? <br/>
+**EEN**: Zie de [ **logboeken** sectie](#logs) verderop in dit artikel.
 
-**Q**: hoe kan ik zien wat voor query's worden verzonden naar de on-premises gegevensbron? <br/>
-**Een**: U kunt querytracering inschakelen, waaronder de query's die worden verzonden. Houd er rekening mee te wijzigen van de query traceren terug naar de oorspronkelijke waarde wanneer klaar oplossen van problemen. Querytracering ingeschakeld laten maakt grotere Logboeken.
+**Q**: Hoe kan ik zien wat voor query's worden verzonden naar de on-premises gegevensbron? <br/>
+**EEN**: U kunt querytracering inschakelen, waaronder de query's die worden verzonden. Houd er rekening mee te wijzigen van de query traceren terug naar de oorspronkelijke waarde wanneer klaar oplossen van problemen. Querytracering ingeschakeld laten maakt grotere Logboeken.
 
 U kunt ook kijken welke hulpmiddelen die uw gegevensbron voor query's te traceren biedt. U kunt bijvoorbeeld Extended Events of SQL Profiler gebruiken voor SQL Server en Analysis Services.
 
@@ -401,7 +400,7 @@ U kunt ook kijken welke hulpmiddelen die uw gegevensbron voor query's te tracere
 
 Heel wat problemen kunnen surface als de gatewayversie verouderd is. Als de goede en gangbare praktijk, zorg ervoor dat de meest recente versie. Als u kunt de gateway nog niet hebt bijgewerkt, voor een maand of langer, kunt u Overweeg de installatie van de meest recente versie van de gateway en zien als u het probleem zich voordoet.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fout: Kan niet aan gebruiker toevoegen aan groep. (-2147463168 PBIEgwService Prestatielogboekgebruikers)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fout: Gebruiker toevoegen aan groep is mislukt. (-2147463168 PBIEgwService Prestatielogboekgebruikers)
 
 U kunt deze fout krijgen als u probeert te installeren van de gateway op een domeincontroller wordt niet ondersteund. Zorg ervoor dat u de gateway op een computer die geen domeincontroller implementeert.
 
@@ -506,7 +505,7 @@ Om te bepalen van de duur voor een query, de volgende stappen uit:
 
    2. Als u een query zoekt, zoeken naar een activiteitstype, bijvoorbeeld: 
 
-      | Type activiteit | Beschrijving | 
+      | Type activiteit | Description | 
       |---------------|-------------| 
       | MGEQ | Query's die worden uitgevoerd via ADO.NET. | 
       | MGEO | Query's die worden uitgevoerd via OLEDB. | 

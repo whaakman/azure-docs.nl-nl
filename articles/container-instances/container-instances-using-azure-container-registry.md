@@ -5,29 +5,29 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bbdf9a88c19e8006ffa9669b0c6d95d85506b256
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854453"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064641"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementeren in Azure Container Instances vanuit Azure Container Registry
 
-Azure Container Registry is een Azure gebaseerd, persoonlijk register voor uw Docker-containerinstallatiekopieën. In dit artikel wordt beschreven hoe u containerinstallatiekopieën die zijn opgeslagen in een Azure-containerregister in Azure Container Instances te implementeren.
+[Azure Container Registry](../container-registry/container-registry-intro.md) is een op basis van Azure, beheerde container registry-service gebruikt voor het opslaan van persoonlijke Docker-containerinstallatiekopieën. In dit artikel wordt beschreven hoe u containerinstallatiekopieën die zijn opgeslagen in een Azure-containerregister in Azure Container Instances te implementeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-**Azure Container Registry**: U moet een Azure-containerregister, en ten minste één container-installatiekopie in het register, voltooi de stappen in dit artikel. Als u een register nodig hebt, raadpleegt u [een containerregister maken met de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure-containerregister**: U moet een Azure-containerregister, en ten minste één container-installatiekopie in het register, voltooi de stappen in dit artikel. Als u een register nodig hebt, raadpleegt u [een containerregister maken met de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
-**Azure CLI**: de opdrachtregelvoorbeelden in dit artikel gebruiken de [Azure CLI](/cli/azure/) en zijn opgemaakt voor de Bash-shell. U kunt [Azure CLI installeren](/cli/azure/install-azure-cli) lokaal, of gebruik de [Azure Cloud Shell][cloud-shell-bash].
+**Azure CLI**: De opdrachtregelvoorbeelden in dit artikel gebruiken de [Azure CLI](/cli/azure/) en zijn opgemaakt voor de Bash-shell. U kunt [Azure CLI installeren](/cli/azure/install-azure-cli) lokaal, of gebruik de [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="configure-registry-authentication"></a>Registerverificatie configureren
 
-In productiescenario's, toegang tot een Azure container registry moet worden opgegeven met behulp van [service-principals](../container-registry/container-registry-auth-service-principal.md). Met service-principals kunt u voor op rollen gebaseerde toegangsbeheer bieden voor uw containerinstallatiekopieën. U kunt bijvoorbeeld een service-principal configureren met alleen pull-toegang tot een register.
+In productiescenario's, toegang tot een Azure container registry moet worden opgegeven met behulp van [service-principals](../container-registry/container-registry-auth-service-principal.md). Service-principals kunnen u [op rollen gebaseerd toegangsbeheer](../container-registry/container-registry-roles.md) aan uw containerinstallatiekopieën. U kunt bijvoorbeeld een service-principal configureren met alleen pull-toegang tot een register.
 
 In deze sectie maakt u een Azure-sleutelkluis en een service-principal maken en opslaan van de service-principal-referenties in de kluis.
 
@@ -35,7 +35,7 @@ In deze sectie maakt u een Azure-sleutelkluis en een service-principal maken en 
 
 Als u nog geen kluis hebt in [Azure Key Vault](/azure/key-vault/), kunt u met de volgende opdrachten één maken met de Azure CLI.
 
-Update de `RES_GROUP` variabele met de naam van de resourcegroep waarin u wilt maken van de key vault en `ACR_NAME` met de naam van het containerregister. Geef een naam voor uw nieuwe key vault in `AKV_NAME`. De naam van de kluis moet uniek zijn binnen Azure en moet 3 tot 24 alfanumerieke tekens lang zijn, beginnen met een letter, eindigen met een letter of cijfer, en mag geen opeenvolgende afbreekstreepjes bevatten.
+Update de `RES_GROUP` variabele met de naam van een bestaande resourcegroep waarin u wilt maken van de key vault en `ACR_NAME` met de naam van het containerregister. Geef een naam voor uw nieuwe key vault in `AKV_NAME`. De naam van de kluis moet uniek zijn binnen Azure en moet 3 tot 24 alfanumerieke tekens lang zijn, beginnen met een letter, eindigen met een letter of cijfer, en mag geen opeenvolgende afbreekstreepjes bevatten.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -57,14 +57,14 @@ az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
   --value $(az ad sp create-for-rbac \
-                --name $ACR_NAME-pull \
+                --name http://$ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-Het argument `--role` in de voorgaande opdracht configureert de service-principal met de rol *lezer*, die deze alleen-push-toegang tot het register verleent. Als u zowel push-als pull-toegang wilt verlenen, wijzigt u het argument `--role` in *Inzender*.
+De `--role` argument in de voorgaande opdracht configureert u de service-principal met de *acrpull* rol, die deze alleen pull toegang tot het register verleent. Als u wilt zowel push als pull toegang verlenen, wijzigt de `--role` argument voor *acrpush*.
 
 Vervolgens opslaan van de service-principal *appId* in de kluis, dit is de **gebruikersnaam** u doorgeven naar Azure Container Registry voor verificatie.
 
@@ -78,8 +78,8 @@ az keyvault secret set \
 
 U hebt een Azure Key Vault gemaakt en er twee geheimen in opgeslagen:
 
-* `$ACR_NAME-pull-usr`: de service principal-ID, voor gebruik als de **gebruikersnaam** van het containerregister.
-* `$ACR_NAME-pull-pwd`: het service principal-wachtwoord, voor gebruik als het **wachtwoord** van het containerregister.
+* `$ACR_NAME-pull-usr`: De service-principal-id, voor gebruik als de **gebruikersnaam** van het containerregister.
+* `$ACR_NAME-pull-pwd`: Het service-principal-wachtwoord, voor gebruik als het **wachtwoord** van het containerregister.
 
 U kunt nu op naam naar deze geheime gegevens verwijzen wanneer u of uw toepassingen en services installatiekopieën uit het register halen.
 
@@ -87,14 +87,20 @@ U kunt nu op naam naar deze geheime gegevens verwijzen wanneer u of uw toepassin
 
 Nu dat de referenties voor de service-principal in Azure Key Vault-geheimen worden opgeslagen, kunnen uw toepassingen en services gebruiken ze toegang tot uw persoonlijke register.
 
+Aanmeldingsnaam voor server van het register met behulp van de eerste keer de [az acr show] [ az-acr-show] opdracht. Naam van de aanmeldingsserver is allemaal kleine letters en die vergelijkbaar is met `myregistry.azurecr.io`.
+
+```azurecli
+ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
+```
+
 Voer de volgende [az container create][az-container-create]-opdracht in om een containerinstantie te implementeren. De opdracht van de service-principal-referenties die zijn opgeslagen in Azure Key Vault gebruikt om te verifiëren bij uw containerregister, en wordt ervan uitgegaan dat u eerder hebt gepusht de [aci-helloworld](container-instances-quickstart.md) installatiekopie naar uw register. Update de `--image` waarde op als u wilt gebruiken van een andere installatiekopie vanuit het register.
 
 ```azurecli
 az container create \
     --name aci-demo \
     --resource-group $RES_GROUP \
-    --image $ACR_NAME.azurecr.io/aci-helloworld:v1 \
-    --registry-login-server $ACR_NAME.azurecr.io \
+    --image $ACR_LOGIN_SERVER/aci-helloworld:v1 \
+    --registry-login-server $ACR_LOGIN_SERVER \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) \
     --dns-name-label aci-demo-$RANDOM \
@@ -104,7 +110,7 @@ az container create \
 De `--dns-name-label` waarde moet uniek zijn binnen Azure, zodat de voorgaande opdracht wordt een willekeurig getal toegevoegd aan het label van DNS-naam van de container. De uitvoer van de opdracht geeft bijvoorbeeld de Fully Qualified Domain Name (FQDN) van de container weer:
 
 ```console
-$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_NAME.azurecr.io/aci-helloworld:v1 --registry-login-server $ACR_NAME.azurecr.io --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
+$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_LOGIN_SERVER/aci-helloworld:v1 --registry-login-server $ACR_LOGIN_SERVER --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
@@ -158,6 +164,7 @@ Zie voor meer informatie over verificatie op Azure Container Registry [verifiër
 [cloud-shell-powershell]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
+[az-acr-show]: /cli/azure/acr#az-acr-show
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-container-create]: /cli/azure/container#az-container-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set

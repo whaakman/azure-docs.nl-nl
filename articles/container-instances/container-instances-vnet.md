@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993283"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077468"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
 
@@ -33,26 +33,28 @@ Containergroepen geïmplementeerd in een Azure-netwerk inschakelen scenario's zo
 
 Er gelden bepaalde beperkingen wanneer u groepen met containers in een virtueel netwerk implementeert.
 
-* Windows-containers worden niet ondersteund
 * Voor het implementeren van containergroepen aan een subnet, mag niet het subnet een andere resourcetypen bevatten. Verwijder alle bestaande resources uit een bestaand subnet vóór de implementatie van containergroepen toe of maak een nieuw subnet.
 * Containergroepen geïmplementeerd met een virtueel netwerk ondersteunen momenteel geen openbare IP-adressen of DNS-naam van labels.
 * Vanwege de extra netwerkresources die betrokken zijn is een containergroep implementeren met een virtueel netwerk meestal iets langzamer dan het implementeren van een standard containerexemplaar.
 
 ## <a name="preview-limitations"></a>Beperkingen voor Preview
 
-Hoewel deze functie nog in preview, gelden de volgende beperkingen bij het implementeren van containerinstanties met een virtueel netwerk.
+Hoewel deze functie nog in preview, gelden de volgende beperkingen bij het implementeren van containerinstanties met een virtueel netwerk. 
 
-**Ondersteund** regio's:
+**Ondersteunde regio's en resourcelimieten**
 
-* Noord-Europa (northeurope)
-* West-Europa (Europa West)
-* VS-West (VS West)
-* VS-Oost (VS-Oost)
+| Locatie | OS | CPU | Geheugen (GB) |
+| -------- | :---: | :---: | :-----------: |
+| Europa -west | Linux | 4 | 14 |
+| US - oost, US - west | Linux | 2 | 3,5 |
+| Australië-Oost, Noord-Europa | Linux | 1 | 1.5 |
 
-**Niet-ondersteunde** netwerkbronnen:
+Bronlimieten container kunnen afwijken van de limieten voor de niet in een netwerk-containerexemplaren in deze regio's. Momenteel worden alleen Linux-containers worden ondersteund voor deze functie. Ondersteuning voor Windows is gepland.
 
-* Netwerkbeveiligingsgroep
+**Niet-ondersteunde netwerkbronnen en functies**
+
 * Azure Load Balancer
+* Peering op virtueel netwerk
 
 **Verwijderen van de resource-netwerk** vereist [extra stappen](#delete-network-resources) nadat u groepen met containers hebt geïmplementeerd in het virtuele netwerk.
 

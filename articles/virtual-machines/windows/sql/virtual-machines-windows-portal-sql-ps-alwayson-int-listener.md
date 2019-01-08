@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228212"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063995"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer Always On availability group listeners - Resource Manager configureren
 Dit onderwerp wordt beschreven hoe u:
@@ -101,7 +101,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Voorbeeldscript: een IP-adres toevoegen aan een bestaande load balancer met PowerShell
+## <a name="Add-IP"></a> Voorbeeldscript: Een IP-adres toevoegen aan een bestaande load balancer met PowerShell
 Toevoegen voor het gebruik van meer dan één beschikbaarheidsgroep, een extra IP-adres aan de load balancer. Elk IP-adres vereist een eigen regel testpoort en front-poort te verdelen.
 
 De front-endpoort is de poort die toepassingen gebruiken om verbinding maken met de SQL Server-exemplaar. IP-adressen voor verschillende beschikbaarheidsgroepen kunnen gebruiken dezelfde front-poort.
@@ -176,7 +176,7 @@ De verbinding wilt testen:
 1. Gebruik **sqlcmd** hulpprogramma om de verbinding te testen. Bijvoorbeeld, het volgende script maakt een **sqlcmd** verbinding met de primaire replica met de listener met de Windows-verificatie:
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     Als de listener met behulp van een andere poort dan de standaardwaarde standaardpoort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld, de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435: 

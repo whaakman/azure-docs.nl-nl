@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754047"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077960"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -48,6 +48,8 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
    Zie voor meer informatie, [Azure Stack syslog doorsturen](azure-stack-integrate-security.md).
 
 - U kunt nu [Verplaats de resource registratie](azure-stack-registration.md#move-a-registration-resource) op Azure tussen resourcegroepen zonder dat u opnieuw wilt registreren. Cloud Solution Providers (CSP's) kunnen ook verplaatst u de registratie bron tussen abonnementen, zolang de nieuwe en het oude abonnementen worden toegewezen aan dezelfde CSP-partner-ID. Dit heeft geen invloed op de bestaande toewijzingen van de klant-tenant. 
+
+- Er is ondersteuning toegevoegd voor het toewijzen van meerdere IP-adressen per netwerkinterface.  Zie voor meer informatie [meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Problemen opgelost
 

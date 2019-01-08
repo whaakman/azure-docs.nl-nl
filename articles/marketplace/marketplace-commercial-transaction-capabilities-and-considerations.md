@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880179"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075631"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace commercieel transactiemogelijkheden en aandachtspunten
 
@@ -46,7 +46,7 @@ Naast de lijst en de proefversie publicatieopties is de publicatieoptie transact
 
 Wanneer u de publicatieoptie transact gebruikt, kunt u Microsoft verkoop en implementatie van software van derden met Azure-abonnement van de klant. De uitgever moet rekening houden met de facturering van Azure-infrastructuur-kosten en de van uitgever softwarelicentiekosten, bij het selecteren van een facturering model en type in Azure Marketplace aanbieden. 
 
-Het Transact publicatieoptie in Azure Marketplace wordt momenteel ondersteund voor de volgende typen: virtuele Machines, Azure-toepassingen of SaaS-Apps.
+De Transact-publicatieoptie in Azure Marketplace wordt momenteel ondersteund voor de volgende typen: Virtuele Machines, Azure-toepassingen of SaaS-Apps.
 
 ![[Transacties Enterprise overeenkomsten in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -64,15 +64,15 @@ Voor SaaS-Apps, moet de uitgever-account voor Azure-infrastructuur gebruikskoste
 
 Afhankelijk van de transactieoptie gebruikt, kunnen de kosten voor de softwarelicentie van de uitgever als volgt worden weergegeven:  
 
-* Gratis: Er zijn geen kosten voor softwarelicenties. 
+* Gratis: Geen kosten voor softwarelicenties. 
 
-* Uw eigen licentie (BYOL): van toepassing worden kosten voor softwarelicenties rechtstreeks tussen de uitgever en de klant worden beheerd. Microsoft geeft alleen via gebruikskosten voor Azure-infrastructuur. (Virtuele Machines en Azure alleen-toepassingen.)
+* Breng uw eigen license (BYOL): Van toepassing worden kosten voor softwarelicenties worden rechtstreeks tussen de uitgever en de klant beheerd. Microsoft geeft alleen via gebruikskosten voor Azure-infrastructuur. (Virtuele Machines en Azure alleen-toepassingen.)
 
 * Betalen naar gebruik: Kosten voor de softwarelicentie worden weergegeven als een per uur, per kern (vCPU) dat is gebaseerd op de Azure-infrastructuur gebruikt prijzen. Dit is alleen van toepassing op virtuele Machines en Azure-toepassingen.
 
-* Abonnement prijzen (site-gebaseerde): als een bedrag per maand, terugkerende kosten voor de softwarelicentie worden weergegeven.  Dit geldt alleen voor SaaS-Apps en -toepassingen in Azure-beheerde Apps.
+* Abonnement prijzen (site-gebaseerde): Kosten voor de softwarelicentie worden weergegeven als maandelijkse, terugkerende kosten.  Dit geldt alleen voor SaaS-Apps en -toepassingen in Azure-beheerde Apps.
 
-* Gratis software-evaluatie: geen kosten voor softwarelicenties voor 30 dagen of 90 dagen.
+* Gratis proefperiode van de software: Geen kosten voor softwarelicenties voor 30 dagen of 90 dagen.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Gratis en bring-your-own-license (BYOL) prijzen
 
@@ -165,7 +165,7 @@ Klanten kunnen ook betalen met creditcard is geregistreerd en een maandelijkse f
 
 Bijvoorbeeld, als de klant koopt via een creditcard:
 
-|Beschrijving    |    Date  |
+|Description    |    Date  |
 |----------|----------|
 |Volgorde-periode   | 15 augustus 2018 - en met 30 augustus 2018 |
 |Term beëindigen (maand)   | En met 30 augustus 2018 |
@@ -179,7 +179,7 @@ Bijvoorbeeld, als de klant koopt via een creditcard:
 
 Als de klant koopt met behulp van een Enterprise Agreement:
 
-| Beschrijving |    Date  |
+| Description |    Date  |
 |----------|----------|
 |Volgorde-periode | 15 augustus 2018 - en met 30 augustus 2018 |
 |Term beëindigen (kwartaal) | En met 30 september 2018 |
@@ -214,7 +214,7 @@ Wanneer het abonnement of betalen per gebruik prijsmodellen zijn geselecteerd, w
 
 Zie voor meer informatie en juridische beleid, de [-overeenkomst voor uitgevers](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (beschikbaar in de Cloud Partner-Portal).
 
-Om hulp te krijgen op vragen over facturering, [maken van een ondersteuningsincident](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) en kiest u virtuele Machines of Web-Apps (ook wel een SaaS-Apps), afhankelijk van het aanbod dat wordt gebruikt.
+Om hulp te krijgen op vragen over facturering, [maken van een ondersteuningsincident](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) en kiest u virtuele Machines of Web-Apps (ook wel een SaaS-Apps), afhankelijk van het aanbod dat wordt gebruikt.
 
 ## <a name="transact-requirements"></a>Transact-vereisten
 
@@ -238,7 +238,7 @@ De transact-publicatieoptie is alleen beschikbaar voor gebruik met de volgende t
 
 Selecteer in de gratis, bring-your-own-license of betalen per-as-you-gaan-prijzen modellen en worden weergegeven als de SKU's die zijn gedefinieerd op het niveau van de aanbieding. Op de factuur van de klant van Azure geeft Microsoft de uitgever van de kosten voor de softwarelicentie los van de kosten voor de onderliggende Azure-infrastructuur. Kosten voor Azure-infrastructuur worden aangestuurd door het gebruik van de software-uitgever.
 
-**Azure-toepassingen: De oplossingssjabloon of de beheerde App** 
+**Azure-toepassingen: Oplossingssjabloon of beheerde App** 
 
 Een of meer virtuele machines en pulls via de som van de prijzen van virtuele machines moet worden voorzien. Voor beheerde apps op één abonnement kunnen een vast bedrag maandabonnement worden geselecteerd, omdat de prijzen in plaats daarvan model de prijzen van virtuele machines. In beide gevallen worden gebruikskosten voor Azure-infrastructuur doorgegeven aan de klant afzonderlijk van de kosten voor de softwarelicentie, maar op de dezelfde factuuroverzicht.
 

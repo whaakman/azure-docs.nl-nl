@@ -12,12 +12,12 @@ ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c63872ce19cc7076929785cc7bd150c1599c5705
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099049"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063043"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Bewerk de groepsgegevens van uw met behulp van Azure Active Directory
 
@@ -50,7 +50,7 @@ Met behulp van Azure Active Directory (Azure AD), kunt u de instellingen van een
 
     - **Het type groep.** U kunt het type van de groep niet wijzigen nadat deze is gemaakt. Wijzigen van de **groepstype**, moet u de groep verwijderen en een nieuwe maken.
     
-    - **Lidmaatschapstype.** Het lidmaatschapstype wijzigen. Zie voor meer informatie over de verschillende beschikbare lidmaatschap typen [hoe: een eenvoudige groep maken en toevoegen van leden met behulp van de Azure Active Directory-portal](active-directory-groups-create-azure-portal.md)
+    - **Lidmaatschapstype.** Het lidmaatschapstype wijzigen. Zie voor meer informatie over de verschillende beschikbare lidmaatschap typen [het: Een eenvoudige groep maken en toevoegen van leden met behulp van de Azure Active Directory-portal](active-directory-groups-create-azure-portal.md).
     
     - **Object-ID.** U kunt de Object-ID niet wijzigen, maar u kunt deze gebruiken in uw PowerShell-opdrachten voor de groep kopiëren. Zie voor meer informatie over het gebruik van PowerShell-cmdlets [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e89ba38b7993b8f2d17704ff592eecd3d02d303e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731133"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063111"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
@@ -191,13 +191,13 @@ Zie voor meer informatie over het onderdrukken van de eigenschap cloud_RoleName 
 
 Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren werkt, probeert u deze stappen:
 
-1. Zorg ervoor dat u opnieuw met behulp van een officieel ondersteunde SDK. Niet-ondersteunde/community SDK's bieden mogelijk geen ondersteuning voor correlatie.
+1. Zorg ervoor dat u een officieel ondersteunde SDK. Niet-ondersteunde/community SDK's bieden mogelijk geen ondersteuning voor correlatie.
 
     Verwijzen naar dit [artikel](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) voor een lijst met ondersteunde SDK's.
 
 2. Alle onderdelen van een upgrade uitvoert naar de nieuwste versie van de SDK.
 
-3. Als u opnieuw met behulp van Azure Functions met C#, een upgrade uitvoeren naar [functies V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Als u Azure Functions met C#, een upgrade uitvoeren naar [functies V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Controleer of [cloud_RoleName](app-map.md#Set-cloud-RoleName) correct is geconfigureerd.
 

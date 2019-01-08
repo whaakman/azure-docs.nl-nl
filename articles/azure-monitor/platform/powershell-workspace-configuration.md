@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 088d8155fda6c370d89cded516bfa6c174c9380a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8b3b28d2bf7fc75b9f70d145290af1edf44c94f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438028"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063172"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Log Analytics beheren met PowerShell
 U kunt de [Log Analytics PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) verschillende functies in Log Analytics uitvoeren vanaf een opdrachtregel of als onderdeel van een script.  Voorbeelden van de taken die u met PowerShell uitvoeren kunt zijn:
@@ -186,6 +186,21 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+In het bovenstaande voorbeeld regexDelimiter is gedefinieerd als '\\n "voor nieuwe regel. Het logboek delimiter mogelijk ook een tijdstempel.  Dit zijn de ondersteunde indelingen:
+
+| Indeling | JSON RegEx-indeling gebruikt twee \\ voor elke \ in een standard reguliere expressie als testen in een reguliere expressie-app verminderen \\ naar \ |
+| --- | --- |
+| JJJJ-MM-DD UU: MM: | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\d)) \\ \\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| M/D/JJJJ UU: MM: SS AM/PM | (([0-1]\\\\d)\|[0-9]) / (([0-3]\\\\d)\|(\\\\d)) / ((\\\\d{2})\|() \\ \\d{4}))\\\\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])): [0-5] [0-9]: [ 0-5] [0-9]\\\\s (AM\|PM\|ben\|pm) |
+| dd/dd/jjjj uu: mm: | ((([0-3]\\\\d)\|(\\\\d)) / (Jan\|Feb\|mrt\|mei\|Apr\|Jul\|Jun\|Aug\|okt\|Sep\|Nov\|Dec\|jan\|feb\|mrt\|kan\|apr\|jul\|jun\|aug\|okt\|sep\|nov\|dec) / ((\\\\d{2})\|(\\\\d{4})) \\ \\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
+| MMM dd-jjjj uu: mm: | (((?: Jan(?:uary)? \|Feb(?:ruary)? \|Mar(?:ch)? \|Apr(?:il)? \|Kan\|Jun(?:e)?\| Jul(?:y)? \|Aug(?:ust)? \|Sep(?:tember)? \|September\|Oct(?:o bEr)? \|Nov(?:ember)? \|Dec(?:ember)?)). *? ((?: (?: [0-2]? \\ \\d{1})\|(?: [3] [01]{1}))) (?! [\\\\d]).* ? ((?: (?: [1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?: [2]{1} \\ \\d{3}))) (?! [\\\\d]). *? ((?: (?: [0-1][0-9])\|(?: [2][0-3])\|(?: [0-9])):(?:[0-5][0-9])(?::[0-5][0-9])? (?:\\\\s? (?: am\|AM\|pm\|PM))?)) |
+| JJMMDD uu: mm: | ([0-9]{2}([0] [1-9]\|[1][0-2]) ([0-2] [0-9]\|[3][0-1])\\\\s\\\\s? () [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| ddMMyy uu: mm: | (([0-2] [0-9]\|[3][0-1]) ([0] [1-9]\|[1][0-2]) [0-9]{2}\\\\s\\\\s? () [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| D MMM uu: mm: | (Jan\|Feb\|mrt\|Apr\|kan\|Jun\|Jul\|Aug\|Sep\|okt\|Nov\|Dec)\\ \\s\\\\s? () [0]? [1-9] \|[1 - 2] [0-9]\|[3][0-1])\\\\s ([0-1]? [ 0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
+| D MMM uu: mm:<br> twee spaties na MMM | (Jan\|Feb\|mrt\|Apr\|kan\|Jun\|Jul\|Aug\|Sep\|okt\|Nov\|Dec)\\ \\s\\\\s ([0]? [ 1-9]\|[1 - 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| D MMM uu: mm: | (Jan\|Feb\|mrt\|Apr\|kan\|Jun\|Jul\|Aug\|Sep\|okt\|Nov\|Dec)\\ \\s ([0]? [ 1-9]\|[1 - 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| DD MMM / / yyyy:HH:mm:ss + zzzz<br> waar + is + of -<br> waar zzzz tijd offset | (([0-2] [1-9]\|[3][0-1])\\\\/ (Jan\|Feb\|mrt\|Apr\|mei\|Jun\|Jul\|Aug\|Sep \|Okt\|Nov\|Dec)\\\\/((19\|20) [0-9] [0-9]): ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\ \\s [\\\\+\|\\\\-] [0-9]{4}) |
+| jjjj-MM-ddTUU<br> De T is een letterlijke letter T | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\d)) T ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Log Analytics om te indexeren van Azure diagnostics configureren
 Voor bewaking zonder agent van Azure-resources, moeten de resources hebben van Azure diagnostics ingeschakeld en geconfigureerd voor het schrijven naar Log Analytics-werkruimte. Deze methode verzendt die gegevens rechtstreeks naar Log Analytics en vereist geen gegevens worden geschreven naar een opslagaccount. Ondersteunde resources zijn onder andere:

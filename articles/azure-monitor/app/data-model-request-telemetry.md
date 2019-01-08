@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001903"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076396"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetrie van aanvraag: Application Insights-gegevensmodel
 
@@ -63,9 +63,9 @@ Maximumlengte: 1024 tekens
 
 ## <a name="success"></a>Geslaagd
 
-Vermelding van geslaagde of mislukte aanroep. Dit veld is vereist. Als niet is ingesteld op expliciet `false` -aanvraag wordt beschouwd om succesvol te zijn. Deze waarde instelt op `false` als bewerking is onderbroken door uitzondering of foutcode van het resultaat geretourneerde.
+Vermelding van geslaagde of mislukte aanroep. Dit veld is vereist. Als niet is ingesteld op expliciet `false` -een aanvraag wordt beschouwd om succesvol te zijn. Deze waarde instelt op `false` als bewerking is onderbroken door uitzondering of foutcode van het resultaat geretourneerde.
 
-Voor de web-apps, Application Insights aanvraag definiëren als mislukt wanneer de responscode kleiner is de `400` of gelijk zijn aan `401`. Er zijn echter gevallen wanneer deze standaardtoewijzing is niet overeenkomt met de semantische van de toepassing. Antwoordcode `404` kan duiden op "Er zijn geen records', Hiermee deel van de normale stroom uitmaken kunnen. Ook kan dit wijzen op een verbroken koppeling. Voor de verbroken koppelingen, kunt u ook meer geavanceerde logica implementeren. Alleen wanneer deze koppelingen bevinden zich op dezelfde site door het analyseren van de url van verwijzende site, kunt u verbroken koppelingen markeren als fouten. Of deze markeren als fouten wanneer deze vanuit de mobiele toepassing van het bedrijf. Op dezelfde manier `301` en `302` geeft aan dat de fout wanneer deze vanuit de client die geen ondersteuning voor omleiden bieden.
+Voor de web-apps, Application Insights definiëren een aanvraag als voltooid wanneer de responscode is minder dan `400` of gelijk zijn aan `401`. Er zijn echter gevallen wanneer deze standaardtoewijzing is niet overeenkomt met de semantische van de toepassing. Antwoordcode `404` kan duiden op "Er zijn geen records', Hiermee deel van de normale stroom uitmaken kunnen. Ook kan dit wijzen op een verbroken koppeling. Voor de verbroken koppelingen, kunt u ook meer geavanceerde logica implementeren. Alleen wanneer deze koppelingen bevinden zich op dezelfde site door het analyseren van de url van verwijzende site, kunt u verbroken koppelingen markeren als fouten. Of deze markeren als fouten wanneer deze vanuit de mobiele toepassing van het bedrijf. Op dezelfde manier `301` en `302` geeft aan dat de fout wanneer deze vanuit de client die geen ondersteuning voor omleiden bieden.
 
 Gedeeltelijk geaccepteerd inhoud `206` kan duiden op een storing van een algemene aanvraag. Application Insights-eindpunt ontvangt bijvoorbeeld een batch van telemetrie-items als één aanvraag. Het resultaat `206` wanneer sommige items in de batch zijn niet verwerkt. Toenemende aantal `206` duidt op een probleem dat moet worden onderzocht. Dezelfde logica is van toepassing op `207` meerdere Status waarbij het succes in de slechtste van afzonderlijke responscodes mogelijk.
 

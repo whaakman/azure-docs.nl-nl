@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: a57422b4bbac4b929a67495bfffeec7bf0476e9c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 039ebe9d38b4ac4f63b078489a9c442e08aff0b0
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000220"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075104"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>verzamelde: Linux-prestatiegegevens in Application Insights
 
@@ -29,7 +29,7 @@ Doorgaans gebruikt u verzamelde als u al hebt [uw Java-webservice met Applicatio
 ![Voorbeeldgrafieken](./media/java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>De instrumentatiesleutel ophalen
-In de [Microsoft Azure portal](https://portal.azure.com), open de [Application Insights](../../application-insights/app-insights-overview.md) resource waar u de gegevens worden weergegeven. (Of [Maak een nieuwe resource](../../application-insights/app-insights-create-new-resource.md).)
+In de [Microsoft Azure portal](https://portal.azure.com), open de [Application Insights](../../application-insights/app-insights-overview.md) resource waar u de gegevens worden weergegeven. (Of [Maak een nieuwe resource](../../azure-monitor/app/create-new-resource.md ).)
 
 Neemt een kopie van de instrumentatiesleutel die de resource.
 

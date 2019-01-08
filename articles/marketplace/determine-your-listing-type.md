@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081537"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074467"
 ---
 # <a name="determine-your-publishing-option"></a>Uw publicatieoptie bepalen
 De publicatieoptie die u voor uw aanbieding kiest is gekoppeld aan rechtstreeks aan de vereisten voor geschiktheid en de marketplace GTM-voordelen. De selectie van de optie en aanbiedingtype publiceren in de Cloud Partner-Portal definieert nog belangrijker, hoe gebruikers in uw aanbieding van marketplace zullen werken.
@@ -44,7 +44,7 @@ Voordat u een publicatieoptie selecteert, is het belangrijk om te begrijpen van 
 
 **Azure Marketplace** toepassingen zijn technische "bouwsteen" oplossingen gebouwd op of gebouwd voor Azure. Azure Marketplace-adviesservices professionele diensten aanbiedingen die klanten helpen aan de slag met zijn of het gebruik van Azure te versnellen.
 
-**AppSource** toepassingen zijn line-of-business-oplossingen die kunnen worden gebouwd op Azure of gebouwd voor: Dynamics 365, Office 365, Power BI of Powerapps. AppSource-adviesservices zijn professionele diensten waarmee klanten aan de slag met of gebruik van Dynamics 365 en Power BI versnellen.
+**AppSource** toepassingen zijn line-of-business-oplossingen die kunnen worden gebouwd op Azure of gebouwd voor: Dynamics 365, Office 365, Power BI en Powerapps. AppSource-adviesservices zijn professionele diensten waarmee klanten aan de slag met of gebruik van Dynamics 365 en Power BI versnellen.
 
 Nadat u zich hebt geregistreerd om te worden van een uitgever en toegang hebt gekregen tot de Cloud Partner-Portal voor het maken, configureren en publiceren van marketplace-aanbiedingen, die u gaat:
 
@@ -62,12 +62,12 @@ De webwinkel waar wordt uw aanbieding worden gepresenteerd, Azure Marketplace en
 
 ## <a name="choose-a-publishing-option"></a>Kies een optie voor publiceren
 
-De beschikbare publicatieopties gedifferentieerde klantbetrokkenheid en beschikt u over bieden toegang tot de leads delen en [Go-To-Market voordelen](https://partner.microsoft.com/en-US/reach-customers/gtm). Selecteer in drie mogelijke opties voor het publiceren voordat u een marketplace-aanbieding maken met de Cloud Partner-Portal. Houd rekening met de aanroepen om tot actie die met de publicatieoptie overeenkomen:
+De beschikbare publicatieopties gedifferentieerde klantbetrokkenheid en beschikt u over bieden toegang tot de leads delen en [Go-To-Market voordelen](https://partner.microsoft.com/reach-customers/gtm). Selecteer in drie mogelijke opties voor het publiceren voordat u een marketplace-aanbieding maken met de Cloud Partner-Portal. Houd rekening met de aanroepen om tot actie die met de publicatieoptie overeenkomen:
 
 | **Publicatieoptie**    | **Beschrijving**  |
 | :------------------- | :-------------------|
 | **Lijst met** | Eenvoudige lijst van uw toepassing of service waarmee een gebruiker marketplace om aan te vragen u om te verbinden met de klant via de **Contact Me** actie oproepen. |
-| **Proefversie** | Gebruik marketplace verbeterde detectie en automatiseren van de inrichting van de evaluatieversie van uw toepassing, waardoor potentiële gebruikers met uw SaaS, IaaS of Microsoft in de app-ervaring zonder kosten voor een beperkte periode voordat ze kopen. De aanroepen om tot actie die wordt gebruikt voor de proefversie publicatieoptie zijn: **gratis proefversie van** of **Test Drive**. |
+| **Proefversie** | Gebruik marketplace verbeterde detectie en automatiseren van de inrichting van de evaluatieversie van uw toepassing, waardoor potentiële gebruikers met uw SaaS, IaaS of Microsoft in de app-ervaring zonder kosten voor een beperkte periode voordat ze kopen. De aanroepen om tot actie die wordt gebruikt voor de proefversie publicatieoptie zijn: **Gratis proefversie** of **Test Drive**. |
 | **Transact** | Uw toepassing wordt uitgevoerd op Azure en kan worden ingericht als een resource rechtstreeks in van de klant Azure-abonnement wanneer de klant de Get deze nu aanzetten tot actie selecteert. Uw kosten voor de softwarelicentie kunnen eventueel worden aangeschaft en kosten in rekening gebracht via de keuze van de klant betaalmiddel voorwaarden en bepalingen, en u kunt kiezen om te bieden gedurende beperkte tijd toegang tot uw **gratis evaluatieperiode** (alleen beschikbaar voor Azure Marketplace.) |
 
 >[!Note]

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840160"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076957"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Beheer voor cloud-marketplace leiden
 
@@ -69,7 +69,7 @@ Zodra de technische instellen ingesteld is, moet u deze leads opnemen in uw huid
 
 > De toepassing/gebruiker, security-rollen zijn naar Microsoft Marketplace lead writer ontbreekt. Volg de stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).
 
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Tenant is niet gevonden. Dit exemplaar kan gebeuren als er geen actieve abonnementen voor de tenant zijn.**  
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering: De tenant is niet gevonden. Dit exemplaar kan gebeuren als er geen actieve abonnementen voor de tenant zijn.**  
 
 > De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
@@ -77,21 +77,21 @@ Zodra de technische instellen ingesteld is, moet u deze leads opnemen in uw huid
 
 > Oplossing: Beveiligingsrol toewijzen aan de Microsoft Marketplace lead schrijver. Volg de instructies [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) onder beveiligingsinstellingen 
 
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Toepassing met de id is niet gevonden in de map** 
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering: Toepassing met de id is niet gevonden in de map** 
 
 > De toepassings-Id opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 8 (onder Azure Active Directory, uit [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Aangevraagde tenant-id is niet geldig en is niet geldig voor externe domein-indeling** 
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering: Aangevraagde tenant-id is niet geldig en is niet geldig voor externe domein-indeling** 
 
 > De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering:: Valideren van referenties.-fout: ongeldige clientgeheim is opgegeven.** 
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering: Fout bij het valideren van referenties.: Ongeldige clientgeheim is opgegeven.** 
 
-> Oplossing: Meld u aan bij Azure Portal, controleert u of de sleutel van de toepassing overeenkomt met wat is er in de Cloud Partner-Portal. Genereer een wachtwoord op basis van de instructie bij stap 10 (onder Azure Active Directory), van [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Oplossing: Meld u aan bij de Azure Portal, moet u controleren of de sleutel van de toepassing overeenkomt met wat is er in de Cloud Partner-Portal. Genereer een wachtwoord op basis van de instructie bij stap 10 (onder Azure Active Directory), van [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Kan de lead aan Dynamics CRM niet opslaan. LastCRMError: De aanvraagkanaal er is een time-out opgetreden tijdens het wachten op een antwoord op een na 00:02:00 uur. Verhoog de time-outwaarde doorgegeven aan het gesprek op aanvraag of vergroot de waarde voor SendTimeout voor de Binding. De tijd die voor deze bewerking wordt toegewezen mogelijk is een deel van een langere time-out.**  
 
-> Oplossing: Aanmelding voor Cloud Partner-Portal, Controleer de details van de winkel >> Lead bestemming >> URL, controleert u of het is een geldige dynamische CRM-exemplaar
+> Oplossing: Aanmelden bij Cloud Partner-Portal, Controleer de details van de winkel >> Lead bestemming >> URL, controleert u of het is een geldige dynamische CRM-exemplaar
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -102,7 +102,7 @@ Leads zijn klanten die uw producten uit de Marketplace implementeert. Of het pro
 
 **Waar vind ik help bij het instellen van mijn lead bestemming?** 
 
-U vindt hier documentatie: [leads klant ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) of verzend een ondersteuningsticket via aka.ms/marketplacepublishersupport selecteert het aanbiedingtype en management leiden. 
+Hier vindt u documentatie die hier beschikbaar: [Leads klant ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) of verzend een ondersteuningsticket via aka.ms/marketplacepublishersupport selecteert het aanbiedingtype en management leiden. 
 
 
 
@@ -150,7 +150,7 @@ titel MSFT_TEST_636573304831318844 =
 
 **Ik heb een live-aanbieding, maar ik zie niet alle leads?**
 
-Elke lead gegevens die worden doorgegeven in de velden in de geselecteerde lead bestemming hebben, de potentiële klanten komen in deze indeling: **bron-Action | Aanbieding** 
+Elke lead gegevens die worden doorgegeven in de velden in de geselecteerde lead bestemming hebben, de potentiële klanten komen in deze indeling: **Bron-Action | Aanbieding** 
 
   *Bronnen:*
 

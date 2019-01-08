@@ -14,12 +14,12 @@ ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 42568a6da6cb8994fa8804f294cf67b30fada4fb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7c458867b89a76a2f19bbd632c8a884c629f5765
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050146"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078759"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Gebruikerscontext-id's aan het gebruik van tekst in Azure Application Insights verzenden
 
@@ -38,7 +38,7 @@ Als u wilt bijhouden wat een gebruiker na verloop van tijd doet, moet Applicatio
 - Sessies: Sessie-id
 
 > [!NOTE]
-> Dit is een geavanceerde artikel geeft een overzicht van de handmatige stappen voor het bijhouden van gebruikersactiviteit met Application Insights. Met veel webtoepassingen **stappen mogelijk niet meer nodig**, als de standaard-server-side SDK's in combinatie met de [JavaScript SDK op de Browser-Client-side](../../application-insights/app-insights-website-monitoring.md), vaak voldoende zijn voor het automatisch bijhouden Gebruikersactiviteit. Als u dit nog niet hebt geconfigureerd [bewaking aan clientzijde](../../application-insights/app-insights-website-monitoring.md) naast de SDK-serverzijde dat eerst doen en te testen om te zien als de gebruiker gedrag analytics-hulpprogramma's worden uitgevoerd zoals verwacht.
+> Dit is een geavanceerde artikel geeft een overzicht van de handmatige stappen voor het bijhouden van gebruikersactiviteit met Application Insights. Met veel webtoepassingen **stappen mogelijk niet meer nodig**, als de standaard-server-side SDK's in combinatie met de [JavaScript SDK op de Browser-Client-side](../../azure-monitor/app/website-monitoring.md ), vaak voldoende zijn voor het automatisch bijhouden Gebruikersactiviteit. Als u dit nog niet hebt geconfigureerd [bewaking aan clientzijde](../../azure-monitor/app/website-monitoring.md ) naast de SDK-serverzijde dat eerst doen en te testen om te zien als de gebruiker gedrag analytics-hulpprogramma's worden uitgevoerd zoals verwacht.
 
 ## <a name="choosing-user-ids"></a>Gebruikers-id's te kiezen
 

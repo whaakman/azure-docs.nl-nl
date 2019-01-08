@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 287f67ff9eb0ecc214bd8e8fd3c27660cea185c7
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b5dcc4295467aee82547bc2a0894320bd110998f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055061"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065814"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -86,7 +86,7 @@ De Azure Marketplace biedt IoT Edge-modules die rechtstreeks naar uw IoT Edge-ap
       >[!IMPORTANT]
       >Azure IoT Edge is hoofdlettergevoelig bij het aanroepen van modules die u maakt, en de Storage-SDK standaard naar kleine letters. Om ervoor te zorgen dat uw verbindingen met de Azure Blob-opslag op IoT Edge-module worden niet onderbroken, geef deze de naam van een kleine letters. 
 
-   2. De standaardwaarde **Container maken opties** de poort-bindingen die uw container nodig heeft, maar u moet ook gegevens van uw opslagaccount en een binding voor de opslagmap toevoegen op het apparaat. De JSON in de portal met overschrijven de de onderstaande JSON:
+   2. De standaardwaarde **Container maken opties** de poort-bindingen die uw container nodig heeft, maar u moet ook gegevens van uw opslagaccount en een binding voor de opslagmap toevoegen op het apparaat. De JSON in de portal voor overschrijven met de onderstaande JSON:
     
       ```json
       {
@@ -121,7 +121,7 @@ De Azure Marketplace biedt IoT Edge-modules die rechtstreeks naar uw IoT Edge-ap
    4. Selecteer **Opslaan**.
 
 4. Selecteer **volgende** om door te gaan met de volgende stap van de wizard.
-5. In de **Routes opgeven** stap van de wizard, selecteer **volgende**.
+5. In de **Routes opgeven** stap van de wizard de optie **volgende**.
 6. Selecteer in de stap **Implementatie beoordelen** van de wizard de optie **Verzenden**.
 7. Nadat u de implementatie hebt ingediend, wordt u terugkeert naar de **IoT Edge** pagina van uw IoT-hub. Selecteer de IoT Edge-apparaat dat u met de implementatie te openen van de details ervan wordt benaderd. 
 8. Controleer of dat de blob storage-module wordt vermeld als zowel in de apparaatgegevens **opgegeven in de implementatie** en **gerapporteerd door device**. Het duurt een paar seconden voor de module worden gestart op het apparaat en klikt u vervolgens teruggemeld aan IoT-Hub. Vernieuw de pagina om een bijgewerkte status te bekijken. 

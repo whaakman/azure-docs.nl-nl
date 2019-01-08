@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4010f1582b726993a5540898492c76aa543fa2d9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 4d16e6161d2e31ed104f6b1ed9842470dd5faae9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407736"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062414"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte en een wachtrij met een Azure Resource Manager-sjabloon maken
 
@@ -116,6 +116,8 @@ Hiermee maakt u een standard Service Bus-naamruimte van het type **Messaging**, 
         }]
     }]
 ```
+
+Zie voor JSON-syntaxis en eigenschappen [naamruimten](/azure/templates/microsoft.servicebus/namespaces) en [wachtrijen](/azure/templates/microsoft.servicebus/namespaces/queues).
 
 ## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fdbbd1d3cf27172ed9ba5c5087ffc331e01ccf9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098290"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076804"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>De naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
 Elke nieuwe Azure AD-tenant wordt geleverd met een initiële domeinnaam *domainname*. onmicrosoft.com. U niet wijzigen of verwijderen van de initiële domeinnaam, maar u kunt de namen van uw organisatie toevoegen aan de lijst. Toevoegen van aangepaste domeinnamen, helpt u bij het maken van de gebruikersnamen die bekend bij uw gebruikers, zoals zijn *alain@contoso.com*.
@@ -63,7 +63,7 @@ Nadat u uw directory hebt gemaakt, kunt u uw aangepaste domeinnaam toevoegen.
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Uw DNS-gegevens toevoegen aan de domeinregistrar
 Nadat u uw aangepaste domeinnaam aan Azure AD toevoegen, moet u terug naar uw domeinregistrar en de Azure AD DNS-gegevens uit het gekopieerde TXT-bestand toevoegen. Het maken van dit TXT-record voor uw domein 'controleert of' eigendom van de domeinnaam van uw.
 
--  Ga terug naar uw domeinregistrar, maakt u een nieuwe TXT-record voor uw domein op basis van de gekopieerde gegevens van de DNS-de **TTL** (time to live van) en 60 minuten en sla de gegevens.
+-  Ga terug naar uw domeinregistrar, maakt u een nieuwe TXT-record voor uw domein op basis van de gekopieerde gegevens van de DNS-de **TTL** (time to live van) 3600 seconden (60 minuten) en sla de gegevens.
 
     >[!Important]
     >U kunt zoveel domeinnamen als u wilt registreren. Elk domein wordt echter een eigen TXT-record opgehaald uit Azure AD. Wees voorzichtig bij het invoeren van de informatie van de TXT-bestanden op de domeinregistrar. Als u de verkeerde invoeren of dubbele gegevens per ongeluk hebt, hebt u wachten totdat de TTL-waarde een optreedt (60 minuten) time-out voordat u het opnieuw kunt proberen.
@@ -98,10 +98,10 @@ Nadat u uw aangepaste domeinnaam hebt geregistreerd, moet u controleren of dat d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Een andere globale beheerder toevoegen aan uw directory. Zie voor meer informatie, [toewijzen van rollen en beheerders](active-directory-users-assign-role-azure-portal.md)
+- Een andere globale beheerder toevoegen aan uw directory. Zie voor meer informatie, [toewijzen van rollen en beheerders](active-directory-users-assign-role-azure-portal.md).
 
-- Gebruikers toevoegen aan uw domein, Zie [toevoegen of verwijderen van gebruikers](add-users-azure-active-directory.md)
+- Gebruikers toevoegen aan uw domein, Zie [toevoegen of verwijderen van gebruikers](add-users-azure-active-directory.md).
 
-- De gegevens van uw domein naam in Azure AD beheren. Zie voor meer informatie, [aangepaste domeinnamen beheren](../users-groups-roles/domains-manage.md)
+- De gegevens van uw domein naam in Azure AD beheren. Zie voor meer informatie, [aangepaste domeinnamen beheren](../users-groups-roles/domains-manage.md).
 
 - Als u beschikt over on-premises versies van Windows-Server die u wilt gebruiken samen met Azure Active Directory, raadpleegt u [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md).

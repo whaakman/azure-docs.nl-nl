@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832680"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076702"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>'Azure Marketplace' en 'AppSource' uitgeverprofiel beheren
 
@@ -29,7 +29,7 @@ Op dit moment zijn opgelost, kunt u de stappen om te worden van een uitgever Azu
 
 Als u uw bedrijf nog niet hebt geregistreerd als een cloudpartner, Zie [aan de slag met de cloud partner-portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
-**Uitgeverprofiel**: uw uitgeverprofiel onderscheidt van uw bedrijf op de Azure Marketplace en AppSource. Deze bestaat uit uw uitgevers-ID, de weergavenaam en de eigenaar email(s). Een goed beheerde profiel wordt uw zichtbaarheid verbeteren en kunnen gebruikers marketplace eenvoudig identificeren en selecteren van een juiste aanbieding.
+**Uitgeverprofiel**: Uw profiel publisher onderscheidt van uw bedrijf op de Azure Marketplace en AppSource. Deze bestaat uit uw uitgevers-ID, de weergavenaam en de eigenaar email(s). Een goed beheerde profiel wordt uw zichtbaarheid verbeteren en kunnen gebruikers marketplace eenvoudig identificeren en selecteren van een juiste aanbieding.
 
 > [!NOTE]
 > De uitgevers-ID en de geregistreerde eigenaar e-mailadres niet meer worden bewerkt wanneer u uw eerste aanbieding publiceren. U kunt echter uw profiel bekijken en bewerken van de weergavenaam van de uitgever van de Cloud Partner-Portal.
@@ -51,6 +51,6 @@ Eerst aanmelden bij de portal met hetzelfde e-mailadres gebruikt voor het regist
 >[!NOTE]
 >Dev Center-Account de registratie is verplicht voor publicatie betaalde marktplaats SKU's.
 
-Als u geen een [Developer Center-Account](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md), kunt u een account maken. Voeg het geregistreerde e-mailadres als een eigenaar zijn in de Cloud Partner-Portal voor uw aanbieding. Een eigenaar kunt alleen het geregistreerde e-mailadres toevoegen aan uw publicatieprofiel van de **gebruiker** sectie. Vervolgens aanmelden bij de portal met hetzelfde e-mailadres en uw Dev Center-account koppelen.
+Als u geen een [Developer Center-Account](./cloud-partner-portal-dev-center-accounts-registration.md), kunt u een account maken. Voeg het geregistreerde e-mailadres als een eigenaar zijn in de Cloud Partner-Portal voor uw aanbieding. Een eigenaar kunt alleen het geregistreerde e-mailadres toevoegen aan uw publicatieprofiel van de **gebruiker** sectie. Vervolgens aanmelden bij de portal met hetzelfde e-mailadres en uw Dev Center-account koppelen.
 
 ![Details van het Publisher - uitgever profielbeschrijving](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

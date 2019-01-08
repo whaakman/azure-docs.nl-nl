@@ -13,12 +13,12 @@ ms.date: 07/17/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: cc2a21999bdbaef956c0cc6424bb46a93072a6cd
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2cb7e15b701b53e74618c21bf219a355d495f985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049976"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076277"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Ontdek hoe klanten uw toepassing gebruiken met Application Insights Trechters
 
@@ -44,7 +44,7 @@ De volgende schermafbeelding ziet u dat een voorbeeld van het type gegevens het 
 ### <a name="funnels-features"></a>Trechters functies
 De vorige schermafbeelding omvat vijf gemarkeerde gebieden. Dit zijn functies van Trechters. De volgende lijst over elk overeenkomend gebied in de schermafbeelding wordt toegelicht:
 1. Als uw app verzameld, ziet u een banner steekproeven. De banner te selecteren, wordt een deelvenster context, waarin wordt uitgelegd hoe u kunt uitschakelen van steekproeven geopend. 
-2. U kunt uw trechter om te exporteren [Power BI](../../application-insights/app-insights-export-power-bi.md).
+2. U kunt uw trechter om te exporteren [Power BI](../../azure-monitor/app/export-power-bi.md ).
 3. Selecteer een stap voor meer informatie aan de rechterkant. 
 4. De historische conversie-grafiek toont de conversieverhoudingen gedurende de afgelopen 90 dagen. 
 5. Uw gebruikers beter begrijpen door het openen van het hulpprogramma gebruikers. U kunt filters gebruiken in elke stap. 
@@ -55,5 +55,5 @@ De vorige schermafbeelding omvat vijf gemarkeerde gebieden. Dit zijn functies va
   * [Retentie](usage-retention.md)
   * [Werkmappen](../../azure-monitor/app/usage-workbooks.md)
   * [Gebruikerscontext toevoegen](usage-send-user-context.md)
-  * [Exporteren naar Power BI](../../application-insights/app-insights-export-power-bi.md)
+  * [Exporteren naar Power BI](../../azure-monitor/app/export-power-bi.md )
 

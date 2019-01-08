@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 4653803623ed0c847fa63663204b5842f7a03d08
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584204"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063910"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Zelfstudie voor Azure-Logboekintegratie: Azure Key Vault-gebeurtenissen verwerken met behulp van Event Hubs
 
@@ -25,13 +25,13 @@ ms.locfileid: "53584204"
 
 U kunt Azure-Logboekintegratie vastgelegde gebeurtenissen ophalen en deze beschikbaar te maken voor uw systeem security information en event management (SIEM). In deze zelfstudie toont een voorbeeld van hoe Azure-Logboekintegratie kan worden gebruikt voor het verwerken van logboeken die worden verkregen via de Azure Event Hubs.
 
-De aanbevolen methode voor het integreren van Logboeken in Azure wordt met behulp van uw SIEM-connector leverancier s Azure Monitor en volgende [instructies](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Echter, als uw SIEM leverancier t een connector voor Azure Monitor bieden, u mogelijk gebruik van Azure-Logboekintegratie als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure-Logboekintegratie) totdat deze een connector beschikbaar is.
+De aanbevolen methode voor het integreren van Logboeken in Azure wordt met behulp van de leverancier van uw SIEM-connector voor Azure Monitor en volgende [instructies](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Echter, als de leverancier van uw SIEM niet een connector voor Azure Monitor biedt, u mogelijk gebruik van Azure-Logboekintegratie als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure-Logboekintegratie) totdat deze een connector beschikbaar is.
 
  
-Gebruik deze zelfstudie om vertrouwd te raken met hoe Azure-Logboekintegratie en Event Hubs samen werken met de voorbeeldenstappen te volgen en begrijpen hoe de oplossing biedt ondersteuning voor elke stap. U kunt vervolgens nemen wat u hebt geleerd hier om te maken van uw eigen stappen ter ondersteuning van de unieke vereisten van uw bedrijf s.
+Gebruik deze zelfstudie om vertrouwd te raken met hoe Azure-Logboekintegratie en Event Hubs samen werken met de voorbeeldenstappen te volgen en begrijpen hoe de oplossing biedt ondersteuning voor elke stap. U kunt vervolgens nemen wat u hebt geleerd hier om te maken van uw eigen stappen ter ondersteuning van de unieke vereisten van uw bedrijf.
 
 >[!WARNING]
-De stappen en de opdrachten in deze zelfstudie zijn niet bedoeld om te worden gekopieerd en geplakt. Ze dienen uitsluitend als voorbeeld. Gebruik niet de PowerShell-opdrachten is in uw productieomgeving. U moet deze op basis van uw unieke omgeving aanpassen.
+De stappen en de opdrachten in deze zelfstudie zijn niet bedoeld om te worden gekopieerd en geplakt. Ze dienen uitsluitend als voorbeeld. Gebruik de PowerShell-opdrachten "as is" niet in uw productieomgeving. U moet deze op basis van uw unieke omgeving aanpassen.
 
 
 In deze zelfstudie begeleidt u bij het proces van Azure Key Vault-activiteit vastgelegd in een event hub maken en het beschikbaar maken als JSON-bestanden naar uw SIEM-systeem. Vervolgens kunt u uw SIEM-systeem voor het verwerken van de JSON-bestanden configureren.
@@ -80,7 +80,7 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
 ## <a name="create-supporting-infrastructure-elements"></a>Ondersteunende Infrastructuurelementen maken
 
 1. Open een PowerShell-venster met verhoogde bevoegdheid en Ga naar **C:\Program Files\Microsoft Azure-Logboekintegratie**.
-1. Importeer de cmdlets AzLog LoadAzLogModule.ps1 van het script uit te voeren. Voer de `.\LoadAzLogModule.ps1` opdracht. (U ziet dat de. \ in die opdracht.) Deze lijst ziet er ongeveer zo uit:</br>
+1. Importeer de cmdlets AzLog LoadAzLogModule.ps1 van het script uit te voeren. Voer de `.\LoadAzLogModule.ps1` opdracht. (U ziet dat de '. \" in die opdracht.) Deze lijst ziet er ongeveer zo uit:</br>
 
    ![Lijst met geladen modules](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
 
    ![PowerShell-venster](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Maak variabelen voor het opslaan van waarden die later worden gebruikt. Voer de volgende PowerShell-regels. Mogelijk moet u de waarden zodat deze overeenkomt met uw omgeving aanpassen.
-    - ```$subscriptionName = �Visual Studio Ultimate with MSDN�``` (Naam van uw abonnement kan afwijken. U kunt zien dit als onderdeel van de uitvoer van de vorige opdracht.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Naam van uw abonnement kan afwijken. U kunt zien dit als onderdeel van de uitvoer van de vorige opdracht.)
     - ```$location = 'West US'``` (Deze variabele wordt gebruikt om door te geven van de locatie waar de resources moeten worden gemaakt. U kunt deze variabele om te worden van een willekeurige locatie van uw keuze worden wijzigen.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (De naam kan van alles zijn, maar hierbij moet alleen kleine letters en cijfers.)

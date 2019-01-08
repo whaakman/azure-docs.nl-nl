@@ -4,22 +4,22 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015463"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063638"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Verificatiefouten bij het werken met Azure Automation-runbooks
 
-### <a name="sign-in-failed"></a>Scenario: Meld u aan bij Azure-Account is mislukt
+### <a name="sign-in-failed"></a>Scenario: Aanmelden bij Azure-Account is mislukt
 
 #### <a name="issue"></a>Probleem
 
@@ -39,7 +39,7 @@ Deze fout treedt op als de naam van de referentie-asset is niet geldig of als de
 Om te bepalen wat er mis is, moet u de volgende stappen uitvoeren:  
 
 1. Zorg ervoor dat u geen speciale tekens heeft, met inbegrip van de **@** teken in de naam van Automation-referentie asset die u gebruikt om te verbinden met Azure.  
-2. Controleer dat u de gebruikersnaam en het wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor kunt gebruiken. U kunt doen. Controleer de gebruikersnaam en het wachtwoord juist zijn door het uitvoeren van de volgende cmdlets in PowerShell ISE:  
+2. Controleer of u kunt de gebruikersnaam en het wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor gebruiken. U kunt doen. Controleer de gebruikersnaam en het wachtwoord juist zijn door het uitvoeren van de volgende cmdlets in PowerShell ISE:  
 
    ```powershell
    $Cred = Get-Credential  
@@ -94,20 +94,22 @@ Deze fout treedt op als naam van het abonnement is niet geldig of als de Azure A
 Om te bepalen als u hebt geverifieerd naar Azure en toegang tot het abonnement dat u probeert hebben te selecteren, moet u de volgende stappen uitvoeren:  
 
 1. Het script buiten Azure Automation om te controleren of dat deze werkt zelfstandige testen.
-2. Zorg ervoor dat u uitvoert het **Add-AzureAccount** cmdlet voordat u de **Select-AzureSubscription** cmdlet.  
-3. Als u nog steeds deze foutmelding ziet, wijzigt u de code door toe te voegen de **- AzureRmContext** parameter volgende de **Add-AzureAccount** cmdlet en vervolgens de code wordt uitgevoerd.
+2. Zorg ervoor dat u uitvoert het `Add-AzureAccount` cmdlet voordat u de `Select-AzureSubscription` cmdlet. 
+3. Voeg `Disable-AzureRmContextAutosave –Scope Process` aan het begin van het runbook. Dit zorgt ervoor dat alle referenties alleen voor de uitvoering van het huidige runbook gelden.
+4. Als u nog steeds deze foutmelding ziet, wijzigt u de code door toe te voegen de **AzureRmContext** parameter volgende de `Add-AzureAccount` cmdlet en vervolgens de code wordt uitgevoerd.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
     ```
 
-### <a name="auth-failed-mfa"></a>Scenario: De verificatie bij Azure is mislukt omdat de multi-factor authentication is ingeschakeld
+### <a name="auth-failed-mfa"></a>Scenario: Verificatie bij Azure is mislukt omdat de multi-factor authentication is ingeschakeld
 
 #### <a name="issue"></a>Probleem
 
@@ -127,7 +129,7 @@ Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementa
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Veelvoorkomende fouten bij het werken met runbooks
 
-### <a name="task-was-cancelled"></a>Scenario: Het runbook is mislukt met de fout: een taak is geannuleerd
+### <a name="task-was-cancelled"></a>Scenario: Het runbook is mislukt met de fout: Een taak is geannuleerd
 
 #### <a name="issue"></a>Probleem
 
@@ -147,21 +149,24 @@ Deze fout kan worden opgelost door uw Azure-modules bijwerken naar de nieuwste v
 
 Klik in uw Automation-Account op **Modules**, en klikt u op **Update Azure-modules**. De update duurt ongeveer 15 minuten, één keer voltooid opnieuw uitvoeren van het runbook is mislukt. Zie voor meer informatie over het bijwerken van de modules, [Update Azure-modules in Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Scenario: Onderliggende runbook is mislukt tijdens het afhandelen van meerdere abonnementen
+### <a name="runbook-auth-failure"></a>Scenario: Runbooks mislukken wanneer er sprake is van meerdere abonnementen
 
 #### <a name="issue"></a>Probleem
 
-Bij het uitvoeren van de onderliggende runbooks met `Start-AzureRmRunbook`, het onderliggende runbook is mislukt voor het beheren van Azure-resources.
+Bij het uitvoeren van runbooks met `Start-AzureRmAutomationRunbook`, het runbook is mislukt voor het beheren van Azure-resources.
 
 #### <a name="cause"></a>Oorzaak
 
-Het onderliggende runbook is niet de juiste context gebruikt bij het uitvoeren van.
+Het runbook is niet de juiste context gebruikt bij het uitvoeren van.
 
 #### <a name="resolution"></a>Oplossing
 
-Als u werkt met meerdere abonnementen mogelijk de context van het abonnement worden verbroken tijdens het aanroepen van de onderliggende runbooks. Om ervoor te zorgen dat de context van het abonnement wordt doorgegeven aan de onderliggende runbooks, voeg de `AzureRmContext` parameter voor de cmdlet en geeft u de context toe.
+Als u werkt met meerdere abonnementen, kan de context van het abonnement worden verbroken tijdens het aanroepen van runbooks. Om ervoor te zorgen dat de context van het abonnement wordt doorgegeven aan de runbooks, voeg de `AzureRmContext` parameter voor de cmdlet en geeft u de context toe. Het is ook raadzaam om te gebruiken de `Disable-AzureRmContextAutosave` cmdlet met de **proces** bereik om ervoor te zorgen dat de referenties die u gebruiken alleen worden gebruikt voor het huidige runbook.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 Deze fout kan worden veroorzaakt door de volgende redenen:
 
-1. Limiet voor geheugen. Er zijn voorgeschreven limiet op hoeveel geheugen is toegewezen aan een Sandbox [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits) , zodat een taak uitvoeren kan als er meer dan 400 MB aan geheugen.
+1. Limiet voor geheugen. De voorgeschreven limiet op hoeveel geheugen is toegewezen aan een Sandbox is gevonden op [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits). Een taak kan mislukken als er meer dan 400 MB aan geheugen.
 
-1. Netwerk-Sockets. Azure-sandboxes geladen zijn beperkt tot 1000 gelijktijdige netwerk sockets, zoals beschreven op [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits).
+2. Netwerk-Sockets. Azure-sandboxes geladen zijn beperkt tot 1000 gelijktijdige netwerk sockets, zoals beschreven op [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Module die incompatibel is. Deze fout kan optreden als de module-afhankelijkheden niet juist zijn en als ze niet, uw runbook retourneert doorgaans een '-opdracht niet gevonden' of 'Kan niet binden parameter'-bericht.
+3. Module die incompatibel is. Deze fout kan optreden als de module-afhankelijkheden niet juist zijn en als ze niet, uw runbook retourneert doorgaans een '-opdracht niet gevonden' of 'Kan niet binden parameter'-bericht.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -262,7 +267,7 @@ Een van de volgende drie oplossingen kunt dit probleem oplossen:
 2. De naam of de waarde die u nodig hebt van het complexe object in plaats van het doorgeven van het gehele object doorgegeven.
 3. Een PowerShell-runbook gebruiken in plaats van een PowerShell Workflow-runbook.
 
-### <a name="quota-exceeded"></a>Scenario: De Runbook-taak is mislukt omdat het toegewezen quotum overschreden
+### <a name="quota-exceeded"></a>Scenario: Runbook-taak is mislukt omdat het toegewezen quotum overschreden
 
 #### <a name="issue"></a>Probleem
 
@@ -285,7 +290,7 @@ Als u gebruiken van meer dan 500 minuten per maand wordt verwerkt wilt, moet u u
 3. Klik op **instellingen** > **prijzen**.
 4. Klik op **inschakelen** op de pagina van beneden naar uw account bijwerken naar de **Basic** laag.
 
-### <a name="cmdlet-not-recognized"></a>Scenario: Cmdlet niet wordt herkend als een runbook uitvoeren
+### <a name="cmdlet-not-recognized"></a>Scenario: Cmdlet is niet herkend bij het uitvoeren van een runbook
 
 #### <a name="issue"></a>Probleem
 
@@ -328,9 +333,9 @@ Het runbook werd uitgevoerd dan de limiet 3 uur is toegestaan door evenredige de
 
 Een aanbevolen oplossing is om uit te voeren van het runbook op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Workers zijn niet beperkt door de [evenredige deel](../automation-runbook-execution.md#fair-share) 3 uur runbook beperken die Azure-sandboxes geladen zijn. Terwijl de Hybrid Runbook Workers zijn niet beperkt door de limiet van de evenredige deel 3 uur, runbooks die worden uitgevoerd op Hybrid Runbook Workers moeten nog steeds worden ontwikkeld ter ondersteuning van opnieuw opstarten gedrag in het geval van problemen met onverwachte lokale infrastructuur.
+Hybrid Workers zijn niet beperkt door de [evenredige deel](../automation-runbook-execution.md#fair-share) 3 uur runbook beperken die Azure-sandboxes geladen zijn. Terwijl de Hybrid Runbook Workers zijn niet beperkt door de limiet van de evenredige deel 3 uur, runbooks die worden uitgevoerd op Hybrid Runbook Workers moeten nog steeds worden ontwikkeld ter ondersteuning van gedrag voor opnieuw opstarten als er onverwachte lokale infrastructuur problemen zijn.
 
-Een andere optie is het optimaliseren van het runbook met het maken van [onderliggende runbooks](../automation-child-runbooks.md). Als uw runbook dezelfde functie op een aantal resources, zoals een databasebewerking op verschillende databases doorloopt, kunt u deze functie kunt verplaatsen naar een onderliggend runbook. Elk van deze onderliggende runbooks wordt parallel uitgevoerd in afzonderlijke processen, waardoor het minder lang duurt voordat het bovenliggende runbook is voltooid.
+Een andere optie is het optimaliseren van het runbook met het maken van [onderliggende runbooks](../automation-child-runbooks.md). Als uw runbook dezelfde functie op een aantal resources, zoals een databasebewerking op verschillende databases doorloopt, kunt u deze functie kunt verplaatsen naar een onderliggend runbook. Elk van deze onderliggende runbooks gelijktijdig in afzonderlijke processen uitgevoerd. Dit gedrag vermindert de totale hoeveelheid tijd voor het bovenliggende runbook om te voltooien.
 
 De PowerShell-cmdlets waarmee het onderliggende runbook scenario zijn:
 
@@ -342,7 +347,7 @@ De PowerShell-cmdlets waarmee het onderliggende runbook scenario zijn:
 
 #### <a name="issue"></a>Probleem
 
-U ontvangt de volgende fout wanneer u probeert een webhook voor een Azure Automation-runbook aanroepen.
+Als u een webhook voor een Azure Automation-runbook aanroepen probeert, krijgt u de volgende fout.
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -354,13 +359,13 @@ De webhook die u probeert om aan te roepen is uitgeschakeld of is verlopen.
 
 #### <a name="resolution"></a>Oplossing
 
-Als de webhook is uitgeschakeld, kunt u de webhook via Azure portal opnieuw inschakelen. Als de webhook is verlopen, wordt de webhook moet worden verwijderd en opnieuw worden gemaakt. U kunt alleen [vernieuwen van een webhook](../automation-webhooks.md#renew-webhook) als deze niet al is verlopen.
+Als de webhook is uitgeschakeld, kunt u de webhook via Azure portal opnieuw inschakelen. Wanneer een webhook is verlopen, wordt de webhook moet worden verwijderd en opnieuw worden gemaakt. U kunt alleen [vernieuwen van een webhook](../automation-webhooks.md#renew-webhook) als deze niet al is verlopen.
 
-### <a name="429"></a>Scenario: 429: het aantal verwerkte aanvragen op dat moment is te groot. Probeer het opnieuw
+### <a name="429"></a>Scenario: 429: Het aantal verwerkte aanvragen is momenteel te groot. Probeer het opnieuw
 
 #### <a name="issue"></a>Probleem
 
-Het ontvangen van de volgende strekking weergegeven bij het uitvoeren van de `Get-AzureRmAutomationJobOutput` cmdlet:
+U het volgende foutbericht ontvangt bij het uitvoeren van de `Get-AzureRmAutomationJobOutput` cmdlet:
 
 ```
 429: The request rate is currently too large. Please try again
@@ -375,7 +380,7 @@ Deze fout kan optreden bij het ophalen van de uitvoer van een runbook met veel [
 Er zijn twee manieren deze fout op te lossen:
 
 * Het runbook bewerken en verminder het aantal taakstromen die deze verzendt.
-* Verminder het aantal stromen moet worden opgehaald als de cmdlet wordt uitgevoerd. Hiervoor kunt u de `-Stream Output` parameter voor de `Get-AzureRmAutomationJobOutput` alleen uitvoerstromen cmdlet om op te halen. 
+* Verminder het aantal stromen moet worden opgehaald als de cmdlet wordt uitgevoerd. Als u wilt volgen dit gedrag, kunt u de `-Stream Output` parameter voor de `Get-AzureRmAutomationJobOutput` alleen uitvoerstromen cmdlet om op te halen. 
 
 ## <a name="common-errors-when-importing-modules"></a>Veelvoorkomende fouten bij het importeren van modules
 

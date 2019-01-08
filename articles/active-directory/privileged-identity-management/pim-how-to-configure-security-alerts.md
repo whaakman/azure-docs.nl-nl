@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291212"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063282"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren
 
@@ -30,9 +30,9 @@ Azure AD Privileged Identity Management (PIM) genereert waarschuwingen wanneer e
 
 In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor directory-rollen, samen met het oplossen van en hoe u kunt voorkomen. Ernst heeft de volgende betekenis:
 
-* **Hoge**: direct actie vereist vanwege een schending van het beleid.
-* **Gemiddeld**: geen directe actie is vereist, maar geeft een mogelijke schending van het beleid.
-* **Lage**: geen directe actie is vereist, maar stelt u een beleidswijziging van de voorkeur boven het.
+* **Hoge**: Onmiddellijke actie vereist vanwege een schending van het beleid.
+* **Gemiddeld**: Geen directe actie is vereist, maar geeft een mogelijke schending van het beleid.
+* **Lage**: Geen directe actie is vereist, maar stelt een beleidswijziging van de voorkeur boven het.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Beheerders hun bevoorrechte rollen niet gebruikt
 
@@ -69,7 +69,7 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor director
 | | |
 | --- | --- |
 | **Ernst** | Middelgroot |
-| **Waarom krijg ik deze waarschuwing?** | Accounts die hun wachtwoord niet hebt gewijzigd onlangs mogelijk service of gedeelde accounts die worden niet bijgehouden. Deze accounts in bevoorrechte rollen zijn kwetsbaar voor aanvallen. |
+| **Waarom krijg ik deze waarschuwing?** | Accounts in een bevoorrechte rol die niet hun wachtwoord hebben gewijzigd in de afgelopen 90 dagen. Deze accounts kunnen service of gedeelde accounts die niet worden bijgehouden en zijn kwetsbaar voor aanvallen. |
 | **Over het oplossen van?** | Bekijk de accounts in de lijst. Als deze toegang niet meer nodig hebt, kunt u ze uit hun bevoorrechte rollen verwijderen. |
 | **Preventie** | Zorg ervoor dat de accounts die worden gedeeld sterke wachtwoorden zijn draaien wanneer er een wijziging in de gebruikers die het wachtwoord weten. </br>Controleer regelmatig accounts met bevoorrechte rollen met behulp van [toegangsbeoordelingen](pim-how-to-start-security-review.md) en verwijderen van roltoewijzingen die niet meer nodig zijn. |
 | **In de portal risicobeperking actie** | Hiermee verwijdert u het account van hun bevoegde rol. |

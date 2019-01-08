@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 93757c9f589ec1a6d5065d32740831dac922a015
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013233"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079065"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-aanbevelingen voor prestaties
 
@@ -39,11 +39,6 @@ Advisor biedt u een consistente, geconsolideerde weergave van de aanbevelingen v
 
 Zie voor meer informatie over SQL Database Advisor [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>Azure Cache voor Redis-prestaties en betrouwbaarheid verbeteren
-
-Azure Cache identificeert Advisor voor instanties van Redis waarbij prestaties kan nadelig worden beïnvloed door hoog geheugengebruik, serverbelasting, bandbreedte van het netwerk of een groot aantal clientverbindingen. Advisor biedt ook aanbevolen procedures voor aanbevelingen om te voorkomen van potentiële problemen. Zie voor meer informatie over Azure Cache voor aanbevelingen van Redis [Azure Cache voor Advisor Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
-
-
 ## <a name="improve-app-service-performance-and-reliability"></a>App Service-prestaties en betrouwbaarheid verbeteren
 
 Azure Advisor kan worden geïntegreerd met aanbevelingen voor het verbeteren van de ervaring van uw App Services en relevante platformmogelijkheden detecteren. Voorbeelden van aanbevelingen voor de App-Services zijn:
@@ -52,6 +47,16 @@ Azure Advisor kan worden geïntegreerd met aanbevelingen voor het verbeteren van
 
 Zie voor meer informatie over aanbevelingen voor de App Services [Best Practices voor Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
+## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Managed Disks gebruiken om te voorkomen dat de-i/o-schijfbeperking
+
+Advisor identificeert virtuele machines die deel uitmaken van een storage-account dat de schaalbaarheidsdoel bereikt. Dit maakt het vatbaar voor i/o-beperking. Advisor wordt aangeraden deze virtuele machines Managed Disks te gebruiken om te voorkomen dat de systeemprestaties.
+
+## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>De prestaties en betrouwbaarheid van virtuele-machineschijven verbeteren met behulp van Premium Storage
+
+Advisor identificeert virtuele machines met standard-schijven waarvoor een groot aantal transacties in uw storage-account en wordt aanbevolen een upgrade naar premium-schijven. 
+
+Azure Premium Storage voorziet in ondersteuning voor hoge prestaties en lage latentie schijven voor virtuele machines die I/O-intensieve workloads uitvoeren. VM-schijven die gebruikmaken van premium storage-accounts worden gegevens opgeslagen op SSD-schijven (SSD's). Voor de beste prestaties voor uw toepassing, wordt u aangeraden dat u alle schijven van virtuele machines waarvoor hoge IOPS naar premium storage gemigreerd.
+
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Gegevensverschil op uw SQL datawarehouse-tabel te verhogen van de prestaties van query's verwijderen
 
 Gegevensverschil kan leiden tot onnodige gegevens knelpunten in verkeer of resource biedt bij het uitvoeren van uw workload. Advisor detecteert distributiegegevens scheeftrekken groter is dan 15% is en aangeraden dat u uw gegevens distribueren en terugkeren naar uw tabel distributie sleutel selecties. Zie voor meer informatie over het identificeren en verwijderen van scheeftrekken [probleemoplossing scheeftrekken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
@@ -59,6 +64,14 @@ Gegevensverschil kan leiden tot onnodige gegevens knelpunten in verkeer of resou
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Maken of bijwerken van verouderde tabelstatistieken op uw SQL datawarehouse-tabel voor betere queryprestaties
 
 Advisor identificeert de tabellen die u geen recente hebt [tabelstatistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) en de gebruiker wordt aanbevolen maken of bijwerken van statistieken tabel. Query's optimaliseren up-to-date statische waarden gebruikt om te schatten van de kardinaliteit of het aantal rijen in het queryresultaat waarmee het queryoptimalisatieprogramma om een hoge kwaliteit queryplan voor de snelste prestaties te maken voor de SQL data warehouse.
+
+## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Opschalen naar het Optimaliseer het gebruik van de cache voor uw SQL Data Warehouse-tabellen voor betere queryprestaties
+
+Azure Advisor detecteert als uw SQL Data Warehouse beschikt over hoge cache percentage gebruikt en een lage percentage bereikt. Hiermee wordt aangegeven hoge cache verwijdering die kan invloed hebben op de prestaties van uw SQL Data Warehouse. Advisor kan erop wijzen dat u omhoog schalen van uw SQL Data Warehouse om ervoor te zorgen voldoende capaciteit cache voor uw werkbelasting die u toewijst.
+
+## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>SQL Data Warehouse-tabellen omzetten in gerepliceerde tabellen voor betere queryprestaties
+
+Advisor identificeert de tabellen die geen gerepliceerde tabellen zijn, maar veel voordeel hebben van het converteren van en stelt deze tabellen te converteren. Aanbevelingen zijn gebaseerd op de grootte van gerepliceerde tabel, het aantal kolommen, tabel Distributietype en het aantal partities van de SQL Data Warehouse-tabel. Aanvullende heurisitics kan worden opgegeven in de aanbeveling voor context. Zie voor meer informatie over hoe deze aanbeveling wordt bepaald, [aanbevelingen voor SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Uw Storage-Account migreren naar Azure Resource Manager om de nieuwste functies van Azure
 

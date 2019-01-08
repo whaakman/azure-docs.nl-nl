@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077451"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063349"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Wijs toe of verwijder licenties met behulp van de Azure Active Directory-portal
 Veel services van Azure Active Directory (Azure AD) moeten u een Azure AD-product te activeren en licenties voor elk van uw gebruikers of groepen (en bijbehorende leden) voor dat product. Alleen gebruikers met actieve licenties kunnen openen en gebruiken de gelicentieerde Azure AD-services.
@@ -57,7 +57,8 @@ U kunt uw beschikbare producten, met inbegrip van de afzonderlijke licenties wee
 ## <a name="assign-licenses-to-users-or-groups"></a>Licenties toewijzen aan gebruikers of groepen
 Zorg ervoor dat iedereen die gebruik van een gelicentieerde Azure AD-service de juiste licentie heeft. Het is aan u of u wilt toevoegen de licentierechten naar afzonderlijke gebruikers of een hele groep.
 
->! [Opmerking] Groepslicenties is een openbare preview-functie van Azure AD en is beschikbaar met een betaald abonnement voor Azure AD-licentie. Zie [Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.<br><br>Zie voor gedetailleerde informatie over het toevoegen van gebruikers [toevoegen of verwijderen van gebruikers in Azure Active Directory](add-users-azure-active-directory.md). Zie voor gedetailleerde informatie over het maken van groepen en leden toevoegen [een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md).
+>[!Note]
+>Groepslicenties is een openbare preview-functie van Azure AD en is beschikbaar met een betaald abonnement voor Azure AD-licentie. Zie [Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.<br><br>Zie voor gedetailleerde informatie over het toevoegen van gebruikers [toevoegen of verwijderen van gebruikers in Azure Active Directory](add-users-azure-active-directory.md). Zie voor gedetailleerde informatie over het maken van groepen en leden toevoegen [een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md).
 
 ### <a name="to-assign-a-license-to-a-specific-user"></a>Een licentie toewijzen aan een specifieke gebruiker
 1. Op de **producten** pagina, selecteert u de naam van de editie die u wilt toewijzen aan de gebruiker. Bijvoorbeeld, _Azure Active Directory Premium Plan 2_.

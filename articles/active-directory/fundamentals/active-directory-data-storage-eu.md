@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51658fe686e2826618b2044cd969e6b4d463b93f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099933"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063171"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
 Azure Active Directory (Azure AD) helpt u bij het beheren van gebruikers-id's en informatie gebaseerd toegangsbeleid die helpen bij het beveiligen van resources van uw organisatie maken. Identiteitsgegevens worden opgeslagen op een locatie die uw bedrijf heeft opgegeven toen u zich hebt aangemeld bij de service. Bijvoorbeeld bij het abonneren op Office 365 of Azure. Voor specifieke informatie over waar uw identiteitsgegevens worden opgeslagen, kunt u het gedeelte [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center gebruiken.
@@ -55,7 +55,7 @@ De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens, voor
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    Azure AD B2C slaat alle gebruikersgegevens in rust op in Europese datacenters. Operationele logboeken (zonder persoonlijke gegevens) blijven echter op de locatie vanwaar de persoon toegang heeft tot de services. Bijvoorbeeld, als een B2C-gebruiker toegang heeft tot de service in de Verenigde Staten, blijven de operationele logboeken in de Verenigde Staten. Bovendien worden alle beleidsgegevens voor de configuratie zonder persoonsgegevens alleen in de Verenigde Staten opgeslagen. Zie voor meer informatie over configuraties voor beleid het artikel [Azure Active Directory B2C: ingebouwde beleidsregels](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+    Azure AD B2C slaat alle gebruikersgegevens in rust op in Europese datacenters. Operationele logboeken (zonder persoonlijke gegevens) blijven echter op de locatie vanwaar de persoon toegang heeft tot de services. Bijvoorbeeld, als een B2C-gebruiker toegang heeft tot de service in de Verenigde Staten, blijven de operationele logboeken in de Verenigde Staten. Bovendien worden alle beleidsgegevens voor de configuratie zonder persoonsgegevens alleen in de Verenigde Staten opgeslagen. Zie voor meer informatie over configuraties voor beleid voor de [Azure Active Directory B2C: Ingebouwd beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artikel.
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     
@@ -72,7 +72,7 @@ De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens, voor
     Zie de sectie [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center voor meer informatie over de gegevenslocatie van Microsoft-services.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen voor meer informatie over een van de functies en functionaliteiten die hierboven worden beschreven.
+Zie de volgende artikelen voor meer informatie over een van de functies en functionaliteit die hierboven worden beschreven:
 - [Wat is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure Active Directory Self-Service Password Reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [Wat is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

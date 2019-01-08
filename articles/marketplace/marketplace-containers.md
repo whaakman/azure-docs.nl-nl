@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5eb30c65032332825d05097f86d0275b015a8929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059422"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076379"
 ---
 # <a name="containers-offer-publishing-guide"></a>Containers bieden Publicatiehandleiding voor
 
@@ -40,16 +40,17 @@ Microsoft biedt momenteel ondersteuning voor gratis en bring-your-own-license (B
 |:--- |:--- |  
 | Facturering en betaling naar gebruik | Ondersteuning voor een van beide de gratis of BYOL-model voor facturering. |  
 | Afbeelding die zijn gebouwd op basis van docker-bestand | Containerinstallatiekopieën moeten worden gebaseerd op de Docker-installatiekopie-specificatie en moeten worden gemaakt van een docker-bestand.<ul> <li>Voor meer informatie over het bouwen van docker-installatiekopieën, gaat u naar het gedeelte van het gebruik dat zich bevindt in [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Hosting in ACR | Containerinstallatiekopieën moeten worden gehost in een opslagplaats voor Azure Container Registry (ACR).<ul> <li>Voor meer informatie over het werken met ACR, gaat u naar de Snelstartgids: een containerregister maken met de Azure portal-pagina te vinden op [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
-| Afbeeldingen taggen | Containerinstallatiekopieën moeten ten minste 1 tag bevatten (maximum aantal tags: 16).<ul> <li>Voor meer informatie over het taggen van een afbeelding, gaat u naar de docker-tag-pagina te vinden op [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
+| Hosting in ACR | Containerinstallatiekopieën moeten worden gehost in een opslagplaats voor Azure Container Registry (ACR).<ul> <li>Voor meer informatie over het werken met ACR, gaat u naar de Quick Start: Een containerregister maken met de Azure portal-pagina te vinden op [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Afbeeldingen taggen | Containerinstallatiekopieën moeten ten minste 1 tag bevatten (maximum van labels: 16).<ul> <li>Voor meer informatie over het taggen van een afbeelding, gaat u naar de docker-tag-pagina te vinden op [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u dit nog niet hebt gedaan, 
 
-- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace
+- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace.
 
 Als u bent geregistreerd en het maken van een nieuwe aanbieding of werken aan een bestaande resourcegroep
 
-- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uw aanbieding voltooien
+- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uitvoeren van uw aanbieding.
+- Zie [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) voor meer informatie.

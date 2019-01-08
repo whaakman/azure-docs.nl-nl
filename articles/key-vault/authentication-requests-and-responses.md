@@ -10,16 +10,15 @@ ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296547"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074050"
 ---
 # <a name="authentication-requests-and-responses"></a>Verificatie, vragen en antwoorden
 
@@ -49,14 +48,14 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
  Azure Key Vault-protocolversies voert u een datum nummering schema met behulp van een {DD}. {MM}. De indeling {yyyy}.  
 
-## <a name="request-body"></a>Hoofdtekst van de aanvraag  
+## <a name="request-body"></a>Aanvraagtekst  
  GET-bewerkingen mag geen aanvraagtekst aan de hand van de HTTP-specificatie en POST en PUT-bewerkingen moeten een aanvraagtekst hebben. De hoofdtekst van de bewerking verwijderen is optioneel in HTTP.  
 
  Tenzij anders vermeld in de beschrijving van de bewerking, wordt het inhoudstype van de aanvraag hoofdtekst moet application/json en een geserialiseerde JSON-object in overeenstemming inhoudstype moet bevatten.  
 
  Tenzij anders vermeld in de beschrijving van de bewerking, moet de Accept-header voor aanvraag voor het mediatype application/json bevatten.  
 
-## <a name="response-body"></a>Antwoordtekst  
+## <a name="response-body"></a>Hoofdtekst van de reactie  
  Tenzij anders vermeld in de beschrijving van de bewerking, wordt het antwoord hoofdtekst-inhoudstype van geslaagde en mislukte bewerkingen worden application/json en bevat gedetailleerde foutgegevens.  
 
 ## <a name="using-http-post"></a>Met behulp van HTTP POST  
@@ -65,13 +64,13 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 ## <a name="error-responses"></a>Foutberichten  
  Foutafhandeling gebruikt HTTP-statuscodes. Typische resultaten zijn:  
 
--   2xx: geslaagd: gebruikt voor normale werking. De antwoordtekst bevat het verwachte resultaat  
+-   2xx: geslaagd: Gebruikt voor normale werking. De antwoordtekst bevat het verwachte resultaat  
 
--   3xx – omleiding: de 304 "niet gewijzigd' om te voldoen aan een voorwaardelijke GET kan worden geretourneerd. Andere codes 3xx kunnen in de toekomst worden gebruikt om aan te geven van wijzigingen in DNS en pad.  
+-   3xx – omleiding: De 304 'Niet gewijzigd' kan worden geretourneerd om te voldoen aan een voorwaardelijke GET. Andere codes 3xx kunnen in de toekomst worden gebruikt om aan te geven van wijzigingen in DNS en pad.  
 
--   4XX-Clientfout: gebruikt voor ongeldige aanvragen, ontbrekende sleutels, syntaxisfouten, er zijn ongeldige parameters, -verificatiefouten, enzovoort. De antwoordtekst bevat gedetailleerde fout uitleg.  
+-   4XX: fout bij de Client: Gebruikt voor ongeldige aanvragen, ontbrekende sleutels, syntaxisfouten, er zijn ongeldige parameters, -verificatiefouten, enzovoort. De antwoordtekst bevat gedetailleerde fout uitleg.  
 
--   5XX-serverfout: gebruikt voor interne serverfouten optreden. De antwoordtekst bevat informatie over samengevatte fouten.  
+-   5XX-serverfout: Gebruikt voor interne serverfouten optreden. De antwoordtekst bevat informatie over samengevatte fouten.  
 
  Het systeem is ontworpen om te werken achter een proxy of firewall. Een client ontvangt daarom andere foutcodes.  
 
@@ -92,7 +91,7 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
 ```  
 
-## <a name="authentication"></a>Authenticatie  
+## <a name="authentication"></a>Verificatie  
  Alle aanvragen naar de Azure Key Vault moet worden geverifieerd. Azure Key Vault ondersteunt Azure Active Directory-toegangstokens die kunnen worden verkregen met behulp van OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
  
  Zie voor meer informatie over het registreren van uw toepassing en verifiëren voor het gebruik van Azure Key Vault, [uw clienttoepassing registreren bij Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
@@ -115,9 +114,9 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
  De parameters op de WWW-Authenticate-header zijn:  
 
--   autorisatie: het adres van de OAuth2-autorisatie-service die kan worden gebruikt voor het verkrijgen van een toegangstoken voor de aanvraag.  
+-   Autorisatie: Het adres van de OAuth2-autorisatie-service die kan worden gebruikt voor het verkrijgen van een toegangstoken voor de aanvraag.  
 
--   bron: de naam van de resource moet worden gebruikt in de autorisatieaanvraag.  
+-   bron: De naam van de resource moet worden gebruikt in de autorisatieaanvraag.  
 
 ## <a name="see-also"></a>Zie ook  
  [Informatie over sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md)

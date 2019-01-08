@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993799"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074513"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -674,6 +674,10 @@ In C# en andere .NET-talen, kunt u een patroon imperatieve binding, in plaats va
 ## <a name="functionjson-file-schema"></a>Function.JSON bestandsschema
 
 De *function.json* bestandsschema is beschikbaar op [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Bindingen testen
+
+Bij het ontwikkelen van functies lokaal, kunt u uw bindingen met behulp van Visual Studio 2017 of Visual Studio Code kunt testen. Zie voor meer informatie, [strategieën voor het testen van uw code in Azure Functions](functions-test-a-function.md). U kunt ook niet-HTTP-bindingen met behulp van REST-API's aanroepen. Zie voor meer informatie, [handmatig uitvoeren van een niet HTTP-geactiveerde functie](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Afhandeling van fouten-binding
 

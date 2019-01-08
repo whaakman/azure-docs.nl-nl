@@ -10,18 +10,18 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229414"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061054"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Streaming customer insights-dashboard maken met Azure Logic Apps en Azure Functions
 
-Azure biedt serverloze hulpprogramma's waarmee u snel apps bouwen en hosten in de cloud, zonder dat om na te denken over de infrastructuur. In deze zelfstudie, kunt u een dashboard dat wordt geactiveerd op feedback van klanten, analyseert feedback met machine learning en inzichten publiceert naar een bron, zoals Power BI of Azure Data Lake.
+Azure biedt [serverloze](https://azure.microsoft.com/solutions/serverless/) hulpprogramma's waarmee u snel apps bouwen en hosten in de cloud, zonder dat om na te denken over de infrastructuur. In deze zelfstudie, kunt u een dashboard dat wordt geactiveerd op feedback van klanten, analyseert feedback met machine learning en inzichten publiceert naar een bron, zoals Power BI of Azure Data Lake.
 
-Voor deze oplossing kunt u deze belangrijke Azure-onderdelen gebruiken voor serverloze apps: [Azure Functions](https://azure.microsoft.com/services/functions/) en [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Voor deze oplossing kunt u deze belangrijke Azure-onderdelen voor serverloze apps gebruiken: [Azure Functions](https://azure.microsoft.com/services/functions/) en [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Met Azure Logic Apps biedt een engine voor serverloze werkstromen in de cloud, zodat u kunt maken van indelingen voor serverloze onderdelen en verbinding met meer dan 200 services en API's maken. Azure Functions biedt serverloze computing in de cloud. Deze oplossing maakt gebruik van Azure Functions voor het markeren van de klant tweets op basis van vooraf gedefinieerde trefwoorden.
 
 In dit scenario maakt u een logische app die wordt geactiveerd op het vinden van feedback van klanten. Sommige connectors dat help u reageren op feedback van klanten zijn onder andere Outlook.com, Office 365, enquête Monkey, Twitter, en een [HTTP-aanvraag van een webformulier](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). De werkstroom die u maakt bewaakt een hashtag op Twitter.
@@ -34,7 +34,7 @@ U kunt [bouwen van de gehele oplossing in Visual Studio](../logic-apps/quickstar
 
    Als u geen ervaring met logische apps, raadpleegt u de [Quick Start voor de Azure-portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) of de [Quick Start voor Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. In Logic App Designer, zoeken en toevoegen van de Twitter-trigger met deze actie: **wanneer er een nieuwe tweet wordt geplaatst**
+2. Zoek in Logic App Designer en de Twitter-trigger met deze actie toevoegen: **Wanneer er een nieuwe tweet wordt geplaatst**
 
 3. De trigger instellen om te luisteren naar tweets op basis van een sleutelwoord of hashtag.
 
@@ -60,10 +60,10 @@ U kunt gebruiken voor het detecteren van het sentiment achter tekst [Azure Cogni
 
 Nadat u de gegevens van de tweet en inzichten over de tweet ontvangen, kunt u nu verschillende andere relevante connectors en de bijbehorende acties gebruiken:
 
-* **Power BI - rijen toevoegen aan de Streaming-gegevensset**: binnenkomende tweets in een Power BI-dashboard weergeven.
-* **Azure Data Lake - toevoegen aan het bestand**: gegevens van de klant toevoegen aan een Azure Data Lake-gegevensset om op te nemen in analytics-taken.
-* **SQL - rijen toevoegen**: data Store in een database voor later gebruik.
-* **Slack - bericht verzenden**: op de hoogte stellen een Slack-kanaal over negatieve feedback die wellicht actie is vereist.
+* **Power BI - rijen toevoegen aan de Streaminggegevensset**: Binnenkomende tweets in een Power BI-dashboard weergeven.
+* **Azure Data Lake - toevoegen aan het bestand**: Gegevens van de klant toevoegen aan een Azure Data Lake-gegevensset om op te nemen in analytics-taken.
+* **SQL - rijen toevoegen**: Gegevens in een database voor het ophalen van hoger Store.
+* **Slack - bericht verzenden**: Een Slack-kanaal over negatieve feedback die wellicht actie is vereist op de hoogte stellen.
 
 U kunt ook maken en een Azure-functie zodat u kunt aangepaste verwerking uitvoeren op uw gegevens. 
 

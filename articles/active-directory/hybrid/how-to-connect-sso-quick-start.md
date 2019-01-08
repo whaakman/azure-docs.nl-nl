@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ed3271eb2fdae1b89013f0145b0e08de49792305
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687330"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062873"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: Snel starten
 
 ## <a name="deploy-seamless-single-sign-on"></a>Naadloze eenmalige aanmelding implementeren
 
@@ -30,11 +30,11 @@ Azure Active Directory (Azure AD) naadloze eenmalige aanmelding (naadloze eenmal
 
 Volg deze stappen voor het implementeren van naadloze eenmalige aanmelding.
 
-## <a name="step-1-check-the-prerequisites"></a>Stap 1: Controleer de vereisten
+## <a name="step-1-check-the-prerequisites"></a>Stap 1: Vereisten controleren
 
 Zorg ervoor dat de volgende vereisten voldaan is:
 
-* **Instellen van uw Azure AD Connect-server**: als u [Pass through-verificatie](how-to-connect-pta.md) als uw contactmethode aanmelden geen aanvullende controle is vereist. Als u [wachtwoord-hashsynchronisatie](how-to-connect-password-hash-synchronization.md) als uw contactmethode aanmelden en als er een firewall is tussen Azure AD Connect en Azure AD, zorg ervoor dat:
+* **Instellen van uw Azure AD Connect-server**: Als u [Pass through-verificatie](how-to-connect-pta.md) als uw contactmethode aanmelden geen aanvullende controle is vereist. Als u [wachtwoord-hashsynchronisatie](how-to-connect-password-hash-synchronization.md) als uw contactmethode aanmelden en als er een firewall is tussen Azure AD Connect en Azure AD, zorg ervoor dat:
    - U versie 1.1.644.0 of hoger van Azure AD Connect. 
    - Als uw firewall of proxyserver kunt DNS-whitelist, lijst met toegestane adressen de verbindingen met de  **\*. msappproxy.net** URL's via poort 443. Als dit niet het geval is, kunt u toegang tot de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653), die elke week worden bijgewerkt. Deze vereiste is van toepassing alleen wanneer u de functie inschakelt. Het is niet vereist voor de werkelijke gebruikers-aanmeldingen.
 
@@ -52,7 +52,7 @@ Zorg ervoor dat de volgende vereisten voldaan is:
     
 * **Moderne verificatie inschakelen**: U moet inschakelen [moderne verificatie](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) op uw tenant voor deze functie om te werken.
 
-* **Gebruik de meest recente versies van Office 365-clients**: als u een op de achtergrond aanmelding met Office 365-clients (Outlook, Word, Excel en anderen), uw gebruikers moeten versies 16.0.8730.xxxx gebruiken of hoger.
+* **Gebruik de meest recente versies van Office 365-clients**: Als u een op de achtergrond aanmelding met Office 365-clients (Outlook, Word, Excel en anderen), uw gebruikers moeten versies 16.0.8730.xxxx gebruiken of hoger.
 
 ## <a name="step-2-enable-the-feature"></a>Stap 2: De functie inschakelen
 
@@ -66,11 +66,11 @@ Als u een nieuwe installatie van Azure AD Connect uitvoert, kiest u de [aangepas
 >[!NOTE]
 > De optie beschikbaar voor selectie wordt alleen als de aanmeldings-methode is **wachtwoord-Hashsynchronisatie** of **Pass through-verificatie**.
 
-![Azure AD Connect: Aanmelden van gebruikers](./media/how-to-connect-sso-quick-start/sso8.png)
+![Azure AD Connect: Gebruikersaanmelding](./media/how-to-connect-sso-quick-start/sso8.png)
 
 Als u al een installatie van Azure AD Connect hebt, selecteert u de **aanmelden van gebruikers wijzigen** pagina in Azure AD Connect en selecteer vervolgens **volgende**. Als u van Azure AD Connect-versies 1.1.880.0 gebruikmaakt of hoger, de **eenmalige aanmelding inschakelen** optie, wordt standaard geselecteerd. Als u van oudere versies van Azure AD Connect gebruikmaakt, selecteert u de **eenmalige aanmelding inschakelen** optie.
 
-![Azure AD Connect: Het aanmelden van gebruikers wijzigen](./media/how-to-connect-sso-quick-start/changeusersignin.png)
+![Azure AD Connect: De aanmelding voor gebruiker wijzigen](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Ga door met de wizard totdat u de **eenmalige aanmelding inschakelen** pagina. Geef referenties voor de domeinbeheerder voor elk Active Directory-forest:
     * U synchroniseren met Azure AD via Azure AD Connect.
@@ -88,7 +88,7 @@ Volg deze instructies om te controleren of u naadloze eenmalige aanmelding corre
 3. Selecteer **Azure AD Connect**.
 4. Controleer de **naadloze eenmalige aanmelding** functie wordt weergegeven als **ingeschakeld**.
 
-![Azure-portal: Azure AD Connect-deelvenster](./media/how-to-connect-sso-quick-start/sso10.png)
+![Azure Portal: Deelvenster in de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
 > Naadloze eenmalige aanmelding maakt u een account met de naam `AZUREADSSOACC` (die vertegenwoordigt Azure AD) in uw on-premises Active Directory (AD) in elk AD-forest. Dit computeraccount is nodig voor de functie te gebruiken. Als u van Pass-the-Hash en Credential Theft Mitigation architecturen in uw on-premises-omgeving gebruikmaakt, zorg ervoor dat de `AZUREADSSOACC` computeraccount niet in de quarantaine-container terechtkomen. Breng de gewenste wijzigingen aan het computeraccount maken in de container Computers. Als u naadloze eenmalige aanmelding is ingeschakeld in de Azure AD Connect-wizard, verplaatst u de `AZUREADSSOACC` computeraccount aan een organisatie-eenheid (OE) waar de computeraccounts van andere om ervoor te zorgen dat deze is niet verwijderd per ongeluk worden beheerd.
@@ -97,7 +97,7 @@ Volg deze instructies om te controleren of u naadloze eenmalige aanmelding corre
 
 U kunt geleidelijk implementeert naadloze eenmalige aanmelding voor uw gebruikers met behulp van de onderstaande instructies. U start met de volgende Azure AD-URL toe te voegen aan alle of Intranet zone-instellingen van gebruikers zijn geselecteerd met behulp van Groepsbeleid in Active Directory:
 
-- https://autologon.microsoftazuread-sso.com
+- `https://autologon.microsoftazuread-sso.com`
 
 Bovendien moet u een Intranet zone beleid instelling inschakelen **toestaan van updates op de statusbalk via script** via Groepsbeleid. 
 
@@ -106,7 +106,7 @@ Bovendien moet u een Intranet zone beleid instelling inschakelen **toestaan van 
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Waarom moet u gebruikers Intranet zone-instellingen wijzigen?
 
-Standaard berekent de browser automatisch de juiste zone, Internet- of intranethosts van een specifieke URL. Bijvoorbeeld, "http://contoso/'wordt toegewezen aan de intranetzone, terwijl'http://intranet.contoso.com/' wordt toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzenden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de intranetzone van de browser toevoegen.
+Standaard berekent de browser automatisch de juiste zone, Internet- of intranethosts van een specifieke URL. Bijvoorbeeld, `http://contoso/` dat wordt toegewezen aan de intranetzone `http://intranet.contoso.com/` toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzenden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de intranetzone van de browser toevoegen.
 
 Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
 
@@ -122,12 +122,12 @@ Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
 3. Blader naar **Gebruikersconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Internet Explorer** > **Configuratiescherm Internet** > **beveiligingspagina**. Selecteer vervolgens **Site lijst van zonetoewijzingen**.
     ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Het beleid inschakelen en voer de volgende waarden in het dialoogvenster:
-   - **Waardenaam**: de Azure AD-URL waar de Kerberos-tickets worden doorgestuurd.
+   - **Waardenaam**: De Azure AD-URL waar de Kerberos-tickets worden doorgestuurd.
    - **Waarde** (gegevens): **1** geeft aan dat de intranetzone.
 
     Het resultaat ziet er zo uit:
 
-    Waardenaam: https://autologon.microsoftazuread-sso.com
+    Waardenaam: `https://autologon.microsoftazuread-sso.com`
   
     Waarde (gegevens): 1
 
@@ -181,7 +181,7 @@ Mozilla Firefox niet automatisch Kerberos-verificatie gebruiken. Elke gebruiker 
 1. Voer Firefox en geef `about:config` in de adresbalk. Negeren meldingen die worden weergegeven.
 2. Zoek de **network.negotiate-auth.trusted-URI's** voorkeur. Met deze voorkeursinstelling geeft een lijst met vertrouwde sites van Firefox voor Kerberos-verificatie.
 3. Met de rechtermuisknop op en selecteer **wijzigen**.
-4. Voer https://autologon.microsoftazuread-sso.com in het veld.
+4. Voer `https://autologon.microsoftazuread-sso.com` in het veld.
 5. Selecteer **OK** en Open de browser.
 
 #### <a name="safari-macos"></a>Safari (Mac OS)
@@ -190,7 +190,7 @@ Zorg ervoor dat de machine met de macOS is gekoppeld aan AD. Instructies voor he
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alle platformen)
 
-Als u hebt onderdrukt de [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) of de [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) beleidsinstellingen in uw omgeving, zorg ervoor dat u Azure AD-URL toevoegen (https://autologon.microsoftazuread-sso.com) aan hen ook.
+Als u hebt onderdrukt de [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) of de [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) beleidsinstellingen in uw omgeving, zorg ervoor dat u Azure AD-URL toevoegen (`https://autologon.microsoftazuread-sso.com`) naar deze ook.
 
 #### <a name="google-chrome-macos-only"></a>Google Chrome (alleen voor macOS)
 
@@ -200,7 +200,7 @@ Het gebruik van Active Directory-groepsbeleid uitbreidingen van derden in de URL
 
 #### <a name="known-browser-limitations"></a>Browser bekende beperkingen
 
-Naadloze eenmalige aanmelding werkt niet in de privémodus bladeren in Firefox en Microsoft Edge browsers. Dit ook werkt niet in Internet Explorer als de browser wordt uitgevoerd in de uitgebreide beveiligde modus.
+Naadloze eenmalige aanmelding werkt niet in de privémodus bladeren in Firefox en Edge browsers. Dit ook werkt niet in Internet Explorer als de browser wordt uitgevoerd in de uitgebreide beveiligde modus.
 
 ## <a name="step-4-test-the-feature"></a>Stap 4: De functie testen
 
@@ -211,27 +211,27 @@ Als u wilt testen van de functie voor een specifieke gebruiker, zorg ervoor dat 
   - U hebt [bekendgemaakt die de functie](##step-3-roll-out-the-feature) aan deze gebruiker via Groepsbeleid.
 
 Voor het testen van het scenario waarin de gebruiker alleen de gebruikersnaam, maar niet het wachtwoord invoeren:
-   - Aanmelden bij https://myapps.microsoft.com/ in een nieuwe persoonlijke browsersessie.
+   - Aanmelden bij `https://myapps.microsoft.com/` in een nieuwe persoonlijke browsersessie.
 
 Als u wilt testen van het scenario waarin de gebruiker beschikt niet over de gebruikersnaam of het wachtwoord invoeren, gebruikt u een van deze stappen: 
-   - Aanmelden bij https://myapps.microsoft.com/contoso.onmicrosoft.com in een nieuwe persoonlijke browsersessie. Vervang *contoso* met de naam van uw tenant.
-   - Aanmelden bij https://myapps.microsoft.com/contoso.com in een nieuwe persoonlijke browsersessie. Vervang *contoso.com* met een geverifieerd domein (niet een federatief domein) op uw tenant.
+   - Aanmelden bij `https://myapps.microsoft.com/contoso.onmicrosoft.com` in een nieuwe persoonlijke browsersessie. Vervang *contoso* met de naam van uw tenant.
+   - Aanmelden bij `https://myapps.microsoft.com/contoso.com` in een nieuwe persoonlijke browsersessie. Vervang *contoso.com* met een geverifieerd domein (niet een federatief domein) op uw tenant.
 
-## <a name="step-5-roll-over-keys"></a>Stap 5: Meegenomen sleutels
+## <a name="step-5-roll-over-keys"></a>Stap 5: Beweeg de muis over sleutels
 
-Azure AD Connect maakt in stap 2, computeraccounts (Azure AD representeren) in alle van de Active Directory-forests waarop u naadloze eenmalige aanmelding hebt ingeschakeld. Zie voor meer informatie, [Azure Active Directory naadloze eenmalige aanmelding: technische details](how-to-connect-sso-how-it-works.md).
+Azure AD Connect maakt in stap 2, computeraccounts (Azure AD representeren) in alle van de Active Directory-forests waarop u naadloze eenmalige aanmelding hebt ingeschakeld. Zie voor meer informatie, [Azure Active Directory naadloze eenmalige aanmelding: Technische details](how-to-connect-sso-how-it-works.md).
 
 >[!IMPORTANT]
 >De Kerberos-ontsleutelingssleutel op een computeraccount, kan als gelekt, worden gebruikt voor het genereren van Kerberos-tickets voor elke gebruiker in de AD-forest. Kwaadwillende actoren kunnen vervolgens Azure AD-aanmeldingen voor verdachte gebruikers imiteren. Het is raadzaam dat u periodiek via deze ontsleutelingssleutels Kerberos - ten minste één keer voor elke 30 dagen terugdraaien.
 
-Zie voor instructies over het meenemen van sleutels, [Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen over](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). We werken aan een functie in te voeren van geautomatiseerde implementatie via van sleutels.
+Zie voor instructies over het meenemen van sleutels, [Azure Active Directory naadloze eenmalige aanmelding: Veelgestelde vragen over](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). We werken aan een functie in te voeren van geautomatiseerde implementatie via van sleutels.
 
 >[!IMPORTANT]
 >U hoeft te doen in deze stap _onmiddellijk_ nadat u de functie hebt ingeschakeld. Beweeg de muis over de Kerberos-sleutels voor ontsleuteling ten minste één keer voor elke 30 dagen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Technische details](how-to-connect-sso-how-it-works.md): informatie over de werking van de functie voor naadloze eenmalige aanmelding.
-- [Veelgestelde vragen over](how-to-connect-sso-faq.md): krijg antwoorden op veelgestelde vragen over naadloze eenmalige aanmelding.
-- [Problemen oplossen](tshoot-connect-sso.md): informatie over het oplossen van veelvoorkomende problemen met de functie voor naadloze eenmalige aanmelding.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): de Azure Active Directory-Forum gebruiken om nieuwe functieaanvragen.
+- [Technische details](how-to-connect-sso-how-it-works.md): Informatie over de werking van de functie voor naadloze eenmalige aanmelding.
+- [Veelgestelde vragen over](how-to-connect-sso-faq.md): Vind antwoorden op veelgestelde vragen over naadloze eenmalige aanmelding.
+- [Problemen oplossen](tshoot-connect-sso.md): Informatie over het oplossen van veelvoorkomende problemen met de functie voor naadloze eenmalige aanmelding.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): De Active Directory-Forum van Azure gebruiken om nieuwe functieaanvragen.

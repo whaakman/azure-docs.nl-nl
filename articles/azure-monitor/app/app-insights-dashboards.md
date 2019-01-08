@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052476"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074832"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigatie en Dashboards in de Application Insights-portal
 Nadat u hebt [Application Insights instellen voor uw project](../../application-insights/app-insights-overview.md), telemetrische gegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource van uw project in de [Azure-portal](https://portal.azure.com).
@@ -113,10 +113,10 @@ De overzichtsblade is de gateway naar meer informatie over uw app.
 * [**Search** ](../../azure-monitor/app/diagnostic-search.md) - onderzoek specifieke exemplaren van gebeurtenissen, zoals aanvragen, uitzonderingen, of logtraceringen.
 * [**Analytics** ](../../azure-monitor/app/analytics.md) -krachtige query's over uw telemetrie.
 * **Tijdsbereik** -aanpassen van het bereik dat door de grafieken op de blade weergegeven.
-* **Verwijder** -de Application Insights-resource voor deze app verwijderen. U moet ook de Application Insights-pakketten verwijderen uit de app-code, of bewerken de [instrumentatiesleutel](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) in uw app om telemetrie naar een andere Application Insights-resource te regelen.
+* **Verwijder** -de Application Insights-resource voor deze app verwijderen. U moet ook de Application Insights-pakketten verwijderen uit de app-code, of bewerken de [instrumentatiesleutel](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) in uw app om telemetrie naar een andere Application Insights-resource te regelen.
 
 ### <a name="essentials-tab"></a>Tabblad met essentiële
-* [Instrumentatiesleutel](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) -geeft de bron van deze app.
+* [Instrumentatiesleutel](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) -geeft de bron van deze app.
 
 ### <a name="app-navigation-bar"></a>App-navigatiebalk
 ![Linkernavigatiebalk](./media/app-insights-dashboards/app-left-nav-bar.png)
