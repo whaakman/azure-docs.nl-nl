@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850972"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073404"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -37,7 +37,7 @@ Er zijn tal van voordelen van het gebruik van Azure AD-verificatie voor aanmeldi
   - U kunt nog veiliger aanmelden bij virtuele machines van Azure multi-factor authentication configureren.
   - De mogelijkheid om aan te melden bij virtuele Linux-machines met Azure Active Directory werkt ook voor klanten die gebruikmaken van [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Naadloze samenwerking:** With Role-Based toegangsbeheer (RBAC), kunt u opgeven die kunnen zich aanmelden bij een bepaalde virtuele machine als een gewone gebruiker of met administrator-bevoegdheden. Wanneer gebruikers lid worden, of uw team laat, kunt u het beleid voor de virtuele machine toegang zo nodig het RBAC bijwerken. Deze ervaring is veel eenvoudiger dan dat u hoeft te verwijderen van virtuele machines als u wilt verwijderen van onnodige openbare SSH-sleutels. Wanneer werknemers uw bedrijf verlaat en hun gebruikersaccount is uitgeschakeld of verwijderd uit Azure AD, hebben ze niet langer toegang tot uw resources.
+- **Naadloze samenwerking:** Met rollen gebaseerd toegangsbeheer (RBAC), kunt u opgeven wie kunt aanmelden bij een bepaalde virtuele machine als een gewone gebruiker of met administrator-bevoegdheden. Wanneer gebruikers lid worden, of uw team laat, kunt u het beleid voor de virtuele machine toegang zo nodig het RBAC bijwerken. Deze ervaring is veel eenvoudiger dan dat u hoeft te verwijderen van virtuele machines als u wilt verwijderen van onnodige openbare SSH-sleutels. Wanneer werknemers uw bedrijf verlaat en hun gebruikersaccount is uitgeschakeld of verwijderd uit Azure AD, hebben ze niet langer toegang tot uw resources.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Ondersteunde Azure-regio's en Linux-distributies
 
@@ -96,8 +96,8 @@ De *provisioningState* van *geslaagd* wordt weergegeven nadat de extensie is ge�
 
 Azure Role-Based Access Control (RBAC) beleid bepaalt wie zich kunt aanmelden bij de virtuele machine. Twee RBAC-rollen worden gebruikt voor de autorisatie van VM-aanmelding:
 
-- **Beheerdersaanmelding bij virtuele Machine**: gebruikers met deze rol toegewezen kunnen aanmelden bij een Azure-machine met Windows-beheerders- of Linux-rootgebruikersbevoegdheden.
-- **Gebruikersaanmelding bij virtuele Machine**: gebruikers met deze rol toegewezen kunnen aanmelden bij een Azure-machine met de gebruikelijke gebruikersbevoegdheden.
+- **Beheerdersaanmelding bij virtuele Machine**: Gebruikers met deze rol toegewezen kunnen aanmelden bij een virtuele Azure-machine met Windows-beheerders- of Linux-rootgebruikersbevoegdheden.
+- **Gebruikersaanmelding bij virtuele Machine**: Gebruikers met deze rol toegewezen kunnen aanmelden bij een Azure-machine met de gebruikelijke gebruikersbevoegdheden.
 
 > [!NOTE]
 > Als u wilt toestaan dat een gebruiker zich aanmelden bij de virtuele machine via SSH, moet u ofwel de *beheerdersaanmelding bij virtuele Machine* of *gebruikersaanmelding bij virtuele Machine* rol. Een Azure-gebruiker met de *eigenaar* of *Inzender* rollen toegewezen voor een virtuele machine automatisch geen bevoegdheden voor het aanmelden bij de virtuele machine via SSH.
@@ -150,7 +150,7 @@ Sluit het browservenster geopend, gaat u terug naar de SSH-prompt en druk op de 
 
 ## <a name="sudo-and-aad-login"></a>Sudo en AAD-aanmelding
 
-De eerste keer met sudo, wordt u gevraagd een tweede keer verifiëren. Als u niet wilt dat deze opnieuw te verifiëren voor het uitvoeren van sudo, kunt u uw sudo-bestand bewerken `/aad/etc/sudoers.d/aad_admins` en vervang deze regel:
+De eerste keer met sudo, wordt u gevraagd een tweede keer verifiëren. Als u niet wilt dat deze opnieuw te verifiëren voor het uitvoeren van sudo, kunt u uw sudo-bestand bewerken `/etc/sudoers.d/aad_admins` en vervang deze regel:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
