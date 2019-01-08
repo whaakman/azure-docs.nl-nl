@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 45c9d5fac24bbbc7d90abf43f5f7662c26c7d4b0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091154"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810148"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Welke API gaat u gebruiken met Azure Cosmos DB?
 
 * **[SQL-API](documentdb-introduction.md)**: u kunt een van de bronopties in het hulpprogramma voor gegevensmigratie gebruiken om gegevens te importeren.
 * **[Tabel-API](table-introduction.md)**: u kunt het hulpprogramma voor gegevensmigratie of AzCopy gebruiken om gegevens te importeren. Zie [Gegevens importeren voor gebruik met de Azure Cosmos DB Table-API](table-import.md) voor meer informatie.
-* **[MongoDB-API](mongodb-introduction.md)**: het hulpprogramma voor gegevensmigratie biedt momenteel geen ondersteuning voor Azure Cosmos DB MongoDB-API, noch als bron noch als doel. Als u de gegevens wilt migreren naar of uit MongoDB-API-verzamelingen in Azure Cosmos DB, raadpleegt u [Azure Cosmos DB: gegevens migreren voor de MongoDB-API](mongodb-migrate.md) voor instructies. U kunt het hulpprogramma voor gegevensmigratie nog wel gebruiken om gegevens vanaf MongoDB te exporteren naar Azure Cosmos DB SQL-API-verzamelingen voor gebruik met de SQL-API.
+* **[API's van Azure Cosmos DB voor MongoDB](mongodb-introduction.md)**: het hulpprogramma voor gegevensmigratie biedt momenteel geen ondersteuning voor API's van Azure Cosmos DB voor MongoDB, noch als bron noch als doel. Raadpleeg [MongoDB-gegevens migreren naar een Cosmos-database met de API voor Cosmos DB voor MongoDB](mongodb-migrate.md) voor instructies voor het migreren van de gegevens naar of uit verzamelingen in Azure Cosmos DB. U kunt het hulpprogramma voor gegevensmigratie nog wel gebruiken om gegevens vanaf MongoDB te exporteren naar Azure Cosmos DB SQL-API-verzamelingen voor gebruik met de SQL-API.
 * **[Gremlin-API](graph-introduction.md)**: het hulpprogramma voor gegevensmigratie is momenteel geen ondersteund importprogramma voor Gremlin API-accounts.
 
 Deze zelfstudie bestaat uit de volgende taken:
@@ -111,7 +111,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a id="MongoDB"></a>Importeren vanaf MongoDB
 
 > [!IMPORTANT]
-> Volg deze [instructies](mongodb-migrate.md) als u importeert naar een Azure Cosmos DB-account met ondersteuning voor MongoDB.
+> Volg deze [instructies](mongodb-migrate.md) als u importeert naar een Cosmos DB-account dat is geconfigureerd met de API van Azure Cosmos DB voor MongoDB.
 
 Met de importoptie voor MongoDB-bronnen kunt u importeren vanuit een enkele MongoDB-verzameling, eventueel documenten filteren met een query, en de documentstructuur wijzigen met een projectie.  
 
@@ -359,7 +359,7 @@ De indeling van de Azure Cosmos DB-verbindingsreeks is:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;`
 
-De verbindingsreeks van het Azure Cosmos DB-account kan worden opgehaald uit de pagina Sleutels van de Azure-portal, zoals beschreven in [Een account voor Azure Cosmos DB beheren](manage-account.md). De naam van de database moet echter worden toegevoegd aan de verbindingsreeks in de volgende indeling:
+De verbindingsreeks van het Azure Cosmos DB-account kan worden opgehaald uit de pagina Sleutels van de Azure Portal, zoals beschreven in [Een account voor Azure Cosmos DB beheren](manage-account.md). De naam van de database moet echter worden toegevoegd aan de verbindingsreeks in de volgende indeling:
 
 `Database=<CosmosDB Database>;`
 

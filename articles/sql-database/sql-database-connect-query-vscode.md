@@ -4,7 +4,7 @@ description: Ontdek hoe u verbinding maakt met SQL Database in Azure met behulp 
 keywords: verbinding maken met sql-database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098981"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652112"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: Visual Studio Code gebruiken om verbinding te maken met en query's uit te voeren voor een Azure SQL-database
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is een grafische code-editor voor Linux, macOS en Windows. Het biedt ondersteuning voor extensies, zoals de [mssql-extensie](https://aka.ms/mssql-marketplace) voor het uitvoeren van query's in Microsoft SQL Server, Azure SQL Database en SQL Data Warehouse. In deze snelstartgids ziet u hoe u Visual Studio Code gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies uitvoert om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen.
+[Visual Studio Code](https://code.visualstudio.com/docs) is een grafische code-editor voor Linux, macOS en Windows. Het biedt ondersteuning voor extensies, zoals de [mssql-extensie](https://aka.ms/mssql-marketplace) voor het uitvoeren van query's in Microsoft SQL Server, Azure SQL Database en SQL Data Warehouse. In deze snelstart gaat u Visual Studio Code gebruiken om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies uitvoeren om query's op gegevens in de database uit te voeren, gegevens in te voegen, bij te werken en te verwijderen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -66,7 +66,7 @@ Stel de taalmodus in Visual Studio Code in op **SQL** om mssql-opdrachten en T-S
 
 1. Open een nieuw Visual Studio Code venster. 
 
-2. Druk op **CTRL**+**N**. Hiermee wordt een nieuw bestand met tekst zonder opmaak geopend. 
+2. Druk op **Ctrl**+**N**. Hiermee wordt een nieuw bestand met tekst zonder opmaak geopend. 
 
 3. Selecteer **Tekst zonder opmaak** in de rechterbenedenhoek van de statusbalk.
 
@@ -82,11 +82,11 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
 
 1. Druk in Visual Studio Code op **Ctrl+Shift+P** (of **F1**) om het opdrachtenpalet te openen.
 
-2. Selecteer **MS SQL:Connect** en druk op **Enter**.
+2. Selecteer **MS SQL:Connect** en kies **Enter**.
 
 3. Selecteer **Verbindingsprofiel maken**.
 
-4. Volg de aanwijzingen op om de verbindingseigenschappen voor het nieuwe profiel op te geven. Wanneer u een waarde hebt opgegeven, drukt u op **Enter** om door te gaan. 
+4. Volg de aanwijzingen op om de verbindingseigenschappen voor het nieuwe profiel op te geven. Wanneer u een waarde hebt opgegeven, kiest u **Enter** om door te gaan. 
 
    | Eigenschap       | Voorgestelde waarde | Beschrijving |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -102,7 +102,7 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
 
 ## <a name="query-data"></a>Querygegevens
 
-Gebruik de volgende [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)-instructie uit Transact-SQL om op categorie een query uit te voeren voor de 20 populairste producten.
+Voer de volgende Transact-SQL-[SELECT](https://msdn.microsoft.com/library/ms189499.aspx)-instructie uit om op categorie een query uit te voeren voor de 20 populairste producten.
 
 1. Plak in het editorvenster de volgende SQL-query.
 
@@ -119,9 +119,9 @@ Gebruik de volgende [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)-i
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-instructie uit Transact-SQL om een nieuw product toe te voegen in de tabel `SalesLT.Product`.
+Voer de volgende Transact-SQL-[INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-instructie uit om een nieuw product toe te voegen aan de tabel `SalesLT.Product`.
 
-1. Vervang de vorige query door de volgende.
+1. Vervang de vorige query door deze.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -147,9 +147,9 @@ Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-i
 
 ## <a name="update-data"></a>Gegevens bijwerken
 
-Gebruik de volgende [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)-instructie uit Transact-SQL om het toegevoegde product bij te werken.
+Voer de volgende Transact-SQL-[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)-instructie uit om het toegevoegde product bij te werken.
 
-1. Vervang de vorige query door de volgende:
+1. Vervang de vorige query door deze:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -161,9 +161,9 @@ Gebruik de volgende [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)-i
 
 ## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik de volgende [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql)-instructie uit Transact-SQL om het nieuwe product te verwijderen.
+Voer de volgende Transact-SQL-[DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql)-instructie uit om het nieuwe product te verwijderen.
 
-1. Vervang de vorige query door de volgende:
+1. Vervang de vorige query door deze:
 
    ```sql
    DELETE FROM [SalesLT].[Product]

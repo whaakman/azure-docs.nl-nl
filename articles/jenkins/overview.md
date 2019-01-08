@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93185483a2c5a1ddb308cc2fc9fd918c539b5e3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105526"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602326"
 ---
 # <a name="azure-and-jenkins"></a>Azure en Jenkins
 
@@ -46,5 +46,5 @@ Gebruik Jenkins-invoegtoepassingen om toepassingen te implementeren in Azure als
 
  Invoegtoepassingen kunnen worden geïmplementeerd in de volgende services en omgevingen:
 
-- [Azure Web App on Linux](/azure/app-service/containers/app-service-linux-intro). Bekijk de [zelfstudie](java-deploy-webapp-tutorial.md) om aan de slag te gaan.
-- [Azure Web App](/azure/app-service/app-service-web-overview). Bekijk de [instructies](deploy-Jenkins-app-service-plugin.md) om aan de slag te gaan.
+- [Azure App Service op Linux](/azure/app-service/containers/app-service-linux-intro). Bekijk de [zelfstudie](java-deploy-webapp-tutorial.md) om aan de slag te gaan.
+- [Azure App Service](/azure/app-service/overview). Bekijk de [instructies](deploy-Jenkins-app-service-plugin.md) om aan de slag te gaan.

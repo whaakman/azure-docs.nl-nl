@@ -5,92 +5,106 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2018
+ms.date: 12/18/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4a4bcf80eeff8700da37f5ea46353b1be6f2327b
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091575"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809009"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
-Azure Cosmos DB is de wereldwijd gedistribueerde database van Microsoft met meerdere modellen. Azure Cosmos DB maakt het mogelijk om met één muisklik doorvoer en opslag elastisch en onafhankelijk te schalen binnen een onbeperkt aantal geografische regio's van Azure. De oplossing biedt gegarandeerde doorvoer, latentie, beschikbaarheid en consistentie, vastgelegd in uitgebreide [serviceovereenkomsten](https://aka.ms/acdbsla) (SLA's), iets wat geen andere databaseservice kan bieden. U kunt [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
+Van toepassingen wordt tegenwoordig vereist dat ze zeer responsief en altijd online zijn. Voor het bereiken van lage latentie en hoge beschikbaarheid moeten de instanties van deze toepassingen worden geïmplementeerd in datacenters die zich dicht bij de gebruikers ervan bevinden. Toepassingen moeten in realtime reageren op grote fluctuaties in het gebruik tijdens piekuren, moeten steeds toenemende gegevensvolumes kunnen opslaan en deze gegevens in milliseconden beschikbaar kunnen maken voor gebruikers.
+
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. Azure Cosmos DB maakt het mogelijk om met één muisklik doorvoer en opslag elastisch en onafhankelijk te schalen binnen een onbeperkt aantal geografische regio's van Azure. Met behulp van uw favoriete API zoals de SQL-, MongoDB-, Cassandra-, Table- of Gremlin-API kunt u de doorvoer en opslag elastisch schalen en zo profiteren van snelle gegevenstoegang met snelheden van niet meer dan enkele milliseconden. Cosmos DB biedt uitgebreide [serviceovereenkomsten](https://aka.ms/acdbsla) (SLA's) waarin gegarandeerde doorvoer, latentie, beschikbaarheid en consistentie zijn vastgelegd. Iets wat geen enkele andere databaseservice kan bieden.
+
+U kunt [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/)
 
 ![Azure Cosmos DB is de service van Microsoft voor wereldwijd gedistribueerde databases met mogelijkheden voor elastisch uitschalen, een gegarandeerde lage latentie, vijf consistentiemodellen en uitgebreide, gegarandeerde SLA's](./media/introduction/azure-cosmos-db.png)
 
-## <a name="key-capabilities"></a>Belangrijkste mogelijkheden
-Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het eenvoudig om schaalbare en zeer responsieve toepassingen te bouwen op een wereldwijde schaal:
+## <a name="key-benefits"></a>Belangrijkste voordelen
 
-* **Kant-en-klare wereldwijde distributie**
-    * U kunt [uw gegevens distribueren](distribute-data-globally.md) naar een willekeurig aantal [Azure-regio's](https://azure.microsoft.com/regions/) met [slechts één druk op de knop](tutorial-global-distribution-sql-api.md). Op deze manier kunt u uw gegevens daar opslaan waar uw gebruikers zijn, waardoor uw klanten profiteren van de laagst mogelijke latentie. 
-    * Dankzij de multihoming-API's van Azure Cosmos DB weet de app altijd wat de dichtstbijzijnde regio is en worden aanvragen naar het dichtstbijzijnde datacenter verzonden. Dit alles is mogelijk zonder wijzigingen in de configuratie. U stelt uw schrijfregio in en net zo veel leesregio's als u wilt, en de rest wordt automatisch afgehandeld.
-    * Bij het toevoegen en verwijderen van regio's voor uw Azure Cosmos DB-database, hoeft uw toepassing niet opnieuw te worden geïmplementeerd en blijft deze maximaal beschikbaar dankzij de multihoming-API-functie.
+### <a name="turnkey-global-distribution"></a>Kant-en-klare wereldwijde distributie
 
-* **Meerdere gegevensmodellen en populaire API's voor het raadplegen en opvragen van gegevens**
-    * Het op 'atom-record-sequence' (ARS) gebaseerde gegevensmodel waarop Azure Cosmos DB is gebouwd, biedt systeemeigen ondersteuning voor meerdere gegevensmodellen, waaronder modellen op basis van documenten, grafieken, sleutels en waarden, tabellen en kolomfamilies.
-    * API's voor de volgende gegevensmodellen worden ondersteund, waarbij er SDK's beschikbaar zijn in meerdere talen:
-        * [SQL-API](sql-api-introduction.md): Een JSON-database-engine zonder schema met uitgebreide SQL-querymogelijkheden.
-        * [MongoDB-API](mongodb-introduction.md): Een zeer schaalbare *MongoDB-as-a-Service*, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van MongoDB.
-        * [Cassandra-API](cassandra-introduction.md): Een wereldwijd gedistribueerde Cassandra-as-a-Service, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van [Apache Cassandra](https://cassandra.apache.org/).
-        * [Gremlin-API](graph-introduction.md): Een volledig beheerde, horizontaal schaalbare grafiekdatabaseservice waarmee u eenvoudig toepassingen kunt ontwikkelen en uitvoeren die worden gebruikt met zeer verbonden gegevenssets met ondersteuning voor Open Gremlin-API's (op basis van de [Apache TinkerPop-specificatie](https://tinkerpop.apache.org/), Apache Gremlin).
-        * [Table-API](table-introduction.md): Een sleutelwaarde-databaseservice, ontwikkeld om Premium-mogelijkheden te bieden (zoals automatisch indexeren, gegarandeerde lage latentie, wereldwijde distributie) voor bestaande Azure Table-opslagtoepassingen zonder dat er wijzigingen in de toepassingen zijn vereist.
-        * Aanvullende gegevensmodellen en API's zijn binnenkort beschikbaar.
+Met Cosmos DB bent u in staat om wereldwijd zeer responsieve en maximaal beschikbare toepassingen te bouwen. Cosmos DB repliceert uw gegevens transparant naar ongeacht welke locatie waarop zich uw gebruikers bevinden, zodat zij kunnen werken met een replica van de gegevens die zich het dichtst bij hen in de buurt bevindt.
 
-* **Doorvoer en opslag op aanvraag elastisch en onafhankelijk schalen, waar ook ter wereld**
-    * U kunt databasedoorvoer op eenvoudige wijze schalen met de granulatie [per seconde](request-units.md) en de instelling op elk gewenst moment wijzigen. 
-    * U kunt opslag [transparant en automatisch](partition-data.md) schalen om te allen tijde aan uw opslagbehoeften te voldoen, nu en in de toekomst.
+Met Cosmos DB kunt u op elk gewenst moment met een klik op een knop elke willekeurige Azure-regio aan uw Cosmos-account toevoegen of eruit verwijderen. Cosmos DB repliceert naadloos uw gegevens naar alle regio's die zijn gekoppeld aan uw Cosmos-account, terwijl uw toepassing maximaal beschikbaar blijft dankzij de mogelijkheden tot multihoming van de service.
 
-* **Zeer responsieve en bedrijfskritische toepassingen bouwen**
-    * Azure Cosmos DB garandeert voor klanten een lage end-to-end latentie in het 99e percentiel. 
-    * Voor een gemiddeld item van 1 kB betekent dit dat in 99% van de gevallen een end-to-end latentie van minder dan 10 ms wordt gegarandeerd voor leesbewerkingen en van minder dan 10 ms voor geïndexeerde schrijfbewerkingen (binnen dezelfde Azure-regio). De gemiddelde latenties zijn aanzienlijk lager (minder dan 5 ms).
+Zie het artikel [Wereldwijde distributie](distribute-data-globally.md) voor meer informatie.
 
-* **Zorgen voor vrijwel volledige beschikbaarheid**
-    * SLA voor een beschikbaarheid van 99,99% voor alle databaseaccounts voor één regio en leesbeschikbaarheid van 99,999% voor alle databaseaccounts voor meerdere regio's.
-    * U kunt voor een hogere beschikbaarheid en betere prestaties implementeren naar een willekeurig aantal [Azure-regio's](https://azure.microsoft.com/regions).
-    * U kunt dynamisch prioriteiten instellen voor regio's en [fouten simuleren](high-availability.md) voor een of meer regio's met garanties dat er geen gegevensverlies optreedt om zo de end-to-end beschikbaarheid voor de hele app te testen (dus meer dan alleen de database). 
+### <a name="always-on"></a>Always 'On'
 
-* **Op correcte wijze wereldwijd gedistribueerde toepassingen schrijven**
-    * De vijf duidelijk omschreven, praktische en intuïtieve [consistentiemodellen](consistency-levels.md) bieden een breed spectrum aan mogelijkheden: van sterke SQL-achtige consistentie tot soepele NoSQL-achtige eindconsistentie en alles daartussenin. 
-  
-* **Niet-goed-geld-teruggarantie**
-    * Toonaangevende, uitgebreide [serviceovereenkomsten](https://aka.ms/acdbsla) (SLA's) met financiële garanties garanderen beschikbaarheid, latentie, doorvoer en de consistentie van uw bedrijfskritische gegevens. 
+Door de hechte integratie met de infrastructuur van Azure en de [transparante replicatie voor meerdere masters ](global-dist-under-the-hood.md) biedt Cosmos DB een [hoge beschikbaarheid](high-availability.md) van 99,999% voor zowel lees- als schrijfbewerkingen. Cosmos DB biedt u ook de mogelijkheid om via een programma (of via de portal) de regionale failover van uw Cosmos-account aan te roepen. Deze mogelijkheid helpt u om ervoor te zorgen dat in een situatie waarin een Cosmos-database automatisch een failover zou uitvoeren, de rest van uw toepassing ook is opgezet om een failover uit te voeren als er sprake is van een regionaal noodgeval.
 
-* **Geen databaseschema/indexbeheer**
-    * U kunt snel nieuwe versies van het schema van uw toepassing implementeren zonder zorgen over het beheer van het schema en/of de index van uw database.
-    * De database-engine van Azure Cosmos DB is volledig schemaneutraal. Alle ontvangen gegevens worden automatisch geïndexeerd zonder dat hiervoor schema's of indexen nodig zijn en query's worden razendsnel uitgevoerd. 
+### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>Doorvoer en opslag wereldwijd elastisch schalen
 
-* **Lage eigendomskosten**
-    * Vijf tot tien keer kosteneffectiever dan een niet-beheerde of on-premises NoSQL-oplossing.
-    * Drie keer goedkoper dan AWS DynamoDB of Google Spanner.
+Cosmos DB is ontwikkeld met transparante horizontale partitionering en replicatie voor meerdere masters en biedt nog nooit eerder vertoonde elastische schaalbaarheid voor uw schrijf- en leesbewerkingen, overal ter wereld. U kunt met een enkele API-aanroep elastisch opschalen van duizenden tot honderden miljoenen aanvragen per seconde over de hele wereld, en toch u betaalt u alleen voor de doorvoer (en opslag) die u nodig hebt. Deze mogelijkheid helpt u om onverwachte pieken in uw werkbelastingen te kunnen verwerken zonder dat u zich met excessieve inrichting hoeft bezig te houden om de piek aan te kunnen. Zie [Partitionering in Cosmos DB](partitioning-overview.md), [Ingerichte doorvoer op containers en databases](set-throughput.md) en [Doorvoer wereldwijd inrichten](scaling-throughput.md).
 
-## <a name="capability-comparison"></a>Vergelijking van functionaliteit
+### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Gegarandeerde lage latentie in het 99e percentiel, wereldwijd
 
-Azure Cosmos DB biedt de beste mogelijkheden van traditionele, relationele en niet-relationele databases.
+Met Cosmos DB kunt u hoog-responsieve wereldwijde toepassingen bouwen. Dankzij het moderne replicatieprotocol voor meerdere masters en de vergrendelingsvrije en [voor schrijven geoptimaliseerde database-engine](index-policy.md) garandeert Cosmos DB een latentie van minder dan 10 ms voor leesbewerkingen en (geïndexeerde) schrijfbewerkingen in het 99e percentiel, wereldwijd. Op deze manier kunt u rekenen op een doorlopende opname van gegevens en uiterst snelle verwerking van query's voor zeer responsieve apps.
 
-| Functionaliteit | Relationele databases   | Niet-relationele databases (NoSQL) |    Azure Cosmos DB |
-| --- | --- | --- | --- |
-| Wereldwijde distributie | Nee | Nee | Ja, kant-en-klare distributie in meer dan 30 regio's met multihoming-API's|
-| Horizontaal schalen | Nee | Ja | Ja, u kunt doorvoer en opslag onafhankelijk van elkaar schalen | 
-| Gegarandeerde latentie | Nee | Ja | Ja, 99% van de leesbewerkingen in < 10 ms en van de schrijfbewerkingen in < 10 ms | 
-| Hoge beschikbaarheid | Nee | Ja | Ja, Azure Cosmos DB is altijd ingeschakeld, beschikt over duidelijk omschreven PACELC-tradeoffs, en biedt opties voor automatische en handmatige failover|
-| Gegevensmodel + API | Relationeel + SQL | Meerdere modellen + OSS-API | Meerdere modellen + SQL + OSS API |
-| SLA's | Ja | Nee | Ja, uitgebreide SLA's voor latentie, doorvoer, consistentie en beschikbaarheid |
+### <a name="precisely-defined-multiple-consistency-choices"></a>Nauwkeurig gedefinieerde, meerdere consistentiekeuzes
+
+U hoeft niet langer extreme [compromissen te sluiten tussen consistentie, beschikbaarheid, latentie en programmeerbaarheid](consistency-levels-tradeoffs.md). Het replicatieprotocol voor meerdere masters van Cosmos DB biedt [vijf duidelijk gedefinieerde consistentieniveaus](consistency-levels.md) - sterk, gebonden veroudering, consistent voorvoegsel, sessie en uiteindelijk - voor een intuïtief programmeermodel met lage latentie en hoge beschikbaarheid voor uw wereldwijde toepassing.
+
+### <a name="no-schema-or-index-management"></a>Geen schema- of indexbeheer
+
+Vooral voor wereldwijd gedistribueerde apps is het uiterst moeilijk om databaseschema's en indexen synchroon te houden met het schema van een toepassing. Met Cosmos DB hoeft u zich echter niet te bekommeren om schema's of indexen. De database-engine is volledig schemaneutraal.  Omdat er geen schema- en indexbeheer is vereist, hoeft u zich ook geen zorgen te maken over downtime van toepassingen tijdens het migreren van schema's. Cosmos DB [indexeert automatisch alle gegevens](index-policy.md) – geen schema, geen indexen vereist – en zorgt dat query's snel worden uitgevoerd.
+
+### <a name="battle-tested-database-service"></a>Intensief geteste databaseservice
+
+Cosmos DB is een fundamentele service op Azure. Cosmos DB wordt al bijna een decennium lang gebruikt door veel van de Microsoft-producten voor essentiële toepassingen op wereldwijde schaal, zoals Skype, Xbox, Office 365, Azure en veel meer. Vandaag de dag is Cosmos DB een van de snelst groeiende services op Azure die wordt gebruikt door veel externe klanten en toepassingen die elastisch schalen en/of kant-en-klare replicatie voor meerdere datacenters/meerdere regio's en meerdere masters met een lage latentie en hoge beschikbaarheid voor zowel lees- als schrijfbewerkingen, vereisen.
+
+### <a name="ubiquitous-regional-presence"></a>Alomtegenwoordige regionale aanwezigheid
+
+Cosmos DB is beschikbaar in alle Azure-regio's wereldwijd, waaronder meer dan 54 regio's in de openbare cloud, Azure China 21Vianet, Azure Duitsland en Azure Government for Department of Defense (DoD). Zie [Regionale aanwezigheid van Cosmos DB](regional-presence.md).
+
+### <a name="secure-by-default-and-enterprise-ready"></a>Standaard beveiligd en geschikt voor gebruik door bedrijven
+
+Cosmos DB is gecertificeerd voor een [groot aantal verschillende nalevingsstandaarden](compliance.md). Bovendien worden alle gegevens in Cosmos DB tijdens opslag en verzending versleuteld. Cosmos DB biedt autorisatie op rijniveau en voldoet aan strenge beveiligingsstandaarden.
+
+### <a name="significant-tco-savings"></a>Aanzienlijke TCO-besparingen
+
+Aangezien Cosmos DB een volledig beheerde service is, hoeft u zich niet langer bezig te houden met het beheer of de werking van complexe implementaties op meerdere datacenters, met upgrades van uw databasesoftware, met betalingen voor ondersteuning, licenties of voor het uitvoeren van bewerkingen. Zie [Kosten optimaliseren met Cosmos DB](total-cost-ownership.md).
+
+### <a name="industry-leading-comprehensive-slas"></a>Toonaangevende uitgebreide SLA's
+
+Cosmos DB is de eerste en enige service die [toonaangevende SLA's](https://azure.microsoft.com/support/legal/sla/cosmos-db/) biedt voor 99,999% hoge beschikbaarheid, latentie voor lees- en schrijfbewerkingen in het 99e percentiel, gegarandeerde doorvoer en consistentie.
+
+### <a name="apache-spark--cosmos-db--operational-analytics-at-global-scale"></a>Apache Spark + Cosmos DB = operationele analyse op wereldwijde schaal
+
+U kunt [Spark](spark-connector.md) uitvoeren op gegevens die zijn opgeslagen in Cosmos DB. Op deze manier kunt u op wereldwijde schaal operationele analyses met een lage latentie uitvoeren zonder dat dit gevolgen heeft voor transactionele workloads die rechtstreeks van Cosmos DB gebruikmaken.
+
+### <a name="develop-applications-for-cosmos-db-using-popular-nosql-apis"></a>Toepassingen voor Cosmos DB ontwikkelen met populaire NoSQL-API's
+
+Cosmos DB biedt een keuze uit API's voor het bijwerken van gegevens die zijn opgeslagen in uw Cosmos-database en het uitvoeren van query's hierop. Standaard [kunt u SQL gebruiken](how-to-sql-query.md) om uw gegevens in uw Cosmos-database bij te werken en er query's op uit te voeren.
+
+Cosmos DB implementeert ook wire-protocollen voor[Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) en [Azure Table Storage](table-introduction.md) rechtstreeks op de service. Daardoor kunt u stuurprogramma's (en hulpprogramma's) van clients voor de meestgebruikte NoSQL-API's rechtstreeks naar uw Cosmos-database verwijzen. Door ondersteuning te bieden voor wire-protocollen van veelgebruikte NoSQL-API's kan Cosmos DB u het volgende bieden:
+
+* U kunt uw toepassing eenvoudig migreren naar Cosmos DB met behoud van belangrijke onderdelen van uw toepassingslogica.
+* Behoud de overdraagbaarheid van uw toepassing zonder dat u de vrijheid verliest om van cloudleverancier te veranderen.
+* Voor de meestgebruikte NoSQL-API's krijgt u toonaangevende SLA's met een solide financiële basis. 
+* U kunt de ingerichte doorvoer en opslag voor uw databases elastisch schalen op basis van uw behoeften, en u betaalt alleen voor de doorvoer en opslag die u nodig hebt. Dit leidt tot aanzienlijke kostenbesparingen.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Oplossingen die profiteren van Azure Cosmos DB
 
 Alle [webtoepassingen, mobiele toepassingen, games en IoT-toepassingen](use-cases.md) die op [wereldwijde](distribute-data-globally.md) schaal en met zeer snelle reactietijden zeer grote hoeveelheden gegevens en lees- en schrijfbewerkingen moeten verwerken voor een verscheidenheid aan gegevens, profiteren van de [gegarandeerde](https://azure.microsoft.com/support/legal/sla/cosmos-db/) hoge beschikbaarheid, hoge doorvoer, lage latentie en instelbare consistentie van Azure Cosmos DB. Lees meer over hoe Azure CosmosDB kan worden toegepast op [IoT en telematica](use-cases.md#iot-and-telematics), [detailhandel en marketing](use-cases.md#retail-and-marketing), [gaming](use-cases.md#gaming) en [web- en mobiele toepassingen](use-cases.md#web-and-mobile-applications).
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Raadpleeg de informatie die beschikbaar is over de mogelijkheden die Cosmos DB op het gebied van [wereldwijde distributie](distribute-data-globally.md) en [partitionering](partitioning-overview.md) te bieden heeft.
+
 Lees onze snelstartgidsen om snel aan de slag te gaan met Azure Cosmos DB:
 
 * [Aan de slag met de SQL-API van Azure Cosmos DB](create-sql-api-dotnet.md)
-* [Aan de slag met de MongoDB-API van Azure Cosmos DB](create-mongodb-nodejs.md)
+* [Aan de slag met de API van Azure Cosmos DB voor MongoDB](create-mongodb-nodejs.md)
 * [Aan de slag met de Cassandra-API van Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Aan de slag met de Gremlin-API van Azure Cosmos DB](create-graph-dotnet.md)
 * [Aan de slag met de Table-API van Azure Cosmos DB](create-table-dotnet.md)

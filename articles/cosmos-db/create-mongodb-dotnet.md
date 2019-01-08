@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: Een web-app ontwikkelen met .NET en de MongoDB-API'
-description: Biedt een voorbeeld van .NET-code die u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren
+title: Met de API van Azure Cosmos DB voor MongoDB en de .NET-SDK een web-app maken| Microsoft Docs
+description: Biedt een voorbeeld van .NET-code dat u kunt gebruiken om verbinding te maken met de Azure Cosmos DB-API's voor MongoDB en er query's op uit te voeren.
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quickstart
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/22/2018
-ms.author: sclyon
-ms.openlocfilehash: 170f3132084da07ccf98a0dfed651bbfd7220615
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: c6ae9fa46e9dd3abc1a526d5c7121c86d6e9a08c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081027"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791214"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Een MongoDB-API-web-app ontwikkelen met .NET en Azure Portal
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-net-sdk"></a>Met de API van Azure Cosmos DB voor MongoDB en de .NET-SDK een web-app maken| Microsoft Docs
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,9 +28,9 @@ ms.locfileid: "53081027"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Cosmos DB. 
 
-In deze snelstart laten we u zien hoe u een [MongoDB-API](mongodb-introduction.md)-account van Azure Cosmos DB, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt en implementeert u een web-app voor taaklijsten op basis van het [MongoDB .NET-stuurprogramma](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+In deze snelstart ziet u hoe u een Cosmos-account kunt maken met de [API van Azure Cosmos DB voor MongoDB](mongodb-introduction.md). Vervolgens ontwikkelt en implementeert u een web-app voor taaklijsten die met behulp van het [MongoDB .NET-stuurprogramma](https://docs.mongodb.com/ecosystem/drivers/csharp/) is gemaakt.
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Vereisten voor het uitvoeren van de voorbeeld-app
 
@@ -49,7 +49,7 @@ Het voorbeeld dat in dit artikel wordt beschreven, is compatibel met MongoDB.Dri
 
 ## <a name="clone-the-sample-app"></a>De voorbeeld-app klonen
 
-Download eerst de voorbeeld-API-app MongoDB vanuit GitHub. Deze implementeert een lijst met taken met het documentopslagmodel van MongoDB.
+Download eerst de voorbeeld-app uit GitHub. 
 
 1. Open een opdrachtprompt, maak een nieuwe map met de naam git-samples en sluit vervolgens de opdrachtprompt.
 
@@ -77,7 +77,7 @@ Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code wor
 
 De volgende codefragmenten zijn alle overgenomen uit het bestand Dal.cs in de map DAL.
 
-* Initialiseer de Mongo-client.
+* Initialiseer de client.
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -110,7 +110,7 @@ De volgende codefragmenten zijn alle overgenomen uit het bestand Dal.cs in de ma
     collection.Find(new BsonDocument()).ToList();
     ```
 
-* Maakt een taak en voegt deze in de MongoDB-verzameling in
+Een taak maken en deze aan de verzameling toevoegen
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -132,7 +132,7 @@ De volgende codefragmenten zijn alle overgenomen uit het bestand Dal.cs in de ma
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
+1. Klik in [Azure Portal](https://portal.azure.com/) in uw Azure Cosmos DB-account in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
 
 2. Open het bestand **Dal.cs** in de map **DAL**. 
 
@@ -142,7 +142,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 5. Kopieer ten slotte de waarde van **wachtwoord** van de portal en geef deze waarde aan het **wachtwoord** in uw **Dal.cs**-bestand. 
 
-U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
+U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Cosmos DB. 
     
 ## <a name="run-the-web-app"></a>De web-app uitvoeren
 
@@ -166,8 +166,7 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een web-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
+In deze snelstart hebt u geleerd hoe u een Cosmos DB-account kunt maken, hoe u een verzameling kunt maken en hoe u een console-app kunt uitvoeren. Nu kunt u aanvullende gegevens in uw Cosmos database importeren. 
 
 > [!div class="nextstepaction"]
-> [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](mongodb-migrate.md)
-
+> [MongoDB-gegevens importeren in Azure Cosmos DB](mongodb-migrate.md)

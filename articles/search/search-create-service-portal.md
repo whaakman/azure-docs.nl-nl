@@ -6,19 +6,23 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315976"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002634"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
-Leer hoe u een Azure Search-service in de portal kunt maken of inrichten. 
+Azure Search is een zelfstandige resource die wordt gebruikt voor het toevoegen van een zoekervaring aan aangepaste apps. Hoewel Azure Search eenvoudig kan worden geïntegreerd met veel andere Azure-services, kunt u deze ook zelfstandig gebruiken, met apps die worden gehost op netwerkservers of met software die wordt uitgevoerd op andere cloudplatforms. 
+
+Dit artikel bevat meer informatie over hoe u een Azure Search-resource in [Azure Portal](https://portal.azure.com/) kunt maken. 
+
+![Azure Search-resource in de portal](media/search-create-service-portal/azure-search-resource-label.png)
 
 Hebt u liever PowerShell? Gebruik de [servicesjabloon](https://azure.microsoft.com/resources/templates/101-azure-search-create/) van Azure Resource Manager. Als u hulp nodig hebt bij het starten, gaat u naar [Azure Search beheren met PowerShell](search-manage-powershell.md) voor achtergrondinformatie.
 
@@ -31,13 +35,15 @@ U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/
 ## <a name="find-azure-search"></a>Azure Search vinden
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op het plusteken (+ Resource maken) in de linkerbovenhoek.
-3. Selecteer **Web** > **Azure Search**.
+3. Gebruik de zoekbalk om te zoeken naar 'Azure Search' of ga naar de resource via **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>De service en het URL-eindpunt een naam geven
 
-Een servicenaam is onderdeel van het URL-eindpunt waaraan API-aanroepen worden geadresseerd: `https://your-service-name.search.windows.net`. Voer de naam van uw service in het **URL**-veld in. 
+Een servicenaam is onderdeel van het URL-eindpunt waaraan API-aanroepen worden geadresseerd: `https://your-service-name.search.windows.net`. Voer de naam van uw service in het **URL**-veld in.
+
+Als u bijvoorbeeld wilt dat het eindpunt `https://my-app-name-01.search.windows.net` wordt, voert u `my-app-name-01` in.
 
 Vereisten voor servicenaam:
    * De naam moet uniek zijn binnen de naamruimte search.windows.net
@@ -51,6 +57,8 @@ Als u meer dan één abonnement hebt, moet u er één kiezen dat ook services vo
 
 ## <a name="select-a-resource-group"></a>Een resourcegroep selecteren
 Een resourcegroep is een verzameling Azure-services en -resources die samen worden gebruikt. Als u bijvoorbeeld Azure Search gebruikt om een SQL-database te indexeren, dan moeten beide services deel uitmaken van dezelfde resourcegroep.
+
+Als u resources niet in één groep combineert of als bestaande resourcegroepen resources bevatten die worden gebruikt in oplossingen waartussen geen verband bestaat, maakt u een nieuwe resourcegroep voor uw Azure Search-resource.
 
 > [!TIP]
 > Als u een resourcegroep verwijdert, worden de services binnen die resourcegroep ook verwijderd. Bij prototypeprojecten die gebruikmaken van meerdere services, wordt het opschonen na afloop van het project gemakkelijker als die services zich allemaal in dezelfde resourcegroep bevinden. 
@@ -109,7 +117,7 @@ Hoewel de meeste klanten slechts één service gebruiken, kan serviceredundantie
 Een tweede service is niet vereist voor hoge beschikbaarheid. Hoge beschikbaarheid voor query's wordt bereikt wanneer u twee of meer replica's in dezelfde service gebruikt. Replica-updates zijn sequentieel, wat betekent dat er ten minste één operationeel is wanneer er een service-update wordt geïmplementeerd. Voor meer informatie over uptime raadpleegt u [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u een Azure Search-service hebt ingericht, kunt u een [index definiëren](search-what-is-an-index.md), zodat u uw gegevens kunt uploaden en opzoeken. 
+Nadat u een Azure Search-service hebt ingericht, kunt u in de portal verdergaan met het maken van uw eerste index.
 
 > [!div class="nextstepaction"]
-> [Azure Search in .NET gebruiken.](search-howto-dotnet-sdk.md)
+> [Zelfstudie: Gegevens en index importeren, en query's uitvoeren in de portal](search-get-started-portal.md)

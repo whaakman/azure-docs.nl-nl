@@ -1,5 +1,5 @@
 ---
-title: Een PHP-web-app ontwikkelen met MySQL in Linux - Azure App Service | Microsoft Docs
+title: Een PHP-app maken met MySQL op Linux - Azure App Service | Microsoft Docs
 description: Informatie over het verkrijgen van een PHP-app die in Azure App Service onder Linux kan worden gebruikt, met verbinding met een MySQL-database in Azure.
 services: app-service\web
 author: cephalin
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342355"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743235"
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL-web-app maken in Azure App Service in Linux
+# <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL-app maken in Azure App Service op Linux
 
 > [!NOTE]
-> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een PHP- en een MySQL-web-app in Azure maken](../app-service-web-tutorial-php-mysql.md), als u App Service in _Windows_ wilt implementeren.
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een PHP- en een MySQL-app in Azure maken](../app-service-web-tutorial-php-mysql.md), als u App Service in _Windows_ wilt implementeren.
 >
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt getoond hoe u een Ruby-web-app maakt en deze verbinding laat maken met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/)-app die op App Service in Linux wordt uitgevoerd.
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt getoond hoe u een PHP-app maakt en deze verbinding laat maken met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/)-app die op App Service in Linux wordt uitgevoerd.
 
 ![PHP-app uitgevoerd in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -161,7 +161,7 @@ In deze stap maakt u een MySQL-database in [Azure Database for MySQL](/azure/mys
 
 Maak een server in Azure Database for MySQL met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-Vervang in de volgende opdracht de tijdelijke aanduiding *\<mysql_server_name>* door een unieke servernaam, de tijdelijke aanduiding *\<admin_user>* door een gebruikersnaam, en de tijdelijke aanduiding *\<admin_password>* door een wachtwoord. De servernaam wordt gebruikt als onderdeel van het MySQL-eindpunt (`https://<mysql_server_name>.mysql.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure.
+Vervang in de volgende opdracht de tijdelijke aanduiding *\<mysql_server_name>* door een unieke servernaam, de tijdelijke aanduiding *\<admin_user>* door een gebruikersnaam, en de tijdelijke aanduiding *\<admin_password>* door een wachtwoord. De servernaam wordt gebruikt als onderdeel van het MySQL-eindpunt (`https://<mysql_server_name>.mysql.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure. Zie [Een Azure Database for MySQL-server maken](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server) voor meer informatie over het selecteren van de MySQL DB-SKU.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
@@ -191,7 +191,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> U kunt uw firewallregel nog beperkender maken door [alleen de uitgaande IP-adressen te gebruiken die in uw app worden gebruikt](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> U kunt uw firewallregel nog beperkender maken door [alleen de uitgaande IP-adressen te gebruiken die in uw app worden gebruikt](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 Voer in Cloud Shell de opdracht opnieuw uit om toegang vanaf uw lokale computer mogelijk te maken door *\<your_ip_address>* te vervangen door [uw lokale IPv4 IP-adres](https://www.whatsmyip.org/).
@@ -373,13 +373,13 @@ Gebruik `php artisan` voor het genereren van een nieuwe toepassingssleutel zonde
 php artisan key:generate --show
 ```
 
-Stel de toepassingssleutel in de App Service-web-app in met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Vervang de tijdelijke aanduidingen _&lt;appname>_ en _&lt;outputofphpartisankey:generate>_.
+Stel de toepassingssleutel in de App Service-app in met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Vervang de tijdelijke aanduidingen _&lt;appname>_ en _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` geeft Laravel de opdracht foutopsporingsinformatie te retourneren wanneer de geïmplementeerde web-app fouten tegenkomt. Als een productietoepassing wordt uitgevoerd, stelt u deze in op `false`, wat een veiliger optie is.
+`APP_DEBUG="true"` geeft Laravel de opdracht foutopsporingsinformatie te retourneren wanneer de geïmplementeerde app fouten tegenkomt. Als een productietoepassing wordt uitgevoerd, stelt u deze in op `false`, wat een veiliger optie is.
 
 ### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
 
@@ -422,7 +422,7 @@ remote: Running deployment command...
 > U kunt deze aanpak gebruiken om een stap toe te voegen aan de op Git gebaseerde implementatie naar App Service. Zie het [Script voor aangepaste implementatie](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) voor meer informatie.
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Bladeren naar de Azure-web-app
+### <a name="browse-to-the-azure-app"></a>Naar de Azure-app bladeren
 
 Blader naar `http://<app_name>.azurewebsites.net` en voeg een paar taken toe aan de lijst.
 
@@ -566,21 +566,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Zodra `git push` voltooid is, gaat u naar de Azure-web-app en probeert u de nieuwe functionaliteit uit.
+Zodra `git push` is voltooid, gaat u naar de Azure-app en probeert u de nieuwe functionaliteit.
 
 ![In Azure gepubliceerde model- en databasewijzigingen](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 Als u taken hebt toegevoegd, worden deze in de database bewaard. Als u het schema bijwerkt, blijven bestaande gegevens intact.
 
-## <a name="manage-the-azure-web-app"></a>De Azure-web-app beheren
+## <a name="manage-the-azure-app"></a>De Azure-app beheren
 
-Ga naar [Azure Portal](https://portal.azure.com) om de web-app te beheren die u hebt gemaakt.
+Ga naar [Azure Portal](https://portal.azure.com) om de app te beheren die u hebt gemaakt.
 
-Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/tutorial-php-mysql-app/access-portal.png)
+![Navigatie naar Azure-app in de portal](./media/tutorial-php-mysql-app/access-portal.png)
 
-De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals stoppen, starten, opnieuw starten, bladeren en verwijderen.
+De pagina Overzicht van uw app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals stoppen, starten, opnieuw starten, bladeren en verwijderen.
 
 Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
@@ -602,7 +602,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
 > * De app in Azure Portal beheren
 
-Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan een web-app kunt toewijzen.
+Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw app kunt toewijzen.
 
 > [!div class="nextstepaction"]
-> [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service](../app-service-web-tutorial-custom-domain.md)

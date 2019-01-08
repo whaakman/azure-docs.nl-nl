@@ -3,19 +3,18 @@ title: 'Zelfstudie: uw domein en subdomein in Azure DNS hosten'
 description: In deze zelfstudie wordt uitgelegd hoe u Azure DNS kunt configureren om uw DNS-zones te hosten.
 services: dns
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: tutorial
-ms.date: 6/13/2018
+ms.date: 10/30/2018
 ms.author: victorh
-ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452291"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999609"
 ---
-# <a name="tutorial-host-your-domain-in-azure-dns"></a>Zelfstudie: uw domein hosten in Azure DNS
+# <a name="tutorial-host-your-domain-in-azure-dns"></a>Zelfstudie: Uw domein hosten in Azure DNS
 
 U kunt Azure DNS gebruiken om uw DNS-domein te hosten en uw DNS-records te beheren. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services. 
 
@@ -35,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
-1. Meld u aan bij de Azure-portal.
+1. Meld u aan bij Azure Portal.
 1. Selecteer in de linkerbovenhoek **Een resource maken** > **Netwerken** > **DNS-zone** om de pagina **DNS-zone maken** te openen.
 
    ![DNS-zone](./media/dns-delegate-domain-azure-dns/openzone650.png)
@@ -46,17 +45,14 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
    |---|---|---|
    |**Naam**|[uw domeinnaam] |De domeinnaam die u hebt gekocht. In deze zelfstudie wordt contoso.net als voorbeeld gebruikt.|
    |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin u de zone wilt maken.|
-   |**Resourcegroep**|**Nieuwe maken:** contosoRG|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. |
+   |**Resourcegroep**|**Nieuwe maken:** contosoRG|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd.<br>De locatie van de resourcegroep heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.|
    |**Locatie**|US - oost||
-
-> [!NOTE]
-> De locatie van de resourcegroep heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
 
 ## <a name="retrieve-name-servers"></a>Naamservers ophalen
 
 Voordat u uw DNS-zone naar Azure DNS kunt delegeren, moet u weten wat de naamservers voor uw zone zijn. Telkens wanneer er een zone wordt gemaakt, wijst Azure DNS naamservers uit een groep toe.
 
-1. Nu de DNS-zone is gemaakt, selecteert u **Alle resources** in het deelvenster **Favorieten** in de Azure-portal. Selecteer op de pagina **Alle resources** uw DNS-zone. Als het abonnement dat u hebt geselecteerd al verschillende resources bevat, kunt u uw domeinnaam invoeren in het vak **Filteren op naam** om gemakkelijk toegang te krijgen tot de toepassingsgateway. 
+1. Nu de DNS-zone is gemaakt, selecteert u **Alle resources** in het deelvenster **Favorieten** in Azure Portal. Selecteer op de pagina **Alle resources** uw DNS-zone. Als het abonnement dat u hebt geselecteerd al verschillende resources bevat, kunt u uw domeinnaam invoeren in het vak **Filteren op naam** om gemakkelijk toegang te krijgen tot de toepassingsgateway. 
 
 1. U vindt de naamservers op de pagina DNS-zone. In dit voorbeeld zijn de naamservers *ns1-01.azure-dns.com*, *ns2 01.azure dns.net*, *ns3-01.azure-dns.org* en *ns4-01.azure-dns.info* aan de zone contoso.net toegewezen:
 
@@ -64,49 +60,52 @@ Voordat u uw DNS-zone naar Azure DNS kunt delegeren, moet u weten wat de naamser
 
 Azure DNS maakt automatisch gezaghebbende NS-records in uw zone die de toegewezen naamservers bevatten.
 
-
 ## <a name="delegate-the-domain"></a>Het domein delegeren
 
-Nu de DNS-zone is gemaakt en u de naamservers hebt, moet u het bovenliggende domein bijwerken met de Azure DNS-naamservers. Elke registrar heeft zijn eigen hulpprogramma's voor DNS-beheer om de naamserverrecords voor een domein te wijzigen. Ga naar de DNS-beheerpagina van de registrar, bewerk de NS-records en vervang de NS-records door de Azure DNS-naamservers.
+Nu de DNS-zone is gemaakt en u de naamservers hebt, moet u het bovenliggende domein bijwerken met de Azure DNS-naamservers. Elke registrar heeft zijn eigen hulpprogramma's voor DNS-beheer om de naamserverrecords voor een domein te wijzigen. 
 
-Wanneer u een domein naar Azure DNS delegeert, moet u de naamservers gebruiken die worden verstrekt door Azure DNS. Wij raden u aan om altijd alle vier de naamservers te gebruiken, ongeacht de naam van uw domein. Bij het delegeren van een domein is het niet nodig dat een naamserver hetzelfde topleveldomein gebruikt als uw domein.
+1. Ga naar de DNS-beheerpagina van de registrar, bewerk de NS-records en vervang de NS-records door de Azure DNS-naamservers.
+
+1. Wanneer u een domein naar Azure DNS delegeert, moet u de naamservers gebruiken die worden verstrekt door Azure DNS. Gebruik altijd alle vier de naamservers, ongeacht de naam van uw domein. Bij het delegeren van een domein is het niet nodig dat een naamserver hetzelfde topleveldomein gebruikt als uw domein.
 
 > [!NOTE]
-> Wanneer u het adres van een naamserver kopieert, moet u niet vergeten om de punt aan het einde van het adres te kopiëren. Deze punt vormt namelijk het einde van een volledig gekwalificeerde domeinnaam. Sommige registrars voegen deze punt automatisch toe als die niet is opgenomen in de naam van de naamserver. Maar om compatibel te zijn met de DNS RFC, moet u de punt zelf opnemen aangezien u er niet vanuit kunt gaan dat elke registrar deze voor u toevoegt.
+> Wanneer u het adres van een naamserver kopieert, moet u niet vergeten om de punt aan het einde van het adres te kopiëren. Deze punt vormt namelijk het einde van een volledig gekwalificeerde domeinnaam. Sommige registrars voegen deze punt automatisch toe als die niet is opgenomen in de naam van de naamserver. Om te voldoen aan DNS-RFC moet u een punt aan het eind opnemen.
 
 Delegeringen die gebruikmaken van de naamservers in uw eigen zone, ook wel *vanity-naamservers* genoemd, worden momenteel niet ondersteund in Azure DNS.
 
-## <a name="verify-that-the-delegation-is-working"></a>Controleren of de delegatie werkt
+## <a name="verify-the-delegation"></a>Controleren of de delegatie werkt
 
 Nadat u het delegeren hebt voltooid, kunt u controleren of het werkt door een hulpprogramma zoals *nslookup* te gebruiken om een query op het SOA-record (Start of Authority) voor uw zone uit te voeren. Het SOA-record wordt automatisch gemaakt wanneer de zone wordt gemaakt. Mogelijk moet u tien minuten of langer wachten nadat het delegeren is voltooid voordat u kunt controleren of het werkt. Het kan even duren voordat wijzigingen zijn doorgegeven via het DNS-systeem.
 
-U hoeft de Azure DNS-servers niet op te geven. Als de overdracht correct is ingesteld, zal het standaard-DNS-omzettingsproces de naamservers automatisch vinden.
+U hoeft de Azure DNS-naamservers niet op te geven. Als de overdracht correct is ingesteld, zal het standaard-DNS-omzettingsproces de naamservers automatisch vinden.
 
-Typ in een opdrachtprompt een nslookup-opdracht die vergelijkbaar is met de volgende:
+1. Typ in een opdrachtprompt een nslookup-opdracht die vergelijkbaar is met het volgende voorbeeld:
 
-```
-nslookup -type=SOA contoso.net
-```
+   ```
+   nslookup -type=SOA contoso.net
+   ```
 
-Hier volgt een voorbeeld van de reactie op de voorgaande opdracht:
+1. Controleer of het antwoord op de volgende nslookup-uitvoer lijkt:
 
-```
-Server: ns1-04.azure-dns.com
-Address: 208.76.47.4
+   ```
+   Server: ns1-04.azure-dns.com
+   Address: 208.76.47.4
 
-contoso.net
-primary name server = ns1-04.azure-dns.com
-responsible mail addr = msnhst.microsoft.com
-serial = 1
-refresh = 900 (15 mins)
-retry = 300 (5 mins)
-expire = 604800 (7 days)
-default TTL = 300 (5 mins)
-```
+   contoso.net
+   primary name server = ns1-04.azure-dns.com
+   responsible mail addr = msnhst.microsoft.com
+   serial = 1
+   refresh = 900 (15 mins)
+   retry = 300 (5 mins)
+   expire = 604800 (7 days)
+   default TTL = 300 (5 mins)
+   ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de resourcegroep **contosoRG** behouden als u de volgende zelfstudie wilt doen. Verwijder anders de resourcegroep **contosoRG** om de resources die in deze zelfstudie zijn gemaakt te verwijderen. Klik hiervoor op de resourcegroep **contosoRG** en vervolgens op **Resourcegroep verwijderen**. 
+U kunt de resourcegroep **contosoRG** behouden als u de volgende zelfstudie wilt doen. Verwijder anders de resourcegroep **contosoRG** om de resources die in deze zelfstudie zijn gemaakt te verwijderen.
+
+- Selecteer de resourcegroep **contosoRG** en selecteer vervolgens **Resourcegroep verwijderen**. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

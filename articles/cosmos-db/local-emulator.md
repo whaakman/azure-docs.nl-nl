@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 2979cdd0184e287ba83ae8a254722b64decce83d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 1876a74ff1631ee8a383ebe954df9756f7ef89f1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413690"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811440"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokaal ontwikkelen en testen
 
@@ -34,7 +34,7 @@ ms.locfileid: "53413690"
 
 De Azure Cosmos DB Emulator is een lokale omgeving waarin de Azure Cosmos DB-service wordt geëmuleerd voor ontwikkelingsdoeleinden. Met behulp van de Azure Cosmos DB Emulator kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder een Azure-abonnement te maken. Als u tevreden bent over hoe uw toepassing in de Azure Cosmos DB Emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud.
 
-Op dit moment biedt de Data Explorer in de emulator alleen volledige ondersteuning voor SQL API-verzamelingen en MongoDB-verzamelingen. Tabel-, grafiek- en Cassandra-containers worden niet volledig ondersteund.
+Op dit moment biedt de Data Explorer in de emulator alleen volledige ondersteuning voor clients voor de SQL-API en de API van Azure Cosmos DB voor MongoDB. Clients voor Table-, Graph- en Cassandra-API's worden niet volledig ondersteund.
 
 Dit artikel behandelt de volgende taken:
 
@@ -57,7 +57,7 @@ Emulatie van de Azure Cosmos DB-service is zeer betrouwbaar, maar de implementat
 ## <a name="differences-between-the-emulator-and-the-service"></a>Verschillen tussen de emulator en de service
 Omdat de Azure Cosmos DB Emulator een geëmuleerde omgeving op een lokaal ontwikkelaarswerkstation biedt, zijn er enkele verschillen in functionaliteit tussen de emulator en een Azure Cosmos DB-account in de cloud:
 
-* Op dit moment biedt de Data Explorer in de emulator alleen ondersteuning voor SQL API-verzamelingen en MongoDB-verzamelingen. Tabel-, grafiek- en Cassandra-API's worden nog niet ondersteund.
+* Op dit moment biedt de Data Explorer in de emulator alleen ondersteuning voor clients voor de SQL-API en de API van Azure Cosmos DB voor MongoDB. Clients voor Table-, Graph- en Cassandra-API's worden nog niet ondersteund.
 * De Azure Cosmos DB Emulator ondersteunt slechts één vast account en een bekende hoofdsleutel. Het genereren van toegangssleutels is niet mogelijk in de  Azure Cosmos DB Emulator.
 * De Azure Cosmos DB Emulator-service is niet schaalbaar en biedt geen ondersteuning voor een groot aantal verzamelingen.
 * De Azure Cosmos DB Emulator simuleert niet verschillende [Azure Cosmos DB-consistentieniveaus](consistency-levels.md).
@@ -125,14 +125,14 @@ U kunt de emulator uitvoeren op een lokaal netwerk. U maakt netwerktoegang mogel
 Om voor de eerste keer toegang te krijgen tot het netwerk, moet de gebruiker de emulator afsluiten en de gegevensmap van de emulator verwijderen (C:\Users\gebruikersnaam\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Ontwikkelen met de emulator
-Wanneer de Azure Cosmos DB-emulator op uw computer wordt uitgevoerd, kunt u elke ondersteunde [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) of de [Azure Cosmos DB REST API](/rest/api/cosmos-db/) gebruiken om met de emulator te communiceren. De Azure Cosmos DB Emulator bevat ook een ingebouwde Data Explorer. Hiermee kunt u verzamelingen maken voor de SQL en MongoDB API's en kunt u documenten weergeven en bewerken zonder code te schrijven.
+Wanneer de Azure Cosmos DB-emulator op uw computer wordt uitgevoerd, kunt u elke ondersteunde [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) of de [Azure Cosmos DB REST API](/rest/api/cosmos-db/) gebruiken om met de emulator te communiceren. De Azure Cosmos DB Emulator bevat ook een ingebouwde Data Explorer. Hiermee kunt u verzamelingen maken voor de SQL-API of Cosmos DB voor MongoDB-API en kunt u documenten weergeven en bewerken zonder code te schrijven.
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Als u [Azure Cosmos DB-protocolondersteuning voor MongoDB](mongodb-introduction.md) gebruikt, gebruikt u de volgende verbindingsreeks:
+Als u [Azure Cosmos DB-wire-protocolondersteuning voor MongoDB](mongodb-introduction.md) gebruikt, moet u de volgende verbindingsreeks gebruiken:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
@@ -151,7 +151,7 @@ Om een certificaat te verkrijgen voor gebruik bij talen en runtimes die niet wor
 
 ![SSL-certificaat voor een lokale Azure Cosmos DB Emulator](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-Volg de instructies in [Een certificaat toevoegen aan het Java CA-certificaatarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store) om het X.509-certificaat te importeren in het Java-certificaatarchief. Zodra het certificaat is geïmporteerd in het certificaatarchief, kunnen Java en de MongoDB-toepassingen verbinding maken met de Azure Cosmos DB Emulator.
+Volg de instructies in [Een certificaat toevoegen aan het Java CA-certificaatarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store) om het X.509-certificaat te importeren in het Java-certificaatarchief. Zodra het certificaat is geïmporteerd in het certificaatarchief, kunnen clients voor de SQL-API en de Azure Cosmo API voor MongoDB verbinding maken met Azure Cosmos DB Emulator.
 
 Bij het verbinden met de emulator van Python en Node.js SDK's, is SSL-verificatie uitgeschakeld.
 

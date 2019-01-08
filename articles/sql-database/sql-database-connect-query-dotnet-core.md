@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341776"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744833"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snelstartgids: .NET Core (C#) gebruiken om een query uit te voeren voor een Azure SQL-database
 
-In deze snelstartgids wordt beschreven hoe u met [.NET Core](https://www.microsoft.com/net/) en C#-code verbinding maakt met een Azure SQL-database en een Transact-SQL-instructie toepast om een query uit te voeren voor de gegevens.
+In deze snelstart gebruikt u [.NET Core](https://www.microsoft.com/net/) en C# code om verbinding te maken met een Azure SQL database. Vervolgens moet u een Transact-SQL-instructie uitvoeren om een query op gegevens uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -53,14 +53,14 @@ Voor deze zelfstudie hebt u het volgende nodig:
   
 ## <a name="create-a-new-net-core-project"></a>Een nieuw .NET Core-project maken
 
-1. Open een opdrachtprompt en maak een map met de naam **sqltest**. Navigeer naar deze map en voer de volgende opdracht uit.
+1. Open een opdrachtprompt en maak een map met de naam **sqltest**. Navigeer naar deze map en voer deze opdracht uit.
 
     ```cmd
     dotnet new console
     ```
-    Hiermee maakt u nieuwe app-projectbestanden, waaronder een eerste C#-codebestand (**Program.cs**), een XML-configuratiebestand (**sqltest.csproj**) en de benodigde binaire bestanden.
+    Met deze opdracht maakt u nieuwe app-projectbestanden, waaronder een eerste C#-codebestand (**Program.cs**), een XML-configuratiebestand (**sqltest.csproj**) en de benodigde binaire bestanden.
 
-2. Open **sqltest.csproj** in een teksteditor en plak de volgende XML-code tussen de `<Project>`-tags. Hiermee voegt u `System.Data.SqlClient` toe als een afhankelijkheid.
+2. Open **sqltest.csproj** in een teksteditor en plak de volgende XML-code tussen de `<Project>`-tags. Met deze XML-code voegt u `System.Data.SqlClient` toe als een afhankelijkheid.
 
     ```xml
     <ItemGroup>
@@ -173,7 +173,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Druk op **Enter** om het toepassingsvenster te sluiten.
+3. Kies **Enter** om het toepassingsvenster te sluiten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

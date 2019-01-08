@@ -1,5 +1,5 @@
 ---
-title: Een .NET Core-web-app maken in Linux - Azure App Service | Microsoft Docs
+title: Een .NET Core-app maken op Linux - Azure App Service | Microsoft Docs
 description: U kunt uw eerste .NET Core-Hallo wereld-app in slechts enkele minuten implementeren in App Service on Linux.
 keywords: azure app service, web-app, dotnet, core, linux, oss
 services: app-service
@@ -16,20 +16,20 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251790"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633926"
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Een .NET Core-web-app maken in App Service on Linux
+# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Een .NET Core-app maken in App Service op Linux
 
 > [!NOTE]
-> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een ASP.NET Core-web-app maken in Azure](../app-service-web-get-started-dotnet.md) om een app te implementeren in App Service onder _Windows_.
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een ASP.NET Core-app maken in Azure](../app-service-web-get-started-dotnet.md) om een app te implementeren in App Service op _Windows_.
 >
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een [.NET Core](https://docs.microsoft.com/aspnet/core/)-app maakt in App Service on Linux. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en gebruikt Git om de .NET Core-code in de web-app te implementeren.
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een [.NET Core](https://docs.microsoft.com/aspnet/core/)-app maakt in App Service on Linux. U maakt de app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en gebruikt Git om de .NET Core-code in de app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -53,7 +53,7 @@ md hellodotnetcore
 cd hellodotnetcore
 ```
 
-Maak een nieuwe .NET Core-web-app.
+Een nieuwe .NET Core-app maken
 
 ```bash
 dotnet new web
@@ -95,15 +95,15 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Blader naar uw nieuwe web-app. Vervang _&lt;app-naam>_ door de naam van uw web-app.
+Blader naar de app die u net hebt gemaakt. Vervang _&lt;app-naam>_ door de naam van uw app.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-Zo zou uw nieuwe web-app er moeten uitzien:
+Uw nieuwe app lijkt op het volgende:
 
-![Lege pagina van web-app](media/quickstart-dotnetcore/dotnet-browse-created.png)
+![Lege app-pagina](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -144,7 +144,7 @@ Blader naar de geïmplementeerde toepassing via uw webbrowser.
 http://<app_name>.azurewebsites.net
 ```
 
-De .NET Core-voorbeeldcode wordt uitgevoerd in een web-app met een ingebouwde installatiekopie.
+De .NET Core-voorbeeldcode wordt uitgevoerd in App Service op Linux met een ingebouwde installatiekopie.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -169,15 +169,15 @@ Als de implementatie is voltooid, gaat u terug naar het browservenster dat is ge
 
 ![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
+## <a name="manage-your-new-azure-app"></a>Uw nieuwe Azure-app beheren
 
-Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
+Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de app te beheren die u hebt gemaakt.
 
-Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/quickstart-dotnetcore/portal-app-service-list.png)
+![Navigatie naar Azure-app in de portal](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
+De pagina Overzicht van uw app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
 
 ![App Service-pagina in Azure Portal](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -188,4 +188,4 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een .NET Core- en SQL Database-web-app maken in Azure App Service on Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Een .NET Core- en SQL Database-app maken in Azure App Service op Linux](tutorial-dotnetcore-sqldb-app.md)

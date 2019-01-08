@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878295"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631151"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -78,17 +78,17 @@ De volgende tabel bevat een matrix van de gegevens en workloads die kunnen worde
 | Virtuele machines van Azure IaaS (Linux) |uitgevoerd in Azure |[Azure Backup (VM-extensie)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Linux Support
-De volgende tabel bevat de Azure Backup-onderdelen die ondersteuning bieden voor Linux.  
+De volgende tabel bevat Azure Backup-onderdelen die ondersteuning bieden voor Linux.  
 
-| Onderdeel | Ondersteuning voor Linux (goedgekeurd door Azure) |
-| --- | --- |
-| Azure Backup-agent (MARS) |Nee (alleen Windows-agent) |
-| System Center DPM |<li> Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/> <li> Linux-gast-VM's herstellen op Hyper-V- en VMware </br> </br>  *Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines* <br/> |
-| Azure Backup-server |<li>Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/> <li> Linux-gast-VM's herstellen op Hyper-V- en VMware </br></br> *Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines*  |
-| Back-up van virtuele machines van Azure IaaS |Toepassingsconsistente back-up met [prescript en postscript framework](backup-azure-linux-app-consistent.md)<br/> [Gedetailleerd bestandsherstel](backup-azure-restore-files-from-vm.md)<br/> [Alle VM-schijven herstellen](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM herstellen](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Onderdeel** | **Linux (goedgekeurd door Azure)**
+--- | --- 
+Azure Backup-agent (MARS) | Nee (alleen Windows-agent) 
+System Center DPM | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines
+Azure Backup-server | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines 
+Back-up van virtuele machines van Azure IaaS | App-consistente back-up met het [prescript- en postscript-framework](backup-azure-linux-app-consistent.md)<br/><br/> [Herstel op bestandsniveau](backup-azure-restore-files-from-vm.md)<br/><br/> [Een VM maken op basis van een herstelde schijf](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Een VM maken op basis van een herstelpunt](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>VM's voor Premium Storage met Azure Backup gebruiken
-Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../virtual-machines/windows/premium-storage.md) (Premium Storage: hoogwaardige opslag voor workloads van Azure Virtual Machines) voor meer informatie over Premium Storage.
+Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Voor meer informatie over Premium Storage, zie het artikel [Premium Storage: Opslag met hoge prestaties voor workloads van virtuele Azure-machines](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Een back-up van VM's voor Premium-opslag maken
 Tijdens een back-up van virtuele machines voor Premium-opslag, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is even groot als de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het Premium Storage-account is voor de tijdelijke faseringslocatie. Zie het artikel [Beperkingen van Premium Storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
@@ -209,7 +209,7 @@ Een beveiligd exemplaar is een algemene verwijzing naar een Windows-computer, ee
 Enkele voorbeelden van veelgebruikte beveiligde exemplaren zijn virtuele machines, toepassingsservers, databases en pc's met het Windows-besturingssysteem. Bijvoorbeeld:
 
 * Een virtuele machine met de hypervisorinfrastructuur Hyper-V of Azure IaaS. Het gastbesturingssysteem voor de virtuele machine kan Windows Server of Linux zijn.
-* Een toepassingsserver: de toepassingsserver kan een fysieke of virtuele machine zijn met Windows Server en werkbelastingen met gegevens waarvan een back-up moet worden gemaakt. Veelvoorkomende werkbelastingen zijn: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server en de bestandsserverfunctie van Windows Server. Als u een back-up wilt maken van deze werkbelastingen, hebt u System Center Data Protection Manager (DPM) of Azure Backup Server nodig.
+* Een toepassingsserver: de toepassingsserver kan een fysieke of virtuele machine zijn met Windows Server en workloads met gegevens waarvan een back-up moet worden gemaakt. Veelvoorkomende werkbelastingen zijn: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server en de bestandsserverfunctie van Windows Server. Als u een back-up wilt maken van deze werkbelastingen, hebt u System Center Data Protection Manager (DPM) of Azure Backup Server nodig.
 * Een pc, werkstation of laptop met het Windows-besturingssysteem.
 
 

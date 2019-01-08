@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing | Microsoft Docs'
+title: 'Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing - Azure Key Vault | Microsoft Docs'
 description: In deze zelfstudie leert u hoe u Azure Key Vault gebruikt vanuit een webtoepassing.
 services: key-vault
 author: barclayn
@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 79bccbcbcf78de18504c5cb0235e29930d90ede8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079460"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999302"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing
 
@@ -40,9 +40,9 @@ U hebt de volgende items nodig om deze zelfstudie te voltooien:
 * Een client-id en een clientgeheim voor een webtoepassing die is geregistreerd bij Azure Active Directory die toegang heeft tot uw Key Vault
 * Een webtoepassing. Deze zelfstudie toont de stappen voor een ASP.NET MVC-toepassing die als een webtoepassing is geïmplementeerd in Azure.
 
-Voer de stappen uit in [Aan de slag met Azure Key Vault](key-vault-get-started.md) om de URI naar een geheim, de client-id en het clientgeheim op te halen en om de toepassing te registreren. De webtoepassing opent de kluis en moet zijn geregistreerd in Azure Active Directory. De toepassing moet ook toegangsrechten hebben voor Key Vault. Als dat niet het geval is, gaat u terug naar Een toepassing registreren in de zelfstudie Aan de slag en herhaalt u de weergegeven stappen. Zie [Overzicht van Web Apps](../app-service/app-service-web-overview.md) voor meer informatie over Azure Web Apps.
+Voer de stappen uit in [Aan de slag met Azure Key Vault](key-vault-get-started.md) om de URI naar een geheim, de client-id en het clientgeheim op te halen en om de toepassing te registreren. De webtoepassing opent de kluis en moet zijn geregistreerd in Azure Active Directory. De toepassing moet ook toegangsrechten hebben voor Key Vault. Als dat niet het geval is, gaat u terug naar Een toepassing registreren in de zelfstudie Aan de slag en herhaalt u de weergegeven stappen. Zie [Overzicht van Web Apps](../app-service/overview.md) voor meer informatie over Azure Web Apps.
 
-Dit voorbeeld is afhankelijk van een handmatige inrichting van Azure Active Directory-identiteiten. Maar u moet [beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) gebruiken, aangezien Azure AD-identiteiten dan automatisch worden ingericht. Zie voor meer informatie het [voorbeeld op GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de verwante [zelfstudie over App Service en Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). U kunt ook deze zelfstudie voor Key Vault doornemen: [Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault](tutorial-web-application-keyvault.md).
+Dit voorbeeld is afhankelijk van een handmatige inrichting van Azure Active Directory-identiteiten. Maar u moet [beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) gebruiken, aangezien Azure AD-identiteiten dan automatisch worden ingericht. Zie voor meer informatie het [voorbeeld op GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de verwante [zelfstudie over App Service en Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity). U kunt ook deze zelfstudie voor Key Vault doornemen: [Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>NuGet-pakketten toevoegen
 
@@ -71,8 +71,6 @@ Er zijn drie toepassingsinstellingen die als volgt moeten worden toegevoegd aan 
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Een methode toevoegen om een toegangstoken te verkrijgen
 
@@ -188,11 +186,11 @@ Nadat u deze opdrachten hebt uitgevoerd, ziet u de toepassing in Azure AD. Zorg 
 
 Nu gaat u code aan uw webtoepassing toevoegen om toegang te krijgen tot het certificaat en dit te gebruiken voor verificatie. 
 
-Hier volgt eerst de code voor toegang tot het certificaat. StoreLocation is CurrentUser in plaats van LocalMachine. We hebben bovendien 'false' aan de methode Find toegevoegd omdat we een testcertificaat gebruiken.
+Hier volgt eerst de code voor toegang tot het certificaat. De archieflocatie is CurrentUser in plaats van LocalMachine. We hebben bovendien 'false' aan de methode Find toegevoegd omdat we een testcertificaat gebruiken.
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

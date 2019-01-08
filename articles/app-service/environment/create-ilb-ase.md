@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344275"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629880"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -78,7 +78,7 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
     * &lt;naam van AS-omgeving&gt;.p.azurewebsites.net
 
-   Er is een functie met de naam aangepaste domeinnamen waarmee u een bestaande DNS-naam toewijst aan uw web-app. U kunt meer lezen over deze functie in het document [Een bestaande DNS-naam toewijzen aan uw web-app] [ customdomain]. De aangepaste domeinnaam die wordt gebruikt voor apps en de domeinnaam die wordt gebruikt voor uw AS-omgeving mogen niet overlappen. Voor een ILB AS-omgeving met de domeinnaam _contoso.com_ kunt u geen aangepaste domeinnamen voor de apps gebruiken, zoals:
+   U kunt [een bestaande DNS-naam toewijzen aan uw app][customdomain]. De aangepaste domeinnaam die wordt gebruikt voor apps en de domeinnaam die wordt gebruikt voor uw AS-omgeving mogen niet overlappen. Voor een ILB AS-omgeving met de domeinnaam _contoso.com_ kunt u geen aangepaste domeinnamen voor de apps gebruiken, zoals:
 
     * www.contoso.com
 
@@ -88,7 +88,7 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
    Als u de aangepaste domeinnamen voor de apps kent, kiest u een domein voor de ILB AS-omgeving die niet conflicteert met deze aangepaste domeinnamen. In dit voorbeeld kunt u voor het domein van uw AS-omgeving een naam gebruiken zoals *contoso-internal.com*, omdat deze naam niet conflicteert met aangepaste domeinnamen die eindigen op *.contoso.com*.
 
-1. Selecteer **OK**, en selecteer vervolgens **Maken**.
+8. Selecteer **OK**, en selecteer vervolgens **Maken**.
 
     ![Het maken van een ASE][1]
 
@@ -160,23 +160,23 @@ Ga als volgt te werk om uw eigen certificaten te uploaden en de toegang te teste
 
 1. Haal het ILB-adres voor de AS-omgeving op. Selecteer **AS-omgeving** > **Eigenschappen** > **Virtueel IP-adres**.
 
-1. Maak een web-app in de AS-omgeving, nadat de AS-omgeving is gemaakt.
+2. Maak een app in de ASE, nadat de ASE is gemaakt.
 
-1. Maak een VM, als u in dit VNet nog geen VM hebt.
+3. Maak een VM, als u in dit VNet nog geen VM hebt.
 
     > [!NOTE] 
     > Maak deze VM niet in hetzelfde subnet als de AS-omgeving, want deze actie mislukt of veroorzaakt problemen.
     >
 
-1. Stel het DNS in voor het domein van de AS-omgeving. U kunt een jokerteken gebruiken bij uw domein in het DNS. Als u een aantal eenvoudige tests wilt uitvoeren, bewerkt u het hostbestand op de VM zodat de naam van de web-app is ingesteld op het virtuele IP-adres:
+4. Stel het DNS in voor het domein van de AS-omgeving. U kunt een jokerteken gebruiken bij uw domein in het DNS. Als u een aantal eenvoudige tests wilt uitvoeren, bewerkt u het hostbestand op de VM zodat de naam van de app is ingesteld op het virtuele IP-adres:
 
-    a. Als de AS-omgeving de domeinnaam _.ilbase.com_ heeft en u een web-app maakt met de naam _mytestapp_, is het adres _mytestapp.ilbase.com_. Vervolgens stelt u _mytestapp.ilbase.com_ in om te worden omgezet naar het ILB-adres. (In Windows bevindt het hostbestand zich op _C:\Windows\System32\drivers\etc\_.)
+    a. Als de ASE de domeinnaam _.ilbase.com_ heeft en u een app maakt met de naam _mytestapp_, is het adres _mytestapp.ilbase.com_. Vervolgens stelt u _mytestapp.ilbase.com_ in om te worden omgezet naar het ILB-adres. (In Windows bevindt het hostbestand zich op _C:\Windows\System32\drivers\etc\_.)
 
     b. Als u het publiceren van webimplementaties of de toegang tot de geavanceerde console wilt testen, maakt u een record voor _mytestapp.scm.ilbase.com_.
 
-1. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. (Of ga naar de web-app-naam die bij uw domein hoort.)
+5. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. (Of ga naar de app-naam die bij uw domein hoort.)
 
-1. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, aanvaardt u het gebrek aan beveiliging.
+6. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, aanvaardt u het gebrek aan beveiliging.
 
     Het IP-adres voor de ILB wordt vermeld bij **IP-adressen**. Deze lijst bevat ook de IP-adressen die worden gebruikt voor het externe VIP-adres en voor binnenkomend beheerverkeer.
 
@@ -237,7 +237,7 @@ Zie [Configure a web application firewall with your App Service environment][ASE
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/

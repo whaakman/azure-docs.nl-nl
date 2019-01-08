@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989903"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001461"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Een serverloze API maken met behulp van Azure Functions
 
@@ -39,14 +39,14 @@ Standaard is uw functie die wordt geactiveerd via HTTP geconfigureerd voor het a
 
     ![Een HTTP-functie aanpassen](./media/functions-create-serverless-api/customizing-http.png)
 
-1. Gebruik de HTTP-triggerinstellingen zoals die zijn opgegeven in de tabel.
+1. Gebruik de HTTP-triggerinstellingen zoals die zijn opgegeven in de tabel.
 
     | Veld | Voorbeeldwaarde | Beschrijving |
     |---|---|---|
     | Toegestane HTTP-methoden | Geselecteerde methoden | Hiermee wordt bepaald welke HTTP-methoden kunnen worden gebruikt om deze functie aan te roepen |
     | Geselecteerde HTTP-methoden | GET | Hiermee is het alleen geselecteerde HTTP-methoden toegestaan om deze functie aan te roepen |
     | Routesjabloon | /hello | Hiermee wordt bepaald welke route wordt gebruikt om deze functie aan te roepen |
-    | Autorisatieniveau | Anoniem | Optioneel: dit maakt uw functie toegankelijk zonder een API-sleutel |
+    | Autorisatieniveau | Anoniem | Optioneel: Optioneel: hierdoor is uw functie toegankelijk zonder een API-sleutel |
 
     > [!NOTE] 
     > U hebt het basispadvoorvoegsel `/api` niet in de routesjabloon opgenomen, aangezien dit wordt verwerkt door een algemene instelling.
@@ -71,7 +71,7 @@ In de volgende sectie werkt uw API via een proxy. Met Azure Functions-proxy's ku
 
 Een proxy kan naar elke HTTP-bron verwijzen, zoals:
 - Azure Functions 
-- API Apps in [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+- API Apps in [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)
 - Docker-containers in [App Service in Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Elke andere gehoste API
 
@@ -104,7 +104,7 @@ Herhaal de stappen uit [Een functie-app maken](https://docs.microsoft.com/azure/
     | Veld | Voorbeeldwaarde | Beschrijving |
     |---|---|---|
     | Naam | HelloProxy | Een beschrijvende naam die alleen wordt gebruikt voor beheer |
-    | Routesjabloon | /api/hello | Hiermee wordt bepaald welke route wordt gebruikt om deze proxy aan te roepen |
+    | Routesjabloon | /api/remotehello | Hiermee wordt bepaald welke route wordt gebruikt om deze proxy aan te roepen |
     | URL van back-end | https://%HELLO_HOST%/api/hello | Geeft het eindpunt aan waarnaar de aanvraag moet worden geproxied |
     
 1. Houd er rekening mee dat Azure Functions-proxy's niet het basispadvoorvoegsel `/api` verstrekken en dat dit moet worden opgenomen in de routesjabloon.
@@ -112,9 +112,9 @@ Herhaal de stappen uit [Een functie-app maken](https://docs.microsoft.com/azure/
 1. Klik op **Create**.
 1. U kunt uw nieuwe proxy uitproberen door de proxy-URL kopiëren en deze te testen in de browser of met de HTTP-client van uw voorkeur.
     1. Gebruik voor een anonieme functie:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. Gebruik voor een functie met autorisatie:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>Een mock-API maken
 
@@ -132,7 +132,7 @@ Als u alle stappen hebt gevolgd, ziet uw proxies.json er als volgt uit:
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ U gaat nu uw mock-API toevoegen. Vervang het proxies.json-bestand door het volge
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },
