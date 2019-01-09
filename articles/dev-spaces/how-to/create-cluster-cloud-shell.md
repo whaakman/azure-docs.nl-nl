@@ -19,7 +19,7 @@ ms.locfileid: "53413527"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Maak een Kubernetes-cluster met behulp van Azure Cloud Shell
 
-U kunt [Azure Cloud Shell](/azure/cloud-shell) voor het maken van een cluster voor Azure Dev ruimten met behulp van de **uitproberen** knop op deze pagina. Als u niet bent aangemeld, volg de aanwijzingen voor het aanmelden met een Azure-account en vervolgens typt u de opdrachten bij de Azure Cloud Shell-prompt wanneer deze wordt weergegeven.
+U kunt [Azure Cloud Shell](/azure/cloud-shell) gebruiken om een cluster te maken voor Azure Dev Spaces met behulp van de **uitproberen** knop op deze pagina. Als u niet bent aangemeld, volg de aanwijzingen voor het aanmelden met een Azure-account en vervolgens typt u de opdrachten bij de Azure Cloud Shell-prompt wanneer deze wordt weergegeven.
 
 ## <a name="create-the-cluster"></a>Het cluster maken
 
@@ -35,7 +35,7 @@ Maak een Kubernetes-cluster met de volgende opdracht:
 az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing
 ```
 
-Het duurt een paar minuten om het cluster te maken.  Als u klaar bent, wordt de uitvoer wordt weergegeven in de JSON-indeling. Zoek naar `provisioningState` en controleer of er `Succeeded`.
+Het duurt een paar minuten om het cluster te maken.  Als het gereed is wordt de uitvoer weergegeven in de JSON-indeling. Zoek naar `provisioningState` en controleer of er `Succeeded` staat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
