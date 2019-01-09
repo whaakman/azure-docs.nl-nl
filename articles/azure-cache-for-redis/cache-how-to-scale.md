@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019489"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105199"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Het schalen van Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en functies. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. Dit artikel ziet u hoe u de schaal van uw cache met behulp van de Azure-portal en hulpprogramma's, zoals Azure PowerShell en Azure CLI.
@@ -136,7 +136,7 @@ Nee, uw Cachenaam en sleutels zijn niet gewijzigd tijdens een bewerking voor ver
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Ik gaan gegevens verloren uit mijn cache tijdens schalen?
 * Wanneer een **Basic** cache is geschaald naar een nieuwe omvang, alle gegevens verloren en wordt de cache niet beschikbaar is tijdens het vergroten/verkleinen.
 * Wanneer een **Basic** cache wordt aangepast aan een **Standard** cache, de gegevens in de cache wordt doorgaans behouden.
-* Wanneer een **Standard** cache wordt aangepast aan een groter formaat of laag, of een **Premium** cache wordt aangepast aan een groter, alle gegevens doorgaans blijven behouden. Wanneer u een **Standard** of **Premium** cache tot een kleinere, gegevens kan verloren gaan, afhankelijk van hoeveel gegevens in de cache met betrekking tot de nieuwe grootte is wanneer deze wordt geschaald. Als gegevens verloren gaan tijdens het omlaag schalen, sleutels worden verwijderd met behulp van de [allkeys lru](http://redis.io/topics/lru-cache) verwijderingsbeleid. 
+* Wanneer een **Standard** cache wordt aangepast aan een groter formaat of laag, of een **Premium** cache wordt aangepast aan een groter, alle gegevens doorgaans blijven behouden. Wanneer u een **Standard** of **Premium** cache tot een kleinere, gegevens kan verloren gaan, afhankelijk van hoeveel gegevens in de cache met betrekking tot de nieuwe grootte is wanneer deze wordt geschaald. Als gegevens verloren gaan tijdens het omlaag schalen, sleutels worden verwijderd met behulp van de [allkeys lru](https://redis.io/topics/lru-cache) verwijderingsbeleid. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Wordt mijn aangepaste databases instellen waarin dit probleem optreedt tijdens schalen?
 Als u een aangepaste waarde voor geconfigureerd de `databases` instellen tijdens het maken van de cache, houd er rekening mee dat sommige prijzen van lagen hebben verschillende [limieten voor databases](cache-configure.md#databases). Hier volgen enkele overwegingen wanneer u in dit scenario:

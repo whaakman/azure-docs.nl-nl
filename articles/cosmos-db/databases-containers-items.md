@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 23400331db3bd63eeeb843c9772604fabf5a87d1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043767"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107732"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Werken met Azure Cosmos-databases, containers en objecten
 
@@ -45,7 +45,7 @@ U kunt werken met een Azure Cosmos-database met behulp van de volgende Azure Cos
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-containers
 
-Een Azure Cosmos-container is de eenheid van de schaalbaarheid voor zowel ingerichte doorvoer en opslag van items. Een container is horizontaal gepartitioneerd en vervolgens gerepliceerd in meerdere regio's. De items die u aan de container en de doorvoer toevoegen dat u richten op het beide automatisch worden verdeeld over een set met logische partities op basis van de partitiesleutel. Zie voor meer informatie over partitionering en partitiesleutel, [logische partities](partition-data.md) artikel. 
+Een Azure Cosmos-container is de eenheid van de schaalbaarheid voor zowel ingerichte doorvoer en opslag van items. Een container is horizontaal gepartitioneerd en vervolgens gerepliceerd in meerdere regio's. De items die u toevoegt aan de container en de doorvoer die u in te op het richten worden automatisch verdeeld over een set met logische partities op basis van de partitiesleutel. Zie voor meer informatie over partitionering en partitiesleutel, [logische partities](partition-data.md) artikel. 
 
 Bij het maken van een Azure Cosmos-container, kunt u de doorvoer configureren in een van de volgende modi:
 

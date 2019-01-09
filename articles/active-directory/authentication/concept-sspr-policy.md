@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d7f364ac5863c70cd0034d9c458e94cfb164cba
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190983"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116956"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
-Dit artikel wordt beschreven voor het wachtwoordbeleid en -vereisten voor wachtwoordcomplexiteit die zijn gekoppeld met behulp van gebruikersaccounts die zijn opgeslagen in uw tenant Azure Active Directory (Azure AD).
+Dit artikel wordt beschreven voor het wachtwoordbeleid en -vereisten voor wachtwoordcomplexiteit die zijn gekoppeld met behulp van gebruikersaccounts in uw tenant Azure Active Directory (Azure AD).
 
 ## <a name="administrator-reset-policy-differences"></a>Beheerder opnieuw instellen van beleid verschillen
 
@@ -79,7 +79,7 @@ De volgende tabel beschrijft de beschikbare wachtwoord-beleidsinstellingen die k
 | Eigenschap | Vereisten |
 | --- | --- |
 | Toegestane tekens |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Sterke wachtwoorden alleen</li></ul> |
+| Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Alleen sterke wachtwoorden: Mag een punt-teken niet bevatten "." Direct vóór de '\@ \" symbool ".</li></ul> |
 | Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Alleen sterke wachtwoorden: Moet drie van vier van de volgende opties:<ul><li>Kleine letters.</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>De symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
 | Duur van de wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **90** dagen.</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet uit de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |
 | Melding van wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **14** dagen (voordat wachtwoord is verlopen).</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet.</li></ul> |

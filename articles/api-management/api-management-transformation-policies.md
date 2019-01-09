@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3a8b0ecefe9e314e8056c941c9ef4ce32d1cbb75
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965373"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119370"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,13 +70,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |json-to-xml|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Naam|Beschrijving|Vereist|Standaard|
+|Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> conversie - altijd - altijd van toepassing.<br />-inhoud type-json - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van JSON.|Ja|N/A|
 |Houd rekening met-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -true - conversie van toepassing als JSON is aangevraagd in de aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
@@ -114,13 +114,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |xml-to-json|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Naam|Beschrijving|Vereist|Standaard|
+|Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |type|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -javascript-vriendelijk - de geconverteerde JSON heeft een formulier beschrijvende voor JavaScript-ontwikkelaars.<br />de geconverteerde JSON weerspiegelt - direct - structuur van het oorspronkelijke XML-document.|Ja|N/A|
 |toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -altijd - altijd converteren.<br />-inhoud-type-xml - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van XML.|Ja|N/A|
@@ -150,13 +150,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |zoeken en vervangen|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Naam|Beschrijving|Vereist|Standaard|
+|Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |uit|De tekenreeks die moet worden gezocht.|Ja|N/A|
 |tot|De vervangende tekenreeks. Geef een nul lengte van de vervangende tekenreeks als u wilt verwijderen van de zoektekenreeks.|Ja|N/A|
@@ -188,7 +188,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |Omleidings-inhoud-URL 's|Root-element.|Ja|
 
@@ -252,13 +252,13 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |set-backend-service|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Naam|Beschrijving|Vereist|Standaard|
+|Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |basis-url|Nieuwe back-end-service basis-URL.|Nee|N/A|
 |back-end-id|Id van de back-end om naar te routeren.|Nee|N/A|
@@ -318,7 +318,7 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Voorbeeld van de toegang tot de hoofdtekst als een jobject is leeggemaakt. Merk op dat sinds we zijn niet reserveren van de oorspronkelijke aanvraagtekst, toegang tot deze later in de pijplijn leidt tot een uitzondering.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Voorbeeld van de toegang tot de hoofdtekst als een jobject is leeggemaakt. Houd er rekening mee dat sinds we niet van de hoofdtekst van de oorspronkelijke aanvraag reserveren zijn, er toegang toe hebben verderop in de pijplijn in een uitzondering resulteren zal.
 
 ```xml
 <set-body> 
@@ -334,7 +334,7 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 ```
 
 #### <a name="filter-response-based-on-product"></a>Filteren op basis van product
- In dit voorbeeld laat zien hoe om uit te voeren met het filteren van inhoud door het verwijderen van elementen uit het antwoord ontvangen van de back endservice bij het gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 34:30. Beginnen bij 31:50 voor een overzicht van [de donkere Sky prognose API](https://developer.forecast.io/) gebruikt voor deze demo.
+ In dit voorbeeld laat zien hoe om uit te voeren met het filteren van inhoud door het verwijderen van elementen uit het antwoord ontvangen van de back endservice bij het gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: Meer functies van API Management met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 34:30. Beginnen bij 31:50 voor een overzicht van [de donkere Sky prognose API](https://developer.forecast.io/) gebruikt voor deze demo.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -388,13 +388,13 @@ De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [Liquid](
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |hoofdtekst instellen|Root-element. Bevat de platte tekst of een expressies waarmee een instantie wordt geretourneerd.|Ja|
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
-|Naam|Beschrijving|Vereist|Standaard|
+|Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |sjabloon|Gebruikt de templating van die het beleid van de hoofdtekst van de set wordt uitgevoerd in de modus te wijzigen. Momenteel is de enige ondersteunde waarde:<br /><br />-liquid - het beleid van de hoofdtekst van de set wordt de liquid templating-engine gebruiken |Nee|Liquid|
 
@@ -469,7 +469,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Doorsturen van contextgegevens naar de back-endservice
- In dit voorbeeld laat zien hoe om toe te passen op de API-niveau contextinformatie naar de back endservice opgeven. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 10:30. Bij 12:10 is er een demo van het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
+ In dit voorbeeld laat zien hoe om toe te passen op de API-niveau contextinformatie naar de back endservice opgeven. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: Meer functies van API Management met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 10:30. Bij 12:10 is er een demo van het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -497,14 +497,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |set-header|Root-element.|Ja|
 |waarde|Hiermee geeft u de waarde van de header moet worden ingesteld. Voor meerdere headers met dezelfde naam voegt u extra `value` elementen.|Ja|
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
-|Naam|Beschrijving|Vereist|Standaard|
+|Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de koptekst is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande koptekst.<br />-skip: is geen vervanging voor de bestaande waarde voor header.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde voor header.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de koptekst wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
 |naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
@@ -543,7 +543,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Doorsturen van contextgegevens naar de back-endservice
- In dit voorbeeld laat zien hoe om toe te passen op de API-niveau contextinformatie naar de back endservice opgeven. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 10:30. Bij 12:10 is er een demo van het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
+ In dit voorbeeld laat zien hoe om toe te passen op de API-niveau contextinformatie naar de back endservice opgeven. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: Meer functies van API Management met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 10:30. Bij 12:10 is er een demo van het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -557,14 +557,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |set-queryparameter|Root-element.|Ja|
 |waarde|Hiermee geeft u de waarde van de query-parameter moet worden ingesteld. Voor meerdere queryparameters met dezelfde naam voegt u extra `value` elementen.|Ja|
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
-|Naam|Beschrijving|Vereist|Standaard|
+|Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de queryparameter is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande parameter.<br />-skip: de waarde van de bestaande query-parameter niet vervangen.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde van de queryparameter.<br />-delete - verwijdert de queryparameter van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de queryparameter wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
 |naam|Hiermee geeft u de naam van de query-parameter moet worden ingesteld.|Ja|N/A|
@@ -636,13 +636,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |herschrijven-uri|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Standaard|
 |---------------|-----------------|--------------|-------------|
 |sjabloon|De werkelijke web service-URL met een queryreeksparameters. Wanneer u expressies, is de hele waarde moet een expressie.|Ja|N/A|
 |kopiëren-niet-overeenkomende parameters|Hiermee geeft u op of queryparameters in de inkomende aanvraag komt niet in de oorspronkelijke URL-sjabloon worden toegevoegd aan de URL die is gedefinieerd door de sjabloon opnieuw schrijven|Nee|true|
@@ -705,7 +705,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementen
 
-|Naam|Beschrijving|Vereist|
+|Name|Description|Vereist|
 |----------|-----------------|--------------|
 |XSL-transformatie|Root-element.|Ja|
 |Parameter|Gebruikt voor het definiëren van variabelen die worden gebruikt bij de transformatie|Nee|

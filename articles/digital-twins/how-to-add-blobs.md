@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9abf1eebe8174160bd671d83086ed641708b98eb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073948"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116735"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in Azure, digitale dubbels
 
-BLOBs zijn niet-gestructureerde representaties van algemene bestandstypen, zoals afbeeldingen en Logboeken. BLOBs bijhouden van wat voor soort gegevens die ze geven met behulp van een MIME-type (bijvoorbeeld: ' afbeelding/jpeg') en metagegevens (naam, beschrijving, type, enzovoort).
+BLOBs zijn niet-gestructureerde representaties van algemene bestandstypen, zoals afbeeldingen en Logboeken. BLOBs bijhouden wat voor soort gegevens die ze geven met behulp van een MIME-type (bijvoorbeeld: ' afbeelding/jpeg') en metagegevens (naam, beschrijving, type, enzovoort).
 
 Azure ondersteunt het digitale dubbels blobs te koppelen aan apparaten, spaties en gebruikers. BLOBs kunnen bestaan uit een profielafbeelding voor een gebruiker, apparaat foto, een video, een kaart, een firmware-zip, JSON-gegevens, een logboek, enzovoort.
 
@@ -202,7 +202,7 @@ Een veelvoorkomende fout, moet u niet de juiste headerinformatie:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees voor meer informatie over het Swagger-naslagdocumentatie voor Azure digitale dubbels [gebruik Azure digitale dubbele Swagger-](how-to-use-swagger.md).
+- Lees voor meer informatie over het Swagger-naslagdocumentatie voor Azure digitale dubbels [gebruik Azure digitale dubbele Swagger-](how-to-use-swagger.md).
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

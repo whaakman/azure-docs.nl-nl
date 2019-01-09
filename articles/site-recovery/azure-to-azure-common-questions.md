@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 6fe7152e43640a809ab9f4de39b1c6b599975a20
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ced306b00a5761ae096e918b43a8e67e649580dd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969944"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106015"
 ---
 # <a name="common-questions---azure-to-azure-replication"></a>Veelgestelde vragen - replicatie van Azure naar Azure
 
@@ -62,7 +62,7 @@ Nee, Site Recovery vereist geen verbinding met internet, maar toegang tot de Sit
 ## <a name="replication-policy"></a>Replicatiebeleid
 
 ### <a name="what-is-a-replication-policy"></a>Wat is beleid voor replicatie?
-Hiermee worden de instellingen voor recovery point bewaren geschiedenis en de app de momentopnamefrequentie gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van 24 uur voor de bewaarperiode voor herstelpunten en ' 60 minuten voor de frequentie voor app-consistente momentopname te maken.
+Hiermee worden de instellingen voor recovery point bewaren geschiedenis en de app de momentopnamefrequentie gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van 24 uur voor de bewaarperiode voor herstelpunten en ' 60 minuten voor de frequentie voor app-consistente momentopname te maken. [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings) het configureren van beleid voor wachtwoordreplicatie]
 
 ### <a name="what-is-crash-consistent-recovery-point"></a>Wat is een crash-consistent herstelpunt?
 Crash-consistent herstelpunt vertegenwoordigt de gegevens op de schijf als de virtuele machine is vastgelopen of het netsnoer is opgehaald uit de server gelijktijdig met de momentopname werd gemaakt. Deze bevat geen iets dat in het geheugen was toen de momentopname werd gemaakt. Vandaag de dag kunnen de meeste toepassingen herstellen van crash-consistente momentopnamen. Een crash-consistente herstelpunt is meestal genoeg voor geen database-besturingssystemen en toepassingen, zoals bestandsservers, DHCP-servers en afdrukservers.
@@ -96,6 +96,24 @@ In het geval van initiële replicatie het eerste herstelpunt opgehaald die zijn 
 
 ### <a name="does-increasing-recovery-points-retention-windows-increases-the-storage-cost"></a>Herstelpunten retentietijdvenster verhoogt de kosten voor opslag?
 Ja, als u de bewaarperiode van 24 uur tot 72 uur verhoogt en Site Recovery wordt de herstelpunten voor toevoeging Sla 48 uur wordt in rekening gebracht u kosten voor opslag. Bijvoorbeeld als een enkel herstelpunt wijzigingen van 10 GB en kosten van GB per heeft is $0.16 per maand, en vervolgens het normaal zou extra kosten $1.6 * 48 per maand zijn.
+
+## <a name="multi-vm-consistency"></a>Multi-VM-consistentie 
+
+### <a name="what-is-multi--vm-consistency"></a>Wat is een Multi - VM-consistentie?
+Dit betekent dat ervoor te zorgen dat het herstelpunt dat consistent voor alle gerepliceerde virtuele machines is.
+Site Recovery biedt een optie van "Multi-VM-consistentie" die bij geselecteerde Hiermee maakt u een replicatiegroep om alle machines samen repliceren die deel uitmaken van de groep.
+Alle virtuele machines hebben gedeelde crash-consistente en app-consistente herstelpunten bij een failover is uitgevoerd.
+Lees de zelfstudie voor ["Multi-VM"-consistentie inschakelen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+
+### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Kan ik één virtuele machine binnen een replicatiegroep voor consistentie van "Multi-VM" failover?
+"Multi-VM-consistentie" optie selecteert, worden u aangeeft dat de toepassing is afhankelijk van de virtuele machines binnen een groep. Daarom kan de failover van één virtuele machine is niet toegestaan. 
+
+### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-multi-vm-consistency-replication-group"></a>Het aantal virtuele machines kan ik repliceren als onderdeel van de replicatiegroep voor "Multi-VM" consistentie?
+U kunt repliceren 16 virtuele machine samen in een replicatiegroep.
+
+### <a name="when-should-i-enable-multi-vm-consistency-"></a>Wanneer moet ik Multi-VM-consistentie inschakelen?
+Inschakelen van multi-VM-consistentie kan invloed hebben op de prestaties van een werkbelasting (zoals het CPU-intensieve is) en mag alleen worden gebruikt als machines dezelfde werkbelasting worden uitgevoerd en u consistentie tussen meerdere computers. Bijvoorbeeld als er 2 sql-servers en 2 webservers in een toepassing en u moet "Multi-VM" consistentie voor alleen de sql-servers.
+
 
 ## <a name="failover"></a>Failover
 

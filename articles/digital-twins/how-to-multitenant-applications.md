@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: mavoge
-ms.openlocfilehash: 443a697a576aa26fe352d8ad47d9e61214c3fcf3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024107"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119965"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Multitenant-toepassingen met Azure digitale dubbels inschakelen
 
@@ -41,7 +41,7 @@ In dit scenario kunt u een ontwikkelaar van het bouwen van een digitale dubbels 
 Het probleem:
 
 - Wanneer **klant** meldt zich aan bij **DEVELOPER**van toepassing, de app kan niet verkrijgen van tokens voor **klant**van gebruikers te verifiëren met de Azure digitale dubbels Management API's.
-- Een uitzondering wordt uitgegeven in Azure Active Directory die aangeeft dat Azure digitale dubbels wordt niet herkend in **klant**van directory.
+- Een uitzondering in Azure Active Directory wordt uitgegeven waarmee wordt aangegeven dat Azure digitale dubbels wordt niet herkend in **klant**van directory.
 
 ## <a name="problem-solution"></a>Probleem-oplossing
 

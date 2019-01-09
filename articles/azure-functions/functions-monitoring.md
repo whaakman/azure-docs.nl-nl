@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 62ee1c880987d0f9ad358f1a0d31af4a73263725
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d0c24fbd749a344d9041e9c50c34e6e58ab8fd38
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017970"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121220"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
-[Azure Functions](functions-overview.md) biedt ingebouwde integratie met [Azure Application Insights](../application-insights/app-insights-overview.md) voor het bewaken van functies. In dit artikel laat zien hoe het configureren van functies voor het verzenden van het systeem gegenereerde logboekbestanden naar Application Insights.
+[Azure Functions](functions-overview.md) biedt ingebouwde integratie met [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) voor het bewaken van functies. In dit artikel laat zien hoe het configureren van functies voor het verzenden van het systeem gegenereerde logboekbestanden naar Application Insights.
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -414,7 +414,7 @@ Hier volgt een voorbeeld-JSON-weergave van `customDimensions` gegevens:
 In C#-script-functies, kunt u de `LogMetric` uitbreidingsmethode op `ILogger` te maken van aangepaste metrische gegevens in Application Insights. Hier volgt een voorbeeld-methodeaanroep:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 Deze code is een alternatief voor aanroepen `TrackMetric` met behulp van [de Application Insights-API voor .NET](#custom-telemetry-in-c-functions).
@@ -429,10 +429,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="logging-custom-metrics"></a>Aangepaste metrische gegevens voor logboekregistratie  
 
-In Node.js-functies, kunt u de `context.log.metric` methode voor het maken van aangepaste metrische gegevens in Application Insights. Hier volgt een voorbeeld-methodeaanroep:
+Wanneer u gebruikmaakt van [versie 1.x](functions-versions.md#creating-1x-apps) van de Functions-runtime, Node.js-functies kunnen gebruiken de `context.log.metric` methode voor het maken van aangepaste metrische gegevens in Application Insights. Deze methode wordt momenteel niet ondersteund in versie 2.x. Hier volgt een voorbeeld-methodeaanroep:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 Deze code is een alternatief voor aanroepen `trackMetric` met behulp van [de Node.js-SDK voor Application Insights](#custom-telemetry-in-javascript-functions).

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: e1a52dffe0b87b140ee8f0da9379a33f8b071f39
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: 7c8e788f00aacdc7e386d104cb9db9de11c5a146
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960665"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120067"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>De resourceprovider van SQL Server op Azure Stack implementeren
 
@@ -39,6 +39,7 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
 
   |Minimale versie van Azure Stack|SQL RP-versie|
   |-----|-----|
+  |Versie 1811 (1.1811.0.101)|[SQL RP versie 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
   |Versie 1808 (1.1808.0.97)|[SQL RP versie 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
   |Versie 1804 (1.0.180513.1)|[SQL RP versie 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
   |     |     |
@@ -78,7 +79,7 @@ Voer het script DeploySqlProvider.ps1, die bestaat uit de volgende taken:
 
 U kunt de volgende parameters vanaf de opdrachtregel opgeven. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven.
 
-| Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
+| Parameternaam | Description | Opmerking of de standaardwaarde |
 | --- | --- | --- |
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ |
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |

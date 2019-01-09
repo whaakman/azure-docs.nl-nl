@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076396"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117143"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetrie van aanvraag: Application Insights-gegevensmodel
 
-Een aanvraag telemetrie-item (in [Application Insights](../../application-insights/app-insights-overview.md)) Hiermee geeft u de logische volgorde van de uitvoering is geactiveerd door een externe aanvraag naar uw toepassing. De uitvoering van elke aanvraag wordt geïdentificeerd door de unieke `ID` en `url` met alle uitvoeringsparameters. U kunt aanvragen groeperen op logische `name` en definieer de `source` van deze aanvraag. Uitvoering van code kan resulteren in `success` of `fail` en heeft een bepaalde `duration`. Geslaagde en mislukte uitvoeringen kunnen worden gegroepeerd verder door `resultCode`. De begintijd voor de aanvraagtelemetrie op het niveau van de envelop gedefinieerd.
+Een aanvraag telemetrie-item (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) Hiermee geeft u de logische volgorde van de uitvoering is geactiveerd door een externe aanvraag naar uw toepassing. De uitvoering van elke aanvraag wordt geïdentificeerd door de unieke `ID` en `url` met alle uitvoeringsparameters. U kunt aanvragen groeperen op logische `name` en definieer de `source` van deze aanvraag. Uitvoering van code kan resulteren in `success` of `fail` en heeft een bepaalde `duration`. Geslaagde en mislukte uitvoeringen kunnen worden gegroepeerd verder door `resultCode`. De begintijd voor de aanvraagtelemetrie op het niveau van de envelop gedefinieerd.
 
 Aanvraag telemetrie biedt ondersteuning voor de standard uitbreidbaarheidsmodel met behulp van aangepaste `properties` en `measurements`.
 

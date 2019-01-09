@@ -10,21 +10,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8e0009bf0fc34d3e0d22755d93d941b85db62ffd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c90b81cdb6df5477d658d53dc93d0c3bbc47c1ff
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334462"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106440"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valideren van software-updates van Microsoft
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft brengt regelmatig updates voor de Azure Stack-software. Deze updates worden aan Azure Stack-partners CO engineering voorafgaand aan openbaar beschikbaar wordt gesteld zodat ze kunnen de updates op basis van hun oplossingen te valideren en feedback naar Microsoft verstrekt.
+Microsoft brengt regelmatig updates voor de Azure Stack-software. Deze updates zijn bedoeld om Azure Stack coengineering partners. De updates zijn opgegeven in vooraf van openbaar beschikbaar. U kunt de updates op basis van uw oplossing controleren en feedback naar Microsoft.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -34,13 +34,17 @@ Microsoft brengt regelmatig updates voor de Azure Stack-software. Deze updates w
 
 ## <a name="create-a-workflow"></a>Een werkstroom maken
 
-Update validaties gebruiken dezelfde werkstroom als **validatie van het pakket**. Volg de instructies op [maken van een werkstroom voor validatie van het pakket](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
+Update validaties gebruiken dezelfde werkstroom als **oplossing validatie**.
 
 ## <a name="run-tests"></a>Tests uitvoeren
 
-Update validaties gebruiken dezelfde werkstroom als **validatie van het pakket**. Volg de instructies op [uitvoeren van het pakket niet valideren tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
+1. Update validaties gebruiken dezelfde werkstroom als **oplossing validatie**. 
 
-U hoeft niet om aan te vragen van pakket zich voor validaties van de update.
+2. Volg de instructies op [oplossing validatie uitvoeren test](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Selecteer in plaats daarvan de volgende tests:
+    - Maandelijks Azure Stack-Update-verificatie
+    - Engine voor cloud-simulatie
+
+U hoeft niet te pakket zich voor validaties update aanvragen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

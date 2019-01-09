@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2018
+ms.date: 1/7/2019
 ms.author: raiye
-ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541027"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107902"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
 
 ## <a name="december-2018-guest-os"></a>December 2018-Gastbesturingssysteem
-
->[!NOTE]
->Het Gastbesturingssysteem December wordt momenteel geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem December. Deze lijst is onderhevig aan wijzigingen.
 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |

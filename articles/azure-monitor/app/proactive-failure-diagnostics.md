@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 901e12e989bb5a6f18c79e086357624648b1b7b9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028342"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117653"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Slimme detectie: afwijkende fouten
-[Application Insights](../../application-insights/app-insights-overview.md) automatisch ontvangt u een melding in bijna realtime als er een abnormale toename van mislukte aanvragen optreedt in uw web-app. Een ongewone stijging van het aantal HTTP-aanvragen of afhankelijkheidsaanroepen die worden gerapporteerd als mislukt wordt gedetecteerd. Voor aanvragen zijn mislukte aanvragen meestal met responscodes van 400 of hoger. Als u wilt, kunt u sorteren en onderzoeken van het probleem een analyse van de kenmerken van de fouten en verwante telemetrie vindt u in de melding. Er zijn ook koppelingen naar de Application Insights-portal voor verdere diagnose. De functie moet geen installatie of configuratie, zoals het machine learning-algoritmen gebruikt om te voorspellen van de normaal foutpercentage.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) automatisch ontvangt u een melding in bijna realtime als er een abnormale toename van mislukte aanvragen optreedt in uw web-app. Een ongewone stijging van het aantal HTTP-aanvragen of afhankelijkheidsaanroepen die worden gerapporteerd als mislukt wordt gedetecteerd. Voor aanvragen zijn mislukte aanvragen meestal met responscodes van 400 of hoger. Als u wilt, kunt u sorteren en onderzoeken van het probleem een analyse van de kenmerken van de fouten en verwante telemetrie vindt u in de melding. Er zijn ook koppelingen naar de Application Insights-portal voor verdere diagnose. De functie moet geen installatie of configuratie, zoals het machine learning-algoritmen gebruikt om te voorspellen van de normaal foutpercentage.
 
 Deze functie werkt voor Java en ASP.NET-webtoepassingen, die worden gehost in de cloud of op uw eigen servers. Het werkt ook voor elke app die wordt bijvoorbeeld gegenereerd aanvraag of een afhankelijkheid telemetrie - hebt u een werkrol die worden aangeroepen [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) of [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
-Na het instellen van [Application Insights voor uw project](../../application-insights/app-insights-overview.md), en mits uw app een bepaalde minimale hoeveelheid telemetrie genereert, Slimme detectie van afwijkende fouten 24 uur voor meer informatie over het normale gedrag van uw app, voordat dit duurt is ingeschakeld en meldingen kunt verzenden.
+Na het instellen van [Application Insights voor uw project](../../azure-monitor/app/app-insights-overview.md), en mits uw app een bepaalde minimale hoeveelheid telemetrie genereert, Slimme detectie van afwijkende fouten 24 uur voor meer informatie over het normale gedrag van uw app, voordat dit duurt is ingeschakeld en meldingen kunt verzenden.
 
 Hier volgt een waarschuwing voor een voorbeeld.
 

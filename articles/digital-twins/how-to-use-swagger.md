@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 0e325de3a9a28d824ea9a6bfb7b3346bf9285e58
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033312"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120951"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Digitale dubbele Swagger referentiedocumentatie voor Azure
 
@@ -55,7 +55,7 @@ U kunt elke vermelde objectmodel voor een meer gedetailleerd overzicht van belan
 
 ![Swagger-model][3]
 
-De gegenereerde Swagger-objectmodellen zijn handig om te zien van alle beschikbare Azure digitale dubbels [objecten en API's](./concepts-objectmodel-spatialgraph.md). Ontwikkelaars kunnen maken wanneer ze bij het bouwen van oplossingen op Azure digitale dubbels het gebruik van deze resource.
+De gegenereerde Swagger-objectmodellen zijn handig om te zien van alle beschikbare Azure digitale dubbels [objecten en API's](./concepts-objectmodel-spatialgraph.md). Ontwikkelaars kunnen deze resource gebruiken als ze oplossingen op Azure digitale dubbels bouwen.
 
 ## <a name="endpoint-summary"></a>Samenvatting van eindpunt
 
@@ -79,7 +79,7 @@ Nadat u een bepaald eindpunt selecteert, ziet u **Try it out in**.
 
 ![Probeer swagger][5]
 
-Vouw deze sectie om de invoervelden voor elke vereiste en optionele parameter. Voer de waarden dienovereenkomstig en selecteer **Execute**.
+Vouw deze sectie om de invoervelden voor elke vereiste en optionele parameter. Voer de juiste waarden in en selecteer **Execute**.
 
 ![Er is geprobeerd swagger][6]
 

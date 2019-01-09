@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 47b501fef8d6e0e3fecf944e3b67d563b8cce5eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847657"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117908"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Een web-API ontwikkelen met behulp van Node.js
+# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Een web-API beveiligen met behulp van Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Met Azure Active Directory (Azure AD) B2C kunt u een web-API beveiligen met OAuth 2.0-toegangstokens. Met deze tokens kunnen client-apps die gebruikmaken van Azure AD B2C, worden geverifieerd bij de API. In dit artikel wordt uitgelegd hoe u een takenlijst-API maakt, waarmee gebruikers taken kunnen toevoegen en vermelden. De web-API is beveiligd met Azure AD B2C en biedt geverifieerde gebruikers alleen de mogelijkheid om hun takenlijst te beheren.
@@ -263,15 +263,15 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>Vereiste waarden
-`clientID` : de client-id van uw web-API-toepassing.
+`clientID`: De client-ID van uw Web-API-toepassing.
 
-`IdentityMetadata` : dit is de locatie waar `passport-azure-ad` de configuratiegegevens voor de id-provider zoekt. Er wordt ook gezocht naar de sleutels om de JSON-webtokens te valideren.
+`IdentityMetadata`: Dit is de locatie waar `passport-azure-ad` de configuratiegegevens voor de id-provider zoekt. Er wordt ook gezocht naar de sleutels om de JSON-webtokens te valideren.
 
-`audience`: de uniform resource identifier (URI) van de portal die de aanroepende toepassing identificeert.
+`audience`: De uniform resource identifier (URI) van de portal die de aanroepende toepassing identificeert.
 
-`tenantName`: de tenantnaam, bijvoorbeeld **contoso.onmicrosoft.com**.
+`tenantName`: Naam van uw tenant (bijvoorbeeld **contoso.onmicrosoft.com**).
 
-`policyName`: het beleid waarmee u de tokens wilt valideren die bij de server binnenkomen. Dit beleid moet hetzelfde zijn als het beleid dat u op de clienttoepassing gebruikt om u aan te melden.
+`policyName`: Het beleid dat u wilt valideren van de tokens die bij de server binnenkomen. Dit beleid moet hetzelfde zijn als het beleid dat u op de clienttoepassing gebruikt om u aan te melden.
 
 > [!NOTE]
 > Gebruik nu hetzelfde beleid in de client- en serverconfiguratie. Als u al een procedure hebt doorlopen waarin u deze beleidsregels hebt gemaakt, hoeft u dit niet opnieuw te doen. Omdat u de procedure hebt voltooid, hoeft u op de site geen nieuw beleid voor clientprocedures te maken.
@@ -337,13 +337,13 @@ Nadat u de server hebt laten weten welke MongoDB-database u wilt gebruiken, moet
 ### <a name="expand-the-model"></a>Het model uitbreiden
 Dit schemamodel is eenvoudig. U kunt het naar behoefte uitbreiden.
 
-`owner`: de persoon die aan de taak is toegewezen. Dit object is een **tekenreeks**.  
+`owner`: Persoon die is toegewezen aan de taak. Dit object is een **tekenreeks**.  
 
-`Text`: de taak zelf. Dit object is een **tekenreeks**.
+`Text`: De taak zelf. Dit object is een **tekenreeks**.
 
-`date`: de datum waarop de taak moet zijn voltooid. Dit object is een **datum/tijd**.
+`date`: De datum waarop de taak moet voltooid zijn. Dit object is een **datum/tijd**.
 
-`completed`: of de taak is voltooid. Dit object is een **Booleaanse waarde**.
+`completed`: Als de taak voltooid is. Dit object is een **Booleaanse waarde**.
 
 ### <a name="create-the-schema-in-the-code"></a>Het schema in de code maken
 Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
@@ -549,7 +549,7 @@ Met Restify en Express kunt u de REST-API-server in grote mate aanpassen, maar h
 
 
 var server = restify.createServer({
-    name: "Microsoft Azure Active Directroy TODO Server",
+    name: "Microsoft Azure Active Directory TODO Server",
     version: "2.0.1"
 });
 

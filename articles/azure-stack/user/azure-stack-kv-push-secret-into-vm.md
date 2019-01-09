@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 188b14c3199f9e4496a3c197aba0bb7f5b31d9ab
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808057"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104553"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Maak een virtuele machine en installeert u een certificaat dat is opgehaald uit een Azure Stack-sleutelkluis
 
@@ -128,7 +128,7 @@ Update de `azuredeploy.parameters.json` bestand met de `vaultName`, geheime URI 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "newStorageAccountName": {

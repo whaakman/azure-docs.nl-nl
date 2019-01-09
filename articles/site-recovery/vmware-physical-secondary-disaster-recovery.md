@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 2467da8d5a87a3a9325b807aec48c584ab0197cb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079099"
+ms.locfileid: "54105182"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Herstel na noodgevallen van on-premises virtuele VMware-machines of fysieke servers naar een secundaire site instellen
 
@@ -80,7 +80,7 @@ Als volgt te werk om de updates te installeren:
 > [!NOTE]
 >Updateversie alle Scout-onderdelen mogelijk niet hetzelfde als in het ZIP-bestand bijwerken. De oudere versie geven aan dat er is geen wijziging in de component sinds de vorige update voor deze update.
 
-Download de [bijwerken](https://aka.ms/asr-scout-update7) ZIP-bestand. Het bestand bevat de alle base binaire bestanden en de cumulatieve upgrade binaire bestanden van de volgende onderdelen: 
+Download de [bijwerken](https://aka.ms/asr-scout-update7) ZIP-bestand en de [MySQL en PHP upgrade](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) -configuratiebestanden. De update-ZIP-bestand bevat de alle base binaire bestanden en de cumulatieve upgrade binaire bestanden van de volgende onderdelen: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
   - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.GZ
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
@@ -126,7 +126,7 @@ Download de [bijwerken](https://aka.ms/asr-scout-update7) ZIP-bestand. Het besta
 6. **Linux-hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** naar de server voor Linux-hoofddoel en pak het uit. Voer in de uitgepakte map **/Install**.
 7. **Windows-bronserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
 8. **Linux-bronserver**: De unified agent bijwerken, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
-9. Na de upgrade configuratieserver, processerver en RX-server met de hierboven genoemde installatieprogramma's, de PHP- en MySQL-bibliotheken moet handmatig worden bijgewerkt met de stappen in de [sectie](#manual-upgrade-for-php-and-mysql-on-cs-ps-and-rx).
+9. Na de upgrade configuratieserver, processerver en RX-server met de hierboven genoemde installatieprogramma's, de PHP- en MySQL-bibliotheken moet handmatig worden bijgewerkt met de stappen in de sectie 7.4 van de [handleiding voor snelle installatie](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 

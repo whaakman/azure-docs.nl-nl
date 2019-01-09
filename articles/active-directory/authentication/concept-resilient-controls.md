@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b6640e4ef9751e235c0310b0d725cd7e27ff2b40
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53746034"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101918"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
 
@@ -230,7 +230,7 @@ U moet u de wijzigingen die u hebt gemaakt als onderdeel van de geactiveerde pla
 Als uw organisatie van verouderde MFA-beleid per gebruiker gebruikmaakt, kunt u de volgende opties overwegen:
 
 1. Als u het bedrijfsnetwerk uitgaande IP-adres hebt, kunt u hen toevoegen als vertrouwde IP-adressen verificatie alleen met het bedrijfsnetwerk in te schakelen.
- 2. Als u de inventaris van de uitgaande IP-adressen hebt, of u vereist om toegang te krijgen binnen en buiten het bedrijfsnetwerk bevinden, kunt u de volledige IPv4-adresruimte toevoegen als goedgekeurde IP-adressen in een CIDR-notatie (bijvoorbeeld 192.168.1.1/24).
+ 2. Als u de inventaris van de uitgaande IP-adressen hebt, of u vereist om toegang te krijgen binnen en buiten het bedrijfsnetwerk bevinden, kunt u de volledige IPv4-adresruimte toevoegen als goedgekeurde IP-adressen door 0.0.0.0/1 en 128.0.0.0/1 op te geven.
 
 >[!IMPORTANT]
  > Als u de vertrouwde IP-adressen om de toegang blokkering te vergroten, zal niet risicogebeurtenissen die zijn gekoppeld aan IP-adressen (bijvoorbeeld onmogelijk traject of onbekende locaties) worden gegenereerd.

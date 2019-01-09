@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/21/2016
+ms.date: 01/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c906f313ae367fcc660d1ce1df0b3d667c7f04a3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016102"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119269"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights Export Data Model
-Deze tabel bevat de eigenschappen van telemetrie verzonden vanaf de [Application Insights](../../application-insights/app-insights-overview.md) SDK's aan de portal.
+Deze tabel bevat de eigenschappen van telemetrie verzonden vanaf de [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK's aan de portal.
 U ziet deze eigenschappen in de gegevensuitvoer van [continue Export](export-telemetry.md).
 Ze worden ook weergegeven in de eigenschappenfilters in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) en [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md).
 
@@ -130,9 +130,11 @@ Alle typen telemetrie wordt gecombineerd met een sectie context. Niet al deze ve
 | context.Device.locale |string |en-GB, nl-nl... |
 | context.Device.Network |string | |
 | context.device.oemName |string | |
+| context.Device.OS |string | |
 | context.device.osVersion |string |Hostbesturingssysteem |
 | context.device.roleInstance |string |ID van server-host |
 | context.device.roleName |string | |
+| context.device.screenResolution |string | |
 | context.Device.type |string |PC, Browser... |
 | context.Location |object |Client-IP is afgeleid. |
 | context.Location.City |string |Afgeleid van client-IP, indien bekend |
@@ -146,10 +148,13 @@ Alle typen telemetrie wordt gecombineerd met een sectie context. Niet al deze ve
 | context.Session.id |string |Id van een groep van bewerkingen van dezelfde bron. Een periode van 30 minuten zonder een bewerking geeft aan het einde van een sessie. |
 | context.session.isFirst |booleaans | |
 | context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[Geverifieerde gebruiker](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |booleaans | |
+| context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | Internal.Data.id |string | Unieke id die wordt toegewezen wanneer een item wordt opgenomen naar Application Insights |
 
@@ -347,6 +352,6 @@ In plaats van vooraf verzamelen metrische gegevens, kunt u [steekproeven](../../
 Duur worden weergegeven in tienden van een wachttijden van microseconden, tenzij anders vermeld, zodat 10000000.0 betekent 1 seconde dat.
 
 ## <a name="see-also"></a>Zie ook
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Continue Export](export-telemetry.md)
 * [Codevoorbeelden](export-telemetry.md#code-samples)

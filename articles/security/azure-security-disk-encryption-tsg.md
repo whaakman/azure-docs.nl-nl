@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 01/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6cf415112f245421b3225c2e2ccb07a7bbf9332
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098289"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103162"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -72,6 +72,9 @@ Network security groepsinstellingen die worden toegepast moeten wel wilt toestaa
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault achter een firewall
 De virtuele machine moet toegang hebben tot een key vault. Raadpleeg de richtlijnen voor toegang tot de key vault achter een firewall die de [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) team houdt. 
+
+### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
+De virtuele machine moet toegang hebben tot de [Azure Instance Metadata service](../virtual-machines/windows/instance-metadata-service.md) eindpunt dat gebruikmaakt van een bekende niet-routeerbare IP-adres (`169.254.169.254`) die kunnen worden gebruikt alleen de virtuele machine.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Linux-Pakketbeheer achter een firewall
 

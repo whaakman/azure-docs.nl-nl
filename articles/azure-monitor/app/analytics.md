@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c41444f94e4685d246de225500c8a5beefc74944
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065610"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120883"
 ---
 # <a name="analytics-in-application-insights"></a>Analyses in Application Insights
-Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](../../application-insights/app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is. Als u Application Insights al hebt geconfigureerd voor een van uw apps vervolgens u de gegevens van uw app analyseren kunt door te Analytics openen vanuit uw app [overzichtsblade](../../azure-monitor/app/app-insights-dashboards.md).
+Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is. Als u Application Insights al hebt geconfigureerd voor een van uw apps vervolgens u de gegevens van uw app analyseren kunt door te Analytics openen vanuit uw app [overzichtsblade](../../azure-monitor/app/app-insights-dashboards.md).
 
 ![Portal.azure.com Open, open uw Application Insights-resource en klik op Analytics.](./media/analytics/001.png)
 

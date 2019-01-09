@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632786"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102615"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
 
@@ -30,7 +30,7 @@ Dit artikel wordt beschreven voor het uitvoeren van onderhoud beleid voor geïnt
 
 Microsoft brengt zowel volledige maandelijkse updatepakketten als hotfixes voor specifieke problemen te verhelpen. 
 
-Updatepakketten met maandelijkse worden gehost in een beveiligde Azure-eindpunt. U kunt ze handmatig downloaden de [Azure Stack Updates downloader hulpprogramma](http://aka.ms/azurestackupdatedownload). Als uw schaaleenheid is verbonden, de update automatisch wordt weergegeven in de portal aan als beheerder **Update beschikbaar**. Volledige, worden maandelijks-updatepakketten ook beschreven op elke versie. Voor meer informatie over elke release kunt u een release van de [Update-pakket worden uitgerold](#update-package-release-cadence) sectie van dit artikel.
+Updatepakketten met maandelijkse worden gehost in een beveiligde Azure-eindpunt. U kunt ze handmatig downloaden de [Azure Stack Updates downloader hulpprogramma](https://aka.ms/azurestackupdatedownload). Als uw schaaleenheid is verbonden, de update automatisch wordt weergegeven in de portal aan als beheerder **Update beschikbaar**. Volledige, worden maandelijks-updatepakketten ook beschreven op elke versie. Voor meer informatie over elke release kunt u een release van de [Update-pakket worden uitgerold](#update-package-release-cadence) sectie van dit artikel.
 
 Hotfix-updatepakketten worden gehost in hetzelfde beveiligde Azure-eindpunt. U kunt ze handmatig met behulp van de ingesloten koppelingen in elk van de respectieve hotfix-KB-artikelen; downloaden bijvoorbeeld, [Azure Stack-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Net als bij de volledige, maandelijkse updatepakketten, Azure Stack-operators kunnen de .xml, .BIN-bestand en .exe-bestanden downloaden en importeren met behulp van de procedure in [toepassen van updates in Azure Stack](azure-stack-apply-updates.md). Azure Stack-operators met verbonden schaaleenheden ziet de hotfixes automatisch weergegeven in de beheerdersportal met het bericht **Update beschikbaar**.
 

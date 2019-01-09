@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 85541d649a0b2720e3d33b98cea7883b3725f609
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025144"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120662"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Gegevensmodel voor Application Insights-telemetrie
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) verzendt telemetrie van uw webtoepassing met de Azure-portal, zodat u de prestaties en het gebruik van uw toepassing kunt analyseren. De telemetrie-model zijn gestandaardiseerd zodat het is mogelijk om platform en taal-onafhankelijke bewaking te maken. 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) verzendt telemetrie van uw webtoepassing met de Azure-portal, zodat u de prestaties en het gebruik van uw toepassing kunt analyseren. De telemetrie-model zijn gestandaardiseerd zodat het is mogelijk om platform en taal-onafhankelijke bewaking te maken. 
 
 Gegevens die zijn verzameld door Application Insights-modellen dit patroon van de uitvoering van typische toepassing:
 

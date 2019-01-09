@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 69ba67eb74333e8316b739fc2f264434643cab95
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075138"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119904"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Bewaken en fouten opsporen in een Azure Batch .NET-toepassing met Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) biedt een elegante en krachtige manier voor ontwikkelaars om te controleren en fouten opsporen toepassingen die zijn geïmplementeerd met Azure-services. Gebruik Application Insights te bewaken van prestatiemeteritems en uitzonderingen, alsmede instrument uw code met aangepaste metrische gegevens en tracering. Integratie van Application Insights met uw Azure Batch-toepassing, kunt u meer inzicht in problemen en onderzoeken van problemen in near-real-time.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) biedt een elegante en krachtige manier voor ontwikkelaars om te controleren en fouten opsporen toepassingen die zijn geïmplementeerd met Azure-services. Gebruik Application Insights te bewaken van prestatiemeteritems en uitzonderingen, alsmede instrument uw code met aangepaste metrische gegevens en tracering. Integratie van Application Insights met uw Azure Batch-toepassing, kunt u meer inzicht in problemen en onderzoeken van problemen in near-real-time.
 
 In dit artikel laat zien hoe toevoegen en configureren van de Application Insights-bibliotheek in uw Azure Batch .NET-oplossing en code van uw toepassing instrumenteren. U ziet ook manieren voor het bewaken van uw toepassing via Azure portal en aangepaste dashboards kunt bouwen. Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../azure-monitor/app/platforms.md).
 
@@ -342,7 +342,7 @@ Vanwege de grootschalige aard van Azure Batch-toepassingen in productie, is het 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [Application Insights](../application-insights/app-insights-overview.md).
+* Meer informatie over [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../azure-monitor/app/platforms.md).
 

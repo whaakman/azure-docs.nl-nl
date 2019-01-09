@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002209"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102972"
 ---
 # <a name="what-is-distributed-tracing"></a>Wat is gedistribueerd traceren?
 
-De opkomst van moderne cloud en [microservices](http://azure.com/microservices) architecturen heeft geleid tot eenvoudige, onafhankelijk implementeerbare services waarmee u kunnen kosten verlagen terwijl u hogere beschikbaarheid en doorvoer. Maar terwijl deze verplaatsingen van het type afzonderlijke services gemakkelijker te begrijpen als geheel gemaakt hebben, hebben ze algehele systemen moeilijker reden over en fouten opsporen aangebracht.
+De opkomst van moderne cloud en [microservices](https://azure.com/microservices) architecturen heeft geleid tot eenvoudige, onafhankelijk implementeerbare services waarmee u kunnen kosten verlagen terwijl u hogere beschikbaarheid en doorvoer. Maar terwijl deze verplaatsingen van het type afzonderlijke services gemakkelijker te begrijpen als geheel gemaakt hebben, hebben ze algehele systemen moeilijker reden over en fouten opsporen aangebracht.
 
 In monolithische architecturen hebben we verkregen gebruikt om het foutopsporing met call-stacks. Call-stacks zijn schitterende hulpprogramma's voor het weergeven van de stroom van de uitvoering (methode een aangeroepen methode B, C methode genoemd), samen met details en parameters over elk van deze aanroepen. Dit is ideaal voor monolieten of services die worden uitgevoerd op een enkel proces, maar hoe we fouten bij de aanroep is voor de Procesgrens van een, niet alleen een verwijzing op de lokale stack? 
 
@@ -59,4 +59,4 @@ De website OpenCensus onderhoudt API-referentiedocumentatie voor [Python](https:
 
 * [OpenCensus Python (Engelstalig)](https://opencensus.io/api/python/trace/usage.html)
 * [Overzicht van de toepassing](./../../azure-monitor/app/app-map.md)
-* [End-to-end-prestaties controleren](./../../application-insights/app-insights-tutorial-performance.md)
+* [End-to-end-prestaties controleren](./../../azure-monitor/learn/tutorial-performance.md)

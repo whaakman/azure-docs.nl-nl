@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 341c689616e85b148790df092f238449e1d72075
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442690"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121393"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Profielsjablonen van de gebruiker in Azure API Management
 Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
@@ -104,17 +104,17 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 > [!NOTE]
 >  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Voornaam|tekenreeks|De voornaam van de huidige gebruiker.|  
-|lastName|tekenreeks|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|tekenreeks|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|tekenreeks|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|tekenreeks|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
+|Voornaam|string|De voornaam van de huidige gebruiker.|  
+|lastName|string|De achternaam van de huidige gebruiker.|  
+|Bedrijfsnaam|string|De naam van het bedrijf van de huidige gebruiker.|  
+|addresserEmail|string|E-mailadres van de huidige gebruiker.|  
+|developersUsageStatisticsLinkk|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
 |abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
 |toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|tekenreeks|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|tekenreeks|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
+|changePasswordUrl|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
+|changeNameOrEmailUrl|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
 |canChangePassword|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
 |isSystemUser|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
   
@@ -325,17 +325,17 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 > [!NOTE]
 >  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Voornaam|tekenreeks|De voornaam van de huidige gebruiker.|  
-|lastName|tekenreeks|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|tekenreeks|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|tekenreeks|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|tekenreeks|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
+|Voornaam|string|De voornaam van de huidige gebruiker.|  
+|lastName|string|De achternaam van de huidige gebruiker.|  
+|Bedrijfsnaam|string|De naam van het bedrijf van de huidige gebruiker.|  
+|addresserEmail|string|E-mailadres van de huidige gebruiker.|  
+|developersUsageStatisticsLinkk|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
 |abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
 |toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|tekenreeks|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|tekenreeks|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
+|changePasswordUrl|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
+|changeNameOrEmailUrl|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
 |canChangePassword|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
 |isSystemUser|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
   
@@ -452,7 +452,7 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
           <strong>  
             {% case app.state %}  
             {% when ApplicationStateModel.Registered %}  
-            {% localized "ApplicationListStrings|WebDevelopersAppNotSubminted" %}  
+            {% localized "ApplicationListStrings|WebDevelopersAppNotSubmitted" %}  
   
             {% when ApplicationStateModel.Unpublished %}  
             {% localized "ApplicationListStrings|WebDevelopersAppNotPublished" %}  
@@ -488,17 +488,17 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 > [!NOTE]
 >  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Voornaam|tekenreeks|De voornaam van de huidige gebruiker.|  
-|lastName|tekenreeks|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|tekenreeks|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|tekenreeks|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|tekenreeks|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
+|Voornaam|string|De voornaam van de huidige gebruiker.|  
+|lastName|string|De achternaam van de huidige gebruiker.|  
+|Bedrijfsnaam|string|De naam van het bedrijf van de huidige gebruiker.|  
+|addresserEmail|string|E-mailadres van de huidige gebruiker.|  
+|developersUsageStatisticsLinkk|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
 |abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
 |toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|tekenreeks|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|tekenreeks|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
+|changePasswordUrl|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
+|changeNameOrEmailUrl|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
 |canChangePassword|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
 |isSystemUser|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
   

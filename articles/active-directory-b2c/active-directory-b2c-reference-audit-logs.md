@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320234"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117398"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) verzendt auditlogboeken dat activiteit
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
 De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
-|Type activiteit |Beschrijving  |
+|Type activiteit |Description  |
 |---------|---------|
 |Autorisatie |Activiteiten met betrekking tot de autorisatie van een gebruiker voor toegang tot B2C resources (bijvoorbeeld een beheerder toegang tot een lijst met B2C-beleid)         |
 |Directory |Activiteiten met betrekking tot directory-attributen opgehaald wanneer een beheerder zich aanmeldt met behulp van de Azure-Portal |
@@ -39,7 +39,7 @@ De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 > Voor gebruikersactiviteiten object CRUD, raadpleegt u de **hoofddirectory** categorie.
 
 ## <a name="example-activity"></a>Voorbeeld van de activiteit
-Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebruiker zich met een externe id-provider aanmeldt: ![Audit Logs - voorbeeld](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebruiker zich met een externe id-provider aanmeldt: ![Auditlogboeken - voorbeeld](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Auditlogboeken openen via de Azure Portal
 1. Ga naar de [Azure Portal](https://portal.azure.com). Zorg ervoor dat u zich in uw B2C-directory.
@@ -68,7 +68,7 @@ Auditlogboeken worden gepubliceerd naar de dezelfde pijplijn als andere activite
 ### <a name="prerequisites"></a>Vereisten
 Als u wilt verifiëren met de Azure AD rapportage-API moet u eerst het registreren van een toepassing. Zorg ervoor dat u de stappen in [vereisten voor toegang tot de rapportage-API's Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-### <a name="accesing-the-api"></a>Toegang tot de API
+### <a name="accessing-the-api"></a>Toegang tot de API
 Voor het downloaden van de auditlogboeken van Azure AD B2C via de API, moet u de logboeken om te filteren de **B2C** categorie. Als u wilt filteren op categorie, gebruikt u de queryreeks-parameter bij het aanroepen van de Azure AD reporting API-eindpunt, zoals hieronder wordt weergegeven:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`

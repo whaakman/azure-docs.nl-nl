@@ -12,24 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 039ebe9d38b4ac4f63b078489a9c442e08aff0b0
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075104"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116531"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>verzamelde: Linux-prestatiegegevens in Application Insights
 
 
-Om te verkennen van metrische gegevens voor prestaties Linux-systeem in [Application Insights](../../application-insights/app-insights-overview.md), installeer [verzamelde](https://collectd.org/), samen met de bijbehorende Application Insights-invoegtoepassing. Deze open-source-oplossing worden verschillende systeem- en statistische gegevens verzameld.
+Om te verkennen van metrische gegevens voor prestaties Linux-systeem in [Application Insights](../../azure-monitor/app/app-insights-overview.md), installeer [verzamelde](https://collectd.org/), samen met de bijbehorende Application Insights-invoegtoepassing. Deze open-source-oplossing worden verschillende systeem- en statistische gegevens verzameld.
 
 Doorgaans gebruikt u verzamelde als u al hebt [uw Java-webservice met Application Insights geïnstrumenteerd][java]. Dit biedt u meer gegevens u helpen bij het verbeteren van de prestaties van uw app of problemen diagnosticeren. 
 
 ![Voorbeeldgrafieken](./media/java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>De instrumentatiesleutel ophalen
-In de [Microsoft Azure portal](https://portal.azure.com), open de [Application Insights](../../application-insights/app-insights-overview.md) resource waar u de gegevens worden weergegeven. (Of [Maak een nieuwe resource](../../azure-monitor/app/create-new-resource.md ).)
+In de [Microsoft Azure portal](https://portal.azure.com), open de [Application Insights](../../azure-monitor/app/app-insights-overview.md) resource waar u de gegevens worden weergegeven. (Of [Maak een nieuwe resource](../../azure-monitor/app/create-new-resource.md ).)
 
 Neemt een kopie van de instrumentatiesleutel die de resource.
 

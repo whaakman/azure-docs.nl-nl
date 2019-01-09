@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0978e906467fd5b16f25bd2e053980dda4510127
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019516"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107509"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Inleiding tot de Azure-Cache voor Premium-laag Redis
 Azure Redis-Cache is een gedistribueerde beheerde cache waarmee u zeer schaalbare en snel reagerende toepassingen kunt maken met zeer snelle toegang tot uw gegevens. 
@@ -34,7 +34,7 @@ De nieuwe Premium-laag is een Enterprise laag die geschikt is, alle functies van
 Zie voor meer informatie over de grootte, doorvoer en bandbreedte met premium-caches [Azure voor veelgestelde vragen over Redis-Cache](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Redis-gegevenspersistentie
-De Premium-laag kunt u het behoud van de cachegegevens in een Azure Storage-account. Alle de gegevens worden opgeslagen in een cache basis/standaard alleen in het geheugen. In het geval van onderliggende infrastructuur kunnen er problemen zijn mogelijk gegevensverlies. U wordt aangeraden de functie in de persistentie voor Redis-gegevens in de Premium-laag gebruik te maken om tolerantie tegen verlies van gegevens. Azure Redis-Cache biedt RDB en (binnenkort beschikbaar) AOF opties in [Redis-persistentie](http://redis.io/topics/persistence). 
+De Premium-laag kunt u het behoud van de cachegegevens in een Azure Storage-account. Alle de gegevens worden opgeslagen in een cache basis/standaard alleen in het geheugen. In het geval van onderliggende infrastructuur kunnen er problemen zijn mogelijk gegevensverlies. U wordt aangeraden de functie in de persistentie voor Redis-gegevens in de Premium-laag gebruik te maken om tolerantie tegen verlies van gegevens. Azure Redis-Cache biedt RDB en (binnenkort beschikbaar) AOF opties in [Redis-persistentie](https://redis.io/topics/persistence). 
 
 Zie voor instructies over het configureren van persistentie [persistentie voor een Premium Azure Cache voor Redis configureren](cache-how-to-premium-persistence.md).
 

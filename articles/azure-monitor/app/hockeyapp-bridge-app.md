@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 06a9cf124708984444bc2bc19f2529a3c0f75283
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4115ec5add9ac523852b4c60c4f9d750bc430a37
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074356"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121444"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>HockeyApp-gegevens in Application Insights verkennen
 
 > [!NOTE]
 > HockeyApp is niet meer beschikbaar voor nieuwe toepassingen. Bestaande implementaties van HockeyApp blijven werken. Visual Studio App Center is nu de aanbevolen service van Microsoft voor het bewaken van de nieuwe mobiele apps. [Meer informatie over het instellen van uw apps met App Center en Application Insights](../../azure-monitor/learn/mobile-center-quickstart.md).
 
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is een service voor het bewaken van live-desktop- en mobiele apps. U kunt van HockeyApp, aangepaste verzenden en traceren van telemetrie naar-gebruik controleren en te helpen bij het diagnoseproces (naast het ophalen van crashgegevens). Deze stroom van telemetrie kan worden opgevraagd met de krachtige [Analytics](../../azure-monitor/app/analytics.md) functie van [Azure Application Insights](../../application-insights/app-insights-overview.md). Bovendien kunt u [exporteren van de aangepaste en traceren van telemetrie](export-telemetry.md). Als u wilt deze functies inschakelt, moet u een brug die aangepaste HockeyApp-gegevens naar Application Insights doorstuurt instellen.
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is een service voor het bewaken van live-desktop- en mobiele apps. U kunt van HockeyApp, aangepaste verzenden en traceren van telemetrie naar-gebruik controleren en te helpen bij het diagnoseproces (naast het ophalen van crashgegevens). Deze stroom van telemetrie kan worden opgevraagd met de krachtige [Analytics](../../azure-monitor/app/analytics.md) functie van [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Bovendien kunt u [exporteren van de aangepaste en traceren van telemetrie](export-telemetry.md). Als u wilt deze functies inschakelt, moet u een brug die aangepaste HockeyApp-gegevens naar Application Insights doorstuurt instellen.
 
 ## <a name="the-hockeyapp-bridge-app"></a>De HockeyApp-Bridge-app
 De HockeyApp-Bridge-App is de kern-functie waarmee u uw aangepaste HockeyApp en in Application Insights-tracetelemetrie via de functies voor analyse en continue Export. Aangepaste en tracering gebeurtenissen die worden verzameld door HockeyApp na het maken van de HockeyApp-Bridge-App toegankelijk is van deze functies. Laten we zien hoe u voor het instellen van een van deze brug-Apps.

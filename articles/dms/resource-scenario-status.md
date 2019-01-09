@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/08/2019
+ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722084"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102802"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status van het migratiescenario's ondersteund door de Azure Database Migration Service
 Azure Database Migration Service is ontworpen ter ondersteuning van verschillende migratiescenario's (bron-/ doelparen) voor zowel offline (eenmalig) en online (doorlopende synchronisatie). De dekking scenario is geleverd door de Azure Database Migration Service wordt uitgebreid na verloop van tijd. Nieuwe scenario's er worden regelmatig toegevoegd. In dit artikel geeft de migratiescenario's die momenteel worden ondersteund door de Azure Database Migration Service en de status (privé [of beperkte] Preview, Public Preview of algemeen beschikbaar) of elk scenario.
@@ -45,7 +45,7 @@ De volgende tabel ziet u Azure Database Migration Service ondersteuning voor off
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | EXTERN BUREAUBLAD-SERVICES SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **Azure SQL-MV**  | SQL Server  | ✔ |
+| **Azure SQL-VM**  | SQL Server  | ✔ |
 |   | Oracle  |   |
 | **Cosmos DB**  | MongoDB  | ✔ |
 | **Azure DB voor MySQL**  | MySLQ  |  |
@@ -64,7 +64,7 @@ De volgende tabel ziet u Azure Database Migration Service ondersteuning voor onl
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | EXTERN BUREAUBLAD-SERVICES SQL  |  |
 |   | Oracle  | ✔  |
-| **Azure SQL-MV**  | SQL Server  |   |
+| **Azure SQL-VM**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
 | **Azure DB voor MySQL**  | MySLQ  | ✔ |

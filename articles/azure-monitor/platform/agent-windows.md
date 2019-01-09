@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189894"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104119"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinden met de service Log Analytics in Azure
 
@@ -128,9 +128,9 @@ Het volgende voorbeeld installeert de 64-bits agent, geïdentificeerd door de `U
 
 De 32-bits en 64-bits versies van de agentpakket hebben verschillende productcodes en nieuwe versies uitgebracht ook een unieke waarde bevatten.  De productcode is een GUID die de principal-id van een toepassing of het product en wordt vertegenwoordigd door het Windows-installatieprogramma **ProductCode** eigenschap.  De `ProductId` waarde in de **MMAgent.ps1** script moet overeenkomen met de productcode uit het 32-bits of 64-bits agent installer-pakket.
 
-Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen, kunt u Orca.exe uit de [Windows SDK-onderdelen voor Windows Installer-ontwikkelaars](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) dat wil zeggen een onderdeel van de Windows Software Development Kit of met behulp van De volgende PowerShell een [voorbeeldscript](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) geschreven door een Microsoft Valuable Professional (MVP).  Voor beide benaderingen, moet u eerst om op te halen de **MOMagent.msi** -bestand van het installatiepakket MMASetup.  Dit wordt weergegeven in de eerste stap in de sectie eerder [de agent installeren met de opdrachtregel](#install-the-agent-using-the-command-line).  
+Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen, kunt u Orca.exe uit de [Windows SDK-onderdelen voor Windows Installer-ontwikkelaars](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) dat wil zeggen een onderdeel van de Windows Software Development Kit of met behulp van De volgende PowerShell een [voorbeeldscript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) geschreven door een Microsoft Valuable Professional (MVP).  Voor beide benaderingen, moet u eerst om op te halen de **MOMagent.msi** -bestand van het installatiepakket MMASetup.  Dit wordt weergegeven in de eerste stap in de sectie eerder [de agent installeren met de opdrachtregel](#install-the-agent-using-the-command-line).  
 
-1. Importeren van de DSC xPSDesiredStateConfiguration Module op basis van [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) in Azure Automation.  
+1. Importeren van de DSC xPSDesiredStateConfiguration Module op basis van [ https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) in Azure Automation.  
 2.  Variabele assets voor Azure Automation maken *OPSINSIGHTS_WS_ID* en *OPSINSIGHTS_WS_KEY*. Stel *OPSINSIGHTS_WS_ID* naar uw Log Analytics-werkruimte-ID en stel *OPSINSIGHTS_WS_KEY* op de primaire sleutel van uw werkruimte.
 3.  Kopieer het script en sla deze op als MMAgent.ps1.
 

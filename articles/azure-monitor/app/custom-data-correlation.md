@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 892342dfa4407a7ed138ffb004e7854c0cd07b4a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797989"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103108"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Application Insights-gegevens te correleren met aangepaste gegevensbronnen
 
@@ -28,7 +28,7 @@ Sommige situaties waar u dat aangepaste gegevens wilt zijn onder andere:
 
 - Verrijking of een opzoekfunctie gegevenstabellen: bijvoorbeeld vormen een aanvulling op de naam van een server met de eigenaar van de server en de locatie van het lab waarin deze kan worden gevonden 
 - Correlatie met Application Insights-gegevensbronnen: bijvoorbeeld correleren gegevens over een aankoop van een webwinkel met informatie van uw aankoop vervulling-service om te bepalen hoe nauwkeurig de verzendtijd schattingen zijn 
-- Volledig aangepaste gegevens: veel van onze klanten graag de querytaal en prestaties van de back-ups Application Insights gegevensplatform in Log Analytics en u wilt gebruiken om gegevens te doorzoeken die helemaal niet gerelateerd is aan Application Insights. Bijvoorbeeld, voor het bijhouden van de prestaties microturbines deelvenster als onderdeel van een slimme home installatie als die worden beschreven [hier]( http://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Volledig aangepaste gegevens: veel van onze klanten graag de querytaal en prestaties van de back-ups Application Insights gegevensplatform in Log Analytics en u wilt gebruiken om gegevens te doorzoeken die helemaal niet gerelateerd is aan Application Insights. Bijvoorbeeld, voor het bijhouden van de prestaties microturbines deelvenster als onderdeel van een slimme home installatie als die worden beschreven [hier]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Hoe u aangepaste gegevens met Application Insights-gegevens te conrreleren 
 

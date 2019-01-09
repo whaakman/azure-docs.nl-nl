@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6341ffe33984a7f40f9d4120ca6726a082463474
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039704"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120968"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Metrische gegevens in Application Insights verkennen
 Metrische gegevens in [Application Insights] [ start] zijn gemeten waarden en aantallen gebeurtenissen die worden verzonden in telemetrie van uw toepassing. Ze helpen u prestatieproblemen detecteren en bekijk de trends in hoe uw toepassing wordt gebruikt. Er is een breed scala aan standaard metrische gegevens en u kunt ook uw eigen aangepaste metrische gegevens en gebeurtenissen maken.
@@ -193,7 +193,7 @@ In een grafiek met metrische gegevens, kunt u het pictogram Analytics rechtstree
 
     Als u wilt andere filters instellen op de verschillende grafieken, ze in verschillende blades maken, deze opslaan als afzonderlijke Favorieten. Als u wilt, kunt u deze vastmaken aan het dashboard zodat u ze naast elkaar kunt zien.
 * Als u een grafiek op een eigenschap die is niet gedefinieerd in de metriek groepeert, wordt er niets in de grafiek. Wist u 'groeperen op', of kies een eigenschap verschillende groepeerniveaus.
-* Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor Java-web-services, Windows-bureaublad-apps, [IIS web-apps en services als u statusmonitor installeert](../../azure-monitor/app/monitor-performance-live-website-now.md), en [Azure Cloud Services](../../application-insights/app-insights-overview.md). Het is niet beschikbaar voor Azure websites.
+* Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor Java-web-services, Windows-bureaublad-apps, [IIS web-apps en services als u statusmonitor installeert](../../azure-monitor/app/monitor-performance-live-website-now.md), en [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). Het is niet beschikbaar voor Azure websites.
 
 ## <a name="video"></a>Video
 
@@ -206,5 +206,5 @@ In een grafiek met metrische gegevens, kunt u het pictogram Analytics rechtstree
 <!--Link references-->
 
 [alerts]: ../../azure-monitor/app/alerts.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261799"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105539"
 ---
 # <a name="validate-oem-packages"></a>OEM-pakketten valideren
 
@@ -113,9 +113,23 @@ Gebruik **Blob SAS-URL** bij het starten van een nieuwe **validatie van het pakk
 
 ## <a name="run-package-validation-tests"></a>Pakket validatietests uit te voeren
 
-In de **pakket validatietests samenvatting** pagina, ziet u een lijst van de tests voor het voltooien van de validatie is vereist. Tests in deze werkstroom wordt uitgevoerd voor ongeveer 24 uur.
+1. In de **validatie van het pakket test samenvatting** pagina, ziet u een lijst van de tests voor het voltooien van de validatie is vereist. Tests in deze werkstroom wordt uitgevoerd voor ongeveer 24 uur.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    In de werkstromen validatie **planning** een test maakt gebruik van het niveau van de werkstroom algemene parameters die u hebt opgegeven tijdens het maken van de werkstroom (Zie [werkstroom algemene parameters voor Azure Stack-validatie als een Service](azure-stack-vaas-parameters.md)). Als een van de parameterwaarden test ongeldig geworden, moet u ze resupply volgens de instructies in [wijzigen werkstroomparameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > Een bestaand exemplaar van een validatietest planning maakt een nieuw exemplaar in plaats van het oude-exemplaar in de portal. Logboeken voor het oude exemplaar worden bewaard, maar zijn niet toegankelijk is vanaf de portal.  
+    Wanneer een test is voltooid en de **planning** actie wordt uitgeschakeld.
+
+2. Selecteer de agent die de test wordt uitgevoerd. Voor informatie over het toevoegen van lokale WebTest-agents worden uitgevoerd, Zie [implementeren van de lokale agent](azure-stack-vaas-local-agent.md).
+
+3. Stap voor elk van de volgende tests uit, 4 en 5:
+    - OEM-extensie pakket verificatie
+    - Engine voor cloud-simulatie
+
+4. Selecteer **planning** in het contextmenu om een prompt voor het plannen van de test-exemplaar te openen.
+
+5. Controleer de testparameters en selecteer vervolgens **indienen** voor het plannen van de test voor de uitvoering.
 
 Wanneer alle tests zijn voltooid, stuurt u de naam van uw oplossing VaaS en validatie van het pakket naar [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) om aan te vragen pakket ondertekenen.
 

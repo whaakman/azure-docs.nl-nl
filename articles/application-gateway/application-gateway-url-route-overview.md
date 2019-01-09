@@ -1,18 +1,17 @@
 ---
-title: Overzicht routering van op URL gebaseerde inhoud | Microsoft Docs
-description: Deze pagina biedt een overzicht van de routering van op URL gebaseerde inhoud van de toepassingsgateway, de UrlPathMap-configuratie en de PathBasedRouting-regel.
+title: Overzicht van routering van op URL gebaseerde inhoud van Azure Application Gateway
+description: Deze pagina bevat een overzicht van de Azure Application Gateway URL-gebaseerde routering van inhoud, de UrlPathMap-configuratie en het PathBasedRouting-regel.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218420"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118357"
 ---
 # <a name="url-path-based-routing-overview"></a>Overzicht van op URL-pad gebaseerde routering
 
@@ -20,7 +19,7 @@ Met op URL-pad gebaseerde routering kunt u verkeer routeren naar back-endserverp
 
 Een van de scenario's is het routeren van aanvragen voor verschillende inhoudstypen naar verschillende back-endserverpools.
 
-In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contoso.com van drie back-endserverpools: VideoServerPool, ImageServerPool en DefaultServerPool.
+In het volgende voorbeeld fungeert Application Gateway bijvoorbeeld verkeer voor contoso.com van drie back-end servergroepen: VideoServerPool, ImageServerPool en DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
@@ -62,8 +61,37 @@ Het element UrlPathMap wordt gebruikt om padpatronen op te geven voor back-endse
 }]
 ```
 
-> [!NOTE]
-> PathPattern: deze instelling is een lijst van padpatronen voor aanpassing. Elk hiervan moet beginnen met / en de enige plaats waar een * is toegestaan, is aan het einde na een /. De tekenreeks die is ingevoerd in de matcher pad bevat geen alle tekst na de eerste? of # en deze tekens zijn niet hier toegestaan. Anders zijn alle toegestaan in een URL-tekens toegestaan in de PathPattern.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern is een lijst van padpatronen. Elk hiervan moet beginnen met / en de enige plaats waar een * is toegestaan, is aan het einde na een /. De tekenreeks die is ingevoerd in de matcher pad bevat geen alle tekst na de eerste? of # en deze tekens zijn niet hier toegestaan. Anders zijn alle toegestaan in een URL-tekens toegestaan in de PathPattern.
+
+De patronen die ondersteund zijn afhankelijk van waarvoor of u Application Gateway v1 of v2 implementeert:
+
+#### <a name="v1"></a>V1
+
+Padregels zijn niet hoofdlettergevoelig.
+
+|V1-padpatroon  |Wordt ondersteund?  |
+|---------|---------|
+|`/images/*`     |ja|
+|`/images*`     |nee|
+|`/images/*.jpg`     |nee|
+|`/*.jpg`     |nee|
+|`/Repos/*/Comments/*`     |nee|
+|`/CurrentUser/Comments/*`     |ja|
+
+#### <a name="v2"></a>v2
+
+Padregels zijn hoofdlettergevoelig.
+
+|v2-padpatroon  |Wordt ondersteund?  |
+|---------|---------|
+|`/images/*`     |ja|
+|`/images*`     |ja|
+|`/images/*.jpg`     |nee|
+|`/*.jpg`     |nee|
+|`/Repos/*/Comments/*`     |nee|
+|`/CurrentUser/Comments/*`     |ja|
 
 U kunt een [Resource Manager-sjabloon met op URL gebaseerde routering](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) bekijken voor meer informatie.
 

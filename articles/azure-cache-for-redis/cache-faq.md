@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971525"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104060"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
 Informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis.
@@ -90,7 +90,7 @@ Er zijn verschillende manieren waarop die u kunt aan de slag met Azure Cache voo
 
 * U kunt bekijken een van onze zelfstudies beschikbaar voor [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), en [Python](cache-python-get-started.md).
 * U kunt bekijken [hoe bouw krachtige Apps met behulp van Microsoft Azure Cache voor Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* U kunt de clientdocumentatie voor de clients die overeenkomen met de programmeertaal van uw project om te zien over het gebruik van Redis bekijken. Er zijn veel Redis-clients die kunnen worden gebruikt met Azure Cache voor Redis. Zie voor een lijst van Redis-clients, [ http://redis.io/clients ](http://redis.io/clients).
+* U kunt de clientdocumentatie voor de clients die overeenkomen met de programmeertaal van uw project om te zien over het gebruik van Redis bekijken. Er zijn veel Redis-clients die kunnen worden gebruikt met Azure Cache voor Redis. Zie voor een lijst van Redis-clients, [ https://redis.io/clients ](https://redis.io/clients).
 
 Als u nog een Azure-account hebt, kunt u het volgende doen:
 
@@ -210,7 +210,7 @@ De standaardwaarden van de client zijn meestal voldoende. U kunt de opties op ba
       * In deze richtlijnen kan leiden tot meer latentie per gestroomlijnd `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Welke Azure Cache voor Redis-clients kan ik gebruiken?
-Een van de geweldige dingen over Redis is dat er veel clients ondersteunt veel verschillende programmeertalen. Zie voor een huidige lijst van clients, [Redis-clients](http://redis.io/clients). Zie voor een zelfstudie die betrekking hebben op meerdere verschillende talen en -clients, [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en klik op de gewenste taal van de wisselaar taal aan de bovenkant van het artikel.
+Een van de geweldige dingen over Redis is dat er veel clients ondersteunt veel verschillende programmeertalen. Zie voor een huidige lijst van clients, [Redis-clients](https://redis.io/clients). Zie voor een zelfstudie die betrekking hebben op meerdere verschillende talen en -clients, [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en klik op de gewenste taal van de wisselaar taal aan de bovenkant van het artikel.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -236,12 +236,12 @@ Er is geen lokale emulator voor Azure Redis Cache, maar u kunt de MSOpenTech-ver
         }
 
 
-U kunt desgewenst configureren een [redis.conf](http://redis.io/topics/config) bestand dichter bij de [standaardinstellingen van de cache](cache-configure.md#default-redis-server-configuration) voor uw online Azure-Cache voor Redis indien gewenst.
+U kunt desgewenst configureren een [redis.conf](https://redis.io/topics/config) bestand dichter bij de [standaardinstellingen van de cache](cache-configure.md#default-redis-server-configuration) voor uw online Azure-Cache voor Redis indien gewenst.
 
 <a name="cache-commands"></a>
 
 ### <a name="how-can-i-run-redis-commands"></a>Hoe kan ik de Redis-opdrachten uitvoeren?
-U kunt de opdrachten die wordt vermeld op [Redis-opdrachten](http://redis.io/commands#) , met uitzondering van de opdrachten die wordt vermeld op [Redis-opdrachten niet ondersteund in Azure Cache voor Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis). U hebt verschillende mogelijkheden om uit te voeren van Redis-opdrachten.
+U kunt de opdrachten die wordt vermeld op [Redis-opdrachten](https://redis.io/commands#) , met uitzondering van de opdrachten die wordt vermeld op [Redis-opdrachten niet ondersteund in Azure Cache voor Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis). U hebt verschillende mogelijkheden om uit te voeren van Redis-opdrachten.
 
 * Als u een Standard of Premium-cache hebt, kunt u de Redis-opdrachten met uitvoeren de [Redis-Console](cache-configure.md#redis-console). De Redis-console biedt een veilige manier Redis-opdrachten kunt uitvoeren in Azure portal.
 * U kunt ook de Redis-opdrachtregelprogramma's gebruiken. Voor het gebruik ervan, moet u de volgende stappen uitvoeren:
@@ -257,7 +257,7 @@ U kunt de opdrachten die wordt vermeld op [Redis-opdrachten](http://redis.io/com
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Waarom niet Azure voor Redis-Cache hebt u een MSDN-klassebibliotheekverwijzing zoals enkele van de andere Azure-services?
-Microsoft Azure Cache voor Redis is gebaseerd op de populaire open source Azure Cache voor Redis- en kan worden geopend door een groot aantal verschillende [Redis-clients](http://redis.io/clients) voor veel programmeertalen. Elke client heeft een eigen API waarmee aanroepen naar de Azure-Cache voor het gebruik van Redis-exemplaar [Redis-opdrachten](http://redis.io/commands).
+Microsoft Azure Cache voor Redis is gebaseerd op de populaire open source Azure Cache voor Redis- en kan worden geopend door een groot aantal verschillende [Redis-clients](https://redis.io/clients) voor veel programmeertalen. Elke client heeft een eigen API waarmee aanroepen naar de Azure-Cache voor het gebruik van Redis-exemplaar [Redis-opdrachten](https://redis.io/commands).
 
 Omdat elke client anders is, er is niet een gecentraliseerde klassenverwijzing op MSDN en elke client een eigen naslagdocumentatie onderhoudt. Naast de naslagdocumentatie zijn er verschillende zelfstudies waarin wordt beschreven hoe u aan de slag met Azure Cache voor Redis met behulp van verschillende talen en clients in de cache. Voor toegang tot deze zelfstudies, Zie [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en klik op de gewenste taal van de wisselaar taal aan de bovenkant van het artikel.
 
@@ -310,7 +310,7 @@ Zie voor instructies over het downloaden van de Redis-hulpprogramma's, de [hoe k
 * Werkt beste redis met lagere waarden, dus houd rekening met hakken grotere gegevens in meerdere sleutels. In [deze Redis-discussie](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb wordt beschouwd als grote. Lezen [in dit artikel](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) voor een voorbeeld-probleem dat kan worden veroorzaakt door grote waarden.
 * Configureer uw [ThreadPool instellingen](#important-details-about-threadpool-growth) om te voorkomen dat de time-outs.
 * Gebruik ten minste de connectTimeout standaard 5 seconden. Dit interval krijgt StackExchange.Redis voldoende tijd om de verbinding, in het geval van een netwerk blip opnieuw te maken.
-* Houd rekening met de prestatiekosten in verband met verschillende bewerkingen die u uitvoert. Bijvoorbeeld, de `KEYS` opdracht is een bewerking O(n) en moeten worden vermeden. De [redis.io site](http://redis.io/commands/) vindt u informatie over de complexiteit van de tijd voor elke bewerking die wordt ondersteund. Klik op elke opdracht om te zien van de complexiteit voor elke bewerking.
+* Houd rekening met de prestatiekosten in verband met verschillende bewerkingen die u uitvoert. Bijvoorbeeld, de `KEYS` opdracht is een bewerking O(n) en moeten worden vermeden. De [redis.io site](https://redis.io/commands/) vindt u informatie over de complexiteit van de tijd voor elke bewerking die wordt ondersteund. Klik op elke opdracht om te zien van de complexiteit voor elke bewerking.
 
 #### <a name="configuration-and-concepts"></a>Configuratie en concepten
 * Gebruik Standard of Premium-laag voor productiesystemen. De laag Basic is een systeem met één knooppunt met geen replicatie van gegevens en er wordt geen SLA. Ook ten minste een C1-cache gebruiken. C0 caches worden meestal gebruikt voor eenvoudige dev/test-scenario's.
@@ -329,7 +329,7 @@ Zie voor instructies over het downloaden van de Redis-hulpprogramma's, de [hoe k
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Wat zijn enkele overwegingen bij het gebruik van algemene Redis-opdrachten?
 * U moet bepaalde Redis-opdrachten die erg lang duren om uit te voeren, zonder kennis van de impact van deze opdrachten niet uitvoeren.
-  * Bijvoorbeeld, niet worden uitgevoerd de [sleutels](http://redis.io/commands/keys) opdracht in de productieomgeving, zoals het lang duren kan om terug te keren afhankelijk van het aantal sleutels. Redis is een server met één thread en opdrachten één bewerking tegelijk worden verwerkt. Als u andere opdrachten na sleutels hebt, wordt deze niet verwerkt totdat Redis de opdracht sleutels verwerkt. De [redis.io site](http://redis.io/commands/) vindt u informatie over de complexiteit van de tijd voor elke bewerking die wordt ondersteund. Klik op elke opdracht om te zien van de complexiteit voor elke bewerking.
+  * Bijvoorbeeld, niet worden uitgevoerd de [sleutels](https://redis.io/commands/keys) opdracht in de productieomgeving, zoals het lang duren kan om terug te keren afhankelijk van het aantal sleutels. Redis is een server met één thread en opdrachten één bewerking tegelijk worden verwerkt. Als u andere opdrachten na sleutels hebt, wordt deze niet verwerkt totdat Redis de opdracht sleutels verwerkt. De [redis.io site](https://redis.io/commands/) vindt u informatie over de complexiteit van de tijd voor elke bewerking die wordt ondersteund. Klik op elke opdracht om te zien van de complexiteit voor elke bewerking.
 * Belangrijkste formaat, moet ik gebruiken kleine sleutelwaarden of grote sleutelwaarden? In het algemeen is het afhankelijk is van het scenario. Als uw scenario grotere sleutels vereist, kunt u de ConnectionTimeout aanpassen en waarden opnieuw en pas uw logica voor opnieuw proberen. Lagere waarden worden vanuit het oogpunt server Redis waargenomen om betere prestaties.
 * Deze overwegingen betekenen niet dat u kunt hogere waarden in Redis; opslaan u moet rekening houden met de volgende overwegingen. Latentie zal hoger zijn. Hebt u een set gegevens die groter is en één die kleiner is, kunt u meerdere exemplaren van ConnectionMultiplexer, elk met een andere set waarden voor time-outs en opnieuw hebt geconfigureerd zoals beschreven in de vorige [doen de StackExchange.Redis configuratie-opties doen](#cache-configuration) sectie.
 

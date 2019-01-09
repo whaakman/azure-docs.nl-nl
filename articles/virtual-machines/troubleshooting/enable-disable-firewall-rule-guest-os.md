@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
+ms.lasthandoff: 01/08/2019
 ms.locfileid: "52319461"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>In- of uitschakelen van een firewallregel in een Azure VM-Gastbesturingssysteem
@@ -35,7 +35,7 @@ Hoe u de firewall-regels configureren, is afhankelijk van het niveau van toegang
 
 ### <a name="online-troubleshooting"></a>Online oplossen 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Risicobeperking 1: De aangepaste Scriptextensie
+#### <a name="mitigation-1-custom-script-extension"></a>Risicobeperking 1: Aangepaste scriptextensie
 
 1.  Uw script met behulp van de volgende sjabloon maken.
 
@@ -93,7 +93,7 @@ Als de virtuele machine online is en kan worden geopend op een andere virtuele m
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-#### <a name="mitigation-4-remote-registry"></a>Risicobeperking 4: De Remote Registry
+#### <a name="mitigation-4-remote-registry"></a>Risicobeperking 4: Remote Registry
 
 Als de virtuele machine online is en kan worden geopend op een andere virtuele machine in hetzelfde virtuele netwerk, kunt u [Remote Registry](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) op de andere virtuele machine.
 

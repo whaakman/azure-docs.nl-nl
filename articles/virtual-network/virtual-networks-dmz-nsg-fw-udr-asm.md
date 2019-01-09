@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van de DMZ – bouwen een DMZ om netwerken met een Firewall, UDR en NSG te beveiligen | Microsoft Docs
-description: Maken van een DMZ met een Firewall, de gebruiker gedefinieerde Routering en Netwerkbeveiligingsgroepen (NSG)
+title: Voorbeeld van DMZ – een DMZ netwerken met een Firewall, UDR en NSG beschermen bouwen | Microsoft Docs
+description: Bouw een DMZ met Firewall, de gebruiker gedefinieerde Routering en Netwerkbeveiligingsgroepen (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23885243"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119438"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Voorbeeld 3: een DMZ netwerken met een Firewall, UDR en NSG beschermen bouwen
-[Ga terug naar de grens van Best Practices beveiligingspagina][HOME]
+[Ga terug naar de grens Best Practices pagina][HOME]
 
-In dit voorbeeld wordt een DMZ gemaakt met een firewall, vier windows-servers, gebruiker gedefinieerde routering, doorsturen via IP en Netwerkbeveiligingsgroepen. Deze begeleidt ook bij elk van de relevante opdrachten voor het bieden van een beter begrip van elke stap. Er is ook een sectie verkeer Scenario voor een gedetailleerd stapsgewijs hoe verkeer wordt uitgevoerd door de lagen verdediging in het Perimeternetwerk. Ten slotte in de verwijzingen is sectie de volledige code en de instructies voor het bouwen van deze omgeving om te testen en Experimenteer met verschillende scenario's. 
+In dit voorbeeld wordt een DMZ met firewall, vier windows-servers, gebruiker gedefinieerde routering, doorsturen via IP en Netwerkbeveiligingsgroepen maken. Het helpt ook bij elk van de relevante opdrachten voor een beter begrip van elke stap. Er is ook een sectie verkeer Scenario voor een gedetailleerde stapsgewijze hoe verkeer wordt uitgevoerd in de defensieve in het Perimeternetwerk. Ten slotte in de verwijzingen is sectie de volledige code en instructies voor het bouwen van deze omgeving om te testen en te experimenteren met verschillende scenario's. 
 
 ![Bidirectionele DMZ met NVA, NSG en UDR][1]
 
-## <a name="environment-setup"></a>Instellen van de omgeving
-In dit voorbeeld is er een abonnement dat het volgende bevat:
+## <a name="environment-setup"></a>Omgeving instellen
+In dit voorbeeld is er een abonnement dat u het volgende bevat:
 
-* Drie cloudservices: 'SecSvc001', 'FrontEnd001' en 'BackEnd001'
-* Een virtueel netwerk 'CorpNetwork' met drie subnetten: 'SecNet', 'FrontEnd' en back-end'
-* Een virtueel netwerkapparaat, in dit voorbeeld van een firewall, die is verbonden met het subnet SecNet
-* Een Windows-Server waarmee een toepassing webserver ('IIS01')
-* Twee windows-servers die toepassing terug vertegenwoordigen end servers ('AppVM01', 'AppVM02')
-* Een Windows-server met een DNS-server ('DNS01')
+* Drie cloudservices: "SecSvc001", "FrontEnd001" en "BackEnd001"
+* Een Virtueelnetwerk 'CorpNetwork', met drie subnetten: 'SecNet', 'FrontEnd' en 'Back-end'
+* Een virtueel netwerkapparaat, in dit voorbeeld een firewall, die is verbonden met het subnet SecNet
+* Een Windows-Server die staat voor een toepassing webserver ("IIS01")
+* Twee windows-servers die staan voor toepassing back end servers ("AppVM01", "AppVM02")
+* Een Windows-server die staat voor een DNS-server ("DNS01")
 
-In de sectie Verwijzingen hieronder is er een PowerShell-script dat de meeste van de hierboven beschreven omgeving bouwt. Opbouwen van de virtuele machines en virtuele netwerken, hoewel worden uitgevoerd door het voorbeeldscript worden niet beschreven in dit document uitvoeriger.
+In het gedeelte hieronder met verwijzingen wordt er een PowerShell-script dat wordt gemaakt van de meeste van de omgeving die hierboven worden beschreven. Het bouwen van de virtuele machines en virtuele netwerken, maar moeten worden uitgevoerd door het voorbeeldscript worden niet beschreven in dit document.
 
-De omgeving maken:
+De omgeving bouwen:
 
 1. Het netwerk config XML-bestand zijn opgenomen in de sectie Verwijzingen (bijgewerkt met de naam, locatie en IP-adressen zodat deze overeenkomt met het gegeven scenario)
-2. Bijwerken van de gebruikersvariabelen in het script moet overeenkomen met de omgeving die het script wordt uitgevoerd tegen (abonnementen, servicenamen, enzovoort)
-3. Voer het script in PowerShell
+2. Bijwerken van de Gebruikersvariabelen voor de in het script moet overeenkomen met de omgeving die het script uitgevoerd op basis van wordt (abonnementen, servicenamen, enzovoort)
+3. Voer het script uit in PowerShell
 
-**Opmerking**: de regio die wordt aangegeven in het PowerShell-script moet overeenkomen met de regio die wordt aangegeven in het netwerk van het XML-configuratiebestand.
+**Opmerking**: De regio aangegeven in het PowerShell-script moet overeenkomen met de regio aangegeven in het netwerk van het XML-configuratiebestand.
 
-Nadat het script wordt uitgevoerd kan de volgende stappen voor na script kunnen worden genomen:
+Nadat het script is uitgevoerd, de volgende stappen van script dat volgt uit kunnen worden genomen:
 
-1. Stel de firewallregels, deze procedure wordt besproken in de sectie met de titel: Beschrijving van de Firewall-regel.
-2. Optioneel zijn in de sectie Verwijzingen twee scripts voor het instellen van de webserver en de appserver met een eenvoudige webtoepassing waarmee testen met deze configuratie DMZ.
+1. De firewall-regels hebt ingesteld, wordt dit in de onderstaande sectie met de titel behandeld: Beschrijving van de firewall-regel.
+2. (Optioneel) zijn in de sectie Verwijzingen twee scripts voor het instellen van de webserver en appserver met een eenvoudige webtoepassing waarmee de testen met deze configuratie DMZ.
 
-Nadat het script uitgevoerd in de firewall regels moeten worden voltooid, dit wordt beschreven in het gedeelte: Firewall-regels.
+Nadat het script uitgevoerd in de firewall regels moeten worden voltooid, wordt dit wordt behandeld in de sectie met de titel: Firewall-regels.
 
-## <a name="user-defined-routing-udr"></a>Door de gebruiker gedefinieerde Routering
+## <a name="user-defined-routing-udr"></a>Gebruiker gedefinieerde Routering
 Standaard worden de volgende systeemroutes gedefinieerd als:
 
         Effective routes : 
@@ -68,35 +68,35 @@ Standaard worden de volgende systeemroutes gedefinieerd als:
          {172.16.0.0/12}   Null                                 Active   Default    
          {192.168.0.0/16}  Null                                 Active   Default
 
-De VNETLocal is altijd de prefix(en) opgegeven adres van de VNet voor die specifieke netwerk (ie het wordt gewijzigd van VNet naar VNet, afhankelijk van hoe elke specifieke VNet is gedefinieerd). De resterende systeemroutes zijn statisch en standaard als hierboven.
+De VNETLocal is altijd de prefix(en) opgegeven adres van het VNet voor dat specifieke netwerk (bijvoorbeeld het wordt gewijzigd van VNet naar VNet, afhankelijk van hoe elke specifieke VNet wordt gedefinieerd). De resterende systeemroutes statisch zijn en de standaardinstellingen als hierboven.
 
-Als voor de prioriteit, routes worden verwerkt via de langste voorvoegsel overeen (LPM)-methode, dus het meest specifiek route in de tabel toepassing zou zijn op een gegeven doeladres.
+Als voor de prioriteit, routes worden verwerkt via het langste voorvoegsel overeenkomende LPM (longest prefix)-methode, dus de meest specifieke route in de tabel wilt toepassen op een bepaalde bestemming-adres.
 
-Daarom zou verkeer (bijvoorbeeld naar de server DNS01 10.0.2.4) voor het lokale netwerk (10.0.0.0/16) worden gerouteerd tussen het VNet naar de bestemming als gevolg van de route 10.0.0.0/16. Met andere woorden, voor 10.0.2.4, de 10.0.0.0/16 route is het meest specifiek route, hoewel de 10.0.0.0/8 en 0.0.0.0/0 ook kunnen toegepast, maar omdat ze minder specifieke ze niet op dit verkeer. Het verkeer naar 10.0.2.4 zou dus een volgende hop van de lokale VNet en gewoon routeren naar de bestemming.
+Daarom zou verkeer (bijvoorbeeld voor de server DNS01 10.0.2.4) die bestemd zijn voor het lokale netwerk (10.0.0.0/16) worden gerouteerd via de VNet-naar de bestemming vanwege de route 10.0.0.0/16. Met andere woorden, voor 10.0.2.4, de 10.0.0.0/16 route is de meest specifieke route, zelfs als de 10.0.0.0/8 en 0.0.0.0/0 ook kunnen worden toegepast, maar omdat ze minder zijn specifieke ze niet van invloed zijn op dit verkeer. Het verkeer naar 10.0.2.4 zou dus hebben als de volgende hop van de lokale VNet, en gewoon routeren naar de bestemming.
 
-Als verkeer is bedoeld voor 10.1.1.1 bijvoorbeeld, de route 10.0.0.0/16 toepassen wouldn't, maar de 10.0.0.0/8 het meest specifiek zijn zou en het verkeer zou dit ('zwart gaan') verwijderd omdat de volgende hop Null is. 
+Als het verkeer is bedoeld voor 10.1.1.1 bijvoorbeeld, de route 10.0.0.0/16 wouldn't toepast, maar de 10.0.0.0/8 zou zijn het meest specifiek en het verkeer zou dit verwijderd ("black gaan') omdat de volgende hop Null is. 
 
-Als de bestemming niet op een van de voorvoegsels Null of de voorvoegsels VNETLocal toepassen, wordt het minst specifiek volgt routeren, 0.0.0.0/0 en worden doorgestuurd naar het Internet als de volgende hop en dus buiten de Azure internet rand.
+Als het doel is niet van toepassing op een van de Null-voorvoegsels of de voorvoegsels VNETLocal, dan de minst specifiek volgt routeren, 0.0.0.0/0 en om worden doorgestuurd naar het Internet als de volgende hop en dus uit van Azure internet edge.
 
-Als er twee identieke voorvoegsels in de routetabel aanwezig zijn, wordt het volgende is de volgorde van voorkeur op basis van de routes 'bron'-kenmerk:
+Als er twee identieke voorvoegsels in de routetabel, wordt het volgende is de volgorde van voorkeur op basis van de routes 'bron'-kenmerk:
 
-1. 'VirtualAppliance' = van een gebruiker gedefinieerde Route handmatig worden toegevoegd aan de tabel
-2. 'VPNGateway' een dynamische Route BGP (gebruikt in combinatie met hybride netwerken), = toegevoegd door een dynamische netwerkprotocol, deze routes kunnen op den duur veranderen als het protocol voor dynamische wordt automatisch in het netwerk als peer is ingesteld aangepast
-3. 'Standaard' = de Systeemroutes, het lokale VNet en de statische vermeldingen, zoals wordt weergegeven in de bovenstaande routetabel.
+1. "VirtualAppliance" = een handmatig worden toegevoegd aan de tabel de gebruiker gedefinieerde Route
+2. 'VPN-gateway' een dynamische Route BGP (gebruikt in combinatie met hybride netwerken), = toegevoegd door een dynamische netwerkprotocol, deze routes kunnen worden gewijzigd na verloop van tijd als de dynamische-protocol wordt automatisch in gekoppelde netwerk aangepast
+3. 'Standaard' = de Systeemroutes, het lokale VNet en de statische-vermeldingen zoals wordt weergegeven in de bovenstaande routetabel.
 
 > [!NOTE]
-> U kunt nu de gebruiker gedefinieerde routering (UDR) gebruiken met ExpressRoute en cross-premises VPN-Gateways om af te dwingen binnenkomend en uitgaand verkeer worden doorgestuurd naar een virtueel netwerkapparaat (NVA).
+> U kunt nu de gebruiker gedefinieerde routering (UDR) gebruiken met ExpressRoute en VPN-Gateways om af te dwingen uitgaand en binnenkomend cross-premises verkeer worden doorgestuurd naar een virtueel netwerkapparaat (NVA).
 > 
 > 
 
-#### <a name="creating-the-local-routes"></a>De lokale routes maken
-In dit voorbeeld worden twee routeringstabellen nodig, één voor de front-end- en back-end-subnetten. Elke tabel is geladen met statische routes die geschikt is voor het opgegeven subnet. In dit voorbeeld heeft elke tabel drie routes:
+#### <a name="creating-the-local-routes"></a>Het maken van de lokale routes
+In dit voorbeeld worden twee routeringstabellen nodig, één voor de front-end en back-end-subnetten. Elke tabel is geladen met statische routes die geschikt is voor het opgegeven subnet. In dit voorbeeld heeft elke tabel drie routes:
 
-1. Lokaal subnetverkeer met geen volgende Hop gedefinieerd, zodat lokaal subnetverkeer voor het overslaan van de firewall
-2. Virtueel netwerkverkeer met een volgende Hop gedefinieerd als een firewall, overschrijft dit de standaardregel waarmee lokale VNet-verkeer routeren rechtstreeks
-3. Alle resterende verkeer (0/0) met een volgende Hop gedefinieerd als de firewall
+1. Lokaal subnetverkeer met geen ' volgende hop ' gedefinieerd voor het lokale subnetverkeer toestaan om over te slaan van de firewall
+2. Verkeer in virtuele netwerken met een ' volgende hop ' gedefinieerd als een firewall, overschrijft dit de standaardregel waarmee lokale VNet-verkeer op het rechtstreeks doorsturen
+3. Alle resterende verkeer (0/0) met een ' volgende hop ' gedefinieerd als de firewall
 
-Als de routeringstabellen zijn gemaakt zijn ze gekoppeld aan hun subnetten. Voor het subnet Frontend er routeringstabel eenmaal gemaakt en gekoppeld aan het subnet als volgt uit:
+Zodra de routeringstabel zijn gemaakt zijn ze gekoppeld aan hun subnetten. Voor het subnet Frontend routeringstabel, nadat deze zijn gemaakt en gekoppeld aan het subnet als volgt uitzien:
 
         Effective routes : 
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -106,33 +106,33 @@ Als de routeringstabellen zijn gemaakt zijn ze gekoppeld aan hun subnetten. Voor
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 
-Bijvoorbeeld, de volgende opdrachten worden gebruikt voor het bouwen van de routetabel, een gebruiker gedefinieerde route toevoegen en vervolgens de routetabel binden aan een subnet (Opmerking; de items onder die begint met een dollarteken (bijvoorbeeld: $BESubnet) zijn van de gebruiker gedefinieerde variabelen uit het script in de verwijzing naar sectie van dit document):
+In dit voorbeeld de volgende opdrachten worden gebruikt om te maken van de routetabel, een door de gebruiker gedefinieerde route toevoegen en vervolgens verbindt de routetabel aan een subnet (Houd er rekening mee; alle items die onder die begint met een dollarteken (bijvoorbeeld: $BESubnet) zijn door de gebruiker gedefinieerde variabelen van het script in de naslaginformatie over sectie van dit document):
 
-1. De basistabel routering moet eerst worden gemaakt. In dit fragment toont het maken van de tabel voor de back-end-subnet. In het script wordt ook een bijbehorende tabel gemaakt voor het subnet Frontend.
+1. De basis-routeringstabel moet eerst worden gemaakt. Dit fragment toont het maken van de tabel voor de back-end-subnet. In het script wordt ook een bijbehorende tabel gemaakt voor de front-end-subnet.
    
      Nieuwe AzureRouteTable-naam $BERouteTableName '
    
          -Location $DeploymentLocation `
          -Label "Route table for $BESubnet subnet"
-2. Zodra de routetabel is gemaakt, kunnen specifieke gebruiker gedefinieerde routes worden toegevoegd. In deze snipped wordt (0.0.0.0/0) van alle verkeer gerouteerd via het virtuele apparaat (een variabele, $VMIP [0] wordt gebruikt om door te geven in het IP-adres toegewezen wanneer het virtuele apparaat eerder in het script is gemaakt). In het script wordt ook een bijbehorende regel gemaakt in de Frontend-tabel.
+2. Nadat de routetabel is gemaakt, kunnen de specifieke gebruiker gedefinieerde routes worden toegevoegd. In deze snipped, wordt al het verkeer (0.0.0.0/0) worden gerouteerd via het virtuele apparaat (een variabele, $VMIP [0] wordt gebruikt om door te geven in het IP-adres toegewezen wanneer het virtuele apparaat eerder in het script is gemaakt). In het script wordt ook een overeenkomende regel gemaakt in de Frontend-tabel.
    
      Get-AzureRouteTable $BERouteTableName | `
    
          Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
          -NextHopType VirtualAppliance `
          -NextHopIpAddress $VMIP[0]
-3. De bovenstaande routevermelding wordt overschreven door de '0.0.0.0/0' standaardroute, maar de standaardregel 10.0.0.0/16 nog steeds bestaande waarmee verkeer binnen het VNet rechtstreeks naar de bestemming en niet naar het virtuele apparaat netwerk routeren. Juiste dit gedrag van de volgende regel moet worden toegevoegd.
+3. De routevermelding van de bovenstaande overschrijft de '0.0.0.0/0' standaardroute, maar de standaardregel 10.0.0.0/16 nog steeds bestaande waarmee verkeer binnen het VNet te routeren rechtstreeks naar de bestemming en niet naar het virtuele netwerkapparaat. Juiste dit gedrag van de volgende regel moet worden toegevoegd.
    
         Get-AzureRouteTable $BERouteTableName | `
             Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
-4. Op dit moment is er een keuze kunnen worden uitgevoerd. Al het verkeer wordt met de bovenstaande twee routes route aan de firewall voor de beoordeling, zelfs verkeer binnen één subnet. Dit kan nodig zijn, maar waarmee verkeer binnen een subnet voor het routeren lokaal zonder betrokkenheid van de firewall van een derde zeer specifieke regel kan worden toegevoegd. Deze route statussen van een adres voor het lokale subnet kunt just destine routeren er rechtstreeks (NextHopType = VNETLocal).
+4. Op dit moment is er een keuze worden gemaakt. Met de bovenstaande twee routes wordt al het verkeer gerouteerd naar de firewall voor evaluatie, zelfs verkeer binnen één subnet. Dit kan nodig zijn, maar dat verkeer binnen een subnet voor het routeren lokaal zonder tussenkomst van de firewall van een derde, zeer specifieke regel kan worden toegevoegd. Deze route statussen die elk adres voor het lokale subnet kan alleen destine routeren er rechtstreeks (NextHopType VNETLocal =).
    
         Get-AzureRouteTable $BERouteTableName | `
             Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
             -NextHopType VNETLocal
-5. Ten slotte wordt met de routeringstabel gemaakt en gevuld met een gebruiker gedefinieerde routes, moet de tabel nu worden gebonden aan een subnet. In het script is ook de front-end-routetabel gebonden aan de front-end-subnet. Hier wordt het script binding voor de back-end-subnet.
+5. Ten slotte, met de routeringstabel gemaakt en gevuld met een gebruiker gedefinieerde routes, de tabel moet nu worden gebonden aan een subnet. De routetabel front-end is in het script ook gebonden aan het Frontend-subnet. Dit is het script van de binding voor de back-end-subnet.
    
      Set-AzureSubnetRouteTable - VirtualNetworkName $VNetName '
    
@@ -140,31 +140,31 @@ Bijvoorbeeld, de volgende opdrachten worden gebruikt voor het bouwen van de rout
         -RouteTableName $BERouteTableName
 
 ## <a name="ip-forwarding"></a>Doorsturen via IP
-Een onderdeel companion UDR, is het doorsturen via IP. Dit is een instelling op een virtueel apparaat dat is toegestaan voor het ontvangen verkeer niet specifiek zijn gericht op het toestel en vervolgens doorsturen dat verkeer naar de uiteindelijke bestemming.
+Een functie companion UDR, is doorsturen via IP. Dit is een instelling op een virtueel apparaat dat kan worden ontvangen van verkeer niet specifiek zijn gericht op het apparaat en stuur deze vervolgens dat verkeer naar de uiteindelijke bestemming.
 
-Bijvoorbeeld als verkeer van AppVM01 een aanvraag bij de server DNS01 doet wilt UDR routeren dit aan de firewall. Met het doorsturen via IP is ingeschakeld, wordt het verkeer voor de bestemming DNS01 (10.0.2.4) worden geaccepteerd door het toestel (10.0.0.4) en vervolgens doorgestuurd naar de uiteindelijke bestemming (10.0.2.4). Zonder doorsturen via IP ingeschakeld op de Firewall, wordt verkeer niet geaccepteerd door het toestel ondanks dat de routetabel de firewall als de volgende hop is. 
+Een voorbeeld: als verkeer van AppVM01 een verzoek naar de server DNS01 zendt UDR wilt routeren dit aan de firewall. Met het IP-doorsturen is ingeschakeld, wordt het verkeer voor de doel-DNS01 (10.0.2.4) worden geaccepteerd door het apparaat (10.0.0.4) en vervolgens doorgestuurd naar de uiteindelijke bestemming (10.0.2.4). Zonder doorsturen via IP op de Firewall is ingeschakeld, wordt verkeer niet geaccepteerd door het apparaat zelfs als de routetabel de firewall als de volgende hop is. 
 
 > [!IMPORTANT]
-> Het is essentieel om te onthouden doorsturen via IP inschakelen in combinatie met de gebruiker gedefinieerde routering.
+> Het is essentieel om te onthouden om in te schakelen doorsturen via IP in combinatie met de gebruiker gedefinieerde routering.
 > 
 > 
 
-Instellen van het doorsturen via IP is één opdracht en kan worden uitgevoerd tijdens de aanmaak van virtuele machine. Voor de stroom van dit voorbeeld is het codefragment is aan het einde van het script, en met de opdrachten UDR gegroepeerd:
+Instellen van het doorsturen via IP is slechts één opdracht en tijdens de aanmaak van virtuele machine kan worden gedaan. De stroom van dit voorbeeld wordt het codefragment is aan het einde van het script en gegroepeerd met de UDR-opdrachten:
 
-1. Roept het VM-exemplaar dat uw virtuele apparaat, de firewall in dit geval is, en doorsturen via IP inschakelen (Opmerking; een item in rood die begint met een dollarteken (bijvoorbeeld: $VMName[0]) is een door de gebruiker gedefinieerde variabele van het script in de sectie Verwijzingen van dit document. De op nul vierkante haken, [0] Hiermee geeft u de eerste virtuele machine in de matrix van virtuele machines voor het voorbeeldscript werken zonder dat aanpassingen nodig, de eerste virtuele machine (VM 0) moet de firewall):
+1. Aanroepen van het VM-exemplaar dat in dit geval is van uw virtueel apparaat, de firewall en doorsturen via IP inschakelen (Houd er rekening mee; een item in rood die begint met een dollarteken (bijvoorbeeld: $VMName[0]) is een door de gebruiker gedefinieerde variabele van het script in de sectie Verwijzingen van dit document. De op nul tussen vierkante haken, [0] Hiermee geeft u de eerste virtuele machine in de matrix van virtuele machines, voor de voorbeeldscript om te werken zonder aanpassingen, de eerste virtuele machine (VM 0) moet de firewall):
    
      Get-AzureVM-naam $VMName [0] - ServiceName $ServiceName [0] | `
    
         Set-AzureIPForwarding -Enable
 
 ## <a name="network-security-groups-nsg"></a>Netwerkbeveiligingsgroepen (NSG's)
-In dit voorbeeld is een groep NSG gebouwd en vervolgens geladen met een enkele regel. Deze groep wordt vervolgens uitsluitend gekoppeld aan de front-end- en back-end-subnetten (niet de SecNet). Declaratief wordt samengesteld met de volgende regel:
+In dit voorbeeld is een NSG-groep gemaakt en vervolgens met een enkele regel geladen. Deze groep is vervolgens alleen aan de front-end en back-end-subnetten (niet de SecNet) gebonden. Declaratief wordt met de volgende regel gemaakt:
 
-1. Verkeer (alle poorten) van het Internet naar het hele VNet (alle subnetten) is geweigerd
+1. Al het verkeer (alle poorten) van het Internet naar het hele VNet (alle subnetten) is geweigerd
 
-Hoewel het nsg's in dit voorbeeld worden gebruikt, worden de belangrijkste doel is als een laag secundaire beveiliging tegen handmatige onjuiste configuratie. We willen alle binnenkomende verkeer blokkeren met vanaf het internet aan de front-end of back-end-subnetten, verkeer alleen door het SecNet-subnet aan de firewall moeten stromen (en vervolgens passende bij de Frontend- of back-end subnetten). Plus, aan de regels UDR aanwezig is, verkeer om het in de front-end of back-end-subnetten zou worden omgeleid uit aan de firewall (dankzij UDR). De firewall zou dit zien als een asymmetrische stroom en het uitgaande verkeer wilt verwijderen. Er zijn dus drie lagen van beveiliging voor het beveiligen van de front-end- en back-end-subnetten; 1) er zijn geen open eindpunten op de FrontEnd001 en BackEnd001 cloudservices, 2) nsg's voor het weigeren van verkeer van het Internet, 3) de firewall weggehaald asymmetrische verkeer.
+Hoewel nsg's in dit voorbeeld worden gebruikt, is het belangrijkste doel als een secundaire laag van beveiliging tegen handmatige onjuiste configuratie. We willen dat moet worden geblokkeerd dat alle inkomende verkeer vanaf internet aan de front-end of back-end-subnetten, verkeer alleen via het subnet SecNet aan de firewall moeten stromen (en vervolgens indien nodig u aan bij de front-end of back-end-subnetten). Bovendien aan de regels UDR aanwezig is, zou al het verkeer dat gemakkelijk in de front-end of back-end-subnetten worden omgeleid om aan de firewall (dankzij de udr-route). De firewall ziet dit als een asymmetrische stroom en het uitgaande verkeer wilt verwijderen. Er zijn dus drie beveiligingslagen aan de front-end en back-end-subnetten; beveiligen (1) er is geen open eindpunten op de FrontEnd001 en BackEnd001 cloud-services, 2) nsg's verkeer vanaf Internet, 3) de firewall laten vallen asymmetrische verkeer weigeren.
 
-Een interessant punt met betrekking tot de Netwerkbeveiligingsgroep in dit voorbeeld is dat deze slechts één regel, die bevat hieronder worden weergegeven die voor het weigeren van internet-verkeer op het volledige virtuele netwerk, waaronder het subnet van de beveiliging is. 
+Een interessante met betrekking tot de Netwerkbeveiligingsgroep in dit voorbeeld is dat deze slechts één regel, hieronder weergegeven bevat, dit is om verkeer van internet naar het hele virtuele netwerk waaronder het subnet van de beveiliging te weigeren. 
 
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
@@ -175,7 +175,7 @@ Een interessant punt met betrekking tot de Netwerkbeveiligingsgroep in dit voorb
         -DestinationPortRange '*' `
         -Protocol *
 
-Echter, aangezien het NSG wordt alleen gekoppeld aan de front-end- en back-end-subnetten, de regel is niet verwerkt op het verkeer inkomend verkeer naar het subnet van de beveiliging. Als gevolg hiervan, zelfs als de NSG-regel geen internetverkeer aan een adres op het VNet, staat omdat het NSG nooit is gebonden aan het subnet van de beveiliging, worden verkeer overgebracht naar het subnet van de beveiliging.
+Echter, omdat de NSG wordt alleen gekoppeld aan de front-end en back-end-subnetten, de regel is niet verwerkt op het verkeer inkomend in het subnet van de beveiliging. Als gevolg hiervan, zelfs als de NSG-regel geen verkeer van Internet naar een adres op het VNet, staat omdat de NSG nooit is gebonden aan het subnet van de beveiliging, het verkeer naar het subnet van de beveiliging.
 
     Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
         -SubnetName $FESubnet -VirtualNetworkName $VNetName
@@ -184,133 +184,133 @@ Echter, aangezien het NSG wordt alleen gekoppeld aan de front-end- en back-end-s
         -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
 ## <a name="firewall-rules"></a>Firewallregels
-Op de firewall moet doorsturen regels worden gemaakt. Omdat de firewall geblokkeerd of doorsturen van alle binnenkomende, uitgaande en intra-VNet-verkeer is worden veel firewallregels vereist. Alle binnenkomend verkeer bereikt beveiligingsservice openbaar IP-adres (op verschillende poorten), ook moeten worden verwerkt door de firewall. Er is een best practice diagram van de logische stroom voor het instellen van de subnetten te en firewall-regels om te voorkomen dat later bijwerken. De volgende afbeelding is een logische weergave van de firewallregels voor dit voorbeeld:
+Op de firewall moet regels voor doorsturen worden gemaakt. Omdat de firewall blokkeert of doorsturen van alle binnenkomende, uitgaande en intra-VNet-verkeer worden veel firewallregels die nodig zijn. Alle binnenkomend verkeer bereikt de beveiligingsservice openbare IP-adres (op verschillende poorten), ook moeten worden verwerkt door de firewall. Een best practice is om het diagram van de logische stromen voordat het instellen van de subnetten en firewall-regels om te voorkomen dat later bijwerken. De volgende afbeelding is een logische weergave van de firewall-regels voor dit voorbeeld:
 
 ![Logische weergave van de Firewall-regels][2]
 
 > [!NOTE]
-> Op basis van het virtuele netwerk-apparaat gebruikt, variëren de beheerpoorten. In dit voorbeeld wordt verwezen naar een Barracuda NextGen Firewall gebruikt die poort 22, 801 en 807. Raadpleeg de documentatie van de leverancier toestel om te zoeken welke poorten gebruikt voor het beheer van het apparaat wordt gebruikt.
+> Op basis van het virtuele netwerkapparaat gebruikt, varieert de beheerpoorten. In dit voorbeeld wordt verwezen naar een Barracuda NextGen Firewall die gebruikmaakt van poort 22, 801 en 807. Raadpleeg de documentatie van de leverancier apparaat voor de exacte poorten gebruikt voor het beheer van het apparaat wordt gebruikt.
 > 
 > 
 
 ### <a name="logical-rule-description"></a>Beschrijving van de logische regel
-In het bovenstaande logisch diagram wordt het subnet van de beveiliging niet weergegeven omdat de firewall de enige resource in dat subnet is dit diagram wordt weergegeven, de firewall-regels en hoe ze logisch toestaan of verkeersstromen en niet de werkelijke gerouteerde pad weigeren. Ook de externe poorten voor de RDP-verkeer hoger zijn geselecteerd varieerde poorten (8014 – 8026) en enigszins uitgelijnd met de laatste twee octetten van het lokale IP-adres voor de leesbaarheid eenvoudiger zijn geselecteerd (bijvoorbeeld 10.0.1.4-adres van de lokale server is gekoppeld aan de externe poort 8014), maar een hogere poorten voor niet-conflicterende kunnen worden gebruikt.
+In het bovenstaande logische diagram wordt het subnet van de beveiliging niet weergegeven omdat de firewall is de enige bron op dat subnet, en dit diagram wordt weergegeven de firewall-regels en hoe ze logisch toestaan of weigeren van verkeersstromen en niet de werkelijke gerouteerde pad. Ook de externe poorten voor de RDP-verkeer hoger zijn geselecteerd variabele poorten (8014 – 8026) en zijn geselecteerd om te enigszins zijn afgestemd op de laatste twee octetten van het lokale IP-adres voor de leesbaarheid te vergemakkelijken (bijvoorbeeld 10.0.1.4-adres van de lokale server is gekoppeld aan de externe poort 8014), maar geen hogere poorten voor niet-conflicterende kunnen worden gebruikt.
 
-Bijvoorbeeld, moeten we 7 typen regels, deze regeltypen worden als volgt beschreven:
+In dit voorbeeld moet 7 typen regels, deze regeltypen worden beschreven als volgt:
 
-* Externe regels (voor inkomend verkeer):
-  1. Firewallregel voor beheer: Met deze regel omleidings-App kunt verkeer door te geven aan de management-poorten van het virtuele netwerk-apparaat.
-  2. RDP-regels (voor elke WindowsServer): deze vier regels (één voor elke server) wordt beheer van de afzonderlijke servers via RDP toestaan. Dit kan ook worden gebundeld in één regel, afhankelijk van de mogelijkheden van het virtuele netwerk-apparaat wordt gebruikt.
-  3. Regels voor het verkeer van toepassing: Er zijn twee toepassing verkeersregels, de eerste voor het verkeer van de web-front-end en de tweede voor het back-end-verkeer (bijvoorbeeld webserver gegevenslaag). De configuratie van deze regels, zal afhankelijk zijn van de netwerkarchitectuur (waar uw servers worden geplaatst) en er verkeer stromen (welke richting de verkeersstromen en welke poorten worden gebruikt).
-     * De eerste regel wordt het verkeer van de werkelijke toepassing bereiken van de toepassingsserver toestaan. Terwijl de andere regels toestaan voor de beveiliging, beheer, enz., zijn toepassing regels wat externe gebruikers of services voor toegang tot de toepassing(en) toestaan. In dit voorbeeld is er één webserver op poort 80, dus een firewallregel voor één toepassing binnenkomend verkeer worden omgeleid naar het externe IP-adres, het web servers interne IP-adres. De sessie omgeleide verkeer zou worden NAT moest de interne server.
-     * De tweede regel van toepassing verkeer is het back-end-regel voor het toestaan dat de webserver Neem contact op met de server AppVM01 (maar niet AppVM02) via een willekeurige poort.
+* Externe regels (voor binnenkomend verkeer):
+  1. Firewallregel voor beheer: Deze omleidings-App-regel staat verkeer moet worden doorgegeven aan de beheerpoorten van het virtuele netwerkapparaat.
+  2. RDP-regels (voor elke WindowsServer): Deze vier regels (één voor elke server) kunt beheer van de afzonderlijke servers via RDP. Dit kan ook worden gebundeld in één regel, afhankelijk van de mogelijkheden van het virtuele netwerkapparaat wordt gebruikt.
+  3. Regels voor netwerkverkeer van toepassing: Er zijn twee toepassing verkeersregels, de eerste voor het verkeer van de web-front-end en de seconde voor het back-end-verkeer (bijvoorbeeld webserver als de gegevenslaag). De configuratie van deze regels zal afhankelijk zijn van de netwerkarchitectuur (waarin uw servers worden geplaatst) en stromen-verkeer (welke richting het verkeer verloopt, en op welke poorten worden gebruikt).
+     * De eerste regel wordt het verkeer de feitelijke toepassing bereiken van de toepassingsserver toestaan. Terwijl de andere regels voor de beveiliging, beheer, enzovoort, zijn regels voor Application wat kunnen externe gebruikers of -services tot de toepassingen. In dit voorbeeld is er één webserver op poort 80, dus een firewallregel voor één toepassing binnenkomend verkeer wordt omgeleid naar het externe IP-adres, naar het interne IP-adres van web-servers. De sessie omgeleide verkeer zouden worden NAT moest de interne server.
+     * De tweede regel van toepassing verkeer is de back-end-regel waarmee de webserver om te communiceren met de server AppVM01 (maar niet AppVM02) via een willekeurige poort.
 * Interne regels (voor intra-VNet-verkeer)
-  1. Uitgaand naar Internet regel: met deze regel wordt verkeer van een netwerk te geven aan de geselecteerde netwerken toestaan. Deze regel is meestal een standaardregel al op de firewall, maar een uitgeschakelde status. Deze regel moet worden ingeschakeld voor dit voorbeeld.
-  2. DNS-regel: Met deze regel kunnen alleen DNS (poort 53)-verkeer door te geven aan de DNS-server. Voor deze omgeving die meeste verkeer van de Frontend naar de back-end wordt geblokkeerd, kan deze regel specifiek DNS van een lokale subnet.
-  3. Subnet naar Subnet regel: met deze regel wordt als u een server op het subnet van de back-end verbinding maken met een willekeurige server in de front-end-subnet (maar niet andersom).
-* Foutveilige regel (voor verkeer dat niet voldoet aan een van de bovenstaande):
-  1. Alle Verkeersregel voor weigeren: Dit moet altijd de laatste regel (in termen van prioriteit), en als zodanig als een van de verkeersstromen niet overeen met een van de vorige regels die wordt door deze regel wordt verwijderd. Dit is een standaardregel en meestal geactiveerd, worden er zijn geen wijzigingen in het algemeen nodig.
+  1. Uitgaand naar Internetregel: Deze regel kan verkeer van elk netwerk moeten worden doorgegeven aan de geselecteerde netwerken. Deze regel is meestal een standaardregel al op de firewall, maar een uitgeschakelde status. Deze regel moet worden ingeschakeld voor dit voorbeeld.
+  2. DNS-regel: Deze regel kunnen alleen DNS (poort 53)-verkeer moeten worden doorgegeven aan de DNS-server. Voor deze omgeving die meeste verkeer van de front-end naar de back-end wordt geblokkeerd, kan met deze regel specifiek DNS vanuit een lokale subnet.
+  3. Subnet naar Subnet regel: Deze regel is dat elke server in het back-end-subnet verbinding maken met elke server in de front-end-subnet (maar niet omgekeerd).
+* Failsafe regel (voor verkeer dat niet voldoet aan een van de bovenstaande):
+  1. Alle Verkeersregel voor weigeren: Dit moet altijd de laatste regel (voor wat betreft prioriteit) en als zodanig als een verkeer stroomt zodat deze overeenkomt met een van de vorige regels die wordt deze verwijderd door deze regel is mislukt. Dit is een standaardregel en zijn meestal geactiveerd, worden geen wijzigingen zijn aangebracht in het algemeen nodig.
 
 > [!TIP]
-> Een willekeurige poort is toegestaan voor eenvoudige van dit voorbeeld is in een echte scenario de meest specifieke poort op de tweede verkeersregel van de toepassing en adresbereiken moeten worden gebruikt om de kwetsbaarheid van deze regel te beperken.
+> Een willekeurige poort is toegestaan voor eenvoudige van dit voorbeeld is in een echte scenario het meest specifieke poort op de tweede toepassing verkeersregel en adresbereiken moeten worden gebruikt voor het verminderen van de kwetsbaarheid voor aanvallen van deze regel.
 > 
 > 
 
 <br />
 
 > [!IMPORTANT]
-> Zodra alle bovenstaande regels zijn gemaakt, is het belangrijk om te controleren van de prioriteit van elke regel om ervoor te zorgen verkeer wordt toegestaan of geweigerd desgewenst. In dit voorbeeld zijn de regels in volgorde van prioriteit. Het is gemakkelijk buiten de firewall vanwege niet-geordende regels worden vergrendeld. Ten minste Zorg ervoor dat het beheer van de firewall zelf is altijd de absolute hoogste prioriteit regel.
+> Nadat u alle bovenstaande regels hebt gemaakt, is het belangrijk om te controleren van de prioriteit van elke regel om te controleren of verkeer wordt toegestaan of geweigerd naar wens. In dit voorbeeld worden de regels in volgorde van prioriteit. Het is eenvoudig te worden vergrendeld buiten de firewall vanwege onjuiste geordende regels. Ten minste, zorg ervoor dat het beheer van de firewall zelf is altijd de absolute hoogste prioriteit regel.
 > 
 > 
 
 ### <a name="rule-prerequisites"></a>Regel voor vereisten
-Een vereiste voor de virtuele Machine met de firewall zijn openbare eindpunten. De openbare eindpunten moeten zijn geopend voor de firewall verkeer verwerken. Er zijn drie typen verkeer in dit voorbeeld; De RDP-verkeer 1) beheer van verkeer voor beheer op de firewall en firewallregels, 2) om de windows-servers en 3) toepassing verkeer te regelen. Dit zijn de drie kolommen van de verkeerstypen in het bovenste helft van de logische weergave van de firewallregels hierboven.
+Een vereiste voor de virtuele Machine met de firewall zijn openbare eindpunten. De juiste openbare eindpunten moeten zijn geopend voor de firewall verkeer verwerken. Er zijn drie typen verkeer in dit voorbeeld. De RDP-verkeer (1) beheer van verkeer naar het besturingselement voor de firewall en firewall-regels, 2) voor het beheren van de windows-servers en (3) toepassing verkeer. Dit zijn de drie kolommen van de verkeerstypen in de rechterbovenhoek de helft van een logische weergave van de firewallregels hierboven.
 
 > [!IMPORTANT]
-> Een sleutel takeway hier is om te weten dat **alle** verkeer wordt geleverd door de firewall. Dus met extern bureaublad met de server IIS01 wordt zelfs als het in de Front-End-Cloudservice en op de front-end-subnet voor toegang tot deze server RDP moet aan de firewall op poort 8014, en vervolgens de firewall voor het routeren van de RDP-aanvraag intern met de RDP-Por IIS01 toestaan t. Knop voor de Azure portal 'Verbinden' werkt niet omdat er geen directe RDP-pad naar IIS01 (zo ver mogelijk de portal kunt zien). Dit betekent dat alle verbindingen van internet naar de Security-Service en een poort, bijvoorbeeld secscv001.cloudapp.net:xxxx (verwijzing in het bovenstaande diagram voor de toewijzing van de externe poort en intern IP-adres en poort).
+> Een sleutel takeway hier is om te weten dat **alle** verkeer wordt geleverd via de firewall. Dus met extern bureaublad op de server IIS01, zelfs al is het in de Front-End-Cloudservice en op de Front-End-subnet, voor toegang tot deze server we RDP moet aan de firewall op poort 8014 en vervolgens de firewall voor het routeren van de RDP-aanvraag intern met de RDP-Por IIS01 toestaan t. De knop 'Verbinden' van de Azure portal werkt niet omdat er geen directe RDP-pad naar IIS01 (zo lang de portal kunt zien). Dit betekent dat alle verbindingen vanuit het internet worden naar de Service en een poort, bijvoorbeeld secscv001.cloudapp.net:xxxx (verwijzing naar het bovenstaande diagram van de toewijzing van de poort van de externe en interne IP en poort).
 > 
 > 
 
-Een eindpunt kan worden geopend op het moment van de virtuele machine maken of build boekt als in het voorbeeldscript en de hieronder weergegeven in dit codefragment (Opmerking; een item die begint met een dollarteken (bijvoorbeeld: $VMName[$i]) is een door de gebruiker gedefinieerde variabele van het script in de cties verwijzing n van dit document. '$I' vierkante haken, [$i] Hiermee geeft u het nummer van de matrix van een specifieke virtuele machine in een matrix van virtuele machines):
+Een eindpunt kan worden geopend op het moment dat de VM gemaakt of build plaatsen, zoals is gedaan in het voorbeeldscript en in dit codefragment hieronder wordt weergegeven (Houd er rekening mee; een item die begint met een dollarteken (bijvoorbeeld: $VMName[$i]) is een door de gebruiker gedefinieerde variabele van het script in de ver verwijzing n van dit document. De "$i" tussen vierkante haken, [$i] Hiermee geeft u het nummer van de matrix van een specifieke virtuele machine in een matrix van VM's):
 
     Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
         -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
         Update-AzureVM
 
-Hoewel het niet duidelijk hier weergegeven vanwege het gebruik van variabelen, maar eindpunten zijn **alleen** geopend op de Cloud Security Service. Dit is om ervoor te zorgen dat alle binnenkomend verkeer wordt verwerkt (gerouteerd, NAT waren, verloren) door de firewall.
+Hoewel het niet duidelijk hier weergegeven vanwege het gebruik van variabelen, maar eindpunten zijn **alleen** geopend op de Cloud Security Service. Dit is om ervoor te zorgen dat al het binnenkomende verkeer wordt afgehandeld (gerouteerd, NAT, verloren) door de firewall.
 
-Een management-client moet worden geïnstalleerd op een computer voor het beheren van de firewall en maken van de configuraties die nodig zijn. Zie de documentatie van uw firewall (of andere NVA)-leverancier voor het beheren van het apparaat. De rest van deze sectie en de volgende sectie, Firewall-regels maken, wordt de configuratie van de firewall zelf, via de leveranciers management-client (d.w.z. niet in de Azure-portal of PowerShell) beschreven.
+Een management-client moet worden geïnstalleerd op een PC voor het beheren van de firewall en het maken van de configuraties die nodig zijn. Zie de documentatie van uw firewall (of andere NVA)-leverancier over het beheren van het apparaat. De rest van deze sectie en de volgende sectie, Firewall-regels maken, wordt de configuratie van de firewall zelf, via de leveranciers management-client (dat wil zeggen niet in de Azure portal of PowerShell) beschreven.
 
-Instructies voor het downloaden van de client en verbinding maken met de in dit voorbeeld gebruikt Barracuda vindt u hier: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+Instructies voor de client downloaden en verbinding maken met de Barracuda gebruikt in dit voorbeeld kunt u hier vinden: [Barracuda NG-beheerder](https://techlib.barracuda.com/NG61/NGAdmin)
 
-Zodra u aangemeld bent op de firewall, maar voordat u firewallregels maken, zijn er twee vereiste objectklassen die kunnen maken van de regels gemakkelijker; Netwerk- en Service-objecten.
+Wanneer u bent aangemeld bij de firewall, maar voordat u het maken van firewallregels, zijn er twee vereiste objectklassen waardoor het maken van de regels gemakkelijker; Netwerk- en Service-objecten.
 
-In dit voorbeeld moet drie objecten van het benoemde netwerk gedefinieerde (één voor de front-end-subnet en het subnet ook een netwerkobject voor het IP-adres van de DNS-server van de back-end). Maken van een benoemde netwerk. starten vanuit het dashboard van de client Barracuda NG Admin, gaat u naar het tabblad configuratie, in de operationele configuratiesectie Ruleset, vervolgens klikt u op "Netwerken" in het menu Firewallobjecten, klik op Nieuw in het menu Bewerken netwerken. Het object network kan nu worden gemaakt, door de naam en het voorvoegsel toe te voegen:
+In dit voorbeeld moet drie benoemde netwerkobjecten gedefinieerd (één voor de front-end-subnet en het back-end-subnet, ook een object voor het IP-adres van de DNS-server). Het maken van een netwerk met de naam; vanaf de Barracuda NG-Beheerdashboard, gaat u naar het tabblad configuratie, in de sectie configuratie van operationele Ruleset, vervolgens klikt u op 'Netwerken' onder het menu Firewallobjecten klikken en vervolgens klikt u op Nieuw in het menu Bewerken netwerken. Het object network kan nu worden gemaakt, door de naam en het voorvoegsel toe te voegen:
 
-![Een Object FrontEnd-netwerk maken][3]
+![Maken van een Object front-end][3]
 
-Hiermee maakt u een netwerk met de naam voor de front-end-subnet, een vergelijkbaar object moet worden gemaakt voor de back-end-subnet. De subnetten kunnen nu gemakkelijker verwezen met de naam in de firewall-regels.
+Hiermee maakt u een netwerk met de naam voor de front-end-subnet, een vergelijkbaar object moet worden gemaakt voor de back-end-subnet. De subnetten kunnen nu nog eenvoudiger verwezen met de naam in de firewall-regels.
 
 Voor het Object van de DNS-Server:
 
 ![Een DNS-Server-Object maken][4]
 
-Deze één verwijzing naar een IP-adres wordt gebruikt in een DNS-regel verderop in dit document.
+Deze één verwijzing naar een IP-adres wordt in een DNS-regel verderop in dit document worden gebruikt.
 
-De tweede vereiste objecten zijn Services objecten. Deze vertegenwoordigt het RDP-verbindingspoorten voor elke server. Aangezien het bestaande object van de RDP-service is gekoppeld aan de standaardpoort voor RDP, kunnen 3389, nieuwe Services worden gemaakt om verkeer van de externe (8014 8026)-poorten toestaan. De nieuwe poorten kunnen ook worden toegevoegd aan de bestaande RDP-service, maar voor een eenvoudige demonstratie een afzonderlijke regel voor elke server kan worden gemaakt. Maken van een nieuwe RDP-regel voor een server. vanaf het dashboard van de client Barracuda NG Admin, gaat u naar het tabblad configuratie in de operationele configuratiesectie op Ruleset, en vervolgens klikt u op 'Services' in het menu Firewallobjecten, schuif omlaag in de lijst met services en selecteer de service 'RDP'. Met de rechtermuisknop op en selecteert u kopiëren, en vervolgens met de rechtermuisknop op en selecteer plakken. Er is nu een RDP-Copy1-Object dat kan worden bewerkt. Met de rechtermuisknop op de RDP-Copy1 en selecteer bewerken, het serviceobject bewerken venster maximaal zoals hier wordt weergegeven:
+De tweede vereiste objecten zijn Services-objecten. Deze vertegenwoordigt de poorten van de RDP-verbinding voor elke server. Omdat het bestaande object van de RDP-service is gekoppeld aan de standaardpoort voor RDP, kunnen 3389, nieuwe Services worden gemaakt zodat verkeer vanaf de externe poorten (8014-8026). De nieuwe poorten kunnen ook worden toegevoegd aan de bestaande RDP-service, maar voor een eenvoudige demonstratie, een afzonderlijke regel voor elke server worden gemaakt. Het maken van een nieuwe regel voor RDP voor een server. vanaf de Barracuda NG-Beheerdashboard, gaat u naar het tabblad configuratie, in de sectie configuratie van operationele op Ruleset, en vervolgens klikt u op 'Services' onder het menu Firewallobjecten, schuif omlaag in de lijst met services en selecteer de service 'RDP'. Met de rechtermuisknop op en selecteer kopiëren, en vervolgens met de rechtermuisknop op en selecteer plakken. Er is nu een RDP-Copy1 Service-Object dat kan worden bewerkt. Met de rechtermuisknop op de RDP-Copy1 en selecteer bewerken, het serviceobject bewerken venster maximaal zoals hieronder wordt weergegeven:
 
-![Kopie van de standaardregel voor RDP][5]
+![Exemplaar van standaard RDP-regel][5]
 
-De waarden kunnen worden bewerkt ter vertegenwoordiging van de RDP-service voor een specifieke server. Voor AppVM01 de bovenstaande standaardregel voor RDP moet worden gewijzigd naar aanleiding van een nieuwe Service-naam, beschrijving en externe RDP-poort die wordt gebruikt in het diagram afbeelding 8 (Opmerking: de poorten van de RDP-standaardwaarde van 3389 worden gewijzigd in de externe poort die wordt gebruikt voor deze specifieke server in het geval van AppVM01 is de externe poort 8025) de gewijzigde service worden hieronder weergegeven:
+De waarden kunnen worden bewerkt om weer te geven van de RDP-service voor een specifieke server. Voor AppVM01 de bovenstaande standaard RDP-regel moet worden gewijzigd om een nieuwe Service-naam, beschrijving en externe RDP-poort die wordt gebruikt in het diagram afbeelding 8 weer te geven (Opmerking: de poorten van de RDP-standaardwaarde van 3389 zijn gewijzigd in de externe poort die wordt gebruikt voor deze specifieke server in het geval van AppVM01 is de externe poort 8025) de gewijzigde service wordt hieronder weergegeven:
 
 ![AppVM01 regel][6]
 
-Dit proces moet worden herhaald voor het maken van RDP-Services voor de overige servers; AppVM02, DNS01 en IIS01. Het maken van deze Services maakt het maken van de regel eenvoudiger en duidelijker in de volgende sectie.
+Dit proces moet worden herhaald RDP-Services voor de overige servers; te maken AppVM02, DNS01 en IIS01. Het maken van deze Services maakt het maken van de regel eenvoudiger en duidelijker in de volgende sectie.
 
 > [!NOTE]
-> Een RDP-service voor de Firewall is niet nodig om twee redenen; 1) de eerste de firewall VM een installatiekopie op basis van Linux is SSH op poort 22 zou worden gebruikt voor het beheer van de virtuele machine in plaats van RDP en 2)-poort 22, en twee andere poorten zijn toegestaan in de eerste management regel die hieronder worden beschreven om toe te staan voor de connectiviteit van het beheer.
+> Een RDP-service voor de Firewall is niet nodig om twee redenen; (1) eerst de virtuele machine van de firewall een installatiekopie op basis van Linux is, zodat SSH op poort 22 zouden worden gebruikt voor VM-beheer in plaats van RDP, 2) poort 22 en twee andere beheerpoorten zijn toegestaan in de eerste management-regel die hieronder worden beschreven om toe te staan voor de connectiviteit van het beheer.
 > 
 > 
 
 ### <a name="firewall-rules-creation"></a>Firewall-regels maken
-Er zijn drie soorten firewallregels die in dit voorbeeld gebruikt, alle hebben verschillende pictogrammen:
+Er zijn drie typen firewallregels die in dit voorbeeld worden gebruikt, ze allemaal zijn er verschillende pictogrammen:
 
-De regel voor het omleiden van toepassing: ![toepassing omleidings-pictogram][7]
+De omleidings-toepassing-regel: ![Omleidings-toepassingspictogram][7]
 
-De doel-NAT-regel: ![bestemming NAT-pictogram][8]
+De doel-NAT-regel: ![Bestemming NAT-pictogram][8]
 
-De regel op te geven: ![pictogram doorgeven][9]
+De Pass-regel: ![Pass-pictogram][9]
 
-Meer informatie over deze regels kan worden gevonden op de website Barracuda.
+Meer informatie over deze regels kan worden gevonden op de Barracuda web site.
 
-De volgende regels maken (of Controleer of de bestaande standaardregels) starten vanuit het dashboard van de client Barracuda NG Admin gaat u naar het tabblad configuratie, in de configuratie van de operationele sectie Ruleset op. Een raster aangeroepen, 'Main regels' wordt de bestaande regels voor de actieve als gedeactiveerde op deze firewall weergeven. In de rechterbovenhoek van dit raster is een klein, groene '+' knop, klik hierop om een nieuwe regel te maken (Opmerking: uw firewall mogelijk 'vergrendeld' om wijzigingen, als u ziet een knop 'Vergrendelen' gemarkeerd en u zich niet maken of bewerken van regels, klik op deze knop om de regelset 'ontgrendelen' en  bewerken toestaan). Als u bewerken van een bestaande regel wilt, selecteert u deze regel, met de rechtermuisknop op en selecteer regel bewerken.
+Als u wilt maken van de volgende regels (of Controleer of de bestaande standaardregels die), vanaf het dashboard van de client Barracuda NG beheerder gaat u naar het tabblad configuratie, in de configuratie van de operationele sectie klikt u op Ruleset. Een raster met de naam 'Main-regels worden de bestaande regels die actief is en gedeactiveerd weergegeven op de firewall. In de rechterbovenhoek van dit raster is een kleine groene '+' knop, klik hierop om een nieuwe regel te maken (Opmerking: uw firewall mogelijk "vergrendeld" voor wijzigingen, als u ziet een knop 'Vergrendelen' gemarkeerd en u zich niet maken of regels bewerken, klikt u op deze knop om de regelset 'ontgrendelen' en  bewerken toestaan). Als u een bestaande regel bewerken wilt, selecteert u deze regel, met de rechtermuisknop op en selecteer regel bewerken.
 
-Als uw regels zijn gemaakt en/of gewijzigd, moet aan de firewall gepusht en wordt geactiveerd, als u dit niet doet de regel wijzigingen pas van kracht. Het proces push en activering wordt hieronder de beschrijvingen van de regel details beschreven.
+Zodra uw regels zijn gemaakt en/of gewijzigd, moet worden gepusht naar de firewall en wordt geactiveerd, als dit gebeurt niet de wijzigingen in de regel wordt pas van kracht. Het proces van push- en -activering wordt hieronder de beschrijvingen van de regel details beschreven.
 
 De details van elke regel vereist voor het voltooien van dit voorbeeld worden als volgt beschreven:
 
-* **Firewall-regel Management**: deze App omleiden regel staat toe dat verkeer door te geven aan de beheerpoorten van de virtuele netwerkapparaat, in dit voorbeeld van een Barracuda NextGen Firewall. De management-poorten zijn 801, 807 en eventueel 22. De interne en externe poorten zijn hetzelfde (d.w.z. geen poortvertaling). Deze regel, SETUP-MGMT-toegang, is een standaardregel en (in Barracuda NextGen Firewall versie 6.1) standaard ingeschakeld.
+* **Firewall-regel Management**: Deze omleidings-App-regel staat verkeer moet worden doorgegeven aan de beheerpoorten van het virtuele netwerkapparaat, in dit voorbeeld een Barracuda NextGen Firewall. De poorten zijn 801, 807 en eventueel 22. De interne en externe poorten zijn hetzelfde (dat wil zeggen geen poortvertaling genoemd). Deze regel, SETUP-MGMT-toegang, is een standaardregel en standaard ingeschakeld (in de Barracuda NextGen Firewall versie 6.1).
   
-    ![Firewallregel Management][10]
+    ![Firewallregel voor beheer][10]
 
 > [!TIP]
-> De bron-adresruimte in deze regel is aanwezig, als het beheer van IP-adresbereiken gekend zijn, waardoor dit bereik ook sneller de kwetsbaarheid voor aanvallen op de management-poorten.
+> De bron-adresruimte in deze regel is aanwezig, als het beheer van IP-adresbereiken bekend zijn, waardoor dit bereik ook sneller de kwetsbaarheid voor aanvallen op de beheerpoorten.
 > 
 > 
 
-* **Regels voor RDP**: deze bestemming NAT-regels kunnen beheer van de afzonderlijke servers via RDP.
-  Er zijn vier kritieke velden die nodig zijn voor het maken van deze regel:
+* **Regels voor RDP**:  Deze bestemming NAT-regels kunt beheer van de afzonderlijke servers via RDP.
+  Er zijn vier belangrijke velden die nodig zijn voor deze regel maakt:
   
-  1. Bron: zodat RDP 'Een' vanaf elke locatie en de verwijzing wordt gebruikt in het veld bron.
-  2. Service – het juiste serviceobject eerder hebt gemaakt, in dit geval 'AppVM01 RDP' gebruiken, externe poorten doorsturen naar de lokale servers IP-adres en poort 3386 (de standaard RDP-poort). Deze specifieke regel is voor RDP-toegang tot AppVM01.
-  3. Doel – moet het *lokale poort op de firewall*, 'DCHP 1 lokale IP-' of eth0 als statische IP-adressen. Het rangtelwoord (eth0, eth1, enzovoort) is mogelijk anders als uw netwerkapparaat meerdere lokale interfaces heeft. Dit is de poort die de firewall van verstuurt (mogelijk dezelfde zijn als de ontvangende poort), de werkelijke gerouteerde bestemming is in het veld voor de lijst met doelservers.
-  4. Omleiding – dit gedeelte wordt uitgelegd het virtuele apparaat waar u uiteindelijk dit verkeer worden omgeleid. De eenvoudigste omleiding is het IP- en de poort (optioneel) plaatsen in de lijst met doelservers-veld. Als er geen poort wordt gebruikt de doelpoort op de binnenkomende aanvraag worden (ie geen vertaling) gebruikt als een poort is de poort aangewezen worden ook NAT zou samen met het IP-adres adresseren.
+  1. Bron: om toe te staan RDP 'Een' vanaf elke locatie en de verwijzing wordt gebruikt in het veld voor de gegevensbron.
+  2. Service – gebruik de juiste Service-Object dat eerder hebt gemaakt, in dit geval 'AppVM01 RDP', de externe poorten doorsturen naar het lokale IP-adres van servers en naar poort 3386 (de standaard RDP-poort). Deze specifieke regel is voor de RDP-toegang tot AppVM01.
+  3. Doel: moet de *lokale poort op de firewall*, 'DCHP 1 lokale IP'- of eth0 als statische IP-adressen. Het rangtelwoord (eth0, eth1, enzovoort) kan afwijken als uw netwerkapparaat meerdere lokale interfaces heeft. Dit is de poort van de firewall is verzenden (kunnen niet dezelfde zijn als de ontvangende poort), de werkelijke gerouteerde bestemming zich in de doellijst-veld.
+  4. Omleiding: in deze sectie weet het virtuele apparaat waar uiteindelijk dit verkeer omleiden. De eenvoudigste omleiding is te IP en poort (optioneel) te plaatsen in de doellijst-veld. Als er geen poort wordt gebruikt de doelpoort voor de binnenkomende aanvraag is (bijvoorbeeld geen vertaling) gebruikt als een poort is de poort ingesteld worden ook NAT wordt samen met de IP-adres.
      
      ![RDP-firewallregel][11]
      
-     Een totaal van vier RDP regels moet worden gemaakt: 
+     Een totaal van vier regels voor RDP moet worden gemaakt: 
      
-     | Regelnaam | Server | Service | Lijst met doelservers |
+     | Regelnaam | Server | Service | De lijst van doel |
      | --- | --- | --- | --- |
      | RDP-naar-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
      | RDP-naar-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
@@ -318,277 +318,277 @@ De details van elke regel vereist voor het voltooien van dit voorbeeld worden al
      | RDP-naar-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
-> Beperking u het bereik van de bron- en velden beperkt u de kwetsbaarheid voor aanvallen. De meest beperkte mogelijkheden die zorgen de functionaliteit dat ervoor moet worden gebruikt.
+> Het bereik van de bron- en Service-velden technologiegebied vermindert de kwetsbaarheid voor aanvallen. De meest beperkte mogelijkheden die zorgen functionaliteit dat ervoor moet worden gebruikt.
 > 
 > 
 
-* **Toepassing verkeersregels**: Er zijn twee toepassing verkeersregels, de eerste voor het verkeer van de web-front-end en de tweede voor het back-end-verkeer (bijvoorbeeld webserver gegevenslaag). Deze regels, zal afhankelijk zijn van de netwerkarchitectuur (waar uw servers worden geplaatst) en er verkeer stromen (welke richting de verkeersstromen en welke poorten worden gebruikt).
+* **Regels voor netwerkverkeer toepassing**: Er zijn twee toepassing verkeersregels, de eerste voor het verkeer van de web-front-end en de seconde voor het back-end-verkeer (bijvoorbeeld webserver als de gegevenslaag). Deze regels wordt afhankelijk van de netwerkarchitectuur (waarin uw servers worden geplaatst) en stromen-verkeer (welke richting het verkeer verloopt, en op welke poorten worden gebruikt).
   
-    Eerst besproken, is de front-end-regel voor internetverkeer:
+    Eerst besproken, is de front-end-regel voor webverkeer te genereren:
   
     ![Web-firewallregel][12]
   
-    Deze bestemming NAT-regel kan het verkeer van de toepassing om de toepassingsserver te bereiken. Terwijl de andere regels toestaan voor de beveiliging, beheer, enz., zijn toepassing regels wat externe gebruikers of services voor toegang tot de toepassing(en) toestaan. In dit voorbeeld is er één webserver op poort 80, dus de firewallregel die één toepassing binnenkomend verkeer worden omgeleid naar het externe IP-adres, het web servers interne IP-adres.
+    Deze bestemming NAT-regel staat de feitelijke toepassingsverkeer bereiken van de toepassingsserver. Terwijl de andere regels voor de beveiliging, beheer, enzovoort, zijn regels voor Application wat kunnen externe gebruikers of -services tot de toepassingen. In dit voorbeeld is er één webserver op poort 80, dus de firewallregel voor één toepassing binnenkomend verkeer wordt omgeleid naar het externe IP-adres, naar het interne IP-adres van web-servers.
   
-    **Opmerking**: dat er is geen poort toegewezen in het veld doellijst, dus de binnenkomende poort 80 (of 443 voor de geselecteerde Service) worden gebruikt voor het omleiden van de webserver. Als de webserver luistert op een andere poort, bijvoorbeeld poort 8080, wordt het veld doellijst kan worden bijgewerkt naar 10.0.1.4:8080 om toe te staan voor de poort-omleiding.
+    **Houd er rekening mee**: dat er is geen poort toegewezen in het veld doellijst, dus de binnenkomende poort 80 (of 443 voor de geselecteerde Service) worden gebruikt voor het omleiden van de webserver. Als de webserver op een andere poort luistert, bijvoorbeeld poort 8080, de doellijst veld kan worden bijgewerkt naar 10.0.1.4:8080 om toe te staan voor de poort-omleiding.
   
-    De volgende regel van toepassing verkeer is het back-end-regel voor het toestaan dat de webserver Neem contact op met de server AppVM01 (maar niet AppVM02) via elke service:
+    De volgende regel van toepassing verkeer is de back-end-regel waarmee de webserver om te communiceren met de server AppVM01 (maar niet AppVM02) via een service:
   
-    ![AppVM01 firewallregel][13]
+    ![Firewallregel AppVM01][13]
   
-    Met deze regel op te geven kunnen elke IIS-server op het subnet Frontend bereiken van de AppVM01 (IP-adres 10.0.2.5) met behulp van elk Protocol voor toegang tot gegevens die nodig is voor de webtoepassing op een willekeurige poort.
+    Met deze regel Pass kunnen elke IIS-server op het subnet Frontend naar de AppVM01 bereiken (IP-adres 10.0.2.5) met behulp van elk Protocol voor toegang tot gegevens die nodig zijn voor de web-App op een willekeurige poort.
   
-    In deze schermafdruk een '\<expliciete-dest\>' in het doelveld wordt gebruikt om aan te duiden 10.0.2.5 als doel. Dit kan zijn expliciete zoals wordt weergegeven of een met de naam netwerkobject (net als bij de vereisten voor de DNS-server). Dit is aan de beheerder van de firewall wat betreft welke methode wordt gebruikt. Als u wilt toevoegen 10.0.2.5 als een Explict Desitnation, dubbelklik op de eerste lege rij onder \<expliciete-dest\> en voer het adres in het venster dat wordt weergegeven.
+    In deze schermopname een "\<expliciete-dest\>' in het veld bestemming wordt gebruikt om aan te duiden 10.0.2.5 als doel. Dit kan zijn expliciete zoals wordt weergegeven of een met de naam netwerkobject (zoals is gedaan in de vereisten voor de DNS-server). Dit is aan de beheerder van de firewall in welke methode wordt gebruikt. Als u wilt toevoegen 10.0.2.5 als een Explict Desitnation, dubbelklikt u op de eerste lege rij onder \<expliciete-dest\> en voer het adres in het venster dat verschijnt.
   
-    Met deze regel geeft is geen NAT nodig omdat dit interne verkeer, is zodat de verbindingsmethode kan worden ingesteld op 'Nee snat omzetten'.
+    Met deze regel doorgeeft, is geen NAT omdat dit intern verkeer, zodat de verbindingsmethode kan worden ingesteld op 'Geen SNAT' nodig.
   
-    **Opmerking**: het Bronnetwerk in deze regel wordt een resource in het subnet FrontEnd als er slechts één of een bekende specifiek aantal webservers, een netwerkobject resource kan worden gemaakt als u wilt meer specifiek zijn voor de exacte IP-adressen in plaats van de gehele Frontend-subnet.
+    **Opmerking**: Het Bronnetwerk in deze regel is een resource op het subnet FrontEnd als er slechts één of een bekende specifiek aantal webservers, een resource-netwerkobject kan worden gemaakt als u wilt meer specifieke zodat deze exacte IP-adressen in plaats van de volledige-front-endsubnet.
 
 > [!TIP]
-> Deze regel maakt gebruik van de service 'Any' om de voorbeeldtoepassing vereenvoudigen instellen en gebruiken, ook hierdoor ICMPv4 (ping) in een enkele regel. Dit is echter niet aanbevolen. De poorten en protocollen ('Services') moeten worden teruggebracht tot het minimum mogelijk waarmee de toepassing opnieuw aan de kwetsbaarheid voor aanvallen via deze grens te reduceren.
+> Met deze regel maakt gebruik van de service 'Alle' om de voorbeeld-App gemakkelijker instellen en gebruiken, kan dit ICMPv4 (ping) in een enkele regel. Dit is echter niet aanbevolen. De poorten en protocollen ("Services") moeten worden teruggebracht tot het minimum mogelijk waarmee de toepassing opnieuw te verminderen van de kwetsbaarheid voor aanvallen via deze grens.
 > 
 > 
 
 <br />
 
 > [!TIP]
-> Hoewel met deze regel een verwijzing naar een expliciete-dest wordt gebruikt bevat, moet een consistente manier worden gebruikt in de firewallconfiguratie. Het verdient aanbeveling dat het benoemde netwerk-Object worden gebruikt in de gehele voor gemakkelijker leesbaarheid en ondersteuningsmogelijkheden. De expliciete-dest wordt hier alleen gebruikt om een alternatieve verwijzing naar de methode show en wordt over het algemeen niet aanbevolen (met name voor complexe configuraties).
+> Hoewel met deze regel een verwijzing naar een expliciete-doel wordt gebruikt bevat, moet een consistent benadering worden gebruikt in de gehele configuratie van de firewall. Het verdient aanbeveling dat het benoemde netwerkobject in de gehele worden gebruikt voor de leesbaarheid te vergemakkelijken en ondersteuningsmogelijkheden. De expliciete-dest hier alleen om weer te geven van een andere referentiemethode wordt gebruikt en wordt in het algemeen niet aanbevolen (met name voor complexe configuraties).
 > 
 > 
 
-* **Uitgaand naar Internet regel**: doorgeven voor deze regel wordt verkeer van een Bronnetwerk moeten worden doorgegeven aan de geselecteerde doelnetwerken toestaan. Deze regel is een standaardregel meestal al op de Barracuda NextGen firewall, maar is uitgeschakeld. Met de rechtermuisknop op deze regel hebben toegang tot de opdracht activeren regel. De regel die hier worden weergegeven is als u wilt de twee lokale subnetten die zijn gemaakt als verwijzingen in de sectie vereisten van dit document toevoegen aan het bronkenmerk van deze regel gewijzigd.
+* **Uitgaand naar Internetregel**: Deze regel Pass wordt verkeer van elk Bronnetwerk moeten worden doorgegeven aan de geselecteerde bestemming netwerken toestaan. Deze regel is een standaardregel gewoonlijk al op de Barracuda NextGen firewall, maar heeft een uitgeschakelde status. Met de rechtermuisknop op deze regel hebben toegang tot de opdracht activeren regel. De regel die hier worden weergegeven is als u wilt toevoegen van de twee lokale subnetten die zijn gemaakt als verwijzingen in de sectie vereisten van dit document aan het bronkenmerk van deze regel gewijzigd.
   
-    ![Uitgaande firewallregel][14]
-* **Een DNS-regel**: deze doorgeven regel staat toe dat alleen DNS (poort 53)-verkeer door te geven aan de DNS-server. Deze regel kunnen specifiek DNS voor deze omgeving die de meeste verkeer van de FrontEnd naar de back-end is geblokkeerd.
+    ![Uitgaande-firewallregel][14]
+* **Een DNS-regel**: Deze regel Pass kunnen alleen DNS (poort 53)-verkeer moeten worden doorgegeven aan de DNS-server. Deze regel kunnen voor deze omgeving die meeste verkeer van de front-end naar de back-end wordt geblokkeerd, specifiek DNS.
   
     ![DNS-firewallregel][15]
   
-    **Opmerking**: In dit scherm opname de verbindingsmethode is opgenomen. Omdat deze regel is voor intern IP-adres voor verkeer van interne IP-adres, wordt geen NATing is vereist, wordt deze de verbindingsmethode is ingesteld op 'Nee snat omzetten' voor deze regel op te geven.
-* **Subnet naar Subnet regel**: doorgeven voor deze regel is een standaardregel die zijn geactiveerd en gewijzigd zodat alle servers in het subnet van de back-end verbinding maken met een willekeurige server in de front-end-subnet. Deze regel is alle interne verkeer, zodat de verbindingsmethode kan worden ingesteld op Nee snat omzetten.
+    **Opmerking**: In dit scherm is de verbindingsmethode shot opgenomen. Omdat met deze regel voor interne IP-adres op het interne IP-adres verkeer is, wordt geen NATing is vereist, wordt dit de verbindingsmethode is ingesteld op "Geen SNAT" voor deze regel Pass.
+* **Subnet naar Subnet regel**: Deze regel Pass is een standaardregel die is geactiveerd en gewijzigd, zodat elke server in de back-end-subnet verbinding maken met elke server in de front-end-subnet. Deze regel is alle intern verkeer, zodat de verbindingsmethode kan worden ingesteld op Nee SNAT.
   
     ![Intra-VNet-firewallregel][16]
   
-    **Opmerking**: het selectievakje in twee richtingen niet is ingeschakeld (noch is ingeschakeld in de meeste regels), dit is van belang voor deze regel maakt deze regel 'eenrichtings', een verbinding kan worden gestart vanuit de back-end-subnet met het netwerk front-end, maar niet de omgekeerde. Als dit selectievakje is ingeschakeld, zou deze regel in twee richtingen verkeer, wat van onze logisch diagram niet inschakelen.
-* **Alle Verkeersregel voor weigeren**: dit moet altijd de laatste regel (in termen van prioriteit), en als zodanig als een verkeersstromen niet overeen met een van de voorgaande regels wordt door deze regel wordt verwijderd. Dit is een standaardregel en meestal geactiveerd, worden er zijn geen wijzigingen in het algemeen nodig. 
+    **Opmerking**: Het selectievakje bidirectionele niet is ingeschakeld (en er wordt gecontroleerd in de meeste regels), dit is van belang voor deze regel wordt deze regel 'eenrichtings', een verbinding kan worden gestart vanuit de back-end-subnet op de front-endnetwerk, maar niet andersom. Als dit selectievakje is ingeschakeld, zou deze regel bidirectioneel verkeer, die uit onze logisch diagram niet gewenst is inschakelen.
+* **Alle Verkeersregel voor weigeren**: Dit moet altijd de laatste regel (voor wat betreft prioriteit) en als zodanig als een verkeer stroomt zodat deze overeenkomt met een van de vorige regels die wordt deze verwijderd door deze regel is mislukt. Dit is een standaardregel en zijn meestal geactiveerd, worden geen wijzigingen zijn aangebracht in het algemeen nodig. 
   
     ![Regel voor weigeren van Firewall][17]
 
 > [!IMPORTANT]
-> Zodra alle bovenstaande regels zijn gemaakt, is het belangrijk om te controleren van de prioriteit van elke regel om ervoor te zorgen verkeer wordt toegestaan of geweigerd desgewenst. In dit voorbeeld zijn de regels in de volgorde die ze moeten worden weergegeven in het raster Main regels in de Barracuda Management-Client te sturen.
+> Nadat u alle bovenstaande regels hebt gemaakt, is het belangrijk om te controleren van de prioriteit van elke regel om te controleren of verkeer wordt toegestaan of geweigerd naar wens. In dit voorbeeld worden de regels in de volgorde waarin die ze moeten worden weergegeven in het raster Main regels in de Barracuda-Management-Client door te sturen.
 > 
 > 
 
 ## <a name="rule-activation"></a>Activering van de regel
-Met de ruleset aan de specificatie van het diagram logica is gewijzigd, moet de ruleset worden geüpload naar de firewall en wordt geactiveerd.
+Met het ruleset is gewijzigd, zodat de specificatie van het diagram logica, moet de regelset worden geüpload naar de firewall en wordt geactiveerd.
 
-![Activering van de firewall-regel][18]
+![Activering van Firewall-regel][18]
 
-In de rechterbovenhoek van de management-client zijn een cluster van knoppen. Klik op de knop 'Wijzigingen verzenden' voor het verzenden van de gewijzigde regels op de firewall en klik vervolgens op de knop 'Activeren'.
+In de rechterbovenhoek van de management-client zijn een cluster van de knoppen. Klik op de knop 'Wijzigingen verzenden' voor het verzenden van de gewijzigde regels aan de firewall en klik vervolgens op de knop 'Activeren'.
 
-Deze versie van de omgeving voorbeeld is voor de activering van de firewall ruleset voltooid.
+Met de activering van de regelset van de firewall zijn in dit voorbeeld omgeving build is voltooid.
 
-## <a name="traffic-scenarios"></a>Verkeer scenario 's
+## <a name="traffic-scenarios"></a>Scenario's voor verkeer
 > [!IMPORTANT]
-> Een sleutel takeway is om te weten dat **alle** verkeer wordt geleverd door de firewall. Dus met extern bureaublad met de server IIS01 wordt zelfs als het in de Front-End-Cloudservice en op de front-end-subnet voor toegang tot deze server RDP moet aan de firewall op poort 8014, en vervolgens de firewall voor het routeren van de RDP-aanvraag intern met de RDP-Por IIS01 toestaan t. Knop voor de Azure portal 'Verbinden' werkt niet omdat er geen directe RDP-pad naar IIS01 (zo ver mogelijk de portal kunt zien). Dit betekent dat alle verbindingen van internet naar de Security-Service en een poort, bijvoorbeeld secscv001.cloudapp.net:xxxx.
+> Een sleutel takeway is om te weten dat **alle** verkeer wordt geleverd via de firewall. Dus met extern bureaublad op de server IIS01, zelfs al is het in de Front-End-Cloudservice en op de Front-End-subnet, voor toegang tot deze server we RDP moet aan de firewall op poort 8014 en vervolgens de firewall voor het routeren van de RDP-aanvraag intern met de RDP-Por IIS01 toestaan t. De knop 'Verbinden' van de Azure portal werkt niet omdat er geen directe RDP-pad naar IIS01 (zo lang de portal kunt zien). Dit betekent dat alle verbindingen vanuit het internet worden naar de Service en een poort, bijvoorbeeld secscv001.cloudapp.net:xxxx.
 > 
 > 
 
-Voor deze scenario's, moeten de volgende firewallregels zijn voldaan:
+Voor deze scenario's moeten de volgende firewallregels zijn voldaan:
 
-1. Beheer van Firewall
-2. RDP naar IIS01
-3. RDP naar DNS01
-4. RDP naar AppVM01
-5. RDP naar AppVM02
-6. App-verkeer naar het Web
+1. Firewallbeheer
+2. RDP-verbinding IIS01
+3. RDP-verbinding DNS01
+4. RDP-verbinding AppVM01
+5. RDP-verbinding AppVM02
+6. Verkeer naar de Web-App
 7. App-verkeer naar AppVM01
-8. Uitgaand naar het Internet
+8. Uitgaand naar Internet
 9. Frontend naar DNS01
-10. Intra-subnetverkeer (back-end-front-end alleen)
-11. Alles weigeren
+10. Intra-Subnet-verkeer (back-end aan de front-end alleen)
+11. Alles negeren
 
-De werkelijke firewall ruleset wordt waarschijnlijk veel andere regels naast deze informatie, de regels op een bepaalde firewall wordt ook beschikken over verschillende prioriteitsnummers dan degene die hier worden vermeld. Deze lijst en de bijbehorende cijfers worden relevantie tussen alleen deze elf regels en de relatieve prioriteit onder ze bieden. Met andere woorden; op de werkelijke firewall kan de 'RDP naar IIS01' regel getal 5, maar als het zich onder de regel 'Firewallbeheer' en boven de regel 'RDP-DNS01' zou uitgelijnd met de bedoeling van deze lijst. De lijst helpt ook bij het onderstaande scenario's zodat beknopt alternatief bevat; bijvoorbeeld 'FW regel 9 (DNS)'. Ook als beknopt alternatief bevat, de vier regels voor RDP wordt gezamenlijk aangeroepen, 'de RDP-regels' wanneer het verkeer scenario houdt geen verband met RDP.
+De werkelijke firewall ruleset waarschijnlijk veel andere regels naast deze hebben, de regels op elke opgegeven firewall heeft ook verschillende prioriteitsnummers dan blobs die hier worden vermeld. Deze lijst en de bijbehorende nummers zijn voor relevantie tussen alleen deze elf regels en de relatieve prioriteit onder deze. Met andere woorden; op de werkelijke firewall kan de "RDP naar IIS01" regel getal 5, maar als deze zich onder de regel 'Firewall Management' en boven de regel "RDP-DNS01" het zou uitlijnen met de bedoeling van deze lijst. De lijst met helpt ook bij de onderstaande scenario's zodat beknoptheid; bijv. "FW regel 9 (DNS)". Ook voor kort te houden, de vier regels voor RDP gezamenlijk genoemd, 'de regels voor RDP' wanneer het verkeer scenario heeft geen betrekking op RDP.
 
-Ook intrekken dat Netwerkbeveiligingsgroepen in-place zijn voor binnenkomend internetverkeer op de front-end- en back-end-subnetten.
+Ook intrekken dat Netwerkbeveiligingsgroepen in-place worden voor inkomend internetverkeer op de front-end en back-end-subnetten.
 
 #### <a name="allowed-internet-to-web-server"></a>(Toegestaan) Internet-webserver
-1. Internet aanvragen HTTP-gebruikerspagina van SecSvc001.CloudApp.Net (Internet Facing Cloud Service)
-2. Cloud-service geeft verkeer via open eindpunten op poort 80 voor firewall-interface op 10.0.0.4:80
-3. Er is geen NSG die is toegewezen aan beveiliging subnet, geval system NSG-regels verkeer firewall toestaan
-4. Verkeer komt binnen via interne IP-adres van de firewall (10.0.1.4)
+1. Internet gebruiker aanvragen HTTP-pagina van SecSvc001.CloudApp.Net (Internet Facing Cloud Service)
+2. Cloud service-passen verkeer via de open-eindpunt op poort 80 voor firewall-interface op 10.0.0.4:80
+3. Er is geen NSG die is toegewezen aan Security subnet, dus system NSG-regels verkeer firewall toestaan
+4. Verkeer komt binnen via het interne IP-adres van de firewall (10.0.1.4)
 5. Firewall begint regelverwerking:
    1. FW regel 1 (FW Mgmt) niet van toepassing, verplaatsen naar de volgende regel
-   2. FW regels (regels RDP), 2-5 niet toepassen, verplaatsen naar de volgende regel
-   3. FW regel 6 (App: Web) is van toepassing, verkeer wordt toegestaan, firewall NAT's naar 10.0.1.4 (IIS01)
+   2. FW-regels (regels voor RDP) 2-5 niet van toepassing, verplaatsen naar de volgende regel
+   3. FW regel 6 (App: Web) is van toepassing, verkeer is toegestaan, firewall NAT's worden 10.0.1.4 (IIS01)
 6. Het subnet Frontend begint verwerking van inkomende regel:
-   1. NSG-regel 1 (Internet blokkeren) is niet van toepassing (dit verkeer is NAT zou door de firewall, het adres van de bronserver is dus nu de firewall die zich in het subnet van de beveiliging en zichtbaar zijn voor het subnet Frontend NSG moet 'lokaal' verkeer en is dus toegestaan), verplaatsen naar de volgende regel
-   2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
-7. IIS01 luistert voor internetverkeer, ontvangt deze aanvraag en begint met de verwerking van de aanvraag
-8. IIS01 pogingen tot initieert een FTP-sessie naar AppVM01 op subnet Backend
-9. De route UDR op subnet Frontend maakt de firewall van de volgende hop
-10. Er is geen uitgaande regels op subnet Frontend verkeer wordt toegestaan.
+   1. NSG-regel 1 (Internet blokkeren) is niet van toepassing (dit verkeer is NAT wordt door de firewall, het adres van de bronserver is dus nu de firewall die zich in het subnet van de beveiliging en "local" verkeer worden gezien door de front-end-subnet-NSG en dus is toegestaan), verplaatsen naar de volgende regel
+   2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
+7. IIS01 luistert voor webverkeer te genereren, ontvangt deze aanvraag en begint met de verwerking van de aanvraag
+8. Pogingen tot IIS01 initieert een FTP-sessie naar AppVM01 op back-end-subnet
+9. De UDR-route voor subnet Frontend maakt de firewall van de volgende hop
+10. Er is geen uitgaande regels op de front-endsubnet, verkeer is toegestaan
 11. Firewall begint regelverwerking:
     1. FW regel 1 (FW Mgmt) niet van toepassing, verplaatsen naar de volgende regel
-    2. FW regel 2-5 (RDP-regels) niet van toepassing, verplaatsen naar de volgende regel
+    2. FW-regel 2-5 (regels voor RDP) niet van toepassing, verplaatsen naar de volgende regel
     3. FW regel 6 (App: Web) niet van toepassing, verplaatsen naar de volgende regel
-    4. FW regel 7 (App: back-end) is van toepassing, verkeer is toegestaan, firewall stuurt het verkeer naar 10.0.2.5 (AppVM01)
-12. Het back-end-subnet begint verwerking van inkomende regel:
-    1. NSG-regel 1 (Internet Block) niet van toepassing, verplaatsen naar de volgende regel
-    2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
-13. AppVM01 ontvangt de aanvraag en start van de sessie en antwoordt
-14. De route UDR op subnet Backend maakt de firewall van de volgende hop
-15. Aangezien er zijn geen uitgaande NSG-regels in het back-end-subnet dat het antwoord is toegestaan
-16. Omdat dit verkeer op een vastgestelde sessie retourneert stuurt de firewall het antwoord terug naar de webserver (IIS01)
-17. Subnet frontend begint verwerking van inkomende regel:
-    1. NSG-regel 1 (Internet Block) niet van toepassing, verplaatsen naar de volgende regel
-    2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
-18. De IIS-server het antwoord ontvangt, de transactie met AppVM01 en daarna voltooit de HTTP-antwoord bouwen, wordt deze HTTP-antwoord verzonden naar de aanvrager
-19. Aangezien er zijn geen uitgaande NSG-regels in het antwoord is toegestaan subnet Frontend
-20. Het HTTP-antwoord treffers in de firewall en omdat dit het antwoord op een NAT-sessie tot stand gebrachte is wordt geaccepteerd door de firewall
-21. De firewall stuurt vervolgens door het antwoord terug naar de Internet-gebruiker
-22. Omdat er geen uitgaande ontvangt NSG-regels of UDR hops op het subnet Frontend het antwoord is toegestaan en de Internet-gebruiker de aangevraagde webpagina.
+    4. FW regel 7 (App: Back-end) is van toepassing, verkeer is toegestaan, firewall doorgestuurd verkeer naar 10.0.2.5 (AppVM01)
+12. De back-end-subnet begint verwerking van inkomende regel:
+    1. NSG-regel 1 (Internet blokkeren) niet van toepassing, verplaatsen naar de volgende regel
+    2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
+13. AppVM01 ontvangt de aanvraag en de sessie start en reageert
+14. De UDR-route op back-end-subnet wordt de firewall van de volgende hop
+15. Omdat er zijn geen uitgaande NSG-regels op de back-end-subnet dat het antwoord is toegestaan
+16. Omdat dit verkeer voor een vastgestelde sessie retourneert het antwoord terug naar de webserver (IIS01) wordt doorgegeven door de firewall
+17. Front-endsubnet begint verwerking van inkomende regel:
+    1. NSG-regel 1 (Internet blokkeren) niet van toepassing, verplaatsen naar de volgende regel
+    2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
+18. De IIS-server-antwoord is ontvangen, is de transactie met AppVM01 voltooid en daarna voltooit het bouwen van het HTTP-antwoord, is deze HTTP-antwoord verzonden naar de aanvrager
+19. Omdat er zijn geen uitgaande NSG-regels op het subnet Frontend dat het antwoord is toegestaan
+20. Het HTTP-antwoord komt binnen via de firewall, en omdat dit de reactie op een vastgestelde NAT-sessie is door de firewall wordt geaccepteerd
+21. De firewall vervolgens het antwoord terug naar de Internet-gebruiker wordt omgeleid
+22. Omdat er geen uitgaande ontvangt NSG-regels of UDR-hops op het subnet Frontend het antwoord is toegestaan en de Internet-gebruiker de webpagina die is aangevraagd.
 
-#### <a name="allowed-internet-rdp-to-backend"></a>(Toegestaan) Internet RDP met back-end
-1. RDP-sessie op AppVM01 via SecSvc001.CloudApp.Net:8025, waarbij 8025 het poortnummer van de gebruiker die is toegewezen voor de firewallregel 'RDP-AppVM01 is' serverbeheerder op internet-aanvragen
-2. Geeft de cloudservice-verkeer via de open eindpunten op poort 8025 voor firewall-interface op 10.0.0.4:8025
-3. Er is geen NSG die is toegewezen aan beveiliging subnet, geval system NSG-regels verkeer firewall toestaan
+#### <a name="allowed-internet-rdp-to-backend"></a>(Toegestaan) Internet RDP naar back-end
+1. De serverbeheerder op internet vraagt RDP-sessie naar AppVM01 via SecSvc001.CloudApp.Net:8025, waarbij 8025 het poortnummer van de gebruiker die is toegewezen voor de firewallregel "RDP-AppVM01 is"
+2. De cloudservice wordt doorgegeven verkeer via het open-eindpunt op poort 8025 firewall-interface op 10.0.0.4:8025
+3. Er is geen NSG die is toegewezen aan Security subnet, dus system NSG-regels verkeer firewall toestaan
 4. Firewall begint regelverwerking:
    1. FW regel 1 (FW Mgmt) niet van toepassing, verplaatsen naar de volgende regel
    2. FW regel 2 (RDP IIS) niet van toepassing, verplaatsen naar de volgende regel
    3. FW regel 3 (RDP DNS01) niet van toepassing, verplaatsen naar de volgende regel
-   4. FW regel 4 (RDP AppVM01) is van toepassing, het verkeer wordt toegestaan, firewall NAT's naar 10.0.2.5:3386 (RDP-poort op AppVM01)
-5. Het back-end-subnet begint verwerking van inkomende regel:
-   1. NSG-regel 1 (Internet blokkeren) is niet van toepassing (dit verkeer is NAT zou door de firewall, het adres van de bronserver is dus nu de firewall die zich in het subnet van de beveiliging en zichtbaar zijn voor het subnet voor back-end NSG moet 'lokaal' verkeer en is dus toegestaan), verplaatsen naar de volgende regel
-   2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
-6. AppVM01 voor RDP-verkeer luistert en antwoordt
-7. Standaardregels toepassen met geen uitgaande NSG-regels en terugkerend verkeer is toegestaan
-8. UDR routes uitgaand verkeer naar de firewall als de volgende hop
-9. Omdat dit verkeer op een vastgestelde sessie retourneert het antwoord terug naar de internet-gebruiker wordt doorgegeven door de firewall
+   4. FW regel 4 (RDP AppVM01) is van toepassing, verkeer is toegestaan, firewall NAT's worden 10.0.2.5:3386 (RDP-poort op AppVM01)
+5. De back-end-subnet begint verwerking van inkomende regel:
+   1. NSG-regel 1 (Internet blokkeren) is niet van toepassing (dit verkeer is NAT wordt door de firewall, het adres van de bronserver is dus nu de firewall die zich in het subnet van de beveiliging en "local" verkeer worden gezien door de back-end-subnet-NSG en dus is toegestaan), verplaatsen naar de volgende regel
+   2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
+6. AppVM01 luistert voor RDP-verkeer en reageert
+7. Standaardregels toepassen met geen uitgaande NSG-regels, en terugkerend verkeer is toegestaan
+8. UDR-routes voor uitgaand verkeer naar de firewall als de volgende hop
+9. Omdat dit verkeer voor een vastgestelde sessie retourneert het antwoord terug naar de gebruiker internet wordt doorgegeven door de firewall
 10. RDP-sessie is ingeschakeld
-11. AppVM01 gebruikersnaam wachtwoord gevraagd
+11. AppVM01 vraagt om wachtwoord van de naam van gebruiker
 
-#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Toegestaan) Web Server DNS-lookup op DNS-server
-1. Web Server, IIS01, moet een gegevensfeed op www.data.gov, maar moet u het adres omzetten.
-2. De netwerkconfiguratie voor de VNet-lijsten DNS01 (10.0.2.4 op het subnet voor back-end) als de primaire DNS-server, IIS01 verzendt de DNS-aanvraag naar DNS01
-3. UDR routes uitgaand verkeer naar de firewall als de volgende hop
-4. Er is geen uitgaand NSG-regels zijn gebonden aan het subnet Frontend, is verkeer toegestaan
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Toegestaan) Web Server-DNS-zoekactie op DNS-server
+1. Web Server, IIS01, een gegevensfeed op www.data.gov behoeften, maar moet het adres omzetten.
+2. De netwerkconfiguratie voor de VNet-lijsten DNS01 (10.0.2.4 op de back-end-subnet) als de primaire DNS-server, IIS01 verzendt de DNS-aanvraag naar DNS01
+3. UDR-routes voor uitgaand verkeer naar de firewall als de volgende hop
+4. Er is geen uitgaande NSG-regels zijn gebonden aan het Frontend-subnet, is verkeer toegestaan
 5. Firewall begint regelverwerking:
    1. FW regel 1 (FW Mgmt) niet van toepassing, verplaatsen naar de volgende regel
-   2. FW regel 2-5 (RDP-regels) niet van toepassing, verplaatsen naar de volgende regel
+   2. FW-regel 2-5 (regels voor RDP) niet van toepassing, verplaatsen naar de volgende regel
    3. FW regels 6 en 7 (App-regels) niet van toepassing, verplaatsen naar de volgende regel
    4. FW regel 8 (met Internet) niet van toepassing, verplaatsen naar de volgende regel
-   5. FW regel 9 (DNS) is van toepassing, verkeer is toegestaan, firewall stuurt het verkeer naar 10.0.2.4 (DNS01)
-6. Het back-end-subnet begint verwerking van inkomende regel:
-   1. NSG-regel 1 (Internet Block) niet van toepassing, verplaatsen naar de volgende regel
-   2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
+   5. FW regel 9 (DNS) is van toepassing, verkeer is toegestaan, firewall doorgestuurd verkeer naar 10.0.2.4 (DNS01)
+6. De back-end-subnet begint verwerking van inkomende regel:
+   1. NSG-regel 1 (Internet blokkeren) niet van toepassing, verplaatsen naar de volgende regel
+   2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
 7. DNS-server ontvangt de aanvraag
 8. DNS-server beschikt niet over het adres in de cache opgeslagen en wordt u gevraagd een basis-DNS-server op het internet
-9. UDR routes uitgaand verkeer naar de firewall als de volgende hop
-10. Er is geen uitgaand NSG-regels op subnet Backend, verkeer is toegestaan.
+9. UDR-routes voor uitgaand verkeer naar de firewall als de volgende hop
+10. Er is geen uitgaande NSG-regels op back-end-subnet, verkeer is toegestaan.
 11. Firewall begint regelverwerking:
     1. FW regel 1 (FW Mgmt) niet van toepassing, verplaatsen naar de volgende regel
-    2. FW regel 2-5 (RDP-regels) niet van toepassing, verplaatsen naar de volgende regel
+    2. FW-regel 2-5 (regels voor RDP) niet van toepassing, verplaatsen naar de volgende regel
     3. FW regels 6 en 7 (App-regels) niet van toepassing, verplaatsen naar de volgende regel
-    4. Geldt FW regel 8 (met Internet), verkeer is toegestaan, sessie snat omzetten uit naar basis-DNS-server op het Internet is
+    4. FW regel 8 (met Internet) is van toepassing, verkeer is toegestaan, sessie is SNAT uit naar basis-DNS-server op het Internet
 12. Internet-DNS-server reageert, omdat deze sessie is geïnitieerd door de firewall, het antwoord wordt geaccepteerd door de firewall
-13. Omdat dit een vastgestelde sessie, stuurt de firewall het antwoord aan de gang worden gezet DNS01-server
-14. Het back-end-subnet begint verwerking van inkomende regel:
-    1. NSG-regel 1 (Internet Block) niet van toepassing, verplaatsen naar de volgende regel
-    2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
-15. De DNS-server ontvangt het antwoord plaatst en vervolgens reageert op de eerste aanvraag terug naar IIS01
-16. De route UDR op subnet backend maakt de firewall van de volgende hop
-17. Er bestaat geen uitgaande NSG-regels op het subnet voor back-end, is verkeer toegestaan
+13. Omdat deze een vastgestelde sessie, stuurt de firewall het antwoord op de initiërende DNS01-server
+14. De back-end-subnet begint verwerking van inkomende regel:
+    1. NSG-regel 1 (Internet blokkeren) niet van toepassing, verplaatsen naar de volgende regel
+    2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
+15. De DNS-server ontvangt en plaatst het antwoord en klik vervolgens op de eerste aanvraag terug naar IIS01 reageert
+16. De UDR-route op back endsubnet wordt de firewall van de volgende hop
+17. Er zijn geen uitgaande NSG-regels bestaan in de back-end-subnet, is verkeer toegestaan
 18. Dit is een vastgestelde sessie op de firewall, het antwoord wordt doorgestuurd door de firewall terug naar de IIS-server
-19. Subnet frontend begint verwerking van inkomende regel:
-    1. Er is geen NSG-regel voor inkomend verkeer van de back-end-subnet met het subnet Frontend, zodat geen van de NSG regels toepassen
+19. Front-endsubnet begint verwerking van inkomende regel:
+    1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
     2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan
-20. IIS01 ontvangt het antwoord van DNS01
+20. IIS01-antwoord is ontvangen van DNS01
 
-#### <a name="allowed-backend-server-to-frontend-server"></a>(Toegestaan) Back-endserver met Frontend-server
-1. Een beheerder AppVM02 via RDP aangemeld op opvraagt een bestand rechtstreeks vanaf de server IIS01 via windows Verkenner
-2. De route UDR op subnet Backend maakt de firewall van de volgende hop
-3. Aangezien er zijn geen uitgaande NSG-regels in het back-end-subnet dat het antwoord is toegestaan
+#### <a name="allowed-backend-server-to-frontend-server"></a>(Toegestaan) Back-endserver met front-end-server
+1. Een beheerder is aangemeld bij AppVM02 via RDP vraagt een bestand rechtstreeks vanaf de server IIS01 via windows Verkenner
+2. De UDR-route op back-end-subnet wordt de firewall van de volgende hop
+3. Omdat er zijn geen uitgaande NSG-regels op de back-end-subnet dat het antwoord is toegestaan
 4. Firewall begint regelverwerking:
    1. FW regel 1 (FW Mgmt) niet van toepassing, verplaatsen naar de volgende regel
-   2. FW regel 2-5 (RDP-regels) niet van toepassing, verplaatsen naar de volgende regel
+   2. FW-regel 2-5 (regels voor RDP) niet van toepassing, verplaatsen naar de volgende regel
    3. FW regels 6 en 7 (App-regels) niet van toepassing, verplaatsen naar de volgende regel
    4. FW regel 8 (met Internet) niet van toepassing, verplaatsen naar de volgende regel
    5. FW regel 9 (DNS) niet van toepassing, verplaatsen naar de volgende regel
    6. FW regel 10 (Intra-Subnet) is van toepassing, verkeer is toegestaan, firewall verkeer doorgegeven aan 10.0.1.4 (IIS01)
-5. Subnet frontend begint verwerking van inkomende regel:
-   1. NSG-regel 1 (Internet Block) niet van toepassing, verplaatsen naar de volgende regel
-   2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
-6. Als de juiste verificatie en autorisatie, IIS01 accepteert de aanvraag en reageert
-7. De route UDR op subnet Frontend maakt de firewall van de volgende hop
-8. Aangezien er zijn geen uitgaande NSG-regels in het antwoord is toegestaan subnet Frontend
-9. Omdat dit een bestaande sessie op de firewall voor deze reactie is toegestaan en de firewall retourneert het antwoord op AppVM02
-10. Subnet backend begint verwerking van inkomende regel:
-    1. NSG-regel 1 (Internet Block) niet van toepassing, verplaatsen naar de volgende regel
-    2. Standaard NSG-regels toestaat subnet naar subnet verkeer, verkeer is toegestaan, stopt u de verwerking van NSG-regels
-11. AppVM02 ontvangt het antwoord
+5. Front-endsubnet begint verwerking van inkomende regel:
+   1. NSG-regel 1 (Internet blokkeren) niet van toepassing, verplaatsen naar de volgende regel
+   2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
+6. Ervan uitgaande dat het juiste verificatie en autorisatie, IIS01 worden aanvragen geaccepteerd en reageert
+7. De UDR-route voor subnet Frontend maakt de firewall van de volgende hop
+8. Omdat er zijn geen uitgaande NSG-regels op het subnet Frontend dat het antwoord is toegestaan
+9. Als dit een bestaande sessie op de firewall is deze reactie is toegestaan en de firewall retourneert het antwoord op AppVM02
+10. Back-end-subnet begint verwerking van inkomende regel:
+    1. NSG-regel 1 (Internet blokkeren) niet van toepassing, verplaatsen naar de volgende regel
+    2. Standaard-NSG-regels dat subnet naar subnet verkeer, verkeer is toegestaan, stopt u verwerking van NSG-regels
+11. AppVM02-antwoord is ontvangen
 
 #### <a name="denied-internet-direct-to-web-server"></a>(Geweigerd) Rechtstreeks naar de webserver van Internet
 1. Internet-gebruiker probeert te krijgen van de webserver, IIS01, via de service FrontEnd001.CloudApp.Net
-2. Aangezien er geen eindpunten voor HTTP-verkeer is geopend zijn, dit zou niet doorgeven aan de Cloudservice en de server wouldn't bereiken
-3. Als de eindpunten geopend voor een bepaalde reden zijn, blokkeren het NSG (Internet blokkeren) op het subnet Frontend dit verkeer
-4. Ten slotte de front-end-subnet UDR route zou uitgaand verkeer verzenden vanuit IIS01 aan de firewall als de volgende hop en de firewall zou dit zien als asymmetrische verkeer en het uitgaande antwoord Thus er ten minste drie onafhankelijke lagen verdediging tussen zijn neerzetten het internet en IIS01 via de cloudservice zo wordt voorkomen dat onbevoegde/ongeoorloofde toegang.
+2. Aangezien er geen eindpunten zijn geopend voor HTTP-verkeer, deze zou worden niet doorgegeven via de Cloudservice en wouldn't de server niet bereiken
+3. Als de eindpunten geopend voor een of andere reden zijn, blokkeren de NSG (Internet blokkeren) op het subnet Frontend dit verkeer
+4. Tot slot de Frontend-subnet UDR-route wordt al het uitgaande verkeer verzenden vanuit IIS01 aan de firewall als de volgende hop, en de firewall zou dit zien als asymmetrische verkeer en het uitgaande antwoord er ten minste drie onafhankelijke defensieve tussen zijn Thus verwijderen het internet en IIS01 via de service in de cloud te voorkomen dat onbevoegde/ongeoorloofde toegang.
 
 #### <a name="denied-internet-to-backend-server"></a>(Geweigerd) Internet naar back-endserver
 1. Internet-gebruiker probeert te krijgen van een bestand op AppVM01 via de service BackEnd001.CloudApp.Net
-2. Aangezien er geen eindpunten voor de bestandsshare is geopend zijn, dit zou niet doorgeven voor de Cloudservice en wouldn't de server niet bereiken
-3. Als de eindpunten geopend voor een bepaalde reden zijn, blokkeren het NSG (Internet blokkeren) dit verkeer
-4. Ten slotte de route UDR zou uitgaand verkeer verzenden vanuit AppVM01 aan de firewall als de volgende hop en de firewall zou dit zien als asymmetrische verkeer en het uitgaande antwoord, dus er zijn ten minste drie onafhankelijke lagen verdediging tussen internet verwijderen en AppVM01 via de cloudservice zo wordt voorkomen dat onbevoegde/ongeoorloofde toegang.
+2. Omdat er geen eindpunten openen voor bestandsshare zijn, dit zou de Cloudservice niet doorgeven en wouldn't de server niet bereiken
+3. Als de eindpunten geopend voor een of andere reden zijn, blokkeren de NSG (Internet blokkeren) dit verkeer
+4. Tot slot de UDR-route wordt al het uitgaande verkeer verzenden vanuit AppVM01 aan de firewall als de volgende hop, en de firewall zou zien dit als asymmetrische verkeer en verwijderen van het uitgaande antwoord, dus er zijn ten minste drie onafhankelijke defensieve tussen internet en AppVM01 via de service in de cloud te voorkomen dat onbevoegde/ongeoorloofde toegang.
 
-#### <a name="denied-frontend-server-to-backend-server"></a>(Geweigerd) Back-endserver frontend-server
-1. Stel IIS01 is geknoeid en schadelijke code die bij de back-endservers subnet scan wordt uitgevoerd.
-2. De route Frontend subnet UDR zou Stuur alle uitgaande verkeer van IIS01 aan de firewall als de volgende hop. Dit is geen iets dat kan worden gewijzigd door de VM waarmee is geknoeid.
-3. De firewall zou het verkeer verwerken als de aanvraag is AppVM01 of de DNS-server voor DNS-zoekacties die verkeer kan mogelijk worden toegestaan door de firewall (vanwege FW regels 7 en 9). Al het andere verkeer wordt geblokkeerd door FW regel 11 (alle weigeren).
-4. Of geavanceerde detectie van dreigingen in de firewall is ingeschakeld (Zie de documentatie van de leverancier voor uw specifieke netwerkapparaat advanced threat mogelijkheden, die niet in dit document wordt besproken), zelfs als het verkeer dat door de basic doorstuurregels zou worden toegestaan beschreven in dit document kan worden voorkomen als het verkeer bevindt handtekeningen van bekende of patronen die een regel voor geavanceerde threat vlag.
+#### <a name="denied-frontend-server-to-backend-server"></a>(Geweigerd) Front-end-server om back-endserver
+1. Wordt ervan uitgegaan dat IIS01 is geïnfecteerd en schadelijke code het opvragen van de back-end-subnet-servers wordt uitgevoerd.
+2. De UDR-route van Frontend-subnet wilt verzenden al het uitgaande verkeer vanuit IIS01 aan de firewall als de volgende hop. Dit is niet iets dat kan worden gewijzigd door de aangetaste virtuele machine.
+3. De firewall zou het verkeer verwerken als de aanvraag is AppVM01 of de DNS-server voor DNS-zoekacties die verkeer kan mogelijk worden toegestaan door de firewall (als gevolg van FW regels 7 en 9). Al het andere verkeer zouden worden geblokkeerd door FW regel 11 (Alles weigeren).
+4. Als u geavanceerde detectie van bedreigingen op de firewall is ingeschakeld (Zie de documentatie van de leverancier voor uw specifieke netwerkapparaat advanced threat mogelijkheden, die niet wordt gedekt in dit document), zelfs het verkeer dat zou worden toegestaan door de regels voor doorsturen van basic beschreven in dit document kan worden voorkomen als het verkeer opgenomen handtekeningen van bekende of patronen die markering van een regel voor geavanceerde bedreigingen.
 
-#### <a name="denied-internet-dns-lookup-on-dns-server"></a>(Geweigerd) Internet-DNS-lookup op DNS-server
-1. Internet-gebruiker probeert voor het opzoeken van een interne DNS-record op DNS01 via BackEnd001.CloudApp.Net-service 
-2. Aangezien er geen eindpunten voor DNS-verkeer is geopend zijn, dit zou niet doorgeven aan de Cloudservice en de server wouldn't bereiken
-3. Als de eindpunten geopend voor een bepaalde reden zijn, wordt het NSG-regel (Internet blokkeren) op het subnet Frontend dit verkeer geblokkeerd
-4. Ten slotte de back-end subnet UDR route zou uitgaand verkeer verzenden vanuit DNS01 aan de firewall als de volgende hop en de firewall zou dit zien als asymmetrische verkeer en verwijderen van het uitgaande antwoord Thus er ten minste drie onafhankelijke lagen verdediging tussen zijn de Internet en DNS01 via de cloudservice zo wordt voorkomen dat onbevoegde/ongeoorloofde toegang.
+#### <a name="denied-internet-dns-lookup-on-dns-server"></a>(Geweigerd) Internet-DNS-zoekactie op DNS-server
+1. Internet-gebruiker probeert voor het opzoeken van een interne DNS-record op DNS01 via BackEnd001.CloudApp.Net service 
+2. Omdat er geen eindpunten openen voor DNS-verkeer zijn, deze zou worden niet doorgegeven via de Cloudservice en wouldn't de server niet bereiken
+3. Als de eindpunten geopend voor een of andere reden zijn, blokkeren de NSG-regel (Internet blokkeren) op het subnet Frontend dit verkeer
+4. Tot slot de UDR-route van back-end-subnet wordt al het uitgaande verkeer verzenden vanuit DNS01 aan de firewall als de volgende hop, en de firewall zou zien dit als asymmetrische verkeer en verwijderen van het uitgaande antwoord Thus er ten minste drie onafhankelijke defensieve tussen zijn de Internet en DNS01 via de service in de cloud te voorkomen dat onbevoegde/ongeoorloofde toegang.
 
-#### <a name="denied-internet-to-sql-access-through-firewall"></a>(Geweigerd) Internet op SQL-toegang via de Firewall
-1. Internet-gebruiker opvraagt SQL-gegevens uit SecSvc001.CloudApp.Net (Internet Facing Cloud Service)
-2. Omdat er geen eindpunten geopend voor SQL zijn, dit zou niet doorgeven voor de Cloudservice en de firewall wouldn't bereiken
-3. Als SQL-eindpunten geopend voor een bepaalde reden zijn, zou de firewall regelverwerking begint:
+#### <a name="denied-internet-to-sql-access-through-firewall"></a>(Geweigerd) SQL-toegang via de Firewall voor Internet
+1. Internetgebruiker opvraagt SQL gegevens uit SecSvc001.CloudApp.Net (Internet Facing Cloud Service)
+2. Omdat er geen eindpunten openen voor SQL zijn, dit zou niet doorgeven voor de Cloudservice en de firewall wouldn't bereiken
+3. Als SQL-eindpunten geopend voor een of andere reden zijn, zou de firewall regelverwerking beginnen:
    1. FW regel 1 (FW Mgmt) niet van toepassing, verplaatsen naar de volgende regel
-   2. FW regels (regels RDP), 2-5 niet toepassen, verplaatsen naar de volgende regel
-   3. FW regel 6 en 7 (autorisatieregels) niet van toepassing, verplaatsen naar de volgende regel
+   2. FW-regels (regels voor RDP) 2-5 niet van toepassing, verplaatsen naar de volgende regel
+   3. FW regel 6 en 7 (regels van toepassing) niet van toepassing, verplaatsen naar de volgende regel
    4. FW regel 8 (met Internet) niet van toepassing, verplaatsen naar de volgende regel
    5. FW regel 9 (DNS) niet van toepassing, verplaatsen naar de volgende regel
    6. FW regel 10 (Intra-Subnet) niet van toepassing, verplaatsen naar de volgende regel
-   7. FW regel 11 (alle weigeren) is van toepassing, het verkeer wordt geblokkeerd, stoppen, regelverwerking
+   7. FW regel 11 (Alles weigeren) is van toepassing, het verkeer wordt geblokkeerd, stoppen, regelverwerking
 
 ## <a name="references"></a>Verwijzingen
-### <a name="main-script-and-network-config"></a>Belangrijkste Script en netwerkconfiguratie
-Sla het volledige Script in een PowerShell-scriptbestand. De netwerkconfiguratie opslaan in een bestand met de naam 'NetworkConf2.xml'.
-De gebruiker gedefinieerde variabelen zo nodig wijzigen. Voer het script uit en volg de bovenstaande van Firewall regel setup instructies.
+### <a name="main-script-and-network-config"></a>Belangrijkste Script en de netwerkconfiguratie
+Het volledige Script opslaan in een PowerShell-scriptbestand. Sla de netwerk-configuratie in een bestand met de naam 'NetworkConf2.xml'.
+De gebruiker gedefinieerde variabelen zo nodig wijzigen. Voer het script uit en volg de bovenstaande voor setup instructies van Firewall-regel.
 
 #### <a name="full-script"></a>Volledige Script
-Dit script wordt, op basis van de gebruiker gedefinieerde variabelen:
+Met dit script wordt op basis van de gebruiker gedefinieerde variabelen:
 
 1. Verbinding maken met een Azure-abonnement
 2. Een nieuw opslagaccount maken
-3. Maak een nieuw VNet en drie subnetten zoals gedefinieerd in het netwerk-configuratiebestand
-4. Vijf virtuele machines; opzetten firewall 1 en 4 WindowsServer VM 's
-5. Configureer UDR inclusief:
-   1. Twee nieuwe routetabellen maken
+3. Een nieuw VNet en drie subnetten zoals gedefinieerd in het netwerk-configuratiebestand maken
+4. Bouw vijf virtuele machines; firewall voor 1 en 4 WindowsServer-VM 's
+5. Configureren van UDR met inbegrip van:
+   1. Het maken van twee nieuwe routetabellen
    2. Routes toevoegen aan de tabellen
    3. Tabellen aan de juiste subnetten binden
 6. Doorsturen via IP op de NVA inschakelen
-7. Configureer het NSG inclusief:
-   1. Maken van een NSG
-   2. Een regel toe te voegen
-   3. Het NSG binden aan de juiste subnetten
+7. Configureren van NSG met inbegrip van:
+   1. Het maken van een NSG
+   2. Een regel toevoegen
+   3. De NSG-binding aan de juiste subnetten
 
-Deze PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonden PC of de server.
+Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonden PC of de server.
 
 > [!IMPORTANT]
-> Wanneer dit script wordt uitgevoerd, kunnen er waarschuwingen of andere informatieve berichten die pop in PowerShell. Alleen foutberichten in rood zijn aanleiding.
+> Wanneer dit script wordt uitgevoerd, zijn er mogelijk andere informatieve berichten die de pop-in PowerShell of waarschuwingen worden gegenereerd. Alleen foutberichten worden weergegeven in het rood zijn oorzaak zouden kunnen gaan maken.
 > 
 > 
 
@@ -782,7 +782,7 @@ Deze PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbond
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -923,7 +923,7 @@ Deze PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbond
 
 
 #### <a name="network-config-file"></a>Netwerk-configuratiebestand
-Dit xml-bestand opslaan met bijgewerkte locatie en de koppeling toevoegen aan dit bestand naar de variabele $NetworkConfigFile in het bovenstaande script.
+Dit xml-bestand opslaan met bijgewerkte locatie en de koppeling naar dit bestand naar de variabele $NetworkConfigFile in het bovenstaande script toevoegen.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
@@ -958,28 +958,28 @@ Dit xml-bestand opslaan met bijgewerkte locatie en de koppeling toevoegen aan di
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### <a name="sample-application-scripts"></a>Voorbeeldscripts toepassing
-Als u een voorbeeldtoepassing voor deze en andere voorbeelden DMZ installeren wilt, een is opgegeven op de volgende koppeling: [voorbeeldscript toepassing][SampleApp]
+#### <a name="sample-application-scripts"></a>Voorbeeldscripts voor toepassing
+Als u een voorbeeldtoepassing voor deze en andere voorbeelden DMZ installeren wilt, is een opgegeven op de volgende koppeling: [Voorbeeldscript voor toepassing][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Bidirectionele DMZ met NVA, NSG en UDR"
 [2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Logische weergave van de Firewall-regels"
-[3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Een Object FrontEnd-netwerk maken"
+[3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Maken van een Object front-end"
 [4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Een DNS-Server-Object maken"
-[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Kopie van de standaardregel voor RDP"
+[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Exemplaar van standaard RDP-regel"
 [6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "AppVM01 regel"
-[7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Pictogram voor toepassing omleiding"
+[7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Omleidings-toepassingspictogram"
 [8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "Bestemming NAT-pictogram"
 [9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Pass-pictogram"
-[10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Firewallregel Management"
+[10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Firewallregel voor beheer"
 [11]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulerdp.png "RDP-firewallregel"
 [12]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleweb.png "Web-firewallregel"
-[13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "AppVM01 firewallregel"
-[14]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleoutbound.png "Uitgaande firewallregel"
+[13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "Firewallregel AppVM01"
+[14]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleoutbound.png "Uitgaande-firewallregel"
 [15]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledns.png "DNS-firewallregel"
 [16]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleintravnet.png "Intra-VNet-firewallregel"
 [17]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledeny.png "Regel voor weigeren van Firewall"
-[18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "Activering van de firewall-regel"
+[18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "Activering van Firewall-regel"
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232297"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104009"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Een Red Hat gebaseerde virtuele machine voorbereiden voor Azure Stack
 
 In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure Stack. De versies van RHEL die worden beschreven in dit artikel zijn 7.1 +. De hypervisors voor voorbereiding die worden beschreven in dit artikel zijn Hyper-V, op basis van een kernel virtuele machine (KVM) en VMware.
 
-Raadpleeg voor informatie over Red Hat Enterprise Linux, [Red Hat en Azure Stack: veelgestelde vragen over](https://access.redhat.com/articles/3413531).
+Raadpleeg voor informatie over Red Hat Enterprise Linux, [Red Hat en Azure Stack: Veelgestelde vragen over](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Een Red Hat gebaseerde virtuele machine op basis van Hyper-V Manager voorbereiden
 
@@ -347,7 +347,7 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Een Red Hat gebaseerde virtuele machine van VMware voorbereiden
 
-In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware al hebt geïnstalleerd. Zie voor meer informatie over het installeren van een besturingssysteem in VMware [installatiehandleiding voor VMware Gast-besturingssysteem](http://partnerweb.vmware.com/GOSIG/home.html).
+In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware al hebt geïnstalleerd. Zie voor meer informatie over het installeren van een besturingssysteem in VMware [installatiehandleiding voor VMware Gast-besturingssysteem](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * Wanneer u de Linux-besturingssysteem installeert, raden wij aan dat u standaard partities in plaats van LVM, dit is vaak de standaardwaarde voor vele installaties. Hiermee voorkomt u LVM naam conflicteert met de gekloonde virtuele machine, met name als de schijf van een besturingssysteem ooit worden gekoppeld aan een andere virtuele machine moet voor probleemoplossing. LVM of RAID kan op gegevensschijven worden gebruikt als de voorkeur.
 * Stel een swap-partitie niet op de besturingssysteemschijf. U kunt de Linux-agent voor het maken van een wisselbestand op de tijdelijke schijf configureren. Meer informatie hierover vindt u in de volgende stappen.

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 946d0895ff25509a0e35695fe27c783b3c50784b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999574"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117602"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
-Elke logische bewerking moet in de wereld van microservices zijn werk uit te voeren in de verschillende onderdelen van de service. Elk van deze onderdelen afzonderlijk kan worden gecontroleerd door [Application Insights](../../application-insights/app-insights-overview.md). Het webonderdeel-app communiceert met authentication-provider-onderdeel voor het valideren van de referenties van gebruiker en met het onderdeel API om gegevens voor visualisatie. De API-component op zijn beurt kunt opvragen van gegevens uit andere services en onderdelen van de cache-serviceprovider gebruiken en op de hoogte stellen de facturering component over deze aanroep. Application Insights ondersteunt gedistribueerde telemetriecorrelatie. Hiermee kunt u voor het detecteren van welk component is verantwoordelijk voor het fouten of afname van de prestaties.
+Elke logische bewerking moet in de wereld van microservices zijn werk uit te voeren in de verschillende onderdelen van de service. Elk van deze onderdelen afzonderlijk kan worden gecontroleerd door [Application Insights](../../azure-monitor/app/app-insights-overview.md). Het webonderdeel-app communiceert met authentication-provider-onderdeel voor het valideren van de referenties van gebruiker en met het onderdeel API om gegevens voor visualisatie. De API-component op zijn beurt kunt opvragen van gegevens uit andere services en onderdelen van de cache-serviceprovider gebruiken en op de hoogte stellen de facturering component over deze aanroep. Application Insights ondersteunt gedistribueerde telemetriecorrelatie. Hiermee kunt u voor het detecteren van welk component is verantwoordelijk voor het fouten of afname van de prestaties.
 
 In dit artikel wordt uitgelegd dat het gegevensmodel dat wordt gebruikt door Application Insights voor het correleren van telemetrie die is verzonden door meerdere onderdelen. Het bevat informatie over de context doorgeven technieken en protocollen. Dit geldt ook voor de implementatie van de correlatie-concepten in verschillende talen en platforms.
 

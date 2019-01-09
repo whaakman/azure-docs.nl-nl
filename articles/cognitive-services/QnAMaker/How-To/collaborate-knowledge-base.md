@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/08/2018
 ms.author: tulasim
-ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec26e7ab535084fa5d8f52c11c671212eeab0f13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035229"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119819"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Samenwerken aan uw knowledge base
 
@@ -35,7 +35,7 @@ De volgende stappen uitvoeren om de QnA Maker-service delen met iemand:
 
     ![QnA Maker IAM toevoegen](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. Selecteer de **eigenaar** of de **Inzender** rol.
+4. Selecteer de **eigenaar** of de **Inzender** rol. U kunt geen alleen-lezen toegang tot en met Role-Based Access Control verlenen. Rol van eigenaar en Inzender heeft lees-/ schrijftoegang recht op QnA Maker-service.
 
     ![QnA Maker IAM toevoegen rol](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 

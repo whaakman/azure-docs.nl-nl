@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 1b6f3a3d4f130792ee606050338a2c30f7fc7847
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a0614b5a1eadafe78537a4793d2dc0a866337487
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514975"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118877"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Taken plannen en uitzenden (Node)
 
@@ -30,8 +30,8 @@ Conceptueel gezien, een taak een van deze acties wordt verpakt en wordt de voort
 
 Meer informatie over elk van deze mogelijkheden in deze artikelen:
 
-* Apparaatdubbel en eigenschappen: [aan de slag met apparaatdubbels] [ lnk-get-started-twin] en [zelfstudie: apparaatdubbeleigenschappen gebruiken][lnk-twin-props]
-* Directe methoden: [het Ontwikkelaarshandleiding voor IoT Hub - directe methoden] [ lnk-dev-methods] en [zelfstudie: directe methoden][lnk-c2d-methods]
+* Apparaatdubbel en eigenschappen: [Aan de slag met apparaatdubbels] [ lnk-get-started-twin] en [zelfstudie: Apparaatdubbeleigenschappen gebruiken][lnk-twin-props]
+* Directe methoden: [Ontwikkelaarshandleiding voor IoT Hub - directe methoden] [ lnk-dev-methods] en [zelfstudie: directe methoden][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -55,7 +55,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -97,7 +97,7 @@ In deze sectie maakt u een Node.js-consoletoepassing die reageert op een rechtst
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
             if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }

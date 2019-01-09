@@ -8,18 +8,19 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 32c56a2ac3df9f386300a6ee8207a76c8031ab10
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016712"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117516"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
-In dit artikel wordt beschreven hoe het configureren van de Postman-REST-client om te communiceren met en het testen van de Azure digitale dubbels Management API's.
+In dit artikel wordt beschreven hoe het configureren van de Postman-REST-client om te communiceren met en het testen van de Azure digitale dubbels Management API's. Het beschrijft met name:
 
-Het artikel laat zien hoe het configureren van een Azure Active Directory-toepassing voor het gebruik van de stroom van de impliciete goedkeuring voor OAuth 2.0. Ook wordt beschreven hoe u de Postman-REST-client voor token-invloed HTTP-aanvragen versturen naar uw beheer-API's configureren.
+* Klik hier voor meer informatie over het configureren van een Azure Active Directory-toepassing voor het gebruik van de stroom van de impliciete goedkeuring voor OAuth 2.0.
+* Klik hier voor meer informatie over het configureren van de Postman-REST-client zodat HTTP-aanvragen voor token-gevolgen voor uw beheer-API's.
 
 ## <a name="postman-summary"></a>Postman samenvatting
 
@@ -88,7 +89,11 @@ Vervolgens instellen en configureren van Postman als u wilt een Azure Active Dir
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees voor meer informatie over verificatie met de Management API's, [verifiëren met API's](./security-authenticating-apis.md).
+- Lees voor meer informatie over de digitale dubbels beheer-API's en het gebruik ervan, [over het gebruik van Azure digitale dubbels beheer-API's](how-to-navigate-apis.md).
+
+- Lees voor meer informatie over verificatie met de Management API's, [verifiëren met API's](./security-authenticating-apis.md). 
+
+
 
 <!-- Images -->
 [1]: media/how-to-configure-postman/implicit-flow.png

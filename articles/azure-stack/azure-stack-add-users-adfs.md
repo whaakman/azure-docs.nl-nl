@@ -3,7 +3,7 @@ title: Gebruikers toevoegen voor Azure Stack ADFS | Microsoft Docs
 description: Meer informatie over het toevoegen van gebruikers voor AD FS-implementaties van Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: patricka
 ms.reviewer: unknown
-ms.openlocfilehash: f8abacbcb05d1346931b5c2e1097660cfbd8e594
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ee571ec14a93653b524401d1d304021178ecd794
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344163"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120809"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>Azure Stack-gebruikers toevoegen in AD FS
 U kunt de **Active Directory: gebruikers en Computers** module Extra gebruikers toevoegen aan een Azure Stack-omgeving gebruik te maken van AD FS als de id-provider.

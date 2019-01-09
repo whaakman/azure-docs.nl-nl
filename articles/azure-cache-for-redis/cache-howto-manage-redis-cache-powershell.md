@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 0186882183ed0848fd8b14d186b55ad1a5ff58ea
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019499"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105233"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure Cache voor Redis met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Dit onderwerp leest u hoe algemene taken is om uit te voeren zoals maken, bijwer
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Zie voor meer informatie over het klassieke implementatiemodel, [Azure Resource Manager en klassieke implementatie: implementatiemodellen en de status van uw resources begrijpen](../azure-resource-manager/resource-manager-deployment-model.md).
+Zie voor meer informatie over het klassieke implementatiemodel, [Azure Resource Manager en klassieke implementatie: Implementatiemodellen en de status van uw resources begrijpen](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Als u Azure PowerShell al hebt geïnstalleerd, hebt u Azure PowerShell versie 1.0.0 of hoger. U kunt controleren welke versie van Azure PowerShell die u hebt geïnstalleerd met de volgende opdracht bij de Azure PowerShell-opdrachtprompt.
@@ -130,14 +130,14 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | ResourceGroupName |Naam van resourcegroep waarin u kunt de cache maken | |
 | Grootte |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Het aantal shards te maken bij het maken van een premium-cache met clustering is ingeschakeld. Geldige waarden zijn: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Hiermee geeft u de SKU van de cache. Geldige waarden zijn: Basic, Standard, Premium |Standard |
+| SKU |Hiermee geeft u de SKU van de cache. Geldige waarden zijn: Basic, Standard en Premium |Standard |
 | RedisConfiguration |Hiermee geeft u een Redis-configuratie-instellingen. Zie voor meer informatie over elke instelling de volgende [RedisConfiguration eigenschappen](#redisconfiguration-properties) tabel. | |
 | EnableNonSslPort |Geeft aan of de poort zonder SSL is ingeschakeld. |False |
 | MaxMemoryPolicy |Deze parameter is afgeschaft - RedisConfiguration in plaats daarvan gebruik. | |
 | StaticIP |Bij het hosten van uw cache in een VNET, geeft een uniek IP-adres in het subnet voor de cache. Als niet is opgegeven, wordt een gekozen voor u uit het subnet. | |
 | Subnet |Bij het hosten van uw cache in een VNET, geeft de naam van het subnet waarin de cache implementeert. | |
 | VirtualNetwork |Bij het hosten van uw cache in een VNET, geeft u de resource-ID van het VNET waarin u kunt de cache te implementeren. | |
-| Sleuteltype |Hiermee geeft u op welke toegangssleutel opnieuw genereren tijdens het vernieuwen van toegangssleutels. Geldige waarden zijn: primaire, secundaire | |
+| Sleuteltype |Hiermee geeft u op welke toegangssleutel opnieuw genereren tijdens het vernieuwen van toegangssleutels. Geldige waarden zijn: Primair, secundair | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration eigenschappen
 | Eigenschap | Description | Prijscategorieën |
@@ -148,11 +148,11 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | maxmemory-gereserveerde |Hiermee configureert u de [geheugen gereserveerd](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor niet-cache-processen |Standard en Premium |
 | maxmemory-beleid |Hiermee configureert u de [verwijderingsbeleid](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor de cache |Alle Prijscategorieën |
 | op de hoogte stellen-keyspace-gebeurtenissen |Hiermee configureert u [keyspace-meldingen](cache-configure.md#keyspace-notifications-advanced-settings) |Standard en Premium |
-| hash-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| hash-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| set-max-intset-entries |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| zset-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| zset-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| hash-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| hash-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| set-max-intset-entries |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| zset-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| zset-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
 | databases |Hiermee configureert u het aantal databases. Deze eigenschap kan alleen tijdens het maken van cache worden geconfigureerd. |Standard en Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Een Azure-Cache maken voor Redis
@@ -237,7 +237,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `New-AzureRmRedi
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Voor het maken van een cache met standaard-parameters, moet u de volgende opdracht uitvoeren.
 
@@ -317,7 +317,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `Set-AzureRmRedi
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 De `Set-AzureRmRedisCache` cmdlet kan worden gebruikt voor het bijwerken van eigenschappen zoals `Size`, `Sku`, `EnableNonSslPort`, en de `RedisConfiguration` waarden. 
 
@@ -421,7 +421,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `Get-AzureRmRedi
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Uitvoeren als u wilt retourneren informatie over alle caches in het huidige abonnement, `Get-AzureRmRedisCache` zonder parameters.
 
@@ -488,7 +488,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `Get-AzureRmRedi
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Als wilt ophalen van de sleutels voor uw cache, roept de `Get-AzureRmRedisCacheKey` cmdlet en geef de naam van de cache met de naam van de resourcegroep met de cache.
 
@@ -533,7 +533,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `New-AzureRmRedi
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Als u wilt genereren van de primaire of secundaire sleutel voor uw cache, Roep de `New-AzureRmRedisCacheKey` cmdlet en geef de naam, resourcegroep, en opgeven of `Primary` of `Secondary` voor de `KeyType` parameter. In het volgende voorbeeld wordt de secundaire toegangssleutel voor een cache opnieuw gegenereerd.
 
@@ -584,7 +584,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `Remove-AzureRmR
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 In het volgende voorbeeld wordt de cache met de naam `myCache` wordt verwijderd.
 
@@ -648,7 +648,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `Import-AzureRmR
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 De volgende opdracht importeert gegevens uit de blob die is opgegeven door de SAS-uri in de Azure-Cache voor Redis.
@@ -707,7 +707,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `Export-AzureRmR
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 De volgende opdracht exporteert gegevens in een Azure-Cache voor Redis-exemplaar naar de container die is opgegeven door de SAS-uri.
@@ -768,7 +768,7 @@ Voor een overzicht van de parameters en hun beschrijvingen voor `Reset-AzureRmRe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 De volgende opdracht uit beide knooppunten van de opgegeven cache opnieuw is opgestart.
@@ -782,8 +782,8 @@ Zie de volgende bronnen voor meer informatie over het gebruik van Windows PowerS
 
 * [Azure Cache voor Redis-cmdlet-documentatie op MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Azure Resource Manager-Cmdlets](https://go.microsoft.com/fwlink/?LinkID=394765): Leer hoe u met de cmdlets in de Azure Resource Manager-module.
-* [Uw Azure-resources beheren met behulp van resourcegroepen](../azure-resource-manager/resource-group-template-deploy-portal.md): meer informatie over het maken en beheren van resourcegroepen in Azure portal.
-* [Azure-blog](https://azure.microsoft.com/blog/): meer informatie over nieuwe functies in Azure.
-* [Windows PowerShell-blog](https://blogs.msdn.com/powershell): meer informatie over nieuwe functies in Windows PowerShell.
-* ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): real-world tips en trucs ophalen uit de Windows PowerShell-community.
+* [Uw Azure-resources beheren met behulp van resourcegroepen](../azure-resource-manager/resource-group-template-deploy-portal.md): Informatie over het maken en beheren van resourcegroepen in Azure portal.
+* [Azure-blog](https://azure.microsoft.com/blog/): Meer informatie over nieuwe functies in Azure.
+* [Windows PowerShell-blog](https://blogs.msdn.com/powershell): Meer informatie over nieuwe functies in Windows PowerShell.
+* ["Hey, Scripting Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): Ontvang echte tips en trucs van de Windows PowerShell-community.
 

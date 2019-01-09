@@ -1,6 +1,6 @@
 ---
-title: IIS-logboeken in Azure Monitor | Microsoft Docs
-description: Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Azure Monitor.  In dit artikel wordt beschreven hoe u de verzameling van IIS-logboeken en de details van de records die zij in Azure Monitor maken configureren.
+title: IIS-logboeken in Log Analytics | Microsoft Docs
+description: Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Log Analytics.  In dit artikel wordt beschreven hoe het configureren van de verzameling van IIS-logboeken en de details van de records die ze in Log Analytics maken.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: cd28eef249ae6b07b9e3f74b80c32a4b53370215
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: cd63c63344f322f7d761a2907f52e97f1009e3b8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436735"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101952"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Verzamelen van IIS-logboeken in Azure Monitor
-Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Azure Monitor en opgeslagen als [logboekgegevens](data-collection.md).
+# <a name="collect-iis-logs-in-log-analytics"></a>Verzamelen van IIS-logboeken in Log Analytics
+Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Log Analytics en opgeslagen als [logboekgegevens](data-collection.md).
 
 ![IIS-logboeken](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configureren van IIS-logboeken
-Azure Monitor worden gegevens verzameld uit logboekbestanden gemaakt door IIS, dus u moet [IIS configureren voor logboekregistratie](https://technet.microsoft.com/library/hh831775.aspx).
+Log Analytics verzamelt gegevens uit logboekbestanden gemaakt door IIS, dus u moet [IIS configureren voor logboekregistratie](https://technet.microsoft.com/library/hh831775.aspx).
 
-Azure Monitor alleen ondersteuning biedt voor IIS-logboekbestanden opgeslagen in de W3C-indeling en biedt geen ondersteuning voor aangepaste velden of geavanceerde IIS-registratie. De functie verzamelt geen logboeken in systeemeigen NCSA- of IIS-indeling.
+Log Analytics wordt alleen ondersteuning biedt voor IIS-logboekbestanden opgeslagen in de W3C-indeling en biedt geen ondersteuning voor aangepaste velden of IIS-geavanceerde registratie. De functie verzamelt geen logboeken in systeemeigen NCSA- of IIS-indeling.
 
-Configureren van IIS-logboeken in Azure Monitor uit de [geavanceerde instellingen menu](agent-data-sources.md#configuring-data-sources).  Er is geen configuratie vereist dan selecteren **verzamelen W3C-indeling IIS-logboekbestanden**.
+Configureren van IIS-logboeken in Log Analytics van de [geavanceerde instellingen menu](agent-data-sources.md#configuring-data-sources).  Er is geen configuratie vereist dan selecteren **verzamelen W3C-indeling IIS-logboekbestanden**.
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Azure Monitor verzamelt IIS-logboekvermeldingen van elke agent die telkens wanneer het logboek wordt gesloten en er wordt een nieuwe gemaakt. Deze frequentie wordt bepaald door de **schema voor logboekregistraties bestand Rollover** instellen voor de IIS-site die één keer per dag standaard is. Bijvoorbeeld, als de instellingen is **per uur**, en vervolgens Azure Monitor het logboek voor elk uur verzamelt.  Als de instelling **dagelijkse**, en vervolgens Azure Monitor het logboek elke 24 uur verzamelt.
+Log Analytics verzamelt IIS-logboekvermeldingen van elke agent die telkens wanneer het logboek wordt gesloten en er wordt een nieuwe gemaakt. Deze frequentie wordt bepaald door de **schema voor logboekregistraties bestand Rollover** instellen voor de IIS-site die één keer per dag standaard is. Bijvoorbeeld, als de instellingen is **per uur**, en vervolgens de Log Analytics verzamelt het logboek voor elk uur.  Als de instelling **dagelijkse**, en vervolgens de Log Analytics verzamelt het logboek elke 24 uur.
 
 
 ## <a name="iis-log-record-properties"></a>Record-eigenschappen van IIS-logboek
@@ -76,5 +76,5 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die IIS logboekrecords
 | W3CIISLog &#124; sum(csBytes) per Computer samenvatten &#124; 500000 nemen |Totaal aantal bytes dat is ontvangen door elke IIS-computer. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Configureer Azure Monitor voor het verzamelen van andere [gegevensbronnen](agent-data-sources.md) voor analyse.
+* Log Analytics voor het verzamelen van andere configureren [gegevensbronnen](agent-data-sources.md) voor analyse.
 * Meer informatie over [query's bijgehouden](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.

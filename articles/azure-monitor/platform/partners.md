@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580209"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106661"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor-partnerintegraties
 | Partners |  |  |
@@ -126,7 +126,7 @@ PagerDuty, de toonaangevende oplossing voor incidentbeheer heeft opgegeven, uits
 [Ga naar de documentatie.][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-De Microsoft Azure DSM en het Protocol van Microsoft Azure Event Hub zijn beschikbaar voor downloaden van [de ondersteuningswebsite van IBM](http://www.ibm.com/support). U kunt [meer informatie over de integratie met Azure hier][qradar-doc].
+De Microsoft Azure DSM en het Protocol van Microsoft Azure Event Hub zijn beschikbaar voor downloaden van [de ondersteuningswebsite van IBM](https://www.ibm.com/support). U kunt [meer informatie over de integratie met Azure hier][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic biedt de volgende generatie IT service assurance platform voor het beheren van elke technologie, waar dan ook. ScienceLogic levert de schaal, beveiliging, automation, en flexibiliteit die nodig zijn om de taken van het beheer van IT-resources, services en toepassingen te vereenvoudigen. Het platform ScienceLogic maakt gebruik van Azure-API's voor de interactie met Microsoft Azure. ScienceLogic biedt u realtime inzicht in uw Azure-services en resources. Zodat u weet wanneer er iets niet werkt en kunt u dit sneller herstellen. U kunt ook Azure samen met uw andere clouds en data center-systemen en services beheren.
@@ -230,8 +230,8 @@ Turbonomic voorziet in automatisering van workloads voor hybride clouds door teg
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric inleiding."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix inleiding."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog documentatie."
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix inleiding."
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog documentatie."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace-documentatie."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentatie bij elastic."
 [grafana-doc]: ./grafana-plugin.md "Integratie van Azure Monitor Grafana."

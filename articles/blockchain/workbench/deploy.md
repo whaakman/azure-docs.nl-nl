@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876146"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102989"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -61,7 +61,7 @@ Azure Blockchain Workbench vereist Azure AD-configuratie en toepassing registrat
 Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench te implementeren. De volgende secties beschrijven hoe het framework moet worden geïmplementeerd.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer uw account in de rechterbovenhoek hoek en schakel over naar de gewenste Azure AD-tenant waar u wilt implementeren, Azure Blockchain Workbench.
+2. Selecteer uw account in de rechterbovenhoek en schakel over naar de gewenste Azure AD-tenant waar u wilt implementeren, Azure Blockchain Workbench.
 3. Selecteer **Een resource maken** in het linkerdeelvenster. Zoek naar `Azure Blockchain Workbench` in de **Marketplace doorzoeken** zoekbalk. 
 
     ![Zoekbalk Marketplace](media/deploy/marketplace-search-bar.png)
@@ -119,7 +119,7 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
 
     | Instelling | Beschrijving  |
     |---------|--------------|
-    | Ethereum RPC-eindpunt | Geef het RPC-eindpunt van een bestaand PoA blockchain-netwerk. Het eindpunt begint met https:// of http:// en eindigt met een poortnummer op. Bijvoorbeeld: `https://network.westus.cloudapp.com:8540` |
+    | Ethereum RPC-eindpunt | Geef het RPC-eindpunt van een bestaand PoA blockchain-netwerk. Het eindpunt begint met https:// of http:// en eindigt met een poortnummer op. Bijvoorbeeld: `http<s>://<network-url>:<port>` |
     | Azure Active Directory-instellingen | Kies **Later toevoegen**.</br>Opmerking: Als u ervoor kiest [vooraf configureren van Azure AD](#azure-ad-configuration) of opnieuw wilt implementeren, wilt *nu toevoegen*. |
     | Selectie van de virtuele machine | Kies de gewenste VM-grootte voor uw blockchain-netwerk. |
 
@@ -216,7 +216,7 @@ Blockchain Workbench-implementatie vereist de registratie van een Azure AD-toepa
 Vervolgens moet u het manifest voor het gebruik van toepassingsrollen in Azure AD om op te geven van Blockchain Workbench beheerders wijzigen.  Zie voor meer informatie over de toepassingsmanifesten [Azure Active Directory-toepassingsmanifest](../../active-directory/develop/reference-app-manifest.md).
 
 1. Selecteer voor de toepassing die u hebt geregistreerd, **Manifest** in het detailvenster van de geregistreerde toepassing.
-2. Genereer een GUID. U kunt een GUID genereren met behulp van de PowerShell-opdracht [guid] :: NewGuid () of de cmdlet New-GUID. Een andere optie is het gebruik van een GUID-generator-website.
+2. Genereer een GUID. U kunt een GUID met behulp van de PowerShell-opdracht [guid] genereren: NewGuid () of de cmdlet New-GUID. Een andere optie is het gebruik van een GUID-generator-website.
 3. U gaat het **appRoles** gedeelte van het manifest bijwerken. Selecteer in het manifest bewerkingsvenster **bewerken** en vervang `"appRoles": []` door de opgegeven JSON. Vervang de waarde voor de **id** veld door de GUID die u hebt gegenereerd. 
 
     ![Manifest bewerken](media/deploy/edit-manifest.png)

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999197"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106838"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Gegevensverwerking en door gebruikers gedefinieerde functies
 
@@ -102,6 +102,15 @@ De gebruiker gedefinieerde functies kunnen worden geschreven in JavaScript. Help
 - De metagegevens van de grafiek koppelen aan de sensor lezen voordat u verstuurt een melding.
 
 Zie voor meer informatie, [over het gebruik van de gebruiker gedefinieerde functies](./how-to-user-defined-functions.md).
+
+
+#### <a name="examples"></a>Voorbeelden
+
+De [GitHub-opslagplaats voor de digitale dubbels C# voorbeeld](https://github.com/Azure-Samples/digital-twins-samples-csharp/) bevat enkele voorbeelden van de gebruiker gedefinieerde functies:
+- [Deze functie](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) zoekt uitstoot, beweging en temperatuurwaarden om te bepalen of een lokaal beschikbaar zijn met deze waarden binnen het bereik. De [-zelfstudies voor digitale dubbels](tutorial-facilities-udf.md) verkennen van deze functie in meer informatie. 
+- [Deze functie](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) zoekt naar gegevens van meerdere beweging sensors en bepaalt dat de ruimte beschikbaar is als geen van beide een beweging detecteren. U kunt de gebruiker gedefinieerde functie wordt gebruikt in een eenvoudig vervangen de [snelstartgids](quickstart-view-occupancy-dotnet.md), of de [zelfstudies](tutorial-facilities-setup.md), door de wijzigingen die worden vermeld in de sectie met opmerkingen van het bestand. 
+
+
 
 ### <a name="role-assignment"></a>Roltoewijzing
 

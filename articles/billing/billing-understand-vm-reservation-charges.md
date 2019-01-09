@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 096cf8e7a03f00cd5854ac4ce9569b14fe4b761b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cdcb4e06afab2cccff7baa92989ccf904f42cf88
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581473"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118010"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Begrijpen hoe de Azure reserveringskorting wordt toegepast op virtuele machines
 
@@ -52,6 +52,10 @@ Om te begrijpen en te bekijken van de toepassing van uw Azure-reserveringen in g
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Toepassing van de reserveringskorting op Windows-VM 's
 
 Wanneer u Windows-VM-exemplaren uitvoert, wordt de reservering wordt toegepast aan zodat de infrastructuurkosten. De toepassing van de reservering van de kosten voor de VM-infrastructuur voor Windows-VM's is hetzelfde als voor niet - Windows-VM's. U bent afzonderlijk in rekening gebracht voor Windows-software op basis van per vCPU. Zie [Windows softwarekosten met reserveringen](https://go.microsoft.com/fwlink/?linkid=862756). U kunt uw Windows licentiekosten met dekt [Azure Hybrid Benefit voor Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>Korting geldt voor verschillende grootten met een grootte-instantieflexibiliteit
+
+Wanneer u een gereserveerde VM-instantie, kopen als u selecteert **geoptimaliseerd voor**: **exemplaar grootte flexibiliteit**, de dekking van de korting is afhankelijk van de VM-grootte die u selecteert. De reservering kunt toepassen op de grootten van virtuele machines (VM's) in de groep voor reeks van dezelfde grootte. Zie voor meer informatie, [VM-grootte flexibiliteit in combinatie met gereserveerde VM-instanties](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

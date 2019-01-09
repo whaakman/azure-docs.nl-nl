@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956337"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103878"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
 ## <a name="introduction"></a>Inleiding
@@ -156,7 +156,7 @@ Het volgende voorbeeld ziet u een aanvraag voor code verlenen token met wachtwoo
 
 Als u werkt met certificaatreferenties, maak een JSON Web Token (JWT) en meld u (RSA-SHA256) met behulp van de persoonlijke sleutel van de certificaat-referentie van uw toepassing. Het bouwen van dit token wordt weergegeven in de [client referentie stroom](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  Voor een verwijzing naar de [Active Directory Authentication Library (.NET)-code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) Client Assertion JWT-tokens te ondertekenen.
 
-Zie de [Open ID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) voor meer informatie over clientverificatie.
+Zie de [Open ID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) voor meer informatie over clientverificatie.
 
 Het volgende voorbeeld ziet u een aanvraag voor code verlenen token met referenties van het certificaat:
 
@@ -330,7 +330,7 @@ Een van de voorbeeldaanvraag RBAC-rol toewijzen aan toepassing:
 
 In de aanvraag, worden de volgende waarden gebruikt:
 
-| GUID | Beschrijving |
+| GUID | Description |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |de ID van het abonnement |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |object-ID van de service-principal van de toepassing |

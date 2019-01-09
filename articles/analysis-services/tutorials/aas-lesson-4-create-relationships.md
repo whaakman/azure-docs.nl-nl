@@ -1,5 +1,5 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 4: Relaties maken | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 4: Relaties maken | Microsoft Docs'
 description: In deze les wordt beschreven hoe u relaties maakt in de zelfstudie over Azure Analysis Services.
 author: minewiskan
 manager: kfile
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d37b30708e3817460e5aa01f045c1e9f9032532e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428487"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117738"
 ---
 # <a name="create-relationships"></a>Relaties maken
 
@@ -22,10 +22,10 @@ In deze les gaat u de relaties controleren die automatisch zijn gemaakt tijdens 
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 3: Als gegevenstabel markeren](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Bestaande relaties controleren en nieuwe relaties toevoegen  
-Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opgehaald uit de database AdventureWorksDW2014. Over het algemeen is het zo dat bij het importeren van gegevens uit een relationele gegevensbron, bestaande relaties automatisch samen met de gegevens worden geïmporteerd. Er moeten relaties bestaan tussen de tabellen in de gegevensbron om ervoor te zorgen dat met Get Data automatisch relaties worden gemaakt in het gegevensmodel.
+Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opgehaald uit de database AdventureWorksDW2014. Over het algemeen is het zo dat bij het importeren van gegevens uit een relationele gegevensbron, bestaande relaties automatisch samen met de gegevens worden geïmporteerd. In de volgorde Get Data automatisch relaties maken in het gegevensmodel, moet er relaties tussen tabellen in de gegevensbron.
 
 Voordat u verdergaat met het ontwerpen van het model, moet u controleren of deze relaties tussen tabellen juist zijn gemaakt. Voor deze zelfstudie gaat u ook drie nieuwe relaties toevoegen.  
 
@@ -60,7 +60,7 @@ Voordat u verdergaat met het ontwerpen van het model, moet u controleren of deze
     |Ja|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Ja|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Als een van de relaties ontbreekt, controleert u of het model de volgende tabellen bevat: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory en FactInternetSales. Als tabellen uit dezelfde verbonden gegevensbron op verschillende momenten worden geïmporteerd, worden eventuele relaties tussen deze tabellen niet overgenomen en moeten deze handmatig worden gemaakt. Als er geen relaties worden weergegeven, betekent dit dat er zijn geen relaties zijn in de gegevensbron. U kunt ze handmatig maken in het gegevensmodel.
+    Als een van de relaties ontbreekt, controleert u of dat het model bevat de volgende tabellen: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory en FactInternetSales. Als tabellen uit dezelfde verbonden gegevensbron op verschillende momenten worden geïmporteerd, worden eventuele relaties tussen deze tabellen niet overgenomen en moeten deze handmatig worden gemaakt. Als er geen relaties worden weergegeven, betekent dit dat er zijn geen relaties zijn in de gegevensbron. U kunt ze handmatig maken in het gegevensmodel.
 
 ### <a name="take-a-closer-look"></a>Diagramweergave
 In de diagramweergave ziet u een pijl, een sterretje en een nummer op de lijnen die de relatie tussen tabellen aangeven.

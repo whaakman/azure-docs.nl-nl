@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 7b25495973502f1b28aedf8b99c84ca45a5ac898
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028323"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117449"
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
 
-Steekproeven is een functie in [Azure Application Insights](../../application-insights/app-insights-overview.md). Dit is de aanbevolen manier te verlagen Telemetrisch verkeer en de opslag, een statistisch correcte analyse van toepassingsgegevens te behouden. Het filter selecteert items die zijn gerelateerd, zodat u tussen items navigeren kunt wanneer u diagnostische onderzoek doen.
+Steekproeven is een functie in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Dit is de aanbevolen manier te verlagen Telemetrisch verkeer en de opslag, een statistisch correcte analyse van toepassingsgegevens te behouden. Het filter selecteert items die zijn gerelateerd, zodat u tussen items navigeren kunt wanneer u diagnostische onderzoek doen.
 Wanneer metrische aantallen worden weergegeven in de portal, worden ze renormalized rekening te houden met de steekproeven, van invloed zijn op de statistische gegevens te minimaliseren.
 
 Steekproeven vermindert de kosten van verkeer en gegevens, en vermijdt u beperking.

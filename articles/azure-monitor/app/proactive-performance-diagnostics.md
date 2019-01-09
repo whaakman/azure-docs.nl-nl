@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 1db4f4be7ab883e6be52b52bd93a43468829bed5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076622"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121240"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
-[Application Insights](../../application-insights/app-insights-overview.md) automatisch analyseert de prestaties van uw web-App, en wordt u gewaarschuwd over mogelijke problemen. U mogelijk is het lezen van dit omdat u een van onze Slimme detectie-meldingen ontvangen.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) automatisch analyseert de prestaties van uw web-App, en wordt u gewaarschuwd over mogelijke problemen. U mogelijk is het lezen van dit omdat u een van onze Slimme detectie-meldingen ontvangen.
 
 Deze functie is vereist geen speciale instellingen, dan uw app configureren voor Application Insights (op [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md), of [Node.js](../../azure-monitor/app/nodejs.md), en in [webpagina code](../../azure-monitor/app/javascript.md)). Deze is actief wanneer uw app zoveel telemetrie genereert.
 

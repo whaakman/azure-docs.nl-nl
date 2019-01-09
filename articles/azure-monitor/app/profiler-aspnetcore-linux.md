@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: bfd6f59ca61d14bc8187aa7c56c29ac44b40b8e9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: cb294f0a3c22d52bc40f30e1d8655aed185857c6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074274"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118486"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profileren van ASP.NET Core Azure Linux-web-apps met Application Insights Profiler
 
 Deze functie is momenteel beschikbaar als preview-product.
 
-Ontdek hoeveel tijd is besteed in elke methode van uw live webtoepassing wanneer u [Application Insights](../../application-insights/app-insights-overview.md). Application Insights Profiler is nu beschikbaar voor ASP.NET Core web-apps die worden gehost in Linux op Azure App Service. Deze handleiding bevat stapsgewijze instructies over hoe de Profiler-traces voor ASP.NET Core-Linux WebApps kunnen worden verzameld.
+Ontdek hoeveel tijd is besteed in elke methode van uw live webtoepassing wanneer u [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler is nu beschikbaar voor ASP.NET Core web-apps die worden gehost in Linux op Azure App Service. Deze handleiding bevat stapsgewijze instructies over hoe de Profiler-traces voor ASP.NET Core-Linux WebApps kunnen worden verzameld.
 
 Nadat u alle stappen hebt voltooid, kan uw app Profiler-traceringen, zoals de traceringen die worden weergegeven in de afbeelding te verzamelen. In dit voorbeeld wordt de Profiler-tracering geeft aan dat een bepaalde webaanvraag trage vanwege tijd wachten. De *snelpad* in de code die de app wordt traag is gemarkeerd met een pictogram vuur. De **over** methode in de **HomeController** sectie de web-app is vertraagd omdat het aanroepen van de methode de **Thread.Sleep** functie.
 

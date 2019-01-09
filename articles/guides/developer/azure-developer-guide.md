@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c4eefa09f0a70d42601a5b1fe8694500b5c6be2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714352"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118248"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -178,7 +178,7 @@ Met uw toepassing en worden uitgevoerd in Azure, moet u kunnen zijn voor het bew
 
 -   **Visual Studio Application Insights**: Een Azure gehoste uitbreidbare Analyseservice die is geïntegreerd met Visual Studio voor het bewaken van uw live web-apps. Dit biedt u de gegevens die u moet het continu verbeteren de prestaties en bruikbaarheid van uw apps, of ze worden gehost op Azure of niet.
 
-    >**Aan de slag**: Ga als volgt de [Application Insights-zelfstudie](../../application-insights/app-insights-overview.md).
+    >**Aan de slag**: Ga als volgt de [Application Insights-zelfstudie](../../azure-monitor/app/app-insights-overview.md).
 
 -   **Azure Monitor**: Een service die u helpt bij het visualiseren, query's uitvoeren, routeren, archiveren en reageren op de metrische gegevens en logboeken die worden gegenereerd door uw Azure-infrastructuur en resources. Monitor biedt de weergaven van gegevens dat u in de Azure-portal ziet en is van één bron voor het bewaken van Azure-resources.
  

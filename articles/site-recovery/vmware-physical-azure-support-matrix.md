@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a66917f1ab4e554dbb5a8cd1fb9013e111970714
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999812"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107494"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -33,7 +33,7 @@ Fysieke servers | Replicatie van on-premises Windows/Linux-fysieke servers naar 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0 of 5.5 of vSphere 6.7, 6.5, 6.0 of 5.5 | U wordt aangeraden dat u een vCenter-server.<br/><br/> Het is raadzaam dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevinden als de processerver. Wordt standaard de serveronderdelen proces uitgevoerd op de configuratieserver, dus dit is het netwerk waarin u de configuratieserver hebt ingesteld, tenzij u een speciaal toegewezen proces-server instellen.
-Fysieke | N/A
+Fysiek | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery-configuratieserver
 
@@ -169,7 +169,7 @@ Versleutelde schijf Gast/host-server | Nee
 Gast/NFS-server | Nee
 Gast/SMB 3.0-server | Nee
 Gast/server RDM | Ja<br/><br/> N.V.T. voor fysieke servers
-Gast/server schijf > 1 TB | Ja<br/><br/>Maximaal 4095 GB
+Gast/server schijf > 1 TB | Ja<br/><br/>Maximaal 4095 GB<br/><br/> Schijf moet groter zijn dan 1024 MB zijn.
 Gast/server-schijf met de fysieke sectorgrootte van 4K logische en 4 k | Ja
 Gast/server-schijf met de 4K logische en fysieke sectorgrootte van 512 bytes | Ja
 Volume van de Gast/host-server met striped schijf > 4 TB <br/><br/>Logische volumebeheer (LVM)| Ja

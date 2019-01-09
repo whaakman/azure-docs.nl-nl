@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035379"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122799"
 ---
 Virtuele Azure-Machines (VM's) gaat via verschillende statussen die kunnen worden onderverdeeld in *inrichting* en *power* Staten. Het doel van dit artikel is om te beschrijven deze statussen en specifiek markeren wanneer klanten zijn bijvoorbeeld gebruik gefactureerd. 
 
@@ -32,7 +32,7 @@ De volgende tabel bevat een beschrijving van de status van elk exemplaar en geef
 Status
 </th>
 <th>
-Beschrijving
+Description
 </th>
 <th>
 Exemplaar gebruik facturering
@@ -108,7 +108,7 @@ Exemplaar gebruik facturering
  ]</code><br>
 </td>
 <td>
-<p><b>Niet in rekening gebracht&#42;</b></p>
+<p><b>Kosten in rekening gebracht&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Exemplaar gebruik facturering
 </table>
 
 
-&#42;Sommige Azure-resources, zoals schijven en netwerken, worden kosten in rekening gebracht, ongeacht de status van het exemplaar. 
+&#42;Sommige Azure-resources, zoals schijven en netwerken, worden kosten in rekening gebracht. Licenties voor software op het exemplaar kunnen geen kosten in rekening gebracht.
 
 ## <a name="provisioning-states"></a>Inrichtingsstatussen
 
@@ -178,7 +178,7 @@ Hier volgen de Staten overgangs bewerking nadat het platform heeft een actie van
 <p><b>Statussen</b></p>
 </td>
 <td width="366">
-<p>Beschrijving</p>
+<p>Description</p>
 </td>
 </tr>
 <tr>
@@ -244,7 +244,7 @@ Hier volgen de Staten overgangs bewerking nadat het platform heeft een actie van
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Houd er rekening mee</b>: inrichting van het besturingssysteem kunt overgaan op **mislukt** als er een OS-fouten of het besturingssysteem niet wordt geïnstalleerd in de tijd. Klanten worden gefactureerd voor de geïmplementeerde virtuele machine op de infrastructuur.</p>
+<p><b>Opmerking</b>: Inrichting van het besturingssysteem kunt overgaan op **mislukt** als er een OS-fouten of het besturingssysteem niet wordt geïnstalleerd in de tijd. Klanten worden gefactureerd voor de geïmplementeerde virtuele machine op de infrastructuur.</p>
 </td>
 </tr>
 </table>

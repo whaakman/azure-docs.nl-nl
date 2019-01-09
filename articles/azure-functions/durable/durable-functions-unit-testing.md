@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: kadimitr
-ms.openlocfilehash: 3dcc9e4880c65e868f1cd62d3c6e1567e82b6870
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 38db54889c1fff0406f4e21cea80e16b6fdc25d1
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337866"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105505"
 ---
 # <a name="durable-functions-unit-testing"></a>Duurzame functies Eenheidstesten
 
@@ -184,6 +184,6 @@ En de eenheidstests controleert of de indeling van de uitvoer. De eenheidstests 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over xUnit](http://xunit.github.io/docs/getting-started-dotnet-core)
+> [Meer informatie over xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
 
 > [Meer informatie over moq](https://github.com/Moq/moq4/wiki/Quickstart)

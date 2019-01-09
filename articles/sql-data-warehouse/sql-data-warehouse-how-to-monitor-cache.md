@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
+ms.component: performance
 ms.topic: how-to
-ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a0504ae0e5c3dbf70ad84526176beae52f55870
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385529"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103123"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>De cache Gen2 bewaken
 De opslagarchitectuur Gen2 wordt automatisch de meest aangevraagde columnstore-segmenten in een cache op basis van SSD's die zijn ontworpen voor datawarehouses Gen2 NVMe lagen. Betere prestaties wordt gerealiseerd wanneer uw query's halen segmenten die die zich in de cache bevinden zijn. Dit artikel wordt beschreven hoe u controleert en prestaties van trage query's op te lossen door te bepalen of uw werkbelasting is optimaal gebruik te maken van de cache Gen2.  
@@ -39,15 +39,15 @@ De matrix die hieronder worden beschreven scenario's op basis van de waarden van
 | **Hoog percentage van de Cache die wordt gebruikt** |          Scenario 1           |          Scenario 2          |
 | **Percentage van de laag Cache die wordt gebruikt**  |          Scenario 3           |          Scenario 4          |
 
-**Scenario 1:** u optimaal gebruik van uw cache. [Problemen oplossen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andere gebieden die mogelijk uw query's vertragen.
+**Scenario 1:** U gebruik optimaal van uw cache. [Problemen oplossen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andere gebieden die mogelijk uw query's vertragen.
 
-**Scenario 2:** uw huidige werkset van de gegevens niet passen in de cache die zorgt ervoor een klein aantal dat cachetreffers percentage vanwege fysieke leesbewerkingen. Houd rekening met omhoog schalen van het prestatieniveau en uw workload om in te vullen van de cache opnieuw.
+**Scenario 2:** Uw huidige werkset van de gegevens niet passen in de cache die zorgt ervoor een klein aantal dat cachetreffers percentage vanwege fysieke leesbewerkingen. Houd rekening met omhoog schalen van het prestatieniveau en uw workload om in te vullen van de cache opnieuw.
 
-**Scenario 3:** is het waarschijnlijk dat uw query traag wordt uitgevoerd vanwege redenen die niet gerelateerd aan de cache. [Problemen oplossen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andere gebieden die mogelijk uw query's vertragen. U kunt ook overwegen [verkleint uw exemplaar](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) uw cache verkleinen om kosten te besparen. 
+**Scenario 3:** Is het waarschijnlijk dat uw query traag wordt uitgevoerd vanwege redenen die niet gerelateerd aan de cache. [Problemen oplossen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andere gebieden die mogelijk uw query's vertragen. U kunt ook overwegen [verkleint uw exemplaar](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) uw cache verkleinen om kosten te besparen. 
 
-**Scenario 4:** moest u een cold cache die mogelijk de reden waarom uw query traag is. Houd rekening met uw query opnieuw uitvoeren als uw gegevensset werken moet nu in in de cache. 
+**Scenario 4:** Moest u een cold cache die mogelijk de reden waarom uw query traag is. Houd rekening met uw query opnieuw uitvoeren als uw gegevensset werken moet nu in in de cache. 
 
-**Belangrijk: Als percentage treffers in de cache of als percentage van de cache die wordt gebruikt niet wordt bijgewerkt na het opnieuw uit te voeren in uw werkbelasting, uw werkset kan al zijn die zich bevinden in het geheugen. Houd er rekening mee alleen geclusterde columnstore tabellen in de cache zijn opgeslagen.**
+**Belangrijk: Als percentage treffers in de cache of als percentage van de cache die wordt gebruikt niet wordt bijgewerkt na het opnieuw uit te voeren in uw werkbelasting, kan al uw werkset zich in het geheugen. Houd er rekening mee alleen geclusterde columnstore tabellen in de cache zijn opgeslagen.**
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over algemene query-prestaties afstemmen, [bewaak de queryuitvoering](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).

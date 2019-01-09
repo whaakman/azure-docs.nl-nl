@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322036"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117432"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Overzicht van automatisch schalen met Azure VM-schaalset wordt ingesteld
 Een schaalset voor virtuele machine van Azure kan automatisch vergroten of verkleinen van het aantal VM-exemplaren die uw toepassing wordt uitgevoerd. Dit gedrag van automatische en flexibele vermindert de overhead voor het bewaken en optimaliseren van de prestaties van uw toepassing. U maakt regels die de aanvaardbare prestaties voor een positieve gebruikerservaring bepalen. Wanneer de gedefinieerde drempelwaarden wordt voldaan, maatregelen regels voor automatisch schalen om aan te passen van de capaciteit van uw schaalset. U kunt ook gebeurtenissen automatisch te vergroten of verkleinen, de capaciteit van uw schaalset op tijden vaste plannen. Dit artikel bevat een overzicht van welke prestaties metrische gegevens beschikbaar zijn en welke acties voor automatisch schalen kan uitvoeren.
@@ -122,7 +122,7 @@ Zie voor meer informatie de artikelen voor het inschakelen van de diagnostische 
 ## <a name="application-level-metrics-with-app-insights"></a>Op toepassingsniveau metrische gegevens met App Insights
 Als u wilt meer zichtbaarheid in om de prestaties van uw toepassingen te krijgen, kunt u Application Insights. U installeert een klein instrumentatiepakket in uw toepassing waarmee de app worden gecontroleerd en telemetrie verzendt naar Azure. U kunt metrische gegevens zoals de reactietijden van uw toepassing, de laadprestaties van de pagina, controleren en de sessie wordt geteld. Deze toepassing metrische gegevens kan worden gebruikt om te maken van regels voor automatisch schalen op het niveau van een nauwkeurige en ingesloten als u regels op basis van inzichten die mogelijk van invloed op de klantervaring activeren.
 
-Zie [Wat is Application Insights?](../application-insights/app-insights-overview.md) voor meer informatie over App Insights.
+Zie [Wat is Application Insights?](../azure-monitor/app/app-insights-overview.md) voor meer informatie over App Insights.
 
 
 ## <a name="scheduled-autoscale"></a>Geplande automatische schaalaanpassing

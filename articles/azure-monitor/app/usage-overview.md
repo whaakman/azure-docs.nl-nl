@@ -13,22 +13,22 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076974"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118520"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Gebruiksanalyse met Application Insights
 
-Welke functies van uw web- of mobiele app zijn meest populaire? Uw gebruikers hun doelstellingen met uw app bereiken? Ze zich terugtrekken op bepaalde tijdstippen, en ze later nodig?  [Azure Application Insights](../../application-insights/app-insights-overview.md) helpt u bij het nuttig inzicht in hoe mensen uw app gebruiken. Telkens wanneer u uw app bijwerkt, kunt u beoordelen hoe goed werkt voor gebruikers. Met deze kennis, kunt u gegevensgestuurde beslissingen nemen over uw volgende ontwikkelingscycli.
+Welke functies van uw web- of mobiele app zijn meest populaire? Uw gebruikers hun doelstellingen met uw app bereiken? Ze zich terugtrekken op bepaalde tijdstippen, en ze later nodig?  [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) helpt u bij het nuttig inzicht in hoe mensen uw app gebruiken. Telkens wanneer u uw app bijwerkt, kunt u beoordelen hoe goed werkt voor gebruikers. Met deze kennis, kunt u gegevensgestuurde beslissingen nemen over uw volgende ontwikkelingscycli.
 
 ## <a name="send-telemetry-from-your-app"></a>Telemetrie verzenden vanuit uw app
 
 De beste ervaring wordt verkregen door het installeren van Application Insights in de code van de app, en in uw webpagina's. De client en server-onderdelen van uw app verzenden van telemetrie naar de Azure-portal voor analyse.
 
-1. **Servercode:** Installeer de juiste module voor uw [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), of [andere](../../azure-monitor/app/platforms.md) -App.
+1. **Servercode:** Installeer de juiste module voor uw [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), of [andere](../../azure-monitor/app/platforms.md) -App.
 
     * *Wilt u zich geen servercode installeren? Alleen [maken van een Azure Application Insights-resource](../../azure-monitor/app/create-new-resource.md ).*
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/02/2019
-ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001597"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118197"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Benefit en migratie
 
@@ -66,6 +66,10 @@ Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden
 In het op vCore gebaseerde aankoopmodel, kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Dit voordeel van Azure kunt u uw on-premises SQL Server-licenties gebruiken tot 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
 
 ![prijzen](./media/sql-database-service-tiers/pricing.png)
+
+Als u gebruiken van uw bestaande on-premises SQL Server-licenties wilt, kunt u alleen de basisprijs voor de onderliggende Azure-infrastructuur (bijvoorbeeld Azure VM waarop de database wordt uitgevoerd) terwijl de SQL Server Database engine-licentie niet worden opgenomen in uw factuur betalen. U kunt uw on-premises-licentie voor SQL Server en Azure SQL Database gebruiken in een bepaalde periode. Anders worden de licentiekosten voor SQL Server database engine worden opgenomen in de prijs van uw database of het exemplaar. Als u PowerShell of Azure CLI gebruikt voor het maken of bijwerken van de database of het exemplaar, zijn er twee prijsopties die u kunt kiezen:
+- **BasePrice** betekent dat u hebt een geldige SQL Server-licentie die u wilt gebruiken als onderdeel van [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) en dat u betaalt alleen de infrastructuurkosten van de basis-wilt maken.
+- **LicenseIncluded** betekent dat u hebt geen on-premises SQL Server-licentie, of u niet wilt dat met uw on-premises-licentie voor de database of een beheerd exemplaar. SQL Server-licentie worden in dit geval worden opgenomen in uw factuur. 
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migratie van DTU-model naar het vCore-model
 

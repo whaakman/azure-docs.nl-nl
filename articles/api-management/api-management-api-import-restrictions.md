@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016739"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106821"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Importbeperkingen voor API- en bekende problemen
 ## <a name="about-this-list"></a>Over deze lijst
@@ -47,6 +47,7 @@ WSDL-bestanden worden gebruikt om te fungeren als de back-end van een SOAP naar 
 * **WCF-wsHttpBinding** -SOAP-services die zijn gemaakt met Windows Communication Foundation basicHttpBinding moeten gebruiken - wsHttpBinding wordt niet ondersteund.
 * **MTOM** - Services met behulp van MTOM <em>kan</em> werken. Op dit moment is geen officiële ondersteuning geboden.
 * **Recursie** -typen die zijn gedefinieerd recursief (bijvoorbeeld verwijzen naar een matrix van zichzelf) worden niet ondersteund door APIM.
+* **Meerdere naamruimten** : meerdere naamruimten in een schema kan worden gebruikt, maar alleen de doelnaamruimte kan worden gebruikt voor het delen van een bericht te definiëren. Naamruimten dan de doelgegevensruimte die worden gebruikt voor het definiëren van andere invoer- of -elementen blijven niet behouden. Hoewel dit een WSDL-document kan worden geïmporteerd, bij het exporteren heeft alle delen van een bericht de doelnaamruimte van de WSDL.
 
 ## <a name="wadl"> </a>WADL
 Er zijn momenteel geen problemen bekend WADL importeren.

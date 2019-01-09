@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: fc2659fb9bbe043a61f1ad49bb4290b7ccf834f8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 245826e816f77db3394d1fc3858246ec5d1d605a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422011"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102003"
 ---
 # <a name="create-an-oem-package"></a>Een OEM-pakket maken
 
@@ -28,7 +28,7 @@ Het Azure Stack OEM-uitbreidingspakket is het mechanisme dat door welke OEM spec
 
 ## <a name="creating-the-package"></a>Het maken van het pakket
 
-Nadat u hebt gemaakt en gevalideerd, kan het OEM-uitbreidingspakket in VaaS worden gebruikt.  Zorg ervoor dat u de stappen hebt voltooid voordat u doorgaat, [het maken van een OEM-pakket](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Het pakket wordt vervolgens naar Microsoft verzonden, samen met de testresultaten VaaS voor het ondertekenen van in de werkstroom voor validatie van het pakket. De volgende stappen wordt beschreven hoe u de gegenereerde bestanden te bundelen in één zip-bestand die VaaS kunnen gebruiken.
+Nadat u hebt gemaakt en gevalideerd, kan het OEM-uitbreidingspakket in VaaS worden gebruikt.  Zorg ervoor dat u de stappen hebt voltooid voordat u doorgaat, [het maken van een OEM-pakket](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Het pakket wordt vervolgens naar Microsoft verzonden, samen met de testresultaten VaaS voor het ondertekenen van in de werkstroom voor validatie van de oplossing. De volgende stappen wordt beschreven hoe u de gegenereerde bestanden te bundelen in één zip-bestand die VaaS kunnen gebruiken.
 
 1. Identificeert u de volgende inhoud voor het pakket:
     - Een uitvoerbaar bestand met de naam `<Publisher>-<Model>-<Version>.exe`
@@ -49,7 +49,7 @@ Bekijk deze voor het valideren van de structuur van het zipbestand, en controlee
 
 ![Inhoud van een correct ZIP-pakket](media/vaas-create-oem-package-3.png)
 
-Het zip-bestand kan nu worden geüpload naar VaaS en ondertekend door Microsoft in de werkstroom van het pakket niet valideren.
+Het zip-bestand kan nu worden geüpload naar VaaS en ondertekend door Microsoft in de werkstroom voor validatie van de oplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
 

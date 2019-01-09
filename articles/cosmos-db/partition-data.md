@@ -6,12 +6,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 667dbab6613b83d0e72762b8bbad738d0d7697d8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034434"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101476"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering en horizontaal schalen in Azure Cosmos DB
 
@@ -23,13 +23,11 @@ Een logische partitie bestaat uit een reeks items met dezelfde partitiesleutel. 
 
 In Azure Cosmos DB is een container de fundamentele eenheid van de schaalbaarheid. De gegevens die zijn toegevoegd aan de container en de doorvoer die u in te op de container richten worden automatisch (horizontaal) gepartitioneerde in een set met logische partities. Ze worden gepartitioneerd op basis van de partitiesleutel die u opgeeft voor de Cosmos-container. Zie voor meer informatie, [opgeven van de partitiesleutel voor de container van Cosmos](how-to-create-container.md) artikel.
 
-Een logische partitie definieert het bereik van databasetransacties. U kunt items in een logische partitie bijwerken met behulp van een transactie met snapshot-isolatie.
-
-Wanneer nieuwe items worden toegevoegd aan de container of als de doorvoer die is ingericht voor de container wordt verhoogd, worden nieuwe logische partities worden transparant gemaakt door het systeem.
+Een logische partitie definieert het bereik van databasetransacties. U kunt items in een logische partitie bijwerken met behulp van een transactie met snapshot-isolatie. Wanneer nieuwe items worden toegevoegd aan de container, worden nieuwe logische partities worden transparant gemaakt door het systeem.
 
 ## <a name="physical-partitions"></a>Fysieke partities
 
-Een Cosmos-container wordt geschaald door de gegevens en de doorvoer te verdelen over een groot aantal logische partities. Intern, een of meer logische partities zijn toegewezen aan een **fysieke partitie** die bestaat uit een verzameling van replica's ook aangeduid als een replica-set. Elke replicaset als host fungeert voor een exemplaar van de Cosmos-database-engine. Een replica-set maakt de gegevens die zijn opgeslagen in de fysieke partitie duurzame, maximaal beschikbare en consistent. Een fysieke partitie ondersteuning biedt voor een vaste en maximale hoeveelheid opslag en ru's. Elke replica die bestaat uit de fysieke partitie neemt over van de opslag van inhoud. En alle replica's van een fysieke partitie gezamenlijk ondersteuning voor de doorvoer die is toegewezen aan de fysieke partitie. De volgende afbeelding ziet u hoe logische partities zijn toegewezen aan de fysieke partities die wereldwijd worden gedistribueerd:
+Azure Cosmos-container wordt geschaald door de gegevens en de doorvoer te verdelen over een groot aantal logische partities. Intern, een of meer logische partities zijn toegewezen aan een **fysieke partitie** die bestaat uit een verzameling van replica's ook aangeduid als een replica-set. Elke replicaset als host fungeert voor een exemplaar van de Azure Cosmos-database-engine. Een replica-set maakt de gegevens die zijn opgeslagen in de fysieke partitie duurzame, maximaal beschikbare en consistent. Een fysieke partitie ondersteuning biedt voor een vaste en maximale hoeveelheid opslag en ru's. Elke replica die bestaat uit de fysieke partitie neemt over van de opslag van inhoud. En alle replica's van een fysieke partitie gezamenlijk ondersteuning voor de doorvoer die is toegewezen aan de fysieke partitie. De volgende afbeelding ziet u hoe logische partities zijn toegewezen aan de fysieke partities die wereldwijd worden gedistribueerd:
 
 ![Partitioneren van Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 

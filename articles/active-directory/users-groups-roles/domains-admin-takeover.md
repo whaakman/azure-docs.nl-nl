@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837168"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121189"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
-Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
+Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bepaal hoe u wilt een niet-beheerde directory overnemen
 Tijdens het proces van overname door een beheerder kunt u eigendom bewijzen, zoals beschreven in [Een aangepaste domeinnaam toevoegen aan Azure AD](../fundamentals/add-custom-domain.md). In de volgende secties wordt de ervaring voor de beheerder gedetailleerder uitgelegd, maar hier volgt een samenvatting:
@@ -41,7 +41,7 @@ Sommige producten, zoals SharePoint en OneDrive, zoals Office 365, bieden geen o
 
 3. Selecteer in de bevestigingse-mail van Power BI, **Ja, dat ben ik**.
 
-4. Aanmelden bij de [Office 365-beheercentrum](https://portal.office.com/adminportal/Home) met de Power BI-gebruikersaccount. U ontvangt een bericht dat u de opdracht geeft **beheerder** van de domeinnaam die was al geverifieerd in de niet-beheerde tenant. Selecteer **Ja, ik wil de beheerder**.
+4. Aanmelden bij de [Office 365-beheercentrum](https://portal.office.com/admintakeover) met de Power BI-gebruikersaccount. U ontvangt een bericht dat u de opdracht geeft **beheerder** van de domeinnaam die was al geverifieerd in de niet-beheerde tenant. Selecteer **Ja, ik wil de beheerder**.
   
   ![eerste schermafbeelding voor worden de beheerder](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ Wanneer de DNS TXT-records worden geverifieerd bij uw domeinnaamregistrar, kunt 
 
 Wanneer u de voorgaande stappen hebt voltooid, bent u nu de globale beheerder van de vierde koffie tenant in Office 365. Als u wilt de domeinnaam integreren met uw andere Azure-services, kunt u verwijderen uit Office 365 en toe te voegen aan een andere beheerde tenant in Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Naam van het domein toe te voegen aan een beheerde tenant in Azure AD 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Naam van het domein toe te voegen aan een beheerde tenant in Azure AD
 
-1. Open de [Office 365-beheercentrum](https://portal.office.com/adminportal/Home).
+1. Open de [Office 365-beheercentrum](https://portal.office.com/admintakeover).
 2. Selecteer **gebruikers** tabblad en een nieuw gebruikersaccount maken met een naam, zoals *user@fourthcoffeexyz.onmicrosoft.com* die gebruikt niet de aangepaste domeinnaam. 
 3. Zorg ervoor dat het nieuwe gebruikersaccount globale beheerdersmachtigingen voor de Azure AD-tenant.
 4. Open **domeinen** tabblad in het Office 365-beheercentrum, selecteert u de domeinnaam en selecteer **verwijderen**. 

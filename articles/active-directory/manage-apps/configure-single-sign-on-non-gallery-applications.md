@@ -1,37 +1,33 @@
 ---
-title: Azure AD-eenmalige aanmelding configureren voor toepassingen | Microsoft Docs
-description: Informatie over hoe verbinding maken met apps aan Azure Active Directory met behulp van SAML en eenmalige aanmelding op basis van wachtwoorden voor selfservice
+title: Eenmalige aanmelding - niet-galerietoepassingen - Azure Active Directory | Microsoft Docs
+description: Eenmalige aanmelding (SSO) configureren voor niet-galerietoepassingen in Azure Active Directory (Azure AD)
 services: active-directory
 author: barbkess
-documentationcenter: na
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2018
+ms.date: 01/08/2019
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: bb2fcbad3d415a8ac7a8e0c3237fcb97042defd7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408121"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121342"
 ---
-# <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Single sign-on bij niet-galerietoepassingen in Azure Active Directory configureren
 
-In dit artikel gaat over een functie waarmee beheerders het configureren van eenmalige aanmelding voor toepassingen die niet aanwezig in de app-galerie van Azure Active Directory *zonder code te schrijven*. Deze functie werd uitgebracht van technical preview op 18 November 2015 en is opgenomen in [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md). Als u in plaats daarvan voor richtlijnen voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via de programmacode, Zie [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).
+In dit artikel gaat over een functie waarmee beheerders het configureren van eenmalige aanmelding voor toepassingen die niet aanwezig in de app-galerie van Azure Active Directory *zonder code te schrijven*. Als u in plaats daarvan voor richtlijnen voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via de programmacode, Zie [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).
 
 De galerie met Azure Active Directory biedt een overzicht van toepassingen die bekend zijn bij het ondersteunen van een vorm van eenmalige aanmelding met Azure Active Directory, zoals beschreven in [in dit artikel](what-is-single-sign-on.md). Zodra u (als een IT-specialist of system integrator in uw organisatie) hebt gevonden die de toepassing dat u verbinding wilt maken, u kunt aan de slag door de stapsgewijze instructies die zijn gepresenteerd in Azure portal om in te schakelen eenmalige aanmelding.
 
-Klanten met [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) licentie krijgt ook deze aanvullende mogelijkheden:
+Deze mogelijkheden zijn ook beschikbaar is, op basis van uw licentieovereenkomst. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/active-directory/) voor meer informatie. 
 
-* Self-service-integratie van toepassingen die ondersteuning biedt voor SAML 2.0 id-providers (SP geïnitieerde of IdP gestart)
-* Self-service-integratie van een webtoepassing die een op HTML gebaseerde aanmeldingspagina opgeven met behulp is [wachtwoord gebaseerde SSO](what-is-single-sign-on.md#password-based-sso)
+- Self-service-integratie van toepassingen die ondersteuning biedt voor SAML 2.0 id-providers (SP geïnitieerde of IdP gestart)
+- Self-service-integratie van een webtoepassing die een op HTML gebaseerde aanmeldingspagina opgeven met behulp is [wachtwoord gebaseerde SSO](what-is-single-sign-on.md#password-based-sso)
 * Selfservice-verbinding van toepassingen die het protocol SCIM voor het inrichten van gebruikers gebruiken ([die hier worden beschreven](use-scim-to-provision-users-and-groups.md))
 * Koppelingen toevoegen aan elke toepassing in de [startprogramma voor Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-toegangspaneel](what-is-single-sign-on.md#linked-sso)
 

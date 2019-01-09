@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: c9b843bfd448c05cb2b11165e54d19db0a7ad60e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019513"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105284"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>ASP.NET-Sessiestatusprovider voor Azure Cache voor Redis
 Azure Redis-Cache biedt een sessiestatusprovider die u gebruiken kunt voor het opslaan van uw sessie staat in het geheugen met Azure Cache voor Redis in plaats van een SQL Server-database. Uw cache voor het eerst configureert voor het gebruik van de sessiestatusprovider voor opslaan in cache, en configureer vervolgens uw ASP.NET-toepassing voor de cache met behulp van de Azure-Cache voor Redis-sessie status NuGet-pakket.
@@ -127,7 +127,7 @@ Zodra deze stappen worden uitgevoerd, wordt uw toepassing is geconfigureerd voor
 * SQL Server-sessiestatus-Provider: deze provider slaat de sessiestatus in Sql Server. Gebruik deze provider als u wilt de sessiestatus wordt opgeslagen in een permanente opslag. U kunt uw Web-App schalen, maar met behulp van Sql Server voor de sessie een prestatie-impact heeft op uw Web-App. U kunt ook deze provider met een [In-Memory OLTP configuratie](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) om prestaties te verbeteren.
 * Gedistribueerd In geheugen Sessiestatusprovider zoals Azure Cache voor Redis-Sessiestatusprovider - deze provider kunt u het beste van beide werelden. Uw Web-App kan een eenvoudige, snelle en schaalbare Sessiestatusprovider hebben. Omdat deze provider wordt de sessiestatus in een Cache opgeslagen, is uw app te nemen in overweging alle kenmerken die is gekoppeld als communicatie met een gedistribueerd In cachegeheugen, zoals tijdelijke netwerkfouten. Zie voor aanbevolen procedures voor het gebruik van Cache [richtlijnen voor Caching](../best-practices-caching.md) vanuit Microsoft Patterns & Practices [toepassingsontwerp voor Azure-Cloud en begeleiding bij implementatie](https://github.com/mspnp/azure-guidance).
 
-Zie voor meer informatie over de sessiestatus en andere best practices, [aanbevolen procedures voor de ontwikkeling van Web (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Zie voor meer informatie over de sessiestatus en andere best practices, [aanbevolen procedures voor de ontwikkeling van Web (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk de [Cacheprovider voor ASP.NET voor Azure Cache voor Redis](cache-aspnet-output-cache-provider.md).

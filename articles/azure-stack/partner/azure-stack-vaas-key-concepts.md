@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 871df693878611b0322a0f06634c62a7a9efd90a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6a14a806b48b30d84b021a84a1ef0a2f4318ea94
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335160"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106461"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Validatie uit als een Service-belangrijkste concepten
 
@@ -35,7 +35,7 @@ Een oplossing VaaS vertegenwoordigt een Azure Stack-oplossing met een bepaalde h
 3. Voer een naam voor de oplossing. Zie voor het benoemen van suggesties, [naamgevingsconventie voor VaaS oplossingen](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. Selecteer **opslaan** om de oplossing te maken.
 
-## <a name="workflows"></a>Werkstromen
+## <a name="workflows"></a>Workflows
 
 Een werkstroom VaaS werkt binnen de context van een VaaS-oplossing. Hiermee geeft u een verzameling testsuites die de functionaliteit van een Azure Stack-implementatie. Een werkstroom moet worden gemaakt voor elke implementatie of software-update van een Azure Stack-oplossing.
 
@@ -44,7 +44,7 @@ Werkstromen worden gecategoriseerd op scenariotype kunt testen. Niet-officiële 
 ![VaaS werkstroom tegels](media/tile_all-workflows.png)
 
 > [!NOTE]
-> De **validatie van het pakket** werkstroom ondersteunt momenteel twee scenario's: [valideren OEM pakketten](azure-stack-vaas-validate-oem-package.md) en [valideren van software-updates van Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> De **oplossing validatie** werkstroom ondersteunt momenteel twee scenario's: [OEM-pakketten valideren](azure-stack-vaas-validate-oem-package.md) en [valideren van software-updates van Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 Zie voor meer informatie over werkstroomtypen [wat wordt gevalideerd als een Service voor Azure Stack?](azure-stack-vaas-overview.md).
 
@@ -52,10 +52,10 @@ Zie voor meer informatie over werkstroomtypen [wat wordt gevalideerd als een Ser
 
 1. Een nieuwe oplossing maken op het dashboard oplossingen, of Selecteer een bestaande resourcegroep. Dit wordt vernieuwd en u kunt de tegels van de werkstroom.
 2. Als u wilt een nieuwe werkstroom maakt, selecteert u op **Start** op een willekeurige tegel. Zie de volgende artikelen voor informatie die specifiek zijn voor elke werkstroom:
-    - Testronde: [Quick Start: de validatie gebruiken als een serviceportal voor het plannen van uw eerste test](azure-stack-vaas-schedule-test-pass.md)
-    - Validatie van de oplossing: [een nieuwe Azure Stack-oplossing te valideren](azure-stack-vaas-validate-solution-new.md)
-    - Validatie van het pakket: [valideren van software-updates van Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Validatie van het pakket: [valideren OEM-pakketten](azure-stack-vaas-validate-oem-package.md)
+    - Testronde: [Snelstart: De validatie gebruiken als een serviceportal voor het plannen van uw eerste test](azure-stack-vaas-schedule-test-pass.md)
+    - Validatie van de oplossing: [Een nieuwe Azure Stack-oplossing te valideren](azure-stack-vaas-validate-solution-new.md)
+    - Validatie van de oplossing: [Valideren van software-updates van Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Validatie van de oplossing: [OEM-pakketten valideren](azure-stack-vaas-validate-oem-package.md)
 
 3. Als u wilt beheren of bewaken van een bestaande werkstroom, selecteert u op **beheren** op de tegel van de werkstroom. Selecteer de naam van de werkstroom en het gebruik de **bewerken** knop Eigenschappen weergeven of wijzigen van algemene testparameters.
 

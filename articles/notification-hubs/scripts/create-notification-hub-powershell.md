@@ -1,32 +1,32 @@
 ---
-title: 'PowerShell-script: een Azure notification hub maken | Microsoft Docs'
-description: Deze PowerShell-script maakt een Azure notification hub.
-services: data-factory
+title: 'PowerShell-script: Een Azure notification hub maken | Microsoft Docs'
+description: Dit PowerShell-script maakt u een Azure notification hub.
+services: notification-hubs
 author: dimazaid
 manager: kpiteira
 editor: spelluru
-ms.service: data-factory
+ms.service: notification-hubs
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 747d743a0573bd959b4d3c7100be8ae9451c5ed5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f1408f7b6bdc0aa58d4e1ee43173a0bfbd02ab6a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790977"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120154"
 ---
-# <a name="use-powershell-to-create-an-azure-notification-hub"></a>PowerShell gebruiken voor een Azure notification hub maken
+# <a name="use-powershell-to-create-an-azure-notification-hub"></a>PowerShell gebruiken voor het maken van een Azure notification hub
 
-Deze PowerShell-voorbeeldscript maakt een voorbeeld Azure notification hub. 
+Met dit PowerShell-voorbeeldscript maakt u een voorbeeld van Azure notification hub. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-abonnement** : als u hebt een Azure-abonnement maken geen een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+* **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -35,7 +35,7 @@ Deze PowerShell-voorbeeldscript maakt een voorbeeld Azure notification hub.
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Nadat u hebt het voorbeeldscript uitvoeren, kunt u de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld:
+Nadat u het voorbeeld van een script uitvoert, kunt u de volgende opdracht uit om te verwijderen van de resourcegroep en alle bijbehorende resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
@@ -48,7 +48,7 @@ In dit script worden de volgende opdrachten gebruikt:
 | Opdracht | Opmerkingen |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [Nieuwe AzureRmNotificationHubsNamespace](/powershell/module//azurerm.notificationhubs/new-azurermnotificationhubsnamespace) | Maakt een naamruimte voor de notification hub. |
+| [Nieuwe-AzureRmNotificationHubsNamespace](/powershell/module//azurerm.notificationhubs/new-azurermnotificationhubsnamespace) | Hiermee maakt u een naamruimte voor de notification hub. |
 | [Nieuwe AzureRmNotificationHub](/powershell/module//azurerm.notificationhubs/new-azurermnotificationhubsnamespace) | Hiermee maakt u een notification hub. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 |||

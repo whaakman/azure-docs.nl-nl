@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584618"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121308"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
@@ -56,7 +56,7 @@ Bij het configureren van vóór en na-scripts die u zojuist hebt in de parameter
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext eigenschappen
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | De naam van de configuratie van de Software-updates        |
 |SoftwareUpdateConfigurationRunId     | De unieke id voor de uitvoering.        |
@@ -100,10 +100,7 @@ Hieronder volgt een voorbeeld van een JSON-tekenreeks doorgegeven aan de **Softw
    }
 ```
 
-Een compleet voorbeeld met alle eigenschappen kunt u vinden op: [configuraties in de Software-Update - ophalen op naam](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> Computers die zijn toegevoegd aan een implementatie met [dynamische groepen (preview)](automation-update-management.md#using-dynamic-groups) ze geen momenteel deel uit van de **SoftwareUpdateConfigurationRunContext** parameter.
+Een compleet voorbeeld met alle eigenschappen kan worden gevonden op: [Configuraties van Software-Update - ophalen met de naam](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## <a name="samples"></a>Voorbeelden
 

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257373"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118299"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -27,7 +27,7 @@ De volgende tabel ziet u de verschillen tussen de twee identity-opties:
 |Billing|Capaciteit moet worden<br> Alleen Enterprise Agreement (EA)|Capaciteit of betalen als u-gebruik<br>EA- of Cloud Solution Provider (CSP)|
 |Identiteit|Moet de AD FS|Azure AD of AD FS|
 |Marketplace |Ondersteund<br>BYOL-licentieverlening|Ondersteund<br>BYOL-licentieverlening|
-|Registratie|Aanbevolen, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Geautomatiseerd|
+|Registratie|Vereist, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Geautomatiseerd|
 |Voor patches en updates|Vereist, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Updatepakket kan rechtstreeks worden gedownload.<br> vanaf het Internet met Azure Stack.|
 
 > [!IMPORTANT]
@@ -278,7 +278,7 @@ Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
    > [!IMPORTANT]  
    > De AD FS MMC-module moet u de regels voor Uitgifteautorisatie configureren bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
 
-4. Wanneer u Internet Explorer of de Microsoft Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
+4. Wanneer u Internet Explorer of de Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
 
    > [!note]  
    > Deze stap is niet van toepassing wanneer u Windows Server 2012 of 2012 R2 AD FS. Is het veilig om deze opdracht overslaan en doorgaan met de integratie.

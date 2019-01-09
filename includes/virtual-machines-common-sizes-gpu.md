@@ -8,24 +8,29 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bc311ca5c49584ae3715fa4507e1fd678bcc93bb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007926"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54122833"
 ---
 GPU-geoptimaliseerde VM-grootten zijn gespecialiseerde virtuele machines die beschikbaar zijn met één of meerdere NVIDIA GPU's. Deze grootten zijn ontworpen voor intensieve compute- en grafisch intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type van GPU's, vcpu's, gegevensschijven en NIC's. De doorvoer en netwerkbandbreedte Storage zijn ook opgenomen voor elke grootte in deze groepering. 
 
 * **NC, NCv2, NCv3, ND en NDv2** grootten zijn geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen en algoritmen. Enkele voorbeelden zijn CUDA - en opencl-toepassingen en simulaties, AI en Deep Learning. De NCv3-serie is gericht op high-performance computing-workloads met NVIDIA Tesla V100 GPU.  De ND-serie is gericht op trainings- en deductiescenario's voor deep learning. Deze serie maakt gebruikt van NVIDIA Tesla P40 GPU.
+
+* De **NC-serie** is uitgerust met een Intel Xeon® E5-2690 v3 2,60 GHz-processor.
+
+* De **NCSv3**, **NCSv2**, en **ND** grootten voorzien van een Intel Xeon® E5-2690 v4 2,60 GHz.
+                      
 * **NV en NVv2** grootten zijn geoptimaliseerd en ontworpen voor externe visualisatie, streaming, games, codering, en VDI-scenario's met behulp van frameworks als OpenGL en DirectX.  Deze VM's worden ondersteund door NVIDIA Tesla M60 GPU.
 
 
 ## <a name="nc-series"></a>NC-serie
 
-Premium-opslag: Niet ondersteund
+Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching: Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 NC-serie VM's worden aangestuurd door de [NVIDIA Tesla R80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) kaart. Gebruikers kunnen Verwerk gegevens sneller door gebruik te maken van CUDA voor energie-exploratietoepassingen, vastlopen simulaties, ray getraceerde rendering, deep learning en meer. De NC24r-configuratie biedt een lage latentie en hoge doorvoer network interface die is geoptimaliseerd voor nauw gekoppelde werkbelastingen voor parallelle berekeningen.
 
@@ -43,9 +48,9 @@ NC-serie VM's worden aangestuurd door de [NVIDIA Tesla R80](https://www.nvidia.c
 
 ## <a name="ncv2-series"></a>NCv2-serie
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 NCv2-serie VM's worden aangestuurd door [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU's. Deze GPU's bieden meer dan 2 x de verwerkingsprestaties van de NC-serie. Klanten kunnen profiteren van deze bijgewerkte GPU's traditionele HPC-workloads, zoals de modellering van reservoirmodellering, DNA sequentiëren, eiwitanalyse, Monte Carlo-simulaties en anderen. De NC24rs versie 2-configuratie biedt een lage latentie en hoge doorvoer network interface die is geoptimaliseerd voor nauw gekoppelde werkbelastingen voor parallelle berekeningen.
 
@@ -66,9 +71,9 @@ NCv2-serie VM's worden aangestuurd door [NVIDIA Tesla P100](http://images.nvidia
 
 ## <a name="ncv3-series"></a>NCv3-serie
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 NCv3-serie VM's worden aangestuurd door [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPU's. Deze GPU's leveren tot 1,5 keer de verwerkingsprestaties van de NCv2-serie. Klanten kunnen profiteren van deze bijgewerkte GPU's traditionele HPC-workloads, zoals de modellering van reservoirmodellering, DNA sequentiëren, eiwitanalyse, Monte Carlo-simulaties en anderen. De NC24rs v3-configuratie biedt een lage latentie en hoge doorvoer network interface die is geoptimaliseerd voor nauw gekoppelde werkbelastingen voor parallelle berekeningen.
 
@@ -90,9 +95,9 @@ NCv3-serie VM's worden aangestuurd door [NVIDIA Tesla V100](http://www.nvidia.co
 ## <a name="ndv2-series-preview"></a>NDv2-serie (Preview)
 
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 InfiniBand: Niet ondersteund
 
@@ -109,9 +114,9 @@ NDv2-serie virtuele machine is een nieuwe toevoeging aan de GPU die is ontworpen
 
 ## <a name="nd-series"></a>ND-serie
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 De ND-serie virtuele machines zijn een nieuwe toevoeging aan de GPU-serie die is ontworpen voor AI- en Deep Learning werkbelastingen. Ze bieden uitstekende prestaties voor training en Deductie. ND-exemplaren worden aangestuurd door [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU's. Deze instanties bieden uitstekende prestaties voor enkele precisie zwevende drijvende-kommaberekeningen, voor AI-workloads met Microsoft Cognitive Toolkit, TensorFlow, Caffe en andere frameworks. De ND-serie biedt daarnaast een veel groter GPU-geheugen (24 GB), waardoor het mogelijk is om veel grotere modellen met een neuraal netwerk in te zetten. Net als de NC-serie, de ND-serie biedt een configuratie met een secundair netwerk met lage latentie en hoge doorvoersnelheid via RDMA en InfiniBand-connectiviteit, zodat u grootschalige trainingstaken waarvoor veel GPU's kunt uitvoeren.
 
@@ -132,9 +137,9 @@ De ND-serie virtuele machines zijn een nieuwe toevoeging aan de GPU-serie die is
 
 ## <a name="nv-series"></a>NV-serie
 
-Premium-opslag: Niet ondersteund
+Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching: Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 De NV-serie virtuele machines worden aangestuurd door [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU's en NVIDIA GRID technologie voor desktop versneld en virtuele bureaubladen waarop klanten hun gegevens of simulatie kunnen visualiseren zijn. Gebruikers kunnen hun grafisch intensieve werkstromen op de NV-exemplaren grafische mogelijkheden en daarnaast enkelvoudige precisieworkloads, zoals codering en rendering uitvoeren visualiseren. 
 
@@ -150,9 +155,9 @@ Elke GPU in NV-exemplaren wordt geleverd met een licentie RASTER. Deze licentie 
 
 ## <a name="nvv2-series-preview"></a>NVv2-serie (Preview)
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 Virtuele machines uit de NVv2-serie worden aangedreven door [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU's en NVIDIA GRID technologie van Intel Broadwell CPU's. Deze virtuele machines zijn bedoeld voor GPU grafische toepassingen versnelde en virtuele bureaubladen waar klanten willen hun gegevens visualiseren, resultaten wilt weergeven, werken met CAD- of render en stream-inhoud te simuleren. Daarnaast kunnen deze virtuele machines enkelvoudige, nauwkeurige workloads uitvoeren zoals encoding en renderen. NVv2 virtuele machines ondersteunt Premiumopslag en worden geleverd met twee keer het systeemgeheugen (RAM) in vergelijking met diens voorganger NV-serie.  
 

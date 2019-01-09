@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725317"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118180"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure best practices voor operationele beveiliging
 Azure operationele beveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere assets in Azure. Operationele beveiliging in Azure is gebouwd op een framework waarin de kennis opgedaan uit mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), wordt de [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programma en een diep besef van het landschap van cyberveiligheidsbedreigingen.
@@ -87,7 +87,7 @@ U kunt [Azure Resource Manager](https://azure.microsoft.com/documentation/articl
 - Zorg ervoor dat uw app kan worden gebruikt voor het afhandelen van verkeer voor uw volgende starten of marketing-campagne.
 
 **Beste**: Bewaak de prestaties van toepassingen.  
-**Details**: [Azure Application Insights](../application-insights/app-insights-overview.md) is een service extensible application performance management (APM) voor webontwikkelaars op meerdere platforms. Application Insights gebruiken om uw livewebtoepassing controleren. Er wordt automatisch gedetecteerd prestatieafwijkingen. Het bevat analytics-hulpprogramma's kunt u problemen identificeren en te begrijpen wat gebruikers daadwerkelijk doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren.
+**Details**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) is een service extensible application performance management (APM) voor webontwikkelaars op meerdere platforms. Application Insights gebruiken om uw livewebtoepassing controleren. Er wordt automatisch gedetecteerd prestatieafwijkingen. Het bevat analytics-hulpprogramma's kunt u problemen identificeren en te begrijpen wat gebruikers daadwerkelijk doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Te beperken en te beveiligen tegen DDoS
 Distributed denial of service (DDoS) is een soort aanval waarmee wordt geprobeerd te weinig toepassingsresources. Het doel is van invloed op de beschikbaarheid van de toepassing en de mogelijkheid voor het verwerken van legitieme aanvragen. Deze aanvallen worden steeds meer geavanceerde en grotere in omvang en impact. Ze kunnen worden gericht op een willekeurig eindpunt dat openbaar bereikbaar is via het internet.

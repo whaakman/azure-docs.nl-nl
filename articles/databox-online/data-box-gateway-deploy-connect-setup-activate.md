@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166743"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120510"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Zelfstudie: Verbinding maken, instellen, activeren van Azure Data Box-Gateway (Preview) 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Zelfstudie: Verbinding maken, instellen, het activeren van Azure Data Box-Gateway (Preview) 
 
 ## <a name="introduction"></a>Inleiding
 
@@ -84,7 +84,10 @@ U bent nu op de **Dashboard** van uw apparaat.
     - Als DHCP is ingeschakeld in uw omgeving, worden netwerkinterfaces automatisch geconfigureerd. Daarom kan worden een IP-adres, subnet, gateway en DNS automatisch toegewezen.
     - Als DHCP niet is ingeschakeld, kunt u statische IP-adressen kunt toewijzen, indien nodig.
     - U kunt uw netwerk-interface configureren als IPv4.
-   
+
+    >[!NOTE] 
+    > We raden aan dat u het lokale IP-adres van de interface netowrk van statisch naar DCHP, niet overschakelen, tenzij u een ander IP-adres verbinding maken met het apparaat hebt. Als u met behulp van een netwerkinterface en u overschakelen naar DHCP, zou er geen manier om te bepalen van de DHCP-adres. Als u wijzigen in een DHCP-adres wilt, wachten totdat het apparaat is geregistreerd bij de service en vervolgens wijzigen. U kunt bekijken, de IP-adressen van alle adpaters in de **apparaateigenschappen** in Azure portal voor uw service.
+
 4. (Optioneel) Configureer uw webproxyserver. Hoewel webproxyconfiguratie optioneel is, er rekening mee dat als u een webproxy gebruikt, u alleen deze hier configureren kunt.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
@@ -111,7 +114,7 @@ U bent nu op de **Dashboard** van uw apparaat.
     
     1. Voer de **activeringscode** die u hebt verkregen [ophalen van de activeringscode](data-box-gateway-deploy-prep.md#get-the-activation-key) voor Data Box-Gateway.
 
-    2. Klik op **activeren**. 
+    2. Klik op **Activeren**. 
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     

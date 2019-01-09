@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820355"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119047"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
 
@@ -48,7 +48,7 @@ Als u een installatiekopie die biedt geen ondersteuning voor Azure Container Ins
 
 Deze fout wordt meestal veroorzaakt als implementatie Windows-installatiekopieën die zijn gebaseerd op een semi-Annual-kanaal (SAC). Bijvoorbeeld Windows versie 1709 en 1803 SAC releases zijn en deze fout bij de implementatie wordt gegenereerd.
 
-Azure Container Instances biedt ondersteuning voor Windows-installatiekopieën op basis van alleen op Long-Term Servicing-kanaal (LTSC)-versies. Voor het oplossen van dit probleem bij het implementeren van Windows-containers implementeert u altijd LTSC-installatiekopieën.
+Azure Container Instances biedt momenteel ondersteuning voor Windows-installatiekopieën op basis van alleen de **Windows Server 2016 Long-Term Servicing Channel (LTSC)** release. Voor het oplossen van dit probleem bij het implementeren van Windows-containers implementeert u altijd op basis van Windows Server 2016 LTSC afbeeldingen. Installatiekopieën die zijn gebaseerd op Windows Server 2019 (LTSC) worden niet ondersteund.
 
 Zie voor meer informatie over de versies van Windows voor LTSC en SAC [overzicht van Windows Server semi-Annual-kanaal][windows-sac-overview].
 

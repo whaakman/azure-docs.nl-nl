@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/12/2018
+ms.date: 1/8/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 856d702bcf1f566d0cc455cdd2676e6c2e23d179
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53326451"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122782"
 ---
 Data factory is een multitenant-service met de volgende standaardlimieten in plaats om te controleren of abonnementen van de gebruiker zijn beveiligd tegen elkaars werkbelastingen. Veel van de limieten kunnen worden eenvoudig gegenereerd voor uw abonnement tot de maximale limiet door contact op met ondersteuning.
 
@@ -23,7 +23,7 @@ Data factory is een multitenant-service met de volgende standaardlimieten in pla
 | -------- | ------------- | ------------- |
 | Data Factory's in een Azure-abonnement | 50 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Totaal aantal entiteiten (Pipeline, gegevenssets, Triggers, gekoppelde Services, integratieruntimes) in een data factory | 5000 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Totale CPU-kernen voor Azure-SSIS-integratie Runtime(s) onder één abonnement | 128 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Totale CPU-kernen voor Azure-SSIS-integratie Runtime(s) onder één abonnement | 256 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Gelijktijdige pijplijnuitvoeringen per gegevensfactory (gedeeld tussen alle pijplijnen in de fabriek) | 10.000  | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Maximum aantal activiteiten per pijplijn (inclusief interne activiteiten voor containers) | 40 | 40 |
 | Maximum aantal parameters per pijplijn | 50 | 50 |

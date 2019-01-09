@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971501"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104655"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een niet-verbonden Azure Stack-omgeving beveiligd door AD FS
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
 > De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.4 implementeert.
@@ -88,7 +88,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
     >
     
     3. In de **Azure Stack-locaties** vak, selecteert u de locatie die overeenkomt met de regio die u naar implementeert. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure Stack Development Kit.
-    4. Klik op **Volgende**.
+    4. Klik op **volgende**.
 
     ![App Service-installatieprogramma][4]
 
@@ -116,7 +116,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
     2. In de **Identiteitstoepassing certificaatbestand** vak, typ (of blader naar) de locatie van het certificaatbestand.
     3. In de **Identiteitstoepassing certificaatwachtwoord** vak, voer het wachtwoord voor het certificaat. Dit wachtwoord is degene die u hebt genoteerd als u het script gebruikt voor het maken van de certificaten.
     4. In de **basiscertificaatbestand voor Azure Resource Manager** vak, typ (of blader naar) de locatie van het certificaatbestand.
-    5. Klik op **Volgende**.
+    5. Klik op **volgende**.
 
     ![App Service-installatieprogramma][10]
 
@@ -171,12 +171,12 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
     > [!NOTE]
     > **Windows Server 2016 Core is geen ondersteund platform-installatiekopie voor gebruik met Azure App Service in Azure Stack.  Gebruik geen evaluatie installatiekopieën voor productie-implementaties.  Azure App Service in Azure Stack is vereist dat Microsoft.Net 3.5.1 SP1 op de installatiekopie die wordt gebruikt voor de implementatie is geactiveerd.   Marketplace publiceren Windows Server 2016 installatiekopieën nog geen deze functie is ingeschakeld, daarom moet u maken en gebruiken van een installatiekopie van Windows Server 2016 met dit is vooraf ingeschakeld.**
 
-14. In de **Platforminstallatiekopie selecteren** vak, kiest u de installatiekopie van uw implementatie van Windows Server 2016 virtuele machine van de gegevensbronnen die beschikbaar zijn in de resourceprovider voor compute voor de App Service-cloud. Klik op **Volgende**.
+14. In de **Platforminstallatiekopie selecteren** vak, kiest u de installatiekopie van uw implementatie van Windows Server 2016 virtuele machine van de gegevensbronnen die beschikbaar zijn in de resourceprovider voor compute voor de App Service-cloud. Klik op **volgende**.
 
 15. Op de volgende pagina:
      1. Voer de gebruikersnaam voor Worker-rol virtuele machine-beheerder en het wachtwoord.
      2. Voer de gebruikersnaam van beheerder van overige rollen virtuele machine en het wachtwoord.
-     3. Klik op **Volgende**.
+     3. Klik op **volgende**.
 
     ![App Service-installatieprogramma][16]
 
@@ -203,13 +203,13 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
 
 > [!NOTE]
 > Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen het worker-subnet en de bestandsserver aan te geven.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
-> * Bron:
+> * Bron: Alle
 > * Poortbereik van bron: *
 > * Bestemming: IP-adressen
-> * Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+> * Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
 > * Poortbereik van doel: 445
 > * Protocol: TCP
-> * Actie: toestaan
+> * Actie: Toestaan
 > * Prioriteit: 700
 > * Naam: Outbound_Allow_SMB445
 >
@@ -257,9 +257,9 @@ U kunt ook proberen om andere [platform als een service (PaaS)-services](azure-s
 - [MySQL-resourceprovider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

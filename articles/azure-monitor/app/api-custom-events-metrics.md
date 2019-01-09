@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbb849b19d523c315e192110ce71c4f382e04657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: aac5010ca6b0ed958a849bf203f1d2f80bcdb81c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077909"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119814"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
-Een paar regels code invoegen in uw toepassing om erachter te komen wat gebruikers met deze doen, of om problemen vast te stellen. U kunt de telemetrie verzenden van apparaat- en bureaublad-apps, web-clients en webservers. Gebruik de [Azure Application Insights](../../application-insights/app-insights-overview.md) core telemetrie-API voor het verzenden van aangepaste gebeurtenissen en metrische gegevens en uw eigen versies van telemetrie. Deze API is dezelfde API die gebruikmaken van de standaard Application Insights-gegevens-collectors.
+Een paar regels code invoegen in uw toepassing om erachter te komen wat gebruikers met deze doen, of om problemen vast te stellen. U kunt de telemetrie verzenden van apparaat- en bureaublad-apps, web-clients en webservers. Gebruik de [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) core telemetrie-API voor het verzenden van aangepaste gebeurtenissen en metrische gegevens en uw eigen versies van telemetrie. Deze API is dezelfde API die gebruikmaken van de standaard Application Insights-gegevens-collectors.
 
 > [!NOTE]
 > `TrackMetric()` is niet langer de voorkeursmethode voor het verzenden van aangepaste metrische gegevens voor uw .NET-toepassingen. In [versie 2,60 Bèta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) van de Application Insights SDK voor .NET een nieuwe methode [ `TelemetryClient.GetMetric()` ](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) werd geïntroduceerd. Vanaf de Application Insights .NET SDK [versie 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) deze functionaliteit maakt nu deel uit van de stabiele versie.

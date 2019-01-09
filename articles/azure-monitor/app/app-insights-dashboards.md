@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074832"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117074"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigatie en Dashboards in de Application Insights-portal
-Nadat u hebt [Application Insights instellen voor uw project](../../application-insights/app-insights-overview.md), telemetrische gegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource van uw project in de [Azure-portal](https://portal.azure.com).
+Nadat u hebt [Application Insights instellen voor uw project](../../azure-monitor/app/app-insights-overview.md), telemetrische gegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource van uw project in de [Azure-portal](https://portal.azure.com).
 
 ## <a name="find-your-telemetry"></a>Uw telemetrie zoeken
 Aanmelden bij de [Azure-portal](https://portal.azure.com) en navigeer naar de Application Insights-resource die u hebt gemaakt voor uw app.
@@ -34,7 +34,7 @@ De overzichtsblade (pagina) voor uw app bevat een overzicht van de belangrijkste
 U kunt een van de grafieken en rasters aanpassen en vastmaken aan een dashboard. Op die manier, verzamelt u de belangrijkste telemetrie vanuit andere apps in een centraal dashboard.
 
 ## <a name="dashboards"></a>Dashboards
-Het eerste wat u ziet nadat u zich aanmeldt bij de [Microsoft Azure portal](https://portal.azure.com) is van een dashboard. Hier verzamelt u de grafieken die het belangrijkst voor u voor al uw Azure-resources zijn, waaronder telemetrie van [Azure Application Insights](../../application-insights/app-insights-overview.md).
+Het eerste wat u ziet nadat u zich aanmeldt bij de [Microsoft Azure portal](https://portal.azure.com) is van een dashboard. Hier verzamelt u de grafieken die het belangrijkst voor u voor al uw Azure-resources zijn, waaronder telemetrie van [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![Een aangepast dashboard.](./media/app-insights-dashboards/31.png)
 

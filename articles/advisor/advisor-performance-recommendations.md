@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 93757c9f589ec1a6d5065d32740831dac922a015
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079065"
+ms.locfileid: "54101714"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-aanbevelingen voor prestaties
 
@@ -71,7 +71,7 @@ Azure Advisor detecteert als uw SQL Data Warehouse beschikt over hoge cache perc
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>SQL Data Warehouse-tabellen omzetten in gerepliceerde tabellen voor betere queryprestaties
 
-Advisor identificeert de tabellen die geen gerepliceerde tabellen zijn, maar veel voordeel hebben van het converteren van en stelt deze tabellen te converteren. Aanbevelingen zijn gebaseerd op de grootte van gerepliceerde tabel, het aantal kolommen, tabel Distributietype en het aantal partities van de SQL Data Warehouse-tabel. Aanvullende heurisitics kan worden opgegeven in de aanbeveling voor context. Zie voor meer informatie over hoe deze aanbeveling wordt bepaald, [aanbevelingen voor SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Advisor identificeert de tabellen die geen gerepliceerde tabellen zijn, maar veel voordeel hebben van het converteren van en stelt deze tabellen te converteren. Aanbevelingen zijn gebaseerd op de grootte van gerepliceerde tabel, het aantal kolommen, tabel Distributietype en het aantal partities van de SQL Data Warehouse-tabel. Aanvullende methodiek kan worden opgegeven in de aanbeveling voor context. Zie voor meer informatie over hoe deze aanbeveling wordt bepaald, [aanbevelingen voor SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Uw Storage-Account migreren naar Azure Resource Manager om de nieuwste functies van Azure
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b95a9b2243dda83be7de67802a8b6678419e335f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192686"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102581"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Het oplossen van problemen met de Log Analytics-agent voor Linux 
 
@@ -30,7 +30,7 @@ Als geen van deze stappen voor u werkt, zijn ook de volgende ondersteuningskanal
 * Klanten met Azure support-overeenkomsten kunnen een ondersteuningsaanvraag openen [in Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * OMI diagnosticeren met de [OMI-gids voor probleemoplossing](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Bestand een [GitHub-probleem](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Ga naar de pagina Log Analytics Feedback om te controleren ingediende ideeën en bugs [ http://aka.ms/opinsightsfeedback ](https://aka.ms/opinsightsfeedback) of een nieuw bestand.  
+* Ga naar de pagina Log Analytics Feedback om te controleren ingediende ideeën en bugs [ https://aka.ms/opinsightsfeedback ](https://aka.ms/opinsightsfeedback) of een nieuw bestand.  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Belangrijke logboeklocaties en Logboekverzamelaar hulpprogramma
 

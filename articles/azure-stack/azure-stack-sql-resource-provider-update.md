@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 8fc8be105c6c610e6b246fa0ec619fecc81b1dd9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: b39cc799218a4c6f865acac8b98f5fb977c83bdc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966242"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117789"
 ---
 # <a name="update-the-sql-resource-provider"></a>Bijwerken van de SQL-resourceprovider
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen.*
+*Van toepassing op: Azure Stack-geïntegreerde systemen.*
 
 Een nieuwe SQL-resourceprovider kan worden vrijgegeven wanneer Azure Stack wordt bijgewerkt naar een nieuwe build. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk.
 
@@ -106,7 +106,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 U kunt de volgende parameters vanaf de opdrachtregel opgeven wanneer u het script uitvoert. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven.
 
-| Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
+| Parameternaam | Description | Opmerking of de standaardwaarde |
 | --- | --- | --- |
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ |
 | **AzCredential** | De referenties voor het beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 40ee4fe15b2fde917c1d056a1454b95b9655b465
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999727"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103759"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -44,6 +44,9 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 
 U kunt repliceren en herstellen van virtuele machines tussen elke twee regio's binnen hetzelfde geografische cluster. Geografische clusters worden gedefinieerd gegevenslatentie en -soevereiniteit waarmee u rekening moet houden.
 
+>[!NOTE]
+>Als u zich niet aan een regio binnen een geografische cluster ziet tijdens het inschakelen van replicatie en zorg ervoor dat uw abonnement heeft toegang tot de virtuele machine maken in deze regio. Als dat niet dan een aanvraag ondersteuning onder het abonnement 'Type probleem'.
+>
 **Geografische cluster** | **Azure-regio's**
 -- | --
 Amerika | Canada-Oost, Canada-midden, Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2, VS-midden, Noord-centraal VS

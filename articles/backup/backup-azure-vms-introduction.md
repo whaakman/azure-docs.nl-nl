@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: ebb8d5d141dab39e73297342907d4439b30a9fbf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042475"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107426"
 ---
 # <a name="about-azure-vm-backup"></a>Over Azure VM backup
 
@@ -30,7 +30,7 @@ Hier ziet u hoe Azure Backup aangeeft dat een back-up is voltooid voor virtuele 
     - De extensie wordt geïnstalleerd tijdens de eerste virtuele machine back-up.
     - Als u wilt de extensie installeren, moet de virtuele machine worden uitgevoerd.
     - Als de VM niet actief is, wordt met de Backup-service een momentopname gemaakt van de onderliggende opslag (aangezien er geen schrijfbewerkingen van toepassingen plaatsvinden als de VM is gestopt).
-4. De back-upextensie maakt een opslag-niveau, app-consistente momentopname.
+4. De back-upextensie duurt een opslag-niveau, crash-consistente/bestand-consistente momentopname.
 5. Nadat de momentopname is gemaakt worden de gegevens overgedragen naar de kluis. Voor maximale efficiëntie, de service wordt geïdentificeerd en alleen de blokken met gegevens die zijn gewijzigd sinds de vorige back-up (delta) overgedragen.
 5. Wanneer de gegevensoverdracht is voltooid, wordt de momentopname verwijderd en wordt er een herstelpunt gemaakt.
 

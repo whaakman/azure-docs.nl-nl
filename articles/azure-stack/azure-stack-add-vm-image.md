@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036594"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119727"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 In Azure Stack, kunt u installatiekopieën van virtuele machines beschikbaar aan uw gebruikers. Deze installatiekopieën kunnen worden verwezen door Azure Resource Manager-sjablonen of kunt u ze toevoegen aan de gebruikersinterface van de Azure Marketplace als een Marketplace-item. U kunt ofwel een installatiekopie-formulier gebruiken de globale Azure Marketplace of uw eigen aangepaste installatiekopie toevoegen. U kunt een virtuele machine met behulp van de portal of Windows PowerShell kunt toevoegen.
 
@@ -48,7 +48,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
    * Maak een notitie van de blob-opslag-URI waar u de installatiekopie uploadt. De URI van de blob-opslag heeft de volgende indeling: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
-   * Als u de blob anoniem toegankelijk is, gaat u naar de storage-account blob-container waarnaar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. (Optioneel) kunt u in plaats daarvan een shared access signature voor de container genereren en opnemen als onderdeel van de blob-URI. Deze stap zorgt ervoor dat de blob is beschikbaar om te worden gebruikt voor het toevoegen van dit als een afbeelding. Als de blob niet anoniem toegankelijk is, wordt de VM-installatiekopie te worden gemaakt in een foutstatus.
+   * Als u de blob anoniem toegankelijk is, gaat u naar de storage-account blob-container waarnaar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. U kunt eventueel genereren van een shared access signature voor de container en opnemen als onderdeel van de blob-URI. Deze stap zorgt ervoor dat de blob is beschikbaar om te worden gebruikt voor het toevoegen van dit als een afbeelding. Als de blob niet anoniem toegankelijk is, wordt de VM-installatiekopie te worden gemaakt in een foutstatus.
 
    ![Ga naar opslagaccountblobs](./media/azure-stack-add-vm-image/image1.png)
 
@@ -154,7 +154,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 3. Meld u met Azure Stack als een operator. Zie voor instructies [aanmelden bij Azure Stack als operator](azure-stack-powershell-configure-admin.md).
 
-4. Een storage-account maken in de globale Azure of Azure Stack voor het opslaan van uw aangepaste VM-installatiekopie. Zie voor instructies [Quickstart: blobs uploaden, downloaden, en lijst met behulp van de Azure-portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Een storage-account maken in de globale Azure of Azure Stack voor het opslaan van uw aangepaste VM-installatiekopie. Zie voor instructies [Quick Start: Blobs uploaden, downloaden, en lijst met behulp van de Azure-portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Voorbereiden van de installatiekopie voor een Windows of Linux-besturingssysteem in VHD-indeling (de VHDX niet), de installatiekopie uploaden naar uw storage-account en de URI waar de VM-installatiekopie kan worden opgehaald door PowerShell.  
 

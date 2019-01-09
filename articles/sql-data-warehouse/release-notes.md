@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: b702d375f7a66843918a960ca3783c078eac541e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579708"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118435"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Releaseopmerkingen voor Azure SQL Data Warehouse
 
@@ -23,6 +23,7 @@ Azure SQL Data Warehouse is een cloud-gebaseerde Enterprise Data Warehouse (EDW)
 
 Klik op de onderstaande koppelingen voor meer informatie over de nieuwe functies en verbeteringen die u in de meest recente versie van Azure SQL Data Warehouse verwachten kunt. U kunt verwachten dat voor het ontvangen van deze service-updates tijdens de geïdentificeerde onderhoudsplanning.
 
+- [December 2018](./release-notes-december-2018.md)
 - [Oktober 2018](./release-notes-october-2018.md)
 - [September 2018](./release-notes-september-2018.md)
 - [Augustus 2018](./release-notes-august-2018.md)
@@ -38,7 +39,7 @@ Om te controleren welke versie is aan uw datawarehouse zijn toegepast. Verbindin
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Voorbeeld van uitvoer: ![versie van SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Voorbeelduitvoer: ![Versie van SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Gebruik de datum die is geïdentificeerd als u wilt controleren welke versie is toegepast op uw Azure SQL Data Warehouse. 
 

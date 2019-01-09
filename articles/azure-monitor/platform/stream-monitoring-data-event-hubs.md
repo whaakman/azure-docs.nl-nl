@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a39d497c90f49f8699b9d27be175e501973804c5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811508"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118384"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -26,7 +26,7 @@ Azure Monitor biedt één pijplijn voor het verkrijgen van toegang tot alle bewa
 Er zijn verschillende 'categorieën' van de gegevens te controleren binnen uw Azure-omgeving, en de methode van de toegang tot gegevens van elke laag verschilt enigszins. Deze lagen kunnen normaal gesproken worden omschreven als:
 
 - **Bewakingsgegevens van de toepassing:** Gegevens over de prestaties en functionaliteit van de code die u hebt geschreven en worden uitgevoerd op Azure. Voorbeelden van gegevens voor toepassingsbewaking zijn prestatietraces, toepassingslogboeken en telemetrie van de gebruiker. Toepassing bewakingsgegevens worden meestal verzameld in een van de volgende manieren:
-  - Door het instrumenteren van uw code met een SDK, zoals de [Application Insights-SDK](../../application-insights/app-insights-overview.md).
+  - Door het instrumenteren van uw code met een SDK, zoals de [Application Insights-SDK](../../azure-monitor/app/app-insights-overview.md).
   - Door het uitvoeren van een bewakingsagent die luistert naar nieuwe op de machine toepassingslogboeken uitvoeren van uw toepassing, zoals de [Windows Azure Diagnoseagent](./../../azure-monitor/platform/diagnostics-extension-overview.md) of [Linux Azure Diagnoseagent](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Bewakingsgegevens van Guest OS:** Gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Voorbeelden van Gast OS bewakingsgegevens zou zijn Linux syslog- of Windows-systeemgebeurtenissen. Voor het verzamelen van dit soort gegevens, moet u een agent wilt installeren, zoals de [Windows Azure Diagnoseagent](./../../azure-monitor/platform/diagnostics-extension-overview.md) of [Linux Azure Diagnoseagent](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Azure-resource door gegevens te controleren:** Gegevens over de werking van een Azure-resource. Voor bepaalde typen Azure-resource, zoals virtuele machines, moet u er een gastbesturingssysteem en toepassingen om te controleren binnen die Azure-service is. De resource door gegevens te controleren is het hoogste niveau van de gegevens die beschikbaar zijn voor andere Azure-resources, zoals Network Security Groups, (omdat er is geen gastbesturingssysteem of de toepassing die wordt uitgevoerd in die bronnen). Deze gegevens kan worden verzameld met behulp van [instellingen voor resourcediagnose](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
@@ -98,7 +98,7 @@ De [Windows Azure Diagnostics-agent](./../../azure-monitor/platform/diagnostics-
 
 ## <a name="application-monitoring-data"></a>Bewakingsgegevens van de toepassing
 
-Toepassing door gegevens te controleren is vereist dat uw code is uitgerust met een SDK, dus er is niet een algemene oplossing om routering toepassing bewakingsgegevens naar een event hub in Azure. Echter, [Azure Application Insights](../../application-insights/app-insights-overview.md) is een service die kan worden gebruikt voor het verzamelen van gegevens van Azure op toepassingsniveau. Als u Application Insights gebruikt, kunt u bewakingsgegevens naar een event hub streamen door het volgende te doen:
+Toepassing door gegevens te controleren is vereist dat uw code is uitgerust met een SDK, dus er is niet een algemene oplossing om routering toepassing bewakingsgegevens naar een event hub in Azure. Echter, [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) is een service die kan worden gebruikt voor het verzamelen van gegevens van Azure op toepassingsniveau. Als u Application Insights gebruikt, kunt u bewakingsgegevens naar een event hub streamen door het volgende te doen:
 
 1. [Instellen van continue export](../../azure-monitor/app/export-telemetry.md) van de Application Insights-gegevens naar een opslagaccount.
 
@@ -108,7 +108,7 @@ Toepassing door gegevens te controleren is vereist dat uw code is uitgerust met 
 
 Routering van uw bewakingsgegevens naar een event hub met Azure Monitor kunt u eenvoudig kunt integreren met SIEM-partner- en controlehulpprogramma's. De meeste hulpprogramma's moeten de event hub-verbindingsreeks en bepaalde machtigingen aan uw Azure-abonnement om gegevens te lezen uit de event hub. Hier ziet u een onvolledige lijst met Azure Monitor-integratie:
 
-* **IBM QRadar** -DSM van de Microsoft Azure en Microsoft Azure Event Hub-Protocol zijn beschikbaar voor downloaden van [de ondersteuningswebsite van IBM](http://www.ibm.com/support). Informatie over [de integratie mat Azure vindt u hier](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** -DSM van de Microsoft Azure en Microsoft Azure Event Hub-Protocol zijn beschikbaar voor downloaden van [de ondersteuningswebsite van IBM](https://www.ibm.com/support). Informatie over [de integratie mat Azure vindt u hier](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -afhankelijk van de instellingen Splunk, er zijn twee manieren:
     1. [De Azure Monitor-invoegtoepassing voor Splunk](https://splunkbase.splunk.com/app/3534/) is beschikbaar in Splunkbase en een open-source-project. [Documentatie is hier](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Als u niet een invoegtoepassing in uw exemplaar van Splunk (bv installeren. Als een proxy of die worden uitgevoerd op Splunk Cloud), kunt u deze gebeurtenissen voor het gebruik van de Splunk HTTP Event Collector doorsturen [deze functie die wordt geactiveerd door nieuwe berichten in de event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).

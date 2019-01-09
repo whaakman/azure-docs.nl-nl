@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326059"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103941"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics oplossen van problemen
 Dit artikel bevat informatie over probleemoplossing die relevant is voor het gebruik van Azure Diagnostics. Zie voor meer informatie over Azure diagnostics [overzicht van Azure Diagnostics](diagnostics-extension-overview.md).
@@ -118,7 +118,7 @@ De configuratie van diagnostische bevat instructies voor een bepaald type van de
 #### <a name="is-the-host-generating-data"></a>De host is genereren van gegevens?
 - **Prestatiemeteritems**: Open Prestatiemeter en controleren van de teller.
 
-- **Logboeken met traceringen**:  Externe toegang in de virtuele machine en een TextWriterTraceListener toevoegen aan het configuratiebestand van de app.  Zie http://msdn.microsoft.com/library/sk36c28t.aspx voor het instellen van de listener van tekst.  Zorg ervoor dat de `<trace>` element heeft `<trace autoflush="true">`.<br />
+- **Logboeken met traceringen**:  Externe toegang in de virtuele machine en een TextWriterTraceListener toevoegen aan het configuratiebestand van de app.  Zie https://msdn.microsoft.com/library/sk36c28t.aspx voor het instellen van de listener van tekst.  Zorg ervoor dat de `<trace>` element heeft `<trace autoflush="true">`.<br />
 Als er geen logboeken met traceringen die worden gegenereerd, Zie [meer informatie over ontbrekende traceerlogboeken](#more-about-trace-logs-missing).
 
 - **ETW-traceringen**: Externe toegang in de virtuele machine en installeer voorbeeld.  Voer in het voorbeeld, **bestand** > **opdracht van de gebruiker** > **luisteren etwprovder1** > **etwprovider2**, enzovoort. De **luisteren** opdracht is hoofdlettergevoelig en er mag spaties tussen de door komma's gescheiden lijst van ETW-providers. Als de opdracht niet kan worden uitgevoerd, kunt u de **Log** knop in de rechterbenedenhoek van de voorbeeld-hulpprogramma om te zien wat er is geprobeerd om uit te voeren en wat het resultaat is.  Ervan uitgaande dat de invoer juist is, verschijnt een nieuw venster. U begint de ETW-traceringen zien uit te voeren in een paar seconden.
@@ -217,9 +217,9 @@ U kunt ook extern bureaublad op de machine en bekijk de Azure Diagnostics-config
 
 Zoek in beide gevallen **Microsoft.Azure.Diagnostics**, en vervolgens voor de **xmlCfg** of **WadCfg** veld.
 
-Als u op een virtuele machine zoekt en de **WadCfg** veld niet aanwezig is, betekent dit dat de configuratie in JSON-indeling. Als de **xmlCfg** veld niet aanwezig is, betekent dit dat de configuratie is in XML en base64-gecodeerd. U moet [dit decoderen](http://www.bing.com/search?q=base64+decoder) om te zien van de XML-bestand dat is geladen met diagnostische gegevens.
+Als u op een virtuele machine zoekt en de **WadCfg** veld niet aanwezig is, betekent dit dat de configuratie in JSON-indeling. Als de **xmlCfg** veld niet aanwezig is, betekent dit dat de configuratie is in XML en base64-gecodeerd. U moet [dit decoderen](https://www.bing.com/search?q=base64+decoder) om te zien van de XML-bestand dat is geladen met diagnostische gegevens.
 
-Voor de rol van cloud service, als u de configuratie van de schijf, kiest de gegevens zijn base64-gecodeerd, dus u moet [dit decoderen](http://www.bing.com/search?q=base64+decoder) om te zien van de XML-bestand dat is geladen met diagnostische gegevens.
+Voor de rol van cloud service, als u de configuratie van de schijf, kiest de gegevens zijn base64-gecodeerd, dus u moet [dit decoderen](https://www.bing.com/search?q=base64+decoder) om te zien van de XML-bestand dat is geladen met diagnostische gegevens.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure Diagnostics-invoegtoepassing afsluitcodes definiëren
 De invoegtoepassing wordt de volgende afsluitcodes geretourneerd:

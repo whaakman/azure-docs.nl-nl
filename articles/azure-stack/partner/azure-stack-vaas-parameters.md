@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c5dc19c2f3e939f9721fd0885761a3927826b25b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263000"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102055"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Werkstroom algemene parameters voor Azure Stack-validatie als een Service
 
@@ -39,7 +39,7 @@ Omgeving parameters beschrijven de Azure Stack-omgeving onder belasting. Deze wa
 ### <a name="generate-the-stamp-information-file"></a>Het stempel bestand genereren
 
 1. Meld u aan bij de DVM of computers die toegang tot de Azure Stack-omgeving heeft.
-2. Voer de volgende opdrachten uit in een PowerShell-venster met verhoogde bevoegdheid:
+2. Voer de volgende opdrachten in een PowerShell-venster met verhoogde bevoegdheid:
     ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
@@ -56,7 +56,7 @@ Omgeving parameterwaarden kunnen ook handmatig aanwezig zijn in de **EEG configu
 
 Algemene testparameters gevoelige gegevens bevatten die in configuratiebestanden kan niet worden opgeslagen. Dit moeten handmatig opgegeven.
 
-Parameter    | Beschrijving
+Parameter    | Description
 -------------|-----------------
 Tenant-beheerder                            | Azure Active Directory Tenant-beheerder die is ingericht met de servicebeheerder in de AAD-directory. Deze gebruiker wordt uitgevoerd op tenantniveau acties, zoals sjablonen voor het instellen van resources (virtuele machines, opslagaccounts, enz.) implementeren en uitvoeren van workloads. Zie voor meer informatie over het inrichten van de tenantaccount [toevoegen van een nieuwe Azure Stack-tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
 Service-beheerder             | Azure Active Directory Administrator van de AAD-Directory-Tenant opgegeven tijdens de implementatie van Azure Stack. Zoeken naar `AADTenant` in de configuratie van EEG-bestand en selecteer de waarde in de `UniqueName` element.

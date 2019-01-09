@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: ee76d71f89fb94c8c05c6a733dac241a9e4fa13c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: 790a8bfed693f03cdadd036cab17eb94dee1c1ed
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965135"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119288"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Bijwerken van de MySQL-resourceprovider 
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen.*
+*Van toepassing op: Azure Stack-geïntegreerde systemen.*
 
 Een nieuwe SQL-resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk. 
 
@@ -97,7 +97,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 ### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parameters 
 U kunt deze parameters opgeven vanaf de opdrachtregel. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven. 
 
-| Parameternaam | Beschrijving | Opmerking of de standaardwaarde | 
+| Parameternaam | Description | Opmerking of de standaardwaarde | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ | 
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties als u hebt gebruikt voor het implementeren van Azure Stack. | _Vereist_ | 
@@ -110,7 +110,7 @@ U kunt deze parameters opgeven vanaf de opdrachtregel. Als u dit niet doet, of a
 | **RetryDuration** | De time-outinterval tussen nieuwe pogingen in seconden. | 120 | 
 | **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie de opmerkingen bij de volgende). | Nee | 
 | **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee | 
-| **AcceptLicense** | Hiermee slaat u de prompt om de GPL-licentie te accepteren.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **AcceptLicense** | Hiermee slaat u de prompt om de GPL-licentie te accepteren.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
  
 
 ## <a name="next-steps"></a>Volgende stappen

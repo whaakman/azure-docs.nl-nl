@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a6245472f0fc3f65dcbeebdf251387efed5f02b8
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333015"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106270"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Opmerkingen bij de release voor validatie als een Service
 
@@ -49,7 +49,7 @@ In dit artikel heeft de opmerkingen bij de release voor Azure Stack-validatie al
 
 - VaaS vereisten en de VHD-updates
 
-    `Install-VaaSPrerequisites` nu vereist dat cloud-beheerdersreferenties voor het oplossen van een probleem tijdens de validatie van het pakket. De documentatie op [Download en installeer de agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) is bijgewerkt met het volgende:
+    `Install-VaaSPrerequisites` nu vereist dat cloud-beheerdersreferenties voor het oplossen van een probleem tijdens de validatie van de oplossing. De documentatie op [Download en installeer de agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) is bijgewerkt met het volgende:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -76,7 +76,7 @@ In dit artikel heeft de opmerkingen bij de release voor Azure Stack-validatie al
 
   - Pakket voor het ondertekenen van meldingen
 
-    Als een OEM-aanpassing-pakket wordt verzonden als onderdeel van de werkstroom voor validatie van het pakket, wordt de indeling van het pakket worden gevalideerd om ervoor te zorgen dat deze de gepubliceerde specificatie volgt. Als het pakket niet voldoet, wordt de uitvoering mislukt. E-mailmeldingen worden worden verzonden naar het e-mailadres van de geregistreerde Azure Active Directory-contactpersoon voor de tenant.
+    Als een OEM-aanpassing-pakket wordt verzonden als onderdeel van de werkstroom voor validatie van de oplossing, wordt de indeling van het pakket worden gevalideerd om ervoor te zorgen dat deze de gepubliceerde specificatie volgt. Als het pakket niet voldoet, wordt de uitvoering mislukt. E-mailmeldingen worden worden verzonden naar het e-mailadres van de geregistreerde Azure Active Directory-contactpersoon voor de tenant.
 
   - Interactieve test categorie
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 923ba21574cce201c7b073b3078145239dd8c0ec
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617414"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121597"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Uw eerste betrouwbare Service Fabric Java-actortoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -51,8 +51,8 @@ Om aan de slag te gaan met Reliable Actors hoeft u slechts enkele basisbegrippen
 * **Actor-interface**. De Actor-interface wordt gebruikt voor het definiëren van een sterk getypeerde openbare interface van een actor. In de terminologie van Reliable Actor-modellen definieert de actorinterface de typen berichten die de actor kan begrijpen en verwerken. De actorinterface wordt door andere actors en clienttoepassingen gebruikt om (asynchroon) berichten naar de actor te 'verzenden'. Reliable Actors kunnen meerdere interfaces implementeren.
 * **Klasse ActorProxy**. De klasse ActorProxy wordt door clienttoepassingen gebruikt voor het aanroepen van de methoden die toegankelijk zijn via de actorinterface. De klasse ActorProxy heeft twee belangrijke functies:
   
-  * Naamomzetting: de klasse kan de actor in het cluster vinden (het knooppunt van het cluster waar de actor wordt gehost).
-  * Foutafhandeling: de klasse kan methodes opnieuw proberen aan te roepen en de locatie van een actor opnieuw omzetten, bijvoorbeeld na een storing waardoor de actor is verplaatst naar een ander knooppunt in het cluster.
+  * Naamomzetting: Het is te vinden van de actor in het cluster (zoeken naar het knooppunt van het cluster waar dit wordt gehost).
+  * Afhandeling van taakfouten: Het kan methodes opnieuw proberen en de locatie van een actor opnieuw omzetten na, bijvoorbeeld een storing waardoor de actor is verplaatst naar een ander knooppunt in het cluster.
 
 De volgende regels met betrekking tot actorinterfaces zijn het noemen waard:
 
@@ -179,7 +179,7 @@ public static void main(String[] args) throws Exception {
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Exception occured", e);
+            logger.log(Level.SEVERE, "Exception occurred", e);
             throw e;
         }
     }

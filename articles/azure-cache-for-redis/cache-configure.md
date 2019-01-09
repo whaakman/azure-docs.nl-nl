@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581246"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104672"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache voor Redis configureren
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure-Cache voor instanties van Redis. Dit onderwerp bevat ook de Redis-server standaardconfiguratie voor Azure Cache voor instanties van Redis.
@@ -147,7 +147,7 @@ De **Maxmemory-beleid**, **maxmemory-gereserveerde**, en **maxfragmentationmemor
 * `volatile-ttl`
 * `noeviction`
 
-Voor meer informatie over `maxmemory` beleid, Zie [verwijderingsbeleid](http://redis.io/topics/lru-cache#eviction-policies).
+Voor meer informatie over `maxmemory` beleid, Zie [verwijderingsbeleid](https://redis.io/topics/lru-cache#eviction-policies).
 
 De **maxmemory-gereserveerde** instelling configureert u de hoeveelheid geheugen in MB, die is gereserveerd voor niet-cache-bewerkingen, zoals replicatie tijdens de failover. Deze waarde instelt, kunt u een consistente gebruikerservaring van de Redis-server hebben wanneer de belasting varieert. Deze waarde moet hoger zijn voor workloads die zijn geschreven zware worden ingesteld. Wanneer het geheugen is gereserveerd voor dergelijke bewerkingen plaatsvindt, is het niet beschikbaar voor de opslag van gegevens in de cache.
 
@@ -170,7 +170,7 @@ Redis keyspace-meldingen zijn geconfigureerd op de **geavanceerde instellingen**
 > 
 > 
 
-Zie voor meer informatie, [Keyspace-meldingen Redis](http://redis.io/topics/notifications). Zie voor een voorbeeld van code, de [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) -bestand in de [Hallo wereld](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) voorbeeld.
+Zie voor meer informatie, [Keyspace-meldingen Redis](https://redis.io/topics/notifications). Zie voor een voorbeeld van code, de [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) -bestand in de [Hallo wereld](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) voorbeeld.
 
 
 <a name="recommendations"></a>
@@ -406,7 +406,7 @@ Nieuwe Azure-Cache voor Redis-exemplaren zijn geconfigureerd met de volgende waa
 | `maxmemory-samples` |3 |Zijn redelijk algoritmen in plaats van exacte algoritmen te besparen, LRU- en minimale TTL-algoritmen. Redis standaard drie sleutels controles en aanbiedingen die minder recent is gebruikt. |
 | `lua-time-limit` |5.000 |Maximale uitvoeringstijd van een Lua-script in milliseconden. Als de maximum uitvoeringstijd is bereikt, wordt Redis registreert dat een script nog steeds uitgevoerd na de maximale toegestane tijd wordt, en begint met de antwoorden op query's met een fout. |
 | `lua-event-limit` |500 |Maximale grootte van de wachtrij script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |De limieten van client uitvoer buffer kunnen worden gebruikt om af te dwingen ontkoppeling van clients die niet van gegevens van de server snel genoeg om een bepaalde reden lezen zijn (een veelvoorkomende reden is dat een Pub/Sub-client zo snel mogelijk de publisher kunt maken ze berichten kan niet gebruiken). Zie voor meer informatie, [ http://redis.io/topics/clients ](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |De limieten van client uitvoer buffer kunnen worden gebruikt om af te dwingen ontkoppeling van clients die niet van gegevens van de server snel genoeg om een bepaalde reden lezen zijn (een veelvoorkomende reden is dat een Pub/Sub-client zo snel mogelijk de publisher kunt maken ze berichten kan niet gebruiken). Zie voor meer informatie, [ https://redis.io/topics/clients ](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>de limiet voor `databases` verschilt voor elke Azure-Cache voor Redis prijscategorie en bij het maken van cache kan worden ingesteld. Als er geen `databases` instelling is opgegeven tijdens het maken van de cache, de standaardwaarde is 16.
@@ -424,7 +424,7 @@ Nieuwe Azure-Cache voor Redis-exemplaren zijn geconfigureerd met de volgende waa
   * P2 (13 GB - 130 GB), maximaal 32 databases
   * P3 (26 GB - 260 GB), maximaal 48 databases
   * P4 (53 GB - 530 GB), maximaal 64 databases
-  * Alle premium-caches met Redis-cluster ingeschakeld - Redis-cluster biedt alleen ondersteuning voor gebruik van 0-database zodat de `databases` beperken voor elke premium-cache met Redis-cluster ingeschakeld is in feite 1 en de [Selecteer](http://redis.io/commands/select) opdracht is niet toegestaan. Zie voor meer informatie, [heb ik wijzigingen aanbrengen in mijn clienttoepassing voor het gebruik van clustering nodig?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Alle premium-caches met Redis-cluster ingeschakeld - Redis-cluster biedt alleen ondersteuning voor gebruik van 0-database zodat de `databases` beperken voor elke premium-cache met Redis-cluster ingeschakeld is in feite 1 en de [Selecteer](https://redis.io/commands/select) opdracht is niet toegestaan. Zie voor meer informatie, [heb ik wijzigingen aanbrengen in mijn clienttoepassing voor het gebruik van clustering nodig?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Zie voor meer informatie over databases [wat zijn Redis-databases?](cache-faq.md#what-are-redis-databases)
 
@@ -473,14 +473,14 @@ Zie voor meer informatie over databases [wat zijn Redis-databases?](cache-faq.md
 > 
 > 
 
-Zie voor meer informatie over Redis-opdrachten [ http://redis.io/commands ](http://redis.io/commands).
+Zie voor meer informatie over Redis-opdrachten [ https://redis.io/commands ](https://redis.io/commands).
 
 ## <a name="redis-console"></a>Redis-console
 Kunt u veilig opdrachten uitgeven met uw Azure-Cache voor instanties van Redis met behulp van de **Redis-Console**, die beschikbaar is in de Azure-portal voor alle cachelagen.
 
 > [!IMPORTANT]
 > - De Redis-Console werkt niet met [VNET](cache-how-to-premium-vnet.md). Wanneer uw cache deel van een VNET uitmaakt, kan alleen clients in het VNET toegang krijgen tot de cache. Omdat Redis-Console wordt uitgevoerd in uw lokale browser, die zich buiten het VNET, wordt er geen verbinding met uw cache.
-> - Niet alle Redis-opdrachten worden ondersteund in Azure-Cache voor Redis. Voor een lijst van Redis-opdrachten die zijn uitgeschakeld voor Azure Cache voor Redis, Zie de vorige [Redis-opdrachten niet ondersteund in Azure Cache voor Redis](#redis-commands-not-supported-in-azure-cache-for-redis) sectie. Zie voor meer informatie over Redis-opdrachten [ http://redis.io/commands ](http://redis.io/commands).
+> - Niet alle Redis-opdrachten worden ondersteund in Azure-Cache voor Redis. Voor een lijst van Redis-opdrachten die zijn uitgeschakeld voor Azure Cache voor Redis, Zie de vorige [Redis-opdrachten niet ondersteund in Azure Cache voor Redis](#redis-commands-not-supported-in-azure-cache-for-redis) sectie. Zie voor meer informatie over Redis-opdrachten [ https://redis.io/commands ](https://redis.io/commands).
 > 
 > 
 

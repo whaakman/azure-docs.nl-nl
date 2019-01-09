@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: cb2383ee8a921aa2c9c4e3b536edc203dd883200
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0ad9179c5a6589df1168c5cebc3dcbd5496b9870
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074441"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121121"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -25,7 +25,7 @@ ms.locfileid: "54074441"
 *Ik ondervind problemen met het instellen van mijn:*
 
 * [.NET app](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Bewaken van een app al actief](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Bewaken van een app al actief](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java-web-app](../../azure-monitor/app/java-troubleshoot.md)
 
@@ -300,5 +300,5 @@ De meeste Application Insights-gegevens heeft een latentie van minder dan vijf m
 
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

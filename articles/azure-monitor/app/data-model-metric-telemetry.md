@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 5a3fe90da0b469707c67c852784468455bbec95d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999183"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117687"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetrie van metrische gegevens: Application Insights-gegevensmodel
 
-Er zijn twee soorten metrische telemetrie wordt ondersteund door [Application Insights](../../application-insights/app-insights-overview.md): één meting en vooraf samengevoegde metrische gegevens. Één meting is alleen een naam en waarde. Vooraf samengevoegde metrische gegevens geeft de minimale en maximale waarde van de metrische gegevens in de aggregatie-interval en de standaarddeviatie van deze.
+Er zijn twee soorten metrische telemetrie wordt ondersteund door [Application Insights](../../azure-monitor/app/app-insights-overview.md): één meting en vooraf samengevoegde metrische gegevens. Één meting is alleen een naam en waarde. Vooraf samengevoegde metrische gegevens geeft de minimale en maximale waarde van de metrische gegevens in de aggregatie-interval en de standaarddeviatie van deze.
 
 Vooraf samengevoegde metrische telemetrie wordt ervan uitgegaan dat aggregatie-periode is één minuut.
 

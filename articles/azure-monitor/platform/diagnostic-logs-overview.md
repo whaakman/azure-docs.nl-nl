@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 50eb70799506ecd5203ff4fd0c2649726658b3e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551362"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104978"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -83,7 +83,7 @@ Verzamelen van diagnostische logboeken kan worden ingeschakeld [als onderdeel va
 
 U kunt verzamelen van diagnostische logboeken van de resource in Azure portal inschakelen nadat een resource is gemaakt door te gaan naar een specifieke resource of door te navigeren naar Azure Monitor. Dit inschakelen via Azure Monitor:
 
-1. In de [Azure-portal](http://portal.azure.com), gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
 
     ![Sectie van Azure Monitor bewaking](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

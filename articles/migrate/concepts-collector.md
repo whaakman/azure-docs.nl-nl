@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255972"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104200"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -32,13 +32,13 @@ Het collector-apparaat continu is verbonden met het Azure Migrate-project en con
 - Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
 - U kunt stoppen continue profilering op elk gewenst moment van de Collector.
 
-**Direct resultaat:** Met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
+**Onmiddellijk resultaat:** Met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
 Alleen verzamelt prestatiegegevens continu het toestel, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
-- Het toevoegen van items (virtuele machines, schijven, kernen enz.): Als gevolg van deze wijzigingen in de Azure-portal, kunt u stoppen van de detectie van het apparaat en probeer het opnieuw. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+- Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
-- Verwijderen van virtuele machines: Vanwege de manier waarop die het apparaat is ontworpen, het verwijderen van virtuele machines niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+- Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
 
 > [!NOTE]
 > Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure.
@@ -63,7 +63,7 @@ De Collector moet slagen voor een aantal controles om ervoor te zorgen deze verb
     - Selecteer in de globale Azure als u van plan bent om te migreren naar commerciële Azure-cloud.
     - Op basis van de cloud die u hier opgeeft, wordt het apparaat naar de respectieve eindpunten gedetecteerde metagegevens verzonden.
 - **Controleer de internetverbinding**: De Collector verbinding kan maken met internet rechtstreeks of via een proxyserver.
-    - Het controleren van de vereisten controleert of de verbinding met [URL's voor vereiste en optionele](#connect-to-urls).
+    - Het controleren van de vereisten controleert of de verbinding met [URL's voor vereiste en optionele](#urls-for-connectivity).
     - Als u een directe verbinding met internet hebt, is geen specifieke actie vereist is, dan ervoor te zorgen dat de Collector de vereiste URL's kan bereiken.
     - Als u verbinding via een proxy maakt, let dan op de [onderstaande vereisten](#connect-via-a-proxy).
 - **Tijdsynchronisatie controleren**: De Collector moeten worden gesynchroniseerd met de tijdserver op internet om te controleren of de aanvragen voor de service worden geverifieerd.
@@ -105,7 +105,7 @@ De Collector moet slagen voor een aantal controles om ervoor te zorgen deze verb
 
 
 
-### <a name="connect-to-urls"></a>Verbinding maken met URL 's
+### <a name="urls-for-connectivity"></a>URL's voor connectiviteit
 
 De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst met URL's.
 

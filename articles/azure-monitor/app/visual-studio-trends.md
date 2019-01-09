@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fe4a3a4c5bbb1954fb44bd94d33d108b81ba3893
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056961"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121068"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Trends analyseren in Visual Studio
 Het hulpprogramma Application Insights Trends visualiseert hoe belangrijke telemetriegebeurtenissen van uw webtoepassing wijzigen gedurende een periode, zodat u snel problemen en afwijkingen kunt identificeren. Door een koppeling naar meer gedetailleerde diagnostische gegevens, kan Trends u helpen bij het verbeteren de prestaties van uw app, de oorzaken van uitzonderingen traceren en inzicht verwerven over uw aangepaste gebeurtenissen.
@@ -29,7 +29,7 @@ Het hulpprogramma Application Insights Trends visualiseert hoe belangrijke telem
 
 ## <a name="configure-your-web-app-for-application-insights"></a>Uw web-app configureren voor Application Insights
 
-[Configureer uw web-app voor Application Insights](../../application-insights/app-insights-overview.md) als u dit nog hebt gedaan. U kunt dan telemetrie naar de Application Insights-portal verzenden. Het hulpprogramma Trends leest daar de telemetrie.
+[Configureer uw web-app voor Application Insights](../../azure-monitor/app/app-insights-overview.md) als u dit nog hebt gedaan. U kunt dan telemetrie naar de Application Insights-portal verzenden. Het hulpprogramma Trends leest daar de telemetrie.
 
 Application Insights Trends is beschikbaar in Visual Studio 2015 Update 3 en hoger.
 
@@ -69,7 +69,7 @@ Klik vervolgens op **Telemetrie analyseren** om de query uit te voeren.
 U kunt als volgt tussen de bellen in de visualisatie navigeren:
 
 * Klik om een bel te selecteren, waarmee de filters onder in het venster worden bijgewerkt en de gebeurtenissen tijdens een bepaalde periode worden samengevat
-* Dubbelklik op een bel om naar de zoekfunctie te gaan en alle afzonderlijke telemetriegebeurtenissen te zien die in die periode zijn opgetreden
+* Dubbelklik op een bel om te navigeren naar de zoekfunctie en alle afzonderlijke telemetriegebeurtenissen die tijdens die periode
 * Ctrl-klik om de selectie ervan in de visualisatie op te heffen.
 
 > [!TIP]
@@ -94,7 +94,7 @@ Om één van deze filters te deselecteren klikt u op de knop **Geselecteerde fil
 ![Meerdere filters](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Afwijkingen vinden
-Het hulpprogramma Trends kan bellen van gebeurtenissen aangeven die afwijken van andere bellen in dezelfde tijdreeksen. Kies in de vervolgkeuzelijst Weergavetype **Aantal in tijdsinterval (afwijkingen markeren)** of **Percentages in tijdsinterval (afwijkingen markeren)**. Rode bellen zijn afwijkend. Afwijkingen worden gedefinieerd als bellen met aantallen / percentages die 2.1 maal de standaardafwijking van aantallen / percentages opgetreden in de afgelopen twee tijdsintervallen (48 uur als u de afgelopen 24 uur bekijkt).
+Het hulpprogramma Trends kan bellen van gebeurtenissen aangeven die afwijken van andere bellen in dezelfde tijdreeksen. Kies in de vervolgkeuzelijst Weergavetype **Aantal in tijdsinterval (afwijkingen markeren)** of **Percentages in tijdsinterval (afwijkingen markeren)**. Rode bellen zijn afwijkend. Afwijkingen worden gedefinieerd als bellen met aantallen/percentages die 2.1 maal de standaardafwijking van aantallen/percentages die zijn opgetreden in de afgelopen twee tijdsintervallen (48 uur als u de afgelopen 24 uur, enz bekijkt.).
 
 ![Gekleurde punten geven aan afwijkingen aan](./media/visual-studio-trends/TrendsAnomalies-750.png)
 

@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/08/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a228bba9effeb803fcc664e06448646b06645d5e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015624"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119081"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -72,6 +72,10 @@ De volgende secties vindt u meer informatie.
 -   Als u met behulp van Azure Express Route of configureren van de gebruiker gedefinieerde Route (UDR), raadpleegt u [gebruik Azure ExpressRoute of door de gebruiker gedefinieerde Route](#route). 
 
 -   Zorg ervoor dat de resourcegroep van het virtuele netwerk kunt maken en verwijderen van bepaalde Azure-netwerkbronnen. Zie [vereisten voor de resourcegroep](#resource-group). 
+
+Hier volgt een diagram van de vereiste verbindingen voor uw Azure-SSIS IR:
+
+![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="perms"></a> Vereiste machtigingen
 

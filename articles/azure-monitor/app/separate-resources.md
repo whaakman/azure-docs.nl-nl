@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 592efa5cc6a4918c03680e9785f85792eaa90099
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045815"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121478"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Het scheiden van telemetrie van ontwikkeling, testen en productie
 
-Wanneer u de volgende versie van een web-App ontwikkelt, u niet wilt combineren om de [Application Insights](../../application-insights/app-insights-overview.md) telemetrie van de nieuwe versie en de reeds uitgebrachte versie. Om verwarring te voorkomen, door de telemetrie van de ontwikkeling van de verschillende fasen voor het scheiden van Application Insights-resources, met afzonderlijke instrumentatiesleutels (ikeys) te verzenden. Als u wilt maken het gemakkelijker om te wijzigen van de instrumentatiesleutel als u een versie van één fase worden verplaatst naar een andere, kan het nuttig zijn om in te stellen de ikey in code in plaats van in het configuratiebestand. 
+Wanneer u de volgende versie van een web-App ontwikkelt, u niet wilt combineren om de [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetrie van de nieuwe versie en de reeds uitgebrachte versie. Om verwarring te voorkomen, door de telemetrie van de ontwikkeling van de verschillende fasen voor het scheiden van Application Insights-resources, met afzonderlijke instrumentatiesleutels (ikeys) te verzenden. Als u wilt maken het gemakkelijker om te wijzigen van de instrumentatiesleutel als u een versie van één fase worden verplaatst naar een andere, kan het nuttig zijn om in te stellen de ikey in code in plaats van in het configuratiebestand. 
 
 (Als uw systeem een Azure-Cloud-Service is, wordt er [een andere methode van het instellen van afzonderlijke ikeys](../../azure-monitor/app/cloudservices.md).)
 

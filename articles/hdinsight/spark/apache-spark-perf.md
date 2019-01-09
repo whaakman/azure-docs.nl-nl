@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653727"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117857"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark-taken optimaliseren
 
@@ -24,7 +24,7 @@ De volgende secties beschrijven algemene optimalisaties voor Spark-taak en aanbe
 
 ## <a name="choose-the-data-abstraction"></a>Kies de abstractie van de gegevens
 
-Spark-1.x gebruikt rdd's tot abstracte gegevens en vervolgens Spark 2.x geïntroduceerd DataFrames en gegevenssets. Houd rekening met de volgende relatieve voordelen:
+Eerdere versies van Spark met rdd's abstracte gegevens, Spark 1.3 en DataFrames en gegevenssets, respectievelijk 1.6 geïntroduceerd. Houd rekening met de volgende relatieve voordelen:
 
 * **Gegevensframes**
     * Beste keuze in de meeste situaties.
@@ -42,7 +42,7 @@ Spark-1.x gebruikt rdd's tot abstracte gegevens en vervolgens Spark 2.x geïntro
     * Hoge GC overhead.
     * Genereren van code geheel fasen, verbroken.
 * **RDDs**
-    * In Spark 2.x gebruikt, u hoeft te gebruiken van de rdd's, tenzij u moet een nieuwe aangepaste RDD bouwen.
+    * U hoeft niet te gebruiken van de rdd's, tenzij u moet een nieuwe aangepaste RDD bouwen.
     * Er is geen queryoptimalisatie via katalysator.
     * Er is geen geheel fase-code genereren.
     * Hoge GC overhead.

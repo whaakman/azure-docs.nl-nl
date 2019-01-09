@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/8/2019
 ms.author: douglasl
-ms.openlocfilehash: be14eb59cb89676b0d69b94246f35ad6dfc7eed9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: be26aa95ddac7b63293cee234209ac52243f110a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792644"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104332"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor Azure-SSIS Integration Runtime
 
@@ -114,10 +114,28 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
 9.  Schakelt u het queryvenster, voer de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    De opdracht voltooid is, de mogelijkheid om een database (SSISDB) te maken van de ingesloten gebruiker verlenen.
+
+10.  Als uw SSISDB is gemaakt met behulp van SQL-verificatie en u overschakelen wilt voor het gebruik van Azure AD-verificatie voor uw Azure-SSIS IR om deze te openen, met de rechtermuisknop op **SSISDB** database en selecteer **nieuwe query**.
+
+11.  Voer in het queryvenster de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    De opdracht voltooid is, het maken van een contained-gebruiker om weer te geven van de groep.
+
+12.  Schakelt u het queryvenster, voer de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    De opdracht voltooid is, de mogelijkheid om een database te maken van de ingesloten gebruiker verlenen.
+    De opdracht voltooid is, de ingesloten gebruikers de mogelijkheid voor toegang tot SSISDB verlenen.
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Azure AD op beheerd exemplaar voor Azure SQL Database inschakelen
 
@@ -127,15 +145,15 @@ Azure SQL Database Managed Instance biedt ondersteuning voor het maken van een d
 
 1.   Selecteer in Azure portal, **alle services** -> **SQL-servers** in de navigatie aan de linkerkant.
 
-1.   Selecteer uw beheerde exemplaar kan worden geconfigureerd met Azure AD-verificatie.
+2.   Selecteer uw beheerde exemplaar kan worden geconfigureerd met Azure AD-verificatie.
 
-1.   In de **instellingen** sectie van de blade, selecteer **Active Directory-beheerder**.
+3.   In de **instellingen** sectie van de blade, selecteer **Active Directory-beheerder**.
 
-1.   Selecteer in de opdrachtbalk **beheerder instellen**.
+4.   Selecteer in de opdrachtbalk **beheerder instellen**.
 
-1.   Selecteer een Azure AD-gebruikersaccount moet de beheerder van de server worden gemaakt en selecteer vervolgens **Selecteer**.
+5.   Selecteer een Azure AD-gebruikersaccount moet de beheerder van de server worden gemaakt en selecteer vervolgens **Selecteer**.
 
-1.   Selecteer in de opdrachtbalk **opslaan**.
+6.   Selecteer in de opdrachtbalk **opslaan**.
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>De beheerde identiteit voor uw ADF toevoegen als een gebruiker in Azure SQL Database Managed Instance
 
@@ -168,7 +186,7 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    De opdracht voltooid is, de beheerde identiteit verlening voor uw ADF de mogelijkheid om een database te maken.
+    De opdracht voltooid is, de beheerde identiteit verlening voor uw ADF de mogelijkheid om een database (SSISDB) te maken.
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Azure-SSIS IR inrichten in Azure portal/ADF-app
 

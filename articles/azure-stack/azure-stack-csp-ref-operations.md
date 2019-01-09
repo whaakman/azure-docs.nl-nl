@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6d28eea434b081602f0e2455b22fcc58022a800e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343840"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117110"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Tenant-registratie in Azure Stack beheren
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 In dit artikel bevat informatie over de werking van de registratie. U kunt deze bewerkingen te gebruiken:
 - Tenant-registraties beheren
@@ -47,11 +47,11 @@ Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versiep
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Beschrijving |
+| Parameter                  | Description |
 |---                         | --- |
 | registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie. |
 | customerSubscriptionID     | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt van de aanbieding van Cloud Service Provider (CSP) tot en met de Partner Center. Als een klant meer dan één tenant heeft, moet u een abonnement voor de tenant voor aanmelding bij Azure Stack gemaakt. |
-| ResourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. |
+| resourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. |
 | registrationName           | De naam van de registratie van uw Azure Stack. Er is een object dat is opgeslagen in Azure. De naam is meestal in de vorm azurestack-CloudID, waarbij CloudID is in de Cloud-ID van uw Azure Stack-implementatie. |
 
 > [!Note]  
@@ -59,7 +59,7 @@ Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versiep
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet New-AzureRmResource om bij te werken van de registratie-resource. Aanmelden bij Azure (`Add-AzureRmAccount`) met behulp van het account dat u voor de registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet New-AzureRmResource om bij te werken van de registratie-resource. Hier volgt een voorbeeld van het toevoegen van een tenant:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -67,11 +67,11 @@ Gebruik de cmdlet New-AzureRmResource om bij te werken van de registratie-resour
 
 ### <a name="api-call"></a>API-aanroep
 
-**Bewerking**: plaatsen  
+**Bewerking**: PUT  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Antwoord**: 201-gemaakt  
-**Antwoordtekst**: leeg zijn  
+**Antwoordtekst**: Leeg  
 
 ## <a name="list-all-registered-tenants"></a>Lijst van alle geregistreerde tenants
 
@@ -82,10 +82,10 @@ Haal een lijst van alle tenants die zijn toegevoegd aan een registratie.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Beschrijving          |
+| Parameter                  | Description          |
 |---                         | ---                  |
 | registrationSubscriptionId | De Azure-abonnement dat is gebruikt voor de registratie.   |
-| ResourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen.    |
+| resourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen.    |
 | registrationName           | De naam van de registratie van uw Azure Stack. Er is een object dat is opgeslagen in Azure. De naam van de bevindt zich doorgaans in de vorm van **azurestack**-***CloudID***, waarbij ***CloudID*** is de Cloud-ID van uw Azure Stack-implementatie.   |
 
 ### <a name="powershell"></a>PowerShell
@@ -100,7 +100,7 @@ Gebruik de cmdlet Get-AzureRmResource om alle geregistreerde tenants weer te gev
 
 U kunt een lijst van alle toewijzingen van tenant met behulp van de GET-bewerking ophalen
 
-**Bewerking**: ophalen  
+**Bewerking**: GET  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -132,10 +132,10 @@ U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze te
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Beschrijving          |
+| Parameter                  | Description          |
 |---                         | ---                  |
 | registrationSubscriptionId | Abonnements-ID voor de registratie.   |
-| ResourceGroup              | De resourcegroep voor de registratie.   |
+| resourceGroup              | De resourcegroep voor de registratie.   |
 | registrationName           | De naam van de registratie.  |
 | customerSubscriptionId     | De klant abonnements-ID.  |
 
@@ -149,12 +149,12 @@ U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze te
 
 Toewijzingen van tenant met behulp van de bewerking verwijderen, kunt u verwijderen.
 
-**Bewerking**: verwijderen  
+**Bewerking**: DELETE  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Antwoord**: 204 geen inhoud  
-**Antwoordtekst**: leeg zijn
+**Antwoordtekst**: Leeg
 
 ## <a name="next-steps"></a>Volgende stappen
 

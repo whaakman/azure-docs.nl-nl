@@ -13,16 +13,16 @@ ms.date: 05/03/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 4b21632f936093c0a48abf2d13389f22306045cc
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bda79520dd86cc14161f6f22cd24feb2e35849ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052901"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121359"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse van de gebruikers bewaren voor web-apps met Application Insights
 
-De functie bewaren in [Azure Application Insights](../../application-insights/app-insights-overview.md) helpt u hoeveel gebruikers terug naar uw app, en hoe vaak ze specifieke taken uitvoeren of bereiken van de doelstellingen analyseren. Als u een game site uitvoert, kan u bijvoorbeeld de nummers van gebruikers die naar de site terugkeert na het verlies van een spel met het nummer en nadat de winnende retourneren vergelijken. Aan de hand van deze kennis kunt u zowel uw gebruikerservaring en uw strategie voor zakelijke verbeteren.
+De functie bewaren in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) helpt u hoeveel gebruikers terug naar uw app, en hoe vaak ze specifieke taken uitvoeren of bereiken van de doelstellingen analyseren. Als u een game site uitvoert, kan u bijvoorbeeld de nummers van gebruikers die naar de site terugkeert na het verlies van een spel met het nummer en nadat de winnende retourneren vergelijken. Aan de hand van deze kennis kunt u zowel uw gebruikerservaring en uw strategie voor zakelijke verbeteren.
 
 ## <a name="get-started"></a>Aan de slag
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: bb240437870ce5457e40e8dcc3b31f3909b546fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 200f36ee5312c92bed7dc9a7ffa29a0ee4993c43
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607129"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103363"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming van Azure Diagnostics-gegevens in het dynamische pad met behulp van Event Hubs
 Diagnostische gegevens van Azure biedt flexibele manieren voor het verzamelen van Logboeken en metrische gegevens van virtuele machines (VM's) voor cloud services en resultaten overbrengen naar Azure Storage. Vanaf het tijdsbestek van maart 2016 (SDK 2.9 gebruikt), kunt u diagnostische gegevens verzenden naar aangepaste gegevensbronnen en gegevensoverdracht snelpad binnen enkele seconden met behulp van [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -316,7 +316,7 @@ namespace EventHubListener
     Eerst, zorg ervoor dat de gegevens van de event hub en de configuratie juist zijn, zoals hierboven is uitgelegd. Soms de **PrivateConfig** opnieuw wordt ingesteld in een implementatie-update. De aanbevolen oplossing is om te zorgen dat alle wijzigingen aan *.wadcfgx* in het project en push de update van een volledige toepassing. Als dit niet mogelijk is, zorgt u ervoor dat de update voor diagnostische gegevens over een complete pushes **PrivateConfig** die de SAS-sleutel bevat.  
 * Ik heb geprobeerd de suggesties en de event hub is nog steeds niet werkt.
 
-    Kijk in de Azure Storage-tabel met Logboeken en fouten voor Azure Diagnostics zelf: **WADDiagnosticInfrastructureLogsTable**. Een optie is het gebruik van een hulpprogramma zoals [Azure Storage Explorer](http://www.storageexplorer.com) voor verbinding met dit opslagaccount wordt gebruikt, bekijkt u deze tabel en het toevoegen van een query voor de tijdstempel in de afgelopen 24 uur. U kunt het hulpprogramma gebruiken om te exporteren van een CSV-bestand en opent u het in een toepassing, zoals Microsoft Excel. Excel kunt u eenvoudig zoeken naar tekenreeksen met-kaart, zoals **EventHubs**, om te zien welke fout is gemeld.  
+    Kijk in de Azure Storage-tabel met Logboeken en fouten voor Azure Diagnostics zelf: **WADDiagnosticInfrastructureLogsTable**. Een optie is het gebruik van een hulpprogramma zoals [Azure Storage Explorer](https://www.storageexplorer.com) voor verbinding met dit opslagaccount wordt gebruikt, bekijkt u deze tabel en het toevoegen van een query voor de tijdstempel in de afgelopen 24 uur. U kunt het hulpprogramma gebruiken om te exporteren van een CSV-bestand en opent u het in een toepassing, zoals Microsoft Excel. Excel kunt u eenvoudig zoeken naar tekenreeksen met-kaart, zoals **EventHubs**, om te zien welke fout is gemeld.  
 
 ## <a name="next-steps"></a>Volgende stappen
 • [Meer informatie over Event Hubs](https://azure.microsoft.com/services/event-hubs/)

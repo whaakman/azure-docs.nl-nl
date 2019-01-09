@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 32554b3bf88318dd8d775022369e2673d4e51a0f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: cfc5779768ccd1efdc406da6b2701b52f2ab81cf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435630"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121461"
 documentType: LandingData
-title: Azure SQL Database - individuele Database
+title: 'Azure SQL Database: Individuele database'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Documentatie voor Azure SQL Database - zelfstudies, API-verwijzing
+  title: Azure SQL Database-documentatie - zelfstudies, API-verwijzing
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: jovanpop-msft
@@ -21,14 +21,14 @@ metadata:
   ms.date: 12/01/2018
   ms.author: jovanpop-msft
 abstract:
-  description: Azure SQL Database is een relationele database als een service (DBaaS) op basis van de nieuwste stabiele versie van Microsoft SQL Server Database Engine. SQL-Database is een krachtige, eenvoudig te gebruiken, betrouwbare, en u gebruiken kunt voor het bouwen van nieuwe toepassingen, websites en microservices in de programmeertaal van uw keuze, zonder dat u nodig hebt voor het beheren van infrastructuur van de beveiligde database. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
+  description: Azure SQL Database is een relationele database als een service (DBaaS) op basis van de nieuwste stabiele versie van Microsoft SQL Server Database Engine. SQL-Database is een krachtige en eenvoudig te gebruiken, betrouwbare, veilige database die u gebruiken kunt voor het bouwen van nieuwe toepassingen, websites en microservices in de programmeertaal van uw keuze, zonder dat u nodig hebt voor het beheren van infrastructuur. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
   aside:
     image:
       alt: 
       height: 110
       src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250
-    title: Een enkele SQL-database in Azure maken. (3:12)
+    title: Één SQL-database maken in Azure (3:12)
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
@@ -43,46 +43,46 @@ sections:
       html: <p>Elastische pools in SQL Database zijn eenvoudige, kosteneffectieve oplossingen voor het beheren en schalen van meerdere databases die een verschillend en onvoorspelbaar verbruik hebben.</p>
       image:
         src: media/index/i_elasticpool.svg
-    - title: Logische Server
+    - title: Logische server
       href: /azure/sql-database/sql-database-logical-servers
-      html: <p>Logische server is een centraal punt voor het configureren van beveiliging, tunning, back-upbeleid en andere configuratie-eigenschappen op een set van databases in de server.</p>
+      html: <p>Een logische server is een centraal punt voor het configureren van beveiliging, aanpassing, back-upbeleid en andere configuratie-eigenschappen op een set van databases in de server.</p>
       image:
         src: media/index/i_mi.svg
-    - title: Prijs/servicelagen
+    - title: Prijs- en service-lagen
       href: /azure/sql-database/sql-database-service-tiers
-      html: <p>Een op maat gemaakte prijs-prestatieverhouding met flexibele servicelagen die uiteenlopen van $ 5/maand tot krachtige databases met 80 cores.</p>
+      html: <p>De prijs-prestatieverhouding verhouding aan uw behoeften met flexibele Servicelagen, van een betaalbare $5 per maand tot krachtige 80 core-databases op maat kunt.</p>
       image:
         src: media/index/i_perftier.svg
     - title: Schaalbaarheid
       href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Schaal eenvoudig van de database, afhankelijk van uw behoeften voor het verbeteren van de prestaties van uw toepassing.</p>
+      html: <p>Eenvoudig schalen van uw database om de prestaties van uw toepassing te verbeteren.</p>
       image:
         src: media/index/i_scale.svg
-    - title: Platform als een Service
+    - title: Platform as a Service
       href: /azure/sql-database/sql-database-paas
-      html: <p>Ingebouwde hoge beschikbaarheid, automatische back-ups en geo-replicatie zorgen ervoor dat onderhoudsbewerkingen of fouten in de infrastructuur of hardware uw bedrijf niet platleggen.</p>
+      html: <p>Ingebouwde hoge beschikbaarheid, automatische back-ups en geo-replicatie wordt voorkomen dat onderhoudsbewerkingen, infrastructuuruitval of hardwarefouten stoppen van uw bedrijf.</p>
       image:
         src: media/index/gear.svg
     - title: Geavanceerde beveiliging
       href: /azure/sql-database/sql-database-security-index
-      html: <p>Beveilig uw database met Azure AD-verificatie, virtuele netwerken, firewalls en Always Encrypted-verbindingen. Identificeer bedreigingen en beveiligingsproblemen dankzij ingebouwde beveiliging.</p>
+      html: <p>Beveiligen van uw database met Azure AD-verificatie, virtuele netwerken, firewalls en verbindingen altijd versleuteld. Identificeer bedreigingen en beveiligingsproblemen dankzij ingebouwde beveiliging.</p>
       image:
         src: media/index/i_security.svg
 - title: Nieuwe en preview-functies
   items:
   - type: paragraph
-    text: 'We zijn voortdurend verbeteren van de SQL-Database met nieuwe functies en willen we graag uw feedback met betrekking tot de volgende nieuwe functies:'
+    text: 'We zijn voortdurend verbeteren van SQL-Database met nieuwe functies en willen we graag uw feedback met betrekking tot de volgende nieuwe functies:'
   - type: list
     style: unordered
     items:
     - html: (Preview) <a href="sql-database-service-tier-hyperscale">Grootschalige</a> laag die ondersteuning biedt voor maximaal 100 TB databases en meerdere leesbare replica's.
     - html: (Preview) Nieuwe SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligente queryverwerking</a> functies, zoals <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">tabelvariabele uitgesteld compilatie</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batchmodus op rowstore tabellen</a>, en <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> scalaire UDF inlining</a>.
-    - html: (Preview) Nieuwe functies voor Transact-SQL-taal, zoals <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT statistische functie</a> en <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">BULKSGEWIJS importeren uit Azure Blob-opslag</a>.
-    - html: (Preview) Nieuwe SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">bouwen</a> en bewerkingen van GECLUSTERDE COLUMNSTORE-index opnieuw opbouwen.
-- title: QuickStarts van vijf minuten
+    - html: (Preview) Nieuwe functies voor Transact-SQL-taal, zoals <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT statistische functie</a> en <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">bulksgewijs importeren uit Azure Blob-opslag</a>.
+    - html: (Preview) Nieuwe SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">bouwen</a> en bewerkingen van geclusterde columnstore-index opnieuw opbouwen.
+- title: Quickstarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Met Azure SQL Database kunt u eenvoudig basisbeheertaken uitvoeren met behulp van Azure Portal, Azure CLI en Azure PowerShell. Leer aan de hand van de volgende beknopte voorbeelden hoe u algemene beheertaken uitvoert:'
+    text: 'Azure SQL Database kunt u algemene beheertaken uitvoeren met behulp van de Azure-portal, de Azure CLI en Azure PowerShell. Ontdek hoe u algemene beheertaken uitvoeren met behulp van de volgende Quick Start-voorbeelden:'
   - type: table
     style: dataMatrix
     columns:
@@ -99,25 +99,25 @@ sections:
         src: media/index/logo_arm.svg
       title: Azure Resource Manager-sjabloon
     rows:
-    - title: Database maken
+    - title: Een database maken
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: 
-    - title: Elastische Pool maken
+    - title: Elastische pool maken
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: De Schaalbewerking
+    - title: Een database schalen
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
       - href: 
-    - title: Elastische Pool schalen
+    - title: Een elastische pool schalen
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
@@ -125,15 +125,15 @@ sections:
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: Meer informatie over het maken, beheren en migreren van databases met SQL DB
+    text: Informatie over het maken, beheren en migreren van databases met behulp van Azure SQL Database.
   - type: list
     style: ordered
     items:
-    - html: Het schema voor een nieuwe SQL-database maken en ontwerpen met behulp van <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> of <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-    - html: Een bestaande database migreren naar Azure met <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> of <a href="/azure/sql-database/sql-database-import">BACPAC importeren</a>
-    - html: <a href="/azure/sql-database/sql-database-security-tutorial">Uw SQL-database beveiligen</a>
-    - html: Uw gegevens wereldwijd distribueren met behulp van <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geografisch gedistribueerde database</a>
-    - html: Meer informatie vinden <a href="sql-database-howto-single-database.md">instructies begeleidt</a> die kan helpen u bij het configureren van uw database.
+    - html: Maken en het schema voor een nieuwe SQL-database ontwerpen met behulp van <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> of <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>.
+    - html: Een bestaande database migreren naar Azure met behulp van <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> of <a href="/azure/sql-database/sql-database-import">BACPAC importeren</a>.
+    - html: <a href="/azure/sql-database/sql-database-security-tutorial">Uw SQL-database beveiligen</a>.
+    - html: Uw gegevens wereldwijd distribueren met behulp van een <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">geografisch gedistribueerde database</a>.
+    - html: Meer informatie vinden <a href="sql-database-howto-single-database.md">handleidingen</a> die kan helpen u bij het configureren van uw database.
 - title: Voorbeelden
   items:
   - type: paragraph

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442978"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121517"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Scoped synchronisatie van Azure AD met uw beheerde domein configureren
 In dit artikel leest u hoe het configureren van alleen specifieke gebruikersaccounts uit uw Azure AD-directory worden gesynchroniseerd met uw Azure AD Domain Services beheerde domein.
@@ -79,7 +79,7 @@ Voer de volgende stappen uit als u wilt configureren op basis van een groep binn
   > U moet de groep 'AAD DC Administrators' opnemen in de lijst van groepen die zijn geconfigureerd voor synchronisatie van binnen het bereik. Als u deze groep niet opgeeft, wordt het beheerde domein onbruikbaar worden.
   >
 
-4. Nu het beheerde domein maken en inschakelen van binnen het bereik synchronisatie op basis van een groep voor het beheerde domein. De eigenschap ```"filteredSync" = "Enabled"``` in de ```Properties``` parameter. Bijvoorbeeld, Zie het volgende fragment van het script opgehaald uit [taak 7: inrichten van het Azure AD Domain Services beheerde domein](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Nu het beheerde domein maken en inschakelen van binnen het bereik synchronisatie op basis van een groep voor het beheerde domein. De eigenschap ```"filteredSync" = "Enabled"``` in de ```Properties``` parameter. Bijvoorbeeld, Zie het volgende fragment van het script opgehaald uit [taak 7: Inrichten van het Azure AD Domain Services beheerde domein](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

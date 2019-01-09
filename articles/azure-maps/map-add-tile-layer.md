@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 57cde41bf65c370f86ebc57a39e917b95721ca81
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a9decacc3b22676d94726e3cf979198b3486d270
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892218"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104638"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Een tegellaag toevoegen aan een kaart
 
@@ -24,7 +24,7 @@ Een tegel van laag voor in de tegels van een server. Deze installatiekopieën ku
 
 * X, Y, zoomen notatie - gebaseerd op het zoomniveau, x staat voor de kolom en y is de rijpositie van de tegel in het tegelraster.
 * Quadkey notatie - combinatie x, y, Inzoomen op gegevens in een enkele tekenreeks-waarde die is een unieke id voor een tegel.
-* Selectiekader - vak-coördinaten voor begrenzingsvak kan worden gebruikt om op te geven van een installatiekopie in de indeling `{west},{south},{east},{north}` die vaak wordt gebruikt door [Web toewijzing diensten (WMS)](http://www.opengeospatial.org/standards/wms).
+* Selectiekader - vak-coördinaten voor begrenzingsvak kan worden gebruikt om op te geven van een installatiekopie in de indeling `{west},{south},{east},{north}` die vaak wordt gebruikt door [Web toewijzing diensten (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > Een [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is een uitstekende manier om grote gegevenssets op de kaart te visualiseren. Niet alleen kunt een tegellaag worden gegenereerd op basis van een afbeelding, maar vectorgegevens kunnen ook worden weergegeven als een tegellaag te. Door rendering vectorgegevens als een tegellaag, moet het kaartbesturingselement alleen laden van de tegels die kunnen worden in bestandsgrootte veel kleiner is dan de vectorgegevens staan. Deze techniek wordt gebruikt door veel die nodig hebt om miljoenen rijen met gegevens op de kaart weer te geven.
@@ -38,9 +38,9 @@ De URL van de tegel doorgegeven aan een tegellaag moet een http/https-URL aan ee
 * `{bbox-epsg-3857}` -Een selectiekader vak tekenreeks zijn met de indeling `{west},{south},{east},{north}` in de EPSG 3857 ruimtelijke referentiesysteem.
 * `{subdomain}` -Een tijdelijke aanduiding waar de waarden van het subdomein als opgegeven wordt toegevoegd.
 
-## <a name="add-a-tile-layer"></a>Een tegellaag toevoegen
+## <a name="add-a-tile-layer"></a>Een titellaag toevoegen
 
- In dit voorbeeld laat zien hoe een tegellaag die verwijst naar een set tegels die gebruikmaken van de x, y, zoomen naast elkaar systeem maken. De bron van deze tegellaag is een radar-overlay weer van de [Iowa uitwerking Mesonet van Iowa State University](http://mesonet.agron.iastate.edu/ogc/).
+ In dit voorbeeld laat zien hoe een tegellaag die verwijst naar een set tegels die gebruikmaken van de x, y, zoomen naast elkaar systeem maken. De bron van deze tegellaag is een radar-overlay weer van de [Iowa uitwerking Mesonet van Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
 
 <br/>
 

@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 23c2206a873dc37f5b4f40e0c692e6a35869c419
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014858"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106462"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack-datacenter-integratie - eindpunten publiceren
 
@@ -46,7 +46,7 @@ Interne infrastructuur voor VIP's worden niet weergegeven omdat ze niet vereist 
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Certificaatintrekkingslijst|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP EN UDP|53|
-|Die als host fungeert | * .hosting. \<regio >. \<FQDN-naam > | HTTPS | 443 |
+|Hosting | * .hosting. \<regio >. \<FQDN-naam > | HTTPS | 443 |
 |Key Vault (gebruiker)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Key Vault (beheerder)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Opslagwachtrij|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
@@ -75,7 +75,7 @@ Azure Stack ondersteunt alleen transparante proxy-servers. In een implementatie 
 |Patch & bijwerken|https://&#42;.azureedge.net|HTTPS|443|
 |Registratie|https://management.azure.com|HTTPS|443|
 |Gebruik|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.NET|HTTPS|443|
-|Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|(IP van de NTP-server opgegeven voor de implementatie)|UDP|123|
 |DNS|(IP van DNS-server is opgegeven voor de implementatie)|TCP<br>UDP|53|
 |CRL|(URL onder CRL-distributiepunten op uw certificaat)|HTTP|80|

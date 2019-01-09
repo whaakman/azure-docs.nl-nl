@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: a37575e6e6e8902dc2dd89a26011031c2e1419c4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557254"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106508"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 De Azure Stack Capacity Planner is een werkblad gebruikt voor de capaciteitsplanning voor Azure Stack-resource. De Capaciteitsplanner biedt u de mogelijkheid om verschillende toewijzingen van computerbronnen ontwerpen en zien hoe deze zou passen in een selectie van hardware-aanbiedingen. Hieronder vindt u gedetailleerde instructies voor het gebruik van de Azure Stack-Calculator.
 
 ## <a name="worksheet-descriptions"></a>Werkblad beschrijvingen
-Hieronder volgt een kort overzicht van de werkbladen die deel uitmaken van het Azure Stack Capacity Planner-werkblad dat kan worden gedownload vanaf [ http://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
+Hieronder volgt een kort overzicht van de werkbladen die deel uitmaken van het Azure Stack Capacity Planner-werkblad dat kan worden gedownload vanaf [ https://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
 
 |Tabbladnaam|Description|
 |-----|-----|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a43e14401861ee33789054a8dcd48289dbbcc88
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9c62f4c58742c2c3247ff19b76575d1ca11499cb
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187174"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101630"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Een Azure Log Analytics-werkruimte met de Azure-portal verwijderen
 Dit artikel leest hoe u de Azure portal gebruiken voor het verwijderen van een Log Analytics-werkruimte die u mogelijk niet meer nodig hebt. 
@@ -38,7 +38,7 @@ Alle agents en System Center Operations Manager-beheergroepen die is geconfigure
  
 Als u een beheerder bent en er aan de werkruimte meerdere gebruikers zijn gekoppeld, wordt de koppeling tussen gebruikers en de werkruimte verbroken. Als de gebruikers zijn gekoppeld aan andere werkruimten, kunnen ze Log Analytics blijven gebruiken met die andere werkruimten. Echter, als ze niet gekoppeld aan andere werkruimten zijn ze moeten een werkruimte maken voor het gebruik van Log Analytics. 
 
-1. Meld u aan bij de [Azure Portal](http://portal.azure.com). 
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com). 
 2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. In het deelvenster voor abonnementen van Log Analytics een werkruimte selecteren en klik vervolgens op **verwijderen** vanaf de bovenkant van het middelste deelvenster.<br><br> ![De optie verwijderen uit het deelvenster met eigenschappen werkruimte](media/delete-workspace/log-analytics-delete-workspace.png)<br>  
 4. Wanneer de bevestiging berichtvenster wordt weergegeven waarin wordt gevraagd te bevestigen van de werkruimte, klikt u op **Ja**.<br><br> ![Bevestig de verwijdering van werkruimte](media/delete-workspace/log-analytics-delete-workspace-confirm.png)

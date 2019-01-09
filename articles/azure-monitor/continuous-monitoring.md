@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a3a4039e8b9c372212655718a40a57fedcfa188d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075784"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117262"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -34,7 +34,7 @@ Om te kunnen krijgen observability binnen uw gehele omgeving, moet u inschakelen
 - [Met Azure DevOps Projects](../devops-project/overview.md) een vereenvoudigde ervaring met uw bestaande code en Git-opslagplaats, of kies een van de voorbeeldtoepassingen te maken van een pijplijn voor continue integratie (CI) en continue levering (CD) naar Azure.
 - [Doorlopende bewaking in uw DevOps-release-pijplijn](../azure-monitor/app/continuous-monitoring.md) kunt u poort of terugdraaien van de implementatie aanpassen aan de gegevens te controleren.
 - [Statusmonitor](../azure-monitor/app/monitor-performance-live-website-now.md) kunt u het instrumenteren van een live .NET-app op Windows met Azure Application Insights, zonder te hoeven wijzigen of opnieuw implementeren van uw code.
-- Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../application-insights/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), of [andere programmeertalen](../azure-monitor/app/platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
+- Als u toegang tot de code voor uw toepassing hebt, klikt u vervolgens volledige controle inschakelen met [Application Insights](../azure-monitor/app/app-insights-overview.md) door het installeren van de Azure Monitor Application Insights SDK voor [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), of [andere programmeertalen](../azure-monitor/app/platforms.md). Hiermee kunt u aangepaste gebeurtenissen, metrische gegevens of paginaweergaven die relevant voor uw toepassing en uw bedrijf zijn op te geven.
 
 
 
@@ -85,7 +85,7 @@ Ervoor te zorgen dat uw ontwikkel- en operations toegang tot de dezelfde Telemet
 ## <a name="continuously-optimize"></a>Blijf optimaliseren
  Bewaking is een van de fundamentele aspecten van de populaire Build-meten-leren filosofie, dat wordt aanbevolen continu bijhouden van uw KPI's en het gedrag van metrische gegevens over gebruikers en vervolgens streven naar ze via planning iteraties te optimaliseren. Azure Monitor kunt u het verzamelen van metrische gegevens en logboeken die relevant zijn voor uw bedrijf en toe te voegen nieuwe gegevenspunten in de volgende implementatie zo nodig.
 
-- Gebruik hulpprogramma's in Application Insights aan [gedrag van eindgebruikers en engagement bijhouden](../application-insights/app-insights-tutorial-users.md).
+- Gebruik hulpprogramma's in Application Insights aan [gedrag van eindgebruikers en engagement bijhouden](../azure-monitor/learn/tutorial-users.md).
 - Gebruik [impactanalyse](../azure-monitor/app/usage-impact.md) kunt u welke onderdelen zich richten op station om belangrijke KPI's te prioriteren.
 
 

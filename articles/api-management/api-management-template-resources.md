@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cfbb04ea56eacfd859b6ce520da5396ad91d9abf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970328"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121291"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-sjabloon-resources
 Met Azure API Management biedt de volgende typen resources voor gebruik in de developer portal-sjablonen.  
@@ -89,13 +89,13 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |PageTitleApis|API's|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Voorbeeld van de toepassing|  
 |WebApplicationsRequirementsHeader|Vereisten|  
@@ -104,13 +104,13 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Weet u zeker dat u de toepassing wilt verwijderen?|  
 |WebDevelopersAppNotPublished|Niet gepubliceerd|  
-|WebDevelopersAppNotSubminted|Niet verzonden|  
+|WebDevelopersAppNotSubmitted|Niet verzonden|  
 |WebDevelopersAppTableCategoryHeader|Categorie|  
-|WebDevelopersAppTableNameHeader|Naam|  
+|WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|Status|  
 |WebDevelopersEditLink|Bewerken|  
 |WebDevelopersRegisterAppLink|Toepassing registreren|  
@@ -120,13 +120,13 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
-|WebApplicationsHeader|Toepassingen|  
+|WebApplicationsHeader|Applicaties|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |NoItemsToDisplay|Er zijn geen resultaten gevonden.|  
 |GeneralExceptionMessage|Iets is niet goed. Het is mogelijk een tijdelijke storing of een bug. Probeer het opnieuw.|  
@@ -137,7 +137,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |ButtonLabelCancel|Annuleren|  
 |ButtonLabelSave|Opslaan|  
@@ -161,7 +161,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="Documentation"></a> Documentatie  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Ongeldige header '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|Ongeldige aanvraag-URL|  
@@ -287,7 +287,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |OAuth2SendingMethod_QueryParam|Queryparameter|  
 |OAuth2AuthorizationServerGeneralException|Er is een fout opgetreden bij de autorisatietoegang via {0}|  
 |OAuth2AuthorizationServerCommunicationException|Er kan geen HTTP-verbinding met de autorisatieserver worden gemaakt of deze is onverwacht verbroken.|  
-|WebDocumentationOAuth2GeneralErrorMessage|Onverwachte fout opgetreden.|  
+|WebDocumentationOAuth2GeneralErrorMessage|Er is een onverwachte fout opgetreden.|  
 |AuthorizationServerCommunicationException|Autorisatie communicatie-uitzondering opgetreden. Neem contact op met de beheerder.|  
 |TextblockSubscriptionKeyHeaderDescription|Abonnementssleutel die toegang tot deze API biedt. Gevonden in uw < een href ='/ developer'\>profiel < /a\>.|  
 |TextblockOAuthHeaderDescription|OAuth 2.0-toegangstoken verkregen van < ik\>{0}< /i\>. Toekenningstypen voor ondersteund: < ik\>{1}< /i\>.|  
@@ -309,7 +309,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |LinkLabelBack|terug|  
 |LinkLabelHomePage|startpagina|  
@@ -327,7 +327,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemen|  
 |WebIssuesNoActiveSubscriptions|U hebt geen actieve abonnementen. U moet zich abonneren op een product om een probleem te melden.|  
@@ -338,7 +338,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |LinkLabelHomePage|startpagina|  
 |LinkLabelSendUsEmail|e-mail verzenden|  
@@ -353,7 +353,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |WebProductsAgreement|Abonneer u op {0} Product, ik ga akkoord met de `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Gebruiksvoorwaarden|  
@@ -375,13 +375,13 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |PageTitleProducts|Producten|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Op het moment is het aanmelden uitgeschakeld door de beheerders.|  
 |TextboxExternalIdentitiesSigninInvitation|U kunt zich ook aanmelden met|  
@@ -389,7 +389,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |PrincipalNotFound|Kan de principal niet vinden of de handtekening is ongeldig.|  
 |ErrorSsoAuthenticationFailed|De SSO-verificatie is mislukt|  
@@ -485,7 +485,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Wachtwoord vergeten?|  
 |WebAuthenticationIfAdministrator|Als u beheerder bent u moet zich aanmelden `<a href="{0}"\>here</a\>`.|  
@@ -497,7 +497,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |PageTitleSignup|Aanmelden|  
 |WebAuthenticationAlreadyAMember|Bent u al lid?|  
@@ -507,7 +507,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Weet u zeker dat u dit abonnement wilt annuleren?|  
 |SubscriptionRenewConfirmation|Weet u zeker dat u dit abonnement wilt verlengen?|  
@@ -519,7 +519,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |ButtonLabelRenewSubscription|Verlengen|  
 |WebDevelopersSubscriptionReqested|Aangevraagd op {0}|  
 |WebDevelopersSubscriptionRequestedState|Aangevraagd|  
-|WebDevelopersSubscriptionTableNameHeader|Naam|  
+|WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|Status|  
 |WebDevelopersUsageStatisticsLink|Analytics-rapporten|  
 |WebDevelopersYourSubscriptions|Uw abonnementen|  
@@ -530,7 +530,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Wilt u uw account sluiten?|  
 |PageTitleDeveloperProfile|Profiel|  
@@ -541,14 +541,14 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Profiel bijwerken|  
 |PageTitleUpdateProfile|Accountgegevens bijwerken|  
   
 ###  <a name="UserProfile"></a> Gebruikersprofiel  
   
-|Naam|Tekst|  
+|Name|Tekst|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Accountinformatie wijzigen|  
 |ButtonLabelChangePassword|Wachtwoord wijzigen|  

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dd8e0950de6aae71dd123d21b59c6de591bd7f29
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262262"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107703"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -24,7 +24,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-se
 Ja. U kunt maximaal 500 Recovery Services-kluizen per ondersteunde regio van Azure Backup per abonnement maken. Als u extra kluizen nodig hebt, maakt u een extra abonnement.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Zijn er beperkingen met betrekking tot het aantal servers/machines dat kan worden geregistreerd voor elke kluis?
-U kunt maximaal 1000 Azure Virtual machines per kluis registreren. Als u de MAB-Agent gebruikt, kunt u maximaal 50 MAB-agents per kluis registreren. En u kunt de 50 MAB-servers/DPM-servers naar een kluis registreren.
+U kunt maximaal 1000 Azure Virtual machines per kluis registreren. Als u de Microsoft Azure Backup-Agent gebruikt, kunt u maximaal 50 MAB-agents per kluis registreren. En u kunt de 50 MAB-servers/DPM-servers naar een kluis registreren.
 
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Als mijn organisatie één kluis heeft, hoe kan ik isoleren van de gegevens van andere servers in de kluis bij het herstellen van gegevens?

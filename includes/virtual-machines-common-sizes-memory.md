@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dc78c8794923a180264058fc984a58aa29171c58
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b992947245175803f8f2f8c6a5aba70fe13bde2c
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978725"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084018"
 ---
 Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-snelheid voor relationele-databaseservers, middelgrote tot grote caches en analysefuncties in het geheugen die. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
@@ -32,14 +32,14 @@ Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-
 
 ACU: 160-190 <sup>1</sup>
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0 en maken gebruik van Premium Storage. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
 
-| Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+| Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Max. doorvoer van caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijfbewerkingen zonder schijf: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3200 / 48                                | 2 / 1,000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400 / 96                                | 2 / 2,000                                   |
@@ -60,11 +60,11 @@ Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processo
 
 ## <a name="ev3-series"></a>Ev3-serie 
 
-ACU: 160-190 <sup>1</sup>
+ACU: 160 - 190 <sup>1</sup>
 
-Premium-opslag: Niet ondersteund
+Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching: Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 Exemplaren uit de Ev3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
@@ -93,13 +93,13 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 
 ACU: 160-180 <sup>1</sup>
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
-Write Accelerator: [ondersteund](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Write Accelerator:  [Ondersteund](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+| Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Max. doorvoer van caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijfbewerkingen zonder schijf: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10.000 / 100 (793)  | 5000 / 125 | 4 / 2000 |
 | Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20.000 / 200 (1,587) | 10.000 / 250 | 8 / 4000 |
@@ -109,7 +109,7 @@ Write Accelerator: [ondersteund](https://docs.microsoft.com/azure/virtual-machin
 | Standard_M64s  | 64 | 1,024   | 2048 | 64 | 80.000 / 800 (6,348)| 40.000 / 1,000 | 8 / 16,000          |
 | Standard_M64ls  | 64 | 512    | 2048 | 64 | 80.000 / 800 (6,348) | 40.000 / 1,000 | 8 / 16,000 |
 | Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2048 | 64 | 80.000 / 800 (6,348)| 40.000 / 1,000 | 8 / 16,000          |
-| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2048        | 4.096  | 64 | 160,000 / 1,600 (12,696) | 80.000 / 2000                            | 8 / 30,000          |
+| Standard_M128s&nbsp;<sup>2</sup> | 128  | 2048        | 4.096  | 64 | 160,000 / 1,600 (12,696) | 80.000 / 2000                            | 8 / 30,000          |
 | Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3,892  | 4.096 | 64 | 160,000 / 1,600 (12,696) | 80.000 / 2000                            | 8 / 30,000          |
 | Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000 / 1,000 | 8 / 16,000 |
 | Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000 / 1,000 | 8 / 16,000 |
@@ -120,7 +120,7 @@ Write Accelerator: [ondersteund](https://docs.microsoft.com/azure/virtual-machin
 
 <sup>1</sup> M-serie VM's functie Intel® Hyper-Threading-technologie
 
-<sup>2</sup> meer dan 64 vCPU's is een van deze ondersteunde gastbesturingssystemen vereist: Windows Server 2016, Ubuntu 16.04 TNS, SLES 12 SP2, en Red Hat Enterprise Linux, CentOS 7.3 of Oracle Linux 7.3 met LIS 4.2.1.
+<sup>2</sup> meer dan 64 vCPU's is een van deze ondersteunde gastbesturingssystemen vereist: WindowsServer 2016, Ubuntu 16.04 TNS, SLES 12 SP2 en Red Hat Enterprise Linux, CentOS 7.3 of Oracle Linux 7.3 met LIS 4.2.1.
 
 <sup>3</sup> constrained core grootten beschikbaar.
 
@@ -129,13 +129,13 @@ Write Accelerator: [ondersteund](https://docs.microsoft.com/azure/virtual-machin
 
 ## <a name="gs-series"></a>GS-serie 
 
-ACU: 180-240 <sup>1</sup>
+ACU: 180 - 240 <sup>1</sup>
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Max. doorvoer van caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijfbewerkingen zonder schijf: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10.000 / 100 (264) |5000 / 125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20.000 / 200 (528) |10.000 / 250 |2 / 4000 |
@@ -143,7 +143,7 @@ Caching van Premium Storage: ondersteund
 | Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80.000 / 800 (2,112) |40.000 / 1,000 |8 / 16000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160.000 / 1600 (4,224) |80.000 / 2000 |8 / 20000 |
 
-<sup>1</sup> de maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de GS-serie kan worden beperkt door het aantal, grootte en de striping van de gekoppelde schijven. Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie. 
+<sup>1</sup> de maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de GS-serie kan worden beperkt door het aantal, grootte en de striping van de gekoppelde schijven. Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor Azure virtual machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md). 
 
 <sup>2</sup> exemplaar is geïsoleerd voor hardware toegewezen aan één klant.
 
@@ -155,11 +155,11 @@ Caching van Premium Storage: ondersteund
 
 ACU: 180 - 240
 
-Premium-opslag: Niet ondersteund
+Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching: Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
-| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
 | Standard_G2  | 4         | 56          | 768            | 12.000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
@@ -173,13 +173,13 @@ Premium Storage Caching: Niet ondersteund
 
 ## <a name="dsv2-series-11-15"></a>11-15, DSv2-serie
 
-ACU: 210-250 <sup>1</sup>
+ACU: 210 - 250 <sup>1</sup>
 
-Premium Storage: ondersteund
+Premium-opslag:  Ondersteund
 
-Caching van Premium Storage: ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Max. doorvoer van caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijfbewerkingen zonder schijf: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8000 / 64 (72) |6400 / 96 |2 / 1500 |
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16.000 / 128 (144) |12.800 / 192 |4 / 3000 |
@@ -188,7 +188,7 @@ Caching van Premium Storage: ondersteund
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80.000 / 640 (720) |64.000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
 
-<sup>1</sup> de maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de DSv2-serie kan worden beperkt door het aantal, grootte en de striping van de gekoppelde schijven.  Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie.
+<sup>1</sup> de maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de DSv2-serie kan worden beperkt door het aantal, grootte en de striping van de gekoppelde schijven.  Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor Azure virtual machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md).
 
 <sup>2</sup> exemplaar is geïsoleerd voor hardware toegewezen aan één klant.
 
@@ -202,11 +202,11 @@ Caching van Premium Storage: ondersteund
 
 ACU: 210 - 250
 
-Premium-opslag: Niet ondersteund
+Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching: Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
-| Grootte              | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+| Grootte              | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standard_D12_v2   | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |

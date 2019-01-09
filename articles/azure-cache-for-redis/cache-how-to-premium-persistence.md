@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: d74f552395a80509c76adf70aef0581260126b49
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019493"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105833"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Het configureren van persistentie van de gegevens voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen die over de benodigde flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. In dit artikel wordt beschreven hoe u persistentie configureren in een premium Azure Cache voor Redis-exemplaar.
@@ -130,7 +130,7 @@ Voor zowel RDB en AOF-persistentie:
 
 * Als u in een groter formaat hebt geschaald, zijn er geen gevolgen.
 * Als u op een kleinere grootte hebt geschaald, en u een aangepaste hebt [databases](cache-configure.md#databases) instellen die groter is dan de [databases limiet](cache-configure.md#databases) voor de grootte van uw nieuwe gegevens in deze databases wordt niet hersteld. Zie voor meer informatie, [Is mijn aangepaste databases betrokken instellen tijdens het schalen?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* Als u op een kleinere grootte hebt geschaald, en er niet genoeg ruimte is in de kleinere grootte voor alle van de gegevens van de laatste back-up, sleutels wordt onbeschikbaar gemaakt tijdens het herstelproces, meestal met behulp van de [allkeys lru](http://redis.io/topics/lru-cache) verwijderingsbeleid.
+* Als u op een kleinere grootte hebt geschaald, en er niet genoeg ruimte is in de kleinere grootte voor alle van de gegevens van de laatste back-up, sleutels wordt onbeschikbaar gemaakt tijdens het herstelproces, meestal met behulp van de [allkeys lru](https://redis.io/topics/lru-cache) verwijderingsbeleid.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Kan ik de RDB-back-upfrequentie wijzigen nadat ik de cache maken?
 Ja, kunt u de back-upfrequentie voor RDB persistentie wijzigen op de **Redis-gegevenspersistentie** blade. Zie voor instructies [configureren van Redis-persistentie](#configure-redis-persistence).

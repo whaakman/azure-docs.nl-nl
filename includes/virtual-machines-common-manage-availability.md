@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035484"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084052"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informatie over het opnieuw opstarten van VM's - onderhoud versus downtime
 Er zijn drie scenario's die kunnen leiden tot een virtuele machine in Azure wordt beïnvloed: niet-gepland hardwareonderhoud, onverwachte downtime en gepland onderhoud.
@@ -32,7 +32,7 @@ Om de gevolgen van downtime vanwege een of meer van deze gebeurtenissen te beper
 
 * [Configureer meerdere virtuele machines in een beschikbaarheidsset voor redundantie]
 * [Beheerde schijven voor virtuele machines in een beschikbaarheidsset gebruiken]
-* [Geplande gebeurtenissen te proactief reageren op gebeurtenissen die VM gebruiken ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Geplande gebeurtenissen te proactief reageren op gebeurtenissen die VM gebruiken](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configureer elke toepassingslaag in afzonderlijke beschikbaarheidssets]
 * [Combineer het gebruik van een load balancer met beschikbaarheidssets]
 * [Gebruik beschikbaarheidszones om te beschermen tegen storingen in datacenters niveau]
@@ -65,6 +65,10 @@ Als u VM's met [niet-beheerde schijven](../articles/virtual-machines/windows/abo
 1. **Zorg dat alle schijven (gegevens en besturingssysteem) worden gekoppeld aan een virtuele machine op hetzelfde opslagaccount**
 2. **Controleer de [limieten](../articles/storage/common/storage-scalability-targets.md) voor het aantal niet-beheerde schijven in een opslagaccount** voordat u meer VHD's aan een opslagaccount toevoegt
 3. **Gebruik een afzonderlijk opslagaccount voor elke virtuele machine in een beschikbaarheidsset.** Deel opslagaccounts met meerdere VM's niet in dezelfde beschikbaarheidsset. Het is aanvaardbaar als virtuele machines in verschillende Beschikbaarheidssets gegevensaccount delen, als aanbevolen procedures worden gevolgd ![niet-beheerde schijven FD's](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Kunt u proactief te reageren op gebeurtenissen die VM met geplande gebeurtenissen
+
+Wanneer u zich abonneert op [geplande gebeurtenissen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), uw virtuele machine wordt geïnformeerd over aanstaande onderhoud-gebeurtenissen die kunnen invloed hebben op uw virtuele machine. Wanneer de geplande gebeurtenissen zijn ingeschakeld, krijgt uw virtuele machine een minimale hoeveelheid tijd voordat de activiteit onderhoud wordt uitgevoerd. Bijvoorbeeld, updates van het Host-besturingssysteem die mogelijk van invloed zijn op uw virtuele machine worden in de wachtrij geplaatst als gebeurtenissen die de impact opgeven, evenals een periode waarbinnen het onderhoud wordt uitgevoerd als er geen actie ondernomen. Schema-gebeurtenissen worden ook in de wachtrij geplaatst wanneer Azure dreigende hardwarefout waardoor het mogelijk van invloed zijn op uw virtuele machine, zodat u kunt bepalen wanneer het herstel moet worden uitgevoerd. Klanten kunnen de gebeurtenis voor het uitvoeren van taken voorafgaand aan het onderhoud, zoals opgeslagen status, gebruiken Failover-overschakeling uitvoeren naar de secundaire, enzovoort. Nadat u uw logica voor het verwerken van de onderhoudsgebeurtenis zonder problemen voltooid, kunt u de openstaande geplande gebeurtenis om toe te staan van het platform om door te gaan met onderhoud goedkeuren.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configureer elke toepassingslaag in afzonderlijke beschikbaarheidssets
 Als uw virtuele machines allemaal bijna identiek zijn en hetzelfde doel dienen voor uw toepassing, raden wij aan dat u een beschikbaarheidsset configureert voor elke laag van uw toepassing.  Als u twee verschillende lagen in dezelfde beschikbaarheidsset plaatst, kunnen alle virtuele machines in dezelfde toepassingslaag in één keer opnieuw worden opgestart. Door voor elke laag ten minste twee virtuele machines in een beschikbaarheidsset te configureren, garandeert u dat in elke laag ten minste één virtuele machine beschikbaar is.

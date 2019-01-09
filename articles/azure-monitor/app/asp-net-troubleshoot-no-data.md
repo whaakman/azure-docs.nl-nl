@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2387af0ddd9f6f3ecbe91afaaca66d89f070c036
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076037"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118759"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -34,7 +34,7 @@ ms.locfileid: "54076037"
 
 *Ik [geïnstalleerd Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) op de webserver voor het bewaken van bestaande apps. Geen resultaten weergegeven niet.*
 
-* Zie [statusmonitor oplossen](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
+* Zie [statusmonitor oplossen](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
 
 ## <a name="q01"></a>Geen optie 'Application Insights toevoegen' in Visual Studio
 *Wanneer ik met de rechtermuisknop op een bestaand project in Solution Explorer, weergegeven niet alle opties voor Application Insights.*
@@ -154,7 +154,7 @@ De gegevens afkomstig van scripts in de webpagina's.
 Zie [afhankelijkheidstelemetrie](../../azure-monitor/app/asp-net-dependencies.md) en [uitzonderingstelemetrie](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Er zijn geen prestatiegegevens
-Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-services](../../azure-monitor/app/java-collectd.md), [Windows-bureaublad-apps](../../azure-monitor/app/windows-desktop.md), [IIS web-apps en services als u statusmonitor installeert](../../azure-monitor/app/monitor-performance-live-website-now.md), en [Azure Cloudservices](../../application-insights/app-insights-overview.md). u vindt deze onder instellingen voor Servers.
+Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-services](../../azure-monitor/app/java-collectd.md), [Windows-bureaublad-apps](../../azure-monitor/app/windows-desktop.md), [IIS web-apps en services als u statusmonitor installeert](../../azure-monitor/app/monitor-performance-live-website-now.md), en [Azure Cloudservices](../../azure-monitor/app/app-insights-overview.md). u vindt deze onder instellingen voor Servers.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Er zijn geen gegevens (server) sinds ik de app is gepubliceerd naar Mijn server
 * Controleer dat u daadwerkelijk alle Microsoft gekopieerd. Application Insights-dll-bestanden naar de server, samen met Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
