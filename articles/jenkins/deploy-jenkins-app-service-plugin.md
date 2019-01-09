@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319350"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537576"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementeren naar Azure App Service met behulp van de Jenkins-invoegtoepassing 
 
@@ -55,7 +55,7 @@ Om te implementeren naar Web App voor Containers, installeert u Docker op de Jen
 U hebt een Azure-service-principal nodig om te kunnen implementeren naar Azure. 
 
 
-1. Gebruik de [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) of de [Azure-portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal) om een Azure-service-principal te maken.
+1. Gebruik de [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) of de [Azure-portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal) om een Azure-service-principal te maken.
 2. Selecteer **Referenties** > **Systeem** op het Jenkins-dashboard. Selecteer vervolgens **Algemene referenties (onbeperkt)**.
 3. Selecteer **Referenties toevoegen** om een Microsoft Azure-service-principal toe te voegen. Geef waarden op voor de velden **Abonnements-ID**, **Client-ID**, **Clientgeheim** en **OAuth 2.0-tokeneindpunt**. Stel het veld **ID** in op **mySp**. We gebruiken deze ID in volgende stappen in dit artikel.
 
@@ -64,9 +64,9 @@ U hebt een Azure-service-principal nodig om te kunnen implementeren naar Azure.
 
 Als u uw project wilt implementeren in Web Apps, kunt u uw build-artefacten uploaden door middel van een bestandsupload. Azure App Service biedt ondersteuning voor meerdere implementatieopties. De Jenkins-invoegtoepassing van de Azure App Service maakt het eenvoudig voor u: de implementatieoptie wordt afgeleid van het bestandstype. 
 
-* Voor Java EE-toepassingen wordt er een [WAR-implementatie](/azure/app-service/app-service-deploy-zip#deploy-war-file) toegepast.
-* Voor Java SE-toepassingen wordt er een [ZIP-implementatie](/azure/app-service/app-service-deploy-zip#deploy-zip-file) toegepast.
-* Voor andere talen wordt er een [Git-implementatie](/azure/app-service/app-service-deploy-local-git) toegepast.
+* Voor Java EE-toepassingen wordt er een [WAR-implementatie](/azure/app-service/deploy-zip#deploy-war-file) toegepast.
+* Voor Java SE-toepassingen wordt er een [ZIP-implementatie](/azure/app-service/deploy-zip#deploy-zip-file) toegepast.
+* Voor andere talen wordt er een [Git-implementatie](/azure/app-service/deploy-local-git) toegepast.
 
 Voordat u de taak in Jenkins instelt, hebt u een Azure App Service-plan en een web-app nodig om de Java-app uit te voeren.
 
@@ -100,7 +100,7 @@ Voordat u de taak in Jenkins instelt, hebt u een Azure App Service-plan en een w
 4. Voeg een actie na maken toe door **Een Azure-web-app publiceren** te selecteren.
 5. Geef **mySp** op als de Azure-service-principal. Deze principal was in een vorige stap opgeslagen als de [Azure-referenties](#service-principal).
 6. Kies in de sectie **App-configuratie** de resourcegroep en web-app in uw abonnement. De Jenkins-invoegtoepassing detecteert automatisch of de web-app op Windows of Linux is gebaseerd. Voor een Windows-web-app wordt de optie **Bestanden publiceren** weergegeven.
-7. Vul de bestanden in die u wilt implementeren. Geef bijvoorbeeld het WAR-pakket op als u Java gebruikt. Gebruik de optionele parameters **Bronmap** en **Doelmap** om op te geven welke bron- en doelmap moeten worden gebruikt voor het uploaden van bestanden. De Java-web-app op Azure wordt uitgevoerd in een Tomcat-server. Voor Java uploadt u uw WAR-pakket dus naar de map met web-apps. In dit voorbeeld stelt u de waarde **Bronmap** in op **doel** en de waarde **Doelmap** op **web-apps**.
+7. Vul de bestanden in die u wilt implementeren. Geef bijvoorbeeld het WAR-pakket op als u Java gebruikt. Gebruik de optionele parameters **Bronmap** en **Doelmap** om op te geven welke bron- en doelmap moeten worden gebruikt voor het uploaden van bestanden. De Java-web-app op Azure wordt uitgevoerd in een Tomcat-server. Voor Java uploadt u uw WAR-pakket dus naar de map webapps. In dit voorbeeld stelt u de waarde **Bronmap** in op **doel** en de waarde **Doelmap** op **web-apps**.
 8. Als u wilt implementeren naar een andere site dan productie, kunt u ook de **Site**-naam instellen.
 9. Sla het project op en voer de build uit. Uw web-app wordt naar Azure geïmplementeerd wanneer de build is voltooid.
 
@@ -131,7 +131,7 @@ De Jenkins-invoegtoepassing voor Azure App Service is pijplijn-gereed. U kunt he
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Jenkins configureren om Web App voor Containers te implementeren
 
-Web Apps op Linux ondersteunt implementatie met behulp van Docker. Om uw web-app te implementeren met behulp van Docker, moet u een Dockerfile opgeven dat uw web-app met een serviceruntime in een Docker-installatiekopie verpakt. De Jenkins-invoegtoepassing voert vervolgens de build van de installatiekopie uit, pusht deze naar een Docker-register en implementeert deze naar uw web-app.
+Web Apps op Linux ondersteunt implementatie met behulp van Docker. Om uw web-app te implementeren met behulp van Docker, moet u een Docker-bestand opgeven dat uw web-app met een serviceruntime in een Docker-installatiekopie verpakt. De Jenkins-invoegtoepassing voert vervolgens de build van de installatiekopie uit, pusht deze naar een Docker-register en implementeert deze naar uw web-app.
 
 Web Apps op Linux ondersteunt ook traditionele implementatiemethoden, zoals Git en bestandsupload, maar alleen voor ingebouwde talen (.NET Core, Node.js, PHP en Ruby). Voor andere talen moet u uw toepassingscode en serviceruntime samen in een Docker-installatiekopie verpakken en Docker gebruiken voor de implementatie.
 

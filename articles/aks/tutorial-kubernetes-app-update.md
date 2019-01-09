@@ -3,22 +3,21 @@ title: 'Zelfstudie voor Kubernetes in Azure: een toepassing bijwerken'
 description: In deze zelfstudie over Azure Kubernetes Service (AKS) leert u hoe u de implementatie van een bestaande toepassing bijwerkt naar AKS met een nieuwe versie van de toepassingscode.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2dd52fec112b879e072d3ac5598dd7978e68cbc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ed4a65e9e4e579277866bdafda67eb577a76bbfe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918759"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714811"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Zelfstudie: Een toepassing bijwerken in AKS (Azure Kubernetes Service)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Zelfstudie: Een toepassing bijwerken in Azure Kubernetes Service (AKS)
 
-Nadat een toepassing is geïmplementeerd in Kubernetes, kunt u deze bijwerken door een nieuwe containerinstallatiekopie of versie van de installatiekopie op te geven. Wanneer u dit doet, wordt de update gefaseerd, zodat telkens maar een deel van de implementatie wordt bijgewerkt. Dankzij deze gefaseerde update kan de toepassing tijdens de update worden uitgevoerd. Het biedt ook een terugdraaimechanisme als er een implementatiefout optreedt.
+Nadat een toepassing is geïmplementeerd in Kubernetes, kunt u deze bijwerken door een nieuwe containerinstallatiekopie of versie van de installatiekopie op te geven. De update wordt gefaseerd, zodat telkens maar een deel van de implementatie wordt bijgewerkt. Dankzij deze gefaseerde update kan de toepassing tijdens de update worden uitgevoerd. Het biedt ook een terugdraaimechanisme als er een implementatiefout optreedt.
 
 In deze zelfstudie, deel zes van zeven, wordt de voorbeeldapp Azure Vote bijgewerkt. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -30,21 +29,21 @@ In deze zelfstudie, deel zes van zeven, wordt de voorbeeldapp Azure Vote bijgewe
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, de installatiekopie geüpload naar Azure Container Registry (ACR) en een Kubernetes-cluster gemaakt. De toepassing is vervolgens in het Kubernetes-cluster uitgevoerd.
+In eerdere zelfstudies is een toepassing verpakt in een containerinstallatiekopie. Deze installatiekopie is geüpload naar Azure Container Registry en u hebt een AKS-cluster gemaakt. De toepassing is vervolgens geïmplementeerd in het AKS-cluster.
 
-Er is ook een toepassingsopslagplaats gekloond die de broncode van de toepassing bevat en een vooraf gemaakt Docker Compose-bestand dat in deze zelfstudie wordt gebruikt. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u mappen in de gekloonde map hebt gewijzigd. Als u deze stappen niet hebt voltooid en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
+Er is ook een toepassingsopslagplaats gekloond die de broncode van de toepassing bevat en een vooraf gemaakt Docker Compose-bestand dat in deze zelfstudie wordt gebruikt. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u mappen in de gekloonde map hebt gewijzigd. Als u deze stappen niet hebt voltooid en deze zelfstudie wilt volgen, gaat u eerst naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
 
-Voor deze zelfstudie moet u Azure CLI versie 2.0.44 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+Voor deze zelfstudie moet u Azure CLI versie 2.0.53 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="update-an-application"></a>Een toepassing bijwerken
 
-We gaan een wijziging aanbrengen in de voorbeeldtoepassing en de versie die al is geïmplementeerd in uw AKS-cluster vervolgens bijwerken. De broncode van de voorbeeldtoepassing vindt u in de map *azure-vote*. Open het bestand *config_file.cfg* met een teksteditor, zoals `vi`:
+We gaan een wijziging aanbrengen in de voorbeeldtoepassing en de versie die al is geïmplementeerd in uw AKS-cluster vervolgens bijwerken. Zorg ervoor dat u zich bevindt in de gekloonde map *azure-voting-app-redis*. De broncode van de voorbeeldtoepassing vindt u dan in de map *azure-vote*. Open het bestand *config_file.cfg* met een teksteditor, zoals `vi`:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Wijzig de waarden voor *VOTE1VALUE* en *VOTE2VALUE* in verschillende kleuren. In het volgende voorbeeld worden de bijgewerkte kleurwaarden weergegeven:
+Wijzig de waarden voor *VOTE1VALUE* en *VOTE2VALUE* in verschillende waarden, zoals kleuren. In het volgende voorbeeld worden de bijgewerkte waarden weergegeven:
 
 ```
 # UI Configurations
@@ -54,7 +53,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Sla het bestand op en sluit het.
+Sla het bestand op en sluit het. In `vi` gebruikt u `:wq`.
 
 ## <a name="update-the-container-image"></a>De containerinstallatiekopie bijwerken
 
@@ -70,7 +69,7 @@ Om te controleren of uw wijzigingen worden weergegeven in de bijgewerkte contain
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-De bijgewerkte kleurwaarden die zijn opgegeven in het bestand *config_file.cfg* worden weergegeven in de actieve toepassing.
+De bijgewerkte waarden die zijn opgegeven in het bestand *config_file.cfg* worden weergegeven in de actieve toepassing.
 
 ## <a name="tag-and-push-the-image"></a>De installatiekopie taggen en pushen
 
@@ -144,13 +143,13 @@ Als u de bijgewerkte toepassing wilt bekijken, moet u eerst het externe IP-adres
 kubectl get service azure-vote-front
 ```
 
-Open nu een lokale webbrowser met het IP-adres.
+Open nu een lokale webbrowser met het IP-adres van uw service:
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een toepassing bijgewerkt en deze update geïmplementeerd in een Kubernetes-cluster. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een toepassing bijgewerkt en deze update geïmplementeerd in uw AKS-cluster. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * De code van de front-endtoepassing bijwerken

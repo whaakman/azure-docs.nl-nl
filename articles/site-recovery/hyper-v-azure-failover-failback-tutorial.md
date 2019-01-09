@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833450"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794206"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover en failback voor virtuele Hyper-V-machines die zijn gerepliceerd naar Azure
 
@@ -39,9 +39,9 @@ Zorg ervoor dat er zich geen momentopnamen bevinden op de virtuele machine en da
 
 Failover en failback bestaat uit drie fasen:
 
-1. **Failover naar Azure**: failover virtuele Hyper-V-machines van de on-premises site naar Azure.
-2. **Failback naar on-premises**: failover virtuele Azure-machines naar uw on-premises-site als de on-premises site beschikbaar is. Gegevens worden gesynchroniseerd van Azure naar on-premises en als dat is afgerond, worden de virtuele machines on-premises online gezet.  
-3. **Replicatie omkeren op on-premises machines**: nadat failback naar on-premises is voltooid, keert u de replicatie van de on-premises virtuele machines om, zodat deze weer worden gerepliceerd naar Azure.
+1. **Failover naar Azure**: failover van virtuele Hyper-V-machines van de on-premises site naar Azure.
+2. **Failback naar on-premises**: failover van virtuele Azure-machines naar uw on-premises site als de on-premises site beschikbaar is. Gegevens worden gesynchroniseerd van Azure naar on-premises en als dat is afgerond, worden de virtuele machines on-premises online gezet.  
+3. **Replicatie omkeren op on-premises VM's**: nadat failback naar on-premises is voltooid, keert u de replicatie van de on-premises virtuele machines om, zodat deze weer worden gerepliceerd naar Azure.
 
 ## <a name="verify-vm-properties"></a>VM-eigenschappen verifiëren
 
@@ -65,7 +65,7 @@ Klik in **Beveiligde items** op **Gerepliceerde items** > VM.
 4. Na het controleren van de failover, klikt u op **Doorvoeren**. Hiermee worden alle beschikbare herstelpunten verwijderd.
 
 > [!WARNING]
-> **Een failover die in uitvoering is, mag niet worden geannuleerd**: als u dat doet, wordt de failover wel beëindigd, maar de virtuele machine wordt niet meer gerepliceerd.
+> **Annuleer nooit een failover die in uitvoering is**: als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Failback van virtuele Azure-machine van Azure naar on-premises en replicatie van on-premises virtuele machine omkeren
 

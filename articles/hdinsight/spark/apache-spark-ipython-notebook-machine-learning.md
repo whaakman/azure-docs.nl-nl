@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Een Apache Spark-toepassing voor machine learning bouwen in Azure HDInsight'
+title: 'Zelfstudie: een Apache Spark-toepassing voor machine learning bouwen in Azure HDInsight'
 description: Hier vindt u stapsgewijze instructies voor het bouwen van een Apache Spark-toepassing voor machine learning in HDInsight Spark-clusters met behulp van een Jupyter-notebook.
 services: hdinsight
 ms.service: hdinsight
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580556"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608508"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Zelfstudie: Een Apache Spark-toepassing voor Machine Learning bouwen in HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Zelfstudie: een Apache Spark-toepassing voor machine learning bouwen in HDInsight 
 
 In deze zelfstudie leert u hoe u het [Jupyter-notebook](https://jupyter.org/) gebruikt voor het bouwen van een [Apache Spark](https://spark.apache.org/)-toepassing voor Machine Learning voor Azure HDInsight. 
 
@@ -97,7 +97,7 @@ In deze toepassing gebruikt u een [ML-pijplijn](https://spark.apache.org/docs/2.
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    Zie de Engelstalige handleiding over <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">de blibliotheek voor machine learning</a> voor meer informatie over pijplijnen en hoe het werkt.
+    Zie <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark machine learning pipeline</a> (Pijplijn voor machine learning van Apache Spark) voor meer informatie over pijplijnen en hoe ze werken.
 
 5. Koppel de pijplijn aan het trainingsdocument.
    
@@ -184,7 +184,7 @@ In deze toepassing gebruikt u een [ML-pijplijn](https://spark.apache.org/docs/2.
 10. Sluit het notebook om de resources vrij te geven. Selecteer hiervoor **Sluiten en stoppen** in het menu **Bestand** van het notebook. Met deze actie wordt het notebook afgesloten en gesloten.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>scikit-learn-bibliotheek van Anaconda gebruiken voor een Spark-toepassing voor machine learning
-Apache Spark-clusters in HDInsight bevatten Anaconda-bibliotheken, waaronder de bibliotheek **scikit-learn** voor machine learning. De bibliotheek bevat ook verschillende gegevenssets die u kunt gebruiken om rechtstreeks vanuit een Jupyter-notebook voorbeeldtoepassingen te bouwen. Zie [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html) voor voorbeelden van het gebruik van de bibliotheek scikit-learn.
+Apache Spark-clusters in HDInsight bevatten Anaconda-bibliotheken, waaronder de bibliotheek **scikit-learn** voor machine learning. De bibliotheek bevat ook verschillende gegevenssets die u kunt gebruiken om rechtstreeks vanuit een Jupyter-notebook voorbeeldtoepassingen te bouwen. Zie [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) voor voorbeelden van het gebruik van de bibliotheek scikit-learn.
 
 ## <a name="next-steps"></a>Volgende stappen
 

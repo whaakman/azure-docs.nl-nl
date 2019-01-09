@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0aa7b7f3558bab7f3553527e03c44d71dd5a87ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833139"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794427"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio
 
@@ -138,24 +138,24 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
 
 3. Pas doelinstellingen als volgt aan:
 
-    - **Doelabonnement**: het doelabonnement dat wordt gebruikt voor herstel na noodgevallen. Standaard is het doelabonnement niet hetzelfde als het bronabonnement. Klik op 'Aanpassen' om een ander doelabonnement binnen dezelfde Azure Active Directory-tenant te selecteren.
-    - **Doellocatie**: de doelregio die wordt gebruikt voor herstel na noodgevallen. Wij raden aan dezelfde doellocatie te gebruiken als de locatie van de Site Recovery-kluis.
-    - **Doelresourcegroep**: de resourcegroep in de doelregio waarin Azure-VM’s zich na een failover bevinden. Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio met het achtervoegsel 'asr'. resourcegroep-locatie van de doelresourcegroep mag elke regio zijn, behalve de regio waar uw virtuele bronmachines worden gehost.
-    - **Virtueel doelnetwerk**: het netwerk in de doelregio waar VM’s zich na een failover bevinden.
+    - **Doelabonnement**: Het doelabonnement dat wordt gebruikt voor herstel na noodgevallen. Standaard is het doelabonnement niet hetzelfde als het bronabonnement. Klik op 'Aanpassen' om een ander doelabonnement binnen dezelfde Azure Active Directory-tenant te selecteren.
+    - **Doellocatie**: De doelregio die wordt gebruikt voor herstel na noodgevallen. Wij raden aan dezelfde doellocatie te gebruiken als de locatie van de Site Recovery-kluis.
+    - **Doelresourcegroep**: De resourcegroep in de doelregio waarin Azure-VM’s zich na een failover bevinden. Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio met het achtervoegsel 'asr'. resourcegroep-locatie van de doelresourcegroep mag elke regio zijn, behalve de regio waar uw virtuele bronmachines worden gehost.
+    - **Virtueel doelnetwerk**: Het netwerk in de doelregio waar VM’s zich na een failover bevinden.
       Site Recovery maakt standaard een nieuw virtueel netwerken (met subnets) in de doelregio met het achtervoegsel 'asr'.
     - **Cacheopslagaccounts**: Site Recovery maakt gebruik van een opslagaccount in de bronregio. Wijzigingen in de bron-VM's worden naar dit account verzonden vóór replicatie naar de doellocatie.
       >[!NOTE]
       >Als u gebruikmaakt van een cacheopslagaccount met een firewall, zorgt u ervoor dat u vertrouwde Microsoft-services toestaat. [Meer informatie.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Doelopslagaccounts (als bron-VM geen beheerde schijven gebruikt)**: Site Recovery maakt standaard een nieuw opslagaccount in de doelregio om het bron-VM-opslagaccount te spiegelen.
+    - **Doelopslagaccounts (als de bron-VM niet gebruikmaakt van beheerde schijven)**: Met Site Recovery wordt standaard een nieuw opslagaccount in de doelregio gemaakt om het bron-VM-opslagaccount te spiegelen.
       >[!NOTE]
       >Als u gebruikmaakt van een bron- of doelopslagaccount met een firewall, zorgt u ervoor dat u vertrouwde Microsoft-services toestaat. [Meer informatie.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt standaard replicaschijven in de doelregio om de beheerde schijven van de bron-VM's te spiegelen met hetzelfde opslagtype (Standard of Premium) als de beheerde schijf van de bron-VM's.
-    - **Doelbeschikbaarheidssets**: in Azure Site Recovery wordt standaard een nieuwe beschikbaarheidsset gemaakt in de doelregio, met een naam die eindigt op 'asr' voor het VM-gedeelte van een beschikbaarheidsset in de bronregio. Als de beschikbaarheidsset die wordt gemaakt met Azure Site Recovery, al bestaat, wordt deze opnieuw gebruikt.
-    - **Doelbeschikbaarheidszones**: in Site Recovery wordt standaard hetzelfde zonenummer toegewezen als de bronregio in de doelregio, als de doelregio ondersteuning biedt voor beschikbaarheidszones. 
+    - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Met Site Recovery worden standaard replicaschijven in de doelregio gemaakt om de beheerde schijven van de bron-VM's met hetzelfde opslagtype (Standard of Premium) te spiegelen als de beheerde schijf van de bron-VM's.
+    - **Doelbeschikbaarheidssets**: In Azure Site Recovery wordt standaard een nieuwe beschikbaarheidsset gemaakt in de doelregio, met een naam die eindigt op 'asr' voor het VM-gedeelte van een beschikbaarheidsset in de bronregio. Als de beschikbaarheidsset die wordt gemaakt met Azure Site Recovery, al bestaat, wordt deze opnieuw gebruikt.
+    - **Doelbeschikbaarheidszones**: In Site Recovery wordt standaard hetzelfde zonenummer toegewezen als de bronregio in de doelregio, als de doelregio ondersteuning biedt voor beschikbaarheidszones. 
 
     Als de doelregio geen ondersteuning biedt voor beschikbaarheidszones, worden de doel-VM's standaard geconfigureerd als enkele exemplaren. Indien vereist, kunt u dergelijke VM's configureren als onderdeel van beschikbaarheidssets in de doelregio door op Aanpassen te klikken.
 
@@ -165,10 +165,10 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
 
 4. Klik naast **Replicatiebeleid** op **Aanpassen** en pas de volgende instellingen aan, zoals is vereist, om de instellingen voor het replicatiebeleid aan te passen:
 
-    - **Naam replicatiebeleid**: de naam van het beleid.
-    - **Bewaarperiode van het herstelpunt**: Site Recovery bewaart herstelpunten standaard 24 uur. U kunt een waarde van 1 tot 72 uur configureren.
-    - **Frequentie van de app-consistente momentopname**: Site Recovery maakt standaard elke 4 uur een app-consistente momentopname. U kunt een waarde van 1 tot 12 uur configureren. Een app-consistente momentopname is een momentopname van de toepassingsgegevens in de VM op een bepaald tijdstip. Met Volume Shadow Copy Service (VSS) wordt ervoor gezorgd dat apps op de VM een consistente status hebben wanneer er een momentopname wordt gemaakt.
-    - **Replicatiegroep**: als uw toepassing consistentie tussen meerdere VM's nodig heeft, kunt u een replicatiegroep maken voor die VM’s. Standaard maken de geselecteerde VM’s geen deel uit van een replicatiegroep.
+    - **Naam voor replicatiebeleid**: Beleidsnaam.
+    - **Bewaarperiode van herstelpunt**: In Site Recovery worden herstelpunten standaard 24 uur bewaard. U kunt een waarde van 1 tot 72 uur configureren.
+    - **Frequentie van de app-consistente momentopname**: In Site Recovery wordt standaard elke 4 uur een app-consistente momentopname gemaakt. U kunt een waarde van 1 tot 12 uur configureren. Een app-consistente momentopname is een momentopname van de toepassingsgegevens in de VM op een bepaald tijdstip. Met Volume Shadow Copy Service (VSS) wordt ervoor gezorgd dat apps op de VM een consistente status hebben wanneer er een momentopname wordt gemaakt.
+    - **Replicatiegroep**: Als uw toepassing consistentie tussen meerdere VM's nodig heeft, kunt u een replicatiegroep maken voor deze VM’s. Standaard maken de geselecteerde VM’s geen deel uit van een replicatiegroep.
 
 5. Selecteer in **Aanpassen** de optie **Ja** voor consistentie van multi-VM, als u VM’s wilt toevoegen aan een nieuwe of bestaande replicatiegroep. om de VM’s onderdeel te maken van een replicatiegroep. Klik vervolgens op **OK**.
 
@@ -180,8 +180,8 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
 Als ADE (Azure-schijfversleuteling) is ingeschakeld op de virtuele bronmachine, worden de versleutelingsinstellingen weergegeven:
 
 1. Controleer de versleutelingsinstellingen.
-    - **Sleutelkluizen voor schijfversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-schijf. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
-    - **Sleutelkluizen voor sleutelversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-sleutel. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
+    - **Sleutelkluizen voor schijfversleuteling**: In Azure Site Recovery wordt standaard een nieuwe sleutelkluis in de doelregio gemaakt met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron-VM-schijf. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
+    - **Sleutelkluizen voor versleutelingssleutel**: In Azure Site Recovery wordt standaard een nieuwe sleutelkluis in de doelregio gemaakt met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron-VM-sleutel. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
 
 2. Klik op **Aanpassen** om de aangepaste sleutelkluizen te selecteren.
 

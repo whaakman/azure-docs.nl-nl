@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003449"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722274"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Een Node.js-toepassing maken en implementeren in een Azure Cloud Service
 
@@ -60,8 +60,8 @@ Voer de volgende taken uit om een nieuw Azure Cloud Services-project te maken, s
 
     De cmdlet maakt de volgende bestanden:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** en **ServiceDefinition.csdef**: Azure-specifieke bestanden die nodig zijn voor het publiceren van uw toepassing. Zie [Overzicht van het maken van een gehoste service voor Azure].
-   * **deploymentSettings.json**: lokale instellingen die worden gebruikt door de Azure PowerShell-cmdlets voor implementatie.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** en **ServiceDefinition.csdef**: Er zijn Azure-specifieke bestanden nodig voor het publiceren van uw toepassing. Zie [Overzicht van het maken van een gehoste service voor Azure].
+   * **deploymentSettings.json**: hiermee worden lokale instellingen opgeslagen die worden gebruikt door de Azure PowerShell-cmdlets voor implementatie.
 4. Voer de volgende opdracht in om een nieuwe webrol toe te voegen:
 
        Add-AzureNodeWebRole
@@ -164,7 +164,7 @@ Zie het [Node.js Developer Center] voor meer informatie.
 
 <!-- URL List -->
 
-[Vergelijking van Azure Websites, Cloud Services en Virtual Machines]: ../app-service/choose-web-site-cloud-service-vm.md
+[Vergelijking van Azure Websites, Cloud Services en Virtual Machines]: ../app-service/overview-compare.md
 [een eenvoudige web-app-functie te gebruiken]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK voor .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

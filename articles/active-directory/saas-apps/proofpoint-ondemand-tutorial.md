@@ -1,230 +1,202 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Proofpoint on-Demand | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Proofpoint op aanvraag.
+title: 'Zelfstudie: Azure Active Directory-integratie met Proofpoint on Demand | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Proofpoint on Demand.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 773e7f7d-ec31-411b-860d-6a6633335d43
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 3127eb4173661e943f108a890bd66a3de11dde85
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: b0c5440098a135073513037ab1a4956c0aa76d2f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440943"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975709"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Zelfstudie: Azure Active Directory-integratie met Proofpoint op aanvraag
+# <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Zelfstudie: Azure Active Directory-integratie met Proofpoint on Demand
 
-In deze zelfstudie leert u hoe u Proofpoint on-Demand integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Proofpoint on Demand kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Proofpoint on Demand met Azure AD heeft de volgende voordelen:
 
-Proofpoint on-Demand integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Proofpoint on Demand.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Proofpoint on Demand (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Proofpoint op aanvraag heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Proofpoint op aanvraag (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Proofpoint op aanvraag, moet u de volgende items:
+U hebt de volgende zaken nodig om Azure AD-integratie met Proofpoint on Demand te kunnen configureren:
 
-- Een Azure AD-abonnement
-- Een Proofpoint op aanvraag eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een Proofpoint on Demand-abonnement waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Proofpoint op aanvraag vanuit de galerie toevoegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-proofpoint-on-demand-from-the-gallery"></a>Proofpoint op aanvraag vanuit de galerie toevoegen
-Voor het configureren van de integratie van Proofpoint op aanvraag in Azure AD, moet u Proofpoint op aanvraag uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Proofpoint on Demand biedt ondersteuning voor door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Proofpoint op aanvraag vanuit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-proofpoint-on-demand-from-the-gallery"></a>Proofpoint on Demand toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van Proofpoint on Demand wilt configureren voor Azure AD moet u Proofpoint on Demand vanuit de galerie toevoegen aan uw lijst beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Proofpoint on Demand vanuit de galerie toevoegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Proofpoint on-Demand**, selecteer **Proofpoint on-Demand** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Proofpoint op aanvraag in de lijst met resultaten](./media/proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Proofpoint op aanvraag op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ **Proofpoint on Demand** in het zoekvak, selecteer **Proofpoint on Demand** in het resultatenvenster en klik op **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Proofpoint op aanvraag is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Proofpoint op aanvraag tot stand worden gebracht.
+     ![Proofpoint on Demand in de lijst met resultaten](common/search-new-app.png)
 
-Wijs in Proofpoint op aanvraag, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Proofpoint op aanvraag, moet u de volgende bouwstenen voltooien:
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Proofpoint on Demand op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Proofpoint on Demand tot stand is gebracht.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een Proofpoint op aanvraag testgebruiker](#create-a-proofpoint-on-demand-test-user)**  : als u wilt een equivalent van Britta Simon in Proofpoint op aanvraag die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Voor het configureren en testen van eenmalige aanmelding van Azure AD met Proofpoint on Demand, moet u de volgende bouwstenen voltooien:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding van Proofpoint on Demand configureren](#configure-proofpoint-on-demand-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een Proofpoint on Demand-testgebruiker maken](#create-proofpoint-on-demand-test-user)**: als u een equivalent van Britta Simon wilt maken in Proofpoint on Demand, gekoppeld aan de Azure AD-versie van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Proofpoint on-Demand-toepassing.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Proofpoint op aanvraag, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **Proofpoint on-Demand** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren voor Proofpoint on Demand:
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+1. In [Azure Portal](https://portal.azure.com/) selecteert u op de integratiepagina van de **Proofpoint on Demand**-toepassing de optie **Eenmalige aanmelding**.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/proofpoint-ondemand-tutorial/tutorial_proofpointondemand_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **Proofpoint op aanvraag domein en URL's** sectie, voert u de volgende stappen uit:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Proofpoint op aanvraag domein en URL's één aanmeldings-informatie](./media/proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<hostname>.pphosted.com/ppssamlsp`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
-    
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [Proofpoint op aanvraag Client ondersteuningsteam](https://www.proofpoint.com/us/support-services) om deze waarden te verkrijgen.
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+    ![Informatie over Proofpoint on Demand-domeinen en URL's voor eenmalige aanmelding](common/sp-identifier-reply.png)
 
-    ![De downloadkoppeling certificaat](./media/proofpoint-ondemand-tutorial/tutorial_proofpointondemand_certificate.png) 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
-1. Klik op **opslaan** knop.
+    b. In het tekstvak **Id** typt u een URL en gebruikt u het volgende patroon: `https://<hostname>.pphosted.com/ppssamlsp`
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/proofpoint-ondemand-tutorial/tutorial_general_400.png)
-    
-1. Op de **Proofpoint op verzoek-configuratie** sectie, klikt u op **Proofpoint configureren op aanvraag** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
 
-    ![Proofpoint op verzoek-configuratie](./media/proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [Proofpoint on Demand-ondersteuningsteam](https://www.proofpoint.com/us/support-services) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Het configureren van eenmalige aanmelding op **Proofpoint on-Demand** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)**, **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [Proofpoint op aanvraag ondersteuningsteam](https://www.proofpoint.com/us/support-services). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+6. In het gedeelte **Proofpoint on Demand** kopieert u de juiste URL('s) overeenkomstig wat u nodig hebt.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-   ![Maak een testgebruiker Azure AD][100]
+    a. Aanmeldings-URL
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    b. Azure AD-id
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    c. Afmeldings-URL
 
-    ![De Azure Active Directory-knop](./media/proofpoint-ondemand-tutorial/create_aaduser_01.png)
+### <a name="configure-proofpoint-on-demand-single-sign-on"></a>Eenmalige aanmelding configureren voor Proofpoint on Demand
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+Als u eenmalige aanmelding aan de **Proofpoint on Demand**-zijde wilt configureren, moet u het gedownloade **certificaat (Base64)** en de correct uit Azure Portal gekopieerde URL's naar het [Proofpoint on Demand-ondersteuningsteam](https://www.proofpoint.com/us/support-services) verzenden. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/proofpoint-ondemand-tutorial/create_aaduser_02.png)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-    ![De knop toevoegen](./media/proofpoint-ondemand-tutorial/create_aaduser_03.png)
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![Het dialoogvenster gebruiker](./media/proofpoint-ondemand-tutorial/create_aaduser_04.png)
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
+
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
+
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-proofpoint-on-demand-test-user"></a>Een Proofpoint op aanvraag testgebruiker maken
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Proofpoint op aanvraag. Werken met [Proofpoint op aanvraag Client ondersteuningsteam](https://www.proofpoint.com/us/support-services) gebruikers toevoegen in de Proofpoint op aanvraag platform.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Proofpoint op aanvraag.
+In dit gedeelte gaat u Britta Simon toestemming geven voor het gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Proofpoint on Demand.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in Azure Portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **Proofpoint on Demand**.
 
-**Britta Simon om aan te wijzen Proofpoint op aanvraag, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen de optie **Proofpoint on Demand**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De Proofpoint on Demand-koppeling in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Proofpoint on-Demand**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De Proofpoint op aanvraag koppeling in de lijst met toepassingen](./media/proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-proofpoint-on-demand-test-user"></a>Een Proofpoint on Demand-testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In dit gedeelte maakt u een gebruiker met de naam Britta Simon in Proofpoint on Demand. Neem contact op met het [Proofpoint on Demand-klantondersteuningsteam](https://www.proofpoint.com/us/support-services) om gebruikers toe te voegen aan het Proofpoint on Demand-platform.
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de Proofpoint op aanvraag tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw Proofpoint on-Demand-toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de Proofpoint on Demand-tegel in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Proofpoint on Demand waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/proofpoint-ondemand-tutorial/tutorial_general_01.png
-[2]: ./media/proofpoint-ondemand-tutorial/tutorial_general_02.png
-[3]: ./media/proofpoint-ondemand-tutorial/tutorial_general_03.png
-[4]: ./media/proofpoint-ondemand-tutorial/tutorial_general_04.png
-
-[100]: ./media/proofpoint-ondemand-tutorial/tutorial_general_100.png
-
-[200]: ./media/proofpoint-ondemand-tutorial/tutorial_general_200.png
-[201]: ./media/proofpoint-ondemand-tutorial/tutorial_general_201.png
-[202]: ./media/proofpoint-ondemand-tutorial/tutorial_general_202.png
-[203]: ./media/proofpoint-ondemand-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

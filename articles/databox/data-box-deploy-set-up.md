@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427519"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791316"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Zelfstudie: De Azure Data Box bekabelen en aansluiten
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u het volgende:
 
 Zorg voordat u begint voor het volgende:
 
-1. U hebt de [zelfstudie: Azure Data Box bestellen](data-box-deploy-ordered.md) voltooid.
+1. U hebt de zelfstudie [ Azure Data Box bestellen](data-box-deploy-ordered.md) voltooid.
 2. U hebt uw Data Box ontvangen en de bestelstatus in de portal is bijgewerkt naar **Geleverd**. 
     - Er zit een verzendlabel in het doorzichtige hoesje op het apparaat, onder het stroometiket. Bewaar dit label zorgvuldig aangezien u het nodig hebt voor retourverzending.
     - In sommige regio's in Europa wordt het apparaat in een doos geleverd. Zorg bij het uitpakken van het apparaat dat u de doos bewaart voor retourzending.
@@ -69,7 +69,7 @@ Voer de volgende stappen uit om uw apparaat te bekabelen.
 Voer de volgende stappen uit om uw apparaat in te stellen met behulp van de lokale webgebruikersinterface en de gebruikersinterface van de portal.
 
 1. Configureer de Ethernet-adapter op de laptop waarmee u verbinding maakt met het apparaat met het statische IP-adres 192.168.100.5 en het subnet 255.255.255.0. 
-2. Maak verbinding met de MGMT-poort van uw apparaat en open de lokale webgebruikersinterface via https://192.168.100.10. Dit kan tot 5 minuten duren nadat u het apparaat hebt ingeschakeld.
+2. Maak verbinding met de MGMT-poort van uw apparaat en open de lokale webgebruikersinterface van het apparaat op \://192.168.100.10. Dit kan tot 5 minuten duren nadat u het apparaat hebt ingeschakeld.
 3. Klik op **Details** en klik vervolgens op **Ga verder naar de webpagina**.
 
    ![Verbinding maken met de lokale webgebruikersinterface](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

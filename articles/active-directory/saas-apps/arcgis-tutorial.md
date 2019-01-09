@@ -4,257 +4,244 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/03/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 3284202ffaa6767a8dd4a6a5050dbdc928075237
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1acb32b7001ef5d37a3c52d65563fc0627ec3643
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846111"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Zelfstudie: Azure Active Directory-integratie met ArcGIS Online
 
-In deze zelfstudie leert u hoe u ArcGIS Online integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u ArcGIS Online integreert met Azure Active Directory (Azure AD).
+De integratie van ArcGIS Online met Azure AD heeft de volgende voordelen:
 
-ArcGIS Online integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot ArcGIS Online.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij ArcGIS Online (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot ArcGIS Online heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij ArcGIS Online (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ArcGIS Online, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met ArcGIS Online te configureren:
 
-- Een Azure AD-abonnement
-- Een ArcGIS Online eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op ArcGIS Online waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. ArcGIS Online toevoegen vanuit de galerie
-2. Configureren en testen van Azure AD eenmalige aanmelding
+* ArcGIS Online biedt ondersteuning voor eenmalige aanmelding die is gestart vanuit **SP**
 
 ## <a name="adding-arcgis-online-from-the-gallery"></a>ArcGIS Online toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van ArcGIS Online in Azure AD, moet u ArcGIS Online toevoegen vanuit de galerie aan de lijst met beheerde SaaS-apps.
+Als u de integratie van ArcGIS Online in Azure AD wilt configureren, moet u ArcGIS Online vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen vanuit de galerie ArcGIS Online, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om ArcGIS Online toe te voegen vanuit de galerie:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![image](./media/arcgis-tutorial/selectazuread.png)
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![image](./media/arcgis-tutorial/a_select_app.png)
-    
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![image](./media/arcgis-tutorial/a_new_app.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-4. Typ in het zoekvak **ArcGIS Online**, selecteer **ArcGIS Online** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-     ![image](./media/arcgis-tutorial/a_add_app.png)
+4. Typ **ArcGIS Online** in het zoekvak, selecteer **ArcGIS Online** in het venster met resultaten en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+     ![ArcGIS Online in de lijst met resultaten](common/search-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met ArcGIS Online op basis van een testgebruiker 'Julia steen' genoemd.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in ArcGIS Online is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in ArcGIS Online tot stand worden gebracht.
+In dit gedeelte configureert en test u eenmalige aanmelding voor Azure AD met ArcGIS Online op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in ArcGIS Online tot stand is gebracht.
 
-ArcGIS online, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+U moet de volgende bouwstenen voltooien om eenmalige aanmelding voor Azure AD met ArcGIS Online te configureren en te testen:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met ArcGIS Online, moet u de volgende bouwstenen voltooien:
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding met ArcGIS Online configureren](#configure-arcgis-online-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[ArcGIS Online-testgebruiker maken](#create-arcgis-online-test-user)**: als u een equivalent van Britta Simon in ArcGISOnline wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker ArcGIS Online](#create-an-arcgis-online-test-user)**  : als u wilt een equivalent van Britta Simon in ArcGIS Online die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing ArcGIS Online.
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure Ad met ArcGIS Online te configureren:
 
-**Voor het configureren van Azure AD eenmalige aanmelding met ArcGIS Online, moet u de volgende stappen uitvoeren:**
+1. Ga in [Azure Portal](https://portal.azure.com/) naar de pagina voor toepassingsintegratie van **ArcGIS Online** en selecteer **Eenmalige aanmelding**.
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **ArcGIS Online** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![image](./media/arcgis-tutorial/b1_b2_select_sso.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-2. Klik op **modus voor één wijziging aanmelding** boven op het scherm selecteren de **SAML** modus.
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-      ![image](./media/arcgis-tutorial/b1_b2_saml_ssso.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-3. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![image](./media/arcgis-tutorial/b1_b2_saml_sso.png)
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-4. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **SAML-basisconfiguratie** dialoogvenster.
+    ![Informatie over ArcGIS Online-domein en URLs voor eenmalige aanmelding](common/sp-identifier.png)
 
-    ![image](./media/arcgis-tutorial/b1-domains_and_urlsedit.png)
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname>.maps.arcgis.com`
 
-5. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `<companyname>.maps.arcgis.com`
 
-    a. In de **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://<companyname>.maps.arcgis.com`.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [het ArcGIS Online-clientondersteuningsteam](https://support.esri.com/en/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    b. In de **id** tekstvak typt u een URL met behulp van het volgende patroon: `<companyname>.maps.arcgis.com`.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![image](./media/arcgis-tutorial/b1-domains_and_urls.png)
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [ArcGIS Online Client ondersteuningsteam](https://support.esri.com/en/) om deze waarden te verkrijgen.
-
-6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op op **downloaden** downloaden **federatieve metagegevens-XML** en sla het xml-bestand op uw computer.
-
-    ![image](./media/arcgis-tutorial/federationxml.png)
-
-7. Voor het automatiseren van de configuratie in **ArcGIS Online**, moet u installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
+6. Als u de configuratie met **ArcGIS Online** wilt automatiseren, moet u de **My Apps-browserextensie voor veilig aanmelden** installeren door op **De extensie installeren** te klikken.
 
     ![image](./media/arcgis-tutorial/install_extension.png)
 
-8. Na het toevoegen van uitbreiding naar de browser, klikt u op **setup ArcGIS Online** wordt u doorgeleid naar de ArcGIS Online toepassing. Van daaruit, geef de referenties van de beheerder zich aanmelden bij ArcGIS Online. De browserextensie wordt automatisch configureren van de toepassing voor u en stappen 9-13 automatiseren.
+7. Als u op **ArcGIS Online instellen** klikt nadat u de extensie aan de browser hebt toegevoegd, wordt u doorgestuurd naar de ArcGIS Online-toepassing. Geef hier de referenties voor de beheerder op om u aan te melden bij ArcGIS Online. In de browserextensie wordt de toepassing automatisch voor u geconfigureerd en worden stappen in het gedeelte **Eenmalige aanmelding met ArcGIS Online configureren** geautomatiseerd.
 
-9. Als u handmatig ArcGIS Online instellen wilt, opent u een nieuw browservenster en meld u aan bij uw site van het bedrijf ArcGIS als beheerder en voer de volgende stappen uit:
+### <a name="configure-arcgis-online-single-sign-on"></a>Eenmalige aanmelding met ArcGIS Online configureren
 
-10. Klik op **instellingen bewerken**.
+1. Als u ArcGIS Online handmatig wilt instellen, opent u een nieuw browservenster en meldt u zich als beheerder aan bij de ArcGIS-bedrijfssite. Voer daarna de volgende stappen uit:
 
-    ![Instellingen bewerken](./media/arcgis-tutorial/ic784742.png "instellingen bewerken")
+2. Klik op **EDIT SETTINGS** (Instellingen bewerken).
 
-11. Klik op **Security**.
+    ![Instellingen bewerken](./media/arcgis-tutorial/ic784742.png "Instellingen bewerken")
 
-    ![Beveiliging](./media/arcgis-tutorial/ic784743.png "beveiliging")
+3. Klik op **Security** (Beveiliging).
 
-12. Onder **Enterprise aanmeldingen**, klikt u op **id-PROVIDER instellen**.
+    ![Beveiliging](./media/arcgis-tutorial/ic784743.png "Beveiliging")
+
+4. Klik onder **Enterprise Logins** (Enterprise-aanmeldingen) op **SET IDENTITY PROVIDER** (Id-provider instellen).
 
     ![Enterprise-aanmeldingen](./media/arcgis-tutorial/ic784744.png "Enterprise-aanmeldingen")
 
-13. Op de **id-Provider instellen** configuratie pagina, voert u de volgende stappen uit:
+5. Voer op de configuratiepagina **Set Identity Provider** (Id-provider instellen)de volgende stappen uit:
 
-    ![ID-Provider instellen](./media/arcgis-tutorial/ic784745.png "id-Provider instellen")
+    ![Id-provider instellen](./media/arcgis-tutorial/ic784745.png "Id-provider instellen")
 
-    a. In de **naam** tekstvak typt u de naam van uw organisatie.
+    a. Typ de naam van uw organisatie in het tekstvak **Naam**.
 
-    b. Voor **metagegevens voor de Enterprise-id-Provider worden opgegeven met behulp van**, selecteer **een bestand**.
+    b. Selecteer bij **Metadata for the Enterprise Identity Provider will be supplied using** (Metagegevens voor de Enterprise-id-provider worden verstrekt met behulp van), selecteer **A file** (Een bestand).
 
-    c. Als u wilt uw gedownloade metagegevensbestand uploaden, klikt u op **bestand kiezen**.
+    c. Klik op **Choose file** (Bestand kiezen) om het gedownloade metagegevensbestand te uploaden.
 
-    d. Klik op **SET id-PROVIDER**.
+    d. Klik op **SET IDENTITY PROVIDER** (Id-provider instellen).
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![image](./media/arcgis-tutorial/d_users_and_groups.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![image](./media/arcgis-tutorial/d_adduser.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![image](./media/arcgis-tutorial/d_userproperties.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** veld **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon@yourcompanydomain.extension**  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
-
-### <a name="create-an-arcgis-online-test-user"></a>Maak een testgebruiker ArcGIS Online
-
-Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij ArcGIS Online, moeten ze worden ingericht voor ArcGIS Online.  
-In het geval van ArcGIS Online is inrichten een handmatige taak.
-
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
-
-1. Meld u aan bij uw **ArcGIS** tenant.
-
-2. Klik op **leden UITNODIGEN**.
-   
-    ![Leden uitnodigen](./media/arcgis-tutorial/ic784747.png "leden uitnodigen")
-
-3. Selecteer **leden automatisch toevoegen zonder een e-mailbericht verzenden**, en klik vervolgens op **volgende**.
-   
-    ![Automatisch toevoegen van leden](./media/arcgis-tutorial/ic784748.png "leden automatisch toevoegen")
-
-4. Op de **leden** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-     ![Toevoegen en Controleer](./media/arcgis-tutorial/ic784749.png "toevoegen en controleren")
-    
-     a. Voer de **e**, **voornaam**, en **achternaam** van een geldige AAD-account dat u inrichten wilt.
-  
-     b. Klik op **toevoegen en bekijk**.
-5. Controleer de gegevens die u hebt ingevoerd, en klik vervolgens op **leden toevoegen**.
-   
-    ![Lid toevoegen](./media/arcgis-tutorial/ic784750.png "lid toevoegen")
-        
-    > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en gaat u als volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot ArcGIS Online.
+In dit gedeelte stelt u Britta Simon in staat om gebruik te maken van eenmalige aanmelding van Azure door haar toegang te geven tot ArcGIS Online.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
+1. Selecteer in Azure Portal **Bedrijfstoepassingen**, **Alle toepassingen** en vervolgens **ArcGIS Online**.
 
-    ![image](./media/arcgis-tutorial/d_all_applications.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **ArcGIS Online**.
+2. Typ en selecteer **ArcGIS Online** in de lijst met toepassingen.
 
-    ![image](./media/arcgis-tutorial/d_all_application.png)
+    ![De koppeling naar ArcGIS Online in de lijst met toepassingen](common/all-applications.png)
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![image](./media/arcgis-tutorial/d_leftpaneusers.png)
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![image](./media/arcgis-tutorial/d_assign_user.png)
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-5. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="create-arcgis-online-test-user"></a>ArcGIS Online-testgebruiker maken
 
-Wanneer u op de ArcGIS Online tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw ArcGIS Online-toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Opdat gebruikers van Azure AD zich kunnen aanmelden bij ArcGIS Online, moeten ze worden ingericht voor ArcGIS Online.  
+In het geval van ArcGIS Online is inrichten een handmatige taak.
+
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+
+1. Meld u aan bij uw **ArcGIS**-tenant.
+
+2. Klik op **INVITE MEMBERS** (Leden uitnodigen).
+   
+    ![Leden uitnodigen](./media/arcgis-tutorial/ic784747.png "Leden uitnodigen")
+
+3. Selecteer **Add members automatically without sending an email** (Leden automatisch toevoegen zonder een e-mailbericht te verzenden) en klik op **NEXT** (Volgende).
+   
+    ![Leden automatisch toevoegen](./media/arcgis-tutorial/ic784748.png "Leden automatisch toevoegen")
+
+4. Voer in het dialoogvenster **Leden** de volgende stappen uit:
+   
+     ![Toevoegen en controleren](./media/arcgis-tutorial/ic784749.png "Toevoegen en controleren")
+    
+     a. Voer het **e-mailadres**, de **voornaam** en de **achternaam** in van een geldig AAD-account dat u wilt inrichten.
+  
+     b. Klik op **ADD AND REVIEW** (Toevoegen en controleren).
+5. Controleer de gegevens die u hebt ingevoerd en klik op **ADD MEMBERS** (Leden toevoegen).
+   
+    ![Lid toevoegen](./media/arcgis-tutorial/ic784750.png "Lid toevoegen")
+        
+    > [!NOTE]
+    > De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om zijn account te bevestigen voordat het actief wordt.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel ArcGIS Online in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van ArcGIS Online waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

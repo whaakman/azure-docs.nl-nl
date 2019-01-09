@@ -8,17 +8,17 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423606"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754217"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Zelfstudie: Een parallelle workload uitvoeren met Azure Batch met behulp van de .NET API
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Zelfstudie: een parallelle workload uitvoeren met Azure Batch met behulp van de .NET API
 
 Met Azure Batch kunt u grootschalige parallelle en HPC-batchrekentaken (High Performance Computing) efficiënt uitvoeren in Azure. Deze zelfstudie leidt u door een C#-voorbeeld van het uitvoeren van een parallelle workload met behulp van Batch. U leert een gangbare Batch-toepassingswerkstroom en leert hoe u via programmacode werkt met Batch- en Storage-bronnen. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -248,11 +248,14 @@ await job.CommitAsync();
 
 In het voorbeeld worden taken in de job gemaakt met een aanroep van de methode `AddTasksAsync`, die een lijst met [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask)-objecten maakt. Elke `CloudTask` voert ffmpeg uit om een `ResourceFile`-invoerobject met de eigenschap [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) te verwerken. ffmpeg is eerder geïnstalleerd op elk knooppunt toen de pool werd gemaakt. Hier voert de opdrachtregel ffmpeg uit om elk MP4-invoerbestand (video) te converteren naar een MP3-bestand (audio).
 
-Het voorbeeld maakt een [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile)-object voor het MP3-bestand nadat de opdrachtregel is uitgevoerd. De uitvoerbestanden van elke taak (één in dit geval) worden geüpload naar een container in het gekoppelde opslagaccount met behulp van de eigenschap [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) van de taak.
+Het voorbeeld maakt een [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile)-object voor het MP3-bestand nadat de opdrachtregel is uitgevoerd. De uitvoerbestanden van elke taak (één in dit geval) worden geüpload naar een container in het gekoppelde opslagaccount met behulp van de eigenschap [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) van de taak. In het codevoorbeeld werd voorheen een Shared Access Signature-URL (`outputContainerSasUrl`) verkregen om schrijftoegang te verlenen aan de uitvoercontainer. Schrijf de voorwaarden op die voor het `outputFile`-object zijn ingesteld. Een uitvoerbestand van een taak wordt alleen naar de container geüpload nadat de taak is voltooid (`OutputFileUploadCondition.TaskSuccess`). Zie het volledige [codevoorbeeld](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) op GitHub voor nadere implementatiedetails.
 
 Vervolgens voegt het voorbeeld taken toe aan de taak met de methode [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), die ze in de wachtrij plaatst voor uitvoering op de rekenknooppunten.
 
 ```csharp
+ // Create a collection to hold the tasks added to the job.
+List<CloudTask> tasks = new List<CloudTask>();
+
 for (int i = 0; i < inputFiles.Count; i++)
 {
     string taskId = String.Format("Task{0}", i);
@@ -265,7 +268,7 @@ for (int i = 0; i < inputFiles.Count; i++)
         ".mp3");
     string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
-    // Create a cloud task (with the task ID and command line) 
+    // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
 

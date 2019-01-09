@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4b4f208524f18b98d44dc3d34e05359445fb2f17
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644782"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598307"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Uw QnA Maker-knowledge base maken, trainen en publiceren
 
@@ -57,9 +57,7 @@ U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelge
 
 11. Selecteer in de rechterbovenhoek **Save and train** (Opslaan en trainen) om de wijzigingen op te slaan en het QnA Maker-model te trainen. Bewerkingen worden alleen bewaard als ze worden opgeslagen.
 
-   ![Opslaan en trainen](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. Selecteer in de rechterbovenhoek **Test** (Testen) om te testen of de wijzigingen worden toegepast. Typ **Hoi** in het vak en druk op Enter. Als het goed is, ziet u nu het antwoord dat u hebt gemaakt.
+12. Selecteer in de rechterbovenhoek **Test** (Testen) om te testen of de wijzigingen worden toegepast. Typ `hi there` in het vak en selecteer Enter. Als het goed is, ziet u nu het antwoord dat u hebt gemaakt.
 
 13. Selecteer **Inspect** (Inspecteren) om het antwoord gedetailleerder te onderzoeken. Het testvenster wordt gebruikt om uw wijzigingen in de KB te testen voordat ze worden gepubliceerd.
 

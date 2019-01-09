@@ -8,20 +8,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
-ms.openlocfilehash: e26190b46a79d581e5996e51bfd104f1d4beb6f6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d741550fc64ef7544e33304f8608ad6e6ee3426e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094029"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723639"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in C++ onder Linux met behulp van de Speech-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een C++ consoletoepassing voor Ubuntu Linux 16.04. U gebruikt de [Speech SDK](speech-sdk.md) van Cognitive Services om in realtime spraak te transcriberen naar tekst via de microfoon van uw pc. De toepassing is gemaakt met de [Speech SDK voor Linux](https://aka.ms/csspeech/linuxbinary) en de C++ compiler van uw Linux-distributie (bijvoorbeeld `g++`).
+In dit artikel maakt u een C++ consoletoepassing voor Ubuntu Linux 16.04 of 18.04. U gebruikt de [Speech SDK](speech-sdk.md) van Cognitive Services om in realtime spraak te transcriberen naar tekst via de microfoon van uw pc. De toepassing is gemaakt met de [Speech SDK voor Linux](https://aka.ms/csspeech/linuxbinary) en de C++ compiler van uw Linux-distributie (bijvoorbeeld `g++`).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,9 +31,9 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.1.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.2.0`.
 
-De Speech SDK voor Linux kan worden gebruikt om zowel 32-bits als 64-bits toepassingen te compileren. De vereiste bibliotheken en headerbestanden kunnen als tarfile worden gedownload van https://aka.ms/csspeech/linuxbinary.
+De Speech SDK voor Linux kan worden gebruikt om zowel 32-bits als 64-bits toepassingen te compileren. De vereiste bibliotheken en headerbestanden kunnen als een TAR-bestand worden gedownload vanuit https://aka.ms/csspeech/linuxbinary.
 
 Download en installeer de SDK als volgt:
 
@@ -122,23 +122,19 @@ Download en installeer de SDK als volgt:
    ./helloworld
    ```
 
-1.  In het consolevenster wordt een prompt weergegeven waarin u wordt gevraagd om iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw stem wordt verzonden naar de Speech-service en getranscribeerd naar tekst, die in hetzelfde venster wordt weergegeven.
+1.  In het consolevenster wordt een prompt weergegeven waarin u wordt gevraagd om iets te zeggen. Spreek een Engelse woordgroep of zin in. De gesproken tekst wordt verzonden naar de Speech-service en getranscribeerd naar tekst, die in hetzelfde venster wordt weergegeven.
 
    ```text
    Say something...
    We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek naar dit voorbeeld in de map `quickstart/cpp-linux`.
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor C++](how-to-recognize-intents-from-speech-cpp.md)
+> [C++-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Spraak vertalen](how-to-translate-speech-csharp.md)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
 - [Taalmodellen aanpassen](how-to-customize-language-model.md)

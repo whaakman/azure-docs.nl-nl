@@ -1,24 +1,21 @@
 ---
-title: 'Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure CLI'
+title: 'Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure CLI'
 description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL-server kunt maken, configureren en er query's op kunt toepassen met Azure CLI.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 03c9d647c98122b63b81baa453e0cccdf951901a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982338"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547317"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure CLI 
 In deze zelfstudie gebruikt u Azure CLI (Command Line Interface of opdrachtregelinterface in goed Nederlands) en andere hulpprogramma's om deze bewerkingen uit te voeren:
 > [!div class="checklist"]
 > * Een Azure-database voor PostgreSQL-server maken
@@ -195,9 +192,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 De opdracht `az postgres server restore` vereist de volgende parameters:
-| Instelling | Voorgestelde waarde | Beschrijving  |
+| Instelling | Voorgestelde waarde | Beschrijving  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
+| resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
 | naam | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selecteer een bepaald tijdstip om naar te herstellen. Deze datum en tijd moet binnen de back-upretentieperiode van de bronserver vallen. Gebruik ISO8601-notatie voor datum en tijd. U kunt bijvoorbeeld uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`, gebruiken of de UTC Zulu-notatie `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | De naam of ID van de bronserver voor het herstellen. |
@@ -218,4 +215,4 @@ In deze zelfstudie hebt u geleerd hoe u Azure CLI (Command Line Interface of opd
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
-Als u meer informatie wilt over het gebruik van Azure Portal voor vergelijkbare taken, gaat u verder met deze zelfstudie: [Uw eerste Azure Database for PostgreSQL ontwerpen met Azure Portal](tutorial-design-database-using-azure-portal.md)
+Vervolgens leert u hoe u de Azure-portal gebruikt om soortgelijke taken uit te voeren. Bekijk deze zelfstudie: [Uw eerste Azure Database for PostgreSQL ontwerpen met Azure Portal](tutorial-design-database-using-azure-portal.md)

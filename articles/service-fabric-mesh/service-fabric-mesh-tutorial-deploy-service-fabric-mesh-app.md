@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963318"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788613"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Zelfstudie: een Service Fabric Mesh-toepassing implementeren
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Zelfstudie: Een Service Fabric Mesh-toepassing implementeren
 
 Deze zelfstudie is deel drie van een reeks en laat u zien hoe u een Azure Service Fabric Mesh-webtoepassing rechtstreeks vanuit Visual Studio implementeert.
 
@@ -113,10 +113,10 @@ U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken
 
 Op dit punt is uw toepassing geïmplementeerd. Met de opdracht `app show` kunt u de status van de toepassing bekijken. 
 
-De naam van de toepassing voor de zelfstudie-app is `ServiceMeshApp`. Haal de details van de toepassing op met de volgende opdracht:
+De naam van de toepassing voor de zelfstudie-app is `todolistapp`. Haal de details van de toepassing op met de volgende opdracht:
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Alle toepassingen bekijken die momenteel in uw abonnement zijn geïmplementeerd

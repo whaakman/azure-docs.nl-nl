@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162628"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714575"
 ---
-# <a name="integrate-speech-service"></a>Speech-service integreren
+# <a name="integrate-speech-service-with-your-language-understanding-app"></a>De Speech-service integreren in uw Language Understanding-app
 Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-pakket, dat al als referentie is opgenomen. 
 
 Voor dit artikel hebt u een gratis [LUIS][LUIS]-websiteaccount nodig om de toepassing te importeren.
@@ -27,7 +27,7 @@ Voor dit artikel hebt u een gratis [LUIS][LUIS]-websiteaccount nodig om de toepa
 [Maak](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in de Microsoft Azure-portal een **Language Understanding** (LUIS)-sleutel. 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS-app importeren
-De intenties en utterances voor dit artikel zijn afkomstig van de Human Resources LUIS-app beschikbaar in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) GitHub-opslagplaats. Download het bestand [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), sla het op met de extensie `.json` en [importeer](luis-how-to-start-new-app.md#import-new-app) het in LUIS. 
+De intenties en utterances voor dit artikel zijn afkomstig van de Human Resources LUIS-app beschikbaar in de GitHub-opslagplaats [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Download het bestand [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), sla het op met de extensie `.json` en [importeer](luis-how-to-start-new-app.md#import-new-app) het in LUIS. 
 
 Deze app heeft intenties, entiteiten en utterances gerelateerd aan het Human Resources-domein. Hier zijn enkele voorbeelden van utterances:
 
@@ -62,7 +62,7 @@ Wanneer u de app hebt geïmporteerd, selecteert u **Entiteiten** en klikt u op *
 In dit artikel wordt het audioapparaat op uw computer gebruikt. Dat kan een headset met microfoon of een ingebouwd audioapparaat zijn. Controleer de audio-invoerniveaus om te zien of u harder moet spreken dan normaal om uw spraak door het audioapparaat te laten detecteren. 
 
 ## <a name="download-the-luis-sample-project"></a>Het LUIS-voorbeeldproject downloaden
- Kloon of download de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples)-opslagplaats. Open het [spraak-naar-intentie-project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) met Visual Studio en herstel de NuGet-pakketten. Het Visual Studio-oplossingsbestand is .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+ Kloon of download de [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding)-opslagplaats. Open het [spraak-naar-intentie-project](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition) met Visual Studio en herstel de NuGet-pakketten. Het Visual Studio-oplossingsbestand is documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
 De Speech-SDK is al opgenomen als verwijzing. 
 
@@ -93,7 +93,7 @@ De Speech-SDK retourneert het hele LUIS-antwoord.
 ## <a name="clean-up-resources"></a>Resources opschonen
 Wanneer u de LUIS HumanResources-app niet meer nodig hebt, kunt u deze verwijderen. Dit kunt u doen door de app te selecteren en vervolgens **Verwijderen** te selecteren op de contextuele werkbalk boven de lijst. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
-Vergeet niet om de map LUIS-Samples te verwijderen wanneer u klaar bent met de voorbeeldcode.
+Vergeet niet om de map te verwijderen wanneer u klaar bent met de voorbeeldcode.
 
 ## <a name="next-steps"></a>Volgende stappen
 

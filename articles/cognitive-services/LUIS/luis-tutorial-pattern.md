@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075519"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754404"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie 3: Algemene vormen voor uitingen toevoegen
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Zelfstudie: Indelingen voor sjabloon-utterances van algemene patronen toevoegen
 
 Gebruik in deze zelfstudie patronen voor het verhogen van intent- en entiteitsvoorspelling terwijl er minder voorbeeld-utterances nodig zijn. Het patroon wordt geleverd via een voorbeeld van een sjabloon-utterance, met de syntaxis voor het identificeren van entiteiten en te negeren tekst. Een patroon is een combinatie van het vergelijken van expressies en machine learning.  Het voorbeeld van de sjabloon-utterance geeft samen met de intent-utterances LUIS een beter beeld van welke utterances het beste bij de intent passen. 
 
 **In deze zelfstudie leert u het volgende:**
 
 > [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken 
+> * Voorbeeld-app importeren 
 > * Intent maken
 > * Trainen
 > * Publiceren
@@ -37,13 +37,13 @@ Gebruik in deze zelfstudie patronen voor het verhogen van intent- en entiteitsvo
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Bestaande app gebruiken
+## <a name="import-example-app"></a>Voorbeeld-app importeren
 
 Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Voer de volgende stappen uit:
 
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json) en sla het op.
+1.  Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json) en sla het op.
 
 2. Importeer de JSON in een nieuwe app.
 

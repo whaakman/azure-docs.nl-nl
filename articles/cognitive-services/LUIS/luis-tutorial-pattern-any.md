@@ -9,18 +9,32 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103469"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752602"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Zelfstudie 5: Vrije vorm-gegevens herkennen
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Zelfstudie: Vrije vorm-gegevens ophalen met Pattern.any-entiteit
 
 In deze zelfstudie gebruikt u de entiteit pattern.any om gegevens te extraheren uit utterances die goed zijn opgemaakt en waar het einde van de gegevens eenvoudig kan worden verward met de resterende woorden van de utterance. 
+
+**In deze zelfstudie leert u het volgende:**
+
+> [!div class="checklist"]
+> * Voorbeeld-app importeren
+> * Voorbeeld van utterances toevoegen aan de bestaande entiteit
+> * Pattern.any-entiteit maken
+> * Patroon maken
+> * Trainen
+> * Nieuw patroon testen
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-patternany-entity"></a>Pattern.any-entiteit gebruiken
 
 Met de entiteit pattern.any kunt u vrije gegevens vinden waarbij het lastig is om uit de tekst van de entiteit het einde van de entiteit te bepalen op basis van de rest van de utterance. 
 
@@ -50,24 +64,12 @@ De lengte varieert en er zijn woorden die verwarrend kunnen zijn voor LUIS om te
 |Wie heeft {FormName} geschreven[?]|
 |Is {FormName} gepubliceerd in het Frans[?]|
 
-**In deze zelfstudie leert u het volgende:**
-
-> [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken
-> * Voorbeeld van utterances toevoegen aan de bestaande entiteit
-> * Pattern.any-entiteit maken
-> * Patroon maken
-> * Trainen
-> * Nieuw patroon testen
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Bestaande app gebruiken
+## <a name="import-example-app"></a>Voorbeeld-app importeren
 Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Voer de volgende stappen uit:
 
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json) en sla het op.
+1.  Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json) en sla het op.
 
 2. Importeer de JSON in een nieuwe app.
 

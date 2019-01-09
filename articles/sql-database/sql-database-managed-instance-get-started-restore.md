@@ -11,42 +11,46 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: bc27ece2eddc842a81698aaa685cbe6d63c6a1df
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/14/2018
+ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912251"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653235"
 ---
-# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Snelstart: een back-up van de database herstellen voor een beheerd exemplaar voor Azure SQL Database
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Quickstart: Een database herstellen naar een beheerd exemplaar 
 
-Deze snelstartgids laat zien hoe u een back-up van een database die is opgeslagen in Azure Blob Storage, kunt herstellen naar het beheerd exemplaar met behulp van het standaard back-upbestand van Wide World Importers. Deze methode vereist enige uitvaltijd. 
+In deze snelstart gebruikt u SQL Server Management Studio (SSMS) om een database (het standaardback-upbestand van Wide World Importers) te herstellen van Azure Blob Storage naar een [beheerd exemplaar](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) voor Azure SQL Database. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS). Zie [Migratie van SQL Server-exemplaar naar beheerd exemplaar voor Azure SQL Database](sql-database-managed-instance-migrate.md) voor een bespreking van de diverse migratiemethoden.
+> [!NOTE]
+> * Zie [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor meer informatie over migratie met behulp van de Azure Database Migration Service (DMS). 
+> * Zie [Migratie van SQL Server-exemplaar naar beheerd exemplaar voor Azure SQL Database](sql-database-managed-instance-migrate.md) voor meer informatie over de diverse migratiemethoden.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor deze snelstartgids geldt het volgende:
-- De resources die zijn gemaakt in de snelstartgids [Een Azure SQL Managed Instance maken](sql-database-managed-instance-get-started.md) vormen het uitgangspunt.
-- Vereist de nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) op uw on-premises clientcomputer
-- Vereist een verbinding met uw beheerde exemplaar via SQL Server Management Studio Raadpleeg deze snelstartgidsen voor connectiviteitsopties:
-  - [Verbinding maken met een Azure SQL Database Managed Instance vanaf een Azure-VM](sql-database-managed-instance-configure-vm.md)
-  - [On-premises verbinding maken met een Azure SQL Database Managed Instance met een punt-naar-site-verbinding](sql-database-managed-instance-configure-p2s.md).
-- Maakt gebruik van een vooraf geconfigureerd Azure-account voor blobopslag met daarin het back-upbestand Wide World Importers - Standard (gedownload van https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak)).
+- Maakt gebruik van resources uit de snelstart [Een beheerd exemplaar maken](sql-database-managed-instance-get-started.md).
+- De meest recente versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) moet op uw computer zijn geïnstalleerd.
+- Er moet gebruik worden gemaakt van SSMS voor verbinding met uw beheerde exemplaar. Raadpleeg de volgende snelstart voor het maken van verbinding:
+  * [Verbinding maken met een Azure SQL Database Managed Instance vanaf een Azure-VM](sql-database-managed-instance-configure-vm.md)
+  * [Een punt-naar-site-verbinding configureren naar een beheerd exemplaar voor Azure SQL Database van on-premises ](sql-database-managed-instance-configure-p2s.md).
+
 
 > [!NOTE]
-> Zie [Back-up van SQL Server naar URL](sql-database-managed-instance-get-started-restore.md) voor meer informatie over het maken van een back-up van een SQL Server-database met behulp van Azure-blobopslag en een SAS (Shared Access Signature) en het herstellen van de back-up.
+> Zie [Back-up van SQL Server naar URL](sql-database-managed-instance-get-started-restore.md) voor meer informatie over het maken van een back-up van een SQL Server-database met behulp van Azure Blob Storage en een [SAS-sleutel (Shared Access Signature)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) en het herstellen van de back-up.
 
-## <a name="restore-the-wide-world-importers-database-from-a-backup-file"></a>De Wide World Importers-database herstellen op basis van een back-upbestand
+## <a name="restore-the-database-from-a-backup-file"></a>De database herstellen met een back-upbestand
 
-Volg deze stappen om in SQL Server Management Studio de Wide World Importers-database te herstellen naar uw beheerde exemplaar op basis van het back-upbestand.
+Volg in SSMS deze stappen om de Wide World Importers-database te herstellen naar uw beheerde exemplaar. Het databaseback-upbestand wordt opgeslagen in een vooraf geconfigureerd Azure Blob Storage-account.
 
-1. Open SQL Server Management Studio (SSMS) en maak verbinding met het beheerde exemplaar.
-2. Open een nieuw queryvenster in SQL Server Management Studio.
-3. Gebruik het volgende script om een referentie te maken in het beheerde exemplaar met behulp van het vooraf geconfigureerde opslagaccount en de SAS-sleutel.
+1. Open SMSS en maak verbinding met uw beheerde exemplaar.
+
+2. Klik in het menu links met de rechtermuisknop op uw beheerde exemplaar en selecteer **Nieuwe query** om een nieuw queryvenster te openen.
+
+3. Voer het volgende SQL-script uit. Dit maakt gebruik van een vooraf geconfigureerd opslagaccount en SAS-sleutel om [een referentie te maken](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) in uw beheerde exemplaar.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
@@ -56,10 +60,8 @@ Volg deze stappen om in SQL Server Management Studio de Wide World Importers-dat
 
     ![referentie maken](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-    > [!NOTE]
-    > Verwijder altijd de **?** aan het begin van de gegenereerde SAS-sleutel.
   
-3. Gebruik het volgende script om de SAS-referenties en geldigheid van de back-up te controleren. Geef daarbij de URL voor de container met het back-upbestand op:
+3. Voer het volgende script uit om uw referentie te controleren. Dit maakt gebruik van een [container](https://azure.microsoft.com/services/container-instances/)-URL voor het ophalen van een lijst met back-upbestanden.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -68,7 +70,7 @@ Volg deze stappen om in SQL Server Management Studio de Wide World Importers-dat
 
     ![lijst met bestanden](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Gebruik het volgende script om de Wide World Importers-database te herstellen op basis van een back-upbestand. Geef daarbij de URL voor de container met het back-upbestand op:
+4. Voer het volgende script uit om de Wide World Importers-database te herstellen.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -77,20 +79,20 @@ Volg deze stappen om in SQL Server Management Studio de Wide World Importers-dat
 
     ![De pagina Restore](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Als u de status van het herstellen wilt bijhouden, voert u de volgende query uit in een nieuwe querysessie:
+5. Voer het volgende script om de status van het herstellen te volgen.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
       , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
    FROM sys.dm_exec_requests r 
    CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
-   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
+   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
 6. Wanneer het herstellen is voltooid, bekijkt u het herstel in Objectverkenner. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting) (Aanbevolen procedures en probleemoplossing voor back-up van SQL Server naar URL) voor het oplossen van problemen met back-up naar URL.
-- Zie [Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database](sql-database-managed-instance-connect-app.md) voor een overzicht van de verbindingsopties voor toepassingen.
-- Als u query's wilt uitvoeren met een van uw favoriete hulpprogramma's of talen, raadpleegt u [Connect and query](sql-database-connect-query.md) (Verbinding maken en query uitvoeren).
+- Zie [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting) (Aanbevolen procedures en probleemoplossing voor back-up van SQL Server naar URL) voor het oplossen van problemen met een back-up naar een URL.
+- Zie [Uw toepassingen verbinding laten maken met Managed Instance](sql-database-managed-instance-connect-app.md) voor een overzicht van de verbindingsopties voor toepassingen.
+- Voor informatie over het uitvoeren van een query met een van uw favoriete hulpprogramma's of talen, raadpleegt u [Snelstarts: verbinding maken met Azure SQL-database en hierop query's uitvoeren](sql-database-connect-query.md).

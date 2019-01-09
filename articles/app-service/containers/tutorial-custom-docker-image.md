@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256074"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632973"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Een aangepaste Docker-installatiekopie gebruiken voor Web App for Containers
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>App in Azure implementeren
 
-U kunt systeemeigen Linux-toepassingen in de cloud hosten met behulp van Azure Web Apps. Om een Web App for Containers te maken, moet u Azure CLI-opdrachten uitvoeren die een groep maken, vervolgens een serviceabonnement, en ten slotte de web-app zelf. 
+Als u een app wilt maken die gebruikmaakt van de installatiekopie die u zo-even hebt gepusht, moet u Azure CLI-opdrachten uitvoeren waarmee een groep wordt gemaakt, vervolgens een serviceabonnement, en ten slotte de web-app zelf. 
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 

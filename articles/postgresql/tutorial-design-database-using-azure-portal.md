@@ -1,23 +1,20 @@
 ---
-title: 'Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure Portal'
+title: 'Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure Portal'
 description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL ontwerpt met Azure Portal.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406379"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536522"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure Portal
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure Portal
 
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met behulp van Azure Portal kunt u eenvoudig uw server beheren en een database ontwerpen.
 
@@ -51,7 +48,7 @@ Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
     ![Een server maken](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
     - Servernaam: **mydemoserver** (de servernaam verwijst naar een DNS-naam en moet daarom wereldwijd uniek zijn) 
-    - Abonnement: als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource bestaat of waarvoor wordt gefactureerd.
+    - Abonnement: Als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource is opgenomen of wordt gefactureerd.
     - Resourcegroep: **myresourcegroup**
     - De aanmeldgegevens van de serverbeheerder (gebruikersnaam en wachtwoord)
     - Locatie
@@ -212,4 +209,4 @@ In deze zelfstudie hebt u geleerd hoe u Azure Portal en andere hulpprogramma's k
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
-Als u meer informatie wilt over het gebruik van de Azure CLI voor vergelijkbare taken, gaat u verder met deze zelfstudie: [Uw eerste Azure Database for PostgreSQL ontwerpen met de Azure CLI](tutorial-design-database-using-azure-cli.md)
+Ga naar deze zelfstudie als u wilt leren hoe u de Azure CLI gebruikt om soortgelijke taken uit te voeren: [Uw eerste Azure Database for PostgreSQL ontwerpen met Azure CLI](tutorial-design-database-using-azure-cli.md)

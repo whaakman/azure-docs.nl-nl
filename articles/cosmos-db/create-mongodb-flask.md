@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: Een Flask web-app ontwikkelen met Python en de MongoDB-API van Azure Cosmos DB'
-description: Biedt een voorbeeld van Python Flask-code dat u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren
+title: Met de API van Azure Cosmos DB voor MongoDB en Python SDK een Flask-web-app maken
+description: Biedt een voorbeeld van Python Flask-code dat u kunt gebruiken om verbinding te maken met de Azure Cosmos DB-API's voor MongoDB en er query's op uit te voeren.
 services: cosmos-db
-author: slyons
-ms.author: sclyon
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, seodec18
+ms.custom: quickstart
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/02/2017
-ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.date: 12/26/2018
+ms.openlocfilehash: 78fa871deb36b9f3596632976ce5a17b2f4d71fa
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165109"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792246"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: Een Flask-app maken met de MongoDB-API
+# <a name="build-a-flask-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Met de API van Azure Cosmos DB voor MongoDB een Flask-app maken
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,9 +28,9 @@ ms.locfileid: "53165109"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Cosmos DB.
 
-In deze snelstartgids wordt gebruikgemaakt van het volgende [Flask voorbeeld](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) en wordt gedemonstreerd hoe u een eenvoudige Flask-app kunt maken met de [Azure Cosmos DB-emulator](local-emulator.md) en de [MongoDB-API](mongodb-introduction.md) van Azure Cosmos DB in plaats van met MongoDB.
+In deze snelstart wordt gebruikgemaakt van het volgende [Flask voorbeeld](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) en wordt gedemonstreerd hoe u een eenvoudige Flask-app kunt maken met de [Azure Cosmos DB-emulator](local-emulator.md) en de API van Azure Cosmos DB voor MongoDB.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,7 +46,7 @@ In deze snelstartgids wordt gebruikgemaakt van het volgende [Flask voorbeeld](ht
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-We gaan nu een Flask MongoDB API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.
+We gaan nu een Flask MongoDB-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.
 
 1. Open een opdrachtprompt, maak een nieuwe map met de naam git-samples en sluit vervolgens de opdrachtprompt.
 
@@ -118,9 +118,9 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.py en geb
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-Als u wilt testen hoe de code met een actief Azure Cosmos DB-account werkt, gaat u naar Azure Portal om een account te maken en haalt u uw verbindingsreeksgegevens op. Kopieer deze vervolgens in de app.
+Als u wilt testen hoe de code met een actief Cosmos-account werkt, gaat u naar Azure Portal om een account te maken en haalt u uw verbindingsreeksgegevens op. Kopieer deze vervolgens in de app.
 
-1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
+1. Klik in [Azure Portal](https://portal.azure.com/) in uw Azure Cosmos DB-account in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
 
 2. Open het bestand **app.py** in de hoofdmap.
 
@@ -130,11 +130,11 @@ Als u wilt testen hoe de code met een actief Azure Cosmos DB-account werkt, gaat
 
 5. Kopieer ten slotte de waarde van **wachtwoord** van de portal en maak hiervan de waarde van **wachtwoord** in het bestand **app.py**.
 
-U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. U kunt deze nu net als voorheen uitvoeren.
+U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Cosmos DB. U kunt deze nu net als voorheen uitvoeren.
 
 ## <a name="deploy-to-azure"></a>Implementeren in Azure
 
-Als u deze app wilt implementeren, kunt u een nieuwe web-app maken in Azure en continue implementatie inschakelen met een fork van deze GitHub-opslagplaats. Volg deze [zelfstudie](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) voor het instellen van continue implementatie met GitHub in Azure.
+Als u deze app wilt implementeren, kunt u een nieuwe web-app maken in Azure en continue implementatie inschakelen met een fork van deze GitHub-opslagplaats. Volg deze [zelfstudie](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) voor het instellen van continue implementatie met GitHub in Azure.
 
 Wanneer u Azure implementeert, moet u de sleutels van uw toepassing verwijderen en controleren of de onderstaande sectie als opmerking is opgenomen:
 
@@ -165,7 +165,7 @@ Als u van deze opslagplaats geen fork wilt maken, kunt u ook op de knop Implemen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een Flask-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren.
+In deze snelstart hebt u geleerd hoe u een Cosmos-account kunt maken en hoe u een Flask-app kunt uitvoeren. Nu kunt u aanvullende gegevens in uw Cosmos-database importeren. 
 
 > [!div class="nextstepaction"]
-> [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](mongodb-migrate.md)
+> [MongoDB-gegevens importeren in Azure Cosmos DB](mongodb-migrate.md)

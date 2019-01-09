@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409765"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558631"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Zelfstudie: één enkele database beveiligen in Azure SQL Database
 
@@ -37,7 +37,7 @@ SQL Database heeft ook geavanceerde bewaking, controle en bedreigingsdetectie.
 U hoeft slechts een paar eenvoudige stappen uit te voeren om de beveiliging van uw database tegen kwaadwillende gebruikers of onbevoegde toegang te verbeteren. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> - Firewallregels op serverniveau instellen voor uw server in de Azure-portal
+> - Firewallregels op serverniveau instellen voor uw server in Azure Portal
 > - Firewallregels op databaseniveau instellen voor uw database met SSMS
 > - Verbinding maakt met uw database met behulp van een beveiligde verbindingsreeks
 > - Azure Active Directory-beheerder configureren voor Azure SQL
@@ -54,16 +54,16 @@ Zorg ervoor dat u over het volgende beschikt om deze zelfstudie te voltooien:
 
 - De nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) is geïnstalleerd.
 - Microsoft Excel is geïnstalleerd
-- Een Azure SQL-server en -database - Zie [Een Azure SQL-database maken in de Azure-portal](sql-database-get-started-portal.md), [Een individuele Azure SQL-database maken met de Azure CLI](sql-database-cli-samples.md) en [Een individuele Azure SQL Database maken met PowerShell](sql-database-powershell-samples.md).
+- Een Azure SQL-server en -database - Zie [Een Azure SQL-database maken in Azure Portal](sql-database-get-started-portal.md), [Een individuele Azure SQL-database maken met de Azure CLI](sql-database-cli-samples.md) en [Een individuele Azure SQL Database maken met PowerShell](sql-database-powershell-samples.md).
 
 > [!NOTE]
 > In deze zelfstudie wordt ervan uitgegaan dat u Azure Active Directory al hebt geconfigureerd of dat u van het initiële beheerde domein van Azure Active Directory gebruikmaakt. Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](../active-directory/fundamentals/active-directory-administer.md), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/hybrid/reference-connect-ports.md) voor meer informatie over het configureren van Azure Active Directory voor diverse scenario's.
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Een serverfirewallregel maken in de Azure-portal
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Een serverfirewallregel maken in Azure Portal
 
 SQL-databases worden in Azure beveiligd door een firewall. De standaardinstelling is dat alle verbindingen met de server en de databases op de server worden geweigerd, behalve verbindingen van andere Azure-services. Zie [Overzicht van de firewallregels voor Azure SQL Database](sql-database-firewall-configure.md) voor meer informatie.
 
@@ -117,7 +117,7 @@ Om een beveiligde, gecodeerde verbinding tot stand te brengen tussen een clientt
 - Vraag een versleutelde verbinding aan, en
 - Vertrouw het servercertificaat niet.
 
-Er wordt dan verbinding gemaakt via TLS (Transport Layer Security) waardoor het risico op man-in-the-middle-aanvallen afneemt. U kunt correct geconfigureerde verbindingsreeksen voor uw SQL-database voor ondersteunde clientstuurprogramma's opvragen in de Azure-portal, zoals hier weergegeven voor ADO.NET. Voor informatie over TLS en connectiviteit, zie [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+Er wordt dan verbinding gemaakt via TLS (Transport Layer Security) waardoor het risico op man-in-the-middle-aanvallen afneemt. U kunt correct geconfigureerde verbindingsreeksen voor uw SQL-database voor ondersteunde clientstuurprogramma's opvragen in Azure Portal, zoals hier weergegeven voor ADO.NET. Voor informatie over TLS en connectiviteit, zie [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**.
 
@@ -136,6 +136,9 @@ Richt een Azure Active Directory-beheerder voor uw Azure SQL-server in in de Azu
     ![ad-kiezen](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. Ga naar de pagina **SQL Server** en selecteer **Active Directory-beheerder**. Selecteer op de pagina **Active Directory-beheerder** de optie **Beheerder instellen**.  ![Active Directory selecteren](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+   > [!IMPORTANT]
+   > U moet een 'Bedrijfsbeheerder' of 'Globale beheerder' zijn om deze taak uit te voeren.
 
 3. Zoek op de pagina **Beheerder toevoegen** een gebruiker. Selecteer de gebruiker of groep die beheerder moet zijn en selecteer **Selecteren**. (Op de pagina Active Directory-beheerder ziet u alle leden en groepen van uw Active Directory.) Gebruikers of groepen die grijs zijn gekleurd, kunnen niet worden geselecteerd omdat ze niet worden ondersteund als beheerders voor Azure AD. (Zie de lijst met ondersteunde beheerders in de sectie **Azure AD-functies en -beperkingen** van [Azure Active Directory-verificatie gebruiken voor verificatie met behulp van SQL Database of SQL Data Warehouse](sql-database-aad-authentication.md).) Op rollen gebaseerd toegangsbeheer (RBAC) is alleen van toepassing op de portal en wordt niet doorgegeven aan SQL Server.
     ![beheerder selecteren](./media/sql-database-aad-authentication/select-admin.png)  
@@ -263,7 +266,7 @@ Zo kunt u bijvoorbeeld bepaalde afwijkende databaseactiviteiten detecteren die w
 
     ![E-mail met waarschuwing voor detectie van bedreiging](./media/sql-database-threat-detection-get-started/4_td_email.png)
 
-6. Klik in de e-mail op de koppeling voor de **Azure SQL-controlelogboeken**. U gaat dan naar de Azure-portal, waar u de relevante controlerecords ziet die zijn vastgelegd rond het tijdstip van de verdachte gebeurtenis.
+6. Klik in de e-mail op de koppeling voor de **Azure SQL-controlelogboeken**. U gaat dan naar Azure Portal, waar u de relevante controlerecords ziet die zijn vastgelegd rond het tijdstip van de verdachte gebeurtenis.
 
     ![Controlerecords](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 

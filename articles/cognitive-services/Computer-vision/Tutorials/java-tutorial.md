@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Computer Vision-API voor Java'
+title: 'Zelfstudie: Bewerkingen op een afbeelding uitvoeren - Java'
 titlesuffix: Azure Cognitive Services
 description: Ontdek een eenvoudige Java Swing-app die gebruikmaakt van de Computer Vision-API in Azure Cognitive Services. Voer OCR uit, maak miniaturen en werk met visuele kenmerken in een afbeelding.
 services: cognitive-services
@@ -9,15 +9,16 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340253"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584544"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Zelfstudie: Computer Vision-API voor Java
+# <a name="tutorial-computer-vision-api-java"></a>Zelfstudie: Computer Vision-API - Java
 
 In deze zelfstudie leert u de functies van de Computer Vision-REST API in Azure Cognitive Services.
 

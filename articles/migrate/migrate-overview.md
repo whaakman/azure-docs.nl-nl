@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250570"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969128"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -37,8 +37,9 @@ Azure Migrate helpt u bij het volgende:
 -  U kunt een Azure Migrate-project alleen in de volgende geografische gebieden maken. Dit beperkt echter niet de mogelijkheid voor het maken van beoordelingen voor andere Azure-doellocaties.
     **Geografie** | **Opslaglocatie**
     --- | ---
-    Verenigde Staten | US - west-centraal of US - oost
     Azure Government | VS (overheid) - Virginia
+    Europa | Europa - noord of Europa - west
+    Verenigde Staten | US - oost of US - west-centraal
 
     De geografie die bij het migratieproject hoort, wordt gebruikt om de gedetecteerde metagegevens uit de on-premises omgeving op te slaan. Metagegevens worden opgeslagen in een van de regio's op basis van de geografische locatie die voor het migratieproject is opgegeven. Als u visualisatie van afhankelijkheden gebruikt door een nieuwe Log Analytics-werkruimte te maken, wordt deze gemaakt in dezelfde als het project.
 - De functie voor visualisatie van afhankelijkheden is niet beschikbaar in Azure Government.

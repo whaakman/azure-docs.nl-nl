@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Afwijkingen aan de rand detecteren in een Azure-oplossing | Microsoft Docs'
+title: 'Zelfstudie: afwijkingen aan de rand detecteren in een oplossing - Azure | Microsoft Docs'
 description: In deze zelfstudie leert u hoe u uw IoT Edge-apparaten kunt bewaken met behulp van de oplossingsverbetering voor Externe bewaking.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843305"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606245"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Zelfstudie: Afwijkingen aan de rand detecteren met de oplossingsverbetering voor Externe bewaking
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Zelfstudie: afwijkingen aan de rand detecteren met de oplossingsverbetering voor externe bewaking
 
 In deze zelfstudie configureert u de oplossing voor externe bewaking om te reageren op afwijkingen die worden gedetecteerd door een IoT Edge-apparaat. Met IoT Edge-apparaten kunt u telemetrie aan de rand verwerken om de hoeveelheid telemetrie te verminderen die naar de oplossing wordt verzonden en om sneller te kunnen reageren op gebeurtenissen op apparaten. Voor meer informatie over de voordelen van verwerking aan de rand raadpleegt u [Wat is Azure IoT Edge](../iot-edge/about-iot-edge.md).
 

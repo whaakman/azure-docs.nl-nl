@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887505"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787627"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Zelfstudie: Fouten opsporen in een Service Fabric Mesh-toepassing die in uw lokale ontwikkelcluster wordt uitgevoerd
 
@@ -93,8 +93,8 @@ Als u opbouwfouten krijgt in **service.yaml**, controleert u of er spaties in pl
 ### <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
 
 Als u in Visual Studio fouten opspoort in een Service Fabric Mesh-toepassing, gebruikt u daarvoor een lokaal ontwikkelcluster van Service Fabric. Als u wilt zien hoe taakitems van de back-endservice worden opgehaald, voert u foutopsporing uit in de OnGet()-methode.
-1. Open **Pages** > **Index.cshtml** > **Index.cshtml.cs** in project **WebFrontEnd** en stel een onderbrekingspunt in in de **Get**-methode (regel 17).
-2. Open **TodoController.cs** in project **ToDoService** en stel een onderbrekingspunt in in de **OnGet**-methode (regel 15).
+1. Open **Pages** > **Index.cshtml** > **Index.cshtml.cs** in project **WebFrontEnd** en stel een onderbrekingspunt in de **OnGet**-methode in (regel 17).
+2. Open **TodoController.cs** in project **ToDoService** en stel een onderbrekingspunt in de **Get**-methode in (regel 15).
 3. Ga terug naar de browser en vernieuw de pagina. U komt uit bij het onderbrekingspunt in de `OnGet()`-methode van het web-front-end. U kunt de `backendUrl`-variabele inspecteren om te zien hoe de omgevingsvariabelen die u in het bestand **service.yaml** hebt gedefinieerd, worden gecombineerd in de URL die wordt gebruikt om contact te maken met de back-endservice.
 4. Sla de `client.GetAsync(backendUrl).GetAwaiter().GetResult())`-aanroep over (F10) en u komt uit bij het `Get()`-onderbrekingspunt van de controller. Met deze methode ziet u hoe de lijst met taakitems uit de in-memory lijst wordt opgehaald.
 5. Als u klaar bent, stopt u met het fouten opsporen van uw project in Visual Studio door op **Shift+F5** te drukken.

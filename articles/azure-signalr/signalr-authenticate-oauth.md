@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254119"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599856"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Zelfstudie: verificatie van Azure SignalR Service
 
@@ -378,7 +378,7 @@ In dit gedeelte gaat u echte verificatie inschakelen door het kenmerk `Authorize
 
 ## <a name="deploy-the-app-to-azure"></a>De app implementeren in Azure
 
-In dit gedeelte gebruikt u de opdrachtregelinterface (CLI) van Azure vanuit de Azure Cloud-Shell om een nieuwe [Azure-web-app](https://docs.microsoft.com/azure/app-service/) te maken voor het hosten van uw ASP.NET-toepassing in Azure. De web-app wordt geconfigureerd voor het gebruik van een lokale Git-implementatie. De web-app wordt daarnaast geconfigureerd met de verbindingsreeks voor SignalR, geheimen van de GitHub OAuth-app en een implementatiegebruiker.
+In dit gedeelte gebruikt u de opdrachtregelinterface (CLI) van Azure vanuit de Azure Cloud Shell om in [Azure App Service](https://docs.microsoft.com/azure/app-service/) een nieuwe web-app te maken voor het hosten van uw ASP.NET-toepassing in Azure. De web-app wordt geconfigureerd voor het gebruik van een lokale Git-implementatie. De web-app wordt daarnaast geconfigureerd met de verbindingsreeks voor SignalR, geheimen van de GitHub OAuth-app en een implementatiegebruiker.
 
 In de stappen in dit gedeelte wordt de extensie *signalr* voor de Azure CLI gebruikt. Voer de volgende opdracht uit om de extensie *signalr* voor Azure CLI te installeren:
 
@@ -569,7 +569,7 @@ Als u niet verder wilt met de snelstart, kunt u de Azure-resources verwijderen d
 > [!IMPORTANT]
 > Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blade.
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
 Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *SignalRTestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 

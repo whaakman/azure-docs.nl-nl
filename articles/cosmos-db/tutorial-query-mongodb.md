@@ -1,29 +1,29 @@
 ---
-title: 'Azure Cosmos DB: Query’s uitvoeren met behulp van de MongoDB-API'
-description: Leer query’s uitvoeren met de MongoDB-API voor Azure Cosmos DB
+title: Query's uitvoeren met de API van Azure Cosmos DB voor MongoDB
+description: Informatie over query's uitvoeren met de API van Azure Cosmos DB voor MongoDB.
 services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/26/2018
+ms.openlocfilehash: b2bfc48fa0ba8aab0bbdf19e1b127155633e2271
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841503"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793203"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Zelfstudie: Query's uitvoeren in Azure Cosmos DB met behulp van de MongoDB-API
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Query's uitvoeren met behulp van de API van Azure Cosmos DB voor MongoDB
 
-De Azure Cosmos DB-[API voor MongoDB](mongodb-introduction.md) ondersteunt [MongoDB-shell-query’s](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+De [Azure Cosmos DB-API voor MongoDB](mongodb-introduction.md) ondersteunt [MongoDB-query’s](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Gegevens opvragen met behulp van MongoDB
+> * Query's uitvoeren op gegevens die zijn opgeslagen in uw Cosmos-database met behulp van MongoDB-shell
 
 U kunt aan de slag gaan met behulp van de voorbeelden in dit document en de video [Query’s uitvoeren in Azure Cosmos DB met MongoDB-shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) bekijken.
 
@@ -303,7 +303,7 @@ Er worden geen resultaten geretourneerd als er geen gezinnen zijn met meer dan t
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * U hebt geleerd hoe u een query uitvoert met behulp van MongoDB 
+> * U hebt geleerd hoe u query's kunt uitvoeren met behulp van de Cosmos DB-API voor MongoDB
 
 U kunt nu doorgaan met de volgende zelfstudie, waarin u leert hoe u uw gegevens globaal distribueert.
 

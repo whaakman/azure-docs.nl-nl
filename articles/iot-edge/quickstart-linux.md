@@ -4,17 +4,17 @@ description: In deze snelstartgids leert u hoe u een IoT Edge-apparaat maakt en 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6757438512c03ad7b5a80c08babf5a37417dbe49
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: af95c2a5182a8adca9aeb40f047c7767413b9b1c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339498"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973666"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstartgids: Uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -61,11 +61,13 @@ IoT Edge-apparaat:
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
+   Het maken en starten van de nieuwe virtuele machine kan een paar minuten duren. 
+
    Wanneer u een nieuwe virtuele machine maakt, noteert u het **publicIpAddress**, dat deel uitmaakt van de uitvoer van de opdracht create. U gebruikt dit openbare IP-adres later in deze quickstart om verbinding te maken met de virtuele machine.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Begin met de snelstart door uw IoT Hub met Azure CLI te maken.
+Begin met de snelstart door een IoT Hub met Azure CLI te maken.
 
 ![Diagram - Een IoT-hub maken in de cloud](./media/quickstart-linux/create-iot-hub.png)
 
@@ -102,7 +104,9 @@ Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd da
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Kopieer de verbindingsreeks en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie. 
+3. Kopieer de verbindingsreeks van de JSON-uitvoer en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie.
+
+   ![Verbindingsreeks ophalen uit de CLI-uitvoer](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>De IoT Edge-runtime installeren en starten
 
@@ -115,7 +119,7 @@ Tijdens de installatie van de runtime geeft u een apparaatverbindingsreeks op. G
 
 ### <a name="connect-to-your-iot-edge-device"></a>Verbinding maken met uw IoT Edge-apparaat
 
-De stappen in deze sectie worden allemaal uitgevoerd op uw IoT Edge-apparaat. Als u uw eigen computer als IoT Edge-apparaat gebruikt, kunt u dit gedeelte overslaan. Als u een virtuele machine of secundaire hardware gebruikt, wilt u nu verbinding maken met die computer. 
+De stappen in deze sectie worden allemaal uitgevoerd op uw IoT Edge-apparaat. Als u uw eigen computer als IoT Edge-apparaat gebruikt, kunt u doorgaan naar het volgende gedeelte. Als u een virtuele machine of secundaire hardware gebruikt, wilt u nu verbinding maken met die computer. 
 
 Als u in deze quickstart een virtuele Azure-machine hebt gemaakt, haalt u het openbare IP-adres op dat is uitgevoerd door de opdracht create. U kunt het openbare IP-adres ook vinden op de overzichtspagina van de virtuele machine in de Azure-portal. Gebruik de volgende opdracht om verbinding te maken met uw virtuele machine. Vervang **{publicIpAddress}** door het adres van de computer. 
 
@@ -194,12 +198,12 @@ De beveiligingsdeamon wordt geïnstalleerd als een systeemservice, zodat de IoT 
    sudo systemctl restart iotedge
    ```
 
->[!TIP]
->U hebt verhoogde bevoegdheden nodig om `iotedge`-opdrachten uit te voeren. Nadat u zich de eerste keer na de installatie van de IoT Edge-runtime hebt afgemeld en opnieuw hebt aangemeld, worden uw machtigingen automatisch bijgewerkt. Gebruik tot die tijd **sudo** voorafgaand aan de opdrachten. 
-
 ### <a name="view-the-iot-edge-runtime-status"></a>De IoT Edge runtime-status bekijken
 
 Controleer of de runtime goed is geïnstalleerd en geconfigureerd.
+
+>[!TIP]
+>U hebt verhoogde bevoegdheden nodig om `iotedge`-opdrachten uit te voeren. Nadat u zich de eerste keer na de installatie van de IoT Edge-runtime hebt afgemeld en opnieuw hebt aangemeld, worden uw machtigingen automatisch bijgewerkt. Gebruik tot die tijd **sudo** voorafgaand aan de opdrachten. 
 
 1. Controleer of de Edge-beveiligingsdaemon wordt uitgevoerd als een systeemservice.
 
@@ -244,15 +248,18 @@ Open de opdrachtprompt op uw IoT Edge-apparaat opnieuw. Bevestig dat de module d
 
    ![Drie modules op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-2.png)
 
-De berichten bekijken die vanuit de module tempSensor worden verzonden:
+De berichten bekijken die vanuit de temperatuursensormodule worden verzonden:
 
    ```bash
-   sudo iotedge logs tempSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-![De gegevens van uw module bekijken](./media/quickstart-linux/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge-opdrachten zijn hoofdlettergevoelig wanneer u naar modulenamen verwijst.
 
-De temperatuursensormodule wacht mogelijk op verbinding met Edge Hub als de laatste regel die u in het logboek ziet `Using transport Mqtt_Tcp_Only` is. Probeer de module te beëindigen en opnieuw te laten starten door de Edge-agent. U kunt de module beëindigen met de opdracht `sudo docker stop tempSensor`.
+   ![De gegevens van uw module bekijken](./media/quickstart-linux/iotedge-logs.png)
+
+De temperatuursensormodule wacht mogelijk op verbinding met Edge Hub als **Using transport Mqtt_Tcp_Only** (Transport Mqtt_Tcp_Only gebruiken) de laatste regel is die u in het logboek ziet. Beëindig de module en laat deze opnieuw starten door de Edge-agent. U kunt de module beëindigen met de opdracht `sudo docker stop SimulatedTemperatureSensor`.
 
 U kunt de berichten ook zien binnenkomen bij uw IoT Hub door de [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie) te gebruiken. 
 
@@ -286,10 +293,10 @@ Wanneer de IoT Edge-runtime is verwijderd, worden de containers die deze heeft g
    sudo docker ps -a
    ```
 
-Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt. Verander de naam van de container tempSensor als u die anders had genoemd. 
+Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt. 
 
    ```bash
-   sudo docker rm -f tempSensor
+   sudo docker rm -f SimulatedTemperatureSensor
    sudo docker rm -f edgeHub
    sudo docker rm -f edgeAgent
    ```

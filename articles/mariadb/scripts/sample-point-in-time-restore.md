@@ -1,21 +1,19 @@
 ---
 title: 'Azure CLI-script: Een Azure Database for MariaDB-server terugzetten'
 description: Dit Azure CLI-voorbeeldscript laat zien hoe u een Azure Database for MariaDB-server en de databases ervan kunt terugzetten naar een eerder tijdstip.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: 5c7e3f96488ef5142c19920b7f14282fe3c89b9a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2d294f5b43ba3fb7587ca1d03903e39d75291754
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585154"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544376"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Een Azure Database for MariaDB-server terugzetten met behulp van Azure CLI
 Met dit CLI-voorbeeldscript wordt één Azure Database for MariaDB-server teruggezet naar een eerder tijdstip.
@@ -43,5 +41,5 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 | [az group delete](/cli/azure/group#az-group-delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Lees de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
-- Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for MariaDB](../sample-scripts-azure-cli.md)
+- Meer informatie over Azure CLI: [Azure CLI-documentatie](/cli/azure).
+- Aanvullende scripts proberen: [Azure CLI-voorbeelden voor Azure Database for MariaDB](../sample-scripts-azure-cli.md)

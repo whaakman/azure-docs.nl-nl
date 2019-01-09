@@ -1,24 +1,24 @@
 ---
-title: 'Snelstart: Een Azure Database Migration Service-exemplaar maken met de Azure-portal | Microsoft Docs'
+title: 'Quickstart: Een Azure Database Migration Service-exemplaar maken met Azure Portal | Microsoft Docs'
 description: Azure Portal gebruiken om een Azure Database Migration Service-exemplaar te maken
 services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 7df19efc52f0771a10535c10625dd959a6edc90a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958012"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711819"
 ---
-# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Snelstart: Een Azure Database Migration Service-exemplaar maken met behulp van de Azure-portal
+# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Quickstart: Een Azure Database Migration Service-exemplaar maken met behulp van Azure Portal
 In deze QuickStart maakt u gebruik van Azure Portal om een Azure Database Migration Service-exemplaar te maken.  Nadat u de service hebt gemaakt, kunt u deze gebruiken om gegevens vanuit een on-premises SQL-server te migreren naar een Azure SQL-database.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -56,7 +56,7 @@ Registreer de Microsoft.DataMigration-resourceprovider voordat u uw eerste Datab
 
         Zie het artikel [Een virtueel netwerk maken met de Azure-portal](https://aka.ms/vnet) voor meer informatie over het maken van een VNET in Azure Portal.
 
-    - Selecteer Basis: 1 vCore als **prijscategorie**.
+    - Selecteer Basic: 1 vCore als **prijscategorie**.
 
         ![Migratieservice maken](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 

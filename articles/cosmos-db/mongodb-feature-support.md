@@ -1,39 +1,39 @@
 ---
-title: Functieondersteuning in Azure Cosmos DB voor MongoDB
-description: Meer informatie over de functieondersteuning die de Azure Cosmos DB MongoDB-API biedt voor MongoDB 3.4.
+title: De API van Azure Cosmos DB gebruiken voor ondersteuning van de MongoDB-functie
+description: Meer informatie over de functieondersteuning die de API van Azure Cosmos DB biedt voor MongoDB 3.4.
 services: cosmos-db
-author: alekseys
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: overview
-ms.date: 11/15/2017
-ms.author: alekseys
-ms.openlocfilehash: 01e8af08ff5059867cc49cb9d55ae92f2ae21cdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: bb25cf6ed60317dd5d7266e2f4750c2bb9f4859d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879665"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790280"
 ---
-# <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>API-ondersteuning voor MongoDB voor MongoDB-functies en -syntaxis
+# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>De API van Azure Cosmos DB voor MongoDB-ondersteuning voor MongoDB-functies en syntaxis
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodeldatabaseservice van Microsoft. U kunt met de MongoDB-API van de database communiceren via een van de open-source MongoDB-[clientstuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De MongoDB-API maakt het gebruik van bestaande clientstuurprogramma's mogelijk doordat de API functioneert conform het MongoDB-[wireprotocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt met de API van Azure Cosmos DB voor MongoDB communiceren via een van de open-source MongoDB-[clientstuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De API van Azure Cosmos DB voor MongoDB maakt het gebruik van bestaande clientstuurprogramma's mogelijk doordat de API functioneert conform het MongoDB-[wireprotocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Door gebruik te maken van de Azure Cosmos DB MongoDB-API hebt u de beschikking over de voordelen van de vertrouwde MongoDB-API’s, met alle zakelijke mogelijkheden die Azure Cosmos DB biedt: [wereldwijde distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), garanties voor beschikbaarheid en latentie, automatisch indexeren van alle velden, versleuteling van niet-actieve gegevens, het maken van back-ups, en meer.
+Door gebruik te maken van de API van Azure Cosmos DB voor MongoDB hebt u de beschikking over de voordelen van de vertrouwde MongoDB, met alle zakelijke mogelijkheden die Cosmos DB biedt: [wereldwijde distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), garanties voor beschikbaarheid en latentie, automatisch indexeren van alle velden, versleuteling van niet-actieve gegevens, het maken van back-ups, en meer.
 
 ## <a name="mongodb-protocol-support"></a>Protocolondersteuning voor MongoDB
 
-De MongoDB-API voor Azure Cosmos DB is standaard compatibel met MongoDB-serverversie **3.2**. De ondersteunde operators en eventuele beperkingen of uitzonderingen worden hieronder vermeld. Toegevoegde functies of operators voor query's in MongoDB-versie **3.4** zijn momenteel beschikbaar als preview-functie. In elk clientstuurprogramma dat geschikt is voor deze protocollen kan verbinding worden gemaakt met Cosmos DB met behulp van de MongoDB-API.
+De API van Azure Cosmos DB voor MongoDB is standaard compatibel met MongoDB-serverversie **3.2**. De ondersteunde operators en eventuele beperkingen of uitzonderingen worden hieronder vermeld. Toegevoegde functies of operators voor query's in MongoDB-versie **3.4** zijn momenteel beschikbaar als preview-functie. Elk clientstuurprogramma dat deze protocollen kent, kan verbinding maken met de API van Azure Cosmos DB voor MongoDB.
 
 De [MongoDB-samenvoegingspijplijn](#aggregation-pipeline) is ook beschikbaar als een afzonderlijke preview-functie.
 
 ## <a name="mongodb-query-language-support"></a>Ondersteuning voor MongoDB-querytaal
 
-Azure Cosmos DB MongoDB-API biedt uitgebreide ondersteuning voor MongoDB-querytaalconstructs. Hieronder ziet u de gedetailleerde lijst met momenteel ondersteunde bewerkingen, operators, fasen, opdrachten en opties.
+De API van Azure Cosmos DB voor MongoDB biedt uitgebreide ondersteuning voor MongoDB-querytaalconstructs. Hieronder ziet u de gedetailleerde lijst met momenteel ondersteunde bewerkingen, operators, fasen, opdrachten en opties.
 
 ## <a name="database-commands"></a>Databaseopdrachten
 
-Azure Cosmos DB biedt ondersteuning voor de volgende databaseopdrachten op alle MongoDB-API-accounts.
+De API van Azure Cosmos DB voor MongoDB biedt ondersteuning voor de volgende databaseopdrachten:
 
 ### <a name="query-and-write-operation-commands"></a>Opdrachten voor query- en schrijfbewerkingen
 - delete
@@ -73,7 +73,7 @@ Azure Cosmos DB biedt ondersteuning voor de volgende databaseopdrachten op alle 
 
 ## <a name="aggregation-pipelinea"></a>Samenvoegingspijplijn</a>
 
-Azure Cosmos DB biedt ondersteuning voor samenvoegingspijplijnen in de openbare preview-versie. Lees het [Azure-blog](https://aka.ms/mongodb-aggregation) voor instructies over deelname aan de openbare preview-versie.
+Cosmos DB biedt ondersteuning voor samenvoegingspijplijnen in de openbare preview-versie. Lees het [Azure-blog](https://aka.ms/mongodb-aggregation) voor instructies over deelname aan de openbare preview-versie.
 
 ### <a name="aggregation-commands"></a>Samenvoegingsopdrachten
 - aggregate
@@ -308,32 +308,34 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documenten zonder sorte
 
 ## <a name="unique-indexes"></a>Unieke indexen
 
-Met Azure Cosmos DB worden alle velden geïndexeerd in documenten die standaard naar de database zijn geschreven. Unieke indexen zorgen ervoor dat een specifiek veld geen dubbele waarden bevat in alle documenten van een verzameling, net zoals de uniekheid van de standaard-id-sleutel behouden blijft. U kunt nu met behulp van de opdracht createIndex aangepaste indexen maken in Azure Cosmos DB, met inbegrip van de uniekheidsbeperking.
+Met Cosmos DB worden alle velden geïndexeerd in documenten die standaard naar de database zijn geschreven. Unieke indexen zorgen ervoor dat een specifiek veld geen dubbele waarden bevat in alle documenten van een verzameling, net zoals de uniekheid van de standaard-id-sleutel behouden blijft. U kunt met behulp van de opdracht createIndex aangepaste indexen maken in Cosmos DB, met inbegrip van de uniekheidsbeperking.
 
-Unieke indexen zijn beschikbaar in alle MongoDB-accounts.
+Unieke indexen zijn beschikbaar voor alle Cosmos-accounts die de API van Azure Cosmos DB voor MongoDB gebruiken.
 
 ## <a name="time-to-live-ttl"></a>TTL (time-to-live)
 
-Azure Cosmos DB biedt ondersteuning voor een relatieve TTL (time-to-live) op basis van de tijdstempel van het document. TTL kan via [Azure Portal](https://portal.azure.com) worden ingeschakeld voor MongoDB-API-verzamelingen.
+Cosmos DB biedt ondersteuning voor een TTL (time-to-live) op basis van de tijdstempel van het document. TTL kan worden ingeschakeld voor verzamelingen door naar [Azure Portal](https://portal.azure.com) te gaan.
 
 ## <a name="user-and-role-management"></a>Gebruikers- en rolbeheer
 
-Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Azure Cosmos DB biedt op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk Alleen-lezen die kunnen worden verkregen via [Azure Portal](https://portal.azure.com) (pagina Verbindingsreeks).
+Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Cosmos DB biedt echter op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk Alleen-lezen die kunnen worden verkregen via [Azure Portal](https://portal.azure.com) (pagina Verbindingsreeks).
 
 ## <a name="replication"></a>Replicatie
 
-Azure Cosmos DB biedt ondersteuning voor automatische, systeemeigen replicatie op de laagste lagen. Deze logica is uitgebreid om tevens globale replicatie met een lage latentie te bereiken. Azure Cosmos DB biedt geen ondersteuning voor handmatige replicatieopdrachten.
+Cosmos DB biedt ondersteuning voor automatische, systeemeigen replicatie op de laagste lagen. Deze logica is uitgebreid om tevens globale replicatie met een lage latentie te bereiken. Cosmos DB biedt geen ondersteuning voor handmatige replicatieopdrachten.
 
 ## <a name="write-concern"></a>Schrijfprobleem
 
-In bepaalde MongoDB-API's kan een [schrijfprobleem](https://docs.mongodb.com/manual/reference/write-concern/) met het aantal vereiste reacties tijdens een schrijfbewerking wordt opgegeven. Vanwege de manier waarop replicatie op de achtergrond in Cosmos DB wordt afgehandeld, zijn alle schrijfbewerkingen automatisch Quorum-bewerkingen. Alle schrijfproblemen die in clientcode zijn opgegeven, worden genegeerd. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
+Bepaalde toepassingen vertrouwen op een [schrijfprobleem](https://docs.mongodb.com/manual/reference/write-concern/) dat het aantal vereiste reacties tijdens een schrijfbewerking opgeeft. Vanwege de manier waarop replicatie op de achtergrond in Cosmos DB wordt afgehandeld, zijn alle schrijfbewerkingen automatisch Quorum-bewerkingen. Alle schrijfproblemen die in clientcode zijn opgegeven, worden genegeerd. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
 
 ## <a name="sharding"></a>Sharding
 
-Azure Cosmos DB biedt ondersteuning voor automatische sharding aan serverzijde. Azure Cosmos DB biedt geen ondersteuning voor handmatige sharding-opdrachten.
+Cosmos DB biedt ondersteuning voor automatische sharding aan serverzijde. Cosmos DB biedt geen ondersteuning voor handmatige sharding-opdrachten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [gebruik van Studio 3T](mongodb-mongochef.md) met een API voor een MongoDB-database.
-- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met een API voor een MongoDB-database.
-- Verken Azure Cosmos DB met protocolondersteuning voor [voorbeelden](mongodb-samples.md) van MongoDB.
+- Meer informatie over het [gebruik van Studio 3T](mongodb-mongochef.md) met de API van Azure Cosmos DB voor MongoDB.
+- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met de API van Azure Cosmos DB voor MongoDB.
+- Verken [voorbeelden](mongodb-samples.md) van MongoDB met de API van Azure Cosmos DB voor MongoDB.
+
+<sup>Opmerking: In dit artikel wordt een functie van Azure Cosmos DB beschreven waarmee compatibiliteit met wire-protocollen met MongoDB-databases kan worden geboden. MongoDB-databases worden niet door Microsoft uitgevoerd om deze service te kunnen leveren. Azure Cosmos DB is niet verbonden aan MongoDB, Inc.</sup>

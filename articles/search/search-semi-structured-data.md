@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor het zoeken van semi-gestructureerde gegevens in Azure-cloudopslag - Azure Search
+title: Zelfstudie voor het zoeken naar JSON in Azure-blob-opslag - Azure Search
 description: In deze zelfstudie leert u hoe u semi-gestructureerde Azure-blob-gegevens kunt zoeken met Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313816"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632939"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Zelfstudie: Semi-gestructureerde gegevens zoeken in Azure-cloudopslag
 
@@ -60,7 +60,7 @@ In de zip vindt u voorbeeld-JSON-bestanden. Dit waren oorspronkelijk tekstbestan
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij [Azure Portal](http://portal.azure.com).
+Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>De voorbeeldgegevens uploaden
 

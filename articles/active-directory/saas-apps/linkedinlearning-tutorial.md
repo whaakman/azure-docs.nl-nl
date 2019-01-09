@@ -1,274 +1,246 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met LinkedIn Learning | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory- en LinkedIn Learning.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en LinkedIn Learning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: MT
+ms.openlocfilehash: e8d829c4990aa798ce77ecc9caae51ace4c53023
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379260"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn Learning
 
-In deze zelfstudie leert u hoe u LinkedIn Learning integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u LinkedIn Learning met Azure Active Directory (Azure AD) kunt integreren.
+De integratie van LinkedIn Learning met Azure AD heeft de volgende voordelen:
 
-LinkedIn Learning integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang tot LinkedIn Learning heeft.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij LinkedIn Learning (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot LinkedIn Learning heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij LinkedIn Learning (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met LinkedIn Learning, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met LinkedIn Learning te configureren:
 
-- Een Azure AD-abonnement
-- Een LinkedIn Learning eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op LinkedIn Learning waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. LinkedIn Learning uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-linkedin-learning-from-the-gallery"></a>LinkedIn Learning uit de galerie toe te voegen
-Voor het configureren van de integratie van LinkedIn Learning in Azure AD, moet u LinkedIn Learning uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* LinkedIn Learning biedt ondersteuning voor door **SP en IDP** geïnitieerde eenmalige aanmelding
+* LinkedIn Learning biedt ondersteuning voor **Just In Time**-gebruikersinrichting
 
-**Als u wilt toevoegen LinkedIn Learning uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-linkedin-learning-from-the-gallery"></a>LinkedIn Learning vanuit de galerie toevoegen
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van LinkedIn Learning met Azure AD wilt configureren, moet u LinkedIn Learning vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Als u LinkedIn Learning vanuit de galerie wilt toevoegen, voert u de volgende stappen uit:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Toepassingen][2]
-    
-1. Klik op **toevoegen** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Toepassingen][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **LinkedIn Learning**. Klik in het deelvenster met resultaten, op **LinkedIn Learning** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_000.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met LinkedIn Learning op basis van een testgebruiker 'Julia steen' genoemd.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in LinkedIn Learning in Azure AD aan een gebruiker is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in LinkedIn Learning tot stand worden gebracht.
+4. Typ **LinkedIn Learning** in het zoekvak, selecteer **LinkedIn Learning** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de app toe te voegen.
 
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in LinkedIn Learning.
+     ![LinkedIn Learning in de lijst met resultaten](common/search-new-app.png)
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met LinkedIn Learning, u nodig hebt voor de volgende bouwstenen:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker LinkedIn Learning](#creating-a-linkedin-learning-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met LinkedIn Learning op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in LinkedIn Learning tot stand is gebracht.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Als u eenmalige aanmelding met Azure AD wilt configureren en testen met LinkedIn Learning, moet u aan de volgende vereisten voldoen:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing LinkedIn Learning.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor LinkedIn Learning configureren](#configure-linkedin-learning-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor LinkedIn Learning maken](#create-linkedin-learning-test-user)**: als u een equivalent van Britta Simon wilt hebben in LinkedIn Learning dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met LinkedIn Learning, moet u de volgende stappen uitvoeren:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **LinkedIn Learning** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Eenmalige aanmelding configureren][4]
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met LinkedIn Learning te configureren:
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial-linkedin_01.png)
+1. In [Azure Portal](https://portal.azure.com/) selecteert u op de integratiepagina van de **LinkedIn Learning**-toepassing de optie **Eenmalige aanmelding**.
 
-1. In een ander browservenster aanmelden voor uw tenant LinkedIn Learning als beheerder.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. In **Accountcentrum**, klikt u op **globale instellingen** onder **instellingen**. Schakel ook **Learning - standaard** in de vervolgkeuzelijst.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-1. Klik op **of Klik hier om te laden en kopiëren van afzonderlijke velden van het formulier** en kopieert u **entiteit-Id** en **Assertion Consumer Service (ACS)-Url**
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. In Azure portal onder **LinkedIn Learning domein en URL's**, voer de volgende stappen uit als u wilt configureren van eenmalige aanmelding in **IdP gestart door** modus
+4. In het gedeelte **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IdP geïnitieerde** modus wilt configureren:
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
+    ![Informatie over eenmalige aanmelding voor LinkedIn Learning-domein en -URL's](common/idp-intiated.png)
 
-    a. In de **id** tekstvak, voer de **entiteit-ID** opgehaald uit de LinkedIn-Portal 
+    a. Voer in het tekstvak **id** de **Entiteits-id** in die u hebt gekopieerd uit LinkedIn Portal. 
 
-    b. In de **antwoord-URL** tekstvak, voer de **Assertion Consumer Service (ACS) Url** opgehaald uit de LinkedIn-Portal
+    b. Voer in het tekstvak **Antwoord-URL** de **ACS-URL (Assertion Consumer Service)** in die u uit LinkedIn Portal hebt gekopieerd.
 
-1. Als u wilt configureren van eenmalige aanmelding in **SP geïnitieerde**, klikt u op geavanceerde URL weergeven instelling-optie in de configuratiesectie waar u uw aanmeldings-URL opgeeft.  Om uw aanmeldings-Url kopie te maken de **Assertion Consumer Service (ACS) Url** en /saml/ met/aanmelding/vervangen.   Zodra dit is gebeurd, moet het volgende patroon beschikken over de aanmeldings-URL:
+    c. Als u de toepassing in de **SP geïnitieerde** modus wilt configureren, klikt u in het gedeelte **Standaard SAML-configuratie** waarin u de aanmeldings-URL opgeeft op **Extra URL's instellen**. Kopieer de **ACS-URL (Assertion Consumer Service)** en vervang /saml/ door /login/ om een kopie van de aanmeldings-URL te maken. Zodra dit is gebeurd, zou de aanmeldings-URL het volgende patroon moeten hebben:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_02.png)   
+    ![Informatie over eenmalige aanmelding voor LinkedIn Learning-domein en -URL's](common/metadata-upload-additional-signon.png)
+
+    > [!NOTE]
+    > Deze waarden zijn geen werkelijke waarden. U gaat deze waarden bijwerken met de werkelijke id en de Antwoord-URL. Dit wordt later uitgelegd in het gedeelte **Eenmalige aanmelding voor LinkedIn Learning configureren** van deze zelfstudie.
+
+5. Uw LinkedIn Learning-toepassing verwacht de SAML-asserties in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen moet toevoegen aan de configuratie van de SAML-tokenkenmerken. In de volgende schermopname ziet u een voorbeeld hiervan. De standaardwaarde van **Unieke gebruikers-id** is **user.userprincipalname**, maar LinkedIn Learning verwacht dat aan deze waarde het e-mailadres van de gebruiker wordt toegewezen. Hiervoor kunt u het kenmerk **user.mail** in de lijst gebruiken of de juiste kenmerkwaarde op basis van uw organisatieconfiguratie. 
+
+    ![image](common/edit-attribute.png)
+
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
     
-1. Uw toepassing LinkedIn Learning wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar LinkedIn Learning wordt verwacht dat deze optie om te worden toegewezen met de e-mailadres van de gebruiker. Hiervoor kunt u **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw. 
+    | Naam | Bronkenmerk |
+    | ---------------| --------------- |
+    | e-mail  | user.mail  |
+    | department  | user.department  |
+    | firstname  | user.givenname  |
+    | lastname  | user.surname  |
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/updateusermail.png)
-    
-1. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en de kenmerken instellen. De gebruiker nodig heeft om toe te voegen vier claims met de naam **e**, **afdeling**, **firstname**, en **lastname** en de waarde moet worden toegewezen met **user.mail**, **user.department**, **user.givenname**, en **user.surname** respectievelijk
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    | Naam kenmerk | Waarde kenmerk |
-    | --- | --- |
-    | e-mail| User.mail |    
-    | Afdeling| User.Department |
-    | Voornaam| User.givenName |
-    | Achternaam| User.surname |
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/userattribute.png)
-    
-    a. Klik op **kenmerk toevoegen** om het dialoogvenster kenmerk te openen.
+    ![image](./media/linkedinlearning-tutorial/tutorial_usermail.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/tutorial_attribute_04.png)
+    ![image](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/tutorial_attribute_05.png)
-    
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
-    
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
-    
-    d. Klik op **Ok**
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-1. Voer de volgende stappen uit op de **naam** kenmerk -
+    c. Laat **Naamruimte** leeg.
 
-    a. Klik op het kenmerk te openen de **kenmerk bewerken** venster.
+    d. Selecteer Bron bij **Kenmerk**.
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/url_update.png)
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    b. Verwijderen van de URL-waarde uit de **naamruimte**.
-    
-    c. Klik op **Ok** om op te slaan van de instelling.
+    f. Klik op **OK**.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
+    g. Klik op **Opslaan**.
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-1. Klik op **Opslaan**.
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_general_400.png)
+### <a name="configure-linkedin-learning-single-sign-on"></a>Eenmalige aanmelding voor LinkedIn Learning configureren
 
-1. Ga naar **LinkedIn beheerdersinstellingen** sectie. Upload het XML-bestand dat u hebt gedownload van de Azure-portal door te klikken op de optie uploaden XML-bestand.
+1. Meld u in een ander browservenster als beheerder aan bij uw LinkedIn Learning-tenant.
+
+2. Klik in **Accountcentrum** onder **Instellingen** op **Algemene instellingen**. Selecteer ook **Learning - standaard** uit de vervolgkeuzelijst.
+
+    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+
+3. Klik op **Of klik hier om afzonderlijke velden van het formulier te laden en kopiëren** en kopieer **Entiteits-id** en **ACS-URL (Assertion Consumer Service)** en plak deze in het gedeelte **Standaard SAML-configuratie** in Azure Portal.
+
+    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+
+4. Ga naar het gedeelte **met beheerdersinstellingen voor LinkedIn**. Upload het XML-bestand dat u hebt gedownload uit Azure Portal door op de optie **XML-bestand uploaden** te klikken.
 
     ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
-1. Klik op **op** SSO inschakelen. SSO-status verandert van **niet verbonden** naar **verbonden**
+5. Klik op **Aan** om SSO in te schakelen. De SSO-status verandert van **Niet verbonden** naar **Verbonden**
 
     ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-![Azure AD-gebruiker maken][100]
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/create_aaduser_01.png) 
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/create_aaduser_02.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/create_aaduser_03.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/create_aaduser_04.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="creating-a-linkedin-learning-test-user"></a>Het maken van een testgebruiker LinkedIn Learning
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-LinkedIn Learning-toepassing biedt ondersteuning voor Just in tijd gebruikersinrichting en na-verificatiegebruikers automatisch in de toepassing gemaakt worden. Op de beheerder van het tabblad instellingen op de portal spiegelen LinkedIn Learning de switch **automatisch toewijzen van licenties** op actieve Just-in-time inrichting en dit wordt ook een licentie toewijzen aan de gebruiker.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot LinkedIn Learning.
 
-   ![Het maken van een Azure AD-testgebruiker](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
+1. Selecteer in Azure Portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **LinkedIn Learning**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot LinkedIn Learning.
+2. Typ en selecteer **LinkedIn Learning** in de lijst met toepassingen.
 
-![Gebruiker toewijzen][200] 
+    ![De link LinkedIn Learning in de lijst met toepassingen](common/all-applications.png)
 
-**Als u wilt toewijzen Britta Simon LinkedIn Learning, moet u de volgende stappen uitvoeren:**
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-    ![Gebruiker toewijzen][201]
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-1. Selecteer in de lijst met toepassingen, **LinkedIn Learning**.
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-    ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-    ![Gebruiker toewijzen][202]
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+### <a name="create-linkedin-learning-test-user"></a>Testgebruiker voor LinkedIn Learning maken
 
-    ![Gebruiker toewijzen][203]
+De LinkedIn Learning-toepassing biedt ondersteuning voor Just in time-gebruikersinrichting. Na verificatie worden gebruikers automatisch aangemaakt in de toepassing. Ga naar het tabblad met beheerdersinstellingen in de LinkedIn Learning-portal en zet de schakelaar voor **automatisch toewijzen van licenties** op actieve Just in time-inrichting. Hiermee wordt ook een licentie aan de gebruiker toegewezen.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+   ![Een Azure AD-testgebruiker maken](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u klikt op de tegel LinkedIn Learning in het toegangsvenster, krijgt u de pagina Azure Sign-on en op na geslaagde aanmelding, krijgt u rechtstreeks in uw toepassing LinkedIn Learning.
+Wanneer u op de tegel LinkedIn Learning in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van LinkedIn Learning waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/linkedinlearning-tutorial/tutorial_general_01.png
-[2]: ./media/linkedinlearning-tutorial/tutorial_general_02.png
-[3]: ./media/linkedinlearning-tutorial/tutorial_general_03.png
-[4]: ./media/linkedinlearning-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/linkedinlearning-tutorial/tutorial_general_100.png
-
-[200]: ./media/linkedinlearning-tutorial/tutorial_general_200.png
-[201]: ./media/linkedinlearning-tutorial/tutorial_general_201.png
-[202]: ./media/linkedinlearning-tutorial/tutorial_general_202.png
-[203]: ./media/linkedinlearning-tutorial/tutorial_general_203.png

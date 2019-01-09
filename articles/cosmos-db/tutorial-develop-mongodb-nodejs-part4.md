@@ -1,5 +1,5 @@
 ---
-title: Node.Js, Angular-app die gebruikmaakt van MongoB-API (deel 4)
+title: Een Angular-app maken met de API voor MongoDB van Azure Cosmos DB - Een Cosmos-account maken
 titleSuffix: Azure Cosmos DB
 description: Deel 4 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB
 author: johnpapa
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: d6119186bd8ffbda4fa3bb2c432dd58d851992ea
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d85183f0104d9066f93adc73c09c76406128700d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136219"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787797"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 4: Maak een Azure Cosmos DB-account
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Een Angular-app maken met de API voor MongoDB van Azure Cosmos DB - Een Cosmos-account maken
 
-In deze meerdelige zelfstudie leert u hoe u een nieuwe [MongoDB API](mongodb-introduction.md)-app maakt in Node.js met Express, Angular en uw Azure Cosmos DB-database.
+In deze meerdelige zelfstudie leert u hoe u een app maakt die is geschreven in Node.js met Express en Angular, en hoe u deze app verbindt met uw [Cosmos-account dat is geconfigureerd met de API van Cosmos DB voor MongoDB](mongodb-introduction.md).
 
 Deel 4 van de zelfstudie bouwt voort op [deel 3](tutorial-develop-mongodb-nodejs-part3.md) en beschrijft de volgende taken:
 
 > [!div class="checklist"]
 > * Een Azure-resourcegroep maken met de Azure CLI
-> * Een Azure Cosmos DB account maken met de Azure CLI
+> * Een Cosmos-account maken met Azure CLI
 
 ## <a name="video-walkthrough"></a>Video-overzicht
 

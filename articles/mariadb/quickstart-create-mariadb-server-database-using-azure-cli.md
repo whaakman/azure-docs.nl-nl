@@ -1,21 +1,19 @@
 ---
-title: 'Snelstart: Een Azure Database for MariaDB-server maken- Azure CLI'
+title: 'Quickstart: Een Azure Database for MariaDB-server maken - Azure CLI'
 description: In deze snelstartgids wordt beschreven hoe u met Azure CLI een Azure Database for MariaDB-server maakt in een Azure-resourcegroep.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566445"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538736"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Een Azure Database for MariaDB-server maken met behulp van de Azure CLI
 
@@ -59,7 +57,7 @@ ssl-enforcement | **Ingeschakeld** | Of SSL moet worden ingeschakeld voor deze s
 storage-size | **51200** | De opslagcapaciteit van de server (de eenheid is MB). Geldige opslagruimten zijn 5.120 MB (minimaal) met verhogingen in stappen van 1024 MB. Zie [Prijscategorieën](./concepts-pricing-tiers.md) voor meer informatie over de opslaglimieten. 
 versie | **10.2** | De versie van de hoofd-engine van MariaDB.
 admin-user | **myadmin** | De gebruikersnaam voor aanmelding als beheerder. De parameter voor **admin-user** kan niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
-admin-password | *Uw wachtwoord* | Het wachtwoord van het beheerdersaccount. Uw wachtwoord moet tussen 8 en 128 tekens bevatten. Het moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens.
+admin-password | *Uw wachtwoord* | Het wachtwoord van het beheerdersaccount. Uw wachtwoord moet tussen 8 en 128 tekens bevatten. Het moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers en niet-alfanumerieke tekens.
 
 De parameterwaarde voor de **sku-naam** volgt de conventie *prijscategorie*\_*compute-bewerking*\_*vCores*, zoals te zien is in de onderstaande voorbeelden:
 + `--sku-name B_Gen5_4` wordt toegewezen aan de prijscategorie Basic, de Gen 5-bewerking voor compute en 4 vCores.

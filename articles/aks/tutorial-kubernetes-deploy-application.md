@@ -3,20 +3,19 @@ title: 'Zelfstudie voor Kubernetes in Azure: een toepassing implementeren'
 description: In deze zelfstudie over Azure Kubernetes Service (AKS) gaat u een toepassing met meerdere containers in uw cluster implementeren met behulp van een aangepaste installatiekopie die is opgeslagen in Azure Container Registry.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: bf817f553250ead449ec0d5db3d33acc2eff23f3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b3336f592163d793b8415d2d4f0dd79b92200c89
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918902"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727935"
 ---
-# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassingen uitvoeren in AKS (Azure Kubernetes Service)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: toepassingen uitvoeren in AKS (Azure Kubernetes Service)
 
 Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. U gaat uw eigen toepassingen en services implementeren in een Kubernetes-cluster, en u laat het cluster de beschikbaarheid en connectiviteit beheren. In deze zelfstudie, deel vier van zeven, wordt een voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -25,17 +24,17 @@ Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. U 
 > * Een toepassing in Kubernetes uitvoeren
 > * De toepassing testen
 
-In opeenvolgende zelfstudies wordt deze toepassing geschaald en bijgewerkt.
+In aanvullende zelfstudies wordt deze toepassing uitgebreid en bijgewerkt.
 
-In deze zelfstudie wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
+In deze snelstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Zie [Kubernetes-kernconcepten voor Azure Kubernetes Service (AKS)][kubernetes-concepts] voor meer informatie.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, is deze installatiekopie geüpload naar Azure Container Registry en is een Kubernetes-cluster gemaakt.
 
-Om deze zelfstudie te voltooien hebt u het vooraf gemaakte Kubernetes-manifestbestand `azure-vote-all-in-one-redis.yaml` nodig. Dit bestand is met de broncode van de toepassing gedownload in een vorige zelfstudie. Controleer of u de opslagplaats hebt gekloond en of u naar de gekloonde opslagplaats bent gegaan. Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
+Om deze zelfstudie te voltooien hebt u het vooraf gemaakte Kubernetes-manifestbestand `azure-vote-all-in-one-redis.yaml` nodig. Dit bestand is met de broncode van de toepassing gedownload in een vorige zelfstudie. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u mappen in de gekloonde opslagplaats hebt gewijzigd. Als u deze stappen niet hebt uitgevoerd en u deze zelfstudie wilt volgen, begint u met [Tutorial 1 – Create container images][aks-tutorial-prepare-app] (Zelfstudie 1: containerinstallatiekopieën maken).
 
-Voor deze zelfstudie moet u Azure CLI versie 2.0.44 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+Voor deze zelfstudie moet u Azure CLI versie 2.0.53 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="update-the-manifest-file"></a>Het manifestbestand bijwerken
 
@@ -47,7 +46,7 @@ Haal de naam van de ACR-aanmeldingsserver als volgt op met de opdracht [az acr l
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Het voorbeeldmanifestbestand van de Git-opslagplaats dat in de eerste zelfstudie is gekloond, gebruikt *microsoft* als de naam van de aanmeldingsserver. Open dit manifestbestand openen met een teksteditor, zoals `vi`:
+Het voorbeeldmanifestbestand van de Git-opslagplaats dat in de eerste zelfstudie is gekloond, gebruikt *microsoft* als de naam van de aanmeldingsserver. Zorg ervoor dat u zich in de gekloonde map *azure-voting-app-redis* bevindt en open het manifestbestand met een teksteditor, zoals `vi`:
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
@@ -69,7 +68,7 @@ containers:
   image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Sla het bestand op en sluit het.
+Sla het bestand op en sluit het. In `vi` gebruikt u `:wq`.
 
 ## <a name="deploy-the-application"></a>De toepassing implementeren
 
@@ -79,7 +78,7 @@ Gebruik de opdracht [kubectl apply][kubectl-apply] om uw toepassing te implement
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-De Kubernetes-objecten worden gemaakt binnen het cluster, zoals wordt weergegeven in het volgende voorbeeld:
+In de volgende voorbeelduitvoer ziet u dat de resources zijn gemaakt in het AKS-cluster:
 
 ```
 $ kubectl apply -f azure-vote-all-in-one-redis.yaml
@@ -92,25 +91,27 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>De toepassing testen
 
-Er wordt een [Kubernetes-service][kubernetes-service] gemaakt die de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren. Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
+Wanneer de toepassing wordt uitgevoerd, maakt een Kubernetes-service de front-end van de toepassing beschikbaar op internet. Dit proces kan enkele minuten duren.
+
+Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
 
 ```console
 kubectl get service azure-vote-front --watch
 ```
 
-Het *EXTERNE IP-adres* voor de service *azure-vote-front* wordt aanvankelijk weergegeven als *in behandeling*, zoals het volgende voorbeeld laat zien:
+Eerst wordt het *Extern IP-adres* voor de service *azure-vote-front* weergegeven als *in behandeling*:
 
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een echt openbaar IP-adres, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen. In het volgende voorbeeld ziet u dat er nu een openbaar IP-adres is toegewezen:
+Zodra het *Extern IP-adres* is gewijzigd van *in behandeling* in een echt openbaar IP-adres, gebruikt u `CTRL-C` om het controleproces van `kubectl` te stoppen. In de volgende voorbeelduitvoer ziet u een geldig openbaar IP-adres dat aan de service is toegewezen:
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-Open een webbrowser naar het externe IP-adres als u de toepassing in actie wilt zien.
+Open een webbrowser naar het externe IP-adres van uw service als u de toepassing in actie wilt zien:
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
@@ -118,7 +119,7 @@ Als de toepassing niet is geladen, kan dit zijn veroorzaakt door een autorisatie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie is een Azure Vote-toepassing geïmplementeerd in een Kubernetes-cluster in AKS. U hebt geleerd hoe u:
+In deze zelfstudie is een Azure Vote-voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster in AKS. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een Kubernetes-manifestbestand bijwerken
@@ -134,11 +135,11 @@ Ga naar de volgende zelfstudie om te leren hoe u zowel een Kubernetes-toepassing
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-documentation]: https://kubernetes.io/docs/home/
-[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 [az-acr-list]: /cli/azure/acr#list
 [azure-cli-install]: /cli/azure/install-azure-cli
+[kubernetes-concepts]: concepts-clusters-workloads.md
+[kubernetes-service]: concepts-network.md#services

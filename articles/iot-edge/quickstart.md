@@ -4,17 +4,17 @@ description: In deze snelstartgids leert u hoe u een IoT Edge-apparaat maakt en 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/02/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 941d5d8f356fbd1477b4559f1475511165c01341
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340093"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972087"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstartgids: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -59,18 +59,15 @@ Cloudresources:
 IoT Edge-apparaat:
 
 * Een Windows-computer of virtuele machine die fungeert als uw IoT Edge-apparaat. Gebruik een ondersteunde Windows-versie:
-  * Windows 10 of hoger
-  * Windows Server 2016 of hoger
-* Als dit een Windows-computer is, controleert u of deze voldoet aan de [systeemvereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V.
-* Als u een virtuele machine gebruikt, schakelt u [geneste virtualisatie](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) in en wijst u ten minste 2 GB geheugen toe.
-* Installeer [Docker voor Windows](https://docs.docker.com/docker-for-windows/install/) en contoleer of dit wordt uitgevoerd.
-
-> [!TIP]
-> Tijdens de installatie van Docker is er een optie voor het gebruik van Windows-containers of Linux-containers. In deze snelstart wordt beschreven hoe u de IoT Edge-runtime configureert voor gebruik met Linux-containers.
+  * Windows 10 of IoT Core met de update van oktober 2018 (build 17763)
+  * Windows Server 2019
+* Virtualisatie inschakelen zodat uw apparaat containers kan hosten
+   * Als het een Windows-computer is, schakelt u de containerfunctie in. Navigeer in de startbalk naar **Windows-onderdelen in- of uitschakelen** en schakel het selectievakje naast **Containers** in.
+   * Als u een virtuele machine gebruikt, schakelt u [geneste virtualisatie](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) in en wijst u ten minste 2 GB geheugen toe.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Begin met de snelstart door uw IoT Hub met Azure CLI te maken.
+Begin met de snelstart door een IoT Hub met Azure CLI te maken.
 
 ![Diagram - Een IoT-hub maken in de cloud](./media/quickstart/create-iot-hub.png)
 
@@ -107,7 +104,9 @@ Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd da
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Kopieer de verbindingsreeks en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie.
+3. Kopieer de verbindingsreeks van de JSON-uitvoer en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie.
+
+   ![Verbindingsreeks ophalen uit de CLI-uitvoer](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>De IoT Edge-runtime installeren en starten
 
@@ -116,13 +115,15 @@ Installeer de Azure IoT Edge-runtime op uw IoT Edge-apparaat en configureer deze
 
 De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. Deze bevat drie onderdelen. De **IoT Edge-beveiligingsdaemon** wordt telkens gestart wanneer een Edge-apparaat wordt opgestart en start het apparaat op door de IoT Edge-agent te starten. De **IoT Edge-agent** faciliteert de implementatie en bewaking van modules op het IoT Edge-apparaat, inclusief de IoT Edge-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
 
+Het installatiescript bevat ook de containerengine Moby waarmee de containerinstallatiekopieën op uw IoT Edge-apparaat worden beheerd. 
+
 Tijdens de installatie van de runtime wordt u naar de apparaatverbindingsreeks gevraagd. Gebruik de tekenreeks die u hebt opgehaald via de Azure CLI. Deze tekenreeks koppelt uw fysieke apparaat aan de IoT Edge-apparaat-id in Azure.
 
-Met de instructies in dit gedeelte wordt de IoT Edge-runtime met Linux-containers geconfigureerd. Als u Windows-containers wilt gebruiken, raadpleegt u [Azure IoT Edge-runtime installeren onder Windows voor gebruik met Windows-containers](how-to-install-iot-edge-windows-with-windows.md).
+Met de instructies in dit gedeelte wordt de IoT Edge-runtime met Windows-containers geconfigureerd. Als u Linux-containers wilt gebruiken, raadpleegt u [Azure IoT Edge-runtime installeren in Windows](how-to-install-iot-edge-windows-with-linux.md) voor de daarbij behorende voorwaarden en installatiestappen.
 
 ### <a name="connect-to-your-iot-edge-device"></a>Verbinding maken met uw IoT Edge-apparaat
 
-De stappen in deze sectie worden allemaal uitgevoerd op uw IoT Edge-apparaat. Als u uw eigen computer als IoT Edge-apparaat gebruikt, kunt u dit gedeelte overslaan. Als u een virtuele machine of secundaire hardware gebruikt, wilt u nu verbinding maken met die computer. 
+De stappen in deze sectie worden allemaal uitgevoerd op uw IoT Edge-apparaat. Als u een virtuele machine of secundaire hardware gebruikt, wilt u nu verbinding maken met die computer via SSH of extern bureaublad. Als u uw eigen computer als IoT Edge-apparaat gebruikt, kunt u doorgaan naar het volgende gedeelte. 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>De IoT Edge-service downloaden en installeren
 
@@ -134,7 +135,7 @@ Gebruik PowerShell om de IoT Edge-runtime te downloaden en te installeren. Gebru
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
 3. Als u wordt gevraagd naar een **DeviceConnectionString**, geeft u de tekenreeks op die u in de vorige sectie hebt gekopieerd. Plaats geen aanhalingstekens rond de verbindingsreeks.
@@ -191,13 +192,16 @@ iotedge list
 
    ![Drie modules op uw apparaat bekijken](./media/quickstart/iotedge-list-2.png)
 
-Bekijk de berichten die vanaf de module tempSensor naar de cloud worden verzonden.
+Bekijk de berichten die vanaf de temperatuursensormodule naar de cloud worden verzonden.
 
 ```powershell
-iotedge logs tempSensor -f
+iotedge logs SimulatedTemperatureSensor -f
 ```
 
-  ![De gegevens van uw module bekijken](./media/quickstart/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge-opdrachten zijn hoofdlettergevoelig wanneer u naar modulenamen verwijst.
+
+   ![De gegevens van uw module bekijken](./media/quickstart/iotedge-logs.png)
 
 U kunt de berichten ook zien binnenkomen bij uw IoT Hub door de [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie) te gebruiken. 
 
@@ -217,39 +221,30 @@ Verwijder de groep **IoTEdgeResources**.
 
 ### <a name="remove-the-iot-edge-runtime"></a>De IoT Edge-runtime verwijderen
 
-Als u van plan bent om het IoT Edge-apparaat in de toekomst voor testdoeleinden te gebruiken, maar niet wilt dat de module tempSensor gegevens naar uw IoT-hub verzendt als die niet wordt gebruikt, gebruikt u de volgende opdracht om de IoT Edge-service te beëindigen.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   ```
-
-U kunt de service opnieuw starten wanneer u klaar om weer te gaan testen.
-
-   ```powershell
-   Start-Service iotedge
-   ```
-
 Als u de installaties van uw apparaat wilt verwijderen, gebruikt u de volgende opdrachten.  
 
-Verwijder de IoT Edge-runtime.
+Verwijder de IoT Edge-runtime. Als u van plan ben IoT Edge opnieuw te installeren, laat u de parameters `-DeleteConfig` en `-DeleteMobyDataRoot` weg, zodat u de installatie opnieuw kunt uitvoeren met de configuratie die u zojuist hebt ingesteld.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon
+   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
 Wanneer de IoT Edge-runtime is verwijderd, worden de containers die deze heeft gemaakt gestopt. Ze worden echter niet van uw apparaat verwijderd. Geef alle containers weer.
 
    ```powershell
-   docker ps -a
+   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
    ```
 
-Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt. Verander de naam van de container tempSensor als u die anders had genoemd.
+   >[!TIP]
+   >De vlag **-H** (host) in de Docker-opdrachten wijst naar de Moby-engine die tegelijkertijd met de IoT Edge-runtime is geïnstalleerd. Als u zowel Docker als Moby op een apparaat installeert, kunt u met de hostvlag aangeven welke engine u voor een bepaalde opdracht gebruikt. Als u alleen Moby wilt gebruiken, kunt u de omgevingsvariabele **DOCKER_HOST** zo instellen dat deze naar npipe:////./pipe/iotedge_moby_engine wijst.
+
+Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt. 
 
    ```powershell
-   docker rm -f tempSensor
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
    ```
    
 ## <a name="next-steps"></a>Volgende stappen

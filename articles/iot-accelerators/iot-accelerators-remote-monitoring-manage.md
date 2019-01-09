@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing | Microsoft Docs'
+title: Zelfstudie over apparaten configureren in een oplossing voor externe bewaking - Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u apparaten beheert die zijn verbonden met de oplossingsverbetering voor Externe bewaking.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679151"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599498"
 ---
-# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
 
 In deze zelfstudie gebruikt u de oplossingsversneller voor externe bewaking om de verbonden IoT-apparaten te configureren en bewaken. U voegt een nieuw apparaat toe aan de oplossingsverbetering en configureert het apparaat.
 

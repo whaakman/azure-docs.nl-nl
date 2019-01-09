@@ -1,7 +1,7 @@
 ---
 title: Patroonrollen
 titleSuffix: Azure Cognitive Services
-description: Gebruik een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens, zoals de locatie van de oorsprong en die van het doel, te extraheren.
+description: Gebruik een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens te extraheren, zoals de locatie van de oorsprong en die van het doel.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094403"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753112"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Zelfstudie 4: Contextgerelateerde patronen herkennen
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Zelfstudie: Contextgerelateerde patronen extraheren met behulp van rollen
 
-In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens, zoals de locatie van de oorsprong en die van het doel, te extraheren.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
+In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens te extraheren, zoals de locatie van de oorsprong en die van het doel.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
+
+
+**In deze zelfstudie leert u het volgende:**
+
+> [!div class="checklist"]
+> * Voorbeeld-app importeren
+> * Nieuwe entiteiten maken
+> * Nieuwe intentie maken
+> * Trainen
+> * Publiceren
+> * Intenties en entiteiten ophalen van eindpunt
+> * Patroon maken met rollen
+> * Frasenlijst van steden maken
+> * Intenties en entiteiten ophalen van eindpunt
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Met behulp van rollen in patronen
 
 Rollen zijn bedoeld om contextgerelateerde entiteiten in een utterance te extraheren. In de utterance `Move new employee Robert Williams from Sacramento and San Francisco` zijn de waarden voor de plaats van de oorsprong en de plaats van de bestemming aan elkaar gerelateerd en wordt algemene taal gebruikt om elke locatie op te geven. 
 
@@ -37,27 +55,12 @@ Omdat de voorbeeld-utterance `Move new employee Robert Williams from Sacramento 
 
 Als u problemen ondervindt met de detectie van een enkele entiteit omdat het een naam van bijvoorbeeld een stad is, kunt u overwegen om een frasenlijst met vergelijkbare waarden toe te voegen. Dit bevordert de detectie van de plaatsnaam door LUIS (Language Understanding-API) een extra signaal te geven over dat type woord of die frasen. Frasen zijn alleen bevorderlijk voor het patroon omdat ze helpen met de entiteitsdetectie, die nodig is om een overeenkomstig patroon te vinden. 
 
-**In deze zelfstudie leert u het volgende:**
-
-> [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken
-> * Nieuwe entiteiten maken
-> * Nieuwe intentie maken
-> * Trainen
-> * Publiceren
-> * Intenties en entiteiten ophalen van eindpunt
-> * Patroon maken met rollen
-> * Frasenlijst van steden maken
-> * Intenties en entiteiten ophalen van eindpunt
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Bestaande app gebruiken
+## <a name="import-example-app"></a>Voorbeeld-app importeren
 Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Voer de volgende stappen uit:
 
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json) en sla het op.
+1.  Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json) en sla het op.
 
 2. Importeer de JSON in een nieuwe app.
 
@@ -92,7 +95,7 @@ Het labelen van de entiteiten in deze stappen is misschien eenvoudiger als u de 
 
 3. Voer in het pop-updialoogvenster `NewEmployeeRelocationProcess` in als de naam van de intentie.
 
-4. Voer de volgende voorbeeld-utterances in om de nieuwe entiteiten te labelen. De entiteits- en rolwaarden worden vet weergegeven. Denk eraan dat u naar de **Tokenweergave** kunt schakelen als u het gemakkelijker vindt om tekst te labelen. 
+4. Voer de volgende voorbeeld-utterances in om de nieuwe entiteiten te labelen. De entiteits- en rolwaarden worden vet weergegeven. Denk eraan dat u naar de **tokenweergave** kunt schakelen als u het gemakkelijker vindt om tekst te labelen. 
 
     U geeft tijdens het labelen van de intentie niet de rol van de entiteit op. Dat doet u later bij het maken van het patroon. 
 

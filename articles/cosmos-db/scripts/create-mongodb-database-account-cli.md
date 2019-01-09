@@ -1,22 +1,22 @@
 ---
-title: Azure CLI-script - Een Azure Cosmos DB MongoDB API-account, -database en -verzameling maken
-description: Azure CLI-scriptvoorbeeld - Een Azure Cosmos DB MongoDB API-account, -database en -verzameling maken
+title: Azure CLI-script - Een Cosmos-account maken met behulp van de Azure Cosmos DB-API voor MongoDB
+description: Voorbeeld van Azure CLI-script - Een Cosmos-account maken met behulp van de Azure Cosmos DB-API voor MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.openlocfilehash: 7c7f3f6907f0c21e3c66a3d814dc355476bec553
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f37c47470553110c9003d54a1783d7db0dc94e6a
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958346"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808754"
 ---
-# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB: Een MongoDB API-account maken met behulp van Azure CLI
+# <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Een Azure Cosmos DB-account maken met de Azure Cosmos DB-API voor MongoDB met behulp van Azure CLI
 
-Met dit Azure CLI-voorbeeldscript maakt u een Azure Cosmos DB MongoDB API-account, -database en -verzameling.
+Met dit voorbeeld van Azure CLI-script wordt een Cosmos-account gemaakt met de Azure Cosmos DB-API voor MongoDB.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -24,7 +24,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create an Azure Cosmos DB MongoDB API account, database, and collection.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create a Cosmos account with Azure Cosmos DB's API for MongoDB - account, database, and collection.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 

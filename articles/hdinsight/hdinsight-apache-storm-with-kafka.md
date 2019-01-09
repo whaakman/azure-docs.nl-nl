@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 44ad80732d1e874ccec4ecc376b9ce9b513a3aa9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166571"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652368"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Zelfstudie: Apache Storm gebruiken met Apache Kafka in HDInsight
 
@@ -37,9 +37,9 @@ In deze zelfstudie leert u het volgende:
 
 * Kennis van Kafka-onderwerpen. Zie de [snelstart voor Kafka in HDInsight](./kafka/apache-kafka-get-started.md) voor meer informatie.
 
-* Bekend met het maken en implementeren van Storm-oplossingen (topologieën), Met name topologieën die gebruikmaken van het [Flux](https://storm.apache.org/releases/current/flux.html)-framework. Zie voor meer informatie het document [Een Storm-topologie maken in Java](./storm/apache-storm-develop-java-topology.md).
+* Bekend met het maken en implementeren van Storm-oplossingen (topologieën), Met name topologieën die gebruikmaken van het [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html)-framework. Zie voor meer informatie het document [Create an Apache Storm topology in Java](./storm/apache-storm-develop-java-topology.md) (Een Apache Storm-topologie maken in Java).
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) of hoger. HDInsight 3.5 of hoger vereist Java 8.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) of hoger. HDInsight 3.5 of hoger vereist Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -54,7 +54,7 @@ U kunt de volgende omgevingsvariabelen instellen wanneer u Java en de JDK instal
     * `JAVA_HOME\bin` (of het equivalente pad).
     * De map waarin Maven is geïnstalleerd.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voor de stappen in dit document is een Azure-resourcegroep vereist die zowel een Storm in HDInsight- als een Kafka in HDInsight-cluster bevat. Deze clusters bevinden zich beide binnen een Azure Virtual Network, waardoor het Storm-cluster rechtstreeks kan communiceren met het Kafka-cluster.
 > 
 > Voor uw gemak is dit document gekoppeld aan een sjabloon waarmee u alle vereiste Azure-resources kunt maken. 
@@ -124,7 +124,7 @@ Er worden twee topologieën meegeleverd in deze zelfstudie:
 
 * Kafka-reader: leest gegevens uit Kafka en slaat deze vervolgens op in het HDFS-compatibele bestandsarchief voor het Storm-cluster.
 
-    > [!WARNING] 
+    > [!WARNING]  
     > Om het Storm-cluster te laten werken met de HDFS-compatibele opslag die wordt gebruikt door HDInsight, is een scriptactie vereist. Het script installeert verschillende jar-bestanden naar het pad `extlib` voor Storm. De sjabloon in deze zelfstudie gebruikt automatisch het script tijdens het maken van het cluster.
     >
     > Als u de sjabloon in dit document niet gebruikt om het Storm-cluster te maken, moet u de scriptactie handmatig toepassen op het cluster.
@@ -141,7 +141,7 @@ De volgende parameters worden tijdens runtime ingesteld voor deze topologieën:
 
 * `${kafka.zookeeper.hosts}`: de hosts waarop Zookeeper wordt uitgevoerd in het Kafka-cluster.
 
-* `${hdfs.url}`: de URL van het bestandssysteem voor het HDFSBolt-onderdeel. Hiermee wordt aangegeven of de gegevens worden geschreven naar een Azure Storage-account of Azure Data Lake Store.
+* `${hdfs.url}`: de URL van het bestandssysteem voor het HDFSBolt-onderdeel. Hiermee wordt aangegeven of de gegevens worden geschreven naar een Azure Storage-account of Azure Data Lake Storage.
 
 * `${hdfs.write.dir}`: de map waarnaar gegevens worden weggeschreven.
 
@@ -373,7 +373,7 @@ Het project bevat een bestand met de naam `dev.properties` dat wordt gebruikt vo
 | `kafka.broker.hosts` | De broker-hosts van Kafka (werkknooppunten). |
 | `kafka.topic` | Het Kafka-onderwerp Kafka dat de topologieën gebruiken. |
 | `hdfs.write.dir` | De map waarnaar de topologie voor de Kafka reader gegevens schrijft. |
-| `hdfs.url` | Het bestandssysteem dat wordt gebruikt door het Storm-cluster. Gebruik voor Azure Storage-accounts de waarde `wasb:///`. Gebruik voor Azure Data Lake Store de waarde `adl:///`. |
+| `hdfs.url` | Het bestandssysteem dat wordt gebruikt door het Storm-cluster. Gebruik voor Azure Storage-accounts de waarde `wasb:///`. Gebruik voor Azure Data Lake Storage de waarde `adl:///`. |
 
 ## <a name="create-the-clusters"></a>De clusters maken
 
@@ -383,12 +383,12 @@ Het volgende diagram laat zien hoe de communicatie tussen Storm en Kafka verloop
 
 ![Diagram met Storm- en Kafka-clusters in een virtueel netwerk van Azure](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Andere services in het cluster, zoals SSH en [Apache Ambari](https://ambari.apache.org/), zijn toegankelijk via internet. Zie [Poorten en URI's die worden gebruikt door HDInsight](hdinsight-hadoop-port-settings-for-services.md) voor meer informatie over de openbare poorten die beschikbaar zijn voor HDInsight.
 
 Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en vervolgens de Kafka- en Storm-clusters:
 
-1. Gebruik de volgende knop om u aan te melden bij Azure en de sjabloon in de Azure-portal te openen.
+1. Gebruik de volgende knop om u aan te melden bij Azure en de sjabloon in de Azure Portal te openen.
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
@@ -400,7 +400,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
     * Kafka in HDInsight versie 3.6 (drie werkknooppunten)
     * Storm in HDInsight versie 3.6 (drie werkknooppunten)
 
-  > [!WARNING]
+  > [!WARNING]  
   > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten. Met deze sjabloon maakt u een Kafka-cluster dat drie werkknooppunten bevat.
 
 2. Gebruik de volgende informatie voor het invullen van de velden in de sectie **Aangepaste sjabloon**:
@@ -425,7 +425,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 
 4. Schakel tot slot **Vastmaken aan dashboard** in en selecteer **Kopen**.
 
-> [!NOTE]
+> [!NOTE]  
 > Het kan 20 minuten duren voordat het cluster is gemaakt.
 
 ## <a name="build-the-topology"></a>De topologie samenstellen
@@ -463,7 +463,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > In he volgende Bash-voorbeeld wordt ervan uitgegaan dat `$CLUSTERNAME` de naam van het __Kafka__-cluster bevat. Ook wordt ervan uitgegaan dat [jq](https://stedolan.github.io/jq/) versie 1.5 of hoger is geïnstalleerd. Geef desgevraagd het wachtwoord voor het account voor clusteraanmelding op.
 
     ```bash
@@ -474,7 +474,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Hoewel een cluster meer dan twee broker-hosts kan hebben, hoeft u niet een volledige lijst van alle hosts te leveren aan de clients. Een of twee is voldoende.
 
 2. Gebruik een van de volgende methoden om de Zookeeper-hosts voor het __Kafka__-cluster in HDInsight te detecteren:
@@ -490,7 +490,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > In he volgende Bash-voorbeeld wordt ervan uitgegaan dat `$CLUSTERNAME` de naam van het __Kafka__-cluster bevat. Ook wordt ervan uitgegaan dat [jq](https://stedolan.github.io/jq/) is geïnstalleerd. Geef desgevraagd het wachtwoord voor het account voor clusteraanmelding op.
 
     ```bash
@@ -501,7 +501,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 
         zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Hoewel er meer dan twee Zookeeper-knooppunten zijn, hoeft u niet een volledige lijst van alle hosts te leveren aan de clients. Een of twee is voldoende.
 
     Sla deze waarde op, aangezien u die later nog nodig hebt.
@@ -512,8 +512,8 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
-    > [!IMPORTANT]
-    > De vermelding `hdfs.url` is geconfigureerd voor een cluster dat gebruikmaakt van een Azure Storage-account. Als u deze topologie wilt gebruiken met een Storm-cluster dat gebruikmaakt van Data Lake Store, wijzigt u deze waarde van `wasb` in `adl`.
+    > [!IMPORTANT]  
+    > De vermelding `hdfs.url` is geconfigureerd voor een cluster dat gebruikmaakt van een Azure Storage-account. Als u deze topologie wilt gebruiken met een Storm-cluster dat gebruikmaakt van Data Lake Storage, wijzigt u deze waarde van `wasb` in `adl`.
 
 4. Sla het bestand `dev.properties` op en gebruik vervolgens de volgende opdracht om het bestand te uploaden naar het **Storm**-cluster:
 
@@ -624,13 +624,13 @@ Gebruik vanuit een SSH-sessie met het Storm-cluster de volgende opdrachten om de
 
 Als u de in deze zelfstudie gemaakte resources wilt opschonen, kunt u de resourcegroep verwijderen. Als u de resourcegroep verwijdert, worden ook het bijbehorende HDInsight-cluster en eventuele andere resources die aan de resourcegroep zijn gekoppeld, verwijderd.
 
-Ga als volgt te werk om de resourcegroep te verwijderen in de Azure-portal:
+Ga als volgt te werk om de resourcegroep te verwijderen in Azure Portal:
 
-1. Vouw het menu aan de linkerkant in de Azure-portal uit om het menu met services te openen en kies __Resourcegroepen__ om de lijst met resourcegroepen weer te geven.
+1. Vouw het menu aan de linkerkant in Azure Portal uit om het menu met services te openen en kies __Resourcegroepen__ om de lijst met resourcegroepen weer te geven.
 2. Zoek de resourcegroep die u wilt verwijderen en klik met de rechtermuisknop op de knop __Meer__ (... ) aan de rechterkant van de vermelding.
 3. Selecteer __Resourcegroep verwijderen__ en bevestig dit.
 
-> [!WARNING]
+> [!WARNING]  
 > De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt.
 > 
 > Door een Kafka in HDInsight-cluster te verwijderen, worden alle gegevens verwijderd die zijn opgeslagen in Kafka.

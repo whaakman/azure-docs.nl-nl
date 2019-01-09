@@ -1,23 +1,23 @@
 ---
-title: MongoDB-API’s gebruiken om een Azure Cosmos DB-app te bouwen
-description: Een zelfstudie waarmee u een online database maakt met de Azure Cosmos DB-API’s voor MongoDB.
+title: De API voor MongoDB van Azure Cosmos DB gebruiken om een Node.js-app te bouwen
+description: Een zelfstudie waarmee u een onlinedatabase maakt met de API voor MongoDB van Azure Cosmos DB.
 keywords: mongodb-voorbeelden
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 03/23/2018
-ms.author: sngun
-ms.openlocfilehash: e24c64f0042d65cc499e02dff7b53f3ca812f356
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 98a11f6ba0608a9ab39bf258056f0fa17a41653e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864074"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788341"
 ---
-# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Een Cosmos Azure DB bouwen: API bouwen voor MongoDB-app met behulp van Node.js
+# <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Een app bouwen met behulp van Node.js en de API voor MongoDB van Azure Cosmos DB 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -26,12 +26,12 @@ ms.locfileid: "52864074"
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-In dit voorbeeld ziet u hoe u een Azure Cosmos DB: API bouwt voor MongoDB-console-app met Node.js.
+In dit voorbeeld ziet u hoe u een console-app bouwt met behulp van Node.js en de API voor MongoDB van Azure Cosmos DB.
 
 Als u dit voorbeeld wilt gebruiken, moet u het volgende doen:
 
-* [Maak](create-mongodb-dotnet.md#create-account) een Azure Cosmos DB: API voor MongoDB-account.
-* Haal uw MongoDB-informatie over de [verbindingsreeks](connect-mongodb-account.md) op.
+* [Maak](create-mongodb-dotnet.md#create-account) een Cosmos-account dat is geconfigureerd voor gebruik van de API voor MongoDB van Azure Cosmos DB.
+* Haal de gegevens voor uw [verbindingsreeks](connect-mongodb-account.md) op.
 
 ## <a name="create-the-app"></a>De app maken
 
@@ -117,7 +117,7 @@ Als u dit voorbeeld wilt gebruiken, moet u het volgende doen:
     });
     ```
     
-    **Optioneel**: als u het **MongoDB Node.js 2.2-stuurprogramma** gebruikt, vervangt u het volgende codefragment:
+    **Optioneel**: Als u het **MongoDB Node.js 2.2-stuurprogramma** gebruikt, vervangt u het volgende codefragment:
 
     Oorspronkelijk:
 
@@ -159,7 +159,7 @@ Als u dit voorbeeld wilt gebruiken, moet u het volgende doen:
     > [!IMPORTANT]
     > Voor het **MongoDB Node.js 3.0-stuurprogramma** is codering vereist van speciale tekens in het Cosmos DB-wachtwoord. Zorg ervoor dat u de tekens '=' codeert als %3D
     >
-    > Voorbeeld: het wachtwoord *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* wordt gecodeerd naar *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    > Voorbeeld: Het wachtwoord *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* wordt gecodeerd naar *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
     >
     > Voor het **MongoDB Node.js 2.2-stuurprogramma** is geen codering vereist van speciale tekens in het Cosmos DB-wachtwoord.
     >
@@ -172,4 +172,7 @@ Als u dit voorbeeld wilt gebruiken, moet u het volgende doen:
 3. Open uw favoriete terminal, voer **npm install mongodb --save** uit en voer uw app uit met **node app.js**
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe u [MongoChef gebruikt](mongodb-mongochef.md) met uw Azure-Cosmos-DB: API voor MongoDB-account.
+
+- Meer informatie over het [gebruik van Studio 3T](mongodb-mongochef.md) met de API voor MongoDB van Azure Cosmos DB.
+- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met de API voor MongoDB van Azure Cosmos DB.
+- Verken [voorbeelden](mongodb-samples.md) van MongoDB met de API voor MongoDB van Azure Cosmos DB.

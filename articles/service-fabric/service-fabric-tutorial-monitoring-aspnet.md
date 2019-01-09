@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444781"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720725"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Zelfstudie: Bewaking en diagnose van een ASP.NET Core-toepassing in Service Fabric met behulp van Application Insights
 
@@ -191,11 +191,11 @@ Bovendien kunt u klikken op *Toepassing toewijzen* in het linkermenu op de pagin
 
 ![AI-traceringsdetails](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-Met het Toepassingsoverzicht kunt u beter inzicht krijgen in uw toepassingstopologie, vooral wanneer u meerdere verschillende services toevoegt die met elkaar samenwerken. U krijgt ook eenvoudige gegevens over succespercentages van aanvragen en inzicht in mislukte aanvragen om te zien waar iets fout kan zijn gegaan. Bekijk [Application Map in Application Insights](../application-insights/app-insights-app-map.md) (Toepassingsoverzicht in Application Insights) voor meer informatie over het gebruik van het toepassingsoverzicht.
+Met het Toepassingsoverzicht kunt u beter inzicht krijgen in uw toepassingstopologie, vooral wanneer u meerdere verschillende services toevoegt die met elkaar samenwerken. U krijgt ook eenvoudige gegevens over succespercentages van aanvragen en inzicht in mislukte aanvragen om te zien waar iets fout kan zijn gegaan. Bekijk [Application Map in Application Insights](../azure-monitor/app/app-map.md) (Toepassingsoverzicht in Application Insights) voor meer informatie over het gebruik van het toepassingsoverzicht.
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>Aangepaste instrumentatie toevoegen aan uw toepassing
 
-Hoewel Application Insights bij de aankoop al veel telemetrie biedt, kunt aanvullende aangepaste instrumentatie toevoegen. Dit kan gebaseerd zijn op de behoeften van uw bedrijf of om de diagnose te verbeteren wanneer er iets fout gaat in uw toepassing. Application Insights heeft een API om aangepaste gebeurtenissen en metrische gegevens op te nemen. [Hier](../application-insights/app-insights-api-custom-events-metrics.md) kunt u daar meer over lezen.
+Hoewel Application Insights bij de aankoop al veel telemetrie biedt, kunt aanvullende aangepaste instrumentatie toevoegen. Dit kan gebaseerd zijn op de behoeften van uw bedrijf of om de diagnose te verbeteren wanneer er iets fout gaat in uw toepassing. Application Insights heeft een API om aangepaste gebeurtenissen en metrische gegevens op te nemen. [Hier](../azure-monitor/app/api-custom-events-metrics.md) kunt u daar meer over lezen.
 
 Laten we eens wat aangepaste gebeurtenissen aan *VoteDataController.cs* toevoegen (onder *VotingData* > *Controllers*) om bij te houden wanneer er stemmen worden toegevoegd en verwijderd uit de onderliggende *votesDictionary*.
 

@@ -1,5 +1,5 @@
 ---
-title: Een oplossing proberen in Azure om mijn industriële IoT-apparaten te beheren | Microsoft Docs
+title: Een oplossing proberen om mijn industriële IoT-apparaten te beheren - Azure | Microsoft Docs
 description: In deze snelstart implementeert u de Azure IoT-oplossingsversneller voor verbonden factory’s. Vervolgens meldt u zich aan bij het oplossingsdashboard.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138993"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602644"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snelstart: Een cloudgebaseerde oplossing uitproberen voor het beheren van mijn industriële IoT-apparaten
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Quickstart: Een cloudgebaseerde oplossing proberen voor het beheren van mijn industriële IoT-apparaten
 
 In deze snelstart ziet u hoe de Azure IoT-oplossingsversneller voor verbonden factory’s implementeert voor het uitvoeren van een cloudgebaseerde bewakings- en beheersimulatie voor industriële IoT-apparaten. Wanneer u de oplossingsversneller Verbonden factory implementeert, wordt deze vooraf ingevuld met gesimuleerde resources waarmee u een algemeen industrieel IoT-scenario kunt doorlopen. Verschillende gesimuleerde factory's die zijn verbonden met de oplossing rapporteren de gegevenswaarden die nodig zijn voor het berekenen van de algemene apparatuurefficiëntie (overall equipment efficiency, OEE) en de key performance indicators (KPI's). In deze snelstart leest u hoe u het dashboard van de oplossing kunt gebruiken:
 

@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cdd73c46d87ec09439188024945bd60299bb1d57
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256992"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629744"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: Een bestaand, aangepast SSL-certificaat verbinden met Azure Web Apps
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Zelfstudie: Een bestaand, aangepast SSL-certificaat met Azure App Service verbinden
 
-Azure Web Apps biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie wordt uitgelegd hoe u een aangepast SSL-certificaat dat u hebt aangeschaft via een vertrouwde certificeringsinstantie met [Azure Web Apps](app-service-web-overview.md) kunt verbinden. Wanneer u klaar bent, kunt u uw web-app openen op het HTTPS-eindpunt van uw aangepaste DNS-domein.
+Azure App Service biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie wordt uitgelegd hoe u een aangepast SSL-certificaat dat u hebt aangeschaft via een vertrouwde certificeringsinstantie met [Azure App Service](overview.md) kunt verbinden. Wanneer u klaar bent, kunt u uw app openen op het HTTPS-eindpunt van uw aangepaste DNS-domein.
 
 ![Web-app met aangepast SSL-certificaat](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -39,14 +39,14 @@ In deze zelfstudie leert u het volgende:
 > * TLS-beheer automatiseren met scripts
 
 > [!NOTE]
-> Als u een aangepast SSL-certificaat nodig hebt, kunt u er een rechtstreeks in de Azure-portal ophalen en met uw web-app binden. Volg de [zelfstudie voor App Service Certificates](web-sites-purchase-ssl-web-site.md).
+> Als u een aangepast SSL-certificaat nodig hebt, kunt u er een rechtstreeks in Azure Portal ophalen en met uw app verbinden. Volg de [zelfstudie voor App Service Certificates](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
 - [Een App Service-app maken](/azure/app-service/)
-- [Een aangepaste DNS-naam aan uw web-app toewijzen](app-service-web-tutorial-custom-domain.md)
+- [Een aangepaste DNS-naam aan uw App Service-app toewijzen](app-service-web-tutorial-custom-domain.md)
 - Een SSL-certificaat van een vertrouwde certificeringsinstantie verkrijgen
 - De persoonlijke sleutel die u hebt gebruikt voor het ondertekenen van de aanvraag voor het SSL-certificaat
 
@@ -70,7 +70,7 @@ Als u een certificaat in App Service wilt gebruiken, moet het certificaat aan de
 
 ## <a name="bind-your-ssl-certificate"></a>Uw SSL-certificaat binden
 
-U bent klaar om uw SSL-certificaat naar uw web-app te uploaden.
+U bent klaar om uw SSL-certificaat naar uw app te uploaden.
 
 ### <a name="merge-intermediate-certificates"></a>Tussenliggende certificaten samenvoegen
 
@@ -114,7 +114,7 @@ Als u IIS of _Certreq.exe_ hebt gebruikt voor het genereren van uw certificaataa
 
 ### <a name="upload-your-ssl-certificate"></a>Uw SSL-certificaat uploaden
 
-Als u het SSL-certificaat wilt uploaden, klikt u in het linkernavigatievenster van de web-app op **SSL-instellingen**.
+Als u het SSL-certificaat wilt uploaden, klikt u in het linkernavigatievenster van de app op **SSL-instellingen**.
 
 Klik op **Certificaat uploaden**. 
 
@@ -154,24 +154,24 @@ Wanneer App Service klaar is met het uploaden van uw certificaat, wordt het in h
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Een record voor IP SSL opnieuw toewijzen
 
-Als u geen op IP gebaseerde SSL in uw web-app gebruikt, gaat u naar [Test HTTPS for your custom domain](#test) (HTTPS voor uw aangepast domein testen).
+Als u geen op IP gebaseerde SSL in uw app gebruikt, gaat u naar [Test HTTPS for your custom domain](#test) (HTTPS voor uw aangepaste domein testen).
 
-Uw web-app maakt standaard gebruik van een gedeeld openbaar IP-adres. Wanneer u een certificaat met op IP gebaseerde SSL bindt, maakt App Service een nieuw, specifiek IP-adres voor uw web-app.
+Uw app maakt standaard gebruik van een gedeeld openbaar IP-adres. Wanneer u een certificaat met op IP gebaseerde SSL verbindt, maakt App Service een nieuw, specifiek IP-adres voor uw app.
 
-Als u een A-record aan uw web-app hebt toegewezen, werkt u uw domeinregister bij met dit nieuwe, specifieke IP-adres.
+Als u een A-record aan uw app hebt toegewezen, werkt u uw domeinregister bij met dit nieuwe, specifieke IP-adres.
 
-De pagina **Aangepaste domeinen** van uw web-app wordt bijgewerkt met het nieuwe, specifieke IP-adres. [Kopieer dit IP-adres](app-service-web-tutorial-custom-domain.md#info) en [wijs de A-record opnieuw toe](app-service-web-tutorial-custom-domain.md#map-an-a-record) aan dit nieuwe IP-adres.
+De pagina **Aangepast domein** van uw app wordt bijgewerkt met het nieuwe, specifieke IP-adres. [Kopieer dit IP-adres](app-service-web-tutorial-custom-domain.md#info) en [wijs de A-record opnieuw toe](app-service-web-tutorial-custom-domain.md#map-an-a-record) aan dit nieuwe IP-adres.
 
 <a name="test"></a>
 
 ## <a name="test-https"></a>HTTPS testen
 
-Nu hoeft u alleen nog maar te controleren of HTTPS werkt voor uw aangepaste domein. Browse in verschillende browsers naar `https://<your.custom.domain>` om te controleren of het naar uw web-app leidt.
+Nu hoeft u alleen nog maar te controleren of HTTPS werkt voor uw aangepaste domein. Browse in verschillende browsers naar `https://<your.custom.domain>` om te controleren of het naar uw app leidt.
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> Als uw web-app certificaatvalidatiefouten geeft, gebruikt u waarschijnlijk een zelfondertekend certificaat.
+> Als uw app certificaatvalidatiefouten geeft, gebruikt u waarschijnlijk een zelfondertekend certificaat.
 >
 > Als dit niet het geval is, hebt u mogelijk tussenliggende certificaten weggelaten toen u uw certificaat naar het PFX-bestand exporteerde.
 
@@ -187,9 +187,9 @@ Uw inkomende IP-adres kan wijzigen wanneer u een binding verwijdert, zelfs als d
 
 ## <a name="enforce-https"></a>HTTPS afdwingen
 
-Standaard heeft iedereen nog steeds toegang tot uw web-app via HTTP. U kunt alle HTTP-aanvragen omleiden naar de HTTPS-poort.
+Standaard heeft iedereen nog steeds toegang tot uw app via HTTP. U kunt alle HTTP-aanvragen omleiden naar de HTTPS-poort.
 
-Selecteer in het linkernavigatievenster van de web-app-pagina **SSL-instellingen**. Klik op **Alleen HTTPS** en selecteer **Aan**.
+Selecteer in het linkernavigatievenster van de app-pagina **SSL-instellingen**. Klik op **Alleen HTTPS** en selecteer **Aan**.
 
 ![HTTPS afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -203,7 +203,7 @@ Wanneer de bewerking is voltooid, gaat u naar een van de HTTP-URL's die naar uw 
 
 Voor uw app is standaard [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 toegestaan, wat het aanbevolen TLS-niveau is volgens industrienormen zoals [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Als u andere TLS-versies wilt afdwingen, volgt u deze stappen:
 
-Selecteer in het linkernavigatievenster van de web-app-pagina **SSL-instellingen**. Selecteer vervolgens bij **TLS-versie** de gewenste minimale TLS-versie. Met deze instelling controleert u alleen de inkomende oproepen. 
+Selecteer in het linkernavigatievenster van de app-pagina **SSL-instellingen**. Selecteer vervolgens bij **TLS-versie** de gewenste minimale TLS-versie. Met deze instelling controleert u alleen de inkomende oproepen. 
 
 ![TLS 1.1 of 1.2 afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -211,7 +211,7 @@ Als de bewerking is voltooid, worden in de app alle verbindingen met lagere TLS-
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
-U kunt SSL-bindingen voor uw web-app met scripts automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
+U kunt SSL-bindingen voor uw app met scripts automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -260,9 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Openbare certificaten (optioneel)
-Als uw app clienttoegang nodig heeft tot externe resources en er voor de externe resource verificatie via een certificaat is vereist, kunt u [openbare certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) naar uw web-app uploaden. Er zijn geen openbare certificaten vereist voor SSL-bindingen van uw app.
+Als uw app clienttoegang nodig heeft tot externe resources en er voor de externe resource verificatie via een certificaat is vereist, kunt u [openbare certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) naar uw app uploaden. Er zijn geen openbare certificaten vereist voor SSL-bindingen van uw app.
 
-Voor meer details over een openbaar certificaat in uw app laden en gebruiken, raadpleegt u [Use an SSL certificate in your application code in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load) (Een SSL-certificaat in uw toepassingscode gebruiken in Azure App Service). U kunt openbare certificaten ook gebruiken voor apps in App Service-omgevingen. Als u het certificaat in het LocalMachine-certificaatarchief wilt opslaan, moet u een web-app in een App Service-omgeving gebruiken. Zie [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Openbare certificaten naar uw web-app configureren) voor meer informatie.
+Voor meer details over een openbaar certificaat in uw app laden en gebruiken, raadpleegt u [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md) (Een SSL-certificaat in uw toepassingscode gebruiken in Azure App Service). U kunt openbare certificaten ook gebruiken voor apps in App Service-omgevingen. Als u het certificaat in het LocalMachine-certificaatarchief wilt opslaan, moet u een app in App Service Environment gebruiken. Zie [How to configure public certificates to your App Service app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Openbare certificaten naar uw App Service-app configureren) voor meer informatie.
 
 ![Openbaar certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

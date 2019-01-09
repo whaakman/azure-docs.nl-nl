@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: hero-article
 ms.date: 09/17/2018
-ms.openlocfilehash: 4d4f7bf9c77dad21f9e66ab0fa023a4898163f1f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb3fba7fa86027d753be21e028109a5d7ef03efb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989165"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722478"
 ---
 # <a name="what-is-azure-scheduler"></a>Wat is Azure Scheduler?
 
@@ -26,13 +26,13 @@ ms.locfileid: "46989165"
 
 Hoewel u Scheduler gebruiken kunt om geplande workloads te maken, onderhouden uit te voeren, host Scheduler de workload niet en voert het geen code uit. De service *roept* de service of programmacode aan die elders wordt gehost, bijvoorbeeld in Azure, on-premises of bij een andere provider. Dit aanroepen doet Scheduler via HTTP, HTTPS, een opslagwachtrij, een Service Bus-wachtrij of een Service Bus-onderwerp. Voor het maken, beheren en plannen van taken kunt u [Azure Portal](../scheduler/scheduler-get-started-portal.md), code, [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/) of [naslaginformatie over Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md) gebruiken. U kunt taken en [taakverzamelingen](../scheduler/scheduler-concepts-terms.md) bijvoorbeeld programmatisch maken, weergeven, bijwerken, beheren of verwijderen met scripts of in Azure Portal.
 
-Andere Azure-planfuncties maken op de achtergrond gebruik van Scheduler, zoals [Azure WebJobs](../app-service/web-sites-create-web-jobs.md), een onderdeel van de functie [Web Apps](https://azure.microsoft.com/services/app-service/web/) in Azure App Service. U kunt de communicatie voor deze acties beheren met de [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/). helpt met het beheer van de communicatie voor deze acties.
+Andere Azure-planfuncties maken op de achtergrond gebruik van Scheduler, zoals [Azure WebJobs](../app-service/webjobs-create.md), een onderdeel van de functie [Web Apps](https://azure.microsoft.com/services/app-service/web/) in Azure App Service. U kunt de communicatie voor deze acties beheren met de [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/). helpt met het beheer van de communicatie voor deze acties.
 
 Hier volgen enkele scenario's waarbij Scheduler u kan helpen:
 
-* **Terugkerende app-acties uitvoeren**: zoals het regelmatig gegevens verzamelen van Twitter in een feed.
+* **Terugkerende app-acties uitvoeren**: bijvoorbeeld regelmatig gegevens verzamelen van Twitter in een feed.
 
-* **Dagelijks onderhoud uitvoeren**: het dagelijks verwijderen van logboeken, het uitvoeren van back-ups en overige onderhoudstaken. 
+* **Dagelijks onderhoud uitvoeren**: bijvoorbeeld het dagelijks verwijderen van logboeken, het uitvoeren van back-ups en overige onderhoudstaken. 
 
   Als beheerder wilt u bijvoorbeeld de komende negen maanden elke dag om 01.00 uur een back-up maken van uw database.
 

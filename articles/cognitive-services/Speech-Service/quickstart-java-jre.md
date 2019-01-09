@@ -1,84 +1,50 @@
 ---
-title: 'Snelstartgids: Spraak herkennen, Java - Speech Services'
+title: 'Quickstart: Spraak herkennen, Java (Windows, Linux) - Spraakservices'
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over spraak herkennen in Java (Windows of Linux)
+description: In deze quickstart leert u hoe u een eenvoudige Java-toepassing maakt die tekst ingesproken in de microfoon van uw computer vastlegt en transcribeert.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0591ca0275c039ddb5828cb48bda2b0b305d7003
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103112"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721379"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Snelstartgids: Spraak herkennen in Java (Windows of Linux) met behulp van de Speech Service-SDK
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een Java-consoletoepassing met behulp van de [Speech Service-SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing wordt gebouwd met het Speech SDK Maven-pakket en de Eclipse Java IDE (v4.8) op 64-bit Windows of Ubuntu Linux 16.04. De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
+In dit artikel maakt u een Java-consoletoepassing met behulp van de [Speech Service-SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing wordt gebouwd met het Speech SDK Maven-pakket en de Eclipse Java IDE (v4.8) op 64-bit Windows of 64-bit Ubuntu Linux 16.04/18.04. De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
 
 > [!NOTE]
 > Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices-SDK en het Roobo-apparaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Speech Service gratis uitproberen](get-started.md) voor de details.
+Voor deze snelstart zijn de volgende zaken vereist:
 
+* Besturingssysteem: Windows (64-bit) of Ubuntu Linux 16.04/18.04 (64-bit)
+* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) of [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
+
+Als u Ubuntu 16.04/18.04 gebruikt, zorg er dan voor dat deze afhankelijkheden zijn geïnstalleerd voordat u Eclipse start.
+
+```console
+sudo apt-get update
+sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+```
 
 ## <a name="create-and-configure-project"></a>Project maken en configureren
 
-Als u Ubuntu 16.04 gebruikt, voer dan vóór het starten van Eclipse de volgende opdrachten uit om ervoor te zorgen dat de vereiste pakketten geïnstalleerd zijn.
-
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
-  ```
-
-1. Start Eclipse.
-
-1. Voer in de Eclipse Launcher, in het veld **Workspace**, de naam van een nieuwe werkruimtemap in. Selecteer vervolgens **Starten**.
-
-   ![Schermopname van Eclipse Launcher](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
-
-1. Binnen enkele ogenblikken verschijnt het hoofdvenster van de Eclipse-IDE. Sluit het welkomstscherm als dit verschijnt.
-
-1. Maak via de Eclipse-menubalk een nieuw project aan door **Bestand** > **Nieuw** > **Project** te kiezen.
-
-1. Het dialoogvenster **Nieuw project** wordt weergegeven. Selecteer **Java-project** en vervolgens **Volgende**.
-
-   ![Schermopname van het dialoogvenster Nieuw project, met Java-project gemarkeerd](media/sdk/qs-java-jre-02-select-wizard.png)
-
-1. De wizard Nieuw Java-project wordt gestart. Voer in het veld **Projectnaam** **quickstart** in en kies **JavaSE-1.8** als uitvoeringsomgeving. Selecteer **Voltooien**.
-
-   ![Schermopname van de wizard Nieuw Java-project](media/sdk/qs-java-jre-03-create-java-project.png)
-
-1. Als het venster **Gekoppeld perspectief openen?** wordt weergegeven, selecteert u **Perspectief openen**.
-
-1. Klik in de **Package explorer** met de rechtermuisknop op het **quickstart**-project. Kies in het contextmenu **Configureren** > **Naar Maven-project converteren**.
-
-   ![Schermopname van Package explorer](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
-
-1. Het venster **Nieuw POM maken** wordt weergegeven. Voer in het veld **Groeps-ID** **com.microsoft.cognitiveservices.speech.samples** in, en voer in het veld **Artefact-ID** **quickstart** in. Selecteer vervolgens **Voltooien**.
-
-   ![Schermopname van het venster Nieuw POM maken](media/sdk/qs-java-jre-05-configure-maven-pom.png)
-
-1. Open het bestand **pom.xml** en bewerk dit.
-
-   * Maak aan het einde van het bestand, vóór de afsluitende tag `</project>`, een `repositories`-element met een verwijzing naar de Maven-opslagplaats voor de Speech-SDK, zoals hier getoond:
-
-     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
-
-  * Voeg ook een `dependencies`-element toe met Speech SDK versie 1.1.0 als afhankelijkheid:
-
-     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
-
-   * Sla de wijzigingen op.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 ## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
@@ -105,16 +71,15 @@ De volgende 15 seconden aan spraakinvoer vanuit uw microfoon worden herkend en g
 
 ![Schermafbeelding van console-uitvoer na geslaagde herkenning](media/sdk/qs-java-jre-07-console-output.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek naar dit voorbeeld in de map `quickstart/java-jre`.
-
 ## <a name="next-steps"></a>Volgende stappen
 
+Op GitHub vindt u aanvullende voorbeelden, zoals hoe u spraak kunt lezen vanuit een audiobestand.
+
 > [!div class="nextstepaction"]
-> [Intenties van gesproken inhoud herkennen met behulp van de Speech-SDK voor Java](how-to-recognize-intents-from-speech-java.md)
+> [Bekijk Java-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Spraak vertalen](how-to-translate-speech-csharp.md)
+- [Snelstart: Omzetten van spraak, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
 - [Taalmodellen aanpassen](how-to-customize-language-model.md)

@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270260"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714335"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze zelfstudie toont u hoe u een bestaande aangepaste DNS-naam toewijst aan Azure Web Apps.
+[Azure App Service](overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie ziet u hoe u een bestaande aangepaste DNS-naam toewijst aan Azure App Service.
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -48,7 +48,7 @@ Vereisten voor het voltooien van deze zelfstudie:
   Als u bijvoorbeeld DNS-vermeldingen voor `contoso.com` en `www.contoso.com` wilt toevoegen, moet u de DNS-instellingen voor het hoofddomein van `contoso.com` kunnen configureren.
 
   > [!NOTE]
-  > Als u geen bestaande domeinnaam heeft, denk dan na over het [aanschaffen van een domein met de Azure portal](custom-dns-web-site-buydomains-web-app.md). 
+  > Als u geen bestaande domeinnaam heeft, denk dan na over het [aanschaffen van een domein met de Azure portal](manage-custom-dns-buy-domain.md). 
 
 ## <a name="prepare-the-app"></a>De app voorbereiden
 
@@ -156,7 +156,7 @@ Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aang
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden](app-service-web-tutorial-custom-ssl.md).
+> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat verbinden met Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u een verificatie-foutmelding aan de onderkant van de pagina.
 
@@ -231,7 +231,7 @@ Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aang
 ![A-record toegevoegd](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden](app-service-web-tutorial-custom-ssl.md).
+> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat verbinden met Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u een verificatie-foutmelding aan de onderkant van de pagina.
 
@@ -286,7 +286,7 @@ Selecteer opnieuw het pictogram **+** om een andere hostnaam toe te voegen die o
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden](app-service-web-tutorial-custom-ssl.md).
+> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat verbinden met Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Testen in browser
 
@@ -305,7 +305,7 @@ Als u een HTTP 404 (niet gevonden)-fout ontvangt bij het bladeren naar de URL va
 
 ## <a name="migrate-an-active-domain"></a>Een actief domein migreren
 
-Zie voor het zonder downtime migreren van een live site en de DNS-domeinnaam naar App Service [Een actieve DNS-naam migreren naar Azure App Service](app-service-custom-domain-name-migrate.md).
+Zie voor het zonder downtime migreren van een live site en de DNS-domeinnaam naar App Service [Een actieve DNS-naam migreren naar Azure App Service](manage-custom-dns-migrate-domain.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Een aangepaste map omleiden
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Zie voor meer informatie [Een aangepast domein toewijzen aan een web-app](scripts/app-service-cli-configure-custom-domain.md). 
+Zie voor meer informatie [Een aangepast domein toewijzen aan een web-app](scripts/cli-configure-custom-domain.md). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Zie voor meer informatie [Een aangepast domein toewijzen aan een web-app](scripts/app-service-powershell-configure-custom-domain.md).
+Zie voor meer informatie [Een aangepast domein toewijzen aan een web-app](scripts/powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -363,4 +363,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 Ga door naar de volgende zelfstudie om te leren hoe u een aangepast SSL-certificaat aan een web-app kunt toewijzen.
 
 > [!div class="nextstepaction"]
-> [Een bestaand aangepast SSL-certificaat binden aan Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Een bestaand, aangepast SSL-certificaat met Azure App Service verbinden](app-service-web-tutorial-custom-ssl.md)

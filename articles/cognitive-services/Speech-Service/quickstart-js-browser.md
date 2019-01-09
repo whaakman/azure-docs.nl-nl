@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: spraak herkennen, Javascript (browser) - Speech Services'
+title: 'Quickstart: Spraak herkennen, Javascript (browser) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Informatie over het herkennen van gesproken tekst in JavaScript in een browser met behulp van de Speech Service SDK
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087912"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715134"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Snelstart: gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een website maakt met behulp van de JavaScript binding van de Cognitive Services Speech SDK om spraak om te zetten naar tekst.
-De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK ([download versie 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
+De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK ([download versie 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,8 +40,8 @@ Maak een nieuwe, lege map. Als u de voorbeeldtoepassing op een webserver wilt ho
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Download de Speech SDK als een [ZIP-pakket](https://aka.ms/csspeech/jsbrowserpackage) en pak dit uit in de zojuist gemaakte map. Er moeten nu twee bestanden worden uitgepakt, namelijk `microsoft.cognitiveservices.speech.sdk.bundle.js` en `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-Het laatste bestand is optioneel en wordt gebruikt om u te helpen bij foutopsporing in SDK-code, indien nodig.
+Download de Speech SDK als een [ZIP-pakket](https://aka.ms/csspeech/jsbrowserpackage) en pak dit uit in de zojuist gemaakte map. Er worden twee bestanden uitgepakt, `microsoft.cognitiveservices.speech.sdk.bundle.js` en `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Het laatste bestand is optioneel en is handig voor foutopsporing in de SDK-code.
 
 ## <a name="create-an-indexhtml-page"></a>Een index.html-pagina maken
 
@@ -103,10 +103,7 @@ Om de app te starten, dubbelklikt u op het bestand index.html of opent u index.h
 
 Om uw app te starten, opent u uw favoriete webbrowser en laat u deze wijzen naar de openbare URL waarop u de map host, geeft u uw [regio](regions.md) op en activeert u spraakherkenning met behulp van de microfoon. Indien dit is geconfigureerd, wordt er een token uit uw tokenbron opgehaald.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek naar dit voorbeeld in de map `quickstart/js-browser`.
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Onze voorbeelden ophalen](speech-sdk.md#get-the-samples)
+> [Bekijk JavaScript-voorbeelden op GitHub](https://aka.ms/csspeech/samples)

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eef755c01a6703976383ee31b52bde14d32f0110
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499311"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604062"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Zelfstudie: Een Scala Maven-toepassing maken voor Apache Spark in HDInsight met behulp van IntelliJ
 
@@ -26,7 +26,7 @@ In deze zelfstudie leert u hoe u met behulp van [Apache Maven](https://maven.apa
 * Een JAR-bestand genereren dat kan worden verstuurd naar HDInsight Spark-clusters.
 * De toepassing uitvoeren in een Spark-cluster met behulp van Livy.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight biedt ook een invoegtoepassing voor IntelliJ IDEA om het proces van het maken en verzenden van toepassingen naar een HDInsight Spark-cluster in Linux te vereenvoudigen. Zie [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Apache Spark-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md) voor meer informatie.
 > 
 

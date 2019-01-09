@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Beoordelingen maken met behulp van .NET - Content Moderator'
+title: 'Quickstart: Beoordelingen maken met behulp van .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Beoordelingen maken met behulp van de Azure Content Moderator SDK voor .NET.
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226582"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538868"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>Snelstart: Beoordelingen maken met behulp van .NET
+# <a name="quickstart-create-reviews-using-net"></a>Quickstart: Beoordelingen maken met behulp van .NET
 
 In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en het volgende te doen:
  
 - Een set beoordelingen voor menselijke moderators maken
 - De status van bestaande beoordelingen voor menselijke moderators ophalen
 
-De inhoud doorloopt over het algemeen de een of andere vorm van geautomatiseerd toezicht voordat deze wordt gepland voor menselijke beoordeling. Dit artikel behandelt alleen het maken van de beoordeling voor menselijk toezicht. Zie de zelfstudies [Beheer van Facebook-inhoud](facebook-post-moderation.md) en [Beheer van eCommerce-catalogus](ecommerce-retail-catalog-moderation.md) voor een uitgebreider scenario.
+De inhoud doorloopt over het algemeen de een of andere vorm van geautomatiseerd toezicht voordat deze wordt gepland voor menselijke beoordeling. Dit artikel behandelt alleen het maken van de beoordeling voor menselijk toezicht. Zie de zelfstudies [Facebook-inhoud controleren](facebook-post-moderation.md) en [eCommerce-catalogus modereren](ecommerce-retail-catalog-moderation.md) voor een uitgebreider scenario.
 
 In dit artikel wordt ervan uitgegaan dat u al bekend bent met Visual Studio en C#.
 
@@ -33,11 +33,11 @@ In dit artikel wordt ervan uitgegaan dat u al bekend bent met Visual Studio en C
 Om de Content Moderator-services via de REST-API of de SDK te kunnen gebruiken, hebt u een abonnementssleutel nodig.
 Raadpleeg de [snelstart](quick-start.md) voor informatie over hoe u de sleutel kunt verkrijgen.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Schrijf u in voor een account voor een beoordelingsprogramma als dat niet in de vorige stap is uitgevoerd
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Aanmelden voor een account voor het beoordelingsprogramma als dat niet in de vorige stap is gedaan
 
-Als u uw Content Moderator via de Azure-portal hebt gekregen, [schrijf u dan ook in voor het account voor een beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een functie te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
+Als u uw Content Moderator via de Azure-portal hebt gekregen, [schrijf u dan ook in voor het account voor een beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een taak te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Zorg ervoor dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
 Nadat u de vorige stappen hebt uitgevoerd, zou u twee Content Moderator-sleutels kunnen hebben als u vanuit de Azure-portal bent gestart. 
 
@@ -49,7 +49,7 @@ Als u de gratis proefversie van de sleutel gebruikt die wordt gegenereerd door h
 
 1. Voeg een nieuw project van het type **Console app (.NET Framework)** toe aan uw oplossing.
 
-   Noem het project **CreateReviews** in de voorbeeldcode.
+   Geef het project de naam **CreateReviews** in de voorbeeldcode.
 
 1. Selecteer dit project als het enige opstartproject voor de oplossing.
 
@@ -63,7 +63,7 @@ Installeer de volgende NuGet-pakketten:
 
 ### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
-De using-instructies van het programma wijzigen
+Pas de using-instructies van het programma aan.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;

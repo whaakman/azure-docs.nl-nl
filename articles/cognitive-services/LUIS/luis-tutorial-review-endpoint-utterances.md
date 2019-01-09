@@ -1,7 +1,7 @@
 ---
 title: Eindpuntuitingen controleren
 titleSuffix: Azure Cognitive Services
-description: Verbeter de voorspellingen van de app door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud.
+description: Verbeter de voorspellingen van de app door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bc641732d74dac4f566420ada6338362932df4d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080449"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755118"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>Zelfstudie 1: Onzekere voorspellingen herstellen
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Zelfstudie: Onzekere voorspellingen herstellen door eindpuntuitingen te controleren
 In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud. 
 
 Dit beoordelingsproces is een andere manier waarop LUIS meer over uw app-domein kan leren. De uitingen die in de beoordelingslijst worden weergegeven, zijn door LUIS geselecteerd. Deze lijst:
@@ -33,7 +33,7 @@ Door de eindpuntuitingen te boordelen, kunt u de voorspelde intenties controlere
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken
+> * Voorbeeld-app importeren
 > * Eindpuntuitingen controleren
 > * Frasenlijst bijwerken
 > * App trainen
@@ -42,19 +42,19 @@ Door de eindpuntuitingen te boordelen, kunt u de voorspelde intenties controlere
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Bestaande app gebruiken
+## <a name="import-example-app"></a>Voorbeeld-app importeren
 
 Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Voer de volgende stappen uit:
 
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) en sla het op.
+1.  Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) en sla het op.
 
 2. Importeer de JSON in een nieuwe app.
 
 3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `review`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
 
-    Als u deze zelfstudie doet met een nieuwe, geïmporteerde app, moet u die ook trainen en publiceren en vervolgens de uitingen toevoegen aan het eindpunt met een [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) of via het eindpunt in een browser. U dient deze uitingen toe te voegen:
+    Als u deze zelfstudie doet met een nieuwe, geïmporteerde app, moet u die ook trainen en publiceren en vervolgens de uitingen toevoegen aan het eindpunt met een [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) of via het eindpunt in een browser. U dient deze uitingen toe te voegen:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

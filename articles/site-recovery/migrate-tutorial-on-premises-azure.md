@@ -4,15 +4,15 @@ description: In dit artikel wordt beschreven hoe u on-premises VM en fysieke mac
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836981"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789243"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -63,7 +63,7 @@ Selecteer wat u wilt repliceren en waarnaar u wilt repliceren.
 1. Klik op **Recovery Services-kluizen** > kluis.
 2. Klik in het resourcemenu op **Site Recovery** > **Infra structuur voorbereiden** > **Beveiligingsdoel**.
 3. Selecteer bij **Beveiligingsdoel** wat u wilt migreren.
-    - **VMware**: selecteer **naar Azure** > **Ja, met VMWare vSphere Hypervisor**.
+    - **VMware**: selecteer **Naar Azure** > **Ja, met VMWare vSphere Hypervisor**.
     - **Fysieke machine**: selecteer **Naar Azure** > **Niet gevirtualiseerde/overige**.
     - **Hyper-V**: selecteer **Naar Azure** > **Ja, met Hyper-V**. Als Hyper-V-machines worden beheerd door VMM, selecteert u **Ja**.
 
@@ -119,7 +119,7 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 
 
 > [!WARNING]
-> **Annuleer een failover die in voortgang is niet**: voordat de failover wordt gestart, wordt de VM-replicatie gestopt. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.
+> **Annuleer nooit een failover die in uitvoering is**: De VM-replicatie wordt gestopt voordat de failover start. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.
 
 In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor fysieke servers, VMware Linux-computers, VMware VM's waarop de DHCP-service niet is ingeschakeld, en VMware VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
 

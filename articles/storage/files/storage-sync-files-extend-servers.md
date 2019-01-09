@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986114"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630696"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Zelfstudie: Windows-bestandsservers uitbreiden met Azure File Sync
 In deze zelfstudie worden de basisstappen getoond voor het uitbreiden van de opslagcapaciteit van een Windows-server met Azure File Sync. Hoewel in deze zelfstudie een Windows Server-VM wordt gebruikt, voert u dit proces gewoonlijk uit voor uw on-premises servers. Als u klaar bent om Azure File Sync in uw eigen omgeving te implementeren, lees dan het artikel [Azure File Sync implementeren](storage-sync-files-deployment-guide.md).
@@ -163,14 +163,14 @@ In de VM **Windows Server 2016 Datacenter** wordt **Serverbeheer** automatisch g
 
 1. Sluit **Verkenner** en **Serverbeheer**.
 
-### <a name="download-the-azurerm-powershell-module"></a>AzureRM PowerShell-module downloaden
-Vervolgens, in de VM **Windows Server 2016 Datacenter**, installeert u de **AzureRM PowerShell-module** op de server.
+### <a name="download-the-azure-powershell-module"></a>Azure PowerShell-module downloaden
+Installeer vervolgens in de VM **Windows Server 2016 Datacenter** de **Azure PowerShell-module** op de server.
 
 1. Open in de VM een PowerShell-venster met verhoogde bevoegdheid
 1. Voer de volgende opdracht uit:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ Vervolgens, in de VM **Windows Server 2016 Datacenter**, installeert u de **Azur
 
 1. Antwoord `Yes` of `Yes to All` om door te gaan met de installatie.
 
-De `AzureRM`-module is een updatepakketmodule voor de Azure PowerShell-cmdlets. Wanneer u deze installeert, worden alle beschikbare Azure Resource Manager-modules gedownload en kunnen de cmdlets uit deze modules worden gebruikt.
+De `Az`-module is een updatepakketmodule voor de Azure PowerShell-cmdlets. Wanneer u deze installeert, worden alle beschikbare Azure Resource Manager-modules gedownload en kunnen de cmdlets uit deze modules worden gebruikt.
 
 U hebt nu uw omgeving ingesteld voor de zelfstudie en u kunt de **opslagsynchronisatieservice** gaan implementeren.
 
@@ -237,7 +237,7 @@ U hebt de Azure Sync-service geïmplementeerd en de agent geïnstalleerd op de V
 ## <a name="register-windows-server"></a>Windows Server registreren
 Als u Windows Server registreert voor een opslagsynchronisatieservice, wordt er een vertrouwensrelatie ingesteld tussen uw server (of cluster) en de opslagsynchronisatieservice. Een server kan slechts voor één opslagsynchronisatieservice worden geregistreerd en kan worden gesynchroniseerd met andere servers en Azure-bestandsshares die aan dezelfde opslagsynchronisatieservice zijn gekoppeld.
 
-De gebruikersinterface van de serverregistratie moet automatisch worden geopend als de **Azure File Sync-agent** is geïnstalleerd. Als dat niet gebeurt, kunt u deze handmatig openen vanuit de bestandslocatie: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+De gebruikersinterface van de serverregistratie moet automatisch worden geopend als de **Azure File Sync-agent** is geïnstalleerd. Als dat niet zo is, kunt u de interface handmatig openen vanaf de bestandslocatie: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. Als de gebruikersinterface van de serverregistratie in de VM wordt geopend, klikt u op **OK**.
 1. Klik op **Aanmelden** om te beginnen.

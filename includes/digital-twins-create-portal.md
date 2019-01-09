@@ -5,19 +5,19 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/17/2018
+ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: e5e015c1e12e68f54ae7fd32082faed1abfebe74
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51626388"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584757"
 ---
-1. Meld u aan bij de [Azure-portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](http://portal.azure.com).
 
-1. Selecteer **Een resource maken** in het linkerdeelvenster. Zoek naar **digital twins** en selecteer **Digital Twins (preview)**. Selecteer **Maken** om het implementatieproces te starten.
+1. Selecteer **Een resource maken** in het linkerdeelvenster. Zoek op **digital twins** en selecteer **Digital Twins (preview)**. Selecteer **Maken** om het implementatieproces te starten.
 
    ![Selecties voor het maken van een nieuw Digital Twins-exemplaar](./media/create-digital-twins-portal/create-digital-twins.png)
 
@@ -25,7 +25,7 @@ ms.locfileid: "51626388"
    * **Resourcenaam**: geef uw instantie van Digital Twins een unieke naam.
    * **Abonnement**: kies het abonnement dat u wilt gebruiken om deze instantie van Digital Twins te maken. 
    * **Resourcegroep**: selecteer of maak een [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) voor de instantie van Digital Twins.
-   * **Locatie**: selecteer de locatie die het dichtst bij uw apparaten in de buurt is.
+   * **Locatie**: Selecteer de dichtstbijzijnde locatie voor uw apparaten.
 
     ![Digital Twins-deelvenster met ingevoerde gegevens](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
@@ -33,8 +33,8 @@ ms.locfileid: "51626388"
 
 1. Open het deelvenster **Overzicht** van de instantie van Digital Twins. Zoals u ziet, wordt er een koppeling weergegeven onder **Beheer API**.
 
-   De indeling van de URL van de **Beheer API** is: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger_. Deze URL leidt u naar de documentatie van de REST API van Azure Digital Twins, die van toepassing is op uw instantie. Zie [Het gebruik van Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) voor informatie over hoe u deze API-documentatie dient te lezen en gebruiken.
+   De indeling van de URL van de **Beheer API** is `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. Deze URL leidt u naar de documentatie van de REST API van Azure Digital Twins, die van toepassing is op uw instantie. Zie [Het gebruik van Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) voor informatie over hoe u deze API-documentatie dient te lezen en gebruiken.
 
-    Wijzig de URL van de **Beheer API** als volgt: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Uw toepassing gebruikt de aangepaste URL als de basis-URL voor toegang tot uw instantie. Kopieer deze gewijzigde URL naar een tijdelijk bestand. U hebt deze URL nodig in de volgende sectie.
+    Wijzig de URL van de **Beheer API** als volgt: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Uw toepassing gebruikt de aangepaste URL als de basis-URL voor toegang tot uw instantie. Kopieer deze gewijzigde URL naar een tijdelijk bestand. U hebt deze URL nodig in de volgende sectie.
 
     ![Beheer-API](./media/create-digital-twins-portal/digital-twins-management-api.png)

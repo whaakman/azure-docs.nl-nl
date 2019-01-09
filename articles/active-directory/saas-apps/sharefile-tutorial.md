@@ -1,118 +1,112 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Citrix ShareFile | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory- en Citrix ShareFile.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Citrix ShareFile configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 9919be128ae651b589a37f957cc59ce6d171143f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: eab9970915e3c20eb6b0a7a4bff48490bdca83b8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431729"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Zelfstudie: Azure Active Directory-integratie met Citrix ShareFile
 
-In deze zelfstudie leert u hoe u Citrix ShareFile integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Citrix ShareFile integreert met Azure Active Directory (Azure AD).
+De integratie van Citrix ShareFile met Azure AD heeft de volgende voordelen:
 
-Citrix ShareFile integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Citrix ShareFile.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Citrix ShareFile (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Citrix ShareFile heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Citrix ShareFile (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Citrix ShareFile, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Citrix ShareFile:
 
-- Een Azure AD-abonnement
-- Een Citrix ShareFile eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Abonnement op Citrix ShareFile met eenmalige aanmelding (SSO) ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Citrix ShareFile uit de galerie toevoegen
-1. Configureren en Azure AD eenmalige aanmelding testen
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="add-citrix-sharefile-from-the-gallery"></a>Citrix ShareFile uit de galerie toevoegen
-Voor het configureren van de integratie van Citrix ShareFile in Azure AD, moet u Citrix ShareFile uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Citrix ShareFile ondersteunt door **SP** geïnitieerde SSO
 
-**Als u wilt toevoegen Citrix ShareFile uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-citrix-sharefile-from-the-gallery"></a>Citrix ShareFile toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Citrix ShareFile in Azure AD te configureren, moet u Citrix ShareFile vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Ga als volgt te werk om Citrix ShareFile vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Citrix ShareFile**, selecteer **Citrix ShareFile** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Citrix ShareFile in de lijst met resultaten](./media/sharefile-tutorial/tutorial_sharefile_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie configureert u en test Azure AD eenmalige aanmelding met Citrix ShareFile op basis van een testgebruiker 'Britta Simon' genoemd.
+4. Typ **Citrix ShareFile** in het zoekvak, selecteer **Citrix ShareFile** in de lijst met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Citrix ShareFile is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Citrix ShareFile tot stand worden gebracht.
+     ![Citrix ShareFile in de lijst met resultaten](common/search-new-app.png)
 
-In Citrix ShareFile, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Citrix ShareFile, moet u de volgende bouwstenen voltooien:
+In dit gedeelte gaat u eenmalige aanmelding van Azure AD met Citrix ShareFile configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Citrix ShareFile tot stand is gebracht.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker Citrix ShareFile](#create-a-citrix-sharefile-test-user)**  : als u wilt een equivalent van Britta Simon in Citrix ShareFile die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Citrix ShareFile, moet u de volgende procedures uitvoeren:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Citrix ShareFile configureren](#configure-citrix-sharefile-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Citrix ShareFile maken](#create-citrix-sharefile-test-user)**: een tegenhanger voor Britta Simon maken in Citrix ShareFile die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw toepassing Citrix ShareFile.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Citrix ShareFile, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **Citrix ShareFile** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Citrix ShareFile:
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina met de integratie van de toepassing **Citrix ShareFile** en selecteer **Eenmalige aanmelding**.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/sharefile-tutorial/tutorial_sharefile_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **Citrix ShareFile domein en URL's** sectie, voert u de volgende stappen uit:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Citrix ShareFile domein en URL's, eenmalige aanmelding informatie](./media/sharefile-tutorial/tutorial_sharefile_url.png)
-    
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<tenant-name>.sharefile.com/saml/login`
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    b. In de **id (entiteits-ID)** tekstvak, een URL met behulp van het volgende patroon:
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding bij Citrix ShareFile](common/sp-identifier-reply.png)
+
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<tenant-name>.sharefile.com/saml/login`
+
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
 
     | |
     |---|
@@ -123,164 +117,145 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     | `https://<tenant-name>.sharefile.eu/saml/info`|
     | |
     
-    c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon:
+    c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon:
     | |
     |---|
     | `https://<tenant-name>.sharefile.com/saml/acs`|
     | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
     | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
-    | |
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met [Citrix ShareFile Client ondersteuningsteam](https://www.citrix.co.in/products/sharefile/support.html) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Citrix ShareFile](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/sharefile-tutorial/tutorial_sharefile_certificate.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. Klik op **opslaan** knop.
+6. In het gedeelte **Citrix ShareFile instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/sharefile-tutorial/tutorial_general_400.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-1. Op de **Citrix ShareFile configuratie** sectie, klikt u op **configureren Citrix ShareFile** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    a. Aanmeldings-URL
 
-    ![Citrix ShareFile configuratie](./media/sharefile-tutorial/tutorial_sharefile_configure.png)
+    b. Azure AD-id
 
-1. In een ander browservenster, meld u aan bij uw **Citrix ShareFile** bedrijf site als beheerder.
+    c. Afmeldings-URL
 
-1. Klik in de werkbalk bovenaan op **Admin**.
+### <a name="configure-citrix-sharefile-single-sign-on"></a>Eenmalige aanmelding voor Citrix ShareFile configureren
 
-1. Selecteer in het navigatiedeelvenster links **configureren Single Sign-On**.
+1. Meld u in een ander browservenster als beheerder aan bij de bedrijfssite van **Citrix ShareFile**.
+
+2. Klik in de werkbalk bovenaan op **Admin**.
+
+3. Selecteer in het navigatievenster links **Configure Single Sign-On**.
    
-    ![Beheer van account](./media/sharefile-tutorial/ic773627.png "beheer van Account")
+    ![Account Administration](./media/sharefile-tutorial/ic773627.png "Account Administration")
 
-1. Op de **Single Sign-On / configuratie van SAML 2.0** dialoogvenster pagina onder **basisinstellingen**, voer de volgende stappen uit:
+4. Voer in het dialoogvenster **Single sign-on / SAML 2.0 Configuration** de volgende stappen uit onder **Basic Settings**:
    
-    ![Eenmalige aanmelding](./media/sharefile-tutorial/ic773628.png "eenmalige aanmelding")
+    ![Single sign-on](./media/sharefile-tutorial/ic773628.png "Single sign-on")
    
-    a. Klik op **SAML inschakelen**.
+    a. Klik op **Enable SAML**.
     
-    b. In **uw id-provider Issuer / entiteits-ID** tekstvak, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure portal.
+    b. Plak in het tekstvak **Your IDP Issuer/ Entity ID** de waarde van **Azure AD-id** die u hebt gekopieerd uit de Azure-portal.
 
-    c. Klik op **wijziging** naast de **X.509-certificaat** veld en upload het certificaat dat u hebt gedownload van de Azure-portal.
+    c. Klik op **Change** naast het veld **X.509 Certificate** en upload het certificaat dat u hebt gedownload uit de Azure-portal.
     
-    d. In **aanmeldings-URL** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vanuit Azure portal.
+    d. Plak in het tekstvak **Login URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
     
-    e. In **afmeldings-URL van** tekstvak, plak de waarde van **afmelding URL** die u hebt gekopieerd vanuit Azure portal.
+    e. Plak in het tekstvak **Logout URL** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-1. Klik op **opslaan** op de Citrix ShareFile management portal.
+5. Klik op **Save** in de beheerportal van Citrix ShareFile.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/sharefile-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/sharefile-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/sharefile-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/sharefile-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-citrix-sharefile-test-user"></a>Maak een testgebruiker Citrix ShareFile
-
-Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Citrix ShareFile, moeten ze worden ingericht voor Citrix ShareFile. In het geval van Citrix ShareFile is inrichten een handmatige taak.
-
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
-
-1. Meld u aan bij uw **Citrix ShareFile** tenant.
-
-1. Klik op **gebruikers beheren \> startpagina van gebruikers beheren \> + maken van de werknemer**.
-   
-   ![Maken van de werknemer](./media/sharefile-tutorial/IC781050.png "werknemer maken")
-
-1. Op de **basisinformatie** sectie, voert u onderstaande stappen te volgen:
-   
-   ![Algemene informatie](./media/sharefile-tutorial/IC799951.png "basisinformatie")
-   
-   a. In de **e-mailadres** tekstvak typt u het e-mailadres van Britta Simon als **brittasimon@contoso.com**.
-   
-   b. In de **voornaam** tekstvak, type **voornaam** van gebruiker als **Julia**.
-   
-   c. In de **achternaam** tekstvak, type **achternaam** van gebruiker als **Simon**.
-
-1. Klik op **gebruiker toevoegen**.
-  
-   >[!NOTE]
-   >De houder van Azure AD-account ontvangt een e-mailbericht en gaat u als volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt. U kunt een andere hulpprogramma's voor Citrix ShareFile gebruiker-account maken of API's ontwerpgereedschappen van Citrix ShareFile gebruiken voor het inrichten van gebruikersaccounts van de Azure AD.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Citrix ShareFile.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Citrix ShareFile.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Citrix ShareFile**.
 
-**Als u wilt toewijzen Britta Simon naar Citrix ShareFile, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Typ en selecteer **Citrix ShareFile** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Citrix ShareFile in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Citrix ShareFile**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De Citrix ShareFile-koppeling in de lijst met toepassingen](./media/sharefile-tutorial/tutorial_sharefile_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-citrix-sharefile-test-user"></a>Testgebruiker voor Citrix ShareFile maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+Als gebruikers van Azure AD zich moeten kunnen aanmelden bij Citrix ShareFile, moet u ze eerst toevoegen aan Citrix ShareFile. In het geval van Citrix ShareFile moet dit handmatig gebeuren.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
-Wanneer u op de tegel Citrix ShareFile in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Citrix ShareFile.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+1. Meld u aan bij uw **Citrix ShareFile**-tenant.
+
+2. Klik op **Manage Users \> Manage Users Home \> + Create Employee**.
+   
+    ![Create Employee](./media/sharefile-tutorial/IC781050.png "Create Employee")
+
+3. Voer in het gedeelte **Basic Information** onderstaande stappen uit:
+   
+    ![Basic Information](./media/sharefile-tutorial/IC799951.png "Basic Information")
+   
+    a. Typ in het tekstvak **Email Address** het e-mailadres van Britta Simon als **brittasimon@contoso.com**.
+   
+    b. Typ in het tekstvak **First Name** de **voornaam** van de gebruiker, in dit geval **Britta**.
+   
+    c. Typ in het tekstvak **Last Name** de **achternaam** van de gebruiker, in dit geval **Simon**.
+
+4. Klik op **Add User**.
+  
+    >[!NOTE]
+    >De houder van het Azure AD-account krijgt een e-mailbericht met een koppeling om het account te bevestigen voordat dit actief wordt. U kunt ieder hulpprogramma voor het maken van Citrix ShareFile-gebruikersaccounts of API's van Citrix ShareFile gebruiken voor het inrichten van Azure AD-gebruikersaccounts.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel Citrix ShareFile klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van in het toegangsvenster waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/sharefile-tutorial/tutorial_general_01.png
-[2]: ./media/sharefile-tutorial/tutorial_general_02.png
-[3]: ./media/sharefile-tutorial/tutorial_general_03.png
-[4]: ./media/sharefile-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/sharefile-tutorial/tutorial_general_100.png
-
-[200]: ./media/sharefile-tutorial/tutorial_general_200.png
-[201]: ./media/sharefile-tutorial/tutorial_general_201.png
-[202]: ./media/sharefile-tutorial/tutorial_general_202.png
-[203]: ./media/sharefile-tutorial/tutorial_general_203.png

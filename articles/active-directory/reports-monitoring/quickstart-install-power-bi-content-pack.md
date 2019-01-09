@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 314f1c1656485f93942eb23f928cc66720a12565
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622531"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753537"
 ---
-# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Snelstart: Het inhoudspakket voor Microsoft Azure Active Directory Power BI installeren
+# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Quickstart: Inhoudspakket voor Azure Active Directory Power BI installeren
 
 |  |
 |--|
@@ -39,7 +39,7 @@ U hebt het volgende nodig om deze quickstart te voltooien:
 
 * Een Power BI-account. Dit is hetzelfde account als uw Office 365- of Microsoft Azure AD-account. 
 * De id van de Microsoft Azure AD-tenant. Dit is de **map-id** van de map op de [eigenschappenpagina](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) van Azure Portal.
-* Een licentie voor Microsoft Azure AD Premium (P1/P2). 
+* Een licentie voor Microsoft Azure AD Premium (P1/P2). Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden.
 
 ## <a name="install-azure-ad-power-bi-content-pack"></a>Het inhoudspakket voor Microsoft Azure AD Power BI installeren 
 

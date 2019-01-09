@@ -8,15 +8,15 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972120"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793578"
 ---
 # <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
-In dit artikel wordt uitgelegd hoe u met de Azure-portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
+In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
 
 In deze handleiding leert u het volgende:
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Voordat u een back-up van een Azure-bestandsshare probeert te maken, moet u naga
 Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ondersteund in de accounts voor algemeen gebruik v1 en v2. De volgende back-upscenario's worden niet ondersteund voor Azure-bestandsshares:
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts waarvoor virtuele netwerken zijn of een firewall is ingeschakeld.
-- Er is geen PowerShell of CLI beschikbaar voor het beveiligen van Azure Files met behulp van Azure Backup.
+- Er is geen CLI beschikbaar voor het beveiligen van Azure Files met behulp van Azure Backup.
 - Het maximumaantal geplande back-ups per dag is één.
 - Het maximumaantal on-demand back-ups per dag is vier.
 - Gebruik [resourcevergrendelingen](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) voor het opslagaccount om per ongeluk verwijderen van back-ups uit de Recovery Services-kluis te voorkomen.
@@ -103,7 +103,7 @@ Als u een volledige bestandsshare of afzonderlijke bestanden of mappen van een h
    ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Afzonderlijke bestanden of mappen terugzetten vanuit een back-up van Azure-bestandsshares
-Azure Backup biedt de mogelijkheid om naar een herstelpunt te bladeren binnen de Azure-portal. Klik op de pagina Back-upitem op Bestandsherstel en kies uit de lijst met herstelpunten om een bestand of map te herstellen. Selecteer het Hersteldoel en klik op **Bestand selecteren** om door het herstelpunt te bladeren. Selecteer het bestand of de map en klik op **Herstellen**.
+Azure Backup biedt de mogelijkheid om naar een herstelpunt te bladeren binnen Azure Portal. Klik op de pagina Back-upitem op Bestandsherstel en kies uit de lijst met herstelpunten om een bestand of map te herstellen. Selecteer het Hersteldoel en klik op **Bestand selecteren** om door het herstelpunt te bladeren. Selecteer het bestand of de map en klik op **Herstellen**.
 
    ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/restore-individual-files-folders.png)
 

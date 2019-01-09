@@ -1,18 +1,19 @@
 ---
-title: Gebeurtenissen uit een Azure Digital Twins-ruimte vastleggen | Microsoft Docs
+title: 'Zelfstudie: Gebeurtenissen uit een Azure Digital Twins-ruimte vastleggen | Microsoft Docs'
 description: Informatie over hoe u meldingen ontvangt uit uw ruimten door Azure Digital Twins te integreren met logische apps met behulp van de stappen in deze zelfstudie.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583258"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556013"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Zelfstudie: Meldingen ontvangen uit uw Azure Digital Twins-ruimten met behulp van Logic Apps
 
@@ -174,7 +175,7 @@ Met de [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-service kunt u g
 
    c. In het vak **Aan** voert u uw e-mail-ID in om meldingen te ontvangen. Voer bij **Onderwerp** de tekst **Digital Twins-melding voor slechte luchtkwaliteit in ruimte**. Selecteer vervolgens **TopologyObjectId** in de lijst **Dynamische inhoud** voor **JSON parseren**.
 
-   d. Voer onder **Hoofdtekst** in hetzelfde venster een soortgelijke tekst als deze in: **Slechte luchtkwaliteit gedetecteerd in een ruimte en temperatuur moet worden aangepast**. U kunt dit gerust uitbreiden met behulp van elementen uit de lijst **Dynamische inhoud**.
+   d. Voer onder **Hoofdtekst** in hetzelfde venster tekst zoals deze in: **Slechte luchtkwaliteit gedetecteerd in een ruimte en temperatuur moet worden aangepast**. U kunt dit gerust uitbreiden met behulp van elementen uit de lijst **Dynamische inhoud**.
 
    ![Selecties voor 'Een e-mail verzenden' in Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)
 

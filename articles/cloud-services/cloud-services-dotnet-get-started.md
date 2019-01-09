@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242123"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716103"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -35,8 +35,8 @@ De toepassing is een bulletinboard voor advertenties. Gebruikers maken een adver
 
 De toepassing maakt gebruik van het [wachtrijgerichte werkpatroon](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) om de CPU te ontlasten bij het maken van miniatuurweergaven voor een back-endproces (een CPU-intensieve bewerking).
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>Alternatieve architectuur: Web Apps en WebJobs
-Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in een [Azure Web App](/azure/app-service/) en de functie [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure-websites, cloudservices en virtuele machines](../app-service/choose-web-site-cloud-service-vm.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternatieve architectuur: App Service en WebJobs
+Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in [Azure App Service](/azure/app-service/) en de functie [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](../app-service/overview-compare.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
 
 ## <a name="what-youll-learn"></a>Wat u leert
 * De computer klaarmaken voor het ontwikkelen van Azure door de Azure SDK te installeren.
@@ -232,7 +232,7 @@ Azure-opslagaccountverbindingsreeksen voor het webrolroject en het werkrolprojec
 1. Klik in **Solution Explorer** met de rechtermuisknop op **ContosoAdsWeb** (onder **Roles** in het **ContosoAdsCloudService**-project) en klik vervolgens op **Properties**.
 
     ![Roleigenschappen](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Klik op het tabblad **Settings**. Kies in de vervolgkeuzelijst Service Configuration de optie **Cloud**.
+2. Klik op het tabblad **Settings**. Kies in de vervolgkeuzelijst **Service Configuration** de optie **Cloud**.
 
     ![Cloudconfiguratie](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Selecteer de vermelding **StorageConnectionString**. Aan de rechterkant van de regel ziet u nu een knop met weglatingstekens (**...**). Klik op deze knop om het dialoogvenster **Create Storage Account Connection String** te openen.
@@ -390,9 +390,9 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
 7. Volg dezelfde procedure om een verbindingsreeks voor opslag toe te voegen aan de eigenschappen van de ContosoAdsWorker-rol.
 8. Terwijl u zich nog in het eigenschappenvenster **ContosoAdsWorker [rol]** bevindt, voegt u nog een verbindingsreeks toe:
 
-   * Name: ContosoAdsDbConnectionString
-   * Type: String
-   * Value: plak hier dezelfde verbindingsreeks die u voor het webrolproject hebt gebruikt. (Het volgende voorbeeld is voor Visual Studio 2013. Als u Visual Studio 2015 of hoger gebruikt en dit voorbeeld kopieert, vergeet dan niet om de gegevensbron te wijzigen.)
+   * Naam: ContosoAdsDbConnectionString
+   * Type: Tekenreeks
+   * Waarde: plak hier dezelfde verbindingsreeks die u voor het webrolproject hebt gebruikt. (Het volgende voorbeeld is voor Visual Studio 2013. Als u Visual Studio 2015 of hoger gebruikt en dit voorbeeld kopieert, vergeet dan niet om de gegevensbron te wijzigen.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -775,7 +775,7 @@ Zie [Microsoft Azure Storage - nieuwe functies, aanbevolen procedures en patrone
 
 Zie de volgende bronnen voor meer informatie:
 
-* [Deel 1 Azure Cloud Services: Inleiding](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/) (Engelstalig)
 * [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

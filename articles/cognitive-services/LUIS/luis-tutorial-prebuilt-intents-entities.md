@@ -1,7 +1,7 @@
 ---
 title: Vooraf gemaakte intenties en entiteiten
 titleSuffix: Azure Cognitive Services
-description: Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
+description: In deze zelfstudie voegt u vooraf gemaakte intenties en entiteiten toe aan een app om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,24 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 804224898f90aa9af587d6d5b4b80c6afcfa586d
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074061"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754982"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Zelfstudie 2: Algemene intenties en entiteiten identificeren
-In deze zelfstudie wijzigt u de Human Resources-app. Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft niet alle utterances met vooraf gedefinieerde entiteiten te labelen omdat de entiteit automatisch wordt gedetecteerd.
+# <a name="tutorial-identify-common-intents-and-entities"></a>Zelfstudie: Algemene intenties en entiteiten identificeren
 
-Met vooraf gecompileerde modellen van algemene onderwerpsdomeinen en gegevenstypen kunt u uw model snel compileren, maar ook een voorbeeld geven van hoe een model eruitziet. 
+In deze zelfstudie voegt u vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft geen utterances met vooraf gedefinieerde entiteiten te markeren omdat de entiteit automatisch wordt gedetecteerd.
+
+Vooraf gemaakte modellen (domeinen, intenties en entiteiten) helpen u om het model snel te bouwen.
 
 **In deze zelfstudie leert u het volgende:**
 
 > [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken
+> * Nieuwe app maken
 > * Vooraf gemaakte intenties toevoegen 
 > * Vooraf gemaakte entiteiten toevoegen 
 > * Trainen 
@@ -35,29 +36,24 @@ Met vooraf gecompileerde modellen van algemene onderwerpsdomeinen en gegevenstyp
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Bestaande app gebruiken
-Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
+## <a name="create-a-new-app"></a>Een nieuwe app maken
 
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) en sla het op.
 
-2. Importeer de JSON in een nieuwe app.
+## <a name="add-prebuilt-intents-to-help-with-common-user-intentions"></a>Vooraf gemaakte intenties toevoegen om u te helpen met algemene gebruikersintenties
 
-3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `prebuilts`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL. 
-
-## <a name="add-prebuilt-intents"></a>Vooraf gemaakte intenties toevoegen
 LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene gebruikersintenties.  
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecteer **Add prebuilt intent**. 
+1. Selecteer **Add prebuilt domain intent**. 
 
-3. Zoeken naar `Utilities`. 
+1. Zoeken naar `Utilities`. 
 
     [ ![Schermopname van dialoogvenster met vooraf gemaakte intenties met Utilities in het zoekvak](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Selecteer de volgende intenties en selecteer **Done**: 
+1. Selecteer de volgende intenties en selecteer **Done**: 
 
     * Utilities.Cancel
     * Utilities.Confirm
@@ -65,118 +61,118 @@ LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene g
     * Utilities.StartOver
     * Utilities.Help
 
+    Deze intenties zijn handig om te bepalen waar de gebruiker zich bevindt in de conversatie en wat ze willen doen. 
 
-## <a name="add-prebuilt-entities"></a>Vooraf gemaakte entiteiten toevoegen
+
+## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Vooraf gemaakte entiteiten toevoegen om te helpen met het ophalen van algemene gegevens
+
 LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemene gegevens. 
 
 1. Selecteer **Entities** in het navigatiemenu aan de linkerkant.
 
-2. Selecteer de knop **Manage prebuilt entity**.
+1. Selecteer de knop **Add prebuilt entity**.
 
-3. Selecteer het **nummer** en **datetimeV2** uit de lijst met vooraf gedefinieerde entiteiten en selecteer vervolgens **Done**.
+1. Selecteer de volgende entiteiten in de lijst met vooraf gedefinieerde entiteiten en selecteer **Gereed**:
+
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
+    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
     ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train"></a>Trainen
+    Deze entiteiten helpen bij het toevoegen van naams- en plaatsherkenning aan uw clienttoepassing.
+
+## <a name="add-example-utterances-to-the-none-intent"></a>Voorbeelduitingen toevoegen aan de intentie None 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>De app trainen zodat de wijzigingen aan de intentie kunnen worden getest 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publiceren
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>De app publiceren zodat op het getrainde model query's kunnen worden uitgevoerd vanaf het eindpunt
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Voorspelling van intenties en entiteiten ophalen van eindpunt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Ga naar het einde van de URL in de adresbalk van de browser en voer `I want to cancel on March 3` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. 
+1. Ga naar het einde van de URL in de adresbalk van de browser en voer `I want to cancel my trip to Seattle to see Bob Smith` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. 
 
     ```json
     {
-      "query": "I want to cancel on March 3",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.7818295
+        "score": 0.807676256
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.7818295
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0237864349
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.017576348
+          "score": 0.807676256
         },
         {
           "intent": "Utilities.StartOver",
-          "score": 0.0130122062
+          "score": 0.0487322025
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.006731322
+          "score": 0.0208660364
         },
         {
           "intent": "None",
-          "score": 0.00524190161
+          "score": 0.008789532
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.004912514
+          "score": 0.006929268
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00092950504
+          "score": 0.00136293867
         }
       ],
       "entities": [
         {
-          "entity": "march 3",
-          "type": "builtin.datetimeV2.date",
-          "startIndex": 20,
-          "endIndex": 26,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2018-03-03"
-              },
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2019-03-03"
-              }
-            ]
-          }
+          "entity": "seattle",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 28,
+          "endIndex": 34
         },
         {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 26,
-          "endIndex": 26,
-          "resolution": {
-            "value": "3"
-          }
+          "entity": "bob smith",
+          "type": "builtin.personName",
+          "startIndex": 43,
+          "endIndex": 51
         }
       ]
     }
     ```
 
-    Het resultaat voorspelde de intentie Utilities.Cancel en extraheerde 3 maart als datum en 3 als nummer. 
+    Het resultaat heeft de intentie Utilities.Cancel met 80% vertrouwen voorspeld en ook zijn de plaatsnaam en de naam van de persoon geëxtraheerd. 
 
-    Er zijn twee waarden voor 3 maart omdat de utterance niet vermeldt of 3 maart in het verleden of in de toekomst ligt. Het is aan de clienttoepassing om een aanname te doen of om opheldering te vragen als dat nodig is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Gerelateerde informatie
+
+Meer informatie over vooraf gemaakte modellen:
+
+* [Vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md): dit zijn algemene domeinen die het algehele ontwerp van LUIS-apps versnellen
+* Vooraf gedefinieerde intenties: dit zijn de afzonderlijke intenties van de algemene domeinen. U kunt intenties afzonderlijk toevoegen in plaats van het hele domein toe te voegen.
+* [Vooraf gemaakte entiteiten](luis-prebuilt-entities.md): dit zijn veelvoorkomende gegevenstypen die nuttig zijn voor de meeste LUIS-apps.
+
+Meer informatie over het werken met uw LUIS-app:
+
+* [Trainen](luis-how-to-train.md)
+* [Hoe u kunt publiceren](luis-how-to-publish-app.md)
+* [Testen in de LUIS-portal](luis-interactive-test.md)
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Door vooraf gemaakte intents en entiteiten toe te voegen, kan de clienttoepassing algemene gebruikersintents bepalen en algemene gegevenstypen extraheren. 
+Door vooraf gemaakte intents en entiteiten toe te voegen, kan de clienttoepassing algemene gebruikersintents bepalen en algemene gegevenstypen extraheren.  
 
 > [!div class="nextstepaction"]
 > [Een entiteit in de vorm van een reguliere expressie aan de app toevoegen](luis-quickstart-intents-regex-entity.md)

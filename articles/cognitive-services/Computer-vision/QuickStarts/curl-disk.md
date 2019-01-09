@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Een lokale afbeelding analyseren - REST, cURL - Computer Vision'
+title: 'Quickstart: Een lokale afbeelding analyseren - REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart analyseert u een lokale afbeelding met behulp van de Computer Vision-API met cURL.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: c7c3cf2bae66e1739c4a62e1ce823542d0dfce36
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: c5e3de438593a6fb960edaffd14fa18ebe03f548
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339913"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579382"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Snelstart: Een lokale afbeelding analyseren met behulp van de REST-API en cURL in Computer Vision
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Quickstart: Een lokale afbeelding analyseren met behulp van de REST API en cURL in Computer Vision
 
 In deze snelstart analyseert u een lokaal opgeslagen afbeelding om visuele kenmerken te verkrijgen met behulp van de REST-API van Computer Vision. Met de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-methode kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud.
 

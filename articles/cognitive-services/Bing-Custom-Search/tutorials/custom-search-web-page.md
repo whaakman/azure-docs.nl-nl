@@ -10,14 +10,14 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427344"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558019"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Zelfstudie: Een webpagina voor aangepaste zoekopdrachten maken
+# <a name="tutorial-build-a-custom-search-web-page"></a>Zelfstudie: Een Aangepaste zoekopdrachten-webpagina bouwen
 
 Met Bing Aangepaste zoekopdrachten kunt u op maat gemaakte zoekervaringen maken voor onderwerpen die u interesseren. Als u bijvoorbeeld een website over martial arts hebt die een zoekervaring biedt, kunt u de domeinen, subsites en webpagina's opgeven waarin Bing moet zoeken. Uw gebruikers zien dan zoekresultaten die zijn afgestemd op de inhoud die ze interessant vinden in plaats van dat ze door pagina's met algemene zoekresultaten moeten bladeren die mogelijk niet-relevante inhoud bevatten. 
 
@@ -79,7 +79,7 @@ Als u resultaten van bepaalde websites of URL's wilt uitsluiten, voegt u deze to
 
 ## <a name="add-pinned-entries"></a>Vastgemaakte vermeldingen toevoegen
 
-Als u een bepaalde webpagina altijd aan het begin van de lijst met zoekresultaten wilt weergeven, voegt u de webpagina en zoekterm toe aan het tabblad **Pinned**. Het tabblad **Pinned** bevat een lijst van paren van webpagina's en zoektermen die de webpagina opgeven die als het beste resultaat wordt weergegeven voor een specifieke query. De webpagina wordt alleen vastgemaakt als de querytekenreeks van de gebruiker overeenkomt met de querytekenreeks van de vastgemaakte webpagina, op basis van de voorwaarde voor overeenkomst van de vastgemaakte pagina. In zoekopdrachten worden alleen geïndexeerde webpagina's weergegeven. Zie [Uw aangepaste weergave definiëren](../define-your-custom-view.md#pin-to-top) voor meer informatie.
+Als u een bepaalde webpagina altijd aan het begin van de lijst met zoekresultaten wilt weergeven, voegt u de webpagina en zoekterm toe aan het tabblad **Pinned**. Het tabblad **Pinned** bevat een lijst van paren van webpagina's en zoektermen die de webpagina opgeven die als het beste resultaat wordt weergegeven voor een specifieke query. De webpagina wordt alleen vastgemaakt als de querytekenreeks van de gebruiker overeenkomt met de querytekenreeks van de vastgemaakte webpagina, op basis van de voorwaarde voor overeenkomst van de vastgemaakte pagina. In zoekopdrachten worden alleen geïndexeerde webpagina's weergegeven. Zie [Uw aangepaste weergave definiëren](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) voor meer informatie.
 
 1. Klik op de pagina **Configuration** op het tabblad **Pinned** en voer de webpagina en zoekterm in van de webpagina die u als het bovenste resultaat in de lijst wilt weergeven.  
   
@@ -127,10 +127,10 @@ Custom Search biedt een gehoste gebruikersinterface voor het weergeven van het J
 
 Er zijn twee manieren om de gehoste-gebruikersinterface te gebruiken.  
 
-- Optie 1: het opgegeven JavaScript-fragment integreren in uw toepassing.
-- Optie 2: het opgegeven HTML-eindpunt gebruiken.
+- Optie 1: Het opgegeven JavaScript-fragment integreren in de toepassing.
+- Optie 2: Het opgegeven HTML-eindpunt gebruiken.
 
-In de rest van deze zelfstudie wordt de **optie met het Javascript-fragment toegelicht**.  
+In de rest van deze zelfstudie wordt het volgende toegelicht: **Optie 1: JavaScript-fragment**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Uw Visual Studio-oplossing instellen
 

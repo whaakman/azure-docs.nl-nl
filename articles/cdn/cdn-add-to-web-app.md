@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093320"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602814"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Zelfstudie: Azure CDN toevoegen aan een Azure App Service-web-app
 
-In deze zelfstudie leest u hoe u [Azure Content Delivery Network (CDN)](cdn-overview.md) toevoegt aan een [web-app in Azure App Service](../app-service/app-service-web-overview.md). Web Apps is een service voor het hosten van webtoepassingen, REST-API's en mobiele back-ends. 
+In deze zelfstudie leest u hoe u [Azure Content Delivery Network (CDN)](cdn-overview.md) toevoegt aan een [web-app in Azure App Service](../app-service/overview.md). Web Apps is een service voor het hosten van webtoepassingen, REST-API's en mobiele back-ends. 
 
 Dit is de startpagina van de statische HTML-voorbeeldsite die u gaat gebruiken:
 

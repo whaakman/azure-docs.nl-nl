@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164429"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608644"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Zelfstudie: Een knowledge base maken en vervolgens een vraag beantwoorden via de QnA Maker-portal
 
@@ -83,9 +83,9 @@ Voor deze zelfstudie moet u beschikken over een bestaande [QnA Maker-service](..
 
 1. Selecteer de laatste pagina van de vragen en antwoorden vanaf de onderkant van de tabel. De pagina toont vragen en antwoorden van de persoonlijkheid 'Heen- en weergepraat'. 
 
-1. Selecteer het tandwiel vanuit de werkbalk boven de lijst met vragen en antwoorden. Hiermee worden de filters voor elke vraag en antwoord weergegeven. Voor de heen- en weergepraatvragen is het filter **editorial: chit-chat** al ingesteld. Dit filter wordt geretourneerd naar de clienttoepassing, samen met het geselecteerde antwoord. De clienttoepassing, bijvoorbeeld een chatbot, kan dit filter gebruiken om extra verwerking of interactie met de gebruiker te bepalen.
+1. Selecteer metagegevenspictogram vanuit de werkbalk boven de lijst met vragen en antwoorden. Hiermee worden de tags met metagegevens voor elke vraag en antwoord weergegeven. Voor de heen- en weergepraatvragen zijn de **editorial: chit-chat**-metagegevens al ingesteld. Deze metagegevens worden geretourneerd naar de clienttoepassing, samen met het geselecteerde antwoord. De clienttoepassing, bijvoorbeeld een chatbot, kan deze gefilterde metagegevens gebruiken om extra verwerking of interactie met de gebruiker te bepalen.
 
-    ![Weergavefilters](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Tags met metagegevens weergeven](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Selecteer **Opslaan en trainen** in de bovenste menubalk.
 
@@ -171,7 +171,7 @@ Nadat de KB is gepubliceerd, wordt het eindpunt weergegeven
    
     ```
 
-    Omdat de vraag `Thank you` precies overeenkwam met een heen- en weergepraatvraag, is QnA Maker volledig zeker met de score van 100. QnA Maker heeft ook alle gerelateerde vragen geretourneerd, evenals de metagegevenseigenschap met de informatie over het heen- en weergepraatfilter.  
+    Omdat de vraag `Thank you` precies overeenkwam met een heen- en weergepraatvraag, is QnA Maker volledig zeker met de score van 100. QnA Maker heeft ook alle gerelateerde vragen geretourneerd, evenals de metagegevenseigenschap met de informatie over de tag met heen- en weergepraatmetagegevens.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Curl gebruiken om te zoeken naar het standaardantwoord
 

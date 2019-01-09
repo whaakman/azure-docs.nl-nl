@@ -1,7 +1,7 @@
 ---
-title: 'Zelfstudie voor een regressiemodel: Automatisch modellen trainen'
+title: 'Zelfstudie voor een regressiemodel: Geautomatiseerde machine learning'
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u een ML-model genereert met behulp van geautomatiseerde Machine Learning.  Azure Machine Learning kan voorbewerking van gegevens, selectie van algoritme en selectie van hyperparameters automatisch voor u uitvoeren. Het uiteindelijke model kan vervolgens geïmplementeerd met de Azure Machine Learning-service.
+description: Leer hoe u een machine learning-model genereert met behulp van geautomatiseerde machine learning. Azure Machine Learning kan voorbewerking van gegevens, selectie van algoritmes en selectie van hyperparameters automatisch voor u uitvoeren. Het uiteindelijke model wordt vervolgens geïmplementeerd met Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,26 +11,26 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bbc2d44ab128aec032ead29bf247cd834f932b6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315193"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580515"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
 Deze zelfstudie is **deel twee van een tweedelige reeks**. In de vorige zelfstudie hebt u [de NYC-taxigegevens voorbereid voor regressiemodellering](tutorial-data-prep.md).
 
-Nu bent u er klaar voor om een model te bouwen met behulp van de Azure Machine Learning-service. In dit gedeelte van de zelfstudie gebruikt u de voorbereide gegevens en genereert u automatisch een regressiemodel om de prijzen voor taxiritten te voorspellen. Met behulp van de geautomatiseerde ML-mogelijkheden van de service definieert u uw Machine Learning-doelen en -beperkingen en lanceert u het geautomatiseerde Machine Learning-proces. Vervolgens laat u het selecteren van een algoritme en het afstemmen van hyperparameters voor u uitvoeren. De techniek van geautomatiseerde ML doorloopt of itereert allerlei combinaties van algoritmen en hyperparameters totdat het beste model wordt gevonden op basis van uw criterium.
+Nu bent u er klaar voor om een model te bouwen met behulp van Azure Machine Learning Service. In dit gedeelte van de zelfstudie gebruikt u de voorbereide gegevens en genereert u automatisch een regressiemodel om de prijzen voor taxiritten te voorspellen. Met behulp van de geautomatiseerde machine learning-mogelijkheden van de service definieert u uw machine learning-doelen en -beperkingen. U start het geautomatiseerde machine learning-proces. Vervolgens staat u de automatische afstemming van algoritmes en hyperparameters toe. De techniek van geautomatiseerde machine learning doorloopt of itereert allerlei combinaties van algoritmen en hyperparameters totdat het beste model wordt gevonden op basis van uw criterium.
 
-![stroomdiagram](./media/tutorial-auto-train-models/flow2.png)
+![Stroomdiagram](./media/tutorial-auto-train-models/flow2.png)
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een Python-omgeving instellen en de SDK-pakketten importeren
-> * Een werkruimte configureren in de Azure Machine Learning-service
+> * Een werkruimte configureren in Azure Machine Learning Service
 > * Een regressiemodel automatisch trainen
 > * Het model lokaal uitvoeren met aangepaste parameters
 > * De resultaten verkennen
@@ -39,21 +39,21 @@ In deze zelfstudie leert u het volgende:
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.0
+> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.0.
 
 ## <a name="prerequisites"></a>Vereisten
 
 > * [Voer de zelfstudie voor gegevensvoorbereiding uit](tutorial-data-prep.md).
-> * Geautomatiseerde omgevingen die met Machine Learning zijn geconfigureerd, bijvoorbeeld Azure-notebooks, lokale Python-omgeving of Data Science Virtual Machine. [Installeer](samples-notebooks.md) geautomatiseerde Machine Learning.
+> * Een omgeving geconfigureerd met automatische machine learning. Voorbeelden zijn Azure Notebooks, een lokale Python-omgeving en een Data Science Virtual Machine. [Installeer geautomatiseerde machine learning](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Voer het `regression-part2-automated-ml.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Voer het `regression-part2-automated-ml.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## <a name="import-packages"></a>Pakketten importeren
-Importeer de Python-pakketten die u nodig hebt in deze zelfstudie.
+Importeer de Python-pakketten die u nodig hebt in deze zelfstudie:
 
 
 ```python
@@ -68,9 +68,11 @@ import os
 
 ## <a name="configure-workspace"></a>Werkruimte configureren
 
-Maak een werkruimte-object van de bestaande werkruimte. Een `Workspace` is een klasse die uw Azure-abonnement en resourcegegevens accepteert, en waarmee een cloudresource wordt gemaakt om de uitvoeringen van het model te controleren en bij te houden. `Workspace.from_config()` leest het bestand **aml_config/config.json** en laadt de gegevens in een object met de naam `ws`.  `ws` wordt gebruikt in de rest van de code in deze zelfstudie.
+Maak een werkruimte-object van de bestaande werkruimte. `Workspace` is een klasse die uw Azure-abonnement en resourcegegevens accepteert. Hier wordt ook een cloudresource gemaakt om de uitvoeringen van uw model te controleren en bij te houden. 
 
-Zodra u beschikt over een werkruimte-object, geeft u een naam op voor het experiment en maakt en registreert u een lokale map in de werkruimte. De geschiedenis van alle uitvoeringen wordt vastgelegd onder het opgegeven experiment en in de [Azure-portal](https://portal.azure.com).
+`Workspace.from_config()` leest het bestand **aml_config/config.json** en laadt de gegevens in een object met de naam `ws`.  `ws` wordt gebruikt in de rest van de code in deze zelfstudie.
+
+Zodra u een werkruimteobject hebt, geeft u een naam op voor het experiment. Maak en registreer een lokale map met de werkruimte. De geschiedenis van alle uitvoeringen wordt vastgelegd onder het opgegeven experiment en in [Azure Portal](https://portal.azure.com).
 
 
 ```python
@@ -93,7 +95,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Gegevens verkennen
 
-Gebruik het gegevensstroomobject dat u hebt gemaakt in de vorige zelfstudie. Open de gegevensstroom, voer deze uit en beoordeel de resultaten.
+Gebruik het gegevensstroomobject dat u in de vorige zelfstudie hebt gemaakt. Open de gegevensstroom, voer deze uit en beoordeel de resultaten:
 
 
 ```python
@@ -581,16 +583,16 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-U bereidt het model voor het experiment voor door kolommen toe te voegen aan `dflow_x` die functies worden bij het maken van het model. U definieert `dflow_y` als voorspellingswaarde; kosten.
+U bereidt het model voor het experiment voor door kolommen toe te voegen aan `dflow_x` die functies worden bij het maken van het model. U definieert `dflow_y` als voorspellingswaarde; **kosten**:
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-### <a name="split-data-into-train-and-test-sets"></a>Gegevens splitsen in sets voor trainen en voor testen
+### <a name="split-the-data-into-train-and-test-sets"></a>Gegevens splitsen in sets voor trainen en voor testen
 
-Nu splitst u de gegevens in trainings- en testsets met behulp van de functie `train_test_split` in de `sklearn`-bibliotheek. Met deze functie worden de gegevens verdeeld in de gegevensset x (functies) voor het trainen van het model, en de gegevensset y (te voorspellen waarden) voor testen. Met de parameter `test_size` wordt het percentage gegevens bepaald dat moet worden toegewezen aan testen. Met de parameter `random_state` wordt de willekeurige generator ingesteld, zodat de verdeling tussen trainen en testen altijd deterministisch is.
+Nu splitst u de gegevens in trainings- en testsets met behulp van de functie `train_test_split` in de `sklearn`-bibliotheek. Met deze functie worden de gegevens verdeeld in de gegevensset x (**functies**) voor het trainen van het model, en de gegevensset y (**te voorspellen waarden**) voor testen. Met de parameter `test_size` wordt het percentage gegevens bepaald dat moet worden toegewezen aan testen. Met de parameter `random_state` wordt de willekeurige generator ingesteld, zodat de verdeling tussen trainen en testen altijd deterministisch is:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -607,23 +609,23 @@ U beschikt nu over de vereiste pakketten en gegevens voor automatische training 
 
 ## <a name="automatically-train-a-model"></a>Automatisch een model trainen
 
-Ga als volgt te werk om automatisch een model te trainen:
-1. Definieer de instellingen voor het uitvoeren van het experiment
-1. Verzend het experiment om het model af te stemmen
+Als u automatisch een model wilt trainen, voert u de volgende stappen uit:
+1. Definieer de instellingen voor het uitvoeren van het experiment.
+1. Verzend het experiment om het model af te stemmen.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>Definieer de instellingen voor automatisch genereren en afstemmen
 
-Definieer de experimentparameters en modelinstellingen voor automatisch genereren en afstemmen. Bekijk de volledige lijst met [instellingen](how-to-configure-auto-train.md).
+Definieer de experimentparameter en modelinstellingen voor automatisch genereren en afstemmen. Bekijk de volledige lijst met [instellingen](how-to-configure-auto-train.md).
 
 
 |Eigenschap| Waarde in deze zelfstudie |Beschrijving|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Tijdslimiet in minuten voor elke iteratie|
+|**iteration_timeout_minutes**|10|Tijdslimiet in minuten voor elke iteratie.|
 |**iterations**|30|Aantal iteraties. Met elke iteratie wordt het model getraind met de gegevens met een specifieke pijplijn.|
 |**primary_metric**| spearman_correlation | De metrische gegevens die u wilt optimaliseren.|
-|**preprocess**| True | True stelt het experiment in staat voorbewerking toe te passen op de invoer.|
+|**preprocess**| True | Met behulp van **True** kan het experiment de invoer voorverwerken.|
 |**uitgebreidheid**| logging.INFO | Hiermee bepaalt u het niveau van logboekregistratie.|
-|**n_cross_validationss**|5|Aantal cross-validatie splitsingen.
+|**n_cross_validationss**|5|Aantal kruisvalidatiesplitsingen.|
 
 
 
@@ -653,7 +655,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Het automatische regressiemodel trainen
 
-Start het experiment voor lokale uitvoering. Geef het gedefinieerde `automated_ml_config`-object door aan het experiment, en stel de uitvoer in op `True` om de voortgang weer te geven tijdens het experiment.
+Start het experiment voor lokale uitvoering. Geef het gedefinieerde `automated_ml_config`-object door aan het experiment. Stel de uitvoer in op `True` om de voortgang tijdens het experiment weer te geven:
 
 
 ```python
@@ -709,7 +711,7 @@ Bekijk de resultaten van de automatische training met een Jupyter-widget of door
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Optie 1: Een Jupyter-widget toevoegen om de resultaten te bekijken
 
-Als u gebruikmaakt van een Juypter-notebook, gebruikt u deze Juypter-widget om een grafiek en een tabel met alle resultaten te zien.
+Als u gebruikmaakt van een Jupyter-notebook, gebruikt u deze Jupyter-notebookwidget om een grafiek en een tabel met alle resultaten te bekijken:
 
 
 ```python
@@ -722,7 +724,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Optie 2: Alle uitgevoerde herhalingen ophalen en onderzoeken in Python
 
-U kunt er ook voor kiezen om de geschiedenis van elk experiment op te halen en de afzonderlijke metrische gegevens voor elke uitgevoerde herhaling te verkennen.
+U kunt er ook voor kiezen om de geschiedenis van elk experiment op te halen en de afzonderlijke metrische gegevens voor elke uitgevoerde herhaling te verkennen:
 
 ```python
 children = list(local_run.get_children())
@@ -1071,7 +1073,7 @@ rundata
 
 ## <a name="retrieve-the-best-model"></a>Het beste model ophalen
 
-Selecteer uit de herhalingen de beste pijplijn. Met de methode `get_output` in `automl_classifier` worden de beste uitvoering en het aangepaste model voor de laatste aangepaste aanroep geretourneerd. `get_output` heeft overloads die u in staat stellen om de beste uitvoering en het aangepaste model op te halen voor alle geregistreerde metrische gegevens of voor een bepaalde herhaling.
+Selecteer uit de herhalingen de beste pijplijn. Met de methode `get_output` in `automl_classifier` worden de beste uitvoering en het aangepaste model voor de laatste aangepaste aanroep geretourneerd. U kunt de overloads op `get_output` gebruiken om de beste uitvoering en het aangepaste model op te halen voor alle geregistreerde metrische gegevens of voor een bepaalde herhaling:
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1081,7 +1083,7 @@ print(fitted_model)
 
 ## <a name="register-the-model"></a>Het model registreren
 
-Registreer het model in uw werkruimte in de Azure Machine Learning-service.
+Registreer het model in uw werkruimte in Azure Machine Learning Service:
 
 
 ```python
@@ -1093,14 +1095,14 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## <a name="test-the-best-model-accuracy"></a>Nauwkeurigheid van het beste model testen
 
-Gebruik het beste model om voorspellingen uit te voeren voor de testgegevensset. De functie `predict` maakt gebruik van het beste model. Met deze functie worden ook de waarden van y (reiskosten) uit de gegevensset `x_test` voorspeld. Druk de eerste 10 voorspelde kostenwaarden uit `y_predict` af.
+Gebruik het beste model om voorspellingen uit te voeren voor de testgegevensset. De functie `predict` maakt gebruik van het beste model. Met deze functie worden ook de waarden van y (**reiskosten**) uit de gegevensset `x_test` voorspeld. Druk de eerste tien voorspelde kostenwaarden uit `y_predict` af:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Maak een spreidingsdiagram om de voorspelde kostenwaarden in vergelijking met de daadwerkelijke kostenwaarden te visualiseren. De volgende code gebruikt de functie `distance` als x-as en de reis `cost` als y-as. De eerste 100 voorspelde en daadwerkelijke kostenwaarden worden in afzonderlijke reeksen gemaakt om de variantie van de voorspelde kosten van elke reisafstandswaarde. Als u de grafiek bekijkt, ziet u dat de afstand/kosten-relatie bijna lineair is en dat de voorspelde kostenwaarden in de meeste gevallen dicht bij de daadwerkelijke kostenwaarden voor dezelfde reisafstand liggen.
+Maak een spreidingsdiagram om de voorspelde kostenwaarden in vergelijking met de daadwerkelijke kostenwaarden te visualiseren. De volgende code gebruikt de functie `distance` als x-as en de reis `cost` als y-as. De eerste 100 voorspelde en daadwerkelijke kostenwaarden worden in afzonderlijke reeksen gemaakt om de variantie van de voorspelde kosten van elke reisafstandswaarde te voorspellen. Analyse van het tekengebied toont aan dat de relatie tussen afstand en kosten vrijwel lineair is. En de voorspelde waarden liggen in de meeste gevallen zeer dicht in de buurt van de werkelijke kosten voor dezelfde reisafstand.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1125,7 +1127,7 @@ plt.show()
 
 ![Spreidingsdiagram voor voorspelling](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Bereken de `root mean squared error` van de resultaten. Gebruik het gegevensframe `y_test` en converteer dit naar een lijst om de voorspelde waarden te vergelijken. Met de functie `mean_squared_error` wordt de gemiddelde gekwadrateerde fout berekend tussen twee matrices met waarden. De vierkantswortel van het resultaat resulteert in een fout in dezelfde eenheden als de y-variabele (kosten) en geeft ongeveer aan hoe ver uw voorspellingen van de werkelijke waarde liggen.
+Bereken de `root mean squared error` van de resultaten. Gebruik het gegevensframe `y_test`. Converteer het frame naar een lijst om de voorspelde waarden te vergelijken. Met de functie `mean_squared_error` wordt de gemiddelde gekwadrateerde fout berekend tussen twee matrices met waarden. De vierkantswortel van het resultaat veroorzaakt een fout in dezelfde eenheden als de variabele y (**kosten**). Het geeft aan hoe ver uw voorspellingen ongeveer van de werkelijke waarde afwijken:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1137,7 +1139,7 @@ rmse
 
     3.2204936862688798
 
-Voer de volgende code uit om MAPE te berekenen (gemiddelde absolute foutpercentage) met behulp van de volledige gegevenssets `y_actual` en `y_predict`. Met deze metriek worden de verschillen berekend tussen elke voorspelde en werkelijke waarde, worden de verschillen opgeteld, en wordt deze som vervolgens uitgedrukt als een percentage van de totale werkelijke waarden.
+Voer de volgende code uit om MAPE (het gemiddelde absolute foutpercentage) te berekenen met behulp van de volledige gegevenssets `y_actual` en `y_predict`. Met deze statistiek wordt een absoluut verschil tussen elke voorspelde en werkelijke waarde berekent en worden alle verschillen opgeteld. Vervolgens wordt die som weergegeven als een percentage van het totaal van de werkelijke waarden:
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1170,12 +1172,12 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze geautomatiseerde Machine Learning-zelfstudie, hebt u:
+In deze zelfstudie over geautomatiseerde machine learning hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Een werkruimte geconfigureerd en gegevens voorbereid voor een experiment
-> * Getraind met behulp van een lokaal geautomatiseerd regressiemodel met aangepaste parameters
-> * Trainingsresultaten verkend en gecontroleerd
-> * Het beste model geregistreerd
+> * U hebt een werkruimte geconfigureerd en gegevens voorbereid voor een experiment.
+> * U hebt getraind met behulp van een lokaal geautomatiseerd regressiemodel met aangepaste parameters.
+> * U hebt trainingsresultaten verkend en gecontroleerd.
+> * U hebt het beste model geregistreerd.
 
 [Uw model implementeren](tutorial-deploy-models-with-aml.md) met Azure Machine Learning.

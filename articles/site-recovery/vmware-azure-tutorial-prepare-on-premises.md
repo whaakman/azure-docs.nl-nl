@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: da5643f707a2f891fcf6663ec88f5a5dff40ac86
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846637"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970811"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>On-premises VMware-servers voorbereiden op herstel naar Azure na een noodgeval
 
@@ -67,8 +67,8 @@ U bereidt het account als volgt voor:
 
 Bereid een domein of lokaal account met machtigingen voor om op de VM te installeren.
 
-- **Windows-VM’s**: als u wilt installeren op Windows-VM's en geen domeinaccount gebruikt, moet u toegangsbeheer voor externe gebruikers uitschakelen op de lokale computer. U doet dit door in het register > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** de DWORD-vermelding **LocalAccountTokenFilterPolicy** met een waarde van 1 toe te voegen.
-- **Linux-VM's**: voor installatie op Linux-VM’s bereidt u een superuser voor op de Linux-server van de broncomputer.
+- **Virtuele Windows-machines**: Als u op Windows-VM’s wilt installeren en u geen domeinaccount gebruikt, moet u toegangsbeheer voor externe gebruikers uitschakelen op de lokale computer. U doet dit door in het register > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** de DWORD-vermelding **LocalAccountTokenFilterPolicy** met een waarde van 1 toe te voegen.
+- **Virtuele Linux-machines**: Voor installatie op Linux-VM’s bereidt u een superuser voor op de bron-Linux-server.
 
 
 ## <a name="check-vmware-requirements"></a>Vereisten voor VMware controleren
@@ -80,6 +80,7 @@ Controleer of de VMware-servers en VM's aan de vereisten voldoen.
 3. Controleer de ondersteuning voor het on-premises [netwerk](vmware-physical-azure-support-matrix.md#network) en de [opslag](vmware-physical-azure-support-matrix.md#storage). 
 4. Controleer wat er na failover wordt ondersteund voor [Azure-netwerken](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [-opslag](vmware-physical-azure-support-matrix.md#azure-storage) en [-rekenkracht](vmware-physical-azure-support-matrix.md#azure-compute).
 5. De on-premises VM's die u voor Azure repliceert, moeten overeenstemmen met [Azure VM-vereisten](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. Op een virtuele Linux-machine moet de naam van het apparaat of koppelpunt uniek zijn. Zorg ervoor dat twee apparaten/koppelpunten nooit dezelfde naam hebben (niet hoofdlettergevoelig). Zo is het bijvoorbeeld niet toegestaan om twee apparaten van dezelfde virtuele machine *device1* en *Device1* te noemen.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover

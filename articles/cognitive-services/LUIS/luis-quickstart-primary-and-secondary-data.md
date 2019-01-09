@@ -9,18 +9,36 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c0c79e3d85a8ced2b868c9fa7741a14105c1de05
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166265"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753044"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Zelfstudie 7: Namen met een Simple-entiteit en woordenlijst extraheren
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Zelfstudie: namen extraheren met de entiteit Simple en een woordenlijst
 
 In deze zelfstudie haalt u via machine learning verkregen gegevens over een functienaam op uit een utterance met behulp van de entiteit **Simple**. Als u de nauwkeurigheid van het extraheren wilt vergroten, voegt u een woordenlijst toe met termen die specifiek gekoppeld zijn aan de Simple-entiteit.
+
+De Simple-entiteit detecteert een concept met enkelvoudige gegevens dat is opgenomen in woorden of woordgroepen.
+
+**In deze zelfstudie leert u het volgende:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Voorbeeld-app importeren
+> * Entiteit Simple toevoegen 
+> * Woordenlijst toevoegen om signalering van woorden te verbeteren
+> * Trainen 
+> * Publiceren 
+> * Intenties en entiteiten ophalen van eindpunt
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+
+## <a name="simple-entity"></a>Eenvoudige entiteit
 
 Tijdens deze zelfstudie wordt een nieuwe Simple-entiteit toegevoegd waarmee de functienaam kan worden geëxtraheerd. Het doel van de entiteit Simple in deze LUIS-app is om LUIS te leren wat een functienaam is en waar dit kan worden gevonden in een utterance. Het deel van de utterance dat de functienaam vormt, kan per utterance verschillen afhankelijk van woordkeuze en lengte van de utterance. LUIS heeft voorbeelden nodig van functienamen uit alle intents waarin gebruik wordt gemaakt van functienamen.  
 
@@ -31,34 +49,6 @@ Een Simple-entiteit is een goede keuze voor dit type gegevens wanneer:
 * Gegevens niet van algemene aard zijn zoals een vooraf gedefinieerde entiteit van een telefoonnummer of gegevens.
 * Gegevens niet precies overeenkomen met een lijst van bekende woorden, zoals een lijstentiteit.
 * Gegevens geen andere gegevensitems bevatten zoals een samengestelde entiteit of hiërarchische entiteit.
-
-**In deze zelfstudie leert u het volgende:**
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken
-> * Een entiteit Simple maken om taken te extraheren uit een app
-> * Woordgroepenlijst toevoegen om signalering van taakwoorden te verbeteren
-> * Trainen 
-> * Publiceren 
-> * Intenties en entiteiten ophalen van eindpunt
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Bestaande app gebruiken
-
-Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
-
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
-
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json) en sla het op.
-
-2. Importeer de JSON in een nieuwe app.
-
-3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `simple`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
-
-## <a name="simple-entity"></a>Eenvoudige entiteit
-De Simple-entiteit detecteert een concept met enkelvoudige gegevens dat is opgenomen in woorden of woordgroepen.
 
 Laten we de volgende utterances uit een chatbot als voorbeeld nemen:
 
@@ -87,25 +77,38 @@ In deze LUIS-app komen functienamen in verschillende intenties voor. Door deze w
 
 Zodra de entiteiten in de voorbeeldutterances zijn gemarkeerd, is het belangrijk dat u een woordgroepenlijst toevoegt om het signaal van de Simple-entiteit te verbeteren. Een woordgroepenlijst wordt **niet** gebruikt als een exacte overeenkomst en hoeft niet elke mogelijke waarde te zijn die u verwacht. 
 
+## <a name="import-example-app"></a>Voorbeeld-app importeren
+
+1.  Download het [app-JSON-bestand](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json) uit de zelfstudie Intenties en sla het op.
+
+2. Importeer de JSON in een nieuwe app.
+
+3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `simple`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
+
+## <a name="mark-entities-in-example-utterances-of-an-intent"></a>Entiteiten markeren in de voorbeelduitingen van een intentie
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecteer op de pagina **Intent** de intentie **ApplyForJob**. 
+1. Selecteer op de pagina **Intent** de intentie **ApplyForJob**. 
 
-3. In de utterance `I want to apply for the new accounting job` selecteert u `accounting`, voert u `Job` in het bovenste veld van het snelmenu in en selecteert u **Create new entity** in het snelmenu. 
+1. In de utterance `I want to apply for the new accounting job` selecteert u `accounting`, voert u `Job` in het bovenste veld van het snelmenu in en selecteert u **Create new entity** in het snelmenu. 
 
     [![Schermopname van LUIS met intentie ApplyForJob en gemarkeerde stappen voor entiteit maken](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Schermopname van LUIS met intentie ApplyForJob en gemarkeerde stappen voor entiteit maken")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-4. Controleer de naam en het type van de entiteit in het pop-upvenster en selecteer **Done**.
+1. Controleer de naam en het type van de entiteit in het pop-upvenster en selecteer **Done**.
 
     ![Een modaal pop-updialoogvenster voor een entiteit Simple creëren met de naam van de functie en het type Simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. In de utterance `Submit resume for engineering position` labelt u het woord `engineering` als een entiteit Job. Selecteer het woord `engineering` en selecteer **Job** in het snelmenu. 
+1. Markeer in de resterende uitingen de taakgerelateerde woorden met de entiteit **Taak** door het woord of zinsdeel te selecteren en vervolgens in het contextmenu **Taak** te selecteren. 
 
     [![Schermopname van LUIS met het labelen als de entiteit Job gemarkeerd](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Schermopname van LUIS met het labelen als de entiteit Job gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    Alle utterances zijn gelabeld maar vijf utterances zijn niet voldoende om LUIS te leren welke woorden en woordgroepen gerelateerd zijn aan de functie. De functies die gebruikmaken van de cijferwaarde hebben niet meer voorbeelden nodig omdat deze van een reguliere expressie gebruikmaken. Van functies die uit woorden of woordgroepen bestaan, moeten ten minste 15 meer voorbeelden bestaan. 
 
-6. Voeg meer utterances toe en markeer de woorden en woordgroepen als entiteit **Job**. De functietypen zijn algemeen voor aanstellingen van een aanstellingsservice. Als u functies voor een specifieke bedrijfstak had willen hebben, moet dat duidelijk worden uit de woorden voor de functie. 
+## <a name="add-more-example-utterances-and-mark-entity"></a>Meer voorbeelduitingen toevoegen en entiteit markeren
+
+Eenvoudige entiteiten hebben veel voorbeelden nodig om voorspellingen van hoge betrouwbaarheid te bieden. 
+ 
+1. Voeg meer utterances toe en markeer de woorden en woordgroepen als entiteit **Job**. 
 
     |Utterance|De entiteit Job|
     |:--|:--|
@@ -126,100 +129,64 @@ Zodra de entiteiten in de voorbeeldutterances zijn gemarkeerd, is het belangrijk
     |Mijn cv voor de functie als biologiedocent is bijgesloten.|biologiedocent|
     |Ik wil graag solliciteren naar een functie binnen het vakgebied fotografie.|fotografie|git 
 
-## <a name="label-entity-in-example-utterances"></a>Entiteit in voorbeeldutterances labelen
-
-Door de entiteit te labelen, of te _markeren_, weet LUIS waar de entiteit in de voorbeeldutterances is te vinden.
+## <a name="mark-job-entity-in-other-intents"></a>Taakentiteit in andere intenties markeren
 
 1. Selecteer **Intents** in het linkermenu.
 
-2. Selecteer **GetJobInformation** in de lijst met intenties. 
+1. Selecteer **GetJobInformation** in de lijst met intenties. 
 
-3. Label de functies in de voorbeelden van utterances:
+1. De taken in de voorbeelduitingen labelen
 
-    |Utterance|De entiteit Job|
-    |:--|:--|
-    |Zijn er banen beschikbaar in het werken met databases?|databases|
-    |Op zoek naar een nieuwe werkomgeving met verantwoordelijkheden als boekhouder|boekhouder|
-    |Welke vacatures bestaan er voor hoofdtechnici?|hoofdtechnici|
+    Als er meer voorbeelduitingen in de ene intentie dan in de andere intentie staan, is het voor die intentie waarschijnlijker dat deze de meest voorspelde intext is. 
 
-    Er zijn nog meer voorbeelden van utterances maar die bevatten geen woorden met betrekking tot functies.
-
-## <a name="train"></a>Trainen
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>De app trainen zodat de wijzigingen aan de intentie kunnen worden getest 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publiceren
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>De app publiceren zodat op het getrainde model query's kunnen worden uitgevoerd vanaf het eindpunt
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Voorspelling van intenties en entiteiten ophalen van eindpunt 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Ga naar het einde van de URL in het adres en voer `Here is my c.v. for the programmer job` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de utterances van `ApplyForJob` als resultaat moet geven.
+2. Ga naar het einde van de URL in het adres en voer `Here is my c.v. for the engineering job` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de utterances van `ApplyForJob` als resultaat moet geven.
 
     ```json
     {
-      "query": "Here is my c.v. for the programmer job",
+      "query": "Here is my c.v. for the engineering job",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9826467
+        "score": 0.98052007
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9826467
+          "score": 0.98052007
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0218927357
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.007849265
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00349470088
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00348804821
+          "score": 0.03424581
         },
         {
           "intent": "None",
-          "score": 0.00319909188
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00222647213
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00211193133
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00172086991
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00138010911
+          "score": 0.0015820954
         }
       ],
       "entities": [
         {
-          "entity": "programmer",
+          "entity": "engineering",
           "type": "Job",
           "startIndex": 24,
-          "endIndex": 33,
-          "score": 0.5230502
+          "endIndex": 34,
+          "score": 0.668959737
         }
       ]
     }
     ```
     
-    LUIS heeft de juiste intent, **ApplyForJob**, gevonden en de juiste entiteit, **Job**, uitgepakt met een waarde van `programmer`.
+    LUIS heeft de juiste intent, **ApplyForJob**, gevonden en de juiste entiteit, **Job**, uitgepakt met een waarde van `engineering`.
 
 
 ## <a name="names-are-tricky"></a>Namen zijn verraderlijk
@@ -229,51 +196,23 @@ In de volgende JSON antwoordt LUIS met de juiste intentie, `ApplyForJob`, maar i
 
 ```json
 {
-  "query": "This is the lead welder paperwork.",
+  "query": "This is the lead welder paperwork",
   "topScoringIntent": {
     "intent": "ApplyForJob",
-    "score": 0.468558252
+    "score": 0.860295951
   },
   "intents": [
     {
       "intent": "ApplyForJob",
-      "score": 0.468558252
+      "score": 0.860295951
     },
     {
       "intent": "GetJobInformation",
-      "score": 0.0102701457
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.009442534
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00639619166
+      "score": 0.07265678
     },
     {
       "intent": "None",
-      "score": 0.005859333
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.005087704
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00315379258
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00259344373
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00193389168
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.000420796918
+      "score": 0.00482481951
     }
   ],
   "entities": []
@@ -282,94 +221,76 @@ In de volgende JSON antwoordt LUIS met de juiste intentie, `ApplyForJob`, maar i
 
 Omdat alles een naam kan zijn, is LUIS beter in staat om entiteiten te herkennen als er een woordgroepenlijst bestaat die het signaleringsvermogen versterkt.
 
-## <a name="to-boost-signal-add-phrase-list"></a>Versterk het signaal door een woordgroepenlijst toe te voegen
+## <a name="to-boost-signal-of-the-job-related-words-add-a-phrase-list-of-job-related-words"></a>Als u de signalering van de taakgerelateerde woorden wilt verbeteren, voegt u een woordenlijst met taakgerelateerde woorden toe
 
-Open [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) in de GitHub-opslagplaats met LUIS-voorbeelden. De lijst bevat meer dan duizend woorden en woordgroepen met betrekking tot functies. Zoek in de lijst naar woorden met betrekking tot functies die relevant voor uw zijn. Als de woorden of woordgroepen waar u naar op zoek bent niet in de lijst voorkomen, kunt u deze zelf toevoegen.
+Open [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) in de GitHub-opslagplaats met Azure-voorbeelden. De lijst bevat meer dan 1000 woorden en woordgroepen. Zoek in de lijst naar woorden met betrekking tot functies die relevant voor uw zijn. Als de woorden of woordgroepen waar u naar op zoek bent niet in de lijst voorkomen, kunt u deze zelf toevoegen.
 
 1. In de sectie **Build** van de LUIS-app, selecteert u **Phrase lists** onder het menu **Improve app performance**.
 
-2. Selecteer **Create new phrase list**. 
+1. Selecteer **Create new phrase list**. 
 
-3. Noem de nieuwe woordgroepenlijst `Job` en kopieer de lijst van jobs-phrase-list.csv naar het tekstvak voor het invoeren van **waarden**. Selecteer Enter. 
+1. Noem de nieuwe woordgroepenlijst `JobNames` en kopieer de lijst van jobs-phrase-list.csv naar het tekstvak voor het invoeren van **waarden**. Selecteer Enter. 
 
     [![Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Als u meer woorden aan de woordgroepenlijst wilt toevoegen, bekijkt u de **Gerelateerde waarden** en voegt u de woorden toe die relevant voor u zijn. 
 
-4. Selecteer **Save** om de woordgroepenlijst te activeren.
+1. Selecteer **Save** om de woordgroepenlijst te activeren.
 
     [![Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. U moet de app opnieuw [trainen](#train) en [publiceren](#publish) om de woordgroepenlijst te kunnen gebruiken.
+1. U moet de app opnieuw [trainen](#train) en [publiceren](#publish) om de woordgroepenlijst te kunnen gebruiken.
 
-6. Een eindpunt opnieuw opvragen met de dezelfde utterance: `This is the lead welder paperwork.`
+1. Een eindpunt opnieuw opvragen met de dezelfde utterance: `This is the lead welder paperwork.`
 
     Het JSON-antwoord bevat de geëxtraheerde entiteit:
 
     ```json
-    {
-        "query": "This is the lead welder paperwork.",
-        "topScoringIntent": {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
+      {
+      "query": "This is the lead welder paperwork.",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.983076453
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.983076453
         },
-        "intents": [
-            {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
-            },
-            {
-            "intent": "GetJobInformation",
-            "score": 0.003800706
-            },
-            {
-            "intent": "Utilities.StartOver",
-            "score": 0.00299335527
-            },
-            {
-            "intent": "MoveEmployee",
-            "score": 0.0027167045
-            },
-            {
-            "intent": "None",
-            "score": 0.00259556063
-            },
-            {
-            "intent": "FindForm",
-            "score": 0.00224019377
-            },
-            {
-            "intent": "Utilities.Stop",
-            "score": 0.00200693542
-            },
-            {
-            "intent": "Utilities.Cancel",
-            "score": 0.00195913855
-            },
-            {
-            "intent": "Utilities.Help",
-            "score": 0.00162656687
-            },
-            {
-            "intent": "Utilities.Confirm",
-            "score": 0.0002851904
-            }
-        ],
-        "entities": [
-            {
-            "entity": "lead welder",
-            "type": "Job",
-            "startIndex": 12,
-            "endIndex": 22,
-            "score": 0.8295959
-            }
-        ]
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0120766377
+        },
+        {
+          "intent": "None",
+          "score": 0.00248388131
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lead welder",
+          "type": "Job",
+          "startIndex": 12,
+          "endIndex": 22,
+          "score": 0.8373154
+        }
+      ]
     }
     ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>Gerelateerde informatie
+
+* [Zelfstudie: intenties zonder entiteiten](luis-quickstart-intents-only.md)
+* [Entiteit Simple](luis-concept-entity-types.md) - conceptuele informatie
+* [Woordenlijst](luis-concept-feature.md) - conceptuele informatie
+* [Trainen](luis-how-to-train.md)
+* [Hoe u kunt publiceren](luis-how-to-publish-app.md)
+* [Testen in de LUIS-portal](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

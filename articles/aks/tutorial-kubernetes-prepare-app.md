@@ -3,18 +3,17 @@ title: 'Zelfstudie over Kubernetes in Azure: Toepassing voorbereiden'
 description: In deze zelfstudie over Azure Kubernetes Service (AKS) leert u hoe u een app met meerdere containers voorbereidt en bouwt met Docker Compose, waarna u de app kunt implementeren naar AKS.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297057"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724161"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassing voorbereiden voor AKS (Azure Kubernetes Service)
 
@@ -29,7 +28,7 @@ Als u dit allemaal hebt gedaan, kunt u de volgende toepassing uitvoeren in uw lo
 
 ![Afbeelding van Kubernetes-cluster in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-In volgende zelfstudies wordt de containerinstallatiekopie geüpload naar een Azure Container Registry en vervolgens geïmplementeerd naar een AKS-cluster.
+In aanvullende zelfstudies wordt de containerinstallatiekopie geüpload naar een Azure Container Registry en vervolgens geïmplementeerd naar een AKS-cluster.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -49,7 +48,7 @@ Gebruik [git][] om de voorbeeldtoepassing te klonen naar uw ontwikkelomgeving:
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Wijzig de mappen zodat u vanuit de gekloonde map werkt.
+Wijzig in de gekloonde map.
 
 ```console
 cd azure-voting-app-redis

@@ -3,18 +3,18 @@ title: Terraform-modules testen in Azure met behulp van Terratest
 description: Informatie over het gebruik van Terratest voor het testen van uw Terraform-modules.
 services: terraform
 ms.service: terraform
-keywords: terraform, devops, opslagaccount, azure, terratest, moduletest, integratie testen
+keywords: terraform, devops, opslagaccount, azure, terratest, eenheidstest, integratie testen
 author: JunyiYi
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
-ms.openlocfilehash: cff7d0dea27dd21ac4f7bb133e297e4f5928d2c2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8ef4e9917623f43e5c9900150deb22d62169c836
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680596"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555962"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Terraform-modules testen in Azure met behulp van Terratest
 
@@ -35,10 +35,10 @@ Dit praktische artikel is platform-onafhankelijk. U kunt de codevoorbeelden die 
 
 Voordat u begint, dient u de volgende software te installeren:
 
-- **Go-programmeertaal**: Terraform-testcases worden geschreven in [Go](https://golang.org/dl/).
+- **Go-programmeertaal**: Terraform-testcases zijn geschreven in [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) is een tool voor afhankelijkheidsbeheer voor Go.
-- **Azure CLI**: de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is een opdrachtregelprogramma dat u kunt gebruiken voor het beheren van Azure-resources. (Terraform biedt ondersteuning voor verificatie bij Azure via een service-principal of [via de Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
-- **mage**: het [uitvoerbare bestand mage](https://github.com/magefile/mage/releases) wordt gebruikt om te laten zien hoe het uitvoeren van Terratest-cases kan worden vereenvoudigd. 
+- **Azure CLI**: De [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is een opdrachtregelprogramma dat u kunt gebruiken voor het beheren van Azure-resources. (Terraform biedt ondersteuning voor verificatie bij Azure via een service-principal of [via de Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **mage**: Het [uitvoerbare bestand mage](https://github.com/magefile/mage/releases) wordt gebruikt om te laten zien hoe het uitvoeren van Terratest-cases kan worden vereenvoudigd. 
 
 ## <a name="create-a-static-webpage-module"></a>Een statische webpaginamodule maken
 
@@ -93,10 +93,10 @@ output "homepage_url" {
 ```
 
 De belangrijkste logica van de module bestaat uit het inrichten van vier resources:
-- **resourcegroep**: de naam van de resourcegroep is de `website_name`-invoer, gevolgd door `-staging-rg`.
-- **opslagaccount**: de naam van het opslagaccount is de `website_name`-invoer, gevolgd door `data001`. Om te voldoen aan de beperkingen die gelden voor de naam van het opslagaccount, worden alle speciale tekens verwijderd en worden alleen kleine letters gebruikt in de naam van het opslagaccount.
-- **container met vaste naam**: de container heeft de naam `wwwroot` en wordt in het opslagaccount gemaakt.
-- **één HTML-bestand**: het HTML-bestand wordt gelezen vanuit de `html_path`-invoer en naar `wwwroot/index.html` geüpload.
+- **resourcegroep**: De naam van de resourcegroep is de `website_name`-invoer, gevolgd door `-staging-rg`.
+- **opslagaccount**: De naam van het opslagaccount is de `website_name`-invoer, gevolgd door `data001`. Om te voldoen aan de beperkingen die gelden voor de naam van het opslagaccount, worden alle speciale tekens verwijderd en worden alleen kleine letters gebruikt in de naam van het opslagaccount.
+- **container met vaste naam**: De container heeft de naam `wwwroot` en wordt gemaakt in het opslagaccount.
+- **enkel HTML-bestand**: Het HTML-bestand wordt gelezen vanuit de `html_path`-invoer en geüpload naar `wwwroot/index.html`.
 
 De modulelogica van de statische webpagina wordt geïmplementeerd in `./main.tf`:
 
@@ -132,7 +132,7 @@ resource "azurerm_storage_blob" "homepage" {
 }
 ```
 
-### <a name="unit-test"></a>Moduletest
+### <a name="unit-test"></a>Eenheidstest
 
 Terratest is ontworpen voor integratietests. Om die reden worden door Terratest echte resources ingericht in een echte omgeving. Soms kunnen integratietesttaken uitzonderlijk groot worden, vooral wanneer u grote hoeveelheden resources hebt die moeten worden ingericht. Een goed voorbeeld is de logica waarmee namen van opslagaccounts worden omgezet, zoals in de vorige sectie beschreven. 
 
@@ -267,7 +267,7 @@ Het traditionele Go-testresultaat wordt na circa een minuut geretourneerd.
 
 In tegenstelling tot moduletests moeten integratietests worden gebruikt voor het inrichten van resources in een echte omgeving voor een end-to-end perspectief. Voor dit soort taken is Terratest erg geschikt. 
 
-Best practices voor Terraform-modules zijn onder meer het installeren van de map `examples`. De map `examples` bevat enkele end-to-end voorbeelden. In plaats van echte gegevens kunt u deze voorbeelden gebruiken als integratietests. In deze sectie richten we ons op de drie bestanden die in de volgende mapstructuur met een sterretje `(*)` zijn gemarkeerd:
+Aanbevolen procedures voor Terraform-modules zijn onder meer het installeren van de map `examples`. De map `examples` bevat enkele end-to-end voorbeelden. In plaats van echte gegevens kunt u deze voorbeelden gebruiken als integratietests. In deze sectie richten we ons op de drie bestanden die in de volgende mapstructuur met een sterretje `(*)` zijn gemarkeerd:
 
 ```
  📁 GoPath/src/staticwebpage
@@ -298,7 +298,7 @@ Laten we beginnen met de voorbeelden. Er wordt nieuwe map met voorbeelden met de
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -365,7 +365,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
     http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
         return status == 200 &&
             strings.Contains(content, "Hi, Terraform Module") &&
-            strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+            strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
     })
 }
 ```
@@ -417,11 +417,11 @@ Het enige wat mage nodig heeft, is een `magefile.go` in de hoofdmap van uw proje
 ```
 
 Hier is een voorbeeld van `./magefile.go`. In dit buildscript, geschreven in Go, hebben we vijf buildstappen geïmplementeerd:
-- `Clean`: hierin worden alle gegenereerde en tijdelijke bestanden verwijderd die tijdens testuitvoeringen zijn gegenereerd.
-- `Format`: hierin worden `terraform fmt` en `go fmt` uitgevoerd om uw codebasis op te maken.
-- `Unit`: hierin worden alle moduletests uitgevoerd (met behulp van de naamgevingsconventie `TestUT_*` voor de functie) onder de map `./test/`.
-- `Integration`: deze stap is vergelijkbaar met `Unit`, maar in plaats van moduletests worden integratietests (`TestIT_*`) uitgevoerd.
-- `Full`: hierin worden achtereenvolgens `Clean`, `Format`, `Unit` en `Integration` uitgevoerd.
+- `Clean`: Met deze stap worden alle gegenereerde en tijdelijke bestanden verwijderd die zijn gegenereerd tijdens testuitvoeringen.
+- `Format`: Met deze stap worden `terraform fmt` en `go fmt` uitgevoerd om uw codebasis op te maken.
+- `Unit`: Met deze stap worden alle moduletests uitgevoerd (met behulp van de naamgevingsconventie `TestUT_*` voor de functie) onder de map `./test/`.
+- `Integration`: Deze stap is vergelijkbaar met `Unit`, maar in plaats van moduletests worden integratietests (`TestIT_*`) uitgevoerd.
+- `Full`: Met deze stap worden achtereenvolgens `Clean`, `Format`, `Unit` en `Integration` uitgevoerd.
 
 ```go
 // +build mage
@@ -504,7 +504,7 @@ U kunt de volgende opdrachten gebruiken om een volledig testpakket uit te voeren
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```
@@ -513,7 +513,7 @@ U kunt de laatste opdrachtregel vervangen door aanvullende mage-stappen. U kunt 
 
 Met mage kunt u ook de stappen delen door het Go-pakketsysteem te gebruiken. In dat geval kunt u mage-bestanden in al uw modules vereenvoudigen door alleen maar te verwijzen naar een gezamenlijke implementatie en door afhankelijkheden te declareren (`mg.Deps()`).
 
-**Optioneel: omgevingsvariabelen van de service-principal instellen op het uitvoeren van acceptatietests**
+**Optioneel: Omgevingsvariabelen van de service-principal instellen op het uitvoeren van acceptatietests**
  
 In plaats van `az login` uit te voeren voordat u tests uitvoert, kunt u Azure-verificatie voltooien door omgevingsvariabelen van de service-principal in te stellen. Terraform publiceert [een lijst met namen van omgevingsvariabelen](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Alleen de eerste vier van deze omgevingsvariabelen zijn vereist.) Terraform publiceert ook uitvoerige instructies waarin wordt uitgelegd hoe u [de waarde van deze omgevingsvariabelen kunt ophalen.](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html)
 

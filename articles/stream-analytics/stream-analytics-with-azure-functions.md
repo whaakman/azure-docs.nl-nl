@@ -2,8 +2,7 @@
 title: 'Zelfstudie: Azure Functions uitvoeren met Azure Stream Analytics-taken | Microsoft Docs'
 description: In deze zelfstudie leert u hoe u Azure Functions configureert als een uitvoerlocatie voor Stream Analytics-taken.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164157"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993005"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
@@ -152,7 +151,7 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
 
 1. Open uw Stream Analytics-taak in Azure Portal.  
 
-2. Blader naar uw functie en selecteer **Overzicht** > **Uitvoer** > **Toevoegen**. Selecteer **Azure-functie** als sinkoptie als u een nieuwe uitvoer wilt toevoegen. De nieuwe Azure Functions-uitvoeradapter is beschikbaar en heeft de volgende eigenschappen:  
+2. Blader naar uw functie en selecteer **Overzicht** > **Uitvoer** > **Toevoegen**. Selecteer **Azure-functie** als sinkoptie als u een nieuwe uitvoer wilt toevoegen. De Functions-uitvoeradapter heeft de volgende eigenschappen:  
 
    |**Eigenschapsnaam**|**Beschrijving**|
    |---|---|
@@ -160,7 +159,7 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
    |Importoptie| U kunt de functie van het huidige abonnement gebruiken of de instellingen handmatig opgeven als de functie zich in een ander abonnement bevindt. |
    |Functie-app| Naam van uw Azure Functions-app. |
    |Functie| Naam van de functie in uw Azure Functions-app (naam van de functie run.csx).|
-   |Maximale batchgrootte|Hiermee stelt u de maximale grootte in voor elke uitvoerbatch die naar uw functie wordt verzonden. Deze waarde is standaard ingesteld op 256 kB.|
+   |Maximale batchgrootte|Hiermee stelt u de maximale grootte (in bytes) in voor elke uitvoerbatch die naar uw functie wordt verzonden. Deze waarde is standaard ingesteld op 262.144 bytes (256 kB).|
    |Maximum aantal batches|Hiermee geeft u het maximum aantal gebeurtenissen in elke batch op die naar de functie worden verzonden. De standaardwaarde is 100. Deze eigenschap is optioneel.|
    |Sleutel|Hiermee kunt u een functie uit een ander abonnement gebruiken. Geef de waarde op van de sleutel die toegang geeft tot uw functie. Deze eigenschap is optioneel.|
 
@@ -212,7 +211,7 @@ Het gebruik van [HTTP-routering](https://docs.microsoft.com/sandbox/functions-re
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze snelstart zijn gemaakt. Daarvoor voert u de volgende stappen uit:
+Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze quickstart zijn gemaakt. Daarvoor voert u de volgende stappen uit:
 
 1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt.  
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, JavaScript - Computer Vision'
+title: 'Quickstart: Gedrukte tekst extraheren - REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met JavaScript.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: da7f35efb72e0c40aeb4432df26bc7130da83a97
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 68ef788cf991bb79bf62eabf52119962cfcf87c0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851990"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581212"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Snelstart: Tekst extraheren (OCR) met behulp van de REST API en JavaScript in Computer Vision
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Quickstart: Tekst extraheren (OCR) met behulp van de REST API en JavaScript in Computer Vision
 
 In deze snelstart gebruikt u OCR (optical character recognition) om tekst uit een afbeelding te extraheren met behulp van de REST API van Computer Vision. Met de [OCR-methode](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kunt u tekst in een afbeelding detecteren en de herkende tekens naar een machinaal leesbare tekenstroom extraheren.
 

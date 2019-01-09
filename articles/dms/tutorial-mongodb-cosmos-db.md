@@ -5,18 +5,18 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: 46e8ca97411e9dce77c0c82c4e0f5dd164bce01b
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 4651c9afab99577622af71297e1fb6465a20097f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320724"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713094"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-mongo-api-offline-using-dms"></a>Zelfstudie: MongoDB offline migreren naar de Azure Cosmos DB-API met behulp van DMS
 Met Azure Database Migration Service kunt u een offline (eenmalige) migratie van databases uitvoeren van MongoDB on-premises of in de cloud naar de Mongo-API van Azure Cosmos DB.
@@ -28,11 +28,11 @@ In deze zelfstudie leert u het volgende:
 > * De migratie uitvoeren.
 > * De migratie controleren.
 
-In deze zelfstudie migreert u de gegevensset **Wingtips** die in MongoDB wordt gehost in Azure Virtual Machine naar de MongoDB-API van Cosmos DB met behulp van Azure Database Migration Service. Als u nog geen MongoDB-bron hebt ingesteld, raadpleegt u het artikel over het [installeren en configureren van MongoDB op een Windows-VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
+In deze zelfstudie migreert u de gegevensset **Wingtips** die in MongoDB wordt gehost op een virtuele Azure-machine naar de MongoDB-API van Cosmos DB met behulp van de Azure Database Migration Service. Als u nog geen MongoDB-bron hebt ingesteld, raadpleegt u het artikel over het [installeren en configureren van MongoDB op een Windows-VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
-- [Een Azure Cosmos DB MongoDB-API-account maken](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+- [Maak een Azure Cosmos DB voor MongoDB-API-account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Maak een VNET voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel. Dit geeft site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Zorg ervoor dat uw Azure Virtual Network (VNET) Network Security Group-regels de volgende communicatiepoorten niet blokkeren: 443, 53, 9354, 445 en 12000. Zie voor meer informatie over verkeer filteren van Azure VNET NSG het artikel [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Stel uw Windows-firewall open voor toegang van Azure Database Migration Service tot de bronserver van MongoDB. Standaard verloopt dit via TCP-poort 27017.
@@ -163,7 +163,7 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
 ## <a name="verify-data-in-cosmos-db"></a>Gegevens controleren in Cosmos DB
 
-- Nadat de migratie is voltooid, kunt u in uw Cosmos DB MongoDB API-account controleren of alle verzamelingen met succes zijn gemigreerd.
+- Nadat de migratie is voltooid, kunt u in uw Azure Cosmos DB voor MongoDB API-account controleren of alle verzamelingen met succes zijn gemigreerd.
 
     ![Activiteitsstatus Voltooid](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 

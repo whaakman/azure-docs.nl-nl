@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Computer Vision-API met Python'
+title: 'Zelfstudie: Bewerkingen op een afbeelding uitvoeren - Python'
 titlesuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de Computer Vision-API met Python met behulp van Jupyter-notebooks. Visualiseer uw resultaten met behulp van populaire bibliotheken.
 services: cognitive-services
@@ -8,24 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
-ms.openlocfilehash: 16054d19c1ce6f211ebd3e2f0bbc4d152a255dda
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 55e5168c36eb16944142c2deaae9bc94d60d2fe4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276964"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582011"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Zelfstudie: Computer Vision-API met Python
+# <a name="tutorial-computer-vision-api-python"></a>Zelfstudie: Computer Vision-API Python
 
-Deze zelfstudie laat zien hoe u de Computer Vision-API in Python gebruikt en hoe u de resultaten kunt visualiseren met behulp van populaire bibliotheken. U gebruikt Jupyter om de zelfstudie uit te voeren. Raadpleeg de (Engelstalige) [documentatie bij Jupyter](http://jupyter.readthedocs.io/en/latest/index.html) om te leren hoe u aan de slag kunt gaan met interactieve Jupyter-notitieblokken.
+Deze zelfstudie laat zien hoe u de Computer Vision-API in Python gebruikt en hoe u de resultaten kunt visualiseren met behulp van populaire bibliotheken. U gebruikt Jupyter om de zelfstudie uit te voeren. Raadpleeg de (Engelstalige) [documentatie bij Jupyter](https://jupyter.readthedocs.io/en/latest/index.html) om te leren hoe u aan de slag kunt gaan met interactieve Jupyter-notitieblokken.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - [Python 2.7+ of 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/)-hulpprogramma
-- Installatie van [Jupyter Notebook](http://jupyter.org/install)
+- Installatie van [Jupyter Notebook](https://jupyter.org/install)
 
 ## <a name="open-the-tutorial-notebook-in-jupyter"></a>De zelfstudie-notebook openen in Jupyter 
 

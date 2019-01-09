@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 53be0f36e79d5691d8531c46bf7f554c53f641ee
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f099d280615607382bd424063d39bb26cdeea793
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342820"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557853"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: een IoT Edge-module in Java ontwikkelen en implementeren op uw gesimuleerde apparaat
 
@@ -36,8 +36,8 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux](quickstart-linux.md).
-* Java-modules voor IoT Edge ondersteunen geen Windows-apparaten.
+* U kunt een IoT Edge-apparaat instellen door de stappen in de quickstarts voor [Linux](quickstart-linux.md) of [Windows](quickstart.md) te volgen.
+* Versie 1.0.5 van IoT Edge op Windows-apparaten biedt geen ondersteuning voor Java-modules. Zie [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5) (Opmerkingen bij de release 1.0.5) voor meer informatie. Zie [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md) (De IoT Edge-beveiligings-daemon en runtime bijwerken) voor stappen voor het installeren van specifieke versies.
 
 Cloudresources:
 
@@ -62,7 +62,7 @@ U kunt een Docker-register gebruiken om de containerinstallatiekopieën op te sl
 
 Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw containerregister te maken in Azure:
 
-1. Selecteer in de [Azure-portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
+1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
 
 2. Geef de volgende waarden op om uw containerregister te maken:
 
@@ -70,7 +70,7 @@ Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw contain
    | ----- | ----- |
    | Registernaam | Geef hier een unieke naam op. |
    | Abonnement | Selecteer een abonnement in de vervolgkeuzelijst. |
-   | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de snelstartgidsen en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
+   | Resourcegroep | Gebruik voor eenvoudiger beheer dezelfde resourcegroep voor alle testresources die u maakt met de quickstarts en zelfstudies voor IoT Edge. zoals **IoTEdgeResources**. |
    | Locatie | Kies een locatie dicht bij u in de buurt. |
    | Beheerder | Stel deze optie in op **Inschakelen**. |
    | SKU | Selecteer **Basic**. | 
@@ -82,7 +82,7 @@ Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw contain
 7. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in de zelfstudie om toegang te verlenen tot het containerregister. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT Edge-moduleproject creëren
-Met de volgende stappen maakt u een IoT Edge-moduleproject op basis van het Azure IoT Edge maven-sjabloonpakket en de Azure IoT Edge Java-apparaat-SDK met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
+Met de volgende stappen maakt u een ​​IoT Edge-moduleproject op basis van het Azure IoT Edge maven-sjabloonpakket en de Azure IoT Java-apparaat-SDK. U kunt het project maken met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
 
 ### <a name="create-a-new-solution"></a>Een nieuwe oplossing maken
 
@@ -90,7 +90,7 @@ Maak een Java-oplossingssjabloon die u met uw eigen code kunt aanpassen.
 
 1. Selecteer in Visual Studio Code **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
 
-2. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** uit. Volg de aanwijzingen in het opdrachtpalet om uw oplossing te maken.
+2. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen in het opdrachtpalet om uw oplossing te maken.
 
    | Veld | Waarde |
    | ----- | ----- |
@@ -136,7 +136,7 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. Voeg de volgende definitie toe aan de klasse **App**. Deze variabele bepaalt de waarde die de gemeten temperatuur moet overschrijden voordat de gegevens naar de IoT-hub worden verzonden. 
+5. Voeg de volgende definitie toe aan de klasse **App**. Met deze variabele wordt een drempelwaarde voor temperatuur ingesteld. De gemeten machinetemperatuur wordt niet bij IoT Hub gerapporteerd totdat deze waarde wordt overschreden. 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -175,7 +175,7 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
         }
     ```
 
-8. Voeg de volgende twee statische binnenste klassen toe aan de klasse **App**. Deze klassen ontvangen updates van de gewenste eigenschappen van de moduledubbel en werken de variabele **tempThreshold** dienovereenkomstig bij. Alle modules hebben hun eigen moduledubbel, waardoor u rechtstreeks in de cloud de code kunt configureren die in een module wordt uitgevoerd.
+8. Voeg de volgende twee statische binnenste klassen toe aan de klasse **App**. Met deze klassen wordt de variabele tempThreshold bijgewerkt wanneer de gewenste eigenschap van de moduledubbel verandert. Alle modules hebben hun eigen moduledubbel, waardoor u rechtstreeks in de cloud de code kunt configureren die in een module wordt uitgevoerd.
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -240,9 +240,9 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
 
 ## <a name="build-your-iot-edge-solution"></a>Uw eigen IoT Edge-oplossing bouwen
 
-In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan de **JavaModule** om berichten te filteren waarin de gemelde temperatuur van de machine onder de aanvaardbare drempelwaarde is. Nu moet u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen. 
+In het vorige gedeelte hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan de **JavaModule** om berichten te filteren waarin de gemelde temperatuur van de machine onder de aanvaardbare limiet is. Nu gaat u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen. 
 
-1. Meld u aan bij Docker door de volgende opdracht in de geïntegreerde Visual Studio Code-terminal in te voeren. Vervolgens kunt u de module-installatiekopie naar het Azure-containerregister pushen.
+1. Meld u aan bij Docker door de volgende opdracht in de Visual Studio Code-terminal in te voeren. Vervolgens kunt u de module-installatiekopie naar het Azure-containerregister pushen.
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -259,9 +259,9 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 
 In dit snelstartartikel voor het instellen van uw IoT Edge-apparaat hebt u een module geïmplementeerd met behulp van de Azure-portal. U kunt modules ook implementeren via de Azure IoT Hub Toolkit-extensie (voorheen Azure IoT Toolkit-extensie) voor Visual Studio Code. U hebt al een implementatiemanifest voorbereid voor uw scenario, namelijk het bestand **deployment.json**. U hoeft nu alleen nog maar een apparaat te selecteren dat de implementatie moet ontvangen.
 
-1. Voer in het VS Code-opdrachtpalet de opdracht **Azure:  Sign in** uit en volg de aanwijzingen om u aan te melden bij uw Azure-account. Als u al bent aangemeld, kunt u deze stap overslaan.
+1. Voer in het opdrachtpalet van VS Code de opdracht **Azure: Aanmelden** in, voer deze uit en volg de instructies om u aan te melden bij uw Azure-account. Als u al bent aangemeld, kunt u deze stap overslaan.
 
-2. Voer in het VS Code-opdrachtpalet de opdracht **Azure IoT Hub: Select IoT Hub** uit.  
+2. Voer in het opdrachtpalet van VS Code de opdracht **Azure IoT Hub: Select IoT Hub**. 
 
 3. Kies het abonnement en de IoT-hub met het IoT Edge-apparaat dat u wilt configureren. 
 
@@ -289,7 +289,7 @@ U kunt de berichten weergeven wanneer ze binnenkomen op uw IoT-hub met behulp va
 
 1. Klik op het weglatingsteken (**...**) en selecteer **Controle D2C-berichten starten** om de gegevens te controleren die binnenkomen bij de IoT-hub.
 2. Als u de D2C-berichten voor een specifiek apparaat wilt controleren, klikt u met de rechtermuisknop op dit apparaat in de lijst en selecteert u **Controle D2C-berichten starten**.
-3. Als u het bewaken van gegevens wilt stoppen, voert u in het opdrachtpalet de opdracht **Azure IoT Hub:  Stop monitoring D2C message** uit. 
+3. Als u wilt stoppen met het bewaken van gegevens, voert u de opdracht **Azure IoT Hub: Stop monitoring D2C message** in het opdrachtpalet uit. 
 4. Als u de moduledubbel wilt weergeven of bewerken, klikt u met de rechtermuisknop op deze moduledubbel in de lijst en selecteert u **Moduledubbel bewerken**. Als u de moduledubbel wilt bijwerken, slaat u het dubbele JSON-bestand op, klikt u met de rechtermuisknop in de editor en selecteert u **Moduledubbel bijwerken**.
 5. Als u Docker-logboeken wilt bekijken, installeert u [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) voor VS Code. U kunt de actieve modules lokaal zoeken in Docker Explorer. Selecteer in het contextmenu **Logboeken weergeven** om ze te bekijken in de geïntegreerde terminal.
  

@@ -1,5 +1,5 @@
 ---
-title: Node.Js, Angular-app die gebruikmaakt van MongoB-API (deel 6)
+title: Een Angular-app maken met de API voor MongoDB van Azure Cosmos DB - CRUD-functies toevoegen aan de app
 titleSuffix: Azure Cosmos DB
 description: Deel 6 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB
 author: johnpapa
@@ -7,21 +7,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: ec6fc4237fd2be11d1e937ec6aed12898689e73f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: affa3fcc580ab69d7cba9db93890ed5f3c499bf4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139976"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793356"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-crud-functions-to-the-app"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 6: CRUD-functies toevoegen aan de app
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Een Angular-app maken met de API voor MongoDB van Azure Cosmos DB - CRUD-functies toevoegen aan de app
 
-In deze meerdelige zelfstudie leert u hoe u een nieuwe [MongoDB API](mongodb-introduction.md)-app maakt in Node.js met Express en Angular, waarna u de app verbinding laat maken met uw Azure Cosmos DB-database.
-
-Deel 6 van de zelfstudie bouwt voort op [deel 5](tutorial-develop-mongodb-nodejs-part5.md) en beschrijft de volgende taken:
+In deze meerdelige zelfstudie leert u hoe u een app maakt die is geschreven in Node.js met Express en Angular, en hoe u deze app verbindt met uw [Cosmos-account dat is geconfigureerd met de API van Cosmos DB voor MongoDB](mongodb-introduction.md). Deel 6 van de zelfstudie bouwt voort op [deel 5](tutorial-develop-mongodb-nodejs-part5.md) en beschrijft de volgende taken:
 
 > [!div class="checklist"]
 > * De functies Post, Put en Delete voor de hero-service maken

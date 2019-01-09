@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-Script steekproef - berekenen blob-container grootte | Microsoft Docs
-description: De grootte van een container in Azure Blob-opslag berekenen door de grootte van elk van de blobs totaal te berekenen.
+title: Azure PowerShell-voorbeeldscript - Blobcontainergrootte berekenen | Microsoft Docs
+description: Bereken de grootte van een container in Azure Blob Storage door de grootte van alle blobs in de container bij elkaar op te tellen.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,49 +15,49 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: f6f421e780bfbb7922a4b11f758330f2a9a0b84b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b41366b89a0598d52ae973e2a6d27e60ed548765
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24814572"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634453"
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>De grootte van een Blob storage-container berekenen
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>De grootte van een Blob Storage-container berekenen
 
-Dit script wordt de grootte van een container in Azure Blob storage berekend door het totaal te berekenen van de grootte van de blobs in de container.
+Met dit script wordt de grootte van een container in Azure Blob Storage berekend door de grootte van de blobs in de container op te tellen.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Deze PowerShell-script bevat een geschatte grootte voor de container en mag niet worden gebruikt voor facturering berekeningen. Zie voor een script dat berekent de grootte van de container voor facturatie, [berekenen van de grootte van een Blob storage-container voor factureringsdoeleinden](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
+> Dit PowerShell-script geeft een geschatte grootte van de container en dient niet te worden gebruikt voor factureringsberekeningen. Zie [De grootte van een Blob Storage-container voor facturering berekenen](../scripts/storage-blobs-container-calculate-billing-size-powershell.md) voor een script waarmee u de grootte van de container voor facturering kunt berekenen. 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size.ps1 "Calculate container size")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, container en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, container en alle gerelateerde resources te verwijderen.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name bloblisttestrg
+Remove-AzResourceGroup -Name bloblisttestrg
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten om de grootte van de Blob storage-container te berekenen. Elk item in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt om de grootte van de Blob Storage-container te berekenen. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Hiermee haalt u een opgegeven opslagaccount of alle van de Storage-accounts in een resourcegroep of het abonnement. |
-| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | Een lijst met blobs in een container. ||
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Hiermee haalt u een opgegeven opslagaccount of alle opslagaccounts in een resourcegroep of het abonnement op. |
+| [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob) | Hiermee geeft u een lijst met blobs in een container weer. ||
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een script dat berekent de grootte van de container voor facturatie, [berekenen van de grootte van een Blob storage-container voor factureringsdoeleinden](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
+Zie [De grootte van een Blob Storage-container voor facturering berekenen](../scripts/storage-blobs-container-calculate-billing-size-powershell.md) voor een script waarmee u de grootte van de container voor facturering kunt berekenen.
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over de Azure PowerShell-module de [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van extra opslagruimte PowerShell-script kunnen worden gevonden in [voorbeelden van PowerShell voor Azure Storage](../blobs/storage-samples-blobs-powershell.md).
+Meer PowerShell-voorbeeldscripts voor Storage vindt u in de [PowerShell-voorbeelden voor Azure Storage](../blobs/storage-samples-blobs-powershell.md).

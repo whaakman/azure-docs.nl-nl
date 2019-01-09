@@ -5,264 +5,243 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 03bef6f2-3ea2-4eaa-a828-79c5f1346ce5
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: d3fdf52d07faa4242a0267ebc929946bbc95418a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 16bcd61d226fe97e9f3e4eb5c40f2fdf6c304a12
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427615"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808278"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Zelfstudie: Azure Active Directory-integratie met Palo Alto Networks - GlobalProtect
 
-In deze zelfstudie leert u hoe u integreert Palo Alto Networks - GlobalProtect met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Palo Alto Networks - GlobalProtect integreert met Azure Active Directory (Azure AD).
+De integratie van Palo Alto Networks - GlobalProtect met Azure AD heeft de volgende voordelen:
 
-Integratie van Palo Alto Networks - GlobalProtect met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang tot Palo Alto Networks - GlobalProtect heeft.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Palo Alto Networks - GlobalProtect (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Palo Alto Networks - GlobalProtect heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Palo Alto Networks - GlobalProtect (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Palo Alto Networks - GlobalProtect, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met Palo Alto Networks - GlobalProtect te configureren:
 
-- Een Azure AD-abonnement
-- Een Palo Alto Networks - GlobalProtect eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Abonnement voor Palo Alto Networks - GlobalProtect waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Palo Alto Networks - GlobalProtect uit de galerie toevoegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+
+* Palo Alto Networks - GlobalProtect ondersteunt door **SP** geïnitieerde eenmalige aanmelding
+* Palo Alto Networks - GlobalProtect ondersteunt **Just In Time**-gebruikersinrichting
 
 ## <a name="adding-palo-alto-networks---globalprotect-from-the-gallery"></a>Palo Alto Networks - GlobalProtect uit de galerie toevoegen
-Als u wilt configureren van de integratie van Palo Alto Networks - GlobalProtect in Azure AD, moet u Palo Alto Networks - GlobalProtect uit de galerie aan de lijst met beheerde SaaS-apps toevoegen.
 
-**Als u wilt toevoegen van Palo Alto Networks - GlobalProtect uit de galerie, moet u de volgende stappen uitvoeren:**
+Als u de integratie van Palo Alto Networks - GlobalProtect met Azure AD wilt configureren, moet u Palo Alto Networks - GlobalProtect uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+**Voer de volgende stappen uit om Palo Alto Networks - GlobalProtect uit de galerie toe te voegen:**
 
-    ![De Azure Active Directory-knop][1]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De knop nieuwe toepassing][3]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Typ in het zoekvak **Palo Alto Networks - GlobalProtect**, selecteer **Palo Alto Networks - GlobalProtect** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing .
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Palo Alto Networks - GlobalProtect in de lijst met resultaten](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_addfromgallery.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+4. Typ in het zoekvak **Palo Alto Networks - GlobalProtect**, selecteer **Palo Alto Networks - GlobalProtect** in het resultaatdeelvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-In deze sectie maakt u configureren en testen van Azure AD eenmalige aanmelding met Palo Alto Networks - GlobalProtect op basis van een testgebruiker 'Julia steen' genoemd.
+     ![Palo Alto Networks - GlobalProtect in de lijst met resultaten](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Palo Alto Networks - GlobalProtect is aan een gebruiker in Azure AD. Met andere woorden, een koppeling de relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Palo Alto Networks - GlobalProtect moet tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In Palo Alto Networks - GlobalProtect, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Palo Alto Networks - GlobalProtect op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Palo Alto Networks - GlobalProtect tot stand is gebracht.
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Palo Alto Networks - GlobalProtect, u nodig hebt voor de volgende bouwstenen:
+Voer het volgende uit om eenmalige aanmelding van Azure AD met Palo Alto Networks - GlobalProtect te configureren en testen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maken van een Palo Alto Networks - GlobalProtect testgebruiker](#create-a-palo-alto-networks---globalprotect-test-user)**  : als u wilt een equivalent van Britta Simon in Palo Alto Networks - GlobalProtect die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding met Palo Alto Networks - GlobalProtect configureren](#configure-palo-alto-networks---globalprotect-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Palo Alto Networks - GlobalProtect maken](#create-palo-alto-networks---globalprotect-test-user)**: als u een equivalent van Britta Simon in Palo Alto Networks - GlobalProtect wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en eenmalige aanmelding in uw Palo Alto Networks - GlobalProtect toepassing configureren.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD Voer eenmalige aanmelding met Palo Alto Networks - GlobalProtect, de volgende stappen uit:**
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met Palo Alto Networks - GlobalProtect te configureren:
 
-1. In de Azure-portal op de **Palo Alto Networks - GlobalProtect** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in [Azure Portal](https://portal.azure.com/) naar de toepassingsintegratiepagina van **Palo Alto Networks - GlobalProtect** en selecteer **Eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Palo Alto Networks - GlobalProtect domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Palo Alto Networks - GlobalProtect domein en één URL's aanmeldings-informatie](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<Customer Firewall URL>`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<Customer Firewall URL>/SAML20/SP`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Palo Alto Networks - ondersteuningsteam GlobalProtect Client](https://support.paloaltonetworks.com/support) om deze waarden te verkrijgen. 
- 
-1. Palo Alto Networks - GlobalProtect toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
-    
-    ![Eenmalige aanmelding configureren](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_attribute.png)
-    
-1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk | Waarde kenmerk |
-    | --- | --- |    
-    | gebruikersnaam | User.userPrincipalName |
+    ![Informatie over eenmalige aanmelding voor Palo Alto Networks - GlobalProtect-domein en -URL's](common/sp-identifier.png)
 
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<Customer Firewall URL>`
 
-    ![Eenmalige aanmelding configureren](./media/paloaltoglobalprotect-tutorial/tutorial_attribute_04.png)
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<Customer Firewall URL>/SAML20/SP`
 
-    ![Eenmalige aanmelding configureren](./media/paloaltoglobalprotect-tutorial/tutorial_attribute_05.png)
-    
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
-    
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij. We de waarde met user.userprincipalname als voorbeeld hebt toegewezen, maar u kunt toewijzen met de juiste waarde. 
-    
-    d. Klik op **Ok**
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Palo Alto Networks - GlobalProtect](https://support.paloaltonetworks.com/support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
+5. De toepassing Palo Alto Networks - GlobalProtect verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    ![image](common/edit-attribute.png)
 
-    ![De downloadkoppeling certificaat](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_certificate.png) 
+6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
 
-1. Klik op **opslaan** knop.
+    | Naam | Bronkenmerk|
+    | ------|--------- |
+    | gebruikersnaam  | user.userprincipalname  |
+    | | |
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/paloaltoglobalprotect-tutorial/tutorial_general_400.png)
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-1. Open de Palo Alto Networks Firewall beheerders-UI als een beheerder in een ander browservenster.
+    ![image](common/new-save-attribute.png)
 
-1. Klik op **apparaat**.
+    ![image](common/new-attribute-details.png)
 
-    ![Palo Alto Single Sign-on configureren](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin1.png)
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-1. Selecteer **SAML-identiteitsprovider** in de linkernavigatiebalk staaf- en klikt u op 'Importeren' voor het importeren van het bestand met metagegevens.
+    c. Laat **Naamruimte** leeg.
 
-    ![Palo Alto Single Sign-on configureren](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin2.png)
+    d. Selecteer Bron bij **Kenmerk**.
 
-1. Voer de volgende acties op het venster importeren
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    ![Palo Alto Single Sign-on configureren](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
+    f. Klik op **OK**.
 
-    a. In de **profielnaam** tekstvak, een bijvoorbeeld de naam van Azure AD GlobalProtect bieden.
-    
-    b. In **Identity Provider metagegevens**, klikt u op **Bladeren** en selecteer het metadata.xml-bestand dat u hebt gedownload vanuit Azure portal
-    
+    g. Klik op **Opslaan**.
+
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om de **metagegevens-XML** te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
+
+8. In het gedeelte **Palo Alto Networks - GlobalProtect instellen** kopieert u de URL('s) die u nodig hebt.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-palo-alto-networks---globalprotect-single-sign-on"></a>Eenmalige aanmelding voor Palo Alto Networks - GlobalProtect configureren
+
+1. Open de gebruikersinterface voor firewallbeheer van Palo Alto Networks als beheerder in een ander browservenster.
+
+2. Klik op **Apparaat**.
+
+    ![Eenmalige aanmelding voor Palo Alto configureren](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin1.png)
+
+3. Selecteer **SAML-id-provider** in de linkernavigatiebalk en klik op Importeren om het metagegevensbestand te importeren.
+
+    ![Eenmalige aanmelding voor Palo Alto configureren](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin2.png)
+
+4. Voer de volgende acties uit in het venster Importeren
+
+    ![Eenmalige aanmelding voor Palo Alto configureren](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
+
+    a. Geef in het tekstvak **Profielnaam** een naam op, bijvoorbeeld Azure AD GlobalProtect.
+
+    b. Klik in **Metagegevens van id-provider** op **Bladeren** en selecteer het bestand metadata.xml dat u vanuit Azure Portal hebt gedownload
+
     c. Klik op **OK**
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/paloaltoglobalprotect-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/paloaltoglobalprotect-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/paloaltoglobalprotect-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/paloaltoglobalprotect-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-palo-alto-networks---globalprotect-test-user"></a>Een Palo Alto Networks - GlobalProtect testgebruiker maken
-
-Palo Alto Networks - GlobalProtect ondersteunt Just-in-time inrichting van gebruikers, zodat een gebruiker automatisch in het systeem na een geslaagde authenticatie gemaakt wordt als dit niet al bestaat. U hoeft niet te hier een actie wordt uitgevoerd. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Palo Alto Networks - GlobalProtect.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Palo Alto Networks - GlobalProtect.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in Azure Portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **Palo Alto Networks - GlobalProtect**.
 
-**Britta Simon om aan te wijzen Palo Alto Networks - GlobalProtect, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Typ in de lijst met toepassingen **Palo Alto Networks - GlobalProtect** en selecteer dit.
 
-    ![Gebruiker toewijzen][201] 
+    ![De link Palo Alto Networks - GlobalProtect in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Palo Alto Networks - GlobalProtect**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De Palo Alto Networks - GlobalProtect koppeling in de lijst met toepassingen](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-palo-alto-networks---globalprotect-test-user"></a>Testgebruiker voor Palo Alto Networks - GlobalProtect maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in Palo Alto Networks - GlobalProtect. Palo Alto Networks - GlobalProtect ondersteunt Just In Time-gebruikersinrichting, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in Palo Alto Networks - GlobalProtect bestaat, wordt er na verificatie een nieuwe gemaakt.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u klikt op het Palo Alto Networks - GlobalProtect tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw Palo Alto Networks - GlobalProtect toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel van Palo Alto Networks - GlobalProtect klikt in het toegangsvenster, moet u automatisch worden aangemeld bij de instantie van Palo Alto Networks - GlobalProtect waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_01.png
-[2]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_02.png
-[3]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_03.png
-[4]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_04.png
-
-[100]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_100.png
-
-[200]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_200.png
-[201]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_201.png
-[202]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_202.png
-[203]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

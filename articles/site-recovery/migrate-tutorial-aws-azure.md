@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851125"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793067"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -136,7 +136,7 @@ Selecteer op de pagina **Bron voorbereiden** de optie **+ Configuratieserver**.
     11. Bij **Voortgang van de installatie** ziet u informatie over hoe de installatie vordert. Wanneer dit is voltooid, selecteert u **Voltooien**. Er wordt een venster weergegeven met daarin een bericht over opnieuw opstarten. Selecteer **OK**. Vervolgens wordt een bericht weergegeven over de wachtwoordzin voor de configuratieserververbinding. Kopieer de wachtwoordzin naar het klembord en sla deze ergens veilig op.
 6. Voer cspsconfigtool.exe uit op de VM om een of meer beheeraccounts op de configuratieserver te maken. Zorg ervoor dat de beheeraccounts beheerdersmachtigingen hebben voor de EC2-instanties die u wilt migreren.
 
-Wanneer u klaar bent met het instellen van de configuratieserver, gaat u terug naar de portal en selecteert u de server die u zojuist hebt gemaakt als **configuratieserver**. Selecteer **OK** om verder te gaan met stap 3: Doel voorbereiden.
+Wanneer u klaar bent met het instellen van de configuratieserver, gaat u terug naar de portal en selecteert u de server die u zojuist hebt gemaakt als **configuratieserver**. Selecteer **OK** om naar 3: Doel voorbereiden te gaan.
 
 ### <a name="3-prepare-target"></a>3: Doel voorbereiden
 
@@ -223,7 +223,7 @@ Voer de testfailover uit in de portal:
 1. Ga op de pagina voor uw kluis naar **Beveiligde items** > **Gerepliceerde Items**. Selecteer de VM en selecteer vervolgens **Testfailover**.
 2. Selecteer een herstelpunt om voor de failover te gebruiken:
     - **Laatst verwerkt**: voert een failover van de VM uit naar het laatste herstelpunt dat is verwerkt met Site Recovery. Het tijdstempel wordt weergegeven. Met deze optie wordt er geen tijd besteed aan het verwerken van gegevens, zodat er sprake is van een lage RTO (Recovery Time Objective).
-    - **Laatste toepassingsconsistente punt**: met deze optie wordt er een failover uitgevoerd van alle VM’s naar het laatste toepassingsconsistente herstelpunt. Het tijdstempel wordt weergegeven.
+    - **Laatste toepassingsconsistente punt**: met deze optie wordt er een failover uitgevoerd van alle VM's naar het laatste toepassingsconsistente herstelpunt. Het tijdstempel wordt weergegeven.
     - **Aangepast**: selecteer een herstelpunt.
 
 3. Selecteer in **Failover testen** het Azure-doelnetwerk waarmee de virtuele Azure-machines moeten worden verbonden nadat de failover heeft plaatsgevonden. Dit moet het netwerk zijn dat u hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).

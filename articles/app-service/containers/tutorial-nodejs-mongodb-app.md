@@ -15,32 +15,32 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 44f5ea606efafbb310e4740d75cbf86b7069e7ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254952"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722512"
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Een Node.js-app en een MongoDB-web-app maken in Azure App Service onder Linux
+# <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Een Node.js-app en een MongoDB-app maken in Azure App Service op Linux
 
 > [!NOTE]
-> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een Node.js- en een MongoDB-web-app in Azure maken](../app-service-web-tutorial-nodejs-mongodb-app.md) als u App Service onder _Windows_ wilt implementeren.
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een Node.js- en een MongoDB-app in Azure maken](../app-service-web-tutorial-nodejs-mongodb-app.md) als u App Service onder _Windows_ wilt implementeren.
 >
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt beschreven hoe u een Node.js-web-app maakt, lokaal verbindt met een MongoDB-database en vervolgens implementeert in Azure, dat is gekoppeld aan een CosmosDB-database met behulp van de MongoDB-API. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in App Service onder Linux. In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](https://meanjs.org/).
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt beschreven hoe u een Node.js-app maakt, deze lokaal verbindt met een MongoDB-database en de app vervolgens implementeert als een Azure Cosmos DB voor MongoDB API-database. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in App Service onder Linux. In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](https://meanjs.org/).
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 U leert het volgende:
 
 > [!div class="checklist"]
-> * Een CosmosDB-database maken met behulp van de MongoDB-API in Azure
+> * Een database maken met Azure Cosmos DB voor MongoDB-API
 > * Een Node.js-app verbinden met MongoDB
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
-> * De app in de Azure-portal beheren
+> * De app in Azure Portal beheren
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -121,9 +121,7 @@ Als u Node.js wilt stoppen, drukt u in de terminal op `Ctrl+C`.
 
 ## <a name="create-production-mongodb"></a>Productie-MongoDB maken
 
-In deze stap maakt u een MongoDB-database in Azure. Als de app is geïmplementeerd in Azure, wordt deze cloud-database gebruikt.
-
-Voor MongoDB wordt in deze zelfstudie gebruikgemaakt van [Azure Cosmos DB](/azure/documentdb/). Cosmos DB ondersteunt MongoDB-clientverbindingen.
+In deze stap maakt u een Cosmos-database die is geconfigureerd met MongoDB-API, in Azure. Als de app is geïmplementeerd in Azure, wordt deze cloud-database gebruikt.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -159,7 +157,7 @@ Wanneer het Cosmos DB-account wordt gemaakt toont de Azure CLI informatie die li
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>App verbinden met productie-MongoDB
+## <a name="connect-app-to-production-cosmos-db-configured-with-mongodb-api"></a>App verbinden met productie-Cosmos DB die is geconfigureerd met de MongoDB-API
 
 In deze stap verbindt u uw MEAN.js-voorbeeldtoepassing met de Cosmos DB-database die u zojuist hebt gemaakt, met behulp van een MongoDB-verbindingsreeks.
 
@@ -239,7 +237,7 @@ Stop Node.js door in het terminalvenster `Ctrl+C` te typen.
 
 ## <a name="deploy-app-to-azure"></a>App in Azure implementeren
 
-In deze step implementeert u uw met MongoDB verbonden Node.js-toepassing in Azure App Service.
+In deze stap implementeert u de Node.js-toepassing in Azure App Service.
 
 ### <a name="configure-local-git-deployment"></a>Lokale Git-implementatie configureren
 
@@ -257,11 +255,11 @@ In deze step implementeert u uw met MongoDB verbonden Node.js-toepassing in Azur
 
 ### <a name="configure-an-environment-variable"></a>Een omgevingsvariabele configureren
 
-Standaard houdt het MEAN.js-project _config/env/local-production.js_ buiten de Git-opslagplaats. Voor uw Azure-web-app gebruikt u dus app-instellingen om de MongoDB-verbindingsreeks te definiëren.
+Standaard houdt het MEAN.js-project _config/env/local-production.js_ buiten de Git-opslagplaats. Voor uw Azure-app gebruikt u dus app-instellingen om de MongoDB-verbindingsreeks te definiëren.
 
 Gebruik de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell om de app-instellingen te definiëren.
 
-In het volgende voorbeeld wordt een app-instelling voor `MONGODB_URI` in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
+In het volgende voorbeeld wordt de app-instelling `MONGODB_URI` in de Azure-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -307,11 +305,11 @@ Het implementatieproces voert [Gulp](https://gulpjs.com/) na `npm install` uit. 
 - _.deployment_: dit bestand meldt App Service om `bash deploy.sh` uit te voeren als het aangepaste implementatiescript.
 - _deploy.sh_: het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `gulp prod` wordt uitgevoerd na `npm install` en `bower install`.
 
-U kunt deze aanpak gebruiken om een stap toe te voegen aan de op Git gebaseerde implementatie. Als u de Azure-web-app op een gegeven moment opnieuw start, worden deze geautomatiseerde taken niet in App Service uitgevoerd.
+U kunt deze aanpak gebruiken om een stap toe te voegen aan de op Git gebaseerde implementatie. Als u de Azure-app op enig moment opnieuw start, worden deze automatiseringstaken niet opnieuw uitgevoerd in App Service.
 
-### <a name="browse-to-the-azure-web-app"></a>Bladeren naar de Azure-web-app
+### <a name="browse-to-the-azure-app"></a>Naar de Azure-app bladeren
 
-Blader naar de geïmplementeerde web-app via uw webbrowser.
+Blader in de webbrowser naar de geïmplementeerde app.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -319,7 +317,7 @@ http://<app_name>.azurewebsites.net
 
 Klik op **Registreren** in het bovenste menu en maak een dummygebruiker aan.
 
-Als de app automatisch voor de aangemaakte gebruiker wordt aangemeld, dan heeft de MEAN.js-app in Azure verbinding met de MongoDB-API van de Cosmos DB-database.
+Als de app automatisch voor de aangemaakte gebruiker wordt aangemeld, heeft de MEAN.js-app in Azure verbinding met de Azure Cosmos DB voor MongoDB-API.
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -447,23 +445,23 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Zodra `git push` voltooid is, gaat u naar de Azure-web-app en probeert u de nieuwe functionaliteit uit.
+Zodra `git push` is voltooid, gaat u naar de Azure-app en probeert u de nieuwe functionaliteit uit.
 
 ![In Azure gepubliceerde model- en databasewijzigingen](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 Als u eerder artikelen hebt toegevoegd, kunt u deze nog steeds zien. Bestaande gegevens in Cosmos DB zijn nog aanwezig. En uw updates aan het gegevensschema zijn nog intact.
 
-## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
+## <a name="manage-your-azure-app"></a>Uw Azure-app beheren
 
-Ga naar de [Azure-portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
+Ga naar de [Azure-portal](https://portal.azure.com) om de app te zien die u hebt gemaakt.
 
-Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/tutorial-nodejs-mongodb-app/access-portal.png)
+![Navigatie naar Azure-app in de portal](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
-In de portal wordt standaard de pagina **Overzicht** van de web-app getoond. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
+In de portal wordt standaard de pagina **Overzicht** van de app weergegeven. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
 
-![App Service-pagina in de Azure-portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service-pagina in Azure Portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
@@ -474,14 +472,14 @@ In de portal wordt standaard de pagina **Overzicht** van de web-app getoond. Dez
 Wat u hebt geleerd:
 
 > [!div class="checklist"]
-> * Een CosmosDB-database maken met behulp van de MongoDB-API in Azure
-> * Een Node.js-app verbinden met MongoDB
+> * Een database maken met Azure Cosmos DB voor MongoDB-API
+> * Een Node.js-app verbinden met een database
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken vanaf Azure naar uw terminal streamen
-> * De app in de Azure-portal beheren
+> * De app in Azure Portal beheren
 
-Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw web-app kunt toewijzen.
+Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw app kunt toewijzen.
 
 > [!div class="nextstepaction"]
-> [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service](../app-service-web-tutorial-custom-domain.md)

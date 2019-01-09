@@ -12,16 +12,16 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092363"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744697"
 ---
-# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Snelstartgids: Go gebruiken om een query uit te voeren op een Azure SQL-database
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Quickstart: Golang gebruiken om een query uit te voeren op een Azure SQL-database
 
-In deze snelstart wordt gedemonstreerd hoe u de programmeertaal [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om gegevens te doorzoeken en wijzigen. [Go](https://golang.org/) is een open-sourceprogrammeertaal waarmee u op een simpele manier eenvoudige, betrouwbare en efficiënte software kunt maken.  
+In deze snelstart gebruikt u de programmeertaal [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) om verbinding te maken met een Azure SQL database. Voer vervolgens Transact-SQL-instructies uit om query's uit te voeren voor gegevens en om gegevens te bewerken. [Golang](https://golang.org/) is een open-sourceprogrammeertaal waarmee u op een simpele manier eenvoudige, betrouwbare en efficiënte software kunt maken.  
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,17 +31,17 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 - Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) geconfigureerd voor het openbare IP-adres van uw computer.
 
-- Go en verwante software geïnstalleerd voor uw besturingssysteem:
+- Golang en verwante software geïnstalleerd voor uw besturingssysteem:
 
-    - **MacOS**: Installeer Homebrew en GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**:  Installeer GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-    - **Windows**: Installeer GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
+    - **MacOS**: Installeer Homebrew en Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+    - **Ubuntu**:  Installeer Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **Windows**: Installeer Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-go-project-and-dependencies"></a>Go-project en -afhankelijkheden maken
+## <a name="create-golang-project-and-dependencies"></a>Golang-project en -afhankelijkheden maken
 
 1. Maak vanaf de terminal een nieuwe projectmap met de naam **SqlServerSample**. 
 
@@ -49,7 +49,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
    mkdir SqlServerSample
    ```
 
-2. Stel de map in op **SqlServerSample** en installeer het SQL Server-stuurprogramma voor Go.
+2. Navigeer naar **SqlServerSample** en installeer het SQL Server-stuurprogramma voor Go.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="create-sample-data"></a>Voorbeeldgegevens maken
 
-1. Maak in uw favoriete teksteditor een bestand met de naam **CreateTestData.sql** in de map **SqlServerSample**. In het bestand kopieert en plakt u de volgende T-SQL-code, die zorgt voor een schema en een tabel, en een paar rijen invoegt.
+1. Maak in een teksteditor een bestand met de naam **CreateTestData.sql** in de map **SqlServerSample**. In het bestand plakt u deze T-SQL-code, waarmee u een schema en een tabel maakt en enkele rijen invoegt.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -85,14 +85,14 @@ Voor deze zelfstudie hebt u het volgende nodig:
 2. Gebruik `sqlcmd` om verbinding te maken met de database en voer uw zojuist gemaakte SQL-script uit. Gebruik de juiste waarden voor uw server, database, gebruikersnaam en wachtwoord.
 
    ```bash
-   sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
+   sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
 ## <a name="insert-code-to-query-sql-database"></a>Code invoegen om een query uit te voeren voor een SQL-database
 
 1. Maak een bestand met de naam **sample.go** in de map **SqlServerSample**.
 
-2. Open het bestand en plak de volgende code. Voeg de juiste waarden toe voor uw server, database, gebruikersnaam en wachtwoord. In dit voorbeeld worden de GoLang Context-methoden gebruikt om te zorgen voor een actieve verbinding met de databaseserver.
+2. Plak deze code in het bestand. Voeg de waarden toe voor uw server, database, gebruikersnaam en wachtwoord. In dit voorbeeld worden de Golang-[contextmethoden](https://golang.org/pkg/context/) gebruikt om te zorgen voor een actieve verbinding met de databaseserver.
 
    ```go
    package main
@@ -108,11 +108,11 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
    var db *sql.DB
 
-   var server = "your_server.database.windows.net"
+   var server = "<your_server.database.windows.net>"
    var port = 1433
-   var user = "your_username"
-   var password = "your_password"
-   var database = "your_database"
+   var user = "<your_username>"
+   var password = "<your_password>"
+   var database = "<your_database>"
 
    func main() {
        // Build connection string
@@ -311,6 +311,6 @@ Voor deze zelfstudie hebt u het volgende nodig:
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Uw eerste Azure SQL-database ontwerpen](sql-database-design-first-database.md)
-- [Go-stuurprogramma voor Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [Golang-stuurprogramma voor Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Problemen melden of vragen stellen](https://github.com/denisenkom/go-mssqldb/issues)
 

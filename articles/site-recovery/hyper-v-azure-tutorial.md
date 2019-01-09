@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839905"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810692"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Herstel na noodgevallen instellen voor on-premises Hyper-V-VM's naar Azure
 
@@ -81,8 +81,24 @@ Voer het Provider-installatiebestand (AzureSiteRecoveryProvider.exe) uit op elke
 5. Selecteer in **Proxy-instellingen** de optie **Rechtstreeks verbinding maken met Azure Site Recovery zonder proxyserver**.
 6. Klik nadat de server is geregistreerd in de kluis in **Registratie** op **Voltooien**.
 
-De metagegevens van de Hyper-V-server worden opgehaald door Azure Site Recovery en de server wordt weergegeven in **Infrastructuur voor Site Recovery** > **Hyper-V-hosts**. Dit proces duurt maximaal 30 minuten.
+De metagegevens van de Hyper-V-server worden opgehaald door Azure Site Recovery en de server wordt weergegeven in **Infrastructuur voor Site Recovery** > **Hyper-V-hosts**. Dit proces duurt maximaal 30 minuten.        
 
+Indien u een Hyper-V core-server gebruikt, volgt u de onderstaande stappen zodra u de aanmeldingsgegevens van de provider en van de kluis hebt gedownload, zoals [hier](#set-up-the-source-environment) wordt vermeld
+
+1. Pak de bestanden van AzureSiteRecoveryProvider.exe uit door het uitvoeren van
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    Hiermee worden de bestanden uitgepakt naar de lokale map.
+ 
+2.  Voer ``.\setupdr.exe /i `` uit.
+
+    De resultaten worden vastgelegd in %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.  Gebruik de volgende opdracht om de server te registreren:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>De doelomgeving instellen
 

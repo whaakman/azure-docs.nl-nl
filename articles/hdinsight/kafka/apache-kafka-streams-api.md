@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Werken met de Streams-API van Apache Kafka - Azure HDInsight '
+title: 'Zelfstudie: werken met de Streams-API van Apache Kafka - Azure HDInsight '
 description: Leer hoe u de Streams-API van Apache Kafka gebruikt met Kafka in HDInsight. Met deze API kunt u gegevensstromen tussen onderwerpen in Kafka verwerken.
 services: hdinsight
 ms.service: hdinsight
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495132"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584153"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Zelfstudie: Streams-API van Apache Kafka
 
@@ -22,7 +22,7 @@ Leer hoe u een toepassing maakt die gebruikmaakt van de Streams-API van Apache K
 
 De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een app voor het tellen van woorden die via een stream worden aangeboden. Eerst worden er tekstgegevens gelezen uit een onderwerp van Kafka, vervolgens worden afzonderlijke woorden uitgepakt en ten slotte worden de woorden en het aantal woorden opgeslagen in een ander Kafka-onderwerp.
 
-> [!NOTE]
+> [!NOTE]  
 > De verwerking van Kafka-gegevensstromen gebeurt vaak met Apache Spark of Apache Storm. De Streams-API is geïntroduceerd in Kafka versie 0.10.0 (in HDInsight 3.5 en 3.6). Met deze API kunt u gegevensstromen transformeren tussen invoer- en uitvoeronderwerpen. In sommige gevallen kan dit een alternatief zijn voor het maken van een streamingoplossing op basis van Spark of Storm. 
 >
 > Meer informatie over de Streams-API van Kafka vindt u in het Engelstalige artikel [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) op Apache.org.
@@ -48,7 +48,7 @@ De volgende onderdelen moeten zijn geïnstalleerd in de ontwikkelingsomgeving:
 
 * [Java JDK 8](https://aka.ms/azure-jdks) of een equivalent, zoals OpenJDK.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Een SSH-client en de opdracht `scp`. Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
@@ -56,14 +56,14 @@ De volgende onderdelen moeten zijn geïnstalleerd in de ontwikkelingsomgeving:
 
 De voorbeeldtoepassing bevindt zich op [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in de submap `Streaming`. De toepassing bestaat uit twee bestanden:
 
-* `pom.xml`: dit bestand definieert de projectafhankelijkheden, de Java-versie en de pakketmethoden.
+* `pom.xml`: met dit bestand worden de projectafhankelijkheden, de Java-versie en de pakketmethoden gedefinieerd.
 * `Stream.java`: dit bestand implementeert de streaming-logica.
 
 ### <a name="pomxml"></a>Pom.xml
 
 Belangrijke aandachtspunten voor het bestand `pom.xml`:
 
-* Afhankelijkheden: dit project is afhankelijk van de Kafka-API Streams, die wordt geleverd door het pakket `kafka-clients`. Deze afhankelijkheid wordt gedefinieerd met de volgende XML-code:
+* Afhankelijkheden: dit project is afhankelijk van de Kafka Streams-API, die wordt geleverd door het pakket `kafka-clients`. Deze afhankelijkheid wordt gedefinieerd met de volgende XML-code:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -74,10 +74,10 @@ Belangrijke aandachtspunten voor het bestand `pom.xml`:
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > De vermelding `${kafka.version}` wordt gedeclareerd in de sectie `<properties>..</properties>` van `pom.xml`, en wordt geconfigureerd voor de Kafka-versie van het HDInsight-cluster.
 
-* Plugins: de Maven-plugins bieden diverse mogelijkheden. In dit project worden de volgende plugins of invoegtoepassingen gebruikt:
+* Invoegtoepassingen: de Maven-invoegtoepassingen bieden diverse mogelijkheden. In dit project worden de volgende plugins of invoegtoepassingen gebruikt:
 
     * `maven-compiler-plugin`: wordt gebruikt om de Java-versie die wordt gebruikt door het project in te stellen op 8. Java 8 is vereist voor HDInsight 3.6.
     * `maven-shade-plugin`: wordt gebruikt voor het genereren van een uber jar die deze toepassing bevat, evenals eventuele afhankelijkheden. Dit bestand wordt ook gebruikt om het toegangspunt van de toepassing in te stellen, zodat u het Jar-bestand rechtstreeks kunt uitvoeren, dus zonder de hoofdklasse op te geven.
@@ -184,7 +184,7 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
 
 4. Gebruik de volgende opdrachten om de onderwerpen te maken die worden gebruikt door de streaming-bewerking:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Er kan een foutbericht worden weergegeven dat het onderwerp `test` al bestaat. Dit is geen probleem omdat het onderwerp mogelijk in de zelfstudie over de Producer- en Consumer-API's van Apache Kafka is gemaakt.
 
     ```bash
@@ -202,9 +202,9 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
     * `test`: dit is het onderwerp waarin records worden ontvangen. De streaming-toepassing leest uit dit onderwerp.
     * `wordcounts`: dit is het onderwerp waarin de uitvoer van de streaming-toepassing wordt opgeslagen.
     * `RekeyedIntermediateTopic`: dit onderwerp wordt gebruikt voor het opnieuw partitioneren van gegevens wanneer het aantal woorden wordt bijgewerkt door de operator `countByKey`.
-    * `wordcount-example-Counts-changelog`: in dit onderwerp worden statuswaarden opgeslagen die worden gebruikt door de bewerking `countByKey`.
+    * `wordcount-example-Counts-changelog`: in dit onderwerp worden statuswaarden opgeslagen die worden gebruikt door de bewerking `countByKey`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Kafka in HDInsight kan ook worden geconfigureerd voor het automatisch maken van onderwerpen. Zie [How to configure Apache Kafka on HDInsight to automatically create topics](apache-kafka-auto-create-topics.md) (Apache Kafka in HDInsight configureren voor het automatisch maken van onderwerpen) voor meer informatie.
 
 ## <a name="run-the-code"></a>De code uitvoeren
@@ -215,8 +215,8 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]
-    > Er kan een waarschuwing over log4j worden weergegeven. Deze kunt u negeren.
+    > [!NOTE]  
+    > Er kan een waarschuwing over Apache log4j worden weergegeven. Deze kunt u negeren.
 
 2. Als u records wilt verzenden naar het onderwerp `test`, gebruikt u de volgende opdracht gebruiken om de Producer-toepassing te starten:
 
@@ -230,7 +230,7 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > De parameters `--property` geven de Consumer-API opdracht om de key (het woord) samen met de count (waarde) weer te geven. Deze parameter configureert ook welke deserializer moet worden gebruikt bij het lezen van deze waarden uit Kafka.
 
     De uitvoer lijkt op het volgende:
@@ -248,7 +248,7 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
         jumped  13640
         jumped  13641
    
-    > [!NOTE]
+    > [!NOTE]  
     > De parameter `--from-beginning` configureert de Consumer om te beginnen bij het begin van de records die zijn opgeslagen in het onderwerp. Het aantal wordt met elk ontvangen woord opgehoogd, zodat het onderwerp meerdere vermeldingen voor elk woord bevat, met een oplopend aantal.
 
 7. Gebruik __Ctrl+C__ om de Producer af te sluiten. Blijf op __Ctrl+C__ drukken om de toepassing en de Consumer af te sluiten.

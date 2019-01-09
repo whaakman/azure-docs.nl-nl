@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874543"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793509"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Vragen over het maken back-ups van Azure-bestanden
 In dit artikel vindt u antwoorden op veelgestelde vragen over het maken back-ups van Azure-bestanden. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -39,31 +39,34 @@ Ja. U moet echter wel de [beveiliging stoppen](backup-azure-files.md#stop-protec
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In welke geografische gebieden kan ik back-ups maken van Azure-bestandsshares? <br/>
 Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase en is alleen beschikbaar in de volgende geografische gebieden: 
--   Australië - oost (AE) 
+- Australië - oost (AE) 
 - Australië - zuidoost (ASE) 
 - Brazilië - zuid (BRS)
 - Canada centraal (CNC)
--   Canada - oost (CE)
--   US - centraal (CUS)
--   Azië - oost (EA)
--   US - oost (EUS)
--   US - oost 2 (EUS2)
+- Canada - oost (CE)
+- US - centraal (CUS)
+- Azië - oost (EA)
+- US - oost (EUS)
+- US - oost 2 (EUS2)
 - Japan - oost (JPE)
 - Japan - west (JPW)
--   India - centraal (INC) 
+- India - centraal (INC) 
 - India - zuid (INS)
 - Korea - centraal (KRC)
 - Korea - zuid (KRS)
--   US - noord-centraal (NCUS) 
--   Europa - noord (NE) 
--   US - zuid-centraal (SCUS) 
--   Azië - zuidoost (SEA)
--   Verenigd Koninkrijk zuid (UKS) 
--   Verenigd Koninkrijk west (UKW) 
--   Europa - west (WE) 
--   US - west (WUS)
--   US - west-centraal (WCUS)
--   US - west 2 (WUS 2)
+- US - noord-centraal (NCUS) 
+- Europa - noord (NE) 
+- US - zuid-centraal (SCUS) 
+- Azië - zuidoost (SEA)
+- Verenigd Koninkrijk zuid (UKS) 
+- Verenigd Koninkrijk west (UKW) 
+- Europa - west (WE) 
+- US - west (WUS)
+- US - west-centraal (WCUS)
+- US - west 2 (WUS 2)
+- US Gov - Arizona (UGA)
+- US Gov - Texas (UGT)
+- US Gov - Virginia (UGV)
 
 Schrijf naar [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) als u deze functie wilt gebruiken in een specifiek geografisch gebied dat hierboven niet wordt vermeld.
 

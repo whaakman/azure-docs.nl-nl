@@ -1,23 +1,20 @@
 ---
-title: 'Zelfstudie: een Azure Database for MySQL ontwerpen met Azure Portal'
+title: 'Zelfstudie: Een Azure Database for MySQL ontwerpen met de Azure-portal'
 description: In deze zelfstudie wordt uitgelegd hoe u een Azure Database voor MySQL-server en -database maakt en beheert via Azure Portal.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 395ebbe3879660ce31abd570e936a010536db4de
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266530"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537723"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Zelfstudie: een Azure Database for MySQL-database ontwerpen met Azure Portal
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for MySQL-database ontwerpen met de Azure-portal
 Azure Database voor MySQL is een beheerde service waarmee u MySQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met behulp van Azure Portal kunt u eenvoudig uw server beheren en een database ontwerpen.
 
 In deze zelfstudie leert u hoe u Azure Portal kunt gebruiken voor deze bewerkingen:
@@ -151,10 +148,10 @@ Stel dat u per ongeluk een belangrijke databasetabel hebt verwijderd en dat de g
    
    ![10-2 Formulier Herstellen](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Herstelpunt**: selecteer een tijdstip in het verleden waarnaar u wilt herstellen, binnen de vermelde periode. Zorg ervoor dat u de lokale tijdzone converteert naar UTC.
-   - **Herstellen naar nieuwe server**: geef de naam op van de nieuwe server waarnaar u wilt herstellen.
-   - **Locatie**: de regio is hetzelfde als van de bronserver en kan niet worden gewijzigd.
-   - **Prijscategorie**: de prijscategorie is hetzelfde als van de bronserver en kan niet worden gewijzigd.
+   - **Herstelpunt**: Selecteer een tijdstip in het verleden waarnaar u wilt herstellen, binnen het vermelde tijdsbestek. Zorg ervoor dat u de lokale tijdzone converteert naar UTC.
+   - **Herstellen naar nieuwe server**: Geef de naam op van de nieuwe server waarnaar u wilt herstellen.
+   - **Locatie**: De regio is dezelfde als van de bronserver en kan niet worden gewijzigd.
+   - **Prijscategorie**: De prijscategorie is dezelfde als van de bronserver en kan niet worden gewijzigd.
    
 3. Klik op **OK** om de server te [herstellen naar een eerder tijdstip](./howto-restore-server-portal.md), voordat de tabel werd toegevoegd. Als u een server herstelt, wordt er een nieuwe kopie van de server gemaakt, vanaf het tijdstip dat u opgeeft. 
 

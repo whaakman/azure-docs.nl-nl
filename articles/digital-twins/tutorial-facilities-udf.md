@@ -1,18 +1,19 @@
 ---
-title: Een ruimte controleren met Azure Digital Twins | Microsoft Docs
+title: 'Zelfstudie: Een ruimte controleren met Azure Digital Twins | Microsoft Docs'
 description: Leer hoe u uw ruimtelijke resources kunt inrichten en de werkomstandigheden kunt bewaken met Azure Digital Twins door de stappen in deze zelfstudie te volgen.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584193"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556098"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Zelfstudie: Uw gebouw inrichten en uw werkomstandigheden controleren met Azure Digital Twins
 
@@ -203,9 +204,9 @@ In deze sectie gebruikt u het project met de naam *device-connectivity* in het v
 
 1. Open het bestand **appSettings.json** in een editor en bewerk de volgende waarden:
 
-   a. **DeviceConnectionString**: wijs de waarde toe van `ConnectionString` in het uitvoervenster uit de vorige sectie. Kopieer de volledige tekenreeks (tussen de aanhalingstekens), zodat de simulator correct verbinding maakt met de IoT-hub.
+   a. **DeviceConnectionString**: wijs de waarde van `ConnectionString` toe in het uitvoervenster uit het vorige gedeelte. Kopieer de volledige tekenreeks (tussen de aanhalingstekens), zodat de simulator correct verbinding maakt met de IoT-hub.
 
-   b. **HardwareId** binnen de matrix **Sensoren**: aangezien u gebeurtenissen van sensoren simuleert die zijn ingericht voor uw instantie van Digital Twins, moeten de hardware-ID en de namen van de sensoren in dit bestand overeenkomen met het knooppunt `sensors` van het bestand provisionSample.yaml.
+   b. **HardwareId** binnen de matrix **Sensors**: aangezien u gebeurtenissen van sensoren simuleert die zijn ingericht voor uw instantie van Digital Twins, moeten de hardware-ID en de namen van de sensoren in dit bestand overeenkomen met het knooppunt `sensors` van het bestand provisionSample.yaml.
 
       Voeg een nieuwe vermelding voor de temperatuursensor toe. Het knooppunt **Sensoren** in appSettings.json ziet er als volgt uit:
 
@@ -264,7 +265,7 @@ Als u Azure Digital Twins niet verder wilt verkennen, kunt u de resources die in
 Nu de ruimten zijn ingericht en u een framework voor het activeren van aangepaste meldingen hebt gemaakt, kunt u doorgaan met een van de volgende zelfstudies:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Meldingen ontvangen uit uw Azure Digital Twins-ruimten met behulp van logische apps](tutorial-facilities-events.md)
+> [Zelfstudie: Meldingen ontvangen uit uw Azure Digital Twins-ruimten met behulp van Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Gebeurtenissen uit Azure Digital Twins-ruimten visualiseren en analyseren met Time Series Insights](tutorial-facilities-analyze.md)

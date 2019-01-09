@@ -9,34 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bf4fd5d2a3a9bb06882dcd1b4674ccdf8ad894ee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096686"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971406"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>Zelfstudie 4: Exacte tekstovereenkomsten herkennen
-In deze zelfstudie leert u hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met termen. Elk item in de lijst kan een lijst met synoniemen bevatten. Voor de Human Resources-app kan een werknemer worden geïdentificeerd aan de hand van enkele belangrijke gegevens, zoals naam, e-mailadres, telefoonnummer en sociaal-fiscaal nummer. 
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Zelfstudie: Gegevens met exacte tekstovereenkomst ophalen uit een utterance
 
-De Human Resources-app moet bepalen welke werknemer wordt overgeplaatst van het ene naar het andere gebouw. Voor een utterance over het verplaatsen van een werknemer bepaalt LUIS de intentie en extraheert de werknemer, zodat een standaardopdracht voor het verplaatsen van de werknemer kan worden aangemaakt door de clienttoepassing.
-
-Deze app maakt gebruik van een List-entiteit om de werknemer te extraheren. Er kan worden verwezen naar de werknemer op naam, doorkiesnummer, mobiel nummer, e-mailadres of sociaal-fiscaal nummer. 
-
-Een entiteit List is een goede keuze voor dit type gegevens wanneer:
-
-* De gegevenswaarden deel uitmaken van een bekende set.
-* De set maximale [begrenzingen](luis-boundaries.md) van LUIS voor dit entiteitstype niet overschrijdt.
-* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. 
+In deze zelfstudie leert u hoe u entiteitsgegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met items. 
 
 **In deze zelfstudie leert u het volgende:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Bestaande zelfstudie-app gebruiken
-> * De intentie MoveEmployee toevoegen
+> * App maken
+> * Intentie toevoegen
 > * Een entiteit List toevoegen 
 > * Trainen 
 > * Publiceren
@@ -44,25 +35,31 @@ Een entiteit List is een goede keuze voor dit type gegevens wanneer:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Bestaande app gebruiken
-Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
+## <a name="what-is-a-list-entity"></a>Wat is een lijstentiteit?
 
-Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Een lijstentiteit is een exacte tekstovereenkomst met de woorden in de utterance. 
 
-1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json) en sla het op.
+Elk item in de lijst kan een lijst met synoniemen bevatten. In het geval van de Human Resources-app kan een afdeling worden geïdentificeerd aan de hand van verschillende belangrijke gegevenselementen, zoals een officiële naam, veelgebruikte acroniemen en factureringscodes. 
 
-2. Importeer de JSON in een nieuwe app.
+De Human Resources-app moet bepalen naar welke afdeling een werknemer wordt overgeplaatst. 
 
-3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `list`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL. 
+Een entiteit List is een goede keuze voor dit type gegevens wanneer:
 
+* De gegevenswaarden deel uitmaken van een bekende set.
+* De set maximale [begrenzingen](luis-boundaries.md) van LUIS voor dit entiteitstype niet overschrijdt.
+* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. LUIS gebruikt de lijst alleen voor exact tekstovereenkomsten. Stammen, meervoudsvormen en andere varianten kunnen niet worden verwerkt met alleen een lijstentiteit. Hiervoor kunt u overwegen een [patroon](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) met de optionele tekstsyntaxis te gebruiken. 
 
-## <a name="moveemployee-intent"></a>De intentie MoveEmployee
+## <a name="create-a-new-app"></a>Een nieuwe app maken
+
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+## <a name="create-an-intent-to-transfer-employees-to-a-different-department"></a>Een intentie maken om werknemers over te plaatsen naar een andere afdeling
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent**. 
 
-3. Voer in het pop-updialoogvenster `MoveEmployee` in en selecteer vervolgens **Done**. 
+3. Voer in het pop-updialoogvenster `TransferEmployeeToDepartment` in en selecteer vervolgens **Done**. 
 
     ![Schermopname van het pop-updialoogvenster voor het maken van een nieuwe intentie met](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
@@ -70,205 +67,122 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
     |Voorbeelden van utterances|
     |--|
-    |John W. Smith van B-1234 naar H-4452 verplaatsen|
-    |verplaats john.w.smith@mycompany.com van kantoor b-1234 naar kantoor h-4452|
-    |verplaats x12345 naar h-1234 morgen|
-    |plaats 425-555-1212 in HH 2345|
-    |verplaats 123-45-6789 van A-4321 naar J-23456|
-    |Verplaats Jill Jones van D-2345 naar J-23456|
-    |verplaats jill-jones@mycompany.com naar M-12345|
-    |x23456 naar M-12345|
-    |425-555-0000 naar h-4452|
-    |234 56 7891 naar hh 2345|
+    |move John W. Smith to the accounting department|
+    |transfer Jill Jones from to R&D|
+    |Dept 1234 has a new member named Bill Bradstreet|
+    |Place John Jackson in Engineering |
+    |move Debra Doughtery to Inside Sales|
+    |mv Jill Jones to IT|
+    |Shift Alice Anderson to DevOps|
+    |Carl Chamerlin to Finance|
+    |Steve Standish to 1234|
+    |Tanner Thompson to 3456|
 
-    [ ![Schermopname van de pagina Intent met de nieuwe utterances gemarkeerd](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    Houd er rekening mee dat number en datetimeV2 in een vorige zelfstudie zijn toegevoegd en dat deze automatisch worden gelabeld wanneer ze worden gevonden in voorbeelden van utterances.
+    [![Schermafbeelding van intentie met voorbeelden van utterances](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Schermafbeelding van intentie met voorbeelden van utterances")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="employee-list-entity"></a>De entiteit Employee List
-Nu de intentie **MoveEmployee** voorbeelden van utterances bevat, moet LUIS kunnen vaststellen wat een werknemer is. 
+## <a name="department-list-entity"></a>Lijstentiteit Department
 
-De primaire, _canonieke_ naam voor elk item is het werknemersnummer. Voorbeelden van synoniemen voor elke canonieke naam binnen dit domein zijn: 
+Er zijn nu enkele voorbeelden van utterances toegevoegd voor de intentie **TransferEmployeeToDepartment** en dus is het nu zaak om ervoor te zorgen dat LUIS begrijpt wat een afdeling is. 
 
-|Doel synoniem|Waarde synoniem|
+De primaire, _canonieke_, naam voor elk item is de afdelingsnaam. Voorbeelden van de synoniemen voor elke canonieke naam: 
+
+|Canonieke naam|Synoniemen|
 |--|--|
-|Naam|John W. Smith|
-|E-mailadres|john.w.smith@mycompany.com|
-|Toestelnummer|x12345|
-|Mobiel nummer (privé)|425-555-1212|
-|Amerikaans sociaal-fiscaal nummer|123-45-6789|
-
+|Boekhouding|acct<br>accting<br>3456|
+|Development Operations|DevOps<br>4949|
+|Engineering|eng<br>enging<br>4567|
+|Finance|fin<br>2020|
+|Information Technology|IT<br>2323|
+|Inside Sales|isale<br>insale<br>1414|
+|Research and Development|R&D<br>1234|
 
 1. Selecteer **Entities** in het linkerpaneel.
 
-2. Selecteer **Create new intent**.
+1. Selecteer **Create new intent**.
 
-3. Voer in het pop-updialoogvenster `Employee` in als naam voor de entiteit en **List** als het entiteitstype. Selecteer **Done**.  
+1. Voer in het pop-updialoogvenster `Department` in als naam voor de entiteit en **List** als het entiteitstype. Selecteer **Done**.  
 
-    [![Schermopname van een pop-upvenster voor het maken van een nieuwe entiteit](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Schermopname van een pop-upvenster voor het maken van een nieuwe entiteit")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Schermopname van een pop-upvenster voor het maken van een nieuwe entiteit](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Schermopname van een pop-upvenster voor het maken van een nieuwe entiteit")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
-4. Voer op de pagina van de entiteit Employee `Employee-24612` als de nieuwe waarde in.
+1. Voer op de pagina van de entiteit Department `Accounting` in als de nieuwe waarde.
 
     [![Schermopname van het invoeren van een waarde](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Schermopname van het invoeren van een waarde")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-5. Voor synoniemen voegt u de volgende waarden toe:
-
-    |Doel synoniem|Waarde synoniem|
-    |--|--|
-    |Naam|John W. Smith|
-    |E-mailadres|john.w.smith@mycompany.com|
-    |Toestelnummer|x12345|
-    |Mobiel nummer (privé)|425-555-1212|
-    |Amerikaans sociaal-fiscaal nummer|123-45-6789|
+1. Als synoniemen voegt u de synoniemen uit de vorige tabel toe.
 
     [![Schermopname van het invoeren van synoniemen](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Schermopname van het invoeren van synoniemen")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
-6. Voer `Employee-45612` als een nieuwe waarde in.
+1. Ga door met het toevoegen van de canonieke namen en de bijbehorende synoniemen. 
 
-7. Voor synoniemen voegt u de volgende waarden toe:
+## <a name="add-example-utterances-to-the-none-intent"></a>Voorbeelduitingen toevoegen aan de intentie None 
 
-    |Doel synoniem|Waarde synoniem|
-    |--|--|
-    |Naam|Jill Jones|
-    |E-mailadres|jill-jones@mycompany.com|
-    |Toestelnummer|x23456|
-    |Mobiel nummer (privé)|425-555-0000|
-    |Amerikaans sociaal-fiscaal nummer|234-56-7891|
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train"></a>Trainen
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>De app trainen zodat de wijzigingen aan de intentie kunnen worden getest 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publiceren
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>De app publiceren zodat op het getrainde model query's kunnen worden uitgevoerd vanaf het eindpunt
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Voorspelling van intenties en entiteiten ophalen van eindpunt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Ga naar het einde van de URL in het adres en voer `shift 123-45-6789 from Z-1242 to T-54672` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `MoveEmployee` met `Employee` geëxtraheerd als resultaat moet geven.
+1. Ga naar het einde van de URL in het adres en voer `shift Joe Smith to IT` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `TransferEmployeeToDepartment` met `Department` geëxtraheerd als resultaat moet geven.
 
   ```json
-  {
-    "query": "shift 123-45-6789 from Z-1242 to T-54672",
-    "topScoringIntent": {
-      "intent": "MoveEmployee",
-      "score": 0.9882801
-    },
-    "intents": [
-      {
-        "intent": "MoveEmployee",
-        "score": 0.9882801
+    {
+      "query": "shift Joe Smith to IT",
+      "topScoringIntent": {
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9775754
       },
-      {
-        "intent": "FindForm",
-        "score": 0.016044287
-      },
-      {
-        "intent": "GetJobInformation",
-        "score": 0.007611245
-      },
-      {
-        "intent": "ApplyForJob",
-        "score": 0.007063288
-      },
-      {
-        "intent": "Utilities.StartOver",
-        "score": 0.00684710965
-      },
-      {
-        "intent": "None",
-        "score": 0.00304174074
-      },
-      {
-        "intent": "Utilities.Help",
-        "score": 0.002981
-      },
-      {
-        "intent": "Utilities.Confirm",
-        "score": 0.00212222221
-      },
-      {
-        "intent": "Utilities.Cancel",
-        "score": 0.00191026414
-      },
-      {
-        "intent": "Utilities.Stop",
-        "score": 0.0007461446
-      }
-    ],
-    "entities": [
-      {
-        "entity": "123 - 45 - 6789",
-        "type": "Employee",
-        "startIndex": 6,
-        "endIndex": 16,
-        "resolution": {
-          "values": [
-            "Employee-24612"
-          ]
+      "intents": [
+        {
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9775754
+        },
+        {
+          "intent": "None",
+          "score": 0.0154493852
         }
-      },
-      {
-        "entity": "123",
-        "type": "builtin.number",
-        "startIndex": 6,
-        "endIndex": 8,
-        "resolution": {
-          "value": "123"
+      ],
+      "entities": [
+        {
+          "entity": "it",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 20,
+          "resolution": {
+            "values": [
+              "Information Technology"
+            ]
+          }
         }
-      },
-      {
-        "entity": "45",
-        "type": "builtin.number",
-        "startIndex": 10,
-        "endIndex": 11,
-        "resolution": {
-          "value": "45"
-        }
-      },
-      {
-        "entity": "6789",
-        "type": "builtin.number",
-        "startIndex": 13,
-        "endIndex": 16,
-        "resolution": {
-          "value": "6789"
-        }
-      },
-      {
-        "entity": "-1242",
-        "type": "builtin.number",
-        "startIndex": 24,
-        "endIndex": 28,
-        "resolution": {
-          "value": "-1242"
-        }
-      },
-      {
-        "entity": "-54672",
-        "type": "builtin.number",
-        "startIndex": 34,
-        "endIndex": 39,
-        "resolution": {
-          "value": "-54672"
-        }
-      }
-    ]
-  }
+      ]
+    }
   ```
-
-  De werknemer is gevonden en is geretourneerd als type `Employee` met de resolutiewaarde `Employee-24612`.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Gerelateerde informatie
+
+* [Entiteit List](luis-concept-entity-types.md#list-entity) - conceptuele informatie
+* [Trainen](luis-how-to-train.md)
+* [Hoe u kunt publiceren](luis-how-to-publish-app.md)
+* [Testen in de LUIS-portal](luis-interactive-test.md)
+
+
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een nieuwe intentie gemaakt, voorbeelden van utterances toegevoegd en vervolgens een List-entiteit gemaakt om exacte tekstovereenkomsten te extraheren uit utterances. Na het trainen en het publiceren van de app is met een query naar het eindpunt de intentie achterhaald. Vervolgens zijn de geëxtraheerde gegevens geretourneerd.
+
+Ga door met deze app en [voeg een samengestelde entiteit toe](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
 > [Een hiërarchische entiteit aan de app toevoegen](luis-quickstart-intent-and-hier-entity.md)

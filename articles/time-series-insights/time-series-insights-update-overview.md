@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Time Series Insights (preview) | Microsoft Docs
+title: 'Overzicht: Azure Time Series Insights (preview) | Microsoft Docs'
 description: Overzicht van Azure Time Series Insights (preview).
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 46502d7d19a416c98e81937b4bab743e24b50cc3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 847eddc78f8abc938e68e6fe383a773dadeaf779
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274492"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557832"
 ---
 # <a name="azure-time-series-insights-preview-overview"></a>Overzicht van Azure Time Series Insights (preview)
 

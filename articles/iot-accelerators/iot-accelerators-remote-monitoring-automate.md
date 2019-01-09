@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie over problemen met apparaten detecteren in een Azure-oplossing voor externe bewaking | Microsoft Docs
+title: Zelfstudie over problemen met apparaten detecteren in een oplossing voor externe bewaking - Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u regels en acties kunt gebruiken voor het automatisch detecteren van problemen met apparaten op basis van een drempelwaarde in de oplossing voor externe bewaking.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819097"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598671"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
 
 In deze zelfstudie configureert u de oplossingsversneller voor externe bewaking om problemen met verbonden IoT-apparaten te detecteren. Voor het detecteren van problemen met uw apparaten voegt u regels toe waarmee meldingen in het dashboard van de oplossing worden gegenereerd.
 

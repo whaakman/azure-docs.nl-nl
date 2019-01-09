@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 8106c68397dea8d52c6d2daa2d09dfbc72c2a4c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995054"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716494"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Zelfstudie: Een aangepast domein aan uw Front Door toevoegen
 In deze zelfstudie ziet u hoe u een aangepast domein aan uw Front Door kunt toevoegen. Als u Azure Front Door Service gebruikt voor het leveren van toepassingen, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de aanvraag van uw eindgebruiker. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen.
@@ -34,9 +34,9 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u de stappen in deze zelfstudie kunt voltooien, moet u een Front Door maken. Raadpleeg [Snelstartgids: Een Front Door maken](quickstart-create-front-door.md) voor meer informatie.
+Voordat u de stappen in deze zelfstudie kunt voltooien, moet u een Front Door maken. Zie voor meer informatie [Snelstart: Een Front Door maken](quickstart-create-front-door.md).
 
-Als u nog geen aangepast domein hebt, moet u er eerst een aanschaffen bij een domeinprovider. Zie bijvoorbeeld [Een aangepaste domeinnaam kopen](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
+Als u nog geen aangepast domein hebt, moet u er eerst een aanschaffen bij een domeinprovider. Zie bijvoorbeeld [Een aangepaste domeinnaam kopen](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
 Als u van Azure gebruikmaakt voor het hosten van uw [DNS-domeinen](https://docs.microsoft.com/azure/dns/dns-overview), moet u het domeinnaam-systeem van de domeinprovider (DNS) naar een Azure DNS overdragen. Zie [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) (Een domein aan Azure DNS overdragen) voor meer informatie. Als u van een domeinprovider gebruikmaakt voor het afhandelen van uw DNS-domein, gaat u verder met [Een DNS CNAME-record maken](#create-a-cname-dns-record).
 
@@ -66,11 +66,11 @@ Om een CNAME-record te maken met het afdverify-subdomein:
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso.azurefd.net |
 
-    - Bron: Voer de naam van uw aangepaste domein in, met inbegrip van het subdomein afdverify, in de volgende indeling: afdverify._&lt;aangepaste domeinnaam&gt;_. Bijvoorbeeld afdverify.www.contoso.com.
+    - Bron: Voer de naam van uw aangepaste domein, met inbegrip van het subdomein afdverify, in de volgende indeling in: afdverify._&lt;aangepaste domeinnaam&gt;_. Bijvoorbeeld afdverify.www.contoso.com.
 
     - Type: Voer *CNAME* in.
 
-    - Bestemming: voer uw standaard front-endhost voor Front Door, inclusief de afdverify-subdomein, in de volgende indeling in: afdverify._&lt;naam van eindpunt&gt;_.azurefd.net. Bijvoorbeeld afdverify.contoso.azurefd.net.
+    - Bestemming: Voer uw standaard front-endhost voor Front Door, inclusief de afdverify-subdomein, in de volgende indeling in: afdverify._&lt;naam van eindpunt&gt;_.azurefd.net. Bijvoorbeeld afdverify.contoso.azurefd.net.
 
 4. Sla uw wijzigingen op.
 
@@ -88,9 +88,9 @@ Bijvoorbeeld: de procedure voor de registrar van een GoDaddy-domein is als volgt
 
     - Type: Laat *CNAME* geselecteerd.
 
-    - Host: voer het subdomein in van uw aangepaste domein dat moet worden gebruikt, met inbegrip van de naam van het afdverify-subdomein. Bijvoorbeeld afdverify.www.
+    - Host: Voer het subdomein in van uw aangepaste domein dat moet worden gebruikt, met inbegrip van de naam van het afdverify-subdomein. Bijvoorbeeld afdverify.www.
 
-    - Verwijst naar: voer de hostnaam van uw standaard front-endhost voor Front Door in, inclusief de afdverify-subdomeinnaam. Bijvoorbeeld afdverify.contoso.azurefd.net. 
+    - Verwijst naar: Voer de hostnaam van uw standaard front-endhost voor Front Door in, inclusief de afdverify-subdomeinnaam. Bijvoorbeeld afdverify.contoso.azurefd.net. 
 
     - TTL: Laat *1 uur* geselecteerd.
 
@@ -118,7 +118,7 @@ Nadat u uw aangepaste domein hebt geregistreerd, kunt u dit toevoegen aan uw Fro
    Azure controleert of het CNAME-record bestaat dat u voor de domeinnaam hebt ingevoerd. Als de CNAME juist is, wordt uw aangepaste domein gevalideerd.
 
 >[!WARNING]
-> U **moet** zorgen dat alle front-endhosts (inclusief aangepaste domeinen) in uw Front Door een regel voor doorsturen hebben waaraan een standaardpad (‘/\*’) is gekoppeld. Er moet dus in al uw regels voor doorsturen minimaal een routeringsregel voor al uw front-endhosts op het standaardpad (‘/\*’) zijn gedefinieerd. Als u dit niet doet, wordt uw eindgebruikersverkeer mogelijk niet goed gerouteerd.
+> U **moet** zorgen dat alle front-endhosts (inclusief aangepaste domeinen) in uw Front Door een regel voor doorsturen hebben waaraan een standaardpad (‘/\*’) is gekoppeld. Er moet dus in al uw regels voor doorsturen minimaal een routeringsregel voor al uw front-endhosts op het standaardpad (‘/\*’) zijn gedefinieerd. Als dit niet het geval is, kan dit tot gevolg hebben dat het verkeer van uw eindgebruikers niet goed wordt gerouteerd.
 
 ## <a name="verify-the-custom-domain"></a>Het aangepaste domein verifiëren
 
@@ -169,7 +169,7 @@ Bijvoorbeeld: de procedure voor de registrar van een GoDaddy-domein is als volgt
 
     - Type: Laat *CNAME* geselecteerd.
 
-    - Host: Voer het subdomein van uw aangepaste domein in om dit te gebruiken. Bijvoorbeeld www of profiel.
+    - Host: Voer het subdomein van uw aangepaste domein in dat u wilt gebruiken. Bijvoorbeeld www of profiel.
 
     - Verwijst naar: Voer de standaardhostnaam in van uw Front Door. Bijvoorbeeld contoso.azurefd.net. 
 

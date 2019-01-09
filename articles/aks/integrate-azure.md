@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 74240298b0c8bec46ab2beab6fcdfbb59fd7b12a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068235"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579971"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integreren met de door Azure beheerde services met behulp van Open Service Broker for Azure (OSBA)
 
@@ -77,7 +77,7 @@ v1beta1.storage.k8s.io               10
 
 De volgende stap bestaat uit het installeren van [Open Service Broker for Azure][open-service-broker-azure], waar ook de catalogus voor de door Azure beheerde services deel van uitmaakt. Voorbeelden van beschikbare Azure-services zijn onder andere Azure Database for PostgreSQL, Azure Database for MySQL en Azure SQL Database.
 
-Begin met het toevoegen van de Helm-opslagplaats van Open Service Broker voor Azure:
+Begin met het toevoegen van de Helm-opslagplaats van Open Service Broker voor Azure:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
@@ -171,7 +171,7 @@ En tot slot gaat u een lijst met alle beschikbare serviceabonnementen weergeven.
 In deze stap gaat u Helm gebruiken om een bijgewerkt Helm-diagram voor WordPress te installeren. Het diagram zorgt ervoor dat een extern exemplaar van Azure Database for MySQL wordt ingericht dat door WordPress kan worden gebruikt. Dit proces kan enkele minuten duren.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 Als u wilt controleren of met de installatie de juiste resources zijn ingericht, moet u ervoor zorgen dat de geïnstalleerde service-exemplaren en -bindingen worden weergeven:

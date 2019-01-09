@@ -1,22 +1,20 @@
 ---
-title: 'Zelfstudie: een Azure Database for MariaDB ontwerpen met de Azure-portal'
+title: 'Zelfstudie: Een Azure Database for MariaDB ontwerpen met de Azure-portal'
 description: In deze zelfstudie wordt uitgelegd hoe u een Azure Database for MariaDB-server en -database maakt en beheert via de Azure-portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322053"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538103"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Zelfstudie: een Azure Database for MariaDB-database ontwerpen met de Azure-portal
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for MariaDB-database ontwerpen met de Azure-portal
 
 Azure Database for MariaDB is een beheerde service waarmee u MySQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met behulp van de Azure-portal kunt u eenvoudig uw server beheren en een database ontwerpen.
 
@@ -53,7 +51,7 @@ U maakt een Azure Database for MariaDB-server met een gedefinieerde set [reken- 
     ---|---|---
     Servernaam | *een unieke servernaam* | Kies een unieke naam ter identificatie van de Azure Database for MariaDB-server. Bijvoorbeeld **mydemoserver**. De domeinnaam *.mariadb.database.azure.com* wordt toegevoegd aan de servernaam die u opgeeft. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. Dit wachtwoord moet tussen 3 en 63 tekens bevatten.
     Abonnement | *uw abonnement* | Selecteer het Azure-abonnement dat u wilt gebruiken voor uw server. Als u meerdere abonnementen hebt, kiest u het abonnement waarin u wordt gefactureerd voor de resource.
-    Resourcegroep | **myresourcegroup** | Voer een nieuwe resourcegroepnaam in of selecteer een bestaande resourcegroep.
+    Resourcegroep | **myresourcegroup** | Voer een naam voor de nieuwe resourcegroep in of selecteer een bestaande resourcegroep.
     Bron selecteren | **Leeg** | Selecteer **Leeg** om een nieuwe server te maken. (Selecteer **Back-up** als u een server maakt op basis van een geo-back-up van een bestaande Azure Database for MariaDB-server.)
     Aanmeldgegevens van serverbeheerder | **myadmin** | Een aanmeldingsaccount dat moet worden gebruikt om verbinding te maken met de server. De aanmeldingsnaam voor de beheerder kan niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
     Wachtwoord | *uw keuze* | Voer een nieuw wachtwoord in voor het beheerdersaccount voor de server. Dit wachtwoord moet tussen 8 en 128 tekens bevatten. Uw wachtwoord moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0-9) en niet-alfanumerieke tekens (!, $, #, %, enzovoort).
@@ -171,10 +169,10 @@ Stel dat u per ongeluk een belangrijke databasetabel hebt verwijderd en dat de g
    
    ![Formulier herstellen](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Herstelpunt**: selecteer een tijdstip in het verleden waarnaar u wilt herstellen, binnen de vermelde periode. Zorg ervoor dat u de lokale tijdzone converteert naar UTC.
-   - **Herstellen naar nieuwe server**: geef de naam op van de nieuwe server waarnaar u wilt herstellen.
-   - **Locatie**: de regio is hetzelfde als die van de bronserver en kan niet worden gewijzigd.
-   - **Prijscategorie**: de prijscategorie is hetzelfde als die van de bronserver en kan niet worden gewijzigd.
+   - **Herstelpunt**: Selecteer in het vermelde tijdsbestek een tijdstip in het verleden waarnaar u wilt herstellen. Zorg ervoor dat u de lokale tijdzone converteert naar UTC.
+   - **Herstellen naar nieuwe server**: Geef de naam op van de nieuwe server waarnaar u wilt herstellen.
+   - **Locatie**: De regio is dezelfde als van de bronserver en kan niet worden gewijzigd.
+   - **Prijscategorie**: De prijscategorie is dezelfde als van de bronserver en kan niet worden gewijzigd.
    
 3. Klik op **OK** om de server te [herstellen naar een eerder tijdstip](./howto-restore-server-portal.md), voordat de tabel werd verwijderd. Als u een server herstelt, wordt er een nieuwe kopie van de server gemaakt, op het tijdstip dat u selecteert. 
 

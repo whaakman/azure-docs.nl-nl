@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 75411ebd50448c5f490a1f03fbbf25a61dbffaf8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090196"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718109"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Snelstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech Service-SDK
 
@@ -35,7 +35,7 @@ Voordat u begint, bekijkt u de lijst vereisten:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.1.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.2.0`.
 
 De Cognitive Services Speech-SDK voor Mac en iOS wordt momenteel gedistribueerd als een Cocoa-framework.
 Dit kan worden gedownload van https://aka.ms/csspeech/iosbinary. Download het bestand naar uw basismap.
@@ -49,15 +49,15 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 
 1. Het dialoogvenster Project Options
     1. Voer een naam in voor de snelstart-app, bijvoorbeeld `helloworld`.
-    1. Voer een relevante organisatienaam en organisatie-id in, als u al een Apple-ontwikkelaarsaccount hebt. Voor testdoeleinden kunt u elke naam kiezen, zoals `testorg`. Om de app te kunnen ondertekenen, hebt u ook een geschikt inrichtingsprofiel nodig. Raadpleeg de [Apple-site voor ontwikkelaars](https://developer.apple.com/) voor meer informatie.
+    1. Voer een relevante organisatienaam en organisatie-id in, als u al een Apple-ontwikkelaarsaccount hebt. Voor testdoeleinden kunt u elke naam kiezen, zoals `testorg`. Om de app te kunnen ondertekenen, hebt u een geschikt inrichtingsprofiel nodig. Raadpleeg de [Apple-site voor ontwikkelaars](https://developer.apple.com/) voor meer informatie.
     1. Zorg ervoor dat Objective-C als de taal voor het project is gekozen.
     1. Schakel alle selectievakjes voor tests en essentiële gegevens uit.
     ![Projectinstellingen](media/sdk/qs-objectivec-project-settings.png)
 1. Projectmap selecteren
-    1. Kies uw basismap waarin u het project wilt plaatsen. Hiermee maakt u een map `helloworld` in uw basismap die alle bestanden voor het Xcode-project bevat.
+    1. Kies uw basismap waarin u het project wilt plaatsen. Hiermee maakt u een `helloworld`-map in uw basismap die alle bestanden voor het Xcode-project bevat.
     1. Schakel het maken van een Git-opslagplaats uit voor dit voorbeeldproject.
     1. Pas de paden naar de SDK aan in de *projectinstellingen*.
-        1. Op het tabblad **Algemeen**, onder de header **Ingesloten binaire bestanden** voegt u de SDK-bibliotheek toe als framework: **Ingesloten binaire bestanden toevoegen** > **Overige toevoegen...** > Navigeer naar uw basismap en kies het bestand `MicrosoftCognitiveServicesSpeech.framework`. Hiermee wordt ook de SDK-bibliotheek automatisch toegevoegd aan de kop **Linked Framework and Libraries**.
+        1. Op het tabblad **Algemeen**, onder de header **Ingesloten binaire bestanden** voegt u de SDK-bibliotheek toe als framework: **Ingesloten binaire bestanden toevoegen** > **Overige toevoegen...** > Navigeer naar uw basismap en kies het bestand `MicrosoftCognitiveServicesSpeech.framework`. Hiermee wordt de SDK-bibliotheek automatisch toegevoegd aan de kop **Linked Framework and Libraries**.
         ![Framework toegevoegd](media/sdk/qs-objectivec-framework.png)
         1. Ga naar het tabblad **Build Settings** en activeer **alle** instellingen.
         1. Voeg de map `$(SRCROOT)/..` toe aan de *Framework Search Paths* onder de kop **Search Paths**.
@@ -68,7 +68,7 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 De voorbeeldapp heeft een zeer eenvoudige gebruikersinterface: twee knoppen om spraakherkenning te starten vanuit bestands- of microfooninvoer en een tekstlabel om het resultaat weer te geven.
 De gebruikersinterface is ingesteld in het `Main.storyboard`-gedeelte van het project.
 Open de XML-weergave van het storyboard door met de rechtermuisknop op de vermelding `Main.storyboard` van de projectstructuur te klikken en **Open As...** > **Source Code** te selecteren.
-Vervang de automatisch gegenereerde XML door het volgende:
+Vervang de automatisch gegenereerde XML door deze code:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
@@ -81,7 +81,7 @@ Klik in het volgende dialoogvenster op **Finish** zonder de instellingen te wijz
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Vervang de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
-1. Voeg de aanvraag voor toegang tot de microfoon toe. Klik met de rechtermuisknop de `Info.plist`-vermelding van de projectstructuur en selecteer **Open As...** > **Source Code**. Voeg de volgende regels toe in de sectie `<dict>` en sla het bestand op.
+1. Voeg de aanvraag voor toegang tot de microfoon toe. Klik met de rechtermuisknop op de `Info.plist`-vermelding van de projectstructuur en selecteer **Open As...** > **Source Code**. Voeg de volgende regels toe in de sectie `<dict>` en sla het bestand op.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -99,10 +99,7 @@ Momenteel biedt de Speech-SDK alleen ondersteuning voor 64-bits iOS-platforms.
 
 1. Nadat u op de knop 'Recognize (Microphone)' in de app hebt geklikt en enkele woorden hebt gezegd, zou u de tekst die u hebt uitgesproken moeten zien in het onderste gedeelte van het scherm.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek naar dit voorbeeld in de map `quickstart/objectivec-ios`.
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Onze voorbeelden ophalen](speech-sdk.md#get-the-samples)
+> [Objective-C-voorbeelden op GitHub verkennen](https://aka.ms/csspeech/samples)

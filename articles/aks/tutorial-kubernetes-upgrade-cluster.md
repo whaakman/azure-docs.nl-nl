@@ -3,22 +3,21 @@ title: 'Zelfstudie voor Kubernetes op Azure: Een cluster bijwerken'
 description: In deze zelfstudie Azure Kubernetes Service (AKS) leert u hoe u een bestaand AKS-cluster kunt bijwerken naar de nieuwste Kubernetes-versie.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1c0710be11b95b66d16661b5aff9cbf739ccda92
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f64ff611516b972d9440e212309ee22e1a12a928
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901926"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719435"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Zelfstudie: Kubernetes bijwerken in AKS (Azure Kubernetes Service)
 
-Gedurende de levenscyclus van de toepassing en het cluster, kunt u desgewenst Kubernetes bijwerken naar de nieuwste versie, en nieuwe functies gebruiken. Een AKS-cluster (Azure Kubernetes Service) kan worden bijgewerkt met de Azure CLI. Om onderbreking van actieve toepassingen te minimaliseren, worden Kubernetes-knooppunten tijdens het upgradeproces zorgvuldig [afgebakend en geleegd][kubernetes-drain].
+Gedurende de levenscyclus van de toepassing en het cluster, kunt u desgewenst Kubernetes bijwerken naar de nieuwste versie, en nieuwe functies gebruiken. Een AKS-cluster (Azure Kubernetes Service) kan worden bijgewerkt met de Azure CLI.
 
 In deze zelfstudie, deel zeven, wordt een upgrade uitgevoerd van een Kubernetes-cluster. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -29,9 +28,9 @@ In deze zelfstudie, deel zeven, wordt een upgrade uitgevoerd van een Kubernetes-
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, is deze installatiekopie geüpload naar Azure Container Registry en is een Kubernetes-cluster gemaakt. De toepassing is vervolgens in het Kubernetes-cluster uitgevoerd. Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
+In eerdere zelfstudies is een toepassing verpakt in een containerinstallatiekopie. Deze installatiekopie is geüpload naar Azure Container Registry en u hebt een AKS-cluster gemaakt. De toepassing is vervolgens geïmplementeerd in het AKS-cluster. Als u deze stappen niet hebt uitgevoerd en u deze zelfstudie toch wilt volgen, begint u met [Tutorial 1 – Create container images][aks-tutorial-prepare-app] (Zelfstudie 1: containerinstallatiekopieën maken).
 
-Voor deze zelfstudie moet u Azure CLI versie 2.0.44 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+Voor deze zelfstudie moet u Azure CLI versie 2.0.53 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="get-available-cluster-versions"></a>Beschikbare clusterversies verkrijgen
 
@@ -41,26 +40,34 @@ Voordat u een cluster bijwerkt, gebruikt u de opdracht [az aks get-upgrades][] o
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-In het volgende voorbeeld is de huidige versie *1.9.6* en worden de beschikbare versies weergegeven in de kolom *Upgrades*.
+In het volgende voorbeeld is de huidige versie *1.9.11* en worden de beschikbare versies weergegeven in de kolom *Upgrades*.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  ----------------------
-default  myResourceGroup  1.9.9            1.9.9              1.10.3, 1.10.5, 1.10.6
+-------  ---------------  ---------------  -----------------  --------------
+default  myResourceGroup  1.9.11           1.9.11             1.10.8, 1.10.9
 ```
 
 ## <a name="upgrade-a-cluster"></a>Een cluster upgraden
 
-Gebruik de opdracht [az aks upgrade][] als u het AKS-cluster wilt bijwerken. In de volgende voorbeelden wordt het cluster bijgewerkt naar Kubernetes-versie *1.10.6*.
+Om onderbreking van actieve toepassingen te minimaliseren, worden AKS-knooppunten zorgvuldig afgebakend en geleegd. In dit proces worden de volgende stappen uitgevoerd:
+
+1. Kubernetes Scheduler voorkomt dat er extra pods worden gepland op een knooppunt dat moet worden bijgewerkt.
+1. Actieve pods op het knooppunt worden gepland voor uitvoering op andere knooppunten in het cluster.
+1. Er wordt een knooppunt gemaakt waarop de meest recente Kubernetes-onderdelen worden uitgevoerd.
+1. Als het nieuwe knooppunt klaar en is toegevoegd aan het cluster, worden er pods gepland op het knooppunt.
+1. Het oude knooppunt wordt verwijderd en het proces van afbakenen en legen begint op het volgende knooppunt in het cluster.
+
+Gebruik de opdracht [az aks upgrade][] als u het AKS-cluster wilt bijwerken. In de volgende voorbeelden wordt het cluster bijgewerkt naar Kubernetes-versie *1.10.9*.
 
 > [!NOTE]
-> U kunt slechts één secundaire versie per keer bijwerken. U kunt bijvoorbeeld een upgrade uitvoeren van *1.9.6* naar *1.10.3*, maar niet rechtstreeks van *1.9.6* naar *1.11.x*. Als u een upgrade wilt uitvoeren van *1.9.6* naar *1.11.x*, moet u eerst een upgrade uitvoeren van *1.9.6* naar *1.10.3*, en vervolgens nog een upgrade van *1.10.3* naar *1.11.x* uitvoeren.
+> U kunt slechts één secundaire versie per keer bijwerken. U kunt bijvoorbeeld een upgrade uitvoeren van *1.9.11* naar *1.10.9*, maar niet rechtstreeks van *1.9.6* naar *1.11.x*. Als u een upgrade wilt uitvoeren van *1.9.11* naar *1.11.x*, moet u eerst een upgrade uitvoeren van *1.9.11* naar *1.10*, en vervolgens nog een upgrade van *1.10* naar *1.11.x*.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.6
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.9
 ```
 
-De volgende verkorte voorbeelduitvoer toont dat de *kubernetesVersion* nu *1.10.6* meldt:
+De volgende verkorte voorbeelduitvoer toont dat de *kubernetesVersion* nu *1.10.9* meldt:
 
 ```json
 {
@@ -78,7 +85,7 @@ De volgende verkorte voorbeelduitvoer toont dat de *kubernetesVersion* nu *1.10.
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.10.6",
+  "kubernetesVersion": "1.10.9",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -93,17 +100,17 @@ Controleer als volgt of de upgrade is geslaagd met de opdracht [az aks show][]:
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-De volgende voorbeelduitvoer laat zien dat *KubernetesVersion 1.10.6* door het AKS-cluster wordt uitgevoerd:
+De volgende voorbeelduitvoer laat zien dat *KubernetesVersion 1.10.9* door het AKS-cluster wordt uitgevoerd:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.10.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.10.9               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
-Omdat dit het laatste deel is van de reeks zelfstudies, kunt u het AKS-cluster verwijderen. Aangezien de Kubernetes-knooppunten worden uitgevoerd op virtuele Azure machines (VM's), worden er nog steeds kosten in rekening gebracht, zelfs als u het cluster niet gebruikt. Gebruik de opdracht [az group delete][az-group-delete] om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen.
+Omdat deze zelfstudie de laatste is van de reeks zelfstudies, kunt u het AKS-cluster verwijderen. Aangezien de Kubernetes-knooppunten worden uitgevoerd op virtuele Azure machines (VM's), worden er nog steeds kosten in rekening gebracht, zelfs als u het cluster niet gebruikt. Gebruik de opdracht [az group delete][az-group-delete] om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

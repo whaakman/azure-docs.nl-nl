@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314870"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631495"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Een Web Application Firewall (WAF) voor App Service Environment configureren
 ## <a name="overview"></a>Overzicht
@@ -48,7 +48,7 @@ Raadpleeg voor het configureren van een App Service Environment [onze documentat
 Barracuda heeft een [gedetailleerd artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) over het implementeren van de WAF op een virtuele machine in Azure. Maar omdat we redundantie willen en geen Single Point of Failure willen introduceren, dient u ten minste twee instanties van virtuele WAF-machines te implementeren in dezelfde cloudservice wanneer u deze instructies volgt.
 
 ### <a name="adding-endpoints-to-cloud-service"></a>Eindpunten toevoegen in de cloudservice
-Wanneer u 2 of meer WAF VM-exemplaren in uw cloudservice hebt, kunt u de [Azure-portal](https://portal.azure.com/) gebruiken om HTTP en HTTPS-eindpunten toe te voegen die worden gebruikt door uw toepassing, zoals wordt weergegeven in de volgende afbeelding:
+Wanneer u 2 of meer WAF VM-exemplaren in uw cloudservice hebt, kunt u [Azure Portal](https://portal.azure.com/) gebruiken om HTTP en HTTPS-eindpunten toe te voegen die worden gebruikt door uw toepassing, zoals wordt weergegeven in de volgende afbeelding:
 
 ![Eindpunt configureren][ConfigureEndpoint]
 
@@ -74,21 +74,21 @@ Zodra u zich aanmeldt, moet u een dashboard kunnen zien zoals in de volgende afb
 
 ![Dashboard voor beheer][ManagementDashboard]
 
-Klik op het tabblad **Services** om uw WAF te configureren voor services die deze beveiligt. Zie voor meer informatie over het configureren van uw Barracuda WAF [hun documentatie](https://techlib.barracuda.com/waf/getstarted1). In het volgende voorbeeld wordt een web-app van Azure geconfigureerd voor verkeer op HTTP en HTTPS.
+Klik op het tabblad **Services** om uw WAF te configureren voor services die deze beveiligt. Zie voor meer informatie over het configureren van uw Barracuda WAF [hun documentatie](https://techlib.barracuda.com/waf/getstarted1). In het volgende voorbeeld wordt een App Service-app geconfigureerd voor verkeer op HTTP en HTTPS.
 
 ![Beheerservices toevoegen][ManagementAddServices]
 
 > [!NOTE]
-> Afhankelijk van hoe uw toepassingen zijn geconfigureerd en welke functies worden gebruikt in uw App Service Environment, moet u verkeer voor andere TCP-poorten dan 80 en 443 doorsturen, bijvoorbeeld als u IP SSL hebt ingesteld voor een web-app. Zie voor een lijst met netwerkpoorten die worden gebruikt in App Service Environments, [Documentatie voor inkomend verkeer beheren](app-service-app-service-environment-control-inbound-traffic.md), in de sectie Netwerkpoorten.
+> Afhankelijk van hoe uw toepassingen zijn geconfigureerd en welke functies worden gebruikt in uw App Service Environment, moet u verkeer voor andere TCP-poorten dan 80 en 443 doorsturen, bijvoorbeeld als u IP SSL hebt ingesteld voor een App Service-app. Zie voor een lijst met netwerkpoorten die worden gebruikt in App Service Environments, [Documentatie voor inkomend verkeer beheren](app-service-app-service-environment-control-inbound-traffic.md), in de sectie Netwerkpoorten.
 > 
 > 
 
 ## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Configuratie van Microsoft Azure Traffic Manager (OPTIONEEL)
-Als uw toepassing beschikbaar in meerdere regio's, kunt u het best zorgen voor gelijke taakverdeling achter [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om dit te doen, kunt u een eindpunt toevoegen in de [Azure-portal](https://portal.azure.com) met de naam van de cloudservice voor uw WAF in het Traffic Manager-profiel, zoals wordt weergegeven in de volgende afbeelding. 
+Als uw toepassing beschikbaar in meerdere regio's, kunt u het best zorgen voor gelijke taakverdeling achter [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om dit te doen, kunt u een eindpunt toevoegen in de [Azure Portal](https://portal.azure.com) met de naam van de cloudservice voor uw WAF in het Traffic Manager-profiel, zoals wordt weergegeven in de volgende afbeelding. 
 
 ![Traffic Manager-eindpunt][TrafficManagerEndpoint]
 
-Als voor uw toepassing verificatie is vereist, zorg er dan voor dat u een resource hebt die geen verificatie voor Traffic Manager vereist om te pingen voor de beschikbaarheid van uw toepassing. U kunt de URL configureren op de **Configuratie**pagina in de [Azure-portal](https://portal.azure.com), zoals wordt weergegeven in de volgende afbeelding:
+Als voor uw toepassing verificatie is vereist, zorg er dan voor dat u een resource hebt die geen verificatie voor Traffic Manager vereist om te pingen voor de beschikbaarheid van uw toepassing. U kunt de URL configureren op de **Configuratie**pagina in de [Azure Portal](https://portal.azure.com), zoals wordt weergegeven in de volgende afbeelding:
 
 ![Traffic Manager configureren][ConfigureTrafficManager]
 
