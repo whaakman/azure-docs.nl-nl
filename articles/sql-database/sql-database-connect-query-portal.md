@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091387"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651944"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snelstartgids: Gebruik de SQL-queryeditor van Azure Portal om verbinding te maken en query's op gegevens uit te voeren
 
-De SQL-queryeditor is een Azure Portal-browsertool die een eenvoudige manier biedt om SQL-query's uit te voeren op uw Azure SQL Database of Azure SQL Data Warehouse. In deze snelstartgids ziet u hoe u de queryeditor gebruikt om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies uitvoert om gegevens te zoeken, in te voegen, bij te werken en te verwijderen.
+De SQL-queryeditor is een Azure Portal-browsertool die een eenvoudige manier biedt om SQL-query's uit te voeren op uw Azure SQL Database of Azure SQL Data Warehouse. In deze snelstart gebruikt u de query-editor om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies uit te voeren om gegevens te zoeken, in te voegen, bij te werken en te verwijderen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -92,7 +92,7 @@ Als u een Active Directory-beheerder (AD) instelt, kunt u gebruikmaken van één
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-instructie uit Transact-SQL om een nieuw product toe te voegen in de tabel `SalesLT.Product`.
+Voer de volgende Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-instructie uit om een nieuw product toe te voegen in de tabel `SalesLT.Product`.
 
 1. Vervang de vorige query door deze.
 
@@ -117,12 +117,12 @@ Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-i
    ```
 
 
-2. Selecteer **Uitvoeren** om een nieuwe rij in te voegen in de tabel Product. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
+2. Selecteer **Uitvoeren** om een nieuwe rij in te voegen in de tabel `Product`. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
 
 
 ## <a name="update-data"></a>Gegevens bijwerken
 
-Gebruik de volgende [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)-instructie uit Transact-SQL om uw nieuwe product te wijzigen.
+Voer de volgende Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)-instructie uit om uw nieuwe product te wijzigen.
 
 1. Vervang de vorige query door deze.
 
@@ -132,11 +132,11 @@ Gebruik de volgende [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)-i
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product bij te werken. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel `Product` bij te werken. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
 
 ## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik de volgende [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)-instructie uit Transact-SQL om uw nieuwe product te verwijderen.
+Gebruik de volgende Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)-instructie om uw nieuwe product te verwijderen.
 
 1. Vervang de vorige query door deze:
 
@@ -145,7 +145,7 @@ Gebruik de volgende [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)-i
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product te verwijderen. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel `Product` te verwijderen. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Overwegingen met betrekking tot de queryeditor
@@ -156,7 +156,7 @@ U moet enkele dingen weten voordat u met de queryeditor gaat werken.
 
 * Wanneer u op F5 drukt, wordt de pagina van de queryeditor vernieuwd en gaan query's waaraan wordt gewerkt, verloren.
 
-* De queryeditor biedt geen ondersteuning voor het maken van verbinding met de masterdatabase.
+* De query-editor biedt geen ondersteuning voor het maken van verbinding met de `master`-database.
 
 * Er is een time-out van vijf minuten voor uitvoering van de query.
 

@@ -4,7 +4,7 @@ description: Ontdek hoe u verbinding maakt met SQL Database in Azure met behulp 
 keywords: verbinding maken met SQL-database,Sql Server Management Studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098928"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745071"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
 
-U kunt [SSMS][ssms-install-latest-84g] (SQL Server Management Studio) gebruiken voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows. In deze snelstartgids ziet u hoe u SSMS gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies uitvoert om gegevens te zoeken, in te voegen, bij te werken en te verwijderen. 
+In deze snelstart gaat u [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) gebruiken om een verbinding tot stand te brengen met een SQL-database in Azure. Vervolgens gaat u Transact-SQL-instructies uitvoeren om gegevens op te vragen, in te voegen, bij te werken en te verwijderen. U kunt SSMS gebruiken voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -75,11 +75,11 @@ In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
 ## <a name="query-data"></a>Querygegevens
 
-Gebruik de volgende [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)-code uit Transact-SQL om op categorie een query uit te voeren voor de twintig populairste producten.
+Voer deze Transact-SQL \[SELECT](https://msdn.microsoft.com/library/ms189499.aspx)-code uit om op categorie een query uit te voeren voor de twintig populairste producten.
 
-1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en selecteer vervolgens **Nieuwe query**. Er wordt een leeg queryvenster geopend dat is verbonden met uw database.
+1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en selecteer vervolgens **Nieuwe query**. Er wordt een nieuw queryvenster geopend dat is verbonden met uw database.
 
-1. Plak deze SQL-query in het queryvenster.
+2. Plak deze SQL-query in het queryvenster.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -94,9 +94,9 @@ Gebruik de volgende [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)-c
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-code uit Transact-SQL om een nieuw product te maken in de tabel `SalesLT.Product`.
+Voer deze Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-code uit om een nieuw product te maken in de tabel `SalesLT.Product`.
 
-1. Vervang de vorige query door de volgende.
+1. Vervang de vorige query door deze.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -117,11 +117,11 @@ Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-c
            ,GETDATE() );
    ```
 
-2. Selecteer **Uitvoeren** om een nieuwe rij in te voegen in de tabel Product. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
+2. Selecteer **Uitvoeren** om een nieuwe rij in te voegen in de tabel `Product`. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
 
 ## <a name="view-the-result"></a>Het resultaat weergeven
 
-1. Vervang de vorige query door de volgende.
+1. Vervang de vorige query door deze.
 
    ```sql
    SELECT * FROM [SalesLT].[Product] 
@@ -134,7 +134,7 @@ Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-c
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,20 +144,20 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product bij te werken. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel `Product` bij te werken. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
 
 ## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik de volgende Transact-SQL-code [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) om het nieuwe product te verwijderen dat u eerder hebt toegevoegd.
+Voer deze Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)-code uit om uw nieuwe product te verwijderen.
 
-1. Vervang de vorige query door de volgende.
+1. Vervang de vorige query door deze.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product te verwijderen. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel `Product` te verwijderen. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

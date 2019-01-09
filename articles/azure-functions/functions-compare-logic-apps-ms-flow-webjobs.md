@@ -1,6 +1,6 @@
 ---
 title: Flow, Logic Apps, Functions en WebJobs vergelijken - Azure
-description: 'Vergelijk Microsoft cloud-services die zijn geoptimaliseerd voor integratietaken: Flow, Logic Apps, Functions en WebJobs.'
+description: 'Vergelijk Microsoft cloud-services die zijn geoptimaliseerd voor integratietaken:  Flow, Logic Apps, Functions en WebJobs.'
 services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c22d75b4eb058942da5a3b0699cbb4a23eec42f3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634928"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722214"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions en WebJobs vergelijken
 
@@ -26,7 +26,7 @@ In dit artikel worden de volgende Microsoft-cloudservices vergeleken:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 Al deze services kunnen integratieproblemen oplossen en bedrijfsprocessen automatiseren. Ze kunnen allemaal input, acties, voorwaarden en output definiëren. U kunt ze allemaal uitvoeren volgens een planning of na een trigger. Maar elke service biedt unieke voordelen, en in dit artikel worden de verschillen uitgelegd.
 
@@ -47,7 +47,7 @@ Raadpleeg de volgende tabel om te bepalen of Flow of Logic Apps het meest geschi
 | Ontwerpomgeving |In browser en mobiele app, alleen UI |In browser en [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [codeweergave](../logic-apps/logic-apps-author-definitions.md) beschikbaar |
 | Beheer van toepassingslevenscyclus |Ontwerpen en testen in niet-productieomgevingen, niveau verhogen naar productie wanneer u klaar bent. |DevOps: resourcebeheer, testen, ondersteuning, automatisering en beheersbaarheid in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Beheerervaring |Beleidsregels voor stroomomgevingen en preventie van gegevensverlies beheren, licenties bijhouden [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Resourcegroepen, verbindingen, toegangsbeheer en logboekregistratie beheren [https://portal.azure.com](https://portal.azure.com) |
-| Beveiliging |Office 365-beveiliging en auditlogboeken voor naleving, preventie van gegevensverlies, [inactieve versleuteling](https://wikipedia.org/wiki/Data_at_rest#Encryption) voor gevoelige gegevens, etc. |Beveiligingsondersteuning van Azure: [Azure-beveiliging](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [auditlogboeken](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) en meer. |
+| Beveiliging |Office 365-beveiliging en auditlogboeken voor naleving, preventie van gegevensverlies, [inactieve versleuteling](https://wikipedia.org/wiki/Data_at_rest#Encryption) voor gevoelige gegevens, etc. |Beveiligingscontrole van Azure: [Azure-beveiliging](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [auditlogboeken](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) en meer. |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure Functions en Azure Logic Apps vergelijken
 
@@ -70,7 +70,7 @@ U kunt services combineren en matchen als u een indeling bouwt, waarbij u functi
 
 ## <a name="compare-functions-and-webjobs"></a>Functions en WebJobs vergelijken
 
-Azure App Service WebJobs met de WebJobs SDK is net als Azure Functions een integratieservice *waarbij code op de eerste plaats komt* en die is ontworpen voor ontwikkelaars. Beide zijn gebaseerd op [Azure App Service](../app-service/app-service-web-overview.md) en ondersteunen functies zoals [integratie van broncodebeheer](../app-service/app-service-continuous-deployment.md), [verificatie](../app-service/app-service-authentication-overview.md) en [bewaking met Application Insights-integratie](functions-monitoring.md).
+Azure App Service WebJobs met de WebJobs SDK is net als Azure Functions een integratieservice *waarbij code op de eerste plaats komt* en die is ontworpen voor ontwikkelaars. Beide zijn gebaseerd op [Azure App Service](../app-service/overview.md) en ondersteunen functies zoals [integratie van broncodebeheer](../app-service/deploy-continuous-deployment.md), [verificatie](../app-service/overview-authentication-authorization.md) en [bewaking met Application Insights-integratie](functions-monitoring.md).
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs en de WebJobs-SDK
 

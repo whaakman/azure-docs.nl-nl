@@ -6,16 +6,16 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: dd304bd4a53094605149483c0996cd5f12040a84
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 94e9d19302c4a51d1401a88248431f237bf59758
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713177"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743495"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snelstart: Blobs downloaden, uploaden en vermelden met behulp van Python
+# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Quickstart: Blobs downloaden, uploaden en vermelden met behulp van Python
 
 In deze zelfstudie leert u hoe u Python kunt gebruiken om blok-blobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. 
 
@@ -53,7 +53,7 @@ In dit voorbeeld wordt een testbestand gemaakt in de map *Documenten*. Door het 
 
 Installeer eerst de afhankelijkheden door `pip install` uit te voeren:
 
-    pip install azure-storage
+    pip install azure-storage-blob
 
 Voer vervolgens het voorbeeld uit. U ziet berichten die vergelijkbaar zijn met de volgende uitvoer:
   

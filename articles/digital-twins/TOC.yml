@@ -53,16 +53,22 @@ items:
     href: how-to-user-defined-functions.md
   - name: Gebeurtenissen en berichten via eindpunten routeren
     href: how-to-egress-endpoints.md
-  - name: Postman configureren
-    href: how-to-configure-postman.md
   - name: Blobs toevoegen aan objecten
     href: how-to-add-blobs.md
   - name: Digital Twins Swagger gebruiken
     href: how-to-use-swagger.md
-  - name: Problemen met door gebruikers gedefinieerde functies oplossen
+  - name: Problemen met door gebruiker gedefinieerde functies oplossen
     href: how-to-diagnose-user-defined-functions.md
   - name: Bewaking configureren
     href: how-to-configure-monitoring.md
+  - name: Query's uitvoeren op Digital Twins-API's
+    items:
+    - name: Postman instellen
+      href: how-to-configure-postman.md
+    - name: Digital Twins-API's gebruiken
+      href: how-to-navigate-apis.md
+    - name: Veelvoorkomende querypatronen
+      href: how-to-query-common-apis.md
 - name: Naslaginformatie
   items:
   - name: Bibliotheek met door de gebruiker gedefinieerde functies
@@ -113,9 +119,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Video's
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 04716146653b833461b8230c2895fd1a8b6dcd42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 92d60cbe1de8d8f2b36d67e1a7ff2999a45e1a8e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993464"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102220"

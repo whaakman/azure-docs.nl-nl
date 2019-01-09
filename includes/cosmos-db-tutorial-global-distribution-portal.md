@@ -2,25 +2,19 @@
 title: Globale distributie met Azure DB Cosmos
 description: Leer hoe u gegevens globaal kunt repliceren met Azure Cosmos DB in Azure Portal
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747530"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796110"
 ---
-Bekijk de volgende video voor meer informatie over globale distributie met Azure Cosmos DB. In deze video bespreekt Andrew Liu, Program Manager van Azure Cosmos DB, de functionaliteit van globale distributie.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-Zie [Gegevens globaal distribueren met Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) voor meer informatie over hoe globale databasereplicatie werkt in Azure Cosmos DB.
-
 ## <a id="addregion"></a>Globale databaseregio's toevoegen met Azure Portal
 Azure Cosmos DB is wereldwijd beschikbaar in alle [Azure-regio's][azureregions]. Nadat u het standaardconsistentieniveau voor uw databaseaccount hebt geselecteerd, kunt u een of meer regio's aan het account koppelen (afhankelijk van uw keuze van het standaardconsistentieniveau en behoeften voor globale distributie).
 
@@ -41,7 +35,7 @@ Er zijn twee gangbare scenario's voor het configureren van twee of meer regio's:
 
 In het eerste geval wordt het aanbevolen om zowel de toepassing als Azure Cosmos DB te implementeren in de regio's die overeenkomen met de gebieden waar de gebruikers van de toepassing zich bevinden.
 
-Voor BCDR wordt het aanbevolen om regio's toe te voegen op basis van de regioparen die worden beschreven in het artikel [Bedrijfscontinuïteit en herstel na noodgevallen (BCDR): gekoppelde Azure-regio’s][bcdr].
+Voor BCDR wordt het aanbevolen om regio's toe te voegen op basis van de regioparen die worden beschreven in het artikel [Bedrijfscontinuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio's][bcdr].
 
 <!--
 

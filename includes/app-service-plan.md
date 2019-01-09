@@ -4,14 +4,14 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 9ef82310fa17e9b255986eb156a86ea8bdba5ea5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8a5065e46b6528683058bfdc52f8f4f9bea4884f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132726"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736965"
 ---
-Een [App Service-plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) geeft de locatie, de grootte en de functies van de webserverfarm aan die als host fungeert voor uw app. U kunt geld besparen bij het hosten van meerdere apps door de web-apps te configureren voor het delen van één App Service-plan.
+Een [App Service-plan](../articles/app-service/overview-hosting-plans.md) geeft de locatie, de grootte en de functies van de webserverfarm aan die als host fungeert voor uw app. U kunt geld besparen bij het hosten van meerdere apps door de web-apps te configureren voor het delen van één App Service-plan.
 
 In App Service-plannen wordt het volgende gedefinieerd:
 

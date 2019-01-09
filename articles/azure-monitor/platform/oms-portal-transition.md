@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/08/2018
 ms.author: bwren
-ms.openlocfilehash: 08f26742d5c0af7f873d8f55204fd9ceeb141f1e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3dc574b3aab3600895376c0271b5c6224a70d3b6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340076"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119204"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal naar Azure verplaatsen
 
@@ -26,7 +26,7 @@ ms.locfileid: "53340076"
 
 De Azure-portal is de hub voor alle Azure-services en biedt een uitgebreide beheerervaring, met mogelijkheden zoals dashboards om vast te zetten resources, intelligent zoeken naar resources zoeken en labels voor resourcebeheer. Om te consolideren en de controle en beheer de werkstroom te stroomlijnen, begonnen we met het toevoegen van de OMS-portal-mogelijkheden in Azure portal. Alle functies van de OMS-portal zijn nu onderdeel van de Azure-portal. Enkele van de nieuwe functies zoals Traffic Analytics zijn in feite alleen beschikbaar in Azure portal. U wordt mogelijk zijn om uit te voeren van alles wat die je mee bezig was in de OMS-portal met de Azure-portal en meer. Als u dit nog niet hebt gedaan, leest u eerst met behulp van de Azure-portal vandaag nog!
 
-**De OMS-portal wordt op 15 januari 2019 officieel stopgezet.** We zijn trots te verplaatsen naar de Azure portal en de overgang naar eenvoudig worden verwacht. Maar we begrijpen dat wijzigingen zijn moeilijk en kunnen worden ervaren. Verzenden van eventuele vragen, feedback of opmerkingen aan **LAUpgradeFeedback@microsoft.com**. De rest van dit artikel gaat over de belangrijkste scenario's en het schema voor deze overgang.
+**De OMS-portal officieel wordt beëindigd op 15 januari 2019** voor commerciële Azure-cloud en Azure US Government-cloud, de OMS-portal **op 30 maart 2019 officieel stopgezet.** We zijn trots te verplaatsen naar de Azure portal en de overgang naar eenvoudig worden verwacht. Maar we begrijpen dat wijzigingen zijn moeilijk en kunnen worden ervaren. Verzenden van eventuele vragen, feedback of opmerkingen aan **LAUpgradeFeedback@microsoft.com**. De rest van dit artikel gaat over de belangrijkste scenario's en het schema voor deze overgang.
 
 ## <a name="what-is-changing"></a>Wat is gewijzigd? 
 De volgende wijzigingen zijn met de afschaffing van de OMS-portal wordt aangekondigd. Elk van deze wijzigingen wordt beschreven in de secties hieronder in meer detail.
@@ -77,23 +77,24 @@ U bent niet langer om nieuwe werkruimten met behulp van de OMS-portal te maken. 
 ### <a name="alert-extension"></a>Waarschuwing-extensie  
 
 > [!NOTE]
-> Waarschuwingen zijn nu volledig uitgebreid naar de Azure-portal voor de openbare cloud. Bestaande waarschuwingsregels kunnen worden weergegeven in de OMS-portal, maar ze kunnen alleen worden beheerd in Azure portal. Uitbreiding van waarschuwingen in Azure portal wordt gestart voor de Azure government-cloud in oktober 2018.
+> Waarschuwingen zijn nu volledig uitgebreid naar de Azure-portal voor de openbare cloud. Bestaande waarschuwingsregels kunnen worden weergegeven in de OMS-portal, maar ze kunnen alleen worden beheerd in Azure portal. Uitbreiding van waarschuwingen in Azure portal wordt gestart voor de Azure government-cloud februari 2019.
 
 Waarschuwingen zijn [uitgebreid naar Azure portal](../../azure-monitor/platform/alerts-extend.md). Zodra dit voltooid is, zijn acties voor waarschuwingen alleen worden beschikbaar in Azure portal. Bestaande-waarschuwingen blijven worden vermeld in de OMS-portal. Als u waarschuwingen programmatisch met behulp van de Log Analytics Alert REST API of Log Analytics-waarschuwing Resourcesjabloon opent, moet u actiegroepen gebruiken in plaats van acties in uw API-aanroepen, Azure Resource Manager-sjablonen en PowerShell-opdrachten.
 
 ### <a name="alert-management-solution"></a>Oplossing voor waarschuwing
-In plaats van de [waarschuwingenbeheeroplossing](../../azure-monitor/platform/alert-management-solution.md), kunt u [van Azure Monitor unified interface waarschuwingen](../../azure-monitor/platform/alerts-overview.md) te visualiseren en waarschuwingen beheren. Deze nieuwe ervaring aggregeert waarschuwingen uit meerdere bronnen binnen Azure inclusief waarschuwingen van Log Analytics. U kunt distributies van uw waarschuwingen bekijken, profiteer van geautomatiseerde groeperen van gerelateerde waarschuwingen via slimme groepen en weergeven van waarschuwingen voor meerdere abonnementen terwijl geavanceerde filters zijn toegepast. Al deze functies zijn beschikbaar in Preview-versie 4 juni 2018 beginnen. Het beheersysteem voor de waarschuwing is niet beschikbaar in de Azure portal. 
+Als een wijziging ten opzichte van de aankondiging in een vorige de [Waarschuwingenbeheeroplossing](../../azure-monitor/platform/alert-management-solution.md) blijft beschikbaar en worden volledig ondersteund in Azure portal. U kunt blijven voor het installeren van de oplossing op Azure Marketplace.
 
-De gegevens die zijn verzameld door de oplossing van waarschuwingen te beheren (records met een type van de waarschuwing) blijft in Log Analytics, zolang de oplossing voor de werkruimte is geïnstalleerd. Vanaf augustus 2018, wordt streaming van waarschuwingen van geïntegreerde waarschuwingen in werkruimten ingeschakeld, vervangt deze mogelijkheid. Sommige wijzigingen in het schema worden verwacht en op een later tijdstip worden aangekondigd.
+Hoewel het beheersysteem voor waarschuwing blijft beschikbaar is, raden we u aan gebruik [van Azure Monitor unified interface waarschuwingen](../../azure-monitor/platform/alerts-overview.md) te visualiseren en alle meldingen beheren in Azure. Deze nieuwe ervaring aggregeert systeemeigen waarschuwingen uit meerdere bronnen binnen Azure inclusief waarschuwingen van Log Analytics. Als u van geïntegreerde waarschuwingen van Azure Monitor-interface gebruikmaakt, is klikt u vervolgens de oplossing van waarschuwingen te beheren alleen vereist om in te schakelen van de integratie van waarschuwingen van System Center Operation Manager naar Azure. In geïntegreerde waarschuwingen interface van Azure Monitor, kunt u distributies van uw waarschuwingen bekijken, profiteer van geautomatiseerde groeperen van gerelateerde waarschuwingen via slimme groepen en weergeven van waarschuwingen voor meerdere abonnementen terwijl geavanceerde filters zijn toegepast. Toekomstige ontwikkelingen in het waarschuwingsbeheer zijn voornamelijk beschikbaar in deze nieuwe ervaring. 
+
+De gegevens die zijn verzameld door de oplossing van waarschuwingen te beheren (records met een type van de waarschuwing) blijft in Log Analytics, zolang de oplossing voor de werkruimte is geïnstalleerd. 
 
 ## <a name="oms-mobile-app"></a>Mobiele OMS-App
 De mobiele OMS-app worden sunsetted samen met de OMS-portal. In plaats van de mobiele OMS-app voor toegang tot informatie over uw IT-infrastructuur, dashboards en opgeslagen query's, kunt u de Azure-portal rechtstreeks openen vanuit uw browser in uw mobiele apparaat. Als u waarschuwingen, moet u configureren [Azure-actiegroepen](../../azure-monitor/platform/action-groups.md) voor het ontvangen van meldingen in de vorm van SMS- of een telefoongesprek
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights-Connector en oplossing
-[Application Insights-Connector](../../azure-monitor/platform/app-insights-connector.md) biedt een manier om Application Insights-gegevens in een Log Analytics-werkruimte. De duplicatie van deze gegevens is vereist voor het inschakelen van zichtbaarheid in de infrastructuur-en toepassingsgegevens.
+[Application Insights-Connector](../../azure-monitor/platform/app-insights-connector.md) biedt een manier om op te nemen van Application Insights-gegevens in een Log Analytics-werkruimte. De duplicatie van deze gegevens is vereist voor het inschakelen van zichtbaarheid in de infrastructuur-en toepassingsgegevens. Met Application Insights uitgebreide ondersteuning voor het bewaren van gegevens in maart 2019 en de mogelijkheid om uit te voeren [query's voor meerdere bronnen](../../azure-monitor/log-query/cross-workspace-query.md), hoeft niet te dupliceren van gegevens uit uw Application Insights-resources en deze verzenden naar Log Analytics. Daarnaast wordt de Connector verzendt een subset van de eigenschappen van toepassingen naar Log Analytics, terwijl de query's van meerdere bronnen biedt u flexibiliteit verbeterd.  
 
-Met de ondersteuning van [query's voor meerdere bronnen](../../azure-monitor/log-query/cross-workspace-query.md), er is niet langer in deze behoefte te dupliceren van gegevens. De bestaande Application Insights-oplossing wordt als zodanig worden afgeschaft. Vanaf oktober kunt pas u weer nieuwe Application Insights-resources koppelen aan Log Analytics-werkruimten. Bestaande koppelingen en dashboards blijft functioneren tot en met 15 januari 2019.
-
+Application Insights-Connector wordt als zodanig worden afgeschaft en verwijderd uit Azure Marketplace, samen met de OMS-portal-afschaffing op 30 maart 2019, terwijl bestaande verbindingen blijft tot en met 30 juni 2019. Met OMS portal afschaffing is er geen manier om te configureren en bestaande verbindingen verwijderen uit de portal. Dit wordt ondersteund met de REST-API die beschikbaar zijn in januari, 2019 zullen worden gemaakt en een melding wordt gepost op [Azure-updates](https://azure.microsoft.com/updates/). 
 
 ## <a name="azure-network-security-group-analytics"></a>Analyse van Azure-netwerkbeveiligingsgroep
 De [oplossing Azure Network Security Group Analytics](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) wordt vervangen met onlangs geopende [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) waarmee u inzicht in gebruikers en toepassingen op cloudnetwerken. Traffic Analytics kunt u controle-activiteit op het netwerk, beveiligde toepassingen en gegevens van uw organisatie, werkbelasting prestaties te optimaliseren en blijven voldoen. 
