@@ -1,6 +1,6 @@
 ---
-title: Verzamelen en analyseren van prestatiemeteritems in Azure Monitor | Microsoft Docs
-description: Prestatiemeteritems worden verzameld door Azure Monitor voor het analyseren van prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u het configureren van verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze zijn opgeslagen in de werkruimte, en over het analyseren van deze in Azure portal.
+title: Verzamelen en analyseren van prestatiemeteritems in Log Analytics | Microsoft Docs
+description: Prestatiemeteritems worden verzameld door Log Analytics voor het analyseren van prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u het configureren van verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze zijn opgeslagen in de werkruimte, en over het analyseren van deze in Azure portal.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438367"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103703"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor
-In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Azure Monitor kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
+# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics
+In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
 
 ![Prestatiemeteritems](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ De parameters in dit element worden in de volgende tabel beschreven.
 | interval | De frequentie waarmee de prestatiemeteritems van het object die worden verzameld. |
 
 
-De volgende tabel bevat de objecten en de items die u in het configuratiebestand opgeven kunt.  Er zijn extra items beschikbaar voor bepaalde toepassingen zoals beschreven in [verzamelen van prestatiemeteritems voor Linux-toepassingen in Azure Monitor](data-sources-linux-applications.md).
+De volgende tabel bevat de objecten en de items die u in het configuratiebestand opgeven kunt.  Er zijn extra items beschikbaar voor bepaalde toepassingen zoals beschreven in [verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics](data-sources-linux-applications.md).
 
 | Objectnaam | Naam van teller |
 |:--|:--|
@@ -182,7 +182,7 @@ Hieronder volgt de standaardconfiguratie voor metrische gegevens voor prestaties
     </source>
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Azure Monitor verzamelt alle opgegeven prestatiemeteritems op de opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens worden niet samengevoegd en de onbewerkte gegevens is beschikbaar in alle log queryweergaven voor de duur die is opgegeven door uw abonnement.
+Log Analytics verzamelt alle opgegeven prestatiemeteritems op de opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens worden niet samengevoegd en de onbewerkte gegevens is beschikbaar in alle log queryweergaven voor de duur die is opgegeven door uw abonnement.
 
 ## <a name="performance-record-properties"></a>Eigenschappen van de record Performance
 Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgende tabel.

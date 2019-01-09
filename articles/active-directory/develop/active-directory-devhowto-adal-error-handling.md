@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d6e70048f5c86ad18962237d7ffcc442c82bf035
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974779"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107647"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fout bij het afhandelen van aanbevolen procedures voor Azure Active Directory Authentication Library (ADAL) clients
 
@@ -28,7 +28,7 @@ In dit artikel bevat richtlijnen voor het soort fouten dat ontwikkelaars optrede
 In dit artikel wordt besproken voor het specifieke gevallen voor elk platform wordt ondersteund door ADAL en hoe uw toepassing kan worden verwerkt elke aanvraag goed. De richtlijnen van de fout is opgesplitst in twee bredere categorieën, op basis van de patronen ophalen van tokens door ADAL-API's:
 
 - **AcquireTokenSilent**: Client probeert te krijgen van een token op de achtergrond (zonder dat de UI), en kan mislukken als ADAL mislukt is. 
-- **AcquireToken**: Client op de achtergrond overname kunnen proberen, maar kan ook uitvoeren van interactieve aanvragen waarvoor aanmelden.
+- **AcquireToken**: Client op de achtergrond overname kan proberen, maar kan ook uitvoeren van interactieve aanvragen waarvoor aanmelden.
 
 > [!TIP]
 > Dit is een goed idee om aan te melden van alle fouten en uitzonderingen bij het gebruik van ADAL en Azure AD. Logboeken zijn niet alleen nuttig voor het begrijpen van de algemene status van uw toepassing, maar zijn ook belangrijk bij het oplossen van problemen met bredere. Terwijl uw toepassing te bij bepaalde fouten herstellen kan, kunnen ze hint op bredere ontwerpproblemen die codewijzigingen nodig om om te zetten. 
@@ -51,10 +51,10 @@ Er is een set van fouten die zijn gegenereerd door het besturingssysteem, die mo
 
 Primair, er zijn twee mogelijke situaties AcquireTokenSilent fouten:
 
-| Aanvraag | Beschrijving |
+| Case | Description |
 |------|-------------|
-| **Geval 1**: fout is omgezet met een interactieve aanmelding | Voor fouten worden veroorzaakt door een gebrek aan geldige-tokens, is een interactieve aanvraag nodig. Opzoeken van de cache en een ongeldig of verlopen vernieuwingstoken moet met name een AcquireToken-aanroep op te lossen.<br><br>In dergelijke gevallen moet de eindgebruiker gevraagd aan te melden. De toepassing kunt kiezen om een interactieve aanvraag doen onmiddellijk na de interactie met eindgebruikers (zoals te maken met een knop aanmelden) of later. De keuze is afhankelijk van het gewenste gedrag van de toepassing.<br><br>Zie de code in de volgende sectie voor dit specifieke geval en de fouten die diagnosticeren.|
-| **Geval 2**: fout is niet omgezet met een interactieve aanmelding | Voor het netwerk en tijdelijke/tijdelijke fouten, of andere fouten, uitvoeren van een interactieve AcquireToken-aanvraag heeft het probleem verhelpen niet. Onnodige interactieve aanmeldingsprompts kunnen ook frustrerend kan zijn voor eindgebruikers. ADAL probeert automatisch een enkele nieuwe pogingen voor de meeste fouten op AcquireTokenSilent fouten.<br><br>De clienttoepassing kan ook op een later tijdstip opnieuw proberen, maar wanneer en hoe u dit doen, is afhankelijk van de werking van de toepassing en de gewenste eindgebruikerservaring. De toepassing kan bijvoorbeeld een AcquireTokenSilent opnieuw proberen na een paar minuten, of als reactie op bepaalde actie door eindgebruikers. Een directe nieuwe poging zal leiden tot de toepassing wordt beperkt, en moet niet worden uitgevoerd.<br><br>Een volgende poging is mislukt met de dezelfde fout betekent niet dat de client een interactieve-aanvraag met behulp van AcquireToken, moet doen als de fout niet wordt opgelost.<br><br>Zie de code in de volgende sectie voor dit specifieke geval en de fouten die diagnosticeren. |
+| **Geval 1**: Fout is omgezet met een interactieve aanmelding | Voor fouten worden veroorzaakt door een gebrek aan geldige-tokens, is een interactieve aanvraag nodig. Opzoeken van de cache en een ongeldig of verlopen vernieuwingstoken moet met name een AcquireToken-aanroep op te lossen.<br><br>In dergelijke gevallen moet de eindgebruiker gevraagd aan te melden. De toepassing kunt kiezen om een interactieve aanvraag doen onmiddellijk na de interactie met eindgebruikers (zoals te maken met een knop aanmelden) of later. De keuze is afhankelijk van het gewenste gedrag van de toepassing.<br><br>Zie de code in de volgende sectie voor dit specifieke geval en de fouten die diagnosticeren.|
+| **Geval 2**: Fout is niet omgezet met een interactieve aanmelding | Voor het netwerk en tijdelijke/tijdelijke fouten, of andere fouten, uitvoeren van een interactieve AcquireToken-aanvraag heeft het probleem verhelpen niet. Onnodige interactieve aanmeldingsprompts kunnen ook frustrerend kan zijn voor eindgebruikers. ADAL probeert automatisch een enkele nieuwe pogingen voor de meeste fouten op AcquireTokenSilent fouten.<br><br>De clienttoepassing kan ook op een later tijdstip opnieuw proberen, maar wanneer en hoe u dit doen, is afhankelijk van de werking van de toepassing en de gewenste eindgebruikerservaring. De toepassing kan bijvoorbeeld een AcquireTokenSilent opnieuw proberen na een paar minuten, of als reactie op bepaalde actie door eindgebruikers. Een directe nieuwe poging zal leiden tot de toepassing wordt beperkt, en moet niet worden uitgevoerd.<br><br>Een volgende poging is mislukt met de dezelfde fout betekent niet dat de client een interactieve-aanvraag met behulp van AcquireToken, moet doen als de fout niet wordt opgelost.<br><br>Zie de code in de volgende sectie voor dit specifieke geval en de fouten die diagnosticeren. |
 
 ### <a name="net"></a>.NET
 
@@ -187,7 +187,7 @@ Het besturingssysteem kan ook een set van fouten waarvoor foutafhandeling afhank
   - Alle scenario's, waaronder on-behalf-of
   - On-Behalf-of specifieke scenario 's
 
-### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Foutgevallen en stappen: systeemeigen client-toepassingen
+### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Foutgevallen en stappen: Systeemeigen client-toepassingen
 
 Als u een systeemeigen clienttoepassing maakt, zijn er verwerking van een paar foutgevallen rekening houden met die betrekking hebben op netwerkproblemen, tijdelijke fouten en andere platform-specifieke fouten. In de meeste gevallen mag niet een toepassing direct nieuwe pogingen uitvoert, maar in plaats daarvan wachten voor interactie met eindgebruikers waarin wordt gevraagd om een aanmelding. 
 
@@ -340,7 +340,7 @@ Uw code zou als volgt worden geïmplementeerd:
 }]
 ```
 
-### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Foutgevallen en stappen: webtoepassingen die aanroepen van een resource-API (.NET)
+### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Foutgevallen en stappen: Webtoepassingen die aanroepen van een resource-API (.NET)
 
 Als u een .NET-web-app die worden aangeroepen ontvangt een token met behulp van een autorisatiecode voor een resource, de enige code vereist is een standaardhandler voor de algemene aanvraag. 
 
@@ -365,7 +365,7 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Foutgevallen en stappen: toepassingen met één pagina (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Foutgevallen en stappen: Toepassingen met één pagina (adal.js)
 
 Als u een toepassing met één-pagina met behulp van adal.js met AcquireToken bouwt, is de code voor foutafhandeling is vergelijkbaar met die van de aanroep van een typische op de achtergrond. In het bijzonder in adal.js, AcquireToken nooit meer wordt weergegeven een gebruikersinterface. 
 
@@ -578,15 +578,21 @@ window.Logging = {
 ```
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-* [Gids voor azure AD-ontwikkelaars] [AAD-Dev-handleiding]
-* [Azure AD-Verificatiebibliotheken] [AAD-Auth-bibliotheken]
-* [Azure AD-verificatie-scenario's] [AAD-verificatie-scenario's]
-* [Toepassingen integreren met Azure Active Directory] [AAD-integratie-Apps]
+* [Handleiding voor Azure AD-ontwikkelaars][AAD-Dev-Guide]
+* [Azure AD-Verificatiebibliotheken][AAD-Auth-Libraries]
+* [Scenario's Azure AD-verificatie][AAD-Auth-Scenarios]
+* [Toepassingen integreren met Azure Active Directory][AAD-Integrating-Apps]
 
 Het gedeelte met opmerkingen die volgt, als u wilt uw feedback en Help ons verfijnen en vorm van onze inhoud te gebruiken.
 
-[![Meld u aan knop][AAD-Sign-In]] [ AAD-Sign-In] 
- <!--Reference style links --> [AAD-Auth-bibliotheken]:./active-directory-authentication-libraries.md [AAD-verificatie-scenario's]: verificatie-scenarios.md [AAD-Dev-handleiding]: Azure-ad-ontwikkelaars-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
+[![Knop aanmelden][AAD-Sign-In]][AAD-Sign-In]
+<!--Reference style links -->
+
+[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

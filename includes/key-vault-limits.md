@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 9a39abf77a7396302f93e5a423271402b7c3edb3
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429950"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084001"
 ---
 Sleutel transacties (maximum aantal transacties dat is toegestaan in 10 seconden kluis per regio<sup>1</sup>):
 
@@ -23,6 +23,9 @@ Sleutel transacties (maximum aantal transacties dat is toegestaan in 10 seconden
 |ECC-P-521|5|1000|10|2000|
 |ECC-SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> De bovenstaande drempelwaarden worden gewogen en afdwingen op hun som is. U kunt doen 125 RSA-HSM - 4k-bewerkingen en 0 RSA-HSM - 2k, of 124 RSA-HSM - 4k en 16 RSA-HSM - 2 kB. Daarna wordt in het hetzelfde interval op 10 seconden, een andere bewerking zorgt ervoor dat een uitzondering van de client AKV.
 
 > [!NOTE]
 > Als u de onderstaande tabel bekijkt, ziet u dat voor software-back-sleutels is het mogelijk toe 2000 transacties per 10 seconden en voor HSM back sleutels is mogelijk om 1000 transacties per 10 seconden toe. De verhouding van software-back-transacties voor sleutels van 3072 2048 sleutels is 500/2000 of 0.4. Dit betekent dat als een klant kiest, wordt er 500 3072 sleutel transacties over 10 seconden, ze hun maximale limiet is bereikt en andere sleutelbewerkingen niet doen. 

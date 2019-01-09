@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 31c4268522ca373ca0b467c13dd83500e18ef8e6
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 43ca62191f0dc5a306ea5891f31a316242694a02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065882"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107868"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -4015,7 +4015,7 @@ xml('<value>')
 
 | Parameter | Vereist | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*Waarde*> | Ja | Reeks | De tekenreeks met de JSON-object converteren <p>Het JSON-object moet slechts één root-eigenschap hebben. <br>Gebruik de backslashteken (\\) als een escape-teken voor de dubbele aanhalingstekens ("). | 
+| <*Waarde*> | Ja | Reeks | De tekenreeks met de JSON-object converteren <p>Het JSON-object moet slechts één root-eigenschap, die een matrix kan niet worden hebben. <br>Gebruik de backslashteken (\\) als een escape-teken voor de dubbele aanhalingstekens ("). | 
 ||||| 
 
 | Retourwaarde | Type | Description | 

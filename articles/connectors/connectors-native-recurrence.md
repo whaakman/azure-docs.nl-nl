@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: 369bdba063f8582b8343682dcbbc990d2f63e21a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078062"
+ms.locfileid: "54107834"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Maken en uitvoeren van terugkerende taken en werkstromen met Azure Logic Apps
 
@@ -39,7 +39,7 @@ Deze trigger ondersteunt bijvoorbeeld veel patronen:
 
 Wanneer de trigger met terugkeerpatroon wordt elke keer geactiveerd, worden de Logic Apps maakt en een nieuw exemplaar van de werkstroom van uw logische app wordt uitgevoerd. 
 
-Als u wilt uw logische app direct te activeren en één keer zonder periodiek wordt uitgevoerd, Zie [uitvoeren taken slechts één keer](#run-once) verderop in dit onderwerp.
+Zie voor het activeren van uw logische app en slechts één keer uitgevoerd in de toekomst, [uitvoeren taken slechts één keer](#run-once) verderop in dit onderwerp.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -141,8 +141,8 @@ Hier volgt een voorbeeld [definitie van de trigger terugkeerpatroon](../logic-ap
 
 <a name="run-once"></a>
 
-**VRAAG:** Wat gebeurt er als ik wil een logische app alleen onmiddellijk en één keer uitvoeren? </br>
-**A:** Als u wilt uw logische app direct te activeren en één keer zonder periodiek wordt uitgevoerd, kunt u de **Scheduler: Eenmaal uitvoeren van taken** sjabloon. Nadat u een nieuwe logische app hebt gemaakt, maar voor het openen van de ontwerpfunctie voor Logic Apps, onder de **sjablonen** sectie van de **categorie** in de lijst met **planning**, en selecteer vervolgens de sjabloon:
+**VRAAG:** Wat gebeurt er als ik wil een logische app in de toekomst slechts één keer uitgevoerd? </br>
+**A:** Voor het activeren van uw logische app en één keer zonder periodiek wordt uitgevoerd, kunt u de **Scheduler: Eenmaal uitvoeren van taken** sjabloon. Nadat u een nieuwe logische app hebt gemaakt, maar voor het openen van de ontwerpfunctie voor Logic Apps, onder de **sjablonen** sectie van de **categorie** in de lijst met **planning**, en selecteer vervolgens de sjabloon:
 
 ![Selecteer ' Scheduler: Eenmaal taken uitvoeren'-sjabloon](./media/connectors-native-recurrence/choose-run-once-template.png)
 
