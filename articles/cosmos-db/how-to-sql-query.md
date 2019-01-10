@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344105"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042135"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Voorbeelden van SQL-query's voor het uitvoeren van query's vanuit Azure Cosmos DB
 
@@ -831,7 +831,7 @@ De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQ
 Statistische functies kunnen ook worden uitgevoerd op de resultaten van een herhaling van de matrix. Zie [Herhaling van de matrix in query's](#Iteration) voor meer informatie.
 
 > [!NOTE]
-> Wanneer u Data Explorer van de Azure-portal gebruikt, moet u er rekening mee houden dat met statistische functies mogelijk slechts een gedeelte van de resultaten van een querypagina wordt geretourneerd. De SDK's produceren één cumulatieve waarde, die is berekend over alle pagina's.
+> Wanneer u Data Explorer van Azure Portal gebruikt, moet u er rekening mee houden dat met statistische functies mogelijk slechts een gedeelte van de resultaten van een querypagina wordt geretourneerd. De SDK's produceren één cumulatieve waarde, die is berekend over alle pagina's.
 >
 > Als u statistische query's wilt uitvoeren met behulp van code, hebt u .NET SDK 1.12.0, .NET Core SDK 1.1.0 of Java SDK 1.9.5 of hoger nodig.
 >

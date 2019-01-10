@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 06866b1a0b986190ab6770e5484fb7d950d10b26
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408273"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753911"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Wat is voorwaardelijke toegang in Azure Active Directory?
 
 Beveiliging is een topprioriteit voor organisaties die gebruikmaken van de cloud. Als het om het beheren van uw cloudresources gaat, vormen identiteit en toegang belangrijke aspecten bij het beveiligen van de cloud. In een wereld waar mobiliteit en cloud belangrijke begrippen zijn, kunnen gebruikers overal toegang krijgen tot de resources van uw organisatie met behulp van diverse apparaten en apps. Dus het is niet meer voldoende als u zich alleen richt op wie er toegang tot een resource mogen hebben. Voor de juiste balans tussen beveiliging en productiviteit dient u ook rekening te houden met de manier waarop een resource wordt geopend door middel van een beslissing voor toegangsbeheer. Met voorwaardelijke toegang van Azure Active Directory (Azure AD) kunt u dit vereiste aanpakken. Voorwaardelijke toegang is een functionaliteit van Azure Active Directory. Met voorwaardelijke toegang kunt u geautomatiseerde beslissingen voor toegangsbeheer implementeren voor het openen van uw cloud-apps op basis van voorwaarden. 
 
-Beleid voor voorwaardelijke toegang wordt afgedwongen als de verificatie van de eerste factor is voltooid. Met andere woorden: voorwaardelijke toegang is niet bedoeld als mechanisme voor bijvoorbeeld het tegengaan van Denial of Service-aanvallen (DoS).  
+Beleid voor voorwaardelijke toegang wordt afgedwongen nadat de verificatie van de eerste factor is voltooid. Daarom is voorwaardelijke toegang niet zozeer bedoeld als een eerste verdedigingslinie voor bijvoorbeeld DoS-aanvallen (Denial of Service), maar kan het gebruikmaken van signalen van dergelijke gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, de locatie van de aanvraag, enzovoort) om wel of geen toegang te verlenen.  
 
 ![Beheer](./media/overview/81.png)
 

@@ -3,17 +3,17 @@ title: De Azure CLI uitvoeren met Jenkins
 description: Leer hoe u de Azure CLI kunt gebruiken om een Java-web-app te implementeren naar Azure in de Jenkins-pijplijn
 ms.service: jenkins
 keywords: jenkins, azure, devops, app service, cli
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e21083b060e00602f58e1a17f52f40ced7d34e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974915"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075206"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementeren in Azure App Service met Jenkins en de Azure CLI
 Als u een Java-web-app wilt implementeren in Azure, kunt u de Azure CLI in de [Jenkins-pijplijn](https://jenkins.io/doc/book/pipeline/) gebruiken. In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:

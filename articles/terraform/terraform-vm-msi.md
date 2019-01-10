@@ -4,17 +4,17 @@ description: Gebruik de Marketplace-installatiekopie om een virtuele Terraform L
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, virtuele machine, remote state, azure
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971161"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076214"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Een Microsoft Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met een beheerde identiteit voor Azure-resources
 
@@ -31,7 +31,7 @@ Voordat u een virtuele Linux Terraform-machine kunt maken, moet u over een Azure
 
 Hier ziet u de stappen die u moet uitvoeren om een exemplaar van een virtuele Linux Terraform-machine te maken: 
 
-1. Ga in de Azure-portal naar de lijst [Resource maken](https://ms.portal.azure.com/#create/hub).
+1. Ga in Azure Portal naar de lijst [Resource maken](https://ms.portal.azure.com/#create/hub).
 
 2. Ga naar de zoekbalk **Zoeken in Marketplace** en zoek **Terraform**. Selecteer de sjabloon **Terraform**. 
 

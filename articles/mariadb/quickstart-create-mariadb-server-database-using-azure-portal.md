@@ -1,20 +1,18 @@
 ---
-title: 'Snelstart: Een Azure Database for MariaDB-server maken - Azure-portal'
+title: 'Quickstart: een Azure Database for MariaDB-server maken - Azure Portal'
 description: In dit artikel wordt beschreven hoe u met de Azure-portal snel, in ongeveer vijf minuten, een voorbeeld van een Azure Database for MariaDB-server kunt maken.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 721cd87dcf58a2b5a7a8fd32fdfa8b2d65453b24
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321934"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541384"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Een Azure Database for MariaDB-server maken met behulp van Azure Portal
 
@@ -44,7 +42,7 @@ Een Azure Database for MariaDB-server maken:
 
     Instelling | Voorgestelde waarde | Beschrijving
     ---|---|---
-    Servernaam | *een unieke servernaam* | Kies een unieke naam ter identificatie van de Azure Database for MariaDB-server. Bijvoorbeeld: **mydemoserver**. De domeinnaam *.mariadb.database.azure.com* wordt toegevoegd aan de servernaam die u opgeeft. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. De lengte moet tussen 3 en 63 tekens liggen.
+    Servernaam | *een unieke servernaam* | Kies een unieke naam ter identificatie van de Azure Database for MariaDB-server. Bijvoorbeeld **mydemoserver**. De domeinnaam *.mariadb.database.azure.com* wordt toegevoegd aan de servernaam die u opgeeft. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. Dit wachtwoord moet tussen 3 en 63 tekens bevatten.
     Abonnement | *uw abonnement* | Selecteer het Azure-abonnement dat u wilt gebruiken voor uw server. Als u meerdere abonnementen hebt, kiest u het abonnement waarin u wordt gefactureerd voor de resource.
     Resourcegroep | **myresourcegroup** | Voer een naam voor de nieuwe resourcegroep in of selecteer een bestaande resourcegroep. 
     Bron selecteren | **Leeg** | Selecteer **Leeg** om een nieuwe server te maken. (Selecteer **Back-up** als u een server maakt op basis van een geo-back-up van een bestaande Azure Database for MariaDB-server.)

@@ -1,20 +1,17 @@
 ---
 title: Hulpprogramma voor databasemigratie voor Azure Cosmos DB
 description: Leer hoe u de open source Azure Cosmos DB-hulpprogramma's voor gegevensmigratie gebruikt om gegevens te importeren naar Azure Cosmos DB vanuit diverse bronnen, zoals MongoDB, SQL Server, Tabelopslag, Amazon DynamoDB, CSV- en JSON-bestanden. Conversie van CSV naar JSON.
-keywords: csv naar json, hulpprogramma’s voor databasemigratie, converteren csv naar json
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
-ms.custom: mvc
-ms.openlocfilehash: 45c9d5fac24bbbc7d90abf43f5f7662c26c7d4b0
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 82c34f3dcc606ccf7103b557518cd7a54a153183
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810148"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034117"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB
 

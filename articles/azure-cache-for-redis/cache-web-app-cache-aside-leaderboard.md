@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: 21f6f729cef6478c190c9e8b872723e4ae67fb1e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: da99d446da1451c2b05f6ecab8ba19eaa1e2bfa3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020646"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104944"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Zelfstudie: een cache-aside-leaderboard maken in ASP.NET
 
@@ -520,7 +520,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
     ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -544,7 +544,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
     ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -654,7 +654,7 @@ De app lokaal uitvoeren:
 
 In deze sectie richt u een nieuwe SQL Azure-database in voor de app die moet worden gebruikt wanneer deze wordt gehost in Azure.
 
-1. Klik linksboven in de [Azure-portal](https://portal.azure.com/) op **Een resource maken**.
+1. Klik linksboven in [Azure Portal](https://portal.azure.com/) op **Een resource maken**.
 
 1. Klik op de pagina **Nieuw** op **Databases** > **SQL-database**.
 
@@ -682,7 +682,7 @@ In deze sectie richt u een nieuwe SQL Azure-database in voor de app die moet wor
 
     ![Verbindingsreeksen weergeven](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
 
-1. Navigeer in de Azure-portal naar uw App Service, klik op **Toepassingsinstellingen** en klik op **Nieuwe verbindingsreeks toevoegen** onder de sectie Verbindingsreeksen.
+1. Navigeer in de Azure Portal naar uw App Service, klik op **Toepassingsinstellingen** en klik op **Nieuwe verbindingsreeks toevoegen** onder de sectie Verbindingsreeksen.
 
 1. Voeg een nieuwe verbindingsreeks toe met de naam *TeamContext* die overeenkomt met de contextklasse van de Entity Framework-database. Plak de verbindingsreeks voor de nieuwe database als de waarde. Vervang de volgende tijdelijke aanduidingen in de verbindingsreeks en klik op **Opslaan**:
 
@@ -731,7 +731,7 @@ Wanneer u klaar bent met de voorbeeldtoepassing uit de zelfstudie, kunt u de Azu
 > Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via de respectievelijke blades.
 >
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 2. Typ de naam van de resourcegroep in het tekstvak **Items filteren...**.
 3. Klik op **...** rechts van de resourcegroep en klik op **Resourcegroep verwijderen**.
 

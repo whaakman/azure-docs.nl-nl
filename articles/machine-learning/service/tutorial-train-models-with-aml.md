@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 117934c83d54cb5454f476ffb3b1a1437c0fd30b
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811474"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075937"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie: een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service
 
 In deze zelfstudie gaat u een machine learning-model zowel lokaal als op externe rekenresources trainen. U gebruikt de werkstroom voor training en implementatie voor de Azure Machine Learning-service in een Python Jupyter-notebook. Vervolgens kunt u het notebook gebruiken als een sjabloon voor het trainen van uw eigen machine learning-model met uw eigen gegevens. Deze zelfstudie is **deel één van een serie van twee**.  
 
-In deze zelfstudie traint u een eenvoudig logistiek regressiemodel met de gegevensset [MNIST](https://yann.lecun.com/exdb/mnist/) en [scikit-learn](https://scikit-learn.org) met behulp van Azure Machine Learning Service. MNIST is een populaire gegevensset die bestaat uit 70.000 afbeeldingen in grijstinten. Elke afbeelding is een handgeschreven cijfer van 28 x 28 pixels, dat een getal tussen 0-9 vertegenwoordigt. Het doel is om een classificatiemechanisme met meerdere klassen te maken om het cijfer te identificeren dat een bepaalde afbeelding vertegenwoordigt. 
+In deze zelfstudie traint u een eenvoudig logistiek regressiemodel met de gegevensset [MNIST](http://yann.lecun.com/exdb/mnist/) en [scikit-learn](https://scikit-learn.org) met behulp van Azure Machine Learning Service. MNIST is een populaire gegevensset die bestaat uit 70.000 afbeeldingen in grijstinten. Elke afbeelding is een handgeschreven cijfer van 28 x 28 pixels, dat een getal tussen 0-9 vertegenwoordigt. Het doel is om een classificatiemechanisme met meerdere klassen te maken om het cijfer te identificeren dat een bepaalde afbeelding vertegenwoordigt. 
 
 U leert hoe u de volgende acties uitvoert:
 

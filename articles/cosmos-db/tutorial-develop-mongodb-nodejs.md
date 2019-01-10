@@ -4,18 +4,19 @@ titleSuffix: Azure Cosmos DB
 description: Leer aan de hand van deze reeks zelfstudies op video een MongoDB-app maken met Angular en Node op Azure Cosmos DB met precies dezelfde APIs die u gebruikt voor MongoDB.
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 364c8d4c0ca9ac9a733ee98fd73b2dfd8497625f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: ec88b8e78c2d73ffa4badbc8ceaa468b4e5169e0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791282"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044345"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Een Angular-app maken met de API van Azure Cosmos DB voor MongoDB
 

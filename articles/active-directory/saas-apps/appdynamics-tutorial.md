@@ -1,249 +1,227 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met AppDynamics | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en AppDynamics.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en AppDynamics.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/13/2018
+ms.topic: tutorial
+ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: MT
+ms.openlocfilehash: e2620a40eb4998d8d5e97108208731d679e004d6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605824"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Zelfstudie: Azure Active Directory-integratie met AppDynamics
 
-In deze zelfstudie leert u hoe u AppDynamics integreren met Azure Active Directory (Azure AD).
-
+In deze zelfstudie leert u hoe u AppDynamics met Azure Active Directory (Azure AD) kunt integreren.
 AppDynamics integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot AppDynamics heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij AppDynamics (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
+* U kunt in Azure AD beheren wie toegang tot AppDynamics heeft.
+* U kunt ervoor zorgen dat gebruikers zich automatisch met hun Azure AD-account kunnen aanmelden bij AppDynamics (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met AppDynamics, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met AppDynamics hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een AppDynamics eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op AppDynamics waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. AppDynamics uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-appdynamics-from-the-gallery"></a>AppDynamics uit de galerie toe te voegen
-Voor het configureren van de integratie van AppDynamics in Azure AD, moet u AppDynamics uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* AppDynamics ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen AppDynamics uit de galerie, moet u de volgende stappen uitvoeren:**
+* AppDynamics biedt ondersteuning voor het **Just-In-Time** inrichten van gebruikers
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+## <a name="adding-appdynamics-from-the-gallery"></a>AppDynamics uit de galerie toevoegen
 
-    ![Active Directory][1]
+Voor het configureren van de integratie van AppDynamics in Azure AD moet u AppDynamics uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+**Als u AppDynamics uit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-    ![Toepassingen][2]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Toepassingen][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-4. Typ in het zoekvak **AppDynamics**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/appdynamics-tutorial/tutorial_appdynamics_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-5. Selecteer in het deelvenster resultaten **AppDynamics**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/appdynamics-tutorial/tutorial_appdynamics_addfromgallery.png)
+4. Typ in het zoekvak **AppDynamics**, selecteer **AppDynamics** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met AppDynamics op basis van een testgebruiker met de naam "Britta Simon."
+     ![AppDynamics in de lijst met resultaten](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in AppDynamics is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in AppDynamics tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In AppDynamics, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie configureert en test u Azure AD-eenmalige aanmelding met AppDynamics op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in AppDynamics tot stand is gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met AppDynamics, moet u de volgende bouwstenen voltooien:
+Voor het configureren en testen van Azure AD-eenmalige aanmelding met AppDynamics moet u de volgende bouwstenen uitvoeren:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker AppDynamics](#creating-an-appdynamics-test-user)**  : als u wilt een equivalent van Britta Simon in AppDynamics die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[AppDynamics-eenmalige aanmelding configureren](#configure-appdynamics-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[AppDynamics-testgebruiker maken](#create-appdynamics-test-user)** : als u wilt een equivalent van Britta Simon in AppDynamics wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing AppDynamics.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met AppDynamics, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD-eenmalige aanmelding met AppDynamics moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **AppDynamics** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Selecteer in [Azure Portal](https://portal.azure.com/), op de pagina voor de integratie van de toepassing **AppDynamics** **Eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Eenmalige aanmelding configureren](./media/appdynamics-tutorial/tutorial_appdynamics_samlbase.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-3. Op de **AppDynamics domein en URL's** sectie, voert u de volgende stappen uit:
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.saas.appdynamics.com/controller`
+    ![Informatie over eenmalige aanmelding bij het AppDynamics-domein en AppDynamics-URL's](common/sp-identifier.png)
+
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met deze notatie: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
+
+    b. Typ in het tekstvak **Id (Entiteits-id)** een URL met de volgende notatie: `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [AppDynamics Client ondersteuningsteam](https://www.appdynamics.com/support/) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [AppDynamics-clientondersteuningsteam](https://www.appdynamics.com/support/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![Eenmalige aanmelding configureren](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-5. Klik op **opslaan** knop.
+6. In de sectie **AppDynamics instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![Eenmalige aanmelding configureren](./media/appdynamics-tutorial/tutorial_general_400.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-6. Op de **AppDynamics configuratie** sectie, klikt u op **configureren AppDynamics** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    a. Aanmeldings-URL
 
-    ![Eenmalige aanmelding configureren](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png)
+    b. Azure AD-id
 
-7. In een ander browservenster aanmelden bij uw bedrijf AppDynamics site als beheerder.
+    c. Afmeldings-URL
 
-8. Klik in de werkbalk bovenaan op **instellingen**, en klik vervolgens op **beheer**.
+### <a name="configure-appdynamics-single-sign-on"></a>AppDynamics-eenmalige aanmelding configureren
 
-    ![Beheer](./media/appdynamics-tutorial/ic790216.png "beheer")
+7. Meld u zich in een ander browservenster aan bij uw AppDynamics-bedrijfswebsite als beheerder.
 
-9. Klik op de **verificatieprovider** tabblad.
+8. Klik in de werkbalk bovenaan op **Instellingen** en klik vervolgens op **Beheer**.
 
-    ![Verificatieprovider](./media/appdynamics-tutorial/ic790224.png "Authentication-Provider")
+    ![Beheer](./media/appdynamics-tutorial/ic790216.png "Beheer")
 
-10. In de **verificatieprovider** sectie, voert u de volgende stappen uit:
+9. Klik op het tabblad **Verificatieprovider**.
 
-    ![De SAML-configuratie](./media/appdynamics-tutorial/ic790225.png "SAML-configuratie")
+    ![Verificatieprovider](./media/appdynamics-tutorial/ic790224.png "Verificatieprovider")
 
-    a. Als **verificatieprovider**, selecteer **SAML**.
+10. Voer in de sectie **Verificatieprovider** de volgende stappen uit:
 
-    b. In de **aanmeldings-URL** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vanuit Azure portal.
+    ![SAML-configuratie](./media/appdynamics-tutorial/ic790225.png "SAML-configuratie")
 
-    c. In de **afmeldings-URL van** tekstvak, plak de waarde van **afmelding URL** die u hebt gekopieerd vanuit Azure portal.
+    a. Selecteer als **verificatieprovider** **SAML**.
 
-    d. Het base-64 gecodeerde certificaat openen in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **certificaat** tekstvak
+    b. Plak in het tekstvak **Aanmeldings-URL** de waarde van **Aanmeldings-URL**, die u hebt gekopieerd uit Azure Portal.
+
+    c. Plak in het tekstvak **Afmeldings-URL** de waarde van **Afmeldings-URL**, die u hebt gekopieerd uit Azure Portal.
+
+    d. Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Certificaat**
 
     e. Klik op **Opslaan**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-![Azure AD-gebruiker maken][100]
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/appdynamics-tutorial/create_aaduser_01.png)
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/appdynamics-tutorial/create_aaduser_02.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/appdynamics-tutorial/create_aaduser_03.png) 
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
-
-    ![Het maken van een Azure AD-testgebruiker](./media/appdynamics-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="creating-an-appdynamics-test-user"></a>Het maken van een testgebruiker AppDynamics
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in AppDynamics. AppDynamics biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot AppDynamics als deze nog niet bestaat.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot AppDynamics.
+
+1. Selecteer in Azure Portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **AppDynamics**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Typ en selecteer **AppDynamics** in de lijst met toepassingen.
+
+    ![De koppeling AppDynamics in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-appdynamics-test-user"></a>AppDynamics-testgebruiker maken
+
+Het doel van deze sectie is om in AppDynamics een gebruiker te maken met de naam Britta Simon. AppDynamics biedt ondersteuning voor Just-In-Time-inrichting; dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Er wordt een nieuwe gebruiker gemaakt bij een poging AppDynamics te openen.
 
 >[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [AppDynamics Client ondersteuningsteam](https://www.appdynamics.com/support/).
+>Als u handmatig een gebruiker moet maken, neemt u contact op met  [het ondersteuningsteam van AppDynamics](https://www.appdynamics.com/support/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan AppDynamics.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-![Gebruiker toewijzen][200]
-
-**Als u wilt Britta Simon aan AppDynamics toewijst, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201]
-
-2. Selecteer in de lijst met toepassingen, **AppDynamics**.
-
-    ![Eenmalige aanmelding configureren](./media/appdynamics-tutorial/tutorial_appdynamics_app.png)
-
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202]
-
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.
-
-Wanneer u op de tegel AppDynamics in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing AppDynamics.
+Wanneer u op de tegel AppDynamics in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van AppDynamics waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/appdynamics-tutorial/tutorial_general_01.png
-[2]: ./media/appdynamics-tutorial/tutorial_general_02.png
-[3]: ./media/appdynamics-tutorial/tutorial_general_03.png
-[4]: ./media/appdynamics-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/appdynamics-tutorial/tutorial_general_100.png
-
-[200]: ./media/appdynamics-tutorial/tutorial_general_200.png
-[201]: ./media/appdynamics-tutorial/tutorial_general_201.png
-[202]: ./media/appdynamics-tutorial/tutorial_general_202.png
-[203]: ./media/appdynamics-tutorial/tutorial_general_203.png

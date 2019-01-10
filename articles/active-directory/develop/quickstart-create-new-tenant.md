@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963931"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975947"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Snelstart: een ontwikkelaarsomgeving instellen
+# <a name="quickstart-set-up-a-dev-environment"></a>Quickstart: Een ontwikkelaarsomgeving instellen
 
-Met het Microsoft Identity Platform kunnen ontwikkelaars apps bouwen voor een breed scala van aangepaste Microsoft 365-omgevingen en -identiteiten. Om aan de slag te gaan met het Microsoft Identity Platform hebt u toegang nodig tot een omgeving, ook wel een Azure AD-tenant genoemd, waarmee u apps kunt registreren en beheren. Daarnaast hebt u toegang nodig tot Microsoft 365-gegevens en moet u aangepaste beperkingen voor voorwaardelijke toegang en de tenant implementeren. 
+Met het Microsoft Identity Platform kunnen ontwikkelaars apps bouwen voor een breed scala van aangepaste Microsoft 365-omgevingen en -identiteiten. Om aan de slag te gaan met het Microsoft Identity Platform hebt u toegang nodig tot een omgeving, ook wel een Azure AD-tenant genoemd, waarmee u apps kunt registreren en beheren. Daarnaast hebt u toegang nodig tot Microsoft 365-gegevens en moet u aangepaste beperkingen voor voorwaardelijke toegang en de tenant implementeren.
 
-Een tenant vertegenwoordigt een organisatie. Een tenant is een toegewezen exemplaar van Azure AD dat een organisatie of app-ontwikkelaar ontvangt wanneer deze een relatie start met Microsoft, door zich bijvoorbeeld aan te melden voor Azure, Microsoft Intune of Microsoft 365. 
+Een tenant vertegenwoordigt een organisatie. Een tenant is een toegewezen exemplaar van Azure AD dat een organisatie of app-ontwikkelaar ontvangt wanneer deze een relatie start met Microsoft, door zich bijvoorbeeld aan te melden voor Azure, Microsoft Intune of Microsoft 365.
 
-Elke Azure AD-tenant is verschillend en gescheiden van andere Azure AD-tenants. Elke tenant heeft een eigen weergave van werk- en schoolidentiteiten, consumentidentiteiten (als het een Azure AD B2C-tenant betreft) en app-registraties. Met een app-registratie binnen uw tenant kunt u verificatie toestaan vanaf accounts alleen binnen uw tenants of alle tenants. 
+Elke Azure AD-tenant is verschillend en gescheiden van andere Azure AD-tenants. Elke tenant heeft een eigen weergave van werk- en schoolidentiteiten, consumentidentiteiten (als het een Azure AD B2C-tenant betreft) en app-registraties. Met een app-registratie binnen uw tenant kunt u verificatie toestaan vanaf accounts alleen binnen uw tenants of alle tenants.
 
 ## <a name="determining-environment-type"></a>Omgevingstype bepalen
 
@@ -69,7 +69,7 @@ Als u nog geen Azure AD-tenant hebt of een nieuwe wilt maken voor ontwikkeling, 
 
 ## <a name="social-and-local-accounts"></a>Socialemedia-accounts en lokale accounts
 
-Om te beginnen met het bouwen van apps waarmee socialemedia-accounts en lokale accounts zich aanmelden, moet u een Azure AD B2C-tenant maken. Daarvoor volgt u de stappen in [een Azure AD B2C-tenant maken](../../active-directory-b2c/tutorial-create-tenant.md). 
+Om te beginnen met het bouwen van apps waarmee socialemedia-accounts en lokale accounts zich aanmelden, moet u een Azure AD B2C-tenant maken. Daarvoor volgt u de stappen in [een Azure AD B2C-tenant maken](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

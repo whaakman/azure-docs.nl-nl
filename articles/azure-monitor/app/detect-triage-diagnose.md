@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b3cfd57ff0e4b881352c07081d71bb9ba80fd11e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000182"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118079"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Overzicht van Application Insights voor DevOps
 
-Met [Application Insights](../../application-insights/app-insights-overview.md) komt u snel te weten hoe uw app presteert en hoe deze wordt gebruikt als ze actief is. Als er een probleem is, ziet u dat hier meteen, krijgt u hulp bij het beoordelen van de impact ervan en bij het achterhalen van de oorzaak.
+Met [Application Insights](../../azure-monitor/app/app-insights-overview.md) komt u snel te weten hoe uw app presteert en hoe deze wordt gebruikt als ze actief is. Als er een probleem is, ziet u dat hier meteen, krijgt u hulp bij het beoordelen van de impact ervan en bij het achterhalen van de oorzaak.
 
 Hier volgt een verhaal van een team dat webtoepassingen ontwikkelt:
 
@@ -61,7 +61,7 @@ Fouten worden als rode punten in het webtestdiagram weergegeven:
 Maar belangrijker is dat er per e-mail een waarschuwing over een storing naar het ontwikkelingsteam wordt verzonden. Op die manier zijn de teamleden er eerder van op de hoogte dan de meeste van hun klanten.
 
 ## <a name="monitor-performance"></a>Prestaties bewaken
-Op de overzichtspagina in Application Insights bevindt zich een diagram met diverse [belangrijke metrische gegevens](../../application-insights/app-insights-web-monitor-performance.md).
+Op de overzichtspagina in Application Insights bevindt zich een diagram met diverse [belangrijke metrische gegevens](../../azure-monitor/app/web-monitor-performance.md).
 
 ![Schermafbeelding met een overzicht van KPI-grafieken](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -151,7 +151,7 @@ Uitzonderingen en gebeurtenissen worden weergegeven in de blade [Diagnostische g
 
 
 ## <a name="monitor-proactively"></a>Proactief bewaken
-Marcela zit niet de hele dag te wachten totdat er waarschuwingen binnenkomen. Steeds nadat er een nieuwe implementatie is uitgevoerd, bekijkt ze de [reactietijden](../../application-insights/app-insights-web-monitor-performance.md), zowel het algemene cijfer en de tabel met de langzaamste aanvragen, als het aantal uitzonderingen.  
+Marcela zit niet de hele dag te wachten totdat er waarschuwingen binnenkomen. Steeds nadat er een nieuwe implementatie is uitgevoerd, bekijkt ze de [reactietijden](../../azure-monitor/app/web-monitor-performance.md), zowel het algemene cijfer en de tabel met de langzaamste aanvragen, als het aantal uitzonderingen.  
 
 ![Het diagram met de reactietijden en het raster met reactietijden van de server.](./media/detect-triage-diagnose/response-time.png)
 
@@ -184,7 +184,7 @@ Het diagnosticeren van problemen is niet hetzelfde als fouten opsporen. Voordat 
 
 Bij een aantal problemen met trage afhankelijkheden gaat het om problemen met de geolocatie. Fabrikam Bank gebruikt virtuele Azure-machines en ontdekte dat ze hun webserver en accountserver per ongeluk in verschillende landen hadden geplaatst. Door een daarvan te migreren, trad er een dramatische verbetering op.
 
-**Wat hebben we gedaan?** Als blijkt dat het probleem niet aan een afhankelijkheid is toe te schrijven, en als het er voorheen niet was, wordt het waarschijnlijk door een recente wijziging veroorzaakt. Het historische perspectief dat door de diagrammen met de metrische gegevens en gebeurtenissen wordt geboden, maakt het gemakkelijk om een correlatie aan te tonen tussen eventuele plotselinge wijzigingen en implementaties. Zo beperkt u de zoekactie naar het probleem. Om de regels in de toepassingscode te vinden waardoor de prestaties werden vertraagd, moet u Application Insights Profiler inschakelen. Raadpleeg [Profiling live Azure-web-apps met Application Insights](./../../application-insights/app-insights-profiler.md) (Live Azure-web-apps profileren met Application Insights). Nadat de Profiler is ingeschakeld, ziet u een tracering die er ongeveer als volgt uitziet. In dit voorbeeld is goed te zien dat de methode *GetStorageTableData* het probleem heeft veroorzaakt.  
+**Wat hebben we gedaan?** Als blijkt dat het probleem niet aan een afhankelijkheid is toe te schrijven, en als het er voorheen niet was, wordt het waarschijnlijk door een recente wijziging veroorzaakt. Het historische perspectief dat door de diagrammen met de metrische gegevens en gebeurtenissen wordt geboden, maakt het gemakkelijk om een correlatie aan te tonen tussen eventuele plotselinge wijzigingen en implementaties. Zo beperkt u de zoekactie naar het probleem. Om de regels in de toepassingscode te vinden waardoor de prestaties werden vertraagd, moet u Application Insights Profiler inschakelen. Raadpleeg [Profiling live Azure-web-apps met Application Insights](./../../azure-monitor/app/profiler.md) (Live Azure-web-apps profileren met Application Insights). Nadat de Profiler is ingeschakeld, ziet u een tracering die er ongeveer als volgt uitziet. In dit voorbeeld is goed te zien dat de methode *GetStorageTableData* het probleem heeft veroorzaakt.  
 
 ![App Insights Profiler-tracering](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
@@ -215,7 +215,7 @@ Ongeacht de redenen, de gegevens helpen het team om erachter te komen wat gebrui
 
 Het team raakt eraan gewend om informatie over gebruikersactiviteiten te krijgen. Als ze tegenwoordig een nieuwe functie ontwerpen, denken ze al na over hoe ze feedback over het gebruik ervan kunnen krijgen. Ze bouwen vanaf het begin al traceringsaanroepen in het ontwerp van de functie in. Ze gebruiken de feedback om in elke ontwikkelingscyclus de functie te kunnen verbeteren.
 
-[Meer informatie over gebruikstracering](../../application-insights/app-insights-usage-overview.md).
+[Meer informatie over gebruikstracering](../../azure-monitor/app/usage-overview.md).
 
 ## <a name="apply-the-devops-cycle"></a>De DevOps-cyclus toepassen
 Dit is dus hoe een team Application Insights niet alleen gebruikt om afzonderlijke problemen op te lossen, maar om de ontwikkelingscyclus in zijn geheel te verbeteren. Hopelijk hebt u nu een aantal ideeën opgedaan over hoe Application Insights u kan helpen met het beheren van de prestaties van uw toepassingen.
@@ -230,6 +230,6 @@ U kunt op verschillende manieren aan de slag, afhankelijk van de kenmerken van u
 * [ASP.NET-webtoepassing](../../azure-monitor/app/asp-net.md)
 * [Java-webtoepassing](../../azure-monitor/app/java-get-started.md)
 * [Node.js-webtoepassing](../../azure-monitor/app/nodejs.md)
-* Reeds geïmplementeerde apps die worden gehost op [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) of [Azure](../../application-insights/app-insights-overview.md).
+* Reeds geïmplementeerde apps die worden gehost op [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) of [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Webpagina's](../../azure-monitor/app/javascript.md): een app die uit één pagina bestaat of een normale webpagina; gebruik deze afzonderlijk of in aanvulling op een van de serveropties.
 * [Beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md) voor het testen van uw app op het openbare internet.

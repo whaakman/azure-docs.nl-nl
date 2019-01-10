@@ -1,5 +1,5 @@
 ---
-title: Een IoT-cloudoplossing voor externe controle uitproberen in Azure | Microsoft Docs
+title: Een IoT-cloudoplossing voor externe controle proberen - Azure | Microsoft Docs
 description: In deze snelstart implementeert u de Azure IoT-oplossingsverbetering voor externe controle. Vervolgens meldt u zich aan bij het oplossingsdashboard.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824775"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608354"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: Een cloudoplossing voor externe controle uitproberen
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: een cloudoplossing voor bewaking op afstand proberen
 
 In deze snelstart ziet u hoe u de Azure IoT-oplossingsverbetering voor externe controle implementeert. In deze cloudoplossing gebruikt u de pagina **Dashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de pagina **Onderhoud** om te reageren op een waarschuwing van een gesimuleerde koelunit. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
 
@@ -142,4 +142,4 @@ In de snelstart hebt u de oplossingsverbetering voor externe controle geïmpleme
 Ga verder naar de volgende zelfstudie voor meer informatie over de oplossingsverbetering die gebruikmaakt van gesimuleerde apparaten.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Uw IoT-apparaten controleren](iot-accelerators-remote-monitoring-monitor.md)
+> [Zelfstudie: uw IoT-apparaten bewaken](iot-accelerators-remote-monitoring-monitor.md)

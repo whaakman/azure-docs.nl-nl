@@ -1,23 +1,19 @@
 ---
 title: Uw MongoDB-gegevens migreren naar Azure Cosmos DB met behulp van mongoimport en mongorestore
 description: U leert hoe u mongoimport en mongorestore gebruikt voor het importeren van gegevens in Cosmos DB.
-keywords: mongoimport, mongorestore
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.devlang: na
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/26/2018
-ms.author: rimman
-ms.custom: mvc
+author: sivethe
+ms.author: sivethe
 Customer intent: As a developer, I want to migrate the data from my existing MongoDB to Cosmos DB.
-ms.openlocfilehash: 4cd30c7981cd6807113729292db403a80cbddef0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 9226a49af67659ebd7bebd9beca397830ee808bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793747"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039042"
 ---
 # <a name="migrate-your-mongodb-data-to-azure-cosmos-db"></a>Uw MongoDB-gegevens naar Azure Cosmos DB migreren
 

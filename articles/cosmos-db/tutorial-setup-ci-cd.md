@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875209"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810633"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Een CI/CD-pijplijn instellen met de build-taak van Azure Cosmos DB Emulator in Azure DevOps
 
@@ -81,7 +81,7 @@ Hieronder ziet u een voorbeeld van een **.runsettings**-bestand met parameters d
 </RunSettings>
 ```
 
-Als u een CI/CD-pijplijn instelt voor een toepassing die gebruikmaakt van de MongoDB-API in Azure Cosmos DB, omvat de MongoDB-verbindingsreeks standaard poortnummer 10255. Deze poort is momenteel echter niet geopend. Gebruik daarom als alternatief poort 10250 om de verbinding tot stand te brengen. De MongoDB-API-verbindingsreeks is dezelfde, alleen is het ondersteunde poortnummer 10250 in plaats van 10255.
+Als u een CI/CD-pijplijn instelt voor een toepassing die gebruikmaakt van de Azure Cosmos DB-API voor MongoDB, omvat de verbindingsreeks standaard poortnummer 10255. Deze poort is momenteel echter niet geopend. Gebruik daarom als alternatief poort 10250 om de verbinding tot stand te brengen. De verbindingsreeks van de Azure Cosmos DB-API voor MongoDB is dezelfde, alleen is het ondersteunde poortnummer 10250 in plaats van 10255.
 
 Via de eigenschap `TestContext` in het testproject van de toepassing wordt er verwezen naar de parameters bij `TestRunParameters`. Hier volgt een voorbeeld van een test die wordt uitgevoerd met Cosmos DB.
 

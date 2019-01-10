@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 11de58a64f956bd7dd1cc9c4ca8498de8c0b9d05
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963518"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023954"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -233,7 +232,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
 ### <a name="create-azure-sql-database-linked-service"></a>Maak een gekoppelde Azure SQL Database-service.
 In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
 
-1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Vervang voordat u het bestand opslaat **&lt;server&gt; &lt;database name **, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, databasenaam, gebruikers-id en wachtwoord. 
+1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Vervang voordat u het bestand opslaat server database name **, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, databasenaam, gebruikers-id en wachtwoord. 
 
     ```json
     {

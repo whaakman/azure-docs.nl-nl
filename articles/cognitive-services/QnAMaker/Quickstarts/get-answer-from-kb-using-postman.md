@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 12/11/2018
+ms.date: 01/03/2019
 ms.author: diberry
-ms.openlocfilehash: 476e982bdddd41c1daf06c3a673d964ce2a85f98
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 75732a3ea78a89c06063102d37b77f315a3bcf62
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270889"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001801"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>Snelstart: Een antwoord ophalen uit knowledge base via Postman
 
@@ -34,25 +34,33 @@ Wanneer u klaar bent voor het genereren van een antwoord op een vraag uit uw kno
 
 Wanneer uw knowledge base is gepubliceerd, geeft de pagina **Publiceren** de instellingen van de HTTP-aanvraag weer voor het genereren van een antwoord. De standaardweergave toont de instellingen die vereist zijn voor het genereren van een antwoord uit [Postman](https://www.getpostman.com).
 
+De gele nummers in de volgende afbeelding geven aan welk naamwaardepaar moet worden gebruikt in de volgende stappen.
+
 [![Resultaten publiceren](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
 
 Voor het genereren van een antwoord met Postman voert u de volgende stappen uit:
 
-1. Open Postman. 
-1. Selecteer de bouwsteen voor het maken van een algemene aanvraag.
-1. Stel de **Aanvraagnaam** in als `Generate QnA Maker answer` en stel de **verzameling** in als `Generate QnA Maker answers`.
+1. Open Postman. Als u wordt gevraagd een bouwsteen te kiezen, selecteert u de bouwsteen **Algemene aanvraag**. Stel de **Aanvraagnaam** in als `Generate QnA Maker answer` en stel de **verzameling** in als `Generate QnA Maker answers`. Als u niet wilt opslaan naar een verzameling, selecteert u de knop **Annuleren**.
 1. Selecteer in de werkruimte de HTTP-methode van **POST**.
-1. Voor de URL moet u de HOST-waarde en de Post-waarde samenvoegen om de volledige URL te maken. 
 
-    [![Stel in Postman de methode in op Post en de volledige URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
+    [![Stel in Postman POST-methode in](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
+
+1. Voor de URL moet u de HOST-waarde (nummer 2 in de afbeelding) en de Post-waarde (nummer 1 in de afbeelding) samenvoegen om de volledige URL te maken. Een volledige voorbeeld-URL ziet er als volgt uit: 
+
+    `https://qnamaker-f0.azurewebsites.net/qnamaker/knowledgebases/e1115f8c-d01b-4698-a2ed-85b0dbf3348c/generateAnswer`
+
+    [![Stel in Postman de volledige URL in](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
 1. Selecteer het tabblad **Headers** onder de URL en selecteer vervolgens **Bulksgewijs bewerken**. 
-1. Kopieer de headers naar het tekstvak.
+
+1. Kopieer de headers (nummer 3 en 4 in de afbeelding) in het tekstvak.
 
     [![Stel in Postman de headers in](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
 1. Selecteer het tabblad **Hoofdtekst**.
-1. Selecteer de **onbewerkte** opmaak en voer de JSON in die de vraag weergeeft.
+1. Selecteer de **onbewerkte** opmaak en voer de JSON (nummer 5 in de afbeelding) in die de vraag weergeeft.
+
+    `{"question":"How do I programmatically update my Knowledge Base?"}`
 
     [![Stel in Postman de JSON-waarde van de hoofdtekst in](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
@@ -61,11 +69,11 @@ Voor het genereren van een antwoord met Postman voert u de volgende stappen uit:
 
     [![Stel in Postman de JSON-waarde van de hoofdtekst in](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
-## <a name="use-staging-endpoint-with-curl"></a>Faseringseindpunt gebruiken met cURL
+## <a name="use-staging-endpoint"></a>Faseringseindpunt gebruiken
 
-Als u een antwoord van het faseringseindpunt wilt krijgen, gebruikt u de booleaanse parameter `isTest` van de queryreeks met de waarde van `true`.
+Als u een antwoord van het faseringseindpunt wilt krijgen, voegt u de URL toe met de booleaanse parameter `isTest` van de queryreeks met de waarde van `true`.
 
-`isTest=true`
+`?isTest=true`
 
 ## <a name="next-steps"></a>Volgende stappen
 

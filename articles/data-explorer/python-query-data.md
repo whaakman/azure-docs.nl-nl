@@ -1,5 +1,5 @@
 ---
-title: "Snelstart: query's uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer"
+title: 'Quickstart: een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer'
 description: In deze snelstart leert u hoe u query's uitvoert op gegevens in Azure Data Explorer met behulp van Python.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 14049df1116205ec5e95b052049f53738dcf50b4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863411"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715106"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Snelstart: query's uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer
+# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Quickstart: een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer
 
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetriegegevens te verkennen. Azure Data Explorer biedt een [gegevens-clientbibliotheek voor Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Met behulp van deze bibliotheek kunt u gegevens doorzoeken vanuit uw code. In deze quickstart maakt u verbinding met een tabel op het *helpcluster* dat we hebben ingesteld voor studiedoeleinden. U voert vervolgens een query uit op dat cluster, waarna de resultaten worden geretourneerd.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt een [gegevens-clientbibliotheek voor Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Met behulp van deze bibliotheek kunt u gegevens doorzoeken vanuit uw code. In deze quickstart maakt u verbinding met een tabel op het *helpcluster* dat we hebben ingesteld voor studiedoeleinden. U voert vervolgens een query uit op dat cluster, waarna de resultaten worden geretourneerd.
 
 Deze snelstart is ook beschikbaar als een [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
@@ -66,7 +66,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE  = "Samples"
 ```
 
-Nu maakt u de verbindingsreeks. In dit voorbeeld wordt apparaatverificatie gebruikt voor toegang tot het cluster. U kunt ook een AAD-toepassingscertificaat, een AAD-toepassingssleutel en een AAD-gebruiker en -wachtwoord gebruiken.
+Nu maakt u de verbindingsreeks. In dit voorbeeld wordt apparaatverificatie gebruikt voor toegang tot het cluster. U kunt ook een [AAD-toepassingscertificaat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), een [AAD-toepassingssleutel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) en een [AAD-gebruiker en -wachtwoord](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34) gebruiken.
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
@@ -75,7 +75,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Verbinding maken met Azure Data Explorer en een query uitvoeren
 
-Voer een query uit op het cluster en sla de uitvoer op in een gegevensframe. Wanneer deze code wordt uitgevoerd, wordt er een bericht als het volgende geretourneerd: *Als u zich wilt aanmelden, opent u de pagina https://microsoft.com/devicelogin met een webbrowser. Voer de code F3W4VWZDM in om te verifiëren*. Volg de stappen om u aan te melden en ga vervolgens terug om het volgende codeblok uit te voeren.
+Voer een query uit op het cluster en sla de uitvoer op in een gegevensframe. Wanneer deze code wordt uitgevoerd, wordt een bericht als het volgende geretourneerd: *Als u zich wilt aanmelden, opent u de pagina https://microsoft.com/devicelogin met een webbrowser. Voer de code F3W4VWZDM in om te verifiëren*. Volg de stappen om u aan te melden en ga vervolgens terug om het volgende codeblok uit te voeren.
 
 ```python
 KUSTO_CLIENT  = KustoClient(KCSB)
@@ -98,4 +98,4 @@ Als het goed is, worden de bovenste tien resultaten uit de tabel StormEvents wee
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)
+> [Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)

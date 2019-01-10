@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679168"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714744"
 ---
 # <a name="what-is-azure-application-gateway"></a>Wat is Azure Application Gateway?
 
@@ -106,10 +106,18 @@ Application Gateway biedt systeemeigen ondersteuning voor de WebSocket- en HTTP-
 
 De WebSocket- en HTTP-/2-protocollen maken full-duplex-communicatie tussen een server en een client mogelijk via een langdurige TCP-verbinding. Dit maakt een meer interactieve communicatie mogelijk tussen de webserver en de client, die bidirectioneel kan zijn zonder dat hiervoor polling nodig is, zoals vereist in implementaties op basis van HTTP. Deze protocollen hebben weinig overhead, in tegenstelling tot HTTP, en kunnen dezelfde TCP-verbinding gebruiken voor meerdere aanvragen/reacties. Dit resulteert in een efficiënter gebruik van resources. Deze protocollen zijn ontworpen om te werken via de traditionele HTTP-poorten: 80 en 443.
 
+## <a name="rewrite-http-headers-public-preview"></a>HTTP-headers opnieuw genereren (openbare preview)
+
+Via HTTP-headers kan vanaf de client en de server aanvullende informatie worden doorgegeven bij de aanvraag of het antwoord. Als u deze HTTP-headers opnieuw genereert, kan dat u helpen diverse belangrijke scenario's te realiseren, bijvoorbeeld het toevoegen van beveiligingsgerelateerde headervelden zoals HSTS/X-XSS-beveiliging, of het verwijderen van de antwoordheadervelden die gevoelige informatie kunnen onthullen, zoals de naam van de back-endserver. 
+
+Application Gateway ondersteunt nu de mogelijkheid om headers van zowel de inkomende HTTP-aanvragen als de uitgaande HTTP-antwoorden opnieuw te genereren. U kunt headers van HTTP-aanvragen en -antwoorden toevoegen, verwijderen of bijwerken terwijl aanvraag- en antwoordpakketten zich verplaatsen tussen de client en back-endpools. U kunt zowel standaardheadervelden (gedefinieerd in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) als niet-standaardheadervelden opnieuw genereren.  
+
+Zie [HTTP-headers opnieuw genereren](rewrite-http-headers.md) voor meer informatie over deze openbare preview-functie.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Afhankelijk van uw vereisten en omgeving, kunt u een Application Gateway voor testdoeleinden maken met behulp van de Azure Portal, Azure PowerShell of Azur CLI:
 
-- [Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure Portal](quick-create-portal.md)
+- [Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure Portal](quick-create-portal.md).
 - [Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
 - [Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure CLI](quick-create-cli.md)

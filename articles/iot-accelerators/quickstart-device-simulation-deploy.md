@@ -1,5 +1,5 @@
 ---
-title: Een oplossing voor apparaatsimulatie proberen en uitvoeren op Azure | Microsoft Docs
+title: Een oplossing voor apparaatsimulatie proberen en uitvoeren - Azure | Microsoft Docs
 description: In deze snelstart implementeert u Azure IoT Apparaatsimulatie en voert u een simulatie uit
 author: troyhopwood
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: a109f3536ea8709313de3d1d6d17ce69c5652289
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753929"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601590"
 ---
-# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Snelstart: Een IoT-apparaatsimulatie in Azure implementeren en uitvoeren
+# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Quickstart: een IoT-apparaatsimulatie in Azure implementeren en uitvoeren
 
 Deze snelstart laat zien hoe u Azure IoT Apparaatsimulatie implementeert om uw IoT-oplossing te testen. Nadat u de oplossingsversneller hebt geïmplementeerd, voert u een voorbeeldsimulatie uit om aan de slag te gaan.
 

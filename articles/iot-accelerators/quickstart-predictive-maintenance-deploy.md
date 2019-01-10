@@ -1,5 +1,5 @@
 ---
-title: Een IoT-cloudoplossing voor predictief onderhoud proberen in Azure | Microsoft Docs
+title: Een IoT-cloudoplossing voor predictief onderhoud proberen - Azure | Microsoft Docs
 description: In deze snelstart implementeert u de Azure IoT-oplossingsverbetering voor predictief onderhoud. Vervolgens meldt u zich aan bij het oplossingsdashboard.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139836"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604334"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Quickstart: Een cloudoplossing uitproberen om een analyse voor predictief onderhoud uit te voeren op mijn verbonden apparaten
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Quickstart: een cloudoplossing proberen om een analyse voor predictief onderhoud uit te voeren op mijn verbonden apparaten
 
 In deze quickstart ziet u hoe u de Azure IoT-oplossingsverbetering voor predictief onderhoud implementeert om een cloudsimulatie voor predictief onderhoud uit te voeren. Nadat u de oplossingsverbetering hebt geïmplementeerd, gebruikt u de pagina **Dashboard** van de oplossing om een analyse voor predictief onderhoud uit te voeren op gegevens uit een gesimuleerde vliegtuigmotor. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
 

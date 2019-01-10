@@ -4,17 +4,17 @@ description: Leer hoe u Terraform-modules kunt gebruiken om een cluster met â€‹â
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtuele machine, netwerk, modules
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: 03c09e190fce9cbbd98cea3565dd2437f79dadf1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666630"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077195"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Een VM-cluster maken met Terraform met behulp van het moduleregister
 
@@ -104,5 +104,5 @@ Voer `terraform apply` uit om de virtuele machines in te richten in Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Door de lijst met [Azure Terraform-modules ](https://registry.terraform.io/modules/Azure) bladeren
+- Door de lijst met [Azure Terraform-modules](https://registry.terraform.io/modules/Azure) bladeren
 - [Een virtuele-machineschaalset maken met Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

@@ -1,31 +1,34 @@
 ---
-title: 'Snelstart: Pijplijn voor cognitief zoeken in Azure Portal - Azure Search'
+title: Een Cognitive Search-pijplijn voor indexeren door middel van AI maken in Azure Portal - Azure Search
 description: Vaardigheden voor gegevensextractie, natuurlijke taal en beeldverwerking in Azure Portal met voorbeeldgegevens.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/01/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386261"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998979"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: Een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
-Cognitief zoeken (preview) voegt vaardigheden voor gegevensextractie, verwerking van natuurlijke taal (NLP) en beeldverwerking toe aan een Azure Search-indexeringspijplijn, waardoor niet-doorzoekbare of ongestructureerde inhoud doorzoekbaarder wordt. Gegevens die zijn gemaakt door een vaardigheid, zoals entiteitsherkenning of afbeeldingsanalyse, worden toegevoegd aan een index in Azure Search.
+Cognitief zoeken (preview) voegt vaardigheden voor gegevensextractie, verwerking van natuurlijke taal (NLP) en beeldverwerking toe aan een Azure Search-indexeringspijplijn, waardoor niet-doorzoekbare of ongestructureerde inhoud doorzoekbaarder wordt. 
 
-In deze snelstart probeert u de verrijkingspijplijn uit in [Azure Portal](https://portal.azure.com) voordat u ook maar één regel code schrijft:
+Met een Cognitive Search-pijplijn kunnen [Cognitive Services-resources](https://azure.microsoft.com/services/cognitive-services/), zoals [OCR](cognitive-search-skill-ocr.md), [computertaaldetectie](cognitive-search-skill-language-detection.md) en [entiteitsherkenning](cognitive-search-skill-entity-recognition.md), worden geïntegreerd in een indexeringsproces. De AI-algoritmen van Cognitive Services worden gebruikt om patronen, functies en kenmerken in brongegevens te vinden en structuren en tekstuele inhoud te retourneren voor gebruik in oplossingen voor zoekopdrachten in volledige tekst op basis van Azure Search.
 
-* Begin met voorbeeldgegevens in Azure Blob-opslag
-* Configureer de [wizard Gegevens importeren](search-import-data-portal.md) voor indexering en verrijking 
-* Voer de wizard uit (een entiteitsvaardigheid detecteert mensen, locatie en organisaties)
-* Gebruik [Search Explorer](search-explorer.md) om query's op de verrijkte gegevens uit te voeren.
+Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://portal.azure.com) voordat u ook maar één regel code schrijft:
+
+> [!div class="checklist"]
+> * Begin met voorbeeldgegevens in Azure Blob-opslag
+> * Configureer de [wizard Gegevens importeren](search-import-data-portal.md) voor cognitieve indexering en verrijking 
+> * Voer de wizard uit (een entiteitsvaardigheid detecteert mensen, locatie en organisaties)
+> * Gebruik [Search Explorer](search-explorer.md) om query's op de verrijkte gegevens uit te voeren
 
 ## <a name="supported-regions"></a> Ondersteunde regio's
 
@@ -50,7 +53,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 > [!NOTE]
 > Met ingang van 21 december 2018 kunt u een Cognitive Services-resource koppelen aan een vaardighedenset van Azure Search. Hierdoor kunnen we beginnen met het factureren van kosten voor het uitvoeren van vaardighedensets. Vanaf deze datum gaan we ook kosten in rekening brengen voor het extraheren van afbeeldingen als onderdeel van de fase waarin de documenten kunnen worden gekraakt. Het extraheren van tekst uit documenten blijft gratis.
 >
-> Het uitvoeren van ingebouwde vaardigheden wordt in rekening gebracht tegen de huidige [betalen per gebruik-prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) van Cognitive Services. Het extraheren van afbeeldingen wordt tegen de prijs voor een preview in rekening gebracht en wordt beschreven op de [pagina met prijzen voor Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
+> Het uitvoeren van ingebouwde vaardigheden wordt in rekening gebracht tegen de huidige [betalen per gebruik-prijs van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Het extraheren van afbeeldingen wordt tegen de prijs voor een preview in rekening gebracht en wordt beschreven op de [pagina met prijzen voor Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -58,8 +61,9 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Azure-services worden uitsluitend in dit scenario gebruikt. Het maken van de services die u nodig hebt, maakt deel uit van de voorbereiding.
 
-+ Azure Blob-opslag biedt de brongegevens.
-+ Azure Search biedt gegevensopname en -indexering, verrijking van cognitief zoeken en query's voor zoeken in volledige tekst.
++ [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) biedt de brongegevens
++ [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) biedt de AI (u kunt deze resources in line maken bij het opgeven van de pijplijn)
++ [Azure Search](https://azure.microsoft.com/services/search/) biedt de verrijkte indexeringspijplijn en een uitgebreide ervaring voor het zoeken in tekst in vrije vorm voor gebruik in aangepaste apps
 
 ### <a name="set-up-azure-search"></a>Azure Search instellen
 
@@ -71,7 +75,7 @@ Registreer u eerst voor de Azure Search-service.
 
   ![Dashboard van portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Een Azure Search-service maken in de portal")
 
-1. Maak een resourcegroep voor alle resources die u in deze snelstart gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de snelstart hebt voltooid.
+1. Maak voor Resourcegroep een nieuwe resourcegroep voor alle resources die u in deze snelstart gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de snelstart hebt voltooid.
 
 1. Kies voor Locatie een van de [ondersteunde regio's](#supported-regions) voor Cognitive Search.
 
@@ -79,8 +83,8 @@ Registreer u eerst voor de Azure Search-service.
 
   Een gratis service is beperkt tot 3 indexen, maximaal 16 MB aan blobgrootte en 2 minuten indexeren. Dit is voldoende om de volledige functionaliteit van cognitief zoeken te verkennen. Zie [Servicelimieten](search-limits-quotas-capacity.md) om de limieten voor verschillende prijscategorieën te bekijken.
 
-  ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Servicedefinitiepagina in de portal")
-  ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Servicedefinitiepagina in de portal")
+  ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Pagina Servicedefinitie in de portal")
+
   > [!NOTE]
   > Cognitief zoeken is een openbare preview. De uitvoering van vaardigheden is momenteel in alle prijscategorieën beschikbaar, waaronder de gratis categorie. U kunt een beperkt aantal verrijkingen uitvoeren zonder een betaalde Cognitive Services-resource te koppelen. [Meer](cognitive-search-attach-cognitive-services.md) informatie.
 
@@ -94,79 +98,88 @@ De verrijkingspijplijn haalt gegevensbronnen op uit Azure ondersteund door [inde
 
 1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) die bestaan uit een kleine set van verschillende typen bestanden. 
 
-1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, meld u aan bij Storage Explorer en maak een container. Zie [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) (Snelstart voor Azure Storage Explorer) voor instructies over alle stappen.
+1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, meld u aan bij Storage Explorer en maak een container. Stel het openbare toegangsniveau in op **Container**. Zie de sectie [Een container maken](../storage/blobs/storage-unstructured-search.md#create-a-container) in de zelfstudie Niet-gestructureerde gegevens doorzoeken voor meer informatie.
 
-1. Klik in de container die u hebt gemaakt met behulp van Azure Storage Explorer op **Uploaden** om de voorbeeldbestanden te uploaden.
+1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden.
 
   ![Bronbestanden in Azure-blobopslag](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>De verrijkingspijplijn maken
 
-Ga terug naar de dashboardpagina van de Azure Search-service en klik in de opdrachtbalk op **Gegevens importeren** om verrijking in te stellen in vier stappen.
+Ga terug naar de dashboardpagina van de Azure Search-service en klik in de opdrachtbalk op **Gegevens importeren** om in vier stappen cognitieve verrijking in te stellen.
+
+  ![Opdracht Gegevens importeren](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1-create-a-data-source"></a>Stap 1: Een gegevensbron maken
 
-In **Verbinden met uw gegevens** > **Azure Blob-opslag** selecteert u het account en de container die u hebt gemaakt. Geef een naam op voor de gegevensbron en gebruik standaardwaarden voor de rest. 
+In **Verbinden met uw gegevens** kiest u **Azure Blob Storage** en selecteert u het account dat en de container die u hebt gemaakt. Geef een naam op voor de gegevensbron en gebruik standaardwaarden voor de rest. 
 
-   ![Azure-blobconfiguratie](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
+  ![Azure-blobconfiguratie](./media/cognitive-search-quickstart-blob/blob-datasource.png)
 
+Ga door naar de volgende pagina.
 
-Klik op **OK** om de gegevensbron te maken.
-
-Een voordeel van het gebruik van de wizard **Gegevens importeren** is dat u hiermee ook uw index kunt maken. Terwijl de gegevensbron wordt gemaakt, maakt de wizard ook een indexschema. Het maken van de index kan een paar seconden duren.
+  ![De knop volgende pagina voor Cognitive Search](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
 
 ### <a name="step-2-add-cognitive-skills"></a>Stap 2: Cognitieve vaardigheden toevoegen
 
-Voeg vervolgens verrijkingsstappen toevoegen aan de pijplijn voor indexering. De portal biedt u vooraf gedefinieerde cognitieve vaardigheden voor afbeeldingsanalyse en tekstanalyse. In de portal werkt een set vaardigheden via één bronveld. Dat lijkt misschien een klein doel, maar voor Azure-blobs bevat het veld `content` het meeste van het blobdocument (bijvoorbeeld een Word-document of PowerPoint-presentatie). Dit veld is een ideale invoer omdat het alle inhoud van een blob bevat.
+Voeg vervolgens verrijkingsstappen toevoegen aan de pijplijn voor indexering. Als u geen Cognitive Services-resource hebt, kunt u zich aanmelden voor een gratis versie met twintig transacties per dag. Omdat de voorbeeldgegevens uit veertien bestanden bestaan, verbruikt u met het uitvoeren van deze wizard een groot deel van uw dagelijkse toewijzing.
 
-Soms wilt u de tekstweergave extraheren uit bestanden die voornamelijk bestaan uit gescande afbeeldingen, zoals een PDF die wordt gegenereerd door een scanner. Met Azure Search kunt automatisch inhoud extraheren uit ingesloten afbeeldingen in het document. Dit kan met de optie **OCR inschakelen en alle tekst samenvoegen in het veld merged_content**. Er wordt automatisch een veld `merged_content` gemaakt met daarin zowel de tekst die is opgehaald uit het document als de tekstweergave van afbeeldingen die in het document zijn ingesloten. Wanneer u deze optie selecteert, wordt het `Source data field` ingesteld op `merged_content`.
+1. Vouw **Cognitive Services toevoegen** uit om opties voor brontoewijzing van de Cognitive Services-API's weer te geven. Voor deze zelfstudie kunt u de resource **Gratis** gebruiken.
 
-Kies in **Cognitieve vaardigheden toevoegen** de vaardigheden die de verwerking van natuurlijke taal uitvoeren. Kies bij deze snelstart voor entiteitsherkenning voor personen, organisaties en locaties.
+  ![Cognitive Services toevoegen](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
-Klik op **OK** om de definitie te accepteren.
-   
-  ![Definitie set vaardigheden](./media/cognitive-search-quickstart-blob/skillset.png)
+2. Vouw **Verrijkingen toevoegen** uit en selecteer vaardigheden voor het verwerken van natuurlijke taal. Kies bij deze snelstart voor entiteitsherkenning voor personen, organisaties en locaties.
 
-Vaardigheden voor verwerking van natuurlijke taal werken met behulp van tekstinhoud in de set voorbeeldgegevens. Omdat er geen opties voor beeldverwerking zijn geselecteerd, worden de JPEG-bestanden in de set voorbeeldgegevens niet verwerkt in deze snelstart. 
+  ![Cognitive Services toevoegen](media/cognitive-search-quickstart-blob/skillset.png)
+
+  De portal biedt ingebouwde vaardigheden voor OCR-analyse en tekstanalyse. In de portal werkt een set vaardigheden via één bronveld. Dat lijkt misschien een klein doel, maar voor Azure-blobs bevat het veld `content` het meeste van het blobdocument (bijvoorbeeld een Word-document of PowerPoint-presentatie). Dit veld is een ideale invoer omdat het alle inhoud van een blob bevat.
+
+3. Ga door naar de volgende pagina.
+
+  ![Volgende pagina Index aanpassen](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
+
+> [!NOTE]
+> Vaardigheden voor verwerking van natuurlijke taal werken met behulp van tekstinhoud in de set voorbeeldgegevens. Omdat we geen OCR-optie hebben geselecteerd, worden de JPEG- en PNG-bestanden die worden gevonden in de set voorbeeldgegevens niet verwerkt in deze snelstart. 
 
 ### <a name="step-3-configure-the-index"></a>Stap 3: De index configureren
 
-Herinnert u zich nog de index die met de gegevensbron is gemaakt? U kunt in deze stap het schema ervan bekijken en eventueel instellingen wijzigen. 
+De wizard kan gewoonlijk een standaardindex afleiden. U kunt in deze stap het gegenereerde indexschema bekijken en desgewenst instellingen wijzigen. Hieronder ziet u de standaardindex die voor de demoset Blobgegevens is gemaakt.
 
 De wizard biedt goede standaardinstellingen voor deze snelstart: 
 
-+ Elke index moet een naam hebben. Voor dit gegevensbrontype is de standaardnaam *azureblob-index*.
++ De standaardnaam is *azureblob-index*.
++ De standaardsleutel is *metadata_storage_path* (dit veld bevat unieke waarden).
++ Standaardgegevenstypen en -kenmerken zijn geldig voor scenario's waarbij wordt gezocht in volledige tekst.
 
-+ Elk document moet een sleutel hebben. De wizard kiest een veld met unieke waarden. In deze snelstart is de sleutel *metadata_storage_path*.
+U kunt eventueel **Ophaalbaar** wissen in het veld `content`. In blobs kan dit veld oplopen tot duizenden regels. U kunt zich voorstellen hoe lastig het is om bestanden met zware inhoud, zoals Word-documenten of PowerPoint-stapels als JSON, in een lijst met zoekresultaten weer te geven. 
 
-+ Elke veldverzameling moet velden hebben met een gegevenstype die de waarden ervan beschrijft, en elk veld moet indexkenmerken hebben die beschrijven hoe deze wordt gebruikt in een zoekscenario. 
+Omdat u een set vaardigheden hebt gedefinieerd, gaat de wizard ervan uit dat u het gegevensveld van de oorspronkelijke bron wilt, plus de uitvoervelden die door de cognitieve pijplijn worden gemaakt. Daarom voegt de portal indexvelden toe voor `content`, `people`, `organizations` en `locations`. U ziet dat de wizard automatisch **Ophaalbaar** en **Doorzoekbaar** voor deze velden inschakelt. **Doorzoekbaar** geeft aan dat een veld kan worden doorzocht. **Ophaalbaar** betekent dat het in resultaten kan worden geretourneerd. 
 
-Omdat u een set vaardigheden hebt gedefinieerd, gaat de wizard ervan uit dat u het gegevensveld van de bron wilt, plus de uitvoervelden die door de vaardigheden worden gemaakt. Daarom voegt de portal indexvelden toe voor `content`, `people`, `organizations` en `locations`. U ziet dat de wizard automatisch Ophaalbaar en Doorzoekbaar voor deze velden inschakelt.
+  ![Indexvelden](media/cognitive-search-quickstart-blob/index-fields.png)
+  
+Ga door naar de volgende pagina.
 
-Controleer in **Index aanpassen** de kenmerken van de velden om te zien hoe ze in een index worden gebruikt. Doorzoekbaar geeft aan dat een veld kan worden doorzocht. Ophaalbaar betekent dat het in resultaten kan worden geretourneerd. 
-
-U kunt eventueel Ophaalbaar wissen in het veld `content`. In blobs kan dit veld duizenden regels opleveren, wat moeilijk te lezen is in een hulpprogramma zoals **Search Explorer**.
-
-Klik op **OK** om de indexdefinitie te accepteren.
-
-  ![Indexvelden](./media/cognitive-search-quickstart-blob/index-fields.png)
-
-> [!NOTE]
-> Niet-gebruikte velden zijn bijgesneden in de schermafbeelding voor een beknopt overzicht. Als u de handeling in de portal uitvoert, ziet u extra velden in uw lijst.
+  ![Volgende pagina Indexeerfunctie maken](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
 
 ### <a name="step-4-configure-the-indexer"></a>Stap 4: De indexeerfunctie configureren
 
-De indexeerfunctie is een belangrijke resource die het indexeerproces aandrijft. Het geeft de naam van de gegevensbron, de index en de uitvoerfrequentie op. Het eindresultaat van de wizard **Gegevens importeren** is altijd een indexeerfunctie die u herhaaldelijk kunt uitvoeren.
+De indexeerfunctie is een belangrijke resource die het indexeerproces aandrijft. Hiermee specificeert u de naam van de gegevensbron, een doelindex en de uitvoerfrequentie. Het eindresultaat van de wizard **Gegevens importeren** is altijd een indexeerfunctie die u herhaaldelijk kunt uitvoeren.
 
-Geef op de pagina **Indexeerfunctie** een naam op voor de indexeerfunctie en gebruik de standaardinstelling Eenmaal uitvoeren om deze onmiddellijk uit te voeren. 
+Op de pagina **Indexeerfunctie** kunt u de standaardnaam accepteren en de schemaoptie **Eén keer uitvoeren** gebruiken om de indexeerfunctie direct uit te voeren. 
 
-  ![Definitie van de indexeerfunctie](./media/cognitive-search-quickstart-blob/indexer-def.png)
+  ![Definitie van de indexeerfunctie](media/cognitive-search-quickstart-blob/indexer-def.png)
 
-Klik op **OK** om de gegevens te importeren, verrijken en indexeren.
+Klik op **Verzenden** om de indexeerfunctie te maken en tegelijkertijd uit te voeren.
+
+## <a name="monitor-indexing"></a>Het indexeren bewaken
+
+Verrijkingsstappen vergen meer tijd dan gebruikelijke indexering op basis van tekst. De lijst van de indexeerfunctie moet door de wizard worden geopend op de overzichtspagina, zodat u de voortgang kunt volgen. Voor zelfnavigatie gaat u naar de overzichtspagina en klikt u op **Indexeerfuncties**.
+
+De waarschuwing wordt weergegeven omdat JPG- en PNG-bestanden afbeeldingsbestanden zijn en we de OCR-vaardigheid voor deze pijplijn hebben weggelaten. U krijgt ook afkappingsmeldingen. In Azure Search is de extractie beperkt tot 32.000 tekens in de laag Gratis.
 
   ![Azure Search-melding](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
-Indexeren en verrijken kunnen even duren. Daarom is het aan te raden om kleinere gegevenssets te gebruiken voor verkenning. U kunt het indexeren controleren op de pagina Meldingen van Azure Portal. 
+Indexeren en verrijken kunnen even duren. Daarom is het aan te raden om kleinere gegevenssets te gebruiken voor verkenning. 
 
 ## <a name="query-in-search-explorer"></a>Query uitvoeren in Search Explorer
 
@@ -176,19 +189,17 @@ Nadat er een index is gemaakt, kunt u query's uitvoeren om documenten te retourn
 
 1. Selecteer bovenaan **Index wijzigen** om de index die u hebt gemaakt te selecteren.
 
-1. Voer een zoekopdracht in om een query op de index toe te passen, zoals 'John F. Kennedy'.
+1. Voer een zoekopdracht in om een query op de index toe te passen, zoals `search=Microsoft&searchFields=organizations`.
 
-Resultaten worden in JSON geretourneerd, wat uitgebreid en moeilijk te lezen kan zijn, met name in grote documenten die afkomstig zijn van Azure-blobs. 
+Resultaten worden in JSON geretourneerd, wat uitgebreid en moeilijk te lezen kan zijn, met name in grote documenten die afkomstig zijn van Azure-blobs. Als u niet eenvoudig resultaten kunt scannen, gebruikt u CTRL+F om in documenten te zoeken. Voor deze query kunt u in de JSON zoeken naar specifieke voorwaarden. 
 
-Als u niet eenvoudig resultaten kunt scannen, gebruikt u CTRL+F om in documenten te zoeken. Voor deze query kunt u in de JSON zoeken op 'John F. Kennedy' om instanties van deze zoekterm weer te geven. 
-
-Met CTRL+F kunt u ook bepalen hoeveel documenten een bepaalde resultatenset bevat. Voor Azure-blobs kiest de portal 'metadata_storage_path' als de sleutel omdat elke waarde uniek voor het document is. Zoek met CTRL+F naar 'metadata_storage_path' om het aantal documenten te tellen. Voor deze query bevatten twee documenten in de resultatenset de term 'John F. Kennedy'.
+Met CTRL+F kunt u ook bepalen hoeveel documenten een bepaalde resultatenset bevat. Voor Azure-blobs kiest de portal 'metadata_storage_path' als de sleutel omdat elke waarde uniek voor het document is. Zoek met CTRL+F naar 'metadata_storage_path' om het aantal documenten te tellen. 
 
   ![Voorbeeld Search Explorer](./media/cognitive-search-quickstart-blob/search-explorer.png)
 
 ## <a name="takeaways"></a>Opgedane kennis
 
-U hebt nu uw eerste oefening in verrijkte indexering voltooid. Het doel van deze snelstart is om belangrijke concepten te introduceren en u de wizard te laten doorlopen, zodat u snel een oplossing voor cognitief zoeken kunt maken met behulp van uw eigen gegevens.
+U hebt nu uw eerste oefening in indexeren met cognitieve verrijking voltooid. Het doel van deze snelstart is om belangrijke concepten te introduceren en u de wizard te laten doorlopen, zodat u snel een oplossing voor cognitief zoeken kunt maken met behulp van uw eigen gegevens.
 
 Een van de belangrijke concepten die we wilden overbrengen, is de afhankelijkheid van Azure-gegevensbronnen. Verrijking van cognitief zoeken is gebonden aan indexeerfuncties, en indexeerfuncties zijn Azure- en bronspecifiek. Hoewel deze snelstart Azure Blob-opslag gebruikt, zijn andere Azure-gegevensbronnen ook mogelijk. Zie [Indexeerfuncties in Azure Search](search-indexer-overview.md) voor meer informatie.
 
@@ -206,7 +217,7 @@ Ervan uitgaande dat u beide services in dezelfde groep hebt geplaatst, verwijder
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt experimenteren met indexeren en verrijken door de wizard opnieuw uit te voeren met verschillende vaardigheden en velden voor brongegevens. Herhaal de stappen door de index en indexeerfunctie te verwijderen en vervolgens de indexeerfunctie opnieuw te maken met nieuwe selecties.
+Afhankelijk van hoe u de Cognitive Services-resource hebt ingericht, kunt u experimenteren met indexering en verrijking door de wizard opnieuw uit te voeren met verschillende vaardigheden en brongegevensvelden. Herhaal de stappen door de index en indexeerfunctie te verwijderen en vervolgens de indexeerfunctie opnieuw te maken met nieuwe selecties.
 
 + Selecteer in **Overzicht** > **Indexen** de index die u hebt gemaakt en klik vervolgens op **Verwijderen**.
 

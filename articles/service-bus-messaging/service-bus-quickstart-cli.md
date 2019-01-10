@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 8beabfb8c77d4d62b9b15dca8ae3146c34c3b20a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634809"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998673"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Snelstart: berichten verzenden en ontvangen met behulp van Azure CLI en Java
+# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Quickstart: berichten verzenden en ontvangen met behulp van Azure CLI en Java
 
 Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen (toepassingen hoeven niet op hetzelfde moment online zijn), het overbrengen van status- of gegevenswijzigingen en het verzenden van berichten tussen de toepassingen. 
 
@@ -66,7 +66,7 @@ Wanneer de laatste opdracht is uitgevoerd, kopieert en plakt u de verbindingstek
 
 ## <a name="send-and-receive-messages"></a>Berichten verzenden en ontvangen
 
-Wanneer u de naamruimte en wachtrij hebt gemaakt en u over de benodigde referenties beschikt, kunt u berichten gaan verzenden en ontvangen. U kunt de code in [deze GitHub-voorbeeldmap](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java) bestuderen.
+Wanneer u de naamruimte en wachtrij hebt gemaakt en u over de benodigde referenties beschikt, kunt u berichten gaan verzenden en ontvangen. U kunt de code in [deze GitHub-voorbeeldmap](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) bestuderen.
 
 1. Zorg dat Cloud Shell is geopend en dat de Bash-prompt wordt weergegeven.
 
@@ -108,7 +108,7 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="understand-the-sample-code"></a>De voorbeeldcode begrijpen
 
-Deze sectie bevat meer informatie over de belangrijkste secties van de voorbeeldcode. U kunt [hier](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java) bladeren door de code, die zich in de GitHub-opslagplaats bevindt.
+Deze sectie bevat meer informatie over de belangrijkste secties van de voorbeeldcode. U kunt [hier](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) bladeren door de code, die zich in de GitHub-opslagplaats bevindt.
 
 ### <a name="get-connection-string-and-queue"></a>Verbindingsreeks en wachtrij ophalen
 

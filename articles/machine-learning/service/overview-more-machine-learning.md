@@ -1,5 +1,6 @@
 ---
-title: Opties voor machine learning-producten van Microsoft vergelijken
+title: Opties voor machine learning-producten vergelijken
+titleSuffix: Microsoft
 description: Vergelijk de verschillende producten van Microsoft om Machine Learning-modellen te bouwen, implementeren en beheren. Bepaal welke producten u wilt voor uw oplossing.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274107"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557883"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Wat zijn de machine learning-producten van Microsoft?
 
@@ -37,7 +38,7 @@ Microsoft biedt tal van producten voor het bouwen, implementeren en beheren van 
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning-service
 
-[Azure Machine Learning service](overview-what-is-azure-ml.md) is een volledig beheerde cloudservice voor het trainen, implementeren en beheren van ML-modellen op schaal. De service ondersteunt open-source technologieën volledig, zodat u tienduizenden open-source Python-pakketten zoals TensorFlow, PyTorch en scikit-learn kunt gebruiken. Er zijn ook geavanceerde hulpprogramma's beschikbaar, zoals [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/). Deze maken het gemakkelijker om gegevens te verkennen en transformeren en vervolgens modellen te trainen en implementeren. Azure Machine Learning-service omvat functies die modelgeneratie automatiseren en afstemmen met gemak, efficiëntie en nauwkeurigheid.
+[Azure Machine Learning service](overview-what-is-azure-ml.md) is een volledig beheerde cloudservice voor het trainen, implementeren en beheren van ML-modellen op schaal. De service ondersteunt open-source technologieën volledig, zodat u tienduizenden open-source Python-pakketten zoals TensorFlow, PyTorch en scikit-learn kunt gebruiken. Er zijn ook geavanceerde hulpprogramma's beschikbaar, zoals [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://aka.ms/vscodetoolsforai). Deze maken het gemakkelijker om gegevens te verkennen en transformeren en vervolgens modellen te trainen en implementeren. Azure Machine Learning-service omvat functies die modelgeneratie automatiseren en afstemmen met gemak, efficiëntie en nauwkeurigheid.
 
 Gebruik Azure Machine Learning service om ML-modellen te trainen, implementeren en beheren met behulp van Python en CLI op cloudschaal.
 

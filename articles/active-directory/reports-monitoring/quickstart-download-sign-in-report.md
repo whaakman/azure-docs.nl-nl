@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621425"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653285"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Snelstart: Een aanmeldrapport downloaden met behulp van de Azure Portal
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Quickstart: een aanmeldrapport downloaden met behulp van Azure Portal
 
 In deze snelstartgids leert u hoe u de aanmeldgegevens download voor uw tenant voor de afgelopen 24 uur.
 
@@ -31,10 +31,10 @@ In deze snelstartgids leert u hoe u de aanmeldgegevens download voor uw tenant v
 
 U hebt de volgende zaken nodig:
 
-* Een Azure Active Directory-tenant met een Premium-licentie om het rapport van aanmeldactiviteiten weer te geven. 
+* Een Azure Active Directory-tenant met een Premium-licentie om het rapport van aanmeldactiviteiten weer te geven. Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden.
 * Een gebruiker die de rol **Beveiligingsbeheerder**, **Beveiligingslezer**, **Rapportlezer** of **Globale beheerder** voor de tenant heeft. Bovendien kan elke gebruiker in de tenant toegang krijgen tot hun eigen aanmeldingen.
 
-## <a name="quickstart-download-a-sign-in-report"></a>Snelstart: Een aanmeldrapport downloaden
+## <a name="quickstart-download-a-sign-in-report"></a>Quickstart: Een aanmeldrapport downloaden
 
 1. Navigeer naar [Azure Portal](https://portal.azure.com).
 2. Selecteer **Azure Active Directory** in het linker navigatiedeelvenster en gebruik de knop **Schakelen tussen mappen** om uw actieve map te selecteren.

@@ -3,20 +3,18 @@ title: Verbinding maken met Azure Database for MariaDB via MySQL Workbench
 description: Deze snelstart bevat de stappen voor het gebruik van MySQL Workbench om verbinding te maken met en gegevens op te vragen uit Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 45c1207ab6ab2a7a649efcd355bcab06ea79e149
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 121766a312db1970981b7ffb1c718f27c9f5d3d1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49317599"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538740"
 ---
-# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: MySQL Workbench gebruiken om verbinding te maken en gegevens op te vragen
+# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: MySQL Workbench gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 
 In deze snelstart ziet u hoe u met behulp van MySQL Workbench verbinding maakt met een Azure Database for MariaDB-instantie. 
 
@@ -56,11 +54,11 @@ Verbinding maken met een Azure Database for MariaDB-server met behulp van MySQL 
     | Instelling | Voorgestelde waarde | Beschrijving van veld |
     |---|---|---|
     |   Verbindingsnaam | **Demoverbinding** | Geef een label op voor deze verbinding. |
-    | Verbindingsmethode | **Standaard (TCP/IP)** | Standard (TCP/IP) is voldoende. |
+    | Verbindingsmethode | **Standard (TCP/IP)** | Standard (TCP/IP) is voldoende. |
     | Hostnaam | *servernaam* | Geef de servernaamwaarde op die u hebt gebruikt toen u de Azure Database for MariaDB-instantie maakte. De server in ons voorbeeld is **mydemoserver.mariadb.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (\*.mariadb.database.azure.com) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen.  |
     | Poort | **3306** | Gebruik altijd poort 3306 bij het verbinden met Azure Database for MariaDB. |
     | Gebruikersnaam |  *aanmeldnaam van serverbeheerder* | Geef de aanmeldnaam van de serverbeheerder op die u hebt gebruikt toen u de Azure Database for MariaDB-instantie maakte. De gebruikersnaam in ons voorbeeld is **myadmin@mydemoserver**. Als u de aanmeldnaam van de serverbeheerder niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *username@servername*.
-    | Wachtwoord | *uw wachtwoord* | Selecteer **Opslaan in de kluis** om het wachtwoord op te slaan. |
+    | Wachtwoord | *Uw wachtwoord* | Selecteer **Opslaan in de kluis** om het wachtwoord op te slaan. |
 
     ![Een nieuwe verbinding instellen](./media/connect-workbench/2-setup-new-connection.png)
 

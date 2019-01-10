@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cced3d363f9eb7418d6f453eccb1bf1d7ac20ead
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583581"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972342"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in Python
 
 Azure Key Vault helpt u bij het beveiligen van geheimen zoals API-sleutels, databaseverbindingsreeksen die nodig zijn voor toegang tot uw toepassingen, services en IT-resources.
 
-In deze zelfstudie voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Deze zelfstudie is gebaseerd op [Azure Web Apps](../app-service/app-service-web-overview.md). Hieronder leert u:
+In deze zelfstudie voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Hieronder leert u:
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
@@ -137,7 +137,7 @@ U kunt deze [zelfstudie](https://docs.microsoft.com/azure/virtual-machines/windo
 
 ## <a name="create-and-run-sample-python-app"></a>Python-voorbeeld-app maken en uitvoeren
 
-Het volgende bestand is slechts een voorbeeldbestand met de naam 'Sample.py'. Hierbij wordt gebruikgemaakt van de bibliotheek [requests](http://docs.python-requests.org/master/) (aanvragen) voor HTTP GET-aanroepen.
+Het volgende bestand is slechts een voorbeeldbestand met de naam 'Sample.py'. Hierbij wordt gebruikgemaakt van de bibliotheek [requests](http://docs.python-requests.org/en/master/) (aanvragen) voor HTTP GET-aanroepen.
 
 ## <a name="edit-samplepy"></a>Sample.py bewerken
 Nadat u Sample.py hebt gemaakt, opent u het bestand en kopieert u de onderstaande code

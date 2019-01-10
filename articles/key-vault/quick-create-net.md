@@ -1,22 +1,22 @@
 ---
-title: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app | Microsoft Docs'
-description: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app'
+title: 'Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app - Azure Key Vault | Microsoft Docs'
+description: 'Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686667"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002600"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
 In deze snelstart voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. In deze zelfstudie leert u procedures om het volgende te doen:
 

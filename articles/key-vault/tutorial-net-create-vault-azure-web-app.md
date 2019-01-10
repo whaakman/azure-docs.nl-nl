@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Key Vault gebruiken met een Azure-web-app in .NET | Microsoft Docs'
+title: 'Zelfstudie: Azure Key Vault gebruiken met een Azure-web-app in .NET - Azure Key Vault | Microsoft Docs'
 description: 'Zelfstudie: Een ASP.NET Core-toepassing configureren voor het lezen van een geheim in Key Vault'
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322138"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998792"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met een Azure-web-app in .NET
 
 Met Azure Key Vault kunt u geheimen beveiligen, zoals API-sleutels en databaseverbindingsreeksen. Het biedt u toegang tot uw toepassingen, services en IT-resources.
 
-In deze zelfstudie leert u hoe u een Azure-webtoepassing maakt waarmee gegevens uit een Azure-sleutelkluis kunnen worden gelezen. Tijdens dit proces wordt gebruikgemaakt van beheerde identiteiten voor Azure-resources. Zie [Azure-web-apps](../app-service/app-service-web-overview.md) voor meer informatie over Azure-webtoepassingen.
+In deze zelfstudie leert u hoe u een Azure-webtoepassing maakt waarmee gegevens uit een Azure-sleutelkluis kunnen worden gelezen. Tijdens dit proces wordt gebruikgemaakt van beheerde identiteiten voor Azure-resources. Zie [Azure App Service](../app-service/overview.md) voor meer informatie over Azure-webtoepassingen.
 
 In dit artikel leert u het volgende:
 
@@ -256,4 +256,4 @@ U hebt nu een web-app gemaakt in .NET waarmee de bijbehorende geheimen worden op
 ## <a name="next-steps"></a>Volgende stappen
 
 >[!div class="nextstepaction"]
->[Gids voor Azure Key Vault-ontwikkelaars](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Gids voor Azure Key Vault-ontwikkelaars](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

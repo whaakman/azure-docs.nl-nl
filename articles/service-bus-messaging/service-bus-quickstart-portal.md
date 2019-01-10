@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259374"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002668"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Snelstart: Berichten verzenden en ontvangen met behulp van Azure Portal en .NET
+# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Quickstart: Snelstart: berichten verzenden en ontvangen met behulp van Azure Portal en .NET
 
 Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en absoluut betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen en het overbrengen van status- of gegevenswijzigingen. Dergelijke scenario's kunnen betrekking hebben op het plannen van meerdere batchtaken in andere toepassingen of services, of het activeren van de orderafhandeling. Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden voor het aanvullen en bijwerken van de voorraad. In dit scenario verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij.  
 
@@ -59,7 +59,7 @@ Bij het maken van een nieuwe naamruimte wordt automatisch een eerste SAS-regel (
 1.  Klik op **Alle resources** en klik vervolgens op de zojuist gemaakte naam voor de naamruimte.
 2. Klik in het venster van de naamruimte op **Beleid voor gedeelde toegang**.
 3. Klik in het scherm **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
-4. Klik in het scherm **Beleid: RootManageSharedAccessKey** op de knop **Kopiëren** naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie. 
+4. Klik in het venster **Beleid: RootManageSharedAccessKey** op de knop **Kopiëren** naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie. 
 
     ![connection-string][connection-string]
 5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** voor een tijdelijke locatie zodat u deze later kunt gebruiken.
@@ -77,7 +77,7 @@ Als u een Service Bus-wachtrij wilt maken, moet u de naamruimte opgeven waarin u
 
 ## <a name="send-and-receive-messages"></a>Berichten verzenden en ontvangen
 
-Nadat de naamruimte en de wachtrij zijn ingericht en u over de benodigde referenties beschikt, bent u klaar om berichten te verzenden en te ontvangen. U kunt de code controleren in [deze GitHub-voorbeeldmap](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms).
+Nadat de naamruimte en de wachtrij zijn ingericht en u over de benodigde referenties beschikt, bent u klaar om berichten te verzenden en te ontvangen. U kunt de code controleren in [deze GitHub-voorbeeldmap](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 Ga als volgt te werk om de code uit te voeren:
 

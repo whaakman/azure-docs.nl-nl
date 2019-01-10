@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251858"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540093"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snelstart: In realtime berichten verzenden via de console-app
 
@@ -129,13 +129,13 @@ De lijst met beschikbare API's voor elke specifieke versie is beschikbaar in de 
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[Uitzenden naar alle](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
-[Uitzenden naar een groep](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Uitzenden naar bepaalde groepen | :heavy_check_mark: (afgeschaft) | `N / A`
-[Verzenden naar specifieke gebruikers](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Verzenden naar bepaalde gebruikers | :heavy_check_mark: (afgeschaft) | `N / A`
-[Een gebruiker aan een groep toevoegen](#add-user-to-group) | `N / A` | :heavy_check_mark:
-[Een gebruiker uit een groep verwijderen](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+[Uitzenden naar alle](#broadcast) | **&#x2713;** | **&#x2713;**
+[Uitzenden naar een groep](#broadcast-group) | **&#x2713;** | **&#x2713;**
+Uitzenden naar bepaalde groepen | **&#x2713;** (afgeschaft) | `N / A`
+[Verzenden naar specifieke gebruikers](#send-user) | **&#x2713;** | **&#x2713;**
+Verzenden naar bepaalde gebruikers | **&#x2713;** (afgeschaft) | `N / A`
+[Een gebruiker aan een groep toevoegen](#add-user-to-group) | `N / A` | **&#x2713;**
+[Een gebruiker uit een groep verwijderen](#remove-user-from-group) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Uitzenden naar iedereen

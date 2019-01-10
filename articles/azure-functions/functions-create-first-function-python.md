@@ -11,18 +11,18 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: a5abc90f5a40911538b6516622203f595adfed5c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 140fc870500054d0652b48bc602706398371fa8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091812"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039048"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Uw eerste Python-functie maken in Azure (preview)
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-In dit quickstart-artikel leert u hoe u de Azure CLI gebruikt om uw eerste [serverloze](https://azure.microsoft.com/overview/serverless-computing/) Python-functie-app te maken die in Linux wordt uitgevoerd. De functiecode wordt lokaal gemaakt en vervolgens naar Azure geïmplementeerd met behulp van de [Azure Functions Core Tools](functions-run-local.md). Zie [dit Werkt op Linux-artikel](https://aka.ms/funclinux) voor meer informatie over preview-overwegingen voor het uitvoeren van uw functie-apps op Linux.
+In dit quickstart-artikel leert u hoe u de Azure CLI gebruikt om uw eerste [serverloze](https://azure.com/serverless) Python-functie-app te maken die in Linux wordt uitgevoerd. De functiecode wordt lokaal gemaakt en vervolgens naar Azure geïmplementeerd met behulp van de [Azure Functions Core Tools](functions-run-local.md). Zie [dit Werkt op Linux-artikel](https://aka.ms/funclinux) voor meer informatie over preview-overwegingen voor het uitvoeren van uw functie-apps op Linux.
 
 De volgende stappen worden ondersteund op een Mac-, Windows- of Linux-computer.
 

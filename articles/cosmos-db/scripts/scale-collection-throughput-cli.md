@@ -3,15 +3,17 @@ title: Azure CLI-script - Doorvoer van Azure Cosmos DB-container schalen | Micro
 description: Azure CLI-voorbeeldscript - Doorvoer van Azure Cosmos DB-container schalen
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4eafc94349acaedeee72edb408d5cea43eae92c3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.reviewer: sngun
+ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005628"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038446"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Doorvoer van Azure Cosmos DB-container schalen met behulp van de Azure CLI
 

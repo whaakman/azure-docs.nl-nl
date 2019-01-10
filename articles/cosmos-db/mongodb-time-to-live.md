@@ -1,23 +1,22 @@
 ---
 title: MongoDB per document TTL-functie in Azure Cosmos DB
-description: Lees hoe u een TTL-waarde kunt instellen voor Azure Cosmos DB-documenten die zijn gemaakt via de API van MongoDB om deze na een bepaalde periode automatisch te verwijderen uit het systeem.
-services: cosmos-db
-author: orestis-ms
-ms.author: orkostak
+description: Leer hoe u een TTL-waarde kunt instellen voor documenten die de Azure Cosmos DB-API voor MongoDB gebruiken om deze na een bepaalde periode automatisch te verwijderen uit het systeem.
+author: sivethe
+ms.author: sivethe
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 08/10/2018
-ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.openlocfilehash: 1bfe79c502361e6cf9616c3ba61e781fb7ce92ac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868750"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54032853"
 ---
-# <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Gegevens automatisch laten verlopen in de MongoDB-API van Azure Cosmos DB
+# <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Gegevens automatisch laten verlopen met de Azure Cosmos DB-API voor MongoDB
 
-TTL-functionaliteit (Time-To-Live) is een voorziening om gegevens in een database automatisch te laten verlopen. De MongoDB-API maakt gebruik van de TTL mogelijkheden van Azure Cosmos DB. Er worden twee modi ondersteund: het instellen van een standaard-TTL-waarde voor de hele verzameling en het instellen van afzonderlijke TTL-waarden voor elk document. De achterliggende logica van TTL-indexen en TTL-waarden voor afzonderlijke documenten in de MongoDB-API is [hetzelfde als die in Azure Cosmos DB](../cosmos-db/mongodb-indexing.md).
+TTL-functionaliteit (Time-To-Live) is een voorziening om gegevens in een database automatisch te laten verlopen. De Azure Cosmos DB-API voor MongoDB maakt gebruik van de belangrijkste TTL-kenmerken van Cosmos DB. Er worden twee modi ondersteund: het instellen van een standaard-TTL-waarde voor de hele verzameling en het instellen van afzonderlijke TTL-waarden voor elk document. De achterliggende logica van TTL-indexen en TTL-waarden per document in de Cosmos DB-API voor MongoDB is [hetzelfde als die in Cosmos DB](../cosmos-db/mongodb-indexing.md).
 
 ## <a name="ttl-indexes"></a>TTL indexen
 Als u TTL universeel wilt instellen voor een verzameling, moet u een [TTL-index (Time-To-Live)](../cosmos-db/mongodb-indexing.md) maken. De TTL-index is een index van het veld _ts met een waarde voor 'expireAfterSeconds'.
@@ -72,10 +71,11 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>TTL per document activeren
-Als u TTL per document wilt instellen, moet u deze functie inschakelen via het tabblad Preview-functies van het MongoDB API-account in Azure Portal.
+
+TTL per document kan worden geactiveerd met de Azure Cosmos DB-API voor MongoDB.
 
 ![Schermopname van het inschakelen van de functie voor TTL per document in Azure Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gegevens in Azure Cosmos DB-verzamelingen automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)
-* [Indexeren in de MongoDB-API van Azure Cosmos DB](../cosmos-db/mongodb-indexing.md)
+* [Gegevens in Azure Cosmos DB automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)
+* [Cosmos-databases indexeren die zijn geconfigureerd met de Azure Cosmos DB-API voor MongoDB](../cosmos-db/mongodb-indexing.md)
