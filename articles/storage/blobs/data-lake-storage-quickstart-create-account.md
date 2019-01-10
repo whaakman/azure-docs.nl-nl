@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 914dcf6d19ca0791c5914e7d605e48f15a610d62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d093dbe50cb76faedc463603edc459b22dda4fba
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099508"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628235"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
@@ -116,21 +116,11 @@ Voer vervolgens een upgrade uit van uw powershell-module, meld u aan bij uw Azur
 
 ### <a name="upgrade-your-powershell-module"></a>De PowerShell-module upgraden
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Voor de interactie met Data Lake Storage Gen2 met behulp van PowerShell moet u moduleversie Az.Storage **0,7** of hoger installeren.
 
 Begin door een PowerShell-sessie met verhoogde bevoegdheden te openen.
-
-Vervolgens kunt u bepalen of de AzureRM.Storage-module geïnstalleerd is.
-
-```powershell
-Get-Module -ListAvailable AzureRM.Storage
-```
-
-Als een module wordt weergegeven, moet u deze vervolgens verwijderen.
-
-```powershell
-Uninstall-Module AzureRM.Storage -Force
-```
 
 De module Az.Storage installeren
 
@@ -138,28 +128,20 @@ De module Az.Storage installeren
 Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
 ```
 
-Schakel de compatibiliteitsmodus in voor AzureRM.
-
-```powershell
-Enable-AzureRMAlias
-```
-
-De compatibiliteitsmodus betekent dat alle scripts die gebruikmaken van de AzureRM.Storage-module blijven werken, zelfs als u de AzureRM.Storage-module hebt verwijderd.
-
 > [!NOTE]
-> Azure Powershell Az-modules zijn de gewenste modules voor het werken met Azure-services in Powershell. Zie voor meer informatie [Introductie van de nieuwe Az-module van Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0).
+> Azure Powershell Az-modules zijn de gewenste modules voor het werken met Azure-services in Powershell. Zie voor meer informatie [Introductie van de nieuwe Az-module van Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
 
-Gebruik de opdracht `Login-AzureRmAccount` en volg de instructies op het scherm om te verifiëren.
+Gebruik de opdracht `Login-AzAccount` en volg de instructies op het scherm om te verifiëren.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Gebruik de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) om een nieuwe resourcegroep te maken: 
+Gebruik de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) om een nieuwe resourcegroep met PowerShell te maken: 
 
 > [!NOTE]
 > De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's. De naamruimte is momenteel ook niet beschikbaar in soevereine clouds.
@@ -169,17 +151,17 @@ Gebruik de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resour
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
 $location = "westus2"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Een v2-opslagaccount voor algemeen gebruik maken
 
-Gebruik de opdracht [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) om een v2-opslagaccount voor algemeen gebruik te maken vanuit PowerShell met lokaal redundante opslag (LRS):
+Gebruik de opdracht [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) om een v2-opslagaccount voor algemeen gebruik met lokaal redundante opslag (LRS) te maken vanuit PowerShell:
 
 ```powershell
 $location = "westus2"
 
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -189,10 +171,10 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
-Gebruik de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) om de resourcegroep en alle bijbehorende resources te verwijderen, inclusief het nieuwe opslagaccount: 
+Gebruik de opdracht [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) om de resourcegroep en alle bijbehorende resources te verwijderen, inclusief het nieuwe opslagaccount: 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="create-an-account-using-azure-cli"></a>Een account maken met Azure CLI

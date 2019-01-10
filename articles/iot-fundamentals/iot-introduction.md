@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582415"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792523"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Wat is Azure Internet of Things (IoT)?
 
@@ -105,7 +105,7 @@ Er zijn meerdere IoT-services in Azure en het kan moeilijk zijn om te bepalen we
 
 1. [**IoT Central**](../iot-central/overview-iot-central.md): dit is een SaaS-oplossing waarmee u uw IoT-apparaten kunt verbinden, bewaken en beheren. Selecteer om te beginnen een sjabloon voor uw type apparaat, en maak en test een IoT Central-basistoepassing die de operators van het apparaat gaan gebruiken. Met de IoT Central-toepassing kunt u de apparaten ook bewaken en nieuwe apparaten inrichten. Deze service is geschikt voor eenvoudige IoT-oplossingen waarvoor geen uitgebreide serviceaanpassing is vereist. 
 
-2. [**IoT-oplossingsverbeteringen**](/azure/iot-suite): dit is een verzameling van PaaS-oplossingen waarmee u de ontwikkeling van uw IoT-oplossing kunt versnellen. U begint met een vooraf gedefinieerde IoT-oplossing en past die vervolgens volledig naar wens aan. U moet beschikken over Java- of .NET-vaardigheden om de back-end aan te passen, en over JavaScript-vaardigheden om de visualisatie aan te passen. 
+2. [**IoT-oplossingsversnellers**](/azure/iot-suite): dit is een verzameling PaaS-oplossingen waarmee u de ontwikkeling van uw IoT-oplossing kunt versnellen. U begint met een vooraf gedefinieerde IoT-oplossing en past die vervolgens volledig naar wens aan. U moet beschikken over Java- of .NET-vaardigheden om de back-end aan te passen, en over JavaScript-vaardigheden om de visualisatie aan te passen. 
 
 3. [**IoT Hub**](/azure/iot-hub/): met deze service kunt u uw apparaten verbinden met een IoT-hub en miljarden IoT-apparaten beheren. Dit is vooral handig als bidirectionele communicatie tussen uw IoT-apparaten en uw back-end vereist is. Dit is de onderliggende service voor IoT Central en IoT-oplossingsverbeteringen. 
 
@@ -115,7 +115,7 @@ Er zijn meerdere IoT-services in Azure en het kan moeilijk zijn om te bepalen we
 
 6. [**Azure Digital Twins**](../digital-twins/index.yml): met deze service kunt u uitgebreide modellen van de fysieke omgeving maken. Zo kunt u de relaties en interacties tussen personen, ruimten en apparaten modelleren. U kunt bijvoorbeeld de onderhoudsbehoeften voor een fabriek voorspellen, het energieverbruik voor een elektriciteitsnet in realtime analyseren of het gebruik van de beschikbare kantoorruimte optimaliseren.
 
-7. [**Time Series Insights**](/azure/time-series-insights): met deze service kunt u grote volumes gegenereerde tijdreeksgegevens van IoT-apparaten opslaan en visualiseren of er query's op uitvoeren. U kunt deze gebruiken in combinatie met IoT Hub. 
+7. [**Time Series Insights**](/azure/time-series-insights): met deze service kunt u grote volumes aan gegenereerde tijdreeksgegevens van IoT-apparaten opslaan en visualiseren of er query's op uitvoeren. U kunt deze gebruiken in combinatie met IoT Hub. 
 
 8. [**Azure Maps**](/azure/azure-maps): deze service biedt geografische gegevens voor web- en mobiele toepassingen. Er is een volledige set met REST-API's en een webgebaseerd JavaScript-besturingselement waarmee u flexibele toepassingen kunt maken voor gebruik in bureaublad- of mobiele toepassingen op Apple- en Windows-apparaten.
 

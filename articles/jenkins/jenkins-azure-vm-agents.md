@@ -3,17 +3,17 @@ title: Jenkins-implementaties schalen met Azure VM-agents.
 description: Voeg meer capaciteit toe aan uw Jenkins-pijplijnen met virtuele Azure-machines met de Jenkins Azure VM Agent-invoegtoepassing.
 ms.service: jenkins
 keywords: ansible, azure, devops, virtuele machine, agents
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106220"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074662"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Uw Jenkins-implementaties schalen met Azure VM-agents om te voldoen aan de vraag
 

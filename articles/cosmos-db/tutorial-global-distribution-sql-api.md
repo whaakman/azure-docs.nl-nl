@@ -1,20 +1,18 @@
 ---
 title: Zelfstudie voor het instellen van wereldwijde distributie met Azure Cosmos DB met behulp van de SQL-API
 description: Lees hoe u wereldwijde distributie met Azure Cosmos DB kunt instellen met behulp van de SQL-API.
-services: cosmos-db
-keywords: wereldwijde distributie
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.custom: mvc
-ms.openlocfilehash: 8bef38aca9c14dbddb30b57871267490bc03e00f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: rimman
+ms.reviewer: sngun
+ms.openlocfilehash: 19e0dd8a60155272f2e338c760db409d20a9f755
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863479"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157238"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Wereldwijde distributie van Azure Cosmos DB instellen met behulp van de SQL-API
 
@@ -94,7 +92,7 @@ De huidige eindpunten voor schrijven en lezen zijn beschikbaar in respectievelij
 
 Hieronder ziet u een codevoorbeeld voor NodeJS/Javascript. Python en Java volgen hetzelfde patroon.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 

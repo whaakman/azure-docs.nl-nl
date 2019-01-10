@@ -1,5 +1,5 @@
 ---
-title: Inleiding tot IoT-oplossingsversnellers van Microsoft Azure | Microsoft Docs
+title: Inleiding tot IoT-oplossingsversnellers - Azure | Microsoft Docs
 description: Hier vindt u informatie over Azure IoT-oplossingsversnellers. IoT-oplossingsversnellers zijn volledige, end-to-end, kant-en-klare IoT-oplossingen.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824537"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607198"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Wat zijn Azure IoT-oplossingsversnellers?
 
@@ -34,7 +34,7 @@ Er zijn momenteel vier oplossingsversnellers beschikbaar die u kunt implementere
 
 ### <a name="remote-monitoring"></a>Externe bewaking
 
-Gebruik deze oplossingsversneller voor het verzamelen van telemetrie van externe apparaten en om deze te beheren. Voorbeelden zijn koelingssystemen die zijn geïnstalleerd op de locatie van uw klanten of kleppen die zijn geïnstalleerd in externe pompstations.
+Gebruik de [Remote Monitoring-oplossingsversneller](iot-accelerators-remote-monitoring-sample-walkthrough.md) voor het verzamelen van telemetriegegevens van externe apparaten en om deze te beheren. Voorbeelden zijn koelingssystemen die zijn geïnstalleerd op de locatie van uw klanten of kleppen die zijn geïnstalleerd in externe pompstations.
 
 U kunt het dashboard voor externe controle gebruiken om de telemetrie van verbonden apparaten te bekijken, nieuwe apparaten in te richten of de firmware op verbonden apparaten bij te werken:
 
@@ -42,7 +42,7 @@ U kunt het dashboard voor externe controle gebruiken om de telemetrie van verbon
 
 ### <a name="connected-factory"></a>Verbonden factory
 
-Gebruik deze oplossingsversneller voor het verzamelen van telemetriegegevens van industriële activa met een [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-interface en om deze activa te beheren. Industriële activa kunnen assembly- en teststations in een productielijn bevatten.
+Gebruik de [Connected Factory-oplossingsversneller](iot-accelerators-connected-factory-sample-walkthrough.md) voor het verzamelen van telemetriegegevens van industriële activa met een [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-interface en om deze activa te beheren. Industriële activa kunnen assembly- en teststations in een productielijn bevatten.
 
 U kunt de verbonden factory gebruiken om industriële apparaten te controleren en te beheren:
 
@@ -50,7 +50,7 @@ U kunt de verbonden factory gebruiken om industriële apparaten te controleren e
 
 ### <a name="predictive-maintenance"></a>Predictief onderhoud
 
-Gebruik deze oplossingsversneller om te voorspellen wanneer een extern apparaat naar verwachting defect raakt, zodat u onderhoud kunt plegen voordat het apparaat uitvalt. De oplossingsversneller maakt gebruik van machine learning-algoritmen om fouten op basis van telemetriegegevens van apparaten te voorspellen. Voorbeelden van dergelijke apparaten zijn vliegtuigmotoren en liften.
+Gebruik de [Predictive Maintenance-oplossingsversneller](iot-accelerators-predictive-walkthrough.md) om te voorspellen wanneer een extern apparaat naar verwachting defect raakt, zodat u onderhoud kunt plegen voordat het apparaat uitvalt. De oplossingsversneller maakt gebruik van machine learning-algoritmen om fouten op basis van telemetriegegevens van apparaten te voorspellen. Voorbeelden van dergelijke apparaten zijn vliegtuigmotoren en liften.
 
 U kunt het dashboard voor predictief onderhoud gebruiken om de analyse voor predictief onderhoud te bekijken:
 
@@ -58,7 +58,7 @@ U kunt het dashboard voor predictief onderhoud gebruiken om de analyse voor pred
 
 ### <a name="device-simulation"></a>Apparaatsimulatie
 
-Gebruik deze oplossingsversneller voor het laten draaien van gesimuleerde apparaten die realistische telemetriegegevens genereren. U kunt deze oplossingsversneller gebruiken voor het testen van het gedrag van de andere oplossingsversnellers of voor het testen van uw eigen aangepaste IoT-oplossingen.
+Gebruik de [Device Simulation-oplossingsversneller](iot-accelerators-device-simulation-overview.md) voor het laten draaien van gesimuleerde apparaten die realistische telemetriegegevens genereren. U kunt deze oplossingsversneller gebruiken voor het testen van het gedrag van de andere oplossingsversnellers of voor het testen van uw eigen aangepaste IoT-oplossingen.
 
 U kunt de web-app voor apparaatsimulatie gebruiken om simulaties te configureren en uit te voeren:
 
@@ -85,7 +85,7 @@ De oorspronkelijke oplossingsversnellers werden geschreven met behulp van .NET e
 | Verbonden factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Apparaatsimulatie      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Zie [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-toepassingsarchitectuur) en [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: een toepassingsrevolutie aangedreven door de cloud) voor meer informatie over microservicearchitectuur.
+Zie [Inleiding tot de Azure IoT-referentiearchitectuur](iot-accelerators-architecture-overview.md) voor meer informatie over de microservicearchitectuur.
 
 ## <a name="deployment-options"></a>Implementatieopties
 

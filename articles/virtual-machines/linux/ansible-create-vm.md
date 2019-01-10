@@ -3,17 +3,17 @@ title: Een virtuele Linux-machine maken in Azure met Ansible
 description: Lees hoe u een virtuele Linux-machine maakt in Azure met behulp van Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, virtuele machine
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: 99822fc1d99d914327a64cfb9fe8e18189f30a4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f7f4809e064de15bb0a18c404f0df81307b1b9a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251235"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073982"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Een virtuele Linux-machine maken in Azure met Ansible
 Ansible maakt gebruikt van een declaratieve taal om het maken, configureren en implementeren van Azure-resources te automatiseren via Ansible-*playbooks*. De verschillende gedeelten van dit artikel komen overeen met de verschillende secties van een Ansible-playbook voor het maken en configureren van verschillende aspecten van een virtuele Linux-machine. Het [volledige Ansible-playbook](#complete-sample-ansible-playbook) vindt u aan het einde van dit artikel.

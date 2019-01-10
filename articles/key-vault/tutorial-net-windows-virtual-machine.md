@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in .NET | Microsoft Docs'
+title: 'Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in .NET - Azure Key Vault | Microsoft Docs'
 description: 'Zelfstudie: Een ASP.NET Core-toepassing configureren voor het lezen van een geheim uit Key Vault'
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711324"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998758"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in .NET
 
 Azure Key Vault helpt u bij het beveiligen van geheimen zoals API-sleutels, databaseverbindingsreeksen die nodig zijn voor toegang tot uw toepassingen, services en IT-resources.
 
-In deze zelfstudie voert u de stappen uit die nodig zijn om een consoletoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Deze zelfstudie is gebaseerd op [Azure Web Apps](../app-service/app-service-web-overview.md). Hieronder leert u:
+In deze zelfstudie voert u de stappen uit die nodig zijn om een consoletoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Hieronder leert u:
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
@@ -45,18 +45,19 @@ Lees voordat we verdergaan de [basisconcepten](key-vault-whatis.md#basic-concept
 In deze zelfstudie wordt Managed Service Identity gebruikt
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Wat is Managed Service Identity en hoe werkt het?
+
 Voordat we verder gaan, moeten we het over MSI hebben. Azure Key Vault kan referenties veilig opslaan zodat ze zich niet in uw code bevinden, maar om ze op te halen moet u zich authenticeren bij Azure Key Vault. En om u te authenticeren bij Key Vault, hebt u een referentie nodig! Een klassiek bootstrap-probleem. Door de magie van Azure en Azure AD biedt MSI een 'bootstrap-identiteit' die het veel eenvoudiger maakt om dingen op gang te brengen.
 
 Het werkt als volgt. Wanneer u MSI inschakelt voor een Azure-service zoals Virtual Machines, App Service of Functions, maakt Azure een [service-principal](key-vault-whatis.md#basic-concepts) voor de instantie van de service in Azure Active Directory, en injecteert de referenties voor de service-principal in de instantie van de service. 
 
 ![MSI](media/MSI.png)
 
-Vervolgens roept uw ​​code een lokale metagegevensservice aan die beschikbaar is op de Azure-resource om een ​​toegangstoken te verkrijgen.
+Vervolgens wordt met de ​​code een lokale metagegevensservice aangeroepen die beschikbaar is in de Azure-resource, om een ​​toegangstoken te verkrijgen.
 Uw code gebruikt het toegangstoken dat wordt verkregen van het lokale MSI_ENDPOINT zich te authenticeren bij een Azure Key Vault-service. 
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Als u zich bij Azure wilt aanmelden met de Azure CLI, voert u het volgende in:
+Als u zich met behulp van Azure CLI wilt aanmelden bij Azure, voert u het volgende in:
 
 ```azurecli
 az login
@@ -131,7 +132,7 @@ Nu kunnen we de hierboven gemaakte identiteit machtigen voor Key Vault met de vo
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Aanmelden bij de virtuele machine
+## <a name="sign-in-to-the-virtual-machine"></a>Aanmelden bij de virtuele machine
 
 U kunt deze [zelfstudie](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon) volgen
 
@@ -161,7 +162,8 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-Wijzig vervolgens het klassebestand met de volgende code. Dit proces omvat twee stappen. 
+Wijzig vervolgens het klassebestand met de volgende code. Dit proces omvat twee stappen.
+
 1. Een token uit het lokale MSI-eindpunt op de virtuele machine ophalen zodat er een token uit Azure Active Directory wordt opgehaald
 2. Het token doorgeven aan Key Vault en het geheim ophalen 
 
@@ -211,7 +213,7 @@ Wijzig vervolgens het klassebestand met de volgende code. Dit proces omvat twee 
 ```
 
 
-In de bovenstaande code ziet u hoe u bewerkingen met Azure Key Vault uitvoert op een virtuele Linux-machine in Azure. 
+In de bovenstaande code ziet u hoe u bewerkingen met Azure Key Vault uitvoert op een virtuele Windows-machine in Azure. 
 
 
 

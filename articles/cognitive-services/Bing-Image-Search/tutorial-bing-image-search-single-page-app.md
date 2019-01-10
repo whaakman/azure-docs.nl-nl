@@ -3,19 +3,19 @@ title: 'Zelfstudie: Een web-app van één pagina maken - Bing Afbeeldingen zoeke
 titleSuffix: Azure cognitive services
 description: Met de Bing Afbeeldingen zoeken-API kunt u internet doorzoeken op hoogwaardige en relevante afbeeldingen. Gebruik deze zelfstudie om een webtoepassing van één pagina te bouwen waarmee zoekquery's naar de API kunnen worden verzonden. De resultaten worden dan op de webpagina weergegeven.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7ab94c6d935222c65c1259f1ce3b01d10f78ec1
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253949"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062856"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Zelfstudie: Een app van één pagina maken met de Bing Afbeeldingen zoeken-API
 
@@ -29,7 +29,7 @@ In de zelfstudie-app ziet u hoe u de volgende acties kunt uitvoeren:
 > * De zoekresultaten weergeven en erdoor bladeren
 > * Een API-abonnementssleutel en een Bing-client-id aanvragen en verwerken.
 
-De volledig broncode voor deze zelfstudie is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
+De volledige broncode voor deze zelfstudie is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -125,7 +125,7 @@ De Bing Afbeeldingen zoeken-API biedt verschillende [filterqueryparameters](http
 | `aspect`     | Keuzerondjes voor het kiezen van de afmetingen van de gevonden afbeeldingen: min of meer vierkant, breed of hoog.                                                                                     |
 | `color`      |                                                                                                                                                                                    |
 | `when`       | Vervolgkeuzelijst voor het optioneel beperken van de zoekopdracht tot de meest recente dag, week of maand.                                                                                          |
-| `safe`       | Een selectievakje dat aangeeft of de functie Bing SafeSearch moet worden gebruikt voor het wegfilteren van resultaten voor volwassenen.                                                                                      |
+| `safe`       | Een selectievakje dat aangeeft of de functie Veilig zoeken in Bing moet worden gebruikt voor het wegfilteren van resultaten voor volwassenen.                                                                                      |
 | `count`      | Verborgen veld. Het aantal zoekresultaten dat moet worden geretourneerd bij elke aanvraag. Wijzig dit om minder of meer resultaten per pagina weer te geven.                                                            |
 | `offset`     | Verborgen veld. De verschuiving van het eerste zoekresultaat in de aanvraag, gebruikt voor wisselgeheugengebruik. Deze waarde wordt bij een nieuwe aanvraag opnieuw ingesteld op `0`.                                                           |
 | `nextoffset` | Verborgen veld. Wanneer de zoekresultaten beschikbaar zijn, wordt dit veld ingesteld op de waarde van `nextOffset` in het antwoord. Met dit veld worden overlappende resultaten op opeenvolgende pagina's voorkomen. |
@@ -280,7 +280,7 @@ function handleBingResponse() {
 
 ## <a name="display-the-search-results"></a>Zoekresultaten weergeven
 
-Zoekresultaten worden weergegeven door de functie `renderSearchResults()`. Hierbij wordt de JSON die is geretourneerd door de Bing Image Search-service gebruikt en wordt de juiste weergavefunctie aangeroepen voor mogelijk geretourneerde afbeeldingen en gerelateerde zoekopdrachten.
+Zoekresultaten worden weergegeven door de functie `renderSearchResults()`. Hierbij wordt de JSON gebruikt die is geretourneerd door de Bing Image Search-service en wordt de juiste weergavefunctie aangeroepen voor mogelijk geretourneerde afbeeldingen en gerelateerde zoekopdrachten.
 
 ```javascript
 function renderSearchResults(results) {
@@ -321,7 +321,7 @@ Met de Bing Afbeeldingen zoeken-API kunnen vier typen zoeksuggesties worden gere
 | `pivotSuggestions` | Query's die een beschrijvend woord in de oorspronkelijke zoekopdracht vervangen door een ander beschrijvend woord. Als u bijvoorbeeld zoekt naar ‘rode bloemen', is ‘rood' een beschrijvend woord, en is ‘gele bloemen' een mogelijke suggestie. |
 | `queryExpansions`  | Query's die de oorspronkelijke zoekopdracht verfijnen door meer zoektermen toe te voegen. Als u bijvoorbeeld zoekt naar ‘Microsoft Surface', is ‘Microsoft Surface Pro' een mogelijke uitbreiding van de query.                                   |
 | `relatedSearches`  | Query's die ook zijn ingevoerd door andere gebruikers die de oorspronkelijke zoekopdracht hebben ingevoerd. Als u bijvoorbeeld zoekt naar ‘Mount Rainier', is ‘Mt. Saint Helens' een gerelateerde zoekopdracht.                       |
-| `similarTerms`     | Query's die qua betekenis vergelijkbaar zijn met de oorspronkelijke zoekopdracht. Als u bijvoorbeeld zoekt naar 'kittens', is 'schattig' een vergelijkbare term.                                                                   |
+| `similarTerms`     | Query’s die qua betekenis vergelijkbaar zijn met de oorspronkelijke zoekopdracht. Als u bijvoorbeeld zoekt naar 'kittens', is 'schattig' een vergelijkbare term.                                                                   |
 
 Met deze toepassing worden alleen de `relatedItems`-suggesties weergegeven. De bijbehorende koppelingen worden in de zijbalk van de pagina geplaatst.
 
@@ -384,7 +384,7 @@ Ten tweede kunnen in Bing willekeurig gebruikers worden geselecteerd om nieuwe f
 Beveiligingsbeleid voor browsers (CORS) kan ervoor zorgen dat de `X-MSEdge-ClientID`-header niet beschikbaar is in JavaScript. Deze beperking treedt op wanneer het antwoord op een zoekopdracht een andere oorsprong heeft dan de pagina waarop de zoekopdracht is uitgevoerd. In een productieomgeving kunt u dit beleid omzeilen door een serverscript te hosten waarmee de API wordt aangeroepen in hetzelfde domein als de webpagina. Omdat het script dezelfde oorsprong heeft als de webpagina, is de `X-MSEdge-ClientID`-header vervolgens beschikbaar voor JavaScript.
 
 > [!NOTE]
-> In een webtoepassing die bedoeld is voor productie, moet u de aanvraag toch aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Search-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
+> In een webtoepassing die bedoeld is voor productie, moet u de aanvraag toch aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Zoeken-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
 
 Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Web Search-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 

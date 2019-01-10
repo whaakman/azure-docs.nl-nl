@@ -4,7 +4,7 @@ description: Implementeer in enkele minuten uw eerste Node.js-app (Hallo wereld)
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/07/2017
+ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b3c57a9a8912f44dbe7e9261549d034e99356547
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631529"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190575"
 ---
 # <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Een Node.js-app maken in Azure App Service op Linux
 
@@ -37,22 +37,6 @@ U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaa
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-web-app-extension-for-cloud-shell"></a>Web-appuitbreiding voor Cloud Shell installeren
-
-U hebt de web-appuitbreiding [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) nodig om deze snelstart te kunnen doen. Als de extensie al is geïnstalleerd, moet u deze bijwerken naar de nieuwste versie. U kunt de web-appuitbreiding bijwerken door `az extension update -n webapp` te typen.
-
-Voer de volgende opdracht uit om het web-appuitbreiding te installeren:
-
-```bash
-az extension add -n webapp
-```
-
-Wanneer de uitbreiding is geïnstalleerd, toont de Cloud Shell gegevens voor het volgend voorbeeld:
-
-```bash
-The installed extension 'webapp' is in preview.
-```
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 

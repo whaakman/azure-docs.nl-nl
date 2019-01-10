@@ -3,18 +3,18 @@ title: 'Zelfstudie: Een .NET Core-app maken voor het beheren van gegevens die in
 description: In deze zelfstudie maakt u een onlinedatabase en een C#-consoletoepassing met de SQL-API .NET Core SDK voor Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 2dbfa4264fb9d1bd1b7f976a9a067e0ab741cbe4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1aad68a3248561c86e195b55c1d509ab7a15964e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969275"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035675"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>Zelfstudie: een .NET Core-app maken voor het beheren van gegevens die in het SQL-API-account zijn opgeslagen
 
@@ -113,13 +113,13 @@ class Program
     private DocumentClient client;
 ```
 
-Ga vervolgens naar de [Azure-portal](https://portal.azure.com) om uw URI en primaire sleutel op te halen. Uw toepassing heeft de Azure Cosmos DB-URI en de primaire sleutel nodig om te bepalen waarmee verbinding moet worden gemaakt en om ervoor te zorgen dat Azure Cosmos DB de verbinding van uw toepassing vertrouwt.
+Ga vervolgens naar [Azure Portal](https://portal.azure.com) om uw URI en primaire sleutel op te halen. Uw toepassing heeft de Azure Cosmos DB-URI en de primaire sleutel nodig om te bepalen waarmee verbinding moet worden gemaakt en om ervoor te zorgen dat Azure Cosmos DB de verbinding van uw toepassing vertrouwt.
 
 Ga in de Azure-portal naar uw Azure Cosmos-account en selecteer **Sleutels**.
 
 Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your key>`. Zorg ervoor dat u de < and > verwijdert, maar laat de dubbele aanhalingstekens rond het eindpunt en de sleutel staan.
 
-![Sleutels ophalen uit de Azure-portal][keys]
+![Sleutels ophalen uit Azure Portal][keys]
 
 Voor de toepassing Getting started maken we om te beginnen een nieuw exemplaar van **DocumentClient**.
 

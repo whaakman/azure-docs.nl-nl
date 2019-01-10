@@ -1,21 +1,19 @@
 ---
 title: 'Snelstartgids: Table-API met Python - Azure Cosmos DB'
 description: In deze quickstart ziet u hoe u de Table-API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en Python
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 046c8f79ceea9ce40b5a60f720f205157110789e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: e4664f121601ecec4b8ed52d536e5212b3d0950f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161569"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039296"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snelstartgids: Een Table-API compileren met Python en Azure Cosmos DB
 

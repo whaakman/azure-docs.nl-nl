@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017001"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189929"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Problemen met analyses in Application Insights oplossen
 Problemen met [Application Insights Analytics](analytics.md)? Begin hier. Analytics is de krachtige zoekfunctie van Azure Application Insights.
@@ -54,7 +54,7 @@ Er is een fout opgetreden die te maken heeft met het verificatieproces (tijdens 
 2. Hebt u een favoriet, bladwijzer of opgeslagen koppeling gebruikt om de portal van Analytics te openen? Hebt u zich aangemeld met andere referenties dan die u hebt gebruikt bij het opslaan van de koppeling?
 3. Probeer het met een privé-venster/incognito browservenster (nadat u alle vensters hebt gesloten). U moet dan uw referenties opgeven. 
 4. Open een ander (gewoon) browservenster en Ga naar [Azure](https://portal.azure.com). Meld u af. Open vervolgens de koppeling en meld u met de juiste referenties aan.
-5. Gebruikers van Edge en Internet Explorer kunnen deze fout ook krijgen als instellingen voor vertrouwde zones niet worden ondersteund.
+5. Gebruikers van Microsoft Edge en Internet Explorer kunnen deze fout ook krijgen als instellingen voor vertrouwde zones worden niet ondersteund.
    
     Controleer of beide [analyseportal](https://portal.azure.com) en [Azure Active Directory-portal](https://portal.azure.com) zich in dezelfde beveiligingszone:
    

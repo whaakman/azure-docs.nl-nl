@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140503"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121716"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Zelfstudie: Afhandelen van e-mails en bijlagen automatiseren met Azure Logic Apps
 
@@ -48,9 +48,9 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
 * Download en installeer de <a href="https://storageexplorer.com/" target="_blank">gratis Microsoft Azure Storage Explorer</a>. Dit hulpprogramma help u om te controleren of uw opslagcontainer correct is ingesteld.
 
-## <a name="sign-in-to-azure-portal"></a>Meld u aan bij de Azure-portal
+## <a name="sign-in-to-azure-portal"></a>Meld u aan bij Azure Portal
 
-Gebruik de referenties van uw Azure-account om u aan melden bij de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>.
+Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 ## <a name="set-up-storage-to-save-attachments"></a>De opslag instellen om bijlagen te bewaren
 
@@ -96,7 +96,7 @@ U kunt binnenkomende e-mails en bijlagen als blobs opslaan in een [Azure-opslagc
    3. Onder **Nieuwe container** voert u 'bijlagen' in als containernaam. 
    Selecteer onder **Niveau openbare toegang** **Container (anonieme leestoegang voor containers en blobs)** en kies vervolgens **OK**.
 
-      Wanneer u klaar bent, vindt u uw opslagcontainer in uw opslagaccount hier in de Azure-portal:
+      Wanneer u klaar bent, vindt u uw opslagcontainer in uw opslagaccount hier in Azure Portal:
 
       ![Voltooide opslagcontainer](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
@@ -145,10 +145,10 @@ Gebruik nu het codefragment in deze stappen om een Azure-functie te maken waarme
    | **Hostingabonnement** | Verbruiksabonnement | Deze instelling bepaalt hoe de resources worden toegewezen en geschaald, bijvoorbeeld de rekenkracht, om uw functie-app uit te voeren. Bekijk [Vergelijking van hostingabonnementen](../azure-functions/functions-scale.md). | 
    | **Locatie** | US - west | Dezelfde regio die u eerder hebt gebruikt | 
    | **Storage** | cleantextfunctionstorageacct | Maak een opslagaccount voor uw functie-app. Gebruik alleen kleine letters en cijfers. <p>**Opmerking:** dit opslagaccount bevat uw functie-apps en verschilt van uw eerder gemaakte opslagaccount voor e-mailbijlagen. | 
-   | **Application Insights** | Uit | Hiermee schakelt u toepassingsbewaking met [Application Insights](../application-insights/app-insights-overview.md) in, maar kies voor deze zelfstudie de instelling **Uit**. | 
+   | **Application Insights** | Uit | Hiermee schakelt u toepassingsbewaking met [Application Insights](../azure-monitor/app/app-insights-overview.md) in, maar kies voor deze zelfstudie de instelling **Uit**. | 
    |||| 
 
-   Als uw functie-app na de implementatie niet automatisch opent, kunt u uw app in de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> terugvinden. Selecteer in het Azure-hoofdmenu **Functie-apps** en selecteer uw functie-app. 
+   Als uw functie-app na de implementatie niet automatisch opent, kunt u uw app in <a href="https://portal.azure.com" target="_blank">Azure Portal</a> terugvinden. Selecteer in het Azure-hoofdmenu **Functie-apps** en selecteer uw functie-app. 
 
    ![Functie-app selecteren](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 

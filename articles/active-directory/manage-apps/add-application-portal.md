@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
 ms.author: barbkess
-ms.openlocfilehash: 9cb3cb16e0eba30f98767efd0d1c0d9123304c27
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 5cdadd93273b6010200b7211b75ca86dfa126b9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394985"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604817"
 ---
-# <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Quickstart: Een toepassing toevoegen aan uw Azure Active Directory-tenant
+# <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Quickstart: een toepassing toevoegen aan uw Azure Active Directory-tenant
 
-Azure AD (Azure Active Directory) heeft een galerie met duizenden vooraf geïntegreerde toepassingen. Sommige toepassingen die worden gebruikt in uw organisatie, bevinden zich waarschijnlijk in de galerie. In deze quickstart wordt de Azure-portal gebruikt om een galerietoepassing toe te voegen aan uw Azure AD-tenant (Azure Active Directory). 
- 
+Azure AD (Azure Active Directory) heeft een galerie met duizenden vooraf geïntegreerde toepassingen. Sommige toepassingen die worden gebruikt in uw organisatie, bevinden zich waarschijnlijk in de galerie. In deze quickstart wordt de Azure-portal gebruikt om een galerietoepassing toe te voegen aan uw Azure AD-tenant (Azure Active Directory).
+
 Nadat een toepassing is toegevoegd aan de Azure AD-tenant, kunt u:
 
 - Gebruikerstoegang tot de toepassing beheren met een voorwaardelijk toepassingsbeleid.
@@ -41,13 +41,13 @@ Als u de stappen in deze zelfstudie wilt testen, raden we u aan om een niet-prod
 
 Ga als volgt te werk om een galerietoepassing toe te voegen aan de Azure AD-tenant:
 
-1. Klik in de [Azure-portal](https://portal.azure.com) in het navigatiepaneel aan de linkerkant op **Azure Active Directory**. 
+1. Klik in de [Azure-portal](https://portal.azure.com) in het navigatiepaneel aan de linkerkant op **Azure Active Directory**.
 
-2. Klik op de blade **Azure Active Directory** op **Bedrijfstoepassingen**. 
+2. Klik op de blade **Azure Active Directory** op **Bedrijfstoepassingen**.
 
     ![Bedrijfstoepassingen openen](media/add-application-portal/open-enterprise-apps.png)
 
-3. De blade **Alle toepassingen** wordt geopend met een willekeurige selectie uit de toepassingen in de Azure AD-tenant. 
+3. De blade **Alle toepassingen** wordt geopend met een willekeurige selectie uit de toepassingen in de Azure AD-tenant.
 
     ![Blade Alle toepassingen](media/add-application-portal/applications-blade.png)
 
@@ -56,13 +56,13 @@ Ga als volgt te werk om een galerietoepassing toe te voegen aan de Azure AD-tena
 
     ![Nieuwe toepassing](media/add-application-portal/new-application.png)
 
-5. Als u een lijst met toepassingen wilt zien in de galerie, kunt u het beste **Categorieën** gebruiken, omdat de pictogrammen onder **Aanbevolen toepassingen** een willekeurige selectie vormen uit de toepassingen in de galerie. 
+5. Als u een lijst met toepassingen wilt zien in de galerie, kunt u het beste **Categorieën** gebruiken, omdat de pictogrammen onder **Aanbevolen toepassingen** een willekeurige selectie vormen uit de toepassingen in de galerie.
 
     ![Zoeken op naam of categorie](media/add-application-portal/categories.png)
 
     U kunt op **Meer weergeven** klikken om meer toepassingen te zien. We raden deze manier van zoeken echter niet aan, omdat de galerie duizenden toepassingen bevat.
 
-6. Als u een bepaalde toepassing zoekt, voert u bij **Toevoegen uit de galerie** de naam in van de toepassing die u wilt toevoegen. Selecteer de toepassing in de resultaten en klik op **Toevoegen**. In het volgende voorbeeld ziet u het formulier **App toevoegen** dat wordt weergegeven nadat u hebt gezocht naar GitHub.com.
+6. Als u een bepaalde toepassing zoekt, voert u bij **Toevoegen uit de galerie** de naam in van de toepassing die u wilt toevoegen. Selecteer de toepassing in de resultaten en klik op **Toevoegen**. In het volgende voorbeeld ziet u het formulier **App toevoegen** dat wordt weergegeven nadat u hebt gezocht naar github.com.
 
     ![Een toepassing toevoegen](media/add-application-portal/add-an-application.png)
 
@@ -70,23 +70,23 @@ Ga als volgt te werk om een galerietoepassing toe te voegen aan de Azure AD-tena
 
 8. Als u klaar bent met het wijzigen van de eigenschappen, klikt u op **Toevoegen**.
 
-9. Er wordt nu een pagina Aan de slag weergegeven met de opties voor het configureren van de toepassing voor uw organisatie. 
+9. Er wordt nu een pagina Aan de slag weergegeven met de opties voor het configureren van de toepassing voor uw organisatie.
 
     ![Menu Aan de slag](media/add-application-portal/get-started.png)
 
-U bent klaar met het toevoegen van de toepassing. Neem gerust even pauze.  In de volgende secties ziet u hoe u het logo kunt wijzigen en andere eigenschappen voor de toepassing kunt bewerken.
+U bent klaar met het toevoegen van de toepassing. Neem gerust even pauze. In de volgende secties ziet u hoe u het logo kunt wijzigen en andere eigenschappen voor de toepassing kunt bewerken.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Uw Azure AD-tenanttoepassing zoeken
 
 Laten we aannemen dat u even weg bent gegaan en dat u nu verdergaat met het configureren van de toepassing. Het eerste wat u moet doen, is de toepassing zoeken.
 
-1. Klik in de **[Azure-portal](https://portal.azure.com)** in het navigatiepaneel aan de linkerkant op **Azure Active Directory**. 
+1. Klik in de **[Azure-portal](https://portal.azure.com)** in het navigatiepaneel aan de linkerkant op **Azure Active Directory**.
 
-2. Klik op de blade Azure Active Directory op **Bedrijfstoepassingen**. 
+2. Klik op de blade Azure Active Directory op **Bedrijfstoepassingen**.
 
 3. Selecteer in de vervolgkeuzelijst **Toepassingstype** de optie **Alle toepassingen** en klik op **Toepassen**. Zie [Tenanttoepassingen weergeven](view-applications-portal.md) voor meer informatie over de weergaveopties.
 
-4. U ziet nu een lijst met alle toepassingen in de Azure AD-tenant.  De lijst is een willekeurig voorbeeld. Klik een of meer keren op **Meer weergeven** om meer toepassingen te zien. 
+4. U ziet nu een lijst met alle toepassingen in de Azure AD-tenant. De lijst is een willekeurig voorbeeld. Klik een of meer keren op **Meer weergeven** om meer toepassingen te zien.
 
 5. Als u snel een toepassing wilt vinden in uw tenant, voert u de naam van de toepassing in het zoekvak in en klikt u op **Toepassen**. In dit voorbeeld vinden we de toepassing GitHub-test die we eerder hebben toegevoegd.
 
@@ -104,41 +104,41 @@ De eigenschappen van de toepassing bewerken
 
     ![Blade Eigenschappen bewerken](media/add-application-portal/edit-properties.png)
 
-3. Neem even de tijd om de opties voor aanmelden goed te bestuderen. Met de combinatie van **Ingeschakeld voor gebruikers voor aanmelden**, **Gebruikerstoewijzing vereist** en **Zichtbaar voor gebruiker** wordt bepaald of gebruikers die zijn toegewezen of niet toegewezen aan de toepassing, zich kunnen aanmelden.  Er wordt ook bepaald of een gebruiker de toepassing kan zien in het toegangsvenster. 
+3. Neem even de tijd om de opties voor aanmelden goed te bestuderen. Met de combinatie van **Ingeschakeld voor gebruikers voor aanmelden**, **Gebruikerstoewijzing vereist** en **Zichtbaar voor gebruiker** wordt bepaald of gebruikers die zijn toegewezen of niet toegewezen aan de toepassing, zich kunnen aanmelden. Er wordt ook bepaald of een gebruiker de toepassing kan zien in het toegangsvenster.
 
     - Met **Ingeschakeld voor gebruikers voor aanmelden** wordt bepaald of gebruikers die zijn toegewezen aan de toepassing, zich kunnen aanmelden.
     - Met **Gebruikerstoewijzing vereist** wordt bepaald of gebruikers die niet zijn toegewezen aan de toepassing, zich kunnen aanmelden.
-    - Met **Zichtbaar voor gebruiker** wordt bepaald of gebruikers die zijn toegewezen aan een app, deze kunnen zien in het toegangsvenster en het startprogramma voor O365. 
+    - Met **Zichtbaar voor gebruiker** wordt bepaald of gebruikers die zijn toegewezen aan een app, deze kunnen zien in het toegangsvenster en het startprogramma voor O365.
 
-4. Gebruik de volgende tabellen als hulp bij het kiezen van de opties die het beste passen bij uw behoeften. 
+4. Gebruik de volgende tabellen als hulp bij het kiezen van de opties die het beste passen bij uw behoeften.
 
-     - Gedrag voor **toegewezen** gebruikers:
+    - Gedrag voor **toegewezen** gebruikers:
 
-       | Instellingen voor toepassingseigenschappen | | | Toegewezen gebruikerservaring | |
-       |---|---|---|---|---|
-       | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen toegewezen gebruikers zich aanmelden? | Kunnen toegewezen gebruikers de toepassing zien?* |
-       | ja | ja | ja | ja | ja  |
-       | ja | ja | nee  | ja | nee   |
-       | ja | nee  | ja | ja | ja  |
-       | ja | nee  | nee  | ja | nee   |
-       | nee  | ja | ja | nee  | nee   |
-       | nee  | ja | nee  | nee  | nee   |
-       | nee  | nee  | ja | nee  | nee   |
-       | nee  | nee  | nee  | nee  | nee   |
+        | Instellingen voor toepassingseigenschappen | | | Toegewezen gebruikerservaring | |
+        |---|---|---|---|---|
+        | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen toegewezen gebruikers zich aanmelden? | Kunnen toegewezen gebruikers de toepassing zien?* |
+        | ja | ja | ja | ja | ja  |
+        | ja | ja | nee  | ja | nee   |
+        | ja | nee  | ja | ja | ja  |
+        | ja | nee  | nee  | ja | nee   |
+        | nee  | ja | ja | nee  | nee   |
+        | nee  | ja | nee  | nee  | nee   |
+        | nee  | nee  | ja | nee  | nee   |
+        | nee  | nee  | nee  | nee  | nee   |
 
-     - Gedrag voor **niet-toegewezen** gebruikers:
-  
-       | Instellingen voor toepassingseigenschappen | | | Niet-toegewezen gebruikerservaring | |
-       |---|---|---|---|---|
-       | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen niet-toegewezen gebruikers zich aanmelden? | Kunnen niet-toegewezen gebruikers de toepassing zien?* |
-       | ja | ja | ja | nee  | nee   |
-       | ja | ja | nee  | nee  | nee   |
-       | ja | nee  | ja | ja | nee   |
-       | ja | nee  | nee  | ja | nee   |
-       | nee  | ja | ja | nee  | nee   |
-       | nee  | ja | nee  | nee  | nee   |
-       | nee  | nee  | ja | nee  | nee   |
-       | nee  | nee  | nee  | nee  | nee   |
+    - Gedrag voor **niet-toegewezen** gebruikers:
+
+        | Instellingen voor toepassingseigenschappen | | | Niet-toegewezen gebruikerservaring | |
+        |---|---|---|---|---|
+        | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen niet-toegewezen gebruikers zich aanmelden? | Kunnen niet-toegewezen gebruikers de toepassing zien?* |
+        | ja | ja | ja | nee  | nee   |
+        | ja | ja | nee  | nee  | nee   |
+        | ja | nee  | ja | ja | nee   |
+        | ja | nee  | nee  | ja | nee   |
+        | nee  | ja | ja | nee  | nee   |
+        | nee  | ja | nee  | nee  | nee   |
+        | nee  | nee  | ja | nee  | nee   |
+        | nee  | nee  | nee  | nee  | nee   |
 
     *Kan de gebruiker de toepassing zien in het toegangsvenster en het startprogramma voor Office 365-apps?
 
@@ -157,9 +157,9 @@ Ga als volgt te werk om een aangepast logo te gebruiken:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u geleerd hoe u een galerietoepassing kunt toevoegen aan uw Azure AD-tenant. U hebt geleerd hoe u de eigenschappen van een toepassing kunt bewerken. 
+In deze quickstart hebt u geleerd hoe u een galerietoepassing kunt toevoegen aan uw Azure AD-tenant. U hebt geleerd hoe u de eigenschappen van een toepassing kunt bewerken.
 
-Nu bent u klaar om de toepassing te configureren voor eenmalige aanmelding. 
+Nu bent u klaar om de toepassing te configureren voor eenmalige aanmelding.
 
 > [!div class="nextstepaction"]
 > [Eenmalige aanmelding configureren](configure-single-sign-on-portal.md)

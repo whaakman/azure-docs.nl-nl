@@ -5,118 +5,115 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/15/2017
+ms.topic: tutorial
+ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 07b3c32601d90fdeed1c335c0f36a5ccbdbe4f1d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 5ea4c3928c7bb3ee8250fd7b69ff9646a698fa3b
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446711"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Zelfstudie: Azure Active Directory-integratie met SAP Cloud Platform
 
-In deze zelfstudie leert u hoe u SAP Cloud Platform integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u SAP Cloud Platform met Azure Active Directory (Azure AD) kunt integreren.
+De integratie van SAP Cloud Platform met Azure AD biedt u de volgende voordelen:
 
-SAP Cloud Platform te integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot SAP Cloud Platform.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij SAP Cloud Platform (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot de SAP Cloud Platform heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij SAP Cloud Platform (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met SAP Cloud Platform, moet u de volgende items:
+Voor het configureren van de Azure AD-integratie met SAP Cloud Platform hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een SAP Cloud Platform eenmalige aanmelding ingeschakeld abonnement
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op SAP Cloud Platform waarvoor eenmalige aanmelding is ingeschakeld
 
-Na het voltooien van deze zelfstudie, de Azure AD-gebruikers die u hebt toegewezen aan de SAP Cloud Platform zich één Meld u aan bij de toepassing met behulp van de [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Na het voltooien van deze zelfstudie kunnen de Azure AD-gebruikers die u hebt toegewezen aan SAP Cloud Platform zich aanmelden bij de toepassing met behulp van [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster).
 
 >[!IMPORTANT]
->U moet uw eigen toepassing implementeren of zich abonneert op een toepassing op uw account SAP Cloud Platform voor het testen van eenmalige aanmelding op. In deze zelfstudie wordt een toepassing geïmplementeerd in het account.
+>U moet uw eigen toepassing implementeren of zich abonneren op een toepassing van uw SAP Cloud Platform-account voor het testen van de eenmalige aanmelding. In deze zelfstudie wordt een toepassing geïmplementeerd in het account.
 > 
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
-
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. SAP Cloud Platform uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-sap-cloud-platform-from-the-gallery"></a>SAP Cloud Platform uit de galerie toe te voegen
-Voor het configureren van de integratie van SAP Cloud Platform in Azure AD, moet u SAP Cloud Platform uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* SAP Cloud Platform ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen de SAP Cloud Platform uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-sap-cloud-platform-from-the-gallery"></a>SAP Cloud Platform toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van SAP Cloud Platform met Azure AD moet u SAP Cloud Platform uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Als u SAP Cloud Platform uit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **SAP Cloud Platform**, selecteer **SAP Cloud Platform** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![SAP Cloud Platform in de lijst met resultaten](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met SAP Cloud Platform op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ in het zoekvak **SAP Cloud Platform**, selecteer **SAP Cloud Platform** in het deelvenster met resultaten en klik vervolgens op **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in de SAP Cloud Platform is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in de SAP Cloud Platform tot stand worden gebracht.
+     ![SAP Cloud Platform in de lijst met resultaten](common/search-new-app.png)
 
-In SAP Cloud Platform, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met SAP Cloud Platform, moet u de volgende bouwstenen voltooien:
+In deze sectie configureert en test u Azure AD-eenmalige aanmelding met SAP Cloud Platform op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in SAP Cloud Platform tot stand is gebracht.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker SAP Cloud Platform](#create-a-sap-cloud-platform-test-user)**  : als u wilt een equivalent van Britta Simon hebben in SAP Cloud Platform dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Voor het configureren en testen van eenmalige aanmelding via Azure AD bij SAP Cloud Platform moet u de volgende bouwstenen uitvoeren:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[SAP Cloud Platform-eenmalige aanmelding configureren](#configure-sap-cloud-platform-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor SAP Cloud Platform maken](#create-sap-cloud-platform-test-user)**: als u een equivalent van Britta Simon in SAP Cloud Platform wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing SAP Cloud Platform.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met SAP Cloud Platform, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **SAP Cloud Platform** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voor het configureren van Azure AD-eenmalige aanmelding met SAP Cloud Platform moet u de volgende stappen uitvoeren:
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+1. Selecteer in [Azure Portal](https://portal.azure.com/) op de pagina voor integratie van de **SAP Cloud Platform**-toepassing de optie **Eenmalige aanmelding**.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **SAP Cloud Platform-domein en URL's** sectie, voert u de volgende stappen uit:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![SAP Cloud Platform-domein en URL's, eenmalige aanmelding informatie](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    a. In de **aanmelding URL** tekstvak, type de URL die wordt gebruikt door uw gebruikers zich aanmelden bij uw **SAP Cloud Platform** toepassing. Dit is de account-specifieke URL van een beveiligde bron in uw toepassing SAP Cloud Platform. De URL is gebaseerd op het volgende patroon: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Informatie over eenmalige aanmelding bij het SAP Cloud Platform-domein en URL's](common/sp-identifier-reply.png)
+
+    a. Typ in het tekstvak **Aanmeldings-URL** de URL die wordt gebruikt door uw gebruikers om zich aan te melden bij uw **SAP Cloud Platform**-toepassing. Dit is de accountspecifieke URL van een beveiligde resource in uw SAP Cloud Platform-toepassing. De URL is gebaseerd op de volgende notatie: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
-     >Dit is de URL in uw toepassing met SAP Cloud Platform waarvoor de gebruiker om te verifiëren.
+     >Dit is de URL in uw SAP Cloud Platform-toepassing die vereist is voor verificatie van de gebruiker.
      > 
 
     | |
@@ -124,7 +121,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
     | `https://<subdomain>.hana.ondemand.com/<instancename>` |
 
-    b. In de **id** tekstvak levert u uw SAP Cloud Platform typt u een URL met behulp van een van de volgende patronen: 
+    b. In het tekstvak **Id** voert u in uw SAP Cloud Platform een URL in met een van de volgende notaties: 
 
     | |
     |--|
@@ -133,7 +130,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://us1.hana.ondemand.com/<instancename>` |
     | `https://ap1.hana.ondemand.com/<instancename>` |
 
-    c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon:
+    c. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
 
     | |
     |--|
@@ -146,213 +143,181 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met [SAP Cloud Platform-Client-ondersteuningsteam](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) om aanmeldings-URL en -id te verkrijgen. Antwoord-URL die u kunt ophalen uit de beheersectie vertrouwen die later in de zelfstudie wordt uitgelegd.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met het [SAP Cloud Platform-clientondersteuningsteam](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) om de aanmeldings-URL en id te verkrijgen. De antwoord-URL kunt u ophalen in de sectie vertrouwensbeheer die verderop in de zelfstudie wordt uitgelegd.
     > 
-     
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens** te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-1. Klik op **opslaan** knop.
+### <a name="configure-sap-cloud-platform-single-sign-on"></a>SAP Cloud Platform-eenmalige aanmelding configureren
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
+1. Meld u in een ander browservenster aan bij SAP Cloud Platform Cockpit op `https://account.<landscape host>.ondemand.com/cockpit`(bijvoorbeeld: https://account.hanatrial.ondemand.com/cockpit).
 
-1. In een ander browservenster, meld u aan bij de SAP Cloud Platform Cockpit op `https://account.<landscape host>.ondemand.com/cockpit`(bijvoorbeeld: https://account.hanatrial.ondemand.com/cockpit).
-
-1. Klik op de **vertrouwen** tabblad.
+2. Klik op het tabblad **Vertrouwen**.
    
-    ![Vertrouwen](./media/sap-hana-cloud-platform-tutorial/ic790800.png "vertrouwen")
+    ![Vertrouwen](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Vertrouwen")
 
-1. In de sectie beheer vertrouwen onder **lokale serviceprovider**, voer de volgende stappen uit:
+3. Voer in de sectie Vertrouwensbeheer, onder **Lokale serviceprovider**, de volgende stappen uit:
 
-    ![Beheer vertrouwen](./media/sap-hana-cloud-platform-tutorial/ic793931.png "beheer vertrouwen")
+    ![Vertrouwensbeheer](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Vertrouwensbeheer")
    
     a. Klik op **Bewerken**.
 
-    b. Als **configuratietype**, selecteer **aangepaste**.
+    b. Selecteer als **configuratietype** de optie **Aangepast**.
 
-    c. Als **lokale providernaam**, laat de standaardwaarde staan. Deze waarde kopiëren en plak deze in de **id** veld in de Azure AD-configuratie voor SAP Cloud Platform.
+    c. Laat bij **Lokale providernaam** de standaardwaarde staan. Kopieer de waarde en plak deze in het **id**-veld in de Azure AD-configuratie voor SAP Cloud Platform.
 
-    d. Voor het genereren van een **handtekeningsleutel** en een **certificaat voor ondertekening van** sleutelpaar, klikt u op **sleutelpaar genereren**.
+    d. Klik voor het genereren van een sleutelpaar voor een **ondertekeningssleutel** en **ondertekeningscertificaat** op **Sleutelpaar genereren**.
 
-    e. Als **Principal doorgifte**, selecteer **uitgeschakelde**.
+    e. Selecteer bij **Principal-doorgifte** de optie **Uitgeschakeld**.
 
-    f. Als **Force verificatie**, selecteer **uitgeschakelde**.
+    f. Selecteer bij **Geforceerde verificatie** de optie **Uitgeschakeld**.
 
     g. Klik op **Opslaan**.
 
-1. Nadat ze zijn opgeslagen de **lokale serviceprovider** instellingen, het volgende om op te halen van de antwoord-URL uitvoeren:
+4. Nadat de **Lokale serviceprovider**-instellingen zijn opgeslagen, kunt u de antwoord-URL op de volgende manier verkrijgen:
    
-    ![Metagegevens ophalen](./media/sap-hana-cloud-platform-tutorial/ic793930.png "metagegevens ophalen")
+    ![Metagegevens ophalen](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Metagegevens ophalen")
 
-    a. Het metagegevensbestand van de SAP Cloud Platform downloaden door te klikken op **Ophaalactiviteit voor metagegevens**.
+    a. Download het metagegevensbestand van SAP Cloud Platform door te klikken op **Metagegevens ophalen**.
 
-    b. Open het gedownloade SAP Cloud Platform metagegevens-XML-bestand en zoek vervolgens de **ns3:AssertionConsumerService** tag.
+    b. Open het gedownloade SAP Cloud Platform metagegevens-XML-bestand en zoek vervolgens de tag **ns3:AssertionConsumerService**.
  
-    c. Kopieer de waarde van de **locatie** kenmerk en plak deze in de **antwoord-URL** veld in de Azure AD-configuratie voor SAP Cloud Platform.
+    c. Kopieer de waarde van het kenmerk **Locatie** en plak deze in het veld **Antwoord-URL** in de Azure AD-configuratie voor SAP Cloud Platform.
 
-1. Klik op de **vertrouwde id-Provider** tabblad en klik vervolgens op **vertrouwde id-Provider toevoegen**.
+5. Klik op het tabblad **Vertrouwde id-provider** en klik vervolgens op **Vertrouwde id-provider toevoegen**.
    
-    ![Beheer vertrouwen](./media/sap-hana-cloud-platform-tutorial/ic790802.png "beheer vertrouwen")
+    ![Vertrouwensbeheer](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Vertrouwensbeheer")
    
     >[!NOTE]
-    >Voor het beheren van de lijst met vertrouwde id-providers, moet u het type aangepaste configuratie hebt gekozen in de sectie lokale Service-Provider. Voor het configuratietype standaard hebt u een niet-bewerkbare en impliciete vertrouwensrelatie met de SAP-id-Service. Voor geen hebt u geen vertrouwensrelatie instellingen.
+    >Voor het beheren van de lijst met vertrouwde id-providers moet u het type Aangepaste configuratie hebben gekozen in de sectie Lokale serviceprovider. Voor het standaard configuratietype hebt u een niet-bewerkbare en impliciete vertrouwensrelatie met de SAP-id-service. Voor Geen hebt u geen vertrouwensrelatie-instellingen.
     > 
     > 
 
-1. Klik op de **algemene** tabblad en klik vervolgens op **Bladeren** de van het gedownloade metagegevensbestand te uploaden.
+6. Klik op het tabblad **Algemeen** en vervolgens op **Bladeren** om het gedownloade metagegevensbestand te uploaden.
     
-    ![Beheer vertrouwen](./media/sap-hana-cloud-platform-tutorial/ic793932.png "beheer vertrouwen")
+    ![Vertrouwensbeheer](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Vertrouwensbeheer")
     
     >[!NOTE]
-    >Na het uploaden van het bestand met metagegevens, de waarden voor **-URL met eenmalige aanmelding**, **URL voor eenmalige afmelding**, en **certificaat voor ondertekening van** automatisch worden ingevuld.
+    >Na het uploaden van het metagegevensbestand worden de waarden voor **Eenmalige aanmeldings-URL**, **Eenmalige afmeldings-URL** en **Ondertekeningscertificaat** automatisch ingevuld.
     > 
      
-1. Klik op het tabblad **Kenmerken**.
+7. Klik op het tabblad **Kenmerken**.
 
-1. Op de **kenmerken** tabblad, voert u de volgende stap:
+8. Voer op het tabblad **Kenmerken** de volgende stap uit:
     
-    ![Kenmerken](./media/sap-hana-cloud-platform-tutorial/ic790804.png "kenmerken") 
+    ![Kenmerken](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Kenmerken") 
 
-    a. Klik op **Add Assertion-Based kenmerk**, en voeg de volgende kenmerken op basis van een bevestiging:
+    a. Klik op **Op bevestiging gebaseerd kenmerk toevoegen** en voeg de volgende kenmerken toe op basis van een bevestiging:
        
-    | Bewering kenmerk | Principal-kenmerk |
+    | Bevestigingskenmerk | Principal-kenmerk |
     | --- | --- |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |Voornaam |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |Achternaam |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mailen |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |firstname |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
    
      >[!NOTE]
-     >De configuratie van de kenmerken, is afhankelijk van hoe de toepassing(en) op SCP worden ontwikkeld, dat wil zeggen, welke kenmerken die ze verwachten dat ze in het SAML-antwoord en onder welke naam u (Principal-kenmerk) toegang tot dit kenmerk in de code.
+     >De configuratie van de kenmerken is afhankelijk van hoe de toepassingen op SCP worden ontwikkeld. Dat wil zeggen, welke kenmerken in het SAML-antwoord worden verwacht en onder welke naam (Principal-kenmerk) toegang wordt verleend tot dit kenmerk in de code.
      > 
     
-    b. De **kenmerk standaard** is alleen ter illustratie wordt in de schermafbeelding. Het is niet vereist om te maken van het scenario werkt.  
+    b. Het **Standaardkenmerk** in de schermafbeelding dient slechts ter illustratie. Het is niet vereist om het scenario te laten werken.  
  
-    c. De namen en waarden voor **Principal kenmerk** weergegeven in de schermafbeelding afhankelijk van hoe de toepassing wordt ontwikkeld. Het is mogelijk dat uw toepassing is vereist voor andere toewijzingen.
+    c. De weergegeven namen en waarden voor **Principal-kenmerk** in de schermafbeelding zijn afhankelijk van hoe de toepassing is ontwikkeld. Het is mogelijk dat uw toepassing is vereist voor andere toewijzingen.
 
-### <a name="assertion-based-groups"></a>Groepen op basis van een verklaring
+### <a name="assertion-based-groups"></a>Op bevestiging gebaseerde groepen
 
-Als optionele stap, kunt u groepen op basis van een bewering configureren voor uw identiteitsprovider Azure Active Directory.
+Als optionele stap kunt u groepen op basis van een bevestiging configureren voor uw identiteitsprovider Azure Active Directory.
 
-Met behulp van groepen op de SAP Cloud Platform, kunt u een of meer gebruikers dynamisch toewijzen aan een of meer rollen in uw SAP Cloud Platform-toepassingen, bepaald door de waarden van kenmerken in het SAML 2.0-verklaring. 
+Met behulp van groepen op SAP Cloud Platform kunt u een of meer gebruikers dynamisch toewijzen aan een of meer rollen in uw SAP Cloud Platform-toepassingen, die worden bepaald door de waarden van kenmerken in de SAML 2.0-verklaring. 
 
-Bijvoorbeeld, als de verklaring bevat het kenmerk '*contract = tijdelijke*', kunt u alle betrokken gebruikers worden toegevoegd aan de groep'*tijdelijke*'. De groep '*tijdelijke*' kan een of meer rollen uit een of meer toepassingen die zijn geïmplementeerd in uw account SAP Cloud Platform bevatten.
+Als de bevestiging bijvoorbeeld het kenmerk *contract=tijdelijk* bevat, kunt u alle betrokken gebruikers toevoegen aan de groep *TIJDELIJK*. De groep *TIJDELIJK* kan een of meer rollen bevatten uit een of meer toepassingen die zijn geïmplementeerd in uw SAP Cloud Platform-account.
  
-Groepen op basis van een verklaring gebruiken wanneer u veel gebruikers gelijktijdig toewijzen aan een of meer rollen van toepassingen in uw account SAP Cloud Platform. Als u wilt dat slechts een enkele of een klein aantal gebruikers toewijzen aan specifieke rollen, het beste toegewezen rechtstreeks in de '**autorisaties**"tabblad van de SAP Cloud Platform-cockpit.
+Gebruik op bevestiging gebaseerde groepen wanneer u veel gebruikers gelijktijdig wilt toewijzen aan een of meer rollen van toepassingen in uw SAP Cloud Platform-account. Als u slechts één of een klein aantal gebruikers aan specifieke rollen wilt toewijzen, dan kunt u deze het beste rechtstreeks in het tabblad **Autorisaties** van de SAP Cloud Platform-cockpit toewijzen.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/sap-hana-cloud-platform-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-sap-cloud-platform-test-user"></a>Maak een testgebruiker SAP Cloud Platform
-
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij de SAP Cloud Platform, moet u de rollen in de SAP Cloud Platform aan hen toewijzen.
-
-**Als u wilt een rol toewijzen aan een gebruiker, moet u de volgende stappen uitvoeren:**
-
-1. Meld u aan bij uw **SAP Cloud Platform** cockpit.
-
-1. Het volgende doen:
-   
-    ![Autorisaties](./media/sap-hana-cloud-platform-tutorial/ic790805.png "autorisaties")
-   
-    a. Klik op **autorisatie**.
-
-    b. Klik op de **gebruikers** tabblad.
-
-    c. In de **gebruiker** tekstvak, typ de e-mailadres van de gebruiker.
-
-    d. Klik op **toewijzen** de gebruiker toewijzen aan een rol.
-
-    e. Klik op **Opslaan**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toegang verlenen tot de SAP Cloud Platform.
+In deze sectie zorgt u ervoor dat Britta Simon van eenmalige aanmelding met Azure gebruik kan maken door haar toegang te verlenen tot SAP Cloud Platform.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in Azure Portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **SAP Cloud Platform**.
 
-**Als u wilt toewijzen Britta Simon SAP Cloud platform, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Typ en selecteer **SAP Cloud Platform** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De SAP Cloud Platform-koppeling in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **SAP Cloud Platform**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De SAP Cloud Platform-koppeling in de lijst met toepassingen](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-sap-cloud-platform-test-user"></a>Testgebruiker voor SAP Cloud Platform maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+Als u wilt dat Azure AD-gebruikers zich aanmelden bij SAP Cloud Platform moet u de rollen in SAP Cloud Platform aan hen toewijzen.
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.
+**Als u een rol wilt toewijzen aan een gebruiker, moet u de volgende stappen uitvoeren:**
 
-Wanneer u op de SAP Cloud Platform-tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing SAP Cloud Platform.
+1. Meld u aan bij uw **SAP Cloud Platform**-cockpit.
 
+2. Voer het volgende uit:
+   
+    ![Autorisaties](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Autorisaties")
+   
+    a. Klik op **Autorisatie**.
+
+    b. Klik op het tabblad **Gebruikers**.
+
+    c. Typ in het tekstvak **Gebruiker** het e-mailadres van de gebruiker.
+
+    d. Klik op **Toewijzen** om de gebruiker toe te wijzen aan een rol.
+
+    e. Klik op **Opslaan**.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel SAP Cloud Platform klikt in het toegangsvenster, wordt u automatisch aangemeld bij de instantie van SAP Cloud Platform waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_01.png
-[2]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_02.png
-[3]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_03.png
-[4]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_04.png
-
-[100]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_100.png
-
-[200]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_200.png
-[201]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_201.png
-[202]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_202.png
-[203]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
