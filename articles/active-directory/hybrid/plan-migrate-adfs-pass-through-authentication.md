@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dcb2d1741a8e62bd317881d3f224d3358cad8778
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: c7d236769d5e9adca0402affc2d0eccdf78a6837
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557203"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107749"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>Migreren van Federatie naar pass-through-verificatie voor Azure AD
 Het volgende document bevat richtlijnen over het verplaatsen van AD FS naar pass-through-verificatie.
@@ -121,9 +121,9 @@ Voordat u federatieve converteert naar beheerd, moet u nauw zoeken op hoe u AD F
 |-|-|
 | U wilt behouden van de AD FS voor deze andere toepassingen.| U gaat gebruiken zowel AD FS en Azure AD en moet rekening houden met de eindgebruikerservaring als gevolg hiervan. Gebruikers mogelijk om te verifiëren tweemaal in sommige scenario's, één keer naar Azure AD (waar ze krijgen eenmalige aanmelding en hoger voor andere toepassingen zoals Office 365) en opnieuw voor toepassingen nog steeds gekoppeld aan de AD FS als een relying party. |
 | AD FS is sterk gepersonaliseerde en vertrouwen op specifieke aanpassingsinstellingen in het bestand OnLoad.js die in Azure AD kan niet worden gedupliceerd (bijvoorbeeld, u hebt gewijzigd de aanmeldingsprocedure zodat gebruikers alleen SamAccountName-indeling voor hun gebruikersnaam invoeren dus aan een UPN of hebben een sterk merknaam de aanmeldingservaring)| U moet controleren dat de aanpassingsvereisten van uw huidige kunnen worden voldaan door Azure AD voordat u doorgaat. Raadpleeg de huisstijl van AD FS en AD FS-aanpassing secties voor meer informatie over en richtlijnen.|
-| U blokkeren oudere verificatieclients via AD FS.| Houd rekening met het vervangen van de besturingselementen voor het blokkeren van oudere verificatieclients die momenteel aanwezig zijn op de AD FS met een combinatie van [voorwaardelijke toegang voor oudere verificatie besturingselementen](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) en [Exchange Online Client Access Regels](http://aka.ms/EXOCAR). |
+| U blokkeren oudere verificatieclients via AD FS.| Houd rekening met het vervangen van de besturingselementen voor het blokkeren van oudere verificatieclients die momenteel aanwezig zijn op de AD FS met een combinatie van [voorwaardelijke toegang voor oudere verificatie besturingselementen](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) en [Exchange Online Client Access Regels](https://aka.ms/EXOCAR). |
 | U vereisen dat gebruikers MFA tegen een on-premises MFA-server-oplossing uitvoeren bij het verifiëren van de AD FS.| Kunt u zich niet aan het invoeren van een MFA-controle via de on-premises MFA-oplossing in de authenticatiestroom voor een beheerd domein, maar u de Azure MFA-service gebruiken kunt om dit te doen voortaan zodra het domein wordt geconverteerd. Als gebruikers Azure MFA niet momenteel gebruiken, wordt dit een eenmalige eindgebruikers registratiestap die u moet voorbereiden en communiceren aan uw eindgebruikers inhouden. |
-| U beleid voor toegangsbeheer (AuthZ-regels) momenteel gebruikt in AD FS voor het beheren van toegang tot Office 365.| Houd rekening met het vervangen van deze met de equivalente Azure AD [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) en [toegangsregels voor Exchange Online clients](http://aka.ms/EXOCAR).|
+| U beleid voor toegangsbeheer (AuthZ-regels) momenteel gebruikt in AD FS voor het beheren van toegang tot Office 365.| Houd rekening met het vervangen van deze met de equivalente Azure AD [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) en [toegangsregels voor Exchange Online clients](https://aka.ms/EXOCAR).|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Overwegingen voor de algemene AD FS-aanpassingen
 
@@ -333,7 +333,7 @@ De conversie wordt uitgevoerd met behulp van de Azure AD PowerShell-Module.
 
 Als uw tenant is gebruikmaakt van Federatie, zijn gebruikers van de aanmeldingspagina van Azure AD ophalen omgeleid naar uw AD FS-omgeving. Nu dat de tenant is geconfigureerd voor het gebruik van Pass through-verificatie in plaats van de Federatie, worden gebruikers niet wordt u omgeleid naar AD FS en in plaats daarvan wordt aan rechtstreeks via de Azure AD-aanmeldingspagina.
 
-Open Internet Explorer in InPrivate-modus om te voorkomen dat naadloze eenmalige aanmelding automatisch aanmelden en Ga naar de aanmeldingspagina van Office 365 ([http://portal.office.com](http://portal.office.com/)). Type de **UPN** van uw gebruiker en klik op **volgende**. Zorg ervoor dat u de UPN van een hybride-gebruiker die is gesynchroniseerd vanuit uw on-premises Active Directory en die eerder is gefedereerd typt. De gebruiker ziet het scherm te typen in hun gebruikersnaam en wachtwoord.
+Open Internet Explorer in InPrivate-modus om te voorkomen dat naadloze eenmalige aanmelding automatisch aanmelden en Ga naar de aanmeldingspagina van Office 365 ([https://portal.office.com](https://portal.office.com/)). Type de **UPN** van uw gebruiker en klik op **volgende**. Zorg ervoor dat u de UPN van een hybride-gebruiker die is gesynchroniseerd vanuit uw on-premises Active Directory en die eerder is gefedereerd typt. De gebruiker ziet het scherm te typen in hun gebruikersnaam en wachtwoord.
 
 ![Afbeelding 18](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
 
