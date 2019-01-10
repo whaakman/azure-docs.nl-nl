@@ -1,25 +1,25 @@
 ---
-title: Detectie van bedreigingen - Azure SQL Database Managed Instance | Microsoft Docs
+title: Configureren van detectie van bedreigingen - Azure SQL Database Managed Instance | Microsoft Docs
 description: Threat Detection detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's met de database in een beheerd exemplaar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: c59d0ea489343dbf748412910c4f759f601de0e2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042373"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158666"
 ---
-# <a name="azure-sql-database-managed-instance-threat-detection-preview"></a>Azure SQL Database Managed Instance detectie van bedreigingen (Preview)
+# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Detectie van bedreigingen (Preview) in beheerd exemplaar voor Azure SQL Database configureren
 
 Azure SQL [detectie van bedreigingen](sql-database-threat-detection-overview.md) voor [SQL Database Managed Instance](sql-database-managed-instance-index.yml) detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven. Detectie van bedreigingen kunt identificeren **mogelijke SQL-injectie**, **toegang vanaf ongebruikelijke locatie of data center**, **toegang vanaf onbekende principal of mogelijk schadelijke toepassing**, en **Brute force SQL-referenties** -Zie voor meer informatie [Threat Protection-waarschuwingen](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 

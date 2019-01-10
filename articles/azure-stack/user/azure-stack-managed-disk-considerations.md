@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050163"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159363"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack-beheerde schijven: de verschillen en overwegingen met betrekking tot
 
@@ -29,7 +29,7 @@ In dit artikel bevat een overzicht van de bekende verschillen tussen [Azure Stac
 Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer van de [opslagaccounts](../azure-stack-manage-storage-accounts.md) die zijn gekoppeld aan de VM-schijven.
 
 > [!Note]  
-> Beheerde schijven in Azure Stack is beschikbaar via release 1808.
+> Beheerde schijven in Azure Stack is beschikbaar via 1808 update. Dit is standaard ingeschakeld tijdens het maken van virtuele machines met behulp van de Azure Stack-portal van 1811 update.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Overzichtskaart: Beheerde schijf verschillen
@@ -37,7 +37,7 @@ Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer va
 | Functie | Azure (wereldwijd) | Azure Stack |
 | --- | --- | --- |
 |Versleuteling van Data-at-Rest |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker-128-bits AES-versleuteling      |
-|Installatiekopie          | Ondersteuning voor beheerde aangepaste installatiekopie |Nog niet ondersteund|
+|Afbeelding          | Ondersteuning voor beheerde aangepaste installatiekopie |Nog niet ondersteund|
 |Opties voor back-up |Ondersteuning voor Azure Backup-Service |Nog niet ondersteund |
 |Opties voor herstel na noodgevallen |Ondersteuning voor Azure Site Recovery |Nog niet ondersteund|
 |Schijftypen     |Premium SSD, Standard-SSD (Preview) en Standard HDD |Premium SSD, standaard harde schijven |
@@ -52,7 +52,7 @@ Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer va
 > [!NOTE]  
 > Beheerde schijven IOPs en doorvoer in Azure Stack is een maximum aantal in plaats van een ingerichte nummer, dat mogelijk beïnvloed door de hardware- en workloads die worden uitgevoerd in Azure Stack.
 
-## <a name="metrics"></a>Metrische gegevens
+## <a name="metrics"></a>Metrieken
 
 Er zijn ook verschillen met metrische gegevens over opslag:
 
@@ -67,7 +67,7 @@ Azure Stack Managed Disks ondersteunt de volgende API-versies:
 
 ## <a name="known-issues"></a>Bekende problemen
 
-Na het toepassen van de [1811 bijwerken](../azure-stack-update-1811.md), kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
+Na het toepassen van updates na 1808, kunt u de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
 
 - Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
    1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.

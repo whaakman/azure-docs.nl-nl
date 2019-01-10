@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 45d3ee88706c1818cf519daad2bff1704b5d6120
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 07614147189732223f972c1f66bb6562280d3f39
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713587"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159584"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Gebruik automatische inrichting van Azure IoT Hub Device Provisioning Service voor het registreren van de MXChip IoT DevKit met IoT Hub
 
@@ -129,7 +129,7 @@ Druk op de **opnieuw** knop op uw DevKit. U ziet **DPS verbonden!** op het scher
 Als u problemen ondervindt, raadpleegt u de Iot DevKit [Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/), of contact opnemen met de volgende kanalen voor ondersteuning:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen
 

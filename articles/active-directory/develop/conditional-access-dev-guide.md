@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 9f0a4369d794eda047185844d5fafa49bc8a2e0d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24644faab85305f18fe4b657d3e982a306a41c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337917"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157068"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
 
 De functie voor voorwaardelijke toegang in Azure Active Directory (Azure AD) biedt verschillende manieren die u gebruiken kunt voor het beveiligen van uw app en het beveiligen van een service. Voorwaardelijke toegang kan ontwikkelaars en enterprise-klanten services in een groot aantal manieren beveiligen:
 
-* Multi-Factor Authentication
+* Meervoudige verificatie
 * Zodat alleen Intune ingeschreven apparaten toegang krijgen tot specifieke services
 * Beperken van de gebruikerslocaties en IP-bereiken
 
@@ -92,11 +92,11 @@ De volgende secties worden besproken algemene scenario's die, hoe complexer. De 
 
 ## <a name="scenario-app-accessing-microsoft-graph"></a>Scenario: App-toegang tot Microsoft Graph
 
-In dit scenario leert u hoe de toegang tot Microsoft Graph voor het aanvragen van een web-app. Het beleid voor voorwaardelijke toegang kan in dit geval worden toegewezen aan SharePoint, Exchange, of een andere service die wordt gebruikt als een werkbelasting via Microsoft Graph. In dit voorbeeld gaan we wordt ervan uitgegaan dat er is een beleid voor voorwaardelijke toegang voor Sharepoint Online.
+In dit scenario leert u hoe de toegang tot Microsoft Graph voor het aanvragen van een web-app. Het beleid voor voorwaardelijke toegang kan in dit geval worden toegewezen aan SharePoint, Exchange, of een andere service die wordt gebruikt als een werkbelasting via Microsoft Graph. In dit voorbeeld gaan we wordt ervan uitgegaan dat er is een beleid voor voorwaardelijke toegang voor SharePoint Online.
 
 ![App-toegang tot Microsoft Graph-stroomdiagram](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-De app de eerste keer aanvraagt autorisatie voor Microsoft Graph waarvoor toegang tot een downstream workload zonder voorwaardelijke toegang. De aanvraag is geslaagd zonder het aanroepen van een beleid en de app ontvangt tokens voor Microsoft Graph. De app kan het toegangstoken op dit moment gebruiken in een bearer-aanvraag voor het eindpunt dat is aangevraagd. De app moet nu toegang tot een Sharepoint Online-eindpunt van Microsoft Graph, bijvoorbeeld: `https://graph.microsoft.com/v1.0/me/mySite`
+De app de eerste keer aanvraagt autorisatie voor Microsoft Graph waarvoor toegang tot een downstream workload zonder voorwaardelijke toegang. De aanvraag is geslaagd zonder het aanroepen van een beleid en de app ontvangt tokens voor Microsoft Graph. De app kan het toegangstoken op dit moment gebruiken in een bearer-aanvraag voor het eindpunt dat is aangevraagd. De app moet nu toegang tot een SharePoint Online-eindpunt van Microsoft Graph, bijvoorbeeld: `https://graph.microsoft.com/v1.0/me/mySite`
 
 De app heeft al een geldig token voor Microsoft Graph, zodat deze de nieuwe aanvraag uitvoeren kunt zonder een nieuw token wordt uitgegeven. Deze aanvraag is mislukt en een uitdaging claims is uitgegeven door Microsoft Graph in de vorm van een HTTP 403-verboden met een ```WWW-Authenticate``` uitdaging.
 
@@ -108,7 +108,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-De uitdaging claims bevindt zich in de ```WWW-Authenticate``` koptekst, die kan worden geparseerd om op te halen van de claims-parameter voor de volgende aanvraag. Zodra deze wordt toegevoegd aan de nieuwe aanvraag, Azure AD kent om te evalueren van het beleid voor voorwaardelijke toegang bij de aanmelding bij de gebruiker en de app is nu in overeenstemming met het beleid voor voorwaardelijke toegang. De aanvraag voor het eindpunt van de Sharepoint Online herhalende slaagt.
+De uitdaging claims bevindt zich in de ```WWW-Authenticate``` koptekst, die kan worden geparseerd om op te halen van de claims-parameter voor de volgende aanvraag. Zodra deze wordt toegevoegd aan de nieuwe aanvraag, Azure AD kent om te evalueren van het beleid voor voorwaardelijke toegang bij de aanmelding bij de gebruiker en de app is nu in overeenstemming met het beleid voor voorwaardelijke toegang. De aanvraag voor het eindpunt van de SharePoint Online herhalende slaagt.
 
 De ```WWW-Authenticate``` header heeft een unieke structuur en is geen pretje om parseren om de waarden ophalen. Hier volgt een korte methode om u te helpen.
 

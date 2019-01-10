@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 408d43f07179f9f18c05f22fdd4ea36a3a90cb49
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5f71e104e97ab886483d50760f0a42936a16717
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076049"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157306"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache en implementatie van de Server voor webinhoud op Azure Virtual machines
 
@@ -331,7 +331,7 @@ U kunt de bijgewerkte lijst van SAP MaxDB documentatie vinden in de volgende SAP
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Richtlijnen voor SAP MaxDB voor SAP-installaties in Azure VM 's
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Opslagconfiguratie
-Aanbevolen procedures van de Azure-opslag voor SAP MaxDB gaat u als volgt de algemene aanbevelingen die worden vermeld in het hoofdstuk [structuur van de implementatie van een RDBMS][dbms-guide-2].
+Aanbevolen procedures van de Azure-opslag voor SAP MaxDB gaat u als volgt de algemene aanbevelingen die worden vermeld in het hoofdstuk [opslagstructuur van een virtuele machine voor RDBMS implementaties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Net als andere databases heeft SAP MaxDB ook gegevens en logboekbestanden. De juiste term is echter in de SAP-MaxDB terminologie "volume" (niet ' file'). Er zijn bijvoorbeeld SAP MaxDB hoeveelheden gegevens en logboekvolumes. Verwar deze OS schijfvolumes niet. 
@@ -458,7 +458,7 @@ Hier hebt u twee opties:
 
 1. **Client is een SAP-systeem voor back-end** als een back-end SAP-systeem is geconfigureerd voor toegang tot inhoud SAP-Server, die SAP-systeem is een client. Als zowel de SAP-systeem en de SAP-Server voor webinhoud zijn geïmplementeerd in dezelfde Azure-regio, in de dezelfde Azure-datacenter, gebruikers die zich fysiek dicht bij elkaar. Er is daarom niet nodig om een speciale Server voor de SAP-Cache. SAP-UI-clients (SAP-GUI of web browser) rechtstreeks toegang hebben tot de SAP-systeem en de SAP-systeem documenten opgehaald uit de SAP-Server voor webinhoud.
 2. **Client is een on-premises-webbrowser** de SAP-inhoudsserver kan worden geconfigureerd voor het rechtstreeks door de webbrowser worden geopend. In dit geval is een webbrowser die on-premises uitgevoerd een client van de SAP-Server voor webinhoud. On-premises datacenter en Azure-datacenter worden geplaatst op verschillende fysieke locaties (in het ideale geval dicht bij elkaar). Uw on-premises datacenter is verbonden met Azure via Azure Site-naar-Site VPN of ExpressRoute. Hoewel beide opties beveiligde VPN-netwerkverbinding naar Azure bieden, biedt site-naar-site-netwerkverbinding een SLA van netwerk bandbreedte en de latentie tussen het on-premises datacenter en de Azure-datacenter. Als u wilt versnellen toegang tot documenten, kunt u het volgende doen:
-   1. De cacheserver SAP on-premises installeert, dicht bij de on-premises web browser (op de optie [dit] [ dbms-guide-900-sap-cache-server-on-premises] afbeelding)
+   1. De cacheserver SAP on-premises installeert, dicht bij de on-premises web browser (optie in de afbeelding hieronder)
    2. Configureer Azure ExpressRoute biedt een hoge en lage latentie toegewezen netwerkverbinding tussen on-premises datacenter en Azure-datacenter.
 
 ![Optie voor het installeren van de cacheserver SAP on-premises](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
@@ -469,7 +469,7 @@ Als u de SAP-Server voor webinhoud voor het opslaan van bestanden in de database
 
 Als u de SAP-Server voor webinhoud voor het opslaan van bestanden in het bestandssysteem is geconfigureerd, wordt een optie is voor het uitvoeren van handmatige back-up of herstellen van de structuur van het hele bestand waar de documenten moeten zich bevinden. Net als bij SAP MaxDB back-up/herstel, het is aanbevolen dat een toegewezen schijfvolume voor back-doel. 
 
-#### <a name="other"></a>Overige
+#### <a name="other"></a>Anders
 Andere inhoud SAP-Server-instellingen zijn transparant voor de Azure-VM's en worden beschreven in verschillende documenten en SAP-opmerkingen:
 
 * <https://service.sap.com/contentserver> 

@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580033"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159924"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Back-up van SAP HANA op basis van opslagmomentopnamen
 
@@ -52,7 +52,7 @@ Op de schijf wordt de momentopname weergegeven in de map voor SAP HANA-gegevens.
 
 Een heeft om ervoor te zorgen dat de consistentie van bestandssysteem ook voordat de storage-momentopname worden uitgevoerd terwijl SAP HANA in de modus voor het voorbereiden van momentopname is is gegarandeerd. Zie _SAP HANA-gegevensconsistentie bij het nemen van opslagmomentopnamen_ in het bijbehorende artikel [back-uphandleiding voor SAP HANA op Azure Virtual Machines](sap-hana-backup-guide.md).
 
-Nadat de storage-momentopname is voltooid, is het essentieel is voor het bevestigen van de SAP HANA-momentopname. Er is een bijbehorende SQL-instructie om uit te voeren: back-up gegevens sluiten te maken (Zie [gegevens sluiten MOMENTOPNAME instructie BACKUP (back-up en herstel)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
+Nadat de storage-momentopname is voltooid, is het essentieel is voor het bevestigen van de SAP HANA-momentopname. Er is een bijbehorende SQL-instructie om uit te voeren: Back-up gegevens sluiten te maken (Zie [gegevens sluiten MOMENTOPNAME instructie BACKUP (back-up en herstel)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
 
 > [!IMPORTANT]
 > Controleer of de HANA-momentopname. Vanwege &quot;kopiëren bij schrijven&quot; SAP HANA mogelijk extra schijfruimte in snapshot-voorbereiden modus en het is niet mogelijk om te starten van nieuwe back-ups totdat de SAP HANA-momentopname is bevestigd.
@@ -88,7 +88,7 @@ Azure Backup bestaat uit vier belangrijke fasen:
 
 Voor meer informatie over waar u deze scripts kopiëren en meer informatie over hoe Azure Backup precies werkt, controleert u de volgende artikelen:
 
-- [Plannen van uw VM-back-upinfrastructuur in Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+- [De infrastructuur voor back-ups van VM's in Azure plannen](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 - [Toepassingsconsistente back-up van Azure Linux VM 's](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 

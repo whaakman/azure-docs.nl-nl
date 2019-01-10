@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 268ac55988212a82a0b9a045e02daaf8248f3bcd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b69709008e6238e6a1e9ac80121b22d2c6c095a7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964042"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156456"
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Een toepassingsgateway maken met een VM-schaalset met behulp van de Azure CLI
 
@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myPublicIPSddress*, die u zojuist hebt gemaakt. 
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De application gateway is toegewezen aan *myAGSubnet* en *myPublicIPAddress* die u eerder hebt gemaakt. 
 
 ```azurecli-interactive
 az network application-gateway create \

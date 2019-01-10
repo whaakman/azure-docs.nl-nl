@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: 87091cf3d128eecdbbf06a41d516f13e590338b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 038b1d9fa319837f3877c20c9fc3b1b83970e7b4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788409"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158615"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>IoT DevKit AZ3166 met Azure Functions en Cognitive Services gebruiken om te maken van een vertaler
 
@@ -126,7 +126,7 @@ Op het scherm van het resultaat vertaling kunt u het volgende doen:
 
 - Druk op de knop B om te communiceren. Als u wilt de stem verzenden en ophalen van de vertaalde tekst, laat u de B-knop.
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe het werkt
 
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
@@ -137,7 +137,7 @@ De IoT DevKit registreert uw stem vervolgens plaatst een HTTP-aanvraag aan Azure
 Als u problemen ondervindt, raadpleegt u de [IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of contact opnemen met ons opnemen met behulp van de volgende kanalen:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen
 

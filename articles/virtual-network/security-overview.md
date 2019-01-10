@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: b6b3111928baf7fa52a5d87d818e15302b96e790
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025892"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159057"
 ---
 # <a name="security-groups"></a>Beveiligingsgroepen
 <a name="network-security-groups"></a>
@@ -71,15 +71,18 @@ Uitgebreide beveiligingsregels vereenvoudigen de beveiligingsdefinitie voor virt
 * **MicrosoftContainerRegistry** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Microsoft-containerregister aangeduid. Als u *MicrosoftContainerRegistry* opgeeft als waarde, wordt verkeer naar MicrosoftContainerRegistry toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot MicrosoftContainerRegistry in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling MicrosoftContainerRegistry.[regionaam] specificeren. 
 * **AzureContainerRegistry** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure Container Registry aangeduid. Als u *AzureContainerRegistry* opgeeft als waarde, wordt verkeer naar AzureContainerRegistry toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot AzureContainerRegistry in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling AzureContainerRegistry.[regionaam] specificeren. 
 * **AppService** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure App Service aangeduid. Als u *AppService* opgeeft als waarde, wordt verkeer naar AppService toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot AppService in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling AppService.[regionaam] specificeren. 
-* **AppServiceManagement** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service App-servicebeheer van Azure aangeduid. Als u *AppServiceManagement* opgeeft als waarde, wordt verkeer naar AppServiceManagement toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot AppServiceManagement in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling AppServiceManagement.[regionaam] specificeren. 
-* **ApiManagement** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure API Management aangeduid. Als u *ApiManagement* opgeeft als waarde, wordt verkeer naar ApiManagement toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot ApiManagement in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling ApiManagement.[regionaam] specificeren. 
+* **AppServiceManagement** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service App-servicebeheer van Azure aangeduid. Als u *AppServiceManagement* opgeeft als waarde, wordt verkeer naar AppServiceManagement toegestaan of geweigerd. 
+* **ApiManagement** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure API Management aangeduid. Als u *ApiManagement* opgeeft als waarde, wordt verkeer naar ApiManagement toegestaan of geweigerd.  
 * **AzureConnectors** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure-connectors aangeduid. Als u *AzureConnectors* opgeeft als waarde, wordt verkeer naar AzureConnectors toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot AzureConnectors in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling AzureConnectors.[regionaam] specificeren. 
-* **GatewayManager** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Gatewaybeheer van Azure aangeduid. Als u *GatewayManager* opgeeft als waarde, wordt verkeer naar GatewayManager toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot GatewayManager in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling GatewayManager.[regionaam] specificeren. 
+* **GatewayManager** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Gatewaybeheer van Azure aangeduid. Als u *GatewayManager* opgeeft als waarde, wordt verkeer naar GatewayManager toegestaan of geweigerd.  
 * **AzureDataLake** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure Data Lake aangeduid. Als u *AzureDataLake* opgeeft als waarde, wordt verkeer naar AzureDataLake toegestaan of geweigerd. 
 * **AzureActiveDirectory** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure Active Directory aangeduid. Als u *AzureActiveDirectory* opgeeft als waarde, wordt verkeer naar AzureActiveDirectory toegestaan of geweigerd.  
+* **AzureMonitor** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de service AzureMonitor. Als u opgeeft *AzureMonitor* voor de waarde moet verkeer is toegestaan of geweigerd voor AzureMonitor. 
+* **Service fabric** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de service fabric-service. Als u opgeeft *ServiceFabric* voor de waarde moet verkeer is toegestaan of geweigerd voor service fabric. 
+* **AzureMachineLearning** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de service AzureMachineLearning. Als u opgeeft *AzureMachineLearning* voor de waarde moet verkeer is toegestaan of geweigerd voor AzureMachineLearning. 
 
 > [!NOTE]
-> Met servicetags van Azure-services worden de adresvoorvoegsels aangeduid van de specifieke cloud die wordt gebruikt. Regionale servicetags worden niet ondersteund op nationale clouds, alleen in de algemene indeling. Bijvoorbeeld *Storage* en *Sql*.
+> Met servicetags van Azure-services worden de adresvoorvoegsels aangeduid van de specifieke cloud die wordt gebruikt. 
 
 > [!NOTE]
 > Als u een [service-eindpunt voor een virtueel netwerk](virtual-network-service-endpoints-overview.md) voor een service als Azure Storage of Azure SQL Database implementeert, wordt een [route](virtual-networks-udr-overview.md#optional-default-routes) naar een virtueel netwerksubnet voor de service toegevoegd. De adresvoorvoegsels in de route zijn dezelfde adresvoorvoegsels (of CIDR-bereiken) als de bijbehorende servicetag.
@@ -92,19 +95,19 @@ Azure maakt de volgende standaardregels in elke netwerkbeveiligingsgroep die u m
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioriteit|Bron|Bronpoorten|Doel|Doelpoorten|Protocol|Access|
+|Prioriteit|Bron|Bronpoorten|Bestemming|Doelpoorten|Protocol|Toegang|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alle|Toestaan|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioriteit|Bron|Bronpoorten|Doel|Doelpoorten|Protocol|Access|
+|Prioriteit|Bron|Bronpoorten|Bestemming|Doelpoorten|Protocol|Toegang|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alle|Toestaan|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioriteit|Bron|Bronpoorten|Doel|Doelpoorten|Protocol|Access|
+|Prioriteit|Bron|Bronpoorten|Bestemming|Doelpoorten|Protocol|Toegang|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alle|Weigeren|
 
@@ -112,19 +115,19 @@ Azure maakt de volgende standaardregels in elke netwerkbeveiligingsgroep die u m
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Bron|Bronpoorten| Bestemming | Doelpoorten | Protocol | Toegang |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alle | Toestaan |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Bron|Bronpoorten| Bestemming | Doelpoorten | Protocol | Toegang |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alle | Toestaan |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Bron|Bronpoorten| Bestemming | Doelpoorten | Protocol | Toegang |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alle | Weigeren |
 
@@ -144,7 +147,7 @@ In de vorige afbeelding zijn *NIC1* en *NIC2* leden van de toepassingsbeveiligin
 
 Deze regel is vereist om verkeer van internet naar de webservers te laten lopen. Binnenkomend verkeer van internet wordt geweigerd door de standaardbeveiligingsregel [DenyAllInbound](#denyallinbound). Daarom is er geen extra regel nodig voor de toepassingsbeveiligingsgroepen *AsgLogic* of *AsgDb*.
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Bron|Bronpoorten| Bestemming | Doelpoorten | Protocol | Toegang |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Toestaan |
 
@@ -152,7 +155,7 @@ Deze regel is vereist om verkeer van internet naar de webservers te laten lopen.
 
 De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat communicatie toe tussen resources in hetzelfde virtuele netwerk. Daarom is deze regel vereist voor het weigeren van verkeer dat van een willekeurige resource afkomstig is.
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Bron|Bronpoorten| Bestemming | Doelpoorten | Protocol | Toegang |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alle | Weigeren |
 
@@ -160,7 +163,7 @@ De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat commun
 
 Deze regel staat verkeer toe van de toepassingsbeveiligingsgroep *AsgLogic* naar de toepassingsbeveiligingsgroep *AsgDb*. De prioriteit voor deze regel is hoger dan de prioriteit voor de regel *Deny-Database-All*. Als gevolg hiervan wordt deze regel verwerkt vóór de regel *Deny-Database-All*, zodat verkeer van de toepassingsbeveiligingsgroep *AsgLogic* wordt toegestaan, terwijl al het andere verkeer wordt geblokkeerd.
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Bron|Bronpoorten| Bestemming | Doelpoorten | Protocol | Toegang |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Toestaan |
 

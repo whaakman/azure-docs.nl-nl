@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: c5437833bdf4e670c298c1be0a575bd52df49cd2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4483d71ba745cc5cbb49d22420d83c3b2ceae0ad
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994898"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157017"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met de externe omleiding met de Azure CLI
 
@@ -65,7 +65,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gateway#create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myPublicIPSddress*, die u zojuist hebt gemaakt. 
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway#create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De application gateway is toegewezen aan *myAGSubnet* en *myPublicIPAddress* die u eerder hebt gemaakt. 
 
 ```azurecli-interactive
 az network application-gateway create \

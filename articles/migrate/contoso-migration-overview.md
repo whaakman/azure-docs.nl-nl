@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f18af40c67195ee2e1e74c04c0834eea06fb14d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1f5eb085239ac985aa3355b1e91dac9639827339
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191951"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155072"
 ---
 # <a name="contoso-migration-overview"></a>Migratie van Contoso: Overzicht
 
@@ -39,7 +39,7 @@ Strategieën voor migratie naar de cloud kunnen worden onderverdeeld in vier hoo
 **Opnieuw hosten** | Vaak aangeduid als een 'lift-and-shift'-migratie. Deze optie vereist geen code hoeft te wijzigen en laten we u uw bestaande apps migreren naar Azure snel. Elke app is gemigreerd is, naar de vruchten plukken van de cloud, zonder het risico en de kosten die gepaard gaan met de code hoeft te wijzigen. | Wanneer u moet apps snel naar de cloud verplaatsen.<br/><br/> Als u wilt verplaatsen van een app zonder het te wijzigen.<br/><br/> Als uw apps zijn zodanig ontworpen dat ze kunnen gebruikmaken van [Azure IaaS](https://azure.microsoft.com/overview/what-is-iaas/) schaalbaarheid na de migratie.<br/><br/> Wanneer apps zijn belangrijk voor uw bedrijf, maar u hoeft geen directe wijzigingen in de app-mogelijkheden.
 **Herstructureren** | Vaak aangeduid als "opnieuw verpakken", herstructurering vereist, is de minimale wijzigingen in apps, zodat ze verbinding met maken kunnen [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/), en gebruik van cloudaanbiedingen.<br/><br/> Bijvoorbeeld, kon u bestaande apps migreren naar Azure App Service of Azure Kubernetes Service (AKS).<br/><br/> Of u relationele en niet-relationele databases kan herstructureren in opties, zoals Azure SQL Database Managed Instance, Azure Database for MySQL, Azure Database voor PostgreSQL en Azure Cosmos DB. | Als uw app kan eenvoudig worden gebruikt om te werken in Azure.<br/><br/> Als u wilt toepassen innovatieve DevOps-praktijken die door Azure, of u erover denkt over DevOps met behulp van een strategie voor een container voor werkbelastingen.<br/><br/> Voor de herstructurering, moet u om na te denken over de draagbaarheid van uw bestaande codebasis en vaardigheden in webontwikkeling beschikbaar.
 **Opnieuw modelleren** | Opnieuw voor de migratie is gericht op aanpassen en uitbreiden van app-functionaliteit en de codebasis het optimaliseren van de app-architectuur voor cloudschaalbaarheid van de.<br/><br/> U kunt bijvoorbeeld een monolithische toepassing in een groep van microservices die samenwerken en schaal eenvoudig opsplitsen.<br/><br/> Of u kunt opnieuw modelleren relationele en niet-relationele databases naar een volledig beheerde DBaaS-oplossingen, zoals Azure SQL Database Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL en Azure Cosmos DB. | Wanneer belangrijke wijzigingen op te nemen van nieuwe mogelijkheden en efficiënt werken op een platform nodig hebt in uw apps.<br/><br/> Als u gebruiken van bestaande investeringen in de toepassing wilt, voldoen aan de vereisten voor schaalbaarheid, innovatieve Azure DevOps-praktijken toepassen en zo het gebruik van virtuele machines.
-**Opnieuw maken** | Opnieuw opbouwen duurt dingen een stap verder door het opnieuw opbouwen van een app maken met Azure-cloud-technologieën.<br/><br/> U kunt bijvoorbeeld groen veld apps met cloud-eigen technologieën zoals Azure Functions, Azure AI, Azure SQL Database Managed Instance en Azure Cosmos DB bouwen. | Als u wilt dat snelle ontwikkeling en bestaande apps hebben beperkte functionaliteit en levensduur.<br/><br/> Wanneer u bent klaar om te versnellen van innovatie van zakelijke (met inbegrip van DevOps-praktijken verstrekt door Azure), nieuwe toepassingen met behulp van technologieën voor cloudtoepassingen te bouwen en te profiteren van verbeteringen in AI, Blockchains en IoT.
+**Opnieuw maken** | Opnieuw opbouwen duurt dingen een stap verder door het opnieuw opbouwen van een app maken met Azure-cloud-technologieën.<br/><br/> U kunt bijvoorbeeld groen veld apps met bouwen [cloud-eigen](http://azure.com/cloudnative) technologieën, zoals Azure Functions, Azure AI, Azure SQL Database Managed Instance en Azure Cosmos DB. | Als u wilt dat snelle ontwikkeling en bestaande apps hebben beperkte functionaliteit en levensduur.<br/><br/> Wanneer u bent klaar om te versnellen van innovatie van zakelijke (met inbegrip van DevOps-praktijken verstrekt door Azure), nieuwe toepassingen met behulp van technologieën voor cloudtoepassingen te bouwen en te profiteren van verbeteringen in AI, Blockchains en IoT.
 
 ## <a name="migration-articles"></a>Migratieartikelen
 

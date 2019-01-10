@@ -3,8 +3,8 @@ title: SAP NetWeaver testen op Microsoft Azure SUSE Linux VM's | Microsoft Docs
 description: SAP NetWeaver testen op Microsoft Azure SUSE Linux VM's
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
-ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 032ab2a221f64d01af25056a4eff3ee3384de0c3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950043"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157221"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>SAP NetWeaver uitvoeren op Microsoft Azure SUSE Linux VM's
-Dit artikel beschrijft de verschillende dingen die u moet overwegen wanneer u SAP NetWeaver op virtuele Microsoft Azure SUSE Linux-machines (VM's) uitvoert. SAP NetWeaver wordt vanaf 19 mei 2016 officieel ondersteund op SUSE Linux VM's in Azure. Alle gegevens met betrekking tot Linux-versies, SAP-kernel-versies en andere vereisten kunnen u vinden in de SAP-notitie 1928533 "SAP-toepassingen op Azure: ondersteunde producten en typen Azure VM's '.
-Meer documentatie over SAP op Linux-VM's vindt u hier: [SAP op virtuele Linux-machines (VM's) met behulp van](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Dit artikel beschrijft de verschillende dingen die u moet overwegen wanneer u SAP NetWeaver op virtuele Microsoft Azure SUSE Linux-machines (VM's) uitvoert. SAP NetWeaver wordt vanaf 19 mei 2016 officieel ondersteund op SUSE Linux VM's in Azure. Alle gegevens met betrekking tot Linux-versies, SAP-kernel-versies en andere vereisten kunnen u vinden in de SAP-notitie 1928533 "SAP-toepassingen op Azure: Ondersteunde producten en typen Azure VM's '.
+Meer documentatie over SAP op Linux-VM's vindt u hier: [SAP op virtuele Linux-machines (VM's) gebruiken](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 De volgende informatie kunt u enkele mogelijke valkuilen voorkomen.
 
@@ -75,7 +76,7 @@ De agent met de naam WALinuxAgent maakt deel uit van de installatiekopieën voor
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## <a name="sap-enhanced-monitoring"></a>SAP-"verbeterde controle"
-SAP 'enhanced aan controleren"is een verplichte vereiste om uit te voeren van SAP op Azure. Controleer de details in SAP Houd er rekening mee 2191498 "SAP op Linux met Azure: verbeterde controle'.
+SAP 'enhanced aan controleren"is een verplichte vereiste om uit te voeren van SAP op Azure. Controleer de details in SAP Houd er rekening mee 2191498 "SAP op Linux met Azure: Uitgebreide bewaking'.
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Azure-gegevensschijven koppelen aan een virtuele Azure Linux-machine
 Nooit gegevensschijven koppelen van Azure met een Azure Linux-VM met behulp van de apparaat-ID. Gebruik in plaats daarvan de universally unique identifier (UUID). Wees voorzichtig wanneer u grafische hulpprogramma's te koppelen van een Azure-gegevensschijven, bijvoorbeeld. Controleer de vermeldingen in/etc/fstab.
@@ -125,7 +126,7 @@ Zie voor meer informatie over Azure klassieke CLI en Azure Resource Manager [geb
 Een nieuwe mechanisme is voor de officiële SAP-Azure-certificering geïntroduceerd voor het berekenen van de SAP-hardware-sleutel die wordt gebruikt voor de SAP-licentie. De SAP-kernel moest worden aangepast om het gebruik van het nieuwe algoritme. Vorige versies van de SAP kernel voor Linux bevat geen deze gewijzigde code. Dus in bepaalde situaties (bijvoorbeeld Azure-VM vergroten of verkleinen), de SAP-hardwaresleutel gewijzigd en de SAP-licentie is niet langer geldig. Een oplossing wordt geleverd met meer recente SAP Linux kernels.  De gedetailleerde SAP-kernel-patches worden beschreven in de SAP-notitie 1928533.
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf pakket / afgestemd op de adm
-SUSE biedt een pakket met de naam 'sapconf', waarmee een set van SAP-specifieke instellingen worden beheerd. Zie voor meer informatie over wat dit pakket doet en hoe u installeert en gebruikt: [sapconf om voor te bereiden van een SUSE Linux Enterprise Server om uit te voeren van SAP-systemen met](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) en [wat sapconf is of hoe u voorbereidt een SUSE Linux Enterprise Server voor het uitvoeren van SAP-systemen? ](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
+SUSE biedt een pakket met de naam 'sapconf', waarmee een set van SAP-specifieke instellingen worden beheerd. Zie voor meer informatie over wat dit pakket doet en hoe u installeert en gebruikt:  [Met behulp van sapconf om voor te bereiden van een SUSE Linux Enterprise Server om uit te voeren van SAP-systemen](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) en [wat sapconf is of een SUSE Linux Enterprise Server voorbereiden voor het uitvoeren van SAP-systemen?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
 
 Er is in de tussentijd een nieuw hulpprogramma, die wordt vervangen door 'sapconf - afgestemd op de adm'. Een vindt meer informatie over dit hulpprogramma dat de twee koppelingen:
 

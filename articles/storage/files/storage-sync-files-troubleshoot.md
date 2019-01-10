@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055146"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157629"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
+# <a name="troubleshoot-azure-file-sync"></a>Problemen oplossen met Azure File Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
 
 In dit artikel is ontworpen om u te helpen u problemen op te lossen die met uw Azure File Sync-implementatie optreden mogelijk. Er wordt ook beschreven hoe u belangrijk om Logboeken te verzamelen uit het systeem als een nadere analyse van het probleem vereist is. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in steeds sneller groeiende volgorde):
@@ -93,7 +93,7 @@ Voor het maken van een cloudeindpunt, moet uw gebruikersaccount de volgende Micr
 
 De volgende ingebouwde rollen hebben de vereiste machtigingen voor Microsoft Authorization:  
 * Eigenaar
-* Beheerder van gebruikerstoegang
+* Administrator voor gebruikerstoegang
 
 Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft:  
 1. Selecteer in de Azure portal, **resourcegroepen**.
@@ -156,7 +156,7 @@ Een servereindpunt kan synchronisatieactiviteiten niet aanmelden voor de volgend
 > [!Note]  
 > Als de status van de server op de blade geregistreerde servers 'Offline weergegeven' is, voert u de stappen die zijn beschreven de [servereindpunt heeft een status van 'Geen activiteit' of 'In behandeling' en de status van de server op de blade geregistreerde servers "Weergegeven als offline" ](#server-endpoint-noactivity) sectie.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Synchroniseren
 <a id="afs-change-detection"></a>**Als ik een bestand rechtstreeks in mijn Azure-bestandsshare via SMB of via de portal gemaakt, hoe lang duurt om het bestand te synchroniseren met servers in de groep voor synchronisatie?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -553,6 +553,16 @@ In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesess
 
 Controleer of het pad bestaat, op een lokaal NTFS-volume staat en geen reparsepunt of bestaand servereindpunt is.
 
+<a id="-2134375817"></a>**Synchronisatie is mislukt omdat de versie van het filter-stuurprogramma niet compatibel met de agent-versie is**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (decimaal)** | -2134375817 |
+| **Fouttekenreeks** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Herstel is vereist** | Ja |
+
+Deze fout treedt op omdat Cloud Tiering filter (StorageSync.sys) versie van het stuurprogramma geladen niet compatibel met de service opslag-Sync-Agent (FileSyncSvc is). Als de Azure File Sync-agent is geüpgraded, start opnieuw op de server om de installatie te voltooien. Als de fout zich voordoen blijft, verwijdert u de agent, de server opnieuw opstarten en de Azure File Sync-agent opnieuw installeren.
+
 <a id="-2134376373"></a>**De service is momenteel niet beschikbaar.**  
 | | |
 |-|-|
@@ -724,7 +734,7 @@ if ($fileShare -eq $null) {
 
     Als **hybride File Sync-Service** niet wordt weergegeven in de lijst, voer de volgende stappen uit:
 
-    - Klik op **Add**.
+    - Klik op **Toevoegen**.
     - In de **rol** veld **Reader en toegang tot gegevens**.
     - In de **Selecteer** veld, typt u **hybride File Sync-Service**, selecteer de rol en klikt u op **opslaan**.
 
@@ -875,5 +885,5 @@ Als het probleem niet is opgelost, moet u het hulpprogramma AFSDiag uitvoeren:
 
 ## <a name="see-also"></a>Zie ook
 - [Veelgestelde vragen over Azure Files](storage-files-faq.md)
-- [Problemen met Azure Files oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)
+- [Problemen met Azure Files in Windows oplossen](storage-troubleshoot-windows-file-connection-problems.md)
 - [Problemen met Azure Files oplossen in Linux](storage-troubleshoot-linux-file-connection-problems.md)

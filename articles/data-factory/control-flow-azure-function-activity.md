@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: 974b45566255154bddc969b2a5ab3db0d2bf4f31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.openlocfilehash: 1b9821a0115aba96f4588049273bd7a157121ded
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019279"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156626"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure functie-activiteit in Azure Data Factory
 
@@ -25,7 +25,7 @@ De activiteit Azure-functie kunt u uitvoeren [Azure Functions](../azure-function
 
 ## <a name="azure-function-linked-service"></a>Azure-functie gekoppelde service
 
-Het retourtype van de Azure-functie is een geldige jobject is leeggemaakt. Iets anders mislukt en de algemene gebruikersfout genereert *fout aanvragende eindpunt*.
+Het retourtype van de Azure-functie is een geldige jobject is leeggemaakt. (Houd er rekening mee dat [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *niet* een jobject is leeggemaakt.) Iets anders mislukt en de algemene gebruikersfout genereert *fout aanvragende eindpunt*.
 
 | **Eigenschap** | **Beschrijving** | **Vereist** |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ Het retourtype van de Azure-functie is een geldige jobject is leeggemaakt. Iets 
 | type  | Type activiteit is 'AzureFunctionActivity' | Reeks | ja |
 | Gekoppelde service | De gekoppelde Azure-functie-service voor de bijbehorende Azure-functie-App  | Verwijzing naar de gekoppelde service | ja |
 | Functienaam  | Naam van de functie in de Azure-functie-App waarmee deze activiteit wordt aangeroepen | Reeks | ja |
-| method  | REST-API-methode voor de functieaanroep | Tekenreeks ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS'   | ja |
+| methode  | REST-API-methode voor de functieaanroep | Tekenreeks ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS'   | ja |
 | koptekst  | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: "headers": {'Accept-taal': ' nl-ons ", 'Content-Type': ' application/json'} | Tekenreeks (of expressie resultType van de tekenreeks) | Nee |
 | hoofdtekst  | de hoofdtekst die samen met de aanvraag wordt verzonden naar de functie api-methode  | Tekenreeks (of expressie resultType van de tekenreeks) of object.   | Vereist voor opslag/POST-methoden |
 |   |   |   | |

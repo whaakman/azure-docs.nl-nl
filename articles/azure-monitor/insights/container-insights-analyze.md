@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 47d597188c761921817bf7e2155548157e0d2eb3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185423"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159652"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers 
 Met Azure Monitor voor containers, kunt u de van prestatiegrafieken en de status voor het bewaken van de werkbelasting van uw Azure Kubernetes Service (AKS)-clusters vanuit twee perspectieven, rechtstreeks vanuit een AKS-cluster of alle AKS-clusters in een abonnement van Azure Monitor. Weergeven van Azure Container Instances (ACI) is ook mogelijk wanneer u een specifieke AKS-cluster bewaken.
@@ -98,6 +98,8 @@ Het diagram van de prestaties worden vier metrische gegevens voor prestaties wee
 - **Aantal knooppunten**: Een aantal knooppunten en de status van Kubernetes. Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd afzonderlijk of in de kiezer boven de grafiek worden gecombineerd. 
 - **Activiteit pod aantal**: Een pod aantal en de status van Kubernetes. Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *uitgevoerd*, en *onbekende* en kunnen worden gefilterd, afzonderlijk of gecombineerd de kiezer boven de grafiek. 
 
+De toetsen pijl-links/rechts kunt u bladeren door elk gegevenspunt in de grafiek en de pijl-omhoog/omlaag sleutels om te bladeren naar de regels percentiel.
+
 Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap.  Het bevat de eigenschappen van het item dat is geselecteerd, met inbegrip van de labels die u definieert om te organiseren van Kubernetes-objecten. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster.  
 
 ![Voorbeeld van Kubernetes perspectieven het deelvenster met eigenschappen](./media/container-insights-analyze/perspectives-preview-pane-01.png)
@@ -129,7 +131,7 @@ Standaard prestatiegegevens is gebaseerd op de afgelopen zes uur, maar u kunt he
 
 ![Percentiel selectie voor het filteren van gegevens](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-Wanneer u met de muisaanwijzer boven het staafdiagram onder de **Trend** kolom, elke balk ziet u gebruik van CPU of geheugen, afhankelijk van welke waarde is geselecteerd, binnen de periode van een voorbeeld van 15 minuten.  
+Wanneer u met de muisaanwijzer boven het staafdiagram onder de **Trend** kolom, elke balk ziet u gebruik van CPU of geheugen, afhankelijk van welke waarde is geselecteerd, binnen de periode van een voorbeeld van 15 minuten. Nadat u de trendgrafiek via een toetsenbord hebt geselecteerd, kunt u de sleutels Alt + Page up of Alt + PAGE DOWN om te bladeren door elke balk afzonderlijk en de dezelfde gegevens zoals u zou op mouseover doen.
 
 ![Trend balk voorbeeldgrafiek bij aanwijzen](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 

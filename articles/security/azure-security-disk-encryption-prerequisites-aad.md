@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bc66c3b17dbaf2d011bd0f4b6f355df3d1b50a3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 071f07e9d485a5fab5f2ce3d23a383e974001143
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547759"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158008"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Vereisten voor Azure Disk Encryption (vorige versie)
 
@@ -80,11 +80,10 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
 [Azure PowerShell](/powershell/azure/overview) biedt een set cmdlets die gebruikmaakt van de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model voor het beheren van uw Azure-resources. U kunt deze gebruiken in uw browser met [Azure Cloud Shell](../cloud-shell/overview.md), of kunt u deze installeren op uw lokale computer met behulp van de onderstaande instructies om te worden gebruikt in een PowerShell-sessie. Als u al deze lokaal geïnstalleerd hebt, zorg er dan voor dat u de nieuwste versie van Azure PowerShell SDK-versie om te configureren van Azure Disk Encryption. Download de nieuwste versie van [Azure PowerShell versie](https://github.com/Azure/azure-powershell/releases).
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Azure PowerShell installeren voor gebruik op uw lokale computer (optioneel):  
-1. Volg de instructies in de koppelingen voor uw besturingssysteem wordt voortgezet maar de rest van de onderstaande stappen.      
-    - [Installeren en configureren van Azure PowerShell voor Windows](/powershell/azure/install-azurerm-ps). 
+1. Volg de instructies in de koppelingen voor uw besturingssysteem wordt voortgezet maar de rest van de onderstaande stappen.
+    - [Installeren en configureren van Azure PowerShell voor Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - PowerShellGet, Azure PowerShell installeren en laden van de AzureRM-module. 
-    - [Installeren en configureren van Azure Powershell in macOS en Linux](/powershell/azure/install-azurermps-maclinux).
-        -  PowerShell Core, Azure PowerShell voor .NET Core, installeren en laden van de Az-module.
+
 2. Installeer de [Azure Active Directory PowerShell-module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell

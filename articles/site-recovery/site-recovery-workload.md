@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 10e73cf7fde019b4b4fe54d23f02c5afc0c582c9
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976848"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155164"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
 
@@ -55,7 +55,7 @@ Met Site Recovery kan elke app die wordt uitgevoerd op een ondersteunde machine,
 | Linux (besturingssysteem en apps) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest)|
 | Dynamics AX |J |J |J |J |J|
 | Windows-bestandsserver |J |J |J |J |J|
-| Citrix XenApp en XenDesktop |J|N/A |J |N/A |J |
+| Citrix XenApp en XenDesktop |J|n.v.t. |J |n.v.t. |J |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory en DNS repliceren
 Voor de meeste zakelijke apps zijn een Active Directory- en DNS-infrastructuur essentieel. Tijdens het herstel na noodgevallen moet u deze infrastructuuronderdelen beveiligen en herstellen voordat u uw workloads en apps herstelt.

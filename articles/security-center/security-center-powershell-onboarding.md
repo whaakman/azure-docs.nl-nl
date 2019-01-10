@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 69310e51495cbb91303c3e8837ad42f6a4ac3374
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 03a73d672aefc1b8203f3df5cf2301e94e322129
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972905"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159941"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Onboarding van Azure Security Center met behulp van PowerShell automatiseren
 
@@ -81,7 +81,7 @@ Deze stappen moeten worden uitgevoerd voordat u de Security Center-cmdlets uitvo
 
 5.  Optioneel: Het is raadzaam dat u definieert de contactgegevens voor beveiliging voor de abonnementen die u met het voorbereiden, die wordt gebruikt als de ontvangers van waarschuwingen en meldingen die worden gegenereerd door Security Center:
 
-        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
+        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 
 6.  De standaard Security Center-beleid initiatief toewijzen:
 

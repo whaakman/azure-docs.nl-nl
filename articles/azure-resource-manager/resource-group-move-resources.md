@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7734ff6c5992ebb27ff63c0329afa03e5bf96a2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995079"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158853"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
-In dit artikel wordt beschreven hoe u Azure-resources verplaatsen naar een andere Azure-abonnement of een andere resourcegroep onder hetzelfde abonnement. U kunt de Azure portal, Azure PowerShell, Azure CLI of de REST-API gebruiken om resources te verplaatsen. 
+In dit artikel wordt beschreven hoe u Azure-resources verplaatsen naar een andere Azure-abonnement of een andere resourcegroep onder hetzelfde abonnement. U kunt de Azure portal, Azure PowerShell, Azure CLI of de REST-API gebruiken om resources te verplaatsen.
 
 Zowel de brongroep en de doelgroep worden vergrendeld tijdens de verplaatsing. Schrijf en verwijderbewerkingen op de brongroepen zijn geblokkeerd totdat de verplaatsing is voltooid. Deze vergrendeling betekent dat u kunt geen toevoegen, bijwerken of verwijderen van resources in de resourcegroepen, maar dit betekent niet dat de resources zijn geblokkeerd. Als u een SQL-Server en de bijbehorende database naar een nieuwe resourcegroep verplaatsen, er een toepassing die gebruikmaakt van de database zonder uitvaltijd. Dit kan nog steeds lezen en schrijven naar de database.
 
@@ -98,11 +98,11 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Basic SKU en openbare IP kunnen worden verplaatst. Standaard SKU en openbare IP kan niet worden verplaatst.
-* Recovery Services-kluis: u moet worden geregistreerd in een besloten preview. Zie [beperkingen voor Recovery Services](#recovery-services-limitations).
+* Recovery Services-kluis: u moet worden geregistreerd een [beperkte openbare preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
 * Search - u kunt verschillende zoeken resources niet verplaatsen in verschillende regio's in één bewerking. In plaats daarvan deze verplaatsen in aparte bewerkingen.
-* Service Bus
+* Servicebus
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
@@ -127,7 +127,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Application Gateway
 * Azure Database Migration
 * Azure Databricks
-* Azure Firewall
+* Azure-firewall
 * Azure Migrate
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Container Instances
@@ -138,7 +138,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * ExpressRoute
 * Kubernetes Service
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
-* Managed Applications
+* Beheerde toepassingen
 * Microsoft Genomics
 * NetApp
 * SAP HANA op Azure
@@ -305,9 +305,9 @@ De bewerking kan enkele minuten uitgevoerd.
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-beperkingen
 
-Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven voor een beperkte preview. Probeer het uit, schrijven naar AskAzureBackupTeam@microsoft.com.
+Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven de [beperkte openbare preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
-Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip. U kunt kluizen dat voor back-up Azure Files of Azure File Sync SQL IaaS virtuele machines niet verplaatsen. 
+Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip. U kunt kluizen dat voor back-up Azure Files of Azure File Sync SQL IaaS virtuele machines niet verplaatsen.
 
 Als een virtuele machine met de kluis niet verplaatst, wordt de huidige herstelpunten voor de virtuele machine in de kluis blijven totdat ze zijn verlopen. Of de virtuele machine met de kluis of niet verplaatst, kunt u de virtuele machine herstellen met de back-upgeschiedenis in de kluis.
 
@@ -332,7 +332,7 @@ Bij het verplaatsen van een HDInsight-cluster naar een nieuw abonnement, verplaa
 
 ## <a name="checklist-before-moving-resources"></a>Controlelijst voor het verplaatsen van resources
 
-Er zijn enkele belangrijke stappen die u moet doen voordat u een resource verplaatst. U kunt fouten voorkomen door te controleren of aan de volgende voorwaarden is voldaan.
+Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden uitgevoerd. U kunt fouten voorkomen door te controleren of aan de volgende voorwaarden is voldaan.
 
 1. De bron- en doelabonnementen moeten aanwezig zijn in dezelfde [Azure Active Directory-tenant](../active-directory/develop/quickstart-create-new-tenant.md). Om te controleren dat beide abonnementen dezelfde tenant-ID hebben, gebruikt u Azure PowerShell of Azure CLI.
 

@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077337"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159074"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Een aanbieding maken in Azure Stack
 
-[Biedt](azure-stack-key-features.md) zijn groepen van een of meer plannen die providers die aanwezig voor gebruikers om te kopen of zich abonneert zijn op. Dit document wordt beschreven hoe u een aanbieding met maakt de [plan dat u hebt gemaakt](azure-stack-create-plan.md). Deze aanbieding biedt abonnees de mogelijkheid voor het instellen van virtuele machines.
+[Biedt](azure-stack-key-features.md) zijn groepen van een of meer plannen die providers die aanwezig voor gebruikers, die gebruikers kunnen kopen of zich abonneert zijn op. In dit artikel wordt beschreven hoe u een aanbieding met de [plan dat u hebt gemaakt](azure-stack-create-plan.md). Deze aanbieding biedt abonnees de mogelijkheid voor het instellen van virtuele machines (VM's).
 
-1. Aanmelden bij de Azure Stack-beheerdersportal (https://adminportal.local.azurestack.external) en selecteer **+ een resource maken** > **Tenant aanbiedingen + plannen** > **bieden**.
+1. Aanmelden bij de [Azure Stack-beheerdersportal](https://adminportal.local.azurestack.external) en selecteer **+ een resource maken**, klikt u vervolgens **Tenant aanbiedingen + plannen**, en vervolgens **bieden**.
 
    ![Een aanbieding maken](media/azure-stack-create-offer/image01.png)
   
-2. Onder **nieuwe aanbieding**, voer een **weergavenaam** en een **resourcenaam**, en klik vervolgens onder **resourcegroep**, selecteer **maken nieuwe** of **gebruik bestaande**. De weergavenaam is de beschrijvende naam voor de aanbieding. Deze beschrijvende naam is de enige informatie over de aanbieding die de gebruikers zien wanneer ze zich op een aanbieding abonneert. Gebruik de naam van een intuïtieve, die helpt gebruikers begrijpen wat wordt geleverd met de aanbieding. Alleen de beheerder kan de resourcenaam zien. Dit is de naam die beheerders gebruiken om met de aanbieding te werken als Azure Resource Manager-resource.
+2. Onder **nieuwe aanbieding**, voer een **weergavenaam** en een **resourcenaam**, en klik vervolgens onder **resourcegroep**, selecteer **maken nieuwe** of **gebruik bestaande**. De weergavenaam is de beschrijvende naam voor de aanbieding. Deze beschrijvende naam is de enige informatie over de aanbieding die gebruikers zien wanneer ze zich op een aanbieding abonneert. Gebruik de naam van een intuïtieve, die helpt gebruikers begrijpen wat wordt geleverd met de aanbieding. Alleen de beheerder kan de resourcenaam zien. Dit is de naam die beheerders gebruiken om met de aanbieding te werken als Azure Resource Manager-resource.
 
    ![Nieuwe aanbieding](media/azure-stack-create-offer/image01a.png)
   
@@ -37,17 +37,17 @@ ms.locfileid: "49077337"
 
    ![Abonnement selecteren](media/azure-stack-create-offer/image02.png)
   
-4. Na het maken van de aanbieding, kunt u de status. Aanbiedingen moeten worden aangebracht *openbare* voor gebruikers om op te halen van de volledige weergave wanneer ze zich abonneert. Aanbiedingen kunnen zijn:
+4. Na het maken van de aanbieding, kunt u de status. Aanbiedingen moeten worden aangebracht **openbare** voor gebruikers om op te halen van de volledige weergave wanneer ze zich abonneert. Aanbiedingen kunnen zijn:
 
-   - **Openbare**: zichtbaar voor gebruikers.
-   - **Persoonlijke**: alleen zichtbaar voor beheerders in de cloud. Deze instelling is nuttig tijdens het opstellen van het plan of de aanbieding, of als beheerder van de cloud wil [maakt elk abonnement voor gebruikers](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Uit bedrijf genomen**: gesloten voor nieuwe abonnees. Beheerder van de cloud kunt gebruiken uit bedrijf genomen om te voorkomen dat toekomstige abonnementen, maar laat u huidige abonnees niet beïnvloed.
+   - **Openbare**: Zichtbaar voor gebruikers.
+   - **Persoonlijke**: Alleen zichtbaar voor beheerders in de cloud. Deze instelling is nuttig tijdens het opstellen van het plan of de aanbieding, of als beheerder van de cloud wil [maakt elk abonnement voor gebruikers](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Buiten gebruik gesteld**: Gesloten voor nieuwe abonnees. Beheerder van de cloud kunt uit bedrijf nemen aanbiedingen om te voorkomen dat toekomstige abonnementen, maar laat u huidige abonnees niet beïnvloed.
 
    > [!TIP]  
-   > Er zijn wijzigingen in de aanbieding niet meteen zichtbaar voor gebruikers. Als u wilt zien welke wijzigingen, mogelijk gebruikers zich afmelden en opnieuw aanmelden bij de gebruikersportal aanmeldt om te zien van de nieuwe aanbieding.
+   > Wijzigingen in de aanbieding zijn niet meteen zichtbaar voor de gebruiker. Als u wilt zien welke wijzigingen, mogelijk gebruikers zich afmelden en opnieuw aanmelden bij de gebruikersportal aanmeldt om te zien van de nieuwe aanbieding.
 
-   Selecteer in het overzicht voor de aanbieding **toegankelijkheidsstatus**. Kies de status die u wilt gebruiken (bijvoorbeeld **openbare**) en selecteer vervolgens **opslaan**.
- 
+   Selecteer op het overzichtsscherm voor de aanbieding **toegankelijkheidsstatus**. Kies de status die u wilt gebruiken (bijvoorbeeld **openbare**), en selecteer vervolgens **opslaan**.
+
      ![Status van de gekozen](media/azure-stack-create-offer/change-stage-1807.png)
 
      Als alternatief, selecteer **in een statuswijziging** en kies vervolgens een staat.
@@ -55,7 +55,7 @@ ms.locfileid: "49077337"
     ![Toegankelijkheidsstatus selecteren](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > U kunt ook PowerShell gebruiken om te maken van de standaardaanbiedingen, plannen en quota's. Zie voor meer informatie, [PowerShell-Module voor Azure Stack 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+   > U kunt ook PowerShell gebruiken om te maken van de standaardaanbiedingen, plannen en quota's. Zie voor meer informatie, [PowerShell-Module voor Azure Stack 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Volgende stappen
 

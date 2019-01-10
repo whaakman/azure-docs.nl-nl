@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724853"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159244"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen bekijken met behulp van Azure portal
 
@@ -49,12 +49,12 @@ category | Deze eigenschap is altijd **ServiceHealth**.
 resourceId | De Resource-ID van de betrokken resource.
 Properties.title | De gelokaliseerde naam voor deze communicatie. Engels is de standaardinstelling.
 Properties.Communication | Gelokaliseerde informatie van de communicatie met de HTML-opmaak. Engels is de standaardinstelling.
-Properties.incidentType | Een van de volgende waarden: **Handeling vereist**, **informatie**, **Incident**, **onderhoud**, of **Security**.
+Properties.incidentType | Een van de volgende waarden: **Handeling vereist**, **informatief**, **Incident**, **onderhoud**, of **Security**.
 Properties.trackingId | Het incident waarmee deze gebeurtenis gekoppeld is. Gebruik deze optie als u correlaties zichtbaar maken tussen de gebeurtenissen die betrekking hebben op een incident.
 Properties.impactedServices | Een met escape-teken JSON-blob die wordt beschreven van de services en regio's die worden beïnvloed door het incident. De eigenschap bevat een lijst met services, die allemaal een **ServiceName**, en een lijst van betrokken regio's, die allemaal een **RegionName**.
 Properties.defaultLanguageTitle | De communicatie in het Engels.
 Properties.defaultLanguageContent | De communicatie in het Engels als HTML-indeling of tekst zonder opmaak.
-Properties.Stage | De mogelijke waarden voor **Incident**, en **Security** zijn **actief is,** **opgelost** of **RCA**. Voor **handeling vereist** of **informatie** is de enige waarde **actief.** Voor **onderhoud** ze zijn: **Actieve**, **geplande**, **InProgress**, **geannuleerd**, **opnieuw gepland**, **opgelost**, of **volledige**.
+Properties.Stage | De mogelijke waarden voor **Incident**, en **Security** zijn **actief is,** **opgelost** of **RCA**. Voor **handeling vereist** of **informatief** is de enige waarde **actief.** Voor **onderhoud** ze zijn: **Actieve**, **geplande**, **InProgress**, **geannuleerd**, **opnieuw gepland**, **opgelost**, of **volledige**.
 Properties.communicationId | De communicatie die aan deze gebeurtenis gekoppeld is.
 
 ### <a name="details-on-service-health-level-information"></a>Meer informatie over service health informatie op het niveau
@@ -71,7 +71,7 @@ Properties.communicationId | De communicatie die aan deze gebeurtenis gekoppeld 
             <dd>Standard gepland onderhoud</dd>
         </dl>
     </li>
-    <li><b>Informatie</b> (properties.incidentType == informatie) <dl>
+    <li><b>Informatie</b> (properties.incidentType == informatief) <dl>
             <dt>Informatief</dt>
             <dd>De beheerder mogelijk moet om de gevolgen voor bestaande services</dd>
         </dl>

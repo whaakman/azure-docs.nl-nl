@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968984"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160043"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraties van SAP HANA-infrastructuur en bewerkingen op Azure
 Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en SAP HANA besturingssystemen die zijn geïmplementeerd op virtuele machines van Azure (VM's). Het document bevat ook informatie over de configuratie voor SAP HANA scale-out voor de M128s VM-SKU. Dit document is niet bedoeld als vervanging van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -208,7 +208,7 @@ Wanneer u de virtuele machines om uit te voeren van SAP HANA installeert, moeten
 
 Voor implementaties die zijn onmisbaar, moet u echter een virtueel datacenter netwerkarchitectuur maken in Azure. Deze architectuur wordt aanbevolen de scheiding van de Azure-VNet-Gateway die verbinding maakt on-premises in een afzonderlijke Azure-VNet. Deze apart VNet moet al het verkeer dat een naar on-premises hosten of tot het internet. Deze benadering kunt u software voor controle en logboekregistratie-verkeer dat het virtuele datacenter in Azure in deze afzonderlijke hub VNet invoert te implementeren. Daarom moet u een VNet die als host fungeert voor de software en configuraties die is gekoppeld aan in- en uitgaand verkeer naar uw Azure-implementatie.
 
-De artikelen [Azure Virtual Datacenter: een Netwerkperspectief](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) en [Azure Virtual Datacenter en de Enterprise-Controlelaag](https://docs.microsoft.com/azure/architecture/vdc/) geven u meer informatie over de virtual datacenter-aanpak en gerelateerde Azure VNet-ontwerp.
+De artikelen [Azure Virtual Datacenter: Een Netwerkperspectief](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) en [Azure Virtual Datacenter en de Enterprise-Controlelaag](https://docs.microsoft.com/azure/architecture/vdc/) geven u meer informatie over de virtual datacenter-aanpak en gerelateerde Azure-VNet-ontwerp.
 
 
 >[!NOTE]
@@ -403,8 +403,8 @@ Meer informatie over Azure-versnelde netwerken [hier](https://docs.microsoft.com
 
 Op basis van DT 2.0 richtlijnen voor best practices moet de schijf-i/o-doorvoer ten minste 50 MB per seconde per fysieke kern. De specificaties voor de twee typen Azure VM's, die worden ondersteund voor DT 2.0 een bekijkt, ziet de maximale schijf-i/o-doorvoerlimiet voor de virtuele machine:
 
-- E32sv3: 768 MB per seconde (zonder caching) wat betekent een ratio van 48 MB per seconde per fysieke kern dat
-- M64-32ms: 1000 MB/sec (uncached) wat betekent dat een ratio van 62,5 MB per seconde per fysieke kern
+- E32sv3:   768 MB per seconde (zonder caching) wat betekent een ratio van 48 MB per seconde per fysieke kern dat
+- M64-32MS:  1000 MB per seconde (zonder caching) wat betekent een ratio van 62,5 MB per seconde per fysieke kern dat
 
 Dit is vereist voor meerdere Azure-schijven koppelen aan de DT 2.0 virtuele machine en het maken van een software-raid (gesegmenteerd te verdelen) op besturingssysteemniveau te bereiken van het maximum aantal schijfdoorvoer per virtuele machine. Een enkel Azure-schijf opgeven niet de doorvoer voor het bereiken van de maximale limiet voor de virtuele machine in dit opzicht. Azure Premium storage is verplicht om uit te voeren DT 2.0. 
 

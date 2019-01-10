@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6399e1838b00fc533ab42a76e4f1f1667e3a434a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077559"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159516"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Een plan maken in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 [Plannen](azure-stack-key-features.md) zijn pakketten van één of meer services. Als een provider, kunt u plannen om aan te bieden aan uw gebruikers maken. Uw gebruikers abonneren op zijn beurt op uw aanbiedingen te gebruiken van de abonnementen en services die ze bevatten. In dit voorbeeld ziet u het maken van een abonnement met de compute, network en storage resourceproviders. Dit abonnement biedt abonnees de mogelijkheid voor het inrichten van virtuele machines.
 
-1. Aanmelden bij de Azure Stack-beheerdersportal (https://adminportal.local.azurestack.external).
+1. Aanmelden bij de [Azure Stack-beheerdersportal](https://adminportal.local.azurestack.external).
 
-2. Voor het maken van een plan en aanbieding die gebruikers kunnen zich abonneren op, selecteer **+ een resource maken** > **aanbiedingen + plannen** > **Plan**.
+2. Voor het maken van een plan en aanbieding die gebruikers kunnen zich abonneren op, selecteer **+ een resource maken**, klikt u vervolgens **aanbiedingen + plannen**, klikt u vervolgens **Plan**.
   
    ![Een abonnement selecteren](media/azure-stack-create-plan/select-plan.png)
 
-3. Onder **nieuw plan**, voer een **weergavenaam** en een **resourcenaam**. De weergavenaam is de beschrijvende naam van het plan die gebruikers kunnen zien. Alleen de beheerder kan zien de naam van de Resource, die beheerders gebruiken om te werken met het abonnement als een Azure Resource Manager-resource.
+3. Onder **nieuw plan**, voer een **weergavenaam** en een **resourcenaam**. De weergavenaam is de beschrijvende naam van het plan die gebruikers kunnen zien. Alleen de beheerder kan zien de naam van de resource, die beheerders gebruiken om te werken met het abonnement als een Azure Resource Manager-resource.
 
    ![Geef details op](media/azure-stack-create-plan/plan-name.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "49077559"
 
 6. Selecteer **quota**, **Microsoft.Storage (lokaal)**, en kies vervolgens de standaardquotum of selecteer **nieuw quotum maken** een aangepaste quota maken.
   
-   ![Quota](media/azure-stack-create-plan/quotas.png)
+   ![Quota's](media/azure-stack-create-plan/quotas.png)
 
 7. Als u een nieuw quotum maakt, voert u een **naam** voor het quotum > Geef de quotawaarden > Selecteer **OK**. De **maken quotum** dialoogvenster wordt gesloten.
 
@@ -72,4 +72,4 @@ ms.locfileid: "49077559"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een aanbieding maken](azure-stack-create-offer.md)
+* [Een aanbieding maken](azure-stack-create-offer.md)

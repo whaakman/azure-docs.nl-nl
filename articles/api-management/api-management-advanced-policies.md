@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584873"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158428"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 ```
 
 #### <a name="example"></a>Voorbeeld
- In dit voorbeeld laat zien hoe om uit te voeren met het filteren van inhoud door het verwijderen van elementen uit het antwoord ontvangen van de back endservice bij het gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 34:30. Beginnen bij 31:50 voor een overzicht van [de donkere Sky prognose API](https://developer.forecast.io/) gebruikt voor deze demo.
+ In dit voorbeeld laat zien hoe om uit te voeren met het filteren van inhoud door het verwijderen van elementen uit het antwoord ontvangen van de back endservice bij het gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: Meer functies van API Management met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 34:30. Beginnen bij 31:50 voor een overzicht van [de donkere Sky prognose API](https://developer.forecast.io/) gebruikt voor deze demo.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -123,7 +123,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |Kies|Root-element.|Ja|
 |wanneer|De voorwaarde moet worden gebruikt voor de `if` of `ifelse` onderdelen van de `choose` beleid. Als de `choose` beleid heeft meerdere `when` secties worden deze geëvalueerd aan sequentieel worden verwerkt. Zodra de `condition` van een wanneer element wordt geëvalueerd als `true`, er verder geen `when` voorwaarden worden geëvalueerd.|Ja|
@@ -131,7 +131,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|
+|Kenmerk|Description|Vereist|
 |---------------|-----------------|--------------|
 |voorwaarde = "Booleaanse expressie &#124; Booleaanse constante"|De Booleaanse expressie of een constante geëvalueerd wanneer de die `when` beleidsverklaring wordt geëvalueerd.|Ja|
 
@@ -235,16 +235,16 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |zone voor forward-aanvraag|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
 |timeout="integer"|De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt.|Nee|300 seconden|
-|Volg-omleidingen = "true &#124; false"|Geeft aan of omleidingen van de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|false|
+|Volg-omleidingen = "true &#124; false"|Geeft aan of omleidingen van de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|onwaar|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -282,16 +282,16 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |limiet voor gelijktijdigheid|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|--------------|
-|sleutel|Een tekenreeks. De expressie toegestaan. Hiermee geeft u het bereik van gelijktijdigheid. Kan worden gedeeld door meerdere beleidsregels.|Ja|N/A|
-|maximum aantal|Een geheel getal zijn. Hiermee geeft u een maximum aantal aanvragen die zijn toegestaan in te voeren van het beleid.|Ja|N/A|
+|sleutel|Een tekenreeks. De expressie toegestaan. Hiermee geeft u het bereik van gelijktijdigheid. Kan worden gedeeld door meerdere beleidsregels.|Ja|n.v.t.|
+|maximum aantal|Een geheel getal zijn. Hiermee geeft u een maximum aantal aanvragen die zijn toegestaan in te voeren van het beleid.|Ja|n.v.t.|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -332,13 +332,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |logboek naar eventhub|Root-element. De waarde van dit element is de tekenreeks aan te melden met uw event hub.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|
+|Kenmerk|Description|Vereist|
 |---------------|-----------------|--------------|
 |logger-id|De id van het logboek geregistreerd met uw API Management-service.|Ja|
 |partitie-id|Hiermee geeft u de index van de partitie waarnaar moeten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-key` wordt gebruikt.|
@@ -375,13 +375,13 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |nagebootste-antwoord|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|--------------|
 |status-code|Hiermee geeft u antwoordstatuscode en wordt gebruikt voor het selecteren van de bijbehorende voorbeeld of schema.|Nee|200|
 |inhoudstype|Hiermee geeft u `Content-Type` headerwaarde antwoord en wordt gebruikt voor het selecteren van de bijbehorende voorbeeld of schema.|Nee|Geen|
@@ -431,25 +431,25 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
-|retry|Root-element. Kan geen ander beleid bevatten als de onderliggende elementen.|Ja|
+|opnieuw proberen|Root-element. Kan geen ander beleid bevatten als de onderliggende elementen.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
-|voorwaarde|Een letterlijke Booleaanse waarde of [expressie](api-management-policy-expressions.md) op te geven als nieuwe pogingen moeten worden gestopt (`false`) of vervolg (`true`).|Ja|N/A|
-|count|Een positief getal opgeven van het maximum aantal nieuwe pogingen om te proberen.|Ja|N/A|
-|interval|Een positief getal in seconden op te geven het wachtinterval tussen het opnieuw probeert.|Ja|N/A|
-|max-interval|Een positief getal in seconden op te geven de maximale Wacht-interval tussen de pogingen. Het wordt gebruikt voor het implementeren van een algoritme exponentiële nieuwe pogingen.|Nee|N/A|
-|delta|Een positief getal in seconden op te geven de verhoging van de interval voor wait. Het wordt gebruikt voor het implementeren van de algoritmen lineaire en exponentiële nieuwe pogingen.|Nee|N/A|
+|voorwaarde|Een letterlijke Booleaanse waarde of [expressie](api-management-policy-expressions.md) op te geven als nieuwe pogingen moeten worden gestopt (`false`) of vervolg (`true`).|Ja|n.v.t.|
+|aantal|Een positief getal opgeven van het maximum aantal nieuwe pogingen om te proberen.|Ja|n.v.t.|
+|interval|Een positief getal in seconden op te geven het wachtinterval tussen het opnieuw probeert.|Ja|n.v.t.|
+|max-interval|Een positief getal in seconden op te geven de maximale Wacht-interval tussen de pogingen. Het wordt gebruikt voor het implementeren van een algoritme exponentiële nieuwe pogingen.|Nee|n.v.t.|
+|delta|Een positief getal in seconden op te geven de verhoging van de interval voor wait. Het wordt gebruikt voor het implementeren van de algoritmen lineaire en exponentiële nieuwe pogingen.|Nee|n.v.t.|
 |eerste-fast-opnieuw proberen|Indien ingesteld op `true` , de eerste nieuwe poging onmiddellijk wordt uitgevoerd.|Nee|`false`|
 
 > [!NOTE]
 >  Wanneer alleen de `interval` is opgegeven, **vaste** interval voor nieuwe pogingen worden uitgevoerd.
 > Wanneer alleen de `interval` en `delta` zijn opgegeven, een **lineaire** interval opnieuw proberen algoritme wordt gebruikt, waarbij de wachttijd tussen nieuwe pogingen wordt berekend op basis van de volgende formule - `interval + (count - 1)*delta`.
-> Wanneer de `interval`, `max-interval` en `delta` zijn opgegeven, **exponentieel** interval opnieuw proberen algoritme wordt toegepast, waar de wachttijd tussen de pogingen exponentieel toeneemt van de waarde van `interval` naar de waarde `max-interval` op basis van de volgende forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> Wanneer de `interval`, `max-interval` en `delta` zijn opgegeven, **exponentieel** interval opnieuw proberen algoritme wordt toegepast, waar de wachttijd tussen de pogingen exponentieel toeneemt van de waarde van `interval` naar de waarde `max-interval` op basis van de volgende formule - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Houd er rekening mee dat onderliggende beperkingen voor het gebruik van beleid, worden overgenomen door dit beleid.
@@ -486,7 +486,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |Retour-antwoord|Root-element.|Ja|
 |set-header|Een [set-header](api-management-transformation-policies.md#SetHTTPheader) beleidsverklaring.|Nee|
@@ -495,7 +495,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|
+|Kenmerk|Description|Vereist|
 |---------------|-----------------|--------------|
 |antwoord-variabele-naam|De naam van de contextvariabele waarnaar wordt verwezen, bijvoorbeeld een upstream [Verzendaanvraag](api-management-advanced-policies.md#SendRequest) beleid en die een `Response` object|Optioneel.|
 
@@ -553,11 +553,11 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |een-manier-verzoek om te verzenden|Root-element.|Ja|
 |url|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|
-|method|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|
+|methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|
 |koptekst|De aanvraagheader. Gebruik meerdere headeronderdelen voor meerdere aanvraagheaders.|Nee|
 |hoofdtekst|De aanvraagtekst.|Nee|
 |certificaat voor clientverificatie|[Certificaat voor clientverificatie](api-management-authentication-policies.md#ClientCertificate)|Nee|
@@ -565,10 +565,10 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
 |modus = 'tekenreeks'|Bepaalt of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopie hoofdtekst van de aanvraag niet geïnitialiseerd.|Nee|Nieuw|
-|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
+|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|n.v.t.|
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de koptekst is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande koptekst.<br />-skip: is geen vervanging voor de bestaande waarde voor header.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde voor header.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de koptekst wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
 
 ### <a name="usage"></a>Gebruik
@@ -635,24 +635,24 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |verzonden aanvragen|Root-element.|Ja|
 |url|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|
-|method|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|
+|methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|
 |koptekst|De aanvraagheader. Gebruik meerdere headeronderdelen voor meerdere aanvraagheaders.|Nee|
 |hoofdtekst|De aanvraagtekst.|Nee|
 |certificaat voor clientverificatie|[Certificaat voor clientverificatie](api-management-authentication-policies.md#ClientCertificate)|Nee|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
 |modus = 'tekenreeks'|Bepaalt of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopie hoofdtekst van de aanvraag niet geïnitialiseerd.|Nee|Nieuw|
-|antwoord-variabele-name = 'tekenreeks'|De naam van de contextvariabele die een antwoordobject voor ontvangen. Als de variabele niet bestaat, deze na een geslaagde uitvoering van het beleid wordt gemaakt en worden daardoor toegankelijk via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) verzameling.|Ja|N/A|
+|antwoord-variabele-name = 'tekenreeks'|De naam van de contextvariabele die een antwoordobject voor ontvangen. Als de variabele niet bestaat, deze na een geslaagde uitvoering van het beleid wordt gemaakt en worden daardoor toegankelijk via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) verzameling.|Ja|n.v.t.|
 |timeout="integer"|De time-outinterval in seconden voordat de aanroep naar de URL is mislukt.|Nee|60|
-|fout negeren|Als true en de resultaten van de aanvraag in een fout opgetreden:<br /><br /> -Als antwoord-variabele-naam bevat een null-waarde is opgegeven.<br />-Als de naam van een reactie variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|false|
-|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
+|fout negeren|Als true en de resultaten van de aanvraag in een fout opgetreden:<br /><br /> -Als antwoord-variabele-naam bevat een null-waarde is opgegeven.<br />-Als de naam van een reactie variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|onwaar|
+|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|n.v.t.|
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de koptekst is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande koptekst.<br />-skip: is geen vervanging voor de bestaande waarde voor header.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde voor header.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de koptekst wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
 
 ### <a name="usage"></a>Gebruik
@@ -682,17 +682,17 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |Proxy|Root-element|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
-|URL = "tekenreeks"|Proxy-URL in de vorm van http://host:port.|Ja|N/A|
-|gebruikersnaam = 'tekenreeks'|De gebruikersnaam op die moet worden gebruikt voor verificatie met de proxy.|Nee|N/A|
-|wachtwoord = 'tekenreeks'|Het wachtwoord moet worden gebruikt voor verificatie met de proxy.|Nee|N/A|
+|URL = "tekenreeks"|Proxy-URL in de vorm van http://host:port.|Ja|n.v.t.|
+|gebruikersnaam = 'tekenreeks'|De gebruikersnaam op die moet worden gebruikt voor verificatie met de proxy.|Nee|n.v.t.|
+|wachtwoord = 'tekenreeks'|Het wachtwoord moet worden gebruikt voor verificatie met de proxy.|Nee|n.v.t.|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -742,7 +742,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |set-methode|Root-element. De waarde van het element Hiermee geeft u de HTTP-methode.|Ja|
 
@@ -782,16 +782,16 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |set-status|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
-|code="integer"|De HTTP-statuscode om terug te keren.|Ja|N/A|
-|reden = 'tekenreeks'|Een beschrijving van de reden voor het retourneren van de statuscode.|Ja|N/A|
+|code="integer"|De HTTP-statuscode om terug te keren.|Ja|n.v.t.|
+|reden = 'tekenreeks'|Een beschrijving van de reden voor het retourneren van de statuscode.|Ja|n.v.t.|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -817,13 +817,13 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |variabele instellen|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|
+|Kenmerk|Description|Vereist|
 |---------------|-----------------|--------------|
 |naam|De naam van de variabele.|Ja|
 |waarde|De waarde van de variabele. Dit kan een expressie of een letterlijke waarde zijn.|Ja|
@@ -884,15 +884,15 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |Tracering|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
-|source|Letterlijke tekenreeks zinvol is voor de traceringsviewer voor en de bron van het bericht op te geven.|Ja|N/A|
+|source|Letterlijke tekenreeks zinvol is voor de traceringsviewer voor en de bron van het bericht op te geven.|Ja|n.v.t.|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
@@ -951,15 +951,15 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ### <a name="elements"></a>Elementen
 
-|Element|Beschrijving|Vereist|
+|Element|Description|Vereist|
 |-------------|-----------------|--------------|
 |Wacht|Root-element. Als alleen onderliggende elementen kan bevatten `send-request`, `cache-lookup-value`, en `choose` beleid.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
-|Kenmerk|Beschrijving|Vereist|Standaard|
+|Kenmerk|Description|Vereist|Normaal|
 |---------------|-----------------|--------------|-------------|
-|voor|Hiermee bepaalt u of de `wait` beleid moet wachten voor alle directe onderliggende beleidsregels om te worden voltooid of slechts één. Toegestane waarden zijn:<br /><br /> -   `all` -Wacht voor alle directe onderliggende beleidsregels om te voltooien<br />-een - wachten op elk beleid direct onderliggende om te voltooien. Als het eerste beleid van de direct onderliggende is voltooid, de `wait` beleid is voltooid en uitvoering van een ander beleid direct onderliggende wordt beëindigd.|Nee|all|
+|gedurende|Hiermee bepaalt u of de `wait` beleid moet wachten voor alle directe onderliggende beleidsregels om te worden voltooid of slechts één. Toegestane waarden zijn:<br /><br /> -   `all` -Wacht voor alle directe onderliggende beleidsregels om te voltooien<br />-een - wachten op elk beleid direct onderliggende om te voltooien. Als het eerste beleid van de direct onderliggende is voltooid, de `wait` beleid is voltooid en uitvoering van een ander beleid direct onderliggende wordt beëindigd.|Nee|alle|
 
 ### <a name="usage"></a>Gebruik
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162343"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Zelfstudie: Azure Active Directory-integratie met SAP NetWeaver
 
@@ -142,7 +142,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![De downloadkoppeling certificaat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Vervang **providernaam** van T01122 naar **http://T01122** en klikt u op **opslaan**.
+6. Vervang **providernaam** van T01122 naar `http://T01122` en klikt u op **opslaan**.
 
     > [!NOTE]
     > Geleverd door de naam van de provider standaard <sid> <client> indeling, maar Azure AD wordt verwacht dat de naam in de indeling van <protocol>://<name>, aanbeveelt voor het onderhouden van de naam van de provider als https://<sid> <client> om toe te staan van meerdere SAP NetWeaver ABAP-engines te configureren in Azure AD.
@@ -171,7 +171,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-11. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
+11. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
     a. Klik op **metagegevensbestand uploaden** uploaden de **Service Provider-bestand met metagegevens** die u eerder hebt ontvangen.
 
@@ -187,11 +187,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     d. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<your company instance of SAP NetWeaver>`
 
-12. SAP NetWeaver-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de toepassing-integratie. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **gebruikerskenmerken** dialoogvenster.
+12. SAP NetWeaver-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
     ![Kenmerk-sectie](./media/sapnetweaver-tutorial/edit_attribute.png)
 
-13. In de **gebruikersclaims** sectie op de **gebruikerskenmerken** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
+13. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
 
     a. Klik op **bewerken** pictogram opent de **gebruikersclaims beheren** dialoogvenster.
     
@@ -285,7 +285,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scenario: SAP gebruikers-id op basis van geconfigureerde e-mailadres in SU01 selecteren. In dit geval moet e-mail-id worden geconfigureerd in su01 voor elke gebruiker die eenmalige aanmelding is vereist.
+    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scenario: Selecteer de gebruikers-id van SAP op basis van geconfigureerde e-mailadres in SU01. In dit geval moet e-mail-id worden geconfigureerd in su01 voor elke gebruiker die eenmalige aanmelding is vereist.
 
     a.  NameID details schermopname van SAP.
 
@@ -377,7 +377,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     `https://<sapurl>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

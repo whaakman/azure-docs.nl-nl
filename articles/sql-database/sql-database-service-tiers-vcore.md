@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.date: 01/08/2019
+ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118197"
+ms.locfileid: "54156813"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Benefit en migratie
 
@@ -39,11 +39,11 @@ De volgende tabel kunt u weten wat de verschillen tussen de drie lagen:
 
 ||**Algemeen gebruik**|**Bedrijfskritiek**|**Zeer grootschalige (preview)**|
 |---|---|---|---|
-|Ideaal voor|Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde uitgebalanceerde en schaalbare Computing- en opslagopties.|Zakelijke toepassingen die snelle I/O vereisen. Maakt gebruik van verschillende geïsoleerde replica's voor de hoogste mate van flexibiliteit wat storingen betreft.|De meeste zakelijke workloads met uiterst schaalbare opslag en leesschaal vereisten|
+|Het best voor|Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde uitgebalanceerde en schaalbare Computing- en opslagopties.|Zakelijke toepassingen die snelle I/O vereisen. Maakt gebruik van verschillende geïsoleerde replica's voor de hoogste mate van flexibiliteit wat storingen betreft.|De meeste zakelijke workloads met uiterst schaalbare opslag en leesschaal vereisten|
 |Compute|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|
 |Geheugen|Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern | Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern |Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern|
-|Storage|Maakt gebruik van [premium externe opslag](../virtual-machines/windows/premium-storage.md):<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag:<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 4 TB |Flexibele, automatische groei van de opslag naar behoefte. Ondersteunt maximaal 100 TB aan opslag en daarbuiten. Lokale SSD-opslag voor het lokale cachegeheugen van toepassingen en opslag van lokale gegevens. Externe opslag in Azure als laatste gegevensopslag op lange termijn. |
-|I/o-doorvoer (bij benadering)|Individuele database: 500 IOP's per vCore met 7000 maximale IOPS</br>Beheerd exemplaar: Afhankelijk van [bestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOP's per kern met 200.000 maximale IOPS|NOG TE BEPALEN|
+|Opslag|Maakt gebruik van [premium externe opslag](../virtual-machines/windows/premium-storage.md):<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag:<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 4 TB |Flexibele, automatische groei van de opslag naar behoefte. Ondersteunt maximaal 100 TB aan opslag en daarbuiten. Lokale SSD-opslag voor het lokale cachegeheugen van toepassingen en opslag van lokale gegevens. Externe opslag in Azure als laatste gegevensopslag op lange termijn. |
+|I/o-doorvoer (bij benadering)|Individuele database: 500 IOP's per vCore met 7000 maximale IOPS</br>Beheerd exemplaar: Afhankelijk van [bestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOP's per kern met 200.000 maximale IOPS|Nog te doen|
 |Beschikbaarheid|1 replica, geen lees-schaal|3 replica's, 1 [leesschaal replica](sql-database-read-scale-out.md),<br/>zone-redundante HA|?|
 |Back-ups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|back-up op basis van een momentopname in Azure, externe opslag en herstelt u deze momentopnamen gebruiken voor snel herstel. Back-ups zijn onmiddellijk en niet van invloed op de i/o-prestaties van de rekencapaciteit. Herstelbewerkingen zijn zeer snel en niet een grootte van gegevensbewerking (waarbij minuten in plaats van uren of dagen).|
 |In het geheugen|Niet ondersteund|Ondersteund|Niet ondersteund|
@@ -67,9 +67,28 @@ In het op vCore gebaseerde aankoopmodel, kunt u uw bestaande licenties voor gere
 
 ![prijzen](./media/sql-database-service-tiers/pricing.png)
 
-Als u gebruiken van uw bestaande on-premises SQL Server-licenties wilt, kunt u alleen de basisprijs voor de onderliggende Azure-infrastructuur (bijvoorbeeld Azure VM waarop de database wordt uitgevoerd) terwijl de SQL Server Database engine-licentie niet worden opgenomen in uw factuur betalen. U kunt uw on-premises-licentie voor SQL Server en Azure SQL Database gebruiken in een bepaalde periode. Anders worden de licentiekosten voor SQL Server database engine worden opgenomen in de prijs van uw database of het exemplaar. Als u PowerShell of Azure CLI gebruikt voor het maken of bijwerken van de database of het exemplaar, zijn er twee prijsopties die u kunt kiezen:
-- **BasePrice** betekent dat u hebt een geldige SQL Server-licentie die u wilt gebruiken als onderdeel van [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) en dat u betaalt alleen de infrastructuurkosten van de basis-wilt maken.
-- **LicenseIncluded** betekent dat u hebt geen on-premises SQL Server-licentie, of u niet wilt dat met uw on-premises-licentie voor de database of een beheerd exemplaar. SQL Server-licentie worden in dit geval worden opgenomen in uw factuur. 
+Met de Azure Hybrid Benefit kunt u alleen betaalt voor de onderliggende Azure-infrastructuur met behulp van uw bestaande SQL Server-licentie voor de SQL database-engine zelf (**BasePrice**) of te betalen voor de onderliggende infrastructuur en de SQL Server-licentie (**LicenseIncluded**). U kunt kiezen of wijzig uw licentiemodel met behulp van de Azure-portal of een van de volgende API's.
+
+- Instellen of bijwerken van het licentietype met behulp van PowerShell:
+
+  - [Nieuwe AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [Nieuwe AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- Instellen of bijwerken van het licentietype met behulp van Azure CLI:
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [AZ sql mi maken](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [AZ sql mi-update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- Instellen of bijwerken van het licentietype met behulp van de REST-API:
+
+  - [Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Beheerde exemplaren - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Beheerde exemplaren - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migratie van DTU-model naar het vCore-model
 
@@ -87,14 +106,14 @@ De volgende tabel bevat richtlijnen voor de specifieke migratiescenario's:
 
 |Huidige servicelaag|Gewenste servicelaag|Migratietype|Gebruikerssacties|
 |---|---|---|---|
-|Standard|Algemeen doel|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat een juiste vCore sizing *|
+|Standard|Algemeen gebruik|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat een juiste vCore sizing *|
 |Premium|Bedrijfskritiek|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat juiste vCore sizing *|
-|Standard|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
+|Standard|Bedrijfskritiek|Upgrade|Secundaire moeten eerst migreren|
 |Bedrijfskritiek|Standard|Downgrade uitvoeren|Primaire moeten eerst migreren|
-|Premium|Algemeen doel|Downgrade uitvoeren|Primaire moeten eerst migreren|
-|Algemeen doel|Premium|Upgraden|Secundaire moeten eerst migreren|
-|Bedrijfskritiek|Algemeen doel|Downgrade uitvoeren|Primaire moeten eerst migreren|
-|Algemeen doel|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
+|Premium|Algemeen gebruik|Downgrade uitvoeren|Primaire moeten eerst migreren|
+|Algemeen gebruik|Premium|Upgrade|Secundaire moeten eerst migreren|
+|Bedrijfskritiek|Algemeen gebruik|Downgrade uitvoeren|Primaire moeten eerst migreren|
+|Algemeen gebruik|Bedrijfskritiek|Upgrade|Secundaire moeten eerst migreren|
 ||||
 
 \* Elke 100 DTU in Standard-laag vereist ten minste 1 vCore en elke 125 DTU in Premium-laag vereist ten minste 1 vCore

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: e4d5004deeff43e83406ecb5d06b2857817531c6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074273"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159958"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 
@@ -38,11 +38,11 @@ Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis,
 > [!NOTE]
 > Deze zelfstudie bevat geen instructies voor het maken van sleutelkluizen, sleutels of geheimen. Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor meer informatie. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli2.md) voor instructies voor het maken van een platformonafhankelijke opdrachtregelinterface.
 >
-> Het is momenteel niet mogelijk om Azure Sleutelkluis in de Azure-portal te configureren. Gebruik in plaats daarvan deze instructies voor Azure PowerShell.
+> Dit artikel bevat instructies voor het bijwerken van de registratie in diagnoselogboek voor Azure PowerShell. Echter hetzelfde kan worden ingeschakeld met behulp van Azure Monitor in de Azure portal in de **diagnostische logboeken** sectie. 
 >
 >
 
-Zie [Wat is Azure Key Vault?](key-vault-whatis.md) voor algemene informatie over Azure Key Vault.
+Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie over Azure Sleutelkluis.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -221,7 +221,7 @@ We gaan zo kijken wat er precies in de logboeken staat. Maar eerst behandelen we
 
 ## <a id="interpret"></a>De Sleutelkluis-logboekgegevens interpreteren
 
-Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. In uitvoering
+Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. Actief
 
 ```PowerShell
 Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
@@ -280,7 +280,7 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 
 | operationName | REST-API-opdracht |
 | --- | --- |
-| Verificatie |Via het Azure Active Directory-eindpunt |
+| Authenticatie |Via het Azure Active Directory-eindpunt |
 | VaultGet |[Informatie over een sleutelkluis ophalen](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | VaultPut |[Een sleutelkluis maken of bijwerken](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | VaultDelete |[Een sleutelkluis verwijderen](https://msdn.microsoft.com/library/azure/mt620022.aspx) |

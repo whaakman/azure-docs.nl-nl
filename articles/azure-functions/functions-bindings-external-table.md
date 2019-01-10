@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 38f0d03698ff8b11e1a6a06dc29102f407e0e90f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997811"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156864"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Binding van de externe tabel voor Azure Functions (experimenteel)
 
-In dit artikel wordt uitgelegd hoe u werkt met gegevens in tabelvorm op SaaS-providers, zoals Sharepoint en Dynamics, in Azure Functions. Azure Functions ondersteunt invoer- en uitvoerbindingen voor externe tabellen.
+In dit artikel wordt uitgelegd hoe u werkt met gegevens in tabelvorm op SaaS-providers, zoals SharePoint en Dynamics, in Azure Functions. Azure Functions ondersteunt invoer- en uitvoerbindingen voor externe tabellen.
 
 > [!IMPORTANT]
 > De binding van de externe tabel is experimenteel en mogelijk nooit over het algemeen beschikbaar is (GA) status bereikt. Het is opgenomen in Azure Functions 1.x en er zijn geen plannen toe te voegen aan Azure Functions 2.x. Voor scenario's waarvoor toegang tot gegevens in SaaS-providers, kunt u overwegen [logische apps die gebruikmaken van functies](functions-twitter-email.md).
@@ -166,9 +166,9 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Google spreadsheets-gegevensbron
 
-Voor het maken van een tabel die u wilt gebruiken met dit voorbeeld in Google Docs, maakt u een werkblad met een werkblad met de naam `Contact`. De connector niet de weergavenaam van het werkblad gebruiken. De interne naam (in vet weergegeven) moet worden gebruikt als dataSetName, bijvoorbeeld: `docs.google.com/spreadsheets/d/` **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** toevoegen de kolomnamen `Id`, `LastName`, `FirstName` naar de eerste rij, klikt u vervolgens gegevens invullen op volgende rijen.
+Voor het maken van een tabel die u wilt gebruiken met dit voorbeeld in Google Docs, maakt u een werkblad met een werkblad met de naam `Contact`. De connector niet de weergavenaam van het werkblad gebruiken. De interne naam (in vet weergegeven) moet worden gebruikt als dataSetName, bijvoorbeeld: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Toevoegen van de kolomnamen `Id`, `LastName`, `FirstName` naar de eerste rij gegevens op de volgende rijen vervolgens invullen.
 
-### <a name="salesforce"></a>SalesForce
+### <a name="salesforce"></a>Salesforce
 
 In dit voorbeeld gebruiken met Salesforce, `dataSetName` is 'standaard'.
 

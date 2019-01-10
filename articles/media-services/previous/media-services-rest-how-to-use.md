@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako;johndeu
-ms.openlocfilehash: 38310ce64335e03c6728092bf1b8ce4752740a83
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233460"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159737"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Overzicht van Media Services operations REST-API
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -28,7 +28,7 @@ De **Media Services Operations REST** API wordt gebruikt voor het maken van take
 
 Media Services biedt een REST-API die JSON of atom + XML-indeling pub accepteert. Media Services REST API vereist specifieke HTTP-headers die elke client verzenden moet bij het verbinden met Media Services, evenals een aantal optionele headers. De volgende secties beschrijven de headers en HTTP-termen die u kunt gebruiken bij het maken van aanvragen en antwoorden te ontvangen van Media Services.
 
-Verificatie van de REST-API van Media Serivces vindt plaats via Azure Active Directory-verificatie die wordt beschreven in het artikel [gebruik Azure AD-verificatie voor toegang tot de Azure Media Services API met REST](media-services-rest-connect-with-aad.md)
+Media Services REST API-verificatie vindt plaats via Azure Active Directory-verificatie die wordt beschreven in het artikel [gebruik Azure AD-verificatie voor toegang tot de Azure Media Services API met REST](media-services-rest-connect-with-aad.md)
 
 ## <a name="considerations"></a>Overwegingen
 
@@ -55,12 +55,12 @@ De volgende overwegingen zijn van toepassing wanneer u met behulp van REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standaard HTTP-aanvraagheaders ondersteund door Media Services
 Er is een set van vereiste headers die u in uw aanvraag opnemen moet voor elke aanroep die u in Media Services aanbrengt, en ook een set met optionele koppen u wilt opnemen. De volgende tabel bevat de vereiste headers:
 
-| Header | Type | Waarde |
+| Koptekst | Type | Waarde |
 | --- | --- | --- |
 | Autorisatie |Bearer |Bearer is de enige toegestane autorisatiemechanismen. De waarde moet ook het toegangstoken dat door Azure Active Directory. |
-| x-ms-version |decimaal |2.17 (of de meest recente versie)|
-| DataServiceVersion |decimaal |3.0 |
-| MaxDataServiceVersion |decimaal |3.0 |
+| x-ms-version |Decimaal |2.17 (of de meest recente versie)|
+| DataServiceVersion |Decimaal |3.0 |
+| MaxDataServiceVersion |Decimaal |3.0 |
 
 > [!NOTE]
 > Omdat Media Services maakt gebruik van OData om beschikbaar te stellen van de REST-API's, moeten de DataServiceVersion en MaxDataServiceVersion headers worden opgenomen in alle aanvragen; echter als dat niet het geval is, klikt u vervolgens op dit moment Media Services wordt ervan uitgegaan dat de waarde DataServiceVersion in gebruik is 3.0.
@@ -69,11 +69,11 @@ Er is een set van vereiste headers die u in uw aanvraag opnemen moet voor elke a
 
 Hier volgt een aantal optionele headers:
 
-| Header | Type | Waarde |
+| Koptekst | Type | Waarde |
 | --- | --- | --- |
-| Date |RFC 1123 datum |Tijdstempel van de aanvraag |
+| Datum |RFC 1123 datum |Tijdstempel van de aanvraag |
 | Accepteren |Inhoudstype |Het aangevraagde type inhoud voor het antwoord, zoals het volgende:<p> -application/json; odata = uitgebreide<p> -application/atom + xml<p> Antwoorden mogelijk een andere type inhoud, zoals een blob ophalen, waarbij een geslaagd antwoord bevat de stroom blob als de nettolading. |
-| Geaccepteerd-Encoding |Gzip, deflate |GZIP en DEFLATE-codering, indien van toepassing. Opmerking: Voor grote resources, Media Services kan deze header negeren en niet-gecomprimeerde gegevens retourneren. |
+| Geaccepteerd-Encoding |Gzip, deflate |GZIP en DEFLATE-codering, indien van toepassing. Opmerking: Voor grote resources, Media Services deze header negeren en niet-gecomprimeerde gegevens retourneren. |
 | Accepteer taal |"en", "es", enzovoort. |Hiermee geeft u de gewenste taal voor het antwoord. |
 | Accepteer tekenset |Tekenset type, zoals "UTF-8" |Standaard wordt UTF-8. |
 | X-HTTP-methode |HTTP-methode |Hiermee kunnen clients of firewalls die geen ondersteuning voor HTTP-methoden, zoals opslag of verwijderen voor het gebruik van deze methoden, tunnel via een GET-aanroep. |
@@ -83,18 +83,18 @@ Hier volgt een aantal optionele headers:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standaard-HTTP-antwoordheaders ondersteund door Media Services
 Hier volgt een set van headers die kunnen worden geretourneerd aan u, afhankelijk van de resource die u zijn aangevraagd en de actie die u bedoeld om uit te voeren.
 
-| Header | Type | Waarde |
+| Koptekst | Type | Waarde |
 | --- | --- | --- |
 | aanvraag-id |Reeks |Een unieke id voor de huidige bewerking, service gegenereerd. |
 | client-request-id |Reeks |Een id die is opgegeven door de oproepende functie in de oorspronkelijke aanvraag, indien aanwezig. |
-| Date |RFC 1123 datum |De datum/tijd die de aanvraag is verwerkt. |
+| Datum |RFC 1123 datum |De datum/tijd die de aanvraag is verwerkt. |
 | Inhoudstype |Varieert |Het inhoudstype van de antwoordtekst. |
 | Content-Encoding |Varieert |Gzip of verkleinen, indien van toepassing. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standaard HTTP-termen die worden ondersteund door Media Services
 Hier volgt een volledige lijst met HTTP-termen die kunnen worden gebruikt bij het maken van HTTP-aanvragen:
 
-| term | Beschrijving |
+| term | Description |
 | --- | --- |
 | GET |Retourneert de huidige waarde van een object. |
 | POST |Maakt een object op basis van de gegevens die is opgegeven of een opdracht verzonden. |

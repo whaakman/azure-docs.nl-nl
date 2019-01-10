@@ -1,15 +1,15 @@
 ---
-author: tomarcher
+author: tomarchermsft
 ms.service: ansible
 ms.topic: include
 ms.date: 08/09/2018
 ms.author: tarcher
-ms.openlocfilehash: fa1f7fe0b4b70aae4f9165197d5d1463df1f2e3b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fe995535cd42571ad96f192883e48f4b6ea1eb0e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026698"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160400"
 ---
 1. Maak in Cloud Shell een bestand met de naam `rg.yml`.
 
@@ -17,7 +17,7 @@ ms.locfileid: "40026698"
     vi rg.yml
     ```
 
-1. Voer invoegmodus door het selecteren van de **ik** sleutel.
+1. Activeer de invoegmodus door op de toets **I** te drukken.
 
 1. Plak de volgende code in de editor:
 
@@ -35,9 +35,9 @@ ms.locfileid: "40026698"
            var: rg
    ```
 
-1. Insert-modus sluiten door te selecteren de **Esc** sleutel.
+1. Verlaat de invoegmodus door op **Esc** te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
     ```bash
     :wq

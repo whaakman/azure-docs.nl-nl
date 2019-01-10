@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1efe64d2057a4dccc0d82a8a99bfbf3eaa719521
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077981"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159108"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Aanbiedingen in Azure Stack delegeren
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Als de Azure Stack-operators wilt u meestal om andere personen die verantwoordelijk is voor gebruikers aanmelden en het maken van abonnementen. Bijvoorbeeld, als u een serviceprovider bent, kunt u wederverkopers aan klanten aanmelden en deze beheren namens. Of, als u deel uitmaakt van een centrale IT-groep in een onderneming bent, kunt u om te delegeren aanmelding door een gebruiker tot andere IT-personeel.
+Als de Azure Stack-operators wilt u meestal om andere personen die verantwoordelijk is voor gebruikers aanmelden en het maken van abonnementen. Bijvoorbeeld, als u een serviceprovider bent, kunt u wederverkopers aan klanten aanmelden en deze beheren namens. Of, als u deel uitmaakt van een centrale IT-groep in een onderneming, wilt u mogelijk gemachtigde gebruiker aanmelden bij andere IT-personeel.
 
-Delegering wordt het gemakkelijker te bereiken en te beheren van meer gebruikers die u door uzelf doen kunt, zoals wordt weergegeven in de volgende afbeelding. 
+Delegering wordt het gemakkelijker te bereiken en te beheren van meer gebruikers dan u door uzelf doen kunt, zoals wordt weergegeven in de volgende afbeelding:
 
 ![Niveaus van overdracht](media/azure-stack-delegated-provider/image1.png)
 
-Met delegering de gedelegeerde provider beheert een aanbieding (gedelegeerde aanbieding) en eindgebruikers merken verkrijgen abonnementen voor deze aanbieding zonder tussenkomst van de systeembeheerder. 
+Met delegering de gedelegeerde provider beheert een aanbieding (gedelegeerde aanbieding) en eindgebruikers merken verkrijgen abonnementen voor deze aanbieding zonder tussenkomst van de systeembeheerder.
 
 ## <a name="understand-delegation-roles-and-steps"></a>Functies van de delegatie en stappen begrijpen
 
@@ -49,17 +49,17 @@ De volgende rollen zijn onderdeel van de delegatie van:
 
 Er zijn twee eenvoudige stappen voor het instellen van overdracht:
 
-1. *Maken van een gedelegeerde-Providerabonnement* door u te abonneren op een aanbieding met alleen de service van de abonnementen van een gebruiker. Gebruikers die zijn geabonneerd op deze aanbieding kunnen vervolgens de gedelegeerde aanbiedingen uitbreiden naar andere gebruikers door deze te ondertekenen voor aanbiedingen.
+1. **Maken van een gedelegeerde-providerabonnement**: Abonneren op een aanbieding met alleen de service van de abonnementen van een gebruiker. Gebruikers die zijn geabonneerd op deze aanbieding kunnen vervolgens de gedelegeerde aanbiedingen uitbreiden naar andere gebruikers door deze te ondertekenen voor aanbiedingen.
 
-2. *Aanbieding delegeren aan de gedelegeerde provider*. Deze aanbieding kunnen de gedelegeerde provider om abonnementen te maken of uitbreiden van de aanbieding voor hun gebruikers. De gedelegeerde provider kan nu nemen van de aanbieding en aanbieden aan andere gebruikers.
+2. **Aanbieding delegeren aan de gedelegeerde provider**: Deze aanbieding kunnen de gedelegeerde provider om abonnementen te maken of uitbreiden van de aanbieding voor hun gebruikers. De gedelegeerde provider kan nu nemen van de aanbieding en aanbieden aan andere gebruikers.
 
-De volgende afbeelding ziet u de stappen voor het instellen van overdracht.
+De volgende afbeelding ziet u de stappen voor het instellen van overdracht:
 
 ![De gedelegeerde provider maken en ze te registreren van gebruikers](media/azure-stack-delegated-provider/image2.png)
 
-**Vereisten voor gedelegeerde providers**
+#### <a name="delegated-provider-requirements"></a>Vereisten voor gedelegeerde providers
 
-Om te fungeren als een gedelegeerde provider, moet een gebruiker een relatie tot stand brengen met de belangrijkste provider door een abonnement te maken. Dit abonnement geeft de gedelegeerde provider als bestaande uit het recht om weer te geven van de gedelegeerde aanbiedingen namens de belangrijkste provider.
+Om te fungeren als een gedelegeerde provider, een gebruiker tot stand brengt een relatie met de belangrijkste provider door een abonnement te maken. Dit abonnement geeft de gedelegeerde provider als bestaande uit het recht om weer te geven van de gedelegeerde aanbiedingen namens de belangrijkste provider.
 
 Nadat u deze relatie tot stand is gebracht, kunt de Azure Stack-operator een aanbieding delegeren aan de gedelegeerde-provider. De gedelegeerde provider kan duren voordat de aanbieding, wijzig de naam (maar niet de inhoud te wijzigen), en deze te bieden aan klanten.
 
@@ -69,7 +69,7 @@ De volgende secties bevatten een praktische scenario voor het instellen van een 
 
 ### <a name="set-up-roles"></a>Rollen instellen
 
-Als u wilt gebruiken in dit scenario, moet u twee Azure AD-accounts naast uw Azure Stack-operator-account. Als u deze twee accounts hebt, moet u om ze te maken. De accounts kunnen deel uitmaken van een Azure AD-gebruiker en worden aangeduid als de gedelegeerd provider en de gebruiker.
+Als u wilt gebruiken in dit scenario, moet u twee Azure AD-accounts naast uw Azure Stack-operator-account. Als u deze twee accounts hebt, moet u deze maken. De accounts kunnen deel uitmaken van een Azure AD-gebruiker en worden aangeduid als de gedelegeerd provider en de gebruiker.
 
 | **Rol** | **Organisatie-rechten** |
 | --- | --- |
@@ -83,11 +83,11 @@ Als u wilt gebruiken in dit scenario, moet u twee Azure AD-accounts naast uw Azu
 1. Maken van een aanbieding waarmee een gebruiker om te worden van een gedelegeerde provider:
 
    a.  [Maak een plan](azure-stack-create-plan.md).
-       Dit plan moet alleen de service abonnementen bevatten. In dit artikel wordt een abonnement met de naam **PlanForDelegation** als voorbeeld.
+       Dit plan moet bevatten alleen de abonnementsservice. In dit artikel wordt een abonnement met de naam **PlanForDelegation** als voorbeeld.
 
    b.  [Maak een aanbieding](azure-stack-create-offer.md) op basis van dit plan. In dit artikel wordt gebruikgemaakt van een aanbieding met de naam **OfferToDP** als voorbeeld.
 
-   c.  De gedelegeerde provider toevoegen als een abonnee op deze aanbieding door te selecteren **abonnementen** > **toevoegen** > **nieuwe Tenantabonnement**.
+   c.  De gedelegeerde provider toevoegen als een abonnee op deze aanbieding door te selecteren **abonnementen**, klikt u vervolgens **toevoegen**, klikt u vervolgens **nieuwe Tenantabonnement**.
 
    ![De gedelegeerde provider toevoegen als een abonnee](media/azure-stack-delegated-provider/image3.png)
 
@@ -96,16 +96,16 @@ Als u wilt gebruiken in dit scenario, moet u twee Azure AD-accounts naast uw Azu
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack-operators maakt de gedelegeerde aanbieding
 
-De volgende stap is het maken van het plan en aanbieding die u wilt overdragen, en dat uw gebruikers wordt gebruikt. Er is een goed idee om te definiëren van deze aanbieding, precies zoals u wilt dat gebruikers zien omdat de gedelegeerde provider de abonnementen en quota's die het bevat niet wijzigen.
+De volgende stap is het maken van het plan en aanbieding die u wilt overdragen, en dat uw gebruikers wordt gebruikt. Er is een goed idee om te definiëren van deze aanbieding, precies zoals u wilt dat gebruikers om te zien, omdat de gedelegeerde provider de abonnementen en quota's die het bevat niet wijzigen.
 
 1. Als Azure Stack-operators, [maken van een plan](azure-stack-create-plan.md) en [een aanbieding](azure-stack-create-offer.md) op basis van het abonnement. In dit artikel wordt gebruikgemaakt van een aanbieding met de naam **DelegatedOffer** als voorbeeld.
 
    > [!NOTE]
-   > Deze aanbieding hoeft te zijn openbaar, maar u kunt u deze openbaar maken als u wilt. In de meeste gevallen wilt u echter alleen gedelegeerde providers toegang hebben tot de aanbieding. Nadat u een persoonlijke aanbieding delegeren zoals beschreven in de volgende stappen, heeft de provider van gedelegeerde toegang toe.
+   > Deze aanbieding heeft geen openbaar, maar u kunt deze openbaar maken. In de meeste gevallen wilt u echter alleen gedelegeerde providers toegang hebben tot de aanbieding. Nadat u een persoonlijke aanbieding delegeren zoals beschreven in de volgende stappen, heeft de provider van gedelegeerde toegang toe.
 
-1. De aanbieding delegeren. Ga naar **DelegatedOffer**. Onder **instellingen**, selecteer **gedelegeerde Providers** > **toevoegen**.
+2. De aanbieding delegeren. Ga naar **DelegatedOffer**. Onder **instellingen**, selecteer **gedelegeerde Providers**en selecteer vervolgens **toevoegen**.
 
-1. Selecteer het abonnement voor de gedelegeerde provider uit de vervolgkeuzelijst en selecteer vervolgens **gemachtigde**.
+3. Selecteer het abonnement voor de gedelegeerde provider uit de vervolgkeuzelijst en selecteer vervolgens **gemachtigde**.
 
    ![Een gedelegeerde provider toevoegen](media/azure-stack-delegated-provider/image4.png)
 
@@ -113,28 +113,28 @@ De volgende stap is het maken van het plan en aanbieding die u wilt overdragen, 
 
 Meld u aan bij de gebruikersportal aanmeldt als gedelegeerde-provider en maak vervolgens een nieuwe aanbieding met behulp van de gedelegeerde aanbieding als sjabloon.
 
-1. Selecteer **+ een resource maken** > **Tenant aanbiedingen + plannen** > **bieden**.
+1. Selecteer **+ een resource maken**, klikt u vervolgens **Tenant aanbiedingen + plannen**en selecteer vervolgens **bieden**.
 
     ![Een nieuwe aanbieding maken](media/azure-stack-delegated-provider/image5.png)
 
-1. Een naam toewijzen aan de aanbieding. In dit artikel wordt gebruikgemaakt van **ResellerOffer** als voorbeeld. Selecteer de gedelegeerde aanbieding waarop u wilt baseren, en selecteer vervolgens **maken**.
+2. Een naam toewijzen aan de aanbieding. In dit voorbeeld wordt **ResellerOffer**. Selecteer de gedelegeerde aanbieding waarop u wilt baseren, en selecteer vervolgens **maken**.
 
    ![Een naam toewijzen](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Het is belangrijk om te begrijpen dat gedelegeerde providers aanbiedingen die worden overgedragen aan ze alleen kunnen kiezen. Ze aanbrengen geen wijzigingen in aanbiedingen. Alleen een Azure Stack-operator kunt wijzigen deze aanbiedingen, bijvoorbeeld wijzigen van hun abonnementen en quota's. Een gedelegeerde provider samenstellen niet van een aanbieding van basisplannen en aanvullende plannen. 
+   >Het is belangrijk om te begrijpen dat gedelegeerde providers aanbiedingen die worden overgedragen aan ze alleen kunnen kiezen. Ze aanbrengen geen wijzigingen in aanbiedingen. Alleen een Azure Stack-operator kunt wijzigen deze aanbiedingen, bijvoorbeeld wijzigen van hun abonnementen en quota's. Een gedelegeerde provider heeft niet maken voor een aanbieding van basisplannen en aanvullende plannen.
 
 3. De gedelegeerde provider kunt maken deze aanbiedingen via hun eigen portal openbare URL. Als u de aanbieding voor openbare, schakelt u **Bladeren**, en vervolgens **biedt**. Selecteer de aanbieding en selecteer vervolgens **status wijzigen**.
 
 4. De openbare gedelegeerde aanbiedingen zijn nu zichtbaar zijn alleen door de gedelegeerde-portal. Om te zoeken en wijzig deze URL:
 
-    a.  Selecteer **Bladeren** > **alle services**, en klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**. De gedelegeerde-Providerabonnement selecteren. Bijvoorbeeld, **DPSubscription** > **eigenschappen**.
+    a.  Selecteer **Bladeren**, klikt u vervolgens **alle services**, en klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**. Selecteer de gedelegeerde-providerabonnement; bijvoorbeeld, **DPSubscription**, klikt u vervolgens **eigenschappen**.
 
     b.  Kopiëren van de portal URL naar een afzonderlijke locatie, zoals Kladblok.
 
     ![De gedelegeerde-Providerabonnement selecteren](media/azure-stack-delegated-provider/dpportaluri.png)  
 
-   U klaar bent met het maken van een gedelegeerde aanbieding als een gedelegeerde-provider. Meld u af als gedelegeerde-provider op en sluit het browservenster dat u gebruikt.
+   U klaar bent met het maken van een gedelegeerde aanbieding als een gedelegeerde-provider. Meld u af als gedelegeerde-provider op en sluit het browservenster.
 
 ### <a name="sign-up-for-the-offer"></a>Aanmelden voor de aanbieding
 
@@ -147,17 +147,17 @@ Meld u aan bij de gebruikersportal aanmeldt als gedelegeerde-provider en maak ve
 
    ![Weergeven en selecteren van aanbiedingen](media/azure-stack-delegated-provider/image8.png)
 
-Het proces van het overdragen van een aanbieding is voltooid. Nu kan een gebruiker zich registreren voor deze aanbieding met het ophalen van een abonnement voor deze.
+Het proces van het overdragen van een aanbieding is voltooid. Nu kan een gebruiker zich registreren voor deze aanbieding met het ophalen van een abonnement op.
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>Abonnementen verplaatsen tussen gedelegeerde providers
 
-Indien nodig, kan een abonnement worden verplaatst tussen de nieuwe of bestaande gedelegeerde providerabonnementen die deel uitmaken van dezelfde Directory-tenant. Dit is met behulp van de PowerShell-cmdlet [verplaatsen AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
+Indien nodig, kan een abonnement worden verplaatst tussen de nieuwe of bestaande gedelegeerde providerabonnementen die deel uitmaken van dezelfde directory-tenant. Dit wordt gedaan met behulp van de PowerShell-cmdlet [verplaatsen AzsSubscription](/powershell/module/azs.subscriptions.admin).
 
 Dit is handig wanneer:
-- U onboarding een nieuw teamlid die gaat ondernemen op de rol van gedelegeerde provider en u wilt toewijzen aan dit team lid gebruiker-abonnementen die eerder zijn gemaakt in het abonnement op standaard-Provider.
-- U hebt meerdere abonnementen voor gedelegeerde providers in dezelfde Directory-tenant (Azure Active Directory) en moet gebruikersabonnementen verplaatsen tussen beide. Dit kan bijvoorbeeld het geval waarbij een teamlid worden verplaatst tussen teams en hun abonnement moet worden toegewezen aan het nieuwe team.
 
+* U onboarding een nieuw teamlid die gaat ondernemen op de rol van gedelegeerde provider en u wilt toewijzen aan dit team lid gebruikersabonnementen die eerder zijn gemaakt in het abonnement van de provider standaard.
+* U hebt meerdere abonnementen voor gedelegeerde providers in dezelfde directory-tenant (Azure Active Directory) en moet om gebruikersabonnementen te verplaatsen tussen beide. Dit scenario kan een aanvraag waarin een teamlid worden verplaatst tussen teams en hun abonnement moet worden toegewezen aan het nieuwe team zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een virtuele machine inrichten](azure-stack-provision-vm.md)
+* [Een virtuele machine inrichten](azure-stack-provision-vm.md)

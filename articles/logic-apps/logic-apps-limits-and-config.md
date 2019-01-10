@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c7eaecf74f56035c39267407e6a965c57897b1ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015437"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159023"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -85,12 +85,12 @@ Hier zijn de limieten voor een enkele logische app:
 
 | Name | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
-| Trigger gelijktijdigheid | 50 | De standaardlimiet is 20. Deze limiet wordt het maximum aantal logic app-exemplaren die kunnen worden uitgevoerd op hetzelfde moment of parallel beschreven. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijziging trigger gelijktijdigheid](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) of [exemplaren sequentieel activeren](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Maximale wachttijd wordt uitgevoerd | 100 | De standaardlimiet is 10. Deze limiet wordt het maximum aantal logic app-exemplaren die worden uitgevoerd wanneer u uw logische app wordt al uitgevoerd voor het maximum aantal gelijktijdige instanties kunt wachten beschreven. <p><p>De standaardlimiet op een waarde tussen 0 en 100 liggen, Zie [wijziging wachten uitvoeringen beperken](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Foreach-items | 100.000 | Deze limiet wordt het maximum aantal matrixitems die kan worden verwerkt door een lus 'voor elke' beschreven. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). | 
-| Foreach-gelijktijdigheid | 50 | De standaardlimiet is 20. Deze limiet wordt beschreven voor het maximum aantal 'voor elke' iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijzigen 'voor elke' gelijktijdigheid](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| SplitOn-items | 100.000 | | 
-| UNTIL-iteraties | 5.000 | | 
+| Trigger gelijktijdigheid | 50 gelijktijdige beperken | Wanneer u gelijktijdigheidsbeheer voor een trigger inschakelt, is de standaardlimiet 25. Deze limiet wordt het maximum aantal logic app-exemplaren die kunnen worden uitgevoerd op hetzelfde moment of parallel beschreven. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [limiet voor gelijktijdigheid van wijziging trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) of [exemplaren sequentieel activeren](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Maximale wachttijd wordt uitgevoerd | 100 gelijktijdige beperken | Wanneer u gelijktijdigheidsbeheer voor een trigger inschakelt, is de standaardlimiet 10. Deze limiet wordt het maximum aantal logic app-exemplaren die worden uitgevoerd wanneer u uw logische app wordt al uitgevoerd voor het maximum aantal gelijktijdige instanties kunt wachten beschreven. <p><p>De standaardlimiet op een waarde tussen 0 en 100 liggen, Zie [wijziging wachten uitvoeringen beperken](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach-matrix-items | 100,000 | Deze limiet wordt het maximum aantal matrixitems die kan worden verwerkt door een lus 'voor elke' beschreven. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). | 
+| Foreach-gelijktijdigheid | 50 gelijktijdige beperken | Wanneer u gelijktijdigheidsbeheer voor deze lus inschakelt, is de standaardlimiet is 20. Deze limiet wordt beschreven voor het maximum aantal 'voor elke' iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijzigen 'voor elke' gelijktijdigheid limiet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| SplitOn-items | 100,000 | | 
+| UNTIL-iteraties | 5,000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -119,9 +119,9 @@ Hoger dan deze limieten in de normale verwerking of voer belastingtests uitvoere
 
 | Name | Limiet | Opmerkingen |
 |------|-------|-------|
-| FTP | 50 MB | Als tijdelijke oplossing voor deze limiet, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
-| SFTP | 50 MB | Als u wilt deze limiet te omzeilen, gebruikt u de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md) of Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
-| SFTP-SSH | 1 GB | Als tijdelijke oplossing voor deze limiet, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
+| FTP | 50 MB | Als u wilt deze limiet overschrijdt, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
+| SFTP | 50 MB | Als u wilt deze limiet overschrijdt, gebruiken de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md) of Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
+| SFTP-SSH | 1 GB | Als u wilt deze limiet overschrijdt, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -197,8 +197,8 @@ Gebruik de gratis laag alleen voor experimentele scenario's, niet-productie scen
 |----------|-------|-------| 
 | EDI-handelspartners | 25 | | 
 | EDI-handelspartners overeenkomsten | 10 | | 
-| Kaarten | 25 | | 
-| Schema 's | 25 | 
+| Toewijzingen | 25 | | 
+| Schema's | 25 | 
 | Assembly's | 10 | | 
 | Batchconfiguraties | 5 | 
 | Certificaten | 25 | | 
@@ -210,8 +210,8 @@ Gebruik de gratis laag alleen voor experimentele scenario's, niet-productie scen
 |----------|-------|-------| 
 | EDI-handelspartners | 2 | | 
 | EDI-handelspartners overeenkomsten | 1 | | 
-| Kaarten | 500 | | 
-| Schema 's | 500 | 
+| Toewijzingen | 500 | | 
+| Schema's | 500 | 
 | Assembly's | 25 | | 
 | Batchconfiguraties | 1 | | 
 | Certificaten | 2 | | 
@@ -223,8 +223,8 @@ Gebruik de gratis laag alleen voor experimentele scenario's, niet-productie scen
 |----------|-------|-------| 
 | EDI-handelspartners | 500 | | 
 | EDI-handelspartners overeenkomsten | 500 | | 
-| Kaarten | 500 | | 
-| Schema 's | 500 | 
+| Toewijzingen | 500 | | 
+| Schema's | 500 | 
 | Assembly's | 50 | | 
 | Batchconfiguraties | 5 |  
 | Certificaten | 50 | | 
@@ -271,7 +271,7 @@ Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter
 | Australië - zuidoost | 13.70.159.205, 13.73.114.207, 13.77.3.139, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.189.222.77 |
 | Brazilië - zuid | 191.234.161.28, 191.234.161.168, 191.234.162.131, 191.234.162.178, 191.234.182.26, 191.235.82.221, 191.235.91.7, 191.237.255.116 |
 | Canada - midden | 13.71.184.150, 13.71.186.1, 40.85.250.135, 40.85.250.212, 40.85.252.47, 52.233.29.92, 52.228.39.241, 52.228.39.244 |
-| Canada - oost | 40.86.203.228, 40.86.216.241, 40.86.217.241, 40.86.226.149, 40.86.228.93, 52.229.120.45, 52.229.126.25, 52.232.128.155 |
+| Canada Oost | 40.86.203.228, 40.86.216.241, 40.86.217.241, 40.86.226.149, 40.86.228.93, 52.229.120.45, 52.229.126.25, 52.232.128.155 |
 | India - centraal | 52.172.154.168, 52.172.185.79, 52.172.186.159, 104.211.74.145, 104.211.90.162, 104.211.90.169, 104.211.101.108, 104.211.102.62 |
 | US - centraal | 13.67.236.125, 23.100.82.16, 23.100.86.139, 23.100.87.24, 23.100.87.56, 40.113.218.230, 40.122.170.198, 104.208.25.27 |
 | Azië - oost | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 |
@@ -289,8 +289,8 @@ Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter
 | India - west | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 |
 | US - west | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 |
 | US - west 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 |
-| Verenigd Koninkrijk Zuid | 51.140.28.225, 51.140.73.85, 51.140.74.14, 51.140.78.44, 51.140.137.190, 51.140.142.28, 51.140.153.135, 51.140.158.24 |
-| Verenigd Koninkrijk West | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 |
+| VK Zuid | 51.140.28.225, 51.140.73.85, 51.140.74.14, 51.140.78.44, 51.140.137.190, 51.140.142.28, 51.140.153.135, 51.140.158.24 |
+| VK West | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 |
 | | |
 
 | Logic Apps-regio | Inkomende IP |
@@ -299,7 +299,7 @@ Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter
 | Australië - zuidoost | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Brazilië - zuid | 191.234.166.198, 191.235.86.199, 191.235.94.220, 191.235.95.229 |
 | Canada - midden | 13.88.249.209, 40.85.241.105, 52.233.29.79, 52.233.30.218 |
-| Canada - oost | 40.86.202.42, 52.229.125.57, 52.232.129.143, 52.232.133.109 |
+| Canada Oost | 40.86.202.42, 52.229.125.57, 52.232.129.143, 52.232.133.109 |
 | India - centraal | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
 | US - centraal | 13.67.236.76, 40.77.31.87, 40.77.111.254, 104.43.243.39 |
 | Azië - oost | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
@@ -317,8 +317,8 @@ Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter
 | India - west | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | US - west | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | US - west 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
-| Verenigd Koninkrijk Zuid | 51.140.78.71, 51.140.79.109, 51.140.84.39, 51.140.155.81 |
-| Verenigd Koninkrijk West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
+| VK Zuid | 51.140.78.71, 51.140.79.109, 51.140.84.39, 51.140.155.81 |
+| VK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
 ### <a name="managed-connectors"></a>Beheerde connectors
@@ -341,7 +341,7 @@ Ter ondersteuning van de aanroepen die [door Microsoft beheerde connectors](../c
 | Australië - zuidoost | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34 | 
 | Brazilië - zuid | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207 | 
 | Canada - midden | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.26.83, 52.233.31.197, 52.237.24.126 | 
-| Canada - oost | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152 | 
+| Canada Oost | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152 | 
 | India - centraal | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164 | 
 | US - centraal | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164 | 
 | Azië - oost | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169 | 
@@ -359,8 +359,8 @@ Ter ondersteuning van de aanroepen die [door Microsoft beheerde connectors](../c
 | India - west | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 | 
 | US - west | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49 | 
 | US - west 2 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157 | 
-| Verenigd Koninkrijk Zuid | 51.140.80.51, 51.140.148.0 - 51.140.148.15 | 
-| Verenigd Koninkrijk West | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
+| VK Zuid | 51.140.80.51, 51.140.148.0 - 51.140.148.15 | 
+| VK West | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Volgende stappen  

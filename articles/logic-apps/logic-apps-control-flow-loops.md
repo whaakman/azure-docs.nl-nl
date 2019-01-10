@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 728152c8f9e7d4cceb4b1c8165bbf087927f58e8
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063315"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159482"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 
@@ -42,7 +42,7 @@ Hier volgen enkele overwegingen wanneer u "Foreach" lussen gebruiken:
 
 * In de geneste lussen iteraties altijd worden opeenvolgend uitgevoerd, niet parallel. Als u wilt uitvoeren van bewerkingen voor items in een geneste lus parallel, maken en [een onderliggende logische app aanroepen](../logic-apps/logic-apps-http-endpoint.md).
 
-* Als u voorspelbare resultaten van bewerkingen voor variabelen in lussen, moet u deze lussen worden opeenvolgend uitgevoerd.
+* Als u voorspelbare resultaten van bewerkingen op de variabelen tijdens elke herhaling van de lus, moet u deze lussen worden opeenvolgend uitgevoerd. Bijvoorbeeld, wanneer een gelijktijdig worden uitgevoerd in een lus eindigt, verhogen, verlagen en toevoegen aan de variabele operations voorspelbare resultaten geretourneerd. Deze bewerkingen kunnen echter tijdens elke herhaling in de lus gelijktijdig actieve retourneren onvoorspelbare resultaten. 
 
 * Acties in een 'Foreach'-lus gebruiken de [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 de expressie om te verwijzen naar en verwerken van elk item in de matrix. Als u gegevens die zich niet in een matrix opgeeft, wordt de werkstroom voor logische Apps mislukt. 
@@ -130,9 +130,9 @@ Standaard cycli in een lus 'Foreach' parallel worden uitgevoerd. Als u wilt uitv
 
    ![Kies '...' op 'Foreach'-lus, > 'Instellingen'](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Schakel de **gelijktijdigheidsbeheer** instelling. Verplaats de **graad van parallelle uitvoering** schuifregelaar **1**, en kies **gedaan**.
+1. Onder **gelijktijdigheidsbeheer**, schakelt u de **gelijktijdigheidsbeheer** instelt op **op**. Verplaats de **graad van parallelle uitvoering** schuifregelaar **1**, en kies **gedaan**.
 
-   ![De instelling "Gelijktijdigheidsbeheer" inschakelen](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Schakel gelijktijdigheidsbeheer](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
 Als u met JSON-definitie van uw logische app werkt, kunt u de `Sequential` optie door toe te voegen de `operationOptions` parameter, bijvoorbeeld:
 
@@ -331,7 +331,7 @@ In dit voorbeeld "Tot" lus roept een HTTP-eindpunt, waarmee een resource wordt g
 }
 ```
 
-## <a name="get-support"></a>Ondersteuning krijgen
+## <a name="get-support"></a>Ondersteuning vragen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 * Op indienen of hierop stemmen op de functies en suggesties voor [site voor gebruikersfeedback van Azure Logic Apps](https://aka.ms/logicapps-wish).

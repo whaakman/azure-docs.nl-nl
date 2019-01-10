@@ -3,7 +3,7 @@ title: Implementeren met Terraform in Bash in Azure Cloudshell | Microsoft Docs
 description: Implementeren met Terraform in Bash in Azure Cloudshell
 services: Azure
 documentationcenter: ''
-author: tomarcher
+author: tomarchermsft
 manager: routlaw
 tags: azure-cloud-shell
 ms.service: azure
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 8512c04cb0efc698ca688724c3806291bb02d200
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a08a4e7df6cf0493ab1aa6aced1abf888a61072a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947636"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159261"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implementeren met Terraform in Bash in Azure Cloudshell
 Dit artikel begeleidt u bij het maken van een resourcegroep met de [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
@@ -92,7 +92,7 @@ commands will detect it and remind you to do so if necessary.
 
 De [terraform init opdracht](https://www.terraform.io/docs/commands/init.html) wordt gebruikt voor het initialiseren van een werkmap met Terraform-configuratiebestanden. De `terraform init` opdracht is de eerste opdracht die moet worden uitgevoerd na het schrijven van een nieuwe Terraform-configuratie of een bestaande naam uit versiebeheer klonen. Het is veilig om uit te voeren met deze opdracht meerdere keren.
 
-### <a name="terraform-plan"></a>Terraform Plan
+### <a name="terraform-plan"></a>Terraform plan
 Voorbeeld van de resources zijn gemaakt door de sjabloon Terraform met `terraform plan`.
 
 ```
@@ -128,7 +128,7 @@ can't guarantee that exactly these actions will be performed if
 
 De opdracht [terraform plan](https://www.terraform.io/docs/commands/plan.html) wordt gebruikt om een uitvoeringsplan te maken. Terraform vernieuwen wordt uitgevoerd, tenzij expliciet worden uitgeschakeld en vervolgens bepaalt welke acties nodig zijn voor het bereiken van de gewenste status die is opgegeven in de configuratiebestanden. Het plan kan worden opgeslagen met de-out, en vervolgens wordt er op terraform toepassen om te controleren of alleen de vooraf geplande acties worden uitgevoerd.
 
-### <a name="terraform-apply"></a>Terraform Apply
+### <a name="terraform-apply"></a>Terraform apply
 De Azure-resources inrichten `terraform apply`.
 
 ```

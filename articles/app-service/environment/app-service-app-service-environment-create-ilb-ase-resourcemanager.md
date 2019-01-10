@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276353"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156677"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Een ILB ASE maken met behulp van Azure Resource Manager-sjablonen
 
@@ -42,7 +42,7 @@ Een voorbeeld van Azure Resource Manager-sjabloon en de bijbehorende parameters-
 
 De meeste van de parameters in de *azuredeploy.parameters.json* bestand gemeenschappelijk zijn voor het maken van zowel ILB as-omgevingen, evenals as-omgevingen gebonden aan een openbare VIP-adres.  De lijst hieronder aanroepen speciale Opmerking uitvoerparameters of die zijn uniek, bij het maken van een ILB as-omgeving:
 
-* *interalLoadBalancingMode*:  In de meeste gevallen set wordt dit tot 3, wat betekent dat zowel HTTP/HTTPS-verkeer op poort 80/443 en het besturingselement/gegevenskanaal poorten hebben geluisterd naar door de FTP-service op de as-omgeving, worden gekoppeld aan een ILB intern virtueel netwerk-adres toegewezen.  Als deze eigenschap wordt in plaats daarvan ingesteld op 2, klikt u vervolgens gerelateerde alleen de FTP-service poorten (zowel controle en kanalen) wordt gebonden aan een ILB-adres, terwijl het HTTP/HTTPS-verkeer op het openbare VIP-adres blijft.
+* *internalLoadBalancingMode*:  In de meeste gevallen set wordt dit tot 3, wat betekent dat zowel HTTP/HTTPS-verkeer op poort 80/443 en het besturingselement/gegevenskanaal poorten hebben geluisterd naar door de FTP-service op de as-omgeving, worden gekoppeld aan een ILB intern virtueel netwerk-adres toegewezen.  Als deze eigenschap wordt in plaats daarvan ingesteld op 2, klikt u vervolgens gerelateerde alleen de FTP-service poorten (zowel controle en kanalen) wordt gebonden aan een ILB-adres, terwijl het HTTP/HTTPS-verkeer op het openbare VIP-adres blijft.
 * *dnsSuffix*:  Deze parameter bepaalt de standaard-hoofddomein dat wordt toegewezen aan de as-omgeving.  In de openbare variatie van Azure App Service biedt het hoofddomein standaard voor alle web-apps is *azurewebsites.net*.  Maar omdat een ILB as-omgeving intern voor het virtuele netwerk van een klant is, het niet verstandig om te gebruiken van de openbare service standaard-hoofddomein.  Een ILB as-omgeving moet in plaats daarvan een standaard-hoofddomein die zinvol voor gebruik binnen een bedrijf intern virtueel netwerk hebben.  Bijvoorbeeld, een hypothetische Contoso Corporation gebruiken een standaard-hoofddomein van *interne contoso.com* voor apps die zijn bedoeld om alleen worden omgezet en toegankelijk is in het virtuele netwerk van Contoso. 
 * *ipSslAddressCount*:  Deze parameter is automatisch standaard ingesteld op een waarde van 0 in de *azuredeploy.json* omdat ILB as-omgevingen hebben slechts één ILB-adres.  Er zijn geen expliciete IP-SSL-adressen voor een ILB as-omgeving, en kan daarom de IP-SSL-adresgroep voor een ILB as-omgeving moet worden ingesteld op nul, anders een inrichting fout wordt uitgevoerd. 
 
@@ -61,7 +61,7 @@ Zodra de ILB as-omgeving is gemaakt, moet een SSL-certificaat worden gekoppeld a
 Er zijn tal van manieren om een geldig SSL-certificaat met inbegrip van de interne CA's, aanschaffen van een certificaat van een externe gebruiker en het gebruik van een zelfondertekend certificaat verkrijgen.  De volgende certificaatkenmerken moeten juist zijn geconfigureerd, ongeacht wat de bron van het SSL-certificaat is:
 
 * *Onderwerp*:  Dit kenmerk moet worden ingesteld op **.uw-root-domein-here.com*
-* *Alternatieve onderwerpnaam*:  Dit kenmerk moet bevatten zowel **.uw-root-domein-here.com*, en **.Hier-root-domein-here.com*.  De reden voor de tweede vermelding is dat SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app worden uitgevoerd met een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
+* *Alternatieve naam voor onderwerp*:  Dit kenmerk moet bevatten zowel **.uw-root-domein-here.com*, en **.Hier-root-domein-here.com*.  De reden voor de tweede vermelding is dat SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app worden uitgevoerd met een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
 
 Met een geldig SSL-certificaat in voorraad, zijn twee aanvullende voorbereidende stappen nodig.  Het SSL-certificaat moet worden geconverteerd/opgeslagen als een pfx-bestand.  Houd er rekening mee dat het pfx-bestand moet alle tussenliggende opnemen en basiscertificaten en moet ook zijn beveiligd met een wachtwoord.
 

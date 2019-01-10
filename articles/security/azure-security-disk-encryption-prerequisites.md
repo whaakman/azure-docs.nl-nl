@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57136ac267af078068f33df6ee85dfccd287606a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: efb8c885daf78ad279a229257492a34c6dbf1c6a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537695"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156507"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption
 
@@ -67,12 +67,10 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Azure PowerShell installeren voor gebruik op uw lokale computer (optioneel): 
 1. Volg de instructies in de koppelingen voor uw besturingssysteem wordt voortgezet maar de rest van de onderstaande stappen.      
-    - [Installeren en configureren van Azure PowerShell voor Windows](/powershell/azure/install-azurerm-ps). 
+    - [Installeren en configureren van Azure PowerShell voor Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - PowerShellGet, Azure PowerShell installeren en laden van de AzureRM-module. 
-    - [Installeren en configureren van Azure Powershell in macOS en Linux](/powershell/azure/install-azurermps-maclinux).
-        -  PowerShell Core, Azure PowerShell voor .NET Core, installeren en laden van de Az-module.
 
-2. Controleer of de geïnstalleerde versies van de AzureRM-module. Indien nodig, [bijwerken van de Azure PowerShell-module](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+2. Controleer of de geïnstalleerde versies van de AzureRM-module. Indien nodig, [bijwerken van de Azure PowerShell-module](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
     -  De versie van de AzureRM-module moet 6.0.0 of hoger zijn.
     - Gebruik de meest recente versie van de AzureRM-module wordt aanbevolen.
 

@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944576"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160060"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Overwegingen voor Azure Stack-netwerken
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Azure Stack-netwerken heeft veel van de functies van Azure-netwerken. Er zijn echter enkele belangrijke verschillen die u begrijpen moet voordat u een Azure Stack-netwerk implementeert.
 
 Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netwerken en de bijbehorende functies. Zie voor meer informatie over belangrijke verschillen tussen Azure Stack en Azure, de [belangrijke overwegingen met betrekking tot](azure-stack-considerations.md) artikel.
 
-## <a name="cheat-sheet-networking-differences"></a>Overzichtskaart: netwerken verschillen
+## <a name="cheat-sheet-networking-differences"></a>Overzichtskaart: Netwerken verschillen
 
 | Service | Functie | Azure (wereldwijd) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netw
 |  | DNS-zones per abonnement | 100 (standaard)<br>Op aanvraag kunnen worden verhoogd. | 100 |
 |  | DNS-recordsets per zone | 5000 (standaard)<br>Op aanvraag kunnen worden verhoogd. | 5000 |
 |  | Naamservers voor zoneoverdracht | Azure biedt vier de naamservers voor elke gebruiker (tenant)-zone die wordt gemaakt. | Azure Stack biedt twee naamservers voor elke gebruiker (tenant)-zone die wordt gemaakt. |
-| Virtual Network | Peering op virtueel netwerk | Verbinding maken met twee virtuele netwerken in dezelfde regio via het Azure-backbone-netwerk. | Nog niet ondersteund |
+| Virtueel netwerk | Peering op virtueel netwerk | Verbinding maken met twee virtuele netwerken in dezelfde regio via het Azure-backbone-netwerk. | Nog niet ondersteund |
 |  | IPv6-adressen | U kunt een IPv6-adres toewijzen als onderdeel van de [Netwerkinterfaceconfiguratie](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Alleen IPv4 wordt ondersteund. |
 |  | DDoS-beschermingsplan | Ondersteund | Nog niet ondersteund. |
 |  | Virtual Machine Scale sets IP-configuraties | Ondersteund | Nog niet ondersteund. |
@@ -47,14 +47,13 @@ Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netw
 |  | Toepassingsbeveiligingsgroepen | Ondersteund | Nog niet ondersteund. |
 | Virtuele netwerkgateways | Punt-naar-Site VPN-Gateway | Ondersteund | Nog niet ondersteund. |
 |  | Vnet-naar-Vnet-Gateway | Ondersteund | Nog niet ondersteund. |
-|  | Gateway van het Type virtueel netwerk | Azure ondersteunt VPN<br> ExpressRoute <br> Hyper-netto | Azure Stack biedt ondersteuning voor VPN-type op dit moment. |
+|  | Gateway van het Type virtueel netwerk | Azure ondersteunt VPN<br> Express Route <br> Hyper-netto | Azure Stack biedt ondersteuning voor VPN-type op dit moment. |
 |  | VPN-Gateway-SKU 's | Ondersteuning voor Basic, GW1, GW2, GW3, standaard krachtige, zeer hoge prestaties. | Ondersteuning voor Basic, Standard en High Performance SKU's. |
 |  | VPN-Type | Azure ondersteunt zowel op basis van beleid en op basis van Route. | Azure Stack biedt ondersteuning voor Route op basis van alleen. |
 |  | BGP-instellingen | Azure biedt ondersteuning voor configuratie van-adres van BGP-Peering en gewicht van Peer. | BGP-Peering-adres en het gewicht van Peer worden automatisch geconfigureerd in Azure Stack. Er is geen manier voor de gebruiker deze instellingen configureren met hun eigen waarden. |
 |  | Standaard-Gateway-Site | Azure ondersteunt de configuratie van een standaard-site voor geforceerde tunneling. | Nog niet ondersteund. |
 |  | Gateway vergroten of verkleinen | Azure biedt ondersteuning voor de gateway vergroten of verkleinen na de implementatie. | Wijzigen van het formaat niet ondersteund. |
 |  | Actief/actief-configuratie | Ondersteund | Nog niet ondersteund. |
-|  | IKE-/ IPSec-beleid | Azure ondersteunt aangepaste IPSec-beleid-configuraties. | Nog niet ondersteund. |
 |  | UsePolicyBasedTrafficSelectors | Azure ondersteunt het gebruik van op beleid gebaseerde verkeerkiezers met op route gebaseerde gatewayverbindingen. | Nog niet ondersteund. |
 | Load balancer | SKU | Basic en Standard Load Balancers worden ondersteund | De Basic Load Balancer wordt ondersteund.  De SKU-eigenschap wordt niet ondersteund. |
 |  | Zones | Beschikbaarheidszones worden ondersteund. | Nog niet ondersteund |
@@ -65,16 +64,14 @@ Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netw
 |  | Effectieve ACL's ophalen | Ondersteund | Nog niet ondersteund. |
 |  | Versneld netwerken inschakelen | Ondersteund | Nog niet ondersteund. |
 |  | Doorsturen via IP | Standaard uitgeschakeld.  Kan worden ingeschakeld. | Bij het omschakelen van deze instelling wordt niet ondersteund.  Op standaard. |
-|  | Meerdere IP-configuraties per interface | Ondersteund | Nog niet ondersteund. |
 |  | Toepassingsbeveiligingsgroepen | Ondersteund | Nog niet ondersteund. |
 |  | Interne DNS-naamlabel | Ondersteund | Nog niet ondersteund. |
 |  | Privé-IP-adres versie | Zowel IPv4 als IPv6 worden ondersteund. | Alleen IPv4 wordt ondersteund. |
-|  | Primaire IP-configuratie | Ondersteund. Hiermee geeft u de primaire IP-configuratie op de interface. | Nog niet ondersteund. |
 | Network Watcher | Network Watcher tenantnetwerk bewakingsmogelijkheden | Ondersteund | Nog niet ondersteund. |
 | CDN | Content Delivery Network-profielen | Ondersteund | Nog niet ondersteund. |
 | Toepassingsgateway | Taakverdeling voor laag 7 | Ondersteund | Nog niet ondersteund. |
-| Traffic Manager | Inkomend verkeer routeren voor optimale toepassingsprestaties en betrouwbaarheid. | Ondersteund | Nog niet ondersteund. |
-| ExpressRoute | Instellen van een snelle particuliere verbinding met Microsoft cloud-services van uw on-premises infrastructuur of CO-locatiefaciliteit. | Ondersteund | Ondersteuning voor Azure Stack verbinden met een Express Route-circuit. |
+| Verkeerbeheer | Inkomend verkeer routeren voor optimale toepassingsprestaties en betrouwbaarheid. | Ondersteund | Nog niet ondersteund. |
+| Express Route | Instellen van een snelle particuliere verbinding met Microsoft cloud-services van uw on-premises infrastructuur of CO-locatiefaciliteit. | Ondersteund | Ondersteuning voor Azure Stack verbinden met een Express Route-circuit. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

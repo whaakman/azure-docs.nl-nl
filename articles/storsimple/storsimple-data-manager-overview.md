@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009166"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158814"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Oplossingenoverzicht van StorSimple-gegevensbeheer
 
@@ -43,17 +43,17 @@ De service StorSimple Data Manager identificeert een StorSimple-gegevens in de c
 U kunt het gegevensbeheer met Azure Functions, Azure Automation en Azure Data Factory gebruiken dat werkstromen die worden uitgevoerd op uw gegevens er naar StorSimple. Het is raadzaam voor het verwerken van uw media-inhoud opslaan op StorSimple met Azure Media Services, of een Machine Learning-algoritme worden uitgevoerd op die gegevens of een Hadoop-cluster openen om de gegevens die u op StorSimple opslaat te analyseren. Met de groot scala aan services die beschikbaar zijn op Azure in combinatie met de gegevens op StorSimple, kunt u de kracht van uw gegevens ontgrendelen.
 
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s
+## <a name="region-availability"></a>Beschikbaarheid voor de regio
 
 De StorSimple-gegevensbeheer is beschikbaar in de volgende 7 regio's:
 
- - Zuidoost-Azië
- - VS - oost
- - VS - west
- - VS - west 2
- - West-centraal VS
- - Noord-Europa
- - West-Europa
+ - Azië - zuidoost
+ - US - oost
+ - US - west
+ - US - west 2
+ - US - west-centraal
+ - Europa - noord
+ - Europa -west
 
 De StorSimple-gegevensbeheer kan echter worden gebruikt om gegevens in de volgende regio's te transformeren. 
 
@@ -84,7 +84,7 @@ Als uw regio Data Manager af van uw taak definitie regio wijkt, is het belangrij
 
 ## <a name="managing-personal-information"></a>Persoonlijke gegevens beheren
 
-De StorSimple-gegevensbeheer niet verzamelen of geen persoonlijke gegevens worden weergegeven. Voor meer informatie raadpleegt u het beleid van Microsoft Privacy [Trust Center](https://www.microsoft.com/trustcenter).
+De StorSimple-gegevensbeheer niet verzamelen of geen persoonlijke gegevens worden weergegeven. Bekijk het Microsoft-privacybeleid in het [Vertrouwenscentrum](https://www.microsoft.com/trustcenter) voor meer informatie.
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 

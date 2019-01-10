@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a97a3330ff99cada3921f98b76cf08ed7a464bcc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338484"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156558"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
-![Office 365-logo](media/solution-office-365/icon.png)
+![Logo van Office 365](media/solution-office-365/icon.png)
 
 De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Office 365-omgeving in Log Analytics.
 
@@ -308,7 +308,7 @@ De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werk
                                     'office365TenantID': '" + $OfficeTennantId + "',
                                     'connectionID': 'office365connection_" + $SubscriptionId + $OfficeTennantId + "',
                                     'office365AdminUsername': '" + $OfficeUsername + "',
-                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.Sharepoint'
+                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.SharePoint'
                                   },
                     'etag': '*',
                     'kind': 'Office365',
@@ -349,7 +349,7 @@ De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werk
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 Mogelijk ziet u de volgende fout als u probeert te maken van een abonnement nadat het abonnement al bestaat.
 
@@ -474,7 +474,7 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
-## <a name="data-collection"></a>Gegevensverzameling
+## <a name="data-collection"></a>Gegevens verzamelen
 ### <a name="supported-agents"></a>Ondersteunde agents
 De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../../azure-monitor/platform/agent-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
 
@@ -697,7 +697,7 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
 
-| Query’s uitvoeren | Description |
+| Query | Description |
 | --- | --- |
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
 |Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; count() by SiteUrl samenvatten | sorteren op aantal asc|

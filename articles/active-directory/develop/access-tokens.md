@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979230"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157765"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
 
@@ -38,7 +38,7 @@ Zie de volgende secties voor meer informatie over hoe een resource kunt validere
 
 ## <a name="sample-tokens"></a>Voorbeeld van tokens
 
-V1.0 en v2.0-tokens sterk lijken en veel van de dezelfde claims bevatten. Een voorbeeld van elk die hier beschikbaar.
+V1.0 en v2.0-tokens er ongeveer als volgt en bevatten veel van de dezelfde claims. Een voorbeeld van elk die hier beschikbaar.
 
 ### <a name="v10"></a>v1.0
 
@@ -73,17 +73,17 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Indeling | Beschrijving |
+|Claim | Indeling | Description |
 |--------|--------|-------------|
 | `typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
 | `nonce` | Reeks | Een unieke id gebruikt om te beveiligen tegen token opnieuw afspelen aanvallen. Je kunt deze waarde om te beveiligen tegen replays bronrecord. |
 | `alg` | Reeks | Geeft aan dat de algoritme die is gebruikt voor het ondertekenen van het token, bijvoorbeeld "RS256" |
 | `kid` | Reeks | Hiermee geeft u de vingerafdruk voor de openbare sleutel die wordt gebruikt voor het ondertekenen van dit token. Verzonden in v1.0 zowel versie 2.0-toegangstokens. |
-| `x5t` | Reeks | (In gebruik en de waarde) dezelfde functies als `kid`. Dit is een verouderde claim verzonden alleen in v1.0 toegangstokens voor compatibiliteit van toepassing. |
+| `x5t` | Reeks | (In gebruik en de waarde) dezelfde functies als `kid`. `x5t` een verouderde claim is verzonden alleen in v1.0 toegangstokens voor compatibiliteit van toepassing. |
 
 ### <a name="payload-claims"></a>De nettolading van claims
 
-| Claim | Indeling | Beschrijving |
+| Claim | Indeling | Description |
 |-----|--------|-------------|
 | `aud` | Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In de toegangstokens te geven is de doelgroep van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 | `iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token dat is uitgegeven, een v2.0-token is (Zie de `ver` claim), de URI eindigt `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
@@ -99,7 +99,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 | `azp` | Tekenreeks, een GUID | Alleen aanwezig in v2.0-tokens. De toepassings-ID van de client met behulp van het token. De toepassing kan fungeren als zelf of namens een gebruiker. De toepassings-ID vertegenwoordigt doorgaans een toepassingsobject, maar het kan ook een service-principal-object vertegenwoordigen in Azure AD. |
 | `azpacr` | "0", "1" of "2" | Alleen aanwezig in v2.0-tokens. Geeft aan hoe de client is geverifieerd. De waarde is voor een openbare client "0". Als de client-ID en het clientgeheim worden gebruikt, is de waarde "1". Als u een clientcertificaat is gebruikt voor verificatie, is de waarde "2". |
 | `groups` | JSON-matrix van GUID 's | Object-id's die staan voor groepslidmaatschappen van de certificaathouder biedt. Deze waarden zijn unieke (Zie de Object-ID) en veilig kunnen worden gebruikt voor het beheren van toegang, zoals het afdwingen van machtiging voor toegang tot een resource. De groepen die zijn opgenomen in de claim van groepen op basis van per toepassing worden geconfigureerd via de `groupMembershipClaims` eigenschap van de [toepassingsmanifest](reference-app-manifest.md). Een null-waarde wordt alle groepen uitsluit, een waarde van 'Toewijzingsmodule' bevat alleen lidmaatschappen voor Active Directory-beveiligingsgroepen, en de waarde 'Alle' wordt opgenomen beveiligingsgroepen en distributielijsten van Office 365. <br><br>Zie de `hasgroups` claim hieronder voor meer informatie over het gebruik van de `groups` claim met de impliciete toekenning. <br>Voor andere stromen als het nummer van de gebruiker zich in groepen gaat via een limiet (150 voor SAML, 200 voor JWT), klikt u vervolgens een overschrijding claim toegevoegd aan de claim bronnen aan te wijzen aan de Graph-eindpunt met de lijst met groepen voor de gebruiker. |
-| `hasgroups` | Booleaans | Indien aanwezig, altijd `true`, die aangeeft van de gebruiker is in ten minste één groep. Gebruikt in plaats van de `groups` claim voor JWTs in impliciete goedkeuring voor stromen als de volledige groepen claim gelden de URI-fragment buiten de URL-lengte-limieten (momenteel abonnement van 6 of meer groepen). Geeft aan dat de client de grafiek gebruiken moet om te bepalen van de gebruiker groepen (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `hasgroups` | Boole-waarde | Indien aanwezig, altijd `true`, die aangeeft van de gebruiker is in ten minste één groep. Gebruikt in plaats van de `groups` claim voor JWTs in impliciete goedkeuring voor stromen als de volledige groepen claim gelden de URI-fragment buiten de URL-lengte-limieten (momenteel abonnement van 6 of meer groepen). Geeft aan dat de client de grafiek gebruiken moet om te bepalen van de gebruiker groepen (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | JSON-object | Token aanvragen die niet beperkt de lengte zijn (Zie `hasgroups` hierboven), maar nog steeds te groot is voor het token, een koppeling naar de volledige lijst van de gebruiker worden opgenomen. Voor JWTs als een gedistribueerde claim, voor SAML als een nieuwe claim in plaats van de `groups` claim. <br><br>**Voorbeeldwaarde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `preferred_name` | Reeks | Alleen aanwezig in v2.0-tokens. De primaire gebruikersnaam die de gebruiker aangeeft. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een indeling die is opgegeven. De waarde ervan is veranderlijke en na verloop van tijd veranderen. Omdat dit veranderlijke, moet deze waarde niet worden gebruikt om autorisatie beslissingen te nemen. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 | `name` | Reeks | Biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
@@ -118,10 +118,10 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 
 De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar worden niet standaard opgenomen in v2.0-tokens. Als u versie 2.0 en moet u een van deze claims worden gebruikt, deze aanvragen met behulp van [optionele claims](active-directory-optional-claims.md).
 
-| Claim | Indeling | Beschrijving |
+| Claim | Indeling | Description |
 |-----|--------|-------------|
 | `ipaddr`| Reeks | De gebruiker is geverifieerd vanaf het IP-adres. |
-| `onprem_sid`| Tekenreeks, in [SID-indeling](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In gevallen waar de gebruiker een on-premises-verificatie heeft, biedt deze claim hun SID. Dit kan worden gebruikt voor autorisatie voor oudere toepassingen. |
+| `onprem_sid`| Tekenreeks, in [SID-indeling](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In gevallen waar de gebruiker een on-premises-verificatie heeft, biedt deze claim hun SID. U kunt `onprem_sid` voor autorisatie voor oudere toepassingen. |
 | `pwd_exp`| int, een UNIX-timestamp | Geeft aan wanneer het wachtwoord van de gebruiker is verlopen. |
 | `pwd_url`| Reeks | Een URL waar gebruikers hun wachtwoord opnieuw in te kunnen worden verzonden. |
 | `in_corp`|booleaans | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als dat niet het geval is, is de claim niet opgenomen. |
@@ -133,7 +133,7 @@ De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar w
 
 Microsoft-identiteiten kunnen verifiëren in tal van manieren, die mogelijk relevant zijn voor uw toepassing. De `amr` claim is een matrix met meerdere items zoals bevatten kan `["mfa", "rsa", "pwd"]`, voor een verificatie met een wachtwoord en de Authenticator-app gebruikt. 
 
-| Waarde | Beschrijving |
+| Waarde | Description |
 |-----|-------------|
 | `pwd` | Wachtwoordverificatie, Microsoft-wachtwoord van een gebruiker of het clientgeheim van een app. |
 | `rsa` | Verificatie is op basis van de POC-fase van een RSA-sleutel, bijvoorbeeld met de [Microsoft Authenticator-app](https://aka.ms/AA2kvvu). Dit omvat als verificatie is uitgevoerd door een zelf-ondertekend JWT met een service die eigendom zijn X509 certificaat. |
@@ -200,7 +200,7 @@ Deze stap worden bepaald door de bedrijfslogica van uw toepassing, hieronder enk
 * Valideren van de status van de verificatie van de aanvragende client met behulp van `appidacr` -deze mag niet 0 zijn als openbare clients niet mogen uw API aan te roepen.
 * Controleren op basis van een lijst met verleden `nonce` claims om te controleren of het token is niet opnieuw worden afgespeeld.
 * Controleer of de `tid` komt overeen met een tenant die is toegestaan voor het aanroepen van uw API.
-* Gebruik de `acr` claim om te controleren of de gebruiker MFA is uitgevoerd. Houd er rekening mee dat deze moet worden afgedwongen met behulp van [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Gebruik de `acr` claim om te controleren of de gebruiker MFA is uitgevoerd. Dit moet worden afgedwongen met behulp van [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Als u hebt aangevraagd de `roles` of `groups` claims in het toegangstoken controleren of de gebruiker in de groep mag deze actie uit te voeren.
   * Voor tokens opgehaald met behulp van de impliciete stroom, waarschijnlijk moet u om op te vragen de [Microsoft Graph](https://developer.microsoft.com/graph/) voor deze gegevens, zoals deze is vaak te groot voor in het token. 
 
@@ -217,15 +217,15 @@ Vernieuwen van tokens kunnen worden ongeldig gemaakt of ingetrokken op elk gewen
 
 ### <a name="token-timeouts"></a>Token time-outs
 
-* MaxInactiveTime: Als het vernieuwingstoken dat niet binnen de tijd die wordt bepaald door de MaxInactiveTime gebruikt is, Token vernieuwen wordt niet langer geldig. 
-* MaxSessionAge: Als MaxAgeSessionMultiFactor of MaxAgeSessionSingleFactor zijn ingesteld op iets anders dan de standaardwaarde (tot en met ingetrokken), klikt u vervolgens herauthenticatie is vereist wanneer de tijd instellen in de MaxAgeSession * is verstreken. 
+* MaxInactiveTime: Als het vernieuwingstoken dat niet binnen de tijd die wordt bepaald door de MaxInactiveTime gebruikt is, wordt Token vernieuwen niet langer geldig. 
+* MaxSessionAge: Als MaxAgeSessionMultiFactor of MaxAgeSessionSingleFactor zijn ingesteld op iets anders dan de standaardwaarde (tot en met ingetrokken), klikt u vervolgens is herauthenticatie vereist wanneer de tijd instellen in de MaxAgeSession * is verstreken. 
 * Voorbeelden:
   * De tenant heeft een MaxInactiveTime van 5 dagen en de gebruiker voor een van de week op vakantie ging en dus AAD is niet zichtbaar voor een nieuwe tokenaanvraag van de gebruiker in de zeven dagen. De volgende keer dat de gebruiker een nieuw token aanvraagt ze, vindt hun Refresh Token is ingetrokken en moeten ze hun referenties opnieuw invoeren.
   * Gevoelige toepassingen heeft een MaxAgeSessionSingleFactor van 1 dag. Als een gebruiker zich aanmeldt op maandag en op dinsdag (nadat de 25 uur zijn verstreken), ze moeten verifiëren.
 
 ### <a name="revocation"></a>Intrekken
 
-|   | Wachtwoord op basis van cookies | Wachtwoord op basis van token | Niet-wachtwoord op basis van cookies | Niet-wachtwoord op basis van token | Vertrouwelijke client-token| 
+|   | Cookie op basis van wachtwoorden | Token op basis van wachtwoorden | Niet-wachtwoord gebaseerde cookie | Niet-password-based token | Vertrouwelijke client-token| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | Wachtwoord verloopt | Blijft actief| Blijft actief | Blijft actief | Blijft actief | Blijft actief |
 | Wachtwoord gewijzigd door gebruiker | Ingetrokken | Ingetrokken | Blijft actief | Blijft actief | Blijft actief |

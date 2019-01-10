@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870450"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157459"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Versies van SSL-beleid configureren en cipher suites in Application Gateway
 
@@ -106,7 +106,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Een aangepast SSL-beleid configureren
 
-Als een aangepast SSL-beleid configureren, geeft u de volgende parameters: PolicyType, MinProtocolVersion, -CipherSuite en Application Gateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway. 
+Wanneer u een aangepast SSL-beleid configureert, kunt u de volgende parameters doorgeven: PolicyType, MinProtocolVersion, CipherSuite en Application Gateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway. 
 
 Het volgende voorbeeld wordt een aangepast SSL-beleid in een toepassingsgateway. De minimale protocolversie wordt ingesteld op `TLSv1_1` en kunnen de volgende cipher suites:
 
@@ -139,7 +139,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Een toepassingsgateway maken met een vooraf gedefinieerde SSL-beleid
 
-Als een vooraf gedefinieerde SSL-beleid te configureren, geeft u de volgende parameters: PolicyType, -PolicyName en Application Gateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
+Bij het configureren van een vooraf gedefinieerde SSL-beleid, moet u de volgende parameters doorgeven: PolicyType, PolicyName en Application Gateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
 
 Het volgende voorbeeld wordt een nieuwe toepassingsgateway gemaakt met een vooraf gedefinieerde SSL-beleid.
 
@@ -196,7 +196,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.Re
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Een bestaande toepassingsgateway met een vooraf gedefinieerde SSL-beleid bijwerken
 
-Om een aangepast SSL-beleid, de volgende parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, en **ApplicationGateway**. Om in te stellen van een vooraf gedefinieerde SSL-beleid, de volgende parameters: **PolicyType**, **PolicyName**, en **ApplicationGateway**. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
+Om een aangepast SSL-beleid, moet u de volgende parameters doorgeven: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, en **ApplicationGateway**. Om in te stellen van een vooraf gedefinieerde SSL-beleid, moet u de volgende parameters doorgeven: **PolicyType**, **PolicyName**, en **ApplicationGateway**. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
 
 Er zijn codevoorbeelden voor zowel vooraf gedefinieerd beleid als aangepast beleid in het volgende voorbeeld. Verwijder de opmerkingen in het beleid dat u wilt gebruiken.
 
@@ -207,7 +207,7 @@ $RG = "YourResourceGroupName"
 
 $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
-# Choose either custom policy or prefedined policy and uncomment the one you want to use.
+# Choose either custom policy or predefined policy and uncomment the one you want to use.
 
 # SSL Custom Policy
 # Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw

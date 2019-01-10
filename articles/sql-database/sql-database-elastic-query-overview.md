@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 139bf169a00f1c529e95499124358c447d0de8c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a1ad976be258c418c115d0dbd79d4d6700a15b31
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044668"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158411"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastische query overzicht (preview)
 
@@ -146,7 +146,7 @@ Elastische query's is opgenomen in de kosten van Azure SQL Database-databases. H
 
 ## <a name="feedback"></a>Feedback
 
-Feedback geven over uw ervaring met elastische query's met ons hieronder, op de MSDN-forums of op Stackoverflow. We zijn geïnteresseerd in allerlei soorten feedback over de service (defecten, ruwe randen, functiehiaten).
+Feedback over uw ervaring delen met elastische query's met ons hieronder, op de MSDN-forums, of op Stack Overflow. We zijn geïnteresseerd in allerlei soorten feedback over de service (defecten, ruwe randen, functiehiaten).
 
 ## <a name="next-steps"></a>Volgende stappen
 

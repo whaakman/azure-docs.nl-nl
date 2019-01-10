@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190632"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157170"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -101,7 +101,7 @@ De *spam* kolom als een geheel getal is gelezen, maar het is eigenlijk een categ
 
     data$spam <- as.factor(data$spam)
 
-Voor sommige verkennende analyse, gebruikt u de [ggplot2](http://ggplot2.org/) inpakken, een populaire grafische-bibliotheek voor R dat al is geïnstalleerd op de virtuele machine. Opmerking van de gegevens van de samenvatting weergegeven eerder, hebben we samenvattende statistieken over de frequentie van het teken uitroepteken. Laten we tekenen deze frequenties met de volgende opdrachten:
+Voor sommige verkennende analyse, gebruikt u de [ggplot2](https://ggplot2.tidyverse.org/) inpakken, een populaire grafische-bibliotheek voor R dat al is geïnstalleerd op de virtuele machine. Opmerking van de gegevens van de samenvatting weergegeven eerder, hebben we samenvattende statistieken over de frequentie van het teken uitroepteken. Laten we tekenen deze frequenties met de volgende opdrachten:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)

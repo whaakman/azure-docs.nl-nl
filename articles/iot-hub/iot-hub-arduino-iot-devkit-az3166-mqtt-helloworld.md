@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: fc74613e00adc459f7a7b0a16c6f773fe4bf601d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593652"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158479"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Berichten verzenden naar een MQTT-server
 
@@ -48,7 +48,7 @@ Voltooid de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot
 Vouw linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > MQTT**, en selecteer **MQTTClient**. Een nieuwe VS Code-venster geopend met een projectmap daarin.
 
 > [!NOTE]
-> U kunt voorbeeld ook openen vanuit het opdrachtenpalet. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
+> U kunt voorbeeld ook openen vanuit het opdrachtenpalet. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: Voorbeelden**.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Bouwen en de schets Arduino uploaden naar de DevKit
 
@@ -57,7 +57,7 @@ Type `Ctrl+P` (Mac OS: `Cmd+P`) om uit te voeren `task device-upload`. Nadat het
 ![apparaat-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> U ontvangt mogelijk een ' fout: AZ3166: onbekend pakket "foutbericht. Deze fout treedt op wanneer de bord package index niet correct wordt vernieuwd. U kunt deze fout oplossen, raadpleegt u de [ontwikkeling-sectie van de IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> U ontvangt mogelijk een ' fout: AZ3166: Onbekend pakket"foutbericht. Deze fout treedt op wanneer de bord package index niet correct wordt vernieuwd. U kunt deze fout oplossen, raadpleegt u de [ontwikkeling-sectie van de IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Het project testen
 
@@ -78,7 +78,7 @@ De seriële Monitor weergeven met alle berichten die door de voorbeeld-schets wo
 Als u problemen ondervindt, raadpleegt u de [IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of verbinding maken met behulp van de volgende kanalen:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Zie ook
 

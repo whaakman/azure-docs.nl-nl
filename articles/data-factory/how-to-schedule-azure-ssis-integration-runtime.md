@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: c1dfc4ed969735be26ae075900cd850e016afffa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107579"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158649"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Het starten en stoppen van Azure-SSIS Integration Runtime volgens een schema
 In dit artikel wordt beschreven hoe u het starten en stoppen van de Azure-SSIS Integration Runtime (IR) plannen met behulp van Azure Data Factory (ADF). Azure-SSIS IR is ADF compute resource toegewezen voor het uitvoeren van pakketten van SQL Server Integration Services (SSIS). Uitvoeren van Azure-SSIS IR is een kosten die gepaard gaan met het. Daarom wilt u doorgaans om uit te voeren van uw IR alleen als u wilt uitvoeren van SSIS-pakketten in Azure en uw IR stopt wanneer u hebt u het niet meer nodig. U kunt ADF gebruikersinterface (UI) / app of Azure PowerShell met [handmatig starten of stoppen van de IR](manage-azure-ssis-integration-runtime.md)).
@@ -86,7 +86,7 @@ Als u een derde trigger die is gepland voor uitvoering elke dag om middernacht m
    
 2. In **activiteiten** werkset Vouw **algemene** in het menu en slepen en neerzetten een **Web** activiteit naar het ontwerpoppervlak voor pijplijnen. In **algemene** tabblad van het eigenschappenvenster van activiteit, wijzig de activiteitsnaam in **startMyIR**. Schakel over naar **instellingen** tabblad en de volgende acties uitvoeren.
 
-    1. Voor **URL**, voer de volgende URL voor de REST-API die Azure-SSIS-IR, begint vervangen `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, en `{integrationRuntimeName}` met de werkelijke waarden voor uw IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. U kunt ook u kunt ook kopiëren en plakken van de resource-ID van uw IR van de pagina op ADF gebruikersinterface/app op het volgende deel van de bovenstaande URL vervangen: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
+    1. Voor **URL**, voer de volgende URL voor de REST-API die Azure-SSIS-IR, begint vervangen `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, en `{integrationRuntimeName}` met de werkelijke waarden voor uw IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` U kunt ook ook kopiëren en plakken van de resource-ID van uw IR van de pagina op ADF gebruikersinterface/app op het volgende deel van de bovenstaande URL vervangen: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ADF-SSIS IR-Resource-ID](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -99,7 +99,7 @@ Als u een derde trigger die is gepland voor uitvoering elke dag om middernacht m
   
 3. Klonen van de eerste pijplijn voor het maken van een tweede waarde, de activiteitsnaam van de te wijzigen **stopMyIR** en vervangt de volgende eigenschappen.
 
-    1. Voor **URL**, voer de volgende URL voor de REST-API die Azure-SSIS-IR stopt vervangen `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, en `{integrationRuntimeName}` met de werkelijke waarden voor uw IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
+    1. Voor **URL**, voer de volgende URL voor de REST-API die Azure-SSIS-IR stopt vervangen `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, en `{integrationRuntimeName}` met de werkelijke waarden voor uw IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. Voor **hoofdtekst**, voer `{"message":"Stop my IR"}`. 
 
@@ -175,7 +175,7 @@ Nu uw pijplijnen werken als u verwacht, kunt u triggers om ze uit te voeren op d
 
 2. Als u wilt weergeven die zijn gekoppeld aan een pijplijnuitvoering uitvoeringen van activiteit, selecteert u de eerste koppeling (**uitvoeringen van activiteit weergeven**) in **acties** kolom. De derde pipeline, ziet u drie activiteit wordt uitgevoerd, één voor elke gekoppelde activiteit in de pijplijn (activiteit Web om te beginnen uw IR, Stored Procedure-activiteit uitvoeren van het pakket en Web-activiteit als u wilt stoppen van de IR). Om weer te geven van de pijplijn opnieuw wordt uitgevoerd, selecteert u **pijplijnen** koppelen aan de bovenkant.
 
-   ![Uitvoering van activiteiten](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
+   ![Uitvoeringen van activiteit](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 
 3. Als u de trigger wordt uitgevoerd, selecteert u **Triggeruitvoeringen** uit de vervolgkeuzelijst onder **Pijplijnuitvoeringen** aan de bovenkant. 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1c2f7b46daf7b96d3a6f47dac647d5ed90461e8e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633007"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156252"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -121,7 +121,7 @@ Als u wilt configureren voor UI-aanpassing, kopieert u de **ContentDefinition** 
 3. Open het extensiebestand. Bijvoorbeeld, *TrustFrameworkExtensions.xml*. Zoek de **BuildingBlocks** element. Als het element niet bestaat, deze toevoegen.
 4. Plak de volledige inhoud van de **ContentDefinitions** element dat u hebt gekopieerd als onderliggende site van de **BuildingBlocks** element. 
 5. Zoek de **ContentDefinition** element bevat `Id="api.signuporsignin"` in het XML-bestand dat u hebt gekopieerd.
-6. Wijzig de waarde van **LoadUri** naar de URL van het HTML-bestand dat u hebt geüpload naar de opslag. Bijvoorbeeld https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
+6. Wijzig de waarde van **LoadUri** naar de URL van het HTML-bestand dat u hebt geüpload naar de opslag. Bijvoorbeeld `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
     
     Het aangepaste beleid ziet er als volgt uit:
 
@@ -157,7 +157,7 @@ Als u wilt configureren voor UI-aanpassing, kopieert u de **ContentDefinition** 
 2. Selecteer het aangepaste beleid dat u geüpload en klikt u op de **nu uitvoeren** knop.
 3. U zou het mogelijk om u te registreren met behulp van een e-mailadres.
 
-## <a name="reference"></a>Referentie
+## <a name="reference"></a>Verwijzing
 
 U kunt voorbeeldsjablonen voor aanmeldbeleid hier vinden:
 

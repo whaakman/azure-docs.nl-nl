@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 12ef6447e53ba0da3fbd3d56749d7798c49a2cfe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993959"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157136"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure portal
 
@@ -119,7 +119,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 ### <a name="add-backend-servers"></a>Back-endservers toevoegen
 
 1. Klik op **Alle resources** en vervolgens op **myAppGateway**.
-2. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGateayBackendPool**.
+2. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGatewayBackendPool**.
 3. Klik op **toevoegen doel** elke virtuele machine die u hebt gemaakt aan de back-endpool toevoegen.
 
     ![Back-endservers toevoegen](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)

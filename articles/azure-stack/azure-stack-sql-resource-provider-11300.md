@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5cbbc3c1c2371264e3e29028d4b9d68533cc59ff
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164715"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154943"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Opmerkingen bij de SQL-resource provider 1.1.30.0 release
 
@@ -81,7 +81,10 @@ Deze versie van de resourceprovider van Azure Stack SQL omvat de volgende verbet
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+- **SQL-resourceprovider niet kan worden toegevoegd van SQL Server Always On-listener**. Wanneer u de listener-IP-adres van de SQL Server Always On-Listener, kan de SQL-resourceprovider VM van de listener-hostnaam niet omzetten.
 
+    **Tijdelijke oplossing**: Zorg ervoor dat DNS correct werkt voor het omzetten van het listener-IP-adres in hostnaam van de listener.
+    
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Bekende problemen voor Cloud-beheerders die Azure Stack
 Raadpleeg de documentatie in de [opmerkingen bij de Release van de Azure Stack](azure-stack-servicing-policy.md).
 

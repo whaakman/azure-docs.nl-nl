@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054243"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158921"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Schud, laat een Tweet--ophalen van een Twitter-bericht met Azure Functions
 
@@ -52,7 +52,7 @@ Start de projectmap te openen.
 Vouw aan de linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **ShakeShake**. Een nieuwe VS Code-venster wordt geopend, het weergeven van de projectmap. Als u de sectie MXCHIP AZ3166 niet ziet, zorg ervoor dat uw apparaat goed is aangesloten en Visual Studio Code opnieuw.  
 de ![mini-solution-voorbeelden](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-U kunt het voorbeeldproject ook openen vanuit het opdrachtenpalet. Klik op `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
+U kunt het voorbeeldproject ook openen vanuit het opdrachtenpalet. Klik op `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: Voorbeelden**.
 
 ## <a name="provision-azure-services"></a>Azure-services inrichten
 
@@ -118,7 +118,7 @@ Nu de verbindingsreeks is ingesteld, het wordt gecontroleerd en uploadt de app, 
 
 2. De DevKit opnieuw wordt opgestart en de code wordt gestart.
 
-Krijgt u mogelijk een ' fout: AZ3166: onbekend pakket "foutbericht. Deze fout treedt op wanneer de bord package index correct is niet vernieuwd. U lost dit probleem, Controleer de ['Onbekend pakket'-fout in de veelgestelde vragen over het IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+Krijgt u mogelijk een ' fout: AZ3166: Onbekend pakket"foutbericht. Deze fout treedt op wanneer de bord package index correct is niet vernieuwd. U lost dit probleem, Controleer de ['Onbekend pakket'-fout in de veelgestelde vragen over het IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Het project testen
 
@@ -151,7 +151,7 @@ Na de initialisatie van de app, klikt u op en een release vervolgens voorzichtig
 - Druk op de knop een opnieuw en klik vervolgens schudden voor een nieuwe tweet.
 - Druk op de knop B om door de rest van de tweet te bladeren.
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe het werkt
 
 ![Diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
@@ -167,7 +167,7 @@ Dit voorbeeldproject maakt gebruik van een vooraf geconfigureerde Twitter bearer
 
 3. Gebruik [enkele hulpprogramma](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) voor het genereren van een Twitter-bearer-token van deze twee sleutels.
 
-4. In de [Azure-portal](https://portal.azure.com/){: target = "_blank"}, krijgen de **resourcegroep** en zoek de Azure-functie (Type: App Service) voor uw project "Schudden, door te schudden". De naam bevat altijd 'schudden...' string.
+4. In de [Azure-portal](https://portal.azure.com/){: target = "_blank"}, krijgen de **resourcegroep** en zoek de Azure-functie (Type: Appservice) voor uw project "Schudden, door te schudden". De naam bevat altijd 'schudden...' string.
 
    ![Azure-functie](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
@@ -202,7 +202,7 @@ Of, wanneer de code wordt uitgevoerd, er zijn enkele blips die ertoe leiden dat 
 Als u andere problemen ondervindt, raadpleegt u de [IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of neem contact op met ons opnemen met behulp van de volgende kanalen:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen
 

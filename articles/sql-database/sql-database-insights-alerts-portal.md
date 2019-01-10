@@ -1,28 +1,31 @@
 ---
-title: Azure portal gebruiken voor het maken van SQL Database-waarschuwingen | Microsoft Docs
+title: Instellen van waarschuwingen en meldingen met behulp van Azure portal | Microsoft Docs
 description: De Azure portal gebruiken voor het maken van waarschuwingen van de SQL-Database, die meldingen of automatisering activeren kunnen wanneer de door u opgegeven voorwaarden wordt voldaan.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634606"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156899"
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure portal gebruiken om waarschuwingen te maken voor Azure SQL Database en Data Warehouse
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Waarschuwingen maken voor Azure SQL Database en Data Warehouse met behulp van Azure portal
 
 ## <a name="overview"></a>Overzicht
-In dit artikel leest u hoe het instellen van Azure SQL Database en Data Warehouse waarschuwingen via Azure portal. Dit artikel bevat ook aanbevolen procedures voor het instellen van waarschuwingen perioden.    
+In dit artikel leest u hoe het instellen van Azure SQL Database en Data Warehouse waarschuwingen via Azure portal. Waarschuwingen kunnen u een e-mail verzenden of een webhook aanroepen wanneer bepaalde metrische gegevens (bijvoorbeeld de grootte van de database of de CPU-gebruik) de drempel bereikt. Dit artikel bevat ook aanbevolen procedures voor het instellen van waarschuwingen perioden.    
+
+> [!IMPORTANT]
+> Deze functie is nog niet beschikbaar in het beheerde exemplaar. Als alternatief kunt u SQL-Agent kunt gebruiken voor het verzenden van e-mailwaarschuwingen voor sommige metrische gegevens op basis van [dynamische beheerweergaven](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 U kunt een waarschuwing op basis van bewaking metrische gegevens voor of gebeurtenissen op uw Azure-services kunt ontvangen.
 
@@ -72,9 +75,9 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 
 ## <a name="sql-database-alert-values"></a>Waarschuwing waarden SQL-Database
 
-| Resourcetype | Naam van meetwaarde | Beschrijvende naam | Aggregatietype | Minimale waarschuwing tijdvenster|
+| Brontype | Naam van meetwaarde | Beschrijvende naam | Aggregatietype | Minimale waarschuwing tijdvenster|
 | --- | --- | --- | --- | --- |
-| SQL-database | cpu_percent | CPU-percentage | Gemiddeld | 5 minuten |
+| SQL-database | cpu_percent | Processorpercentage | Gemiddeld | 5 minuten |
 | SQL-database | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 5 minuten |
 | SQL-database | log_write_percent | Logboek-IO-percentage | Gemiddeld | 5 minuten |
 | SQL-database | dtu_consumption_percent | DTU-percentage | Gemiddeld | 5 minuten |
@@ -90,7 +93,7 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 | SQL-database | dtu_limit | DTU-limiet | Gemiddeld | 5 minuten |
 | SQL-database | dtu_used | DTU gebruikt | Gemiddeld | 5 minuten |
 ||||||
-| Elastische pool | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
+| Elastische pool | cpu_percent | Processorpercentage | Gemiddeld | 10 minuten |
 | Elastische pool | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
 | Elastische pool | log_write_percent | Logboek-IO-percentage | Gemiddeld | 10 minuten |
 | Elastische pool | dtu_consumption_percent | DTU-percentage | Gemiddeld | 10 minuten |
@@ -99,9 +102,9 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 | Elastische pool | eDTU_limit | eDTU-limiet | Gemiddeld | 10 minuten |
 | Elastische pool | storage_limit | Limiet voor opslag | Gemiddeld | 10 minuten |
 | Elastische pool | eDTU_used | eDTU gebruikt | Gemiddeld | 10 minuten |
-| Elastische pool | storage_used | Gebruikte opslag | Gemiddeld | 10 minuten |
+| Elastische pool | storage_used | Opslag gebruikt | Gemiddeld | 10 minuten |
 ||||||               
-| SQL data warehouse | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
+| SQL data warehouse | cpu_percent | Processorpercentage | Gemiddeld | 10 minuten |
 | SQL data warehouse | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
 | SQL data warehouse | opslag | Totale databasegrootte | Maximum | 10 minuten |
 | SQL data warehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |

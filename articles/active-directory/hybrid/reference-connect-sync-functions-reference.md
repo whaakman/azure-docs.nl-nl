@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synchronisatie: functieverwijzing | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Naslaginformatie over functies | Microsoft Docs'
 description: Verwijzing van declaratieve inrichtingsexpressies in Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425690"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157476"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: functieverwijzing
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: Functieverwijzing
 In Azure AD Connect, worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
 De syntaxis van de functies wordt uitgedrukt in de volgende notatie:  
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -146,7 +146,7 @@ De functie CDate retourneert een UTC-datum-/ van een tekenreeks. Datum/tijd is n
 **Syntaxis:**  
 `dt CDate(str value)`
 
-* Waarde: Een tekenreeks met een datum, tijd en eventueel tijdzone
+* Waarde: Een tekenreeks zijn met een datum, tijd en eventueel tijdzone
 
 **Opmerking:**  
 De tekenreeks wordt geretourneerd is altijd ingesteld op UTC.
@@ -166,7 +166,7 @@ Retourneert de waarden van de Oid van de kritieke uitbreidingen van een certific
 
 **Syntaxis:**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certformat"></a>CertFormat
@@ -175,7 +175,7 @@ Retourneert de naam van de indeling van deze X.509v3-certificaat.
 
 **Syntaxis:**  
 `str CertFormat(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certfriendlyname"></a>CertFriendlyName
@@ -184,7 +184,7 @@ Retourneert de bijbehorende alias voor een certificaat.
 
 **Syntaxis:**  
 `str CertFriendlyName(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certhashstring"></a>CertHashString
@@ -193,7 +193,7 @@ Retourneert de SHA1-hash-waarde voor de X.509v3-certificaat als een hexadecimale
 
 **Syntaxis:**  
 `str CertHashString(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certissuer"></a>CertIssuer
@@ -202,7 +202,7 @@ Retourneert de naam van de certificeringsinstantie die het X.509v3-certificaat h
 
 **Syntaxis:**  
 `str CertIssuer(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certissuerdn"></a>CertIssuerDN
@@ -211,7 +211,7 @@ Retourneert de DN-naam van de uitgever van het certificaat.
 
 **Syntaxis:**  
 `str CertIssuerDN(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certissueroid"></a>CertIssuerOid
@@ -220,7 +220,7 @@ Retourneert de Oid van de uitgever van het certificaat.
 
 **Syntaxis:**  
 `str CertIssuerOid(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
@@ -229,7 +229,7 @@ Retourneert de algoritme van sleutel-informatie voor deze X.509v3-certificaat al
 
 **Syntaxis:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
@@ -238,7 +238,7 @@ Retourneert de algoritme van sleutel-parameters voor de X.509v3-certificaat als 
 
 **Syntaxis:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certnameinfo"></a>CertNameInfo
@@ -247,8 +247,8 @@ Retourneert het onderwerp en de verlener namen van een certificaat.
 
 **Syntaxis:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
-*   X509NameType: De X509NameType waarde voor het onderwerp.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   X509NameType: De waarde X509NameType voor het onderwerp.
 *   includesIssuerName: waar om op te nemen van de naam van de certificaatverlener; anders wordt onwaar.
 
 - - -
@@ -258,7 +258,7 @@ Retourneert de datum in plaatselijke tijd waarna een certificaat niet meer geldi
 
 **Syntaxis:**  
 `dt CertNotAfter(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certnotbefore"></a>CertNotBefore
@@ -267,7 +267,7 @@ Retourneert de datum in plaatselijke tijd waarop een certificaat geldig wordt.
 
 **Syntaxis:**  
 `dt CertNotBefore(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
@@ -276,7 +276,7 @@ Retourneert de Oid van de openbare sleutel voor de X.509v3-certificaat.
 
 **Syntaxis:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
@@ -285,7 +285,7 @@ Retourneert de Oid van de openbare sleutel parameters voor de X.509v3-certificaa
 
 **Syntaxis:**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certserialnumber"></a>CertSerialNumber
@@ -294,7 +294,7 @@ Retourneert het serienummer van het X.509v3-certificaat.
 
 **Syntaxis:**  
 `str CertSerialNumber(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
@@ -303,7 +303,7 @@ Retourneert de Oid van het algoritme voor het maken van de handtekening van een 
 
 **Syntaxis:**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certsubject"></a>CertSubject
@@ -312,7 +312,7 @@ Hiermee haalt u de DN-naam van een certificaat.
 
 **Syntaxis:**  
 `str CertSubject(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
@@ -321,7 +321,7 @@ Retourneert de DN-naam van een certificaat.
 
 **Syntaxis:**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
@@ -330,7 +330,7 @@ Retourneert de Oid van de onderwerpnaam van een certificaat.
 
 **Syntaxis:**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certthumbprint"></a>certThumbprint
@@ -339,7 +339,7 @@ Retourneert de vingerafdruk van een certificaat.
 
 **Syntaxis:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="certversion"></a>CertVersion
@@ -348,7 +348,7 @@ Retourneert de versie van de x.509-indeling van een certificaat.
 
 **Syntaxis:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
 ### <a name="cguid"></a>CGuid
@@ -361,7 +361,7 @@ De functie CGuid converteert de tekenreeksweergave van een GUID naar de binaire 
 * Een tekenreeks die is opgemaakt in dit patroon: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx of {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>Contains
+### <a name="contains"></a>Bevat
 **Beschrijving:**  
 De functie Contains zoekt u naar een tekenreeks binnen een kenmerk met meerdere waarden
 
@@ -393,8 +393,8 @@ De functie ConvertFromBase64 zet de waarde van de opgegeven base64-gecodeerd om 
 `str ConvertFromBase64(str source)` -wordt ervan uitgegaan dat Unicode voor encoding  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* bron: met Base64 gecodeerde tekenreeks  
-* -Codering: Unicode, ASCII, UTF8
+* Bron: Base64-gecodeerde tekenreeks  
+* Codering: Unicode, ASCII, UTF8
 
 **Voorbeeld**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -410,7 +410,7 @@ De functie ConvertFromUTF8Hex converteert de opgegeven UTF8 hexadecimaal gecodee
 **Syntaxis:**  
 `str ConvertFromUTF8Hex(str source)`
 
-* bron: UTF8-2-bytes gecodeerde String
+* Bron: UTF8-2-bytes gecodeerde String
 
 **Opmerking:**  
 Het verschil tussen deze functie en ConvertFromBase64([],UTF8) in die het resultaat is beschrijvende voor het kenmerk DN-naam.  
@@ -449,7 +449,7 @@ De indeling van de uitvoer van deze functie wordt gebruikt door Azure Active Dir
 Retourneert 48656C6C6F20776F726C6421
 
 - - -
-### <a name="count"></a>Count
+### <a name="count"></a>Aantal
 **Beschrijving:**  
 De functie Count retourneert het aantal elementen in een kenmerk met meerdere waarden
 
@@ -485,7 +485,7 @@ De functie CStr converteert naar een tekenreeks-gegevenstype.
 `str CStr(ref value)`  
 `str CStr(bool value)`  
 
-* waarde: een numerieke waarde, een verwijzingskenmerk of een Booleaanse waarde.
+* Waarde: Mag bestaan uit een numerieke waarde, verwijzingskenmerk of Booleaanse waarde.
 
 **Voorbeeld:**  
 `CStr([dn])`  
@@ -499,7 +499,7 @@ Retourneert een datum met een datum waarop een opgegeven tijdsinterval is toegev
 **Syntaxis:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* interval: tekenreeksexpressie die is het interval van de tijd die u wilt toevoegen. De tekenreeks moet een van de volgende waarden hebben:
+* interval: Tekenreeksexpressie die het tijdsinterval is dat u wilt toevoegen. De tekenreeks moet een van de volgende waarden hebben:
   * JJJJ jaar
   * q kwartaal
   * m maand
@@ -510,8 +510,8 @@ Retourneert een datum met een datum waarop een opgegeven tijdsinterval is toegev
   * h uur
   * n minuut
   * s tweede
-* waarde: het aantal eenheden dat u wilt toevoegen. Het kan zijn (voor datums in de toekomst) positief of negatief (voor datums in het verleden).
-* datum: datum/tijd vertegenwoordigt waarop het interval wordt toegevoegd.
+* Waarde: Het aantal eenheden dat u wilt toevoegen. Het kan zijn (voor datums in de toekomst) positief of negatief (voor datums in het verleden).
+* datum: Datum en tijd vertegenwoordigt waarop het interval wordt toegevoegd.
 
 **Voorbeeld:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -556,7 +556,7 @@ De functie DNComponentRev retourneert de waarde van een opgegeven DN-component d
 
 * DN-naam: het verwijzingskenmerk interpreteren
 * ComponentNumber - het onderdeel in de DN-naam om terug te keren
-* -Opties: DC-alle onderdelen met negeren "dc ="
+* Opties: DC-negeert alle onderdelen met "dc ="
 
 **Voorbeeld:**  
 Als DN-naam is "cn Jan, ou = Atlanta, ou = algemene beschikbaarheid, ou = = US, dc = contoso, dc = com" vervolgens  
@@ -565,7 +565,7 @@ Als DN-naam is "cn Jan, ou = Atlanta, ou = algemene beschikbaarheid, ou = = US, 
 Beide retourneren ons.
 
 - - -
-### <a name="error"></a>Fout
+### <a name="error"></a>fOUT
 **Beschrijving:**  
 De fout-functie wordt gebruikt om een aangepaste fout geretourneerd.
 
@@ -600,7 +600,7 @@ De functie FormatDateTime wordt gebruikt om de opmaak van een datum/tijd naar ee
 * indeling: een tekenreeks voor de indeling moet worden geconverteerd naar.
 
 **Opmerking:**  
-De mogelijke waarden voor de indeling vindt u hier: [door de gebruiker gedefinieerde datum/tijd-indelingen (functie Format)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+De mogelijke waarden voor de indeling vindt u hier: [Aangepaste datum en tijd indelingen voor de functie FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Voorbeeld:**  
 
@@ -627,8 +627,8 @@ De functie IIF retourneert een van de mogelijke waarden op basis van een opgegev
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 * voorwaarde: een waarde of expressie die kan worden geëvalueerd op waar of ONWAAR.
-* waardeindienwaar: als de voorwaarde resulteert in waar, wordt de geretourneerde waarde.
-* WaardeAlsOnwaar: als de voorwaarde wordt geëvalueerd als onwaar, de geretourneerde waarde.
+* waardeindienwaar: Als de voorwaarde is geëvalueerd als waar, de geretourneerde waarde.
+* WaardeAlsOnwaar: Als de voorwaarde wordt geëvalueerd op false, de geretourneerde waarde.
 
 **Voorbeeld:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
@@ -714,7 +714,7 @@ Retourneert waar als de onbewerkte gegevens kunnen worden geserialiseerd in .NET
 
 **Syntaxis:**  
 `bool CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Byte matrix weergave van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
+*   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **Beschrijving:**  
@@ -844,7 +844,7 @@ De functie ItemOrNull is nuttig, samen met de functie Contains sinds de laatste 
 Als de index ligt buiten het bereik valt, retourneert vervolgens een Null-waarde.
 
 - - -
-### <a name="join"></a>Koppelen
+### <a name="join"></a>Deelnemen
 **Beschrijving:**  
 De Join-functie een tekenreeks met meerdere waarden en retourneert een tekenreeks met één waarde met opgegeven scheidingsteken ingevoegd tussen elk item.
 
@@ -852,8 +852,8 @@ De Join-functie een tekenreeks met meerdere waarden en retourneert een tekenreek
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* kenmerk: kenmerk met meerdere waarden met tekenreeksen die moeten worden toegevoegd.
-* scheidingsteken: een tekenreeks, die wordt gebruikt voor het scheiden van de subtekenreeksen in de geretourneerde tekenreeks. Als u dit weglaat, wordt de spatie ("") wordt gebruikt. Als scheidingsteken een tekenreeks met een lengte van nul is ("") of niets, alle items in de lijst worden samengevoegd met zonder scheidingstekens.
+* kenmerk: Kenmerk met meerdere waarden met tekenreeksen die moeten worden toegevoegd.
+* scheidingsteken: Een tekenreeks, die wordt gebruikt voor het scheiden van de subtekenreeksen in de geretourneerde tekenreeks. Als u dit weglaat, wordt de spatie ("") wordt gebruikt. Als scheidingsteken een tekenreeks met een lengte van nul is ("") of niets, alle items in de lijst worden samengevoegd met zonder scheidingstekens.
 
 **Opmerkingen**  
 Er is pariteit tussen de functies voor lid worden en splitsen. De Join-functie wordt een matrix met tekenreeksen en maakt ze met behulp van een scheidingstekentekenreeks om terug te keren een enkele tekenreeks lid. De functie Split neemt een tekenreeks en onderscheid te maken op het scheidingsteken, om te retourneren van een matrix met tekenreeksen. Een belangrijk verschil is echter dat Join kan tekenreeksen met een willekeurige scheidingstekentekenreeks, Split kunt alleen afzonderlijke tekenreeksen met een scheidingsteken voor één teken.
@@ -982,8 +982,8 @@ De PadLeft functie left-buiten een tekenreeks aan een opgegeven lengte met behul
 `str PadLeft(str string, num length, str padCharacter)`
 
 * tekenreeks: de tekenreeks die moet worden opgevuld.
-* lengte: een geheel getal dat de gewenste lengte van tekenreeks vertegenwoordigt.
-* padCharacter: een tekenreeks die bestaat uit een enkel teken te gebruiken als de pad-teken
+* lengte van: Een geheel getal dat de gewenste lengte van tekenreeks vertegenwoordigt.
+* padCharacter: Een tekenreeks die bestaat uit een enkel teken te gebruiken als de pad-teken
 
 **Opmerking:**
 
@@ -1007,8 +1007,8 @@ De PadRight functie rechts-buiten een tekenreeks aan een opgegeven lengte met be
 `str PadRight(str string, num length, str padCharacter)`
 
 * tekenreeks: de tekenreeks die moet worden opgevuld.
-* lengte: een geheel getal dat de gewenste lengte van tekenreeks vertegenwoordigt.
-* padCharacter: een tekenreeks die bestaat uit een enkel teken te gebruiken als de pad-teken
+* lengte van: Een geheel getal dat de gewenste lengte van tekenreeks vertegenwoordigt.
+* padCharacter: Een tekenreeks die bestaat uit een enkel teken te gebruiken als de pad-teken
 
 **Opmerking:**
 
@@ -1077,8 +1077,8 @@ De functie vervangen vervangt alle instanties van een tekenreeks naar een andere
 **Syntaxis:**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* tekenreeks: een tekenreeks die moet worden vervangen door waarden in.
-* OldValue: De tekenreeks om te zoeken en te vervangen.
+* tekenreeks: Een tekenreeks die moet worden vervangen door waarden in.
+* OldValue: De tekenreeks die moet worden gezocht en te vervangen.
 * NewValue: De tekenreeks die moet worden vervangen.
 
 **Opmerking:**  
@@ -1100,7 +1100,7 @@ De functie ReplaceChars vervangt alle instanties van tekens in de tekenreeks Rep
 **Syntaxis:**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-* tekenreeks: een tekenreeks die moet worden vervangen door de tekens in.
+* tekenreeks: Een tekenreeks die moet worden vervangen door de tekens in.
 * ReplacePattern: een tekenreeks met een woordenlijst met de tekens wilt vervangen.
 
 De indeling {bron1} is: {target1}, {bron2}: {target2}, {bronN}, {targetN} bron is waar het teken om te zoeken en het doel van de tekenreeks die moet worden vervangen.
@@ -1164,7 +1164,7 @@ De functie RTrim verwijdert de afsluitende spaties uit een tekenreeks.
 Retourneert 'Test'.
 
 - - -
-### <a name="select"></a>Selecteer
+### <a name="select"></a>Selecteren
 **Beschrijving:**  
 Het proces alle waarden in een meerdere waarden kenmerk (of uitvoer van een expressie) op basis van functie worden opgegeven.
 
@@ -1215,7 +1215,7 @@ De functie StringFromSid converteert een bytematrix die een beveiligings-id naar
 `str StringFromSid(bin ObjectSID)`  
 
 - - -
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Schakelen
 **Beschrijving:**  
 De functie Switch wordt gebruikt om op basis van geëvalueerde voorwaarden één waarde retourneren.
 
@@ -1223,7 +1223,7 @@ De functie Switch wordt gebruikt om op basis van geëvalueerde voorwaarden één
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
 * markering: Variant-expressie die u wilt evalueren.
-* waarde: waarde die wordt geretourneerd als de bijbehorende expressie waar is.
+* Waarde: De waarde die worden geretourneerd als de bijbehorende expressie waar is.
 
 **Opmerking:**  
 De lijst met argumenten functie Switch bestaat uit combinaties van expressies en waarden. De expressies worden van links naar rechts geëvalueerd en wordt de waarde die is gekoppeld aan de eerste expressie die moet worden geëvalueerd tot ' True ' geretourneerd. Als de onderdelen zijn niet goed gekoppeld, wordt er een runtime-fout optreedt.
@@ -1297,7 +1297,7 @@ De With-functie biedt een manier om een complexe expressie vereenvoudigen met be
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variabele: Hiermee geeft u de subexpressie.
 * Subexpressie: subexpressie vertegenwoordigd door de variabele.
-* complexExpression: een complexe expressie.
+* complexExpression: Een complexe expressie.
 
 **Voorbeeld:**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
@@ -1335,5 +1335,5 @@ Retourneert 'is'
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Inzicht in verklarende Inrichtingsexpressies](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)

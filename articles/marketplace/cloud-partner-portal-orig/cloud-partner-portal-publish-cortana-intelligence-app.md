@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257204"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157153"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Een Cortana Intelligence-aanbieding met behulp van de Cloud Partner-Portal publiceren
 
@@ -59,7 +59,7 @@ Deze ID wordt weergegeven in de product-URL's. De id kan alleen bestaan uit alfa
 
 **Voorbeeld:**
 
-Als de uitgever **contoso** maakt u een aanbieding met de aanbiedings-ID *voorbeeld Cortana Intelligence*, wordt het weergegeven in AppSource als 'https://appsource.microsoft.com/marketplace/apps/**contoso**.*Voorbeeld van Cortana Intelligence* ? tab = Overview '.
+Als de uitgever **contoso** maakt u een aanbieding met de aanbiedings-ID *voorbeeld Cortana Intelligence*, wordt het weergegeven in AppSource als 'https://appsource.microsoft.com/marketplace/apps/**contoso**. *Voorbeeld van Cortana Intelligence*? tab = Overview '.
 
 ### <a name="publisher-id"></a>Uitgevers-ID
 
@@ -68,7 +68,7 @@ Een vervolgkeuzelijst met uitgever profielen. Gebruiken om te kiezen van de uitg
 >[!Note]
 >Dit veld wordt vergrendeld wanneer een aanbieding live meteen.
 
-### <a name="name"></a>Naam
+### <a name="name"></a>Name
 
 De weergavenaam voor uw aanbieding. Deze naam wordt weergegeven [AppSource](https://appsource.microsoft.com). De naam mag maximaal 50 tekens bevatten.
 
@@ -126,7 +126,7 @@ De volgende instructies laten zien hoe u een video die gebruikmaken van Skype vo
 3. [Beginnen met opnemen](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)
 4. Na het stoppen van opname [de opname-manager gebruiken voor het opnemen van uw publiceren](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
 
-Upload uw video-opnamen naar een service waarmee u voor het genereren van een gedeelde-URL. Bijvoorbeeld, een [Gast-koppeling in OneDrive of Sharepoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
+Upload uw video-opnamen naar een service waarmee u voor het genereren van een gedeelde-URL. Bijvoorbeeld, een [Gast-koppeling in OneDrive of SharePoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
 
 ### <a name="supported-regions"></a>Ondersteunde regio’s
 
@@ -153,8 +153,8 @@ Selecteer de bedrijfsprocessen die het beste uw oplossing te beschrijven. Als uw
 
 ### <a name="trial-info"></a>Proefversie Info
 
--   **URL van de SaaS-proefversie:** Voer de URL voor de proefversie van uw app.
--   **Test Drive proefversie-URL:** Voer de URL voor de Test Drive-ervaring van uw app.
+-   **Proefversie SaaS-URL:** Voer de URL voor de proefversie van uw app.
+-   **Test Drive proefversie URL:** Voer de URL voor de Test Drive-ervaring van uw app.
 
 Zie voor meer informatie over proefversies **App-type** in de volgende sectie van dit artikel.
 
@@ -181,7 +181,7 @@ De voorgestelde indeling van de beschrijving is te hebben splitst u de tekst in 
 - [Persoonlijke instellingen Plexure detailhandel](https://appsource.microsoft.com/product/web-apps/plexure.c82dc2fc-817b-487e-ae83-1658c1bc8ff2?tab=Overview)
 - [AvePoint Citizen Services](https://appsource.microsoft.com/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview)
 
-### <a name="industries"></a>Bedrijfstakken
+### <a name="industries"></a>Branches
 
 Selecteer de branche dat uw app is het beste uitgelijnd. Als uw app is gekoppeld aan meerdere branches, laat u dit veld leeg.
 
@@ -281,7 +281,7 @@ U kunt maximaal drie documenten uploaden. Elk document moet de PDF-indeling gebr
 
 Voer de URL voor het privacybeleid van uw app
 
-### <a name="terms-of-use"></a>Gebruiksvoorwaarden
+### <a name="terms-of-use"></a>Gebruiksrechtovereenkomst
 
 Voer de gebruiksvoorwaarden van uw app. AppSource-klanten moeten deze voorwaarden accepteren voordat ze uw app kunnen uitproberen.
 
@@ -292,7 +292,7 @@ Voer de gebruiksvoorwaarden van uw app. AppSource-klanten moeten deze voorwaarde
 
 Selecteer een CRM-systeem waar de leads worden opgeslagen. 
 
-Selecteer **Azure Table** als u een van deze systemen CRM: Salesforce, Marketo of Microsoft Dynamics CRM. 
+Selecteer **Azure Table** als u een van deze CRM-systemen: SalesForce, Marketo of Microsoft Dynamics CRM. 
 
 Voor meer informatie over het CRM-systeem die u wilt gebruiken, selecteert u een van de volgende koppelingen voor ondersteunde systemen.
 

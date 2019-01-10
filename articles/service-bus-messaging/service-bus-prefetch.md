@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c88ea7433232b62c006c908cd2768d318d36d43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 292f8ae1821cdcc4fd6274808b53454ec51eaea0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854045"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157392"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus-berichten vooraf ophalen
 
@@ -50,7 +50,7 @@ Als de vergrendeling op de achtergrond in de buffer prefetch verloopt, wordt het
 
 Als u een hoge mate van betrouwbaarheid voor de verwerking van berichten moet en verwerking veel werk en het tijdstip neemt, is het raadzaam dat u de functie prefetch dan, of helemaal niet gebruiken.
 
-Als u hoge in de gehele moet en berichtverwerking vaak goedkope is, levert prefetch doorvoer aanzienlijke voordelen.
+Als u hoge doorvoer en -verwerking van berichten vaak goedkope is, levert prefetch doorvoer aanzienlijke voordelen.
 
 De maximale prefetch aantal en de vergrendelingsduur van de is geconfigureerd voor de wachtrij of abonnement moeten worden verdeeld, zodat de time-out van de vergrendeling ten minste groter is dan de cumulatieve verwacht bericht verwerkingstijd voor de maximale grootte van de buffer prefetch, plus één bericht. Op hetzelfde moment, de time-out van de vergrendeling niet had zo lang dat berichten groter zijn dan de maximale [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) wanneer ze per ongeluk worden verwijderd, dus de vergrendeling verloopt voordat opnieuw wordt bezorgd vereisen.
 

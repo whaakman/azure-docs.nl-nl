@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631181"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157969"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-app-manifest
 
@@ -47,12 +47,9 @@ Het toepassingsmanifest configureren:
 > [!NOTE]
 > Als u niet zien de **Voorbeeldwaarde** kolom na de **beschrijving**, het browservenster maximaliseren en schuiven/Veeg tot u ziet de **Voorbeeldwaarde** kolom.
 
->[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
-
 | Sleutel  | Waardetype | Description  | Voorbeeldwaarde |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Null-waarden Int32 | Hiermee geeft u de geaccepteerde access token versie voor de huidige API-resource. Mogelijke waarden zijn 1, 2, null. Standaard ingesteld op null. dit wordt beschouwd als 2. | `2` |
+| `accessTokenAcceptedVersion` | Null-waarden Int32 | Hiermee geeft u de toegang van een token versie werd verwacht door de resource. Hiermee wijzigt u de versie en indeling van de JWT die onafhankelijk van het eindpunt of de client gebruikt voor het aanvragen van het toegangstoken worden geproduceerd.<br/><br/>Het eindpunt dat wordt gebruikt, v1.0 of versie 2.0, wordt gekozen door de client en heeft alleen gevolgen voor de versie van id_tokens. Resources moeten expliciet configureren `accesstokenAcceptedVersion` om aan te geven van de ondersteunde access token-indeling.<br/><br/>Mogelijke waarden voor `accesstokenAcceptedVersion` 1, 2 of null zijn. Als de waarde null is, is dit standaard ingesteld op 1, wat overeenkomt met het eindpunt v1.0. | `2` |
 | `allowPublicClient` | booleaans | Hiermee geeft u de alternatieve toepassingstype. Azure AD bepaalt het type van de replyUrlsWithType standaard. Er zijn bepaalde scenario's waar Azure AD het client-app-type kan niet bepalen (bijvoorbeeld [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) stroom waar de HTTP-aanvraag zonder een URL-omleiding plaatsvindt). In deze gevallen wordt het toepassingstype op basis van de waarde van deze eigenschap worden geïnterpreteerd door Azure AD. Als deze waarde is ingesteld op waar het alternatieve toepassingstype is ingesteld als openbare client, zoals een geïnstalleerde app die wordt uitgevoerd op een mobiel apparaat. De standaardwaarde is false, wat inhoudt dat de terugval toepassingstype vertrouwelijke client, zoals web-app. | `false` |
 | `appId` | Id-reeks | Hiermee geeft u de unieke id voor de app die is toegewezen aan een app door Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Het type matrix | Hiermee geeft u de verzameling toepassingsrollen die mogelijk zijn gedeclareerd in een app. Deze rollen kunnen worden toegewezen aan gebruikers, groepen of service-principals. Zie voor meer voorbeelden en informatie [app-rollen in uw toepassing toevoegen en deze ontvangen in het token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

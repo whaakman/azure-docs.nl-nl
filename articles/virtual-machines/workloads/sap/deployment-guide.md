@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 8a552356163e9c585ce9fea18e8cd5208c26a8be
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1332a06cf955be3fe2a77194f455c9315993998c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956354"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159907"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 
@@ -111,7 +111,7 @@ ms.locfileid: "49956354"
 [deployment-guide]:deployment-guide.md (Azure Virtual Machines-implementatie voor SAP)
 [deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP-resources)
 [deployment-guide-3.1.2]:deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Een virtuele machine implementeren met behulp van een aangepaste installatiekopie)
-[deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Een virtuele machine in Azure Marketplace voor SAP implementeren)
+[deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Een virtuele machine in Azure Marketplace implementeren voor SAP)
 [deployment-guide-3.3]:deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scenario 2: Een virtuele machine met een aangepaste installatiekopie implementeren voor SAP)
 [deployment-guide-3.4]:deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scenario 3: Een virtuele machine verplaatsen van on-premises met behulp van een Azure niet gegeneraliseerde VHD met SAP)
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Scenario's voor implementatie van virtuele machines voor SAP op Microsoft Azure)
@@ -232,7 +232,7 @@ ms.locfileid: "49956354"
 [planning-guide-figure-700]:media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
 [planning-guide-figure-800]:media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure-netwerken)
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Opslag en de gegevensschijven van Microsoft Azure)
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Opslag: Microsoft Azure Storage- en gegevensschijven)
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
@@ -361,7 +361,7 @@ Kent de volgende informatie, de grootte van de SAP instelt:
 
 In Azure Resource Manager, u kunt resourcegroepen gebruiken voor het beheren van alle toepassingsresources in uw Azure-abonnement. Zie voor meer informatie, [overzicht van Azure Resource Manager][resource-group-overview].
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Bronnen
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP-resources
 
@@ -400,7 +400,7 @@ Deze artikelen Microsoft hebben betrekking op SAP-oplossingen in Azure:
 
 U hebt meerdere opties voor het implementeren van VM's en bijbehorende schijven in Azure. Het is belangrijk te weten wat de verschillen tussen de opties voor implementatie, omdat u mogelijk verschillende stappen voor het voorbereiden van uw VM's voor implementatie op basis van het implementatietype dat u kiest.
 
-### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scenario 1: Een virtuele machine in Azure Marketplace voor SAP implementeren
+### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scenario 1: Een virtuele machine in Azure Marketplace implementeren voor SAP
 
 U kunt een door Microsoft of door een derde partij in de Azure Marketplace-installatiekopie gebruiken om uw VM te implementeren. De Marketplace biedt enkele standard installatiekopieën van het besturingssysteem van Windows Server en andere Linux-distributies. U kunt een installatiekopie met database management ook implementeren system (DBMS) SKU's, bijvoorbeeld Microsoft SQL Server. Zie voor meer informatie over het gebruik van installatiekopieën met DBMS-SKU's [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver][dbms-guide].
 
@@ -421,24 +421,24 @@ De eenvoudigste manier om een nieuwe virtuele machine maken met een installatiek
 De wizard begeleidt u bij het instellen van de vereiste parameters voor het maken van de virtuele machine, naast alle vereiste resources, zoals netwerkinterfaces en storage-accounts. Sommige van deze parameters zijn:
 
 1. **Grondbeginselen van**:
- * **Naam**: de naam van de resource (de naam van de virtuele machine).
- * **VM-schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruikmaken van Premium Storage voor de gegevensschijven van uw wilt, raden wij met Premium Storage voor de OS-schijf.
+ * **Naam**: De naam van de resource (de naam van de virtuele machine).
+ * **Type VM-schijf**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruikmaken van Premium Storage voor de gegevensschijven van uw wilt, raden wij met Premium Storage voor de OS-schijf.
  * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Voer de gebruikersnaam en wachtwoord van de gebruiker die is gemaakt tijdens het inrichten. Voor een virtuele Linux-machine, kunt u de openbare sleutel voor Secure Shell (SSH) waarmee u zich aanmeldt bij de machine.
  * **Abonnement**: Selecteer het abonnement dat u gebruiken wilt voor het inrichten van de nieuwe virtuele machine.
- * **Resourcegroep**: de naam van de resourcegroep voor de virtuele machine. U kunt u de naam van een nieuwe resourcegroep of de naam van een resourcegroep die al bestaat.
- * **Locatie**: waar u wilt implementeren, de nieuwe virtuele machine. Als u wilt dat de virtuele machine verbinden met uw on-premises netwerk, zorg ervoor dat u de locatie van het virtuele netwerk dat maakt Azure verbinding met uw on-premises netwerk selecteert. Zie voor meer informatie, [Microsoft Azure-netwerken] [ planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning en implementatie van SAP NetWeaver] [ planning-guide].
+ * **Resourcegroep**: De naam van de resourcegroep voor de virtuele machine. U kunt u de naam van een nieuwe resourcegroep of de naam van een resourcegroep die al bestaat.
+ * **Locatie**: Waar u de nieuwe virtuele machine implementeren. Als u wilt dat de virtuele machine verbinden met uw on-premises netwerk, zorg ervoor dat u de locatie van het virtuele netwerk dat maakt Azure verbinding met uw on-premises netwerk selecteert. Zie voor meer informatie, [Microsoft Azure-netwerken] [ planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning en implementatie van SAP NetWeaver] [ planning-guide].
 1. **Grootte**:
 
-     Zie voor een lijst van ondersteunde VM-typen, SAP-notitie [1928533]. Zorg ervoor dat u het juiste VM-type selecteren als u wilt gebruiken van Azure Premium Storage. Niet alle VM-typen bieden ondersteuning voor Premium-opslag. Zie voor meer informatie, [opslag: Microsoft Azure Storage- en gegevensschijven] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] en [Azure Premium Storage] [ planning-guide-azure-premium-storage] in [ Azure virtuele Machines, planning en implementatie van SAP NetWeaver][planning-guide].
+     Zie voor een lijst van ondersteunde VM-typen, SAP-notitie [1928533]. Zorg ervoor dat u het juiste VM-type selecteren als u wilt gebruiken van Azure Premium Storage. Niet alle VM-typen bieden ondersteuning voor Premium-opslag. Zie voor meer informatie, [opslag: Microsoft Azure Storage- en gegevensschijven] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] en [Azure Premium Storage] [ planning-guide-azure-premium-storage] in [Azure Virtual Machines planning en implementatie voor SAP NetWeaver][planning-guide].
 
 1. **Instellingen voor**:
   * **Storage**
     * **Schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruikmaken van Premium Storage voor de gegevensschijven van uw wilt, raden wij met Premium Storage voor de OS-schijf.
-    * **Beheerde schijven gebruiken**: Selecteer Ja als u gebruikmaken van beheerde schijven wilt,. Zie voor meer informatie over Managed Disks, hoofdstuk [Managed Disks] [ planning-guide-managed-disks] in de handleiding voor capaciteitsplanning.
-    * **Storage-account**: Selecteer een bestaand opslagaccount of maak een nieuwe. Niet alle opslagtypen werken voor het uitvoeren van SAP-toepassingen. Zie voor meer informatie over opslagtypen [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver] [ dbms-guide].
+    * **Beheerde schijven gebruiken**: Selecteer Ja als u gebruikmaken van beheerde schijven wilt. Zie voor meer informatie over Managed Disks, hoofdstuk [Managed Disks] [ planning-guide-managed-disks] in de handleiding voor capaciteitsplanning.
+    * **Storage-account**: Selecteer een bestaand opslagaccount of maak een nieuwe. Niet alle opslagtypen werken voor het uitvoeren van SAP-toepassingen. Zie voor meer informatie over opslagtypen [opslagstructuur van een virtuele machine voor RDBMS implementaties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
   * **Netwerk**
-    * **Virtueel netwerk** en **Subnet**: voor het integreren van de virtuele machine met het intranet, selecteert u het virtuele netwerk dat is verbonden met uw on-premises netwerk.
-    * **Openbare IP-adres**: Selecteer het openbare IP-adres dat u wilt gebruiken, of parameters voor het maken van een nieuw openbaar IP-adres invoeren. U kunt een openbaar IP-adres gebruiken voor toegang tot uw virtuele machine via Internet. Zorg ervoor dat u ook een netwerkbeveiligingsgroep voor beveiligde toegang tot uw virtuele machine te maken.
+    * **Virtueel netwerk** en **Subnet**: Voor het integreren van de virtuele machine met het intranet, selecteer het virtuele netwerk dat is verbonden met uw on-premises netwerk.
+    * **Openbaar IP-adres**: Selecteer het openbare IP-adres dat u wilt gebruiken, of parameters voor het maken van een nieuw openbaar IP-adres invoeren. U kunt een openbaar IP-adres gebruiken voor toegang tot uw virtuele machine via Internet. Zorg ervoor dat u ook een netwerkbeveiligingsgroep voor beveiligde toegang tot uw virtuele machine te maken.
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie, [netwerkverkeer met netwerkbeveiligingsgroepen beheren][virtual-networks-nsg].
   * **Extensies**: U kunt extensies voor virtuele machines installeren door ze toe te voegen aan de implementatie. U hoeft geen uitbreidingen toevoegen in deze stap. De extensies vereist voor ondersteuning van SAP zijn later geïnstalleerd. Zie hoofdstuk [configureren van de Azure uitgebreide controle-extensie voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: Selecteer een beschikbaarheidsset of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie, [Azure-beschikbaarheidssets][planning-guide-3.2.3].
@@ -472,32 +472,32 @@ U kunt een virtuele machine maken met behulp van een van de SAP-sjablonen gepubl
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
 1. **Grondbeginselen van**:
-  * **Abonnement**: het abonnement te gebruiken om de sjabloon te implementeren.
-  * **Resourcegroep**: de resourcegroep waarin u wilt gebruiken om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of u kunt een bestaande resourcegroep selecteren in het abonnement.
-  * **Locatie**: waar u om de sjabloon te implementeren. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van deze resourcegroep wordt gebruikt.
+  * **Abonnement**: Het abonnement te gebruiken om de sjabloon te implementeren.
+  * **Resourcegroep**: De resourcegroep te gebruiken om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of u kunt een bestaande resourcegroep selecteren in het abonnement.
+  * **Locatie**: Waar om de sjabloon te implementeren. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van deze resourcegroep wordt gebruikt.
 
 1. **Instellingen voor**:
-  * **De ID van de SAP-systeem**: de SAP-systeem-ID (SID).
-  * **Type besturingssysteem**: het besturingssysteem die u implementeren wilt, bijvoorbeeld, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) of Oracle Linux 7.2.
+  * **De ID van de SAP-systeem**: De SAP-systeem-ID (SID).
+  * **Type besturingssysteem**: Het besturingssysteem die u implementeren wilt, bijvoorbeeld, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) of Oracle Linux 7.2.
 
     De lijstweergave wordt niet weergegeven voor dat alle ondersteunde besturingssystemen. Zie voor meer informatie over ondersteunde besturingssystemen voor SAP-software-implementatie, SAP-notitie [1928533].
-  * **Grootte van het SAP**: de grootte van de SAP-systeem.
+  * **Grootte van het SAP**: De grootte van de SAP-systeem.
 
     Het aantal SAP's vindt u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
-  * **Beschikbaarheid van het systeem** (alleen in drie lagen sjabloon): de beschikbaarheid van het systeem.
+  * **Beschikbaarheid van het systeem** (alleen in drie lagen sjabloon): De beschikbaarheid van het systeem.
 
     Selecteer **HA** voor een configuratie die geschikt is voor de installatie van een hoge beschikbaarheid. Twee databaseservers en twee servers voor ABAP SAP Central Services (ASCS) worden gemaakt.
-  * **Opslagtype** (alleen in twee lagen sjabloon): het type opslag te gebruiken.
+  * **Opslagtype** (alleen in twee lagen sjabloon): Het type opslag te gebruiken.
 
     Voor grotere systemen raden wij met behulp van Azure Premium Storage. Zie de volgende bronnen voor meer informatie over soorten opslag:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS-instantie][2367194]
-      * [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver][dbms-guide]
-      * [Premium Storage: Krachtige opslag voor virtuele Machine van Azure-workloads][storage-premium-storage-preview-portal]
+      * [Opslagstructuur van een virtuele machine voor RDBMS-implementaties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure][storage-premium-storage-preview-portal]
       * [Inleiding tot Microsoft Azure Storage][storage-introduction]
-  * **Gebruikersnaam van beheerder** en **beheerderswachtwoord**: een gebruikersnaam en wachtwoord.
+  * **Gebruikersnaam van beheerder** en **beheerderswachtwoord**: Een gebruikersnaam en wachtwoord.
     Een nieuwe gebruiker is gemaakt, voor aanmelding bij de virtuele machine.
-  * **Nieuw of bestaand subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
+  * **Nieuw of bestaand subnet**: Bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
+  * **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 1. **Voorwaarden en bepalingen**:  
     Lees en accepteer de juridische bepalingen.
@@ -561,23 +561,23 @@ De eenvoudigste manier om een nieuwe virtuele machine maken van een installatiek
 De wizard begeleidt u bij het instellen van de vereiste parameters voor het maken van de virtuele machine, naast alle vereiste resources, zoals netwerkinterfaces en storage-accounts. Sommige van deze parameters zijn:
 
 1. **Grondbeginselen van**:
- * **Naam**: de naam van de resource (de naam van de virtuele machine).
- * **VM-schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruikmaken van Premium Storage voor de gegevensschijven van uw wilt, raden wij met Premium Storage voor de OS-schijf.
+ * **Naam**: De naam van de resource (de naam van de virtuele machine).
+ * **Type VM-schijf**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruikmaken van Premium Storage voor de gegevensschijven van uw wilt, raden wij met Premium Storage voor de OS-schijf.
  * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Voer de gebruikersnaam en wachtwoord van de gebruiker die is gemaakt tijdens het inrichten. Voor een virtuele Linux-machine, kunt u de openbare sleutel voor Secure Shell (SSH) waarmee u zich aanmeldt bij de machine.
  * **Abonnement**: Selecteer het abonnement dat u gebruiken wilt voor het inrichten van de nieuwe virtuele machine.
- * **Resourcegroep**: de naam van de resourcegroep voor de virtuele machine. U kunt u de naam van een nieuwe resourcegroep of de naam van een resourcegroep die al bestaat.
- * **Locatie**: waar u wilt implementeren, de nieuwe virtuele machine. Als u wilt dat de virtuele machine verbinden met uw on-premises netwerk, zorg ervoor dat u de locatie van het virtuele netwerk dat maakt Azure verbinding met uw on-premises netwerk selecteert. Zie voor meer informatie, [Microsoft Azure-netwerken] [ planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning en implementatie van SAP NetWeaver] [ planning-guide].
+ * **Resourcegroep**: De naam van de resourcegroep voor de virtuele machine. U kunt u de naam van een nieuwe resourcegroep of de naam van een resourcegroep die al bestaat.
+ * **Locatie**: Waar u de nieuwe virtuele machine implementeren. Als u wilt dat de virtuele machine verbinden met uw on-premises netwerk, zorg ervoor dat u de locatie van het virtuele netwerk dat maakt Azure verbinding met uw on-premises netwerk selecteert. Zie voor meer informatie, [Microsoft Azure-netwerken] [ planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning en implementatie van SAP NetWeaver] [ planning-guide].
 1. **Grootte**:
 
-     Zie voor een lijst van ondersteunde VM-typen, SAP-notitie [1928533]. Zorg ervoor dat u het juiste VM-type selecteren als u wilt gebruiken van Azure Premium Storage. Niet alle VM-typen bieden ondersteuning voor Premium-opslag. Zie voor meer informatie, [opslag: Microsoft Azure Storage- en gegevensschijven] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] en [Azure Premium Storage] [ planning-guide-azure-premium-storage] in [ Azure virtuele Machines, planning en implementatie van SAP NetWeaver][planning-guide].
+     Zie voor een lijst van ondersteunde VM-typen, SAP-notitie [1928533]. Zorg ervoor dat u het juiste VM-type selecteren als u wilt gebruiken van Azure Premium Storage. Niet alle VM-typen bieden ondersteuning voor Premium-opslag. Zie voor meer informatie, [opslag: Microsoft Azure Storage- en gegevensschijven] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] en [Azure Premium Storage] [ planning-guide-azure-premium-storage] in [Azure Virtual Machines planning en implementatie voor SAP NetWeaver][planning-guide].
 
 1. **Instellingen voor**:
   * **Storage**
     * **Schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruikmaken van Premium Storage voor de gegevensschijven van uw wilt, raden wij met Premium Storage voor de OS-schijf.
-    * **Beheerde schijven gebruiken**: Selecteer Ja als u gebruikmaken van beheerde schijven wilt,. Zie voor meer informatie over Managed Disks, hoofdstuk [Managed Disks] [ planning-guide-managed-disks] in de handleiding voor capaciteitsplanning.
+    * **Beheerde schijven gebruiken**: Selecteer Ja als u gebruikmaken van beheerde schijven wilt. Zie voor meer informatie over Managed Disks, hoofdstuk [Managed Disks] [ planning-guide-managed-disks] in de handleiding voor capaciteitsplanning.
   * **Netwerk**
-    * **Virtueel netwerk** en **Subnet**: voor het integreren van de virtuele machine met het intranet, selecteert u het virtuele netwerk dat is verbonden met uw on-premises netwerk.
-    * **Openbare IP-adres**: Selecteer het openbare IP-adres dat u wilt gebruiken, of parameters voor het maken van een nieuw openbaar IP-adres invoeren. U kunt een openbaar IP-adres gebruiken voor toegang tot uw virtuele machine via Internet. Zorg ervoor dat u ook een netwerkbeveiligingsgroep voor beveiligde toegang tot uw virtuele machine te maken.
+    * **Virtueel netwerk** en **Subnet**: Voor het integreren van de virtuele machine met het intranet, selecteer het virtuele netwerk dat is verbonden met uw on-premises netwerk.
+    * **Openbaar IP-adres**: Selecteer het openbare IP-adres dat u wilt gebruiken, of parameters voor het maken van een nieuw openbaar IP-adres invoeren. U kunt een openbaar IP-adres gebruiken voor toegang tot uw virtuele machine via Internet. Zorg ervoor dat u ook een netwerkbeveiligingsgroep voor beveiligde toegang tot uw virtuele machine te maken.
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie, [netwerkverkeer met netwerkbeveiligingsgroepen beheren][virtual-networks-nsg].
   * **Extensies**: U kunt extensies voor virtuele machines installeren door ze toe te voegen aan de implementatie. U hoeft niet de extensie toevoegen in deze stap. De extensies vereist voor ondersteuning van SAP zijn later geïnstalleerd. Zie hoofdstuk [configureren van de Azure uitgebreide controle-extensie voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: Selecteer een beschikbaarheidsset of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie, [Azure-beschikbaarheidssets][planning-guide-3.2.3].
@@ -611,33 +611,33 @@ Voor het maken van een implementatie met behulp van een persoonlijke installatie
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
 1. **Grondbeginselen van**:
-  * **Abonnement**: het abonnement te gebruiken om de sjabloon te implementeren.
-  * **Resourcegroep**: de resourcegroep waarin u wilt gebruiken om de sjabloon te implementeren. U kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep in het abonnement.
-  * **Locatie**: waar u om de sjabloon te implementeren. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van deze resourcegroep wordt gebruikt.
+  * **Abonnement**: Het abonnement te gebruiken om de sjabloon te implementeren.
+  * **Resourcegroep**: De resourcegroep te gebruiken om de sjabloon te implementeren. U kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep in het abonnement.
+  * **Locatie**: Waar om de sjabloon te implementeren. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van deze resourcegroep wordt gebruikt.
 1. **Instellingen voor**:
-  * **De ID van de SAP-systeem**: de id van de SAP-systeem.
-  * **Type besturingssysteem**: het besturingssysteemtype u implementeren wilt (Windows of Linux).
-  * **Grootte van het SAP**: de grootte van de SAP-systeem.
+  * **De ID van de SAP-systeem**: De id van de SAP-systeem.
+  * **Type besturingssysteem**: Het besturingssysteemtype dat u implementeren wilt (Windows of Linux).
+  * **Grootte van het SAP**: De grootte van de SAP-systeem.
 
     Het aantal SAP's vindt u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
-  * **Beschikbaarheid van het systeem** (alleen in drie lagen sjabloon): de beschikbaarheid van het systeem.
+  * **Beschikbaarheid van het systeem** (alleen in drie lagen sjabloon): De beschikbaarheid van het systeem.
 
     Selecteer **HA** voor een configuratie die geschikt is voor de installatie van een hoge beschikbaarheid. Twee databaseservers en twee servers voor ASCS worden gemaakt.
-  * **Opslagtype** (alleen in twee lagen sjabloon): het type opslag te gebruiken.
+  * **Opslagtype** (alleen in twee lagen sjabloon): Het type opslag te gebruiken.
 
     Voor grotere systemen raden wij met behulp van Azure Premium Storage. Zie de volgende bronnen voor meer informatie over soorten opslag:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS-instantie][2367194]
-      * [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver][dbms-guide]
-      * [Premium Storage: Krachtige opslag voor virtuele machine van Azure-workloads][storage-premium-storage-preview-portal]
+      * [Opslagstructuur van een virtuele machine voor RDBMS-implementaties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele machine van Azure][storage-premium-storage-preview-portal]
       * [Inleiding tot Microsoft Azure Storage][storage-introduction]
-  * **VHD-URI van de gebruikersinstallatiekopie** (alleen voor niet-beheerde schijf afbeelding sjabloon): de URI van het besturingssysteem dat persoonlijke installatiekopie VHD, bijvoorbeeld: https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
-  * **Storage-account van gebruiker installatiekopie** (alleen voor niet-beheerde schijf afbeelding sjabloon): de naam van het opslagaccount waar de persoonlijke installatiekopie van het besturingssysteem wordt opgeslagen, bijvoorbeeld &lt;accountname > in https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **VHD-URI van de gebruikersinstallatiekopie** (alleen voor niet-beheerde schijf afbeelding sjabloon): De URI van de persoonlijke OS VHD, bijvoorbeeld: https:// image&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **Storage-account van gebruiker installatiekopie** (alleen voor niet-beheerde schijf afbeelding sjabloon): De naam van het opslagaccount waar de persoonlijke installatiekopie van het besturingssysteem wordt opgeslagen, bijvoorbeeld &lt;accountname > in https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
   * **userImageId** (alleen voor beheerde schijf afbeelding sjabloon): Id van de installatiekopie van de beheerde schijf die u wilt gebruiken
-  * **Gebruikersnaam van beheerder** en **beheerderswachtwoord**: de gebruikersnaam en wachtwoord.
+  * **Gebruikersnaam van beheerder** en **beheerderswachtwoord**: De gebruikersnaam en wachtwoord.
 
     Een nieuwe gebruiker is gemaakt, voor aanmelding bij de virtuele machine.
-  * **Nieuw of bestaand subnet**: bepaalt of een nieuw virtueel netwerk en een subnet wordt gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
+  * **Nieuw of bestaand subnet**: Bepaalt of een nieuw virtueel netwerk en een subnet wordt gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
+  * **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 1. **Voorwaarden en bepalingen**:  
     Lees en accepteer de juridische bepalingen.
@@ -667,7 +667,7 @@ Controleer of controle werkt, zoals beschreven in [controles en probleemoplossin
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Het verplaatsen van een on-premises VM met behulp van een Azure niet gegeneraliseerde VHD met SAP
 
-In dit scenario plant u een specifieke SAP-systeem van een on-premises-omgeving naar Azure verplaatsen. U kunt dit doen door het uploaden van de VHD met het besturingssysteem, de SAP-binaire bestanden en uiteindelijk de binaire bestanden voor de DBMS-systemen, plus de VHD's met de gegevens en logboekbestanden bestanden van het DBMS, naar Azure. In tegenstelling tot het scenario wordt beschreven in [Scenario 2: een virtuele machine met een aangepaste installatiekopie implementeren voor SAP][deployment-guide-3.3], in dit geval u de hostnaam, SAP-SID, houden en de SAP-gebruiker-accounts in de Azure-VM, omdat ze zijn geconfigureerd in de on-premises omgeving. U hoeft niet te generaliseren van het besturingssysteem. In dit scenario geldt meestal voor cross-premises scenario's waarbij deel uit van de SAP-landschap dat on-premises wordt uitgevoerd en deel ervan wordt uitgevoerd op Azure.
+In dit scenario plant u een specifieke SAP-systeem van een on-premises-omgeving naar Azure verplaatsen. U kunt dit doen door het uploaden van de VHD met het besturingssysteem, de SAP-binaire bestanden en uiteindelijk de binaire bestanden voor de DBMS-systemen, plus de VHD's met de gegevens en logboekbestanden bestanden van het DBMS, naar Azure. In tegenstelling tot het scenario wordt beschreven in [Scenario 2: Een virtuele machine met een aangepaste installatiekopie implementeren voor SAP][deployment-guide-3.3], in dit geval u de hostnaam, SAP-SID, houden en de SAP-gebruiker-accounts in de Azure-VM, omdat ze zijn geconfigureerd in de on-premises omgeving. U hoeft niet te generaliseren van het besturingssysteem. In dit scenario geldt meestal voor cross-premises scenario's waarbij deel uit van de SAP-landschap dat on-premises wordt uitgevoerd en deel ervan wordt uitgevoerd op Azure.
 
 In dit scenario de VM-Agent is **niet** automatisch geïnstalleerd tijdens de implementatie. Omdat de VM-Agent en de Azure uitgebreide controle-extensie voor SAP zijn vereist voor het uitvoeren van SAP NetWeaver op Azure, die u wilt downloaden, installeren en schakel beide onderdelen handmatig nadat u de virtuele machine hebt gemaakt.
 
@@ -706,26 +706,26 @@ Voor het maken van een implementatie met behulp van de schijf met een persoonlij
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
 1. **Grondbeginselen van**:
-  * **Abonnement**: het abonnement te gebruiken om de sjabloon te implementeren.
-  * **Resourcegroep**: de resourcegroep waarin u wilt gebruiken om de sjabloon te implementeren. U kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep in het abonnement.
-  * **Locatie**: waar u om de sjabloon te implementeren. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van deze resourcegroep wordt gebruikt.
+  * **Abonnement**: Het abonnement te gebruiken om de sjabloon te implementeren.
+  * **Resourcegroep**: De resourcegroep te gebruiken om de sjabloon te implementeren. U kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep in het abonnement.
+  * **Locatie**: Waar om de sjabloon te implementeren. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van deze resourcegroep wordt gebruikt.
 1. **Instellingen voor**:
-  * **De ID van de SAP-systeem**: de id van de SAP-systeem.
-  * **Type besturingssysteem**: het besturingssysteemtype u implementeren wilt (Windows of Linux).
-  * **Grootte van het SAP**: de grootte van de SAP-systeem.
+  * **De ID van de SAP-systeem**: De id van de SAP-systeem.
+  * **Type besturingssysteem**: Het besturingssysteemtype dat u implementeren wilt (Windows of Linux).
+  * **Grootte van het SAP**: De grootte van de SAP-systeem.
 
     Het aantal SAP's vindt u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
-  * **Opslagtype** (alleen in twee lagen sjabloon): het type opslag te gebruiken.
+  * **Opslagtype** (alleen in twee lagen sjabloon): Het type opslag te gebruiken.
 
     Voor grotere systemen raden wij met behulp van Azure Premium Storage. Zie de volgende bronnen voor meer informatie over soorten opslag:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS-instantie][2367194]
-      * [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machine DBMS-implementatie voor SAP NetWeaver][dbms-guide]
-      * [Premium Storage: Krachtige opslag voor virtuele Machine van Azure-workloads][storage-premium-storage-preview-portal]
+      * [Opslagstructuur van een virtuele machine voor RDBMS-implementaties](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure][storage-premium-storage-preview-portal]
       * [Inleiding tot Microsoft Azure Storage][storage-introduction]
-  * **OS-schijf VHD-URI** (alleen voor niet-beheerde schijf-sjabloon): de URI van de persoonlijke besturingssysteemschijf, bijvoorbeeld: https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
-  * **Beheerde schijf-Id van de besturingssysteemschijf** (alleen voor beheerde schijf-sjabloon): de Id van de beheerde schijf besturingssysteemschijf, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
-  * **Nieuw of bestaand subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of in een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
+  * **OS-schijf VHD-URI** (alleen voor niet-beheerde schijf-sjabloon): De URI van de persoonlijke besturingssysteemschijf, bijvoorbeeld: https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
+  * **Beheerde schijf-Id van de besturingssysteemschijf** (alleen voor beheerde schijf-sjabloon): De Id van de beheerde schijf besturingssysteemschijf, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
+  * **Nieuw of bestaand subnet**: Bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
+  * **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 1. **Voorwaarden en bepalingen**:  
     Lees en accepteer de juridische bepalingen.
@@ -1036,7 +1036,7 @@ Deze controle zorgt ervoor dat alle maatstaven voor prestaties die worden weerge
 
 1.  Aanmelden bij de virtuele machine van Azure (met een beheerdersaccount is niet nodig).
 1.  Open een opdrachtpromptvenster.
-1.  Wijzig bij de opdrachtprompt de map naar de installatiemap van de Azure uitgebreide controle-extensie voor SAP: C:\\pakketten\\invoegtoepassingen\\ Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versie >\\verwijderen
+1.  Wijzig bij de opdrachtprompt de map naar de installatiemap van de Azure uitgebreide controle-extensie voor SAP: C:\\pakketten\\invoegtoepassingen\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versie >\\verwijderen
 
   De *versie* in het pad naar de controle-extensie kan variëren. Als u mappen voor meerdere versies van de controle-extensie in de installatiemap ziet, Controleer de configuratie van de AzureEnhancedMonitoring Windows-service en ga vervolgens naar de map die is aangeduid als *pad naar uitvoerbaar bestand* .
 
@@ -1083,15 +1083,15 @@ Als de **integriteitsstatus** waarde is geen **OK**, volg de instructies in [Sta
 
   a.  Voer `more /var/lib/AzureEnhancedMonitor/PerfCounters` uit.
 
-   **Verwacht resultaat**: lijst met prestatiemeteritems retourneert. Het bestand mag niet leeg zijn.
+   **Verwacht resultaat**: Retourneert de lijst met prestatiemeteritems. Het bestand mag niet leeg zijn.
 
  b. Voer `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error` uit.
 
-   **Verwacht resultaat**: deze methode retourneert één regel waar de fout is **geen**, bijvoorbeeld **3; config; Fout; 0, 0; geen; 0; 1456416792; tst-servercs;**
+   **Verwacht resultaat**: Retourneert één regel waar de fout is **geen**, bijvoorbeeld **3; config; Fout; 0, 0; geen; 0; 1456416792; tst-servercs;**
 
   c. Voer `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord` uit.
 
-    **Verwacht resultaat**: geeft als resultaat als leeg of bestaat niet.
+    **Verwacht resultaat**: Geeft als resultaat als leeg of bestaat niet.
 
 Als de voorgaande controle niet geslaagd is, moet u deze extra controles uitvoeren:
 
@@ -1099,21 +1099,21 @@ Als de voorgaande controle niet geslaagd is, moet u deze extra controles uitvoer
 
   a.  Voer `sudo ls -al /var/lib/waagent/` uit.
 
-      **Verwacht resultaat**: geeft een lijst van de inhoud van de map waagent.
+      **Verwacht resultaat**: Geeft een lijst van de inhoud van de map waagent.
 
   b.  Voer `ps -ax | grep waagent` uit.
 
-   **Verwacht resultaat**: een vermelding die vergelijkbaar is met weergegeven: `python /usr/sbin/waagent -daemon`
+   **Verwacht resultaat**: Een vermelding die vergelijkbaar is met weergegeven: `python /usr/sbin/waagent -daemon`
 
 1.   Zorg ervoor dat de Azure uitgebreide controle-extensie geïnstalleerd en actief is.
 
   a.  Voer `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'` uit.
 
-    **Verwacht resultaat**: geeft een lijst van de inhoud van de extensie voor Azure uitgebreid Monitoring-map.
+    **Verwacht resultaat**: Geeft een lijst van de inhoud van de extensie voor Azure uitgebreid Monitoring-map.
 
   b. Voer `ps -ax | grep AzureEnhanced` uit.
 
-     **Verwacht resultaat**: een vermelding die vergelijkbaar is met weergegeven: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+     **Verwacht resultaat**: Een vermelding die vergelijkbaar is met weergegeven: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. SAP-Host-Agent installeren zoals beschreven in de SAP-notitie [1031096], en controleer de uitvoer van `saposcol`.
 

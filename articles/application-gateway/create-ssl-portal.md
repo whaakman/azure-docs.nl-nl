@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997616"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159414"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Een toepassingsgateway met SSL-beëindiging met Azure portal configureren
 
@@ -148,7 +148,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 ### <a name="add-backend-servers"></a>Back-endservers toevoegen
 
 3. Klik op **Alle resources** en vervolgens op **myAppGateway**.
-4. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGateayBackendPool**.
+4. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGatewayBackendPool**.
 5. Klik op **toevoegen doel** elke virtuele machine die u hebt gemaakt aan de back-endpool toevoegen.
 
     ![Back-endservers toevoegen](./media/create-ssl-portal/application-gateway-backend.png)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747912"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157204"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor dubbels voor apparaat- en -module, taken en berichtroutering
 
@@ -168,15 +168,15 @@ SELECT * FROM devices.modules
 We kunnen geen koppeling tussen de apparaten en devices.modules verzamelingen. Als u moduledubbels query alle apparaten wilt, doen u dit op basis van tags. Deze query retourneert alle moduledubbels voor alle apparaten met de status van de scannen:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 Deze query retourneert alle moduledubbels met de status van de scans, maar alleen op het opgegeven aantal apparaten:
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C#-voorbeeld
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM-component
 
-De **van < from_specification >** component kunt ervan uitgaan dat slechts twee waarden: **van apparaten** naar query apparaatdubbels, of **van devices.jobs** op query-taakdetails per apparaat.
+De **van < from_specification >** component kunt ervan uitgaan dat slechts twee waarden: **VANAF apparaten** naar query apparaatdubbels, of **van devices.jobs** op query-taakdetails per apparaat.
 
 
 ## <a name="where-clause"></a>WHERE-component
@@ -447,38 +447,38 @@ De volgende operators worden ondersteund:
 
 | Familie | Operators |
 | --- | --- |
-| Rekenkundige |+, -, *, /, % |
-| Logische |EN, OF NIET |
+| Rekenkundig |+, -, *, /, % |
+| Logisch |EN, OF, NIET |
 | Vergelijking |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functions
 Bij het opvragen van dubbels en taken die de enige ondersteunde is functie:
 
-| Functie | Beschrijving |
+| Function | Description |
 | -------- | ----------- |
 | IS_DEFINED(Property) | Retourneert een Booleaanse waarde waarmee wordt aangegeven als de eigenschap een waarde is toegewezen (met inbegrip van `null`). |
 
 In situaties, routes, worden de volgende wiskundige functies ondersteund:
 
-| Functie | Beschrijving |
+| Function | Description |
 | -------- | ----------- |
-| ABS(x) | Retourneert de absolute (positief) waarde van de opgegeven numerieke expressie. |
+| ABS(x) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
 | EXP(x) | Retourneert de exponentiële waarde van de opgegeven numerieke expressie (e ^ x). |
 | Power(x,y) | Retourneert de waarde van de opgegeven expressie voor de opgegeven macht (x ^ y).|
 | Square(x) | Retourneert het kwadraat van de opgegeven numerieke waarde. |
-| CEILING(x) | Retourneert de kleinste integer-waarde groter dan of gelijk zijn aan de opgegeven numerieke expressie. |
-| FLOOR(x) | Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie. |
+| CEILING(x) | Retourneert het kleinste gehele getal dat groter is dan of gelijk is aan de opgegeven numerieke expressie. |
+| FLOOR(x) | Retourneert het grootste gehele getal dat kleiner is dan of gelijk is aan de opgegeven numerieke expressie. |
 | Sign(x) | Retourneert de positief (+ 1), nul (0) of minteken (-1) van de opgegeven numerieke expressie.|
 | WORTEL(x) | Retourneert de vierkantswortel van de opgegeven numerieke waarde. |
 
 In situaties, routes, worden de volgende controle van het type en de casten functies ondersteund:
 
-| Functie | Beschrijving |
+| Function | Description |
 | -------- | ----------- |
 | AS_NUMBER | De invoertekenreeks converteert naar een getal. `noop` Als de invoer een getal is. `Undefined` als tekenreeks niet voor een getal staat.|
 | IS_ARRAY | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een matrix is. |
 | IS_BOOL | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een Booleaanse waarde is. |
-| IS_DEFINED | Retourneert een Booleaanse waarde waarmee wordt aangegeven als de eigenschap een waarde is toegewezen. |
+| IS_DEFINED | Retourneert een Booleaanse waarde die aangeeft of aan de eigenschap een waarde is toegewezen. |
 | IS_NULL | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie null is. |
 | IS_NUMBER | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een getal is. |
 | IS_OBJECT | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een JSON-object is. |
@@ -487,17 +487,17 @@ In situaties, routes, worden de volgende controle van het type en de casten func
 
 In situaties, routes, worden de volgende reeks functies ondersteund:
 
-| Functie | Beschrijving |
+| Function | Description |
 | -------- | ----------- |
-| CONCAT (x, y,...) | Retourneert een tekenreeks die het resultaat van het samenvoegen van twee of meer tekenreekswaarden. |
+| CONCAT (x, y,...) | Retourneert een tekenreeks die het resultaat is van het samenvoegen van twee of meer tekenreekswaarden. |
 | LENGTH(x) | Retourneert het aantal tekens van de opgegeven tekenreeksexpressie.|
-| LOWER(x) | Retourneert een tekenreeksexpressie na hoofdletter gegevens converteren naar kleine letters. |
-| UPPER(x) | Retourneert een tekenreeksexpressie na kleine letter gegevens converteren naar hoofdletters. |
+| LOWER(x) | Retourneert een tekenreeksexpressie na het converteren van tekens in hoofdletters naar kleine letters. |
+| UPPER(x) | Retourneert een tekenreeksexpressie na het converteren van tekens in kleine letters naar hoofdletters. |
 | De SUBTEKENREEKS (tekenreeks, start [, lengte]) | Onderdeel van een tekenreeksexpressie vanaf de op nul gebaseerde positie van het opgegeven teken geretourneerd en blijft aan de opgegeven lengte of aan het einde van de tekenreeks. |
-| INDEX_OF (tekenreeks, fragment) | Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste expressie in de opgegeven tekenreeks, of -1 als de tekenreeks is niet gevonden.|
+| INDEX_OF (tekenreeks, fragment) | Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste opgegeven tekenreeksexpressie, of -1 als de tekenreeks niet is gevonden.|
 | STARTS_WITH (x, y) | Retourneert een Booleaanse waarde die aangeeft of de eerste expressie tekenreeks begint met de tweede. |
 | ENDS_WITH (x, y) | Retourneert een Booleaanse waarde die aangeeft of de eerste expressie tekenreeks eindigt met de tweede. |
-| CONTAINS(x,y) | Retourneert een Booleaanse waarde die aangeeft of de eerste expressie tekenreeks de tweede bevat. |
+| CONTAINS(x,y) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie de tweede bevat. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

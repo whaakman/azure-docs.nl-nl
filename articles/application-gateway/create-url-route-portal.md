@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: e106094ce94b7f232fd5687988af2bd11b971e3f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 227e09ad087f1ac06f0dbb5b731c68f7c0a6980e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001948"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159771"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met pad gebaseerde routering regels met behulp van de Azure portal
 
@@ -123,7 +123,7 @@ In dit voorbeeld maakt u drie virtuele machines die worden gebruikt als back-end
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Back-endpools maken met de virtuele machines
 
 1. Klik op **alle resources** en klik vervolgens op **myAppGateway**.
-2. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGateayBackendPool**.
+2. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGatewayBackendPool**.
 3. Klik op **toevoegen doel** om toe te voegen *myVM1* naar appGatewayBackendPool.
 
     ![Back-endservers toevoegen](./media/create-url-route-portal/application-gateway-backend.png)

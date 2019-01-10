@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 954a57bb9253e4f18d61c3a699b6e721568da292
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056894"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157396"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit verbinden met Azure IoT Remote Monitoring solution accelerator
 
@@ -77,12 +77,12 @@ Een actief Azure-abonnement. Als u een hebt, kunt u registreren via een van deze
 3. De DevKit verbinden met uw computer. VS Code uw DevKit detecteert automatisch en opent de volgende pagina's:
 
   * De introductiepagina DevKit.
-  * Voorbeelden van Arduino: Praktische voorbeelden aan de slag met DevKit.
+  * Arduino-voorbeelden: Praktische voorbeelden aan de slag met DevKit.
 
 4. Vouw linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **RemoteMonitoring**. Een nieuwe VS Code-venster wordt het geopend met een projectmap daarin.
 
    > [!NOTE]
-   > Als u het deelvenster sluiten, kunt u deze opnieuw openen. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
+   > Als u het deelvenster sluiten, kunt u deze opnieuw openen. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: Voorbeelden**.
 
 ## <a name="provision-required-azure-services"></a>Vereiste Azure-services inrichten
 
@@ -127,7 +127,7 @@ Als u wilt wijzigen van de vastgelegde **AZ3166** naar een aangepaste apparaat-I
 Als u problemen ondervindt, raadpleegt u [IoT developer kit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of contact opnemen met ons opnemen met behulp van de volgende kanalen:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen
 

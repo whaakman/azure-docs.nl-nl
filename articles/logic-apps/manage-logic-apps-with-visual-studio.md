@@ -3,20 +3,20 @@ title: Logische apps beheren met Visual Studio - Azure Logic Apps | Microsoft Do
 description: Logic apps en andere Azure-assets met Visual Studio Cloud Explorer beheren
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445640"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158142"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Logische apps beheren met Visual Studio
 
@@ -62,10 +62,10 @@ In Visual Studio vindt u alle logic-apps die zijn gekoppeld aan uw Azure-abonnem
 
 2. Op basis van of u nu zoekt door **resourcegroepen** of **resourcetypen**, als volgt te werk:
 
-   * **Resourcegroepen**: onder uw Azure-abonnement, Cloud Explorer ziet u de resourcegroepen die gekoppeld aan dat abonnement zijn. 
+   * **Resourcegroepen**: Uw Azure-abonnement ziet u Cloud Explorer alle resourcegroepen die gekoppeld aan dat abonnement zijn. 
    Vouw de resourcegroep die uw logische app bevat, en selecteer vervolgens uw logische app.
 
-   * **Resourcetypen**: onder uw Azure-abonnement, vouw **Logic Apps**. Nadat u Cloud Explorer ziet alle geïmplementeerde logic-apps die gekoppeld aan uw abonnement zijn, selecteert u uw logische app.
+   * **Resourcetypen**: Vouw onder uw Azure-abonnement, **Logic Apps**. Nadat u Cloud Explorer ziet alle geïmplementeerde logic-apps die gekoppeld aan uw abonnement zijn, selecteert u uw logische app.
 
 <a name="open-designer"></a>
 
@@ -171,7 +171,14 @@ Als u wilt uw logische app verwijderen uit de Azure portal, in Cloud Explorer he
 ![Uw logische app verwijderen](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
 > [!NOTE]
-> Wanneer u een logische app verwijdert, wordt geen nieuwe uitvoeringen worden geïnstantieerd. Alle wordt uitgevoerd en actieve uitvoeringen zijn geannuleerd. Als u duizenden wordt uitgevoerd hebt, mogelijk annulering aanzienlijke tijd in beslag nemen. 
+> Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. Alle uitvoeringen die bezig zijn en wachten op uitvoering worden geannuleerd. Als u duizenden uitvoeringen hebt, kan de annulering een aanzienlijke tijd in beslag nemen. 
+
+## <a name="troubleshooting"></a>Probleemoplossing
+
+Als u uw logische app-project in de ontwerper van logische Apps opent, krijgt u mogelijk niet de optie voor het selecteren van uw Azure-abonnement. In plaats daarvan uw logische app wordt geopend met een Azure-abonnement dat is niet de versie die u wilt gebruiken. Dit probleem treedt op omdat nadat u een logische app .json-bestand hebt geopend, Visual Studio de eerste geselecteerde abonnement voor toekomstig gebruik in de cache opgeslagen. U lost dit probleem, probeert u een van deze stappen:
+
+* Wijzig de naam van de logische app .json-bestand. De abonnement-cache, is afhankelijk van de bestandsnaam. 
+* Verwijderen van de eerder geselecteerde abonnementen voor *alle* verwijderen van logische apps in uw oplossing de *verborgen* .vs map in de directory van uw oplossing. Deze locatie opgeslagen gegevens van uw abonnement. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

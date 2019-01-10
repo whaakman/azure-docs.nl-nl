@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 501dc942fc41a4e06aa13fba2eb670f8bc0f8a21
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597817"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156235"
 ---
 # <a name="door-monitor"></a>De deur van Monitor          
 
@@ -68,11 +68,11 @@ Voer het aanmeldingsformulier hebt ingevuld:
 
    * **Resourcegroep**: Maak een resourcegroep voor het hosten van de SendGrid-service of gebruik een bestaande resourcegroep. Zie [resourcegroepen gebruiken voor het beheren van uw Azure-resources](../azure-resource-manager/resource-group-portal.md).
 
-   * **Naam**: de naam voor uw SendGrid-service. Kies een unieke naam, die afwijkt van andere services die u hebt.
+   * **Naam**: De naam voor uw SendGrid-service. Kies een unieke naam, die afwijkt van andere services die u hebt.
 
-   * **Wachtwoord**: een wachtwoord, die niet worden gebruikt voor alles wat in dit project is vereist voor de service.
+   * **Wachtwoord**: De service is een wachtwoord, die niet worden gebruikt voor alles wat in dit project.
 
-   * **E-mailbericht**: de SendGrid-service kan de verificatie wordt verzonden naar dit e-mailadres.
+   * **e-mailbericht**: De SendGrid-service wordt verificatie naar dit e-mailadres verzonden.
 
 Controleer de **vastmaken aan dashboard** om deze toepassing makkelijker te vinden in de toekomst optie en klik vervolgens op **aankoop** om in te dienen het aanmeldingsformulier.
  
@@ -108,11 +108,11 @@ Vul de velden in het aanmeldingsformulier hebt ingevuld.
 
    * **Resourcegroep**: Maak een resourcegroep voor het hosten van de SendGrid-service of gebruik een bestaande resourcegroep. Zie [resourcegroepen gebruiken voor het beheren van uw Azure-resources](../azure-resource-manager/resource-group-portal.md).
 
-   * **De naam van de IOT-Hub**: de naam van uw IoT-hub. Kies een unieke naam, die afwijkt van andere services die u hebt.
+   * **De naam van IOT Hub**: De naam voor uw IoT-hub. Kies een unieke naam, die afwijkt van andere services die u hebt.
 
-   * **IOT Hub Sku**: F1 (beperkt tot één per abonnement) is gratis. U kunt meer informatie over de prijzen zien op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-hub/).
+   * **IOT Hub-Sku**: F1 (beperkt tot één per abonnement) is gratis. U kunt meer informatie over de prijzen zien op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   * **Van e-mailbericht**: dit veld moet hetzelfde e-mailadres dat u hebt gebruikt bij het instellen van de SendGrid-service.
+   * **Van e-mailbericht**: Dit veld moet hetzelfde e-mailadres dat u hebt gebruikt bij het instellen van de SendGrid-service.
 
 Controleer de **vastmaken aan dashboard** om deze toepassing makkelijker te vinden in de toekomst optie en klik vervolgens op **aankoop** wanneer u bent klaar om door te gaan met de volgende stap.
  
@@ -135,7 +135,7 @@ Vouw aan de linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden
 
 ![Mini-solution-voorbeelden](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-U kunt ook de voorbeeld-app openen vanuit het opdrachtenpalet. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
+U kunt ook de voorbeeld-app openen vanuit het opdrachtenpalet. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: Voorbeelden**.
 
 ### <a name="provision-azure-services"></a>Azure-services inrichten
 
@@ -162,7 +162,7 @@ Upload vervolgens de code voor het apparaat.
 
 #### <a name="macos"></a>macOS
 
-1. De DevKit in configuratiemodus geplaatst: houd knop A, en vervolgens push- en release de knop opnieuw instellen. Het scherm wordt weergegeven dat 'Configuration'.
+1. De DevKit in configuratiemodus geplaatst: Houd ingedrukt A, en vervolgens push- en release van de knop opnieuw instellen. Het scherm wordt weergegeven dat 'Configuration'.
 
 2. Klik op `Cmd+P` om uit te voeren `task device-upload`.
 
@@ -177,7 +177,7 @@ VS Code vervolgens begint te controleren en uploaden van de Arduino schetsen naa
 De DevKit opnieuw wordt opgestart en de code wordt gestart.
 
 > [!NOTE]
-> Van tijd tot tijd, ontvangt u mogelijk een ' fout: AZ3166: onbekend pakket "foutbericht. Deze fout treedt op wanneer de bord package index niet correct wordt vernieuwd. U kunt deze fout oplossen, raadpleegt u de [ontwikkeling-sectie van de IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Van tijd tot tijd, ontvangt u mogelijk een ' fout: AZ3166: Onbekend pakket"foutbericht. Deze fout treedt op wanneer de bord package index niet correct wordt vernieuwd. U kunt deze fout oplossen, raadpleegt u de [ontwikkeling-sectie van de IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Het project testen
 
@@ -185,16 +185,16 @@ Het programma wordt eerst geïnitialiseerd wanneer de DevKit met een stabiele ma
 
 Na de initialisatie van, `Door closed` op het scherm wordt weergegeven. Als er een wijziging in het veld magnetische is, de status gewijzigd in `Door opened`. Telkens wanneer de status van de deur verandert, ontvangt u een e-mailmelding. (Deze e-mailberichten kunnen tot vijf minuten om te worden ontvangen duren).
 
-![Magnetische dicht bij de sensor: vergrendeld](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "magnetische dicht bij de sensor: vergrendeld")
+![Magnetische dicht bij de sensor: Klep gesloten](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "magnetische dicht bij de sensor: De deur is gesloten")
 
-![Magneet verplaatst van de sensor: deur geopend](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magneet verplaatst van de sensor: deur geopend")
+![Magneet weg van de sensor is verplaatst: Klep geopend](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magneet weg van de sensor verplaatst: De deur van geopend")
 
 ## <a name="problems-and-feedback"></a>Problemen en feedback
 
 Als u problemen ondervindt, raadpleegt u de [IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of verbinding maken met behulp van de volgende kanalen:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen
 

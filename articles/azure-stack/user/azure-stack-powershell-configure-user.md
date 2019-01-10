@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: Balsu.G
-ms.openlocfilehash: 75b942ea99dace60b3c086b84e3b3e2157f8b821
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf0d0f5bb87d1a7750775d3e22c8c50dcd8cf24d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093723"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159431"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Verbinding maken met Azure Stack met PowerShell als een gebruiker
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 In dit artikel biedt u de stappen voor het verbinding maken met uw Azure Stack-exemplaar. U moet verbinding maken met Azure Stack-resources beheren met PowerShell. Bijvoorbeeld, kunt u PowerShell gebruiken om u te abonneren op aanbiedingen, virtuele machines maken en implementeren van Azure Resource Manager-sjablonen. Als u wilt uitvoeren van PowerShell-cmdlets.
 
@@ -50,6 +50,7 @@ Zorg ervoor dat u de volgende scriptvariabelen vervangen door waarden van uw Azu
 ## <a name="connect-with-azure-ad"></a>Verbinding maken met Azure AD
 
 ```PowerShell  
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"

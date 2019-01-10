@@ -8,12 +8,12 @@ ms.subservice: blob
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 61d3bcf8fd046ec1b68637bfdcc9827bb5b5d084
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263823"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158445"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Oplossingen voor de overdracht van periodieke
  
@@ -48,20 +48,20 @@ De volgende tabel geeft een overzicht van de verschillen in de belangrijkste mog
 | Eerste eenmalige configuratie     | Minimaal                                | Gemiddeld, variabele-ontwikkeling    |
 | Gegevensindeling                 | Azure-Blobs, Azure Files, Azure-tabellen | Azure-Blobs, Azure Files, Azure-tabellen   |
 | Prestaties                 | Al geoptimaliseerd                      | Tijdens het ontwikkelen van optimaliseren                  |
-| Prijzen                     | Gratis, kosten voor uitgaand verkeer toepassen      | Gratis, kosten voor uitgaand verkeer toepassen        |
+| Prijs                     | Gratis, kosten voor uitgaand verkeer toepassen      | Gratis, kosten voor uitgaand verkeer toepassen        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>Continue gegevensopname via netwerk
 
 | Functie                                       | Data Box-Gateway (preview) | Gegevens in Edge (preview)  | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
-| Vormfactor                                   | Virtueel apparaat             | Fysiek apparaat          | Service in Azure portal, agent on-premises                                                            |
-| Hardware                                      | De hypervisor            | Geleverd door Microsoft    | N.v.t.                                                            |
+| Vormfactor                                   | Virtueel apparaat             | Fysiek apparaat          | -Service in Azure portal, agent on-premises                                                            |
+| Hardware                                      | De hypervisor            | Geleverd door Microsoft    | N.V.T.                                                            |
 | Eerste configuratie inspanning                          | Laag (< 30 minuten.)            | Gemiddeld (~ Combineer uur) | Groot (~ dagen)                                                 |
 | Gegevensindeling                                   | Azure-Blobs, Azure Files   | Azure-Blobs, Azure Files | [Biedt ondersteuning voor 70 gegevensconnectors voor data-archieven en indelingen](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Gegevens vooraf verwerken                           | Nee                         | Ja, via Edge-Computing    | Ja                                                           |
 | Lokale cache<br>(voor het opslaan van on-premises gegevens)    | Ja                        | Ja                      | Nee                                                            |
 | Overdracht uit andere clouds                    | Nee                         | Nee                       | Ja                                                           |
-| Prijzen                                       | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prijzen](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
+| Prijs                                       | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prijzen](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Volgende stappen
 

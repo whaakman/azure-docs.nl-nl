@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 023793cc699849eec4e1c6d8cbe08259d984ac8d
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052867"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154994"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Impactanalyse met Application Insights
 
@@ -68,7 +68,7 @@ In dit geval passen de resultaten niet meer in het model van een doorlopende x-a
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Hoe wordt het hulpprogramma gevolgen deze conversieverhoudingen berekend?
 
-Achter de schermen, het hulpprogramma Impact is afhankelijk van de [Pearson correlatiecoëfficiënt](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Resultaten worden berekend tussen 1 en 1-1 die nul correlatie en 1 die vertegenwoordigt een positieve correlatie vertegenwoordigt.
+Achter de schermen, het hulpprogramma Impact is afhankelijk van de [Pearson correlatiecoëfficiënt](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Resultaten worden berekend tussen 1 en 1-1 die een negatieve lineaire correlatie en 1 die vertegenwoordigt een positieve lineaire correlatie vertegenwoordigt.
 
 De uitsplitsing van de basis van de werking van impactanalyse is als volgt:
 
