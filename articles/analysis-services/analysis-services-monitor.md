@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d10e9d3d2b6fe339b04d3c0754290313312bc2b7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f686ff40805050b6da05a1971aeabb367da96d7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427277"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190814"
 ---
 # <a name="monitor-server-metrics"></a>Metrische servergegevens bewaken
 
@@ -33,10 +33,12 @@ Als u meer gedetailleerde diagnostische gegevens, prestaties, bijhouden en trend
     ![Monitor-grafiek](./media/analysis-services-monitor/aas-monitor-chart.png)
 
 <a id="#server-metrics"></a>
+
 ## <a name="server-metrics"></a>Metrische servergegevens
+
 Deze tabel gebruiken om te bepalen welke metrische gegevens voor uw bewaking scenario het meest geschikt zijn. Metrische gegevens van dezelfde eenheid kan worden weergegeven op de dezelfde grafiek.
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Lengte van taakwachtrij Pool opdracht|Count|Gemiddeld|Het aantal taken in de wachtrij van de opdrachtthreadpool.|
 |CurrentConnections|Verbinding: Huidige verbindingen|Count|Gemiddeld|Huidig aantal clientverbindingen dat tot stand gebracht.|
@@ -48,37 +50,37 @@ Deze tabel gebruiken om te bepalen welke metrische gegevens voor uw bewaking sce
 |CleanerCurrentPrice|Geheugen: Schoner, huidige prijs|Count|Gemiddeld|Huidige prijs van geheugen, wat $/ byte/tijd, genormaliseerd voor 1000.|
 |CleanerMemoryNonshrinkable|Geheugen: Schoner geheugen niet verkleinbaar|Bytes|Gemiddeld|Hoeveelheid geheugen in bytes, niet kan worden leeggemaakt Opruimprogramma op de achtergrond.|
 |CleanerMemoryShrinkable|Geheugen: Schoner geheugen verkleinbaar|Bytes|Gemiddeld|Hoeveelheid geheugen in bytes, leeggemaakt Opruimprogramma op de achtergrond.|
-|MemoryLimitHard|: Geheugen vaste geheugenlimiet|Bytes|Gemiddeld|Vaste geheugenlimiet, van configuratiebestand.|
+|MemoryLimitHard|Geheugen: Vaste geheugenlimiet|Bytes|Gemiddeld|Vaste geheugenlimiet, van configuratiebestand.|
 |Toegepaste memorylimithigh-waarde|Geheugen: Hoge geheugenlimiet|Bytes|Gemiddeld|Hoge geheugenlimiet, van configuratiebestand.|
 |MemoryLimitLow|Geheugen: Lage geheugenlimiet|Bytes|Gemiddeld|Lage geheugenlimiet, van configuratiebestand.|
 |MemoryLimitVertiPaq|Geheugen: VertiPaq-geheugenlimiet|Bytes|Gemiddeld|In-memory limiet, van configuratiebestand.|
 |MemoryUsage|Geheugen: Geheugengebruik|Bytes|Gemiddeld|Het geheugengebruik van het serverproces zoals gebruikt bij het berekenen van de prijs van schoner geheugen. Gelijk aan de teller Process\PrivateBytes plus de grootte van het geheugen toegewezen gegevens, wordt een geheugen, dat is toegewezen of door de engine voor in-memory analyse (VertiPaq) boven de geheugenlimiet-engine genegeerd.|
-|Quota|Geheugen: quotum|Bytes|Gemiddeld|Het huidige geheugenquotum, in bytes. Geheugenquotum wordt ook wel bekend als een geheugenreservering grant of geheugen.|
+|Quota|Geheugen: Quota|Bytes|Gemiddeld|Het huidige geheugenquotum, in bytes. Geheugenquotum wordt ook wel bekend als een geheugenreservering grant of geheugen.|
 |QuotaBlocked|Geheugen: Geblokkeerd quotum|Count|Gemiddeld|Huidig aantal quotumaanvragen dat is geblokkeerd totdat andere geheugenquotums worden vrijgemaakt.|
 |VertiPaqNonpaged|Geheugen: VertiPaq niet verwisselbaar|Bytes|Gemiddeld|Bytes van het geheugen in de werkset voor gebruik door de in-memory engine vergrendeld.|
 |VertiPaqPaged|Geheugen: VertiPaq verwisselbaar|Bytes|Gemiddeld|Bytes wisselbaar geheugen in gebruik voor in-memory-gegevens.|
 |ProcessingPoolJobQueueLength|Lengte van taakwachtrij van toepassingen verwerken|Count|Gemiddeld|Aantal niet-I/O-taken in de wachtrij van de verwerkende ThreadPool.|
-|RowsConvertedPerSec|Verwerken: Geconverteerde rijen per seconde|CountPerSecond|Gemiddeld|Het aantal rijen dat tijdens verwerking is geconverteerd.|
+|RowsConvertedPerSec|Verwerken: Rijen per seconde worden geconverteerd|CountPerSecond|Gemiddeld|Het aantal rijen dat tijdens verwerking is geconverteerd.|
 |RowsReadPerSec|Verwerken: Gelezen rijen per seconde|CountPerSecond|Gemiddeld|Het aantal rijen lezen van alle relationele databases.|
 |RowsWrittenPerSec|Verwerken: Geschreven rijen per seconde|CountPerSecond|Gemiddeld|Het aantal rijen dat tijdens de verwerking is geschreven.|
 |qpu_metric|QPU|Count|Gemiddeld|QPU. Bereik 0-100 voor S1, 0-200 voor S2 en 0-400 voor S4|
 |QueryPoolBusyThreads|Query Pool-Jobs onderzoeken|Count|Gemiddeld|Het aantal actieve threads in de querythreadpool.|
 |SuccessfullConnectionsPerSec|Geslaagde verbindingen Per seconde|CountPerSecond|Gemiddeld|Snelheid van aanvullen met de verbinding is geslaagd.|
 |CommandPoolBusyThreads|Threads: Opdracht pool-Jobs onderzoeken|Count|Gemiddeld|Het aantal actieve threads in de opdrachtthreadpool.|
-|CommandPoolIdleThreads|Threads: Niet-actieve threads van groep van de opdracht|Count|Gemiddeld|Het aantal niet-actieve threads in de opdrachtthreadpool.|
+|CommandPoolIdleThreads|Threads: Opdracht groep niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads in de opdrachtthreadpool.|
 |LongParsingBusyThreads|Threads: Threads voor lang parseren bezet|Count|Gemiddeld|Het aantal actieve threads in de ThreadPool voor lang parseren.|
-|LongParsingIdleThreads|Threads: Parseren van niet-actieve threads voor lang|Count|Gemiddeld|Het aantal niet-actieve threads in de ThreadPool voor lang parseren.|
+|LongParsingIdleThreads|Threads: Niet-actieve threads lang parseren|Count|Gemiddeld|Het aantal niet-actieve threads in de ThreadPool voor lang parseren.|
 |LongParsingJobQueueLength|Threads: Lengte van taakwachtrij lang parseren|Count|Gemiddeld|Het aantal taken in de wachtrij van de ThreadPool voor lang parseren.|
-|ProcessingPoolIOJobQueueLength|Threads: Lengte van taakwachtrij i/o van toepassingen verwerken|Count|Gemiddeld|Het aantal i/o-taken in de wachtrij van de verwerkende ThreadPool.|
-|ProcessingPoolBusyIOJobThreads|Threads: Threads van verwerkende pool bezet i/o-taak|Count|Gemiddeld|Het aantal threads waarmee i/o-taken worden uitgevoerd in de verwerkende ThreadPool.|
-|ProcessingPoolBusyNonIOThreads|Threads: Actieve niet-I/O-threads van toepassingen verwerken|Count|Gemiddeld|Het aantal threads waarmee niet-I/O-taken worden uitgevoerd in de verwerkende ThreadPool.|
+|ProcessingPoolIOJobQueueLength|Threads: Van verwerkende pool lengte van taakwachtrij i/o|Count|Gemiddeld|Het aantal i/o-taken in de wachtrij van de verwerkende ThreadPool.|
+|ProcessingPoolBusyIOJobThreads|Threads: Groep bezet i/o-taakthreads van verwerkende|Count|Gemiddeld|Het aantal threads waarmee i/o-taken worden uitgevoerd in de verwerkende ThreadPool.|
+|ProcessingPoolBusyNonIOThreads|Threads: Threads van verwerkende pool bezet niet-I/O|Count|Gemiddeld|Het aantal threads waarmee niet-I/O-taken worden uitgevoerd in de verwerkende ThreadPool.|
 |ProcessingPoolIdleIOJobThreads|Threads: Groep niet-actieve i/o-taakthreads van verwerkende|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de verwerkende ThreadPool.|
 |ProcessingPoolIdleNonIOThreads|Threads: Threads van verwerkende pool niet-actieve niet-I/O|Count|Gemiddeld|Het aantal niet-actieve threads in de verwerkende ThreadPool toegewezen aan niet-I/O-taken.|
-|QueryPoolIdleThreads|Threads: Niet-actieve threads van groep van toepassingen opvragen|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de verwerkende ThreadPool.|
-|QueryPoolJobQueueLength|Threads: Lengte van taakwachtrij pool Query|Count|Gemiddeld|Het aantal taken in de wachtrij van de querythreadpool.|
-|ShortParsingBusyThreads|Threads: Threads voor kort parseren bezet|Count|Gemiddeld|Het aantal actieve threads in de ThreadPool voor kort parseren.|
-|ShortParsingIdleThreads|Threads: Parseren van niet-actieve threads voor kort|Count|Gemiddeld|Het aantal niet-actieve threads in de ThreadPool voor kort parseren.|
-|ShortParsingJobQueueLength|Threads: Parseren van de lengte van taakwachtrij voor kort|Count|Gemiddeld|Het aantal taken in de wachtrij van de ThreadPool voor kort parseren.|
+|QueryPoolIdleThreads|Threads: Niet-actieve threads voor query-groep|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de verwerkende ThreadPool.|
+|QueryPoolJobQueueLength|Threads: Lengte van taakwachtrij pool query|Count|Gemiddeld|Het aantal taken in de wachtrij van de querythreadpool.|
+|ShortParsingBusyThreads|Threads: Kort parseren actieve threads|Count|Gemiddeld|Het aantal actieve threads in de ThreadPool voor kort parseren.|
+|ShortParsingIdleThreads|Threads: Niet-actieve threads van kort parseren|Count|Gemiddeld|Het aantal niet-actieve threads in de ThreadPool voor kort parseren.|
+|ShortParsingJobQueueLength|Threads: Kort parseren lengte van taakwachtrij|Count|Gemiddeld|Het aantal taken in de wachtrij van de ThreadPool voor kort parseren.|
 |TotalConnectionFailures|Totaal aantal verbindingsfouten|Count|Gemiddeld|Totaal aantal mislukte verbindingspogingen.|
 |TotalConnectionRequests|Totaal aantal verbindingsaanvragen|Count|Gemiddeld|Totaal aantal verbindingsaanvragen. |
 

@@ -1,23 +1,23 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 3: Als gegevenstabel markeren | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 3: Mark as Date Table | Microsoft Docs'
 description: In deze les wordt beschreven hoe u een gegevenstabel markeert in de zelfstudie over Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c383fe30b8a6be3a5915f3cc1c0f5e5712ab328
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426019"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188994"
 ---
 # <a name="mark-as-date-table"></a>Als datumtabel markeren
 
-In les 2, Gegevens ophalen, hebt u een dimensietabel met de naam DimDate geïmporteerd. Hoewel deze tabel in uw model DimDate heet, kan er ook naar worden verwezen als een *gegevenstabel*, simpelweg omdat de tabel datum- en tijdgegevens bevat.  
+In les 2: Ophalen van gegevens, hebt u een dimensietabel met de naam DimDate geïmporteerd. Hoewel deze tabel in uw model DimDate heet, kan er ook naar worden verwezen als een *gegevenstabel*, simpelweg omdat de tabel datum- en tijdgegevens bevat.  
   
 Wanneer u tijd-intelligente DAX-functies gebruikt, zoals later als u metingen gaat maken, moet u eigenschappen opgeven die een *gegevenstabel* en een unieke id *Gegevenskolom* in die tabel bevatten.
   
@@ -25,7 +25,7 @@ In deze les markeert u de tabel DimDate als de *gegevenstabel* en de kolom Date 
 
 Voordat we de gegevenstabel en de gegevenskolom gaan markeren, is dit een goed moment om een wijziging door te voeren die ervoor zorgt dat het model wat gemakkelijker te begrijpen is. U ziet in de tabel DimDate een kolom met de naam **FullDateAlternateKey**. Deze kolom bevat één rij voor elke dag in elk kalenderjaar dat is opgenomen in de tabel. U gebruikt deze kolom veel in formules voor metingen en in rapporten. Maar eigenlijk is FullDateAlternateKey niet echt een goede id voor deze kolom. We wijzigen de naam in **Date**, waardoor u de kolom gemakkelijker kan vinden en gebruiken in formules. Indien mogelijk is het altijd een goed idee om de namen van objecten zoals tabellen en kolommen te wijzigen, zodat ze gemakkelijker zijn te herkennen in SSDT en in clientrapportagetoepassingen zoals Power BI en Excel. 
   
-Geschatte tijd voor het voltooien van deze les: **3 minuten**  
+Geschatte tijd voor het voltooien van deze les: **De drie minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 2: Gegevens ophalen](../tutorials/aas-lesson-2-get-data.md). 

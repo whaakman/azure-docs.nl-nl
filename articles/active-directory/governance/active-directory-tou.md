@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 12/20/2018
 ms.author: rolyon
-ms.openlocfilehash: 0a5d58d0403471d591ce2aa2ed9de9092127ea15
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744102"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188420"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag met de gebruiksvoorwaarden.
@@ -263,7 +263,7 @@ Hier volgt een lijst van de ondersteunde platformen en software.
 > |  | iOS | Android | Windows 10 | Overige |
 > | --- | --- | --- | --- | --- |
 > | **Systeemeigen app** | Ja | Ja | Ja |  |
-> | **Edge** | Ja | Ja | Ja |  |
+> | **Microsoft Edge** | Ja | Ja | Ja |  |
 > | **Internet Explorer** | Ja | Ja | Ja |  |
 > | **Chrome (met de extensie)** | Ja | Ja | Ja |  |
 
@@ -341,43 +341,43 @@ U kunt een beleid voor voorwaardelijke toegang voor de app Microsoft Intune-insc
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-**VRAAG: Hoe kan ik zien wanneer / of een gebruiker een gebruiksrechtovereenkomst heeft geaccepteerd?**<br />
+**V: Hoe kan ik zien wanneer / of een gebruiker een gebruiksrechtovereenkomst heeft geaccepteerd?**<br />
 A: Klik op de voorwaarden van de blade gebruik, het aantal onder **geaccepteerde**. U kunt ook weergeven of zoeken naar de accept-activiteit in de Azure AD auditlogboeken. Zie voor meer informatie, [rapport weergeven van wie heeft geaccepteerd en afgewezen](#view-who-has-accepted-and-declined) en [weergave Azure AD-auditlogboeken](#view-azure-ad-audit-logs).
 
-**VRAAG: Hoe lang wordt informatie opgeslagen?**<br />
+**V: Hoe lang wordt informatie opgeslagen?**<br />
 A: De gebruiker wordt geteld in de voorwaarden van het rapport gebruiken en die voor de levensduur van de gebruiksrechtovereenkomst geaccepteerd/afgewezen worden opgeslagen. De Azure AD-audit logboeken worden opgeslagen voor 30 dagen.
 
-**VRAAG: Waarom zie ik een ander aantal toestemmingen in de voorwaarden van gebruik rapport vergeleken met de Azure AD auditlogboeken?**<br />
+**V: Waarom zie ik een ander aantal toestemmingen in de voorwaarden van gebruik rapport vergeleken met de Azure AD auditlogboeken?**<br />
 A: De voorwaarden van gebruik rapport wordt opgeslagen voor de levensduur van deze gebruiksrechtovereenkomst, terwijl de Azure AD-audit logboeken worden opgeslagen voor 30 dagen. Ook de voorwaarden van gebruik rapport alleen de huidige toestemming-status van gebruikers weergegeven. Bijvoorbeeld, als een gebruiker geweigerd en vervolgens accepteert de gebruiksrechtovereenkomst gebruik rapport wordt alleen weergegeven van die gebruiker accepteren. Als u nodig hebt om te zien van de geschiedenis, kunt u de Azure AD auditlogboeken.
 
-**VRAAG: Als het bewerken van de details voor een gebruiksrechtovereenkomst, moeten gebruikers opnieuw accepteren?**<br />
+**V: Als het bewerken van de details voor een gebruiksrechtovereenkomst, moeten gebruikers opnieuw accepteren?**<br />
 A: Nee, als een beheerder de details van de bewerkingen voor een gebruiksrechtovereenkomst (naam, weergavenaam, vereisen dat gebruikers om uit te breiden of een taal toevoegen), hoeven er geen gebruikers aan de nieuwe voorwaarden accepteren.
 
-**VRAAG: Kan ik een document met bestaande gebruiksrechtovereenkomst bijwerken?**<br />
+**V: Kan ik een document met bestaande gebruiksrechtovereenkomst bijwerken?**<br />
 A: U kunt een document met bestaande gebruiksrechtovereenkomst op dit moment niet bijwerken. Als u wilt wijzigen van een document met gebruiksrechtovereenkomst, wordt u moet maken van een nieuwe gebruiksrechtovereenkomst gebruik exemplaar.
 
-**VRAAG: Als hyperlinks in PDF-document met de gebruiksrechtovereenkomst, eindgebruikers zich erop klikt?**<br />
+**V: Als hyperlinks in PDF-document met de gebruiksrechtovereenkomst, eindgebruikers zich erop klikt?**<br />
 A: Het PDF-bestand wordt standaard weergegeven als een JPEG, zodat hyperlinks niet geklikt. Gebruikers hebben de optie te selecteren **hebt u problemen met weergeven? Klik hier**, die wordt weergegeven het PDF-bestand systeemeigen waar hyperlinks worden ondersteund.
 
-**VRAAG: Kunnen een gebruiksrechtovereenkomst ondersteund in meerdere talen?**<br />
+**V: Kunnen een gebruiksrechtovereenkomst ondersteund in meerdere talen?**<br />
 A: Ja. Er zijn momenteel 108 verschillende talen een beheerder voor één configureren kan gebruiksrechtovereenkomst. Een beheerder kan meerdere PDF-documenten te uploaden en code die documenten met een bijbehorende taal (maximaal 108). Wanneer eindgebruikers zich aanmelden, we kijken naar de Taalvoorkeur van hun browser en het overeenkomende document wordt weergegeven. Als er geen overeenkomst, geven we weer het standaarddocument, is het eerste document dat is geüpload.
 
-**VRAAG: Wanneer is de gebruiksrechtovereenkomst geactiveerd?**<br />
+**V: Wanneer is de gebruiksrechtovereenkomst geactiveerd?**<br />
 A: De gebruiksrechtovereenkomst wordt geactiveerd tijdens de aanmeldingsprocedure.
 
-**VRAAG: Welke toepassingen kan ik een gebruiksrechtovereenkomst te richten?**<br />
+**V: Welke toepassingen kan ik een gebruiksrechtovereenkomst te richten?**<br />
 A: U kunt een beleid voor voorwaardelijke toegang maken voor bedrijfstoepassingen die moderne authenticatie gebruiken. Zie [Bedrijfstoepassingen](./../manage-apps/view-applications-portal.md) voor meer informatie.
 
-**VRAAG: Kan ik meerdere gebruiksrechtovereenkomsten toevoegen aan een bepaalde gebruiker of de app?**<br />
+**V: Kan ik meerdere gebruiksrechtovereenkomsten toevoegen aan een bepaalde gebruiker of de app?**<br />
 A: Ja, met het maken van meerdere beleidsregels voor voorwaardelijke toegang die gericht is op deze groepen of toepassingen. Als een gebruiker binnen het bereik van meerdere gebruiksrechtovereenkomsten valt, accepteren ze één gebruiksrechtovereenkomst tegelijk.
 
-**VRAAG: Wat gebeurt er als een gebruiker de gebruiksrechtovereenkomst afwijst?**<br />
+**V: Wat gebeurt er als een gebruiker de gebruiksrechtovereenkomst afwijst?**<br />
 A: De gebruiker is krijgt dan geen toegang tot de toepassing geblokkeerd. De gebruiker moet zich opnieuw aanmelden en de voorwaarden accepteren om toegang te krijgen.
 
-**VRAAG: Is het mogelijk om de gebruiksvoorwaarden die eerder zijn geaccepteerd unaccept?**<br />
+**V: Is het mogelijk om de gebruiksvoorwaarden die eerder zijn geaccepteerd unaccept?**<br />
 A: U kunt [revisie eerder gebruiksrechtovereenkomst geaccepteerd](#how-users-can-review-their-terms-of-use), maar er is momenteel een manier te unaccept.
 
-**VRAAG: Wat gebeurt er als ik ook Intune-voorwaarden en bepalingen?**<br />
+**V: Wat gebeurt er als ik ook Intune-voorwaarden en bepalingen?**<br />
 A: Als u beide Azure AD gebruiksrechtovereenkomst hebt geconfigureerd en [Intune bepalingen en voorwaarden](/intune/terms-and-conditions-create), de gebruiker moet beide accepteren. Zie voor meer informatie de [oplossing voor uw organisatie blog-bericht het recht kiezen voorwaarden](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Volgende stappen

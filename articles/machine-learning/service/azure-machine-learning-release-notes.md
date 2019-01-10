@@ -11,16 +11,23 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: a43481bf6d9c95efdb9c4bc38ed400c5fe782c17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 157591897adb7495382b540dc1517c4c652a2632
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157510"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190716"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
+
+### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning-Dataprep SDK v1.0.6
+
++ **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
+
++ **Oplossingen voor problemen**
+  + Probleem opgelost met het lezen van openbare leesbare Azure Blob-containers in Spark
 
 ## <a name="2018-12-20"></a>2018-12-20: 
 

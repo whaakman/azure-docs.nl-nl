@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 42850cc5f8280b29811f9607557f38507262694a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034400"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191136"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Werken met JavaScript language integrated query-API met Azure Cosmos DB
 
@@ -64,7 +64,7 @@ De volgende tabel bevat verschillende SQL-query's en de bijbehorende JavaScript-
 
 Meer informatie concepten en procedures voor schrijven en opgeslagen procedures, triggers en gebruikersgedefinieerde functies gebruiken in Azure Cosmos DB:
 
-- [Over het schrijven van opgeslagen procedures en triggers die met Javascript-Query-API](how-to-write-javascript-query-api.md#)
+- [Over het schrijven van opgeslagen procedures en triggers die met Javascript-Query-API](how-to-write-javascript-query-api.md)
 - [Werken met Azure Cosmos DB opgeslagen procedures, triggers en gebruikersgedefinieerde functies](stored-procedures-triggers-udfs.md)
 - [Over het gebruik van opgeslagen procedures, triggers, de gebruiker gedefinieerde functies in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript-serverzijde API-naslaginformatie](https://azure.github.io/azure-cosmosdb-js-server)

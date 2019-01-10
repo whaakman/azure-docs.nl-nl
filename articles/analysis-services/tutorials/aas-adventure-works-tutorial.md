@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 92bab3e6dcea0b6b234d361a346698be15088fc0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426240"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191510"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works-zelfstudie
 
@@ -45,7 +45,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 -   Een [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) met de **AdventureWorksDW-voorbeelddatabase** of een SQL Server Data Warehouse met de [Adventure Works-voorbeelddatabase](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
-    **Belangrijk:** Als u de voorbeelddatabase installeert op een on-premises SQL Server Data Warehouse en u uw model implementeert naar een Azure Analysis Services-server, is een [on-premises gegevensgateway](../analysis-services-gateway.md) vereist.
+    **Belangrijk:** Als u de voorbeelddatabase op een on-premises SQL Server Data Warehouse installeert en uw model naar een Azure Analysis Services-server implementeert, een [On-premises gegevensgateway](../analysis-services-gateway.md) is vereist.
 
 -   De nieuwste versie van [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) voor Visual Studio.
 
@@ -93,7 +93,7 @@ Deze lessen zijn niet vereist om de zelfstudie te voltooien, maar kunnen bijdrag
 
   
 ## <a name="next-steps"></a>Volgende stappen  
-Ga naar [Les 1: Een nieuw project voor een tabellair model maken](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md) om te beginnen met de zelfstudie.  
+Als u wilt beginnen, Zie [les 1: Maak een nieuw Project voor Tabellair Model](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   
   

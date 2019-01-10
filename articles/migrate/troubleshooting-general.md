@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9bf445b54ab6ac2d3edf53fcc4bbcc39ee475a81
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119098"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189493"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -245,14 +245,14 @@ Voor het verzamelen van Event Tracing voor Windows, het volgende doen:
 2. Druk op F12 te starten van de hulpprogramma's voor ontwikkelaars. Indien nodig, schakelt u de instelling **ingangen op navigatie**.
 3. Klik op de **netwerk** tabblad, en start u het netwerkverkeer vast te leggen:
  - Selecteer in Chrome, **behouden log**. De opname start automatisch. Een rode cirkel geeft aan dat verkeer vastleggen wordt. Als deze niet wordt weergegeven, klikt u op de zwarte cirkel te starten
- - In Edge/IE, opname automatisch moet worden gestart. Als dat niet het geval is, klikt u op de groene knop.
+ - In Microsoft Edge/IE, opname automatisch moet worden gestart. Als dat niet het geval is, klikt u op de groene knop.
 4. Probeer de fout te reproduceren.
 5. Nadat u hebt de fout tijdens het opnemen, opname stoppen en sla een kopie van de geregistreerde activiteit:
  - In Chrome met de rechtermuisknop en klikt u op **opslaan als HAR met inhoud**. Dit zips en exporteert de logboeken als een .har-bestand.
- - In Edge/IE, klikt u op de **uitvoer vastgelegd verkeer** pictogram. Dit zips en exporteert het logboek.
+ - In Microsoft Edge/IE, klikt u op de **uitvoer vastgelegd verkeer** pictogram. Dit zips en exporteert het logboek.
 6. Navigeer naar de **Console** tabblad om te controleren op fouten of waarschuwingen worden gegenereerd. Om op te slaan in het consolelogboek:
  - Chrome, met de rechtermuisknop op een willekeurige plaats in het consolelogboek. Selecteer **opslaan als**, om te exporteren en postcode van het logboek.
- - In Edge/IE, met de rechtermuisknop op de fouten en selecteer **Kopieer alle**.
+ - In Microsoft Edge/IE, met de rechtermuisknop op de fouten en selecteer **Kopieer alle**.
 7. Sluit de hulpprogramma's voor ontwikkelaars.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Collector-foutcodes en aanbevolen acties

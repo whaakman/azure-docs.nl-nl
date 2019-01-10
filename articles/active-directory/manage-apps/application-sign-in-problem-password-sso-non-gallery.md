@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ef981686143299b41960e81cf827459493c868f6
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ca41f209cab6d2f8d3b4930d3a464fb6a9421132
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356838"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191850"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemen met aanmelden bij een Azure AD-galerie-toepassing die is geconfigureerd voor eenmalige aanmelding wachtwoord
 
@@ -41,7 +41,7 @@ Voor eenmalige aanmelding op basis van wachtwoorden kunnen van de eindgebruiker 
 -   Firefox 26,0 of later--op Windows XP SP2 of hoger, en Mac OS X 10,6 of hoger
 
 >[!NOTE]
->De extensie eenmalige aanmelding op basis van wachtwoorden wordt beschikbaar voor Microsoft Edge in Windows 10 als browser-extensies worden ondersteund voor Microsoft Edge.
+>De eenmalige aanmelding op basis van wachtwoorden extensie beschikbaar voor Microsoft Edge in Windows 10-browser-extensies voor Microsoft Edge worden ondersteund.
 >
 >
 
@@ -171,7 +171,7 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de 
 
 11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo om toe te voegen van de gebruiker naar de **geselecteerde** lijst.
 
-12. **Optioneel:** als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
+12. **Optioneel:** Als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** het zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
 
 13. Wanneer u klaar bent met gebruikers te selecteren, klikt u op de **Selecteer** knop aan de lijst met gebruikers en groepen die moeten worden toegewezen aan de toepassing wilt toevoegen.
 

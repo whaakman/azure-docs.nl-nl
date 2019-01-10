@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd28e071fca37b120349ec3b471662909b323a0c
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082778"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189147"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-werkbelasting op Azure controlelijst voor planning en implementatie 
 
@@ -84,7 +84,7 @@ De test kunt uitvoeren voordat u parallel aan het project plannen en voorbereide
 
 1.  Optimaliseer gegevens worden overgebracht naar Azure. Sterk afhankelijk van de klant cases overboeking via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) van on-premises is snelste als het Circuit Express voldoende bandbreedte heeft. Met andere klanten plannen via internet om te worden sneller
 2.  In het geval van een SAP heterogene platform-migratie, die bestaat uit een exporteren en importeren van de databasegegevens, testen, en optimaliseren van exporteren en importeren van de fasen. Voor grote migraties met betrekking tot SQL Server als de doelplatform, kunnen u aanbevelingen vinden [hier](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). U kunt de aanpak van migratie Monitor/SWPM uitvoeren als u niet een upgrade van een gecombineerde versie of [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) verwerken wanneer u de migratie bij een upgrade van de release SAP combineren en te voldoen aan bepaalde bron- en DBMS-platform combinaties zoals beschreven, bijvoorbeeld in [Database migratie optie (DMO) van de som 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872). 
-    1.  Exporteren exporteren, exporteren-bestand uploaden naar Azure en importeren van prestaties.  Maximaliseren overlapping tussen importeren en exporteren
+    1.  Exporteren naar bron, exporteren-bestand uploaden naar Azure en importeren van prestaties.  Maximaliseren overlapping tussen importeren en exporteren
     2.  Volume van de database tussen de doel- en bestemmings-platform om aan in de grootte van de infrastructuur te evalueren    
     3.  Valideren en timing optimaliseren 
 3.  Technische validatie 

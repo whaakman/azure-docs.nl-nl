@@ -1,19 +1,19 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 12: Analyseren in Excel | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 12: Analyseren in Excel | Microsoft Docs'
 description: In deze les wordt beschreven hoe u de analysefunctie van Excel gebruikt in de zelfstudie over Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e5ac04c7bd8174f823cacc67401af8a98b3d8170
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429759"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186478"
 ---
 # <a name="analyze-in-excel"></a>Analyseren in Excel
 
@@ -21,7 +21,7 @@ In deze les gaat u de functie Analyse in Excel gebruiken om Microsoft Excel te o
   
 U kunt deze les alleen voltooien als Excel is geïnstalleerd op dezelfde computer als Visual Studio.
   
-Geschatte tijd voor het voltooien van deze les: **5 minuten**  
+Geschatte tijd voor het voltooien van deze les: **Vijf minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 11: Rollen maken](../tutorials/aas-lesson-11-create-roles.md).  
@@ -69,7 +69,7 @@ Rollen zijn een belangrijk onderdeel van elke tabellair model. Gebruikers kunnen
 3.  Sluit Excel af zonder de werkmap op te slaan.  
   
 ## <a name="whats-next"></a>Volgende stappen
-Ga naar de volgende les: [Les 13: Implementeren](../tutorials/aas-lesson-13-deploy.md).
+Ga naar de volgende les: [Les 13: Implementeer](../tutorials/aas-lesson-13-deploy.md).
 
   
   

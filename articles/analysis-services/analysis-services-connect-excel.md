@@ -5,30 +5,29 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994442"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189011"
 ---
 # <a name="connect-with-excel"></a>Verbinden met Excel
 
 Nadat u hebt gemaakt van een server en een tabellair model geïmplementeerd, kunnen clients verbinding maken met en gegevens verkennen. 
 
 ## <a name="before-you-begin"></a>Voordat u begint
+
 Het account dat u zich aanmeldt moet behoren tot een databaserol model met ten minste de machtiging lezen. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Verbinding maken in Excel
 
-Verbinding maken met een server in Excel wordt ondersteund met behulp van gegevens ophalen in Excel 2016. Verbinding maken met behulp van de Wizard importeren in Power Pivot wordt niet ondersteund. 
+Verbinding maken met een server in Excel wordt ondersteund met behulp van gegevens ophalen in Excel 2016 en hoger. Verbinding maken met behulp van de Wizard importeren in Power Pivot wordt niet ondersteund. 
 
-**Verbinding maken in Excel 2016**
-
-1. In Excel 2016, op de **gegevens** lint, klikt u op **externe gegevens ophalen** > **van andere bronnen** > **van Analysis Services** .
+1. In Excel op het **gegevens** lint, klikt u op **externe gegevens ophalen** > **van andere bronnen** > **van Analysis Services**.
 
 2. In de Wizard Gegevensverbinding in **servernaam**, voer de naam van de server met inbegrip van protocol en de URI. Bijvoorbeeld, asazure://westcentralus.asazure.windows.net/advworks. Klik op **aanmeldingsreferenties**, selecteer **gebruik de volgende gebruikersnaam en wachtwoord**, en typ vervolgens de naam van de organisatie-gebruiker, bijvoorbeeld nancy@adventureworks.com, en het wachtwoord.
 
@@ -43,6 +42,7 @@ Verbinding maken met een server in Excel wordt ondersteund met behulp van gegeve
 
 
 ## <a name="see-also"></a>Zie ook
+
 [Clientbibliotheken](analysis-services-data-providers.md)   
 [Uw server beheren](analysis-services-manage.md)     
 

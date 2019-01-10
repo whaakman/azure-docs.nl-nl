@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 83b3a271006df38744b9de49ed6350bea3aeef4d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159380"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191697"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Oplossen van problemen in Azure Data Box-schijf
 
@@ -86,7 +86,76 @@ Activiteitenlogboeken worden gedurende 90 dagen bewaard. U kunt een query uitvoe
 |[Info] De naam van het doelbestand of de doelmap overschrijdt de lengtelimiet van NTFS. |Dit bericht wordt gegenereerd als de naam van het doelbestand is gewijzigd vanwege een lang pad.<br> Wijzig de verwijderingsoptie in bestand `config.json` om dit gedrag te regelen.|
 |[Fout] Uitzondering geretourneerd: Ongeldige JSON escape-volgorde. |Dit bericht wordt gegenereerd als de config.json een ongeldige opmaak heeft. <br> Valideer uw `config.json` met behulp van [JSONlint](https://jsonlint.com/) voordat u het bestand opslaat.|
 
+## <a name="deployment-issues-for-linux"></a>Problemen bij de implementatie voor Linux
 
+In deze sectie worden enkele van de meest voorkomende problemen tijdens de implementatie van de Data Box-schijf met het gebruik van een Linux-client voor het kopiëren van gegevens.
+
+### <a name="issue-drive-getting-mounted-as-read-only"></a>Probleem: Schijf ophalen gekoppeld als alleen-lezen
+ 
+**Oorzaak** 
+
+Dit kan zijn vanwege een niet schoon bestandssysteem. 
+
+- Een station als gelezen stationseigendom werkt niet met de Data Box-schijven. In dit scenario wordt niet ondersteund met schijven die door dislocker ontsleuteld. 
+- Stationseigendom als lezen / schrijven werkt niet. U kunt het apparaat met de volgende opdracht met succes hebt gekoppeld: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   Hoewel de stationseigendom voltooid is, blijft de gegevens niet actief.
+
+**Resolutie**
+
+Als u de bovenstaande fout ziet, kunt u een van de volgende oplossingen proberen:
+
+- Installeer [ `ntfsfix` ](https://linux.die.net/man/8/ntfsfix) (beschikbaar in `ntfsprogs` pakket) en deze uitvoeren op de betreffende partitie.
+
+- Als u toegang tot een Windows-systeem hebt
+
+    - Het laden van het station in het Windows-systeem.
+    - Open een opdrachtprompt met beheerdersbevoegdheden. Voer `chkdsk` op het volume.
+    - Veilig verwijderen van het volume en probeer het opnieuw.
+ 
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>Probleem: Fout met de gegevens niet permanent worden gemaakt na het kopiëren
+ 
+**Oorzaak** 
+
+Als u ziet dat het station geen gegevens nadat deze is ontkoppeld (Hoewel de gegevens zijn gekopieerd naar het), dan is het mogelijk dat u een station als lezen / schrijven opnieuw gekoppeld nadat het station is gekoppeld als alleen-lezen.
+
+**Resolutie**
+ 
+Als dit het geval is, raadpleegt u de oplossing voor [ophalen gekoppeld als alleen-lezen-stations](#issue-drive-getting-mounted-as-read-only).
+
+Als dat niet het geval is, is [diagnostische logboeken downloaden die u](#download-diagnostic-logs) van uw systeem en [Neem contact op met Microsoft Support](data-box-disk-contact-microsoft-support.md).
+
+## <a name="deployment-issues-for-windows"></a>Problemen bij de implementatie voor Windows
+
+In deze sectie vindt u details van de meest voorkomende problemen tijdens de implementatie van de Data Box-schijf met het gebruik van een Linux-client voor het kopiëren van gegevens
+
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Probleem: Station BitLocker kan niet worden ontgrendeld.
+ 
+**Oorzaak** 
+
+U hebt het wachtwoord in het dialoogvenster BitLocker gebruikt en stations dialoogvenster voor het ontgrendelen van de schijf via de BitLocker probeert ontgrendelen. Dit werkt niet. 
+
+**Resolutie**
+
+Om toegang te krijgen tot de Data Box-schijven, moet u het hulpprogramma voor het ontgrendelen van gegevens in het schijf gebruikt en geeft u het wachtwoord van de Azure-portal.
+ 
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Probleem: Kan geen ontgrendelen of enkele volumes te controleren. Neem contact op met Microsoft Ondersteuning.
+ 
+**Oorzaak** 
+
+U ziet mogelijk de volgende fout in het foutenlogboek en zijn niet in staat om te ontgrendelen of enkele volumes te verifiëren.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+Hiermee wordt aangegeven dat u waarschijnlijk de juiste versie van Windows PowerShell op uw Windows-client ontbreken.
+
+**Resolutie**
+
+U kunt installeren [v Windows PowerShell 5.0](https://www.microsoft.com/download/details.aspx?id=54616) en probeer het opnieuw.
+ 
+Als u nog steeds niet kunt voor het ontgrendelen van de volumes, [Neem contact op met Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

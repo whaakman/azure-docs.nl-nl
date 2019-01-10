@@ -1,19 +1,19 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 5: Berekende kolommen maken | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 5: Berekende kolommen maken | Microsoft Docs'
 description: In deze les wordt beschreven hoe u berekende kolommen maakt in de zelfstudie over Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428127"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187447"
 ---
 # <a name="create-calculated-columns"></a>Berekende kolommen maken
 
@@ -42,7 +42,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
     Er wordt links van de kolom **Calendar Quarter** een nieuwe kolom ingevoegd met de naam **Calculated Column 1**.  
   
-4.  Typ op de formulebalk boven de tabel de volgende DAX-formule. De functie Automatisch aanvullen zorgt ervoor dat u makkelijk de volledig gekwalificeerde namen van kolommen en tabellen kunt invullen en toont bovendien de functies die beschikbaar zijn.  
+4.  Typ de volgende DAX-formule in de formulebalk boven de tabel: Automatisch aanvullen kunt u de volledig gekwalificeerde namen van kolommen en tabellen en geeft een lijst van de functies die beschikbaar zijn.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

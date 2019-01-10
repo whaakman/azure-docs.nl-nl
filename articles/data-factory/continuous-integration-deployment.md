@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 1a0bf0e6057f26fd8d38dadde5689e41b4f1e165
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017273"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191782"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
@@ -161,7 +161,7 @@ Er zijn twee manieren voor het afhandelen van de geheimen:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Machtigingen verlenen voor de Azure-pijplijnen-agent
-De Azure Key Vault-taak mislukken de eerste keer met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` bestand met de opdracht machtigingen geven tot de Azure-pijplijnen-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
+De Azure Key Vault-taak mislukken de fIntegration Runtimest tijd met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` bestand met de opdracht machtigingen geven tot de Azure-pijplijnen-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
 
 ### <a name="update-active-triggers"></a>Actieve triggers bijwerken
 Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het actieve triggers bijwerken, moet u handmatig ze stopt en start deze na de implementatie. U kunt een Azure Powershell-taak toevoegen voor dit doel, zoals wordt weergegeven in het volgende voorbeeld:
@@ -183,7 +183,7 @@ Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het a
 U kunt uitvoeren van gelijksoortige stappen en vergelijkbare code gebruiken (met de `Start-AzureRmDataFactoryV2Trigger` functie) opnieuw op te starten van de triggers na de implementatie.
 
 > [!IMPORTANT]
-> Continue integratie en implementatie-scenario's moet het type Integratieruntime in verschillende omgevingen hetzelfde zijn. Als u hebt bijvoorbeeld een *zelf-Hostend* Integration Runtime (IR) in de ontwikkelomgeving, dezelfde IR moet van het type *zelf-Hostend* in andere omgevingen zoals test- en productieomgevingen ook. Op dezelfde manier als u integratieruntimes in meerdere fasen deelt, hebt u het configureren van de IRs als *gekoppelde zelf-Hostend* in alle omgevingen, zoals ontwikkeling, testen en productie.
+> Continue integratie en implementatie-scenario's moet het type Integratieruntime in verschillende omgevingen hetzelfde zijn. Als u hebt bijvoorbeeld een *zelf-Hostend* Integration Runtime (IR) in de ontwikkelomgeving, dezelfde IR moet van het type *zelf-Hostend* in andere omgevingen zoals test- en productieomgevingen ook. Op dezelfde manier als u integratieruntimes in meerdere fasen deelt, u moet configureren de Integratieruntimes als *gekoppelde zelf-Hostend* in alle omgevingen, zoals ontwikkeling, testen en productie.
 
 ## <a name="sample-deployment-template"></a>Voorbeeldsjabloon voor implementatie
 
@@ -853,7 +853,7 @@ U kunt aangepaste parameters voor de Resource Manager-sjabloon definiëren. U ho
 
 Hier vindt u enkele richtlijnen te gebruiken bij het ontwerpen van het bestand met aangepaste parameters. Zie de voorbeelden van deze syntaxis, Zie de volgende sectie, [aangepaste parameters-voorbeeldbestand](#sample).
 
-1. Wanneer u matrix in het definitiebestand opgeeft, kunt u aangeven dat de overeenkomende eigenschap in de sjabloon een matrix is. Data Factory is doorlopen van de objecten in de matrix met behulp van de definitie die is opgegeven in het eerste object van de matrix. Het tweede object, een tekenreeks, wordt de naam van de eigenschap, die wordt gebruikt als de naam voor de parameter voor elke iteratie.
+1. Wanneer u matrix in het definitiebestand opgeeft, kunt u aangeven dat de overeenkomende eigenschap in de sjabloon een matrix is. Data Factory is doorlopen van de objecten in de matrix met behulp van de definitie die is opgegeven in het object fIntegration Runtimest van de matrix. Het tweede object, een tekenreeks, wordt de naam van de eigenschap, die wordt gebruikt als de naam voor de parameter voor elke iteratie.
 
     ```json
     ...
@@ -988,3 +988,23 @@ De gekoppelde Resource Manager-sjablonen hebben meestal een master sjabloon en e
 Vergeet niet om toe te voegen van de Data Factory-scripts in uw CI/CD-pijplijn voor en na de Implementatietaak.
 
 Als u geen Git geconfigureerd, de gekoppelde sjablonen zijn toegankelijk via de **exporteren ARM-sjabloon** gebaar.
+
+## <a name="best-practices-for-cicd"></a>Aanbevolen procedures voor CI/CD
+
+Als u met behulp van Git-integratie met uw data factory en u een CI/CD-pijplijn die de wijzigingen van ontwikkeling hebt, testen en vervolgens naar productie verplaatst, wordt aangeraden de volgende aanbevolen procedures:
+
+-   **GIT-integratie**. U alleen moet configureren van uw gegevensfactory ontwikkeling met Git-integratie. Wijzigingen in de Test en productie zijn geïmplementeerd via CI/CD en niet hoeven te hebben van Git-integratie.
+
+-   **Data Factory CI/CD-script**. Voordat u de implementatiestap van Resource Manager in CI/CD moet u zorgen van items zoals het stoppen van de triggers en een ander soort factory opruimen. Wordt u aangeraden [met dit script](#sample-script-to-stop-and-restart-triggers-and-clean-up) als dit zorgt dat al deze dingen. Voer het script in één keer voor de implementatie, en eenmaal na, met behulp van de juiste vlaggen.
+
+-   **Integratieruntimes en het delen van**. Integratieruntimes vormen een van de infrastructurele componenten in uw data factory, die minder vaak wijzigingen ondergaan en zijn vergelijkbaar in alle fasen van uw CI/CD. Als gevolg hiervan Data Factory wordt verwacht dat u hebt dezelfde naam en hetzelfde type Integratieruntimes in alle fasen van CI/CD. Als u wilt delen Integratieruntimes in alle fasen - bijvoorbeeld: de zelfgehoste Integration Runtimes - is één manier om te delen die als host fungeert voor de zelfgehoste IR in een fabriek Ternair alleen voor dat de gedeelde Integratieruntimes bevat. Vervolgens kunt u ze in Dev/Test/Prod als een gekoppelde IR-type.
+
+-   **Key Vault**. Als u de aanbevolen Azure Key Vault op basis van gekoppelde services, kunt u de voordelen één niveau verder in afzonderlijke sleutelkluizen mogelijk te houden voor ontwikkelen/testen/productie nemen. U kunt ook afzonderlijke machtigingen configureren voor elk van deze. U kunt niet uw teamleden machtigingen hebben voor de productie-geheimen. We raden aan dezelfde geheime namen houdt in alle fasen. Als u dezelfde namen wilt houden, bevindt u zich hoeft te wijzigen van uw Resource Manager-sjablonen voor CI/CD, omdat het enige wat die moet worden gewijzigd, is de key vault-naam een van de parameters van de Resource Manager-sjabloon is.
+
+## <a name="unsupported-features"></a>Niet-ondersteunde functies
+
+-   U kunt afzonderlijke resources, niet publiceren omdat de data factory-entiteiten van elkaar afhankelijk. Bijvoorbeeld, triggers afhankelijk zijn van pijplijnen, pijplijnen zijn afhankelijk van gegevenssets en andere pijplijnen, enzovoort. Tracering wijzigen afhankelijkheden is moeilijk. Als deze mogelijk om de resources handmatig publiceren te selecteren is, zou het mogelijk zijn om op te halen, alleen een subset van de volledige set van wijzigingen, die tot onverwacht gedrag dingen nadat deze is gepubliceerd leiden kunnen.
+
+-   U kunt niet publiceren van de persoonlijke vertakkingen.
+
+-   U kunt geen projecten in Bitbucket hosten.

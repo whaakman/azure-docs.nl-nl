@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 27368ec1f41553950ab1689f8b37c15d14d29808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156660"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187991"
 ---
-# <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Om weer te geven van de container realtime met Azure Monitor-logboeken voor containers (Preview)
-Deze functie momenteel in preview is, biedt realtime inzicht in uw logboeken voor containers in de Azure Kubernetes Service (AKS) (stdout/stderr) zonder de kubectl-opdrachten uit te voeren. Wanneer u deze optie selecteert, nieuwe deelvenster wordt weergegeven onder de tabel containers prestaties gegevens op de **Containers** bekijken en ziet u live logboekregistratie die zijn gegenereerd door de engine container om verder te helpen bij het oplossen van problemen in realtime.  
+# <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Om weer te geven van de container realtime met Azure Monitor-logboeken voor containers (preview)
+Deze functie momenteel in preview is, biedt realtime inzicht in uw logboeken voor containers in de Azure Kubernetes Service (AKS) (stdout/stderr) zonder de kubectl-opdrachten uit te voeren. Wanneer u deze optie selecteert, nieuwe deelvenster wordt weergegeven onder de tabel containers prestaties gegevens op de **Containers** weergeven.  Hier ziet u live logboekregistratie die zijn gegenereerd door de engine container om verder te helpen bij het oplossen van problemen in realtime.  
 
 Live logboeken ondersteunt drie verschillende methoden voor het beheren van toegang tot de logboeken:
 
@@ -31,7 +31,7 @@ Live logboeken ondersteunt drie verschillende methoden voor het beheren van toeg
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Kubernetes-cluster zonder RBAC ingeschakeld
  
-Als u een Kubernetes-cluster dat niet is geconfigureerd met Kubernetes RBAC-autorisatie of geïntegreerd met Azure AD eenmalige aanmelding hebt, hoeft u niet aan de volgende stappen. Omdat de kube-api maakt gebruik van Kubernetes-autorisatie, is alleen-lezen-machtigingen vereist.
+Als u een Kubernetes-cluster dat niet is geconfigureerd met Kubernetes RBAC-autorisatie of geïntegreerd met Azure AD eenmalige aanmelding hebt, hoeft u niet aan de volgende stappen. Omdat de kube-api maakt gebruik van Kubernetes-autorisatie, zijn alleen-lezen-machtigingen vereist.
 
 ## <a name="kubernetes-rbac-authorization"></a>Kubernetes RBAC-autorisatie
 Als u Kubernetes RBAC-autorisatie hebt ingeschakeld, moet u om toe te passen cluster rol binding. Het volgende voorbeeld wordt laten zien hoe het configureren van cluster rol binding met deze sjabloon yaml-configuratie.   
@@ -39,27 +39,27 @@ Als u Kubernetes RBAC-autorisatie hebt ingeschakeld, moet u om toe te passen clu
 1. Kopieer en plak het yaml-bestand en sla deze op als LogReaderRBAC.yaml.  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. De binding van de regel cluster maken met de volgende opdracht: `kubectl create -f LogReaderRBAC.yaml`. 

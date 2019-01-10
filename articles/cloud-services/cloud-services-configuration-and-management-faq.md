@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386992"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191425"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuratie en problemen met voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
@@ -208,7 +208,7 @@ Deze stappen kunnen worden geautomatiseerd via een opstarttaak, zodat wanneer ee
 Zodra dit is gedaan, kunt u controleren of de HTTP/2 is ingeschakeld of niet met behulp van een van de volgende methoden:
 
 - Protocolversie in IIS-logboeken inschakelen en zoek naar de IIS-logboeken. HTTP/2 wordt het weergegeven in de logboeken. 
-- Schakel F12 Tool voor ontwikkelaars in Internet Explorer/Microsoft Edge en Ga naar het tabblad netwerk om te controleren of het protocol. 
+- Developer-hulpprogramma F12 in Internet Explorer/Microsoft Edge inschakelen en schakel over naar het tabblad netwerk om te controleren of het protocol. 
 
 Zie voor meer informatie, [HTTP/2 op IIS](https://blogs.iis.net/davidso/http2).
 

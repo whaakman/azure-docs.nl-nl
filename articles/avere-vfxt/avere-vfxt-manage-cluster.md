@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999064"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189606"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Het Avere vFXT-cluster beheren
 
@@ -63,11 +63,11 @@ Als u wilt afsluiten, opnieuw opstarten of een knooppunt verwijderen, het knoopp
 > [!NOTE] 
 > IP-adressen kunnen verplaatsen tussen clusterknooppunten wanneer het aantal actieve knooppunten wordt gewijzigd.
 
-Lezen [Cluster > knooppunten FXT](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) in de Avere cluster instellingen guide voor meer informatie.
+Lezen [Cluster > knooppunten FXT](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) in de Avere cluster instellingen guide voor meer informatie.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Stoppen of opnieuw opstarten van het cluster met Avere-Configuratiescherm
 
-De **systeemonderhoud** instellingenpagina bevat opdrachten voor het clusterservices opnieuw te starten, opnieuw opstarten van het cluster of het cluster veilig ommige. Lezen [beheer > systeemonderhoud](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (in de Avere cluster instellingen guide) voor meer informatie.
+De **systeemonderhoud** instellingenpagina bevat opdrachten voor het clusterservices opnieuw te starten, opnieuw opstarten van het cluster of het cluster veilig ommige. Lezen [beheer > systeemonderhoud](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (in de Avere cluster instellingen guide) voor meer informatie.
 
 Wanneer een cluster wordt afgesloten, het boeken van statusberichten naar de **Dashboard** tabblad in eerste instantie. Na enkele ogenblikken wordt reageert de sessie Avere Configuratiescherm, wat betekent dat het cluster is afgesloten.
 
@@ -83,7 +83,7 @@ Zoals Avere het Configuratiescherm probeer vfxt.py bewerkingen om te controleren
 
 vfxt.PY is vooraf geïnstalleerd in het cluster netwerkcontroller-VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Een volledige vfxt.py (Engelstalig) is beschikbaar op GitHub: [Clusterbeheer met vfxt.py in de Cloud](https://github.com/azure/averesdk/blob/master/docs/README.md)
+Een volledige vfxt.py (Engelstalig) is beschikbaar op GitHub: [Cloud-Clusterbeheer met vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Clusterknooppunten met vfxt.py toevoegen
 

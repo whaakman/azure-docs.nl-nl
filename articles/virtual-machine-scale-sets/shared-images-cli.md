@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 0aaa912a06136edbe04e6956d86faa47cf88136f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 41e2eee491141be3a7e39a70bccf8440890e2982
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116637"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186495"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Maken en gebruiken van gedeelde-installatiekopieën voor virtuele-machineschaalsets met de Azure CLI 2.0
 
@@ -32,7 +32,6 @@ Wanneer u een schaalset maakt, geeft u een installatiekopie op die moet worden g
 > * De definitie van een gedeelde installatiekopie maken
 > * De versie van een gedeelde installatiekopie maken
 > * Een virtuele machine maken van een gedeelde installatiekopie
-> * Een resources verwijderen
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

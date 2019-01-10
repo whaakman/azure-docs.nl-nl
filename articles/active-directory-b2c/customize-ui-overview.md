@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08cd16cb9edc5606a18fc5d425910185f7747179
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844954"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187519"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Over aanpassingen van de gebruikersinterface in Azure Active Directory B2C
 
@@ -118,6 +118,6 @@ Voor voorbeelden van aanpassingen, downloaden en bekijk deze [sjabloon voorbeeld
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u gebruikersstromen gebruikt, kunt u beginnen uw gebruikersinterface met de zelfstudie aanpassen: [aanpassen van de gebruikersinterface van uw toepassingen in Azure Active Directory B2C](tutorial-customize-ui.md).
-- Als u aangepaste beleidsregels, kunt u aanpassen van de gebruikersinterface met het artikel te starten: [aanpassen van de gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Als u gebruikersstromen gebruikt, kunt u beginnen met het aanpassen van uw gebruikersinterface met de zelfstudie voor: [De gebruikersinterface van uw toepassingen in Azure Active Directory B2C aanpassen](tutorial-customize-ui.md).
+- Als u aangepaste beleidsregels, kunt u beginnen met het aanpassen van de gebruikersinterface met het artikel: [De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen](active-directory-b2c-ui-customization-custom.md).
 

@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958666"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189550"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwing met de REST-API
+
 Met behulp van elke programmeertaal die REST-aanroepen ondersteunt, kunt u gegevensvernieuwing asynchrone bewerkingen op uw modellen in tabelvorm Azure Analysis Services uitvoeren. Dit omvat de synchronisatie van alleen-lezen replica's voor query's worden uitgeschaald. 
 
 Bewerkingen voor gegevensvernieuwing kunnen even duren, afhankelijk van een aantal factoren zoals gegevensvolume, niveau van optimalisatie met partities, enzovoort. Deze bewerkingen hebben traditiegetrouw is aangeroepen met bestaande methoden, zoals het gebruik van [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, of [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Model in tabelvorm Scripting Language). Deze methoden kunnen echter vaak voor onbetrouwbare, langdurige HTTP-verbindingen vereisen.
@@ -94,9 +95,10 @@ De instantie lijkt mogelijk op het volgende:
 ```
 
 ### <a name="parameters"></a>Parameters
+
 Parameters op te geven is niet vereist. De standaardwaarde is toegepast.
 
-|Naam  |Type  |Beschrijving  |Standaard  |
+|Name  |Type  |Description  |Standaard  |
 |---------|---------|---------|---------|
 |Type     |  Enum       |  Het type verwerking moet worden uitgevoerd. De typen zijn uitgelijnd met de TMSL [opdracht Vernieuwen](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typen: volledige, clearValues, berekenen, dataOnly, automatische, en defragmenteren. Voeg type wordt niet ondersteund.      |   Automatisch      |
 |CommitMode     |  Enum       |  Hiermee bepaalt u als objecten worden vastgelegd in batches of alleen als u klaar bent. Modi opnemen: standaard transactionele partialBatch.  |  transactionele       |
@@ -184,11 +186,11 @@ Om te controleren of de status van een synchronisatiebewerking, gebruikt u de GE
 
 Waarden voor `syncstate`:
 
-- 0: repliceren. Databasebestanden worden gerepliceerd naar een doelmap.
-- 1: reactiveren. De database is wordt gereactiveerd op alleen-lezen-server-instantie (s).
-- 2: voltooid. De synchronisatiebewerking is voltooid.
-- 3: is mislukt. De synchronisatie is mislukt.
-- 4: wordt voltooid. De synchronisatiebewerking is voltooid maar opschonen stappen uitvoert.
+- 0: Replicatie uitgevoerd. Databasebestanden worden gerepliceerd naar een doelmap.
+- 1: Reactiveren. De database is wordt gereactiveerd op alleen-lezen-server-instantie (s).
+- 2: Voltooid. De synchronisatiebewerking is voltooid.
+- 3: Mislukt. De synchronisatie is mislukt.
+- 4: Wordt voltooid. De synchronisatiebewerking is voltooid maar opschonen stappen uitvoert.
 
 ## <a name="code-sample"></a>Codevoorbeeld
 

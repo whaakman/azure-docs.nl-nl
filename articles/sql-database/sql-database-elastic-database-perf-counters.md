@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 84bd1283020492ef6724aabd7daad4e153b11717
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce5ba5f827b790e4ca91d1aed91dfad47cedac4e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043682"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191391"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Prestatiemeteritems voor shard-toewijzingsbeheer
 
@@ -34,7 +34,7 @@ Items worden gebruikt voor het bijhouden van de prestaties van [gegevensafhankel
 
 ## <a name="create-performance-category-and-counters"></a>Categorie van de prestaties en de tellers maken
 
-Voor het maken van de prestatiemeteritems, roept u de methode CreatePerformanceCategoryAndCounters van de [ShardMapManagementFactory klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Alleen beheerders kan de methode uitvoeren:
+Voor het maken van de prestatiemeteritems, roept u de methode CreatePerformanceCategoryAndCounters van de [ShardMapManagementFactory klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Alleen beheerders kan de methode uitvoeren:
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
@@ -42,7 +42,7 @@ U kunt ook [dit](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-T
 De methode maakt u de volgende prestatiemeteritems:  
 
 * **In de cache opgeslagen toewijzingen**: Het aantal toewijzingen in de cache opgeslagen voor de shard-toewijzing.
-* **DDR's per seconde**: Snelheid van de gegevens afhankelijke routering bewerkingen voor de shard-toewijzing. Deze teller wordt bijgewerkt wanneer een aanroep van [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulteert in een succesvolle verbinding met de doel-shard.
+* **DDR's per seconde**: Snelheid van de gegevens afhankelijke routering bewerkingen voor de shard-toewijzing. Deze teller wordt bijgewerkt wanneer een aanroep van [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) resulteert in een succesvolle verbinding met de doel-shard.
 * **Toewijzing van lookup cache treffers per seconde**: Het aantal geslaagde cache opzoekbewerkingen voor toewijzingen in de shard-toewijzing.
 * **Toewijzing van lookup cache missers per seconde**: Het aantal mislukte cache opzoekbewerkingen voor toewijzingen in de shard-toewijzing.
 * **Toewijzingen toegevoegd of bijgewerkt in de cache per seconde**: De frequentie op welke toewijzingen zijn die wordt toegevoegd of bijgewerkt in de cache voor de shard-toewijzing.
@@ -54,7 +54,7 @@ Prestatiemeteritems worden gemaakt voor elke in de cache shard-toewijzing per pr
 
 De volgende gebeurtenissen activeren voor het maken van de prestatiemeteritems:  
 
-* De initialisatie van de [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) met [enthousiaste laden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), als de ShardMapManager een shard-toewijzingen bevat. Hieronder vallen de [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) en de [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) methoden.
+* De initialisatie van de [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) met [enthousiaste laden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), als de ShardMapManager een shard-toewijzingen bevat. Hieronder vallen de [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) en de [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) methoden.
 * Geslaagde opzoeken van een shard-toewijzing (met behulp van [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) of [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
 * Met behulp van CreateShardMap()-shard-toewijzing is gemaakt.
 

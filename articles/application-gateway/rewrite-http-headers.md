@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971815"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187414"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
 
 HTTP-headers kunnen de client en de server om door te geven aanvullende informatie met de aanvraag of het antwoord. Deze HTTP-headers kunt verschillende belangrijke scenario's zoals het toevoegen van koptekst beveiligingsgerelateerde herschrijven velden, zoals HSTS / X-XSS-beveiliging of response-header-velden is verwijderd, kan die gevoelige informatie, zoals de naam van de back-end-server weergeven.
 
-Application Gateway ondersteunt nu de mogelijkheid te herschrijven headers van de binnenkomende HTTP-aanvragen, evenals de uitgaande HTTP-antwoorden. Kunt u zich kunt toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders terwijl de aanvraag/antwoord-pakketten worden verplaatst tussen de client en back-end-pools. U kunt zowel standard herschrijven (gedefinieerd in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) en niet-standaard header-velden.
+Application Gateway ondersteunt nu de mogelijkheid te herschrijven headers van de binnenkomende HTTP-aanvragen, evenals de uitgaande HTTP-antwoorden. Kunt u zich kunt toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders terwijl de aanvraag/antwoord-pakketten worden verplaatst tussen de client en back-end-pools. U kunt beide zowel standard als niet-standaard headervelden herschrijven.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ U kunt de waarde in de headers te herschrijven:
 
 - Een combinatie van de bovenstaande.
 
-De hierboven genoemde servervariabelen zijn de variabelen die informatie over de server, wordt de verbinding met de client en de huidige aanvraag via de verbinding. Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabelen:
+## <a name="server-variables"></a>Servervariabelen voor de
+
+Nuttige informatie opslaan servervariabelen op een webserver. Deze variabelen bieden informatie over de server, de verbinding met de client en de huidige aanvraag via de verbinding, zoals IP-adres van de client of web browsertype. Ze dynamisch worden gewijzigd, zoals wanneer een nieuwe pagina wordt geladen, of een formulier wordt geplaatst.  Met behulp van deze gebruikers variabelen kunt instellen aanvraagheaders, evenals antwoordheaders. 
+
+Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabelen:
 
 | Ondersteunde servervariabelen | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ De hierboven genoemde servervariabelen zijn de variabelen die informatie over de
 | http_status                | sessiestatus, bijvoorbeeld: 200, 400, 403 enzovoort.                       |
 | http_version               | aanvraagprotocol, meestal "HTTP/1.0", ' HTTP/1.1' of "HTTP/2.0" |
 | QUERY_STRING               | de lijst met variabele / waarde-paren die vervolgens worden de '? ' in de aangevraagde URL. |
-| received_byte              | aanvraaglengte (met inbegrip van de aanvraagregel, koptekst en hoofdtekst van de aanvraag) |
+| received_bytes             | aanvraaglengte (met inbegrip van de aanvraagregel, koptekst en hoofdtekst van de aanvraag) |
 | request_query              | argumenten in de aanvraagregel                                |
 | request_scheme             | schema van de aanvraag, 'http' of 'https'                            |
 | request_uri                | volledige oorspronkelijke aanvraag-URI (met argumenten)                   |

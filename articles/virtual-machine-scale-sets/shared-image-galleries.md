@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/13/2018
+ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 79f6a15bd4b56d9d7ee8b7ee741c0a4460231dfe
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a750992cade95f9a2719d89c7ff587daf6bfe34d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023165"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191051"
 ---
 # <a name="shared-image-galleries-overview"></a>Gedeelde Afbeeldingsgalerieën-overzicht
 
@@ -31,4 +31,4 @@ ms.locfileid: "50023165"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het implementeren van gedeelde afbeeldingen met behulp van de [Azure CLI](shared-images-cli.md)
+Informatie over het implementeren van gedeelde afbeeldingen met behulp van de [Azure CLI](shared-images-cli.md) en [Azure PowerShell](shared-images-powershell.md)

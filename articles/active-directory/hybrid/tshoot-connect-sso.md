@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055897"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190422"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding oplossen
 
@@ -27,7 +27,7 @@ In dit artikel helpt u bij het oplossen van problemen informatie over veelvoorko
 
 - In sommige gevallen, kan naadloze eenmalige aanmelding inschakelen maximaal 30 minuten duren.
 - Als u uitschakelen en weer naadloze eenmalige aanmelding voor uw tenant inschakelen, krijgen gebruikers niet de ervaring voor eenmalige aanmelding tot hun in de cache Kerberos-tickets, worden doorgaans geldig voor 10 uur, zijn verlopen.
-- Ondersteuning voor Microsoft Edge is niet beschikbaar.
+- Ondersteuning van Microsoft Edge-browser is niet beschikbaar.
 - Als u naadloze eenmalige aanmelding is geslaagd, de gebruiker heeft geen selecteren **aangemeld blijven**. Vanwege dit gedrag [scenario's voor SharePoint en OneDrive toewijzing](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) werken niet.
 - Office 365 Win32-clients (Outlook, Word, Excel en andere) met versies 16.0.8730.xxxx en hoger worden ondersteund met behulp van een niet-interactieve stroom. Andere versies worden niet ondersteund. op deze versies voert gebruikers de gebruikersnamen, maar niet met wachtwoorden, om aan te melden. Voor OneDrive, hebt u activeren, de [OneDrive op de achtergrond config functie](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) voor een ervaring voor op de achtergrond.
 - Naadloze eenmalige aanmelding werkt niet in de privémodus bladeren in Firefox.
@@ -36,23 +36,23 @@ In dit artikel helpt u bij het oplossen van problemen informatie over veelvoorko
 - Als een gebruiker deel van te veel groepen in Active Directory uitmaakt, Kerberos-ticket van de gebruiker waarschijnlijk zal zijn te groot om te verwerken en dit zorgt voor naadloze eenmalige aanmelding mislukken. Azure AD-HTTPS-aanvragen kunnen headers met een maximale grootte van 50 KB; hebben Kerberos-tickets moeten kleiner zijn dan deze limiet voor andere Azure AD-artefacten (meestal 2-5 KB), zoals cookies. Onze aanbeveling is het verminderen van groepslidmaatschappen van gebruiker en probeer het opnieuw.
 - Als u 30 of meer Active Directory-forests synchroniseren bent, kunt u naadloze eenmalige aanmelding via Azure AD Connect niet inschakelen. Als tijdelijke oplossing, kunt u [handmatig in te schakelen](#manual-reset-of-the-feature) de functie op uw tenant.
 - Toevoegen van de URL van de Azure AD-service (https://autologon.microsoftazuread-sso.com) aan de zone Vertrouwde websites in plaats van de lokale intranetzone *wordt voorkomen dat gebruikers zich*.
-- Naadloze eenmalige aanmelding gebruikt de **RC4_HMAC_MD5** versleutelingstype voor Kerberos. Uitschakelen van het gebruik van de **RC4_HMAC_MD5** versleutelingstype in uw Active Directory-instellingen, naadloze eenmalige aanmelding worden verbroken. In de Editor voor Groepsbeleidsbeheer hulpprogramma ervoor te zorgen dat de beleidswaarde voor **RC4_HMAC_MD5** onder **Computerconfiguratie > Windows-instellingen -> Beveiligingsinstellingen -> lokaal beleid Beveiligingsopties - -> > ' Netwerkbeveiliging: voor Kerberos toegestane versleutelingstypen configureren '** is **ingeschakeld**. Bovendien naadloze eenmalige aanmelding kan geen andere versleutelingstypen gebruiken, dus zorg ervoor dat ze zijn **uitgeschakeld**.
+- Naadloze eenmalige aanmelding gebruikt de **RC4_HMAC_MD5** versleutelingstype voor Kerberos. Uitschakelen van het gebruik van de **RC4_HMAC_MD5** versleutelingstype in uw Active Directory-instellingen, naadloze eenmalige aanmelding worden verbroken. In de Editor voor Groepsbeleidsbeheer hulpprogramma ervoor te zorgen dat de beleidswaarde voor **RC4_HMAC_MD5** onder **Computerconfiguratie > Windows-instellingen -> Beveiligingsinstellingen -> lokaal beleid Beveiligingsopties - -> > ' Netwerkbeveiliging: Voor Kerberos toegestane versleutelingstypen configureren'** is **ingeschakeld**. Bovendien naadloze eenmalige aanmelding kan geen andere versleutelingstypen gebruiken, dus zorg ervoor dat ze zijn **uitgeschakeld**.
 
 ## <a name="check-status-of-feature"></a>Controleer de status van de functie
 
 Zorg ervoor dat de functie voor naadloze eenmalige aanmelding nog steeds is **ingeschakeld** op uw tenant. U kunt de status controleren door te gaan naar de **Azure AD Connect** deelvenster in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/).
 
-![Azure Active Directory-beheercentrum: Azure AD Connect-deelvenster](./media/tshoot-connect-sso/sso10.png)
+![Azure Active Directory-beheercentrum: Deelvenster in de Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
 
 Klik op om te zien van alle AD-forests die zijn ingeschakeld voor naadloze eenmalige aanmelding.
 
-![Azure Active Directory-beheercentrum: deelvenster naadloze eenmalige aanmelding](./media/tshoot-connect-sso/sso13.png)
+![Azure Active Directory-beheercentrum: Deelvenster met naadloze eenmalige aanmelding](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Oorzaken voor het aanmelden mislukken in het Azure Active Directory-beheercentrum (een Premium-licentie vereist)
 
 Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook zoeken op de [rapport van aanmeldingsactiviteiten](../reports-monitoring/concept-sign-ins.md) in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/).
 
-![Azure Active Directory-beheercentrum: rapport aanmeldingen](./media/tshoot-connect-sso/sso9.png)
+![Azure Active Directory-beheercentrum: Aanmeldingenrapport](./media/tshoot-connect-sso/sso9.png)
 
 Blader naar **Azure Active Directory** > **aanmeldingen** in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/), en selecteer vervolgens de aanmeldingsactiviteiten voor een specifieke gebruiker. Zoek de **FOUTCODE voor aanmelding door** veld. De waarde van dat veld worden toegewezen aan een reden van fout en een oplossing met behulp van de volgende tabel:
 
@@ -107,10 +107,10 @@ Als het oplossen van hebt gehad, kunt u de functie handmatig herstellen op uw te
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Stap 1: De naadloze eenmalige aanmelding PowerShell-module importeren
 
 1. Eerst, download en installeer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-2. Blader naar de `%programfiles%\Microsoft Azure Active Directory Connect` map.
+2. Blader naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. De naadloze eenmalige aanmelding PowerShell-module importeren met behulp van deze opdracht: `Import-Module .\AzureADSSO.psd1`.
 
-### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Stap 2: Haal de lijst met Active Directory-forests waarop naadloze eenmalige aanmelding is ingeschakeld
+### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Stap 2: De lijst met Active Directory-forests waarop naadloze eenmalige aanmelding is ingeschakeld
 
 1. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Desgevraagd geeft u de hoofdbeheerdersreferenties van uw tenant.
 2. Bel `Get-AzureADSSOStatus`. Met deze opdracht geeft u de lijst met Active Directory-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.

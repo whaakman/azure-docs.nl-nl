@@ -6,19 +6,19 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853612"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188450"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: Implementeren vanuit GitHub op Azure Kubernetes Service (AKS) met Jenkins continue integratie en implementatie
 
 In deze zelfstudie implementeert u een voorbeeld-app vanuit GitHub naar een [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster door het instellen van continue integratie (CI) en continue implementatie (CD) in Jenkins. Op die manier tijdens het bijwerken van uw app door doorvoeracties te pushen naar GitHub, Jenkins automatisch een nieuwe build van container wordt uitgevoerd, pushes containerinstallatiekopieën naar Azure Container Registry (ACR) en voert u uw app in AKS. 
 
-In deze zelfstudie, moet u deze taken uitvoeren:
+In deze zelfstudie voert u de volgende taken uit:
 
 > [!div class="checklist"]
 > * Een voorbeeld Azure vote-app implementeren in een AKS-cluster.
@@ -29,7 +29,7 @@ In deze zelfstudie, moet u deze taken uitvoeren:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie, moet u deze items:
+Voor het voltooien van deze zelfstudie hebt u de volgende items nodig:
 
 - Basiskennis van Kubernetes, Git, CI/CD en container-installatiekopieën
 
@@ -37,7 +37,7 @@ Voor deze zelfstudie, moet u deze items:
 
 - Een [Azure Container Registry (ACR) register][acr-quickstart], de naam van de ACR-aanmeldingsserver en het AKS-cluster dat is geconfigureerd voor het [verifiëren bij het ACR-register][acr-authentication]
 
-- Azure CLI versie 2.0.46 of hoger is geïnstalleerd en geconfigureerd. Voer `az --version` de versie te vinden. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
+- Azure CLI versie 2.0.46 of hoger is geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 - [Docker is geïnstalleerd] [ docker-install] op uw ontwikkelingssysteem
 
@@ -229,11 +229,6 @@ Selecteer in de startpagina van uw Jenkins-portal, **nieuw item** aan de linkerk
 1. Voer *azure-vote* als de taaknaam van de. Kies **Freestyle project**en selecteer vervolgens **OK**
 1. Selecteer onder de sectie **Algemeen** de optie **GitHub-project** en voer de URL van uw gevorkte opslagplaats in, zoals *https://github.com/\<your-github-account\>/azure-voting-app-redis*
 1. Selecteer onder de sectie **Broncodebeheer** de optie **Git** en voer de *.git*-URL van uw gevorkte opslagplaats in, zoals *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
-    - Klik op voor de referenties en **toevoegen** > **Jenkins**
-    - Onder **soort**, selecteer **geheime tekst** en voer uw [persoonlijk GitHub-toegangstoken] [ git-access-token] als de geheime sleutel.
-    - Selecteer **toevoegen** wanneer u klaar bent.
-
-    ![GitHub-referenties](media/aks-jenkins/github-creds.png)
 
 1. Onder de **Triggers bouwen** sectie, selecteer **GitHub-hookactivatie voor GITscm-polling**
 1. Onder **omgeving bouwen**, selecteer **geheime teksten of bestanden gebruiken**

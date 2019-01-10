@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834703"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188926"
 ---
 # <a name="what-is-the-myapps-portal"></a>Wat is de MyApps-portal?
 
@@ -45,7 +45,7 @@ U kunt de MyApps-portal openen door te gaan naar `https://myapps.microsoft.com`.
 
 Als u de aangepaste huisstijl is geconfigureerd voor uw aanmeldingspagina hebt, kunt u de huisstijl van het domein van uw organisatie toe te voegen aan de URL te laden (bijvoorbeeld `https://myapps.microsoft.com/<your domain>.com`).
 
-U kunt een actieve of geverifieerde domeinnaam die is geconfigureerd in uw Azure-portal, zoals hier wordt weergegeven: ![Wingtip Toys domeinnaam][2]  
+U kunt een actieve of geverifieerde domeinnaam die is geconfigureerd in uw Azure-portal kunt gebruiken, zoals hier wordt weergegeven: ![Wingtip Toys domeinnaam][2]  
 
 Distribueer de URL voor alle gebruikers die zich aanmelden bij toepassingen die kunnen worden geïntegreerd met Azure AD.
 

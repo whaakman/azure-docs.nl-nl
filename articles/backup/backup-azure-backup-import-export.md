@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974434"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188297"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de offline back-upgegevens uploaden naar Azure.
@@ -109,7 +109,7 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma bereidt de SATA-schijven die worde
     * De computer kopiëren hebt toegang tot de faseringslocatie voor de werkstroom voor offline-seeding via hetzelfde netwerkpad dat is opgegeven in de **start offline back-up** werkstroom.
     * BitLocker is ingeschakeld op de computer kopiëren.
     * Azure PowerShell 3.7.0 is geïnstalleerd.
-    * De meest recente compatibel browsers (Edge of Internet Explorer 11) zijn geïnstalleerd en JavaScript is ingeschakeld. 
+    * De meest recente compatibel browsers (Microsoft Edge of Internet Explorer 11) zijn geïnstalleerd en JavaScript is ingeschakeld. 
     * De computer kopiëren, hebben toegang tot de Azure-portal. Indien nodig, is de computer kopiëren hetzelfde als de broncomputer kan verzenden.
     
     > [!IMPORTANT] 

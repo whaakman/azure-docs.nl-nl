@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: willzhan;juliako
-ms.openlocfilehash: 84e2eb6a16ce9ee4889eacbf394754c5c2544f7a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9026cab0651cd5f8433f9a8a7db0366a6ab13464
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245304"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190252"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Hybride ontwerp van DRM-subsystem(s)
 
@@ -69,7 +69,7 @@ Als onderdeel van een video met uitgebreide cloudplatform heeft Azure Media Serv
 ### <a name="drm-license-delivery"></a>Levering van DRM-licentie
 
 * AMS: DRM-licentie wordt geboden door de AMS-licentieservice levering.
-* Derde partij: DRM-licentie wordt geboden door een derde partij DRM-licentieserver buiten AMS.
+* Van derden: DRM-licentie wordt geboden door een derde partij DRM-licentieserver buiten AMS.
 
 ## <a name="configure-based-on-your-hybrid-scenario"></a>Configureren op basis van uw hybride scenario
 

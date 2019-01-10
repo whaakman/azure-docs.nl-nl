@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 821aecf5549548365d95ef83ea1fcdeb017a4a21
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321440"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190167"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>De routetabel van een virtuele Hub om door te sturen verkeer naar een virtueel netwerkapparaat maken
 
@@ -21,7 +21,7 @@ In dit artikel wordt beschreven hoe u verkeer van een virtuele Hub naar een virt
 
 ![Virtual WAN-diagram](./media/virtual-wan-route-table/vwanroute.png)
 
-In dit artikel leert u hoe u:
+In dit artikel leert u het volgende:
 
 * Een WAN maken
 * Een hub maken
@@ -43,7 +43,7 @@ Controleer of dat u voldoet aan de volgende criteria:
 
 ## <a name="signin"></a>1. Aanmelden
 
-Zorg ervoor dat u de nieuwste versie van de Resource Manager PowerShell-cmdlets installeren. Zie [How to install and configure Azure PowerShell](/powershell/azure/overview) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Dit is belangrijk omdat eerdere versies van de cmdlets niet de huidige waarden bevatten die u nodig hebt voor deze oefening.
+Zorg ervoor dat u de nieuwste versie van de Resource Manager PowerShell-cmdlets installeren. Zie [How to install and configure Azure PowerShell](/powershell/azure/azurerm/overview) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Dit is belangrijk omdat eerdere versies van de cmdlets niet de huidige waarden bevatten die u nodig hebt voor deze oefening. De modules in thee volgen voorbeelden zijn Azure RM. In dit artikel wordt in de toekomst worden bijgewerkt naar Azure Az.
 
 1. Open de PowerShell-console met verhoogde bevoegdheden en meld u aan bij uw Azure-account. Deze cmdlet vraagt u om de aanmeldingsreferenties. Na het aanmelden, het instellingen van uw account gedownload zodat ze beschikbaar voor Azure PowerShell zijn.
 

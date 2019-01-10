@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/13/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321271"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190813"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -74,15 +74,19 @@ In **overzicht** > model > **synchroniseren model**.
 ![Schuifregelaar voor scale-out](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST-API
+
 Gebruik de **synchronisatie** bewerking.
 
 #### <a name="synchronize-a-model"></a>Een model synchroniseren   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>Synchronisatiestatus ophalen  
+
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 Voordat u met behulp van PowerShell, [installeren of bijwerken van de meest recente AzureRM-module](https://github.com/Azure/azure-powershell/releases). 
 
 Als u wilt dat het aantal query's, gebruikt u [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Geef de optionele `-ReadonlyReplicaCount` parameter.
@@ -101,9 +105,9 @@ Voor SSMS, SSDT en verbindingsreeksen in PowerShell, Azure-functie-apps en AMO, 
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-**Probleem:** gebruikers de foutmelding **kan geen server vinden '\<naam van de server >' exemplaar in de verbindingsmodus 'Alleen-lezen'.**
+**Probleem:** Gebruikers krijgen fout **kan geen server vinden '\<naam van de server >' exemplaar in de verbindingsmodus 'Alleen-lezen'.**
 
-**Oplossing:** bij het selecteren van de **scheiden van de verwerkingsserver van de querypool** optie, client-verbindingen met behulp van de standaard-verbindingsreeks (zonder: rw) worden omgeleid naar de pool queryreplica's. Als de replica's in de groep van de query nog niet zijn nog online omdat synchronisatie niet is voltooid, wordt omgeleid clientverbindingen kunnen mislukken. Om te voorkomen dat een mislukte verbindingen, kies niet voor het scheiden van de verwerkingsserver van de querypool totdat een bewerking waarbij de scale-out en synchroniseren zijn voltooid. U kunt de metrische gegevens over geheugen en QPU gebruiken voor het bewaken van de synchronisatiestatus.
+**Oplossing:** Bij het selecteren van de **scheiden van de verwerkingsserver van de querypool** optie, client-verbindingen met behulp van de standaard-verbindingsreeks (zonder: rw) worden omgeleid naar de pool queryreplica's. Als de replica's in de groep van de query nog niet zijn nog online omdat synchronisatie niet is voltooid, wordt omgeleid clientverbindingen kunnen mislukken. Om te voorkomen dat een mislukte verbindingen, kies niet voor het scheiden van de verwerkingsserver van de querypool totdat een bewerking waarbij de scale-out en synchroniseren zijn voltooid. U kunt de metrische gegevens over geheugen en QPU gebruiken voor het bewaken van de synchronisatiestatus.
 
 ## <a name="related-information"></a>Gerelateerde informatie
 

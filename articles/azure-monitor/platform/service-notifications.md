@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159244"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190694"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen bekijken met behulp van Azure portal
 
@@ -58,43 +58,27 @@ Properties.Stage | De mogelijke waarden voor **Incident**, en **Security** zijn 
 Properties.communicationId | De communicatie die aan deze gebeurtenis gekoppeld is.
 
 ### <a name="details-on-service-health-level-information"></a>Meer informatie over service health informatie op het niveau
-  <ul>
-    <li><b>Actie vereist</b> (properties.incidentType == handeling vereist) <dl>
-            <dt>Informatief</dt>
-            <dd>Beheerdersactie vereist om te voorkomen dat invloed op bestaande services</dd>
-        </dl>
-    </li>
-    <li><b>Onderhoud</b> (properties.incidentType onderhoud ==) <dl>
-            <dt>Waarschuwing</dt>
-            <dd>noodgevallen onderhoud<dd>
-            <dt>Informatief</dt>
-            <dd>Standard gepland onderhoud</dd>
-        </dl>
-    </li>
-    <li><b>Informatie</b> (properties.incidentType == informatief) <dl>
-            <dt>Informatief</dt>
-            <dd>De beheerder mogelijk moet om de gevolgen voor bestaande services</dd>
-        </dl>
-    </li>
-    <li><b>Beveiliging</b> (properties.incidentType == beveiliging) <dl>
-            <dt>Fout</dt>
-            <dd>Wijdverbreid problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.</dd>
-            <dt>Waarschuwing</dt>
-            <dd>Problemen met toegang tot specifieke services en/of specifieke regio's van invloed zijn op een subset van klanten.</dd>
-            <dt>Informatief</dt>
-            <dd>Problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.</dd>
-        </dl>
-    </li>
-    <li><b>Problemen met service</b> (properties.incidentType Incident ==) <dl>
-            <dt>Fout</dt>
-            <dd>Wijdverbreid problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.</dd>
-            <dt>Waarschuwing</dt>
-            <dd>Problemen met toegang tot specifieke services en/of specifieke regio's van invloed zijn op een subset van klanten.</dd>
-            <dt>Informatief</dt>
-            <dd>Problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Actie vereist** (properties.incidentType == handeling vereist)
+    - Ter informatie - beheerder-actie vereist om te voorkomen dat invloed op bestaande services
+    
+**Onderhoud** (properties.incidentType onderhoud ==)
+    - Waarschuwing: noodgevallen onderhoud
+    - Ter informatie - standaard gepland onderhoud
+
+**Informatie** (properties.incidentType == informatie)
+    - Informatief - beheerder mogelijk moet om de gevolgen voor bestaande services
+
+**Beveiliging** (properties.incidentType == beveiliging)
+    - Fout - optie in regio's problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.
+    - Waarschuwing - problemen bij toegang tot specifieke services en/of specifieke regio's zijn van invloed op een subset van klanten.
+    - Ter informatie - problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.
+
+**Problemen met service** (properties.incidentType Incident ==)
+    - Fout - optie in regio's problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.
+    - Waarschuwing - problemen bij toegang tot specifieke services en/of specifieke regio's zijn van invloed op een subset van klanten.
+    - Ter informatie - problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Uw servicestatusmeldingen bekijken in Azure portal
 1.  In de [Azure-portal](https://portal.azure.com), selecteer **Monitor**.

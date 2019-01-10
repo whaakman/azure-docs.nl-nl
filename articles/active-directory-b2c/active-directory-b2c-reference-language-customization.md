@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724312"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187759"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Aanpassing van taal in Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Aanpassing van taal kunt u selecteren welke taal de gebruikersstroom is beschikb
 
 U moet mogelijk niet dat niveau van controle over welke talen uw klant ziet. Als u niet bieden een `ui_locales` parameter van de klant ervaring wordt bepaald door de instellingen van hun browser.  U kunt nog steeds beheren welke taal de gebruikersstroom wordt omgezet naar door toe te voegen als een ondersteunde taal. Als de browser van een klant is ingesteld om weer te geven van een taal die u niet wilt ondersteunen, wordt in plaats daarvan de taal die u hebt geselecteerd als een standaard in ondersteunde culturen weergegeven.
 
-- **UI-landinstellingen opgegeven taal**: nadat u de aanpassing van taal hebt ingeschakeld, de gebruikersstroom wordt omgezet naar de taal die hier opgegeven.
-- **Browser gevraagde taal**: als er geen `ui_locales` parameter is opgegeven, wordt de gebruikersstroom wordt omgezet naar de taal browser aangevraagd *als de taal die wordt ondersteund*.
-- **De standaardtaal voor beleid**: als de browser een taal niet opgeven, of deze bevat een die niet wordt ondersteund, de gebruikersstroom wordt omgezet naar de standaardtaal van de gebruiker-stroom.
+- **UI-landinstellingen opgegeven taal**: Nadat u de aanpassing van taal hebt ingeschakeld, wordt de gebruikersstroom wordt omgezet naar de taal die hier opgegeven.
+- **Browser gevraagde taal**: Als er geen `ui_locales` parameter is opgegeven, wordt de gebruikersstroom wordt omgezet naar de taal browser aangevraagd *als de taal die wordt ondersteund*.
+- **De standaardtaal voor beleid**: Als de browser een taal niet opgeven, of deze bevat een die niet wordt ondersteund, wordt de gebruikersstroom wordt omgezet naar de standaardtaal van de gebruiker-stroom.
 
 >[!NOTE]
 >Als u aangepaste gebruikerskenmerken, moet u uw eigen vertalingen opgeven. Zie voor meer informatie, [aanpassen van uw tekenreeksen](#customize-your-strings).
@@ -175,7 +175,7 @@ Microsoft biedt op dit moment geen ondersteuning voor talen van rechts naar link
 ### <a name="social-identity-provider-translations"></a>Vertalingen van sociale id-provider
 Microsoft biedt de `ui_locales` OIDC-parameter voor sociale aanmeldingen. Maar sommige sociale id-providers, zoals Facebook en Google en worden ze niet gehandhaafd. 
 ### <a name="browser-behavior"></a>Gedrag van de browser
-Chrome en Firefox die beide voor hun eigen taal instellen aanvragen. Als dat een ondersteunde taal voor het geval is, wordt dit weergegeven voordat de standaardwaarde. Microsoft Edge op dit moment heeft geen aanvragen voor een taal en gaat rechtstreeks naar de standaardtaal.
+Chrome en Firefox die beide voor hun eigen taal instellen aanvragen. Als dat een ondersteunde taal voor het geval is, wordt dit weergegeven voordat de standaardwaarde. Microsoft Edge wordt momenteel heeft geen aanvragen voor een taal en gaat rechtstreeks naar de standaardtaal.
 
 ### <a name="supported-languages"></a>Ondersteunde talen
 

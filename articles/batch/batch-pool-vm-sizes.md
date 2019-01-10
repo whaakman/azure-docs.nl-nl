@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/07/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a1d733e918d4b53ea9dd220f5e379e0c8133c03a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540653"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191714"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-pool
 
@@ -42,6 +42,16 @@ Batch-pools in de configuratie van de virtuele Machine ondersteuning voor alle V
 | Basic A-serie | Basic_A0 (A0) |
 | A-serie | Standard_A0 |
 | B-serie | Alle |
+| DC-serie | Alle | 
+| Extreme geoptimaliseerd voor geheugen | Alle |
+| HB-serie<sup>1</sup> | Alle | 
+| CH-serie<sup>1</sup> | Alle |
+| Lsv2-serie | Alle |
+| NDv2-serie<sup>1</sup> | Alle |
+| NVv2-serie<sup>1</sup> | Alle |
+| SAP HANA | Alle |
+
+<sup>1</sup> momenteel niet ondersteund, maar in de toekomst worden ondersteund.
 
 De volgende VM-grootten worden alleen ondersteund voor knooppunten met lage prioriteit:
 

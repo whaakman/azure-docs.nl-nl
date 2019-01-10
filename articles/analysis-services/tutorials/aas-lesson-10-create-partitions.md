@@ -1,19 +1,19 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 10: Partities maken | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 10: Partities maken | Microsoft Docs'
 description: In deze les wordt beschreven hoe u partities maakt in de zelfstudie over Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429680"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191833"
 ---
 # <a name="create-partitions"></a>Partities maken
 
@@ -40,7 +40,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  Laat in het dialoogvenster Filter Rows bij **Show rows where: OrderDate** de instelling **is after or equal to** staan en voer in het datumveld de datum **1/1/2010** in. Laat de operator **And** ingeschakeld, selecteer **is before**, typ **1/1/2011** in het datumveld en klik ten slotte op **OK**.
+6.  Klik in het dialoogvenster Filter Rows in **rijen weergeven waar: Orderdatum**, laat u **na of gelijk is aan**, en voer vervolgens in het datumveld **1/1/2010**. Laat de operator **And** ingeschakeld, selecteer **is before**, typ **1/1/2011** in het datumveld en klik ten slotte op **OK**.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     

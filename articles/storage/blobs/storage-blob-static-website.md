@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 8f88bf6b0de8296de14dccd51b38ee6ca480f059
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065083"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191816"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
@@ -21,16 +21,16 @@ Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en af
 In tegenstelling tot de statische website hosting, dynamische websites die afhankelijk van de servercode zijn beste worden gehost met behulp van [Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
-Wanneer u de statische website inschakelt die als host fungeert voor uw opslagaccount u selecteert u de naam van de standaard-bestand en geef optioneel een pad naar een aangepaste 404-pagina. Als de functie is ingeschakeld, een container met de naam *$web* wordt gemaakt als deze nog niet bestaat. 
+Wanneer u de statische website inschakelt die als host fungeert voor uw opslagaccount u selecteert u de naam van de standaard-bestand en geef optioneel een pad naar een aangepaste 404-pagina. Als de functie is ingeschakeld, een container met de naam *$web* wordt gemaakt als deze nog niet bestaat.
 
 Bestanden in de *$web* container zijn:
 
 - geleverd via anonieme toegangsaanvragen
 - alleen beschikbaar via de object-bewerkingen lezen
 - hoofdlettergevoelig
-- beschikbaar op het openbare Internet dit patroon te volgen: 
+- beschikbaar op het openbare Internet dit patroon te volgen:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- beschikbaar via een eindpunt van Blob storage dit patroon te volgen: 
+- beschikbaar via een eindpunt van Blob storage dit patroon te volgen:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 U het eindpunt van Blob storage gebruiken om bestanden te uploaden. Bijvoorbeeld: het bestand geüpload naar deze locatie:
@@ -100,7 +100,7 @@ az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEn
 Uploaden van objecten die u wilt de *$web* container uit een bronmap. Zorg ervoor dat u goed escape voor de verwijzing naar de *$web* container in de opdracht. Bijvoorbeeld, als u van Azure CLI uit CloudShell in Azure portal gebruikmaakt, als de *$web* container zoals wordt weergegeven:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d `$web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Implementatie
@@ -120,7 +120,7 @@ Om in te schakelen metrische gegevens over uw statische website's, klikt u op **
 
 Metrische gegevens worden gegenereerd door het Inhaken op verschillende metrische gegevens over API's. API-leden die wordt gebruikt binnen een bepaalde periode om te kunnen alleen richten op de leden die als resultaat de gegevens alleen worden weergegeven in de portal. Om ervoor te zorgen, selecteer een lid van de benodigde API kunt u, is de eerste stap om uit te breiden het tijdsbestek.
 
-Klik op de knop tijdsbestek en selecteer **afgelopen 24 uur** en klik vervolgens op **toepassen** 
+Klik op de knop tijdsbestek en selecteer **afgelopen 24 uur** en klik vervolgens op **toepassen**
 
 ![Metrische gegevens van Azure Storage statische websites tijdsbereik](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

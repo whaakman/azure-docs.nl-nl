@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118357"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188756"
 ---
 # <a name="url-path-based-routing-overview"></a>Overzicht van op URL-pad gebaseerde routering
 
@@ -65,7 +65,7 @@ Het element UrlPathMap wordt gebruikt om padpatronen op te geven voor back-endse
 
 PathPattern is een lijst van padpatronen. Elk hiervan moet beginnen met / en de enige plaats waar een * is toegestaan, is aan het einde na een /. De tekenreeks die is ingevoerd in de matcher pad bevat geen alle tekst na de eerste? of # en deze tekens zijn niet hier toegestaan. Anders zijn alle toegestaan in een URL-tekens toegestaan in de PathPattern.
 
-De patronen die ondersteund zijn afhankelijk van waarvoor of u Application Gateway v1 of v2 implementeert:
+De ondersteunde patronen, is afhankelijk van of u Application Gateway v1 of v2 implementeert:
 
 #### <a name="v1"></a>V1
 

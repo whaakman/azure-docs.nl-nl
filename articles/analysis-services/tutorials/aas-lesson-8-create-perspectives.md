@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e92e86f59058f1f226c67f873530cd9c06b5d5fc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c26da5d047a1e904510f96b44d81632b6e98689e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428331"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190966"
 ---
 # <a name="create-perspectives"></a>Perspectieven maken
 
@@ -23,7 +23,7 @@ In deze les gaat u een perspectief maken (Internet Sales) waarmee het tabelobjec
   
 In deze les leert u hoe u perspectieven maakt en hoe u de hulpmiddelen van het programma voor het ontwerpen van tabellaire modellen gebruikt. Als u dit model later gaat uitbreiden met aanvullende tabellen, kunt u ook extra perspectieven maken om verschillende standpunten van het model te definiëren, zoals Inventory en Sales.  
   
-Geschatte tijd voor het voltooien van deze les: **5 minuten**  
+Geschatte tijd voor het voltooien van deze les: **Vijf minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 7: Key Performance Indicators maken](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  

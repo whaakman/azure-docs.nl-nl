@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 333edfc4041e7ab0dfbe6d45f306b1450e6b9946
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103143"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189845"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Web-apps instrumenteren tijdens runtime met Application Insights Status Monitor
 
@@ -88,6 +88,23 @@ Als u opnieuw wilt publiceren zonder Application Insights toe te voegen aan de c
 
 
 ## <a name="troubleshoot"></a>Problemen oplossen
+
+### <a name="confirm-a-valid-installation"></a>De installatie van een geldige bevestigen 
+
+Dit zijn enkele stappen die u uitvoeren kunt om te controleren of de installatie voltooid is.
+
+- Controleer of het bestand applicationInsights.config aanwezig in de doelmap voor de app is en uw ikey bevat.
+
+- Als u vermoedt dat er ontbreken gegevens kunt u een eenvoudige query uitvoeren [Analytics](../log-query/get-started-portal.md) om alle cloudrollen die momenteel verzenden telemetrie weer te geven.
+
+```Kusto
+union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+```
+
+- Als u bevestigen wilt dat de Application Insights is bijgevoegd kunt u uitvoeren [Sysinternals ingang](https://docs.microsoft.com/sysinternals/downloads/handle) in een venster om te bevestigen dat applicationinsights.dll is geladen door IIS.
+
+`handle.exe /p w3wp.exe`
+
 
 ### <a name="cant-connect-no-telemetry"></a>Kunt u geen verbinding maken? Geen telemetrie?
 

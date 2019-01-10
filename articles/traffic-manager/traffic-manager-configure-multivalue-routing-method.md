@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187362"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187702"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Routeringsmethode voor met meerdere waarden configureren in Traffic Manager
 
@@ -47,9 +47,9 @@ Maak een Traffic Manager-profiel met gebruikersverkeer verwezen door deze te ver
     | Abonnement            | Selecteer uw abonnement.                          |
     | Resourcegroep          | Selecteer *myResourceGroupTM1*. |
     | Locatie                | Deze instelling verwijst naar de locatie van de resourcegroep en heeft geen invloed op het Traffic Manager-profiel dat wereldwijd wordt geïmplementeerd.                              |
-    
+   |        |           | 
   
-    ![Een Traffic Manager-profiel maken](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Een Traffic Manager-profiel maken](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager-eindpunten toevoegen
 
@@ -69,7 +69,7 @@ Twee IP-adressen als externe eindpunten toevoegen aan meerdere waarden Traffic M
 4. Herhaal stappen 2 en 3 om toe te voegen een ander eindpunt met de naam *myEndpoint2*, voor **volledig gekwalificeerde domeinnaam (FQDN) of IP-**, voer het openbare IP-adres van het tweede eindpunt.
 5.  Als beide eindpunten zijn toegevoegd, worden ze weergegeven in **Traffic Manager-profiel**, samen met de controlestatus **Online**.
 
-    ![Traffic Manager-eindpunt toevoegen](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Traffic Manager-eindpunt toevoegen](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>Volgende stappen
 

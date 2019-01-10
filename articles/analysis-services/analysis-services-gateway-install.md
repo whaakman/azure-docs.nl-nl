@@ -5,20 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407653"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190371"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een on-premises gegevensgateway
+
 Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Vereisten
+
 **Minimale vereisten:**
 
 * .NET 4.5 framework
@@ -44,6 +46,7 @@ Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Se
 
 
 ## <a name="download"></a>Downloaden
+
  [De gateway downloaden](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>Installeren
@@ -62,6 +65,7 @@ Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Se
    > Als u zich met een domeinaccount aanmeldt, wordt deze toegewezen aan uw organisatieaccount in Azure AD. Uw organisatie-account wordt gebruikt als de gatewaybeheerder van de.
 
 ## <a name="register"></a>Registreren
+
 Als u wilt een gateway-resource maken in Azure, moet u het lokale exemplaar dat u hebt geïnstalleerd met de Gateway-Cloudservice registreren. 
 
 1.  Selecteer **een nieuwe gateway registreren op deze computer**.
@@ -77,6 +81,7 @@ Als u wilt een gateway-resource maken in Azure, moet u het lokale exemplaar dat 
 
 
 ## <a name="create-resource"></a>Maak een Azure-gateway-resource
+
 Nadat u hebt geïnstalleerd en geregistreerd van de gateway, moet u een gateway-resource maken in uw Azure-abonnement. Meld u bij Azure met hetzelfde account dat u gebruikt bij het registreren van de gateway.
 
 1. Klik in Azure portal op **een resource maken** > **integratie** > **On-premises gegevensgateway**.
@@ -85,17 +90,17 @@ Nadat u hebt geïnstalleerd en geregistreerd van de gateway, moet u een gateway-
 
 2. In **verbindingsgateway maken**, voer de volgende instellingen:
 
-    * **Naam**: Voer een naam in voor uw gateway. 
+    * **Naam**: Voer een naam voor uw gateway. 
 
     * **Abonnement**: Selecteer het Azure-abonnement koppelen aan uw gateway-resource. 
    
       Het standaardabonnement is gebaseerd op het Azure-account waarmee u zich aanmeldt.
 
-    * **Resourcegroep**: maak een resourcegroep of selecteer een bestaande resourcegroep.
+    * **Resourcegroep**: Maak een resourcegroep of selecteer een bestaande resourcegroep.
 
-    * **Locatie**: Selecteer de regio waarin u uw gateway in geregistreerd.
+    * **Locatie**: Selecteer de regio die u hebt uw gateway in geregistreerd.
 
-    * **De Installatienaam van de**: als uw gatewayinstallatie is niet nog is geselecteerd, selecteert u de gateway die is geregistreerd. 
+    * **De Installatienaam van de**: Als de gatewayinstallatie is niet nog is geselecteerd, selecteert u de gateway die is geregistreerd. 
 
     Wanneer u klaar bent, klikt u op **maken**.
 
@@ -115,6 +120,7 @@ Nadat u hebt geïnstalleerd en geregistreerd van de gateway, moet u een gateway-
 Dat is alles. Als u wilt openen van poorten of problemen oplost, moet u uitchecken [On-premises gegevensgateway](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Analyseservices beheren](analysis-services-manage.md)   
 * [Gegevens ophalen uit Azure Analysis Services](analysis-services-connect.md)   
 * [Gateway gebruiken voor gegevensbronnen in een virtueel Azure-netwerk](analysis-services-vnet-gateway.md)

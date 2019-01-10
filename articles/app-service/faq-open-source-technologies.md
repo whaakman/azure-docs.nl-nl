@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3057368ca76a0a9ad90c3c1890cffd139b6b13a2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159805"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191442"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Open-source technologieën Veelgestelde vragen over de Web-Apps in Azure
 
@@ -219,4 +219,4 @@ Nadat u ervoor dat MySQL zorgen in app wordt uitgevoerd, kunt u proberen te gebr
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Ik krijg een HTTP 403-fout op wanneer ik probeer te importeren of exporteren van mijn database voor MySQL in-app via PHPMyadmin. Hoe kan ik dit oplossen?
 
-Als u een oudere versie van Chrome gebruikt, ondervindt u mogelijk een bekend probleem. Upgraden naar een nieuwere versie van Chrome het probleem op te lossen. Probeer ook met een andere browser, zoals Internet Explorer of Edge, waar het probleem niet wordt uitgevoerd.
+Als u een oudere versie van Chrome gebruikt, ondervindt u mogelijk een bekend probleem. Upgraden naar een nieuwere versie van Chrome het probleem op te lossen. Probeer ook met een andere browser, zoals Internet Explorer of Microsoft Edge, waar het probleem niet wordt uitgevoerd.

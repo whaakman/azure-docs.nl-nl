@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50097919"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189271"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Naslaginformatie over roaminginstellingen voor Windows 10
 Hier volgt een volledige lijst van alle instellingen die worden verplaatste of een back-up in Windows 10. 
@@ -48,11 +48,11 @@ De volgende voor Instellingengroepen zijn beschikbaar voor eindgebruikers in-of 
 * Taalvoorkeuren: woordenlijst, systeem-taalinstellingen 
 * Toegankelijkheid: narrator, Schermtoetsenbord Vergrootglas 
 * Andere instellingen voor Windows: Zie de details van Windows-instellingen
-* Edge browserinstelling: Microsoft Edge-Favorieten, leeslijst en andere instellingen
+* Instellingen voor Microsoft Edge-browser: Microsoft Edge-Favorieten, leeslijst en andere instellingen
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-Edge browser instelling (Favorieten, leeslijst) groepssynchronisatie kan worden ingeschakeld of uitgeschakeld door eindgebruikers via Microsoft Edge-browser optie instellingen.
+Synchroniseren van de instelling van de browser Microsoft Edge-groep (Favorieten, leeslijst) kan worden ingeschakeld of uitgeschakeld door eindgebruikers via Microsoft Edge-browser optie instellingen.
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -70,12 +70,12 @@ Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 | --- | --- | --- | --- |
 | **Accounts**: accountafbeelding |Synchronisatie |X |Thema |
 | **Accounts**: andere Accountinstellingen |X |X | |
-| **Geavanceerde mobiele breedband**: Netwerknaam (automatische detectie van mobiele Wi-Fi-hotspots via Bluetooth kunnen) gedeelde internetverbinding |X |X |Wachtwoorden |
+| **Geavanceerde mobiele breedband**: Internetverbinding delen netwerknaam (automatische detectie van mobiele Wi-Fi-hotspots via Bluetooth kunnen) |X |X |Wachtwoorden |
 | **App-gegevens**: afzonderlijke apps kunnen synchroniseren van gegevens |back-up van synchronisatie |back-up van synchronisatie |Interne |
 | **Lijst met Apps**: lijst met geïnstalleerde apps |X |Back-up |Overige |
 | **Bluetooth**: alle Bluetooth-instellingen |X |X | |
-| **Opdrachtprompt**: opdrachtregel de opdracht 'Standaard' instellingen |Synchronisatie |X |Interne |
-| **Referenties**: BitLocker voor referenties |Synchronisatie |Synchronisatie |wachtwoord |
+| **Opdrachtprompt**: Command prompt 'Standaard'-instellingen |Synchronisatie |X |Interne |
+| **referenties**: Referentiekluis |Synchronisatie |Synchronisatie |wachtwoord |
 | **Datum, tijd en de regio**: automatische tijd (tijdsynchronisatie Internet) |Synchronisatie |Synchronisatie |language |
 | **Datum, tijd en de regio**: 24-uurs notatie |Synchronisatie |X |language |
 | **Datum, tijd en de regio**: datum en tijd |Synchronisatie |X |language |
@@ -108,8 +108,8 @@ Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 | **Microsoft Edge-browser**: cookies voorkeur <sup> [[1]](#footnote-1)</sup> |Synchronisatie |Synchronisatie |Interne |
 | **Microsoft Edge-browser**: beveiligde medialicenties opslaan op mijn apparaat sites kunt <sup> [[1]](#footnote-1)</sup> |Synchronisatie |Synchronisatie |Interne |
 | **Microsoft Edge-browser**: schermlezer instellen <sup> [[1]](#footnote-1)</sup> |Synchronisatie |Synchronisatie |Interne |
-| **Hoog Contrast**: in- of uitschakelen |Synchronisatie |X |Betere toegankelijkheid |
-| **Hoog contrast**: instellingen voor thema's |Synchronisatie |X |Betere toegankelijkheid |
+| **Hoog Contrast**: In- of uitschakelen |Synchronisatie |X |Betere toegankelijkheid |
+| **Hoog contrast**: Instellingen voor thema 's |Synchronisatie |X |Betere toegankelijkheid |
 | **Internet Explorer**: tabbladen (URL en de titel) openen |Synchronisatie |Synchronisatie |Internet Explorer |
 | **Internet Explorer**: leeslijst |Synchronisatie |Synchronisatie |Internet Explorer |
 | **Internet Explorer**: opgegeven URL's |Synchronisatie |Synchronisatie |Internet Explorer |
@@ -122,23 +122,23 @@ Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 | **Toetsenbord**: inschakelen sticky Ja (standaard uitgeschakeld) |Synchronisatie |X |Betere toegankelijkheid |
 | **Toetsenbord**: filter sleutels inschakelen (standaard uitgeschakeld) |Synchronisatie |X |Betere toegankelijkheid |
 | **Toetsenbord**: in-/ uitschakelen sleutels inschakelen (standaard uitgeschakeld) |Synchronisatie |X |Betere toegankelijkheid |
-| **Internet Explorer**: domein talen: Chinees (CHS) QWERTY - inschakelen zelf leren |Synchronisatie |X |Taal |
-| **Taal**: QWERTY CHS - inschakelen van de dynamische candidate rangorde |Synchronisatie |X |Taal |
+| **Internet Explorer**: domein taal: Chinees (CHS) QWERTY - inschakelen zelf leren |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - inschakelen van de dynamische candidate rangorde |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - char-set vereenvoudigd Chinees |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - char-set traditioneel Chinees |Synchronisatie |X |Taal |
-| **Taal**: QWERTY CHS - fuzzy pinyin |Synchronisatie |Back-up |Taal |
-| **Taal**: QWERTY CHS - fuzzy paren |Synchronisatie |Back-up |Taal |
-| **Taal**: QWERTY CHS - volledige pinyin |Synchronisatie |X |Taal |
-| **Taal**: QWERTY CHS - dubbele pinyin |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - fuzzy pinyin |Synchronisatie |Back-up |Taal |
+| **Taal**: CHS QWERTY - fuzzy paren |Synchronisatie |Back-up |Taal |
+| **Taal**: CHS QWERTY - volledige pinyin |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - dubbele pinyin |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - automatische correctie lezen |Synchronisatie |X |Taal |
-| **Taal**: QWERTY CHS - sleutel voor C/E-switch, shift |Synchronisatie |X |Taal |
-| **Taal**: QWERTY CHS - Ctrl-toets C/E-switch |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - sleutel voor C/E-switch, shift |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - C/E schakelen Ctrl-toets |Synchronisatie |X |Taal |
 | **Taal**: CHS WUBI - modus voor één teken invoer |Synchronisatie |X |Taal |
 | **Taal**: CHS WUBI - tonen de resterende codering van de kandidaat |Synchronisatie |X |Taal |
-| **Taal**: CHS WUBI - pieptoon wanneer 4-coding is ongeldig |Synchronisatie |X |Taal |
+| **Taal**: CHS WUBI - geluid wanneer 4-coding ongeldig is |Synchronisatie |X |Taal |
 | **Taal**: CHT Bopomofo - CJK Ext-A opnemen |Synchronisatie |X |Taal |
 | **Taal**: Japanse IME - voorspellende typen en aangepaste woorden |Synchronisatie |Synchronisatie |Taal |
-| **Taal**: (KOR) Koreaanse IME |X |X |Taal |
+| **Taal**: Koreaans (KOR) IME |X |X |Taal |
 | **Taal**: handschriftherkenning |X |X |Taal |
 | **Taal**: taal profiel |Synchronisatie |Back-up |Taal |
 | **Taal**: spellingcontrole - spelfouten automatisch corrigeren en markeren |Synchronisatie |Back-up |Taal |

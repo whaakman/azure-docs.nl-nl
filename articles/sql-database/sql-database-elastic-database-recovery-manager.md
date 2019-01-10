@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: f6c289c87f4f58fdad8950bdf61fa68016fe8d3e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5bb914de1cded7c70516bfb4bfdaa93c83fe0e4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042067"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188671"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Problemen met shard-toewijzingen oplossen met de RecoveryManager-klasse
 
-De [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) klasse biedt ADO.Net toepassingen de mogelijkheid om eenvoudig detecteren en corrigeer eventuele inconsistenties tussen de globale shard-toewijzing (GSM) en de lokale-shard-toewijzing (LSM) in een omgeving met shard-database.
+De [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) klasse biedt ADO.Net toepassingen de mogelijkheid om eenvoudig detecteren en corrigeer eventuele inconsistenties tussen de globale shard-toewijzing (GSM) en de lokale-shard-toewijzing (LSM) in een omgeving met shard-database.
 
 De GSM en LSM houden de toewijzing van elke database in een gedeelde omgeving. Af en toe optreedt een onderbreking tussen de GSM en de LSM. In dat geval gebruikt u de RecoveryManager-klasse om te detecteren en herstellen van het einde.
 
@@ -49,7 +49,7 @@ Zie de volgende onderwerpen voor meer informatie over hulpprogramma's voor Azure
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Het ophalen van RecoveryManager van een ShardMapManager
 
-De eerste stap is het maken van een RecoveryManager-exemplaar. De [GetRecoveryManager methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) retourneert de recovery manager voor de huidige [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) exemplaar. Om inconsistenties in de shard-toewijzing op te lossen, moet u eerst de RecoveryManager voor de specifieke shard-toewijzing ophalen.
+De eerste stap is het maken van een RecoveryManager-exemplaar. De [GetRecoveryManager methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) retourneert de recovery manager voor de huidige [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) exemplaar. Om inconsistenties in de shard-toewijzing op te lossen, moet u eerst de RecoveryManager voor de specifieke shard-toewijzing ophalen.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
@@ -83,7 +83,7 @@ Omdat ervan wordt uitgegaan dat het verwijderen van een database doelbewust is g
 
 ## <a name="to-detect-mapping-differences"></a>Voor het detecteren van toewijzing verschillen
 
-De [DetectMappingDifferences methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) selecteert en retourneert een van de shard-toewijzingen (lokaal of globaal) als de bron is en voor overeenstemming zorgt met toewijzingen op beide shard-toewijzingen (GSM en LSM).
+De [DetectMappingDifferences methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) selecteert en retourneert een van de shard-toewijzingen (lokaal of globaal) als de bron is en voor overeenstemming zorgt met toewijzingen op beide shard-toewijzingen (GSM en LSM).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
@@ -94,19 +94,19 @@ De [DetectMappingDifferences methode](https://docs.microsoft.com/dotnet/api/micr
 
 ## <a name="to-resolve-mapping-differences"></a>Toewijzing-verschillen oplossen
 
-De [ResolveMappingDifferences methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selecteert u een van de shard-toewijzingen (lokaal of globaal) als de bron is en voor overeenstemming zorgt met toewijzingen op beide shard-toewijzingen (GSM en LSM).
+De [ResolveMappingDifferences methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) selecteert u een van de shard-toewijzingen (lokaal of globaal) als de bron is en voor overeenstemming zorgt met toewijzingen op beide shard-toewijzingen (GSM en LSM).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
 * De *RecoveryToken* parameter inventariseert de verschillen in de toewijzingen tussen de GSM en de LSM voor de specifieke shard.
-* De [MappingDifferenceResolution opsomming](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) wordt gebruikt om aan te geven van de methode voor het oplossen van het verschil tussen de shard-toewijzingen.
+* De [MappingDifferenceResolution opsomming](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) wordt gebruikt om aan te geven van de methode voor het oplossen van het verschil tussen de shard-toewijzingen.
 * **MappingDifferenceResolution.KeepShardMapping** die wordt aanbevolen wanneer de LSM de nauwkeurige toewijzing bevat en daarom de toewijzing in de shard moet worden gebruikt. Dit is meestal het geval als er een failover: de shard zich nu bevindt op een nieuwe server. Omdat de shard moet eerst worden verwijderd uit de GSM (met behulp van de methode RecoveryManager.DetachShard), wordt een toewijzing niet meer bestaat op de GSM. Daarom moet de LSM worden gebruikt om het opnieuw in te stellen de shard-toewijzing.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Een shard toevoegen aan de ShardMap nadat een shard is hersteld
 
-De [AttachShard methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) de opgegeven shard is gekoppeld aan de shard-toewijzing. Vervolgens shard map inconsistenties gedetecteerd en werkt de toewijzingen bij zodat deze overeenkomt met de shard op het moment van de shard-herstelbewerking. Ervan wordt uitgegaan dat de database ook aanleiding van de databasenaam van de oorspronkelijke (voordat de shard is hersteld), is gewijzigd sinds de herstelbewerking punt in tijd standaard ingesteld op een nieuwe database met de tijdstempel is toegevoegd.
+De [AttachShard methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) de opgegeven shard is gekoppeld aan de shard-toewijzing. Vervolgens shard map inconsistenties gedetecteerd en werkt de toewijzingen bij zodat deze overeenkomt met de shard op het moment van de shard-herstelbewerking. Ervan wordt uitgegaan dat de database ook aanleiding van de databasenaam van de oorspronkelijke (voordat de shard is hersteld), is gewijzigd sinds de herstelbewerking punt in tijd standaard ingesteld op een nieuwe database met de tijdstempel is toegevoegd.
 
    ```java
    rm.AttachShard(location, shardMapName)

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7d8bde6beeb4bd0c6234d7c5aa63be9e150953f5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427243"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188399"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Ondersteunde gegevensbronnen in Azure Analysis Services
 
@@ -85,7 +85,7 @@ Verbinding maken met on-premises gegevensbronnen van en Azure-AS-server moet een
 
 ## <a name="specifying-a-different-provider"></a>Een andere provider op te geven
 
-Gegevensmodellen in Azure Analysis Services mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen mogelijk modellen in tabelvorm verbinding maken met gegevensbronnen met behulp van systeemeigen providers, zoals SQL Server Native Client (SQLNCLI11) een fout geretourneerd. Als u systeemeigen providers dan SQLOLEDB, ziet u mogelijk het foutbericht: **de provider 'SQLNCLI11.1' is niet geregistreerd**. Of, als u een DirectQuery-model verbinding te maken met on-premises gegevensbronnen hebt en u systeemeigen providers gebruikt, ziet u mogelijk het foutbericht: **fout bij het maken van OLE DB-rijenset. Onjuiste syntaxis bij 'LIMIET'**.
+Gegevensmodellen in Azure Analysis Services mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen mogelijk modellen in tabelvorm verbinding maken met gegevensbronnen met behulp van systeemeigen providers, zoals SQL Server Native Client (SQLNCLI11) een fout geretourneerd. Als u systeemeigen providers dan SQLOLEDB, ziet u mogelijk een foutbericht weergegeven: **De provider 'SQLNCLI11.1' is niet geregistreerd**. Of, als u een DirectQuery-model verbinding te maken met on-premises gegevensbronnen hebt en u systeemeigen providers gebruikt, ziet u mogelijk foutbericht weergegeven: **Fout bij het maken van OLE DB-rij instellen. Onjuiste syntaxis bij 'LIMIET'**.
 
 Bij het migreren van een on-premises SQL Server Analysis Services tabellair model naar Azure Analysis Services, is het mogelijk nodig is om te wijzigen van de provider.
 

@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118299"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188893"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -278,7 +278,7 @@ Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
    > [!IMPORTANT]  
    > De AD FS MMC-module moet u de regels voor Uitgifteautorisatie configureren bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
 
-4. Wanneer u Internet Explorer of de Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
+4. Wanneer u Internet Explorer of de Microsoft Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
 
    > [!note]  
    > Deze stap is niet van toepassing wanneer u Windows Server 2012 of 2012 R2 AD FS. Is het veilig om deze opdracht overslaan en doorgaan met de integratie.

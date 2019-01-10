@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633705"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187521"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices beheren met PowerShell
 
@@ -22,11 +22,13 @@ Dit artikel beschrijft de PowerShell-cmdlets gebruikt voor het uitvoeren van Azu
 Server-beheertaken, zoals het maken of verwijderen van een server, onderbreken of hervatten van serverbewerkingen of wijzigen van het serviceniveau (laag) gebruikt u Azure Resource Manager (resource)-cmdlets en cmdlets voor Analysis Services (server). Andere taken voor het beheren van databases wilt toevoegen of verwijderen van leden van een rol, verwerkt of gebruikt u de cmdlets opgenomen in de dezelfde SQL Server-module als SQL Server Analysis Services partitioneren.
 
 ## <a name="permissions"></a>Machtigingen
-De meeste PowerShell-taken moet dat u beheerdersbevoegdheden hebben op de Analysis Services-server die u beheert. PowerShell-taken zijn zonder toezicht bewerkingen. Het account of service-principe uitvoering van de planner moet beheerdersbevoegdheden hebben op de Analysis Services-server. 
+
+De meeste PowerShell-taken moet dat u beheerdersbevoegdheden hebben op de Analysis Services-server die u beheert. PowerShell-taken zijn zonder toezicht bewerkingen. Het account of service-principal die de scheduler uitvoeren, moet beheerdersbevoegdheden hebben op de Analysis Services-server. 
 
 Voor serverbewerkingen met behulp van de AzureRm-cmdlets, uw account of de scheduler-account moet ook behoren tot de rol van eigenaar voor de resource in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Resource management-bewerkingen 
+
 Module - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|Description| 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: f1047d5ad17afbac55b5ea9215ce592d36918174
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f3192aafb6f19695bc99310dd980382510bc633b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042577"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188110"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Hulpmiddelen voor elastic database Veelgestelde vragen (FAQ)
 
@@ -39,7 +39,7 @@ Gebruik geen referenties in de vorm van ' gebruikers-ID =username@servername", g
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Moet ik een Shard-Toewijzingsbeheer maken en vullen van shards telkens wanneer ik mijn toepassingen
 
-Nee, het maken van de Shard-Toewijzingsbeheer (bijvoorbeeld [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)) is een eenmalige bewerking.  De aanroep moet in uw toepassing gebruiken [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) tijdens het opstarten van een toepassing.  Er moet slechts één aanroep per toepassingsdomein.
+Nee, het maken van de Shard-Toewijzingsbeheer (bijvoorbeeld [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) is een eenmalige bewerking.  De aanroep moet in uw toepassing gebruiken [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) tijdens het opstarten van een toepassing.  Er moet slechts één aanroep per toepassingsdomein.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Ik heb vragen over het gebruik van hulpmiddelen voor elastic database, hoe krijg ik deze laten beantwoorden
 

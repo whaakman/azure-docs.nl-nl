@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3adf0c9c2e2b264904e66b82716447d634aaeee7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 47223f22c797d892bc7cbdc0086439ee9cae9fcb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209646"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187719"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Een Power BI Desktop-bestand importeren
 
-U kunt een gegevensmodel in Power BI Desktop-bestand (pbix) importeren in Azure Analysis Services. Model metagegevens, gegevens in de cache en gegevensbronverbindingen worden geïmporteerd. Rapporten en visualisaties zijn niet geïmporteerd. Geïmporteerde gegevens modellen vanuit Power BI Desktop op het compatibiliteitsniveau 1400 zijn.
+U kunt een gegevensmodel in Power BI Desktop-bestand (pbix) importeren in Azure Analysis Services. Model metagegevens, gegevens in de cache en gegevensbronverbindingen worden geïmporteerd. Rapporten en visualisaties zijn niet geïmporteerd. Geïmporteerde gegevensmodellen vanuit Power BI Desktop zijn op het compatibiliteitsniveau 1400 en 1465.
 
 > [!IMPORTANT]
 > Deze functie is afgeschaft. Het kan worden verwijderd of aanzienlijk gewijzigd in een toekomstige update. Het verdient dat u stoppen met het gebruik van deze functie in nieuwe en bestaande projecten voor compatibiliteit met toekomstige updates. Voor meer geavanceerde model ontwikkelen en testen is het raadzaam het gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
 
-**Beperkingen**   
-
+## <a name="restrictions"></a>Beperkingen  
 
 - Als uw gegevensmodel wordt gemaakt in Power BI Desktop juli 2018 Update (2.60.5169.3201) of hoger, zorg ervoor dat er geen preview-functies zijn ingeschakeld. Preview-functies zijn nog niet ondersteund in Azure Analysis Services. Als u het volgende foutbericht krijgt bij het importeren, heeft het pbix-bestand preview-functies ingeschakeld die nog niet worden ondersteund in Azure Analysis Services.
 

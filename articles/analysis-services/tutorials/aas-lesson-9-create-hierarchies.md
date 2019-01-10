@@ -1,19 +1,19 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 9: Hiërarchieën maken | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 9: Hiërarchieën maken | Microsoft Docs'
 description: Beschrijft hoe u het maken van hiërarchieën in een tabellair model.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e6591dc25ab498b496f6abff1041e448240896d
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426043"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188960"
 ---
 # <a name="create-hierarchies"></a>Hiërarchieën maken
 
@@ -73,6 +73,6 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
     *  DayNumberOfWeek
   
  ## <a name="whats-next"></a>Volgende stappen
-[Les 10: Partities maken](../tutorials/aas-lesson-10-create-partitions.md). 
+[Les 10: Partities maken om](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

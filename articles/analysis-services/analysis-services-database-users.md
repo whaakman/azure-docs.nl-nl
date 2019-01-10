@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238876"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189793"
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
 
@@ -43,7 +43,7 @@ Wanneer u een project voor tabellair model maakt, kunt u rollen maken en gebruik
   
 4.  Selecteer een van de volgende machtigingen:  
   
-    |Machtiging|Beschrijving|  
+    |Machtiging|Description|  
     |----------------|-----------------|  
     |**Geen**|Leden kunnen het modelschema niet wijzigen en kunnen geen gegevens op te vragen.|  
     |**Lezen**|Leden kunnen gegevens (op basis van rijfilters) op te vragen, maar kunnen het modelschema niet wijzigen.|  
@@ -63,6 +63,7 @@ Wanneer u een project voor tabellair model maakt, kunt u rollen maken en gebruik
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Toevoegen of beheren van rollen en gebruikers in SSMS
+
 Rollen en gebruikers toevoegen aan een geïmplementeerd model-database, moet u worden verbonden met de server als serverbeheerder of heeft al een databaserol met beheerdersmachtigingen.
 
 1. Met de rechtermuisknop in Verkenner-Object, **rollen** > **nieuwe rol**.
@@ -70,7 +71,7 @@ Rollen en gebruikers toevoegen aan een geïmplementeerd model-database, moet u w
 2. In **rol maken**, voer een rolnaam en de beschrijving.
 
 3. Selecteer een machtiging.
-   |Machtiging|Beschrijving|  
+   |Machtiging|Description|  
    |----------------|-----------------|  
    |**Volledige bevoegdheid (beheerder)**|Leden kunnen wijzigen van het modelschema verwerken, en kunnen alle gegevens op te vragen.| 
    |**Proces-database**|Leden kunnen verwerken en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kan geen gegevens op te vragen.|  
@@ -83,6 +84,7 @@ Rollen en gebruikers toevoegen aan een geïmplementeerd model-database, moet u w
 5. Als de rol die u maakt, de machtiging lezen heeft, kunt u rijfilters toevoegen met behulp van een DAX-formule. Klik op **Row Filters**, selecteert u een tabel en typ vervolgens een DAX-formule in de **DAX Filter** veld. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Rollen en gebruikers toevoegen met behulp van een TMSL-scripts
+
 U kunt een TMSL-scripts uitvoeren in het XMLA-venster in SSMS of met behulp van PowerShell. Gebruik de [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) opdracht en de [rollen](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) object.
 
 **Voorbeeld van een script TMSL**
@@ -116,15 +118,17 @@ In dit voorbeeld wordt worden een externe B2B-gebruiker en een groep toegevoegd 
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Rollen en gebruikers toevoegen met behulp van PowerShell
+
 De [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) module biedt taakspecifieke database management-cmdlets en de algemene Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets worden gebruikt voor het beheren van databaserollen en gebruikers.
   
-|Cmdlet|Beschrijving|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Voeg RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lid toevoegen aan een databaserol.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Een lid verwijderen uit een databaserol.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Voer een TMSL-script.|
 
 ## <a name="row-filters"></a>Rijfilters  
+
 Rijfilters definiëren welke rijen in een tabel door leden van een bepaalde rol kunnen worden opgevraagd. Rijfilters zijn gedefinieerd voor elke tabel in een model met behulp van DAX-formules.  
   
 Rijfilters kunnen worden gedefinieerd alleen voor rollen met lees- en lezen en machtigingen voor proces. Standaard als een rijfilter is niet gedefinieerd voor een bepaalde tabel, leden kunnen een query alle rijen in de tabel, tenzij kruislings filteren is van toepassing van een andere tabel.
@@ -144,6 +148,7 @@ Rijfilters van toepassing op de opgegeven rijen en de gerelateerde rijen. Wannee
  U kunt het filter, *=FALSE()*, voor het weigeren van toegang tot alle rijen voor een hele tabel.
 
 ## <a name="next-steps"></a>Volgende stappen
+
   [Serverbeheerders beheren](analysis-services-server-admins.md)   
   [Azure analyseservices beheren met PowerShell](analysis-services-powershell.md)  
   [Tabellair Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

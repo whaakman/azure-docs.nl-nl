@@ -1,25 +1,25 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 2: Gegevens ophalen | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 2: Gegevens ophalen | Microsoft Docs'
 description: In deze les wordt beschreven hoe u gegevens ophaalt en importeert voor een tabellair model in Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6643d0851be1ad9d2827f51af3662a469020654c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427617"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189317"
 ---
 # <a name="get-data"></a>Gegevens ophalen
 
 In deze les gebruikt u Get Data in SSDT om verbinding te maken met de AdventureWorks-voorbeelddatabase, gegevens te selecteren, een voorbeeld van de gegevens te bekijken en ze te filteren, en ze ten slotte in uw modelwerkruimte te importeren.  
   
-Met behulp van Get Data kunt u gegevens importeren uit een groot aantal gegevensbronnen: Azure SQL Database, Oracle, Sybase, OData-Feed, Teradata, bestanden en meer. U kunt ook query's uitvoeren op gegevens met een formule-expressie van Power Query M.
+Met behulp van gegevens ophalen, kunt u gegevens importeren uit een groot aantal bronnen: Azure SQL-Database, Oracle, Sybase, OData-Feed, Teradata, bestanden en meer. U kunt ook query's uitvoeren op gegevens met een formule-expressie van Power Query M.
 
 > [!NOTE]
 > De taken en afbeeldingen in deze zelfstudie laten zien hoe u verbinding maakt met een AdventureWorksDW2014-database op een on-premises server. In sommige gevallen kan een AdventureWorks-database in Azure afwijken.
@@ -27,7 +27,7 @@ Met behulp van Get Data kunt u gegevens importeren uit een groot aantal gegevens
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 1: Een nieuw project voor een tabellair model maken](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 1: Maak een nieuw project voor tabellair model](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Een verbinding maken  
   
@@ -52,7 +52,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 5.  Selecteer in Navigator de database **AdventureWorksDW2014** en klik vervolgens op **OK**. Hiermee wordt de verbinding met de database tot stand gebracht. 
   
-6.  Selecteer in Navigator het selectievakje in voor de volgende tabellen: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**,  **DimProductCategory**, **DimProductSubcategory**, en **FactInternetSales**, en klik vervolgens op **bewerken**.
+6.  Selecteer in Navigator het selectievakje in voor de volgende tabellen: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**,  **DimProductSubcategory**, en **FactInternetSales**, en klik vervolgens op **bewerken**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
@@ -151,7 +151,7 @@ Het is belangrijk om uw modelproject vaak op te slaan.
 -   Klik op **File** > **Save All**.  
   
 ## <a name="whats-next"></a>Volgende stappen
-[Les 3: Als gegevenstabel markeren](../tutorials/aas-lesson-3-mark-as-date-table.md).
+[Les 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   
   

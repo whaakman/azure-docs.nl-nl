@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971304"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190898"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie en beheer Veelgestelde vragen voor Web-Apps in Azure
 
@@ -188,7 +188,7 @@ U hebt twee opties voor het vastleggen van een F12-tracering:
 3. Controleer de **netwerk** tabblad is geselecteerd en selecteer vervolgens de groene **afspelen** knop.
 4. Voer de stappen uit die het probleem te reproduceren.
 5. Selecteer de rode **stoppen** knop.
-6. Selecteer de **opslaan** knop (schijfpictogram van de) en sla het HAR-bestand (in Internet Explorer en Microsoft Edge) *of* met de rechtermuisknop op het HAR-bestand en selecteer vervolgens **opslaan als HAR met inhoud** (in Chrome).
+6. Selecteer de **opslaan** knop (schijfpictogram van de) en sla het HAR-bestand (in Internet Explorer en Microsoft Edge) *of* met de rechtermuisknop op het HAR-bestand en selecteer vervolgens **opslaan als HAR met inhoud**(in Chrome).
 
 ### <a name="f12-console-output"></a>F12 console-uitvoer
 

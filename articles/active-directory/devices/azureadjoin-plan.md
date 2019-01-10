@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b891995fab9e7def4b9b72f8bd8630d6b7e11d27
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023853"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189510"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -167,7 +167,7 @@ De volgende secties worden de overwegingen voor verschillende soorten toepassing
 
 ### <a name="cloud-based-applications"></a>Cloud-Apps
 
-Als een toepassing wordt toegevoegd aan Azure AD-app-galerie, krijgen gebruikers eenmalige aanmelding via Azure AD gekoppelde apparaten. Er is geen aanvullende configuratie vereist. Gebruikers krijgen eenmalige aanmelding op zowel, Edge en Chrome-browser. Voor Chrome, moet u implementeren de [Windows 10-Accounts extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Als een toepassing wordt toegevoegd aan Azure AD-app-galerie, krijgen gebruikers eenmalige aanmelding via Azure AD gekoppelde apparaten. Er is geen aanvullende configuratie vereist. Gebruikers krijgen eenmalige aanmelding op zowel, Microsoft Edge en Chrome-browser. Voor Chrome, moet u implementeren de [Windows 10-Accounts extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Alle Win32-toepassingen die:
 

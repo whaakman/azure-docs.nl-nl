@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e47dcda90682bd1f83dbb5fdc6a106f80853d2d0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0672fc06130ce58ae3155672c66ac06ae96bc7b9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424830"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190628"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: Veelgestelde vragen
 
 In dit artikel behandelen we Veelgestelde vragen over Azure Active Directory naadloze eenmalige aanmelding (naadloze eenmalige aanmelding). Voor nieuwe inhoud blijven controleren.
 
@@ -65,7 +65,7 @@ Ja. Naadloze eenmalige aanmelding ondersteunt `Alternate ID` als de gebruikersna
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Wat is het verschil tussen de ervaring voor eenmalige aanmelding verstrekt door [Azure AD Join](../active-directory-azureadjoin-overview.md) en naadloze eenmalige aanmelding?
 
-[Azure AD Join](../active-directory-azureadjoin-overview.md) biedt eenmalige aanmelding voor gebruikers als hun apparaten zijn geregistreerd bij Azure AD. Deze apparaten hoeven niet te worden van domein. Eenmalige aanmelding wordt geleverd met behulp van *primaire vernieuwingstokens* of *PRTs*, en niet Kerberos. De gebruikerservaring is optimale op Windows 10-apparaten. Eenmalige aanmelding wordt automatisch uitgevoerd op de Microsoft Edge-browser. Het werkt ook op Chrome met het gebruik van een browserextensie.
+[Azure AD Join](../active-directory-azureadjoin-overview.md) biedt eenmalige aanmelding voor gebruikers als hun apparaten zijn geregistreerd bij Azure AD. Deze apparaten hoeven niet te worden van domein. Eenmalige aanmelding wordt geleverd met behulp van *primaire vernieuwingstokens* of *PRTs*, en niet Kerberos. De gebruikerservaring is optimale op Windows 10-apparaten. Eenmalige aanmelding wordt automatisch uitgevoerd op de browser Microsoft Edge. Het werkt ook op Chrome met het gebruik van een browserextensie.
 
 U kunt Azure AD-aanmelding en naadloze eenmalige aanmelding gebruiken op uw tenant. Deze twee functies zijn aanvullende. Als beide functies zijn ingeschakeld, klikt u vervolgens voorrang eenmalige aanmelding van Azure AD Join boven naadloze eenmalige aanmelding.
 
@@ -107,7 +107,7 @@ Volg deze stappen op de on-premises server waarop Azure AD Connect:
 
 ### <a name="step-1-disable-the-feature-on-your-tenant"></a>Step 1. Schakel de functie op uw tenant
 
-#### <a name="option-a-disable-using-azure-ad-connect"></a>Optie A: uitschakelen met behulp van Azure AD Connect
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Optie A: Uitschakelen met behulp van Azure AD Connect
 
 1. Azure AD Connect uitvoeren, kiest u **gebruiker aanmelden pagina wijzigen** en klikt u op **volgende**.
 2. Schakel de **eenmalige aanmelding inschakelen** optie. Ga door met de wizard.
@@ -118,7 +118,7 @@ Nadat de wizard is voltooid, wordt de naadloze eenmalige aanmelding worden uitge
 
 Als u wilt de opschonen te voltooien, volgt u de stappen 2 en 3 op de on-premises server waarop Azure AD Connect.
 
-#### <a name="option-b-disable-using-powershell"></a>Optie B: uitschakelen met behulp van PowerShell
+#### <a name="option-b-disable-using-powershell"></a>Optie B: Uitschakelen met behulp van PowerShell
 
 Voer de volgende stappen uit op de on-premises server waarop Azure AD Connect:
 

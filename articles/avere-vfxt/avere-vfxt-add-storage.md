@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001959"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190818"
 ---
 # <a name="configure-storage"></a>Opslag configureren
 
@@ -38,7 +38,7 @@ Deze stappen gebruiken het Avere van het Configuratiescherm. Lezen [toegang tot 
 
 ## <a name="create-a-core-filer"></a>Maken van een filer core
 
-'Core filer' is een term vFXT voor een systeem voor back-end-opslag. De opslag kan een hardware-NAS-apparaat, zoals NetApp of Isilon, of een archief-object in de cloud kan zijn. Meer informatie over core filter kan worden gevonden [cluster in de Avere instellingen handleiding](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+'Core filer' is een term vFXT voor een systeem voor back-end-opslag. De opslag kan een hardware-NAS-apparaat, zoals NetApp of Isilon, of een archief-object in de cloud kan zijn. Meer informatie over core filter kan worden gevonden [cluster in de Avere instellingen handleiding](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Als u wilt toevoegen een filer core, kies een van de twee belangrijkste querytypen core filter:
 
@@ -70,7 +70,7 @@ De volgende stappen uit toevoegen een NAS core filer:
   
    * Klik op **volgende** en kiest u een cache-beleid. 
    * Klik op **Filer toevoegen**.
-   * Raadpleeg voor meer informatie gedetailleerde, [filer toe te voegen een nieuwe NAS core](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) cluster in de Avere instellingen handleiding.
+   * Raadpleeg voor meer informatie gedetailleerde, [filer toe te voegen een nieuwe NAS core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) cluster in de Avere instellingen handleiding.
 
 Vervolgens gaat u verder met [maken van een verbinding](#create-a-junction).  
 
@@ -133,7 +133,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
    | Abonnement | abonnements-ID |
    | Toegangssleutel voor opslag | Azure storage-accountsleutel (in de vorige stap hebt gekopieerd) | 
 
-   Klik op **indienen**.
+   Klik op **Submit**
 
    ![Cloud-referentie-formulier in het Configuratiescherm Avere voltooid](media/avere-vfxt-new-credential-submit.png)
 
@@ -151,12 +151,12 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
    * Stel **Bucket inhoud** naar **leeg zijn**
    * Wijziging **certificaatverificatie** naar **uitgeschakeld**
    * Wijziging **compressiemethode** naar **None**  
-   * Klik op **Volgende**.
+   * Klik op **volgende**.
    * Geef op de vierde pagina, de naam van de container in **Bucketnaam** als *storage_account_name*/*container_name*.
    * (Optioneel) Stel **versleutelingstype** naar **geen**.  Azure Storage is standaard versleuteld.
    * Klik op **Filer toevoegen**.
 
-  Lees voor meer informatie gedetailleerde, [toe te voegen een nieuwe cloud core filer](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) in de handleiding voor Avere cluster. 
+  Lees voor meer informatie gedetailleerde, [toe te voegen een nieuwe cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in de handleiding voor Avere cluster. 
 
 De pagina wordt vernieuwd, of u kunt de pagina om uw nieuwe core filer weer te vernieuwen.
 
@@ -168,7 +168,7 @@ Een verbinding is een pad dat u voor clients maakt. Clients koppelen van het pad
 
 Bijvoorbeeld, kunt u `/avere/files` om toe te wijzen om uw core NetApp filer `/vol0/data` exporteren en de `/project/resources` submap.
 
-Meer informatie over koppelingen vindt u de [naamruimte-sectie van de handleiding voor cluster Avere](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Meer informatie over koppelingen vindt u de [naamruimte-sectie van de handleiding voor cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Volg deze stappen in de interface Avere Configuratiescherm-instellingen:
 
@@ -176,7 +176,7 @@ Volg deze stappen in de interface Avere Configuratiescherm-instellingen:
 * Geef een naamruimte pad begint met / (schuine streep), bijvoorbeeld ``/avere/data``.
 * Kies uw filer core.
 * Kies de core filer exporteren.
-* Klik op **Volgende**.
+* Klik op **volgende**.
 
   ![Schermafbeelding van de pagina 'Nieuwe verbinding toevoegen' met de velden voor de verbinding, core filer en export is voltooid](media/avere-vfxt-add-junction.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services-taken automatiseren met service-principals | Microsoft Docs
-description: Informatie over het maken van service beginselen voor het automatiseren van Azure Analysis Services-taken.
+description: Informatie over het maken van service-principals voor het automatiseren van Azure Analysis Services-taken.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2acf39a7537d25b05999b7b2813fa66d7f778724
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 47800ce467beb43c514e5e5474247d8c2029feff
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995807"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188229"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering met service-principals
 

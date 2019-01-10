@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428416"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191357"
 ---
 # <a name="authentication-and-user-permissions"></a>Verificatie en gebruikersmachtigingen
+
 Azure Analysis Services gebruikt Azure Active Directory (Azure AD) voor beheer en verificatie. Een gebruiker maken, beheren of verbinding maken met een Azure Analysis Services server moet een geldige gebruikers-id een [Azure AD-tenant](../active-directory/fundamentals/active-directory-administer.md) in hetzelfde abonnement.
 
 Azure Analysis Services ondersteunt [Azure AD B2B-samenwerking](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Met B2B, kunnen gebruikers van buiten een organisatie worden uitgenodigd als gastgebruikers ook kunnen in een Azure AD-directory. Gasten kunnen afkomstig zijn uit een andere Azure AD-tenant-directory of een geldig e-mailadres. Eenmaal uitgenodigd en de gebruiker de voorwaarden accepteert de uitnodiging per e-mail verzonden van Azure, de gebruikers-id wordt toegevoegd aan de tenant-directory. Deze identiteiten kunnen worden toegevoegd aan beveiligingsgroepen, of als leden van een beheerder of de database van een serverfunctie.
@@ -23,6 +24,7 @@ Azure Analysis Services ondersteunt [Azure AD B2B-samenwerking](../active-direct
 ![Azure Analysis Services-authenticatie-architectuur](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Verificatie
+
 Alle client-toepassingen en hulpprogramma's gebruiken een of meer van de Analysis Services [clientbibliotheken](analysis-services-data-providers.md) (AMO, MSOLAP, ADOMD) verbinding maken met een server. 
 
 Alle drie deze clientbibliotheken ondersteuning voor Azure AD interactieve stroom en niet-interactieve verificatiemethoden. De twee methoden voor het niet-interactieve, de Active Directory-wachtwoord en de Active Directory Integrated Authentication methoden kunnen worden gebruikt in toepassingen die gebruikmaken van AMOMD en MSOLAP. Deze twee methoden worden nooit pop-dialoogvensters leiden.
@@ -36,6 +38,7 @@ Power BI Desktop, SSDT en SSMS ondersteuning voor universele verificatie van Act
 Als ze zich aanmelden bij Azure met behulp van een Windows-account en universele authenticatie niet is ingeschakeld of beschikbaar (Excel), [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) is vereist. Met Federatie, Azure AD en Office 365-gebruikers worden geverifieerd met behulp van on-premises referenties en toegang tot Azure-resources.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
+
 Azure Analysis Services-servers ondersteunen verbindingen van [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en hoger met behulp van Windows-verificatie, wachtwoordverificatie voor Active Directory en Active Directory universele authenticatie. In het algemeen wordt aangeraden dat u Active Directory universele authenticatie gebruiken, omdat:
 
 *  Biedt ondersteuning voor interactieve en niet-interactieve verificatiemethoden.
@@ -45,12 +48,15 @@ Azure Analysis Services-servers ondersteunen verbindingen van [SSMS V17.1](https
 *  Biedt ondersteuning voor multi-factor Authentication (MFA). Azure MFA helpt beveiligen de toegang tot gegevens en toepassingen met een scala aan opties voor verificatie: telefoonoproep, SMS-bericht, smartcards en pincode of mobiele app-meldingen. Interactieve MFA met Azure AD kan resulteren in een pop-updialoogvenster voor validatie.
 
 ### <a name="sql-server-data-tools-ssdt"></a>SQL Server Data Tools (SSDT)
+
 SSDT maakt verbinding met Azure Analysis Services met behulp van Active Directory universele authenticatie met ondersteuning voor MFA. Gebruikers wordt gevraagd om u te melden bij Azure bij de eerste implementatie. Gebruikers moeten zich aanmelden bij Azure met een account met machtigingen voor serverbeheerders op de server die ze implementeert. Aan te melden bij Azure de eerste keer, is een token toegewezen. SSDT slaat de token in het geheugen voor toekomstige aantal hersteld.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
+
 Power BI Desktop maakt verbinding met Azure Analysis Services met behulp van Active Directory universele authenticatie met ondersteuning voor MFA. Gebruikers wordt gevraagd om u te melden bij Azure op de eerste verbinding. Gebruikers moeten aanmelden bij Azure met een account dat is opgenomen in een serverbeheerder of een databaserol.
 
 ### <a name="excel"></a>Excel
+
 Excel-gebruikers kunnen verbinding maken met een server met behulp van een Windows-account, een organisatie-ID (e-mailadres) of een externe e-mailadres. Externe e-id's moeten zich in de Azure AD als een gastgebruiker.
 
 ## <a name="user-permissions"></a>Gebruikersmachtigingen
@@ -65,15 +71,12 @@ Excel-gebruikers kunnen verbinding maken met een server met behulp van een Windo
 
 Rollen op dit niveau van toepassing op gebruikers of accounts die u nodig hebt om uit te voeren taken die kunnen worden uitgevoerd in de portal of met behulp van Azure Resource Manager-sjablonen. Zie voor meer informatie, [Role-Based Access Control](../role-based-access-control/overview.md). 
 
-
 ## <a name="database-roles"></a>Databaserollen
 
  Rollen die zijn gedefinieerd voor een model in tabelvorm zijn databaserollen. Dat wil zeggen, de rollen bevatten leden die bestaat uit een Azure AD-gebruikers en beveiligingsgroepen waarop specifieke machtigingen die de actie definiëren die leden kunnen worden uitgevoerd op een modeldatabase. Een databaserol wordt gemaakt als een afzonderlijk object in de database en is alleen van toepassing op de database waarin die rol is gemaakt.   
   
  Standaard, wanneer u een nieuw project voor tabellair model maakt heeft het project voor een model geen rollen. Rollen kunnen worden gedefinieerd met behulp van het dialoogvenster Role Manager in SSDT. Wanneer er rollen zijn gedefinieerd tijdens het ontwerpen van model-project, worden ze alleen toegepast op de werkruimtedatabase model. Wanneer het model is geïmplementeerd, wordt dezelfde rollen worden toegepast op de geïmplementeerd model. Nadat een model is geïmplementeerd, server en databasebeheerders kunnen rollen en leden beheren met behulp van SSMS. Zie voor meer informatie, [databaserollen en gebruikers beheren](analysis-services-database-users.md).
   
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
 [Toegang tot resources beheren met Azure Active Directory-groepen](../active-directory/fundamentals/active-directory-manage-groups.md)   

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d727c9c3a9add701263e799dba778b37e637adef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194280"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191918"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archief voor de wat is er nieuw? in Azure Active Directory
 
@@ -438,7 +438,7 @@ Zie voor meer informatie:
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** App-proxy  
-**Product-mogelijkheid:** Access Control
+**Product-mogelijkheid:** Toegangsbeheer
  
 Ondersteuning voor toepassingsproxy-cmdlets is nu in de Powershell-Module voor algemene beschikbaarheid. Dit vereist dat u op de hoogte te blijven van Powershell-modules - als u meer dan een jaar achter, sommige cmdlets worden mogelijk niet meer werken. 
 

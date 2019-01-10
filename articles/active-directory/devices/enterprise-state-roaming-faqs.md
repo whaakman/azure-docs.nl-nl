@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247293"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189385"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
 In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk over de instellingen en app-gegevens synchroniseren.
@@ -37,7 +37,7 @@ In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk ov
 * *Gebruiksgemak toegangsfuncties*, zoals thema met hoog contrast en Narrator, Vergrootglas.
 * *Andere Windows-instellingen*, zoals muisinstellingen.
 
-**Toepassingsgegevens**: universele Windows-apps instellingsgegevens naar een map voor zwervende schrijft en alle gegevens die naar deze map geschreven automatisch worden gesynchroniseerd. Het is aan de afzonderlijke app-ontwikkelaar een app om te profiteren van deze mogelijkheid te ontwerpen. Zie voor meer informatie over het ontwikkelen van een universele Windows-app die gebruikmaakt van roaming, het [appdata-API van storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) en de [Windows 8 appdata roaming ontwikkelaarsblog](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Toepassingsgegevens**: Universele Windows-apps instellingsgegevens naar een map voor zwervende schrijft en alle gegevens die naar deze map geschreven automatisch worden gesynchroniseerd. Het is aan de afzonderlijke app-ontwikkelaar een app om te profiteren van deze mogelijkheid te ontwerpen. Zie voor meer informatie over het ontwikkelen van een universele Windows-app die gebruikmaakt van roaming, het [appdata-API van storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) en de [Windows 8 appdata roaming ontwikkelaarsblog](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Welk account wordt gebruikt voor synchronisatie van instellingen?
 In Windows 8.1, instellingen synchroniseren is altijd gebruikt voor consumenten-Microsoft-accounts. Zakelijke gebruikers heeft de mogelijkheid om te verbinden met hun Active Directory-domeinaccount toegang te krijgen tot de synchronisatie van instellingen voor een Microsoft-account. In Windows 10 verbonden deze functionaliteit wordt vervangen met een primaire/secundaire account-framework voor Microsoft-account.
@@ -63,7 +63,7 @@ Als u lid zijn van Active Directory-domein met Windows 8.1 met een Microsoft-acc
 
 Als de on-premises Active Directory-domein maakt verbinding met Azure AD, uw apparaat probeert te synchroniseren met behulp van de gekoppelde instellingen Azure AD-account. Als de Azure AD-beheerder is niet ingeschakeld voor het Enterprise State Roaming, het verbonden Azure AD-account wordt stoppen van de synchronisatie van instellingen. Als u een Windows 10-gebruiker bent en u zich aanmelden met een Azure AD-identiteit, begint u windows-instellingen synchroniseren zodra de beheerder kan instellingen synchroniseren via Azure AD.
 
-Als u geen persoonlijke gegevens op uw zakelijke apparaat opgeslagen, moet u rekening mee dat Windows-besturingssysteem en toepassing zullen worden gesynchroniseerd met Azure AD. Dit heeft gevolgen voor de volgende:
+Als u geen persoonlijke gegevens op uw zakelijke apparaat opgeslagen, moet u rekening mee dat Windows-besturingssysteem en toepassing zullen worden gesynchroniseerd met Azure AD. Dit heeft de volgende implicaties:
 
 * De instellingen van uw persoonlijke Microsoft-account wordt drift naast de instellingen op uw werk- of schoolaccount van Azure AD-accounts. Dit komt doordat de Microsoft-account en Azure AD-instellingen synchroniseren nu verschillende accounts gebruikt.
 * Persoonlijke gegevens, zoals Wi-Fi-wachtwoorden, web-referenties en Favorieten in Internet Explorer die eerder zijn gesynchroniseerd via een gekoppelde Microsoft-account worden via Azure AD gesynchroniseerd.

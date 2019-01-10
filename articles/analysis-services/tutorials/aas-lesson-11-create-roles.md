@@ -1,23 +1,23 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 11: Rollen maken | Microsoft Docs'
+title: 'Azure Analysis Services-zelfstudie-les 11: Rollen maken | Microsoft Docs'
 description: In deze les wordt beschreven hoe u rollen maakt in de zelfstudie over Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428898"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189742"
 ---
 # <a name="create-roles"></a>Rollen maken
 
-In deze les gaat u rollen maken. Rollen bieden beveiliging van modeldatabase-objecten en gegevens door de toegang te beperken tot alleen gebruikers waaraan de rol is toegewezen. Elke rol is gekoppeld aan één machtiging: None, Read, Read and Process, Process of Administrator. Rollen kunnen tijdens de ontwerpfase van het model worden gedefinieerd met behulp van Role Manager. Nadat een model is geïmplementeerd, kunt u rollen beheren met behulp van SQL Server Management Studio (SSMS). Zie [Rollen](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular) voor meer informatie.
+In deze les gaat u rollen maken. Rollen bieden beveiliging van modeldatabase-objecten en gegevens door de toegang te beperken tot alleen gebruikers waaraan de rol is toegewezen. Elke rol is gekoppeld aan één machtiging: None, lezen, lezen en proces, Process of Administrator. Rollen kunnen tijdens de ontwerpfase van het model worden gedefinieerd met behulp van Role Manager. Nadat een model is geïmplementeerd, kunt u rollen beheren met behulp van SQL Server Management Studio (SSMS). Zie [Rollen](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular) voor meer informatie.
   
 > [!NOTE]  
 > Het maken van rollen is geen vereiste om deze zelfstudie te voltooien. De standaardinstelling is dat het account waarmee u bent aangemeld, beheerdersbevoegdheden heeft voor het model. Als andere gebruikers in uw organisatie echter de mogelijkheid moeten hebben om het model te raadplegen met behulp van een rapportageclient, moet u ten minste één rol maken met de machtiging Read en die rol toewijzen aan de gebruikers.  
@@ -30,12 +30,12 @@ U gaat drie rollen maken:
   
 -   **Administrator**: deze rol kan worden toegewezen aan gebruikers die u de machtiging Administrator wilt geven, waarmee ze onbeperkte toegang en machtigingen krijgen voor het uitvoeren van beheertaken voor de modeldatabase.  
   
-Omdat gebruikers- en groepsaccounts van Windows uniek zijn binnen uw organisatie, kunt u accounts van uw organisatie toevoegen aan leden. Voor deze zelfstudie kunt u de leden echter ook leeg laten. U gaat het effect van elke rol later testen, in Les 12: Analyseren in Excel.  
+Omdat gebruikers- en groepsaccounts van Windows uniek zijn binnen uw organisatie, kunt u accounts van uw organisatie toevoegen aan leden. Voor deze zelfstudie kunt u de leden echter ook leeg laten. U test het effect van elke rol later in les 12: Analyseren in Excel.  
   
 Geschatte tijd voor het voltooien van deze les: **15 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 10: Partities maken](../tutorials/aas-lesson-10-create-partitions.md).  
+Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 10: Partities maken om](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Rollen maken  
   

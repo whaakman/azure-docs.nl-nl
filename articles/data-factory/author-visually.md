@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/7/2018
+ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: afaa5ae622f962dcffec52dbdbea8a754ba260ab
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025382"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188491"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -76,17 +76,17 @@ Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de
 
 ![Configureer de instellingen van de opslagplaats code voor het ontwerpen van UX](media/author-visually/configure-repo-2.png)
 
-## <a name="use-a-different-azure-active-directory-tenant"></a>Gebruik een andere Azure Active Directory-tenant
+### <a name="use-a-different-azure-active-directory-tenant"></a>Gebruik een andere Azure Active Directory-tenant
 
 U kunt een Azure-opslagplaatsen Git-repo maken in een andere Azure Active Directory-tenant. Om op te geven van een andere Azure AD-tenant die u hebt beheerdersmachtigingen voor de Azure-abonnement dat u gebruikt.
 
-## <a name="use-your-personal-microsoft-account"></a>Gebruik uw persoonlijke Microsoft-account
+### <a name="use-your-personal-microsoft-account"></a>Gebruik uw persoonlijke Microsoft-account
 
 Als u wilt gebruiken een persoonlijk Microsoft-account voor Git-integratie, kunt u uw persoonlijke Azure-opslagplaats kunt koppelen aan de Active Directory van uw organisatie.
 
 1. Uw persoonlijke Microsoft-account toevoegen aan Active Directory van uw organisatie als gast. Zie voor meer informatie, [gebruikers toevoegen Azure Active Directory B2B-samenwerking in Azure portal](../active-directory/b2b/add-users-administrator.md).
 
-2. Meld u aan bij de Azure Portal met uw persoonlijke Microsoft-account. Ga vervolgens naar de Active Directory van uw organisatie.
+2. Meld u aan bij Azure portal aan met uw persoonlijke Microsoft-account. Ga vervolgens naar de Active Directory van uw organisatie.
 
 3. Ga naar de sectie Azure DevOps, waar u uw persoonlijke opslagplaats nu zien. Selecteer de opslagplaats en maak verbinding met Active Directory.
 
@@ -94,7 +94,7 @@ Na deze configuratiestappen, uw persoonlijke opslagplaats is beschikbaar bij het
 
 Zie voor meer informatie over verbinding maken met Azure-opslagplaatsen van uw organisatie Active Directory [verbinding maken met uw organisatie Azure DevOps met Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## <a name="switch-to-a-different-git-repo"></a>Schakel over naar een andere Git-opslagplaats
+### <a name="switch-to-a-different-git-repo"></a>Schakel over naar een andere Git-opslagplaats
 
 Als u wilt overschakelen naar een andere Git-opslagplaats, zoekt u het pictogram in de rechterbovenhoek van de overzichtspagina van Data Factory, zoals wordt weergegeven in de volgende schermafbeelding. Als u het pictogram niet ziet, moet u de cache van uw lokale browser wissen. Selecteer het pictogram op de koppeling met de huidige opslagplaats verwijderen.
 
@@ -102,7 +102,7 @@ Nadat u de koppeling met de huidige opslagplaats hebt verwijderd, kunt u uw Git-
 
 ![Verwijder de koppeling met de huidige Git-opslagplaats](media/author-visually/remove-repo.png)
 
-## <a name="use-version-control"></a>Versiebeheer gebruiken
+### <a name="use-version-control"></a>Versiebeheer gebruiken
 Versiebeheersystemen (ook wel bekend als _broncodebeheer_) kunnen ontwikkelaars samenwerken aan code en wijzigingen bijhouden die worden aangebracht in de code basis. Broncodebeheer is een essentieel hulpprogramma voor ontwikkelaars op meerdere projecten.
 
 Elke Azure-opslagplaatsen Git-opslagplaats die is gekoppeld aan een data factory is een vertakking samenwerking. (`master` de standaardvertakking samenwerking is). Gebruikers kunnen ook functie vertakkingen maken door te klikken op **+ nieuwe vertakking** en ontwikkeling in de functie vertakkingen.
@@ -113,7 +113,7 @@ Wanneer u klaar met het ontwikkelen van functies in uw vertakking functie bent, 
 
 ![Maak een nieuwe pull-aanvraag](media/author-visually/create-pull-request.png)
 
-## <a name="configure-publishing-settings"></a>Publicatie-instellingen configureren
+### <a name="configure-publishing-settings"></a>Publicatie-instellingen configureren
 
 Het configureren van de vertakking publiceren - dat wil zeggen, de vertakking waar de Resource Manager-sjablonen worden opgeslagen - toevoegen een `publish_config.json` bestand naar de hoofdmap van de vertakking samenwerking. Data Factory wordt dit bestand wordt gelezen, zoekt het veld `publishBranch`, en maakt u een nieuwe vertakking (als deze nog niet bestaat) met de opgegeven waarde. Vervolgens worden alle Resource Manager-sjablonen voor de opgegeven locatie opgeslagen. Bijvoorbeeld:
 
@@ -131,13 +131,39 @@ Wanneer u een nieuwe vertakking voor publiceren opgeeft, niet de vorige publicer
 
 Data Factory leest alleen de `publish_config.json` wanneer de factory worden geladen. Als u al de fabriek die is geladen in de portal hebt, vernieuw de browser om de wijzigingen van kracht.
 
-## <a name="publish-code-changes"></a>Codewijzigingen publiceren
+### <a name="publish-code-changes"></a>Codewijzigingen publiceren
 Nadat u wijzigingen in de vertakking samenwerking zijn samengevoegd (`master` is de standaardinstelling), selecteer **publiceren** handmatig uw codewijzigingen publiceren in de master-vertakking naar de Data Factory-service.
 
 ![Wijzigingen publiceren naar de Data Factory-service](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > De master-vertakking heeft geen betrekking op wat wordt geïmplementeerd in de Data Factory-service. De master-vertakking *moet* handmatig worden gepubliceerd naar de Data Factory-service.
+
+### <a name="advantages-of-git-integration"></a>Voordelen van Git-integratie
+
+-   **Besturingselement voor de gegevensbron**. Als uw data factory-workloads cruciaal, wilt u uw factory integreren met Git gebruikmaken van verschillende source control voordelen als volgt uit:
+    -   De mogelijkheid om wijzigingen bijhouden/audit.
+    -   De mogelijkheid om terug te zetten van wijzigingen die fouten die zijn geïntroduceerd.
+-   **Gedeeltelijke slaat**. Wanneer u veel wijzigingen in de fabriek aanbrengt, ontdekt u dat in de normale modus van de LIVE u uw wijzigingen niet opslaan als concept, omdat u niet klaar bent, of u niet dat uw wijzigingen gaan verloren wilt als de computer vastloopt. Met Git-integratie, kunt u doorgaan met het stapsgewijs uw wijzigingen opslaan en publiceren naar de factory, alleen wanneer u klaar bent. GIT fungeert als een tijdelijke locatie voor uw werk, totdat u uw wijzigingen naar uw tevredenheid hebt getest.
+-   **Samenwerking en controle**. Als u meerdere teamleden uw deelname aan de dezelfde factory hebt, kunt u kunt uw teamleden die samenwerken met elkaar via het proces voor een code. U kunt ook uw factory instellen dat niet alle bijdragen leveren aan de factory is gemachtigd om te implementeren voor de factory. Teamleden kunnen alleen worden toegestaan aanbrengen via Git, maar alleen bepaalde personen in het team mogen 'Publiceren' de wijzigingen in de fabriek.
+-   **Verschillen met**. In de Git-modus, krijgt u om te zien van een mooie diff van de nettolading die draait om te publiceren naar de factory. Deze vergelijking ziet u alle resources/entiteiten die is gewijzigd of toegevoegd/verwijderd sinds de laatste keer dat u gepubliceerd naar uw gegevensfactory. Op basis van deze diff, u kunt doorgaan met publiceren, verder of gaat u terug en wijzigingen controleren en vervolgens het later opnieuw.
+-   **CI/CD voor een betere**. Als u Git-modus gebruikt, kunt u de release-pijplijn voor het automatisch wordt geactiveerd zodra er zijn wijzigingen aangebracht in de fabriek dev configureren. Ook krijgt u de eigenschappen in de fabriek die beschikbaar als parameters in de Resource Manager-sjabloon zijn aanpassen. Kan het nuttig zijn om te blijven alleen de vereiste set eigenschappen als parameters en hebt alles wat anders harde code vastgelegd.
+-   **Betere prestaties**. Een gemiddelde factory laadt 10 x keer sneller in de Git-modus dan in de normale modus LIVE, omdat de resources worden gedownload via Git.
+
+### <a name="best-practices-for-git-integration"></a>Aanbevolen procedures voor Git-integratie
+
+-   **Machtigingen**. Normaal gesproken wilt u niet dat alle teamleden zijn met machtigingen voor het bijwerken van de factory.
+    -   Alle teamleden moeten leesmachtigingen hebben voor de data factory.
+    -   Een speciale set gebruikers moet worden toegestaan om te publiceren naar de factory, en voor dat ze moeten deel uitmaken van de rol "Inzender Data Factory" in de fabriek.
+    -   Een van de goede procedures die u van broncodebeheer is ook niet toe dat rechtstreeks inchecken in de vertakking samenwerking. Deze vereiste voorkomt u dat fouten wanneer elke check-in niet via een Pull-aanvraag.
+-   **Schakelen tussen modi**.
+    -    Wanneer u in de Git-modus bent, raden geen we u om over te schakelen en weer in de livemodus, vooral omdat alle wijzigingen die zijn aangebracht in de livemodus, is niet zichtbaar wanneer u gaat u terug naar Git. Probeer de wijzigingen aanbrengen in de Git-modus zelf en ze vervolgens te publiceren via de gebruikersinterface.
+    -   Op dezelfde manier gebruik niet een powershell-cmdlets voor Data factory, omdat ze hetzelfde resultaat bereiken door het toepassen van de opgegeven wijzigingen rechtstreeks aan de live factory.
+-   **Gebruik wachtwoorden van Azure Key Vault**.
+    -   Het is raadzaam AzureKeyVault gebruiken voor het opslaan van alle tekenreeksen voor databaseverbindingen of wachtwoorden met Data Factory, gekoppelde Services.
+    -   Slaan we geen dergelijke geheime informatie in Git (om veiligheidsredenen), dus wijzigingen in de gekoppelde Services meteen aan de live factory worden gepubliceerd. Deze direct publiceren soms niet gewenst is, zoals de wijzigingen niet hebt verkregen getest kunnen, die het doel van Git defeats.
+    -   Als gevolg hiervan moeten alle deze geheime gegevens worden opgehaald uit gekoppelde Services die gebruikmaken van Azure Key Vault is gebaseerd.
+    -   Enkele van de andere voordelen van het gebruik van Key Vault, is dat deze gemakkelijker CICD, door het verstrekken van deze geheime gegevens tijdens de Resource Manager sjabloonimplementatie niet maken.
 
 ## <a name="author-with-github-integration"></a>Ontwerpen met GitHub-integratie
 
