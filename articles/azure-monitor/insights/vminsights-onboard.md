@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor voor het voorbeeld van de VM's implementeren | Microsoft Docs
+title: Azure Monitor implementeren voor virtuele machines (preview) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u implementeren en configureren van Azure Monitor voor virtuele machines, zodat u kunt informatie over hoe de gedistribueerde toepassing wordt uitgevoerd en welke status problemen zijn geïdentificeerd.
 services: azure-monitor
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 3d408c2a2f9de69d8a12a394df68acff8f3d0bf7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3c1caa2485437768781ada2c7271445ccd3c19e1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121649"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190321"
 ---
-# <a name="deploy-azure-monitor-for-vms-preview"></a>Azure Monitor voor het voorbeeld van de virtuele machines implementeren
-In dit artikel wordt beschreven hoe u Azure Monitor instellen voor VM's. De service controleert de status van het besturingssysteem van uw Azure virtual machines (VM's) en virtuele-machineschaalsets en de virtuele machines in uw omgeving. Deze bewaking bevat de detectie en toewijzing van afhankelijkheden voor toepassingen die op deze kan worden gehost.
+# <a name="deploy-azure-monitor-for-vms-preview"></a>Azure Monitor implementeren voor virtuele machines (preview)
+In dit artikel wordt beschreven hoe u Azure Monitor instellen voor VM's. De service controleert de status van het besturingssysteem van uw Azure virtual machines (VM's) en virtuele-machineschaalsets en de virtuele machines in uw omgeving. Deze bewaking bevat de detectie en toewijzing van afhankelijkheden voor toepassingen die op deze kan worden gehost. 
 
 U kunt Azure Monitor inschakelen voor virtuele machines met behulp van een van de volgende methoden:
 

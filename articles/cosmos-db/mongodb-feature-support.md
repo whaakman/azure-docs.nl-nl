@@ -1,19 +1,18 @@
 ---
 title: De API van Azure Cosmos DB gebruiken voor ondersteuning van de MongoDB-functie
 description: Meer informatie over de functieondersteuning die de API van Azure Cosmos DB biedt voor MongoDB 3.4.
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: bb25cf6ed60317dd5d7266e2f4750c2bb9f4859d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790280"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039160"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>De API van Azure Cosmos DB voor MongoDB-ondersteuning voor MongoDB-functies en syntaxis
 
@@ -334,8 +333,8 @@ Cosmos DB biedt ondersteuning voor automatische sharding aan serverzijde. Cosmos
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [gebruik van Studio 3T](mongodb-mongochef.md) met de API van Azure Cosmos DB voor MongoDB.
-- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met de API van Azure Cosmos DB voor MongoDB.
+- Meer informatie over het [gebruik van Studio 3T](mongodb-mongochef.md) met de API voor MongoDB van Azure Cosmos DB.
+- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met de API voor MongoDB van Azure Cosmos DB.
 - Verken [voorbeelden](mongodb-samples.md) van MongoDB met de API van Azure Cosmos DB voor MongoDB.
 
 <sup>Opmerking: In dit artikel wordt een functie van Azure Cosmos DB beschreven waarmee compatibiliteit met wire-protocollen met MongoDB-databases kan worden geboden. MongoDB-databases worden niet door Microsoft uitgevoerd om deze service te kunnen leveren. Azure Cosmos DB is niet verbonden aan MongoDB, Inc.</sup>

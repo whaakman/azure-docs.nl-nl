@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 30eb458b9d0584b467479163d8312d7bd5456be1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409731"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157325"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -651,7 +651,7 @@ Voorbeelden zijn beschikbaar voor de volgende patronen van de client-flow-verifi
 U kunt de Active Directory Authentication Library (ADAL) te initiëren gebruikersverificatie van de client met behulp van Azure Active Directory-verificatie gebruiken.
 
 1. Uw mobiele app back-end voor AAD-aanmelding configureren door de [App Service configureren voor Active Directory-aanmelding] zelfstudie. Zorg ervoor dat u de optionele stap voor het registreren van een systeemeigen clienttoepassing.
-2. Open uw project in Visual Studio of Xamarin Studio, en voeg een verwijzing naar de `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet-pakket. Wanneer u zoekt, neemt u voorlopige versies.
+2. Open uw project in Visual Studio of Xamarin Studio, en voeg een verwijzing naar de `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet-pakket. Wanneer u zoekt, neemt u voorlopige versies.
 3. Voeg de volgende code aan uw toepassing, op basis van het platform dat u gebruikt. In elk, moet u de volgende vervangingen:
 
    * Vervang **INSERT-instantie-HERE** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com. Deze waarde kan worden gekopieerd vanaf het tabblad domein in uw Azure Active Directory in de [Azure Portal].

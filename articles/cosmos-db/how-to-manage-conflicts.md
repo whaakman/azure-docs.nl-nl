@@ -1,18 +1,17 @@
 ---
 title: Informatie over het beheren van conflicten tussen regio’s in Azure Cosmos DB
 description: Informatie over het beheren van conflicten in Azure Cosmos DB
-services: cosmos-db
 author: christopheranderson
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 83785e532523c3e921b0772ddaa50502b2dc867d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1f06b27868547dd448e3da547dd61b861db913d2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633789"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034774"
 ---
 # <a name="manage-conflicts-between-regions"></a>Conflicten tussen regio 's beheren
 

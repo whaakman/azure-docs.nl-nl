@@ -28,6 +28,7 @@
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Resource Manager-sjabloon](/azure/templates/microsoft.datacatalog/catalogs)
 ## [Naslaginformatie over zoeksyntaxis](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Concepten van ontwikkelaars](data-catalog-developer-concepts.md)
 
