@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 38f15acd16acca2edd558a36ba434a1b0ab045fb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634004"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187141"
 ---
-# <a name="avere-cluster-dns-configuration"></a>Avere cluster DNS-configuratie
+# <a name="avere-cluster-dns-configuration"></a>DNS-configuratie voor Avere-cluster
 
 In deze sectie vindt u de basisbeginselen van het configureren van een DNS-systeem voor taakverdeling van uw Avere vFXT-cluster. 
 
@@ -80,6 +80,6 @@ Geef de DNS-server die gebruikmaakt van het cluster vFXT in de **Cluster** > **b
 * DNS-domeinnaam
 * DNS-zoekdomeinen
 
-Lezen [DNS-instellingen](<http://library.averesystems.com/ops_guide/4_7/gui_admin_network.html#gui-dns>) in de Avere Cluster configuratiehandleiding voor meer informatie over het gebruik van deze pagina.
+Lezen [DNS-instellingen](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) in de Avere Cluster configuratiehandleiding voor meer informatie over het gebruik van deze pagina.
 
 
