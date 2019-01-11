@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/5/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971960"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200680"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
 
@@ -37,7 +37,7 @@ Deze uitbreiding ondersteunt de volgende OSs:
 
 | Distributie | Versie |
 |---|---|
-| Windows 10 | Kern |
+| Windows 10 (maximaal versie 1803)| Kern |
 | Windows Server 2016 | Kern |
 | Windows Server 2012R2 | Kern |
 
@@ -69,13 +69,13 @@ De volgende JSON ziet u het schema voor de extensie.
 }
 ```
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
-| Naam | Waarde / voorbeeld | Gegevenstype |
+| Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Uitgever | Microsoft.HpcCompute | tekenreeks |
-| type | NvidiaGpuDriverWindows | tekenreeks |
+| Uitgever | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -163,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Bewerking is geslaagd |
 | 1 | De bewerking is geslaagd. Opnieuw opstarten vereist. |
-| 100 | Bewerking wordt niet ondersteund of kan niet worden voltooid. | Mogelijke oorzaken: PowerShell-versie niet wordt ondersteund, VM-grootte is niet een VM uit de N-serie, fout bij het downloaden van gegevens. Raadpleeg de logbestanden om de oorzaak van de fout te achterhalen. |
+| 100 | Bewerking wordt niet ondersteund of kan niet worden voltooid. | Mogelijke oorzaken: PowerShell-versie niet ondersteund, VM-grootte is niet een VM uit de N-serie, fout bij het downloaden van gegevens. Raadpleeg de logbestanden om de oorzaak van de fout te achterhalen. |
 | 240, 840 voor schijven | Time-out van de bewerking. | Voer de bewerking opnieuw uit. |
 | -1 | Er is een uitzondering opgetreden. | Raadpleeg de logbestanden om de oorzaak van de uitzondering te bepalen. |
 | -5 x | De bewerking is onderbroken vanwege opnieuw opstarten. | VM opnieuw. Installatie wordt voortgezet na opnieuw opstarten. Verwijder handmatig moet worden aangeroepen. |

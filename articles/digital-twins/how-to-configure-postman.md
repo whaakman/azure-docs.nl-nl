@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 705d96225c699c6e9824dadbd7fa1272ba5ddb2d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117516"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213277"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -52,7 +52,7 @@ Configureer uw app in Azure Active Directory voor het gebruik van de stroom van 
 
 Vervolgens instellen en configureren van Postman als u wilt een Azure Active Directory-token verkrijgen. Daarna moet u een geverifieerde HTTP-aanvraag voor digitale dubbels van Azure met behulp van het verkregen token:
 
-1. Ga naar [www.getpostman.com]([https://www.getpostman.com/) om de app te downloaden.
+1. Ga naar [www.getpostman.com](https://www.getpostman.com/) om de app te downloaden.
 1. Controleer uw **autorisatie-URL** juist is. Het duurt de indeling:
 
     ```plaintext

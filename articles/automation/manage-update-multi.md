@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679520"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214025"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -86,7 +86,7 @@ Computers die onlangs zijn ingeschakeld voor het beheer updates mogelijk zijn no
 
 - **Niet-compatibele**: Computers die niet over ten minste één essentiële beschikken of beveiligingsupdate.
 
-- **Niet beoordeeld**: de gegevens van de evaluatie van de update is niet ontvangen van de computer binnen het verwachte tijdsbestek. Voor Linux-computers is het verwachte tijdsbestek in de afgelopen 3 uur. Voor Windows-computers is het verwachte tijdsbestek in de afgelopen 12 uur.
+- **Niet beoordeeld**: De gegevens van de evaluatie van de update nog niet is ontvangen van de computer binnen het verwachte tijdsbestek. Voor Linux-computers is het verwachte tijdsbestek in de afgelopen 3 uur. Voor Windows-computers is het verwachte tijdsbestek in de afgelopen 12 uur.
 
 Als u wilt de status van agent weergeven, selecteert u de koppeling in de **gereedheid voor UPDATE-AGENT** kolom. Hiermee opent u deze optie selecteert, de **Hybrid Worker** in het deelvenster en toont de status van de Hybrid Worker. De volgende afbeelding toont een voorbeeld van een agent die nog niet is verbonden met updatebeheer voor een lange periode:
 
@@ -104,7 +104,7 @@ Agents die zijn geïnstalleerd op virtuele machines en computers verzamelen gege
 
 De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing:
 
-| Verbonden bron | Ondersteund | Beschrijving |
+| Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
 | Windows-agents |Ja |Updatebeheer verzamelt informatie over systeemupdates van Windows-agents en start vervolgens de installatie van vereiste updates. |
 | Linux-agents |Ja |Updatebeheer verzamelt informatie over systeemupdates van Linux-agents en start vervolgens de installatie van vereiste updates op ondersteunde distributies. |
@@ -113,7 +113,11 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 
-Een scan wordt uitgevoerd twee keer per dag voor elke beheerde Windows-computer. Elke 15 minuten, de Windows-API wordt aangeroepen om op te vragen de laatste updatetijd om te bepalen of de status is gewijzigd. Als de status is gewijzigd, wordt er een nalevingsscan gestart. Een scan wordt uitgevoerd elke drie uur voor elke beheerde Linux-computer.
+Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk door naar Azure Log Analytics. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
+
+Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten van de MMA opnieuw wordt gestart, voordat de installatie van de update en na installatie van update gestart.
+
+Voor een Linux-computer wordt de nalevingsscan standaard elke drie uur uitgevoerd. Als de MMA-agent opnieuw is opgestart, wordt een nalevingsscan gestart binnen 15 minuten.
 
 Duurt tussen 30 minuten en 6 uur voor het dashboard bijgewerkte gegevens van beheerde computers worden weergegeven.
 
@@ -144,7 +148,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
 - **Updates om op te nemen/uit te sluiten**: hiermee opent u de pagina **Opnemen/uitsluiten**. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt
 
-- **Schema-instellingen**: U kunt de standaarddatum en -tijd accepteren (30 minuten na de huidige tijd). U kunt ook een andere tijd opgeven.
+- **Planningsinstellingen**: U kunt de standaarddatum en -tijd 30 minuten na de huidige tijd is accepteren. U kunt ook een andere tijd opgeven.
 
    U kunt bovendien opgeven of de implementatie eenmaal moet worden uitgevoerd of volgens een terugkerend schema. Voor het instellen van een terugkerend schema uit onder **terugkeerpatroon**, selecteer **periodiek**.
 
@@ -155,7 +159,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
 - **Opnieuw opstarten besturingselement** -deze instelling bepaalt hoe opnieuw wordt opgestart voor de update-implementatie worden verwerkt.
 
-   |Optie|Beschrijving|
+   |Optie|Description|
    |---|---|
    |Opnieuw opstarten indien nodig| **(Standaard)**  Indien nodig, opnieuw opstarten wordt gestart als het onderhoudsvenster toestaat.|
    |Altijd opnieuw opstarten|Een systeem opnieuw wordt opgestart, ongeacht of deze vereist is. |
@@ -181,9 +185,9 @@ Klik op de voltooide implementatie om het dashboard voor de betreffende update-i
 
 De **Updateresultaten** deelvenster toont het totale aantal updates en de resultaten van de implementatie voor de virtuele machine. De tabel aan de rechterkant vindt u gedetailleerde informatie van elke update en de resultaten van de installatie. Een van de volgende installatieresultaatwaarden wordt weergegeven:
 
-- **Niet geprobeerd**: de update is niet geïnstalleerd omdat er onvoldoende tijd beschikbaar is op basis van het opgegeven onderhoudsvenster.
-- **Geslaagd**: de update is voltooid.
-- **Mislukt**: de update is mislukt.
+- **Niet geprobeerd**: De update is niet geïnstalleerd omdat er onvoldoende tijd beschikbaar is op basis van het opgegeven onderhoudsvenster.
+- **Geslaagd**: De update is bijgewerkt.
+- **Mislukt**: De update is mislukt.
 
 Selecteer **Alle logboeken** voor een overzicht van alle logboekvermeldingen die tijdens de implementatie zijn gemaakt.
 

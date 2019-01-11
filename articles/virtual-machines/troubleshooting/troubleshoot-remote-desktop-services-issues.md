@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957690"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215113"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Extern bureaublad-Services is niet gestart op een Azure VM
 
 In dit artikel wordt beschreven hoe u problemen oplossen wanneer u verbinding met een Azure-machine (VM maakt) en extern bureaublad-Services, of Terminal Server, is niet gestart of niet kan worden gestart.
 
 > [!NOTE]  
-> Azure heeft twee verschillende implementatiemodellen te maken en te werken met resources: [Azure Resource Manager en klassiek](../../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel wordt beschreven met behulp van de Resource Manager-implementatiemodel. U wordt aangeraden dat u dit model voor nieuwe implementaties in plaats van het klassieke implementatiemodel gebruikt.
+> Azure heeft twee verschillende implementatiemodellen te maken en te werken met resources: [Azure Resource Manager en klassieke](../../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel wordt beschreven met behulp van de Resource Manager-implementatiemodel. U wordt aangeraden dat u dit model voor nieuwe implementaties in plaats van het klassieke implementatiemodel gebruikt.
 
 ## <a name="symptoms"></a>Symptomen
 
@@ -37,16 +37,16 @@ Wanneer u probeert verbinding maken met een virtuele machine, treden de volgende
 
 - U weergeven op afstand de gebeurtenislogboeken op de virtuele machine met behulp van Logboeken. U ziet dat extern bureaublad-Services, Terminal Server, is niet gestart of niet kan worden gestart. Het volgende logboek is een voorbeeld:
 
-    **Meld u de naam**: systeem </br>
-    **Bron**: Service Control Manager </br>
-    **Datum**: 16-12-2017 11:19:36 uur</br>
-    **Gebeurtenis-ID**: 7022</br>
-    **Taak categorie**: geen</br>
-    **Niveau**: fout</br>
-    **Trefwoorden**: klassieke</br>
-    **Gebruiker**: N.V.T.</br>
+    **Meld u de naam**:      Systeem </br>
+    **Bron**:        Service Control Manager </br>
+    **Datum**:          16-12-2017 11:19:36 UUR</br>
+    **Gebeurtenis-ID**:      7022</br>
+    **Taak categorie**: Geen</br>
+    **Niveau**:         Fout</br>
+    **Trefwoorden**:      Klassiek</br>
+    **Gebruiker**:          N/A</br>
     **Computer**: vm.contoso.com</br>
-    **Beschrijving**: de extern bureaublad-Services-service is vastgelopen bij het starten. 
+    **Beschrijving**: De extern bureaublad-Services-service is vastgelopen bij het starten. 
 
     U kunt ook de toegang tot de seriële Console-functie gebruiken om te zoeken voor deze fouten met de volgende query uit te voeren: 
 
@@ -112,7 +112,7 @@ Om dit probleem wilt oplossen, moet u de seriële Console gebruiken. Of anders [
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Terminal Server-service is gestopt vanwege een probleem met de toegang geweigerd
 
-1. Verbinding maken met [seriële Console](serial-console-windows.md#) en open een PowerShell-exemplaar.
+1. Verbinding maken met [seriële Console](serial-console-windows.md) en open een PowerShell-exemplaar.
 2. Download het hulpprogramma procesmonitor het volgende script uit te voeren:
 
    ```

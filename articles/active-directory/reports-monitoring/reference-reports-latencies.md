@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623176"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212257"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting latenties
 
@@ -40,14 +40,18 @@ De volgende tabel bevat de latentie-informatie voor activiteitenrapporten.
 > **Latentie (95e percentiel)** verwijst naar de tijd waarop 95% van de logboeken worden gerapporteerd, en **latentie (99%)** verwijst naar de tijd waarop 99% van de logboeken worden gerapporteerd. 
 >
 
-| Rapport | Latentie (95e percentiel) |Latentie (99%)|
-| :-- | --- | --- | 
-| Controlelogboeken | 2 minuten  | 5 minuten  |
-| Aanmeldingen | 2 minuten  | 5 minuten |
+| Rapport | Latentie (95e percentiel) |Latentie (99%)|Tijdsbereik waarbinnen logboeken worden gerapporteerd|
+| :-- | --- | --- | --- |
+| Controlelogboeken | 2 minuten  | 5 minuten  | 2-60 minuten |
+| Aanmeldingen | 2 minuten  | 5 minuten | 2-120 minuten |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe snel kan ik activiteiten gegevens zien nadat u een premium-licentie?
+
+Als u al gegevens van activiteiten met uw gratis licentie hebt, kunt klikt u vervolgens u zien deze onmiddellijk bij een upgrade. Als u geen gegevens, duurt het een of twee dagen voor de gegevens worden weergegeven in de rapporten na de upgrade naar een premium-licentie.
 
 ## <a name="security-reports"></a>Beveiligingsrapporten
 
-Er zijn twee soorten beveiligingsrapporten:
+Er zijn twee typen beveiligingsrapporten:
 
 - [Riskante aanmeldingen](concept-risky-sign-ins.md) - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. 
 - [Gebruikers voor wie wordt aangegeven dat ze risico lopen](concept-user-at-risk.md) - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 

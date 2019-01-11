@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: alkarche
-ms.openlocfilehash: 042d41e9125e5d4fa0af04fd6edeba5f0b33123a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1140c23a0aa5344119c35434316ec73cc3918f90
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001592"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198368"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Een functie-App integreren met een Azure-netwerk
 Deze stapsgewijze zelfstudie leert u hoe u Azure Functions gebruiken voor het verbinding maken met bronnen in een Azure VNET. 
@@ -117,7 +117,7 @@ Uw functie-App is verbonden met Internet en uw VNET. De proxy wordt ontvangen va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Azure Functions in App Service-plannen worden uitgevoerd op dezelfde service als web-apps, waardoor alle van de documnention voor Web-Apps wordt toegepast op specifieke functies.
+Azure Functions in App Service-plannen worden uitgevoerd op dezelfde service als web-apps, waardoor alle van de documentatie voor Web-Apps wordt toegepast op specifieke functies.
 
 1. [Meer informatie over VNET-integratie met App Service / hier functies](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 1. [Meer informatie over vnet's in Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)

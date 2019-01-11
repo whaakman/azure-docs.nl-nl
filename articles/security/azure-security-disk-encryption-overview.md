@@ -8,16 +8,16 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093281"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200850"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption voor IaaS-VM 's
 
-Microsoft Azure is het belangrijk ervoor te zorgen dat de privacy van gegevens en de gegevensonafhankelijkheid. Met Azure kunt u voor het beheren van uw gegevens wordt gehost op Azure door een bereik met geavanceerde technologieën voor het coderen, beheren en versleutelingssleutels en controle en audit toegang krijgen tot gegevens beheren. Dit besturingselement biedt Azure klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van uw bedrijf. In dit artikel vindt u een technologieoplossing: "Azure Disk Encryption voor Windows en Linux IaaS virtuele machines (VM's)." Deze technologie kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen. 
+Microsoft Azure is het belangrijk ervoor te zorgen dat de privacy van gegevens en de gegevensonafhankelijkheid. Met Azure kunt u voor het beheren van uw gegevens wordt gehost op Azure door een bereik met geavanceerde technologieën voor het coderen, beheren en versleutelingssleutels en controle en audit toegang krijgen tot gegevens beheren. Dit besturingselement biedt Azure klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van uw bedrijf. In dit artikel vindt u een technologieoplossing: 'Azure Disk Encryption voor Windows en Linux IaaS virtuele machines (VM's)'. Deze technologie kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -81,7 +81,7 @@ De oplossing biedt geen ondersteuning voor de volgende scenario's, functies en -
 
 * Basic-laag IaaS-VM's.
 * Schakel versleuteling uit op een station van het besturingssysteem voor Linux IaaS-VM's.
-* Schakel versleuteling uit op een schijf als de besturingssysteemschijf is gecodeerd voor Linux Iaas-VM's.
+* Schakel versleuteling uit op een schijf als de besturingssysteemschijf is gecodeerd voor Linux IaaS-VM's.
 * IaaS-VM's die zijn gemaakt met behulp van de klassieke methode voor het maken van de virtuele machine.
 * Versleuteling van aangepaste installatiekopieën van de klant op Linux IaaS-VM's inschakelen.
 * Integratie met uw on-premises sleutelbeheersysteem.

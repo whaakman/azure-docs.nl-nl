@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 640c550e82c1b883970a3ea7a374a85989cd5e21
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633944"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197434"
 ---
 # <a name="cluster-tuning"></a>Cluster afstemmen
 
@@ -26,7 +26,7 @@ Deze sectie wordt uitgelegd enkele van de aangepaste afstemmen die kan worden ge
 [ xxx keep or not? \/ research this xxx ]
 
 > [!TIP]
-> The VDBench utility can be helfpul in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
+> The VDBench utility can be helpful in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
 
 -->
 

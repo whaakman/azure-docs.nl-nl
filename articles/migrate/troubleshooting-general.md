@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cb97725d61f899f2408dbb44d052c1dd4e6bc561
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189493"
+ms.locfileid: "54201292"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -28,6 +28,18 @@ Alleen verzamelt prestatiegegevens continu het toestel continue detectie, detect
    ![Detectie stoppen](./media/troubleshooting-general/stop-discovery.png)
 
 - Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Verwijdering van de Azure Migrate projecten en gekoppelde Log Analytics-werkruimte
+
+Wanneer u een Azure Migrate-project hebt verwijderd, worden het migratieproject samen met alle groepen en evaluaties verwijderd. Echter, als u een Log Analytics-werkruimte hebt gekoppeld aan het project, deze niet automatisch verwijderd de Log Analytics-werkruimte. Dit komt doordat de dezelfde Log Analytics-werkruimte kan worden gebruikt voor meerdere gebruiksmogelijkheden. Als u verwijderen van de Log Analytics-werkruimte wilt, moet u dit handmatig doen.
+
+1. Blader naar de Log Analytics-werkruimte die is gekoppeld aan het project.
+   a. Als u hebt niet de migration-project hebt verwijderd, kunt u de koppeling vinden in de werkruimte van de overzichtspagina van het project in de sectie Essentials.
+   
+   ![LA werkruimte](./media/troubleshooting-general/LA-workspace.png)
+
+   b. Als u het migratieproject al hebt verwijderd, klikt u op **resourcegroepen** in het linkerdeelvenster in Azure portal en Ga naar de resourcegroep waarin de werkruimte is gemaakt en blader vervolgens naar deze.
+2. Volg de instructies [in dit artikel](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) om de werkruimte te verwijderen.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Maken van het project migratie is mislukt met fout *aanvragen moeten kopteksten voor gebruikersidentiteiten bevatten*
 
@@ -80,7 +92,7 @@ Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voo
 
    ![Projectlocatie](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>Fouten in de logboekverzamelaar
+## <a name="collector-issues"></a>Problemen met collector
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementatie van Azure Migrate Collector is mislukt met de fout: Het opgegeven manifestbestand is ongeldig: Ongeldige OVF manifest vermelding.
 
@@ -156,6 +168,17 @@ Als het probleem wordt nog steeds in de meest recente versie gebeurt, kan het zi
 2. Als stap 1 mislukt, probeert u via het IP-adres verbinding te maken met de vCenter-server.
 3. Bepaal het juiste poortnummer om verbinding te maken met de vCenter-server.
 4. Controleer tot slot of de vCenter-server actief is.
+
+### <a name="antivirus-exclusions"></a>Uitsluitingen antivirus
+
+Als u wilt beperken van het apparaat Azure Migrate, die u wilt uitsluiten van de volgende mappen in het toestel antivirusscans:
+
+- Map met de binaire bestanden voor Azure Migrate-Service. Sluit alle submappen.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web-toepassing. Sluit alle submappen.
+  %SYSTEMDRIVE%\Inetpub\wwwroot
+- Lokale Cache voor de Database en logboekbestanden. Azure migrate-service moet RW toegang tot deze map.
+  %SYSTEMDRIVE%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Problemen met visualisatie van afhankelijkheden
 

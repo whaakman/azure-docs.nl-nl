@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: fc9ceb06eb51d1e88306f0971ad055facd05f9fb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: df7f3dfa525c59ff8862c3b1a46f70be53a93a32
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437262"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198742"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor virtuele Linux-machines
 
@@ -74,7 +74,7 @@ De geplande gebeurtenissen-service is samengesteld. Versies zijn verplicht. de h
 
 | Versie | Releasetype | Regio's | Releaseopmerkingen | 
 | - | - | - | - | 
-| 2017-08-01 | Algemene beschikbaarheid | Alle | <li> Voorafgegaan onderstrepingsteken verwijderd uit de namen van voorbeeldresources voor Iaas-VM 's<br><li>Metagegevens-header vereiste afgedwongen voor alle aanvragen | 
+| 2017-08-01 | Algemene beschikbaarheid | Alle | <li> Voorafgegaan onderstrepingsteken verwijderd uit de namen van voorbeeldresources voor IaaS-VM 's<br><li>Metagegevens-header vereiste afgedwongen voor alle aanvragen | 
 | 2017-03-01 | Preview | Alle | <li>Eerste release
 
 

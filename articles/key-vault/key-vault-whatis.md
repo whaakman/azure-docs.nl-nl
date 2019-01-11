@@ -1,6 +1,6 @@
 ---
 title: Wat is Azure Sleutelkluis? -Azure Key Vault | Microsoft Docs
-description: Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Klanten kunnen met Azure Key Vault sleutels en geheimen versleutelen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, PFX-bestanden en wachtwoorden) door gebruik te maken van sleutels die worden beveiligd met HSM's.
+description: Azure Key Vault Beveilig cryptografische sleutels en geheimen die worden gebruikt door cloudtoepassingen en -services. Klanten kunnen verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, coderen. PFX-bestanden en wachtwoorden met sleutels die zijn beveiligd door hardware security modules (HSM's).
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -11,18 +11,18 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: f3c198ab8a17df019f1735a9b62e27f1051f64c5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 889f12b935eaad72eb7637524ab578f28fbc412f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076328"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198487"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
-Azure Key Vault helpt bij het oplossen van de volgende problemen:
+Met Azure Key Vault kunt u de volgende problemen oplossen:
 
 - **Geheimen Management** -Azure Key Vault kan worden gebruikt voor het veilig opslaan en toegang tot tokens, wachtwoorden, certificaten, API-sleutels en andere geheimen nauw beheren.
 - **Sleutelbeheer** - U kunt Azure Key Vault ook gebruiken als een oplossing voor sleutelbeheer. Met Azure Key Vault kunt u eenvoudig de versleutelingssleutels maken en beheren waarmee uw gegevens worden versleuteld. 
@@ -76,7 +76,7 @@ Iedereen met een Azure-abonnement kan sleutelkluizen maken en gebruiken. Hoewel 
 
 De beheerder kan de ontwikkelaars vervolgens voorzien van URI's die kunnen worden aangeroepen vanuit hun toepassingen. Daarnaast kan de beheerder de beveiligingsadministrator logboekregistratiegegevens over het gebruik van de sleutel verstrekken. 
 
-! [Overzicht van Azure Key Vault] [1]
+! [Overzicht van de werking van Azure Key Vault] [1]
 
 Ontwikkelaars kunnen de sleutels ook rechtstreeks beheren door gebruik te maken van API's. Zie [Ontwikkelaarshandleiding voor Key Vault](key-vault-developers-guide.md) voor meer informatie.
 

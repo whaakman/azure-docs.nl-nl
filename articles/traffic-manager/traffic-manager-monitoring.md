@@ -2,7 +2,6 @@
 title: Eindpuntbewaking van Azure Traffic Manager | Microsoft Docs
 description: In dit artikel krijgt u inzicht in hoe Traffic Manager eindpuntbewaking en failover automatisch eindpunt gebruikt om u te helpen Azure-klanten toepassingen met hoge beschikbaarheid implementeren
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890344"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199627"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -37,7 +36,7 @@ Als u wilt controleren-eindpunt configureren, moet u de volgende instellingen op
 
     ![Eindpuntcontrole van Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Afbeelding: Eindpuntcontrole van Traffic Manager**
+    **Afbeelding:  Eindpuntcontrole van Traffic Manager**
 
 ## <a name="how-endpoint-monitoring-works"></a>Eindpuntbewaking werking
 
@@ -112,7 +111,7 @@ De tijdlijn van de volgende afbeelding is een gedetailleerde beschrijving van he
 
 ![Traffic Manager-eindpunt failover en failback-reeks](./media/traffic-manager-monitoring/timeline.png)
 
-**Afbeelding: Traffic manager-eindpunt failovers en herstel-reeks**
+**Afbeelding:  Traffic manager-eindpunt failovers en herstel-reeks**
 
 1. **OPHALEN**. Voor elk eindpunt voert de Traffic Manager-controle van systeem een GET-aanvraag op het pad dat is opgegeven in de instellingen voor controle.
 2. **200 OK of aangepaste code bereik opgegeven controle-instellingen voor Traffic Manager-profiel** . Het bewakingssysteem wordt verwacht dat een HTTP 200 OK of de of aangepaste code bereik opgegeven Traffic Manager-profiel bewaking instellingen dat wordt geretourneerd binnen 10 seconden. Wanneer deze dit antwoord ontvangt, wordt gedetecteerd dat de service beschikbaar is.

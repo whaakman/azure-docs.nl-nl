@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a3327c2c6f9684efe0d86b0cf923886f7310e1b0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053487"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199781"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Een groot aantal taken aan een Batch-taak verzenden
 
@@ -45,7 +45,7 @@ De maximale grootte van de taak-verzameling die u in één aanroep kunt toevoege
 * De volgende API's ondersteunen veel grotere verzamelingen van taak: alleen beperkt door de beschikbaarheid van de RAM-geheugen op de client verzenden. Deze API's worden transparant verwerkt delen van de verzameling taak in 'segmenten' voor de op lager niveau API's en nieuwe pogingen als mislukt het toevoegen van taken.
 
     * [.NET API](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [Java-API](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [Java-API](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * [Azure Batch CLI-extensie](batch-cli-templates.md) met Batch CLI-sjablonen
     * [Python-SDK-extensie](https://pypi.org/project/azure-batch-extensions/)
 
@@ -128,7 +128,7 @@ Hier volgt een voorbeeld-taaksjabloon voor een taak eendimensionale parametrisch
 ```
 Zie voor informatie over het uitvoeren van een taak met de sjabloon [met Azure Batch CLI sjablonen en bestandsoverdracht](batch-cli-templates.md).
 
-## <a name="example-batch-python-sdk-extension"></a>Voorbeeld: Batch Python SDK-extensie
+## <a name="example-batch-python-sdk-extension"></a>Voorbeeld: Batch Python-SDK-extensie
 
 Voor het gebruik van de Azure Batch Python SDK-extensie, moet u eerst de Python-SDK en de extensie installeren:
 

@@ -1,7 +1,7 @@
 ---
 title: Een Standard Load Balancer maken met zonegebonden frontend met behulp van Azure CLI
 titlesuffix: Azure Load Balancer
-description: Informatie over het maken van een openbare Load Balancer Standard met zonegebonden openbare IP-adres frontend met behulp van Azure CLI
+description: Informatie over het maken van een openbare Standard Load Balancer met zonegebonden openbare IP-adres frontend met behulp van Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 813f11dae31261b4211480570a4801de19e74437
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185627"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199202"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Een openbare Load Balancer Standard maken met zonegebonden frontend met behulp van Azure CLI
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Een Standard Load Balancer maken met zonegebonden frontend met behulp van Azure CLI
 
-In dit artikel begeleidt bij het maken van een openbare [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) met een zonegebonden frontend met behulp van een openbare standaard IP-adres. In dit scenario geeft u een bepaald gebied op voor uw front-end- en back-endinstanties om uw gegevenspad en resources op één lijn te brengen met een specifieke zone.
+In dit artikel begeleidt bij het maken van een openbare [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) met een zonegebonden frontend met behulp van een openbare standaard IP-adres. In dit scenario geeft u een bepaald gebied op voor uw front-end- en back-endinstanties om uw gegevenspad en resources op één lijn te brengen met een specifieke zone.
 
 Zie [Standard Load Balancer en beschikbaarheidszones](load-balancer-standard-availability-zones.md) voor meer informatie over het gebruik van beschikbaarheidszones met Standard Load Balancer.
 
@@ -61,7 +61,7 @@ az network public-ip create \
 --zone 1
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Azure Load Balancer Standard maken
+## <a name="create-azure-standard-load-balancer"></a>Azure Standard Load Balancer maken
 In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balancer kunt maken en configureren:
 - een front-end IP-pool die het binnenkomende netwerkverkeer op de load balancer ontvangt.
 - een back-end IP-pool waar de front-endpool het netwerkverkeer op de load balancer heen stuurt.
@@ -69,7 +69,7 @@ In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balance
 - een load balancer-regel die bepaalt hoe het verkeer over de VM's wordt verdeeld.
 
 ### <a name="create-the-load-balancer"></a>Load balancer maken
-Maak een Standard load balancer met [az network lb maken](/cli/azure/network/lb#az-network-lb-create). Het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* en wijst de *myPublicIP* adres aan de front-end-IP-configuratie.
+Maak een Standard Load Balancer met [az network lb maken](/cli/azure/network/lb#az-network-lb-create). Het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* en wijst de *myPublicIP* adres aan de front-end-IP-configuratie.
 
 ```azurecli-interactive
 az network lb create \

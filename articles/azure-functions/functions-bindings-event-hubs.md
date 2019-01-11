@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: bc7ed9051f95877760bccec65ff2fa7f49e44993
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a5154d8d3a4922dead686c3d5002eaae818ff5a
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002148"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201360"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -59,9 +59,9 @@ Wanneer uw functie is ingeschakeld, is er slechts één exemplaar van de functie
 
 * **Nieuwe instanties van de functie niet nodig zijn**: `Function_0` kan alle 1000 gebeurtenissen voordat de logica voor vergroten/verkleinen begint in Functions te verwerken. In dit geval alle 1000 berichten worden verwerkt door `Function_0`.
 
-* **Een extra functie-exemplaar wordt toegevoegd**: de functies schalen logische bepaalt dat `Function_0` heeft meer berichten dan deze kan verwerken. In dit geval een nieuwe functie app-exemplaar (`Function_1`) is gemaakt, samen met een nieuwe [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaar. Eventhubs detecteert dat een nieuwe instantie van de host wordt geprobeerd berichten lezen. De partities in Event Hubs-verdeelt het de hostexemplaren. Bijvoorbeeld, 0-4-partities kunnen worden toegewezen aan `Function_0` en 5-9 voor partities `Function_1`.
+* **Een extra functie-exemplaar wordt toegevoegd**: De functies die logica schalen bepaalt `Function_0` heeft meer berichten dan deze kan verwerken. In dit geval een nieuwe functie app-exemplaar (`Function_1`) is gemaakt, samen met een nieuwe [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaar. Eventhubs detecteert dat een nieuwe instantie van de host wordt geprobeerd berichten lezen. De partities in Event Hubs-verdeelt het de hostexemplaren. Bijvoorbeeld, 0-4-partities kunnen worden toegewezen aan `Function_0` en 5-9 voor partities `Function_1`.
 
-* **N meer functie-exemplaren worden toegevoegd**: de functies schalen logische bepaalt dat beide `Function_0` en `Function_1` er meer berichten dan ze kunnen verwerken. Nieuwe functie-app-instanties `Function_2`... `Functions_N` zijn gemaakt, waarbij `N` groter is dan het aantal event hub-partities. In ons voorbeeld nogmaals Event Hubs verdeelt de belasting van de partities in dit geval over de exemplaren `Function_0`... `Functions_9`.
+* **N meer functie-exemplaren worden toegevoegd**: De functies schalen logische bepaalt dat beide `Function_0` en `Function_1` er meer berichten dan ze kunnen verwerken. Nieuwe functie-app-instanties `Function_2`... `Functions_N` zijn gemaakt, waarbij `N` groter is dan het aantal event hub-partities. In ons voorbeeld nogmaals Event Hubs verdeelt de belasting van de partities in dit geval over de exemplaren `Function_0`... `Functions_9`.
 
 Houd er rekening mee dat wanneer functies kan worden geschaald naar `N` instanties, wat een getal groter dan het aantal event hub-partities. Dit wordt gedaan om ervoor te zorgen dat er altijd zijn [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaren beschikbaar zijn voor het verkrijgen van vergrendelingen op partities zodra deze beschikbaar zijn van andere exemplaren. U betaalt alleen voor de resources die worden gebruikt wanneer het exemplaar van de functie wordt uitgevoerd; u betaalt geen voor deze capaciteit in te richten.
 
@@ -422,7 +422,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**eventHubName** |**EventHubName** | 2.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
 |**consumerGroup** |**consumerGroup** | Een optionele eigenschap die Hiermee stelt u de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. |
 |**de kardinaliteit** | N.v.t. | Voor Javascript. Ingesteld op `many` om in te schakelen via batchverwerking uitvoeren.  Als weggelaten of ingesteld op `one`, één bericht dat wordt doorgegeven aan functie. |
-|**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen heeft voor de trigger wordt geactiveerd.|
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen heeft voor de trigger wordt geactiveerd.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -452,7 +452,7 @@ De [host.json](functions-host-json.md#eventhub) bestand bevat instellingen die h
 
 Gebruik de Event Hubs-Uitvoerbinding gebeurtenissen schrijven naar een gebeurtenisstroom. U moet gemachtigd verzenden naar een event hub gebeurtenissen schrijven naar het.
 
-Zorg ervoor dat de referenties vereist pakket wordt voldaan: [functies 1.x](#packages---functions-1.x) of [2.x-functies](#packages---functions-2.x)
+Zorg ervoor dat de referenties vereist pakket wordt voldaan: [Functies 1.x](#packages---functions-1.x) of [2.x-functies](#packages---functions-2.x)
 
 ## <a name="output---example"></a>Uitvoer - voorbeeld
 
@@ -659,7 +659,7 @@ public String sendTime(
  }
  ```
 
-In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruiken de `@EventHubOutput` aantekening op parameters waarvan de waarde poublished naar Event Hub is.  De parameter moet van het type `OutputBinding<T>` , waarbij T een POJO of een systeemeigen Java-type.
+In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@EventHubOutput` aantekening op parameters waarvan de waarde moet worden gepubliceerd naar Event Hub.  De parameter moet van het type `OutputBinding<T>` , waarbij T een POJO of een systeemeigen Java-type.
 
 ## <a name="output---attributes"></a>Uitvoer - kenmerken
 
@@ -689,7 +689,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam** | N.v.t. | De naam van de variabele die wordt gebruikt in de functiecode waarmee de gebeurtenis. |
 |**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
 |**eventHubName** |**EventHubName** | 2.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
-|**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet machtigingen voor verzenden zijn het bericht te verzenden naar de gebeurtenisstroom.|
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet machtigingen voor verzenden zijn het bericht te verzenden naar de gebeurtenisstroom.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

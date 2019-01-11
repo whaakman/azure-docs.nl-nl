@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117262"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214450"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -47,7 +47,7 @@ Toepassingen zijn alleen zo betrouwbaar is als de onderliggende infrastructuur. 
 - Voeg [bewakingsoplossingen](insights/solutions-inventory.md) voor verschillende toepassingen en services in uw omgeving.
 
 
-[Infrastructuur als code](/devops/learn/what-is-infrastructure-as-code) is het beheer van infrastructuur in een beschrijvend model, met behulp van de dezelfde versiebeheer DevOps-teams gebruiken voor de broncode. Betrouwbaarheid en schaalbaarheid toegevoegd aan uw omgeving en kunt u gebruikmaken van dezelfde processen die worden gebruikt voor het beheren van uw toepassingen.
+[Infrastructuur als code](/azure/devops/learn/what-is-infrastructure-as-code) is het beheer van infrastructuur in een beschrijvend model, met behulp van de dezelfde versiebeheer DevOps-teams gebruiken voor de broncode. Betrouwbaarheid en schaalbaarheid toegevoegd aan uw omgeving en kunt u gebruikmaken van dezelfde processen die worden gebruikt voor het beheren van uw toepassingen.
 
 -  Gebruik [Resource Manager-sjablonen](platform/template-workspace-configuration.md) inschakelen bewaking en waarschuwingen configureren via een groot aantal bronnen.
 - Gebruik [Azure Policy](../governance/policy/overview.md) om af te dwingen van verschillende regels voor uw resources. Dit zorgt ervoor dat deze resources voldoen aan uw bedrijfsnormen en serviceovereenkomsten blijven. 
@@ -63,7 +63,7 @@ Continue integratie / continue implementatie kunt u automatisch integreren en wi
 
 
 - Gebruik [Azure pijplijnen](/azure/devops/pipelines) continue implementatie implementeren en automatiseren van uw hele proces van code doorvoeren naar productie op basis van uw CI/CD-tests.
-- Gebruik [kwaliteit Gates](/devops/pipelines/release/approvals/gates) om te integreren in uw vóór de implementatie of na de implementatie controleren. Dit zorgt ervoor dat u voldoet aan de health/prestatie metrische gegevens (KPI's) als uw toepassingen van dev naar productie en eventuele verschillen in de infrastructuur-omgeving verplaatsen of schaal uw KPI's niet nadelig beïnvloedt.
+- Gebruik [kwaliteit Gates](/azure/devops/pipelines/release/approvals/gates) om te integreren in uw vóór de implementatie of na de implementatie controleren. Dit zorgt ervoor dat u voldoet aan de health/prestatie metrische gegevens (KPI's) als uw toepassingen van dev naar productie en eventuele verschillen in de infrastructuur-omgeving verplaatsen of schaal uw KPI's niet nadelig beïnvloedt.
 - [Afzonderlijke exemplaren van de controle behouden](../azure-monitor/app/separate-resources.md) tussen de verschillende omgevingen, zoals ontwikkelen, testen, Canarische en productie. Dit zorgt ervoor dat de verzamelde gegevens relevant voor de gekoppelde toepassingen en infrastructuur is. Als u nodig hebt voor het correleren van gegevens tussen omgevingen, kunt u [meerdere resource-grafieken in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) of maak [cross-resource-query's in Log Analytics](log-query/cross-workspace-query.md).
 
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966820"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213686"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in oktober 2018.
@@ -41,7 +41,7 @@ Geavanceerde afstemmen voor Azure SQL Data Warehouse (SQL DW) net is eenvoudiger
 Azure SQL Data Warehouse versnelde Database Recovery (ADR) is nu in openbare Preview. ADR is een nieuwe versie van SQL Server Engine waarmee de beschikbaarheid van de database, met name in de aanwezigheid van langlopende transacties, aanzienlijk verbeterd door het huidige herstelproces vanaf het begin volledig opnieuw te ontwerpen van. De belangrijkste voordelen van ADR zijn snel en consistent databaseherstel en onmiddellijk transactie wordt teruggedraaid.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Diagnostische logboeken van Azure Monitor
-SQL Data Warehouse (SQL DW) kunnen nu uitgebreid inzicht in analytische werkbelastingen door te integreren met Azure Monitor diagnostische logboeken rechtstreeks. Deze nieuwe functionaliteit kan ontwikkelaars werkbelasting gedrag gedurende een langere periode te analyseren en geïnformeerde beslissingen op query-optimalisatie of capaciteit management. We hebben nu een proces externe logboekregistratie via geïntroduceerd [diagnostische logboeken van Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) waarmee u meer inzicht in uw datawarehouse-workload. Met één klik een knop te klikken, kunt u zich nu configureren diagnostische logboeken voor historische queryprestaties met behulp van mogelijkheden voor probleemoplossing [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Diagnostische logboeken in Azure Monitor ondersteuning van aanpasbare bewaarperioden door op te slaan van de logboeken naar een opslagaccount voor controledoeleinden, de mogelijkheid voor het Logboeken streamen naar eventhubs in de buurt van real-time telemetrie, inzichten, en de mogelijkheid om met behulp van Log Analytics-logboekbestanden analyseren met [query's bijgehouden](). Een diagnostisch logboek bestaat uit telemetrische weergaven van uw datawarehouse, vergelijkbaar met de meestgebruikte DMV’s voor het oplossen van prestatieproblemen voor SQL Data Warehouse. Voor deze eerste release is voorzien van weergaven voor de volgende dynamische beheerweergaven van systeem:
+SQL Data Warehouse (SQL DW) kunnen nu uitgebreid inzicht in analytische werkbelastingen door te integreren met Azure Monitor diagnostische logboeken rechtstreeks. Deze nieuwe functionaliteit kan ontwikkelaars werkbelasting gedrag gedurende een langere periode te analyseren en geïnformeerde beslissingen op query-optimalisatie of capaciteit management. We hebben nu een proces externe logboekregistratie via geïntroduceerd [diagnostische logboeken van Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) waarmee u meer inzicht in uw datawarehouse-workload. Met één klik een knop te klikken, kunt u zich nu configureren diagnostische logboeken voor historische queryprestaties met behulp van mogelijkheden voor probleemoplossing [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Diagnostische logboeken in Azure Monitor ondersteuning van aanpasbare bewaarperioden door op te slaan van de logboeken naar een opslagaccount voor controledoeleinden, de mogelijkheid voor het Logboeken streamen naar eventhubs in de buurt van real-time telemetrie, inzichten, en de mogelijkheid om met behulp van Log Analytics-logboekbestanden analyseren met Logboeken-query's. Een diagnostisch logboek bestaat uit telemetrische weergaven van uw datawarehouse, vergelijkbaar met de meestgebruikte DMV’s voor het oplossen van prestatieproblemen voor SQL Data Warehouse. Voor deze eerste release is voorzien van weergaven voor de volgende dynamische beheerweergaven van systeem:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)
@@ -57,7 +57,7 @@ Azure SQL Data Warehouse (SQL DW) heeft nu de systeemeigen integratie met Azure 
 
 ## <a name="bug-fixes"></a>Opgeloste fouten
 
-| Titel | Beschrijving |
+| Titel | Description |
 |:---|:---|
 | **CETAS Parquet storingen op kleine resourceklassen op datawarehouses DW2000 en meer** | Deze oplossing een null-verwijzing in het maken van externe tabel als Parquet code pad de juiste manier wordt geïdentificeerd. |
 |**De waarde van identiteitskolom kan verloren gaan in een CTAS-bewerking** | De waarde van een kolom vaststellen niet kan worden behouden als CTASed naar een andere tabel. Gemeld in een blog: [ https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/ ](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |

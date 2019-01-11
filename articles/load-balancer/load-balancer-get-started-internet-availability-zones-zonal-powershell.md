@@ -1,7 +1,7 @@
 ---
-title: Een openbare Standard Load Balancer Standard maken met zonegebonden frontend-IP - Azure PowerShell
+title: Een Load Balancer maken met zonegebonden frontend - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Informatie over het openbare Load Balancer Standard maken met een zonegebonden openbare IP-adres-frontend met behulp van Azure PowerShell
+description: Meer informatie over Standard Load Balancer maken met een zonegebonden frontend met behulp van Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fdbc69bee936b94f3683a8a90b4f58e467a8863f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100681"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197927"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Een openbare Load Balancer Standard maken met zonegebonden frontend met behulp van Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Een Standard Load Balancer maken met zonegebonden frontend met behulp van Azure PowerShell
 
-In dit artikel begeleidt bij het maken van een openbare [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) met een zonegebonden frontend met behulp van een openbare standaard IP-adres. Zie voor meer informatie over de werking van beschikbaarheidszones met Standard Load Balancer, [Standard Load Balancer en Beschikbaarheidsset zones](load-balancer-standard-availability-zones.md). 
+In dit artikel begeleidt bij het maken van een openbare [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) met een zonegebonden frontend met behulp van een openbare standaard IP-adres. Zie voor meer informatie over de werking van beschikbaarheidszones met Standard Load Balancer, [Standard Load Balancer en Beschikbaarheidsset zones](load-balancer-standard-availability-zones.md). 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -86,7 +86,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>Een load balancer maken
-Maak een Load Balancer Standard met behulp van de volgende opdracht uit:
+Maak een Standard Load Balancer met behulp van de volgende opdracht uit:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `

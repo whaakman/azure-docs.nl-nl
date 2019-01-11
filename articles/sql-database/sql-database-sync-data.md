@@ -12,21 +12,41 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b5d931225edce92590b9c2b7f28ad39630362e6d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721832"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213821"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
 SQL Data Sync is een service die is gebouwd op Azure SQL Database waarmee u de gegevens die u bidirectioneel op meerdere SQL-databases en SQL Server-exemplaren selecteert worden gesynchroniseerd.
 
 > [!IMPORTANT]
-> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
+> Azure SQL Data Sync biedt op dit moment **geen** ondersteuning voor beheerde exemplaren voor Azure SQL Database.
 
-## <a name="architecture-of-sql-data-sync"></a>Architectuur van SQL Data Sync
+## <a name="when-to-use-data-sync"></a>Wanneer u Data Sync
+
+Gegevenssynchronisatie is handig in gevallen waarbij gegevens moeten worden up-to-date gehouden over meerdere Azure SQL-databases of SQL Server-databases. Hier volgen de belangrijkste gebruiksvoorbeelden voor Data Sync:
+
+-   **Synchronisatie van hybride gegevens:** Met het synchroniseren van gegevens, kunt u gegevens worden gesynchroniseerd tussen uw on-premises database en Azure SQL-databases om hybride toepassingen. Deze mogelijkheid kan beroep instellen op klanten die van plan bent te verplaatsen naar de cloud en wil graag enkele van de toepassing in Azure te plaatsen.
+
+-   **Gedistribueerde toepassingen:** In veel gevallen is het nuttig zijn voor het scheiden van verschillende werkbelastingen voor verschillende databases. Bijvoorbeeld, als u een grote productiedatabase hebt, maar u moet ook een rapport of de analytics-workload wordt uitgevoerd op deze gegevens, is het handig om een tweede database voor deze extra belasting. Deze aanpak minimaliseert de prestatie-invloed op uw productie-werkbelasting. Data Sync kunt u deze twee databases gesynchroniseerd houden.
+
+-   **Wereldwijd gedistribueerde toepassingen:** Veel bedrijven omvatten meerdere regio's en zelfs verschillende landen. Als u wilt de netwerklatentie beperken, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
+
+Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
+
+| Scenario | Sommige aanbevolen oplossingen |
+|----------|----------------------------|
+| Herstel na noodgevallen | [Azure geografisch redundante back-ups](sql-database-automated-backups.md) |
+| Schaal lezen | [Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)](sql-database-read-scale-out.md) |
+| ETL (OLTP met OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) of [SQL Server integratieservices](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migratie van on-premises SQL Server naar Azure SQL Database | [Azure Database migratieservice](https://azure.microsoft.com/services/database-migration/) |
+|||
+
+## <a name="overview-of-sql-data-sync"></a>Overzicht van SQL Data Sync
 
 Gegevenssynchronisatie is gebaseerd op het concept van een Synchronisatiegroep. Een groep voor synchronisatie is een groep databases die u wilt synchroniseren.
 
@@ -49,26 +69,6 @@ Een groep voor synchronisatie heeft de volgende eigenschappen:
 -   De **synchronisatie-Interval** wordt beschreven hoe vaak synchronisatie plaatsvindt.
 
 -   De **Conflict resolutie beleid** is een beleid op het niveau, die kan worden *Hub wins* of *lid wins*.
-
-## <a name="when-to-use-data-sync"></a>Wanneer u Data Sync
-
-Gegevenssynchronisatie is handig in gevallen waarbij gegevens moeten worden up-to-date gehouden over meerdere Azure SQL-databases of SQL Server-databases. Hier volgen de belangrijkste gebruiksvoorbeelden voor Data Sync:
-
--   **Synchronisatie van hybride gegevens:** Met het synchroniseren van gegevens, kunt u gegevens worden gesynchroniseerd tussen uw on-premises database en Azure SQL-databases om hybride toepassingen. Deze mogelijkheid kan beroep instellen op klanten die van plan bent te verplaatsen naar de cloud en wil graag enkele van de toepassing in Azure te plaatsen.
-
--   **Gedistribueerde toepassingen:** In veel gevallen is het nuttig zijn voor het scheiden van verschillende werkbelastingen voor verschillende databases. Bijvoorbeeld, als u een grote productiedatabase hebt, maar u moet ook een rapport of de analytics-workload wordt uitgevoerd op deze gegevens, is het handig om een tweede database voor deze extra belasting. Deze aanpak minimaliseert de prestatie-invloed op uw productie-werkbelasting. Data Sync kunt u deze twee databases gesynchroniseerd houden.
-
--   **Wereldwijd gedistribueerde toepassingen:** Veel bedrijven omvatten meerdere regio's en zelfs verschillende landen. Als u wilt de netwerklatentie beperken, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
-
-Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
-
-| Scenario | Sommige aanbevolen oplossingen |
-|----------|----------------------------|
-| Herstel na noodgevallen | [Azure geografisch redundante back-ups](sql-database-automated-backups.md) |
-| Schaal lezen | [Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)](sql-database-read-scale-out.md) |
-| ETL (OLTP met OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) of [SQL Server integratieservices](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
-| Migratie van on-premises SQL Server naar Azure SQL Database | [Azure Database migratieservice](https://azure.microsoft.com/services/database-migration/) |
-|||
 
 ## <a name="how-does-data-sync-work"></a>Hoe werkt Data Sync? 
 

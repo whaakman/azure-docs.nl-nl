@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 0112853bf36c6b7b594400d303234d204b2ea24a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108291"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198640"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Query's uitvoeren Azure digitale Twins-API's voor algemene taken
 
@@ -26,7 +26,7 @@ Dit artikel laat querypatronen kunt u algemene scenario's voor uw exemplaar van 
 
 In deze sectie bevat voorbeeldquery's voor meer informatie over uw ingerichte spaties. Controleer geverifieerde GET HTTP-aanvragen met de voorbeeldquery's, vervang de aanduidingen door waarden van uw installatie. 
 
-- Get-hoofdknooppunten.
+- Spaties die hoofdknooppunten ophalen.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
@@ -38,7 +38,7 @@ In deze sectie bevat voorbeeldquery's voor meer informatie over uw ingerichte sp
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- Opslagruimten waarvan de bovenliggende de beschikbare ruimte-ID is ophalen en -afhankelijkheden opnemen. 
+- Spaties en de gegevens van hun apparaat/sensor, waarvan de bovenliggende is de ID van de beschikbare ruimte en die zijn op het niveau van twee tot vijf [ten opzichte van de beschikbare ruimte](how-to-navigate-apis.md#api-navigation). 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
@@ -91,7 +91,7 @@ In deze sectie bevat enkele query's voor meer informatie over functies en hun to
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
     ```
 
-## <a name="queries-for-device-management"></a>Query's voor Apparaatbeheer
+## <a name="queries-for-devices"></a>Query's voor apparaten
 
 In deze sectie ziet u enkele voorbeelden van hoe u de Management API's gebruiken kunt voor specifieke informatie over uw apparaten. Alle API-aanroepen moeten worden geverifieerd GET HTTP-aanvragen.
 
@@ -167,7 +167,7 @@ In deze sectie ziet u enkele voorbeelden van hoe u de Management API's gebruiken
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- De IoT hub-verbindingsreeks ophalen voor een bepaald apparaat.
+- De IoT Hub apparaat-verbindingsreeks ophalen voor uw apparaat.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString

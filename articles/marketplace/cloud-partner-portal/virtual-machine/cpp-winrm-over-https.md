@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1a341bf36842e49faf8e39f4056232c97cc4232c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b2c0dbfbf474cccdf2d1253b77869c59fd449591
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196835"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214552"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS
 
 In deze sectie wordt uitgelegd hoe u een virtuele machine wordt gehost op Azure, op basis van Windows configureren zodat deze kan worden beheerd en geïmplementeerd op afstand met PowerShell.  De doel-VM moet een Windows Remote Management (WinRM) HTTPS-eindpunt beschikbaar maken zodat externe communicatie van PowerShell.  Zie voor meer informatie over PowerShell voor externe toegang, [externe opdrachten uitgevoerd](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  Zie voor meer informatie over WinRM [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Als u een virtuele machine met een van de 'klassieke' Azure methoden hebt gemaakt, de Azure Service Manager-Portal of de afgeschafte [Azure Service Management API] (https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)— en vervolgens wordt deze automatisch geconfigureerd met een WinRM-eindpunt.  Echter als u een virtuele machine maken met behulp van een van de volgende 'moderne' Azure nadert, en vervolgens uw virtuele machine wordt *niet* worden geconfigureerd voor WinRM via HTTPS.  
+Als u een virtuele machine met een van de 'klassieke' Azure methoden hebt gemaakt, de Azure Service Manager-Portal of de afgeschafte [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))— en vervolgens wordt deze automatisch geconfigureerd met een WinRM-eindpunt.  Echter als u een virtuele machine maken met behulp van een van de volgende 'moderne' Azure nadert, en vervolgens uw virtuele machine wordt *niet* worden geconfigureerd voor WinRM via HTTPS.  
 
 - Met behulp van de [Azure-portal](https://portal.azure.com/), meestal van een goedgekeurde base, zoals beschreven in de sectie [een Azure-compatibele VHD maken](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Met behulp van de Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

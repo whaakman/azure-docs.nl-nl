@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034081"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199065"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Typen van de index in Azure Cosmos DB
 
@@ -29,6 +29,9 @@ Azure Cosmos DB biedt ondersteuning voor Hash-index en bereik index voor elk pad
 
 - **Hash-index** biedt ondersteuning voor efficiënte gelijkheid en JOIN-query's. Voor de meeste gevallen nodig geen Hash-indexen een grotere precisie dan de standaardwaarde van 3 bytes. Het gegevenstype mag tekenreeks of getal.
 
+  > [!NOTE]
+  > Azure Cosmos-containers ondersteunen een nieuwe indexindeling die gebruikmaakt van het type van de index Hash niet meer. Als u een index hash-type op het indexeringsbeleid opgeeft, wordt de CRUD-aanvragen voor de container wordt op de achtergrond genegeerd, het type index en het antwoord van de container bevat alleen het type van de index bereik. Alle nieuwe Cosmos-containers maken standaard gebruik van de nieuwe indexindeling. 
+  
 - **Bereik index** biedt ondersteuning voor efficiënte gelijkheid query's, bereik-query's (met behulp van >, <>, =, < =,! =), en ORDER BY-query's. ORDER By-query's standaard vereist ook maximale index precisie (-1). Het gegevenstype mag tekenreeks of getal.
 
 - **Ruimtelijke index** ondersteunt efficiënte ruimtelijke (binnen en afstand) query's. Het gegevenstype mag punt, Polygon of LineString. Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment, zoals {"type": 'Point', "coördinaten": [0.0, 10.0]}. Azure Cosmos DB biedt ondersteuning voor automatische indexering van punt veelhoek en LineString gegevenstypen.
@@ -58,6 +61,9 @@ Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke index
 - Ruimtelijke indexen gebruik altijd de precisie van de index standaard voor alle typen (Point, LineString en Veelhoek). De precisie van de index standaard voor ruimtelijke indexen kan niet worden overschreven.
 
 Azure Cosmos DB, wordt er een fout geretourneerd wanneer een query maakt gebruik van ORDER BY, maar beschikt niet over een bereik-index op basis van het aangevraagde pad met de maximale precisie.
+
+> [!NOTE]
+> Azure Cosmos-containers ondersteunen een nieuwe indexindeling die een aangepaste index precisie dan de maximale precisie value(-1) niet meer vereist. Met deze methode worden altijd paden geïndexeerd met de maximale precisie. Als u een precisiewaarde voor het indexeringsbeleid opgeeft, de CRUD-aanvragen op een containers wordt het secondedeel zonder interactie te negeren en het antwoord van de container bevat alleen de value(-1) maximumprecisie.  Alle nieuwe Cosmos-containers maken standaard gebruik van de nieuwe indexindeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 

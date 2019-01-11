@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d322a0027f786be0603e7147eb3ba24341dd7fbf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653353"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214858"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -44,7 +44,7 @@ In dit onderwerp vindt u een overzicht van het rapport-aanmeldingen.
 * Bovendien een gebruiker (niet-beheerders) toegang krijgen tot hun eigen aanmeldingen 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Welke Azure AD-licentie heb ik nodig voor toegang tot aanmeldingsactiviteiten?
-* Uw tenant moet beschikken over een Azure AD Premium-licentie die is gekoppeld aan om te zien van het activiteitenrapport-alles op aanmelden. Zie [aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) upgrade uw versie van Azure Active Directory.
+* Uw tenant moet beschikken over een Azure AD Premium-licentie die is gekoppeld aan om te zien van het activiteitenrapport-alles op aanmelden. Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden. Houd er rekening mee dat als er geen gegevens activiteiten vóór de upgrade, een paar dagen voor de gegevens duurt worden weergegeven in de rapporten na de upgrade naar een premium-licentie.
 
 ## <a name="sign-ins-report"></a>Aanmeldingenrapport
 
@@ -54,7 +54,7 @@ De gebruiker aanmeldingen rapport vindt u antwoorden op de volgende vragen:
 * Hoeveel gebruikers hebben zich gedurende een week aangemeld?
 * Wat is de status van deze aanmeldingen?
 
-U kunt toegang tot het rapport-aanmeldingen door te selecteren **aanmeldingen** in de **activiteit** sectie van de **Azure Active Directory** -blade in de [vanAzureportal](https://portal.azure.com).
+U kunt toegang tot het rapport-aanmeldingen door te selecteren **aanmeldingen** in de **activiteit** sectie van de **Azure Active Directory** -blade in de [vanAzureportal](https://portal.azure.com). Houd er rekening mee dat het duurt maximaal twee uur voor aanmelding bij records worden weergegeven in de portal.
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/61.png "Aanmeldingsactiviteit")
 

@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: d8d8e344ce9ee317a7f864492514162b1dc085f9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882687"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213124"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tijd van de gegevens opnemen in Log Analytics
 Azure Log Analytics is een service voor grote schaal in Azure Monitor die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor gegevens beschikbaar in Log Analytics nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
@@ -46,7 +46,7 @@ Agents en oplossingen voor gebruik van verschillende strategieën voor het verza
 Om ervoor te zorgen voor Log Analytics-agent is lichtgewicht, wordt de agent buffert logboeken en ze regelmatig worden geüpload naar Log Analytics. Uploaden frequentie varieert tussen 30 seconden en 2 minuten, afhankelijk van het type gegevens. De meeste gegevens worden geüpload in onder 1 minuut. Netwerkomstandigheden mogelijk negatieve invloed hebben op de latentie van deze gegevens naar Log Analytics punt bereikt.
 
 ### <a name="azure-logs-and-metrics"></a>Azure-logboeken en metrische gegevens 
-Gegevens van een activiteitenlogboek duurt circa 5 minuten beschikbaar in Log Analytics. 1-5 minuten beschikbaar zijn, afhankelijk van de Azure-service kan duren voordat gegevens van diagnostische logboeken en metrische gegevens. Het duurt vervolgens een extra 30 tot 60 seconden voor logboeken en de 3 minuten gedurende metrische gegevens voor de gegevens worden verzonden naar Log Analytics punt.
+Gegevens van een activiteitenlogboek duurt circa 5 minuten beschikbaar in Log Analytics. Diagnostische logboeken en metrische gegevens kan duren voordat gegevens 1-15 minuten beschikbaar voor verwerking, afhankelijk van de Azure-service. Zodra deze beschikbaar is, wordt een extra 30 tot 60 seconden voor logboeken en de 3 minuten gedurende metrische gegevens voor de gegevens worden verzonden naar Log Analytics punt vervolgens uitgevoerd.
 
 ### <a name="management-solutions-collection"></a>Management solutions verzameling
 Sommige oplossingen geen hun gegevens worden verzameld uit een agent en een methode voor gebruikersstatusverzameling die resulteert in extra latentie kunnen gebruiken. Een aantal oplossingen voor het verzamelen van gegevens met regelmatige tussenpozen zonder dat wordt geprobeerd near-real-time-verzameling. Specifieke voorbeelden omvatten het volgende:
@@ -73,22 +73,60 @@ Dit proces momenteel ongeveer 5 minuten plaats wanneer er weinig volume van gege
 
 
 ## <a name="checking-ingestion-time"></a>Opname-tijd controleren
-U kunt de **Heartbeat** tabel om een schatting van de latentie voor gegevens van agents. Aangezien Heartbeat wordt verzonden, één keer per minuut, het verschil tussen de huidige tijd en de laatste heartbeat-record in het ideale geval worden zo dicht bij een minuut mogelijk.
+Opname tijd kan variëren voor andere resources onder verschillende omstandigheden. Logboeken-query's kunt u bepaald gedrag van uw omgeving identificeren.
 
-Gebruik de volgende query om de computers met de hoogste latentie weer te geven.
+### <a name="ingestion-latency-delays"></a>Opname latentie vertragingen
+U kunt de latentie van een bepaalde record meten door het vergelijken van het resultaat van de [ingestion_time()](/azure/kusto/query/ingestiontimefunction) functie de _TimeGenerated_ veld. Deze gegevens kunnen worden gebruikt met verschillende aggregaties te vinden hoe opnamelatentie zich gedraagt. Bekijk enkele percentiel van de tijd opname om inzichten te verkrijgen voor een grote hoeveelheid gegevens. 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | top 50 by IngestionTime asc
+Bijvoorbeeld, ziet de volgende query u welke computers had de hoogste tijd voor opname in de huidige dag: 
 
+``` Kusto
+Heartbeat
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc  
+```
  
-Gebruik de volgende query in grote omgevingen geven een overzicht van de latentie voor verschillende percentage van totaal aantal computers.
+Als u inzoomen op het moment van opname voor een specifieke computer gedurende een bepaalde periode wilt, gebruikt u de volgende query ook visualisatie van de gegevens in een grafiek: 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | summarize percentiles(IngestionTime, 50,95,99)
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart  
+```
+ 
+Gebruik de volgende query om weer te geven van gegevensopname computertijd door het land, dat ze bevinden zich op die is gebaseerd op de IP-adres: 
 
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+```
+ 
+Verschillende gegevenstypen die afkomstig zijn van de agent mogelijk verschillende opname latentie time, zodat de vorige query's kunnen worden gebruikt met andere typen. Gebruik de volgende query om te controleren van de tijd van de opname van verschillende Azure-services: 
 
+``` Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+```
+
+### <a name="resources-that-stop-responding"></a>Resources die niet meer reageert 
+In sommige gevallen kan een resource stoppen gegevens worden verzonden. Om te begrijpen als een resource is verzenden van gegevens of niet, kijken naar de meest recente record waarmee kan worden geïdentificeerd door de standaard _TimeGenerated_ veld.  
+
+Gebruik de _Heartbeat_ tabel om te controleren of de beschikbaarheid van een virtuele machine, aangezien een heartbeat eens per minuut door de agent wordt verzonden. Gebruik de volgende query om de actieve computers die heartbeat onlangs nog niet gerapporteerd weer te geven: 
+
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * Lees de [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) voor Log Analytics.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 847adc9f304e9da62129948616f0a3485b33ee7b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743898"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199524"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell gebruiken voor back-up en herstellen van virtuele machines
 
@@ -72,7 +72,7 @@ Om te beginnen met:
 6. U kunt controleren of de Providers is geregistreerd met de volgende opdrachten:
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ``` 
+    ```
     In de uitvoer van de opdracht, de **RegistrationState** moet wijzigen naar **geregistreerde**. Als niet het geval is, alleen wordt uitgevoerd de **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet opnieuw uit.
 
 De volgende taken kunnen worden geautomatiseerd met PowerShell:
@@ -185,7 +185,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 Als u het beveiligingsbeleid hebt gedefinieerd, moet u nog steeds het beleid voor een item inschakelen. Gebruik **[Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** beveiliging in te schakelen. Inschakelen van beveiliging vereist twee objecten - het item en het beleid. Nadat het beleid gekoppeld aan de kluis is, worden de back-werkstroom wordt geactiveerd op het moment dat is gedefinieerd in de planning van het beleid.
 
-De volgende voorbeelden inschakelen van de beveiliging voor het item, V2VM, met behulp van het beleid, NewPolicy. De voorbeelden zijn afhankelijk van of de virtuele machine is versleuteld en wat het type versleuteling. 
+De volgende voorbeelden inschakelen van de beveiliging voor het item, V2VM, met behulp van het beleid, NewPolicy. De voorbeelden zijn afhankelijk van of de virtuele machine is versleuteld en wat het type versleuteling.
 
 De beveiliging inschakelen op **resourcemanager-VM's niet-versleutelde**:
 
@@ -355,7 +355,7 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Beheerde schijven terugzetten
 
 > [!NOTE]
-> Als de back-ups virtuele machine schijven beheerde er en u wilt deze als beheerde schijven terugzetten, hebben we de mogelijkheid van Azure Powershell v 6.7.0 geïntroduceerd. en hoger
+> Als de back-ups virtuele machine schijven beheerde er en u wilt deze als beheerde schijven terugzetten, hebben we de mogelijkheid van Azure PowerShell v 6.7.0 geïntroduceerd. en hoger
 >
 >
 
@@ -457,7 +457,7 @@ De volgende sectie bevat stappen die nodig zijn voor het maken van een virtuele 
        }
        ```
 
-   * **Niet-beheerde en versleutelde VM's (alleen BEK)** -voor niet-beheerde, versleutelde virtuele machines (versleuteld met behulp van de BEK alleen), moet u het geheim voor de key vault herstellen voordat u schijven kunt koppelen. Zie voor meer informatie het artikel [een versleutelde virtuele machine herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Het volgende voorbeeld laat zien hoe besturingssysteem en gegevensschijven koppelen voor versleutelde virtuele machines. Bij het instellen van de besturingssysteemschijf, zorg ervoor dat het relevante type besturingssysteem vermeld.
+   * **Niet-beheerde en versleutelde virtuele machines met Azure AD (alleen BEK)** -voor niet-beheerde, versleutelde virtuele machines met Azure AD (versleuteld met behulp van de BEK alleen) die u wilt herstellen van het geheim aan de sleutelkluis, voordat u schijven kunt koppelen. Zie voor meer informatie de [een versleutelde virtuele machine herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Het volgende voorbeeld laat zien hoe besturingssysteem en gegevensschijven koppelen voor versleutelde virtuele machines. Bij het instellen van de besturingssysteemschijf, zorg ervoor dat het relevante type besturingssysteem vermeld.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -469,13 +469,8 @@ De volgende sectie bevat stappen die nodig zijn voor het maken van een virtuele 
        $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
       ```
-      Gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
 
-      ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -VolumeType Data
-      ```
-
-   * **Niet-beheerde en versleutelde VM's (BEK en KEK)** : voor niet-beheerde, versleutelde virtuele machines (versleuteld met (bek) en KEK), de sleutel en -geheim voor de key vault herstellen voordat u de schijven koppelt. Zie voor meer informatie het artikel [een versleutelde virtuele machine herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Het volgende voorbeeld laat zien hoe besturingssysteem en gegevensschijven koppelen voor versleutelde virtuele machines.
+   * **Niet-beheerde en versleutelde virtuele machines met Azure AD (BEK en KEK)** : voor niet-beheerde, versleutelde virtuele machines in Azure AD (versleuteld met behulp van (bek) en KEK), de sleutel en -geheim voor de key vault herstellen voordat u de schijven koppelt. Zie voor meer informatie, [een versleutelde virtuele machine herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Het volgende voorbeeld laat zien hoe besturingssysteem en gegevensschijven koppelen voor versleutelde virtuele machines.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -484,34 +479,100 @@ De volgende sectie bevat stappen die nodig zijn voor het maken van een virtuele 
       Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
       foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
-       }
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+     }
       ```
 
-      Gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
+   * **Niet-beheerde en versleutelde virtuele machines zonder Azure AD (alleen BEK)** : voor niet-beheerde, versleutelde virtuele machines zonder Azure AD (versleuteld met behulp van de BEK alleen), als bron **keyVault en-geheim zijn niet beschikbaar** de geheimen herstellen tot key vault met behulp van de procedure in [een niet-versleutelde VM herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Voer de volgende scripts voor het instellen van Versleutelingsgegevens voor de herstelde OS-blob (deze stap is niet vereist voor gegevensblob). De $dekurl kunnen worden opgehaald uit de herstelde keyVault.<br>
+
+   Het onderstaande script moet worden uitgevoerd alleen als de Key Vault en-geheim voor bron niet beschikbaar is.
 
       ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""}}]}"
+      $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
+      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
+      $osBlob.ICloudBlob.SetMetadata()
       ```
 
-   * **Beheerde en niet-versleutelde VM's** - voor beheerde niet-versleutelde virtuele machines en koppel de herstelde beheerde schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+    Na de **geheimen zijn beschikbaar** en de Versleutelingsgegevens ook zijn ingesteld op de OS-Blob, koppel de schijven die met het onderstaande script.<br>
 
-   * **Beheerd en versleutelde virtuele machines (alleen BEK)** - voor beheerde versleutelde virtuele machines (versleuteld met behulp van de BEK alleen), koppel de herstelde beheerde schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-
-     Gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
-
-       ```powershell
-       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
-       ```
-
-   * **Beheerd en versleutelde virtuele machines (BEK en KEK)** - voor beheerde versleutelde virtuele machines (versleuteld met (bek) en KEK), koppel de herstelde beheerde schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-
-      Gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
+    Als de bron van de keyVault/geheimen al beschikbaar zijn, moet klikt u vervolgens het bovenstaande script niet worden uitgevoerd.
 
       ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
+      foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
+      {
+      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      }
       ```
+
+   * **Niet-beheerde en versleutelde virtuele machines zonder Azure AD (BEK en KEK)** : voor niet-beheerde, versleutelde virtuele machines zonder Azure AD (versleuteld met de BEK & KEK), als bron **keyVault/sleutels/geheimen zijn niet beschikbaar** de sleutel herstellen en geheimen tot key vault met behulp van de procedure in [een niet-versleutelde VM herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Voer de volgende scripts voor het instellen van Versleutelingsgegevens voor de herstelde OS-blob (deze stap is niet vereist voor gegevensblob). De $dekurl en $kekurl kunnen worden opgehaald uit de herstelde keyVault.
+
+   Het onderstaande script moet worden uitgevoerd alleen als de bron keyVault/sleutels/geheimen niet beschikbaar is.
+
+    ```powershell
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""},""keyEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""keyUrl"":""$kekUrl""}}]}"
+      $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
+      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
+      $osBlob.ICloudBlob.SetMetadata()
+      ```
+   Na de **sleutel/geheimen zijn beschikbaar** en de details van de versleuteling worden ingesteld op de OS-Blob en koppel de schijven die met het onderstaande script.
+
+    Als de bron keyVault/sleutel/geheimen beschikbaar zijn, moet klikt u vervolgens het bovenstaande script niet worden uitgevoerd.
+
+    ```powershell
+      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
+      foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
+      {
+      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      }
+      ```
+
+  * **Beheerde en niet-versleutelde VM's** - voor beheerde niet-versleutelde virtuele machines en koppel de herstelde beheerde schijven. Zie voor gedetailleerde informatie [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Beheerd en versleutelde virtuele machines met Azure AD (alleen BEK)** : als u beheerde versleutelde virtuele machines in Azure AD (versleuteld met behulp van de BEK alleen), koppel de herstelde beheerde schijven. Zie voor gedetailleerde informatie [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Beheerd en versleutelde virtuele machines met Azure AD (BEK en KEK)** : als u beheerde versleutelde virtuele machines in Azure AD (versleuteld met behulp van (bek) en KEK), koppel de herstelde beheerde schijven. Zie voor gedetailleerde informatie [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Beheerd en versleutelde virtuele machines zonder Azure AD (alleen BEK)** -voor die worden beheerd, versleutelde virtuele machines zonder Azure AD (versleuteld met behulp van de BEK alleen), als bron **keyVault en-geheim zijn niet beschikbaar** herstellen de geheimen sleutelkluis met de de procedure in [een niet-versleutelde VM herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Voer de volgende scripts voor het instellen van Versleutelingsgegevens voor de herstelde OS-schijf (deze stap is niet vereist voor de gegevensschijf). De $dekurl kunnen worden opgehaald uit de herstelde keyVault.
+
+    Het onderstaande script moet worden uitgevoerd alleen als de Key Vault en-geheim voor bron niet beschikbaar is.  
+
+    ```powershell
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
+      $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+      Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+      ```
+
+    Nadat de geheimen beschikbaar zijn en de details van de versleuteling worden ingesteld op de schijf met het besturingssysteem, als u wilt koppelen van de herstelde beheerde schijven, Zie [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Beheerd en versleutelde virtuele machines zonder Azure AD (BEK en KEK)** : als u beheerde, versleutelde virtuele machines zonder Azure AD (versleuteld met behulp van de BEK & KEK), als bron **keyVault/sleutels/geheimen zijn niet beschikbaar** herstellen van de sleutel en geheimen op sleutel met behulp van de procedure in kluis [een niet-versleutelde VM herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Voer de volgende scripts voor het instellen van Versleutelingsgegevens voor de herstelde OS-schijf (deze stap is niet vereist voor de gegevensschijf). De $dekurl en $kekurl kunnen worden opgehaald uit de herstelde keyVault.
+
+  Het onderstaande script moet worden uitgevoerd alleen als de bron keyVault/sleutels/geheimen niet beschikbaar is.
+
+  ```powershell
+     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+     $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
+     $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+     $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
+     $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+     $diskupdateconfig = Set-AzureRmDiskUpdateKeyEncryptionKey -DiskUpdate $diskupdateconfig -KeyUrl $kekUrl -SourceVaultId $keyVaultId  
+     Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+    ```
+
+    Nadat de sleutel-/ geheimen beschikbaar zijn en de details van de versleuteling worden ingesteld op de schijf met het besturingssysteem, als u wilt koppelen van de herstelde beheerde schijven, Zie [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
 5. Stel de netwerkinstellingen.
 
@@ -525,11 +586,44 @@ De volgende sectie bevat stappen die nodig zijn voor het maken van een virtuele 
     $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
+
 6. Maak de virtuele machine.
 
     ```powershell  
     New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+7. Push-ade-extensie.
+
+  * **Voor de virtuele machine met Azure AD** -gebruik de volgende opdracht handmatig kunnen versleuteling inschakelen voor de gegevensschijven  
+
+    **Alleen de BEK**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      ```
+
+    **(Bek) en KEK-sleutel**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      ```
+
+  * **Voor de virtuele machine zonder Azure AD** -gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
+
+    Als incase tijdens de uitvoering van de opdracht het gevraagd AADClientID, moet u bijwerken van uw Azure-PowerShell.
+
+    **Alleen de BEK**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
+
+      **(Bek) en KEK-sleutel**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Bestanden herstellen vanaf een back-up van virtuele Azure-machine
 
@@ -614,4 +708,4 @@ Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u liever PowerShell gebruiken om u te betrekken wi th uw Azure-resources, Zie het artikel PowerShell [implementeren en beheren van back-up voor Windows Server](backup-client-automation.md). Als u DPM back-ups beheren, Zie het artikel [implementeren en beheren van Backup voor DPM](backup-dpm-automation.md). Beide van de volgende artikelen hebben een versie voor implementaties van Resource Manager en klassieke implementaties.  
+Als u liever PowerShell gebruiken om te communiceren met uw Azure-resources, Zie het artikel PowerShell [implementeren en beheren van back-up voor Windows Server](backup-client-automation.md). Als u DPM back-ups beheren, Zie het artikel [implementeren en beheren van Backup voor DPM](backup-dpm-automation.md). Beide van de volgende artikelen hebben een versie voor implementaties van Resource Manager en klassieke implementaties.  

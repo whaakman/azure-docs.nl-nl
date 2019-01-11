@@ -1,19 +1,19 @@
 ---
 title: Afbeeldingen uploaden naar uw Azure IoT Central-toepassing | Microsoft Docs
 description: Als een opbouwfunctie voor expressies, informatie over het voorbereiden en afbeeldingen uploaden naar uw Azure IoT Central-toepassing.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+manager: philmea
+ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005135"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198606"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Voorbereiden en afbeeldingen uploaden naar uw Azure IoT Central-toepassing
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven hoe, als een opbouwfunctie voor expressies, kunt u 
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT Central-toepassing. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
+1. Een Azure IoT Central-toepassing. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 1. Een hulpprogramma voor het schalen en het formaat van afbeeldingsbestanden.
 
 ## <a name="choose-where-to-use-custom-images"></a>Kies waar u aangepaste installatiekopieën kunt gebruiken
@@ -58,8 +58,8 @@ De volgende tabel geeft een overzicht van de grootte van de installatiekopie die
 
 | Locatie | Grootten |
 | -------- | ------ |
-| Toepassingsbeheer | 268 x 160 pixels |
-| Apparaat-sjabloon | 64 x 64 pixels |
+| Toepassingsbeheerder | 268 x 160 pixels |
+| Apparaatsjabloon | 64 x 64 pixels |
 | Startpagina en dashboardtegels | De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px |
 
 Voor de beste weergave in de toepassing, moet u de installatiekopieën die overeenkomen met de dimensies die wordt weergegeven in de vorige tabel maken.
@@ -86,7 +86,7 @@ Onder de afbeelding configureren, klikt u op de tegel de installatiekopie van he
 
 **Sla** de geüploade installatiekopie. U kunt het formaat van het in de bewerkingsmodus. Klik op **gedaan** wanneer u klaar bent. 
 
-### <a name="device-template"></a>Apparaat-sjabloon
+### <a name="device-template"></a>Apparaatsjabloon
 
 Als u wilt uploaden een installatiekopie van een sjabloon van het apparaat, gaat u naar **Device Explorer**, kiest u de sjabloon van het apparaat en klik vervolgens op een apparaat. U moet een opbouwfunctie om deze taak te voltooien:
 

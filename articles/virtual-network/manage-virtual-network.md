@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ea78176b9e35643698acf3901b30520b7c7be3c2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016020"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214386"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -99,7 +99,13 @@ Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 
 ## <a name="add-or-remove-an-address-range"></a>Toevoegen of verwijderen van een adresbereik in
 
-U kunt toevoegen en verwijderen-adresbereiken voor een virtueel netwerk. Een adresbereik in CIDR-notatie moet worden opgegeven en mag niet overlappen met andere adresbereiken binnen hetzelfde virtuele netwerk. De adresbereiken die u definieert kunnen zijn openbaar of privé (RFC 1918). Of u het adresbereik als openbare of particuliere definiëren, is het adresbereik bereikbaar is alleen van binnen het virtuele netwerk van met elkaar verbonden virtuele netwerken en van een on-premises-netwerken die u hebt gekoppeld aan het virtuele netwerk. U kunt de volgende adresbereiken niet toevoegen:
+U kunt toevoegen en verwijderen-adresbereiken voor een virtueel netwerk. Een adresbereik in CIDR-notatie moet worden opgegeven en mag niet overlappen met andere adresbereiken binnen hetzelfde virtuele netwerk. De adresbereiken die u definieert kunnen zijn openbaar of privé (RFC 1918). Of u het adresbereik als openbare of particuliere definiëren, is het adresbereik bereikbaar is alleen van binnen het virtuele netwerk van met elkaar verbonden virtuele netwerken en van een on-premises-netwerken die u hebt gekoppeld aan het virtuele netwerk. 
+
+<!-- You can decrease the address range for a given virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range; for example, changing a /16 to /8 is possible. We recommend that you begin with a small address range, and then extend it later or add additional ranges.
+
+the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+U kunt de volgende adresbereiken niet toevoegen:
 
 - 224.0.0.0/4 (Multicast)
 - 255.255.255.255/32 (Broadcast)
@@ -131,7 +137,7 @@ Alle virtuele machines die zijn verbonden met het virtuele netwerk registreren z
 3.  Selecteer **DNS-servers**onder **instellingen**.
 4. Selecteer een van de volgende opties:
     - **Standaard (door Azure geleverd)**: Alle namen van voorbeeldresources en privé-IP-adressen worden automatisch geregistreerd bij de Azure DNS-servers. U kunt omzetten van namen tussen alle resources die zijn verbonden met hetzelfde virtuele netwerk. U kunt deze optie niet gebruiken voor het omzetten van namen tussen virtuele netwerken. Als u wilt omzetten van namen tussen virtuele netwerken, moet u een aangepaste DNS-server.
-    - **Aangepaste**: U kunt een of meer servers, tot de Azure is bereikt voor een virtueel netwerk toevoegen. Zie voor meer informatie over limieten voor DNS-servers, [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). U hebt de volgende opties:
+    - **Aangepast**: U kunt een of meer servers, tot de Azure is bereikt voor een virtueel netwerk toevoegen. Zie voor meer informatie over limieten voor DNS-servers, [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). U hebt de volgende opties:
         - **Toevoegen van een adres**: De server toevoegen aan uw lijst met virtuele netwerk DNS-servers. Deze optie wordt ook de DNS-server geregistreerd bij Azure. Als u hebt al een DNS-server geregistreerd bij Azure, kunt u deze DNS-server in de lijst selecteren.
         - **Verwijderen van een adres**: Naast de server die u wilt verwijderen, selecteert u **...** , klikt u vervolgens **verwijderen**. De server verwijdert, wordt de server alleen in de lijst van dit virtuele netwerk. De DNS-server blijft ingeschreven in Azure voor uw virtuele netwerken om te gebruiken.
         - **Volgorde van de DNS-serveradressen**: Het is belangrijk om te controleren of dat u uw DNS-servers in de juiste volgorde voor uw omgeving weergeven. Een lijst met DNS-server worden gebruikt in de volgorde waarin ze worden opgegeven. Ze werken niet als een round robin-installatie. Als de eerste DNS-server in de lijst kan worden bereikt, gebruikt de client die DNS-server, ongeacht of de DNS-server correct werkt. Verwijder alle DNS-servers die worden vermeld en deze vervolgens terug in de volgorde die u wilt toevoegen.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074084"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213618"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Adviesdiensten voor Azure Marketplace en AppSource
 Adviesservices in Azure Marketplace en AppSource biedt Microsoft-partners het doel van de verbindende klanten met services te ondersteunen en uitbreiden van hun gebruik van Azure en zakelijke doelstellingen. 
@@ -69,7 +69,7 @@ Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffen
 |Dynamics 365 voor Finance and Operations, Enterprise edition  |  Silver- of Gold [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) competentie en een minimale omzet van $25 K in Cloud-bewerkingen in de afsluitende 12 maanden.       |
 |Dynamics 365 voor Finance and Operations, Business edition  |  Fungeren als [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) of [digitale Partner van Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) voor ten minste één klant      |
 |Power BI, Power BI aangepaste visuele elementen | Voldoen aan de [Solution Partner criteria](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Hebt u een gepubliceerde [Partnershowcase]() oplossing
+|PowerApps | Hebt u een gepubliceerde [Partnershowcase](https://appsource.microsoft.com/partners) oplossing
 
 <b> Zie voor meer informatie, [vaardigheden via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  

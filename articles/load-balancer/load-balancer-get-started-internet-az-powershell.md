@@ -1,7 +1,7 @@
 ---
-title: Een Standard Load Balancer maken met zone-redundante front met behulp van Azure PowerShell
+title: Een Load Balancer maken met zone-redundante front - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Informatie over het openbare Load Balancer Standard maken met een zone-redundante frontend voor openbare IP-adres met behulp van PowerShell
+description: Informatie over het maken van openbare Standard Load Balancer met een zone-redundante frontend voor openbare IP-adres met behulp van PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ccf30e435ef04f1e4e874c1b7fc78c86a494a3d9
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138736"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198113"
 ---
-#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Standard Balancer maken met zone-redundante front met behulp van Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Een Standard Load Balancer maken met zone-redundante front met behulp van Azure PowerShell
 
-In dit artikel begeleidt bij het maken van een openbare [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) met een zone-redundante front met behulp van een openbare standaard IP-adres.
+In dit artikel begeleidt bij het maken van een openbare [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) met een zone-redundante front met behulp van een openbare standaard IP-adres.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -86,7 +86,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>Een load balancer maken
-Maak een Load Balancer Standard met behulp van de volgende opdracht uit:
+Maak een Standard Load Balancer met behulp van de volgende opdracht uit:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

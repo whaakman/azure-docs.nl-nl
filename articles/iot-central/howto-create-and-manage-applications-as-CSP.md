@@ -3,17 +3,17 @@ title: Maken en beheren van Azure IoT Central toepassingen als een CSP | Microso
 description: Als een CSP over het maken van een Azure IoT Central toepassing namens uw klant.
 services: iot-central
 ms.service: iot-central
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
-manager: peterpr
-ms.openlocfilehash: b72b2183cb796602f05a0a6858d4de108d3cc2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+manager: philmea
+ms.openlocfilehash: 73c3c57df215a66d914f5ea75475f74eff05a1f0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964795"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200289"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Als een CSP, maken en beheren van een Azure IoT Central-toepassing namens uw klant 
 
@@ -43,7 +43,7 @@ Voor het maken van een toepassing met Azure IoT Central, klikt u op de **nieuwe 
 
 U kunt alleen betalen per gebruik-toepassingen maken als een CSP. Ter promotie van Azure IoT Central naar de klant, kunt u een proefversie afzonderlijk maken. Meer informatie over de proef- en betalen per gebruik-toepassingen in de [Azure IoT Central pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## <a name="application-name"></a>Toepassingsnaam
+## <a name="application-name"></a>Naam van toepassing
 
 De naam van uw toepassing wordt weergegeven op de **Toepassingsbeheer** pagina en in elke Azure IoT Central-toepassing. U kunt een willekeurige naam voor uw Azure IoT Central-toepassing. Kies een naam die zinvol voor u en anderen in uw organisatie.
 
@@ -84,7 +84,7 @@ Ziet u de regio's waar Azure IoT Central is beschikbaar op de [producten beschik
 
 U kunt een van de beschikbare sjablonen voor uw nieuwe Azure IoT Central-toepassing. Een toepassingssjabloon kan vooraf gedefinieerde items bevatten, zoals apparaatsjablonen en dashboards om u op weg te helpen.
 
-| Toepassingsjabloon | Beschrijving |
+| Toepassingsjabloon | Description |
 | -------------------- | ----------- |
 | Aangepaste toepassing   | Hiermee maakt u een lege toepassing die u kunt vullen met uw eigen apparaatsjablonen en apparaten. |
 | Contoso-voorbeeld       | Hiermee maakt u een toepassing die gebruikmaakt van een apparaat-sjabloon voor een eenvoudige aangesloten apparaat. Gebruik deze sjabloon als u wilt beginnen met het verkennen van Azure IoT Central. |

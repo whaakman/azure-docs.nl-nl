@@ -10,18 +10,18 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 63d13235ec7244978193ed97aac8d11b2ff65eeb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790772"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198130"
 ---
 # <a name="what-is-conversation-learner"></a>Wat is Conversatiecursist?
 
 Conversatiecursist kunt u voor het bouwen en te leren van de conversatie-interfaces die meer van de voorbeeld-interacties. 
 
-In tegenstelling tot traditionele benaderingen, Conversatiecursist rekening gehouden met de end-to-end-context van een dialoog antwoorden te verbeteren en meer aantrekkelijke gebruikerservaringen bieden. Spanning van een breed scala aan taakgerichte use-cases, Conversatiecursist van toepassing is machine learning achter de schermen om bots en intelligente agents minder waarschijnlijk frustrerend kan zijn voor gebruikers, extra customer servicekosten in rekening te maken en meer stimuleren informatietechnologie meer intuïtieve interacties.
+In tegenstelling tot traditionele benaderingen, Conversatiecursist rekening gehouden met de end-to-end-context van een dialoog antwoorden te verbeteren en meer aantrekkelijke gebruikerservaringen bieden. Een breed scala aan taakgerichte spanning use-cases, Conversatiecursist van de toepassing machine learning achter de schermen om bots en intelligente agents minder waarschijnlijk frustrerend kan zijn voor gebruikers, extra customer servicekosten in rekening en stimuleren informatietechnologie meer intuïtieve benadering interacties te maken.
 
 Ontwikkelaars starten door in te voeren prototypische dialoogvensters die ze willen imiteren. Het Model leert meer dialoogvensters zijn ingevoerd. Zodra het Model goed werkt is, kan de Bot kan worden geïmplementeerd voor eindgebruikers. Conversatiecursist registreert gesprekken met gebruikers en de ontwikkelaar ze kunt bekijken. Als er fouten worden gevonden, de ontwikkelaar een correctie op plaatse kunt maken en het model wordt onmiddellijk retrained en beschikbaar voor gebruik.
 

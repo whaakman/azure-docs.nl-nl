@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107222"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214739"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -63,7 +63,7 @@ A: Als u logboeken van de virtuele machine, moet u ook worden toegekend aan een 
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>V. Waarom ik hebben toegang mijn werkruimte in de OMS-portal tot kan, maar ik krijg de fout 'u hebt geen toegang' in de Azure-portal?  
 
-A: Voor toegang tot een werkruimte in Azure, moet u toegewezen Azure-machtigingen hebben. Er zijn enkele gevallen waarbij u bent mogelijk niet gemachtigd juiste toegang. In dergelijke gevallen de beheerder moet verlenen u met de machtigingen in Azure.See [OMS-portal naar Azure verplaatst,](/../../azure-monitor/platform/oms-portal-transition.md) voor meer informatie.
+A: Voor toegang tot een werkruimte in Azure, moet u toegewezen Azure-machtigingen hebben. Er zijn enkele gevallen waarbij u bent mogelijk niet gemachtigd juiste toegang. In dergelijke gevallen de beheerder moet verlenen u met de machtigingen in Azure.See [OMS-portal naar Azure verplaatst,](oms-portal-transition.md) voor meer informatie.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>V. Waarom zie ik niet kan geen Weergaveontwerper vermelding in Logboeken? 
 A: Weergaveontwerper is alleen beschikbaar in Logboeken voor gebruikers die zijn toegewezen met machtigingen van de inzender of hoger.

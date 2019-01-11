@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 19a9ef3e3f6a33e1f8e4d1e47ddc7562c0b90e37
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191663"
+ms.locfileid: "54197671"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob-opslag: Premium (preview), Hot, Cool en Archive storage-lagen
 
 ## <a name="overview"></a>Overzicht
 
-Azure storage biedt verschillende opslaglagen waarmee u kunt voor het opslaan van gegevens voor Blob-object in de meest kostenefficiënte manier. De beschikbare categorieën zijn onder andere:
+Azure storage biedt verschillende opslaglagen, waarmee u kunt voor het opslaan van gegevens voor Blob-object in de meest kostenefficiënte manier. De beschikbare categorieën zijn onder andere:
 
 - **Premium storage (voorbeeld)** biedt krachtige hardware voor gegevens die regelmatig worden geopend.
  
@@ -47,15 +47,15 @@ Het is nuttig om voor elk van deze scenario‘s voor toegang tot gegevens een an
 
 ## <a name="storage-accounts-that-support-tiering"></a>Storage-accounts die ondersteuning bieden voor opslaglagen
 
-U kunt alleen objectopslaggegevens uw voor warm, koud of archief in Blob storage of General Purpose v2 (GPv2-accounts). General Purpose v1 (GPv1)-accounts bieden geen ondersteuning voor opslaglagen. Klanten kunnen echter eenvoudig hun bestaande GPv1- of Blob Storage-accounts met één muisklik converteren naar GPv2-accounts in Azure Portal. GPv2 biedt ook een nieuwe prijzenstructuur voor blobs, bestanden en wachtrijen en toegang tot tal van andere nieuwe opslagfuncties. Verder zullen sommige nieuwe mogelijkheden en prijsverlagingen alleen in GPv2-accounts worden aangeboden. Daarom moeten klanten het gebruik van GPv2-accounts evalueren, maar deze alleen gebruiken na herziening van de prijsstelling voor alle diensten, aangezien sommige workloads op GPv2 duurder kunnen zijn dan op GPv1. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie.
+U kunt alleen objectopslaggegevens uw voor warm, koud of archief in Blob-opslag en algemeen gebruik v2 (GPv2-accounts). General Purpose v1 (GPv1)-accounts bieden geen ondersteuning voor opslaglagen. Klanten kunnen echter eenvoudig hun bestaande GPv1- of Blob Storage-accounts met één muisklik converteren naar GPv2-accounts in Azure Portal. GPv2 biedt ook een nieuwe prijzenstructuur voor blobs, bestanden en wachtrijen en toegang tot tal van andere nieuwe opslagfuncties. Verder zullen sommige nieuwe mogelijkheden en prijsverlagingen alleen in GPv2-accounts worden aangeboden. Daarom moeten klanten het gebruik van GPv2-accounts evalueren, maar deze alleen gebruiken na herziening van de prijsstelling voor alle diensten, aangezien sommige workloads op GPv2 duurder kunnen zijn dan op GPv1. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie.
 
 BLOB storage en GPv2-accounts geven het **Toegangslaag** kenmerk op het accountniveau waarmee u om op te geven van de standaardopslaglaag als warm of koud voor elke blob in de storage-account dat geen expliciete laag is ingesteld op de objectniveau. Voor objecten met de op objectniveau ingestelde opslaglaag is het accountniveau niet van toepassing. De Archive-laag kan alleen worden toegepast op objectniveau. U kunt op elk gewenst moment schakelen tussen deze opslaglagen.
 
 ## <a name="premium-access-tier"></a>Premium-laag voor access
 
-Beschikbaar in preview is een Premium-toegangslaag waardoor gegevens beschikbaar zijn via krachtige hardware vaak worden gebruikt. Gegevens die zijn opgeslagen in deze laag is opgeslagen op SSD-schijven die zijn geoptimaliseerd voor lagere latentie, een hogere transactionele tarieven met traditionele harde schijven vergeleken. De laag Premium is beschikbaar via de blok-Blob opslagaccounttype alleen.
+Beschikbaar in preview is een Premium-toegangslaag, waardoor gegevens beschikbaar zijn via krachtige hardware vaak worden gebruikt. Gegevens die zijn opgeslagen in deze laag is opgeslagen op SSD-schijven die zijn geoptimaliseerd voor lagere latentie en hogere transactionele tarieven vergeleken met traditionele harde schijven. De laag Premium is beschikbaar via de blok-Blob opslagaccounttype alleen.
 
-Deze laag is ideaal voor workloads waarvoor snelle en consistente reactietijden. Gegevens die betrekking heeft op eindgebruikers, zoals interactieve videobewerking, statische webinhoud, online transacties en dergelijke zijn een goede kandidaten zijn voor de laag Premium. Deze laag is geschikt voor werkbelastingen die veel kleine transacties, zoals het vastleggen van telemetriegegevens, berichten en gegevenstransformatie van uitvoeren.
+Deze laag is ideaal voor workloads waarvoor snelle en consistente reactietijden. Gegevens die betrekking heeft op eindgebruikers, zoals interactieve videobewerking, statische webinhoud, online transacties en dergelijke zijn goede kandidaten zijn voor de laag Premium. Deze laag is geschikt voor werkbelastingen die veel kleine transacties, zoals het vastleggen van telemetriegegevens, berichten en gegevenstransformatie van uitvoeren.
 
 Voor het gebruik van deze laag, een nieuw blok-Blob storage-account en begin met het maken van containers en blobs met de [REST API voor Blob Service](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -119,9 +119,9 @@ BLOB Storage lifecycle management (Preview) biedt een uitgebreide, op basis van 
 
 ### <a name="blob-level-tiering-billing"></a>Facturering van laaginstelling op blobniveau
 
-Wanneer een blob wordt verplaatst naar een minder dynamische laag (dynamisch -> statisch, dynamisch -> archief of statisch -> archief), de bewerking gefactureerd als een schrijfbewerking naar de bestemmingslaag, waar de schrijfbewerking (per 10.000) en de kosten voor gegevens schrijven (per GB) van de bestemmingslaag van toepassing. Wanneer een blob wordt verplaatst naar een dynamischer laag (archief -> statisch, archief -> warm of koud -> warm), de bewerking gefactureerd als een leesbewerking vanuit de bronlaag, waar de leesbewerking (per 10.000) en de kosten voor gegevens (per GB) voor het ophalen van de bronlaag van toepassing.
+Wanneer een blob wordt verplaatst naar een minder dynamische laag (dynamisch -> statisch, dynamisch -> archief of statisch -> archief), de bewerking gefactureerd als een schrijfbewerking naar de bestemmingslaag, waar de schrijfbewerking (per 10.000) en de kosten voor gegevens schrijven (per GB) van de bestemmingslaag van toepassing. Wanneer een blob wordt verplaatst naar een dynamischer laag (archief -> statisch, archief -> warm of koud -> warm), de bewerking gefactureerd als een leesbewerking vanuit de bronlaag, waar de leesbewerking (per 10.000) en de kosten voor gegevens (per GB) voor het ophalen van de bronlaag van toepassing. De volgende tabel geeft een overzicht van hoe laagwijzigingen worden in rekening gebracht.
 
-| | **Schrijven van kosten in rekening gebracht** | **Alleen kosten in rekening gebracht** 
+| | **Schrijven van kosten in rekening gebracht (bewerking + toegang)** | **Alleen kosten in rekening gebracht (bewerking + toegang)** 
 | ---- | ----- | ----- |
 | **SetBlobTier richting** | Dynamisch -> statisch, dynamisch -> archief, statisch -> archief | Archief -> statisch, archief -> dynamisch, statisch -> dynamisch
 
@@ -141,7 +141,7 @@ De volgende tabel bevat een vergelijking van de Hot, Cool en Archive storage-lag
 | ---- | ----- | ----- | ----- |
 | **Beschikbaarheid** | 99,9% | 99% | N/A |
 | **Beschikbaarheid** <br> **(RA-GRS-leesbewerkingen)**| 99,99% | 99,9% | N/A |
-| **Gebruikskosten** | Hogere opslagkosten, lagere toegangs- en transactiekosten | Lagere opslagkosten, hogere toegangs- en transactiekosten | Laagste opslagkosten, hoogste toegangs- en transactiekosten |
+| **Gebruikskosten** | Hogere opslagkosten, lagere toegangs- en transactiekosten | Lagere opslagkosten, hogere toegang en transactiekosten | Laagste opslagkosten, hoogste toegangs- en transactiekosten |
 | **Minimale objectgrootte** | N/A | N/A | N/A |
 | **Minimale opslagduur** | N/A | 30 dagen (alleen GPv2) | 180 dagen
 | **Latentie** <br> **(Tijd tot eerste byte)** | milliseconden | milliseconden | < 15 uur
@@ -237,7 +237,7 @@ Elke blob wordt altijd gefactureerd volgens de opslaglaag aangegeven door een va
 
 **Hoe bepaal ik als ik een vroegtijdige verwijdering in rekening in gebracht rekening bij het verwijderen of verplaatsen van een blob uit de Cool of Archive-laag?**
 
-Elke blob die wordt verwijderd of verplaatst uit respectievelijk de statische (alleen GPv2-accounts) of archiefopslaglaag 30 dagen of 180 dagen wordt een vooraf vastgesteld bedrag vroegtijdige verwijdering in rekening gebracht. U kunt bepalen hoe lang een blob is in de Cool of Archive-laag door het controleren van de **Access Tier Change Time** blob-eigenschap, die een tijdstempel van de laatste wijziging van de laag biedt. Zie [koud en vroege verwijdering voor archief](#cool-and-archive-early-deletion) sectie voor meer informatie.
+Elke blob die wordt verwijderd of verplaatst uit respectievelijk de statische (alleen GPv2-accounts) of archiefopslaglaag 30 dagen of 180 dagen wordt een vooraf vastgesteld bedrag vroegtijdige verwijdering in rekening gebracht. U kunt bepalen hoe lang een blob is in de Cool of Archive-laag door het controleren van de **Access Tier Change Time** blob-eigenschap, die een tijdstempel van de laatste wijziging van de laag biedt. Zie voor meer informatie, [koud en vroege verwijdering voor archief](#cool-and-archive-early-deletion).
 
 **Welke Azure-hulpprogramma's en SDK's ondersteunen laaginstelling op blobniveau en archiefopslag?**
 

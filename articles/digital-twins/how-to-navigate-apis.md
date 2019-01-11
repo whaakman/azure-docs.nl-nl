@@ -2,18 +2,18 @@
 title: API's van Azure van digitale dubbels navigeren | Microsoft Docs
 description: Leer hoe u algemene patronen van query's op de beheer-API's van de digitale dubbels van Azure.
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 2221e8b22450a353da42564e5b93342a11e59f71
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108319"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200952"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Het gebruik van Azure digitale dubbels beheer-API 's
 
@@ -25,11 +25,11 @@ De volgende lijst bevat de onderdelen van de digitale Twins-API's.
 
 * [/ opslagruimten](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Deze API's communiceren met de fysieke locaties in uw instellingen. Deze om te maken, verwijderen en beheren van de digitale toewijzingen van uw fysieke locaties in de vorm van een [ruimtelijke graph](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
-* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Deze API's waarmee u kunt resources, zoals een IoT-hub voor uw exemplaar van digitale dubbels instellen.
-
 * [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): Deze API's communiceren met de apparaten in uw instellingen. Deze apparaten kunnen een of meer sensoren beheren. Bijvoorbeeld, kan een apparaat worden uw telefoon of een Raspberry Pi sensor schil of een Lora-gateway, enzovoort.
 
 * [/sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): Deze API's kunnen u communiceren met de sensoren die zijn gekoppeld aan uw apparaten en uw fysieke locaties. De sensoren registreren en de waarden die vervolgens kunnen worden gebruikt voor het bewerken van uw omgeving ruimtelijke verzenden.  
+
+* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Deze API's waarmee u kunt resources, zoals een IoT-hub voor uw exemplaar van digitale dubbels instellen.
 
 * [/ typen](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Deze API's kunnen u uitgebreide typen koppelen aan uw digitale Twins-objecten, specifieke kenmerken toevoegen aan deze objecten. Deze typen kunnen eenvoudig filteren en groeperen van objecten in de gebruikersinterface en de aangepaste functies die uw telemetriegegevens verwerken. Voorbeelden van uitgebreide zijn *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType* , *SpaceBlobType*, *SpaceResourceType*, enzovoort.
 

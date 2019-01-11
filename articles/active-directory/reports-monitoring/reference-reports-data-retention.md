@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0ed23c8efcf43213b288945c2910edf4c97bb63e
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753129"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214467"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Bewaarbeleid Azure Active Directory-rapporten
 
@@ -40,6 +40,18 @@ In dit artikel hebt u meer informatie over het bewaarbeleid voor gegevens voor d
 
 - **Onmiddellijk** : als u al met rapporten in Azure portal werkt.
 - **Binnen 2 uur** : als u dit nog niet hebt ingeschakeld op rapportage in Azure portal.
+
+---
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe snel kan ik activiteiten gegevens zien nadat u een premium-licentie?
+
+Als u al gegevens van activiteiten met uw gratis licentie hebt, kunt klikt u vervolgens u zien deze onmiddellijk bij een upgrade. Als u geen gegevens, duurt het een of twee dagen voor de gegevens worden weergegeven in de rapporten na de upgrade naar een premium-licentie.
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Kan ik van afgelopen maand gegevens zien nadat u een Azure AD premium-licentie?
+
+Als u onlangs hebt overgeschakeld naar een premiumversie (met inbegrip van een evaluatieversie), ziet u gegevens van 7 dagen in eerste instantie. Wanneer gegevens worden bij elkaar opgeteld, ziet u gegevens voor de afgelopen 30 dagen.
 
 ---
 

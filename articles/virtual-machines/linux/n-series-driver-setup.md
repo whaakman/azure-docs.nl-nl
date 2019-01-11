@@ -3,7 +3,7 @@ title: Azure N-serie GPU-stuurprogramma-instellingen voor Linux | Microsoft Docs
 description: Over het instellen van NVIDIA GPU-stuurprogramma's voor N-serie VM's waarop Linux wordt uitgevoerd in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bd9f8508f67a3c4b87533fb514854b5f66a5f6b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017260"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201037"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-serie VM's waarop Linux wordt uitgevoerd
 
@@ -51,9 +51,9 @@ Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld (met een NVI
 
 Vervolgens uitvoeren installatieopdrachten die specifiek zijn voor uw distributie.
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
-1. Download en installeer de CUDA-stuurprogramma's.
+1. Download en installeer de CUDA-stuurprogramma's van de NVIDIA-website. Bijvoorbeeld: voor Ubuntu 16.04 LTS:
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -97,7 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS of Red Hat Enterprise Linux 7.3 of 7.4
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS of Red Hat Enterprise Linux
 
 1. Bijwerken de kernel (aanbevolen). Als u ervoor kiest om niet bij te werken van de kernel, zorg ervoor dat de versies van `kernel-devel` en `dkms` geschikt zijn voor de kernel.
 
@@ -174,7 +174,7 @@ RDMA-compatibele N-serie VM's implementeren vanaf een van de installatiekopieën
 
 Een SSH-verbinding maken met elke virtuele machine voor het installeren van stuurprogramma's van NVIDIA GRID op NV of NVv2-serie VM's, en volg de stappen voor uw Linux-distributie. 
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
 1. Voer de opdracht `lspci` uit. Controleer of de NVIDIA M60-kaart of kaarten zichtbaar als PCI-apparaten zijn.
 

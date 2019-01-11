@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187414"
+ms.locfileid: "54198522"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
 
-HTTP-headers kunnen de client en de server om door te geven aanvullende informatie met de aanvraag of het antwoord. Deze HTTP-headers kunt verschillende belangrijke scenario's zoals het toevoegen van koptekst beveiligingsgerelateerde herschrijven velden, zoals HSTS / X-XSS-beveiliging of response-header-velden is verwijderd, kan die gevoelige informatie, zoals de naam van de back-end-server weergeven.
+Via HTTP-headers kan vanaf de client en de server aanvullende informatie worden doorgegeven bij de aanvraag of het antwoord. Deze HTTP-headers kunt verschillende belangrijke scenario's zoals het toevoegen van koptekst beveiligingsgerelateerde herschrijven velden, zoals HSTS / X-XSS-beveiliging of response-header-velden is verwijderd, kan die gevoelige informatie, zoals de naam van de back-end-server weergeven.
 
-Application Gateway ondersteunt nu de mogelijkheid te herschrijven headers van de binnenkomende HTTP-aanvragen, evenals de uitgaande HTTP-antwoorden. Kunt u zich kunt toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders terwijl de aanvraag/antwoord-pakketten worden verplaatst tussen de client en back-end-pools. U kunt beide zowel standard als niet-standaard headervelden herschrijven.
+Application Gateway ondersteunt nu de mogelijkheid om headers van zowel de inkomende HTTP-aanvragen als de uitgaande HTTP-antwoorden opnieuw te genereren. Kunt u zich kunt toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders terwijl de aanvraag/antwoord-pakketten worden verplaatst tussen de client en back-end-pools. U kunt beide zowel standard als niet-standaard headervelden herschrijven.
 
 > [!NOTE] 
 >
@@ -116,8 +116,6 @@ Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabe
 ## <a name="limitations"></a>Beperkingen
 
 - Deze mogelijkheid te herschrijven van HTTP-headers is momenteel alleen beschikbaar via Azure PowerShell, Azure API en Azure SDK. Ondersteuning via de portal en Azure CLI is binnenkort beschikbaar.
-
-- Wanneer u een koptekst herschrijven op uw Application Gateway toepassen, moet u de portal niet gebruiken voor het maken van de wijzigingen aan deze toepassingsgateway totdat de mogelijkheid wordt ondersteund op de portal. Als u wijzigingen aanbrengen in de Application Gateway na het toepassen van een herschrijvingsregel voor de portal hebt gebruikt, wordt in de header regel herschrijven. U kunt aanbrengen met behulp van Azure PowerShell, Azure-API's of Azure SDK.
 
 - De HTTP-ondersteuning voor het herschrijven van koptekst wordt alleen ondersteund op de nieuwe SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). De mogelijkheid wordt niet ondersteund op de oude SKU.
 

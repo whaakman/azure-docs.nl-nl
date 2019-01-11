@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 1/8/2019
+ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 2e9e4fe06f4d3802f6c0b3ff13e6cf6cdc218050
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122782"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211826"
 ---
 Data factory is een multitenant-service met de volgende standaardlimieten in plaats om te controleren of abonnementen van de gebruiker zijn beveiligd tegen elkaars werkbelastingen. Veel van de limieten kunnen worden eenvoudig gegenereerd voor uw abonnement tot de maximale limiet door contact op met ondersteuning.
 
@@ -26,6 +26,7 @@ Data factory is een multitenant-service met de volgende standaardlimieten in pla
 | Totale CPU-kernen voor Azure-SSIS-integratie Runtime(s) onder één abonnement | 256 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Gelijktijdige pijplijnuitvoeringen per gegevensfactory (gedeeld tussen alle pijplijnen in de fabriek) | 10.000  | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Maximum aantal activiteiten per pijplijn (inclusief interne activiteiten voor containers) | 40 | 40 |
+| Maximumaantal gekoppelde Integration Runtime die kunnen worden gemaakt op basis van een enkele zelfgehoste Cloudintegratieruntime | 20 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Maximum aantal parameters per pijplijn | 50 | 50 |
 | ForEach-items | 100.000 | 100.000 |
 | Parallelle uitvoering ForEach | 20 | 50 |

@@ -1,5 +1,5 @@
 ---
-title: Met Azure Traffic Manager - Veelgestelde vragen | Microsoft Docs
+title: Met Azure Traffic Manager - Veelgestelde vragen
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963569"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200044"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -437,8 +437,8 @@ Er is geen negatieve gevolgen van het gebruik van geneste profielen voor de prij
 
 Facturering voor Traffic Manager bestaat uit twee onderdelen: van eindpunten en miljoenen DNS-query's
 
-* Eindpunten: Er zijn geen kosten voor een onderliggende profiel wanneer geconfigureerd als een eindpunt in een bovenliggende-profiel. Bewaking van de eindpunten in het onderliggende profiel wordt in rekening gebracht op de gebruikelijke manier.
-* DNS-query's: elke query slechts één keer wordt geteld. Een query op een bovenliggende-profiel dat een eindpunt geactiveerd vanuit een onderliggende-profiel wordt wordt geteld tegen het bovenliggende profiel alleen.
+* Statuscontroles eindpunt: Er zijn geen kosten voor een onderliggende profiel wanneer geconfigureerd als een eindpunt in een bovenliggende-profiel. Bewaking van de eindpunten in het onderliggende profiel wordt in rekening gebracht op de gebruikelijke manier.
+* DNS-query's: Elke query is slechts één keer worden geteld. Een query op een bovenliggende-profiel dat een eindpunt geactiveerd vanuit een onderliggende-profiel wordt wordt geteld tegen het bovenliggende profiel alleen.
 
 Zie voor meer informatie, de [Traffic Manager-pagina met prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/).
 

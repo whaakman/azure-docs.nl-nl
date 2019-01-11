@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 1521d18ab94c647aebf303b660574afe6612474d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fa858ffbae5c1a37851ea114efd0fbc9cf010e68
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250509"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200799"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Geavanceerde encoding-werkstromen maken met Workflow Designer
 ## <a name="overview"></a>Overzicht
@@ -30,7 +30,7 @@ Werkstromen kunnen klant besluit logica en vertakkingen op basis van de eigensch
 
 Voorbeeld van de werkstromen die u kunt maken, zijn onder andere:
 
-* Besluit op basis van werkstromen die de bron van de inhoud voor het omzetten van controleren en alleen de gewenste uitvoer sporen coderen.  Dit is helfpul door het elimineren van de ongebruikte nummers die door de bron-inhoud per ongeluk upscaling wordt gegenereerd.
+* Besluit op basis van werkstromen die de bron van de inhoud voor het omzetten van controleren en alleen de gewenste uitvoer sporen coderen.  Dit is handig door het elimineren van de ongebruikte nummers die door de bron-inhoud per ongeluk upscaling wordt gegenereerd.
 * Meerdere invoerbestanden kunnen worden gebruikt voor de ondersteuning van bijschriften, overlays en hechten samen inhoud. 
 
 Dit hulpprogramma kan ook worden gebruikt om te wijzigen van een van onze [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows). 

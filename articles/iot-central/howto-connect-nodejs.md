@@ -1,19 +1,19 @@
 ---
 title: Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT Central | Microsoft Docs
 description: Als ontwikkelaar in een apparaat, hoe u een algemene Node.js-apparaat verbinden met uw Azure IoT Central-toepassing.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 9d97b14d52a33d6879ee92b38993f4526823c4a0
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+manager: philmea
+ms.openlocfilehash: 4d61810adb24bb56b849a0a07ad1f097a1c33744
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963983"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198079"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven hoe u als ontwikkelaar apparaat om een algemene Nod
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT Central-toepassing. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
+1. Een Azure IoT Central-toepassing. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 1. Een ontwikkelcomputer met [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnstalleerd. U kunt uitvoeren `node --version` vanaf de opdrachtregel om uw versie te controleren. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
 
 ## <a name="create-a-device-template"></a>Een apparaat-sjabloon maken

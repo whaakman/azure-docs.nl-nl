@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631852"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214994"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -125,6 +125,15 @@ Zie voor meer informatie over hoe management packs voor oplossingen worden bijge
 > [!NOTE]
 > Voor systemen waarop de Operations Manager-Agent, om te kunnen volledig worden beheerd door beheer van updates, de agent moet worden bijgewerkt naar de Microsoft Monitoring Agent. Zie voor informatie over het bijwerken van de agent, [upgrade uitvoeren van een Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
+## <a name="onboard"></a>Updatebeheer inschakelen
+
+Als u wilt herstellen van systemen, moet u de oplossing Update Management inschakelen. Er zijn veel manieren om onboarding machines updatebeheer. De volgende zijn de aanbevolen en manieren waarop u de oplossing ondersteund:
+
+* [Van een virtuele machine](automation-onboard-solutions-from-vm.md)
+* [Vanuit het bladeren door meerdere virtuele machines](automation-onboard-solutions-from-browse.md)
+* [Via uw Automation-account](automation-onboard-solutions-from-automation-account.md)
+* [Met een Azure Automation-runbook](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Controleer of niet-Azure-machines zijn toegevoegd
 
 Om te bevestigen dat worden rechtstreeks verbonden zijn met machines met Log Analytics, na een paar minuten communiceren kunt u uitvoeren een de volgende zoekopdrachten in Logboeken.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c60f835939b790a05bb536388b961a277e3101e3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278284"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215334"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starten, stoppen en rapporteren over de chaos-test-service.
@@ -47,9 +47,9 @@ Als u het volgende segment van de Chaos-gebeurtenissen, kunt u de ContinuationTo
 |Argument|Description|
 | --- | --- |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --utc-time-end | De Windows-bestand tijd voor de eindtijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --utc-time-end | De Windows-bestand tijd voor de eindtijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
 | --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --utc-time-start | De Windows-bestand tijd voor de begintijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --utc-time-start | De Windows-bestand tijd voor de begintijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten

@@ -1,7 +1,7 @@
 ---
 title: Taakverdeling instellen voor zone-redundante virtuele machines met behulp van Azure CLI
 titlesuffix: Azure Load Balancer
-description: Leer hoe u een openbare Load Balancer Standard maken met zone redundant frontend met behulp van Azure CLI
+description: Informatie over het maken van een openbare Standard Load Balancer met redundante zone-frontend met behulp van Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250804"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197790"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Taakverdeling tussen VM's in alle beschikbaarheidszones met Azure CLI
 
-In dit artikel begeleidt bij het maken van een openbare [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) met een zone-redundante front voor zoneredundantie zonder afhankelijkheid van meerdere DNS-records. Er is één front-end-IP-adres automatisch zone-redundante.  U kunt nu een alle virtuele machines in een virtueel netwerk binnen een regio die in alle Beschikbaarheidszones bereiken met behulp van een zone-redundante front voor de load balancer, met één IP-adres. Gebruik beschikbaarheidszones om uw apps en gegevens te beschermen tegen het onwaarschijnlijke risico van een storing of het verloren gaan van een heel datacenter.
+In dit artikel begeleidt bij het maken van een openbare [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) met een zone-redundante front voor zoneredundantie zonder afhankelijkheid van meerdere DNS-records. Er is één front-end-IP-adres automatisch zone-redundante.  U kunt nu een alle virtuele machines in een virtueel netwerk binnen een regio die in alle Beschikbaarheidszones bereiken met behulp van een zone-redundante front voor de load balancer, met één IP-adres. Gebruik beschikbaarheidszones om uw apps en gegevens te beschermen tegen het onwaarschijnlijke risico van een storing of het verloren gaan van een heel datacenter.
 
 Zie [Standard Load Balancer en beschikbaarheidszones](load-balancer-standard-availability-zones.md) voor meer informatie over het gebruik van beschikbaarheidszones met Standard Load Balancer.
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Azure Load Balancer Standard maken
+## <a name="create-azure-standard-load-balancer"></a>Azure Standard Load Balancer maken
 In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balancer kunt maken en configureren:
 - een front-end IP-pool die het binnenkomende netwerkverkeer op de load balancer ontvangt.
 - een back-end IP-pool waar de front-endpool het netwerkverkeer op de load balancer heen stuurt.

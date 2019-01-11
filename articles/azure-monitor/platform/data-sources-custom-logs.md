@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103480"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198776"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
@@ -164,6 +164,18 @@ We gebruiken een query voor *Type = MyApp_CL* voor alle records uit de verzameld
 We aangepaste velden gebruiken voor het definiëren van de *EventTime*, *Code*, *Status*, en *bericht* velden en zien we het verschil in de records die worden geretourneerd door de query.
 
 ![Logboek query's uitvoeren met aangepaste velden](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>Alternatieven voor aangepaste logboeken
+Terwijl aangepaste logboeken handig zijn als uw gegevens geschikt is voor de criteria over, maar er zijn gevallen, zoals het volgende wanneer u een andere strategie nodig:
+
+- De gegevens past niet de vereiste structuur en dus bijvoorbeeld de tijdstempel in een andere indeling.
+- Het logboekbestand voldoen niet aan vereisten zoals bestandscodering of een niet-ondersteunde mapstructuur.
+- De gegevens vereist voorverwerking of filteren voordat de verzameling. 
+
+In gevallen waar uw gegevens kan niet worden verzameld met aangepaste logboeken, houd rekening met de volgende alternatieve strategieën:
+
+- Een aangepast script of andere methode gebruiken om te schrijven naar [Windows-gebeurtenissen](data-sources-windows-events.md) of [Syslog](data-sources-syslog.md) die worden verzameld door Log Analytics. 
+- De gegevens rechtstreeks naar de met behulp van Log Analytics verzenden [HTTP Data Collector API](data-collector-api.md). Een voorbeeld met behulp van runbooks in Azure Automation wordt geleverd [gegevens verzamelen in Log Analytics met een Azure Automation-runbook](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md) geïmporteerd voor methoden voor het parseren van elke logboekvermelding in meerdere eigenschappen.

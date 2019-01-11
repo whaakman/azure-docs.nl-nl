@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 727c1ce79fbd20252f7455f95ad00a6c44d67c65
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f22a4c4d0159efa2ac42d15ff6afdadc2d6755d0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090513"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215045"
 ---
 # <a name="implement-cicd-for-stream-analytics-using-apis"></a>CI/CD voor Stream Analytics met behulp van API's implementeren
 
@@ -253,7 +253,7 @@ Voorbeeld van implementatie-Manifest:
 } 
 ```
 
-Raadpleeg na de configuratie van de implementatie van het manifest, [implementeren Azure IoT Edge-modules met Azure CLI](/iot-edge/how-to-deploy-modules-cli.md) voor implementatie.
+Raadpleeg na de configuratie van de implementatie van het manifest, [implementeren Azure IoT Edge-modules met Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) voor implementatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen 

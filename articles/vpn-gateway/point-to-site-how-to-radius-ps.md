@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: b5d69b8f9f004da93e5bed05b86e46f6e4214d63
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847351"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200901"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van RADIUS-verificatie configureren: PowerShell
 
@@ -64,7 +64,7 @@ Controleer of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement hebt,
 
 ### <a name="sign-in"></a>Aanmelden
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>Voorbeeldwaarden
 
@@ -74,18 +74,18 @@ U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze
 * **Adresruimte: 192.168.0.0/16** en **10.254.0.0/16**<br>Voor dit voorbeeld gebruiken we meer dan één adresruimte om te verduidelijken dat deze configuratie met meerdere adresruimten werkt. Meerdere adresruimten zijn echter niet vereist voor deze configuratie.
 * **Subnetnaam: FrontEnd**
   * **Subnetadresbereik: 192.168.1.0/24**
-* **Subnetnaam: BackEnd**
+* **Subnetnaam: Back-end**
   * **Subnetadresbereik: 10.254.1.0/24**
 * **Subnetnaam: GatewaySubnet**<br>De naam van het subnet *GatewaySubnet* is verplicht voor een goede werking van de VPN-gateway.
   * **Adresbereik GatewaySubnet: 192.168.200.0/24** 
 * **VPN-clientadresgroep: 172.16.201.0/24**<br>VPN-clients die verbinding maken met het VNet via deze punt-naar-site-verbinding, ontvangen een IP-adres van de VPN-clientadresgroep.
-* **Abonnement:** controleer of u het juiste abonnement hebt in het geval u er meer dan één hebt.
+* **Abonnement:** Als u meer dan één abonnement hebt, controleert u of dat u van het juiste is gebruikmaakt.
 * **Resourcegroep: TestRG**
-* **Locatie: US - oost**
+* **Locatie: VS-Oost**
 * **DNS-Server: IP-adres** van de DNS-server die u wilt gebruiken voor naamomzetting voor uw VNet. (optioneel)
-* **Gatewaynaam: Vnet1GW**
+* **Naam van GW: Vnet1GW**
 * **Openbare IP-naam: VNet1GWPIP**
-* **VPNType: op route gebaseerd** 
+* **VpnType: Op route gebaseerd** 
 
 ## 1. <a name="vnet"></a>Maken van de resourcegroep, VNet en openbare IP-adres
 

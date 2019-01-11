@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185780"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214127"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Parseren van tekstgegevens in Log Analytics
 Sommige gegevens die zijn verzameld door Log Analytics bevat meerdere delen van gegevens in één eigenschap. Het parseren van deze gegevens in meerdere eigenschappen maken het gemakkelijker om te gebruiken in query's. Een veelvoorkomend voorbeeld is een [aangepast logboek](../../log-analytics/log-analytics-data-sources-custom-logs.md) die een hele logboekvermelding met meerdere waarden worden verzameld in één eigenschap. Door het maken van afzonderlijke eigenschappen voor de verschillende waarden, kunt u zoeken en op elk cumulatieve.
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>Reguliere expressies
-Als uw gegevens kunnen worden geïdentificeerd met een reguliere expressie, kunt u [functies die gebruikmaken van reguliere expressies](/azure/kusto/query/re2) naar afzonderlijke waarden ophalen. Het volgende voorbeeld wordt [extraheren](/kusto/query/extractfunction) om te lichten, de _UPN_ veld _AzureActivity_ registreert en ga vervolgens terug afzonderlijke gebruikers.
+Als uw gegevens kunnen worden geïdentificeerd met een reguliere expressie, kunt u [functies die gebruikmaken van reguliere expressies](/azure/kusto/query/re2) naar afzonderlijke waarden ophalen. Het volgende voorbeeld wordt [extraheren](/azure/kusto/query/extractfunction) om te lichten, de _UPN_ veld _AzureActivity_ registreert en ga vervolgens terug afzonderlijke gebruikers.
 
 ```Kusto
 AzureActivity

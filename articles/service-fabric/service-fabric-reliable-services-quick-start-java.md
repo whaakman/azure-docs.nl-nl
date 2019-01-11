@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049691"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199541"
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -39,10 +39,10 @@ Als u instellen wilt, gaat u naar [aan de slag op Mac](service-fabric-get-starte
 ## <a name="basic-concepts"></a>Basisbegrippen
 Als u wilt aan de slag met Reliable Services, moet u slechts enkele fundamentele concepten begrijpen:
 
-* **Servicetype**: dit is uw service-implementatie. Deze is gedefinieerd door de klasse u schrijven die een uitbreiding `StatelessService` en een andere code of afhankelijkheden gebruikt, samen met een naam en een uniek versienummer.
-* **Service-exemplaar met de naam**: voor het uitvoeren van uw service, u benoemde exemplaren van het servicetype, veel, zoals het maken van instanties van objecten van een klassentype. Service-exemplaren zijn in feite objectinstanties van uw serviceklasse die u schrijft.
-* **ServiceHost**: de benoemde service-exemplaren die u wilt uitvoeren in een host. De ServiceHost is alleen een proces waarbij instanties van uw service kunnen worden uitgevoerd.
-* **Service-registratie**: inschrijving brengt alles bij elkaar. Type van de service moet worden geregistreerd bij de Service Fabric-runtime in een ServiceHost om toe te staan van Service Fabric om instanties van deze te maken om uit te voeren.  
+* **Servicetype**: Dit is uw service-implementatie. Deze is gedefinieerd door de klasse u schrijven die een uitbreiding `StatelessService` en een andere code of afhankelijkheden gebruikt, samen met een naam en een uniek versienummer.
+* **Service-exemplaar met de naam**: Voor het uitvoeren van uw service, u benoemde exemplaren van het servicetype, veel, zoals het maken van instanties van objecten van een klassentype. Service-exemplaren zijn in feite objectinstanties van uw serviceklasse die u schrijft.
+* **ServiceHost**: De benoemde service-instanties dat u maakt moeten uitvoeren in een host. De ServiceHost is alleen een proces waarbij instanties van uw service kunnen worden uitgevoerd.
+* **Service-registratie**: Inschrijving brengt alles bij elkaar. Type van de service moet worden geregistreerd bij de Service Fabric-runtime in een ServiceHost om toe te staan van Service Fabric om instanties van deze te maken om uit te voeren.  
 
 ## <a name="create-a-stateless-service"></a>Een stateless service maken
 Beginnen met het maken van een Service Fabric-toepassing. De Service Fabric-SDK voor Linux bevat een Yeoman generator voor de opbouw van een Service Fabric-toepassing met een stateless service. Start door het uitvoeren van de volgende Yeoman opdracht:
@@ -201,7 +201,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is een dictionary-implementatie die u gebruiken kunt om op te slaan op een betrouwbare manier staat in de service. Met Service Fabric en betrouwbare HashMaps, kunt u gegevens rechtstreeks in uw service zonder de noodzaak van een externe permanente archief opslaan. Betrouwbare HashMaps uw gegevens maximaal beschikbaar maken. Service Fabric doet dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het biedt ook een API die de complexiteit van het beheer van deze replica's en hun statusovergangen volledig weggewerkt.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) is een dictionary-implementatie die u gebruiken kunt om op te slaan op een betrouwbare manier staat in de service. Met Service Fabric en betrouwbare HashMaps, kunt u gegevens rechtstreeks in uw service zonder de noodzaak van een externe permanente archief opslaan. Betrouwbare HashMaps uw gegevens maximaal beschikbaar maken. Service Fabric doet dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het biedt ook een API die de complexiteit van het beheer van deze replica's en hun statusovergangen volledig weggewerkt.
 
 Betrouwbare verzamelingen kunnen elk type zijn Java, met inbegrip van uw aangepaste typen, met enkele aanvullende opmerkingen opslaan:
 

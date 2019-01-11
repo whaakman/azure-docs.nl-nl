@@ -1,19 +1,19 @@
 ---
 title: Een apparaat DevKit verbinden met uw Azure IoT Central-toepassing | Microsoft Docs
 description: Leer hoe u een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing als een apparaat-ontwikkelaar.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+manager: philmea
+ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956649"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198725"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -202,13 +202,13 @@ Een toepassing gemaakt op basis van de sjabloon van de toepassing Devkits voorbe
 | gyroscopeZ     | MDP 's   | -2000   | 2000    | 0              |
 
 
-#### <a name="states"></a>Staten 
-| Naam          | Weergavenaam   | NORMAAL | LET OP | GEVAAR | 
+#### <a name="states"></a>States 
+| Name          | Weergavenaam   | NORMAAL | LET OP | GEVAAR | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Apparaatstatus   | Groen  | Orange  | Rood    | 
 
 #### <a name="events"></a>Gebeurtenissen 
-| Naam             | Weergavenaam      | 
+| Name             | Weergavenaam      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knop B ingedrukt  | 
 
@@ -228,7 +228,7 @@ Instellingen voor in-/ uitschakelen
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AAN      | UIT      | Uit     |
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
 | Type            | Weergavenaam | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |

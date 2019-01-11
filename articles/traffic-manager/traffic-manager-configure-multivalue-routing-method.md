@@ -1,5 +1,5 @@
 ---
-title: Routeringsmethode voor verkeer met meerdere waarden configureren in Azure Traffic Manager | Microsoft Docs
+title: Routeringsmethode voor verkeer met meerdere waarden configureren in Azure Traffic Manager
 description: In dit artikel wordt uitgelegd hoe u Traffic Manager configureren om verkeer te routeren naar A/AAAA-eindpunten.
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187702"
+ms.locfileid: "54197165"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Routeringsmethode voor met meerdere waarden configureren in Traffic Manager
 

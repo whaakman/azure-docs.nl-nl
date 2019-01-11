@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302310"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212546"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Het ontwerpen van tabellen in Azure SQL Data Warehouse
 
@@ -103,7 +103,7 @@ Een gepartitioneerde tabel wordt opgeslagen en bewerkingen worden uitgevoerd op 
 ## <a name="columnstore-indexes"></a>Columnstore-indexen
 Standaard wordt een tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Deze vorm van de opslag van gegevens bereikt hoge gegevenscompressie en prestaties van query's op grote tabellen.  De geclusterde columnstore-index is meestal de beste keuze, maar in sommige gevallen een geclusterde index of een heap is de juiste opslagstructuur.
 
-Zie voor een lijst met functies columnstore [wat is er nieuw voor columnstore-indexen](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Zie voor betere prestaties voor columnstore-index [rijgroep kwaliteit voor columnstore-indexen optimaliseren](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Zie voor een lijst met functies columnstore [wat is er nieuw voor columnstore-indexen](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Zie voor betere prestaties voor columnstore-index [rijgroep kwaliteit voor columnstore-indexen optimaliseren](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>statistieken
 Het queryoptimalisatieprogramma maakt gebruik van statistieken op kolomniveau bij het maken van het plan voor het uitvoeren van een query. Ter verbetering van prestaties van query's, is het belangrijk dat u statistieken maakt voor afzonderlijke kolommen, met name kolommen in de query wordt gebruikt. Het maken en bijwerken van statistieken gebeurt niet automatisch. [Statistieken maken](/sql/t-sql/statements/create-statistics-transact-sql) na het maken van een tabel. Statistieken bijwerken nadat een groot aantal rijen zijn toegevoegd of gewijzigd. Bijvoorbeeld: statistieken worden bijgewerkt wanneer een belasting. Zie voor meer informatie, [statistieken richtlijnen](sql-data-warehouse-tables-statistics.md).
@@ -111,7 +111,7 @@ Het queryoptimalisatieprogramma maakt gebruik van statistieken op kolomniveau bi
 ## <a name="commands-for-creating-tables"></a>Opdrachten voor het maken van tabellen
 U kunt een tabel maken als een nieuwe, lege tabel. U kunt ook maken en vullen van een tabel met de resultaten van een select-instructie. Hier volgen de T-SQL-opdrachten voor het maken van een tabel.
 
-| T-SQL-instructie | Beschrijving |
+| T-SQL-instructie | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Hiermee maakt u een lege tabel met het definiëren van de kolommen in de tabel en opties. |
 | [EXTERNE TABEL MAKEN](/sql/t-sql/statements/create-external-table-transact-sql) | Hiermee maakt u een externe tabel. De definitie van de tabel wordt opgeslagen in SQL Data Warehouse. Gegevens in de tabel is opgeslagen in Azure Blob storage of Azure Data Lake Store. |
@@ -133,7 +133,7 @@ SQL Data Warehouse ondersteunt veel, maar niet alle van de tabelfuncties die wor
 - [Geïndexeerde weergaven](/sql/relational-databases/views/create-indexed-views)
 - [Takenreeks](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Sparse-kolommen](/sql/relational-databases/tables/use-sparse-columns)
-- [Vervangend sleutels](). Implementeren met [identiteit](sql-data-warehouse-tables-identity.md).
+- Vervangend sleutels. Implementeren met [identiteit](sql-data-warehouse-tables-identity.md).
 - [Synoniemen](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Triggers](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Unieke indexen](/sql/t-sql/statements/create-index-transact-sql)

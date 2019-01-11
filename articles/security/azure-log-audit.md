@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 36c16cd48ffba704b9cc8b0884491c3b92543b5c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874562"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215487"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -189,7 +189,7 @@ Netwerk logboekregistratie en bewaking in Azure is uitgebreid en omvat onderverd
 
 * [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Scenario's gebaseerde netwerkbewaking is opgegeven met de functies van Network Watcher. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
 
-* [Controle van bronnen](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): resourcecontrole niveau bestaat uit vier functies, diagnostische logboeken, metrische gegevens, probleemoplossing en resource health. Al deze functies zijn gebouwd op het niveau van de netwerk-resource.
+* [Controle van bronnen](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Resourcecontrole niveau bestaat uit vier functies, diagnostische logboeken, metrische gegevens, probleemoplossing en resource health. Al deze functies zijn gebouwd op het niveau van de netwerk-resource.
 
 ![Azure-netwerklogboeken](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -219,19 +219,19 @@ Network Watcher biedt dat een diagnostische logboeken weergeven. Deze weergave b
 
 
 Naast de logboekregistratiemogelijkheden van het eerder genoemde heeft Network Watcher momenteel de volgende mogelijkheden:
-- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): biedt een weergave op netwerkniveau waarin de verschillende onderlinge verbindingen en koppelingen tussen netwerkbronnen in een resourcegroep.
+- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Biedt een weergave op netwerkniveau waarin de verschillende onderlinge verbindingen en koppelingen tussen netwerkbronnen in een resourcegroep.
 
-- [Variabele pakketopname](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): pakketgegevens in en uit een virtuele machine worden vastgelegd. Geavanceerde opties voor het filteren en verder aanpassen besturingselementen, zoals instellingen voor tijd en formaat beperking veelzijdigheid bieden. De pakketgegevens kunnen worden opgeslagen in een blob-opslag of op de lokale schijf in *.cap* bestandsindeling.
+- [Variabele pakketopname](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Pakketgegevens in en uit een virtuele machine bevat. Geavanceerde opties voor het filteren en verder aanpassen besturingselementen, zoals instellingen voor tijd en formaat beperking veelzijdigheid bieden. De pakketgegevens kunnen worden opgeslagen in een blob-opslag of op de lokale schijf in *.cap* bestandsindeling.
 
-* [IP-stroom verificatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): controleert of een pakket wordt toegestaan of geweigerd op basis van flow informatie 5-tuple pakket parameters (dat wil zeggen, doel-IP, bron-IP, doelpoort, bronpoort en protocol). Als het pakket is geweigerd door een beveiligingsgroep, wordt de regel en de groep die het pakket geweigerd geretourneerd.
+* [IP-stroom verificatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Controleert of een pakket wordt toegestaan of geweigerd op basis van flow informatie 5-tuple pakket parameters (dat wil zeggen, doel-IP, bron-IP, doelpoort, bronpoort en protocol). Als het pakket is geweigerd door een beveiligingsgroep, wordt de regel en de groep die het pakket geweigerd geretourneerd.
 
-* [Volgende hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Hiermee bepaalt u de volgende hop voor pakketten worden gerouteerd in de infrastructuur van Azure-netwerk, zodat u kunt een diagnose gebruiker gedefinieerde routes onjuist geconfigureerd.
+* [Volgende hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Hiermee bepaalt u de volgende hop voor pakketten worden gerouteerd in de infrastructuur van Azure-netwerk, zodat u het probleem een onjuist geconfigureerde door de gebruiker gedefinieerde routes onderzoeken kunt.
 
-* [Weergave van de beveiligingsgroep](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): de kracht en toegepaste beveiligingsregels die worden toegepast op een virtuele machine opgehaald.
+* [Weergave van de beveiligingsgroep](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hiermee haalt u de effectieve en toegepaste beveiligingsregels die worden toegepast op een virtuele machine.
 
-* [Virtuele netwerkgateway en verbinding probleemoplossing](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): helpt u bij het oplossen van virtuele netwerkgateways en verbindingen.
+* [Virtuele netwerkgateway en verbinding probleemoplossing](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helpt u problemen oplossen met virtuele netwerkgateways en verbindingen.
 
-* [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Hiermee kunt u gebruik van netwerkbronnen op basis van limieten weergeven.
+* [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Hiermee kunt u weergeven van Resourcegebruik netwerk op basis van limieten.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -247,33 +247,33 @@ Application Insights is bedoeld voor het ontwikkelingsteam en helpt u om te begr
 
 * **Aanvragen-tarieven, reactietijden en foutpercentages**: Ontdek welke pagina's meest populaire, op welke tijdstippen van de dag zijn en waar uw gebruikers zich bevinden. Ontdek welke pagina's het beste presteren. Als uw reactietijden en foutpercentages gaan wanneer er meer aanvragen worden ingediend, wellicht u foutpercentages.
 
-* **Afhankelijkheidsrelaties, reactietijden en foutpercentages**: Ontdek of externe services zorgen voor vertraging.
+* **Afhankelijkheidsrelaties, reactietijden en foutpercentages**: Ga na of externe services zorgen voor vertraging.
 
-* **Uitzonderingen**: analyseren van de cumulatieve statistische gegevens, of Kies specifieke gegevens en Zoom in op de stack-trace en verwante aanvragen. Zowel server- als browseruitzonderingen worden gerapporteerd.
+* **Uitzonderingen**: Analyseer de cumulatieve statistische gegevens, of Kies specifieke gegevens en Zoom in op de stack-trace en verwante aanvragen. Zowel server- als browseruitzonderingen worden gerapporteerd.
 
-* **Paginaweergaven en laadprestaties**: rapporten ophalen uit de browsers van uw gebruikers.
+* **Paginaweergaven en laadprestaties**: Rapporten ophalen uit de browsers van uw gebruikers.
 
-* **AJAX-aanroepen**: ophalen van webpagina-tarieven, reactietijden en foutpercentages.
+* **AJAX-aanroepen**: Webpagina-tarieven, reactietijden en foutpercentages ophalen.
 
 * **Aantal gebruikers en sessies**.
 
-* **Prestatiemeteritems**: gegevens ophalen uit de Windows- of Linux-servers, zoals CPU, geheugen, en netwerkgebruik.
+* **Prestatiemeteritems**: Gegevens ophalen uit de Windows of Linux-servers, zoals CPU, geheugen- en netwerkgebruik.
 
-* **Diagnostische gegevens van hosts**: gegevens ophalen uit Docker of Azure.
+* **Diagnostische gegevens van hosts**: Gegevens ophalen uit Docker of Azure.
 
-* **Diagnostische logboeken met traceringen**: gegevens ophalen uit uw app, zodat u traceringsgebeurtenissen met aanvragen correleren kan.
+* **Diagnostische logboeken met traceringen**: Gegevens ophalen in uw app, zodat u traceringsgebeurtenissen met aanvragen correleren kan.
 
-* **Aangepaste gebeurtenissen en metrische gegevens**: ophalen van gegevens die u zelf in de code van een client of server schrijft u zakelijke gebeurtenissen bijhouden zoals verkochte artikelen of gewonnen spellen.
+* **Aangepaste gebeurtenissen en metrische gegevens**: Gegevens die u zelf in de code van een client of server schrijft u zakelijke gebeurtenissen bijhouden zoals verkochte artikelen of gewonnen spellen ophalen.
 
 De volgende tabel geeft een lijst van en beschrijft integratiescenario's:
 
-| Integratiescenario | Beschrijving |
+| Integratiescenario | Description |
 | --------------------- | :---------- |
 |[Overzicht van de toepassing](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Bekijk de onderdelen van uw app met belangrijke metrische gegevens en waarschuwingen.||
 |[Diagnostische gegevens over zoeken bijvoorbeeld gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| U kunt zoeken naar gebeurtenissen, zoals aanvragen, uitzonderingen, afhankelijkheidsaanroepen, logboektraceringen en paginaweergaven en deze gegevens ook filteren.||
-|[Metrics Explorer voor cumulatieve gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|Verken, filter en segmenteer cumulatieve gegevens, zoals aantallen aanvragen, fouten en uitzonderingen, reactietijden en paginalaadtijden.||
+|[Metrics Explorer voor cumulatieve gegevens](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Verken, filter en segmenteer cumulatieve gegevens, zoals aantallen aanvragen, fouten en uitzonderingen, reactietijden en paginalaadtijden.||
 |[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combineer gegevens van meerdere resources tot een mash-up en deel deze met anderen. Ideaal voor toepassingen met meerdere onderdelen en om continu weer te geven in de teamkamer.||
-|[Live Metrics Stream](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|Wanneer u een nieuwe build implementeert, kunt u kijken naar deze 'near-realtime' prestatie-indicatoren om te controleren of dat alles naar verwachting werkt.||
+|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Wanneer u een nieuwe build implementeert, kunt u kijken naar deze 'near-realtime' prestatie-indicatoren om te controleren of dat alles naar verwachting werkt.||
 |[Analytische gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Beantwoord moeilijke vragen over de prestaties en het gebruik van uw app met behulp van deze krachtige querytaal.||
 |[Automatische en handmatige waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatische waarschuwingen Anticipeer op de normale patronen van telemetrie van uw app en worden geactiveerd wanneer er iets buiten het normale patroon. U kunt ook waarschuwingen instellen voor bepaalde niveaus van aangepaste functies of standaardfuncties voor het verzamelen van metrische gegevens.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Prestatiegegevens bekijken in de code. Ga naar de code vanuit stack-traces.||
@@ -288,11 +288,11 @@ Azure Security Center werkt volgens het automatisch verzamelen van gegevens van 
 
 Security Center maakt gebruik van geavanceerde beveiligingsanalyses die veel verder gaan dan op handtekeningen gebaseerde benaderingen. Toepassing doorbraken in grote hoeveelheden gegevens en [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologieën voor het evalueren van gebeurtenissen in de hele cloudinfrastructuur. Op deze manier kunnen er bedreigingen zijn gedetecteerd die onmogelijk te identificeren met behulp van handmatige benaderingen en het voorspellen van de ontwikkeling van aanvallen. Deze beveiligingsanalyses omvatten:
 
-* **Geïntegreerde beveiligingsinformatie**: gezocht naar aanvallers door toe te passen van informatie over wereldwijde dreigingen van Microsoft-producten en services, de Microsoft Digital Crimes Unit (DCU), de Microsoft Security Response Center (MSRC) en externe feeds.
+* **Geïntegreerde beveiligingsinformatie**: Zoekt naar bekende beveiligingsrisico door toe te passen van informatie over wereldwijde dreigingen van Microsoft-producten en services, de Microsoft Digital Crimes Unit (DCU), de Microsoft Security Response Center (MSRC) en externe feeds.
 
-* **Gedragsanalyse**: bekende patronen voor het detecteren van schadelijk gedrag is van toepassing.
+* **Gedragsanalyse**: Bekende patronen voor het detecteren van schadelijk gedrag toegepast.
 
-* **Detectie van afwijkingen**: maakt gebruik van statistische profilering om te maken van een historische basislijn. Er wordt een waarschuwing gegeven bij afwijkingen van vastgestelde basislijnen die aan een mogelijke aanvalsvector voldoen.
+* **Detectie van afwijkingen**: Maakt gebruik van statistische profilering in voor het bouwen van een historische basislijn. Er wordt een waarschuwing gegeven bij afwijkingen van vastgestelde basislijnen die aan een mogelijke aanvalsvector voldoen.
 
 Veel beveiligingsbewerkingen en incident response teams vertrouwen op een SIEM-oplossing als startpunt voor het sorteren en onderzoeken van beveiligingswaarschuwingen. Met Azure-Logboekintegratie, kunt u waarschuwingen van Beveiligingscentrum en VM-beveiligingsgebeurtenissen, die worden verzameld door de diagnose en controle in Logboeken in Azure, met uw Log Analytics of SIEM-oplossing in bijna realtime synchroniseren.
 
@@ -367,24 +367,24 @@ Logboekintegratie ondersteunt momenteel de integratie van Azure-activiteitenlogb
 |Logboeken met diagnostische gegevens (Logboeken resource)|  Ja|
 |VM-Logboeken|   Ja, via de doorgestuurde gebeurtenissen en niet via JSON|
 
-[Aan de slag met Azure-Logboekintegratie](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): in deze zelfstudie begeleidt u bij het installeren van Azure-Logboekintegratie en integratie van Logboeken van Azure storage, Azure-activiteitenlogboeken, waarschuwingen van Azure Security Center en Azure AD auditlogboeken.
+[Aan de slag met Azure-Logboekintegratie](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): In deze zelfstudie begeleidt u bij het installeren van Azure-Logboekintegratie en integratie van Logboeken van Azure storage, Azure-activiteitenlogboeken, waarschuwingen van Azure Security Center en Azure AD auditlogboeken.
 
 Integratie van scenario's voor SIEM:
 
-* [Stappen voor het configureren van partners](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): dit blogbericht ziet u hoe u Azure-Logboekintegratie om te werken met oplossingen van partners Splunk, HP ArcSight en IBM QRadar configureert.
+* [Stappen voor het configureren van partners](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): Dit blogbericht wordt beschreven hoe u Azure-Logboekintegratie om te werken met oplossingen van partners Splunk, HP ArcSight en IBM QRadar configureren.
 
-* [Veelgestelde vragen over van Azure Log integratie](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): in dit artikel vindt u antwoorden op vragen over Azure-Logboekintegratie.
+* [Azure-Logboekintegratie Veelgestelde vragen over](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): In dit artikel vindt u antwoorden op vragen over Azure-Logboekintegratie.
 
-* [Waarschuwingen van Beveiligingscentrum integreren met Azure-Logboekintegratie](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): in dit artikel wordt beschreven hoe u om te synchroniseren van waarschuwingen van Beveiligingscentrum, VM-beveiligingsgebeurtenissen verzameld door Azure diagnostics-logboeken en auditlogboeken van Azure beschikbaar zijn met uw Log Analytics of SIEM oplossing.
+* [Waarschuwingen van Beveiligingscentrum integreren met Azure-Logboekintegratie](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): In dit artikel wordt beschreven hoe u om te synchroniseren van waarschuwingen van Beveiligingscentrum, VM-beveiligingsgebeurtenissen verzameld door Azure diagnostics-logboeken en auditlogboeken van Azure beschikbaar zijn in uw Log Analytics of SIEM-oplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Controle en logboekregistratie](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): beveiligen van gegevens met het beheren van inzicht en snel reageren op tijdige beveiligingswaarschuwingen.
+- [Controle en logboekregistratie](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): Gegevens beveiligen door het onderhouden van de zichtbaarheid en snel reageren op tijdige beveiligingswaarschuwingen.
 
-- [Beveiliging-logboekregistratie en auditlogboek verzameling in Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): afdwingen van deze instellingen om ervoor te zorgen dat uw Azure-exemplaren de juiste beveiliging en controle-logboeken verzamelt.
+- [Beveiliging-logboekregistratie en auditlogboek verzameling in Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): Afdwingen van deze instellingen om ervoor te zorgen dat uw Azure-exemplaren de juiste beveiliging en controle-logboeken verzamelt.
 
-- [Controle-instellingen configureren voor een siteverzameling](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): als u de beheerder van een site-verzameling, halen de geschiedenis van individuele gebruikers, acties en de geschiedenis van acties die worden uitgevoerd tijdens een bepaald datumbereik. 
+- [Controle-instellingen configureren voor een siteverzameling](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): Als u beheerder van een site, de geschiedenis van individuele gebruikers, acties en de geschiedenis van acties die worden uitgevoerd tijdens een bepaald datumbereik ophalen. 
 
-- [Zoeken in het auditlogboek in het Office 365-beveiligings- en Nalevingscentrum](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): het Office 365-beveiligings- en Nalevingscentrum gebruiken om te zoeken naar het geïntegreerde auditlogboek en activiteit van gebruikers en de beheerder in uw organisatie Office 365 weergeven.
+- [Zoeken in het auditlogboek in het Office 365-beveiligings- en Nalevingscentrum](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): Het Office 365-beveiligings- en Nalevingscentrum gebruiken om te zoeken naar het geïntegreerde auditlogboek en activiteit van gebruikers en de beheerder in uw organisatie Office 365 weergeven.
 
 

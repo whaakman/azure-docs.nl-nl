@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2d4808aaccd704f4c54d44cfe7d45ddd84cf0e17
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438758"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198674"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer Standard
+# <a name="azure-standard-balancer-overview"></a>Overzicht van Azure Standard-Balancer
 
 Azure Load Balancer kunt u uw toepassingen schalen en hoge beschikbaarheid voor uw services te maken. Load Balancer kan worden gebruikt voor zowel inkomende als uitgaande scenario's en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen. 
 
@@ -89,12 +89,12 @@ Standard Load Balancer biedt multi-dimensionale metrische gegevens via Azure Mon
 
 | Gegevens | Description |
 | --- | --- |
-| VIP-beschikbaarheid | Load Balancer Standard continu gebruik maakt van het gegevenspad van binnen een regio aan de Load Balancer front-end helemaal tot aan de SDN-stack die ondersteuning biedt voor uw virtuele machine. Als in orde exemplaren blijven, volgt de meting hetzelfde pad als verkeer met netwerktaakverdeling van uw toepassing. Het gegevenspad die wordt gebruikt door uw klanten wordt ook gevalideerd. De meting is zichtbaar voor uw toepassing en niet van invloed op andere bewerkingen.|
-| Beschikbaarheid van DIP | Load Balancer Standard maakt gebruik van een gedistribueerde health service de status van het toepassingseindpunt van uw op basis van uw configuratie-instellingen controleert te scannen. Met deze metriek bevat een statistische functie of groep per eindpunt gefilterd-weergave van alle afzonderlijke gevallen-eindpunten in de Load Balancer.  U kunt zien hoe de Load Balancer de status van uw toepassing, zoals aangegeven door de configuratie van de health test bekijkt.
-| SYN-pakketten | Load Balancer Standard niet TCP-verbindingen wordt beëindigd of ermee TCP of UDP-pakketten stromen. Stromen en hun aantal-handshakes zijn altijd tussen de bron en het VM-exemplaar. Als u wilt uw TCP-protocol-scenario's op te lossen, kunt u het gebruik van SYN pakketten items om te begrijpen hoeveel TCP-verbinding pogingen worden uitgevoerd. De metrische gegevens rapporteert het aantal TCP SYN-pakketten die zijn ontvangen.|
-| SNAT-verbindingen | Load Balancer Standard rapporteert het aantal uitgaande stromen die zijn masqueraded naar het front-end-openbare IP-adres. SNAT poorten vormen een onuitputtelijk resource. Met deze metriek krijgt een indicatie van de mate waarin uw toepassing wordt afhankelijk zijn van SNAT voor uitgaande stromen.  Tellers voor geslaagde en mislukte uitgaande SNAT-stromen worden gerapporteerd en kunnen worden gebruikt om problemen op te begrijpen van de status van uw uitgaande stromen.|
-| Byte-prestatiemeteritems | Load Balancer Standard rapporteert de gegevens verwerkte per front-end.|
-| Pakket-prestatiemeteritems | Load Balancer Standard rapporteert de pakketten dat per front-end wordt verwerkt.|
+| VIP-beschikbaarheid | Standard Load Balancer oefeningen continu het gegevenspad van binnen een regio aan de Load Balancer front-end helemaal tot aan de SDN-stack die ondersteuning biedt voor uw virtuele machine. Als in orde exemplaren blijven, volgt de meting hetzelfde pad als verkeer met netwerktaakverdeling van uw toepassing. Het gegevenspad die wordt gebruikt door uw klanten wordt ook gevalideerd. De meting is zichtbaar voor uw toepassing en niet van invloed op andere bewerkingen.|
+| Beschikbaarheid van DIP | Standard Load Balancer maakt gebruik van een gedistribueerde health service de status van het toepassingseindpunt van uw op basis van uw configuratie-instellingen controleert te scannen. Met deze metriek bevat een statistische functie of groep per eindpunt gefilterd-weergave van alle afzonderlijke gevallen-eindpunten in de Load Balancer.  U kunt zien hoe de Load Balancer de status van uw toepassing, zoals aangegeven door de configuratie van de health test bekijkt.
+| SYN-pakketten | Standard Load Balancer niet TCP-verbindingen wordt beëindigd of ermee TCP of UDP-pakketten stromen. Stromen en hun aantal-handshakes zijn altijd tussen de bron en het VM-exemplaar. Als u wilt uw TCP-protocol-scenario's op te lossen, kunt u het gebruik van SYN pakketten items om te begrijpen hoeveel TCP-verbinding pogingen worden uitgevoerd. De metrische gegevens rapporteert het aantal TCP SYN-pakketten die zijn ontvangen.|
+| SNAT-verbindingen | Standard Load Balancer rapporteert het aantal uitgaande stromen die zijn masqueraded naar het front-end-openbare IP-adres. SNAT poorten vormen een onuitputtelijk resource. Met deze metriek krijgt een indicatie van de mate waarin uw toepassing wordt afhankelijk zijn van SNAT voor uitgaande stromen.  Tellers voor geslaagde en mislukte uitgaande SNAT-stromen worden gerapporteerd en kunnen worden gebruikt om problemen op te begrijpen van de status van uw uitgaande stromen.|
+| Byte-prestatiemeteritems | Standard Load Balancer rapporten de gegevens verwerkte per front-end.|
+| Pakket-prestatiemeteritems | Standard Load Balancer rapporteert de pakketten dat per front-end wordt verwerkt.|
 
 Beoordeling [gedetailleerde beschrijving van de diagnostische gegevens van Standard Load Balancer](load-balancer-standard-diagnostics.md).
 
@@ -202,7 +202,7 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie om te verplaats
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-Load Balancer Standard is momenteel beschikbaar in alle openbare cloud-regio's.
+Standard Load Balancer is momenteel beschikbaar in alle openbare cloud-regio's.
 
 ## <a name="sla"></a>SLA
 

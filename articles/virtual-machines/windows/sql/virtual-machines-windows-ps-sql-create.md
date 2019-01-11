@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: bb7a0b8c2d0511088282e180a108f8d925f0e4e8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 059c227f9a5a5701e3fceca94b643c30d006ce67
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056827"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199949"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Over het inrichten van SQL Server-machines met Azure PowerShell
 
@@ -310,7 +310,7 @@ De virtuele machine wordt gemaakt.
 > [!NOTE]
 > De fout over de diagnostische gegevens over het opstarten, kunt u negeren. Een standard storage-account is gemaakt voor diagnostische gegevens over opstarten, omdat het opgegeven opslagaccount voor de virtuele machine-schijf een premium storage-account is.
 
-## <a name="install-the-sql-iaas-agent"></a>SQL IaaS-agent installeren
+## <a name="install-the-sql-iaas-agent"></a>De SQL IaaS-Agent installeren
 Virtuele machines met SQL Server ondersteuning voor geautomatiseerde functies met de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md). Als u de agent wilt installeren op de nieuwe VM, voert u de volgende opdracht uit nadat deze is gemaakt.
 
    ```PowerShell

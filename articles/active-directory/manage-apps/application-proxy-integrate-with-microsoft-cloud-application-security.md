@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731129"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215096"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Realtime toegang toepassingsbewaking configureren met Microsoft Cloud App Security en Azure Active Directory
 Een on-premises toepassing in Azure Active Directory (Azure AD) naar Microsoft Cloud App Security (MCAS) gebruiken voor realtime-controle configureren. MCAS maakt gebruik van App-beheer voor voorwaardelijke toegang voor het bewaken van en controle-sessies in realtime op basis van beleid voor voorwaardelijke toegang. U kunt deze beleidsregels toepassen op de on-premises toepassingen die gebruikmaken van Application Proxy in Azure Active Directory (Azure AD).
@@ -27,7 +27,7 @@ Hier volgen enkele voorbeelden van de typen beleidsregels die u met MCAS maken k
 - Clientcertificaten of het nalevingsbeleid voor apparaten gebruiken voor toegang tot specifieke toepassingen blokkeren van niet-beheerde apparaten.
 - Gebruikerssessies voorkomen dat niet-bedrijfsnetwerken. U kunt beperkte toegang verlenen aan gebruikers met toegang tot een toepassing buiten uw bedrijfsnetwerk. Deze beperkte toegang kan bijvoorbeeld worden geblokkeerd dat de gebruiker van gevoelige documenten downloaden.
 
-Zie voor meer informatie, [apps beveiligen met Microsoft Cloud App Security-App beheer voor voorwaardelijke toegang](/cloud-app-security/proxy-intro-aad.md).
+Zie voor meer informatie, [apps beveiligen met Microsoft Cloud App Security-App beheer voor voorwaardelijke toegang](/cloud-app-security/proxy-intro-aad).
 
 ## <a name="requirements"></a>Vereisten
 

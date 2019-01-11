@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9a6c892a71c452a0c6c0dcd43509e345280a810e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 8fec963dfce8c55cc618f2ce6877d4d591a9cf27
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054916"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215215"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017 gebruiken om te ontwikkelen en fouten opsporen in C#-modules voor Azure IoT Edge (Preview)
 
@@ -27,8 +27,11 @@ De Azure IoT Edge-Tools voor Visual Studio biedt de volgende voordelen:
 - Uw Azure-IoT-modules in C#-code terwijl alle van de voordelen van Visual Studio-ontwikkeling.
 - Azure IoT Edge-apparaten en modules met de gebruikersinterface beheren.
 
-Dit artikel leest u hoe de Azure IoT Edge-Tools voor Visual Studio 2017 gebruiken voor het ontwikkelen van uw IoT Edge-modules in C#. U leert ook hoe u uw project implementeren in uw Azure IoT Edge-apparaat.
+Dit artikel leest u hoe de Azure IoT Edge-Tools voor Visual Studio 2017 gebruiken voor het ontwikkelen van uw IoT Edge-modules in C#. U leert ook hoe u uw project implementeren in uw Azure IoT Edge-apparaat. 
 
+  > [!TIP]
+  > De structuur van de IoT Edge-project gemaakt met Visual Studio is niet hetzelfde als in Visual Studio Code.
+  
 ## <a name="prerequisites"></a>Vereisten
 
 In dit artikel wordt ervan uitgegaan dat u een computer of virtuele machine met Windows als uw ontwikkelcomputer. Uw IoT Edge-apparaat mag een andere fysieke apparaat.

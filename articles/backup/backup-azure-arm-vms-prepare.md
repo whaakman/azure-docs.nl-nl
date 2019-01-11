@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a7a2d8729e1abdafa89eff912faf84d8f247b442
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994671"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215436"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
@@ -77,7 +77,7 @@ Installeer de agent als volgt, indien nodig.
 **Virtuele Linux-machines** | Installatie met behulp van een RPM- of DEB-pakket uit de opslagplaats voor uw distributie van pakket is de voorkeursmethode voor het installeren en upgraden van de Azure Linux Agent. Alle de [distributie-providers die zijn goedgekeurd](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) het pakket van Azure Linux agent integreren in hun opslagplaatsen en installatiekopieën. De agent is beschikbaar op [GitHub](https://github.com/Azure/WALinuxAgent), maar wordt niet aanbevolen van daaruit installeren.
 Als u problemen met back-ups van de Azure-VM hebt, gebruikt u de volgende tabel om te controleren of de Azure VM-agent correct is geïnstalleerd op de virtuele machine. De tabel bevat aanvullende informatie over de VM-agent voor Windows en Linux-machines.
 
-### <a name="establish-network-connectivity"></a>De netwerkverbinding tot stand brengen
+### <a name="establish-network-connectivity"></a>Netwerkverbinding tot stand brengen
 
 De back-up-extensie die wordt uitgevoerd op de virtuele machine moet uitgaande toegang tot Azure openbare IP-adressen hebben. Om toegang te verlenen, kunt u het volgende doen:
 
@@ -90,7 +90,7 @@ Wanneer u beslist tussen de opties, houd rekening met het gebruik van systeembro
 
 **Optie** | **Voordelen** | **Nadelen**
 --- | --- | ---
-**NSG** | Er zijn geen extra kosten. Eenvoudig te beheren met servicetags | Biedt toegang tot het geheel van Azure en niet alleen opslag. |
+**NSG** | Geen extra kosten. Eenvoudig te beheren met servicetags | Biedt toegang tot het geheel van Azure en niet alleen opslag. |
 **HTTP-proxy** | Nauwkeurige controle over de URL's voor opslag is toegestaan.<br/><br/> Toegang tot één punt van internet voor VM's.<br/><br/> Extra kosten voor de proxy.
 **FQDN-tags** | Eenvoudig te gebruiken als u Azure-Firewall instellen in een VNet-subnet | Kan maken van uw eigen labels FQDN-naam, of FQDN-namen wijzigen in een tag.
 
@@ -285,5 +285,5 @@ Na het inschakelen van back-up:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Oplossen van problemen die optreden bij de [Azure VM agents](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) of [Azure VM backup](backup-azure-vms-troubleshoot.md).
+- Oplossen van problemen die optreden bij de [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) of [Azure VM backup](backup-azure-vms-troubleshoot.md).
 - [Back-ups maken van Azure-VM's](backup-azure-vms-first-look-arm.md)

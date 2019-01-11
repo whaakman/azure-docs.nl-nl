@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2c4c2982febf1d81aaaa81bb9c894785b860503b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789854"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200083"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -52,7 +52,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 * Dit probleem kan ook gebeuren als meerdere back-ups per dag worden geactiveerd. Op dit moment is het raadzaam van slechts één back-up per dag als de instant RPs zeven dagen worden bewaard en alleen 18 instant RPs kan worden gekoppeld aan een virtuele machine op een bepaald moment. <br>
 
 Aanbevolen actie:<br>
-U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virtuele machine en probeer het opnieuw als u wilt opschonen te activeren. 
+U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virtuele machine en probeer het opnieuw als u wilt opschonen te activeren.
 > [!NOTE]
     > Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service. De naamgeving indeling van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>` bijvoorbeeld: AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **Foutcode**: UserErrorUnsupportedDiskSize <br>
 **Foutbericht**: Momenteel biedt Azure Backup geen ondersteuning voor schijven groter dan 1023 GB <br>
 
-Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar de Azure VM-back-upstack V2 bijgewerkt is. Upgraden naar Azure VM Backup stack V2 biedt ondersteuning voor maximaal 4TB. Bekijk deze [voordelen](backup-upgrade-to-vm-backup-stack-v2.md), [overwegingen met betrekking tot](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), en vervolgens gaat u verder met de upgrade Volg hiervoor de volgende [instructies](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar direct herstellen bijgewerkt is. Een upgrade naar direct herstellen biedt ondersteuning voor maximaal 4TB, ziet deze [artikel](backup-instant-restore-capability.md).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - momenteel Azure Backup biedt geen ondersteuning voor Standard-SSD-schijven
 
 **Foutcode**: UserErrorStandardSSDNotSupported <br>
 **Foutbericht**: Azure Backup biedt momenteel geen ondersteuning voor Standard-SSD-schijven <br>
 
-Azure Backup ondersteunt momenteel de Standard-SSD-schijven alleen voor die zijn bijgewerkt naar de Azure VM Backup-stack V2-kluizen. Bekijk deze [voordelen](backup-upgrade-to-vm-backup-stack-v2.md), [overwegingen met betrekking tot](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), en vervolgens gaat u verder met de upgrade Volg hiervoor de volgende [instructies](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+Azure Backup ondersteunt momenteel Standard-SSD-schijven alleen voor kluizen die zijn bijgewerkt naar [direct herstellen](backup-instant-restore-capability.md).
 
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen

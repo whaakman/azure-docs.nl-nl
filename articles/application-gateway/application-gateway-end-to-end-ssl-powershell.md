@@ -2,30 +2,25 @@
 title: End-to-end SSL configureren met Azure Application Gateway
 description: In dit artikel wordt beschreven hoe u end-to-end SSL configureren met Azure Application Gateway met behulp van PowerShell
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945328"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214059"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>End-to-end SSL configureren met behulp van Application Gateway met PowerShell
 
 ## <a name="overview"></a>Overzicht
 
-Azure Application Gateway biedt ondersteuning voor end-to-end versleuteling van verkeer. Application Gateway beëindigt de SSL-verbinding bij de application gateway. De gateway vervolgens past de routeringsregels toe op het verkeer, het pakket reencrypts en stuurt het pakket naar de juiste back-end-server op basis van de gedefinieerde routeringsregels. Reacties van de webserver ondergaan hetzelfde proces terug naar de eindgebruiker.
+Azure Application Gateway biedt ondersteuning voor end-to-end versleuteling van verkeer. Application Gateway beëindigt de SSL-verbinding bij de application gateway. De gateway vervolgens past de routeringsregels toe op het verkeer, versleutelt het pakket opnieuw en stuurt het pakket naar de juiste back-end-server op basis van de gedefinieerde routeringsregels. Reacties van de webserver ondergaan hetzelfde proces terug naar de eindgebruiker.
 
-Application Gateway biedt ondersteuning voor het definiëren van aangepaste SSL-opties. Het biedt ook ondersteuning voor het uitschakelen van de volgende protocolversies: **TLSv1.0**, **TLSv1.1**, en **ondersteuning voor TLSv1.2**, evenals definiëren welke coderingssuites te gebruiken en de volgorde van voorkeur . Zie voor meer informatie over configuratieopties voor SSL, de [overzicht van de SSL-beleid](application-gateway-SSL-policy-overview.md).
+Application Gateway biedt ondersteuning voor het definiëren van aangepaste SSL-opties. Het biedt ook ondersteuning voor het uitschakelen van de volgende protocolversies: **TLSv1.0**, **TLSv1.1**, en **ondersteuning voor TLSv1.2**, evenals definiëren welke coderingssuites te gebruiken en de volgorde van voorkeur. Zie voor meer informatie over configuratieopties voor SSL, de [overzicht van de SSL-beleid](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 en SSL 3.0 zijn standaard uitgeschakeld en kan niet worden ingeschakeld. Ze worden beschouwd als niet-beveiligd en kunnen niet worden gebruikt met Application Gateway.
@@ -45,9 +40,9 @@ In dit scenario wordt:
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Voor het end-to-end SSL configureren met een application gateway, een certificaat is vereist voor de gateway en certificaten zijn vereist voor de back-endservers. Het gatewaycertificaat wordt gebruikt voor het versleutelen en ontsleutelen van het verkeer dat wordt verzonden naar het via SSL. Het gatewaycertificaat moet zich in Personal Information Exchange (PFX)-indeling. De bestandsindeling kunt u exporteert de persoonlijke sleutel die is vereist voor de toepassingsgateway om uit te voeren van de versleuteling en ontsleuteling van verkeer.
+Voor het end-to-end SSL configureren met een application gateway, een certificaat is vereist voor de gateway en certificaten zijn vereist voor de back-endservers. Het gatewaycertificaat wordt gebruikt voor het afleiden van een symmetrische sleutel volgens de specificatie van de SSL-protocol. De symmetrische sleutel wordt vervolgens gebruikt versleutelen en ontsleutelen van het verkeer dat wordt verzonden naar de gateway. Het gatewaycertificaat moet zich in Personal Information Exchange (PFX)-indeling. De bestandsindeling kunt u exporteert de persoonlijke sleutel die is vereist voor de toepassingsgateway om uit te voeren van de versleuteling en ontsleuteling van verkeer.
 
-Voor end-to-end SSL-versleuteling moet de back-end in de whitelist opgenomen met de application gateway. U moet het openbare certificaat van de back-endservers uploaden naar de application gateway. Het certificaat toe te voegen, zorgt u ervoor dat de application gateway communiceert alleen met bekende back-end-exemplaren. Dit verder beveiligt de end-to-end communicatie.
+Voor end-to-end SSL-versleuteling moet de back-end in de whitelist opgenomen met de application gateway. Upload het openbare certificaat van de back-endservers aan de toepassingsgateway. Het certificaat toe te voegen, zorgt u ervoor dat de application gateway communiceert alleen met bekende back-end-exemplaren. Dit verder beveiligt de end-to-end communicatie.
 
 Het configuratieproces wordt beschreven in de volgende secties.
 
@@ -258,7 +253,7 @@ De voorgaande stappen vond u bij het maken van een toepassing met end-to-end SSL
 
    ```
 
-   3. Werk tot slot de gateway. Houd er rekening mee dat deze laatste stap is het een langlopende taak. Wanneer dit is voltooid, is op de application gateway end-to-end-SSL geconfigureerd.
+   3. Werk tot slot de gateway. Deze laatste stap is een langlopende taak. Wanneer dit is voltooid, is op de application gateway end-to-end-SSL geconfigureerd.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

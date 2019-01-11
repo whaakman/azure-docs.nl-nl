@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 917f9a5ff2f6f9f6101b19dccee05fe5ab25c5a9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714845"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214773"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
@@ -106,7 +106,7 @@ Werk de DNS-zone bestand foCreate web-apps en publishr het domein. Azure AD kan 
 Hybride CI/CD naar Web-App implementeren in Azure en Azure Stack en breng wijzigingen over naar beide clouds automatisch instellen.
 
 > [!Note]  
-> Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" sectie voor Azure Stack-operators.
+> Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service [voordat u aan de slag met App Service in Azure Stack](../azure-stack-app-service-before-you-get-started.md) sectie voor Azure Stack-operators.
 
 #### <a name="add-code-to-azure-repos"></a>Voeg Code toe aan Azure-opslagplaatsen
 
@@ -422,7 +422,7 @@ Aangepaste SSL wordt niet ondersteund in de categorie **Gratis** of **Gedeeld**.
 
 1.  Selecteer de prijscategorie **Basic**, **Standard** of **Premium**.
 
-2.  Selecteer **Selecteer**.
+2.  Kies **Selecteren**.
 
 ![Prijscategorie kiezen](media/azure-stack-solution-geo-distributed/image36.png)
 

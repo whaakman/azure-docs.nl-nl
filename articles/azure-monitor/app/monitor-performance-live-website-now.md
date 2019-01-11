@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189845"
+ms.locfileid: "54199382"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Web-apps instrumenteren tijdens runtime met Application Insights Status Monitor
 
@@ -96,14 +96,14 @@ Dit zijn enkele stappen die u uitvoeren kunt om te controleren of de installatie
 - Controleer of het bestand applicationInsights.config aanwezig in de doelmap voor de app is en uw ikey bevat.
 
 - Als u vermoedt dat er ontbreken gegevens kunt u een eenvoudige query uitvoeren [Analytics](../log-query/get-started-portal.md) om alle cloudrollen die momenteel verzenden telemetrie weer te geven.
-
 ```Kusto
 union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ```
 
 - Als u bevestigen wilt dat de Application Insights is bijgevoegd kunt u uitvoeren [Sysinternals ingang](https://docs.microsoft.com/sysinternals/downloads/handle) in een venster om te bevestigen dat applicationinsights.dll is geladen door IIS.
-
-`handle.exe /p w3wp.exe`
+```cmd
+handle.exe /p w3wp.exe
+```
 
 
 ### <a name="cant-connect-no-telemetry"></a>Kunt u geen verbinding maken? Geen telemetrie?
@@ -113,17 +113,17 @@ union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ### <a name="unable-to-login"></a>Kan niet aanmelden
 
 * Als Status Monitor kan niet aanmelden, dient u een opdrachtregel te installeren in plaats daarvan. Statusmonitor probeert aan te melden voor het verzamelen van uw ikey, maar u kunt dit opgeven handmatig met de opdracht: 
-```
+```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 
 ### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Kan bestand of de assembly 'System.Diagnostics.DiagnosticSource' niet laden
 
-U mag deze foutmelding krijgt nadat consoletoepassing Insights is ingeschakeld. Dit is omdat het installatieprogramma wordt vervangen door deze DLL-bestand in de bin-map.
+U krijgt deze fout mogelijk na het inschakelen van Application Insights. Dit is omdat het installatieprogramma wordt vervangen door deze DLL-bestand in de bin-map.
 Om op te lossen uw web.config bijwerken:
 
-```
+```xml
 <dependentAssembly>
     <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
     <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>

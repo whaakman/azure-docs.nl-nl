@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583065"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201071"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Back-up en herstel van versleutelde virtuele machines met Azure Backup
 In dit artikel vertelt de stappen voor het back-up en herstellen van virtuele machines (VM's) met behulp van Azure Backup. Het bevat ook informatie over ondersteunde scenario's, vereisten en stappen voor probleemoplossing voor foutgevallen.
@@ -128,6 +128,8 @@ Gebruik de volgende stappen uit voor de relevante machtigingen voor back-up voor
 Nadat de machtigingen zijn is opgegeven, kunt u doorgaan met het inschakelen van back-up voor versleutelde virtuele machines.
 
 ## <a name="restore-an-encrypted-vm"></a>Een versleutelde VM herstellen
+Azure Backup nu ondersteunt herstel van [Azure een versleutelde VM zonder Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad) naast de vorige aanbieding terugzetten versleuteld ondersteuning voor Azure VM met Azure AD.<br>
+
 Als u een versleutelde VM herstellen, eerst schijven herstellen met de volgende stappen in de sectie 'Een back-up schijven herstellen' in [kiest u de configuratie van een virtuele machine terugzetten](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Hierna kunt u een van de volgende opties gebruiken:
 
 * Volg de stappen in de PowerShell [maken van een VM van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) te maken van een volledige VM van herstelde schijven.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994331"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214388"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Inleiding tot Azure Data Lake Storage Gen2 Preview
 
@@ -51,7 +51,7 @@ Azure Storage is schaalbaar standaard of u toegang via Data Lake Storage Gen2 of
 
 ### <a name="cost-effectiveness"></a>Kosteneffectiviteit
 
-Een van de vele voordelen van het bouwen van Data Lake Storage Gen2 boven op Azure Blob-opslag is de lage kosten van opslagcapaciteit en transacties. In tegenstelling tot andere cloud storage services, zijn gegevens die zijn opgeslagen in Data Lake Storage Gen2 is niet vereist om te worden verplaatst of getransformeerd vóór het uitvoeren van analyses. Zie voor meer informatie over prijzen [prijzen voor Azure Storage]((https://azure.microsoft.com/pricing/details/storage)).
+Een van de vele voordelen van het bouwen van Data Lake Storage Gen2 boven op Azure Blob-opslag is de lage kosten van opslagcapaciteit en transacties. In tegenstelling tot andere cloud storage services, zijn gegevens die zijn opgeslagen in Data Lake Storage Gen2 is niet vereist om te worden verplaatst of getransformeerd vóór het uitvoeren van analyses. Zie voor meer informatie over prijzen [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
 Daarnaast functies zoals de [hiërarchische naamruimte](data-lake-storage-namespace.md) aanzienlijk verbeteren de algehele prestaties van veel analytics-taken. Deze verbetering in de prestaties van betekent dat u nodig minder rekenkracht voor het verwerken van de dezelfde hoeveelheid gegevens hebt, wat resulteert in een lagere totale eigendomskosten (TCO) voor de end-to-end-analytics-taak.
 

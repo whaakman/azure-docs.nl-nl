@@ -1,5 +1,5 @@
 ---
-title: 'Via een computer verbinding maken met een virtueel Azure-netwerk met behulp van een point-to-site-verbinding en systeemeigen Azure-certificaatverificatie: PowerShell | Microsoft Docs'
+title: 'Een computer verbinden met een Azure-netwerk met behulp van punt-naar-Site en systeemeigen Azure-certificaatverificatie: PowerShell | Microsoft Docs'
 description: Verbind Windows- en Mac OS X-clients veilig met een virtueel Azure-netwerk met behulp van P2S en zelfondertekende of door certificeringsinstanties uitgegeven certificaten. In dit artikel wordt PowerShell gebruikt.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847402"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199745"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure certificaatverificatie configureren: PowerShell
 
 Dit artikel helpt u afzonderlijke clients met Windows of Mac OS X veilig met een Azure-VNet te verbinden. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. U kunt P2S ook in plaats van een site-naar-site-VPN gebruiken wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig. P2S maakt de VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKEv2. Voor meer informatie over punt-naar-site-VPN leest u [About Point-to-Site VPN](point-to-site-about.md) (Over punt-naar-site-VPN).
 
@@ -43,18 +43,18 @@ U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze
 * **Adresruimte: 192.168.0.0/16** en **10.254.0.0/16**<br>In dit voorbeeld wordt meer dan één adresruimte gebruikt om te laten zien dat deze configuratie met meerdere adresruimten werkt. Meerdere adresruimten zijn echter niet vereist voor deze configuratie.
 * **Subnetnaam: FrontEnd**
   * **Subnetadresbereik: 192.168.1.0/24**
-* **Subnetnaam: BackEnd**
+* **Subnetnaam: Back-end**
   * **Subnetadresbereik: 10.254.1.0/24**
 * **Subnetnaam: GatewaySubnet**<br>De naam van het subnet *GatewaySubnet* is verplicht voor een goede werking van de VPN-gateway.
   * **Adresbereik GatewaySubnet: 192.168.200.0/24** 
 * **VPN-clientadresgroep: 172.16.201.0/24**<br>VPN-clients die verbinding maken met het VNet via deze punt-naar-site-verbinding, ontvangen een IP-adres van de VPN-clientadresgroep.
-* **Abonnement:** controleer of u het juiste abonnement hebt in het geval u er meer dan één hebt.
+* **Abonnement:** Als u meer dan één abonnement hebt, controleert u of dat u van het juiste is gebruikmaakt.
 * **Resourcegroep: TestRG**
-* **Locatie: US - oost**
-* **DNS-server: IP-adres** van de DNS-server die u wilt gebruiken voor naamomzetting. (optioneel)
-* **Gatewaynaam: Vnet1GW**
+* **Locatie: VS-Oost**
+* **DNS-Server: IP-adres** van de DNS-server die u wilt gebruiken voor naamomzetting. (optioneel)
+* **Naam van GW: Vnet1GW**
 * **Openbare IP-naam: VNet1GWPIP**
-* **VPNType: op route gebaseerd** 
+* **VpnType: Op route gebaseerd** 
 
 ## <a name="declare"></a>1. Aanmelden en variabelen instellen
 
@@ -62,7 +62,7 @@ In deze sectie maakt u zich aanmelden en geef de waarden op voor deze configurat
 
 ### <a name="sign-in"></a>Aanmelden
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="declare-variables"></a>Variabelen declareren
 
@@ -399,4 +399,4 @@ U kunt een clientcertificaat opnieuw activeren door de vingerafdruk te verwijder
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie. Zie [Azure and Linux VM Network Overview](../virtual-machines/linux/azure-vm-network-overview.md) (Overzicht van Azure- en Linux-VM-netwerken) voor meer informatie over netwerken en virtuele machines.
 
-Voor informatie over probleemoplossing voor P2S bekijkt u [Troubleshooting: Azure point-to-site connection problemens](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md) (Problemen met punt-naar-site-verbindingen in Azure oplossen).
+Voor het oplossen van problemen met P2S-informatie, [probleemoplossing: Problemen met Azure point-to-site-verbinding](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

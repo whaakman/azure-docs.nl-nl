@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104060"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199913"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
 Informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis.
@@ -120,7 +120,7 @@ Hieronder vindt u overwegingen voor het kiezen van een Cache-aanbieding.
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Azure Cache voor Redis-prestaties
-De volgende tabel ziet u de waarden van maximale bandbreedte tijdens het testen van verschillende grootten van de laag Standard en Premium-caches met behulp van `redis-benchmark.exe` vanuit een Iaas-VM op basis van de Azure-Cache voor Redis-eindpunt. Voor SSL-doorvoer, redis-benchmark gebruikt met beveiligde tunnel om verbinding met de Azure-Cache voor Redis-eindpunt te maken.
+De volgende tabel ziet u de waarden van maximale bandbreedte tijdens het testen van verschillende grootten van de laag Standard en Premium-caches met behulp van `redis-benchmark.exe` vanuit een IaaS-VM op basis van de Azure-Cache voor Redis-eindpunt. Voor SSL-doorvoer, redis-benchmark gebruikt met beveiligde tunnel om verbinding met de Azure-Cache voor Redis-eindpunt te maken.
 
 >[!NOTE] 
 >Deze waarden zijn niet noodzakelijkerwijs en er is geen SLA voor deze getallen, maar moet zijn. U moet laden testen van uw eigen toepassing om te bepalen van de grootte van de juiste cache voor uw toepassing.

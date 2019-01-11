@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: yushwang
-ms.openlocfilehash: 46555bf121e674b82c0c7dd39f74ee3708fc4439
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4996fa23e28b4ba840cc8c97e167484be08a0573
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850635"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199457"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Verbinding maken met Azure VPN-gateways naar meerdere on-premises op beleid gebaseerde VPN-apparaten met behulp van PowerShell
 
@@ -83,7 +83,7 @@ Zorg ervoor dat u hebt [deel 3 van het artikel configureren IPsec/IKE-beleid](vp
 
 #### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. Verbinding maken met uw abonnement en de variabelen declareren
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 Declareer uw variabelen. Voor deze oefening gebruikt u de volgende variabelen:
 

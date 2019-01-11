@@ -7,20 +7,20 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: alkohli
-ms.openlocfilehash: c28eaf22d05bfda5085f9e269bda85ca0d46a7d3
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b5ced2814aff51317304cd44c41b04ab9a954844
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578110"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213192"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple met Azure File Sync en gegevens in Edge data transfer opties vergelijken 
  
-Dit document bevat een overzicht van opties voor de overdracht van on-premises naar Azure, vergelijking: gegevens in Edge vs. Azure File Sync vs. StorSimple 8000-serie.
+Dit document bevat een overzicht van opties voor de overdracht van on-premises naar Azure, vergelijking: Data Box-Edge vs. Azure File Sync vs. StorSimple 8000-serie.
 
-- **[Data Box Edge](/azure/databox-online/data-box-edge-overview.md)**  -gegevens in Edge is een on-premises netwerk-apparaat die gegevens verplaatst naar en van Azure en compute Edge AI-functionaliteit voor het vooraf verwerken van gegevens tijdens het uploaden is. Het is aangekondigd bij Ignite 2018 en is in openbare preview. Data Box-Gateway is een virtuele versie van het apparaat met de dezelfde mogelijkheden voor de overdracht van gegevens.
-- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide.md)**  – Azure File Sync kan worden gebruikt om het centraliseren van bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. Algemene beschikbaarheid van Azure File Sync is aangekondigd eerder in 2018.
-- **[StorSimple](/azure/storsimple/storsimple-overview.md)**  : StorSimple is een hybride-apparaat waarmee bedrijven hun opslaginfrastructuur voor primaire opslag, gegevensbescherming, archivering en herstel na noodgevallen in één oplossing door te integreren in nauw consolideren Azure-opslag. De levenscyclus voor StorSimple vindt [hier](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+- **[Data Box Edge](/azure/databox-online/data-box-edge-overview)**  -gegevens in Edge is een on-premises netwerk-apparaat die gegevens verplaatst naar en van Azure en compute Edge AI-functionaliteit voor het vooraf verwerken van gegevens tijdens het uploaden is. Het is aangekondigd bij Ignite 2018 en is in openbare preview. Data Box-Gateway is een virtuele versie van het apparaat met de dezelfde mogelijkheden voor de overdracht van gegevens.
+- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)**  – Azure File Sync kan worden gebruikt om het centraliseren van bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. Algemene beschikbaarheid van Azure File Sync is aangekondigd eerder in 2018.
+- **[StorSimple](/azure/storsimple/storsimple-overview)**  : StorSimple is een hybride-apparaat waarmee bedrijven hun opslaginfrastructuur voor primaire opslag, gegevensbescherming, archivering en herstel na noodgevallen in één oplossing door te integreren in nauw consolideren Azure-opslag. De levenscyclus voor StorSimple vindt [hier](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 ## <a name="comparison-summary"></a>Vergelijking van de samenvatting
 

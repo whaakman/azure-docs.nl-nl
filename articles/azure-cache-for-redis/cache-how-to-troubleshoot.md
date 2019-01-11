@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104145"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199575"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Problemen oplossen met Azure Cache voor Redis
 Dit artikel bevat richtlijnen voor het oplossen van de volgende categorieën van Azure Cache voor problemen met Redis.
@@ -231,9 +231,9 @@ Dit foutbericht bevat metrische gegevens waarmee u verwijzen naar de oorzaak en 
    
     Zie voor meer informatie over verbinding maken met de Azure-Cache voor Redis-SSL-eindpunt met behulp van redis cli en beveiligde tunnel de [aankondiging van ASP.NET-Sessiestatusprovider voor Preview-versie Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht. Zie voor meer informatie, [SlowLog](https://redis.io/commands/slowlog).
 6. Hoge belasting van de Redis-server kan leiden tot time-outs. U kunt de belasting van de server bewaken door de bewaking van de `Redis Server Load` [metrische prestatiegegevens voor weergave in de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Een belasting van de server van 100 (maximale waarde) geeft aan dat de redis-server bezet zijn, geen niet-actieve tijd is, verwerken van aanvragen. Als u wilt zien als bepaalde aanvragen van alle van de capaciteit van de server volgen, voert u de opdracht SlowLog, zoals beschreven in de vorige alinea. Zie voor meer informatie, [hoog CPU-gebruik / Server laden](#high-cpu-usage-server-load).
-7. Is er een andere gebeurtenis aan de clientzijde die een blip netwerk kan mogelijk veroorzaakt? Controleren op de client (web, werkrol of een Iaas-VM) als er een gebeurtenis is, zoals het aantal clientexemplaren schaal omhoog of omlaag of implementeren van een nieuwe versie van de client of automatisch schalen is ingeschakeld? Bij onze tests, kunt we hebben ontdekt dat automatisch schalen of omhoog/omlaag oorzaak uitgaande netwerkconnectiviteit kan verloren gaan enkele seconden. StackExchange.Redis code bestand is tegen dergelijke gebeurtenissen en opnieuw verbinding maakt. Gedurende deze tijd van de verbinding, kunnen geen aanvragen in de wachtrij een time-out.
+7. Is er een andere gebeurtenis aan de clientzijde die een blip netwerk kan mogelijk veroorzaakt? Controleren op de client (web, werkrol of een IaaS-VM) als er een gebeurtenis is, zoals het aantal clientexemplaren schaal omhoog of omlaag of implementeren van een nieuwe versie van de client of automatisch schalen is ingeschakeld? Bij onze tests, kunt we hebben ontdekt dat automatisch schalen of omhoog/omlaag oorzaak uitgaande netwerkconnectiviteit kan verloren gaan enkele seconden. StackExchange.Redis code bestand is tegen dergelijke gebeurtenissen en opnieuw verbinding maakt. Gedurende deze tijd van de verbinding, kunnen geen aanvragen in de wachtrij een time-out.
 8. Is er een grote aanvraag voorafgaand aan verschillende kleine aanvragen met de Azure Cache voor Redis waarvoor een time-out? De parameter `qs` in de volgende fout bericht vertelt u hoeveel aanvragen naar de server van de client zijn verzonden, maar nog niet zijn verwerkt op een reactie. Deze waarde kan blijven toenemen omdat StackExchange.Redis één TCP-verbinding gebruikt en één antwoord kan alleen worden gelezen op een tijdstip. Hoewel er is een time-out opgetreden voor de eerste bewerking, stopt niet de gegevens die worden verzonden naar/van de server en andere aanvragen worden geblokkeerd totdat de grote aanvraag is voltooid, veroorzaakt door een time-out. Eén oplossing is de kans op time-outs minimaliseren door ervoor te zorgen dat uw cache groot genoeg zijn voor uw werkbelasting is en grote waarden te splitsen in kleinere chunks. Een andere mogelijke oplossing is het gebruik van een pool van `ConnectionMultiplexer` objecten in uw client, en kies het minste geladen `ConnectionMultiplexer` bij het verzenden van een nieuwe aanvraag. Hierdoor moet een enkel time-out van andere aanvragen voor time-out van ook veroorzaakt.
-9. Als u `RedisSessionStateprovider`, zorg ervoor dat u de time-out voor de nieuwe pogingen correct hebt ingesteld. `retrytimeoutInMilliseconds` moet hoger zijn dan `operationTimeoutinMilliseonds`, anders worden er geen nieuwe pogingen uitgevoerd. In het volgende voorbeeld `retrytimeoutInMilliseconds` is ingesteld op 3000. Zie voor meer informatie, [ASP.NET-Sessiestatusprovider voor Azure Cache voor Redis](cache-aspnet-session-state-provider.md) en [over het gebruik van de parameters voor de configuratie van de Sessiestatusprovider en Cacheprovider voor uitvoer](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+9. Als u `RedisSessionStateProvider`, zorg ervoor dat u de time-out voor de nieuwe pogingen correct hebt ingesteld. `retryTimeoutInMilliseconds` moet hoger zijn dan `operationTimeoutInMilliseconds`, anders worden er geen nieuwe pogingen uitgevoerd. In het volgende voorbeeld `retryTimeoutInMilliseconds` is ingesteld op 3000. Zie voor meer informatie, [ASP.NET-Sessiestatusprovider voor Azure Cache voor Redis](cache-aspnet-session-state-provider.md) en [over het gebruik van de parameters voor de configuratie van de Sessiestatusprovider en Cacheprovider voor uitvoer](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     <add
       name="AFRedisCacheSessionStateProvider"

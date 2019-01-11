@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138157"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213447"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Niet van RDP-verbinding naar Azure Virtual Machines, omdat de DHCP Client-service is uitgeschakeld
 
@@ -30,16 +30,16 @@ In dit artikel beschrijft een probleem waarbij u kunt geen extern bureaublad naa
 
 U maken niet een RDP-verbinding een virtuele machine in Azure omdat de DHCP Client-service is uitgeschakeld in de virtuele machine. Wanneer u de schermafbeelding controleren in de [diagnostische gegevens over opstarten](../troubleshooting/boot-diagnostics.md) in Azure portal, ziet u de virtuele machine normaal worden opgestart en wacht tot de referenties in het aanmeldingsscherm. U weergeven op afstand de gebeurtenislogboeken op de virtuele machine met behulp van Logboeken. U ziet dat de DHCP Client-Service is niet gestart of niet kan worden gestart. De volgende logboek voor een voorbeeld:
 
-**Meld u de naam**: systeem </br>
+**Meld u de naam**: Systeem </br>
 **Bron**: Service Control Manager </br>
-**Datum**: 16-12-2015 11:19:36 uur </br>
+**Datum**: 16-12-2015 11:19:36 UUR </br>
 **Gebeurtenis-ID**: 7022 </br>
-**Taak categorie**: geen </br>
-**Niveau**: fout </br>
-**Trefwoorden**: klassieke</br>
-**Gebruiker**: N.V.T. </br>
+**Taak categorie**: Geen </br>
+**Niveau**: Fout </br>
+**Trefwoorden**: Klassiek</br>
+**Gebruiker**: N/A </br>
 **Computer**: myvm.cosotos.com</br>
-**Beschrijving**: de DHCP Client-service bij het starten vastgelopen.</br>
+**Beschrijving**: De DHCP Client-service is bij het starten vastgelopen.</br>
 
 Voor Resource Manager-VM's, kunt u toegang tot de seriële Console-functie aan query gebruiken voor de gebeurtenis-logboeken 7022 met de volgende opdracht:
 
@@ -62,7 +62,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
 ### <a name="use-serial-control"></a>Seriële besturingselement gebruiken
 
-1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+1. Verbinding maken met [seriële Console- en CMD-instantie openen](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
 ). Als de seriële Console is niet ingeschakeld op de virtuele machine, Zie [opnieuw instellen van de netwerkinterface](reset-network-interface.md).
 2. Controleer als de DHCP is uitgeschakeld op de netwerkinterface:
 
@@ -95,7 +95,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP-Client-service is gestopt vanwege een fout toegang geweigerd
 
-1. Verbinding maken met [seriële Console](serial-console-windows.md#) en open een PowerShell-exemplaar.
+1. Verbinding maken met [seriële Console](serial-console-windows.md) en open een PowerShell-exemplaar.
 2. Download het hulpprogramma procesmonitor het volgende script uit te voeren:
 
    ```

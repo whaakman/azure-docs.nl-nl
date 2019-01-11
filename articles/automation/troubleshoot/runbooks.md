@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063638"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199116"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -397,7 +397,7 @@ Er zijn enkele veelvoorkomende redenen waarom dat een module niet met succes in 
 * De structuur komt niet overeen met de structuur die het Automation nodig heeft om te worden.
 * De module is afhankelijk van een andere module die nog niet geïmplementeerd is naar uw Automation-account.
 * De module ontbreekt de bijbehorende afhankelijkheden in de map.
-* De `New-AzureRmAutomationModule` cmdlet wordt gebruikt voor het uploaden van de module en have't u de volledige opslagpad gegeven of de module nog niet hebt geladen met behulp van een openbaar toegankelijke URL.
+* De `New-AzureRmAutomationModule` cmdlet voor het uploaden van de module wordt gebruikt en u niet de volledige opslagpad toegestaan of de module nog niet hebt geladen met behulp van een openbaar toegankelijke URL.
 
 #### <a name="resolution"></a>Oplossing
 

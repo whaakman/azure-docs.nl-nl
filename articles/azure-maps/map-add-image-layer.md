@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d36179685e2098455e00186827d35e6de18bf975
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8d0ad34496963c32c842033e81bdffb375a27412
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892214"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214671"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>De afbeeldingslaag van een toevoegen aan een kaart
 
@@ -29,9 +29,9 @@ Dit artikel leest u hoe u een installatiekopie naar een vaste set coördinaten o
 > [!TIP]
 > Een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is een snelle een eenvoudige manier om een installatiekopie op een kaart bedekt. Echter, als de afbeelding te groot is, de browser mogelijk is het moeilijk om het te laden. In dit geval kunt u uw installatiekopie opgesplitst in tegels en deze worden geladen op de kaart als een [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
-## <a name="add-an-image-layer"></a>De afbeeldingslaag van een toevoegen
+## <a name="add-an-image-layer"></a>Een afbeeldingslaag toevoegen
 
-In dit voorbeeld laat zien hoe u een afbeelding van overlay een [toewijzing van één in New Jersey van 1922]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)) op de kaart.
+In dit voorbeeld laat zien hoe u een afbeelding van overlay een [toewijzing van één in New Jersey van 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) op de kaart.
 
 <br/>
 

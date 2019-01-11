@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340773"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215402"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -96,9 +96,9 @@ Alle HTTP APIs geïmplementeerd door de extensie voor toets maken de volgende pa
 | taskHub    | Querytekenreeks    | De naam van de [taak hub](durable-functions-task-hubs.md). Als niet is opgegeven, wordt de taaknaam hub van de huidige functie-app gebruikt. |
 | verbinding | Querytekenreeks    | De **naam** van de verbindingsreeks voor de storage-account. Als niet is opgegeven, wordt de standaard-verbindingsreeks voor de functie-app gebruikt. |
 | systemKey  | Querytekenreeks    | De autorisatiesleutel is vereist voor het aanroepen van de API. |
-| showInput  | Querytekenreeks    | Een optionele parameter. Indien ingesteld op `false`, de uitvoering van de invoer niet worden opgenomen in de nettolading van de reactie.|
-| showHistory| Querytekenreeks    | Een optionele parameter. Indien ingesteld op `true`, de orchestration-uitvoeringsgeschiedenis worden opgenomen in de nettolading van de reactie.|
-| showHistoryOutput| Querytekenreeks    | Een optionele parameter. Indien ingesteld op `true`, de uitvoer van de activiteit worden opgenomen in de orchestration-uitvoeringsgeschiedenis.|
+| showInput  | Querytekenreeks    | Optionele parameter; slechts één exemplaar aanvraag. Indien ingesteld op `false`, de uitvoering van de invoer niet worden opgenomen in de nettolading van de reactie.|
+| showHistory| Querytekenreeks    | Optionele parameter; slechts één exemplaar aanvraag. Indien ingesteld op `true`, de orchestration-uitvoeringsgeschiedenis worden opgenomen in de nettolading van de reactie.|
+| showHistoryOutput| Querytekenreeks    | Optionele parameter; slechts één exemplaar aanvraag. Indien ingesteld op `true`, de uitvoer van de activiteit worden opgenomen in de orchestration-uitvoeringsgeschiedenis.|
 | createdTimeFrom  | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst met geretourneerde-exemplaren die zijn gemaakt op of na de opgegeven ISO8601-timestamp.|
 | createdTimeTo    | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst met geretourneerde-exemplaren die zijn gemaakt op of voor de opgegeven ISO8601-timestamp.|
 | runtimeStatus    | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filters de lijst met geretourneerde exemplaren op basis van hun runtimestatus. Zie de lijst met waarden voor mogelijke runtime status, de [uitvoeren van query's exemplaren](durable-functions-instance-management.md) onderwerp. |
@@ -146,7 +146,7 @@ De nettolading van de reactie voor de **HTTP 200** en **HTTP 202** gevallen is e
 | output          | JSON      | De JSON-uitvoer van het exemplaar. Dit veld is `null` als het exemplaar niet met een onvoltooide status is. |
 | Aanmaaktijd     | string    | De tijd waarop het exemplaar is gemaakt. Maakt gebruik van ISO 8601-notatie uitgebreid. |
 | lastUpdatedTime | string    | De tijd waarop het exemplaar is opgeslagen. Maakt gebruik van ISO 8601-notatie uitgebreid. |
-| historyEvents   | JSON      | Een JSON-matrix met de orchestration-uitvoeringsgeschiedenis. Dit veld is `null` , tenzij de `showHistory` queryreeks-parameter is ingesteld op `true`.  |
+| historyEvents   | JSON      | Een JSON-matrix met de orchestration-uitvoeringsgeschiedenis. Dit veld is `null` , tenzij de `showHistory` queryreeks-parameter is ingesteld op `true`. |
 
 Hier volgt een voorbeeld van payload van he antwoord met inbegrip van de orchestration uitvoer geschiedenis en activiteit van uitvoerbewerkingen (indeling voor de leesbaarheid):
 

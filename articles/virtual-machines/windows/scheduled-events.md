@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ae21dbe675d78c663fc9d05364d91eca3288dd46
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9130bf5c2708f7eecf6fc1b5db2ffbb3c2fffc30
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435409"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201275"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor Windows-VM 's
 
@@ -64,7 +64,7 @@ De geplande gebeurtenissen-Service is samengesteld. Versies zijn verplicht en de
 
 | Versie | Releasetype | Regio's | Releaseopmerkingen | 
 | - | - | - | - |
-| 2017-08-01 | Algemene beschikbaarheid | Alle | <li> Voorafgegaan onderstrepingsteken verwijderd uit de namen van voorbeeldresources voor Iaas-VM 's<br><li>Koptekst met metagegevens vereiste afgedwongen voor alle aanvragen | 
+| 2017-08-01 | Algemene beschikbaarheid | Alle | <li> Voorafgegaan onderstrepingsteken verwijderd uit de namen van voorbeeldresources voor IaaS-VM 's<br><li>Koptekst met metagegevens vereiste afgedwongen voor alle aanvragen | 
 | 2017-03-01 | Preview | Alle |<li>Eerste release
 
 > [!NOTE] 

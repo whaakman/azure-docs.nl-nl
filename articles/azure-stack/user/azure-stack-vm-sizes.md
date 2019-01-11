@@ -10,21 +10,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ad38bdf30d04f309bedaf9a7cc8b3d5b1aad6df7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722085"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215062"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Grootten van virtuele machines worden ondersteund in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 In dit artikel geeft een lijst van de virtuele machine (VM)-grootten die beschikbaar in Azure Stack zijn.
+
+Schijf-IOPS (invoer/uitvoer-bewerkingen Per seconde) in Azure Stack is een functie van de VM-grootte in plaats van het schijftype. Dit betekent dat de IOPS-limiet voor de schijf van een enkele aanvullende gegevens voor een reeks Standard_Fs VM, ongeacht of u SSD of HDD voor het schijftype kiest 2300 IOPS is. De IOPS-limieten die zijn opgelegd is een limiet (maximum mogelijk) om te voorkomen dat luidruchtige buren. Het is niet een zekerheid dat er IOP's die u op een specifieke VM-grootte ontvangt.
 
 ## <a name="general-purpose"></a>Algemeen doel
 

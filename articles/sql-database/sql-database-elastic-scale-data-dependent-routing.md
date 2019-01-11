@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191323"
+ms.locfileid: "54201105"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Gegevensafhankelijke routering om te routeren van een query naar de juiste database gebruiken
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * De **sleutel** parameter wordt gebruikt als een lookup-sleutel in de shard-toewijzing te bepalen van de juiste database voor de aanvraag.
 * De **connectionString** wordt gebruikt om door te geven alleen de gebruikersreferenties voor de gewenste verbinding. Er is geen databasenaam of de servernaam is opgenomen in deze *connectionString* omdat de methode de database en de server met bepaalt de **ShardMap**.
-* De **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) moet worden ingesteld op **ConnectionOptions.Validate** als een omgeving waar de mei voor shard-kaarten wijzigings- en rijen kunnen verplaatsen naar andere databases als gevolg van bewerkingen voor splitsen of samenvoegen. Deze validatie betreft een korte query naar de lokale shard-toewijzing op de doel-database (en niet naar de globale shard-toewijzing) voordat de verbinding aan de toepassing wordt geleverd.
+* De **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) moet worden ingesteld op **ConnectionOptions.Validate** als een omgeving waar de mei voor shard-kaarten wijzigings- en rijen kunnen verplaatsen naar andere databases als gevolg van bewerkingen voor splitsen of samenvoegen. Deze validatie betreft een korte query naar de lokale shard-toewijzing op de doel-database (en niet naar de globale shard-toewijzing) voordat de verbinding aan de toepassing wordt geleverd.
 
 Als de validatie op basis van de lokale shard-toewijzing is mislukt (waarmee wordt aangegeven dat de cache onjuist is), de globale shard-toewijzing voor het verkrijgen van de nieuwe juiste waarde voor de zoekopdracht, bijwerken van de cache en verkrijgen en retourneren van verbinding met de juiste database query uitgevoerd op de Shard-Toewijzingsbeheer .
 

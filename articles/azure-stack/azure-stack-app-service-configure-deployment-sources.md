@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: b81b9b34843974ceacf41b08a40a52418ea46d22
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e8e1626987f7418fee9fc36515131650d865201
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547546"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213073"
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
 
@@ -138,7 +138,7 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruikers kunnen nu de van implementatiebronnen gebruiken voor zaken zoals [continue implementatie](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [lokale Git-implementatie](https://docs.microsoft.com/azure/app-service/deploy-local-git), en [cloud mapsynchronisatie](https://docs.microsoft.com/azure/app-service-web/deploy-content-sync).
+Gebruikers kunnen nu de van implementatiebronnen gebruiken voor zaken zoals [continue implementatie](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [lokale Git-implementatie](https://docs.microsoft.com/azure/app-service/deploy-local-git), en [cloud mapsynchronisatie](https://docs.microsoft.com/azure/app-service/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054280"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214297"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
 De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit.
@@ -115,7 +115,7 @@ Met base64 gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven.
 
 ### <a name="managed-identity"></a>Beheerde identiteit
 
-Hiermee geeft u de resource-uri waarvoor het toegangstoken wordt aangevraagd met behulp van de beheerde identiteit voor de data factory. Gebruiken voor het aanroepen van de Azure Resource Management API `https://management.azure.com/`.
+Hiermee geeft u de resource-uri waarvoor het toegangstoken wordt aangevraagd met behulp van de beheerde identiteit voor de data factory. Gebruiken voor het aanroepen van de Azure Resource Management API `https://management.azure.com/`. Voor meer informatie over de manier waarop beheerde identiteiten Zie werkt de [beheerde identiteiten voor een Azure-resources-overzichtspagina](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0110ea79d05c0da57ac2d2e1f52194bed12152c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555554"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198419"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving met behulp van de Azure portal maken
 
@@ -98,4 +98,4 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Programmatisch [referentiegegevens beheren](time-series-insights-manage-reference-data-csharp.md).
-* Zie voor de volledige API-verwijzing het document [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+* Zie voor de volledige API-verwijzing het document [Reference Data API](/rest/api/time-series-insights/ga-reference-data-api).

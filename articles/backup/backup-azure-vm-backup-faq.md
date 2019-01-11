@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041285"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201309"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Veelgestelde vragen over Azure Backup
 
@@ -57,14 +57,13 @@ Wanneer u de resourcegroep, kan de oudere herstelpunten Azure Backup-service nie
 Nee. De datum en tijd op uw lokale computer is lokaal met huidige zomertijd toegepast. De tijd die is ingesteld voor de geplande back-ups kan verschillen van de lokale tijd vanwege de Zomertijd.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Het aantal gegevensschijven kan ik koppelen aan een virtuele machine back-up gemaakt door Azure Backup?
-Azure Backup kunt back-up van virtuele machines met maximaal 16 schijven. Ondersteuning voor 16 schijven wordt aangeboden in de [meest recente versie](backup-upgrade-to-vm-backup-stack-v2.md) van de Azure-VM back-up-stack V2.
+Azure Backup kunt back-up van virtuele machines met maximaal 16 schijven. Ondersteuning voor 16 schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Wordt Azure back-upondersteuning SSD beheerde standaardschijven?
-Azure Backup ondersteunt [standard-SSD-beheerde schijven](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD beheerde schijven bieden een nieuw type duurzame opslag voor virtuele Azure-machines. Ondersteuning voor SSD beheerde schijven wordt aangeboden in de [meest recente versie](backup-upgrade-to-vm-backup-stack-v2.md) van de Azure-VM back-up-stack V2.
+Azure Backup ondersteunt [standard-SSD-beheerde schijven](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD beheerde schijven bieden een nieuw type duurzame opslag voor virtuele Azure-machines. Ondersteuning voor SSD beheerde schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kunnen we back-up van een virtuele machine met een schijf Write Accelerator WA ingeschakeld?
-Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up. Uitsluiting van de schijf voor virtuele machines met schijven WA-functionaliteit wordt alleen ondersteund voor abonnementen die zijn bijgewerkt naar de Azure VM Backup-stack V2. Om te upgraden naar Azure VM Backup-stack V2, ziet deze [artikel](backup-upgrade-to-vm-backup-stack-v2.md). Deze functie is momenteel beschikbaar in Japan-Oost, Noord-Europa, Zuidoost-Azië, VS-Oost, West vs2, West-Europa en VS-Oost 2.
-
+Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up. Uitsluiting van de schijf voor virtuele machines met schijven WA-functionaliteit wordt alleen ondersteund voor abonnementen die zijn bijgewerkt naar direct herstellen.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Een virtuele machine met Write Accelerator (WA) schijven, en SAP HANA zijn geïnstalleerd. Hoe maak ik een back-up?
 Azure Backup kan geen back-up van de schijf WA is ingeschakeld, maar kunt uitsluiten van back-up. De back-up wordt niet evenwel consistentie van de database omdat de informatie op de schijf WA-functionaliteit is niet een back-up. U kunt back-up van schijven met deze configuratie als u wilt dat de besturingssysteemschijf back-ups en back-ups van schijven die niet WA ingeschakeld.
@@ -104,7 +103,7 @@ Ja. Zelfs als u de virtuele machine hebt verwijderd, gaat u naar de bijbehorende
 Door op te geven van een optie in de sjabloon tijdens het herstellen van beheerde schijven is terugzetten naar de beschikbaarheidssets voor beheerde schijf Azure VM ingeschakeld. Deze sjabloon bevat de invoerparameter **beschikbaarheidssets**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hoe krijgen we de prestaties voor sneller herstellen?
-Voor nog betere prestaties voor herstel, raden we u naar de VM-back-upstack V2 te verplaatsen en gebruik [Instant RP-functie](backup-upgrade-to-vm-backup-stack-v2.md).
+Voor nog betere prestaties voor herstel, zijn we verplaatsen naar [direct herstellen](backup-instant-restore-capability.md) mogelijkheid.
 
 ## <a name="manage-vm-backups"></a>Back-ups van uw virtuele machine beheren
 

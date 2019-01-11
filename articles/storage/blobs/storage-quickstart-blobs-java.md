@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 342b19927d290f5ff519d3fae5b84bcfa2b9d9cf
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 98b7481c22cc5f3c233de4c516d4be5f64bbe143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711749"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198011"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Het uploaden, downloaden en blobs weergeven met behulp van Java-SDK voor Bing versie 7
 
@@ -96,7 +96,7 @@ We gaan nu de voorbeeldcode bespreken, zodat u begrijpt hoe deze werkt.
 
 Als eerste moeten verwijzingen worden gemaakt naar objecten die worden gebruikt voor het verkrijgen van toegang tot de Blob-opslag en voor het beheren ervan. Deze objecten worden boven op elkaar gebouwd - elk ervan wordt door de volgende in de lijst gebruikt.
 
-* Maak een exemplaar van het [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account)-object, dat naar het opslagaccount wijst.
+* Maak een exemplaar van het [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount)-object, dat naar het opslagaccount wijst.
 
     Het object e **CloudStorageAccount** is een voorstelling van uw opslagaccount en biedt u de mogelijkheid om via programmacode eigenschappen van het opslagaccount in te stellen en op te vragen. Met behulp van het object **CloudStorageAccount** kunt u een instantie van **CloudBlobClient** maken, die nodig is voor toegang tot de blob-service.
 

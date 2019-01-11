@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2823772787adf56dfbe216a68161f633eadba255
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 519fd063e52d1e202ea76db0fd4be15ebd117cd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001613"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214926"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Een gegevensschijf koppelen aan een Linux-VM via de portal 
 In dit artikel wordt beschreven hoe u zowel nieuwe als bestaande schijven koppelt aan een virtuele Linux-machine via de Azure-portal. U kunt ook [een gegevensschijf koppelen aan een Windows-VM in Azure portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -28,7 +28,7 @@ In dit artikel wordt beschreven hoe u zowel nieuwe als bestaande schijven koppel
 Voordat u schijven aan uw virtuele machine koppelt, controleert u de volgende tips:
 
 * De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie, [grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Voor het gebruik van Premium-opslag, moet u een virtuele machine uit de DS- of GS-serie. U kunt Premium en Standard disks gebruiken met deze virtuele machines. Premium storage is beschikbaar in bepaalde regio's. Zie voor meer informatie, [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Voor het gebruik van Premium-opslag, moet u een virtuele machine uit de DS- of GS-serie. U kunt Premium en Standard disks gebruiken met deze virtuele machines. Premium storage is beschikbaar in bepaalde regio's. Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor workloads van virtuele Azure-machines](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Schijven die zijn gekoppeld aan virtuele machines zijn daadwerkelijk .vhd-bestanden zoals opgeslagen in Azure. Zie voor meer informatie, [over schijven en VHD's voor virtuele machines](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Na de schijf koppelen, moet u [verbinding maken met de Linux-VM om te koppelen van de nieuwe schijf](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
@@ -96,7 +96,12 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Hier *sdc* is de schijf die we willen. Partitioneer de schijf met `fdisk`, een primaire schijf op partitie 1 maken en de andere standaardwaarden te accepteren. Het volgende voorbeeld wordt de `fdisk` op */dev/sdc*:
+Hier *sdc* is de schijf die we willen. 
+
+### <a name="partion-a-new-disk"></a>Een nieuwe schijf Partion
+Als u van een bestaande schijf die gegevens bevat gebruikmaakt, gaat u naar de schijf koppelen. Als u een nieuwe schijf toevoegen wilt, moet u voor het partitioneren van de schijf.
+
+Gebruik `fdisk` als u wilt de schijf partitioneren, dat een primaire schijf op partitie 1, en de andere standaardwaarden te accepteren. Het volgende voorbeeld wordt de `fdisk` op */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
@@ -176,8 +181,8 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-
-Maak nu een map voor het koppelen van het bestandssysteem via `mkdir`. Het volgende voorbeeld wordt een map op */datadrive*:
+### <a name="mount-the-disk"></a>De schijf koppelen
+Maak een map voor het koppelen van het bestandssysteem via `mkdir`. Het volgende voorbeeld wordt een map op */datadrive*:
 
 ```bash
 sudo mkdir /datadrive

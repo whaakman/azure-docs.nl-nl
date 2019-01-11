@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 191471d3538a9151827ee24a5887aa559383345b
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 78812f7bcce82090802672e3e232e713f0d047d1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785661"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214110"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementeren van een Service Fabric-cluster dat gebruik maakt van de algemene certificaatnaam in plaats van vingerafdruk
 Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Een cluster met behulp van algemene naam van het certificaat maakt het veel eenvoudiger Certificaatbeheer. In dit artikel wordt beschreven hoe u een Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat te implementeren.
  
 ## <a name="get-a-certificate"></a>Een certificaat ophalen
-Haal eerst een certificaat van een [certificeringsinstantie (CA)](https://wikipedia.org/wiki/Certificate_authority).  De algemene naam van het certificaat moet de naam van de host van het cluster.  Bijvoorbeeld, "myclustername.southcentralus.cloudapp.azure.com'.  
+Haal eerst een certificaat van een [certificeringsinstantie (CA)](https://wikipedia.org/wiki/Certificate_authority).  De algemene naam van het certificaat moet zijn voor het aangepaste domein dat u zelf, en hebben gekocht van een domeinregistrar. Bijvoorbeeld, "azureservicefabricbestpractices.com"; personen die niet Microsoft-medewerkers zijn kunnen certificaten voor MS domeinen, niet inrichten, zodat u de DNS-namen van uw LB of Traffic Manager niet als algemene namen voor uw certificaat gebruiken kunt, en moet u voor het inrichten van een [Azure DNS-Zone](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) als uw aangepaste domein te kunnen worden omgezet in Azure. Ook wilt declareren van uw aangepaste domein dat u de eigenaar als uw cluster 'managementEndpoint' bent als u wilt dat de portal in overeenstemming met het aangepaste domein alias voor uw cluster.
 
 Voor testdoeleinden kan u een door CA ondertekend certificaat van een gratis of open certificeringsinstantie ophalen.
 
 > [!NOTE]
-> Zelfondertekende certificaten, met inbegrip van die gegenereerd bij het implementeren van een Service Fabric-cluster in Azure portal, worden niet ondersteund.
+> Zelfondertekende certificaten, met inbegrip van die gegenereerd bij het implementeren van een Service Fabric-cluster in Azure portal, worden niet ondersteund. 
 
 ## <a name="upload-the-certificate-to-a-key-vault"></a>Upload het certificaat naar een key vault
 Op een virtuele-machineschaalset is een Service Fabric-cluster in Azure geïmplementeerd.  Upload het certificaat naar een sleutelkluis.  Wanneer het cluster is geïmplementeerd, wordt het certificaat geïnstalleerd op de virtuele-machineschaalset die het cluster wordt uitgevoerd op.

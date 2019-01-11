@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055163"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214586"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -82,9 +82,9 @@ Azure Stack brengt hotfixes op gezette tijden. Zorg ervoor dat voor het installe
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    Nadat u hebt de verplichte uitbreiding host certificaten correct geïmporteerd, kunt u de update 1811 uit de beheerdersportal kunt hervatten. Terwijl Microsoft Azure Stack-operators de schaaleenheid in de onderhoudsmodus plaatsen tijdens het updateproces adviseert, een mislukt vanwege de ontbrekende certificaten van de extensie-host moet geen invloed op bestaande workloads of services.  
+    Nadat u hebt de verplichte uitbreiding host certificaten correct geïmporteerd, kunt u de update 1811 uit de beheerdersportal kunt hervatten. Terwijl Microsoft Azure Stack-operators adviseert voor het plannen van een onderhoudsvenster tijdens het updateproces, een mislukt vanwege de ontbrekende certificaten van de extensie-host moet geen invloed op bestaande workloads of services.  
 
-    Tijdens de installatie van deze update is de gebruikersportal van Azure Stack is niet beschikbaar terwijl de host van de extensie wordt geconfigureerd. De configuratie van de host van de extensie kan maximaal 5 uur duren. Gedurende die tijd kunt u de status van een update of hervatten van een mislukte update-installatie met [Azure Stack-beheerder PowerShell of het eindpunt van de bevoegde](azure-stack-monitor-update.md).
+    Tijdens de installatie van deze update is de gebruikersportal van Azure Stack is niet beschikbaar terwijl de host van de extensie wordt geconfigureerd. De configuratie van de host van de extensie kan maximaal 5 uur duren. Gedurende deze tijd kunt u de status van een update controleren, of de mislukte installatie van een update hervatten met behulp van [Azure Stack Administrator PowerShell of het bevoegde eindpunt](azure-stack-monitor-update.md).
 
 ## <a name="new-features"></a>Nieuwe functies
 
@@ -195,7 +195,7 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 
 - Bij het uitvoeren van [Test AzureStack](azure-stack-diagnostic-test.md), als een van beide de **AzsInfraRoleSummary** of de **AzsPortalApiSummary** test mislukt, wordt u gevraagd om uit te voeren  **Test-AzureStack** met de `-Repair` vlag.  Als u deze opdracht uitvoert, mislukt het met de volgende strekking weergegeven:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Dit probleem wordt opgelost in een toekomstige release.
 
-- Tijdens de installatie van de update 1811, is het gebruik de Azure Stack-portal is niet beschikbaar terwijl de host van de extensie wordt geconfigureerd. De configuratie van de host van de extensie kan maximaal 5 uur duren. Gedurende die tijd kunt u de status van een update of hervatten van een mislukte update-installatie met [Azure Stack-beheerder PowerShell of het eindpunt van de bevoegde](azure-stack-monitor-update.md). 
+- Tijdens de installatie van de update 1811, is het gebruik de Azure Stack-portal is niet beschikbaar terwijl de host van de extensie wordt geconfigureerd. De configuratie van de host van de extensie kan maximaal 5 uur duren. Gedurende deze tijd kunt u de status van een update controleren, of de mislukte installatie van een update hervatten met behulp van [Azure Stack Administrator PowerShell of het bevoegde eindpunt](azure-stack-monitor-update.md). 
 
 - Tijdens de installatie van de update 1811 kunnen het portaldashboard van de gebruiker mogelijk niet beschikbaar, en aanpassingen verloren gaan. U kunt het dashboard terugzetten naar de standaardinstelling nadat de update is voltooid door de instellingen voor de openen en te selecteren **standaardinstellingen herstellen**.
 
@@ -254,6 +254,12 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 ### <a name="compute"></a>Compute
 
 - Bij het maken van een nieuwe Windows virtuele Machine (VM), de **instellingen** blade vereist dat u een openbare binnenkomende poorten selecteren om door te gaan. In 1811, deze instelling is vereist, maar heeft geen effect. Dit komt doordat de functie is afhankelijk van Azure-Firewall, die niet is geïmplementeerd in Azure Stack. U kunt selecteren **geen openbare binnenkomende poorten**, of een van de andere opties om door te gaan met het maken van virtuele machine. De instelling heeft geen effect.
+
+- Bij het maken van een nieuwe Windows virtuele Machine (VM), worden de volgende fout weergegeven:
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   De fout doet zich voor als u diagnostische gegevens over opstarten op een virtuele machine inschakelt, maar uw boot diagnostics storage-account verwijderen. U kunt dit probleem omzeilen, maakt u opnieuw de storage-account met dezelfde naam als u eerder hebt gebruikt.
 
 <!-- 3235634 – IS, ASDK -->
 - Het implementeren van VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, geef het achtervoegsel als **Standard_A2_v2** (kleine letters v). Gebruik geen **Standard_A2_V2** (V hoofdletters). Dit werkt in de globale Azure en is een inconsistentie in Azure Stack.

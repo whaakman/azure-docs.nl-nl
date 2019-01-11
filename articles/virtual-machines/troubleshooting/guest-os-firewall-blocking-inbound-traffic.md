@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134434"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213108"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Binnenkomend verkeer wordt geblokkeerd door firewall van Azure VM-Gastbesturingssysteem
 
@@ -112,8 +112,8 @@ Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sess
 
     > [!Note]
     > De volgende richtlijnen gelden voor de firewall-beleid, afhankelijk van hoe deze ingesteld:
-    >    * *BlockInbound*: al het binnenkomende verkeer wordt geblokkeerd, tenzij u een regel van kracht voor het toestaan dat dit verkeer hebt.
-    >    * *BlockInboundAlways*: alle firewallregels worden genegeerd en alle verkeer wordt geblokkeerd.
+    >    * *BlockInbound*: Alle binnenkomend verkeer wordt geblokkeerd, tenzij u een regel van kracht voor het toestaan dat dit verkeer hebt.
+    >    * *BlockInboundAlways*: Alle firewallregels worden genegeerd en alle verkeer wordt geblokkeerd.
 
 2.  Bewerk de *DefaultInboundAction* in te stellen van deze profielen op **toestaan** verkeer. U doet dit door de volgende opdracht uitvoeren:
 
@@ -142,7 +142,7 @@ Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sess
 
 #### <a name="mitigation-1"></a>Risicobeperking 1
 
-Zie [hoe aan in-/ uitschakelen van een Firewall-regel op een gast-OS-document]().
+Zie [hoe aan in-/ uitschakelen van een Firewall-regel op een Gastbesturingssysteem](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Risicobeperking 2
 

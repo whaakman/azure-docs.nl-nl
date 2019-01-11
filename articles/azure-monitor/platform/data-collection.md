@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b96a00fb5dbf96a7b57adbaaacf24af319d86950
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718959"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215385"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -156,7 +156,7 @@ Taken die u met Logboeken uitvoeren kunt omvatten het volgende:
 Alle gegevens in Azure Monitor is opgehaald met een [logboekquery](../log-query/log-query-overview.md) die zijn geschreven met de [Data Explorer-querytaal](../log-query/get-started-queries.md), waarmee u snel ophalen, samenvoegen en analyseren van verzamelde gegevens. Gebruik [Log Analytics](../log-query/portals.md) te schrijven en testen van query's in Azure portal. U kunt interactief werken met resultaten of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook Logboeken kunt ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Gegevens van Application Insights is opgeslagen in een afzonderlijke partitie dan andere logboekgegevens in Azure Monitor. Dit biedt ondersteuning voor dezelfde functionaliteit als andere logboekgegevens, maar moet u de [Application Insights-console](/azure-monitor/app/analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../log-query/cross-workspace-query.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
+> Gegevens van Application Insights is opgeslagen in een afzonderlijke partitie dan andere logboekgegevens in Azure Monitor. Dit biedt ondersteuning voor dezelfde functionaliteit als andere logboekgegevens, maar moet u de [Application Insights-console](../app/analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../log-query/cross-workspace-query.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
 
 ![Logboeken](media/data-collection/logs.png)
 

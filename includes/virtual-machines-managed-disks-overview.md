@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264022"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211829"
 ---
 # <a name="azure-managed-disks-overview"></a>Overzicht Azure Managed Disks
 
@@ -37,7 +37,7 @@ Beheerde schijven bieden een betere betrouwbaarheid voor Beschikbaarheidssets do
 
 ### <a name="highly-durable-and-available"></a>Zeer duurzaam en hoge beschikbaarheid
 
-Azure-schijven zijn ontworpen om 99,999% van de tijd beschikbaar te zijn. Geniet van de wetenschap dat u hebt drie replica's van uw gegevens die grote duurzaamheid mogelijk maakt. Als er zich problemen voordoen met een of zelfs twee van de replica’s, kunnen de resterende replica’s ervoor zorgen dat uw gegevens bewaard blijven en storingen weinig kwaad kunnen. Dankzij deze architectuur heeft Azure consistente duurzaamheid op ondernemingsniveau kunnen leveren voor IaaS-schijven, met een foutpercentage van NUL% op jaarbasis, het beste in de bedrijfstak. 
+Azure-schijven zijn ontworpen om 99,999% van de tijd beschikbaar te zijn. Geniet van de wetenschap dat u hebt drie replica's van uw gegevens die grote duurzaamheid mogelijk maakt. Als er zich problemen voordoen met een of zelfs twee van de replica’s, kunnen de resterende replica’s ervoor zorgen dat uw gegevens bewaard blijven en storingen weinig kwaad kunnen. Dankzij deze architectuur heeft Azure consistente duurzaamheid op ondernemingsniveau kunnen leveren voor IaaS-schijven, met een foutpercentage van NUL% op jaarbasis, het beste in de bedrijfstak.
 
 ### <a name="granular-access-control"></a>Gebruik nauwkeurig toegangsbeheer
 
@@ -45,7 +45,7 @@ U kunt [op rollen gebaseerd toegangsbeheer (RBAC)](../articles/role-based-access
 
 ### <a name="azure-backup-service-support"></a>Ondersteuning van Azure Backup-service
 
-Gebruik Azure Backup-service met Managed Disks te maken van een back-uptaak met back-ups op basis van tijd eenvoudig herstel van de virtuele machine en voor het bewaren van back-up. Beheerde schijven ondersteunen alleen lokaal redundante opslag (LRS) als de replicatie-optie. Drie kopieën van de gegevens worden bewaard in een enkele regio. Voor regionaal herstel na noodgevallen, u moet back-up van de VM-schijven in een andere regio met [Azure Backup-service](../articles/backup/backup-introduction-to-azure-backup.md) en een GRS-opslagaccount als back-upkluis. Azure Backup ondersteunt momenteel de schijfgrootten tot 4 TB-schijven. U moet [upgrade VM-back-upstack naar V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) voor ondersteuning van 4 TB-schijven. Zie voor meer informatie, [met behulp van Azure Backup-service voor virtuele machines met Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Gebruik Azure Backup-service met Managed Disks te maken van een back-uptaak met back-ups op basis van tijd eenvoudig herstel van de virtuele machine en voor het bewaren van back-up. Beheerde schijven ondersteunen alleen lokaal redundante opslag (LRS) als de replicatie-optie. Drie kopieën van de gegevens worden bewaard in een enkele regio. Voor regionaal herstel na noodgevallen, u moet back-up van de VM-schijven in een andere regio met [Azure Backup-service](../articles/backup/backup-introduction-to-azure-backup.md) en een GRS-opslagaccount als back-upkluis. Momenteel Azure Backup biedt ondersteuning voor de schijfgrootten tot 4 TB-schijven, Zie [direct herstellen](../articles/backup/backup-instant-restore-capability.md) voor ondersteuning van 4 TB-schijven. Zie voor meer informatie, [met behulp van Azure Backup-service voor virtuele machines met Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
@@ -63,27 +63,27 @@ Wanneer u Managed Disks gebruikt, zijn de volgende factureringsvoorwaarden van t
 
 We gaan nog eens kijken deze opties.
 
-**Opslagtype:** Managed Disks biedt 3 prestatielagen: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard-SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), en [Premium](../articles/virtual-machines/windows/premium-storage.md). De facturering van een beheerde schijf, is afhankelijk van welk type opslag die u hebt geselecteerd voor de schijf.
+**Opslagtype:** Beheerde schijven aanbiedingen 3 prestatielagen: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard-SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), en [Premium](../articles/virtual-machines/windows/premium-storage.md). De facturering van een beheerde schijf, is afhankelijk van welk type opslag die u hebt geselecteerd voor de schijf.
 
-**Schijfgrootte**: facturering voor beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. Azure wijst de ingerichte grootte (afgerond) naar de dichtstbijzijnde Managed Disks-optie die zijn opgegeven in de onderstaande tabellen. Elke beheerde schijf wordt toegewezen aan een van de ondersteunde ingerichte grootte en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standaard beheerde schijf maken en geef een ingerichte grootte van 200 GB, in rekening gebracht volgens de prijzen van het type S15 schijf.
+**Schijfgrootte**: Facturering voor beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. Azure wijst de ingerichte grootte (afgerond) naar de dichtstbijzijnde Managed Disks-optie die zijn opgegeven in de onderstaande tabellen. Elke beheerde schijf wordt toegewezen aan een van de ondersteunde ingerichte grootte en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standaard beheerde schijf maken en geef een ingerichte grootte van 200 GB, in rekening gebracht volgens de prijzen van het type S15 schijf.
 
 Hier volgen de schijfgrootten beschikbaar voor een premium-beheerde schijf, gemarkeerd met een sterretje-grootten zijn momenteel in Preview-versie:
 
 | **Premium SSD beheerd <br>schijftype** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
 
 Hier volgen dat de schijfgrootte die beschikbaar zijn voor een standard-SSD beheerde schijf, gemarkeerd met een sterretje-grootten zijn momenteel in Preview-versie:
 
 | **Standard-SSD beheerd <br>schijftype** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Schijfgrootte        | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
+| Schijfgrootte        | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
 
 Hier volgen dat de schijfgrootte die beschikbaar zijn voor een harde schijf van standard beheerde schijf, gemarkeerd met een sterretje-grootten zijn momenteel in Preview-versie:
 
 | **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
 
 **Aantal transacties**: U wordt gefactureerd voor het aantal transacties die u op een standard-beheerde schijven uitvoert.
 
@@ -91,7 +91,7 @@ Standard-SSD-schijven gebruiken i/o-grootte van 256KB. Als de gegevens worden ov
 
 Er zijn geen kosten verbonden voor transacties voor een premium-beheerde schijf.
 
-**Uitgaande gegevensoverdracht**: [uitgaande gegevensoverdrachten](https://azure.microsoft.com/pricing/details/data-transfers/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
+**Uitgaande gegevensoverdracht**: [Uitgaande gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
 
 Zie voor gedetailleerde informatie over prijzen voor Managed Disks [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks).
 

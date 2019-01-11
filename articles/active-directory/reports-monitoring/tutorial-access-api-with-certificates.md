@@ -15,14 +15,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5714ed552c81d28a253aa57ad6e2ba1d67e543a1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961957"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214263"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Zelfstudie: Gegevens met behulp van de Azure Active Directory reporting API met certificaten ophalen
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Zelfstudie: Gegevens ophalen met de Azure Active Directory rapportage-API met certificaten
 
 De [Azure Active Directory (Azure AD) rapportage-API's](concept-reporting-api.md) bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen. Als u toegang wilt tot de Azure AD rapportage-API zonder tussenkomst van de gebruiker, moet u de toegang voor het gebruik van certificaten configureren.
 
@@ -30,24 +30,28 @@ In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot d
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Voltooi eerst de [vereisten voor toegang tot de Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+1. Voor toegang tot aanmeldingsgegevens, zorg ervoor dat u hebt een Azure Active Directory-tenant met een licentie premium (P1/P2). Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden. Houd er rekening mee dat als er geen gegevens activiteiten vóór de upgrade, een paar dagen voor de gegevens duurt worden weergegeven in de rapporten na de upgrade naar een premium-licentie. 
 
-2. Download en installeer [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+2. Maken of schakel over naar een gebruikersaccount in de **hoofdbeheerder**, **beveiligingsbeheerder**, **beveiligingslezer** of **rapporteren lezer** rol voor de tenant. 
 
-3. Installeer [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Deze module biedt verschillende cmdlets, waaronder:
+3. Voltooi de [vereisten voor toegang tot de Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+
+4. Download en installeer [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+
+5. Installeer [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Deze module biedt verschillende cmdlets, waaronder:
     - De ADAL-bibliotheken die nodig zijn voor verificatie
     - Toegangstokens van gebruiker, toepassingssleutels en certificaten met behulp van ADAL
     - Afhandeling van pagina's met zoekresultaten door Graph API
 
-4. Als dit de eerste keer is met de module voeren **installeren MSCloudIdUtilsModule**, anders importeren met behulp van de **Import-Module** Powershell-opdracht. Uw sessie moet lijken op dit scherm: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Als dit de eerste keer is met de module voeren **installeren MSCloudIdUtilsModule**, anders importeren met behulp van de **Import-Module** Powershell-opdracht. Uw sessie moet lijken op dit scherm: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-5. Gebruik de **New-SelfSignedCertificate** Powershell-commandlet een testcertificaat maken.
+7. Gebruik de **New-SelfSignedCertificate** Powershell-commandlet een testcertificaat maken.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-6. Gebruik de **Export-certificaat** commandlet exporteren naar een certificaatbestand.
+8. Gebruik de **Export-certificaat** commandlet exporteren naar een certificaatbestand.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"

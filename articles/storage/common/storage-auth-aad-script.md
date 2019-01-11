@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633762"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214042"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Een Azure AD-identiteit gebruiken voor toegang tot Azure Storage met CLI of PowerShell (Preview)
 
@@ -84,7 +84,7 @@ Azure PowerShell gebruiken voor het aanmelden met een Azure AD-identiteit:
    Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
    ```
 1. Sluit en Open de PowerShell-venster.
-1. Roep de [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) cmdlet voor het maken van een context en zijn de `-UseConnectedAccount` parameter. 
+1. Roep de [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) cmdlet voor het maken van een context en zijn de `-UseConnectedAccount` parameter. 
 1. Voor het aanroepen van een cmdlet uit met een Azure AD-identiteit, moet u de zojuist gemaakte context doorgeven aan de cmdlet.
 
 Het volgende voorbeeld ziet hoe u de blobs in een container van Azure PowerShell met behulp van een Azure AD-identiteit. Zorg ervoor dat de namen van de tijdelijke aanduiding voor account- en container vervangen door uw eigen waarden: 

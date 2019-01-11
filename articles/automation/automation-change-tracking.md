@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408915"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213209"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -51,15 +51,14 @@ De volgende Linux-distributies zijn officieel ondersteund. De Linux-agent kan ec
 * Debian GNU/Linux 8 en 9
 * Ubuntu Linux 14.04 LTS en 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris inschakelen
+## <a name="onboard"></a>Wijzigingen bijhouden en inventaris inschakelen
 
-Als u wilt bijhouden van wijzigingen, moet u de oplossing wijzigingen bijhouden en inventaris inschakelen voor uw Automation-Account.
+Als u wilt bijhouden van wijzigingen, moet u de oplossing wijzigingen bijhouden en inventaris inschakelen. Er zijn veel manieren om Onboarding van machines voor wijzigingen bijhouden en inventaris. De volgende zijn de aanbevolen en manieren waarop u de oplossing wordt ondersteund.
 
-1. Navigeer in de Azure-portal naar uw Automation-Account
-2. Selecteer **wijzigingen bijhouden** onder **configuratie**.
-3. Selecteer een bestaande Log analytics-werkruimte of **nieuwe werkruimte maken** en klikt u op **inschakelen**.
-
-Hiermee schakelt u de oplossing voor uw automation-account. De oplossing kan maximaal 15 minuten om in te schakelen duren. De blauwe voortgangsbalk waarschuwt u als de oplossing is ingeschakeld. Ga terug naar de **bijhouden** pagina voor het beheren van de oplossing.
+* [Van een virtuele machine](automation-onboard-solutions-from-vm.md)
+* [Vanuit het bladeren door meerdere virtuele machines](automation-onboard-solutions-from-browse.md)
+* [Via uw Automation-account](automation-onboard-solutions-from-automation-account.md)
+* [Met een Azure Automation-runbook](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Wijzigingen bijhouden en inventaris configureren
 
@@ -85,7 +84,7 @@ Gebruik de volgende stappen voor het configureren van bestand bijhouden op Linux
 |Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
 |Sudo gebruiken     | Deze instelling bepaalt of sudo wordt gebruikt bij het controleren op het item.         |
 |Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen worden afgehandeld bij het doorlopen van mappen.<br> **Negeren** - symbolische koppelingen worden genegeerd en maakt geen deel uit van de bestanden/mappen waarnaar wordt verwezen.<br>**Ga als volgt** - symbolische koppelingen worden gevolgd tijdens recursie en bevat ook de bestanden/mappen waarnaar wordt verwezen.<br>**Beheren** - symbolische koppelingen worden en kunnen wijzigen van de geretourneerde inhoud.     |
-|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **De waarde True** of **False**.|
+|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **Waar** of **Onwaar**.|
 
 > [!NOTE]
 > Het gebruik van de optie 'Beheren' voor koppelingen wordt niet aanbevolen. Het ophalen van bestandsinhoud wordt niet ondersteund.
@@ -105,7 +104,7 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
 |Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\\\*.txt"<br>U kunt ook omgevingsvariabelen gebruiken zoals ' %winDir%\System32\\\*. * "       |
 |Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
-|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **De waarde True** of **False**.|
+|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **Waar** of **Onwaar**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Jokertekens recursie en omgeving instellingen
 
@@ -135,7 +134,7 @@ Gebruik de volgende stappen voor het configureren van sleutel-register traceren 
 |Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
-|Windows-registersleutel   | Het pad om te controleren op het bestand. Bijvoorbeeld: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows-registersleutel   | Het pad om te controleren op het bestand. Bijvoorbeeld: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup      |
 
 ## <a name="limitations"></a>Beperkingen
 

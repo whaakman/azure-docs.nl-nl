@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498874"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198385"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-stuurprogramma-extensie voor Linux
 
@@ -38,8 +38,8 @@ Deze uitbreiding ondersteunt de volgende OS-distributies, afhankelijk van onders
 | Distributie | Versie |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
-| Linux: CentOS | 7.3, 7.4, 7.5 |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7,6 |
+| Linux: CentOS | 7.3, 7.4, 7.5, 7,6 |
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
@@ -69,23 +69,23 @@ De volgende JSON ziet u het schema voor de extensie.
 }
 ```
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
-| Naam | Waarde / voorbeeld | Gegevenstype |
+| Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Uitgever | Microsoft.HpcCompute | tekenreeks |
-| type | NvidiaGpuDriverLinux | tekenreeks |
+| Uitgever | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Instellingen
 
 Alle instellingen zijn optioneel. Het standaardgedrag is het niet bijwerken de kernel als dit niet vereist voor het installeren van stuurprogramma's, installeert u de nieuwste ondersteunde stuurprogramma en de CUDA-toolkit (indien van toepassing).
 
-| Naam | Beschrijving | Standaardwaarde | Geldige waarden | Gegevenstype |
+| Name | Description | Standaardwaarde | Geldige waarden | Gegevenstype |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Bijwerken van de kernel, zelfs als niet vereist voor de installatie van stuurprogramma | false | waar of ONWAAR | booleaans |
-| driverVersion | NV: RASTER stuurprogrammaversie<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | meest recente | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | tekenreeks |
+| driverVersion | NV: De versie van de GRID-stuurprogramma<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | meest recente | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | CUDA-toolkit installeren. Alleen relevant voor NC/ND-serie VM's. | true | waar of ONWAAR | booleaans |
 
 

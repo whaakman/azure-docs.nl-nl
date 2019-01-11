@@ -4,14 +4,14 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/10/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0d01715922286743b9442ae1c656b34c37a7d795
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975471"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201190"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -53,7 +53,7 @@ Azure Migrate ondersteunt momenteel Europa, Verenigde Staten en Azure Government
 **Geografie** | **De metagegevens van opslaglocatie**
 --- | ---
 Azure Government | VS (overheid) - Virginia
-Europa | Noord-Europa of West-Europa
+Europa | Europa - noord of Europa - west
 Verenigde Staten | VS-Oost van West-Centraal VS
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hoe worden de on-premises site, maakt verbinding met Azure Migrate?
@@ -136,6 +136,17 @@ Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren
 
 U kunt 1500 virtuele machines in een enkele migratieproject detecteren. Als u meer computers in uw on-premises-omgeving hebt [meer](how-to-scale-assessment.md) over hoe u een grote omgeving in Azure Migrate kunt detecteren.
 
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Voor het beperken van het apparaat Azure Migrate, wat zijn de aanbevolen uitsluitingen van Antivirus (AV)?
+
+U moet de volgende mappen in het apparaat voor het scannen van antivirus uitsluiten:
+
+- Map met de binaire bestanden voor Azure Migrate-Service. Sluit alle submappen.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web-toepassing. Sluit alle submappen.
+  %SYSTEMDRIVE%\Inetpub\wwwroot
+- Lokale Cache voor de Database en logboekbestanden. Azure migrate-service moet RW toegang tot deze map.
+  %SYSTEMDRIVE%\Profiler
+
 ## <a name="assessment"></a>Beoordeling
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Ondersteuning voor Azure Migrate Enterprise Agreement (EA) op basis van kostenraming?
@@ -144,6 +155,13 @@ Azure Migrate ondersteunt momenteel geen schatting van de kosten voor [Enterpris
 
   ![Korting](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Wat is het verschil tussen de grootte van de as-on-premises en de prestaties gebaseerde groottebepaling?
+
+Wanneer u het criterium voor het instellen als-on-premises formaat, Azure Migrate houdt geen rekening met de prestatiegegevens van de virtuele machines en het formaat van de virtuele machines op basis van de on-premises configuratie. Als het criterium voor het instellen op basis van prestaties is, wordt de grootte gedaan op basis van gegevens over het gebruik. Bijvoorbeeld als er een on-premises VM met 4 kernen en geheugen van 8 GB met 50% CPU-gebruik en geheugengebruik van 50%. Als het criterium voor het instellen is als on-premises formaat wijzigen van een Azure VM-SKU met 4 kernen en 8GB geheugen wordt aanbevolen, maar als het criterium voor het instellen prestaties gebaseerd als VM-SKU van 2 kernen is en 4 GB zou worden aanbevolen, omdat het gebruikspercentage wordt beschouwd als terwijl de grootte van de aanbevelen. Op dezelfde manier voor schijven, de grootte van de schijf is afhankelijk van twee evaluatie-eigenschappen - formaat type criterium en opslag. Als het criterium voor het instellen op basis van prestaties en opslagtype automatisch is, kunnen de waarden voor IOPS en doorvoer van de schijf worden beschouwd als voor het identificeren van de doel-schijftype (Standard of Premium). Als het criterium voor het instellen is op basis van prestaties en opslagtype premium is, een premium-schijf wordt aanbevolen, de premium-schijf die SKU in Azure is geselecteerd op basis van de grootte van de on-premises schijf. Dezelfde logica wordt gebruikt om u te sizing schijf wanneer het criterium voor het instellen is als on-premises formaat en opslagtype standard of premium is.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Wat zijn de gevolgen heeft de gebruik van de geschiedenis en percentiel van de prestaties van de aanbevelingen voor de grootte?
+
+Deze eigenschappen zijn alleen van toepassing op prestatie gebaseerde schaling. Azure Migrate de prestatiegeschiedenis van on-premises machines verzameld en gebruikt deze om aan te bevelen de VM-grootte en de schijf type in Azure. Het collector-apparaat profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime elke 20 seconden. Het toestel totaliseert de voorbeelden 20 seconden en maakt één gegevenspunt voor elke 15 minuten. Voor het maken van het één gegevenspunt, het apparaat selecteert de piekwaarde uit alle voorbeelden van 20 seconden en verzendt ze naar Azure. Wanneer u een evaluatie in Azure maken, op basis van de duur van de prestaties en de percentielwaarde van de prestaties van geschiedenis, Azure Migrate berekent de waarde van het daadwerkelijke gebruik en gebruikt u de grootte instelt. Bijvoorbeeld, als u de duur van de prestaties 1 dag en de percentielwaarde op 95 percentiel hebt ingesteld, Azure Migrate maakt gebruik van de punten verzonden door de collector voor de afgelopen dag, in oplopende volgorde gesorteerd en kiest de 95e-percentielwaarde als de effectieve ut 15 min-voorbeeld ilization. De 95e-percentielwaarde zorgt ervoor dat u uitbijters die afkomstig zijn kunnen als u het 99e percentiel kiest wordt genegeerd. Als u wilt ophalen van het piekgebruik voor de periode en niet wilt missen uitbijters, selecteert u het 99e percentiel.
 
 ## <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 

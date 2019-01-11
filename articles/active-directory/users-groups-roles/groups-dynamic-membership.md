@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a64f92df7592b4df419e5f70a32f631ca0504c6c
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 148a657b1a5db5b1b33c94e27d695e7c24dfb265
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994212"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214638"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -80,7 +80,7 @@ Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een 
 | city |Een tekenreekswaarde of *null* |(user.city - eq "waarde") |
 | Land/regio |Een tekenreekswaarde of *null* |(zoals user.country - eq "waarde") |
 | Bedrijfsnaam | Een tekenreekswaarde of *null* | (user.companyName - eq "waarde") |
-| Afdeling |Een tekenreekswaarde of *null* |(user.department - eq "waarde") |
+| department |Een tekenreekswaarde of *null* |(user.department - eq "waarde") |
 | displayName |een string-waarde |(user.displayName - eq "waarde") |
 | werknemer-id |een string-waarde |(user.employeeId - eq "waarde")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber - eq "waarde") |
@@ -348,7 +348,7 @@ De volgende apparaatkenmerken kunnen worden gebruikt.
  accountEnabled | waar onwaar | (device.accountEnabled - eq true)
  displayName | een string-waarde |(device.displayName - eq "Rob Iphone")
  deviceOSType | een string-waarde | (of device.deviceOSType - eq "iPad")- of (of device.deviceOSType - eq "iPhone")
- deviceOSVersion | een string-waarde | (apparaat. OSVersion - eq "9.1")
+ deviceOSVersion | een string-waarde | (device.deviceOSVersion - eq "9.1")
  deviceCategory | een geldige naam van de apparaatcategorie | (device.deviceCategory - eq "BYOD")
  deviceManufacturer | een string-waarde | (device.deviceManufacturer - eq "Samsung")
  deviceModel | een string-waarde | (device.deviceModel - eq "iPad lucht")

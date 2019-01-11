@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107426"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198759"
 ---
 # <a name="about-azure-vm-backup"></a>Over Azure VM backup
 
@@ -48,7 +48,7 @@ Azure Backup coderen niet van gegevens als onderdeel van het back-upproces. Azur
 
 Als u momentopnamen wanneer apps worden uitgevoerd, wordt back-up van Azure app-consistente momentopnamen.
 
-- **Windows-VM's**: Voor Windows-VM's coördineert de Backup-service met de Volume Shadow Copy Service (VSS) om op te halen van een consistente momentopname van de VM-schijven.
+- **Virtuele Windows-machines**: Voor Windows-VM's coördineert de Backup-service met de Volume Shadow Copy Service (VSS) om op te halen van een consistente momentopname van de VM-schijven.
     - Azure Backup wordt standaard volledige VSS-back-ups. [Meer informatie](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
     - Als u de instelling wijzigen wilt zodat Azure back-ups VSS kopieback-ups neemt, stelt u de volgende registersleutel:
         ```
@@ -132,11 +132,10 @@ Een herstelbewerking bestaat uit twee belangrijke taken: kopiëren van gegevens 
 
 Het is raadzaam na deze procedures tijdens het configureren van back-ups van virtuele machine:
 
-- Upkluizen upgraden naar Instant RP. Bekijk deze [voordelen](backup-upgrade-to-vm-backup-stack-v2.md), [overwegingen met betrekking tot](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), en vervolgens gaat u verder met de upgrade Volg hiervoor de volgende [instructies](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Houd rekening met het standaard beleid tijd wijzigen (voor bijvoorbeeld. Als uw beleid standaardtijd 00:00 uur Houd rekening met het oplopend in minuten) wanneer de momentopnamen worden gemaakt om ervoor te zorgen resources optimaal worden gebruikt.
 - Voor Premium-VM kan worden back-up op niet - directe RP-functie ~ 50% van de totale opslagruimte voor de account toegewezen. Back-upservice is vereist voor deze ruimte het kopiëren van de momentopname naar hetzelfde opslagaccount en voor het overdragen van het naar de kluis.
 - Voor het herstellen van virtuele machines vanuit één kluis, is het raadzaam om te gebruiken verschillende [v2-accounts voor opslag](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) om te controleren of het doelopslagaccount niet te maken met beperkingen. Elke virtuele machine moet bijvoorbeeld verschillende storage-account (als 10 virtuele machines worden hersteld en vervolgens 10 verschillende opslagaccounts kunt u overwegen) hebben.
-- Het terugzetten van de opslaglaag Tier-1 (snapshot) wordt voltooid in minuten (omdat het is hetzelfde opslagaccount) op basis van de opslaglaag van laag 2 (kluis) die kan uren duren. We raden u aan het gebruik van [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) functie voor snellere herstelacties voor gevallen waarin gegevens beschikbaar in Tier-1 zijn (als de gegevens worden hersteld vanuit kluis en vervolgens het duurt tijd).
+- Het terugzetten van de opslaglaag Tier-1 (snapshot) wordt voltooid in minuten (omdat het is hetzelfde opslagaccount) op basis van de opslaglaag van laag 2 (kluis) die kan uren duren. We raden u aan het gebruik van [direct herstellen](backup-instant-restore-capability.md) functie voor snellere herstelacties voor gevallen waarin gegevens beschikbaar in Tier-1 zijn (als de gegevens worden hersteld vanuit kluis en vervolgens het duurt tijd).
 - De limiet voor het aantal schijven per opslagaccount gebruikt, is ten opzichte van hoe zware de schijven worden gebruikt door toepassingen die worden uitgevoerd op IaaS-VM. Controleer of als meerdere schijven worden gehost op een enkel opslagaccount. Als het algemeen als 5-10-schijven of meer aan één opslagaccount aanwezig zijn, verdeelt u de taken door te verplaatsen van een aantal schijven voor het scheiden van storage-accounts.
 
 ## <a name="backup-costs"></a>Kosten voor back-up

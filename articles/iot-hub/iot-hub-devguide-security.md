@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6d15715379b06f55e1e190ebf5410995e3703d70
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b49d568b1ca19a99359314bb181712f56ca5615
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053327"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201054"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -418,7 +418,7 @@ Hier volgen de belangrijkste stappen van de service voor beveiligingstokens-patr
 4. De apparaatmodule gebruikt het token rechtstreeks met de IoT-hub.
 
 > [!NOTE]
-> U kunt de .NET-klasse [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) of de Java-klasse [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token) voor het maken van een token in uw service voor beveiligingstokens.
+> U kunt de .NET-klasse [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) of de Java-klasse [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) voor het maken van een token in uw service voor beveiligingstokens.
 
 De service voor beveiligingstokens kunt het verlopen van het token naar wens instellen. Wanneer het token is verlopen, verbreekt de IoT-hub de apparaatmodule /-verbinding. De apparaatmodule moet vervolgens een nieuw token aanvragen van de service voor beveiligingstokens. Een korte verlooptijd verhoogt de belasting van zowel de apparaatmodule als de service voor beveiligingstokens.
 
