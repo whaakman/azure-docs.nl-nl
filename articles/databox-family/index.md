@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: fcda4fba376fbe1f527d60aa5a27f7e7f0713e3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977703"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157102"
 ---
 <h1>Azure Data Box</h1>
 <p>De Azure Data Box-serie biedt producten van verschillende opslagcapaciteiten om terabytes (TB) aan gegeven snel, goedkoop en betrouwbaar naar Azure te sturen. Microsoft versnelt de beveiligde gegevensoverdracht door u bedrijfseigen opslagapparaten te sturen waarmee het mogelijk is om offline of via het netwerk gegevens over te dragen.</p>
@@ -35,7 +35,7 @@ ms.locfileid: "46977703"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk <SUP>Preview</SUP></b> voor gegevensgrootten van minder dan 40 TB. Microsoft verstuurt u één tot vijf versleutelde SSD's (solid-state drives) waarop u uw gegevens kopieert en die u terugstuurt.</p>
+                            <p><b>Data Box Disk</b> voor gegevensgrootten < 40 TB. Microsoft verstuurt u één tot vijf versleutelde SSD's (solid-state drives) waarop u uw gegevens kopieert en die u terugstuurt.</p>
                         </div>
                     </div>
                 </div>
