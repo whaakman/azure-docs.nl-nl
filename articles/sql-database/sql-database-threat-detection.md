@@ -11,19 +11,19 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 3f4a120e2aaf2925805bec26f721d5cfb4194bf1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/11/2019
+ms.openlocfilehash: 330726eecc19659d978b1072ad02ad6d5a4ccb8b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041540"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244372"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-database"></a>Azure SQL Database Threat Detection voor individuele Database
 
 Azure SQL [detectie van bedreigingen](sql-database-threat-detection-overview.md) voor [SQL-Database](sql-database-technical-overview.md) individuele databases detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven. Detectie van bedreigingen kunt identificeren **mogelijke SQL-injectie**, **toegang vanaf ongebruikelijke locatie of data center**, **toegang vanaf onbekende principal of mogelijk schadelijke toepassing**, en **Brute force SQL-referenties** -Zie voor meer informatie [Threat Protection-waarschuwingen](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-U kunt meldingen ontvangen over de gedetecteerde bedreigingen via [e-mailmeldingen](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) of [Azure-portal](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
+U kunt meldingen ontvangen over de gedetecteerde bedreigingen via [e-mailmeldingen](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) of [Azure-portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
 [Detectie van bedreigingen](sql-database-threat-detection-overview.md) maakt deel uit van de [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP)-aanbieding, dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL ATP-portal. Threat detection-service wordt in rekening gebracht 15$ / maand per logische Server met de eerste 30 dagen gratis.
 

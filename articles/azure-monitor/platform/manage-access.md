@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 71987fcde08c5098d98d21405ce79e61d3094424
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186052"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231781"
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -40,7 +40,7 @@ Een werkruimte biedt momenteel het volgende:
 
 * Een geografische locatie voor de opslag van gegevens
 * Gegevensisolatie toegangsrechten voor verschillende gebruikers definiëren
-* Bereik voor de configuratie van instellingen, zoals bewaren en gegevens beperking
+* Bereik voor de configuratie van instellingen, zoals [prijscategorie](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retentie](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) en [gegevens beperking](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
 
 Uit oogpunt van verbruik, wordt u aangeraden dat u werkruimten zo weinig mogelijk maakt. Het maakt beheer en query's eenvoudiger en sneller. Maar op basis van de voorgaande kenmerken, kunt u meerdere werkruimten maken:
 
@@ -145,96 +145,6 @@ Gebruik deze rollen om gebruikers toegang te geven op verschillende niveaus:
 - Resource: alleen toegang tot de opgegeven werkruimte
 
 Het wordt aangeraden om toewijzingen uit te voeren op resourceniveau (werkruimte) omdat dan een nauwkeurig toegangsbeheer mogelijk is.  Gebruik [aangepaste rollen](../../role-based-access-control/custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
-
-## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Een bestaande werkruimte koppelen aan een Azure-abonnement
-Alle werkruimten die zijn gemaakt na 26 september 2016 moeten op het moment van maken zijn gekoppeld aan een Azure-abonnement. Werkruimten die vóór deze datum zijn gemaakt, moeten bij aanmelding worden gekoppeld aan een werkruimte. Wanneer u de werkruimte maakt via Azure Portal of uw werkruimte koppelt aan een Azure-abonnement, wordt uw Azure Active Directory als uw organisatieaccount gekoppeld.
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Een werkruimte in de Azure Portal koppelen aan een Azure-abonnement
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.  
-
-2. Klik in het deelvenster voor abonnementen van Log Analytics op **toevoegen**.  
-
-    ![lijst met werkruimten](./media/manage-access/workspace-link-existing-01.png)
-
-3. Uit de **Log Analytics-werkruimte** deelvenster, klikt u op **bestaande koppelen**.  
-
-4. Klik op **Vereiste instellingen configureren**.  
-
-5. Hier ziet u de lijst met werkruimten die nog niet zijn gekoppeld aan uw Azure-account. Selecteer de werkruimte.  
-   
-6. Indien nodig kunt u de waarden van de volgende items wijzigen:
-   * Abonnement
-   * Resourcegroep
-   * Locatie
-   * Prijscategorie  
-
-7. Klik op **OK**. De werkruimte is nu gekoppeld aan uw Azure-account.
-
-> [!NOTE]
-> Als u de te koppelen werkruimte niet ziet, heeft uw Azure-abonnement geen toegang tot de werkruimte die u hebt gemaakt met behulp van de OMS-portal.  Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) om dit account toegang te verlenen vanuit de OMS-portal.
->
->
-
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Een werkruimte upgraden naar een betaald abonnement
-Er zijn drie typen werkruimteabonnementen voor OMS: **Gratis**, **zelfstandige**, en **OMS**.  Als u het *gratis* abonnement hebt, geldt een limiet van 500 MB aan gegevens dat per dag naar Log Analytics wordt verzonden.  Als u deze hoeveelheid overschrijdt, moet u uw werkruimte wijzigen naar een betaald abonnement om te voorkomen dat gegevens buiten deze limiet niet worden verzameld. U kunt op elk gewenst moment uw type abonnement wijzigen.  Zie [Prijsgegevens](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing) voor meer informatie over de tarieven voor OMS.
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>Rechten van een OMS-abonnement gebruiken
-Als u de rechten wilt gebruiken die horen bij de aanschaf van OMS E1, OMS E2 OMS of de OMS-invoegtoepassing voor System Center, kiest u het *OMS*-abonnement van OMS Log Analytics.
-
-Wanneer u een OMS-abonnement koopt, worden de rechten toegevoegd aan uw Enterprise-overeenkomst. Elk Azure-abonnement dat onder deze overeenkomst wordt gemaakt, kan gebruikmaken van deze rechten. Alle werkruimten in deze abonnementen gebruiken de OMS-rechten.
-
-Doe het volgende om ervoor te zorgen dat gebruik van een werkruimte wordt toegepast op uw rechten voor het OMS-abonnement:
-
-1. Maak uw werkruimte in een Azure-abonnement dat deel uitmaakt van de Enterprise-overeenkomst die het OMS-abonnement omvat
-
-2. Selecteer het *OMS*-abonnement voor de werkruimte
-
-> [!NOTE]
-> Als uw werkruimte is gemaakt vóór 26 september 2016 en uw Log Analytics-abonnement *Premium* is, maakt deze werkruimte gebruik van de rechten van de OMS-invoegtoepassing voor System Center. U kunt uw rechten ook gebruiken door over te schakelen naar de *OMS*-prijscategorie.
->
->
-
-De rechten van de OMS-abonnement zijn niet zichtbaar in de Azure-portal. U kunt de rechten en het gebruik wel in de Enterprise Portal zien.  
-
-Als u het Azure-abonnement waaraan uw werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Azure Commitment gebruiken via een Enterprise-overeenkomst
-Als u geen OMS-abonnement hebt, betaalt u voor elk onderdeel van OMS afzonderlijk en wordt het gebruik weergegeven op uw Azure-factuur.
-
-Als u een Azure-betalingsverplichting hebt voor de Enterprise-inschrijving waaraan uw Azure-abonnementen zijn gekoppeld, wordt gebruik van Log Analytics automatisch verrekend met de resterende betalingsverplichting.
-
-Als u het Azure-abonnement waaraan de werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Een werkruimte wijzigen in een betaalde prijscategorie in Azure Portal
-1. Selecteer in de Azure-portal in het deelvenster voor abonnementen van Log Analytics een werkruimte.
-
-2. In het werkruimtedeelvenster onder **algemene**, selecteer **prijscategorie**.  
-
-3. Onder **prijscategorie**, selecteer een prijscategorie en klik vervolgens op **Selecteer**.  
-    ![Prijsplan geselecteerd](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> Als de werkruimte is gekoppeld aan een Automation-account, moet u vóórdat u de prijscategorie *Zelfstandig (per GB)* kunt selecteren eerst alle oplossingen **Automation and Control** verwijderen en het Automation-account loskoppelen. Klik op de blade van de werkruimte onder **Algemeen** op **Oplossingen** om oplossingen te bekijken en te verwijderen. Klik op de blade **Prijscategorie** op de naam van het Automation-account om het Automation-account los te koppelen.
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Een werkruimte wijzigen in een betaalde prijscategorie in de OMS-portal
-
-Als u de prijscategorie wilt wijzigen via de OMS-portal, moet u een Azure-abonnement hebben.
-
-1. Klik in de OMS-portal op de tegel **Instellingen**.
-
-2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Azure-abonnement en data-abonnement**.
-
-3. Klik op de prijscategorie die u wilt gebruiken.
-
-4. Klik op **Opslaan**.  
-
-    ![abonnement en data-abonnementen](./media/manage-access/subscription-tab.png)
-
-Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven aan de webpagina.
-
-![OMS-lint](./media/manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Log Analytics-agent overzicht](../../azure-monitor/platform/log-analytics-agent.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.

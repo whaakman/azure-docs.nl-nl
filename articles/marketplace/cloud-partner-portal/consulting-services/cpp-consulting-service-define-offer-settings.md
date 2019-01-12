@@ -14,48 +14,49 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972168"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231934"
 ---
 # <a name="offer-settings-tab"></a>Tabblad instellingen bieden
 
 Op de **nieuwe aanbieding** scherm, de eerste stap is het maken van de identiteit van de aanbieding. De identiteit van de aanbieding bestaat uit drie onderdelen: **Aanbiedings-ID**, **uitgevers-ID**, en **naam**. Elk van deze onderdelen wordt in de volgende secties beschreven.
 
-![Het maken van nieuwe advies service aanbieding - tabblad voor instellingen van aanbieding](media/consultingoffer-settings-tab.png)
+![Maken van een nieuwe service-aanbieding advies - tabblad instellingen bieden](media/consultingoffer-settings-tab.png)
 
-*Aanbiedings-ID*
+### <a name="offer-id"></a>Aanbiedings-id
 
-Deze id is een unieke naam die u maakt wanneer u de aanbieding voor het eerst verzendt. Deze moet bestaan alleen uit kleine letters, alfanumerieke tekens, streepjes of onderstrepingstekens bevatten. De **aanbiedings-ID** is zichtbaar in de URL en gevolgen engine zoekresultaten. Bijvoorbeeld, *yourcompanyname_exampleservice*
+Deze id is een unieke naam die u maakt wanneer u de aanbieding voor het eerst verzendt. Deze moet bestaan alleen uit kleine letters, alfanumerieke tekens, streepjes of onderstrepingstekens bevatten. De **aanbiedings-ID** zichtbaar is in de URL en de invloed van zoekmachineresultaten. Een voorbeeld is *yourcompanyname_exampleservice*.
 
-Zoals wordt weergegeven in het voorbeeld wordt de **aanbiedings-ID** wordt toegevoegd aan de uitgevers-ID te maken van een unieke id. Dit wordt weergegeven als een permanente koppeling die kan worden gereserveerd en wordt geïndexeerd door de zoekmachines.
-
-*Nadat een aanbieding gepubliceerd is, kan niet de id worden bijgewerkt*
-
-*Uitgevers-ID*
-
-Deze id is gerelateerd aan uw account. Wanneer u bent aangemeld met uw organisatieaccount, uw **Publisher** ID wordt weergegeven in de vervolgkeuzelijst.
-
-*Naam*
-
-Deze tekenreeks vormt wat wordt weergegeven als de aanbiedingsnaam van de op AppSource of Azure Marketplace. De *naam* veld is beperkt tot 50 tekens.  De revisor moet mogelijk uw titel om toe te staan voor het toevoegen van de aanbiedingsnaam van de met de duur bewerken en type aanbieding.
-
-Het volgende voorbeeld door Edgewater Fullscope laat zien hoe de aanbiedingsnaam van de is samengesteld. De aanbiedingsnaam van de wordt weergegeven als:
-
-![Het maken van een nieuwe service-aanbieding advies](media/cppsampleconsultingoffer.png)
-
-De naam van de aanbieding bestaat uit vier onderdelen:
-
--   **Duur:** - gedefinieerd in de **Storefront Details** tabblad van de editor. Duur kan worden uitgedrukt in uren, dagen of weken.
--   **Type van de service:** - gedefinieerd in de **Storefront Details** tabblad van de editor. Typen van de services zijn `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, en `Workshop`.
--   **Voorzetsel:** - ingevoegd door de revisor
--   **Naam:** - gedefinieerd in de **instellingen bieden** pagina.
+Zoals wordt weergegeven in het voorbeeld wordt de **aanbiedings-ID** wordt toegevoegd aan de uitgevers-ID te maken van een unieke id. Deze unieke id wordt weergegeven als een permanente koppeling die kan worden gereserveerd en wordt geïndexeerd door de zoekmachines.
 
 >[!Note]
->Het naamveld is beperkt tot 50 tekens. De naam die u verzendt, moet mogelijk worden bewerkt door de revisor toestaan voor de duur en het type moet worden toegevoegd aan de naam van de aanbieding.
+>Nadat een aanbieding gepubliceerd is, kan de id kan niet worden bijgewerkt.
+
+### <a name="publisher-id"></a>Uitgevers-ID
+
+Deze id is gerelateerd aan uw account. Nadat u zich aanmelden met uw organisatieaccount, uw **uitgevers-ID** wordt weergegeven in de vervolgkeuzelijst.
+
+### <a name="name"></a>Name
+
+Deze tekenreeks wordt weergegeven als de aanbiedingsnaam van de op AppSource of in de Azure Marketplace. De **naam** vak is beperkt tot 50 tekens. De revisor mogelijk om de titel voor het toevoegen van de duur en bieden dat u wilt de aanbiedingsnaam van uw te bewerken.
+
+Het volgende voorbeeld laat zien hoe de aanbiedingsnaam van de is samengesteld. 
+
+![Een nieuwe advies service-aanbieding maken](media/cppsampleconsultingoffer.png)
+
+De aanbiedingsnaam van de bestaat uit vier onderdelen:
+
+-   **Duur:** Gedefinieerd op de **Storefront Details** tabblad van de editor. Duur kan worden uitgedrukt in uren, dagen of weken.
+-   **Type van de service:** Gedefinieerd op de **Storefront Details** tabblad van de editor. Typen van de services zijn `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, en `Workshop`.
+-   **Voorzetsel:** Door de revisor is ingevoegd.
+-   **Naam:** Gedefinieerd op de **instellingen bieden** pagina.
+
+>[!Note]
+>De **naam** vak is beperkt tot 50 tekens. De revisor mogelijk om de titel voor het toevoegen van de duur en bieden dat u wilt de aanbiedingsnaam van uw te bewerken.
 
 De volgende lijst bevat enkele goed benoemde aanbieding namen:
 
@@ -71,8 +72,8 @@ De volgende lijst bevat enkele goed benoemde aanbieding namen:
 -   CRM-Snelstartgids: 1 dag-Workshop
 -   Dynamics 365 for Sales: 2-daagse evaluatie
 
-Nadat u hebt de **instellingen bieden** tabblad kunt u uw inzending opslaan. De aanbiedingsnaam van de wordt nu weergegeven boven de editor en u vindt deze in alle biedt.
+Nadat u vult het **instellingen bieden** tabblad, sla uw inzending. De aanbiedingsnaam van de wordt nu weergegeven boven de editor en u vindt deze in **alle biedt**.
 
-**Volgende stappen**
+## <a name="next-steps"></a>Volgende stappen
 
-Nu kunt u [Storefront details en bepalen of u wilt publiceren in Azure Marketplace of AppSource](./cpp-consulting-service-storefront-details.md).
+Nu kunt u [winkel om details te bepalen of in de Azure Marketplace of AppSource publiceren](./cpp-consulting-service-storefront-details.md).

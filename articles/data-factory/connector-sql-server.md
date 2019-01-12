@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 776b1eb71b4f15c3376644de92205a4eeb77e4b2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1c58c77cb20f269c3a11615ccebf0bdc9cce0d86
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020520"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230799"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -531,7 +531,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
     Zie [in- of uitschakelen van een Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) voor meer informatie en alternatieve manieren van het inschakelen van TCP/IP-protocol.
 
 3. Dubbelklik in het venster dezelfde **TCP/IP** starten **TCP/IP-eigenschappen** venster.
-4. Schakel over naar de **IP-adressen** tabblad. Schuif omlaag naar Zie **IPAll** sectie. Noteer de ** TCP-poort ** (de standaardwaarde is **1433**).
+4. Schakel over naar de **IP-adressen** tabblad. Schuif omlaag naar Zie **IPAll** sectie. Noteer de **TCP-poort** (de standaardwaarde is **1433**).
 5. Maak een **regel voor de Windows-Firewall** op de computer waarmee inkomend verkeer via deze poort.  
 6. **Verbinding controleren**: Voor verbinding met de volledig gekwalificeerde naam SQL-Server, SQL Server Management Studio uit een andere computer te gebruiken. Bijvoorbeeld: `"<machine>.<domain>.corp.<company>.com,1433"`.
 

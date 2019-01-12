@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fda0f600fa7cb130511f2bd8b53543acfbcc7759
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 87096e1507c080f68652ea27b368364d9ac7952a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054287"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232495"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
@@ -27,7 +27,19 @@ In dit artikel leert u verschillende methoden voor het laden van gegevens met de
 * Type converteren met behulp van Deductie tijdens het laden van bestand
 * Ondersteuning voor MS SQL Server en Azure Data Lake Storage-verbindingen
 
-## <a name="load-text-line-data"></a>Laden van gegevens van de tekst 
+## <a name="load-data-automatically"></a>Automatisch gegevens laden
+
+Voor het laden van gegevens automatisch zonder het bestandstype op te geven, gebruikt u de `auto_read_file()` functie. Het type van het bestand en de argumenten die zijn vereist voor het lezen van deze automatisch worden afgeleid.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+Deze functie is handig bij het bestandstype niet expliciet is bekend. Een voorbeeld van gebruik is een map met honderden bestanden van verschillende typen worden geconverteerd naar objecten van de gegevensstroom. Uitvoeren van een iteratie via elke bestandspad en roepen `auto_read_file()` kunt u eenvoudig verwerken van de bestanden in de map in een lijst van objecten van de gegevensstroom.
+
+## <a name="load-text-line-data"></a>Laden van gegevens van de tekst
 
 Als u wilt lezen eenvoudige tekst in een gegevensstroom, gebruikt u de `read_lines()` zonder optionele parameters op te geven.
 
@@ -188,7 +200,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 De SDK kunt u ook gegevens laden van een SQL-bron. Op dit moment wordt alleen Microsoft SQL Server ondersteund. Als u wilt lezen van gegevens uit een SQL-server maken een `MSSQLDataSource` object met de verbindingsparameters. De parameter password van `MSSQLDataSource` accepteert een `Secret` object. U kunt een geheim object op twee manieren maken:
 
-* Registreren en de waarde van het geheim met de engine voor het uitvoeren. 
+* Registreren en de waarde van het geheim met de engine voor het uitvoeren.
 * Het geheim te maken met slechts een `id` (of de geheime waarde al is geregistreerd in de uitvoeringsomgeving) met behulp van `dprep.create_secret("[SECRET-ID]")`.
 
 ```python
@@ -232,7 +244,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Als uw gebruikersaccount lid van meer dan één Azure-tenant is, moet u de tenant in de vorm van de hostnaam AAD-URL opgeven.
 
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Een service-principal maken met de Azure-CLI
@@ -256,7 +268,7 @@ Gebruik de object-id van de gebruiker voor het configureren van de ACL voor het 
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Het configureren van `Read` en `Execute` toegang voor het Azure Data Lake Storage file system, u de ACL voor bestanden en mappen afzonderlijk configureren. Dit is vanwege het feit dat de onderliggende HDFS ACL-model biedt geen ondersteuning voor overname. 
+Het configureren van `Read` en `Execute` toegang voor het Azure Data Lake Storage file system, u de ACL voor bestanden en mappen afzonderlijk configureren. Dit is vanwege het feit dat de onderliggende HDFS ACL-model biedt geen ondersteuning voor overname.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

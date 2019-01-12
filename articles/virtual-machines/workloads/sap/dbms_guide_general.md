@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606755"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246871"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure dwingt een quotum IOP's per gegevensschijf. Deze quota zijn verschillend v
 
 > [!NOTE]
 > Als u wilt profiteren van Azure met de unieke [één VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) alle schijven die zijn gekoppeld hoeft te worden van het type Azure Premium Storage, met inbegrip van de basis-VHD.
->
+
+
+> [!NOTE]
+> Het wordt niet ondersteund op host hoofddatabase bestanden (gegevens en logboekbestanden bestanden) van SAP-databases op opslaghardware die zich in dezelfde locatie bevindt als van derden datacenters aangrenzende met Azure-datacenters. Voor SAP alleen opslag werkbelasting die wordt weergegeven als systeemeigen Azure service ondersteund voor de gegevens- en transactielogboek-logboekbestanden van SAP-databases.
+> 
 
 De plaatsing van bestanden van de database en logboekbestanden/opnieuw bestanden en het type Azure-opslag gebruikt, moeten worden gedefinieerd door de vereisten voor IOPS, latentie en doorvoer. Om voldoende IOP's, kan u worden afgedwongen gebruikmaken van meerdere schijven of een grotere Premium-opslag-schijf gebruiken. In het geval van meerdere schijven gebruikt, maakt u een streep software op de schijven die de bestanden bevatten of bestanden log/opnieuw. In dergelijke gevallen zijn de IOPS en de schijfdoorvoer Sla's van de onderliggende schijven voor Premium Storage of de maximale IOPS van Azure Standard Storage-schijven haalbare wél cumulatief voor de resulterende stripeset.
 

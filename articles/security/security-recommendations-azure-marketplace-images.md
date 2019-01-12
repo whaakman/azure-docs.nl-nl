@@ -9,20 +9,20 @@ ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308787"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243627"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën
 
-U wordt aangeraden dat elke oplossing voldoet aan de volgende aanbevelingen voor beveiliging-configuratie. Hiermee kunt u een hoog beveiligingsniveau voor installatiekopieën van de partner-oplossing in de Azure Marketplace onderhouden.
+U wordt aangeraden dat elke oplossing aan de volgende aanbevelingen voor beveiliging-configuratie voldoet. Dit helpt het onderhouden van een hoog beveiligingsniveau voor installatiekopieën van de partner-oplossing in de Azure Marketplace.
 
-Deze aanbevelingen kunnen ook nuttig zijn voor organisaties die geen afbeeldingen in de Azure marketplace. U wilt controleren, Windows en Linux-installatiekopie configuraties van uw bedrijf op basis van de richtlijnen in de onderstaande tabellen gevonden.
+Deze aanbevelingen kunnen ook nuttig zijn voor organisaties die geen afbeeldingen in de Azure marketplace. U wilt controleren, Windows en Linux-installatiekopie configuraties van uw bedrijf op basis van de richtlijnen die zijn gevonden in de volgende tabellen:
 
 ## <a name="open-source-based-images"></a>Open Source-installatiekopieën
 
@@ -31,7 +31,7 @@ Deze aanbevelingen kunnen ook nuttig zijn voor organisaties die geen afbeeldinge
 | **Categorie**                                                 | **Selectievakje**                                                                                                                                                                                                                                                                              |
 | Beveiliging                                                     | De meest recente beveiligingsupdate patches voor de Linux-distributie worden geïnstalleerd.                                                                                                                                                                                                              |
 | Beveiliging                                                     | Richtlijnen voor het beveiligen van de VM-installatiekopie voor de specifieke Linux-distributie branche zijn gevolgd.                                                                                                                                                                                     |
-| Beveiliging                                                     | Beperk de kwetsbaarheid voor aanvallen door minimale voetafdruk te houden met alleen de benodigde Windows Server-rollen, functies, services en netwerkpoorten.                                                                                                                                               |
+| Beveiliging                                                     | Beperk de kwetsbaarheid voor aanvallen door te bewaren van minimale voetafdruk met alleen die nodig zijn Windows Server-functies, onderdelen, services en poorten netwerken.                                                                                                                                               |
 | Beveiliging                                                     | Broncode en resulterende VM-installatiekopie voor schadelijke software gescand.                                                                                                                                                                                                                                   |
 | Beveiliging                                                     | De VHD-installatiekopie bevat alleen de benodigde vergrendelde accounts waarvoor geen standaard wachtwoorden dat interactieve aanmelding leiden zou; Er is geen back-deuren.                                                                                                                                           |
 | Beveiliging                                                     | Firewall-regels zijn uitgeschakeld, tenzij de toepassing functioneel afhankelijk is, zoals een firewall-apparaat.                                                                                                                                                                             |
@@ -56,7 +56,7 @@ Deze aanbevelingen kunnen ook nuttig zijn voor organisaties die geen afbeeldinge
 | Beveiliging                                                         | Installeer alle meest recente beveiligingsupdates.                                                                                                                                     |
 | Beveiliging                                                         | Toepassingen moeten niet afhankelijk zijn van een op de namen van de gebruiker met beperkte rechten zoals Administrator, root en -beheerder.                                                                |
 | Beveiliging                                                         | BitLocker-stationsversleuteling wordt niet ondersteund op de harde schijf van het besturingssysteem. BitLocker kan worden gebruikt op gegevensschijven met.                                                            |
-| Beveiliging                                                         | Beperk de kwetsbaarheid voor aanvallen door minimale voetafdruk te houden met alleen de benodigde Windows Server-rollen, functies, services en netwerkpoorten die zijn ingeschakeld.                         |
+| Beveiliging                                                         | De kwetsbaarheid voor aanvallen door te bewaren van minimale voetafdruk met alleen die nodig zijn Windows Server-functies, onderdelen, services en poorten ingeschakeld netwerken beperken.                         |
 | Beveiliging                                                         | Broncode en resulterende VM-installatiekopie voor schadelijke software gescand.                                                                                                                     |
 | Beveiliging                                                         | Stel de beveiligingsupdate van Windows Server-installatiekopieën voor automatisch bijwerken.                                                                                                                |
 | Beveiliging                                                         | De VHD-installatiekopie bevat alleen de benodigde vergrendelde accounts waarvoor geen standaard wachtwoorden dat interactieve aanmelding leiden zou; Er is geen back-deuren.                             |

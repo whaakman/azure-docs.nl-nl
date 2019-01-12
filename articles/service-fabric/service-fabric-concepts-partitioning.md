@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 511cd5c8304201fe6dfd101ac95b8f6c72806648
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388106"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232257"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare Service Fabric-services partitioneren
 In dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric reliable services partitioneren. De broncode die wordt gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -234,7 +234,7 @@ Als we letterlijk één partitie per letter hebben willen, kunnen we gebruiken 0
             return String.Format(
                 "User {0} {1}",
                 user,
-                addResult ? "sucessfully added" : "already exists");
+                addResult ? "successfully added" : "already exists");
         }
     }
     ```

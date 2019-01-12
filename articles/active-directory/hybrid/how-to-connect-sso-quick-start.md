@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2aab7929539fb4a4b9001da89770730d8afbe286
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187635"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244662"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: Snel starten
 
@@ -192,7 +192,7 @@ Zorg ervoor dat de machine met de macOS is gekoppeld aan AD. Instructies voor he
 
 Als u hebt onderdrukt de [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) of de [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) beleidsinstellingen in uw omgeving, zorg ervoor dat u Azure AD-URL toevoegen (`https://autologon.microsoftazuread-sso.com`) naar deze ook.
 
-#### <a name="google-chrome-macos-only"></a>Google Chrome (alleen voor macOS)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (Mac OS en andere niet-Windows-platforms)
 
 Raadpleeg voor Google Chrome op Mac OS- en andere niet-Windows-platforms, [de chroom Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) voor meer informatie over hoe aan lijst met geaccepteerde de URL van de Azure AD voor verificatie geïntegreerd.
 

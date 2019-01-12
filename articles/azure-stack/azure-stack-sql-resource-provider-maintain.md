@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364084"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244984"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL onderhoud resourceproviderbewerkingen
 
@@ -32,16 +32,6 @@ De SQL-resourceprovider wordt niet verwerkt als onderdeel van Azure Stack, omdat
 ### <a name="provider-virtual-machine"></a>Provider van virtuele machine
 
 Omdat de resourceprovider wordt uitgevoerd op een *gebruiker* virtuele machine, moet u de vereiste patches en updates van toepassing wanneer deze zijn vrijgegeven. U kunt de Windows update-pakketten die worden geleverd als onderdeel van de patch-en updatecyclus updates toepassen op de virtuele machine.
-
-## <a name="backuprestoredisaster-recovery"></a>Back-up en herstel/herstel na noodgevallen
-
- Omdat het is een onderdeel van de invoegtoepassing, de SQL-resourceprovider wordt niet back-up gemaakt als onderdeel van een Azure Stack Business Continuity Disaster Recovery (BCDR). Scripts wordt aangeboden voor de volgende bewerkingen:
-
-- Back-ups van informatie over de status (opgeslagen in een Azure Stack-storage-account).
-- De resourceprovider herstellen als een volledige stack-herstel vereist is.
-
->[!NOTE]
->Hebt u wilt herstellen, moeten database-servers worden hersteld voordat de resourceprovider is hersteld.
 
 ## <a name="updating-sql-credentials"></a>Bijwerken van de SQL-referenties
 
@@ -109,7 +99,7 @@ Wanneer met behulp van de resourceproviders SQL- en MySQL met Azure Stack-system
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parameters
 
-|Parameter|Beschrijving|
+|Parameter|Description|
 |-----|-----|
 |AzCredential|Azure Stack-servicebeheerder-accountreferenties.|
 |CloudAdminCredential|Azure Stack cloud domein account beheerreferenties.|
@@ -122,7 +112,7 @@ Wanneer met behulp van de resourceproviders SQL- en MySQL met Azure Stack-system
 
 ### <a name="known-issues"></a>Bekende problemen
 
-**Probleem**: geheimen rotatie Logboeken.<br>
+**Probleem**: Logboeken van de rotatie van geheimen.<br>
 De logboeken voor geheimen, rotatie worden niet automatisch verzameld als het aangepaste script geheime rotatie mislukt wanneer deze wordt uitgevoerd.
 
 **Tijdelijke oplossing**:<br>

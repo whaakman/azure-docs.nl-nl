@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ed720b0db68a11c573a763c4269349db97977eff
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744085"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231067"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gebruik en kosten voor Log Analytics beheren
 
@@ -99,6 +99,25 @@ De volgende stappen wordt beschreven hoe u configureren hoe lang logboek gegeven
 
 Klanten met een Enterprise overeenkomst ondertekend voor 1 juli 2018 of die al een Log Analytics-werkruimte in een abonnement hebt gemaakt, u nog steeds toegang hebben tot de *gratis* plan. Als uw abonnement is niet gekoppeld aan een bestaande EA-inschrijving, het *gratis* laag is niet beschikbaar wanneer u een werkruimte in een nieuw abonnement na 2 April 2018 maken.  Gegevens zijn beperkt tot 7 dagen retentie voor de *gratis* laag.  Voor de verouderde *zelfstandige* of *Per knooppunt* lagen, evenals de huidige 2018 één prijscategorie, gegevens die zijn verzameld is beschikbaar voor de afgelopen 31 dagen. De *gratis* laag dagelijkse opname-limiet van 500 MB heeft, en als u merkt dat u consistent meer bedragen dan de toegestane volume, kunt u uw werkruimte wijzigen in een ander schema voor het verzamelen van gegevens buiten deze limiet. 
 
+> [!NOTE]
+> Kies de Log Analytics voor het gebruik van de rechten die horen bij de aanschaf van OMS E1-Suite, OMS E2 Suite of OMS-invoegtoepassing voor System Center, *Per knooppunt* prijscategorie.
+
+## <a name="changing-pricing-tier"></a>Prijscategorie wijzigen
+
+Als uw Log Analytics-werkruimte toegang tot de oudere Prijscategorieën heeft, tussen verouderde Prijscategorieën wijzigen:
+
+1. Selecteer in de Azure-portal in het deelvenster voor abonnementen van Log Analytics een werkruimte.
+
+2. In het werkruimtedeelvenster onder **algemene**, selecteer **prijscategorie**.  
+
+3. Onder **prijscategorie**, selecteer een prijscategorie en klik vervolgens op **Selecteer**.  
+    ![Prijsplan geselecteerd](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+Als u verplaatsen van uw werkruimte in de huidige prijscategorie wilt, moet u [wijzigen van uw abonnement controleren prijsmodel in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) die de prijscategorie van alle werkruimten in dat abonnement wordt gewijzigd.
+
+> [!NOTE]
+> Als de werkruimte is gekoppeld aan een Automation-account, moet u vóórdat u de prijscategorie *Zelfstandig (per GB)* kunt selecteren eerst alle oplossingen **Automation and Control** verwijderen en het Automation-account loskoppelen. Klik op de blade van de werkruimte onder **Algemeen** op **Oplossingen** om oplossingen te bekijken en te verwijderen. Klik op de blade **Prijscategorie** op de naam van het Automation-account om het Automation-account los te koppelen.
+
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Het oplossen van waarom Log Analytics is niet meer gegevens verzamelen
 Als u zich op de oude gratis-laag en meer dan 500 MB aan gegevens op een dag hebt verzonden, stopt het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet wordt bereikt, is een veelvoorkomende reden die Log Analytics stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  Log Analytics maakt een gebeurtenis van het type bewerking wanneer het verzamelen van gegevens wordt gestart en gestopt. Voer de volgende query in het zoekvak om te controleren als u de dagelijkse limiet is bereikt en er gegevens ontbreken: 
@@ -136,22 +155,55 @@ U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoor
 
 ### <a name="nodes-sending-data"></a>Knooppunten die gegevens verzenden
 
-Als u wilt het aantal knooppunten waarvoor gegevens zijn gerapporteerd in de afgelopen maand undersand, gebruiken
+Voor meer informatie over het aantal computers (knooppunten) waarvoor gegevens elke dag in de afgelopen maand zijn gerapporteerd, gebruiken
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Als het aantal gebeurtenissen die per computer weergeven, gebruikt u
+Voor een lijst van computers die verzenden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis), gebruikmaken van de `_IsBilled` eigenschap:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+Gebruik deze `union withsource = tt *` spaarzaam zoals scans voor gegevens gegevens typres duur zijn in het uitvoeren van query's. 
+
+Dit kan worden uitgebreid om terug te keren de telling van computers per uur die verzenden in rekening gebracht gegevenstypen:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+Om te zien de **grootte** van factureerbare gebeurtenissen die per computer, gebruikt u de `_BilledSize` eigenschap waarmee u de grootte in bytes:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Deze query vervangt de oude manier om deze query's uitvoeren met het gegevenstype van het gebruik. 
+
+Om te zien de **aantal** van gebeurtenissen die per computer, gebruikt u het volgende:
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Gebruik deze query spaarzaam omdat deze duur om uit te voeren. Als u zien welke gegevenstypen zijn sendng gegevens aan een specifieke computer wilt, gebruikt:
+Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt u 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Als u zien van de aantallen voor factureerbare gegevenstypen zijn gegevens te verzenden naar een specifieke computer wilt, gebruikt:
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Sommige van de velden van het gegevenstype gebruik terwijl u nog steeds in het schema zijn afgeschaft en wordt dat niet meer door hun waarden worden ingevuld. Dit zijn **Computer** en de velden met betrekking tot de opname (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** en **AverageProcessingTimeMs**.

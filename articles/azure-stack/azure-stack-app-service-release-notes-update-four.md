@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 80948b973e6d20b4760e97311c5a65886cf91f8f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.reviewer: anwestg
+ms.openlocfilehash: b721545f27135e36b2999de5acc61e77539a94b2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617009"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247313"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 4
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en oplossingen in Azure App Service op Azure Stack Update 4 en bekende problemen. Bekende problemen zijn onderverdeeld in problemen direct verband houden met de implementatie, het updateproces en problemen met de build (na de installatie).
 
@@ -204,13 +204,13 @@ Valideren
 - Werknemers kunnen geen bestandsserver bereiken wanneer App Service is geïmplementeerd in een bestaand virtueel netwerk en de bestandsserver alleen beschikbaar in het particuliere netwerk, is zoals beschreven in de Azure App Service op de documentatie over Azure Stack-implementatie.
 
 Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven. Ga naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen:
- * Bron:
+ * Bron: Alle
  * Poortbereik van bron: *
  * Bestemming: IP-adressen
- * Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+ * Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
  * Poortbereik van doel: 445
  * Protocol: TCP
- * Actie: toestaan
+ * Actie: Toestaan
  * Prioriteit: 700
  * Naam: Outbound_Allow_SMB445
 

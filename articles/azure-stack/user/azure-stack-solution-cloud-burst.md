@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: d2bdb351b72c9280a223381b62c01fff7ca5ca00
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968200"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244729"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Zelfstudie: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Informatie over het maken van een cross-cloud-oplossing voor het bieden van een handmatig geactiveerde proces bij het overstappen van een Azure Stack web-app die wordt gehost, naar een Azure gehoste web-app met automatisch schalen via traffic manager, ervoor te zorgen dat flexibele en schaalbare cloud-hulpprogramma met de belasting.
 

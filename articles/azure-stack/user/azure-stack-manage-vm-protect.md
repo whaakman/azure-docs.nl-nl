@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: hector.linares
-ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.reviewer: hectorl
+ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191526"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243629"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack
 
@@ -53,7 +53,7 @@ Elke Azure Stack-cloud wordt geïmplementeerd op één datacenter. Een afzonderl
 
 Plan de strategie voor herstel van back-up en herstel na noodgevallen voor elke toepassing om te bepalen het doel voor elke toepassing. Een herstelplan helpt uw organisatie goed grootte van de vereiste capaciteit on-premises opslag en project verbruik in de openbare cloud.
 
-|  | Globale Azure | Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP | Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant |
+|  | Global Azure | Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP | Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP** | Gebruiker virtuele machines worden geïmplementeerd naar de CSP beheerd Azure Stack.<br><br>Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | CSP werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters.<br><br>Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | CSP werkt Azure Stack in de primaire site.<br><br>Datacenter van de klant is het doel voor herstel en failovers. |
 | **Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant** | Gebruiker virtuele machines worden geïmplementeerd naar de klant beheerd Azure Stack.<br><br>Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | Klant werkt Azure Stack in de primaire site.<br><br>Van de CSP-datacenter is het doel voor herstel en failovers. | Klant werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters.<br><br>Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. |

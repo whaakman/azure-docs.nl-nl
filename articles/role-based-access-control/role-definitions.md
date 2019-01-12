@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1c8af3e0d3d5d29531a2ba81abc745fcdca5fb08
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715767"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231900"
 ---
 # <a name="understand-role-definitions"></a>Roldefinities begrijpen
 
@@ -48,7 +48,7 @@ Bewerkingen zijn opgegeven met tekenreeksen die de volgende notatie hebben:
 
 De `{action}` gedeelte van een tekenreeks bewerking geeft het type van de bewerkingen die u op een resourcetype uitvoeren kunt. Bijvoorbeeld, ziet u de volgende subtekenreeksen in `{action}`:
 
-| Actie subtekenreeks    | Beschrijving         |
+| Actie subtekenreeks    | Description         |
 | ------------------- | ------------------- |
 | `*` | Het jokerteken verleent toegang tot alle bewerkingen die overeenkomen met de tekenreeks. |
 | `read` | Hiermee leesbewerkingen (GET). |
@@ -173,11 +173,15 @@ Als u wilt weergeven en werken met gegevensbewerkingen, moet u de juiste versie 
 | [Azure voor Python](/python/azure) | 0.40.0 of hoger |
 | [Azure-SDK voor Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 of hoger |
 
+De Azure-portal ook kan gebruikers bladeren en beheren van de inhoud van wachtrijen en -Blob containers via de Azure AD preview-ervaring. Als u wilt bekijken en beheren van de inhoud van een wachtrij of Blob-container klikt u op de koppeling 'Gegevens verkennen met behulp van Azure AD preview' in het overzicht van de storage-account.
+
+![Wachtrijen verkennen en Blob-containers met behulp van Azure AD-preview](./media/role-definitions/rbac-dataactions-browsing.png)
+
 ## <a name="actions"></a>Acties
 
 De `Actions` machtiging Hiermee geeft u de beheerbewerkingen die de rol kan worden uitgevoerd. Er is een verzameling van bewerking tekenreeksen die beveiligbare bewerkingen van Azure-resource-providers identificeren. Hier volgen enkele voorbeelden van bewerkingen die kunnen worden gebruikt in `Actions`.
 
-| Bewerking tekenreeks    | Beschrijving         |
+| Bewerking tekenreeks    | Description         |
 | ------------------- | ------------------- |
 | `*/read` | Verleent toegang tot de leesbewerkingen voor alle resourcetypen van alle Azure-resource-providers.|
 | `Microsoft.Compute/*` | Verleent toegang tot alle bewerkingen voor alle resourcetypen in de Microsoft.Compute-resourceprovider.|
@@ -185,7 +189,7 @@ De `Actions` machtiging Hiermee geeft u de beheerbewerkingen die de rol kan word
 | `Microsoft.Compute/virtualMachines/*` | Verleent toegang tot alle bewerkingen van virtuele machines en het onderliggende resourcetypen.|
 | `microsoft.web/sites/restart/Action` | Verleent toegang tot een WebApp opnieuw te starten.|
 
-## <a name="notactions"></a>notActions
+## <a name="notactions"></a>NotActions
 
 De `NotActions` machtiging Hiermee geeft u de beheerbewerkingen die zijn uitgesloten van het toegestane aantal `Actions`. Gebruik de `NotActions` machtiging als de reeks bewerkingen die u wilt toestaan dat eenvoudiger door uit te sluiten van beperkte bewerkingen is gedefinieerd. De toegang wordt verleend door een rol (effectieve machtigingen) wordt berekend door af te trekken van de `NotActions` bewerkingen uit de `Actions` bewerkingen.
 
@@ -197,7 +201,7 @@ De `NotActions` machtiging Hiermee geeft u de beheerbewerkingen die zijn uitgesl
 
 De `DataActions` machtiging Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Bijvoorbeeld, als een gebruiker toegang tot blob-gegevens in een storage-account lezen heeft, kan deze lezen de blobs in het storage-account. Hier volgen enkele voorbeelden van bewerkingen voor gegevens die kunnen worden gebruikt in `DataActions`.
 
-| Bewerking tekenreeks    | Beschrijving         |
+| Bewerking tekenreeks    | Description         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retourneert een blob of een lijst met blobs. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retourneert het resultaat van het schrijven van een blob. |

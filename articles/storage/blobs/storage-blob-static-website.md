@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0663f569edd0dec47949053b6ecf7fe49fa24a17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191816"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229299"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
@@ -144,7 +144,7 @@ Ten slotte, schakel het selectievakje in naast **GetWebContent** in de *waarden*
 
 ![Azure Storage statische websites metrics GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-Een ingeschakeld, wordt verkeer statistieken voor bestanden in de *$web* container gerapporteerd in het dashboard.
+Statistieken voor bestanden in het verkeer naar eenmaal is ingeschakeld, de *$web* container worden gerapporteerd in het dashboard.
 
 ## <a name="faq"></a>Veelgestelde vragen
 

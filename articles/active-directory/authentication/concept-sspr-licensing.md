@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6d6a06af90c02dee0a7711d7362d0604018cb4a5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043036"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246582"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Vereisten voor licentieverlening voor Azure AD Self-service voor wachtwoord opnieuw instellen
 
@@ -33,15 +33,15 @@ Azure AD-selfservice wachtwoord opnieuw instellen is een licentie per gebruiker,
 * Wachtwoorden opnieuw instellen via self-service voor cloudgebruikers
    * Ik ben een **gebruikersdirectory die alleen** en Mijn wachtwoord vergeten.
       * Ik wil graag **opnieuw** iets dat ik weet mijn wachtwoord.
-   * Deze functionaliteit is opgenomen in Azure AD Basic, Premium P1 of P2 Premium-edities.
+   * Deze functionaliteit is opgenomen in Azure AD Basic, Premium P1 of P2, of Microsoft 365 Business.
 
 * Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen **met on-premises Write-back**
    * Ik ben een **hybride gebruiker** mijn on-premises Active Directory-gebruikersaccount is gesynchroniseerd met mijn Azure AD-account met Azure AD Connect. Ik wil graag mijn wachtwoord wijzigen, hebt mijn wachtwoord vergeten of is vergrendeld.
       * Ik wil mijn wachtwoord wijzigen of opnieuw wordt ingesteld op iets dat ik weten of Mijn account ontgrendelen **en** beschikt over dat wijziging worden gesynchroniseerd met on-premises Active Directory.
-   * Deze functionaliteit is opgenomen in Azure AD Premium P1 of P2 Premium-edities.
+   * Deze functionaliteit is opgenomen in Azure AD Premium P1 of P2, of Microsoft 365 Business.
 
 > [!WARNING]
-> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor 'Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back van'* en een abonnement met Azure AD Premium P1 of P2 Premium-edities voor deze functionaliteit te vereisen werk.
+> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor 'Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back van'* en vereist een abonnement met Azure AD Premium P1, P2 Premium of Microsoft 365 Business voor deze de functionaliteit om te werken.
 >
 
 Extra licentie-informatie, inclusief kosten, vindt u op de volgende pagina's:
@@ -50,6 +50,7 @@ Extra licentie-informatie, inclusief kosten, vindt u op de volgende pagina's:
 * [Azure Active Directory-functies en mogelijkheden](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
+* [Beschrijving van de service Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-business-service-description.md)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Groep of gebruiker op basis van licentieverlening inschakelen
 

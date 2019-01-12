@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: aac5010ca6b0ed958a849bf203f1d2f80bcdb81c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119814"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232466"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -168,7 +168,7 @@ namespace User.Namespace.Example01
 {
     using System;
     using Microsoft.ApplicationInsights;
-    using TraceSeveretyLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
+    using TraceSeverityLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
 
     /// <summary>
     /// Most simple cases are one-liners.
@@ -220,7 +220,7 @@ namespace User.Namespace.Example01
             if (!animalsSold.TrackValue(count, species))
 
             {
-                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeveretyLevel.Error);
+                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeverityLevel.Error);
             }
 
             // You can inspect a metric object to reason about its current state. For example:
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is afgeschaft in de .NET SDK. Metrische gegevens moet altijd vooraf worden samengevoegd in een bepaalde periode voordat het wordt verzonden. Gebruik een van de overloads GetMetric(..) ophalen van een metrische object voor toegang tot SDK vooraf aggregatie mogelijkheden. Als u uw eigen logica vooraf aggregatie implementeert, kunt u de Track (ITelemetry metricTelemetry)-methode voor het verzenden van de resulterende statistische functies. Als uw toepassing een afzonderlijke Telemetrisch item verzenden bij elke zonder aggregatie in de tijd vereist, hebt u waarschijnlijk een use-case voor telemetrie van gebeurtenissen; Zie TelemetryClient.TrackEvent (Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is afgeschaft in de .NET SDK. Metrische gegevens moet altijd vooraf worden samengevoegd in een bepaalde periode voordat het wordt verzonden. Gebruik een van de overloads GetMetric(..) ophalen van een metrische object voor toegang tot SDK vooraf aggregatie mogelijkheden. Als u uw eigen logica vooraf aggregatie implementeert, kunt u de Track (ITelemetry metricTelemetry)-methode voor het verzenden van de resulterende statistische functies. Als uw toepassing een afzonderlijke Telemetrisch item verzenden bij elke zonder aggregatie in de tijd vereist, hebt u waarschijnlijk een use-case voor telemetrie van gebeurtenissen; Zie TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights kunnen metrische gegevens die niet zijn gekoppeld aan bepaalde gebeurtenissen van grafiek. Bijvoorbeeld, kan u de lengte van een wachtrij met regelmatige tussenpozen controleren. De afzonderlijke metingen zijn minder interessant zijn dan de variaties en trends met metrische gegevens, en dus statistische kolomdiagrammen zijn nuttig.
 

@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/02/2019
+ms.date: 01/10/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 47f66fc61fdd397350efb934bf21f488960a27a2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079252"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54233056"
 ---
 > [!NOTE]
 > Gedeeltelijk aanvragen moeten doorgaans drie onderdelen:
@@ -26,10 +26,10 @@ ms.locfileid: "54079252"
 >
 > **Content-Type** en **Content-Disposition** , hangt af van het scenario voor gebruik.
 
-Gedeeltelijk aanvragen via een programma kunnen worden gemaakt (via C#), via een REST-client, of een hulpprogramma zoals [Postman](https://www.getpostman.com/). REST-clienthulpprogramma's mogelijk verschillende niveaus van ondersteuning voor complexe meerdelige aanvragen. Controleer of welk hulpprogramma is het meest geschikt is voor uw behoeften.
+Gedeeltelijk aanvragen via een programma kunnen worden gemaakt (via C#), via een REST-client, of een hulpprogramma zoals [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST-clienthulpprogramma's mogelijk verschillende niveaus van ondersteuning voor complexe meerdelige aanvragen. Controleer of welk hulpprogramma is het meest geschikt is voor uw behoeften.
 
 > [!IMPORTANT]
-> Gedeeltelijk aanvragen bij de Azure digitale dubbels Management API's hebben twee delen:
+> Gedeeltelijk aanvragen bij de Azure digitale dubbels Management API's doorgaans heeft twee onderdelen:
 > * Blobmetagegevens (zoals een bijbehorende MIME-type) dat gedeclareerd **Content-Type** en **Content-Disposition**
 > * BLOB-inhoud die met de ongestructureerde inhoud van een bestand dat moet worden geüpload
 >

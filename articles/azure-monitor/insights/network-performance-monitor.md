@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193787"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229843"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -109,7 +109,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
 
 4. Op de **Setup** pagina, ziet u de optie voor Log Analytics-agents installeren en configureren van de agents voor bewaking in de **algemene instellingen die u** weergeven. Als eerder uiteengezet, als u geïnstalleerd en geconfigureerd Log Analytics-agents, selecteert u de **Setup** weergeven om te configureren, de mogelijkheid die u wilt gebruiken. 
 
-   **Prestatiemeter**: Kies het protocol wilt gebruiken voor synthetische transacties in de **standaard** Prestatiemeter regel en selecteer **opslaan en doorgaan**. Deze Protocolselectie bevat alleen voor de standaardregel voor het systeem gegenereerde. U moet kiezen het protocol telkens wanneer die u een regel Prestatiemeter expliciet maken. U kunt altijd verplaatsen naar de **standaard** regel instellingen op de **Prestatiemeter** tabblad (dit wordt weergegeven na het voltooien van de configuratie van de dag 0) en wijzig het protocol later opnieuw. Als u de rPerfomance Monitor mogelijkheid niet wilt, kunt u de standaardregel van uitschakelen de **standaard** regel instellingen op de **Prestatiemeter** tabblad.
+   **Prestatiemeter**: Kies het protocol wilt gebruiken voor synthetische transacties in de **standaard** Prestatiemeter regel en selecteer **opslaan en doorgaan**. Deze Protocolselectie bevat alleen voor de standaardregel voor het systeem gegenereerde. U moet kiezen het protocol telkens wanneer die u een regel Prestatiemeter expliciet maken. U kunt altijd verplaatsen naar de **standaard** regel instellingen op de **Prestatiemeter** tabblad (dit wordt weergegeven na het voltooien van de configuratie van de dag 0) en wijzig het protocol later opnieuw. Als u de Prestatiemeter-mogelijkheid niet wilt, kunt u de standaardregel van uitschakelen de **standaard** regel instellingen op de **Prestatiemeter** tabblad.
 
    ![Monitor voor weergave van agentprestaties](media/network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -270,7 +270,7 @@ Als u een NPM-gebruiker die het maken van een waarschuwing via Azure Portal:
 4. Als de waarschuwing is gemaakt, kunt u waarschuwingen beheren koppeling gebruiken om uw waarschuwingen te beheren. 
 
 Telkens wanneer die u een waarschuwing maakt maakt NPM een query op basis van waarschuwingsregel in Azure Monitor. Deze query is triggerred om de standaard 5 minuten. Met Azure monitor niet in rekening voor de eerste 250 waarschuwingsregels die zijn gemaakt aanmelden en geen waarschuwingsregels bovenstaande beperken van de 250 logboekwaarschuwingsregels wordt gefactureerd volgens [waarschuwingen in Azure Monitor-pagina met prijzen prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Meldingen worden afzonderlijk in rekening gebracht volgens [meldingen in Azure Monitor pricig pagina prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Meldingen worden afzonderlijk in rekening gebracht volgens [meldingen prijzen in Azure Monitor-pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Prijzen

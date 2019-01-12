@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584442"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232750"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Zelfstudie: Bouw een installatiekopie voor het verwerken van app - C&#35;
 
@@ -97,9 +97,6 @@ U kunt de voorbeeld-app, om te zien hoe deze samenwerkt met u en de Computer Vis
    |OCR (OCR) | Maakt gebruik van de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) bewerking te extraheren afgedrukt tekst uit een afbeelding. U kunt Kies de taal te gebruiken of u kunt Computer-Vision de taal automatisch te detecteren. |
    |Herkennen tekst V2 (Engels) | Maakt gebruik van de [tekst herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) en [ophalen herkennen tekst bewerkingsresultaat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) bewerkingen moeten asynchroon herkennen en afgedrukt of handgeschreven tekst extraheren uit een afbeelding. |
    |Miniatuur ophalen | Maakt gebruik van de [halen miniatuur](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) bewerking voor het genereren van een miniatuur voor een lokale of externe-installatiekopie. |
-
-   > [!IMPORTANT]
-   > Microsoft ontvangt de installatiekopieën die u uploadt en voor het verbeteren van de Computer Vision-API en gerelateerde services kan gebruiken. Door het indienen van een afbeelding bevestigt u dat u zich hebt gehouden aan onze [gedragscode voor ontwikkelaars](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    De volgende schermafbeelding ziet u de pagina die is opgegeven voor het scenario met afbeelding analyseren na het analyseren van een voorbeeldafbeelding.
    ![Schermafbeelding van de pagina van de installatiekopie analyseren](../Images/Analyze_Image_Example.PNG)

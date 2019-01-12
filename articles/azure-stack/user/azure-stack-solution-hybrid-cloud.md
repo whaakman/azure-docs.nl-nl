@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410116"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245205"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een oplossing voor hybride cloudopslag met Azure en Azure Stack implementeren
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze zelfstudie leert u hoe u een hybride cloud-oplossing die gebruikmaakt van de openbare cloud van Azure en de Azure Stack-privécloud implementeert.
 
@@ -194,7 +194,7 @@ Zie voor meer informatie over hoe App Service kan worden geïntegreerd met Azure
 
 De lokale netwerkgateway in het virtuele netwerk van Azure Stack moet worden geconfigureerd om verkeer te routeren uit het adresbereik van App Service-punt-naar-site.
 
-1. Navigeer in Azure Stack, naar **lokale netwerkgateway**. Onder **instellingen**, selecteer **configuratie**.
+1. Navigeer in Azure Stack, naar **lokale netwerkgateway**. Selecteer bij **Instellingen** de optie **Configuratie**.
 
     ![Gateway-configuratie-optie](media/azure-stack-solution-hybrid-cloud/image14.png)
 
@@ -436,7 +436,7 @@ Azure Application Insights kunt u voor het bewaken van uw toepassing en het verz
 
 U kunt metrische gegevens van Application Insights gebruiken om waarschuwingen te maken. Als deze waarschuwingen activeren, wordt uw Web-Apps-exemplaar wordt automatisch overschakelen van de Azure Stack in Azure om uit te schalen en vervolgens weer terug naar Azure stack op schaal in.
 
-### <a name="create-an-alert-from-metrics"></a>Maken van een waarschuwing van metrische gegevens
+### <a name="create-an-alert-from-metrics"></a>Een waarschuwing maken vanuit metrische gegevens
 
 Navigeer naar de resourcegroep voor deze zelfstudie, en selecteer vervolgens de Application Insights-exemplaar te openen **Application Insights**.
 

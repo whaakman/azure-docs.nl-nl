@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 72489ea48aef9317d97e4d6f19b465db6a9a039d
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994578"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245664"
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -215,7 +215,7 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 | Azure Global Services * | 12076:5050 |
 | Andere online services van Office 365 | 12076:5100 |
 
-***Azure Global Services bevat Azure DevOps**
+* Azure Global Services bevat alleen Azure DevOps op dit moment.
 
 
 > [!NOTE]

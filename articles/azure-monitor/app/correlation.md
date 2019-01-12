@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8b31a85abf1c6034aaff511f23d96fae9ee64561
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117602"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230047"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -101,6 +101,43 @@ public void ConfigureServices(IServiceCollection services)
     // ....
 }
 ```
+
+#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>W3C gedistribueerde tracering ondersteuning voor Java-apps inschakelen
+
+Binnenkomend:
+
+**J2EE-apps** het volgende toevoegen aan de `<TelemetryModules>` code binnen ApplicationInsights.xml
+
+```xml
+<Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+   <Param name = "W3CEnabled" value ="true"/>
+   <Param name ="enableW3CBackCompat" value = "true" />
+</Add>
+```
+
+**Spring Boot-apps** Voeg de volgende eigenschappen:
+
+`azure.application-insights.web.enable-W3C=true`
+`azure.application-insights.web.enable-W3C-backcompat-mode=true`
+
+Uitgaand:
+
+Voeg de volgende AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Modus voor achterwaartse compatibiliteit is standaard ingeschakeld en de enableW3CBackCompat-parameter is optioneel en moet worden gebruikt alleen wanneer u wilt uitschakelen. 
+
+In het ideale geval is dit het geval wanneer alle services zijn bijgewerkt naar een nieuwere versie van de SDK's ondersteunen W3C-protocol. Het is raadzaam om te verplaatsen naar de nieuwere versie van de SDK's met ondersteuning voor W3C zo snel mogelijk. 
+
+Zorg ervoor dat beide **binnenkomende en uitgaande configuraties zijn exact hetzelfde**.
 
 ## <a name="open-tracing-and-application-insights"></a>Open tracerings- en Application Insights
 

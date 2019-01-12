@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e1ace09ba293cf80b2dbbe8f746eb7fd5bc8d7cb
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.reviewer: anajod
+ms.openlocfilehash: e5c119effe65f5289a2d8f1b323b5d8a36294c79
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036390"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244305"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Zelfstudie: Hybride cloud-identiteit voor Azure en Azure Stack-toepassingen configureren
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Informatie over het configureren van een hybride cloud-identiteit voor uw toepassingen met Azure en Azure Stack.
 

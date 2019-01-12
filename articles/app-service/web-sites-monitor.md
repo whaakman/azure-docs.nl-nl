@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994943"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247238"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Apps bewaken in Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) biedt ingebouwde bewaking functionaliteit voor web-apps, mobiele back-ends en API-apps in de [Azure-portal](https://portal.azure.com).
@@ -72,7 +72,7 @@ Voor een app zijn de beschikbare metrische gegevens:
 | Gegevens | Description |
 | --- | --- |
 | **Gemiddelde reactietijd** | De gemiddelde tijd voor de app te verzenden van aanvragen, in milliseconden. |
-| **Gemiddeld geheugenwerkset** | De gemiddelde hoeveelheid geheugen die wordt gebruikt door de app, in mebibytes (MiB). |
+| **Gemiddeld geheugenwerkset** | De gemiddelde hoeveelheid geheugen die wordt gebruikt door de app, in megabytes (MiB). |
 | **CPU-tijd** | De hoeveelheid CPU verbruikt door de app in seconden. Zie voor meer informatie over deze metrische gegevens, [vs CPU-percentage van CPU-tijd](#cpu-time-vs-cpu-percentage). |
 | **Gegevens In** | De hoeveelheid binnenkomende bandbreedte verbruikt door de app, in MiB. |
 | **Uitgaande gegevens** | De hoeveelheid uitgaande bandbreedte verbruikt door de app, in MiB. |
@@ -141,14 +141,12 @@ Zie voor meer informatie over metrische gegevens, [metrische servicegegevens bew
 ## <a name="alerts-and-autoscale"></a>Waarschuwingen en voor automatisch schalen
 Metrische gegevens voor een app of een App Service-plan kan worden aangesloten op waarschuwingen. Zie [Meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-alerts-portal.md) voor meer informatie.
 
-App Service-apps die worden gehost in Basic, Standard of Premium App Service-abonnementen ondersteuning voor automatisch schalen. Met automatisch schalen, kunt u configureert regels waarmee de App Service-plan metrische gegevens controleren. Regels kunnen vergroten of verkleinen van het aantal instanties, die aanvullende resources bieden kan naar behoefte. Regels kunt u geld besparen wanneer de app te veel is ingericht. 
+App Service-apps die worden gehost in Basic, Standard of Premium App Service-abonnementen ondersteuning voor automatisch schalen. Met automatisch schalen, kunt u configureert regels waarmee de App Service-plan metrische gegevens controleren. Regels kunnen vergroten of verkleinen van het aantal instanties, die aanvullende resources bieden kan naar behoefte. Regels kunt u geld besparen wanneer de app te veel is ingericht.
 
 Zie voor meer informatie over automatisch schalen, [schalen](../monitoring-and-diagnostics/insights-how-to-scale.md) en [aanbevolen procedures voor automatisch schalen van Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/12/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 463ab617051bf97bb3b1c38ed431c4b6936a9c90
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118690"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245749"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge
 
@@ -160,7 +160,7 @@ Als u wilt instellen en de simulator start, voert u de opdracht **Azure IoT Edge
        dotnet build
        ```
 
-     - Open het bestand `program.cs` en voeg een onderbrekingspunt toe.
+     - Open het bestand `Program.cs` en voeg een onderbrekingspunt toe.
 
      - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ***&lt;de modulenaam van uw&gt;* lokale foutopsporing (.NET Core)** in de vervolgkeuzelijst.
 
@@ -222,7 +222,7 @@ Op uw ontwikkelcomputer kun u een IoT Edge-simulator in plaats van installatie v
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Bouwen en uitvoeren van de container voor foutopsporing en fouten opsporen in koppelen modus
 
-1. Open het modulebestand (`program.cs`, `app.js`, `App.java`, of `<your module name>.cs`) en voeg een onderbrekingspunt toe.
+1. Open het modulebestand (`Program.cs`, `app.js`, `App.java`, of `<your module name>.cs`) en voeg een onderbrekingspunt toe.
 
 1. In de weergave Visual Studio Code Explorer met de rechtermuisknop op de `deployment.debug.template.json` -bestand voor uw oplossing en selecteer vervolgens **bouwen en uitvoeren op IoT Edge-oplossing in de Simulator**. U kunt controleren of dat alle van de module-container in hetzelfde venster registreert. U kunt ook navigeren naar de Docker-weergave bekijken van de containerstatus van de.
 
@@ -241,17 +241,17 @@ Op uw ontwikkelcomputer kun u een IoT Edge-simulator in plaats van installatie v
 >
 > Voor modules die zijn geschreven C#, met inbegrip van Azure Functions, in dit voorbeeld is gebaseerd op de foutopsporingsversie van `Dockerfile.amd64.debug`, waaronder het opdrachtregelprogramma foutopsporingsprogramma van .NET Core (VSDBG) in uw containerinstallatiekopie tijdens het maken van deze. Nadat u de fouten opsporen in uw C# modules, raden wij aan dat u direct het Dockerfile zonder VSDBG voor IoT Edge-modules gereed is voor productie.
 
-## <a name="debug-a-module-with-iot-edge-runtime"></a>Fouten opsporen in een module met IoT Edge-runtime
+## <a name="debug-a-module-with-the-iot-edge-runtime"></a>Fouten opsporen in een module met de IoT Edge-runtime
 
 In elke modulemap zijn er verschillende Docker-bestanden voor andere containertypen. Gebruik een van de bestanden die met de extensie eindigen **.debug** uw-module voor het testen van maken.
 
-Bij het opsporen van fouten in modules met IoT Edge-runtime, worden uw modules uitgevoerd boven op IoT Edge-runtime. De IoT Edge-apparaat en uw VS Code kunnen zich in dezelfde computer, of meer normaal gesproken de zijn in de verschillende machines (VS Code is in de ontwikkelcomputer en IoT Edge-runtime en -modules worden uitgevoerd in een andere fysieke machine). De volgende stappen moeten worden uitgevoerd voor uw sessie voor foutopsporing in VS Code.
+Wanneer foutopsporing modules met behulp van deze methode, uw modules worden uitgevoerd boven op IoT Edge-runtime. De IoT Edge-apparaat en uw Visual Studio Code kunnen zich op dezelfde computer, of meer normaal gesproken Visual Studio Code is op de ontwikkelcomputer en de IoT Edge-runtime en -modules worden uitgevoerd op een andere fysieke machine. Om te kunnen opsporen in Visual Studio Code, moet u:
 
-- Instellen van uw IoT Edge-apparaat, het bouwen van IoT Edge-modules met de **.debug** Dockerfile, en implementeert op IoT Edge-apparaat. 
-- De IP en poort van de module voor het foutopsporingsprogramma koppelen beschikbaar maakt.
-- Update `launch.json` bestand, zodat u VS Code kunt koppelen aan het proces in de container in de externe computer.
+- Instellen van uw IoT Edge-apparaat, het bouwen van uw IoT Edge-modules met de **.debug** Dockerfile, en vervolgens implementeert op het IoT Edge-apparaat.
+- De IP en poort van de module beschikbaar maakt zodat het foutopsporingsprogramma kan worden gekoppeld.
+- Update de `launch.json` zodat Visual Studio Code aan het proces in de container op de externe computer koppelen kunt. Dit bestand bevindt zich de `.vscode` map in uw werkruimte en updates telkens wanneer u een nieuwe module die ondersteuning biedt voor foutopsporing toevoegen.
 
-### <a name="build-and-deploy-your-module-and-deploy-to-iot-edge-device"></a>Bouwen en implementeren van uw module en implementeren op IoT Edge-apparaat
+### <a name="build-and-deploy-your-module-to-the-iot-edge-device"></a>Ontwikkel en implementeer uw module op het IoT Edge-apparaat
 
 1. Open in Visual Studio Code, de `deployment.debug.template.json` -bestand waarin de foutopsporingsversie van de module afbeeldingen met de juiste `createOptions` set waarden.
 
@@ -292,36 +292,57 @@ Bij het opsporen van fouten in modules met IoT Edge-runtime, worden uw modules u
    1. Selecteer de `deployment.debug.template.json` -bestand voor uw oplossing.
 
 1. In de **Azure IoT Hub-apparaten** sectie van de Visual Studio Code Explorer-weergave:
-   1. Met de rechtermuisknop op een IoT Edge-apparaat-ID en selecteer vervolgens **implementatie voor één apparaat maken**.
+   1. Met de rechtermuisknop op een IoT Edge-apparaat-ID en selecteer vervolgens **implementatie maken voor één apparaat**.
+
+      > [!TIP]
+      > Om te bevestigen dat het apparaat die u hebt ervoor gekozen een IoT Edge-apparaat is, selecteert u deze aan de lijst met modules uitvouwen en controleer of de aanwezigheid van **$edgeHub** en **$edgeAgent**. Elke IoT Edge-apparaat omvat deze twee modules.
 
    1. Navigeer naar van uw oplossing **config** map, selecteer de `deployment.debug.amd64.json` bestand en selecteer vervolgens **Selecteer Edge-implementatie Manifest**.
 
 Hier ziet u de implementatie is gemaakt met een implementatie-ID in de geïntegreerde terminal.
 
-U kunt de containerstatus van uw controleren door het uitvoeren van de `docker ps` opdracht in de terminal. Als uw VS Code en IoT Edge-runtime op dezelfde computer uitvoert, kunt u ook de status in de weergave van Visual Studio Code Docker controleren.
+U kunt de containerstatus van uw controleren door het uitvoeren van de `docker ps` opdracht in de terminal. Als uw Visual Studio Code en IoT Edge-runtime op dezelfde computer uitvoert, kunt u ook de status in de weergave van Visual Studio Code Docker controleren.
 
-### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger-to-attach"></a>De IP en poort van de module voor het foutopsporingsprogramma koppelen
+### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>De IP en poort van de module voor het foutopsporingsprogramma beschikbaar maakt
 
-Als uw modules op dezelfde computer als uw VS Code worden uitgevoerd. U localhost gebruikt voor het koppelen van de container en u hebt al de juiste poortinstellingen in de **.debug** Dockerfile, module container CreateOptions, en `launch.json`. U kunt deze sectie overslaan. Als uw modules en de VS Code worden uitgevoerd in afzonderlijke computers, volgt u de onderstaande stappen voor elke taal.
+U kunt in deze sectie overslaan als de modules worden uitgevoerd op dezelfde computer als Visual Studio Code, als u ' localhost ' koppelen aan de container en al beschikt over de juiste poortinstellingen in de **.debug** Dockerfile, module van container `createOptions` -instellingen en `launch.json` bestand. Als uw modules en Visual Studio Code worden uitgevoerd op afzonderlijke computers, volg de stappen voor de ontwikkeling van taal.
 
-  - **C#, C# Functie**: [De SSH-kanaal op uw ontwikkelcomputer en IoT Edge-apparaat configureert](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes), bewerken `launch.json` bestand om te koppelen.
-  - **Node.js**: Zorg ervoor dat de module is gereed voor foutopsporing te koppelen en poort van de machine foutopsporingsobject 9229 toegankelijk van buiten is. U kunt dit controleren door te openen [http://%3cdebuggee-machine-IP%3e:9229/json] http:// < foutopsporingsobject-machine-IP-->: 9229/json op de machine foutopsporingsprogramma. Deze URL moet tonen informatie over de Node.js u fouten wilt opsporen. En op foutopsporingsprogramma-computer, open VS Code, bewerkt u vervolgens de `launch.json` bestand, zodat die de waarde van het profiel '< modulenaam > Extern fouten opsporen in (Node.js)'-adres (of "< modulenaam > externe foutopsporing (Node.js in Windows-Container)" profiel als de module wordt uitgevoerd als een Windows-container) is het IP-adres van de machine foutopsporingsobject.
-  - **Java**: Bouw een ssh tunnel naar het edge-apparaat door het uitvoeren van `ssh -f <username>@<edgedevicehost> -L 5005:127.0.0.1:5005 -N`, bewerkt u vervolgens `launch.json` bestand om te koppelen. U kunt meer informatie over de instellingen [hier](https://code.visualstudio.com/docs/java/java-debugging). 
-  - **Python**: In de code `ptvsd.enable_attach(('0.0.0.0', 5678))`, 0.0.0.0 wijzigen in de IP-adres van de IoT Edge-apparaat. Bouw, push en opnieuw implementeren van uw IoT Edge-modules. In `launch.json` bijwerken op uw ontwikkelcomputer `"host"` `"localhost"` wijzigen `"localhost"` met openbare IP-adres van uw externe IoT Edge-apparaat.
+- **C#, met inbegrip van Azure Functions**
 
+  [De SSH-kanaal op uw ontwikkelcomputer en IoT Edge-apparaat configureert](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) en bewerk vervolgens `launch.json` bestand om te koppelen.
+
+- **Node.js**
+
+  - Zorg ervoor dat de module op de machine u fouten wilt opsporen wordt uitgevoerd en gereed voor foutopsporing te koppelen, en dat poort 9229 extern toegankelijk is. U kunt dit controleren door het openen van `http://<target-machine-IP>:9229/json` op de machine foutopsporingsprogramma. Deze URL moet informatie over de Node.js-module u fouten wilt opsporen worden weergegeven.
+  
+  - Open Visual Studio Code op uw ontwikkelcomputer en bewerk vervolgens `launch.json` zodat de adreswaarde van de  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Node.js)** profiel (of  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Node.js in Windows-Container)** profileren als de module wordt uitgevoerd als een Windows-container) het IP-adres van de machine foutopsporing wordt uitgevoerd.
+
+- **Java**
+
+  - Bouw een SSH-tunnel naar de machine u fouten wilt opsporen door uit te voeren `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
+  
+  - Op uw ontwikkelcomputer, Visual Studio Code open en bewerk de  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Java)** profiel `launch.json` zodat u kunt koppelen aan de doel-VM. Voor meer informatie over het bewerken van `launch.json` en opsporen van fouten in Java met Visual Studio Code, Zie de sectie over [configureren van het foutopsporingsprogramma](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+
+- **Python**
+
+  - Zorg ervoor dat poort 5678 op de machine u fouten wilt opsporen open en toegankelijk is.
+
+  - In de code `ptvsd.enable_attach(('0.0.0.0', 5678))` die u eerder hebt ingevoegd in `main.py`, wijzigen **0.0.0.0** naar het IP-adres van de machine op te geven. Bouwen, push en opnieuw implementeren van uw IoT Edge-module.
+
+  - Open Visual Studio Code op uw ontwikkelcomputer en bewerk vervolgens `launch.json` zodat de `host` waarde van de  ***&lt;de modulenaam van uw&gt;* externe foutopsporing (Python)** profiel gebruikt het IP-adres van de doel-VM in plaats van `localhost`.
 
 ### <a name="debug-your-module"></a>Fouten opsporen in uw module
-
-Visual Studio Code houdt opsporen van fouten in configuratie-informatie in een `launch.json` bestand zich bevindt in een `.vscode` map in uw werkruimte. Dit `launch.json` bestand is gegenereerd tijdens het maken van een nieuwe IoT Edge-oplossing. Bijgewerkt telkens wanneer u een nieuwe module die ondersteuning biedt voor foutopsporing toevoegen.
 
 1. Selecteer het configuratiebestand voor de foutopsporing voor de module in de weergave foutopsporing van Visual Studio Code. De naam van de optie foutopsporing zijn vergelijkbaar met  ***&lt;de modulenaam van uw&gt;* externe foutopsporing**
 
 1. Open de module-bestand voor de taal van de ontwikkeling en voeg een onderbrekingspunt toe:
-   - **C#, C# Functie**: Open het bestand `Program.cs` en voeg een onderbrekingspunt toe.
-   - **Node.js**: Open het bestand `app.js` en een breakpont toe te voegen.
-   - **Java**: Open het bestand `App.java` en voeg een onderbrekingspunt toe.
-   - **Python**: Open `main.py` en voeg een onderbrekingspunt in de terugbelmethode waaraan u hebt toegevoegd de `ptvsd.break_into_debugger()` regel.
-   - **C**: Open het bestand `main.c` en voeg een onderbrekingspunt toe.
+
+   - **Azure-functie (C#)**: Uw onderbrekingspunt toevoegen aan het bestand `<your module name>.cs`.
+   - **C#**: Uw onderbrekingspunt toevoegen aan het bestand `Program.cs`.
+   - **Node.js**: Uw onderbrekingspunt toevoegen aan het bestand `app.js`.
+   - **Java**: Uw onderbrekingspunt toevoegen aan het bestand `App.java`.
+   - **Python**: Uw onderbrekingspunt toevoegen aan het bestand `main.py`in de terugbelmethode waaraan u hebt toegevoegd de `ptvsd.break_into_debugger()` regel.
+   - **C**: Uw onderbrekingspunt toevoegen aan het bestand `main.c`.
 
 1. Selecteer **Start Debugging** of selecteer **F5**. Selecteer het proces om aan te koppelen.
 

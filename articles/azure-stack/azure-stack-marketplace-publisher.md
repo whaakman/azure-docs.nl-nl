@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 9f1c433be7e8adc0779860c3ec3bfb5d7174fca5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: 920d06a84f82db00b5161d2b3152c7db6f8314a6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970719"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247449"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Met behulp van het hulpprogramma voor publiceren marketplace-items toevoegen
 
@@ -76,7 +76,7 @@ In deze sectie maakt publiceren u de marketplace-item naar uw Azure Stack Market
 
 1.  De wizard vereist informatie voor het publiceren van uw oplossing:
     
-    |Veld|Beschrijving|
+    |Veld|Description|
     |-----|-----|
     | Naam van de Service-beheerder | Service Administrator-account.  Voorbeeld: ServiceAdmin@mydomain.onmicrosoft.com |
     | Wachtwoord | Wachtwoord voor de Service Administrator-account. |
@@ -92,7 +92,7 @@ De Marketplace-toolkit bevat een *solution.parameters.ps1* u kunt gebruiken om u
 
 ## <a name="support-files"></a>Ondersteuningsbestanden
 
-| Beschrijving | Voorbeeld |
+| Description | Voorbeeld |
 | ----- | ----- |
 | 40, 40 PNG-pictogram | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | 90 x 90 PNG-pictogram | ![](./media/azure-stack-marketplace-publisher/image2.png) |

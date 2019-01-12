@@ -1,5 +1,5 @@
 ---
-title: Search explorer in Azure portal voor het uitvoeren van query's indexen - Azure Search
+title: Search explorer hulpprogramma voor het opvragen van gegevens in Azure portal - Azure Search
 description: Gebruik Azure portal-hulpprogramma's zoals Search explorer in query-indexen in Azure Search. Voer zoektermen of volledig gekwalificeerde zoekreeksen met geavanceerde syntaxis.
 manager: cgronlun
 author: HeidiSteen
@@ -9,48 +9,25 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2aa372d1f917608de753007cc75ab0d608cafbba
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188722"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244797"
 ---
-# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Over het gebruik Search explorer in query-indexen in Azure Search 
+# <a name="search-explorer-for-querying-data-in-azure-search"></a>Search explorer voor het opvragen van gegevens in Azure Search 
 
-Dit artikel leest u hoe u query's een bestaande Azure Search index met **Search explorer** in Azure portal. U kunt Search explorer gebruiken om in te dienen eenvoudige of volledige Lucene-queryreeksen naar elke bestaande index in uw service.
-
-## <a name="start-search-explorer"></a>Search explorer starten
-
-1. In de [Azure-portal](https://portal.azure.com), de zoekpagina service openen vanuit het dashboard of [Zoek uw service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in de lijst met Services.
-
-2. Klik op de overzichtspagina van service **Search explorer**.
+Dit artikel leest u hoe u query's een bestaande Azure Search index met **Search explorer** in Azure portal. U kunt Search explorer gebruiken om in te dienen eenvoudige of volledige Lucene-queryreeksen naar elke bestaande index in uw service. 
 
    ![Verkenner-opdracht in de portal zoeken](./media/search-explorer/search-explorer-cmd2.png "explorer-opdracht in de portal zoeken")
 
-3. Selecteer de index van de query.
 
-   ![Selecteer de index van query](./media/search-explorer/search-explorer-changeindex-se2.png "selecteert u de index")
-
-4. (Optioneel) de API-versie instellen. Standaard de algemeen beschikbare API-versie is geselecteerd, maar kunt u een Preview-versie of oudere API als de syntaxis die u wilt gebruiken is specifiek voor een versie.
-
-5. Nadat de index en API-versie is geselecteerd, voert u zoektermen of volledig gekwalificeerde query-expressies in de zoekbalk en klikt u op **zoeken** om uit te voeren.
-
-   ![Voer zoektermen in en klik op Zoeken](./media/search-explorer/search-explorer-query-string-example.png "Enter zoeken de voorwaarden en klik op zoeken.")
-
-Tips voor zoeken **Search explorer**:
-
-+ Resultaten worden geretourneerd als uitgebreide JSON-documenten, zodat u document bouw en inhoud, volledig kunt bekijken. U kunt query-expressies, die wordt weergegeven in de voorbeelden te beperken welke velden worden geretourneerd.
-
-+ Documenten bestaan uit alle velden die zijn gemarkeerd als **ophalen mogelijk** in de index. Als u wilt weergeven indexkenmerken in de portal, klikt u op *realestate-us-sample* in de **indexen** lijst op de overzichtspagina.
-
-+ Vrije query's, vergelijkbaar met wat u in een commerciële webbrowser invoeren kunt zijn handig voor het testen van een eindgebruiker. Bijvoorbeeld, ervan uitgaande dat de voorbeeldindex ingebouwde onroerend goed, kunt u "Seattle appartementen lake Groningen" opgeven en vervolgens kunt u Ctrl-F termen in de lijst met zoekresultaten vinden. 
-
-+ Query's en filter expressies moeten worden gelede in een syntaxis die wordt ondersteund door Azure Search. De standaardwaarde is een [eenvoudige syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), maar u kunt eventueel [volledige Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) voor krachtige query's. [Filterexpressies](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) zijn van een OData-syntaxis.
+Zie voor meer informatie over aan de slag, [Start Search explorer](#start-search-explorer).
 
 ## <a name="basic-search-strings"></a>Basic zoekreeksen
 
-De volgende voorbeelden wordt ervan uitgegaan dat de voorbeeldindex ingebouwde onroerend goed. Zie voor meer informatie over het maken van deze index [Quick Start: Importeren, index en query's in Azure portal](search-get-started-portal.md).
+De volgende voorbeelden wordt ervan uitgegaan dat de voorbeeldindex ingebouwde onroerend goed. Zie voor meer informatie over het maken van deze index, [Quick Start: Importeren, index en query's in Azure portal](search-get-started-portal.md).
 
 ### <a name="example-1---empty-search"></a>Voorbeeld 1: lege zoekopdracht
 
@@ -128,6 +105,37 @@ Voeg **$orderby** om resultaten door een ander veld naast zoekscore te sorteren.
    ![OrderBy-expressie](./media/search-explorer/search-explorer-example-ordery.png "de sorteervolgorde wijzigen")
 
 Beide **$filter** en **$orderby** expressies zijn OData-constructies. Zie [OData-syntaxis filteren](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) voor meer informatie.
+
+<a name="start-search-explorer"></a>
+
+## <a name="how-to-start-search-explorer"></a>Search explorer starten
+
+1. In de [Azure-portal](https://portal.azure.com), de zoekpagina service openen vanuit het dashboard of [Zoek uw service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in de lijst met Services.
+
+2. Klik op de overzichtspagina van service **Search explorer**.
+
+   ![Verkenner-opdracht in de portal zoeken](./media/search-explorer/search-explorer-cmd2.png "explorer-opdracht in de portal zoeken")
+
+3. Selecteer de index van de query.
+
+   ![Selecteer de index van query](./media/search-explorer/search-explorer-changeindex-se2.png "selecteert u de index")
+
+4. (Optioneel) de API-versie instellen. Standaard de algemeen beschikbare API-versie is geselecteerd, maar kunt u een Preview-versie of oudere API als de syntaxis die u wilt gebruiken is specifiek voor een versie.
+
+5. Nadat de index en API-versie is geselecteerd, voert u zoektermen of volledig gekwalificeerde query-expressies in de zoekbalk en klikt u op **zoeken** om uit te voeren.
+
+   ![Voer zoektermen in en klik op Zoeken](./media/search-explorer/search-explorer-query-string-example.png "Enter zoeken de voorwaarden en klik op zoeken.")
+
+Tips voor zoeken **Search explorer**:
+
++ Resultaten worden geretourneerd als uitgebreide JSON-documenten, zodat u document bouw en inhoud, volledig kunt bekijken. U kunt query-expressies, die wordt weergegeven in de voorbeelden te beperken welke velden worden geretourneerd.
+
++ Documenten bestaan uit alle velden die zijn gemarkeerd als **ophalen mogelijk** in de index. Als u wilt weergeven indexkenmerken in de portal, klikt u op *realestate-us-sample* in de **indexen** lijst op de overzichtspagina.
+
++ Vrije query's, vergelijkbaar met wat u in een commerciële webbrowser invoeren kunt zijn handig voor het testen van een eindgebruiker. Bijvoorbeeld, ervan uitgaande dat de voorbeeldindex ingebouwde onroerend goed, kunt u "Seattle appartementen lake Groningen" opgeven en vervolgens kunt u Ctrl-F termen in de lijst met zoekresultaten vinden. 
+
++ Query's en filter expressies moeten worden gelede in een syntaxis die wordt ondersteund door Azure Search. De standaardwaarde is een [eenvoudige syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), maar u kunt eventueel [volledige Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) voor krachtige query's. [Filterexpressies](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) zijn van een OData-syntaxis.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257262"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244780"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple Virtual Array implementeren - Azure portal voorbereiden
 
@@ -43,7 +43,7 @@ Raadpleeg de volgende artikelen in de voorgeschreven volgorde voor het implement
 | **#** | **In deze stap** | **U doet dit...** | **En gebruik deze documenten.** |
 | --- | --- | --- | --- |
 | 1. |**Instellen van de Azure-portal** |Maken en configureren uw StorSimple Device Manager-service voordat u een StorSimple Virtual Array wordt ingericht. |[De portal voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**De virtuele matrix inrichten** |Voor Hyper-V, inrichten en maak verbinding met een StorSimple Virtual Array op een hostsysteem met Hyper-V op Windows Server 2012 R2, Windows Server 2012 of Windows Server 2008 R2. <br></br> <br></br> Voor VMware, inrichten en maak verbinding met een StorSimple Virtual Array op een hostsysteem met VMware ESXi 5.0, 5.5 en 6.0.<br></br> |[Een virtuele matrix in Hyper-V inrichten](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Een virtuele matrix in VMware inrichten](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**De virtuele matrix inrichten** |Voor Hyper-V, inrichten en maak verbinding met een StorSimple Virtual Array op een hostsysteem met Hyper-V op Windows Server 2012 R2, Windows Server 2012 of Windows Server 2008 R2. <br></br> <br></br> Voor VMware, inrichten en maak verbinding met een StorSimple Virtual Array op een hostsysteem met VMware ESXi 5.0, 5.5, 6.0 of 6.5.<br></br> |[Een virtuele matrix in Hyper-V inrichten](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Een virtuele matrix in VMware inrichten](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Instellen van de virtuele matrix** |Voor uw bestandsserver uitvoeren van de eerste configuratie, registreren van uw StorSimple-bestandsserver en de apparaatconfiguratie voltooien. Vervolgens kunt u SMB-shares inrichten. <br></br> <br></br> Voor de iSCSI-server uitvoeren van de eerste configuratie, uw StorSimple-iSCSI-server te registreren en de apparaatconfiguratie voltooien. Vervolgens kunt u iSCSI-volumes inrichten. |[Virtuele matrix instellen als bestandsserver](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Virtuele matrix als iSCSI-server instellen](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 U kunt nu Azure Portal gaan instellen.
@@ -71,7 +71,7 @@ Zorg voordat u begint voor het volgende:
 
 Voordat u een virtuele matrix implementeert, controleert u of:
 
-* U hebt toegang tot een hostsysteem met Hyper-V op Windows Server 2008 R2 of later of VMware (ESXi 5.0, 5.5 en 6.0) die kan worden gebruikt voor het inrichten van een een-apparaat.
+* U hebt toegang tot een hostsysteem met Hyper-V op Windows Server 2008 R2 of later of VMware (ESXi 5.0, 5.5, 6.0 of 6.5) die kan worden gebruikt voor het inrichten van een een-apparaat.
 * Het hostsysteem kan besteden aan de volgende bronnen voor het inrichten van uw virtuele matrix:
   
   * Minimaal 4 kerngeheugens.
@@ -90,9 +90,9 @@ Zorg voordat u begint voor het volgende:
 
 Gebruik de volgende stapsgewijze instructies om voor te bereiden uw portal voor de StorSimple Device Manager-service.
 
-## <a name="step-1-create-a-new-service"></a>Stap 1: een nieuwe service maken
+## <a name="step-1-create-a-new-service"></a>Stap 1: Een nieuwe service maken
 
-Één exemplaar van de service StorSimple Device Manager kunt u meerdere virtuele StorSimple-matrices beheren. Voer de volgende stappen uit om een exemplaar van de StorSimple-apparaatbeheerfunctie uit te voeren. Hebt u een bestaande service StorSimple Device Manager voor het beheren van uw virtuele matrices, sla deze stap over en gaat u naar [stap 2: de serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key).
+Één exemplaar van de service StorSimple Device Manager kunt u meerdere virtuele StorSimple-matrices beheren. Voer de volgende stappen uit om een exemplaar van de StorSimple-apparaatbeheerfunctie uit te voeren. Hebt u een bestaande service StorSimple Device Manager voor het beheren van uw virtuele matrices, sla deze stap over en gaat u naar [stap 2: De serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key).
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
@@ -100,11 +100,11 @@ Gebruik de volgende stapsgewijze instructies om voor te bereiden uw portal voor 
 > Als u de service niet hebt ingeschakeld om automatisch een opslagaccount te maken, moet u minimaal één opslagaccount maken nadat u een service hebt gemaakt.
 > 
 > * Als u niet automatisch een opslagaccount hebt gemaakt, gaat u naar [Een nieuw opslagaccount voor de service configureren](#optional-step-configure-a-new-storage-account-for-the-service) voor gedetailleerde instructies.
-> * Als u het automatisch maken van een opslagaccount hebt ingeschakeld, gaat u naar [Stap 2: de serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key).
+> * Als u het automatisch maken van een storage-account hebt ingeschakeld, gaat u naar [stap 2: De serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>Stap 2: de serviceregistratiesleutel ophalen
+## <a name="step-2-get-the-service-registration-key"></a>Stap 2: De serviceregistratiesleutel ophalen
 
 Wanneer de StorSimple-apparaatbeheerfunctie bedrijfsklaar is, moet u de serviceregistratiesleutel ophalen. Deze sleutel wordt gebruikt om het StorSimple-apparaat te registreren en te verbinden met de service.
 
@@ -117,7 +117,7 @@ Voer de volgende stappen uit in [Azure Portal](https://portal.azure.com/).
 > 
 > 
 
-## <a name="step-3-download-the-virtual-array-image"></a>Stap 3: De installatiekopie van de virtuele matrix downloaden
+## <a name="step-3-download-the-virtual-array-image"></a>Stap 3: De installatiekopie voor de virtuele matrix downloaden
 
 Nadat u de serviceregistratiesleutel hebt, moet u de installatiekopie van het juiste virtuele matrix voor het inrichten van een virtuele matrix op uw hostsysteem downloaden. De virtuele matrix-installatiekopieën worden specifieke besturingssysteem en kunnen worden gedownload vanaf de pagina snel starten in Azure portal.
 
@@ -137,10 +137,10 @@ Voer de volgende stappen uit in [Azure Portal](https://portal.azure.com/).
    
    * VHDX voor Hyper-V op Windows Server 2012 en hoger
    * VHD voor Hyper-V op Windows Server 2008 R2 en hoger
-   * VMDK voor VMWare ESXi 5.0, 5.5 of 6.0
+   * VMDK voor VMWare ESXi 5.0, 5.5, 6.0 of 6.5
 5. Download het bestand en pak het uit op een lokale schijf, en onthoud waar het zipbestand is uitgepakt.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Optionele stap: een nieuw opslagaccount voor de service configureren
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Optionele stap: Een nieuw opslagaccount voor de service configureren
 
 Deze stap is optioneel en alleen als u het automatisch maken van een storage-account niet hebt ingeschakeld met uw service moet worden uitgevoerd.
 

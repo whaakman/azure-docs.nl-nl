@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4e1dc4ded48330f19a11db193fa5fe400326b420
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114155"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232818"
 ---
-# <a name="how-it-works-azure-multi-factor-authentication"></a>Hoe het werkt: Azure multi-factor Authentication
+# <a name="how-it-works-azure-multi-factor-authentication"></a>Het werkt als volgt: Azure Multi-Factor Authentication
 
 De beveiliging van verificatie in twee stappen ligt in de gelaagde benadering. Verlies van meerdere verificatiefactoren, geeft een aanzienlijke uitdaging om voor aanvallers. Zelfs als een aanvaller erin slaagt voor meer informatie over het wachtwoord van gebruikers, is deze niet kan worden gebruikt zonder dat ook bezit is van de aanvullende authenticatiemethode. Dit gebeurt door het vereisen van twee of meer van de volgende verificatiemethoden:
 
@@ -27,7 +27,7 @@ De beveiliging van verificatie in twee stappen ligt in de gelaagde benadering. V
 
 <center>![Afbeelding van algemene verificatie methoden](./media/concept-mfa-howitworks/methods.png)</center>
 
-Azure multi-factor Authentication (MFA) helpt beveiligen de toegang tot gegevens en toepassingen behoud van eenvoud voor gebruikers. Het biedt extra beveiliging doordat een tweede vorm van verificatie en biedt een robuuste verificatie met een scala aan gebruiksvriendelijke [verificatiemethoden](concept-authentication-methods.md).
+Azure multi-factor Authentication (MFA) helpt beveiligen de toegang tot gegevens en toepassingen behoud van eenvoud voor gebruikers. Het biedt extra beveiliging doordat een tweede vorm van verificatie en biedt een robuuste verificatie met een scala aan gebruiksvriendelijke [verificatiemethoden](concept-authentication-methods.md). Gebruikers kunnen of kunnen niet worden gecontroleerd voor MFA op basis van de configuratie van de beslissingen die een beheerder maakt.
 
 ## <a name="how-to-get-multi-factor-authentication"></a>Hoe u multi-factor Authentication?
 

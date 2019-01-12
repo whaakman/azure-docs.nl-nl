@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248724"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231135"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Realtime Twitter-sentimentanalyse in Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Sociale media analytics-hulpprogramma's ondersteuning van organisaties actuele o
 
 Analyse van realtime Twitter-trend is een goed voorbeeld van een analytics-hulpprogramma, omdat het abonnement hashtag model kunt u luisteren naar specifieke trefwoorden (hashtags) en sentimentanalyse van de feed ontwikkelen.
 
-## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Scenario: Sociale media sentimentanalyse in realtime
+## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Scenario: Analyse van sociale media gevoel in realtime
 
 Een bedrijf dat een website nieuwsmedia is geïnteresseerd in het verkrijgen van een voordeel ten opzichte van zijn concurrenten door site-inhoud die onmiddellijk relevant is voor de lezers. Het bedrijf maakt gebruik van analyse van sociale media op onderwerpen die relevant voor lezers zijn door te doen van een realtime sentimentanalyse van Twitter-gegevens.
 
@@ -36,7 +36,7 @@ In deze zelfstudie gebruikt u een clienttoepassing die verbinding maakt met Twit
 * Een Azure-abonnement
 * Een Twitter-account 
 * Een Twitter-toepassing en de [OAuth-toegangstoken](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) voor die toepassing. We bieden op hoog niveau instructies voor het maken van een Twitter-toepassing later opnieuw.
-* De toepassing TwitterWPFClient, die de Twitter-feed leest. Als u deze toepassing, downloaden de [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) bestand van GitHub en pak het pakket vervolgens naar een map op uw computer. Als u zien van de bron wilt-code en de toepassing uitvoert in een debugger, krijgt u de broncode van [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* De toepassing TwitterWPFClient, die de Twitter-feed leest. Als u deze toepassing, downloaden de [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) bestand van GitHub en pak het pakket vervolgens naar een map op uw computer. Als u zien van de bron wilt-code en de toepassing uitvoert in een debugger, krijgt u de broncode van [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Maken van een event hub voor invoer van de stream Analytics
 
@@ -214,7 +214,7 @@ Nu dat tweet gebeurtenissen streaming in realtime van Twitter, kunt u een Stream
 
 2. In de **invoer** blade, klikt u op  **+ &nbsp;toevoegen** en vul de blade met deze waarden:
 
-    * **De invoeralias**: Gebruik de naam `TwitterStream`. Als u een andere naam gebruikt, moet u een notitie van deze omdat u deze later nodig.
+    * **Invoeralias**: Gebruik de naam `TwitterStream`. Als u een andere naam gebruikt, moet u een notitie van deze omdat u deze later nodig.
     * **Gegevensbrontype**: Selecteer **gegevensstroom**.
     * **Bron**: Selecteer **Event hub**.
     * **Importoptie**: Selecteer **gebruik event hub van het huidige abonnement**. 
@@ -298,7 +298,7 @@ In deze zelfstudie hebt schrijven u de samengevoegde tweet-gebeurtenissen van de
 2. In de **uitvoer** blade, klikt u op  **+ &nbsp;toevoegen** en vul de blade met deze waarden:
 
     * **Uitvoeralias**: Gebruik de naam `TwitterStream-Output`. 
-    * **Sink-**: Selecteer **Blob storage**.
+    * **Sink-**: Selecteer **Blob-opslag**.
     * **Opties voor het importeren**: Selecteer **gebruik blob-opslag van het huidige abonnement**.
     * **Storage-account**. Selecteer **een nieuw opslagaccount maken.**
     * **Storage-account** (tweede vak). Voer `YOURNAMEsa`, waarbij `YOURNAME` is uw naam of een andere unieke tekenreeks. De naam kan alleen kleine letters en cijfers gebruiken en deze moet uniek zijn binnen Azure. 

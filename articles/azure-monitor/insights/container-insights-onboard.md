@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 9355e5ffaaa5ca89f57f7e358d946b24d5fcb3ca
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: dbf62d460a6bc8f8c98080411b2148b81b42e415
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213851"
+ms.locfileid: "54232801"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Hoe u ingebouwde Azure-Monitor voor containers  
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor containers voor het bewaken van de prestaties van workloads die worden geïmplementeerd in Kubernetes-omgevingen en die worden gehost op [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -372,7 +372,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 Gebruik de `aks show` opdracht om informatie te verkrijgen die de oplossing of niet ingeschakeld is, wat is de Log Analytics-werkruimte resourceID en overzichtsgegevens over het cluster.  
 
 ```azurecli
-az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
 Na een paar minuten, de opdracht is voltooid en retourneert JSON opgemaakte informatie over de oplossing.  De resultaten van de opdracht het controle-Add-on-profiel moet worden weergegeven en lijkt op de volgende voorbeelduitvoer:

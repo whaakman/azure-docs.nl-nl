@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.reviewer: unknown
+ms.openlocfilehash: 754a0002aca52462910abe50825cff0254a7068f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127479"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244151"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Overzicht van services in Azure Stack-aanbieding
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 [Microsoft Azure Stack](azure-stack-poc.md) is een hybride cloudplatform waarmee u services leveren vanuit uw datacenter. Als een serviceprovider kunt u services aanbieden aan uw tenants. Binnen een bedrijf of overheidsinstelling heeft, kunt u on-premises services aanbieden aan uw werknemers. 
 
@@ -49,9 +49,9 @@ Wanneer u van plan bent uw aanbiedingen, houd rekening met de volgende punten:
 
 **Proefaanbiedingen**: U kunt Proefaanbiedingen gebruiken voor het aantrekken van nieuwe gebruikers, die vervolgens met extra services kunnen upgraden. Voor het maken van een proefversie, maakt u een kleine [basisplan](azure-stack-plan-offer-quota-overview.md#base-plan) met een optionele grotere aanvullende plan.
 
-**Capaciteitsplanning**: U wellicht zorgen maakt over gebruikers die grote hoeveelheden van resources en het systeem voor alle gebruikers overvol ophalen. Om te helpen de prestaties, kunt u [configureren van uw abonnementen met quota](azure-stack-plan-offer-quota-overview.md#plans) op cap-gebruik.
+**Capaciteitsplanning**: Het is mogelijk dat u zich zorgen maken over gebruikers die grote hoeveelheden van resources en het systeem voor alle gebruikers overvol ophalen. Om te helpen de prestaties, kunt u [configureren van uw abonnementen met quota](azure-stack-plan-offer-quota-overview.md#plans) op cap-gebruik.
 
-**Gedelegeerde providers**: U anderen kunt verlenen, kunt u de mogelijkheid om te maken van aanbiedingen in uw omgeving. Bijvoorbeeld, als u een serviceprovider bent, kunt u [delegeren](azure-stack-delegated-provider.md) deze mogelijkheid aan uw wederverkopers. Of, als u een organisatie bent, kunt u delegeren aan andere afdelingen/dochterondernemingen.
+**Gedelegeerde providers**: U kunt andere de mogelijkheid om te maken biedt in uw omgeving verlenen. Bijvoorbeeld, als u een serviceprovider bent, kunt u [delegeren](azure-stack-delegated-provider.md) deze mogelijkheid aan uw wederverkopers. Of, als u een organisatie bent, kunt u delegeren aan andere afdelingen/dochterondernemingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

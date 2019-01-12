@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.reviewer: unknown
+ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888372"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245937"
 ---
 # <a name="validate-azure-identity"></a>Valideren van de Azure-identiteit 
 Gebruik het hulpprogramma Azure Stack gereedheid van de Registercontrole (AzsReadinessChecker) om te valideren dat uw Azure Active Directory (Azure AD) klaar is voor gebruik met Azure Stack. Uw Azure identity-oplossing te valideren voordat u begint met een Azure Stack-implementatie.  
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **Oorzaak** -het account zich niet aanmelden bij de opgegeven Azure Active Directory (AADDirectoryTenantName). In dit voorbeeld *AzureChinaCloud* is opgegeven als de *AzureEnvironment*.
 
-**Resolutie** -bevestigen dat het account geldig voor de opgegeven Azure-omgeving is. Voer in PowerShell het volgende om te controleren of het account is geldig voor een specifieke omgeving: Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
+**Resolutie** -bevestigen dat het account geldig voor de opgegeven Azure-omgeving is. Voer in PowerShell het volgende om te controleren of dat het account is geldig voor een specifieke omgeving:   Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Account is niet een beheerder 
  
 ````PowerShell

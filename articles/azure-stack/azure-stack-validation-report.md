@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1b2b06c02dc54c4369dd8490b714d1444d4b3b01
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.reviewer: unknown
+ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986182"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243862"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-validatierapport
 Het hulpprogramma Azure Stack-gereedheid van de Registercontrole voor validaties die ondersteuning bieden voor implementatie en het onderhoud van een Azure Stack-omgeving gebruiken. Het hulpprogramma schrijft de resultaten naar een .json-rapportbestand. Het rapport bevat gedetailleerde en samengevatte gegevens over de status van de vereisten voor de implementatie van Azure Stack. Het rapport bevat ook informatie over geheimen, rotatie voor bestaande Azure Stack-implementaties.  

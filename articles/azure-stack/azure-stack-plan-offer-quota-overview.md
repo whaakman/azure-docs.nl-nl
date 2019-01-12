@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.reviewer: unknown
+ms.openlocfilehash: 61afc8a736025763f950307fdbb78bb21577b22f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318126"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244202"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Overzicht van plannen, aanbiedingen, quota en abonnementen
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 [Azure Stack](azure-stack-poc.md) kunt leveren van een groot aantal services, zoals virtuele machines, SQL Server-databases, SharePoint, Exchange, en zelfs [items voor de Azure Marketplace](azure-stack-marketplace-azure-items.md). Als Azure Stack-operators, configureren en deze services in Azure Stack met behulp van plannen, aanbiedingen en quota's leveren.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233120"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232240"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Maken of lid van parallelle vertakkingen voor werkstroomacties in Azure Logic Apps
 
@@ -37,7 +37,7 @@ Onafhankelijke stappen op hetzelfde moment uitgevoerd, kunt u parallelle vertakk
 
 ![Werk parallel worden uitgevoerd](media/logic-apps-control-flow-branches/parallel.png)
 
-Uw logische app wacht tot alle vertakkingen te voltooien voordat u doorgaat werkstroom. Parallelle vertakkingen uitvoeren alleen wanneer hun `runAfter` eigenschapswaarden overeenkomen met de status van de voltooide bovenliggende stap. Bijvoorbeeld, beide `branchAction1` en `branchAction2` zijn ingesteld om uit te voeren alleen wanneer de `parentAction` is voltooid met `Succeded` status.
+Uw logische app wacht tot alle vertakkingen te voltooien voordat u doorgaat werkstroom. Parallelle vertakkingen uitvoeren alleen wanneer hun `runAfter` eigenschapswaarden overeenkomen met de status van de voltooide bovenliggende stap. Bijvoorbeeld, beide `branchAction1` en `branchAction2` zijn ingesteld om uit te voeren alleen wanneer de `parentAction` is voltooid met `Succeeded` status.
 
 > [!NOTE]
 > Voordat u begint, moet uw logische app al een stap waarin u parallelle vertakkingen kunt toevoegen.

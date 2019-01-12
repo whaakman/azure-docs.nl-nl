@@ -4,14 +4,14 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 0d01715922286743b9442ae1c656b34c37a7d795
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201190"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230761"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -53,6 +53,7 @@ Azure Migrate ondersteunt momenteel Europa, Verenigde Staten en Azure Government
 **Geografie** | **De metagegevens van opslaglocatie**
 --- | ---
 Azure Government | VS (overheid) - Virginia
+Azië | Azië - zuidoost
 Europa | Europa - noord of Europa - west
 Verenigde Staten | VS-Oost van West-Centraal VS
 
@@ -63,6 +64,17 @@ De verbinding kan worden via internet of het gebruik van ExpressRoute met openba
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan ik beveiliging van de virtuele machine met behulp van het OVA-sjabloon instellen?
 
 Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd in het OVA-sjabloon, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate om te werken zijn ongewijzigd worden gelaten.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Voor het beperken van het apparaat Azure Migrate, wat zijn de aanbevolen uitsluitingen van Antivirus (AV)?
+
+U moet de volgende mappen in het apparaat voor het scannen van antivirus uitsluiten:
+
+- Map met de binaire bestanden voor Azure Migrate-Service. Sluit alle submappen.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web-toepassing. Sluit alle submappen.
+  %SYSTEMDRIVE%\Inetpub\wwwroot
+- Lokale Cache voor de Database en logboekbestanden. Azure migrate-service moet RW toegang tot deze map.
+  %SYSTEMDRIVE%\Profiler
 
 ## <a name="discovery"></a>Detectie
 
@@ -136,16 +148,6 @@ Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren
 
 U kunt 1500 virtuele machines in een enkele migratieproject detecteren. Als u meer computers in uw on-premises-omgeving hebt [meer](how-to-scale-assessment.md) over hoe u een grote omgeving in Azure Migrate kunt detecteren.
 
-### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Voor het beperken van het apparaat Azure Migrate, wat zijn de aanbevolen uitsluitingen van Antivirus (AV)?
-
-U moet de volgende mappen in het apparaat voor het scannen van antivirus uitsluiten:
-
-- Map met de binaire bestanden voor Azure Migrate-Service. Sluit alle submappen.
-  %ProgramFiles%\ProfilerService  
-- Azure Migrate Web-toepassing. Sluit alle submappen.
-  %SYSTEMDRIVE%\Inetpub\wwwroot
-- Lokale Cache voor de Database en logboekbestanden. Azure migrate-service moet RW toegang tot deze map.
-  %SYSTEMDRIVE%\Profiler
 
 ## <a name="assessment"></a>Beoordeling
 

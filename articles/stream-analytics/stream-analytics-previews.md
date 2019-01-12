@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557594"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232121"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -26,10 +26,6 @@ De volgende functies zijn in openbare preview. U kunt profiteren van deze functi
 ### <a name="integration-with-azure-machine-learning"></a>Integratie met Azure Machine Learning
 
 Stream Analytics-taken met Machine Learning (ML)-functies, kunt u schalen. Voor meer informatie over hoe u ML-functies in uw Stream Analytics-taak gebruiken kunt, gaat u naar [schalen van uw Stream Analytics-taak met Azure Machine Learning-functies](stream-analytics-scale-with-machine-learning-functions.md). Bekijk een Praktijkscenario met [uitvoeren van sentimentanalyses met behulp van Azure Stream Analytics en Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="session-windows"></a>Sessie-windows
-
-Stream Analytics biedt ingebouwde ondersteuning voor windowing functies, zodat ontwikkelaars kunnen de auteur van complexe verwerking taken met een minimale inspanning. [Sessie windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) groep gebeurtenissen die op hetzelfde tijdstip binnenkomen, gefilterd op perioden wanneer er geen gegevens zijn. Voor meer informatie over windowing functies, gaat u naar [Inleiding tot Stream Analytics windowing functies](stream-analytics-window-functions.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>BLOB-uitvoer partitionering met aangepaste tijd
 

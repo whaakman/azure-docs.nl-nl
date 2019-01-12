@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0f85aa1a3efb4ea058c22870ae96069a2a1070ad
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186698"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247296"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 
@@ -31,7 +31,7 @@ De volgende tabel beschrijft de verschillen tussen de drie versies van multi-fac
 
 | Versie | Description |
 | --- | --- |
-| Multi-factor Authentication voor Office 365 |Deze versie werkt met Office 365-toepassingen en wordt beheerd via de Office 365-portal. Beheerders kunnen [beveiligen van Office 365-resources met verificatie in twee stappen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van Office 365-abonnement. |
+| Multi-factor Authentication voor Office 365 <br> Microsoft 365 Business |Deze versie werkt met Office 365-toepassingen en wordt beheerd via de Office 365 of Microsoft 365-portal. Beheerders kunnen [beveiligen van Office 365-resources met verificatie in twee stappen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van een abonnement op Office 365 of Microsoft 365 Business. |
 | Multi-factor Authentication voor Azure AD-beheerders | Gebruikers die zijn toegewezen de rol globale beheerder van Azure AD in Azure AD-tenants kunt verificatie in twee stappen zonder extra kosten.|
 | Azure Multi-Factor Authentication | Azure multi-factor Authentication is vaak aangeduid als de 'volledige' versie, biedt de uitgebreidste set mogelijkheden. Het biedt aanvullende configuratie-opties via de [Azure-portal](https://portal.azure.com), geavanceerde rapportage en ondersteuning voor een bereik van on-premises en cloudtoepassingen. Azure multi-factor Authentication is een functie van [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), en kan worden geïmplementeerd in de cloud of on-premises. |
 

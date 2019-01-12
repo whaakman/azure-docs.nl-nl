@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.custom: mvc
 ms.date: 01/09/2019
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 0a7cf008dd2d2656153d7f1d70f71b9832be5d81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: unknown
+ms.openlocfilehash: c6b86a2cebccfde27841dca64cf24ca4f1be0f7b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157799"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247573"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack aanvullende plannen
 
@@ -46,7 +46,7 @@ Aanvullende plannen worden gemaakt door het wijzigen van een bestaande aanbiedin
 
    ![Aanvullende plan maken](media/create-add-on-plan/1.PNG)
 
-4. Ga naar de onderkant van de eigenschappen van de aanbieding en selecteer **aanvullende plannen**. Klik op **Toevoegen**.
+4. Ga naar de onderkant van de eigenschappen van de aanbieding en selecteer **aanvullende plannen**. Klik op **Add**.
 
     ![Aanvullende plan maken](media/create-add-on-plan/2.PNG)
 

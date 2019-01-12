@@ -11,30 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 790a8bfed693f03cdadd036cab17eb94dee1c1ed
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.reviewer: jiahan
+ms.openlocfilehash: 9f53dbd3546fcd3f761338664179b42fce5be200
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119288"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246021"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Bijwerken van de MySQL-resourceprovider 
 
 *Van toepassing op: Azure Stack-geïntegreerde systemen.*
 
-Een nieuwe SQL-resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk. 
+Een nieuwe MySQL resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk. 
 
-> [!IMPORTANT]
-> U moet updates installeren in de volgorde waarin die ze zijn vrijgegeven. U kunt de versies niet overslaan. Raadpleeg de lijst met versies in [implementeert de vereisten van de provider resource](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+Beginnen met de MySQL-resource provider 1.1.33.0 versie, updates zijn cumulatief en hoeft niet te worden geïnstalleerd in de volgorde waarin ze zijn vrijgegeven; Als u vanaf versie 1.1.24.0 of hoger. Bijvoorbeeld als u versie 1.1.24.0 van de MySQL-resourceprovider uitvoert, kunt klikt u vervolgens u upgraden naar versie 1.1.33.0 of later zonder dat eerst versie 1.1.30.0 installeren. Als u wilt controleren op beschikbare resource provider versies en de versie van Azure Stack op worden ondersteund, verwijzen naar de lijst met versies in [implementeert de vereisten van de provider resource](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Bijwerken van de MySQL-resource provider-adapter (alleen geïntegreerde systemen)
-
-Een nieuwe SQL-resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk.  
- 
 Het bijwerken van de resource-provider die u gebruikt de **UpdateMySQLProvider.ps1** script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeren van de resourceprovider](#deploy-the-resource-provider) sectie van dit artikel. Het script is inbegrepen bij het downloaden van de resourceprovider. 
+
+ > [!IMPORTANT]
+ > Vóór de upgrade van de resourceprovider, neem de releaseopmerkingen voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
+
+## <a name="update-script-processes"></a>Update-script-processen
 
 De **UpdateMySQLProvider.ps1** script maakt u een nieuwe virtuele machine met de meest recente code van de resource-provider en de instellingen van de oude virtuele machine migreert naar de nieuwe virtuele machine. De instellingen die worden gemigreerd zijn database en die als host fungeert voor informatie over server en de vereiste DNS-record. 
 
@@ -43,7 +43,27 @@ De **UpdateMySQLProvider.ps1** script maakt u een nieuwe virtuele machine met de
 
 Het gebruik van dezelfde argumenten die worden beschreven door het script is vereist voor het script DeployMySqlProvider.ps1. Het certificaat hier ook opgeven.  
 
-Hieronder volgt een voorbeeld van de *UpdateMySQLProvider.ps1* script dat u vanuit de PowerShell-prompt uitvoeren kunt. Zorg ervoor dat de accountgegevens en wachtwoorden zo nodig wijzigen:  
+
+## <a name="update-script-parameters"></a>Scriptparameters bijwerken 
+U kunt de volgende parameters vanaf de opdrachtregel opgeven tijdens het uitvoeren van de **UpdateMySQLProvider.ps1** PowerShell-script. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven. 
+
+| Parameternaam | Description | Opmerking of de standaardwaarde | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ | 
+| **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties als u hebt gebruikt voor het implementeren van Azure Stack. | _Vereist_ | 
+| **VMLocalCredential** |De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ | 
+| **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ | 
+| **Azure-omgeving** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | Uw certificaat-pfx-bestand moet worden geplaatst in deze map ook. | _Optionele_ (_verplichte_ voor meerdere knooppunten) | 
+| **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ | 
+| **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 | 
+| **RetryDuration** | De time-outinterval tussen nieuwe pogingen in seconden. | 120 | 
+| **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie de opmerkingen bij de volgende). | Nee | 
+| **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee | 
+| **AcceptLicense** | Hiermee slaat u de prompt om de GPL-licentie te accepteren.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+
+## <a name="update-script-example"></a>Voorbeeld van een script bijwerken
+Hier volgt een voorbeeld van het gebruik van de *UpdateMySQLProvider.ps1* script dat u vanuit een PowerShell-console met verhoogde bevoegdheid uitvoeren kunt. Zorg ervoor dat de variabele informatie en wachtwoorden indien nodig wijzigen:  
 
 > [!NOTE] 
 > Het updateproces is alleen van toepassing op geïntegreerde systemen. 
@@ -92,26 +112,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
-``` 
- 
-### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parameters 
-U kunt deze parameters opgeven vanaf de opdrachtregel. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven. 
-
-| Parameternaam | Description | Opmerking of de standaardwaarde | 
-| --- | --- | --- | 
-| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ | 
-| **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties als u hebt gebruikt voor het implementeren van Azure Stack. | _Vereist_ | 
-| **VMLocalCredential** |De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ | 
-| **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ | 
-| **Azure-omgeving** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Uw certificaat-pfx-bestand moet worden geplaatst in deze map ook. | _Optionele_ (_verplichte_ voor meerdere knooppunten) | 
-| **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ | 
-| **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 | 
-| **RetryDuration** | De time-outinterval tussen nieuwe pogingen in seconden. | 120 | 
-| **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie de opmerkingen bij de volgende). | Nee | 
-| **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee | 
-| **AcceptLicense** | Hiermee slaat u de prompt om de GPL-licentie te accepteren.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
- 
+```  
 
 ## <a name="next-steps"></a>Volgende stappen
 [MySQL-resourceprovider onderhouden](azure-stack-mysql-resource-provider-maintain.md)

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 9cc08920c5b8814a3e4b649f4518dce78c7cb38e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160597"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244236"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>De Azure portal gebruiken voor het instellen van waarschuwingen over metrische gegevens voor Azure Database voor MariaDB
 
@@ -25,10 +25,9 @@ Een waarschuwing als u wilt de volgende acties uitvoeren wanneer deze wordt geac
 * Een webhook aanroepen
 
 U kunt configureren en informatie over met behulp van regels voor waarschuwingen:
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Opdrachtregelinterface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure-CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Een waarschuwingsregel maken op een metrische waarde
 1. In de [Azure-portal](https://portal.azure.com/), selecteert u de Azure Database voor MariaDB-server die u wilt bewaken.
@@ -49,7 +48,7 @@ U kunt configureren en informatie over met behulp van regels voor waarschuwingen
    
    ![Metrische waarde selecteren](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configureer de waarschuwingslogica, waaronder de **voorwaarde** (ex.) 'Meer dan'), **drempelwaarde** (ex.) 85 procent), **tijdverzameling**, **periode** van tijd de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers (ex.) "In de afgelopen 30 minuten', en **frequentie**.
+7. Configureer de waarschuwingslogica, waaronder de **voorwaarde** (ex.) 'Meer dan'), **drempelwaarde** (ex.) 85 procent), **tijdverzameling**, **periode** van tijd de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers (ex.) "In de afgelopen 30 minuten"), en **frequentie**.
    
    Selecteer **gedaan** wanneer u klaar bent.
 

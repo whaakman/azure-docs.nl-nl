@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: eed545c88b840f942ad763793595ef5b9c3cd19d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 69c4f08d93ee87a93d575d60e12890a0aebb1807
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233691"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244916"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Microsoft-Services in het gebied van Cyberbeveiliging
 
-Services van Microsoft is een omvattende benadering tot beveiliging, identiteit en cyberbeveiliging. Services van Microsoft is een matrix van beveiligings- en identiteitsbeheer services over strategie, planning, implementatie en doorlopende ondersteuning. Deze services kunt zakelijke klanten implementeren holistische beveiligingsoplossingen die zijn afgestemd op hun strategische doelstellingen.
+Microsoft-Services biedt een uitgebreide benadering voor beveiliging, identiteit en cyberbeveiliging. Ze bevatten een matrix van beveiligings- en identiteitsbeheer services over strategie, planning, implementatie en doorlopende ondersteuning. Deze services kunt zakelijke klanten implementeren beveiligingsoplossingen die zijn afgestemd op hun strategische doelstellingen.
 
-We kunnen met directe toegang tot product development-teams, maken van oplossingen die kunnen worden geïntegreerd en verbeteren van de meest recente beveiligingsupdates en mogelijkheden voor identiteits-van onze producten om de zakelijke en stimuleer innovatie van onze klanten te beschermen.
+Microsoft-services kunnen maken van oplossingen die kunnen worden geïntegreerd en de meest recente beveiligingsupdates en mogelijkheden voor identiteits-van onze producten voor beveiliging van uw bedrijf en stimuleer innovatie verbeteren.
 
-Toevertrouwd helpen beveiligen en het inschakelen van's werelds grootste organisaties, bestaat onze gevarieerde groep technische professionals van ervaren experts die een schat aan beveiligings- en identity-ervaring bieden.
+Ons team van technische professionals bestaat van ervaren experts die een schat aan beveiligings- en identity-ervaring bieden.
 
 Meer informatie over de services die worden geleverd door Microsoft-Services:
 

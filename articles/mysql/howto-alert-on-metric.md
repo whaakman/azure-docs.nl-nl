@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 999b1d03ad8cb0b27de10ff6457c0e6cc9112ee7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/10/2019
+ms.openlocfilehash: 1287df97f10033472c9717309688cf89887a66ed
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548728"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242961"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>De Azure portal gebruiken voor het instellen van waarschuwingen over metrische gegevens voor Azure Database for MySQL 
 
@@ -25,48 +25,54 @@ Een waarschuwing als u wilt de volgende acties uitvoeren wanneer deze wordt geac
 * Een webhook aanroepen
 
 U kunt configureren en informatie over met behulp van regels voor waarschuwingen:
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Opdrachtregelinterface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure-CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Een waarschuwingsregel maken op een metrische waarde van de Azure-portal
 1. In de [Azure-portal](https://portal.azure.com/), selecteert u de Azure Database for MySQL-server die u wilt bewaken.
 
-2. Onder de **bewaking** sectie van de zijbalk Selecteer **waarschuwingsregels** zoals wordt weergegeven:
+2. Onder de **bewaking** sectie van de zijbalk Selecteer **waarschuwingen** zoals wordt weergegeven:
 
-   ![Selecteer waarschuwingsregels](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Selecteer waarschuwingsregels](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Selecteer **metrische waarschuwing toevoegen** (+ pictogram). 
+3. Selecteer **metrische waarschuwing toevoegen** (+ pictogram).
 
-4. De **regel toevoegen** pagina wordt geopend, zoals hieronder weergegeven.  Vul de vereiste gegevens:
+4. De **maken regel** pagina wordt geopend, zoals hieronder weergegeven. Vul de vereiste gegevens:
 
-   ![Metrische waarschuwing toevoegen](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Metrische waarschuwing toevoegen](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-   | Instelling | Description  |
-   |---------|---------|
-   | Name | Geef een naam voor de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
-   | Description | Geef een korte beschrijving van de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
-   | Waarschuwen bij | Kies **metrische gegevens** voor dit type waarschuwing. |
-   | Abonnement | Dit veld wordt vooraf ingevuld met het abonnement dat als host fungeert voor uw Azure Database voor MySQL. |
-   | Resourcegroep | Dit veld wordt vooraf ingevuld met de resourcegroep van uw Azure Database voor MySQL. |
-   | Resource | Dit veld wordt vooraf ingevuld met de naam van uw Azure Database voor MySQL. |
-   | Gegevens | Selecteer de metrische gegevens die u wilt een waarschuwing voor uitgeven. Bijvoorbeeld, **opslagpercentage**. |
-   | Voorwaarde | Kies de voorwaarde voor de metrische gegevens moet worden vergeleken met. Bijvoorbeeld, **groter is dan**. |
-   | Drempelwaarde | Drempelwaarde voor de meetwaarde, bijvoorbeeld 85 (procent). |
-   | Periode | De periode dat de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers. Bijvoorbeeld, **in de afgelopen 30 minuten**. |
+5. Binnen de **voorwaarde** sectie, selecteer **voorwaarde toevoegen**.
 
-   Op basis van het voorbeeld, de waarschuwing zoekt naar opslagpercentage dan 85% gedurende een periode van 30 minuten. Deze waarschuwing wordt geactiveerd wanneer het gemiddelde percentage van de opslag gedurende 30 minuten meer dan 85% is geweest. Nadat de eerste trigger is die zich voordoet, activeert het opnieuw wanneer het gemiddelde percentage van de opslag is lager dan 85% meer dan 30 minuten.
+6. Selecteer een metrische waarde uit de lijst met signalen om te worden gewaarschuwd op. Selecteer "Opslag procent" in dit voorbeeld.
+   
+   ![Metrische waarde selecteren](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-5. Kies de meldingsmethode die u wilt gebruiken voor de waarschuwingsregel. 
+7. Configureer de waarschuwingslogica, waaronder de **voorwaarde** (ex.) 'Meer dan'), **drempelwaarde** (ex.) 85 procent), **tijdverzameling**, **periode** van tijd de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers (ex.) "In de afgelopen 30 minuten"), en **frequentie**.
+   
+   Selecteer **gedaan** wanneer u klaar bent.
 
-   Controleer **e-eigenaren, bijdragers en lezers** optie als u wilt de abonnementsbeheerders en CO-beheerder moet worden verzonden wanneer de waarschuwing wordt geactiveerd.
+   ![Metrische waarde selecteren](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-   Als u aanvullende e-mailberichten wilt die een melding ontvangen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Meerdere e-mailberichten gescheiden door puntkomma's -  *email@contoso.com;email2@contoso.com*
+8. Binnen de **actiegroepen** sectie, selecteer **nieuw** om een nieuwe groep voor het ontvangen van meldingen op de waarschuwing te maken.
 
+9. Vul het formulier 'Actiegroep toevoegen' met een naam, de korte naam, het abonnement en de resourcegroep.
+
+10. Configureer een **e-mailadres/SMS/Push/stem** actietype.
+    
+   Kies 'E-mailbericht Azure Resource Manager rol' te selecteren van Abonnementseigenaren, bijdragers en lezers om meldingen te ontvangen.
+   
    (Optioneel) Geef een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
 
-6. Selecteer **OK** om de waarschuwing te maken.
+   Selecteer **OK** wanneer dit is voltooid.
+
+   ![Actiegroep](./media/howto-alert-on-metric/10-action-group-type.png)
+
+11. Geef een naam, beschrijving en ernst.
+
+   ![Actiegroep](./media/howto-alert-on-metric/11-name-description-severity.png) 
+
+12. Selecteer **waarschuwingsregel maken** om de waarschuwing te maken.
 
    Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 

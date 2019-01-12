@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 1f93a186db7685f7e4e159ae1796c4287de74373
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213055"
+ms.locfileid: "54229329"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Het gebruik van beheerde identiteiten met Azure Container Instances
 
@@ -134,7 +134,7 @@ De `identity` sectie in de uitvoer lijkt op het volgende, waarin de identiteit i
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>De gebruiker toegewezen identiteit toegang verlenen tot de Key Vault
 
-Voer de volgende [az keyvault-beleid instellen](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)(/ cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)-opdracht uit om een beleid voor toegang in de Key Vault. Het volgende voorbeeld laat de gebruiker toegewezen identiteit geheimen ophalen uit de Key Vault:
+Voer de volgende [az keyvault-beleid instellen](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) -opdracht uit om een beleid voor toegang in de Key Vault. Het volgende voorbeeld laat de gebruiker toegewezen identiteit geheimen ophalen uit de Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

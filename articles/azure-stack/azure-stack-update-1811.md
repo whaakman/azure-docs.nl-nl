@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214586"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247619"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -40,9 +40,9 @@ De Azure Stack 1811 update build-nummer **1.1811.0.101**.
 Azure Stack brengt hotfixes op gezette tijden. Zorg ervoor dat voor het installeren van de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1809 voordat u Azure Stack bijwerkt naar 1811.
 
 > [!TIP]  
-> Abonneer u op de volgende *RRS* of *Atom* feeds, blijven van het Azure Stack-hotfixes:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
+> Abonneer u op de volgende *RSS* of *Atom* feeds, blijven van het Azure Stack-hotfixes:
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Hotfixes voor Azure Stack
 
@@ -162,7 +162,7 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
 
 - De bestaande PEP-cmdlet voor het ophalen van de BitLocker-herstelsleutel is in 1811 van Get-AzsCsvsRecoveryKeys aan Get-AzsRecoveryKeys gewijzigd. Zie voor meer informatie over het ophalen van de BitLocker-herstelsleutel [instructies over het ophalen van de sleutels](azure-stack-security-bitlocker.md).
 
-## <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+## <a name="common-vulnerabilities-and-exposures"></a>Veelvoorkomende beveiligingsproblemen en risico 's
 
 Deze update installeert de volgende beveiligingsupdates:  
 
@@ -260,6 +260,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
 
    De fout doet zich voor als u diagnostische gegevens over opstarten op een virtuele machine inschakelt, maar uw boot diagnostics storage-account verwijderen. U kunt dit probleem omzeilen, maakt u opnieuw de storage-account met dezelfde naam als u eerder hebt gebruikt.
+
+- Bij het maken van een [Dv2-serie VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 VM's kunnen u 4, 8, 16 en 32 gegevensschijven respectievelijk maken. Het deelvenster van de virtuele machine maken bevat, 8, 16, 32 en 64 gegevensschijven.
 
 <!-- 3235634 – IS, ASDK -->
 - Het implementeren van VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, geef het achtervoegsel als **Standard_A2_v2** (kleine letters v). Gebruik geen **Standard_A2_V2** (V hoofdletters). Dit werkt in de globale Azure en is een inconsistentie in Azure Stack.

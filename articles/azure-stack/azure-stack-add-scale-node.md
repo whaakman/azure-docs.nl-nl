@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982994"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232869"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Extra scale unit knooppunten toevoegen in Azure Stack
 
@@ -105,7 +105,8 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 
 ### <a name="status-for-the-add-node-operation"></a>Status voor de bewerking van de knooppunten toevoegen 
 **Voor een schaaleenheid:**
-|Status               |Beschrijving  |
+
+|Status               |Description  |
 |---------------------|---------|
 |In uitvoering              |Alle knooppunten zijn actief deel aan de schaaleenheid.|
 |Gestopt              |Het knooppunt van de eenheid schaal is omlaag of niet bereikbaar is.|
@@ -115,7 +116,8 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 
 
 **Voor een scale unit-knooppunt:**
-|Status                |Beschrijving  |
+
+|Status                |Description  |
 |----------------------|---------|
 |In uitvoering               |Het knooppunt is actief deelnemer in de schaaleenheid.|
 |Gestopt               |Het knooppunt is niet beschikbaar.|
@@ -128,17 +130,17 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 ## <a name="troubleshooting"></a>Problemen oplossen
 De volgende zijn problemen die regelmatig voorkomen bij het toevoegen van een knooppunt. 
 
-**Scenario 1:** mislukt de bewerking toevoegen scale unit-knooppunt maar een of meer knooppunten die zijn opgenomen met de status gestopt.  
+**Scenario 1:**  De bewerking toevoegen scale unit knooppunt is mislukt, maar een of meer knooppunten worden vermeld met de status gestopt.  
 - Herstel: Gebruik de herstelbewerking te herstellen van een of meer knooppunten. Alleen een één herstelbewerking kan in één keer worden uitgevoerd.
 
-**Scenario 2:** een of meer scale unit-knooppunten zijn toegevoegd, maar de opslaguitbreiding van de is mislukt. In dit scenario wordt het schaalobject eenheid in het knooppunt rapporteert de status van het uitvoeren, maar het configureren van opslag-taak is niet gestart.  
-- Herstel: Gebruik het eindpunt van de bevoegde de opslag om status te controleren door het uitvoeren van de volgende PowerShell-cmdlet:
+**Scenario 2:** Een of meer scale unit-knooppunten zijn toegevoegd, maar de opslaguitbreiding van de is mislukt. In dit scenario wordt het schaalobject eenheid in het knooppunt rapporteert de status van het uitvoeren, maar het configureren van opslag-taak is niet gestart.  
+- Herstel: Het eindpunt van de bevoegde gebruiken om te controleren van de status van de opslag door het uitvoeren van de volgende PowerShell-cmdlet:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Scenario 3:** ontvangen van een waarschuwing die aangeeft van de opslag scale-out-taak is mislukt.  
-- Herstel: In dit geval de configuratietaak opslag is mislukt. Dit probleem, moet u contact opnemen met ondersteuning.
+**Scenario 3:** U hebt ontvangen een waarschuwing die aangeeft van de opslag scale-out-taak is mislukt.  
+- Herstel: In dit geval is de configuratietaak opslag mislukt. Dit probleem, moet u contact opnemen met ondersteuning.
 
 
 ## <a name="next-steps"></a>Volgende stappen 

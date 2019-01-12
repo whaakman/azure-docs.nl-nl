@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: e9365008c47c2aac71d3983a16db37b0c5ea62ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.reviewer: unknown
+ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648102"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246225"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Verbinding maken met Azure Stack met behulp van Azure ExpressRoute
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Dit artikel ziet u hoe u verbinding maken met een Azure Stack-netwerk met een Azure-netwerk met behulp van een [Microsoft Azure ExpressRoute](/azure/expressroute/) rechtstreekse verbinding.
 
@@ -107,7 +107,7 @@ Gebruik de volgende procedures om u te maken van de vereiste netwerkresources in
 
    |Veld  |Waarde  |
    |---------|---------|
-   |Naam     |Tenant1VNet1         |
+   |Name     |Tenant1VNet1         |
    |Adresruimte     |10.1.0.0/16|
    |Subnetnaam     |Tenant1-Sub1|
    |Subnetadresbereik     |10.1.1.0/24|
@@ -134,7 +134,7 @@ Gebruik de volgende procedures om u te maken van de vereiste netwerkresources in
 1. Onder **Azure Marketplace**, selecteer **netwerken**.
 1. Selecteer **Gateway van het virtuele netwerk** in de lijst met netwerkresources.
 1. In de **naam** veld **GW1**.
-1. Selecteer **virtueel netwerk**.
+1. Selecteer **Virtueel netwerk**.
 1. Selecteer **Tenant1VNet1** uit de vervolgkeuzelijst.
 1. Selecteer **openbaar IP-adres**, klikt u vervolgens **openbare IP-adres kiezen**, en klik vervolgens op **nieuw**.
 1. In de **naam** veld, typt u **GW1-PiP**, en klik vervolgens op **OK**.

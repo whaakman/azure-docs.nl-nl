@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139683"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243879"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant niet verwijderen
+
 Wanneer een tenant is verwijderd, worden ook alle resources die zijn opgenomen in de tenant verwijderd. U moet de tenant voorbereiden door het minimaliseren van alle bijbehorende resources, voordat u verwijderen. Alleen een globale beheerder van Azure Active Directory (Azure AD) u een Azure AD-tenant uit de portal verwijderen kunt.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Bereid de tenant voor verwijdering
@@ -59,17 +60,17 @@ Abonnementsstatus | Gegevens | Toegang tot gegevens
 Actieve (voor de proefversie van 30 dagen)  | Gegevens die toegankelijk is voor alle    | <li>Gebruikers hebben normale toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben de normale wijze toegang tot Office 365-beheercentrum en bronnen 
 Verlopen (30 dagen)   | Gegevens die toegankelijk is voor alle    | <li>Gebruikers hebben normale toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben de normale wijze toegang tot Office 365-beheercentrum en bronnen
 Uitgeschakeld (30 dagen) | Gegevens die toegankelijk is voor alleen administratie  | <li>Gebruikers geen toegang tot Office 365-bestanden of toepassingen<li>Beheerders kunnen toegang krijgen tot de Office 365-beheercentrum, maar kan geen licenties toewijzen aan of gebruikers bijwerken
-Ongedaan gemaakt (30 dagen na uitgeschakeld) | Gegevens zijn verwijderd (automatisch verwijderd als er geen andere services gebruikt worden) | <li>Gebruikers geen toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben toegang tot de Office 365-beheercentrum aanschaffen en andere abonnementen beheren 
+Ongedaan gemaakt (30 dagen na uitgeschakeld) | Gegevens zijn verwijderd (automatisch verwijderd als er geen andere services gebruikt worden) | <li>Gebruikers geen toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben toegang tot de Office 365-beheercentrum aanschaffen en andere abonnementen beheren
 
 U kunt een abonnement in plaatst een **Deprovisoned** status moet worden verwijderd in 3 dagen met behulp van de Microsoft Store voor bedrijven-beheercentrum. Deze functie is binnenkort beschikbaar voor Office 365-beheercentrum.
 
 1. Aanmelden bij de [Microsoft Store voor bedrijven-beheercentrum](https://businessstore.microsoft.com/manage/) met een account dat een globale beheerder in de tenant. Als u probeert te verwijderen van de tenant 'Contoso' waarvoor de initiële standaard domein contoso.onmicrosoft.com, aanmelden met een UPN zoals admin@contoso.onmicrosoft.com.
 
-2. Ga naar de **beheren** tabblad en selecteer **producten en Services**, kies vervolgens het abonnement dat u wilt annuleren. Nadat u op **annuleren**, vernieuw de pagina.
+2. Ga naar de **beheren** tabblad en selecteer **producten en Services**, kies het abonnement dat u wilt annuleren en selecteer vervolgens **verwijderen**.
   
   ![Koppeling voor het verwijderen van abonnement verwijderen](./media/directory-delete-howto/delete-command.png)
   
-3. Selecteer **verwijderen** verwijderen van het abonnement en de voorwaarden accepteren. Alle gegevens worden definitief verwijderd binnen drie dagen. Als u van gedachten verandert, kunt u het abonnement tijdens de periode van drie dagen opnieuw activeren.
+3. Selecteer **abonnement verwijderen** aan de voorwaarden en bepalingen accepteren en verwijderen van het abonnement. Alle gegevens binnen drie dagen definitief verwijderd. Als u van gedachten verandert, kunt u het abonnement in de volgende drie dagen opnieuw activeren.
   
   ![algemene voorwaarden](./media/directory-delete-howto/delete-terms.png)
 

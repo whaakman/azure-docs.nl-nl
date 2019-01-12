@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2d4808aaccd704f4c54d44cfe7d45ddd84cf0e17
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 15a67bb5d42028f945cc44a75a7210f132a434c3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198674"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245157"
 ---
 # <a name="azure-standard-balancer-overview"></a>Overzicht van Azure Standard-Balancer
 
@@ -210,7 +210,12 @@ Standard Load Balancers zijn beschikbaar met een SLA van 99,99%.  Controleer de 
 
 ## <a name="pricing"></a>Prijzen
 
-Standaardversie van Load Balancer is een in rekening gebracht op basis van het aantal regels voor taakverdeling geconfigureerd-product en alle inkomende en uitgaande gegevens verwerkt. Voor Standard Load Balancer informatie over de prijzen, gaat u naar de [Load Balancer prijzen](https://aka.ms/lbpricing) pagina.
+Gebruik van Standard Load Balancer wordt in rekening gebracht.
+
+- Aantal geconfigureerde load-balancing en uitgaande regels regels (binnenkomende NAT-regels niet meegeteld in het totale aantal regels)
+- Hoeveelheid gegevens verwerkte regel voor binnenkomende en uitgaande ongeacht. 
+
+Ga naar de pagina [Prijs van Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) voor informatie over de prijs van Standard Load Balancer.
 
 ## <a name="limitations"></a>Beperkingen
 

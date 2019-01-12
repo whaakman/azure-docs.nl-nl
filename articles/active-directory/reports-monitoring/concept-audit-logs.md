@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1a2ec0e0513e0bcdcc3427a9e24385dc415ae651
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215028"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247755"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Controleactiviteitenrapporten in Azure Active Directory Portal 
 
@@ -178,6 +178,11 @@ U kunt deze weergave omlaag naar filteren **groepen** of **gebruikers**.
 
 ![Controlelogboeken](./media/concept-audit-logs/25.png "Controlelogboeken")
 
+## <a name="office-365-activity-logs"></a>Office 365-activiteitenlogboeken
+
+Vindt u Office 365-activiteitenlogboeken van de [Office 365-beheercentrum](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Hoewel Office 365-activiteit en Azure AD-activiteit logboeken delen veel directoryresources, alleen de Office 365-beheercentrum biedt een volledig overzicht van de Office 365-activiteitenlogboeken. 
+
+U kunt ook toegang tot de Office 365-activiteitenlogboeken programmatisch met behulp van de [Management API's van Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Volgende stappen
 

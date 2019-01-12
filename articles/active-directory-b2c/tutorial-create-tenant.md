@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7571e5f4d95320ab92fa3b69b0ea1f05ff9c771f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 982932f538f13ac3cb8f842a32f9439f717d971f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408399"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247772"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Zelfstudie: Een Azure Active Directory B2C-tenant maken
 
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Een Azure AD B2C-tenant maken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u van de map waarin u uw abonnement gebruikmaakt door te klikken op de **map- en abonnementsfilter** in het bovenste menu en het kiezen van de map waarvan deze deel uitmaakt. Dit is een andere map dan de versie met uw Azure AD B2C-tenant.
+2. Zorg ervoor dat u van de map waarin u uw abonnement gebruikmaakt door te klikken op de **map- en abonnementsfilter** in het bovenste menu en het kiezen van de map waarvan deze deel uitmaakt. Deze map is anders dan die het bevat uw Azure AD B2C-tenant.
 
     ![Schakel over naar de abonnementsmap](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
@@ -46,8 +46,9 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
     In dit voorbeeld is de naam van de tenant contoso0926Tenant.onmicrosoft.com
 
-6. Op de **nieuwe B2C-Tenant maken of een koppeling naar een bestaande Tenant** pagina, kies **koppeling een bestaande Azure AD B2C-Tenant aan mijn Azure-abonnement**, selecteert u de tenant die u hebt gemaakt, selecteert u uw abonnement, klikt u op **Nieuw** en voer een naam voor de resourcegroep die wordt bevatten van de tenant, selecteert u de locatie en klik vervolgens op **maken**.
-7. Als u wilt gaan met deze nieuwe tenant, zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en het kiezen van de map waarvan deze deel uitmaakt.
+6. Op de **nieuwe B2C-Tenant maken of een koppeling naar een bestaande Tenant** pagina, kies **koppeling een bestaande Azure AD B2C-Tenant aan mijn Azure-abonnement**, selecteert u de tenant die u hebt gemaakt, wordt uw abonnement te selecteren en vervolgens Klik op **nieuw**.
+7. Voer een naam voor de resourcegroep die wordt bevatten van de tenant, selecteert u de locatie en klik vervolgens op **maken**.
+8. Als u wilt gaan met deze nieuwe tenant, zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en het kiezen van de map waarvan deze deel uitmaakt.
 
     ![Overschakelen naar de directory-tenant](./media/tutorial-create-tenant/switch-directories.png)
 
@@ -60,4 +61,4 @@ In dit artikel hebt u geleerd hoe u:
 > * Uw tenant koppelt aan uw abonnement
 
 > [!div class="nextstepaction"]
-> [Een webtoepassing te verifiëren met accounts inschakelen](active-directory-b2c-tutorials-web-app.md)
+> [Uw toepassingen registreren](tutorial-register-applications.md)

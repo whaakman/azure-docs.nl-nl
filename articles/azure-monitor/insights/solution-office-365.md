@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: a97a3330ff99cada3921f98b76cf08ed7a464bcc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156558"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230455"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -170,7 +170,7 @@ Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toest
 
 1. U krijgt een die vergelijkbaar is met het onderstaande venster. Klik op **accepteren**.
     
-    ![Toestemming van de beheerder](media/solution-office-365/admin-consent.png)
+    ![toestemming van de beheerder](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Abonneren op Log Analytics-werkruimte
 De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werkruimte. U doen dit ook met een PowerShell-script.
@@ -349,7 +349,7 @@ De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werk
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>Probleemoplossing
+### <a name="troubleshooting"></a>Problemen oplossen
 
 Mogelijk ziet u de volgende fout als u probeert te maken van een abonnement nadat het abonnement al bestaat.
 
@@ -474,7 +474,7 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
-## <a name="data-collection"></a>Gegevens verzamelen
+## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="supported-agents"></a>Ondersteunde agents
 De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../../azure-monitor/platform/agent-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
 
@@ -516,7 +516,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | Bewerking | De naam van de activiteit van de gebruiker of beheerder.  |
 | OrganizationId | De GUID voor Office 365-tenant van uw organisatie. Deze waarde is altijd hetzelfde zijn voor uw organisatie, ongeacht de Office 365-service waarin dit zich voordoet. |
 | RecordType | Het type van de bewerking die wordt uitgevoerd. |
-| ResultStatus | Geeft aan of de actie (opgegeven in de eigenschap Operation) geslaagd of mislukt is. Mogelijke waarden zijn Succeeded, partiallysucceded en Failed. Voor een beheeractiviteit voor Exchange, is de waarde True of False. |
+| ResultStatus | Geeft aan of de actie (opgegeven in de eigenschap Operation) geslaagd of mislukt is. Mogelijke waarden zijn Succeeded, gedeeltelijk geslaagd heeft of mislukt. Voor een beheeractiviteit voor Exchange, is de waarde True of False. |
 | UserId | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
 | UserKey | Een alternatieve ID voor de gebruiker die u in de eigenschap gebruikers-id.  Bijvoorbeeld: deze eigenschap wordt gevuld met de unieke ID voor passport (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook dezelfde waarde opgeven als de gebruikers-id-eigenschap voor gebeurtenissen in andere services en gebeurtenissen die worden uitgevoerd door systeemaccounts|
 | UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>Gemeente<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>Service-Principal<br>Systeem |
@@ -697,7 +697,7 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
 
-| Query | Description |
+| Query’s uitvoeren | Description |
 | --- | --- |
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
 |Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; count() by SiteUrl samenvatten | sorteren op aantal asc|

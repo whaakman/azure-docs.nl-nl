@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 30efbcd5ba36ea912a7238eef9e300085cb1d3d1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/11/2019
+ms.openlocfilehash: 43ee1cb33d5d747671cde7463c8f2fcb6e020662
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040197"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246514"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Beheerde API-naslaginformatie voor Azure SQL Database beheerde instanties
 
@@ -62,7 +62,6 @@ Maken en beheren van Azure SQL-server, databases en firewalls met [Azure CLI](/c
 |[AZ sql DEELB maken](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Hiermee maakt u een beheerde database|
 |[lijst met AZ sql DEELB](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Een lijst met beschikbare beheerde databases|
 |[AZ sql DEELB herstellen](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Een beheerde database herstellen|
-|[AZ sql DEELB update](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Een beheerde database-updates|
 |[AZ sql DEELB verwijderen](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Hiermee verwijdert u een beheerde database|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Logische servers en databases beheren

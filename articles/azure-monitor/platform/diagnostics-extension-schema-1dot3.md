@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1d092d0afcb4c9689a55f9af2940884867a17089
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104587"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230472"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 en hoger configuratieschema
 > [!NOTE]
@@ -613,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
-|**scheduledTransferLogLevelFilterr**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
+|**scheduledTransferLogLevelFilter**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
 |**scheduledTransferPeriod**|**Duur**|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
 |**sinks** |**Tekenreeks**| In 1.5 toegevoegd. Optioneel. Verwijst naar een sink-locatie voor het verzenden van diagnostische gegevens ook. Bijvoorbeeld, Application Insights of Event Hubs.|  
 

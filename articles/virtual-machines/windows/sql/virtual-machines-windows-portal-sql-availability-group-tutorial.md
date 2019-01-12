@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1605fdc5e49d2b8e95a2876dea8dff378ee33e2e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238072"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232274"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -296,7 +296,7 @@ U bent nu klaar om te configureren van een beschikbaarheidsgroep toevoegen met b
 
     ![Wizard Nieuwe AG, eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is, **\\\\\<eerst SQL Server\>\Backup\**. Klik op **volgende**.
+8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is,  **\\ \\ \<eerst SQL Server\>\Backup\\**. Klik op **volgende**.
 
    >[!NOTE]
    >Volledige synchronisatie duurt een volledige back-up van de database op het eerste exemplaar van SQL Server en aan het tweede exemplaar te herstellen. Volledige synchronisatie wordt voor grote databases, niet aanbevolen omdat het lang duurt. U kunt dit moment beperken door handmatig een back-up maken van de database en het herstellen van met `NO RECOVERY`. Als de database is al hersteld met `NO RECOVERY` op de tweede SQL Server voordat u de beschikbaarheidsgroep configureert, kiest u **alleen deelnemen**. Als u wilt een back-up na de configuratie van de beschikbaarheidsgroep, kiest u **eerste gegevenssynchronisatie overslaan**.

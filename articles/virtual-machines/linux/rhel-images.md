@@ -13,15 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2018
 ms.author: borisb
-ms.openlocfilehash: f178ac06b4ebfeef534233c2782423a7358f0c10
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719626"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229571"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux-installatiekopieën in Azure
-Dit artikel wordt beschreven in de Azure Marketplace, samen met beleid voor hun namen en retentie beschikbare installatiekopieën van Red Hat Enterprise Linux (RHEL)
+Dit artikel beschrijft de beschikbare installatiekopieën van Red Hat Enterprise Linux (RHEL) in de Azure Marketplace, samen met beleid voor hun namen en retentie.
+
+Informatie over het beleid voor Red Hat-ondersteuning voor alle versies van RHEL vindt u op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.
 
 ## <a name="images-available-in-the-ui"></a>Installatiekopieën die beschikbaar zijn in de gebruikersinterface
 Wanneer u een voor 'Red Hat"in de Marketplace, of zoekopdracht wanneer u een resource in de gebruikersinterface van Azure portal maakt, ziet u een subset van de RHEL-installatiekopieën beschikbaar en gerelateerde Red Hat-producten. U kunt altijd de volledige set beschikbare VM-installatiekopieën met de Azure CLI/PowerShell/API verkrijgen.
@@ -108,3 +110,4 @@ Onze huidige beleid is dat alle eerder gepubliceerde installatiekopieën. We beh
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de Azure Red Hat Update Infrastructure [hier](https://aka.ms/rhui-update).
+* Informatie over het beleid voor Red Hat-ondersteuning voor alle versies van RHEL vindt u op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.

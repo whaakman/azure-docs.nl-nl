@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: diberry
-ms.openlocfilehash: 55caecd2f0d57bcff3e6993d13bf8da784303304
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 655a2c0e2a7ee483dccbf129f36611d0b36df61f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213787"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246310"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Ontwerpen en het publiceren van regio's en de bijbehorende sleutels
 
@@ -50,7 +50,7 @@ De ontwerphandleiding regio app kan alleen worden gepubliceerd naar een bijbehor
 | Azië | `westus`<br>[www.Luis.AI][www.luis.ai]| Japan - oost<br>`japaneast`     |   https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Azië | `westus`<br>[www.Luis.AI][www.luis.ai]| Japan - west<br>`japanwest`     |   https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Azië | `westus`<br>[www.Luis.AI][www.luis.ai]| Korea - centraal<br>`koreacentral`     |   https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Azië | `westus`<br>[www.Luis.AI][www.luis.ai]| Azië - zuidoost<br>`souteastasia`     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Azië | `westus`<br>[www.Luis.AI][www.luis.ai]| Azië - zuidoost<br>`southeastasia`     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | *[Australië](#publishing-to-australia) | `australiaeast`<br>[AU.Luis.AI][au.luis.ai]| Australië - oost<br>`australiaeast`     |  https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | *[Europa](#publishing-to-europe)| `westeurope`<br>[EU.Luis.AI][eu.luis.ai]| Frankrijk - centraal<br>`francecentral`     | https://francecentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
 | *[Europa](#publishing-to-europe)| `westeurope`<br>[EU.Luis.AI][eu.luis.ai]| Europa - noord<br>`northeurope`     | https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 

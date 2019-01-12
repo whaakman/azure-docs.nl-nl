@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960092"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247670"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -54,17 +54,16 @@ Een enkel apparaat verbinding maakt met IoT Central met behulp van SAS is eenvou
 
     Hieronder vindt u de referenties voor andere talen die u wilt gebruiken.
 
-    *   **Taal C:** als u met behulp van C, voert u de [deze client voor C voorbeeld apparaten](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) om een voorbeeld-apparaat te verbinden. Gebruik de volgende instellingen in het voorbeeld.   
+    *   **De taal C:** Als u met behulp van C, voert u de [deze client voor C voorbeeld apparaten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) om een voorbeeld-apparaat te verbinden. Gebruik de volgende instellingen in het voorbeeld.   
 
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-         
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
 
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
-    *   **Node.js:** als u wilt gebruiken van Node.js [hier gebruikt u de stapsgewijze instructies](tutorial-add-device.md#prepare-the-client-code), start u vanuit de sectie **voorbereiden van de clientcode**.
+    *   **Node.js:**  Als u wilt gebruiken van Node.js [hier gebruikt u de stapsgewijze instructies](tutorial-add-device.md#prepare-the-client-code), start u vanuit de sectie **voorbereiden van de clientcode**.
 
 
 
@@ -81,7 +80,7 @@ Als u wilt verbinding maken met apparaten op schaal met IoT Central met behulp v
 
 Als u wilt verbinden met uw toepassing, Azure IoT Central groot aantal apparaten Bulksgewijs aanbiedingen importeren apparaten via een CSV-bestand. 
 
-Vereisten voor CSV-bestand: de CSV-bestand moet de volgende kolommen (en headers)
+Vereisten voor CSV-bestand: Het CSV-bestand moet de volgende kolommen (en headers)
 1.  IOTC_DeviceID  **<span style="color:Red">(moet zich bevinden in kleine letters)</span>**
 1.  IOTC_DeviceName (optioneel)
 
@@ -102,7 +101,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 1.  Selecteer de apparaten die u wilt exporteren en klik vervolgens op de **exporteren** actie.
 1.  Nadat de export is voltooid, wordt een bericht weergegeven samen met een koppeling voor het downloaden van het gegenereerde bestand.
 1.  Klik op het bericht weergegeven voor het downloaden van het bestand naar een lokale map op de schijf.
-1.  Het geëxporteerde CSV-bestand heeft de volgende informatie in de kolommen: **apparaat-Id, de naam van apparaat, apparaat primaire/secundaire sleutels en primaire/secundaire certificaatvingerafdrukken**
+1.  Het geëxporteerde CSV-bestand heeft de volgende informatie in de kolommen: **Apparaat-Id, de naam van apparaat, apparaat primaire/secundaire sleutels en primaire/secundaire certificaatvingerafdrukken**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
@@ -118,14 +117,14 @@ Als u de **MxChip** apparaat verbinding maakt volgen [de stapsgewijze instructie
 
 Hieronder vindt u de referenties voor andere talen die u wilt gebruiken.
 
-   *   **Taal C:** als u van C volgen gebruikmaakt [deze client voor C voorbeeld apparaten](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) om een voorbeeld-apparaat te verbinden. Gebruik de volgende instellingen in het voorbeeld.   
+   *   **De taal C:** Als u van C volgen gebruikmaakt [deze client voor C voorbeeld apparaten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) om een voorbeeld-apparaat te verbinden. Gebruik de volgende instellingen in het voorbeeld.   
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
-    * **Node.js:** als u wilt gebruiken van Node.js [hier gebruikt u de stapsgewijze instructies](tutorial-add-device.md#prepare-the-client-code), start u vanuit de sectie **voorbereiden van de clientcode**.
+    * **Node.js:**  Als u wilt gebruiken van Node.js [hier gebruikt u de stapsgewijze instructies](tutorial-add-device.md#prepare-the-client-code), start u vanuit de sectie **voorbereiden van de clientcode**.
 
 
 ## <a name="connect-devices-using-x509-certificates"></a>Verbind apparaten met behulp van X509 certificaten
@@ -138,13 +137,13 @@ Apparaten kunt verbinden met IoT Central X509 met certificaten, er zijn drie bel
     *   **Toevoegen van X509 basis- of tussencertificaat** u gebruikt voor het genereren van de certificaten voor de leaf-apparaten. Ga naar Beheer > apparaatverbinding > certificaten. 
     
         ![Verbindingsinstellingen](media/concepts-connectivity/connection-settings.PNG)
-    *   **Verificatie van het certificaat:** certificaat eigendom verifiëren zorgt ervoor dat de uploader van het certificaat in het bezit is van de persoonlijke sleutel van het certificaat. Om te controleren of het certificaat
+    *   **Certificaatverificatie van:** Certificaat eigendom verifiëren zorgt ervoor dat de uploader van het certificaat in het bezit is van de persoonlijke sleutel van het certificaat. Om te controleren of het certificaat
         *  Verificatiecode genereren, klikt u op de knop naast het veld voor de verificatie voor het genereren van de verificatiecode. 
         *  Maak een X.509-certificaat voor verificatie met de verificatiecode, sla het certificaat als een cer-bestand. 
         *  Upload het ondertekende verificatiecertificaat en klikt u op verifiëren.
 
         ![Verbindingsinstellingen](media/concepts-connectivity/verify-cert.png)
-    *   **Secundair certificaat:** tijdens de levenscyclus van uw IoT-oplossing, moet u certificaten implementeren. Twee van de belangrijkste redenen voor het verlengen van certificaten is een schending van de beveiliging en certificaten verlopen. Secundaire certificaten worden gebruikt om uitvaltijd voor de poging om in te richten als u bij het bijwerken van het primaire certificaat voor apparaten te verlagen.
+    *   **Secundair certificaat:** Tijdens de levenscyclus van uw IoT-oplossing moet u certificaten implementeren. Twee van de belangrijkste redenen voor het verlengen van certificaten is een schending van de beveiliging en certificaten verlopen. Secundaire certificaten worden gebruikt om uitvaltijd voor de poging om in te richten als u bij het bijwerken van het primaire certificaat voor apparaten te verlagen.
 
     **TESTEN ALLEEN VOOR TESTDOELEINDEN** 
     
@@ -160,7 +159,7 @@ Apparaten kunt verbinden met IoT Central X509 met certificaten, er zijn drie bel
 
 1. **Apparaten registreren** door deze via een CSV-bestand importeert in IoT Central.
 
-1. **Configuratie van het apparaat** : genereren van het leaf-certificaten met behulp van de geüploade basiscertificaat. Zorg ervoor dat u de **apparaat-ID** als de CNAME in de leaf-certificaten en bevindt zich in **kleine letters**. Hier volgt een [-opdrachtregelprogramma](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) voor het genereren van certificaten voor leaf/apparaat **alleen testen**.
+1. **Configuratie van het apparaat** : De leaf-certificaten met behulp van de geüploade basiscertificaat genereren. Zorg ervoor dat u de **apparaat-ID** als de CNAME in de leaf-certificaten en bevindt zich in **kleine letters**. Hier volgt een [-opdrachtregelprogramma](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) voor het genereren van certificaten voor leaf/apparaat **alleen testen**.
 
     Het apparaat met provisioning service informatie voor het inschakelen van het ophalen van de verbindingsgegevens en IoT Central, app-toewijzing wanneer overgeschakeld op programmeren.    
 
@@ -186,12 +185,12 @@ Hieronder ziet u de stroom om apparaten te verbinden met deze functie
 Volg de stappen op basis van uw keuze van apparaat-verificatieschema (X509/SAS)
 
 1. **Verbindingsinstellingen** 
-    * **X509 certificaten:** [toevoegen en controleer of de basis-/ tussencertificaat](#connect-devices-using-x509-certificates) en deze gebruiken voor het genereren van de certificaten voor apparaten in de volgende stap.
+    * **X509 certificaten:** [Toevoegen en controleer of de basis-/ tussencertificaat](#connect-devices-using-x509-certificates) en deze gebruiken voor het genereren van de certificaten voor apparaten in de volgende stap.
     * **SAS:** Kopieer de primaire sleutel (deze sleutel is de groep SAS-sleutel voor deze IoT Central-toepassing) en deze gebruiken voor het genereren van de SAS-sleutels van het apparaat in de volgende stap. 
 ![Verbindingsinstellingen SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. **Apparaatreferenties genereren** 
-    *   **Certificaten X509:** genereren van het leaf-certificaten voor uw apparaten met behulp van de root/tussencertificaat die u hebt toegevoegd aan deze app. Zorg ervoor dat u de **apparaat-ID** als een cname in de leaf-certificaten en  **<span style="color:Red">(moet zich bevinden in kleine letters)</span>**. Hier volgt een [-opdrachtregelprogramma](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) voor het genereren van certificaten voor het testen van leaf/apparaat.
+    *   **Certificaten X509:** Genereer de leaf-certificaten voor uw apparaten met behulp van de root/tussencertificaat die u hebt toegevoegd aan deze app. Zorg ervoor dat u de **apparaat-ID** als een cname in de leaf-certificaten en  **<span style="color:Red">(moet zich bevinden in kleine letters)</span>**. Hier volgt een [-opdrachtregelprogramma](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) voor het genereren van certificaten voor het testen van leaf/apparaat.
     *   **SAS** apparaat SAS-sleutels kunnen worden gegenereerd met behulp van dit [opdrachtregelprogramma](https://www.npmjs.com/package/dps-keygen). Gebruik de primaire SAS-sleutel (SAS-sleutel, groep) uit de vorige stap. Zorg ervoor dat de apparaat-ID  **<span style="color:Red">in kleine letters is</span>**.
 
         Gebruik de onderstaande instructies voor het genereren van SAS-sleutel voor apparaat           
@@ -210,13 +209,13 @@ Volg de stappen op basis van uw keuze van apparaat-verificatieschema (X509/SAS)
     
      Het apparaat met Flash **bereik-ID, apparaat-ID apparaat certificaat/SAS-sleutel** en schakelt u het apparaat verbinding maakt met IoT Central-app.
 
-1. **Apparaat verbinden met IoT Central:** eenmaal is overgeschakeld op de apparaten verbinding maken met DPS/IoT Central voor registratie.
+1. **Apparaat verbinden met IoT Central:** Nadat is overgeschakeld op de apparaten verbinding maken met DPS/IoT Central voor registratie.
 
-1. **Apparaat koppelen aan een sjabloon:** het verbonden apparaat wordt weergegeven onder **niet-gekoppelde apparaten** in **Device Explorer**. Het apparaat Inrichtingsstatus is **geregistreerde**. **Koppelen** het apparaat aan de sjabloon van het betreffende apparaat en het apparaat verbinding maakt met de IoT Central-app goed te keuren. Het apparaat haalt de details van de verbinding voor de app IoT Central, verbinding maakt en begint met het verzenden van gegevens. Apparaat provioning is nu voltooid en de *Inrichtingsstatus* verandert in **ingerichte**.
+1. **Apparaat koppelen aan een sjabloon:** Het verbonden apparaat wordt weergegeven onder **niet-gekoppelde apparaten** in **Device Explorer**. Het apparaat Inrichtingsstatus is **geregistreerde**. **Koppelen** het apparaat aan de sjabloon van het betreffende apparaat en het apparaat verbinding maakt met de IoT Central-app goed te keuren. Het apparaat haalt de details van de verbinding voor de app IoT Central, verbinding maakt en begint met het verzenden van gegevens. Apparaat provioning is nu voltooid en de *Inrichtingsstatus* verandert in **ingerichte**.
 
 ## <a name="device-provisioning-status"></a>De status van apparaat inrichten
 Er zijn een reeks stappen die betrokken zijn bij een echt apparaat is verbonden met Azure IoT Central 
-1. **Geregistreerde**: het apparaat is het eerste **geregistreerde**, wat betekent dat het apparaat in IoT Central wordt gemaakt en heeft de apparaat-ID voor het apparaat.
+1. **Geregistreerd**: Het apparaat is het eerste **geregistreerde**, wat betekent dat het apparaat in IoT Central wordt gemaakt en heeft de apparaat-ID voor het apparaat.
 Apparaat is Registeretd wanneer  
     *   Een nieuwe echt apparaat wordt toegevoegd aan **Explorer**
     *   Een set van apparaat is toegevoegd met behulp van **importeren** op **Explorer**
@@ -224,9 +223,9 @@ Apparaat is Registeretd wanneer
 
     In alle gevallen de *Inrichtingsstatus* is **geregistreerd**
 
-1. **Ingericht**: de volgende stap is wanneer het apparaat verbinding met geldige referenties maakt IoT Central is de inrichting stap voltooid (door het maken van het apparaat in IoT Hub). Deze retourneert vervolgens de verbindingsreeks naar het apparaat verbinding maakt en beginnen met het verzenden van gegevens. Het apparaat *Inrichtingsstatus* nu verandert van **geregistreerde** naar **ingerichte**.
+1. **Ingericht**: De volgende stap is wanneer het apparaat verbinding met geldige referenties maakt IoT Central is de inrichting stap voltooid (door het maken van het apparaat in IoT Hub). Deze retourneert vervolgens de verbindingsreeks naar het apparaat verbinding maakt en beginnen met het verzenden van gegevens. Het apparaat *Inrichtingsstatus* nu verandert van **geregistreerde** naar **ingerichte**.
 
-1.  **Geblokkeerd**: de operator een apparaat, kunt blokkeren wanneer een apparaat is geblokkeerd. Er kan geen gegevens verzenden naar IoT Central en moet opnieuw worden ingesteld. Apparaten die zijn geblokkeerd, hebben de *Inrichtingsstatus* van **geblokkeerd**. De operator kan ook blokkering van het apparaat. Zodra het apparaat gedeblokkeerd *Inrichtingsstatus* Ga terug naar de vorige *Inrichtingsstatus* (geregistreerd of ingericht). 
+1.  **Geblokkeerd**: De operator een apparaat, kunt blokkeren wanneer een apparaat is geblokkeerd. Er kan geen gegevens verzenden naar IoT Central en moet opnieuw worden ingesteld. Apparaten die zijn geblokkeerd, hebben de *Inrichtingsstatus* van **geblokkeerd**. De operator kan ook blokkering van het apparaat. Zodra het apparaat gedeblokkeerd *Inrichtingsstatus* Ga terug naar de vorige *Inrichtingsstatus* (geregistreerd of ingericht). 
 
 ## <a name="getting-device-connection-string"></a>Apparaat-verbindingsreeks ophalen
 U kunt Iot hub apparaat-verbindingsreeks voor Azure IoT Hub ophalen met behulp van de volgende stappen 
@@ -271,7 +270,7 @@ De volgende tabel geeft een overzicht van hoe Azure IoT Central apparaatfuncties
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
-| Meting: telemetrie | Apparaat-naar-cloud-berichten |
+| Meting: Telemetrie | Apparaat-naar-cloud-berichten |
 | Apparaateigenschappen | Apparaatdubbel-gerapporteerde eigenschappen |
 | Instellingen | Apparaatdubbel gewenst en gerapporteerde eigenschappen |
 

@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104655"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230336"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een niet-verbonden Azure Stack-omgeving beveiligd door AD FS
 
@@ -27,14 +27,15 @@ ms.locfileid: "54104655"
 
 > [!IMPORTANT]
 > De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.4 implementeert.
->
->
 
 Door de instructies in dit artikel te volgen, kunt u de [App Service-resourceprovider](azure-stack-app-service-overview.md) in een Azure Stack-omgeving die is:
 
 - niet verbonden met Internet
 - beveiligd door Active Directory Federation Services (AD FS).
 
+ > [!IMPORTANT]
+ > Controleer voordat u de resourceprovider implementeert, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
+ 
 De App Service-resourceprovider toevoegen aan uw offline Azure Stack-implementatie, moet u deze op het hoogste niveau taken uitvoeren:
 
 1. Voltooi de [vereiste stappen](azure-stack-app-service-before-you-get-started.md) (zoals de aanschaf van certificaten, die kan een paar dagen duren voor het ontvangen van).

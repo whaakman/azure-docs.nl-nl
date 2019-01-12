@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040741"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230591"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -36,6 +36,19 @@ Log Analytics is ingeschakeld en beheerd in Azure portal. Om in te schakelen log
     * Als u nodig hebt om een werkruimte te maken, geeft u een naam, een resourcegroep en een locatie.
 1. Selecteer in de lijst met beschikbare logboeken, de logboeken die u wilt inschakelen. Standaard de *kube-apiserver*, *kube-controller-manager*, en *kube-scheduler* logboeken zijn ingeschakeld. U kunt extra logboeken zoals inschakelen *kube-audit* en *cluster-automatisch schalen*. U kunt retourneren en de verzamelde Logboeken niet wijzigen wanneer de Log Analytics zijn ingeschakeld.
 1. Wanneer u klaar bent, selecteert u **opslaan** om van de geselecteerde logboeken te verzamelen.
+
+> [!NOTE]
+> AKS bevat alleen de auditlogboeken voor clusters die zijn gemaakt of bijgewerkt nadat een functievlag is ingeschakeld op uw abonnement. Om u te registreren de *AKSAuditLog* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+>
+> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
+>
+> Wacht totdat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst] [ az-feature-list] opdracht:
+>
+> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
+>
+> Wanneer u klaar bent, vernieuwt u de registratie van het AKS-resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
+>
+> `az provider register --namespace Microsoft.ContainerService`
 
 Het volgende voorbeeld schermafbeelding van de portal wordt de *diagnostische instellingen* venster en vervolgens de optie voor het maken van een Log Analytics-werkruimte:
 
@@ -133,3 +146,6 @@ In dit artikel hebt u geleerd over het inschakelen en bekijk de logboeken voor d
 [analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188420"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229469"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag met de gebruiksvoorwaarden.
@@ -87,9 +87,7 @@ Wanneer u uw gebruiksrechtovereenkomstdocument hebt voltooid, gebruikt u de volg
 
 1. Instellen om te vereisen dat eindgebruikers om weer te geven van de gebruiksvoorwaarden alvorens deze te accepteren, **vereisen dat gebruikers om uit te breiden de gebruiksvoorwaarden** naar **op**.
 
-1. Instellen om te vereisen dat eindgebruikers accepteer de gebruiksvoorwaarden op elk apparaat dat ze vanuit openen, **vereisen dat gebruikers accepteren op elk apparaat** naar **op**.
-
-    Als u niet ziet de **vereisen dat gebruikers accepteren op elk apparaat** instelt, is omdat deze functie nog niet is geïmplementeerd voor uw regio. Deze functie wordt verwacht volledig worden geïmplementeerd door vroege januari 2019. Zie voor meer informatie, [Per apparaat gebruiksvoorwaarden](#per-device-terms-of-use).
+1. Instellen om te vereisen dat eindgebruikers accepteer de gebruiksvoorwaarden op elk apparaat dat ze vanuit openen, **vereisen dat gebruikers accepteren op elk apparaat** naar **op**. Zie voor meer informatie, [Per apparaat gebruiksvoorwaarden](#per-device-terms-of-use).
 
 1. Als u wilt laten verlopen gebruiksvoorwaarden instemt volgens een schema, stelt u de **verlopen toestemmingen** naar **op**. Wanneer een ingesteld op aan, worden twee aanvullende schema-instellingen weergegeven.
 
@@ -253,9 +251,6 @@ De volgende procedure wordt beschreven hoe u een gebruiksrechtovereenkomst gebru
 ## <a name="per-device-terms-of-use"></a>Gebruiksvoorwaarden per apparaat
 
 De **vereisen dat gebruikers accepteren op elk apparaat** instelling kunt u vereisen dat eindgebruikers accepteer de gebruiksvoorwaarden op elk apparaat dat ze vanuit openen. De eindgebruiker moet naar het toevoegen van hun apparaat in Azure AD. Wanneer het apparaat is toegevoegd, wordt de apparaat-ID wordt gebruikt om af te dwingen de gebruiksvoorwaarden op elk apparaat.
-
-> [!NOTE]
-> Als u niet ziet de **vereisen dat gebruikers accepteren op elk apparaat** instellen bij het maken van een nieuwe gebruiksrechtovereenkomst, komt dit omdat deze functie nog niet is geïmplementeerd voor uw regio. Deze functie wordt verwacht volledig worden geïmplementeerd door vroege januari 2019.
 
 Hier volgt een lijst van de ondersteunde platformen en software.
 

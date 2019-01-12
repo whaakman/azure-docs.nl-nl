@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427060"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231169"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor vraagprognose in energie
 ## <a name="overview"></a>**Overzicht**
@@ -163,7 +163,7 @@ De volgende stappen helpen u over het visualiseren van realtime-gegevens-uitvoer
 
 1. Power BI-uitvoer in Azure Stream Analytics (ASA) toevoegen.
 
-   * Moet u de instructies in [Azure Stream Analytics en Power BI: een realtime analytics-dashboard voor realtime zichtbaarheid van streaminggegevens](stream-analytics/stream-analytics-power-bi-dashboard.md) voor het instellen van de uitvoer van uw Azure Stream Analytics-taak als uw Power BI-dashboard .
+   * Moet u de instructies in [Azure Stream Analytics en Power BI: Een realtime analytics-dashboard voor realtime zichtbaarheid van streaminggegevens](stream-analytics/stream-analytics-power-bi-dashboard.md) voor het instellen van de uitvoer van uw Azure Stream Analytics-taak als uw Power BI-dashboard.
    * Ga naar de stream analytics-taak in uw [Azure-portal](https://portal.azure.com). De naam van de taak moet zijn: YourSolutionName + "streamingjob" + willekeurig getal + "asapbi' (dat wil zeggen demostreamingjob123456asapbi).
    * Een Power BI-uitvoer voor de ASA-taak toevoegen. Stel de **uitvoer Alias** als **'PBIoutput'**. Stel uw **gegevenssetnaam** en **tabelnaam** als **'EnergyStreamData'**. Nadat u de uitvoer hebt toegevoegd, klikt u op **'Start'** aan de onderkant van de pagina om de Stream Analytics-taak te starten. U moet een bevestigingsbericht wordt weergegeven (bijvoorbeeld ' eerste stream analytics-taak myteststreamingjob12345asablob is voltooid').
 2. Meld u aan bij [Power BI online](https://www.powerbi.com)
@@ -185,7 +185,7 @@ De volgende stappen helpen u over het visualiseren van realtime-gegevens-uitvoer
 In pijplijn koude pad, wordt het essentiële doel is om op te halen van de vraagprognose van elke regio. Power BI maakt verbinding met een Azure SQL database als de gegevensbron, waar de voorspellingsresultaten worden opgeslagen.
 
 > [!NOTE]
-> 1) Het duurt enkele uren voor het verzamelen van genoeg voorspelde resultaten voor het dashboard. U wordt aangeraden dat u start dit proces 2-3 uur nadat u de gegevensgenerator lunch. 2) in deze stap is het vereiste onderdeel is om te downloaden en installeren van de gratis software [Power BI desktop](https://powerbi.microsoft.com/desktop).
+> (1) het duurt enkele uren voor het verzamelen van genoeg voorspelde resultaten voor het dashboard. U wordt aangeraden dat u start dit proces 2-3 uur nadat u de gegevensgenerator lunch. 2) in deze stap is het vereiste onderdeel is om te downloaden en installeren van de gratis software [Power BI desktop](https://powerbi.microsoft.com/desktop).
 >
 >
 
@@ -200,7 +200,7 @@ In pijplijn koude pad, wordt het essentiële doel is om op te halen van de vraag
 2. De gegevensbron van het koude pad Power BI-bestand bijwerken
 
    * Zorg ervoor dat u hebt de nieuwste versie van geïnstalleerd [Power BI desktop](https://powerbi.microsoft.com/desktop).
-   * In de **"DemandForecastingDataGeneratorv1.0"** map die u hebt gedownload, dubbelklikt u op de **'Power BI Template\DemandForecastPowerBI.pbix'** bestand. De eerste visualisaties zijn gebaseerd op dummy-gegevens. **Opmerking:** als u een foutbericht ziet, zorg ervoor dat u de meest recente versie van Power BI Desktop hebt geïnstalleerd.
+   * In de **"DemandForecastingDataGeneratorv1.0"** map die u hebt gedownload, dubbelklikt u op de **'Power BI Template\DemandForecastPowerBI.pbix'** bestand. De eerste visualisaties zijn gebaseerd op dummy-gegevens. **Opmerking:** Als u een foutbericht ziet, zorg er dan voor dat u de meest recente versie van Power BI Desktop hebt geïnstalleerd.
 
      Nadat u deze, klikt u boven aan het bestand opent, klikt u op **query's bewerken**. Dubbelklik in het pop-outmodus venster, op **'Source'** in het rechterdeelvenster.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -218,7 +218,7 @@ In pijplijn koude pad, wordt het essentiële doel is om op te halen van de vraag
 4. (Optioneel) Planning vernieuwen van de gegevensbron.
 
    * Vernieuwing wilt plannen van de gegevens, de muisaanwijzer boven de **EnergyBPI definitief** gegevensset, klikt u op ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) en kies vervolgens **vernieuwen plannen**.
-     **Opmerking:** als er een waarschuwing massage, klikt u op **referenties bewerken** en controleer of de referenties van uw database zijn hetzelfde als die wordt beschreven in stap 1.
+     **Opmerking:** Als er een waarschuwing massage, klikt u op **referenties bewerken** en controleer of de referenties van uw database zijn hetzelfde als die wordt beschreven in stap 1.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Vouw de **vernieuwen plannen** sectie. Schakel 'uw gegevens actueel houden'.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 21689cf7fe3df7ca7e362ba49824fadd5daaa3ea
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888763"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231731"
 ---
 # <a name="add-html-markers-to-the-map"></a>HTML-markeringen toevoegen aan de kaart
 
@@ -24,7 +24,7 @@ In dit artikel wordt beschreven hoe u een aangepaste HTML, zoals een afbeeldings
 > HTML-markeringen kunnen geen verbinding maken met gegevensbronnen. In plaats daarvan positie informatie rechtstreeks naar de markering is toegevoegd en de markering wordt toegevoegd aan de kaarten `markers` eigenschap waarvoor een [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> In tegenstelling tot de meeste lagen in het webbesturingselement voor Azure-kaarten die WebGL voor rendering gebruiken HTML-markeringen traditionele DOM-elementen voor rendering. Als zodanig het meer HTML-markeringen een pagina, de meer DOM-elementen die er zijn toegevoegd. Prestaties kunnen echter afnemen na het toevoegen van een paar hundered HTML-markeringen. Voor grotere gegevenssets kunt u de clustering van uw gegevens of met behulp van een laag symbool of bel op te geven.
+> In tegenstelling tot de meeste lagen in het webbesturingselement voor Azure-kaarten die WebGL voor rendering gebruiken HTML-markeringen traditionele DOM-elementen voor rendering. Als zodanig het meer HTML-markeringen een pagina, de meer DOM-elementen die er zijn toegevoegd. Prestaties kunnen echter afnemen na het toevoegen van een paar honderd HTML-markeringen. Voor grotere gegevenssets kunt u de clustering van uw gegevens of met behulp van een laag symbool of bel op te geven.
 
 ## <a name="add-an-html-marker"></a>Een HTML-markering toevoegen
 

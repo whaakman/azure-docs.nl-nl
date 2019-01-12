@@ -4,6 +4,7 @@ description: Instellen van uw webpagina's voor het verzenden van Real-User-metin
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138162"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232002"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Over het verzenden van Real User Measurements op Azure Traffic Manager met behulp van webpagina 's
 
@@ -35,7 +36,7 @@ Als u de RUM-sleutel met behulp van Azure portal:
  
   ![Real User Measurements sleutel genereren](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Afbeelding 1: Real-User-metingen genereren van sleutels**
+   **Afbeelding 1: Real-User-metingen genereren**
 
 5. De blade worden nu de RUM-sleutel wordt gegenereerd en een JavaScript-codefragment die moeten worden ingesloten in de HTML-pagina weergegeven.
  

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a2c45807f846dbe9d1c6bd91ce8c87958949ab17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344292"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231322"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -79,7 +79,7 @@ Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel besch
 | Eigenschap | Description |
 |:--- |:--- |
 | category | De categorie voor de opgeslagen zoekopdracht.  Alle opgeslagen zoekopdrachten in dezelfde oplossing delen vaak één categorie, zodat ze samen worden gegroepeerd in de console. |
-| DisplayName | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
+| displayname | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
 | query | De query wilt uitvoeren. |
 
 > [!NOTE]
@@ -153,7 +153,7 @@ Er zijn twee soorten actie resource die is opgegeven door de **Type** eigenschap
 Waarschuwingsacties hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
 
 
-```
+```json
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -290,7 +290,7 @@ De eigenschappen voor Webhook actie resources worden in de volgende tabellen bes
 |:--|:--|:--|
 | type | Ja | Het type van de actie.  Dit is **Webhook** voor webhookacties. |
 | naam | Ja | De weergavenaam voor de actie.  Dit wordt niet weergegeven in de console. |
-| wehookUri | Ja | URI voor de webhook. |
+| WebhookUri | Ja | URI voor de webhook. |
 | customPayload | Nee | Aangepaste nettolading wordt verzonden naar de webhook. De indeling is afhankelijk van wat de webhook wordt verwacht. |
 
 
@@ -304,7 +304,7 @@ Hieronder volgt een voorbeeld van een oplossing met de volgende bronnen:
 
 In het voorbeeld wordt [standaardoplossing parameters]( solutions-solution-file.md#parameters) variabelen die vaak worden gebruikt in een oplossing in plaats van hardcoderen waarden in de resourcedefinities.
 
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -462,7 +462,7 @@ In het voorbeeld wordt [standaardoplossing parameters]( solutions-solution-file.
 ```
 
 De volgende parameter-bestand bevat voorbeelden van waarden voor deze oplossing.
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",

@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5d90e9440758f457aca591e5c2792c6670868685
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721966"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245477"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C ondersteunt verificatie voor een verscheidenheid aan moderne toepassingsarchitecturen. Ze zijn allemaal gebaseerd op de protocollen volgens de industrienorm [OAuth 2.0](active-directory-b2c-reference-protocols.md) of [OpenID Connect](active-directory-b2c-reference-protocols.md). Dit document wordt beschreven welke typen toepassingen die u kunt bouwen, onafhankelijk van de taal of het platform u liever. Ook helpt u inzicht in geavanceerde scenario's voordat u begint met het bouwen van toepassingen.
 
-Elke toepassing die gebruikmaakt van Azure AD B2C moet zijn geregistreerd in uw [Azure AD B2C-tenant](active-directory-b2c-get-started.md) met behulp van de [Azure Portal](https://portal.azure.com/). Het registratieproces voor de toepassing verzamelt en waarden, zoals toegewezen:
+Elke toepassing die gebruikmaakt van Azure AD B2C moet zijn geregistreerd in uw [Azure AD B2C-tenant](active-directory-b2c-get-started.md) met behulp van de [Azure-portal](https://portal.azure.com/). Het registratieproces voor de toepassing verzamelt en waarden, zoals toegewezen:
 
 * Een **toepassings-ID** die uniek voor uw toepassing.
 * Een **antwoord-URL** die kunnen worden gebruikt om te leiden reacties terug naar uw toepassing.
@@ -41,7 +41,7 @@ Deze stappen kunnen verschillen enigszins afhankelijk van het type van de toepas
 
 ## <a name="web-applications"></a>Webtoepassingen
 
-Voor web-apps (inclusief .NET, PHP, Java, Ruby, Python en Node.js) die worden gehost op een server en toegankelijk is via een browser, Azure AD B2C ondersteunt [OpenID Connect](active-directory-b2c-reference-protocols.md) voor alle gebruikerservaringen. Hiertoe behoren aanmelden, registreren en profielbeheer. In de Azure AD B2C-implementatie van OpenID Connect initieert uw web-App deze gebruikerservaringen door verificatieaanvragen naar Azure AD. Het resultaat van de aanvraag is een `id_token`. Dit beveiligingstoken vertegenwoordigt de identiteit van de gebruiker. Het bevat ook informatie over de gebruiker in de vorm van claims:
+Voor web-apps (inclusief .NET, PHP, Java, Ruby, Python en Node.js) die worden gehost op een server en toegankelijk is via een browser, Azure AD B2C ondersteunt [OpenID Connect](active-directory-b2c-reference-protocols.md) voor alle gebruikerservaringen. In de Azure AD B2C-implementatie van OpenID Connect initieert uw web-App gebruikerservaringen door verificatieaanvragen naar Azure AD. Het resultaat van de aanvraag is een `id_token`. Dit beveiligingstoken vertegenwoordigt de identiteit van de gebruiker. Het bevat ook informatie over de gebruiker in de vorm van claims:
 
 ```
 // Partial raw id_token
@@ -68,7 +68,7 @@ In een webtoepassing, bestaat de uitvoering van een [beleid](active-directory-b2
 6. De `id_token` wordt gevalideerd en wordt een sessiecookie ingesteld.
 7. Een beveiligde pagina wordt geretourneerd naar de gebruiker.
 
-Validatie van het `id_token` met behulp van een openbare ondertekeningssleutel die is ontvangen van Azure AD is voldoende om de identiteit van de gebruiker te controleren. Hiermee wordt ook een sessiecookie ingesteld waarmee de gebruiker bij volgende pagina-aanvragen kan worden geïdentificeerd.
+Validatie van het `id_token` met behulp van een openbare ondertekeningssleutel die is ontvangen van Azure AD is voldoende om de identiteit van de gebruiker te controleren. Dit proces stelt ook een sessiecookie die kan worden gebruikt om de gebruiker op de volgende pagina-aanvragen te identificeren.
 
 Als u wilt zien van dit scenario werkt, probeert u een van de web application aanmelden codevoorbeelden in onze [aan de slag sectie](active-directory-b2c-overview.md).
 
@@ -124,58 +124,18 @@ Als u de client referentie stroom instelt, Zie [Azure Active Directory v2.0 en d
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Web-API-ketens (namens-stroom)
 
-Veel architecturen bevatten een web-API die een andere downstream web-API moet aanroepen, waarbij beide zijn beveiligd door Azure AD B2C. Dit scenario is gemeenschappelijk in systeemeigen clients met een web-API-back-end. Vervolgens wordt een onlineservice van Microsoft aangeroepen, zoals de Azure AD Graph API.
+Veel architecturen bevatten een web-API die een andere downstream web-API moet aanroepen, waarbij beide zijn beveiligd door Azure AD B2C. In dit scenario is gemeenschappelijk in systeemeigen clients waarvoor een Web-API-back-end en een Microsoft online services, zoals de Azure AD Graph API-aanroepen.
 
 Dit scenario met web-API-keten kan worden ondersteund met behulp van de OAuth 2.0 JWT bearer-referentietoekenning, ook wel de namens-stroom genoemd.  De namens-stroom is momenteel echter niet geïmplementeerd in Azure AD B2C.
 
-### <a name="reply-url-values"></a>Waarden voor antwoord-URL
-
-Toepassingen die zijn geregistreerd bij Azure AD B2C zijn momenteel beperkt tot een vast aantal waarden voor antwoord-URL's. De antwoord-URL voor webtoepassingen en services moet met het schema `https` beginnen. Alle waarden voor antwoord-URL's moeten één DNS-domein delen. U kunt bijvoorbeeld geen webtoepassing met een van deze antwoord-URL's registreren:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Het registratiesysteem vergelijkt de volledige DNS-naam van de bestaande antwoord-URL met de DNS-naam van de antwoord-URL die u wilt toevoegen. De aanvraag voor het toevoegen van de DNS-naam mislukt als aan een van de volgende voorwaarden wordt voldaan:
-
-- De volledige DNS-naam van de nieuwe antwoord-URL komt niet overeen met de DNS-naam van de bestaande antwoord-URL.
-- De volledige DNS-naam van de nieuwe antwoord-URL is geen subdomein van de bestaande antwoord-URL.
-
-Als de toepassing bijvoorbeeld deze antwoord-URL heeft:
-
-`https://login.contoso.com`
-
-Dan kunt u er als volgt aan toevoegen:
-
-`https://login.contoso.com/new`
-
-In dit geval komt de DNS-naam precies overeen. Of u kunt dit doen:
-
-`https://new.login.contoso.com`
-
-In dit geval verwijst u naar een DNS-subdomein van login.contoso.com. Als u een toepassing hebt die login-east.contoso.com en login-west.contoso.com als antwoord-URL's heeft, moet u de antwoord-URL's in deze volgorde toevoegen:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-U kunt de laatste twee toevoegen, omdat ze subdomeinen van de eerste antwoord-URL, contoso.com, zijn. 
-
-Wanneer u mobiele/native toepassingen maakt, definieert u een **omleidings-URI** in plaats van een **opnieuw afspelen URL**. Er zijn twee belangrijke overwegingen bij het kiezen van een omleidings-URI:
-
-- **Uniek**: het schema van de omleidings-URI moet voor elke toepassing uniek zijn. In het voorbeeld `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` het schema. Dit patroon moet worden gevolgd. Als twee toepassingen hetzelfde schema delen, ziet de gebruiker een **Kies app** dialoogvenster. Als de gebruiker een foute keuze maakt, mislukt de aanmelding.
-- **Volledig**: de omleidings-URI moet een schema en een pad hebben. Het pad moet ten minste één forward slash bevatten na het domein. Bijvoorbeeld, `//contoso/` werkt en `//contoso` is mislukt. Controleer of dat er zijn geen speciale tekens zoals onderstrepingstekens in de omleidings-URI.
-
 ### <a name="faulted-apps"></a>Mislukte toepassingen
 
-Azure AD B2C-toepassingen moeten niet worden bewerkt:
+Azure AD B2C-toepassingen op de volgende manieren niet bewerken:
 
 - Op andere appbeheerportals zoals de [Portal voor Appregistratie](https://apps.dev.microsoft.com/).
 - Met de Graph API of PowerShell.
 
-Als u de Azure AD B2C-toepassing buiten de Azure-portal hebt bewerkt, wordt een mislukte toepassing en is niet meer kan worden gebruikt met Azure AD B2C. U moet de toepassing verwijderen en deze opnieuw maken.
+Als u de Azure AD B2C-toepassing buiten de Azure-portal hebt bewerkt, wordt een mislukte toepassing en is niet meer kan worden gebruikt met Azure AD B2C. De toepassing verwijderen en opnieuw maken.
 
 Als u wilt verwijderen van de toepassing, gaat u naar de [Portal voor Appregistratie](https://apps.dev.microsoft.com/) en verwijdert u daar de toepassing. De toepassing is alleen zichtbaar als u de eigenaar van de toepassing bent (en niet een beheerder van de tenant).
 

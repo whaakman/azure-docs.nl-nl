@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: a16360fe74efe7394c061118bc4e6fa34e484858
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198539"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229953"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -33,6 +33,15 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 > U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-sdk), CLI of een van de ondersteunde SDK's.
 
 Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Services v2 naar v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="december-2018"></a>December 2018
+
+Updates van de GA-versie van de API V3 zijn onder andere:
+       
+* De **PresentationTimeRange** eigenschappen zijn niet langer vereist voor **AssetFilters** en **AccountFilters**. 
+* Opties voor query uitvoeren op de $skip en $top **taken** en **transformeert** zijn verwijderd en $orderby is toegevoegd. Als onderdeel van het toevoegen van de nieuwe functionaliteit van schrijfvolgorde wordt toegepast, is het gedetecteerd dat de opties voor $top en $skip per ongeluk eerder had zijn blootgesteld zelfs als ze niet zijn geïmplementeerd.
+* Opsomming uitbreidbaarheid is opnieuw ingeschakeld. Deze functie is ingeschakeld in de preview-versies van de SDK en per ongeluk is uitgeschakeld in de GA-versie.
+* Twee vooraf gedefinieerde streaming beleidsregels is hernoemd. **SecureStreaming** is nu **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** is nu **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>November 2018
 

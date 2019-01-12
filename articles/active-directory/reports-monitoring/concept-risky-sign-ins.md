@@ -14,18 +14,18 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623856"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244712"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 
-Azure Active Directory (Azure AD) detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Voor elke activiteit wordt gedetecteerde er een record met de naam een **risicogebeurtenis** wordt gemaakt. Zie voor meer informatie, [Azure AD-risicogebeurtenissen](concept-risk-events.md). 
+Azure Active Directory (Azure AD) detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Voor elke gedetecteerde activiteit wordt een record met de naam **risicogebeurtenis** gemaakt. Zie voor meer informatie, [Azure AD-risicogebeurtenissen](concept-risk-events.md). 
 
-U hebt toegang tot de beveiligingsrapporten in de [Azure-portal](https://portal.azure.com) door het selecteren van de **Azure Active Directory** blade en vervolgens te navigeren naar de **Security** sectie. 
+De beveiligingsrapporten zijn beschikbaar via de [Azure-portal](https://portal.azure.com). Selecteer de blade **Azure Active Directory** en ga vervolgens naar de sectie **Beveiliging**. 
 
 Er zijn twee verschillende beveiligingsrapporten die worden berekend op basis van de risicogebeurtenissen:
 
@@ -35,7 +35,7 @@ Er zijn twee verschillende beveiligingsrapporten die worden berekend op basis va
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/10.png)
 
-Zie voor informatie over het configureren van de beleidsregels die van deze risicogebeurtenissen activeren, [het configureren van het beleid voor gebruikersrisico's](../identity-protection/howto-user-risk-policy.md).  
+Zie [Het beleid voor gebruikersrisico's configureren](../identity-protection/howto-user-risk-policy.md) voor informatie over het configureren van de beleidsregels die deze risicogebeurtenissen activeren.  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>Wie toegang heeft tot het rapport riskante aanmeldingen?
 
@@ -53,7 +53,7 @@ Alle edities van Azure AD bieden rapporten over riskante aanmeldingen. Het detai
 
 - In de **Azure Active Directory gratis en Basic edities**, krijgt u een lijst met riskante aanmeldingen. 
 
-- Bovendien de **Azure Active Directory Premium 1** edition kunt u enkele van de onderliggende risicogebeurtenissen die zijn gedetecteerd voor elk rapport bekijken. 
+- Daarnaast kunt u in de editie **Azure Active Directory Premium 1** bepaalde onderliggende risicogebeurtenissen onderzoeken die voor elk rapport zijn gedetecteerd. 
 
 - De editie **Azure Active Directory Premium 2** biedt u de meest gedetailleerde informatie over alle onderliggende risicogebeurtenissen. Deze editie stelt u ook in staat beveiligingsbeleidsregels te configureren die automatisch op de geconfigureerde risiconiveaus reageren.
 
@@ -85,12 +85,11 @@ Dit rapport bevat ook een optie voor het:
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Rapport riskante aanmeldingen voor Azure AD premium-edities
 
 Het rapport riskante aanmeldingen in de Azure AD premium-edities biedt u met:
 
-- Verzamelde informatie over de gedetecteerde [risicogebeurtenistypen](concept-risk-events.md)
+- Verzamelde informatie over de [risicogebeurtenistypen](concept-risk-events.md) die zijn gedetecteerd. Met de **editie van Azure AD Premium P1**, detecties die niet bij uw licentie inbegrepen zijn worden weergegeven als de risicogebeurtenis **aanmelden met extra risico gedetecteerd**. Met de **Azure AD Premium P2-editie**, krijgt u de meest gedetailleerde informatie over alle onderliggende detecties.
 
 - Een optie voor het downloaden van het rapport
 
@@ -127,6 +126,6 @@ Hiermee opent u de blade **Details** voor deze risicogebeurtenis. Op de blade **
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Het configureren van het beleid voor gebruikersrisico 's](../identity-protection/howto-user-risk-policy.md)
-- [Het configureren van het beleid voor het herstel van gebruikersrisico](../identity-protection/howto-user-risk-policy.md)
+- [Het beleid voor gebruikersrisico's configureren](../identity-protection/howto-user-risk-policy.md)
+- [How to configure the risk remediation policy](../identity-protection/howto-user-risk-policy.md) (Beleid voor herstel gebruikersrisico configureren)
 - [Risicogebeurtenistypen](concept-risk-events.md)

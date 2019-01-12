@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ea1c44d95dfb00fdb2b0af9e5cd8560fdee3d361
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188789"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231339"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -335,7 +335,7 @@ Node localhost
 ```
 
 ## <a name="remove-the-dependency-agent"></a>Verwijderen van de agent voor afhankelijkheden
-### <a name="uinstall-agent-on-windows"></a>De agent verwijderen op Windows
+### <a name="uninstall-agent-on-windows"></a>Op Windows-agent verwijderen
 Een beheerder kan de agent voor afhankelijkheden voor Windows via het Configuratiescherm kunt verwijderen.
 
 Een beheerder kan ook uitvoeren %Programfiles%\Microsoft afhankelijkheid Agent\Uninstall.exe verwijderen van de agent voor afhankelijkheden.

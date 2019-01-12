@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 035284e23d3b600cbf1cbd5500a9821c2c628b05
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156201"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246956"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>De resourceprovider van SQL Server op Azure Stack implementeren
 
@@ -46,7 +47,7 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
 
 - Zorg ervoor dat de datacenter-integratie vereisten wordt voldaan:
 
-    |Vereiste|Verwijzing|
+    |Vereiste|Referentie|
     |-----|-----|
     |Voorwaardelijk doorsturen van DNS is correct ingesteld.|[Datacenter-integratie Azure Stack - DNS](azure-stack-integrate-dns.md)|
     |Poorten voor inkomend verkeer voor resourceproviders zijn geopend.|[Azure Stack-datacenter-integratie - eindpunten publiceren](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -59,8 +60,11 @@ _Geïntegreerde systemen alleen voor installaties_. Moet u de SQL-PaaS-PKI-certi
 
 ## <a name="deploy-the-sql-resource-provider"></a>De SQL-resourceprovider implementeren
 
-Nadat u alle vereisten die zijn geïnstalleerd hebt, voert u de **DeploySqlProvider.ps1** script voor het implementeren van de SQL-resourceprovider. Het script DeploySqlProvider.ps1 wordt opgehaald als onderdeel van de SQL-resource provider binaire bestand dat u hebt gedownload voor uw versie van Azure Stack.
+Nadat u alle vereiste onderdelen hebt geïnstalleerd, kunt u uitvoeren de **DeploySqlProvider.ps1** script voor het implementeren van de SQL-resourceprovider. Het script DeploySqlProvider.ps1 wordt opgehaald als onderdeel van de SQL-resource provider binaire bestand dat u hebt gedownload voor uw versie van Azure Stack.
 
+ > [!IMPORTANT]
+ > Controleer voordat u de resourceprovider implementeert, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
+ 
 Voor het implementeren van de SQL-resourceprovider, opent u een **nieuwe** verhoogde PowerShell-venster (niet PowerShell ISE) en de wijzigingen in de map waar u de SQL-resource provider binaire bestanden hebt uitgepakt. We raden u aan met behulp van een nieuwe PowerShell-venster om te voorkomen van potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
 
 Voer het script DeploySqlProvider.ps1, die bestaat uit de volgende taken:
@@ -133,6 +137,10 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `

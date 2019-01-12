@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: ea78176b9e35643698acf3901b30520b7c7be3c2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214386"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247823"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -101,9 +101,9 @@ Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 
 U kunt toevoegen en verwijderen-adresbereiken voor een virtueel netwerk. Een adresbereik in CIDR-notatie moet worden opgegeven en mag niet overlappen met andere adresbereiken binnen hetzelfde virtuele netwerk. De adresbereiken die u definieert kunnen zijn openbaar of privé (RFC 1918). Of u het adresbereik als openbare of particuliere definiëren, is het adresbereik bereikbaar is alleen van binnen het virtuele netwerk van met elkaar verbonden virtuele netwerken en van een on-premises-netwerken die u hebt gekoppeld aan het virtuele netwerk. 
 
-<!-- You can decrease the address range for a given virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range; for example, changing a /16 to /8 is possible. We recommend that you begin with a small address range, and then extend it later or add additional ranges.
+Als u geen subnetten gekoppeld hebt, kunt u het adresbereik van een virtueel netwerk verminderen. Anders kunt u alleen uitbreiden het adresbereik, bijvoorbeeld, als een /16 naar/8 die u wijzigt. U kan beginnen met een kleine adresbereik, en vervolgens later uitbreiden of extra bereiken toevoegen.
 
-the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 U kunt de volgende adresbereiken niet toevoegen:
 

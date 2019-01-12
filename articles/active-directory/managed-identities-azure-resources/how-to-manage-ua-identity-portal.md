@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 971d0181cb8e38b952c3dd3dd1d7e5e1cbec5128
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720130"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244644"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Maken, weergeven, verwijderen of een rol toewijzen aan een gebruiker toegewezen beheerde identiteit met Azure portal
 
@@ -41,7 +41,7 @@ Voor het maken van een gebruiker toegewezen beheerde identiteit, uw account moet
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een account dat is gekoppeld aan het Azure-abonnement te maken van de gebruiker toegewezen beheerde identiteit.
 2. Typ in het zoekvak *beheerde identiteiten*, en klikt u onder **Services**, klikt u op **beheerde identiteiten**.
 3. Klik op **toevoegen** en voer waarden in de volgende velden onder **maken door gebruiker toegewezen beheerd** identiteit deelvenster:
-   - **Resourcenaam**: dit is de naam voor de gebruiker toegewezen beheerde identiteit, bijvoorbeeld UAI1.
+   - **Resourcenaam**: Dit is de naam voor de gebruiker toegewezen beheerde identiteit, bijvoorbeeld UAI1.
    - **Abonnement**: Kies het abonnement te maken van de gebruiker toegewezen beheerde identiteit onder
    - **Resourcegroep**: Maak een nieuwe resourcegroep voor uw gebruiker toegewezen beheerde identiteit bevatten of kies **gebruik bestaande** te maken van de gebruiker toegewezen beheerde identiteit in een bestaande resourcegroep.
    - **Locatie**: Kies een locatie voor het implementeren van de gebruiker toegewezen beheerde identiteit, bijvoorbeeld **VS-West**.
@@ -62,6 +62,8 @@ Als u wilt lezen/lijst met een gebruiker toegewezen beheerde identiteit, uw acco
 ## <a name="delete-a-user-assigned-managed-identity"></a>Verwijderen van een gebruiker toegewezen beheerde identiteit
 
 Als u wilt verwijderen van een gebruiker toegewezen beheerde identiteit, uw account moet de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roltoewijzing.
+
+Verwijderen van een gebruiker toegewezen identiteit wordt niet verwijderd uit de virtuele machine of deze is toegewezen aan resource.  De gebruiker toegewezen identiteit verwijderen uit een VM-raadpleegt [verwijderen van een gebruiker toegewezen beheerde identiteit van een virtuele machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een account dat is gekoppeld aan het Azure-abonnement te verwijderen van een gebruiker toegewezen beheerde identiteit.
 2. Selecteer de gebruiker toegewezen beheerde identiteit en klik op **verwijderen**.

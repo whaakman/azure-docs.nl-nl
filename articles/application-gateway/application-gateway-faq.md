@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994841"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247500"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -25,7 +25,7 @@ Azure Application Gateway is een Application Delivery Controller (ADC) als een s
 
 ### <a name="what-features-does-application-gateway-support"></a>Welke functies biedt ondersteuning voor Application Gateway?
 
-Application Gateway biedt ondersteuning voor automatisch schalen, SSL-offloading en end-to-end SSL, Web Application Firewall, cookies gebaseerde sessieaffiniteit, url-pad gebaseerde routering, hosten van meerdere sites en anderen. Zie voor een volledige lijst van ondersteunde functies, [Inleiding tot Application Gateway](application-gateway-introduction.md).
+Application Gateway biedt ondersteuning voor automatisch schalen, SSL-offloading en end-to-end SSL, Web Application Firewall, cookies gebaseerde sessieaffiniteit, url-pad gebaseerde routering, meerdere locaties die als host fungeert en anderen. Zie voor een volledige lijst van ondersteunde functies, [Inleiding tot Application Gateway](application-gateway-introduction.md).
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Wat is het verschil tussen de Application Gateway en Azure Load Balancer?
 
@@ -53,7 +53,7 @@ Back-endpools kunnen bestaan uit NIC's, virtuele-machineschaalsets, openbare IP-
 
 ### <a name="what-regions-is-the-service-available-in"></a>Welke regio's is de service beschikbaar is in?
 
-Application Gateway is beschikbaar in alle regio's van de globale Azure. Het is ook beschikbaar in [Azure China](https://www.azure.cn/) en [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
+Application Gateway is beschikbaar in alle regio's van de globale Azure. Het is ook beschikbaar in [Azure China 21Vianet](https://www.azure.cn/) en [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>Is dit een specifieke implementatie voor mijn abonnement of deze verdeeld over klanten?
 
@@ -126,7 +126,7 @@ Nee, maar u kunt andere Toepassingsgateways in het subnet implementeren.
 
 Netwerkbeveiligingsgroepen (nsg's) worden ondersteund op het subnet van de gateway met de volgende beperkingen:
 
-* Uitzonderingen moeten in worden geplaatst voor binnenkomend verkeer op poort 65503 65534 voor Application Gateway v1-SKU en poorten 65200-65535 voor de v2-SKU. Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten kunnen zich externe entiteiten, inclusief de klanten van deze gateways, niet kunnen initiëren wijzigingen op de eindpunten.
+* Uitzonderingen moeten in worden geplaatst voor binnenkomend verkeer op poort 65503 65534 voor Application Gateway v1-SKU en poorten 65200-65535 voor de v2-SKU. Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten zijn niet externe entiteiten, inclusief de klanten van deze gateways kunnen initiëren wijzigingen op de eindpunten.
 
 * Uitgaande verbinding met internet kan niet worden geblokkeerd.
 
@@ -137,6 +137,8 @@ Netwerkbeveiligingsgroepen (nsg's) worden ondersteund op het subnet van de gatew
 Gebruiker gedefinieerde routes (udr's) worden ondersteund op het subnet van de gateway, zolang ze de end-to-end verzoek/reactie-communicatie niet wijzigen.
 
 Bijvoorbeeld, u kunt een UDR in het subnet van de gateway instellen om te verwijzen naar een firewallapparaat voor pakketinspecties uitvoeren, maar moet u ervoor zorgen dat het pakket de inspectie van de bestemming van het bericht kan bereiken. Dit niet doet, kan leiden tot onjuiste health test of verkeer omleiden gedrag. Dit omvat geleerde routes of 0.0.0.0/0 standaardroutes doorgegeven door ExpressRoute of VPN-Gateways in het virtuele netwerk.
+
+Udr's op het subnet van de gateway zijn **niet** ondersteund op de v2-SKU. Zie voor meer informatie, [automatisch schalen en Zone-redundante Application Gateway (openbare Preview)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Wat zijn de limieten in Application Gateway? Kan ik deze limieten verhogen?
 
@@ -206,11 +208,11 @@ Ja, de v2-SKU van Application Gateway biedt ondersteuning voor automatisch schal
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>Handmatig schalen wordt omhoog/omlaag oorzaak downtime?
 
-Er is geen downtime, exemplaren worden verdeeld over upgrade-domeinen en domeinen met fouten.
+Er is geen downtime. Exemplaren worden verdeeld over upgrade-domeinen en domeinen met fouten.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway ondersteunt verwerkingsstop?
 
-Ja. U kunt configureren als u wilt wijzigen van de leden in een back endpool zonder onderbreking Verwerkingsstop voor verbindingen. Hierdoor kunnen bestaande verbindingen om door te gaan naar de vorige bestemming worden verzonden totdat de verbinding is gesloten of een configureerbare time-out is verlopen. Wacht alleen Verwerkingsstop voor verbindingen voor de huidige actieve verbindingen om te voltooien. Application Gateway is niet op de hoogte van de sessiestatus van toepassing.
+Ja. U kunt configureren als u wilt wijzigen van de leden in een back endpool zonder onderbreking Verwerkingsstop voor verbindingen. Hiermee kunt bestaande verbindingen om door te gaan naar de vorige bestemming worden verzonden totdat de verbinding is gesloten of een configureerbare time-out is verlopen. Wacht alleen Verwerkingsstop voor verbindingen voor de huidige actieve verbindingen om te voltooien. Application Gateway is niet op de hoogte van de sessiestatus van toepassing.
 
 ### <a name="what-are-application-gateway-sizes"></a>Wat is application gateway-grootten?
 
@@ -292,7 +294,7 @@ Ja, [configuratie van coderingssuites](application-gateway-ssl-policy-overview.m
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>Het aantal SSL-certificaten worden ondersteund?
 
-Maximaal 20 SSL worden-certificaten ondersteund.
+Maximaal 100 SSL worden-certificaten ondersteund.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Het aantal verificatiecertificaten voor het opnieuw versleutelen van back-end worden ondersteund?
 
@@ -374,7 +376,7 @@ Ja, Application Gateway ondersteunt waarschuwingen. Waarschuwingen zijn over met
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hoe ik verkeer statistische gegevens analyseren voor Application Gateway?
 
-U kunt bekijken en analyseren van toegang tot logboeken via een aantal methoden, zoals Azure Log Analytics, Excel, Power BI enzovoort.
+U kunt bekijken en analyseren van toegang tot logboeken via verschillende mechanismen zoals Azure Log Analytics, Excel, Power BI enzovoort.
 
 We hebben ook een Resource Manager-sjabloon die wordt geïnstalleerd en wordt uitgevoerd de populaire gepubliceerd [GoAccess](https://goaccess.io/) analyzer aanmelden voor Application Gateway toegang tot logboeken. GoAccess biedt waardevolle HTTP-verkeer-statistieken, zoals het unieke bezoekers, bestanden aangevraagd, Hosts, besturingssystemen, Browsers, HTTP-statuscodes en nog veel meer. Zie voor meer informatie de [Leesmij-bestand in de map met het Resource Manager-sjablonen in GitHub](https://aka.ms/appgwgoaccessreadme).
 

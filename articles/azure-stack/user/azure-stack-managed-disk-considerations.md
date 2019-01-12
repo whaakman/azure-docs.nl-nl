@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159363"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232529"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack-beheerde schijven: de verschillen en overwegingen met betrekking tot
 
@@ -37,7 +37,7 @@ Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer va
 | Functie | Azure (wereldwijd) | Azure Stack |
 | --- | --- | --- |
 |Versleuteling van Data-at-Rest |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker-128-bits AES-versleuteling      |
-|Afbeelding          | Ondersteuning voor beheerde aangepaste installatiekopie |Nog niet ondersteund|
+|Installatiekopie          | Ondersteuning voor beheerde aangepaste installatiekopie |Nog niet ondersteund|
 |Opties voor back-up |Ondersteuning voor Azure Backup-Service |Nog niet ondersteund |
 |Opties voor herstel na noodgevallen |Ondersteuning voor Azure Site Recovery |Nog niet ondersteund|
 |Schijftypen     |Premium SSD, Standard-SSD (Preview) en Standard HDD |Premium SSD, standaard harde schijven |
@@ -52,7 +52,7 @@ Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer va
 > [!NOTE]  
 > Beheerde schijven IOPs en doorvoer in Azure Stack is een maximum aantal in plaats van een ingerichte nummer, dat mogelijk beïnvloed door de hardware- en workloads die worden uitgevoerd in Azure Stack.
 
-## <a name="metrics"></a>Metrieken
+## <a name="metrics"></a>Metrische gegevens
 
 Er zijn ook verschillen met metrische gegevens over opslag:
 
@@ -65,14 +65,14 @@ Azure Stack Managed Disks ondersteunt de volgende API-versies:
 
 - 2017-03-30
 
-## <a name="known-issues"></a>Bekende problemen
+## <a name="configuration"></a>Configuratie
 
-Na het toepassen van updates na 1808, kunt u de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
+Na het toepassen van de 1808 bijwerken of hoger, moet u de volgende configuratie voordat u Managed Disks uitvoeren:
 
-- Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
+- Als een abonnement is gemaakt vóór de update 1808, volg de onderstaande stappen voor het bijwerken van het abonnement. Anders wordt kan het implementeren van virtuele machines in dit abonnement mislukken met een foutbericht "Interne fout in Schijfbeheer."
    1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
    2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
-- Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
+- Als u een omgeving met meerdere tenants, vraagt u uw cloud-operator (mei in uw eigen organisatie of van de serviceprovider) te configureren op elk van uw adreslijsten Gast Volg deze stappen in [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Implementatie van VM's in een abonnement dat is gekoppeld aan een gastenlijst anders kan mislukken met een foutbericht "Interne fout in Schijfbeheer."
 
 
 ## <a name="next-steps"></a>Volgende stappen

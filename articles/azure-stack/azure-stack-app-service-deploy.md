@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bbb8e39e60500a2d8310159cfbac5659964fc387
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104757"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230013"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -46,6 +46,9 @@ Installeren van de App Service-resourceprovider is ten minste een uur. De lengte
  - Maak een DNS-zone en vermeldingen voor App Service.
  - Registreer de resourceprovider App Service.
  - Registreer het galerie-items van het App Service.
+
+ > [!IMPORTANT]
+ > Controleer voordat u de resourceprovider implementeert, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
 
 Volg deze stappen voor het implementeren van App Service-resourceprovider:
 

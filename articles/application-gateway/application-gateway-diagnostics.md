@@ -1,23 +1,18 @@
 ---
-title: Monitor voor toegang tot logboeken, Prestatielogboeken, back-endstatus en metrische gegevens voor Application Gateway
-description: Meer informatie over het inschakelen en beheren van toegang en Prestatielogboeken voor Application Gateway
+title: Monitor voor toegang tot logboeken, Prestatielogboeken, back-endstatus en metrische gegevens voor Azure Application Gateway
+description: Meer informatie over het inschakelen en beheren van toegang en Prestatielogboeken voor Azure Application Gateway
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437466"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231101"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -98,7 +93,7 @@ Het volgende codefragment toont een voorbeeld van het antwoord:
 U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en problemen oplossen Toepassingsgateways. Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Alle logboeken kunnen worden opgehaald uit Azure Blob-opslag en bekeken in verschillende hulpprogramma's, zoals [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de volgende lijst:
 
 * **Activiteitenlogboek**: U kunt [Azure-activiteitenlogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md) (voorheen bekend als de operationele logboeken en auditlogboeken) om alle bewerkingen die worden verzonden naar uw Azure-abonnement en hun status weer te geven. Activiteitenlogboekitems worden standaard verzameld en kunnen in de Azure-portal worden bekeken.
-* **Toegangslogboek**: U kunt dit logboek patronen voor databasetoegang van Application Gateway weergeven en analyseren van informatie, waaronder van de oproepende functie IP, aangevraagde URL wachttijd van het antwoord, retourcode en bytes in en uit. Aanmeldgegevens voor de toegang is verzameld om de 300 seconden. Dit logboek bevat één record per exemplaar van Application Gateway. De toepassingsgateway-exemplaar kan worden geïdentificeerd door de eigenschap instanceId.
+* **Toegangslogboek**: U kunt dit logboek patronen voor databasetoegang van Application Gateway weergeven en analyseren van belangrijke informatie. Dit omvat van de oproepende functie IP, aangevraagde URL, wachttijd van het antwoord, retourcode en bytes in en uit. Aanmeldgegevens voor de toegang is verzameld om de 300 seconden. Dit logboek bevat één record per exemplaar van Application Gateway. De toepassingsgateway-exemplaar wordt geïdentificeerd door de eigenschap instanceId.
 * **Prestatielogboek**: U kunt dit logboek gebruiken om weer te geven hoe Application Gateway-instanties worden uitgevoerd. Dit logboek bevat informatie over de prestaties voor elk exemplaar, met inbegrip van totaal aantal aanvragen dat plaatsvindt, doorvoer in bytes, totaal aantal aanvragen dat plaatsvindt, aantal mislukte aanvragen en het aantal back-end-exemplaren in orde is en niet in orde. Een prestatielogboek worden verzameld van elke 60 seconden.
 * **Firewall-logboek**: U kunt dit logboek gebruiken om de aanvragen die zijn geregistreerd via detectie of preventie modus van een application gateway die is geconfigureerd met de web application firewall weer te geven.
 
@@ -217,7 +212,7 @@ Het logboekbestand voor prestaties is gegenereerd, alleen als u deze op elk toep
 |HealthyHostCount     | Het aantal veilige hosts in de back-endpool.        |
 |unHealthyHostCount     | Aantal slechte hosts in de back-endpool.        |
 |requestCount     | Het aantal aanvragen.        |
-|latentie | Latentie (in milliseconden) van aanvragen van het exemplaar naar de back-end die een registratiesysteem de aanvragen vormt. |
+|latentie | Gemiddelde latentie (in milliseconden) van aanvragen van het exemplaar naar de back-end die een registratiesysteem de aanvragen vormt. |
 |failedRequestCount| Het aantal mislukte aanvragen.|
 |Doorvoer| Gemiddelde doorvoersnelheid sinds de laatste logboek, gemeten in bytes per seconde.|
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077960"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244693"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -81,7 +81,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 > [!IMPORTANT]  
 > Hebt u een firewall die verbindingen van het openbare VIP-netwerk met de server niet is toegestaan, wordt deze wijziging infrastructuur back-ups mislukken met 'Fout 53 het netwerkpad is niet gevonden'. Dit is een belangrijke wijziging waarvoor geen redelijke oplossing. Op basis van feedback van klanten, wordt Microsoft deze wijziging in een hotfix hersteld. Raadpleeg de [update stappen sectie boeken](#post-update-steps) voor meer informatie over beschikbare hotfixes voor 1809. Zodra de hotfix beschikbaar is, zorg ervoor dat er na het bijwerken van 1809 alleen als uw beleid voor netwerken niet toestaan het openbare VIP-netwerk dat voor toegang tot bronnen van de infrastructuur van toepassing. in 1811, wordt deze wijziging wordt toegepast op alle systemen. Als u de hotfix in 1809 toegepast, is er geen verdere actie vereist.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>Veelvoorkomende beveiligingsproblemen en risico 's
 
 Deze update installeert de volgende beveiligingsupdates:  
 
@@ -251,6 +251,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Azure Stack-operators, als u een waarschuwing voor een beperkte hoeveelheid geheugen ontvangt en virtuele machines van tenants niet te implementeren met een **fout bij het maken van infrastructuur-VM**, is het mogelijk dat de Azure Stack-stempel heeft te weinig geheugen beschikbaar. Gebruik de [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) naar het beste informatie over de beschikbare capaciteit voor uw workloads.
 
 ### <a name="compute"></a>Compute
+
+- Bij het maken van een [Dv2-serie VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 VM's kunnen u 4, 8, 16 en 32 gegevensschijven respectievelijk maken. Het deelvenster van de virtuele machine maken bevat, 8, 16, 32 en 64 gegevensschijven.
 
 <!-- 3235634 – IS, ASDK -->
 - Het implementeren van VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, geef het achtervoegsel als **Standard_A2_v2** (kleine letters v). Gebruik geen **Standard_A2_V2** (V hoofdletters). Dit werkt in de globale Azure en is een inconsistentie in Azure Stack.

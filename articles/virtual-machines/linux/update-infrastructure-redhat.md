@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 1a1038bec66cd90e2cd0cbc8b125857403317d89
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 61d2c82f875c4f40e370515fd249e23601e91678
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078249"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232053"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure voor on-demand Red Hat Enterprise Linux-machines in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehoste opslagplaats, aangepaste opslagplaatsen maken met Azure-specifieke inhoud en het beschikbaar maken voor virtuele machines door eindgebruikers.
@@ -27,6 +27,8 @@ ms.locfileid: "54078249"
 Red Hat Enterprise Linux (RHEL) betalen naar gebruik (betalen per gebruik) afbeeldingen afkomstig zijn vooraf geconfigureerd voor toegang tot Azure RHUI. Er is geen aanvullende configuratie nodig. Uitvoeren als u de meest recente updates, `sudo yum update` nadat uw RHEL-exemplaar gereed is. Deze service is opgenomen als onderdeel van de kosten voor de RHEL PAYG-software.
 
 Meer informatie over de RHEL-installatiekopieën in Azure, met inbegrip van publicatie- en bewaarbeleid, is beschikbaar [hier](./rhel-images.md).
+
+Informatie over het beleid voor Red Hat-ondersteuning voor alle versies van RHEL vindt u op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.
 
 ## <a name="important-information-about-azure-rhui"></a>Belangrijke informatie over Azure RHUI
 * Azure RHUI ondersteunt momenteel alleen de nieuwste secundaire versie van de RHEL-familie (RHEL6 of RHEL7). Als u een RHEL VM-exemplaar dat is verbonden met RHUI naar de nieuwste secundaire versie upgraden, uitvoeren `sudo yum update`.
@@ -218,4 +220,4 @@ Deze procedure is alleen ter informatie bedoeld. Er is al de juiste configuratie
 ## <a name="next-steps"></a>Volgende stappen
 * Een Red Hat Enterprise Linux-VM maken vanaf een betalen per gebruik van Azure Marketplace-installatiekopie en RHUI wordt gehost op Azure gebruiken, gaat u naar de [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
 * Voor meer informatie over de Red Hat-afbeeldingen in Azure, gaat u naar de [documentatiepagina](./rhel-images.md).
-
+* Informatie over het beleid voor Red Hat-ondersteuning voor alle versies van RHEL vindt u op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.

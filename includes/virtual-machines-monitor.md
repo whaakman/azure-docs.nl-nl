@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122816"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242341"
 ---
 U kunt profiteren van veel mogelijkheden voor het bewaken van uw virtuele machines te verzamelen, weergeven en analyseren van diagnostische en logboekgegevens. Eenvoudige doen [bewaking](../articles/azure-monitor/overview.md) van uw virtuele machine, kunt u het scherm overzicht voor de virtuele machine in Azure portal. U kunt [extensies](../articles/virtual-machines/windows/extensions-features.md) voor het configureren van diagnostische gegevens op uw VM's voor het verzamelen van aanvullende metrische gegevens. U kunt ook meer geavanceerde controle-opties, zoals gebruiken [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) en [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ U kunt instellen en controleren van de verzameling van [diagnostische gegevens](
 
 ## <a name="alerts"></a>Waarschuwingen
 
-U kunt maken [waarschuwingen](../articles/azure-monitor/platform/alerts-overview.md) op basis van specifieke maatstaven voor prestaties. Voorbeelden van de problemen die u kunt worden gewaarschuwd bij zijn bij het gemiddelde CPU-gebruik een bepaalde drempelwaarde overschrijdt of beschikbare vrije schijfruimte onder een bepaalde hoeveelheid komt. Waarschuwingen kunnen worden geconfigureerd in de [Azure-portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), met [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), of de [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+U kunt maken [waarschuwingen](../articles/azure-monitor/platform/alerts-overview.md) op basis van specifieke maatstaven voor prestaties. Voorbeelden van de problemen die u kunt worden gewaarschuwd bij zijn bij het gemiddelde CPU-gebruik een bepaalde drempelwaarde overschrijdt of beschikbare vrije schijfruimte onder een bepaalde hoeveelheid komt. Waarschuwingen kunnen worden geconfigureerd in de [Azure-portal](../articles/azure-monitor/platform/alerts-classic-portal.md), met [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), of de [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 

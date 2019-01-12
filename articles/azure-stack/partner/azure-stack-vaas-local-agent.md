@@ -13,12 +13,13 @@ ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0608da33e816b40f7fadbeb1b5da3feb926c28aa
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ROBOTS: NOINDEX
+ms.openlocfilehash: f0ffb4a4c4ea12292639b5a94b7f2990db6e45bd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334054"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247806"
 ---
 # <a name="deploy-the-local-agent"></a>De lokale agent implementeren
 
@@ -76,7 +77,7 @@ Azure Stack wordt het systeem onder testen. De computer mag geen deel uit van Az
 
     **Parameters**
 
-    | Parameter | Beschrijving |
+    | Parameter | Description |
     | --- | --- |
     | aadServiceAdminUser | De globale beheerder voor uw Azure AD-tenant. Zo kan het zijn, vaasadmin@contoso.onmicrosoft.com. |
     | aadServiceAdminPassword | Het wachtwoord voor de globale beheerder. |
@@ -118,7 +119,7 @@ De tests zijn externe acties uitgevoerd. De machine waarop de tests moet toegang
     ````
 
       **Parameters**  
-    | Parameter | Beschrijving |
+    | Parameter | Description |
     | --- | --- |
     | VaaSUserId | Gebruikers-ID gebruikt om aan te melden bij de VaaS Portal (bijvoorbeeld UserName@Contoso.com) |
     | VaaSTenantId | Azure AD-tenant-ID voor het Azure-account is geregistreerd bij validatie uit als een Service. |
@@ -138,4 +139,4 @@ Een agent wordt uniek geïdentificeerd door de naam ervan. Standaard maakt het g
 
 - [Validatie as a Service oplossen](azure-stack-vaas-troubleshoot.md)
 - [Validatie uit als een Service-belangrijkste concepten](azure-stack-vaas-key-concepts.md)
-- [Snelstartgids: De validatie gebruiken als een serviceportal voor het plannen van uw eerste test](azure-stack-vaas-schedule-test-pass.md)
+- [Snelstart: De validatie gebruiken als een serviceportal voor het plannen van uw eerste test](azure-stack-vaas-schedule-test-pass.md)

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f71f1e086e584d1d26b067de001bf83d15bf7961
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971713"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243675"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detecteren en voorbeeldnotitieblokken gebruiken
 
@@ -33,7 +33,7 @@ Wanneer u een laptop die u graag zou willen verkennen hebt geïdentificeerd, vin
 
 - [Azure notitieblokken startsets](https://notebooks.azure.com/#sample-redirect) bevat inleidende informatie over Python, R, en F#, samen met notitieblokken demonstreren data access, Azure Machine Learning-Services en een paar data science oefeningen.
 - [Inleiding tot Jupyter-notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Inleiding tot Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings) door Jake Vanderplas.
+- [Inleiding tot Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) door Jake Vanderplas.
 - [Galerie van interessante notitieblokken](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter-project op GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Fysieke van instructie van de [Physics afdeling op het Britse College London](https://notebooks.azure.com/cvanbreu/libraries)

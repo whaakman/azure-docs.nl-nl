@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957415"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247569"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-verwijzing
 
@@ -163,13 +163,13 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>Beschrijving
+## <a name="description"></a>Description
 
 De **Start AzsReadinessChecker** cmdlet valideert certificaten, Azure-accounts, Azure-abonnementen en Azure Active Directory's. Validatie voordat u implementeert Azure Stack, of voor Azure Stack bewerkingen zoals het geheim rotatie onderhoud worden uitgevoerd. De cmdlet kan ook worden gebruikt voor het ondertekenen van certificaataanvragen genereren voor infrastructuur en eventueel PaaS certificaten.  Ten slotte de cmdlet opnieuw verpakken PFX-certificaten voor het oplossen van veelvoorkomende problemen met verpakking.
 
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="example-generate-certificate-signing-request"></a>Voorbeeld: Een aanvraag voor Certificaatondertekening genereren
+### <a name="example-generate-certificate-signing-request"></a>Voorbeeld: Aanvraag voor Certificaatondertekening genereren
 
 ```PowerShell
 $regionName = 'east'
@@ -189,7 +189,7 @@ Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $passwor
 
 In dit voorbeeld wordt het PFX-wachtwoord wordt gevraagd om veilig en Start AzsReadinessChecker controleert de relatieve map 'Certificaten' voor certificaten geldig zijn voor een AAD-implementatie met de naam van een gebied van 'Oost' en een externe FQDN-naam van "azurestack.contoso.com"
 
-### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Voorbeeld: Certificaten met de implementatiegegevens (implementatie en ondersteuning) valideren
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Voorbeeld: Valideren van certificaten met de implementatiegegevens (implementatie en ondersteuning)
 
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
@@ -198,7 +198,7 @@ Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $passwor
 
 In dit voorbeeld implementatie en ondersteuning voor het PFX-wachtwoord wordt gevraagd om veilig en Start AzsReadinessChecker controleert de relatieve map 'Certificaten' voor certificaten geldig zijn voor een implementatie waarbij identiteit, regio en externe FQDN-naam worden gelezen uit de implementatie gegevens JSON-bestand is gegenereerd voor de implementatie. 
 
-### <a name="example-validate-paas-certificates"></a>Voorbeeld: PaaS certificaten valideren
+### <a name="example-validate-paas-certificates"></a>Voorbeeld: PaaS-certificaten valideren
 
 ```PowerShell
 $PaaSCertificates = @{
@@ -228,7 +228,7 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSO
 
 In dit voorbeeld wordt een hashtabel geconstrueerd met paden en wachtwoorden voor elk certificaat PaaS. Certificaten kunnen worden weggelaten. Start-AzsReadinessChecker controleert of elk PFX-pad bestaat en wordt gevalideerd met behulp van de regio en externe FQDN lezen van het implementatiebestand-JSON gegenereerd voor de implementatie. 
 
-### <a name="example-validate-azure-identity"></a>Voorbeeld: Azure identiteit verifiëren
+### <a name="example-validate-azure-identity"></a>Voorbeeld: Valideren van de Azure-identiteit
 
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
@@ -238,7 +238,7 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 In dit voorbeeld wordt de accountreferenties van de servicebeheerder wordt gevraagd om veilig en Start AzsReadinessChecker controleert of dat de Azure-account en Azure Active Directory zijn geldig voor een AAD-implementatie met de naam van een tenant-map van "azurestack.contoso.com"
 
-### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Voorbeeld: Azure identiteit met implementatiegegevens (ondersteuning voor implementatie) valideren
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Voorbeeld: Valideren van de Azure-identiteit met implementatiegegevens (ondersteuning voor implementatie)
 
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
@@ -247,7 +247,7 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Depl
 
 In dit voorbeeld wordt de accountreferenties van de servicebeheerder wordt gevraagd om veilig en Start AzsReadinessChecker controleert dat de Azure-account en Azure Active Directory zijn geldig voor een AAD-implementatie waarbij AzureCloud en TenantName worden gelezen uit de implementatiegegevens JSON-bestand gegenereerd voor de implementatie.
 
-### <a name="example-validate-azure-registration"></a>Voorbeeld: Azure registratie valideert
+### <a name="example-validate-azure-registration"></a>Voorbeeld: Valideren van de registratie van Azure
 
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
@@ -258,7 +258,7 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 In dit voorbeeld wordt de Abonnementhouder referenties wordt gevraagd om veilig en Start AzsReadinessChecker vervolgens worden gevalideerd tegen het opgegeven account en abonnement om ervoor te zorgen dat deze kan worden gebruikt voor registratie in Azure Stack. 
 
-### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Voorbeeld: Azure registratie bij de implementatiegegevens (implementatieteam) valideren
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Voorbeeld: Registratie van Azure met implementatiegegevens (implementatieteam) valideren
 
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
@@ -277,7 +277,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 In dit voorbeeld wordt wordt het PFX-wachtwoord gevraagd om veilig. Het bestand ssl.pfx worden geïmporteerd in het certificaatarchief van lokale computer en opnieuw met hetzelfde wachtwoord wordt geëxporteerd en opgeslagen als ssl_new.pfx.  Deze procedure is voor gebruik wanneer certificaatvalidatie gemarkeerd dat geen persoonlijke sleutel niet de lokale computer kenmerk is ingesteld heeft, de certificaatketen verbroken is, niet van belang certificaten aanwezig zijn in de PFX zijn of de certificaatketen in de verkeerde volgorde is.
 
-### <a name="example-view-validation-report-deployment-support"></a>Voorbeeld: Bekijk validatierapport (ondersteuning voor implementatie)
+### <a name="example-view-validation-report-deployment-support"></a>Voorbeeld: Validatierapport weergeven (ondersteuning voor implementatie)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
@@ -285,7 +285,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 
 In dit voorbeeld wordt met het team implementatie of ondersteuning ontvangen van het rapport over de gereedheid van de klant (Contoso) en Start AzsReadinessChecker gebruiken om de status van de validatie-uitvoeringen die Contoso uitgevoerd weer te geven.
 
-### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Voorbeeld: Bekijk validatierapport samenvatting voor het certificaat validatie alleen (implementatie en ondersteuning)
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Voorbeeld: Validatierapport weergeven samenvatting voor het certificaat validatie alleen (implementatie en ondersteuning)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary

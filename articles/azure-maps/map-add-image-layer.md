@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8d0ad34496963c32c842033e81bdffb375a27412
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214671"
+ms.locfileid: "54229112"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>De afbeeldingslaag van een toevoegen aan een kaart
 
@@ -40,7 +40,7 @@ In dit voorbeeld laat zien hoe u een afbeelding van overlay een [toewijzing van 
 
 In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-In het tweede blok van code, een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) wordt gemaakt door een URL wordt doorgegeven aan een afbeelding en coördinaten voor de hoeken in de indeling `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
+In het tweede blok van code, een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) wordt gemaakt door een URL wordt doorgegeven aan een afbeelding en coördinaten voor de hoeken in de indeling `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ## <a name="import-a-kml-ground-overlay"></a>Importeren van een KML grond overlay
 

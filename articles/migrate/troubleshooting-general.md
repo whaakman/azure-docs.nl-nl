@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: cb97725d61f899f2408dbb44d052c1dd4e6bc561
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: a018740a44424fd138b787b86b0f527d897f4188
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201292"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230540"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -35,7 +35,7 @@ Wanneer u een Azure Migrate-project hebt verwijderd, worden het migratieproject 
 
 1. Blader naar de Log Analytics-werkruimte die is gekoppeld aan het project.
    a. Als u hebt niet de migration-project hebt verwijderd, kunt u de koppeling vinden in de werkruimte van de overzichtspagina van het project in de sectie Essentials.
-   
+
    ![LA werkruimte](./media/troubleshooting-general/LA-workspace.png)
 
    b. Als u het migratieproject al hebt verwijderd, klikt u op **resourcegroepen** in het linkerdeelvenster in Azure portal en Ga naar de resourcegroep waarin de werkruimte is gemaakt en blader vervolgens naar deze.

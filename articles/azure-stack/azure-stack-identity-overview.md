@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: unknown
+ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902838"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245681"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Overzicht van de identiteit voor Azure Stack
 
@@ -33,8 +33,8 @@ Uw eigen keuze aan Azure AD of AD FS kan worden bepaald door de modus waarin u A
 
 Zie voor meer informatie over uw opties, die afhankelijk van uw Azure Stack-omgeving zijn, de volgende artikelen:
 
-- Azure Stack deployment kit: [identiteit overwegingen met betrekking tot](azure-stack-datacenter-integration.md#identity-considerations).
-- Azure Stack-geïntegreerde systemen: [implementatie planningsbeslissingen voor Azure Stack-geïntegreerde systemen](azure-stack-deployment-decisions.md).
+- Kit voor Azure Stack-implementatie: [Overwegingen met betrekking tot identiteit](azure-stack-datacenter-integration.md#identity-considerations).
+- Azure Stack-geïntegreerde systemen: [Implementatie planningsbeslissingen voor Azure Stack-geïntegreerde systemen](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Algemene concepten voor identiteit
 
@@ -74,23 +74,23 @@ Als u wilt uitnodigen van gastgebruikers, cloudoperators en gebruikers kunnen ge
 
 Als een gastgebruiker, kunt u zich aanmelden bij een andere organisatie directory-tenant. Om dit te doen, u de mapnaam van die organisatie toevoegen aan de portal URL. Bijvoorbeeld, als u deel uitmaken van de Contoso-organisatie en wilt aanmelden bij de Fabrikam-map, u https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="applications"></a>Toepassingen
+### <a name="applications"></a>Applicaties
 
 U kunt naar Azure AD of AD FS-toepassingen registreren en vervolgens de toepassingen voor gebruikers aanbieden in uw organisatie.
 
 Toepassingen zijn onder andere:
 
-- **Webtoepassing**: voorbeelden zijn onder meer de Azure portal en Azure Resource Manager. Deze ondersteuning voor Web-API-aanroepen.
-- **Systeemeigen client**: voorbeelden zijn onder meer Azure PowerShell, Visual Studio en Azure CLI.
+- **Webtoepassing**: Voorbeelden hiervan zijn de Azure portal en Azure Resource Manager. Deze ondersteuning voor Web-API-aanroepen.
+- **Systeemeigen client**: Voorbeelden zijn onder meer Azure PowerShell, Visual Studio en Azure CLI.
 
 Toepassingen kunnen ondersteuning bieden twee typen tenants:
 
-- **Één tenant**: biedt ondersteuning voor gebruikers en services alleen in dezelfde map waar de toepassing is geregistreerd.
+- **Één tenant**: Biedt ondersteuning voor gebruikers en services alleen in dezelfde map waar de toepassing is geregistreerd.
 
   > [!NOTE]
   > Omdat AD FS slechts één map ondersteunt, worden toepassingen die u in een AD FS-topologie maakt standaard één tenant-toepassingen.
 
-- **Multitenant**: ondersteunt het gebruik van door gebruikers en services van zowel de directory waar de toepassing is geregistreerd als een aanvullende tenant mappen. In toepassingen met meerdere tenants zich gebruikers van een andere tenant-directory (een andere Azure AD-tenant) kunnen aanmelden bij uw toepassing. 
+- **Multitenant**: Ondersteunt het gebruik door gebruikers en services van zowel de directory waar de toepassing is geregistreerd als een aanvullende tenant mappen. In toepassingen met meerdere tenants zich gebruikers van een andere tenant-directory (een andere Azure AD-tenant) kunnen aanmelden bij uw toepassing. 
 
   Zie voor meer informatie over multitenancy [multitenancy inschakelen](azure-stack-enable-multitenancy.md).
 
@@ -98,9 +98,9 @@ Toepassingen kunnen ondersteuning bieden twee typen tenants:
 
 Als u een toepassing registreert, kunt u twee objecten maken:
 
-- **Toepassingsobject**: de algemene weergave van de toepassing voor alle tenants. Deze relatie is een-op-een met de softwaretoepassing en bestaat alleen in de map waar de toepassing voor het eerst is geregistreerd.
+- **Toepassingsobject**: De algemene weergave van de toepassing voor alle tenants. Deze relatie is een-op-een met de softwaretoepassing en bestaat alleen in de map waar de toepassing voor het eerst is geregistreerd.
 
-- **Service-principal-object**: een referentie die wordt gemaakt voor een toepassing in de map waar de toepassing voor het eerst is geregistreerd. Een service-principal wordt ook gemaakt in de directory van elke aanvullende tenant waar de toepassing wordt gebruikt. Deze relatie kan een-op-veel met de toepassing zijn.
+- **Service-principal-object**: Een referentie die wordt gemaakt voor een toepassing in de map waar de toepassing voor het eerst is geregistreerd. Een service-principal wordt ook gemaakt in de directory van elke aanvullende tenant waar de toepassing wordt gebruikt. Deze relatie kan een-op-veel met de toepassing zijn.
 
 Zie voor meer informatie over de toepassing en service-principalobjecten [toepassing en service-principalobjecten in Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -155,10 +155,10 @@ Voor toepassingen en gebruikers, wordt de architectuur van Azure Stack door vier
 
 Als u wilt verifiëren met de id-provider en een JSON Web Token ontvangt, hebt u de volgende informatie:
 
-1. **URL voor de identiteitssysteem (Authority)**: de URL waarmee uw id-provider kan worden bereikt. Bijvoorbeeld *https://login.windows.net*.
-2. **URI van de App-ID voor Azure Resource Manager**: de unieke id voor Azure Resource Manager die is geregistreerd bij uw id-provider. Het is ook uniek is voor elke Azure Stack-installatie.
-3. **Referenties**: de referentie op die u gebruikt voor verificatie met de id-provider.
-4. **URL voor Azure Resource Manager**: de URL is de locatie van de Azure Resource Manager-service. Bijvoorbeeld, *https://management.azure.com* of *https://management.local.azurestack.external*.
+1. **URL voor de identiteitssysteem (Authority)**: De URL waarmee uw id-provider kan worden bereikt. Bijvoorbeeld *https://login.windows.net*.
+2. **URI van de App-ID voor Azure Resource Manager**: De unieke id voor Azure Resource Manager die is geregistreerd bij uw id-provider. Het is ook uniek is voor elke Azure Stack-installatie.
+3. **referenties**: De referentie op die u gebruikt voor verificatie met de id-provider.
+4. **URL voor Azure Resource Manager**: De URL is de locatie van de Azure Resource Manager-service. Bijvoorbeeld, *https://management.azure.com* of *https://management.local.azurestack.external*.
 
 Wanneer een principal (een client, een toepassing of een gebruiker) een verificatieaanvraag voor toegang tot een resource maakt, moet de aanvraag zijn onder andere:
 

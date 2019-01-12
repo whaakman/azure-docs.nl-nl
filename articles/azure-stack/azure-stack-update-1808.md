@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754540"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244967"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -99,7 +99,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 <!--  TBD – IS, ASDK --> 
 - *Basic A* grootten van virtuele machines buiten gebruik worden gesteld voor [het maken van virtuele-machineschaalsets](azure-stack-compute-add-scalesets.md) (VMSS) via de portal. Als u wilt een VMSS te maken met deze grootte, PowerShell of een sjabloon te gebruiken.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>Veelvoorkomende beveiligingsproblemen en risico 's
 
 Deze update installeert de volgende updates:  
 
@@ -254,6 +254,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Azure Stack-operators, als u een waarschuwing voor een beperkte hoeveelheid geheugen ontvangt en virtuele machines van tenants niet te implementeren met een **fout bij het maken van infrastructuur-VM**, is het mogelijk dat de Azure Stack-stempel heeft te weinig geheugen beschikbaar. Gebruik de [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) naar het beste informatie over de beschikbare capaciteit voor uw workloads.
 
 ### <a name="compute"></a>Compute
+
+- Bij het maken van een [Dv2-serie VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 VM's kunnen u 4, 8, 16 en 32 gegevensschijven respectievelijk maken. Het deelvenster van de virtuele machine maken bevat, 8, 16, 32 en 64 gegevensschijven.
 
 <!-- 3164607 – IS, ASDK -->
 - Nadat een losgekoppelde schijf aan de dezelfde virtuele machine (VM) met dezelfde naam en LUN mislukt met foutmelding zoals **gegevens schijf 'datadisk' niet koppelen aan virtuele machine 'vm1'**. De fout treedt op omdat de schijf momenteel wordt losgekoppeld of de laatste koppelingsbewerking is mislukt. Wacht totdat de schijf volledig is losgekoppeld en vervolgens opnieuw of verwijderen/loskoppelen van de schijf expliciet opnieuw. De oplossing is om te koppelen met een andere naam of op een andere logische eenheid. 

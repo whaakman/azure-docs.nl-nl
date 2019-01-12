@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549629"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232886"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 Azure Monitor biedt verschillende manieren om te communiceren met metrische gegevens, zoals ze in het portaal grafieken, toegang hebben tot deze via de REST-API of uitvoeren van deze query's met behulp van PowerShell of CLI. Hieronder vindt u een volledige lijst van alle metrische gegevens op dit moment met metrische gegevens van Azure Monitor-pijplijn. Andere metrische gegevens is mogelijk beschikbaar in de portal of met verouderde API's. Deze lijst hieronder bevat alleen beschikbaar via de pijplijn voor het metrische gegevens van Azure Monitor samengevoegde metrische gegevens. Query's uitvoeren voor en toegang tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -65,7 +65,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ProcessingPoolIdleIOJobThreads|Threads: Groep niet-actieve i/o-taakthreads van verwerkende|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de verwerkende ThreadPool.|ServerResourceType|
 |ProcessingPoolIdleNonIOThreads|Threads: Threads van verwerkende pool niet-actieve niet-I/O|Count|Gemiddeld|Het aantal niet-actieve threads in de verwerkende ThreadPool toegewezen aan niet-I/O-taken.|ServerResourceType|
 |QueryPoolIdleThreads|Threads: Niet-actieve threads voor query-groep|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de verwerkende ThreadPool.|ServerResourceType|
-|QueryPoolJobQueueLength|Threads: Query pool taak wachtrij lengte|Count|Gemiddeld|Het aantal taken in de wachtrij van de querythreadpool.|ServerResourceType|
+|QueryPoolJobQueueLength|Threads: Lengte van taakwachtrij pool query|Count|Gemiddeld|Het aantal taken in de wachtrij van de querythreadpool.|ServerResourceType|
 |ShortParsingBusyThreads|Threads: Kort parseren actieve threads|Count|Gemiddeld|Het aantal actieve threads in de ThreadPool voor kort parseren.|ServerResourceType|
 |ShortParsingIdleThreads|Threads: Niet-actieve threads van kort parseren|Count|Gemiddeld|Het aantal niet-actieve threads in de ThreadPool voor kort parseren.|ServerResourceType|
 |ShortParsingJobQueueLength|Threads: Kort parseren lengte van taakwachtrij|Count|Gemiddeld|Het aantal taken in de wachtrij van de ThreadPool voor kort parseren.|ServerResourceType|
@@ -119,12 +119,12 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |PoolResizeCompleteEvent|Complete pool Resize-gebeurtenissen|Count|Totaal|Totaal aantal pool wijzigen van de grootte die zijn voltooid|Er zijn geen dimensies|
 |PoolDeleteStartEvent|Pool verwijderen starten gebeurtenissen|Count|Totaal|Totaal aantal toepassingen verwijderd die zijn gestart|Er zijn geen dimensies|
 |PoolDeleteCompleteEvent|Pool verwijderen voltooid gebeurtenissen|Count|Totaal|Totaal aantal toepassingen verwijderd die zijn voltooid|Er zijn geen dimensies|
-|JobDeleteCompleteEvent|Taak verwijderen voltooid gebeurtenissen|Count|Totaal|Totale aantal taken die is verwijderd zijn.|Er zijn geen dimensies|
+|JobDeleteCompleteEvent|Taak verwijderen voltooid gebeurtenissen|Count|Totaal|Totale aantal taken die zijn verwijderd.|Er zijn geen dimensies|
 |JobDeleteStartEvent|Taak Start gebeurtenissen|Count|Totaal|Totale aantal taken die u hebt aangevraagd om te worden verwijderd.|Er zijn geen dimensies|
-|JobDisableCompleteEvent|Taak uitschakelen Complete-gebeurtenissen|Count|Totaal|Totale aantal taken die uitgeschakeld is zijn.|Er zijn geen dimensies|
+|JobDisableCompleteEvent|Taak uitschakelen Complete-gebeurtenissen|Count|Totaal|Totale aantal taken die zijn uitgeschakeld.|Er zijn geen dimensies|
 |JobDisableStartEvent|Taak uitschakelen Start gebeurtenissen|Count|Totaal|Totale aantal taken die u hebt aangevraagd om te worden uitgeschakeld.|Er zijn geen dimensies|
-|JobStartEvent|Taak Start gebeurtenissen|Count|Totaal|Totale aantal taken die gestart is zijn.|Er zijn geen dimensies|
-|JobTerminateCompleteEvent|Taak beëindigen Complete-gebeurtenissen|Count|Totaal|Totale aantal taken die is zijn beëindigd.|Er zijn geen dimensies|
+|JobStartEvent|Taak Start gebeurtenissen|Count|Totaal|Totale aantal taken dat is gestart.|Er zijn geen dimensies|
+|JobTerminateCompleteEvent|Taak beëindigen Complete-gebeurtenissen|Count|Totaal|Totale aantal taken die zijn beëindigd.|Er zijn geen dimensies|
 |JobTerminateStartEvent|Taak beëindigen Start gebeurtenissen|Count|Totaal|Totale aantal taken die u hebt aangevraagd te beëindigen.|Er zijn geen dimensies|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -816,7 +816,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ClusterDataCapacityFactor|Cache-gebruik|Procent|Gemiddeld|Het gebruiksniveau van binnen het bereik van het cluster|Er zijn geen dimensies|
 |QueryDuration|Queryduur van de|Milliseconden|Gemiddeld|Query's de duur in seconden|QueryStatus|
 |IngestionsLoadFactor|Opname-gebruik|Procent|Gemiddeld|Verhouding van de sleuven gebruikte opname in het cluster|Er zijn geen dimensies|
-|IsEngineAnsweringQuery|Actief houden|Count|Gemiddeld|Controle geeft aan dat de cluster-respondes op query 's|Er zijn geen dimensies|
+|IsEngineAnsweringQuery|Actief houden|Count|Gemiddeld|Controle geeft aan dat het cluster reageert op query 's|Er zijn geen dimensies|
 |IngestCommandOriginalSizeInMb|Opname-Volume (In MB)|Count|Totaal|Totale hoeveelheid opgenomen gegevens aan het cluster (in MB)|Er zijn geen dimensies|
 |EventAgeSeconds|Opnamelatentie (In seconden)|Seconden|Gemiddeld|Opname-tijd van de bron (bijvoorbeeld bericht is in de Event hub) aan het cluster in seconden|Er zijn geen dimensies|
 |EventReceivedFromEventHub|Gebeurtenissen die worden verwerkt (voor Eventhubs)|Count|Totaal|Aantal gebeurtenissen dat door het cluster worden verwerkt wanneer het opnemen van Event Hub|Er zijn geen dimensies|

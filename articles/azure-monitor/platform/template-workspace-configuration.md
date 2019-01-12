@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a56812a8a10e890f50afb669a54291ea064098d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102705"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232733"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
@@ -117,7 +117,7 @@ De volgende parameters instelt een standaardwaarde:
     ```
 2. De sjabloon bijwerken om aan uw eisen voldoen.  Beoordeling [Microsoft.OperationalInsights/workspaces sjabloon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) verwijzing voor meer informatie over welke eigenschappen en waarden worden ondersteund. 
 3. Sla dit bestand als **deploylaworkspacetemplate.json** naar een lokale map.
-4. U kunt deze sjabloon nu implementeren. U gebruikt PowerShell of de opdrachtregel voor het cretae de werkruimte.
+4. U kunt deze sjabloon nu implementeren. U PowerShell of de opdrachtregel gebruiken om de werkruimte te maken.
 
    * Gebruik de volgende opdrachten uit de map met de sjabloon voor PowerShell:
    

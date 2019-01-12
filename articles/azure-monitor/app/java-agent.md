@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997925"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228806"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen onderschept en methode uitvoertijd in Java-web-apps bewaken
 
@@ -89,6 +89,32 @@ Hiermee stelt u de inhoud van het xml-bestand. Het volgende voorbeeld als u wilt
 U moet inschakelen rapporten uitzondering en de timing van de methode voor de afzonderlijke methoden.
 
 Standaard `reportExecutionTime` is ingesteld op true en `reportCaughtExceptions` is ingesteld op false.
+
+### <a name="spring-boot-agent-additional-config"></a>Spring Boot-Agent aanvullende configuratie
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> AI-Agent.xml en de agent jar-bestand moeten zich in dezelfde map. Ze worden vaak samen geplaatst de `/resources` map van het project. 
+
+#### <a name="enable-w3c-distributed-tracing"></a>W3C gedistribueerde tracering inschakelen
+
+Voeg de volgende AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Modus voor achterwaartse compatibiliteit is standaard ingeschakeld en de enableW3CBackCompat-parameter is optioneel en moet worden gebruikt alleen wanneer u wilt uitschakelen. 
+
+In het ideale geval is dit het geval wanneer alle services zijn bijgewerkt naar een nieuwere versie van de SDK's ondersteunen W3C-protocol. Het is raadzaam om te verplaatsen naar de nieuwere versie van de SDK's met ondersteuning voor W3C zo snel mogelijk.
+
+Zorg ervoor dat **beide [binnenkomende](correlation.md#w3c-distributed-tracing) en uitgaande (agent)-configuraties** exact hetzelfde zijn.
 
 ## <a name="view-the-data"></a>De gegevens bekijken
 In de Application Insights-resource, samengevoegde externe afhankelijkheden en de methode uitvoertijd weergegeven [onder de tegel prestaties][metrics].

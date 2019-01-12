@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106669"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244577"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Zelfstudie: maken en uitvoeren van een Jupyter-notebook met Python
 
@@ -40,7 +40,7 @@ De voltooide notebook kunt u vinden op [GitHub - voorbeelden voor Azure-notitieb
 
 1. In de **nieuw Project maken** pop-upvenster dat wordt weergegeven, invoeren of stel de volgende details en selecteer vervolgens **maken**:
 
-    - **Naam van het project**: lineaire regressie-voorbeeld - Cricket lijken
+    - **Naam van het project**: Voorbeeld van de lineaire regressie - Cricket lijken
     - **Project-ID**: lineaire regressie-voorbeeld
     - **Openbare project**: (uitgeschakeld)
     - **Maken van een README.md**: (uitgeschakeld)
@@ -411,17 +411,13 @@ Wanneer u klaar bent met een laptop, gebruikt u de **bestand** > **sluiten en st
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Fouten opsporen in notitieblokken met behulp van Visual Studio Code
 
-Als de cellen met code in uw laptop niet gedragen zich zoals verwacht, kunt u code bugs of andere defecten mogelijk. Echter, anders dan met behulp van `print` instructies toe aan de waarden van variabelen, weer een Jupyter-notebook niet alle foutopsporing opslagruimten bieden.
+Als de cellen met code in uw laptop niet gedragen zich zoals verwacht, kunt u code bugs of andere defecten mogelijk. Echter, anders dan met behulp van `print` instructies toe aan de waarden van variabelen, weer een typische Jupyter-omgeving niet alle foutopsporing opslagruimten bieden.
 
-De Python-extensie voor Visual Studio Code kunt gelukkig rechtstreeks een Jupyter-notebook importeren als een codebestand één met uw Markdown-cellen in de opmerkingen. Vervolgens kunt u het foutopsporingsprogramma Visual Studio Code om uw code kunt doorlopen, onderbrekingspunten instellen, Controleer de status, enzovoort uitvoeren. 
+Gelukkig kunt u downloaden van het notitieblok *.ipynb* en het bestand vervolgens opent u het in Visual Studio Code met de Python-extensie. De extensie een laptop wordt als één codebestand, behoud van uw Markdown-cellen in opmerkingen rechtstreeks worden geïmporteerd. Nadat u de notebook hebt geïmporteerd, kunt u het foutopsporingsprogramma van Visual Studio Code aan uw code kunt doorlopen, onderbrekingspunten instellen, Controleer de status, enzovoort. Na het aanbrengen van correcties in uw code, die u vervolgens exporteren de *.ipynb* vanuit Visual Studio Code-bestand en upload het opnieuw bij de Azure-notitieblokken.
 
-Zodra u correcties in uw code hebt aangebracht, sla de *.ipynb* en het bestand vervolgens uploaden naar Azure-notitieblokken.
+Zie voor meer informatie, [fouten opsporen in een Jupyter-notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) in de documentatie van Visual Studio Code.
 
-Zie voor meer informatie de volgende artikelen in de documentatie van Visual Studio Code:
-
-- [Overzicht van Jupyter notebooks onder in VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Zelfstudie over het Python - configureren en uitvoeren van het foutopsporingsprogramma](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Bewerken - Jupyter code cellen](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Zie ook [Visual Studio Code - ondersteuning voor Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) voor aanvullende functies van Visual Studio Code voor de Jupyter-notebooks.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -429,10 +425,10 @@ Zie voor meer informatie de volgende artikelen in de documentatie van Visual Stu
 
 Artikelen met procedures:
 
-- [Maken en projecten klonen](create-clone-jupyter-notebooks.md)
-- [Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
-- [Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
-- [Een diavoorstelling](present-jupyter-notebooks-slideshow.md)
-- [Werken met bestanden](work-with-project-data-files.md)
-- [Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
-- [Azure Machine Learning-Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)
+- [Projecten maken en klonen](create-clone-jupyter-notebooks.md)
+- [Projecten configureren en beheren](configure-manage-azure-notebooks-projects.md)
+- [Pakketten vanuit een notebook installeren](install-packages-jupyter-notebook.md)
+- [Een diavoorstelling presenteren](present-jupyter-notebooks-slideshow.md)
+- [Werken met gegevensbestanden](work-with-project-data-files.md)
+- [Toegang tot gegevensbronnen](access-data-resources-jupyter-notebooks.md)
+- [Azure Machine Learning Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)

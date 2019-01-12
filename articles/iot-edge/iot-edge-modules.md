@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094182"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229622"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informatie over Azure IoT Edge-modules
 
@@ -30,7 +30,7 @@ Azure IoT Edge kunt u implementeren en beheren van zakelijke logica aan de rand 
 IoT Edge module afbeeldingen bevatten toepassingen die van het beheer, beveiliging en functies voor communicatie van de IoT Edge-runtime profiteren. U kunt uw eigen installatiekopieën module ontwikkelen of exporteren van een ondersteunde Azure-service, zoals Azure Stream Analytics.
 De afbeeldingen aanwezig zijn in de cloud en ze kunnen worden bijgewerkt, gewijzigd en geïmplementeerd in verschillende oplossingen. Bijvoorbeeld, bestaat een module die maakt gebruik van machine learning om te voorspellen van de uitvoer van de productielijn als een afzonderlijke installatiekopie dan een module die gebruikmaakt van computer vision voor het beheren van een drone. 
 
-Telkens wanneer de installatiekopie van een module is geïmplementeerd op een apparaat en aan de slag door de IoT Edge-runtime, is een nieuw exemplaar van die module gemaakt. Twee apparaten in verschillende onderdelen van de hele wereld kunnen dezelfde module installatiekopie; gebruiken maar zou elk hun eigen module-exemplaar hebt, wanneer de module wordt gestart op het apparaat. 
+Telkens wanneer de installatiekopie van een module is geïmplementeerd op een apparaat en aan de slag door de IoT Edge-runtime, is een nieuw exemplaar van die module gemaakt. Twee apparaten in verschillende onderdelen van de hele wereld kunnen dezelfde installatiekopie van een module gebruiken. Elk apparaat moet echter een eigen instantie van de module wanneer de module wordt gestart op het apparaat. 
 
 ![Diagram - Module afbeeldingen in de cloud, module-exemplaren op apparaten](./media/iot-edge-modules/image_instance.png)
 
@@ -53,7 +53,7 @@ Duidelijk in scenario's kunt als u wilt implementeren een installatiekopie van d
 
 Elk exemplaar van de module heeft ook een bijbehorende moduledubbel die u gebruiken kunt voor het configureren van de module-exemplaar. Het exemplaar en het dubbele zijn gekoppeld met elkaar via de identiteit van de module. 
 
-Een moduledubbel is een JSON-document waarin de eigenschappen van de informatie en configuratie van de module. Dit concept werkt parallel de [apparaatdubbel](../iot-hub/iot-hub-devguide-device-twins.md) concept van IoT Hub. De structuur van een moduledubbel is precies hetzelfde als een apparaatdubbel. De API's gebruikt om te communiceren met beide typen dubbels zijn ook hetzelfde. Het enige verschil tussen de twee is de identiteit die wordt gebruikt voor het starten van de client-SDK. 
+Een moduledubbel is een JSON-document waarin de eigenschappen van de informatie en configuratie van de module. Dit concept werkt parallel de [apparaatdubbel](../iot-hub/iot-hub-devguide-device-twins.md) concept van IoT Hub. De structuur van een moduledubbel is hetzelfde als een apparaatdubbel. De API's gebruikt om te communiceren met beide typen dubbels zijn ook hetzelfde. Het enige verschil tussen de twee is de identiteit die wordt gebruikt voor het starten van de client-SDK. 
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a 
@@ -73,9 +73,9 @@ Azure IoT Edge biedt ondersteuning voor offline-bewerkingen op uw IoT Edge-appar
 IoT Edge-modules zijn offline gedurende langere perioden, zolang de volgende vereisten wordt voldaan: 
 
 * **Bericht time-to-live (TTL) is niet verlopen**. De standaardwaarde voor TTL bericht is twee uur, kan maar worden gewijzigd hoger of lager in de Store en doorsturen configuratie in de IoT Edge hub-instellingen. 
-* **Modules hoeft te verifiëren bij de IoT Edge hub wanneer u offline bent**. Modules kunnen alleen worden geverifieerd met het Edge-hubs die u een actieve verbinding met een IoT-hub hebt. Modules moeten zich opnieuw verifiëren als ze opnieuw om welke reden dan ook gestart zijn. Modules kunnen nog steeds berichten verzenden naar de Edge hub nadat de SAS-token is verlopen. Wanneer verbinding wordt hervat, wordt de Edge hub een nieuw token aanvragen van de module en wordt deze gevalideerd met de IoT-hub. Als dit lukt, verzendt de Edge hub de module berichten die wordt opgeslagen, zelfs de berichten die zijn verzonden terwijl van de module-token is verlopen. 
-* **De module die de berichten verzonden offline nog steeds functioneel is wanneer verbinding wordt hervat**. Na het opnieuw verbinding maakt met IoT Hub, moet de Edge hub voor het valideren van een nieuwe module-token (als de voorgaande build is verlopen) voordat de module-berichten kunnen worden doorgestuurd. Als de module niet beschikbaar is, voor een nieuw token, wordt de Edge hub kan niet reageren op opgeslagen berichten van de module. 
-* **De Edge hub schijfruimte voor het opslaan van de berichten heeft**. Berichten worden standaard opgeslagen in de Edge hub-container-bestandssysteem. Er is een configuratieoptie om op te geven van een gekoppeld volume voor het opslaan van de berichten in plaats daarvan. In beide gevallen moet er ruimte die beschikbaar is voor het opslaan van de berichten voor uitgestelde levering aan IoT-Hub.  
+* **Modules hoeft te verifiëren bij de IoT Edge hub wanneer u offline bent**. Modules kunnen alleen worden geverifieerd met IoT Edge-hubs die u een actieve verbinding met een IoT-hub hebt. Modules moeten verifiëren als ze opnieuw om welke reden dan ook gestart zijn. Modules kunnen nog steeds berichten verzenden naar de IoT Edge hub nadat de SAS-token is verlopen. Wanneer verbinding wordt hervat, wordt de IoT Edge hub een nieuw token aanvragen van de module en wordt deze gevalideerd met de IoT-hub. Als dit lukt, IoT Edge hub stuurt de module die wordt opgeslagen, zelfs de berichten die zijn verzonden terwijl van de module-token is verlopen. 
+* **De module die de berichten verzonden offline nog steeds functioneel is wanneer verbinding wordt hervat**. Na het opnieuw verbinding maakt met IoT Hub, moet IoT Edge hub voor het valideren van een nieuwe module-token (als de voorgaande build is verlopen) voordat de module-berichten kunnen worden doorgestuurd. Als de module niet beschikbaar is, voor een nieuw token, wordt de IoT Edge hub kan niet reageren op opgeslagen berichten van de module. 
+* **De IoT Edge hub schijfruimte voor het opslaan van de berichten heeft**. Berichten worden standaard opgeslagen in de IoT Edge hub-container-bestandssysteem. Er is een configuratieoptie om op te geven van een gekoppeld volume voor het opslaan van de berichten in plaats daarvan. In beide gevallen moet er ruimte die beschikbaar is voor het opslaan van de berichten voor uitgestelde levering aan IoT-Hub.  
 
 Aanvullende offline-mogelijkheden zijn beschikbaar in openbare preview. Zie voor meer informatie, [begrijpen uitgebreid offline-mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten](offline-capabilities.md).
 

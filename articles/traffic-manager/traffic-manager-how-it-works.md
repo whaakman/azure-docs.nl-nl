@@ -4,7 +4,7 @@ description: In dit artikel krijgt u inzicht in hoe Traffic Manager routeert ver
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: traffic-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 97ce7fb9d5a99f70e5dd6c81d8c8dd1af343117e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400369"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229248"
 ---
 # <a name="how-traffic-manager-works"></a>Hoe Traffic Manager werkt
 
-Met Azure Traffic Manager kunt u voor het beheren van de distributie van verkeer tussen de toepassingseindpunten van uw. Een eindpunt is een internetgerichte service die wordt gehost binnen en buiten Azure.
+Met Azure Traffic Manager kunt u voor het beheren van de distributie van verkeer tussen de toepassingseindpunten van uw. Een eindpunt is een internetgerichte service die binnen of buiten Azure wordt gehost.
 
 Traffic Manager biedt twee belangrijke voordelen:
 

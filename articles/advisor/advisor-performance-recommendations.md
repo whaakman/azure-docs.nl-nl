@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 53571fa0c29c4b9bf5493a1e558356eba38fe617
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101714"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244413"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-aanbevelingen voor prestaties
 
@@ -32,7 +32,7 @@ Azure Advisor identificeert Traffic Manager-profielen met een langer TTL geconfi
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>De prestaties van de database verbeteren met SQL DB Advisor
 
-Advisor biedt u een consistente, geconsolideerde weergave van de aanbevelingen voor al uw Azure-resources. Het is geïntegreerd met SQL Database Advisor voor aanbevelingen voor het verbeteren van de prestaties van uw SQL Azure-database. SQL Database Advisor beoordeelt de prestaties van uw SQL Azure-databases door het analyseren van uw gebruiksgeschiedenis. Vervolgens biedt aanbevelingen die bij uitstek geschikt zijn voor het uitvoeren van de typische werkbelasting van de database. 
+Advisor biedt u een consistente, geconsolideerde weergave van de aanbevelingen voor al uw Azure-resources. Het is geïntegreerd met SQL Database Advisor voor aanbevelingen voor het verbeteren van de prestaties van uw SQL Azure-database. SQL Database Advisor beoordeelt de prestaties van uw SQL Azure-databases door het analyseren van uw gebruiksgeschiedenis. Vervolgens biedt aanbevelingen die bij uitstek geschikt zijn voor het uitvoeren van de typische werkbelasting van de database.
 
 > [!NOTE]
 > Om aanbevelingen te krijgen, moet een database over een week van het gebruik van, en in de afgelopen week moet er activiteit zijn consistent. SQL Database Advisor kunt eenvoudiger voor consistente querypatronen dan voor willekeurige pieken van activiteit optimaliseren.
@@ -43,7 +43,7 @@ Zie voor meer informatie over SQL Database Advisor [SQL Database Advisor](https:
 
 Azure Advisor kan worden geïntegreerd met aanbevelingen voor het verbeteren van de ervaring van uw App Services en relevante platformmogelijkheden detecteren. Voorbeelden van aanbevelingen voor de App-Services zijn:
 * Detectie van exemplaren waar geheugen of CPU-resources worden uitgeput door app-runtimes met opties voor risicobeperking.
-* Detectie van exemplaren waar collocating resources, zoals web-apps en -databases kan verbeteren, prestaties en lagere kosten. 
+* Detectie van exemplaren waar collocating resources, zoals web-apps en -databases kan verbeteren, prestaties en lagere kosten.
 
 Zie voor meer informatie over aanbevelingen voor de App Services [Best Practices voor Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
@@ -75,7 +75,9 @@ Advisor identificeert de tabellen die geen gerepliceerde tabellen zijn, maar vee
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Uw Storage-Account migreren naar Azure Resource Manager om de nieuwste functies van Azure
 
-Migreer uw Storage-Account-implementatiemodel naar Azure Resource Manager (ARM) om te profiteren van sjabloonimplementaties, extra beveiligingsopties en de mogelijkheid om te upgraden naar een GPv2-account voor het gebruik van de nieuwste functies van Azure Storage. Advisor identificeert een zelfstandige storage-accounts die van het klassieke implementatiemodel gebruikmaken en beveelt migreren naar het ARM-implementatiemodel. 
+Migreer uw Storage-Account-implementatiemodel naar Azure Resource Manager (ARM) om te profiteren van sjabloonimplementaties, extra beveiligingsopties en de mogelijkheid om te upgraden naar een GPv2-account voor het gebruik van de nieuwste functies van Azure Storage. Advisor identificeert een zelfstandige storage-accounts die van het klassieke implementatiemodel gebruikmaken en beveelt migreren naar het ARM-implementatiemodel.
+
+Klassieke waarschuwingen in Azure Monitor is aangekondigd buiten gebruik stellen in juni 2019, het wordt aanbevolen dat u uw klassieke storage-account upgraden naar ARM wilt behouden waarschuwingen functionaliteit met het nieuwe platform voor waarschuwingen. Zie voor meer informatie, [buiten gebruik stellen met klassieke waarschuwingen](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor prestaties in Advisor
 
@@ -92,4 +94,3 @@ Zie voor meer informatie over aanbevelingen van Advisor:
 * [Aanbevelingen van Advisor-kosten](advisor-performance-recommendations.md)
 * [Advisor-aanbevelingen voor hoge beschikbaarheid](advisor-high-availability-recommendations.md)
 * [Advisor-aanbevelingen voor beveiliging](advisor-security-recommendations.md)
-

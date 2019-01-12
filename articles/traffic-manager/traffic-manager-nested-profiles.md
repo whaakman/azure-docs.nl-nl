@@ -1,9 +1,11 @@
 ---
-title: Geneste Traffic Manager-profielen | Microsoft Docs
+title: Geneste Traffic Manager-profielen in Azure
+titlesuffix: Azure Traffic Manager
 description: Dit artikel wordt uitgelegd dat de 'Geneste profielen'-functie van Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648595"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228823"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Geneste Traffic Manager-profielen
 
@@ -61,7 +63,7 @@ De volgende afbeelding ziet u deze configuratie:
 > [!NOTE]
 > De methode 'Prioriteit' Routering van verkeer verdeelt al het verkeer naar één eindpunt. Er is dus weinig zin in een instelling voor MinChildEndpoints dan '1' voor een onderliggende-profiel.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Voorbeeld 3: Prioriteit failover-regio's in de routering van verkeer in 'Prestaties'
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Voorbeeld 3: Met prioriteit failover-regio's in de routering van verkeer in 'Prestaties'
 
 Het standaardgedrag voor de methode 'Prestaties' Routering van verkeer is wanneer er eindpunten in verschillende geografische locaties die de eindgebruikers worden doorgestuurd naar het eindpunt van de "dichtstbijzijnde" wat betreft de laagste netwerklatentie.
 
@@ -83,7 +85,7 @@ In plaats van meerdere eindpunten toevoegen in West-Europa, worden deze eindpunt
 
 !['Prestaties' verkeer met aangepaste regionale verkeersdistributie][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>Voorbeeld 5: Per eindpunt controle-instellingen
+## <a name="example-5-per-endpoint-monitoring-settings"></a>Voorbeeld 5: Controle per eindpunt-instellingen
 
 Stel dat u Traffic Manager gebruikt voor het probleemloos migreren verkeer van een verouderde on-premises website naar een nieuwe Cloud-gebaseerde versie die wordt gehost in Azure. Voor de oude site, die u wilt de startpagina URI gebruiken voor het bewaken van de gezondheid van de site. Maar voor de nieuwe Cloud-gebaseerde versie, implementeert u een aangepaste pagina (pad ' / monitor.aspx') die aanvullende controles bevat.
 

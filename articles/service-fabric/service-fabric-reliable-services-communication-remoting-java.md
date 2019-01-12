@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: eb991df64f0454fa6103c9104e5c0e9991503a43
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 686d736798a4d949e3590d988f399d7da82d4fee
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198266"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231985"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Service voor externe toegang in Java met Reliable Services
 > [!div class="op_single_selector"]
@@ -91,8 +91,8 @@ Het framework voor externe toegang geeft uitzonderingen op de service naar de cl
 Het maken van ServiceProxy is een lichte bewerking, zodat u zoveel behoefte kunt maken. Proxy-service-exemplaren kunnen worden hergebruikt, zolang ze wel nodig zijn. Als een externe procedureaanroep is een uitzondering genereert, kunt u nog steeds hetzelfde exemplaar van de proxy opnieuw gebruiken. Elke ServiceProxy bevat een communicatie-client gebruikt voor het verzenden van berichten via de kabel. Tijdens het aanroepen van externe oproepen, interne controles uitgevoerd om te bepalen of de client communicatie geldig is. Op basis van de resultaten van deze controles, de client communicatie wordt opnieuw gemaakt indien nodig. Dus als er een uitzondering optreedt, u hoeft niet opnieuw maken `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory Lifetime
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabric_service_proxy_factory) is een factory die proxy voor externe communicatie van andere interfaces worden gemaakt. Als u API `ServiceProxyBase.create` voor het maken van proxy, framework maakt vervolgens een `FabricServiceProxyFactory`.
-Het is handig om een handmatig maken wanneer u nodig hebt voor de onderdrukking [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.service_remoting_client_factory) eigenschappen.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) is een factory die proxy voor externe communicatie van andere interfaces worden gemaakt. Als u API `ServiceProxyBase.create` voor het maken van proxy, framework maakt vervolgens een `FabricServiceProxyFactory`.
+Het is handig om een handmatig maken wanneer u nodig hebt voor de onderdrukking [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) eigenschappen.
 Factory is een dure bewerking. `FabricServiceProxyFactory` behoudt de cache van clients voor communicatie.
 Best practice is om de cache `FabricServiceProxyFactory` zo lang mogelijk.
 
@@ -102,7 +102,8 @@ De externe uitzondering gegenereerd door de service-API, worden als RuntimeExcep
 ServiceProxy kan overweg met alle failover-uitzondering voor de servicepartitie deze wordt gemaakt. Dit opnieuw de eindpunten oplost als er Failover Exceptions(Non-Transient Exceptions) en probeert om opnieuw de aanroep met het juiste eindpunt. Aantal nieuwe pogingen voor failover-uitzondering is onbepaalde tijd.
 In het geval van TransientExceptions, het alleen opnieuw probeert de aanroep.
 
-Standaardparameters voor nieuwe pogingen worden opgegeven door [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operation_retry_settings) Kunt u deze waarden configureren door het OperationRetrySettings-object doorgeven aan de constructor ServiceProxyFactory.
+Standaardparameters voor nieuwe pogingen worden opgegeven door [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+U kunt deze waarden configureren doordat OperationRetrySettings object doorgegeven aan de constructor ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Beveiliging van de communicatie voor Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

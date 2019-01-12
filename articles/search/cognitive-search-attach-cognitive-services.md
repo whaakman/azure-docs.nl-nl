@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 509125e7c93f34b9ce28c58cb1ec96db1074d995
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119642"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231424"
 ---
 # <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource koppelen aan een set vaardigheden in Azure Search 
 
-De AI-algoritmen te stimuleren [cognitief zoeken](cognitive-search-concept-intro.md) pijplijnen voor het verwerken van niet-gestructureerde gegevens op basis van [ **Cognitive Services-resources**](https://azure.microsoft.com/services/cognitive-services/). Resources, zoals [ **Computer Vision** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) analyse van de afbeelding en optische tekenherkenning () extraheren van tekst en de structuur uit afbeeldingsbestanden, terwijl [ **tekst Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) biedt, zoals entiteit erkenning en de sleutel vindt er sleuteltermextractie plaats, een paar te noemen verwerking van natuurlijke taal.
+De AI-algoritmen te stimuleren [cognitief zoeken pijplijnen](cognitive-search-concept-intro.md) voor de verwerking van niet-gestructureerde gegevens die zijn gebaseerd op [ **Cognitive Services-resources**](https://azure.microsoft.com/services/cognitive-services/). Resources, zoals [ **Computer Vision** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) analyse van de afbeelding en optische tekenherkenning (OCR) opgeven voor het extraheren van tekst en de structuur uit afbeeldingsbestanden, terwijl [ **tekst Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) biedt, zoals entiteit erkenning en de sleutel vindt er sleuteltermextractie plaats, een paar te noemen verwerking van natuurlijke taal.
 
-U kunt een beperkt aantal documenten gratis verrijken, of kunt u een factureerbare Cognitive Services-resource voor workloads met grotere en meer frequente koppelen. In dit artikel leert u hoe u een Cognitive Services-resource koppelen aan uw cognitieve vaardigheden aan gegevens duidelijker maken tijdens het indexeren.
+U kunt een beperkt aantal documenten gratis verrijken of een factureerbare Cognitive Services-resource voor workloads met grotere en meer frequente koppelen. In dit artikel leert u hoe u een Cognitive Services-resource koppelen aan uw cognitieve vaardigheden aan gegevens duidelijker maken tijdens het indexeren.
 
 Als uw pijplijn bestaat uitsluitend uit [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), u hoeft niet te koppelen van een resource voor Cognitive Services.
 

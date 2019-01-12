@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: c7b002a0730e94e9507aed273b9be4fe35de5bf0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: 5609cb3cfeab7cbaae493403aac68b0ce56d299a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159397"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244610"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
@@ -52,7 +53,7 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
 
 * Zorg ervoor dat de datacenter-integratie vereisten wordt voldaan:
 
-    |Vereiste|Verwijzing|
+    |Vereiste|Referentie|
     |-----|-----|
     |Voorwaardelijk doorsturen van DNS is correct ingesteld.|[Datacenter-integratie Azure Stack - DNS](azure-stack-integrate-dns.md)|
     |Poorten voor inkomend verkeer voor resourceproviders zijn geopend.|[Azure Stack-datacenter-integratie - eindpunten publiceren](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -65,7 +66,10 @@ _Geïntegreerde systemen alleen voor installaties_. Moet u de SQL-PaaS-PKI-certi
 
 ## <a name="deploy-the-resource-provider"></a>De resourceprovider implementeren
 
-Nadat u alle vereisten die zijn geïnstalleerd hebt, voert u de **DeployMySqlProvider.ps1** script voor het implementeren van de MYSQL-resourceprovider. Het script DeployMySqlProvider.ps1 wordt opgehaald als onderdeel van de MySQL-resource provider binaire bestand dat u hebt gedownload voor uw versie van Azure Stack.
+Nadat u alle vereiste onderdelen hebt geïnstalleerd, kunt u uitvoeren de **DeployMySqlProvider.ps1** script voor het implementeren van de MySQL-resourceprovider. Het script DeployMySqlProvider.ps1 wordt opgehaald als onderdeel van de installatiebestanden van MySQL resource provider die u hebt gedownload voor uw versie van Azure Stack.
+
+ > [!IMPORTANT]
+ > Controleer voordat u de resourceprovider implementeert, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
 
 Voor het implementeren van de MySQL-resourceprovider, open een nieuw verhoogde PowerShell-venster (niet PowerShell ISE) en Ga naar de map waar u de binaire bestanden voor MySQL resource provider hebt uitgepakt. We raden u aan met behulp van een nieuwe PowerShell-venster om te voorkomen van potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
 
@@ -134,6 +138,10 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 # And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force

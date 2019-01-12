@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: 88c72994ec0c6cfc6222ccb31cabae7e354412eb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969529"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245528"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack 
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Informatie over het gebruik van zowel on-premises en openbare cloudomgevingen om te voldoen aan de behoeften van ondernemingen die meerdere faciliteit. Azure Stack biedt een snelle, veilige en flexibele oplossing voor het verzamelen, verwerken, opslaan en distribueren van lokale en externe gegevens, met name wanneer beveiliging, vertrouwelijkheid, bedrijfsbeleid en regelgeving tussen locaties verschillen kunnen en gebruikers.
 
@@ -81,7 +81,7 @@ De storage-account en blob-container wordt alle oorspronkelijke gegevens die wor
 
 3.  Gebruik de volgende informatie voor het account:
 
-    a.  Naam: **uw keuze**
+    a.  Naam: **Uw keuze**
 
     b.  Implementatiemodel: **Resource Manager**
 
@@ -89,17 +89,17 @@ De storage-account en blob-container wordt alle oorspronkelijke gegevens die wor
 
     d.  Locatie: **US - west**
 
-    e.  Replicatie: **lokaal redundante opslag (LRS)**
+    e.  Replicatie: **Lokaal redundante opslag (LRS)**
 
     f.  Prestaties: **Standard**
 
-    g.  Veilige overdracht vereist: **uitgeschakeld**
+    g.  Veilige overdracht vereist: **Uitgeschakeld**
 
-    h.  Abonnement: Kies een
+    h.  Abonnement: Kies een optie
 
     i.  Resourcegroep: Geef een nieuwe resourcegroep of Selecteer een bestaande resourcegroep
 
-    j.  Virtuele netwerken configureren: **uitgeschakeld**
+    j.  Virtuele netwerken configureren: **Uitgeschakeld**
 
 4.  Selecteer **maken om te maken van het opslagaccount**.
 
@@ -113,7 +113,7 @@ De storage-account en blob-container wordt alle oorspronkelijke gegevens die wor
 
     ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  Naam: **uw keuze**
+8.  Naam: **Uw keuze**
 
 9.  Openbaar toegangsniveau: **Container** (anonieme leestoegang voor containers en blobs)
 
@@ -131,7 +131,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 4.  De functie-app maken met de instellingen die zijn opgegeven in de tabel onder de afbeelding.
 
-    | Instelling | Voorgestelde waarde | Beschrijving |
+    | Instelling | Voorgestelde waarde | Description |
     | ---- | ---- | ---- |
     | Naam van app | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a` - `z`, `0``-9`, en `-`. |
     | Abonnement | Uw abonnement | Het abonnement waarmee deze nieuwe functie-app is gemaakt. |
@@ -168,7 +168,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
     ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Selecteer **C\#**  als de taal en de naam van de functie: `upload-to-azure` ingesteld van de planning op `0 0 * * * *`, die in de CRON-notatie is één keer per uur.
+3.  Selecteer **C\#**  als de taal en de naam van de functie: `upload-to-azure`  Stel de planning op `0 0 * * * *`, die in de CRON-notatie is één keer per uur.
 
     ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image5.png)
 
@@ -182,9 +182,9 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 3.  Gebruik de instellingen zoals opgegeven in de onderstaande tabel:
 
-    | Instelling | Voorgestelde waarde | Beschrijving |
+    | Instelling | Voorgestelde waarde | Description |
     | ------- | ------- | ------- |
-    | Naam | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
+    | Name | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
     | Pad | \<het pad van de bovenstaande opslaglocatie > | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de parameter name. |
     | Opslagaccountverbinding | Functie-App verbinding | U kunt de opslagaccountverbinding al wordt gebruikt door uw functie-app gebruiken of een nieuwe maken. |
 
@@ -242,9 +242,9 @@ Gebruik de stappen en de instellingen die hierboven worden beschreven om te make
 
 2.  Gebruik de instellingen zoals opgegeven in de onderstaande tabel:
 
-    | Instelling | Voorgestelde waarde | Beschrijving |
+    | Instelling | Voorgestelde waarde | Description |
     | ------- | ------- | ------- |
-    | Naam | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
+    | Name | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
     | Pad | \<het pad van de bovenstaande opslaglocatie > | De locatie in de opslag die worden bewaakt. De bestandsnaam van de wachtrij wordt doorgegeven in de binding als de parameter name. |
     | Opslagaccountverbinding | Functie-App verbinding | U kunt de opslagaccountverbinding al wordt gebruikt door uw functie-app gebruiken of een nieuwe maken. |
 

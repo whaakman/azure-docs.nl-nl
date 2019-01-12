@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d7c8aa73f72f6db93c6ef78c333c36e1d26b74e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995062"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231390"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens.
@@ -73,6 +73,8 @@ Autorisatie vernieuwen **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake
 | Gebruikersnaam | De gebruikersnaam die toegang heeft tot het schrijven naar de database. Stream Analytics biedt alleen ondersteuning voor SQL-verificatie. |
 | Wachtwoord | Het wachtwoord voor verbinding met de database. |
 | Tabel | De naam van de tabel waar de uitvoer wordt geschreven. Naam van de tabel is hoofdlettergevoelig en het schema van deze tabel moet exact overeenkomen met het aantal velden en hun type wordt gegenereerd door de taakuitvoer van uw. |
+|Partitieschema overnemen| Hiermee kunt u het partitieschema van de vorige querystap om in te schakelen volledig parallelle-topologie met meerdere makers in de tabel worden overgenomen. Zie voor meer informatie, [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md).|
+|Batch-aantal overeenkomsten| Het aanbevolen bovengrens aantal records die zijn verzonden met elke bulksgewijs invoegen transactie.|
 
 > [!NOTE]
 > De aanbieding Azure SQL Database wordt momenteel ondersteund voor de taakuitvoer van een in Stream Analytics. Een virtuele Machine van Azure SQL-Server met een database die is gekoppeld, wordt echter niet ondersteund. Dit is mogelijk gewijzigd in toekomstige releases.

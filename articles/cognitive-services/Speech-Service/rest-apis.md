@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338887"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230370"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -272,7 +272,7 @@ Deze tabel bevat de vereiste en optionele headers voor spraak-naar-tekst-aanvrag
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Uw abonnementssleutel Speech-Service. | Een van beide deze header of `Authorization` is vereist. |
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Een van beide deze header of `Ocp-Apim-Subscription-Key` is vereist. |
-| `Content-type` | Beschrijft de indeling en codec van de opgegeven gegevens. Geaccepteerde waarden zijn `audio/wav; codec=audio/pcm; samplerate=16000` en `audio/ogg; codec=audio/pcm; samplerate=16000`. | Vereist |
+| `Content-type` | Beschrijft de indeling en codec van de opgegeven gegevens. Geaccepteerde waarden zijn `audio/wav; codecs=audio/pcm; samplerate=16000` en `audio/ogg; codecs=opus`. | Vereist |
 | `Transfer-Encoding` | Hiermee geeft u op of gesegmenteerde audiogegevens wordt verzonden, in plaats van één bestand. Gebruik alleen deze header als audiogegevens logische groepen te verdelen. | Optioneel |
 | `Expect` | Als u gesegmenteerde overdracht, stuurt u `Expect: 100-continue`. De Spraakservice erkent de eerste aanvraag en wacht op de aanvullende gegevens.| Vereist als het gesegmenteerde audiogegevens verzenden. |
 | `Accept` | Indien opgegeven, moet deze `application/json`. De spraak-Service bevat de resultaten in JSON. Sommige Web aanvraag frameworks bieden een niet-compatibele standaardwaarde als u niets opgeeft, dus het is raadzaam om altijd opnemen `Accept`. | Optioneel maar aanbevolen. |
@@ -296,7 +296,7 @@ Dit is een typische HTTP-aanvraag. Het onderstaande voorbeeld bevat de hostnaam 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -330,7 +330,7 @@ Dit codevoorbeeld laat zien hoe voor het verzenden van audio in segmenten. Allee
     request.Method = "POST";
     request.ProtocolVersion = HttpVersion.Version11;
     request.Host = host;
-    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 

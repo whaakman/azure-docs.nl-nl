@@ -5,6 +5,7 @@ description: Informatie over het maken van openbare Standard Load Balancer met e
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: ccf30e435ef04f1e4e874c1b7fc78c86a494a3d9
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1a976344fd634e78fc5009ede4954ea578aa8db7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198113"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244581"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Een Standard Load Balancer maken met zone-redundante front met behulp van Azure PowerShell
 
