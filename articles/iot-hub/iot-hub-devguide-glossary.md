@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055078"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231611"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -40,7 +40,7 @@ Er zijn _apparaat-SDK's_ beschikbaar voor meerdere talen waarmee u kunt maken [a
 ## <a name="azure-iot-service-sdks"></a>Azure IoT service SDK 's
 Er zijn _service-SDK's_ beschikbaar voor meerdere talen waarmee u kunt maken [back-end-apps](#back-end-app) die communiceren met een IoT-hub. De IoT Hub-zelfstudies laten zien hoe u deze service-SDK's gebruiken. U vindt de broncode en meer informatie over de service-SDK's in deze GitHub [opslagplaats](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-tools"></a>Hulpprogramma's voor Azure IoT
+## <a name="azure-iot-tools"></a>Azure IoT Tools
 De [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is een platformoverschrijdende, open-source Visual Studio Code-extensie die helpt u bij het beheren van Azure IoT Hub en apparaten in VS Code. Met Azure IoT-hulpprogramma's kunnen IoT-ontwikkelaars ontwikkelen met IoT-project in VS Code eenvoudig.
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -59,7 +59,7 @@ De [Microsoft Azure portal](https://portal.azure.com) is een centrale plaats waa
 [Azure Storage](../storage/common/storage-introduction.md) is een oplossing voor cloudopslag. Het bevat de Blob Storage-service die u gebruiken kunt voor het opslaan van ongestructureerde objectgegevens. Sommige IoT Hub-zelfstudies blob-opslag gebruiken.
 
 ## <a name="back-end-app"></a>Back-end-app
-In de context van [IoT-Hub](#iot-hub), een back-end-app is een app die verbinding met een van de service gerichte eindpunten voor een IoT hub maakt. Bijvoorbeeld een back-end-app mogelijk ophalen [apparaat-naar-cloud](#device-to-cloud)berichten of beheren van de [id-register](#identity-registry). Normaal gesproken een back-end-app wordt uitgevoerd in de cloud, maar in veel van de zelfstudies voor de back-end-apps zijn console-apps die worden uitgevoerd op uw lokale ontwikkelcomputer.
+In de context van [IoT-Hub](#iot-hub), een back-end-app is een app die verbinding met een van de service gerichte eindpunten voor een IoT hub maakt. Bijvoorbeeld een back-end-app mogelijk ophalen [apparaat-naar-cloud](#device-to-cloud) berichten of beheren van de [id-register](#identity-registry). Normaal gesproken een back-end-app wordt uitgevoerd in de cloud, maar in veel van de zelfstudies voor de back-end-apps zijn console-apps die worden uitgevoerd op uw lokale ontwikkelcomputer.
 
 ## <a name="built-in-endpoints"></a>Ingebouwde eindpunten
 Elke IoT hub bevat een ingebouwde [eindpunt](iot-hub-devguide-endpoints.md) dat wil zeggen Event Hub-compatibele. U kunt een mechanisme dat met Event Hubs werkt te lezen van apparaat-naar-cloud-berichten vanaf dit eindpunt.
