@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017766"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Gegevens kopiëren van FTP-server met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-ftp-connector.md)
 > * [Huidige versie](connector-ftp.md)
 
