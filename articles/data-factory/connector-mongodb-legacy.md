@@ -20,7 +20,7 @@ ms.lasthandoff: 01/08/2019
 ms.locfileid: "54105420"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Huidige versie](connector-mongodb.md)
 
