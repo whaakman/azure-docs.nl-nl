@@ -109,7 +109,7 @@
 ##### [Opslagaccounts beheren](storsimple-8000-manage-storage-accounts.md)
 ##### [Volumecontainers beheren](storsimple-8000-manage-volume-containers.md)
 ##### [Volumes beheren - actueel](storsimple-8000-manage-volumes-u2.md)
-###### [Veelgestelde vragen: Lokaal vastgemaakt volumes](storsimple-8000-local-volume-faq.md)
+###### [Veelgestelde vragen: Lokaal vastgemaakte volumes](storsimple-8000-local-volume-faq.md)
 ##### [Op rollen gebaseerd toegangsbeheer](storsimple-8000-role-based-access-control.md)
 ##### [ACR's beheren](storsimple-8000-manage-acrs.md)
 ##### [Bandbreedtesjablonen beheren](storsimple-8000-manage-bandwidth-templates.md)
@@ -209,7 +209,7 @@
 ## Naslaginformatie
 ### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell voor StorSimple-cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [Resource Manager-sjabloon](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple-gegevensbeheer
 

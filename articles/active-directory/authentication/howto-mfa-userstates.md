@@ -5,27 +5,28 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4726383d96b0bd17f346f7391ed968c5f96bef1e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5b88fda9252b4547a87b192ef662330912d67d1a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239250"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247211"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Hoe u verificatie in twee stappen vereist voor een gebruiker
-U kunt een van de twee benaderingen voor het vereisen van verificatie in twee stappen, beide met behulp van een globale beheerdersaccount moet nemen. De eerste mogelijkheid is het inschakelen van MFA voor een gebruiker. Wanneer gebruikers afzonderlijk zijn ingeschakeld, worden ze gevraagd zich te authenticeren met behulp van hun tweede stap telkens wanneer ze zich aanmelden (met enkele uitzonderingen, zoals wanneer ze zich vanaf vertrouwde-IP-adressen aanmelden of wanneer de functie _dit apparaat onhouden_ is ingeschakeld). De tweede optie is het instellen van een beleid voor voorwaardelijke toegang waarvoor verificatie in twee stappen is vereist onder bepaalde omstandigheden.
+
+U kunt een van de twee benaderingen voor het vereisen van verificatie in twee stappen, beide met behulp van een globale beheerdersaccount moet nemen. De eerste mogelijkheid is het inschakelen van MFA voor een gebruiker. Wanneer gebruikers afzonderlijk zijn ingeschakeld, worden ze gevraagd zich te authenticeren met behulp van hun tweede stap telkens wanneer ze zich aanmelden (met enkele uitzonderingen, zoals wanneer ze zich vanaf vertrouwde-IP-adressen aanmelden of wanneer de functie _dit apparaat onhouden_ is ingeschakeld).  De tweede optie is het instellen van een beleid voor voorwaardelijke toegang waarvoor verificatie in twee stappen is vereist onder bepaalde omstandigheden.
 
 > [!TIP]
 > Kies een van deze methoden voor het vereisen van verificatie in twee stappen, niet beide. Inschakelen van een gebruiker voor de Azure multi-factor Authentication heeft voorrang op eventuele beleidsregels voor voorwaardelijke toegang.
 
 ## <a name="choose-how-to-enable"></a>Kiezen hoe u om in te schakelen
 
-**Ingeschakeld door het veranderen van gebruikersstatus** -dit is de traditionele methode voor het vereisen van verificatie in twee stappen en in dit artikel wordt besproken. Het werkt met beide Azure MFA in de cloud en Azure MFA-Server. Met deze methode vereist dat gebruikers om uit te voeren van verificatie in twee stappen **telkens** ze zich aanmelden en vervangt u beleid voor voorwaardelijke toegang.
+**Ingeschakeld door het veranderen van gebruikersstatus** -dit is de traditionele methode voor het vereisen van verificatie in twee stappen en in dit artikel wordt besproken. Het werkt met beide Azure MFA in de cloud en Azure MFA-Server. Met deze methode vereist dat gebruikers om uit te voeren van verificatie in twee stappen **telkens** ze zich aanmelden en vervangt u beleid voor voorwaardelijke toegang. Dit is de methode die wordt gebruikt voor gebruikers met licenties voor Office 365 of Microsoft 365 Business, zoals ze geen functies voor voorwaardelijke toegang omvatten.
 
 Ingeschakeld door het beleid voor voorwaardelijke toegang - is dit de meest flexibele manier om in te schakelen van verificatie in twee stappen voor uw gebruikers. Inschakelen met behulp van alleen beleid voor voorwaardelijke toegang werkt voor Azure MFA in de cloud en is een premium-functie van Azure AD. Meer informatie over deze methode kan worden gevonden [implementeren van cloud-gebaseerde Azure multi-factor Authentication](howto-mfa-getstarted.md).
 
@@ -39,7 +40,7 @@ Ingeschakeld door Azure AD Identity Protection - met deze methode maakt gebruik 
 
 Gebruikersaccounts in Azure multi-factor Authentication hebben de volgende drie afzonderlijke statussen:
 
-| Status | Beschrijving | Niet-browsertoepassingen beïnvloed | Browser-apps die worden beïnvloed | Moderne verificatie beïnvloed |
+| Status | Description | Niet-browsertoepassingen beïnvloed | Browser-apps die worden beïnvloed | Moderne verificatie beïnvloed |
 |:---:|:---:|:---:|:--:|:--:|
 | Uitgeschakeld |De standaardstatus voor een nieuwe gebruiker die niet zijn geregistreerd bij Azure MFA. |Nee |Nee |Nee |
 | Ingeschakeld |De gebruiker is geregistreerd in Azure MFA, maar is niet geregistreerd. Ze ontvangt een prompt voor het registreren van de volgende keer dat ze zich aanmelden. |Nee.  Ze blijven werken totdat het registratieproces is voltooid. | Ja. Nadat de sessie is verlopen, is registratie bij Azure MFA is vereist.| Ja. Nadat het toegangstoken is verlopen, is registratie bij Azure MFA is vereist. |
