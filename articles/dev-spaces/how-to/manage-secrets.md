@@ -1,5 +1,5 @@
 ---
-title: Geheimen beheren bij het werken met een Azure Dev-ruimte | Microsoft Docs
+title: Geheimen beheren bij het werken met een Azure Dev Space | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -20,13 +20,13 @@ ms.locfileid: "53013998"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Geheimen beheren bij het werken met een Azure Dev-adresruimte
 
-Uw services mogelijk bepaalde wachtwoorden, verbindingsreeksen en andere geheimen, zoals voor databases of andere beveiligde Azure-services. Door in te stellen de waarden van deze geheime gegevens in configuratiebestanden, kunt u ze beschikbaar zijn in uw code als omgevingsvariabelen.  Dit moeten zorgvuldig om te voorkomen dat de beveiliging van de geheimen worden verwerkt.
+Uw services kunnen bepaalde wachtwoorden, connectiestrings en andere geheimen vereisen, zoals voor databases of andere beveiligde Azure-services. Door de waarden van deze geheimen in configuratiebestanden in te stellen, kunt u ze als omgevingsvariabelen beschikbaar maken in uw code. Deze moeten met zorg worden behandeld om te voorkomen dat de veiligheid van de geheimen in gevaar komt.
 
-Azure Dev opslagruimten biedt twee opties voor het opslaan van geheimen aanbevolen: in het bestand values.dev.yaml en inline rechtstreeks in azds.yaml. Het is niet aanbevolen voor het opslaan van geheimen in values.yaml.
+Azure Dev Spaces biedt twee aanbevolen opties voor het opslaan van geheimen: in het bestand values.dev.yaml en direct inline in azds.yaml. Het is niet aan te raden om geheimen op te slaan in values.yaml.
  
 ## <a name="method-1-valuesdevyaml"></a>Methode 1: values.dev.yaml
-1. Open VS Code met uw project dat is ingeschakeld voor Azure Dev spaties.
-2. Toevoegen van een bestand met de naam _values.dev.yaml_ in dezelfde map als het bestaande _values.yaml_ en definieer de geheime sleutel en de waarden, zoals in het volgende voorbeeld:
+1. Open VS Code met uw project dat is ingeschakeld voor Azure Dev Spaces.
+2. Voeg een bestand met de naam _values.dev.yaml_ toe in dezelfde map als het bestaande _values.yaml_ en definieer de geheime sleutel en de waarden, zoals in het volgende voorbeeld:
 
     ```yaml
     secrets:
@@ -36,7 +36,7 @@ Azure Dev opslagruimten biedt twee opties voor het opslaan van geheimen aanbevol
         key: "secretkeyhere"
     ```
      
-3. Update _azds.yaml_ u vertelt Azure Dev ruimten voor het gebruik van uw nieuwe _values.dev.yaml_ bestand. Om dit te doen, moet u deze configuratie onder de sectie configurations.develop.container toevoegen:
+3. Werk _azds.yaml_ bij om Azure Dev Spaces te vertellen dat het uw nieuwe bestand _values.dev.yaml_ moet gebruiken. Om dit te doen, moet u deze configuratie onder de sectie configurations.develop.container toevoegen:
 
     ```yaml
            container:
@@ -44,7 +44,7 @@ Azure Dev opslagruimten biedt twee opties voor het opslaan van geheimen aanbevol
              - "charts/webfrontend/values.dev.yaml"
     ```
  
-4. Wijzig de servicecode van uw om te verwijzen naar deze geheime gegevens als omgevingsvariabelen, zoals in het volgende voorbeeld:
+4. Wijzig de servicecode om te verwijzen naar deze geheime gegevens als omgevingsvariabelen, zoals in het volgende voorbeeld:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -52,23 +52,23 @@ Azure Dev opslagruimten biedt twee opties voor het opslaan van geheimen aanbevol
     var theKey = process.env.REDIS_KEY
     ```
     
-5. Bijwerken van de services die worden uitgevoerd in uw cluster met deze wijzigingen. Voer op de opdrachtregel de opdracht uit:
+5. Werk de services die in uw cluster worden uitgevoerd bij met deze wijzigingen. Voer de volgende opdracht op de opdrachtregel uit:
 
     ```
     azds up
     ```
  
-6. (Optioneel) Controleer of deze geheime gegevens zijn gemaakt vanaf de opdrachtregel:
+6. (Optioneel) Controleer of deze geheime gegevens zijn gemaakt via de opdrachtregel:
 
       ```
       kubectl get secret --namespace default -o yaml 
       ```
 
-7. Zorg ervoor dat u toevoegt _values.dev.yaml_ naar de _.gitignore_ bestand om te voorkomen dat het vastleggen van de geheimen in broncodebeheer.
+7. Zorg ervoor dat u _values.dev.yaml_ toevoegt aan het bestand _.gitignore_ om te voorkomen dat geheimen in broncodebeheer worden vastgelegd.
  
  
 ## <a name="method-2-inline-directly-in-azdsyaml"></a>Methode 2: Inline rechtstreeks in azds.yaml
-1.  In _azds.yaml_, geheimen onder de yaml sectie configuraties/ontwikkeling/installatie ingesteld. U kunt wel invoeren geheim waarden direct, het niet aanbevolen wordt omdat _azds.yaml_ is ingeschakeld in broncodebeheer. In plaats daarvan met de syntaxis '$PLACEHOLDER' tijdelijke aanduidingen toevoegen.
+1.  In _azds.yaml_, stel geheimen in onder de yaml sectie configuraties/ontwikkeling/installatie. U kunt wel geheime waarden direct invoeren, maar het is niet aanbevolen omdat _azds.yaml_ wordt opgenomen in broncodebeheer. In plaats daarvan voegt u met de syntaxis '$PLACEHOLDER' tijdelijke aanduidingen toe.
 
     ```yaml
     configurations:
@@ -83,14 +83,14 @@ Azure Dev opslagruimten biedt twee opties voor het opslaan van geheimen aanbevol
                 key: "$REDIS_KEY_DEV"
     ```
      
-2.  Maak een _.env_ bestand in dezelfde map als _azds.yaml_. Voer geheimen met behulp van standaard sleutel = waarde-notatie. Niet doorvoeren de _.env_ bestand broncodebeheer. (Als u wilt weglaten vanuit broncodebeheer in git gebaseerde versiebeheersystemen, toe te voegen aan de _.gitignore_ bestand.) Het volgende voorbeeld wordt een _.env_ bestand:
+2.  Maak een _.env_ bestand in dezelfde map als _azds.yaml_. Voer geheimen in met behulp van standaard sleutel=waarde-notatie. Neem het _.env_ bestand niet op in broncodebeheer. (Om bestanden uit te sluiten vanuit broncodebeheer in git-gebaseerde versiebeheersystemen voegt u deze toe aan het bestand _.gitignore_.) Het volgende voorbeeld toont een _.env_ bestand:
 
     ```
     REDIS_PORT_DEV=3333
     REDIS_HOST_DEV=myredishost
     REDIS_KEY_DEV=myrediskey
     ```
-2.  Wijzig de broncode van uw service om te verwijzen naar deze geheimen in code, zoals in het volgende voorbeeld:
+2.  Wijzig uw servicecode om te verwijzen naar deze geheimen in code, zoals in het volgende voorbeeld:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -98,13 +98,13 @@ Azure Dev opslagruimten biedt twee opties voor het opslaan van geheimen aanbevol
     var theKey = process.env.REDIS_KEY
     ```
  
-3.  Bijwerken van de services die worden uitgevoerd in uw cluster met deze wijzigingen. Voer op de opdrachtregel de opdracht uit:
+3.  Werk de services bij die worden uitgevoerd in uw cluster met deze wijzigingen. Voer op de opdrachtregel de opdracht uit:
 
     ```
     azds up
     ```
 
-4.  (optioneel) De geheimen van de weergave van kubectl:
+4.  (optioneel) Bekijk de geheimen van kubectl:
 
     ```
     kubectl get secret --namespace default -o yaml
