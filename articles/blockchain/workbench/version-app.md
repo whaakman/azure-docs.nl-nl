@@ -30,7 +30,7 @@ U kunt meerdere versies van een Azure Blockchain Workbench-app maken en gebruike
 
 ## <a name="add-an-app-version"></a>Een appversie toevoegen
 
-Voeg de nieuwe configuratie en smart contractbestanden toe aan Blockchain Workbench om een nieuwe versie toe te voegen.
+Voeg de nieuwe configuratie en slimme contractbestanden toe aan Blockchain Workbench om een nieuwe versie toe te voegen.
 
 1. Navigeer in een webbrowser naar het webadres van Blockchain Workbench. Bijvoorbeeld, `https://{workbench URL}.azurewebsites.net/` Zie voor meer informatie over het vinden van uw Blockchain Workbench webadres [Blockchain Workbench Web-URL](deploy.md#blockchain-workbench-web-url)
 2. Meld u aan als een [Blockchain Workbench beheerder](manage-users.md#manage-blockchain-workbench-administrators).
