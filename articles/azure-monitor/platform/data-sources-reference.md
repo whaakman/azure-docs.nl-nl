@@ -1,6 +1,6 @@
 ---
-title: Bronnen van monitoringgegevens in Azure
-description: Meer informatie over alle bronnen met monitoringgegevens die momenteel beschikbaar zijn in Azure.
+title: Bronnen van controlegegevens in Azure
+description: Meer informatie over alle bronnen met controlegegevens die momenteel beschikbaar zijn in Azure.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -15,9 +15,9 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53728207"
 ---
-# <a name="consume-monitoring-data-from-azure"></a>Monitoringgegevens van Azure gebruiken
+# <a name="consume-monitoring-data-from-azure"></a>Controlegegevens van Azure gebruiken
 
-Over het complete Azure-platform brengen we monitoringgegevens op één plaats samen met de Azure Monitor-pijplijn, maar we erkennen dat vandaag nog niet alle monitoringgegevens in die pijplijn beschikbaar zijn. In dit artikel zullen we de verschillende manieren samenvatten waarop u programmatisch toegang kunt krijgen tot monitoringgegevens van Azure-services.
+Over het complete Azure-platform brengen we controlegegevens op één plaats samen met de Azure Monitor-pijplijn, maar we erkennen dat vandaag nog niet alle controlegegevens in die pijplijn beschikbaar zijn. In dit artikel zullen we de verschillende manieren samenvatten waarop u programmatisch toegang kunt krijgen tot controlegegevens van Azure-services.
 
 ## <a name="options-for-data-consumption"></a>Opties voor het gegevensverbruik
 
