@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 054215a44b66d8fbf30c1a3e61f66425350392b1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3f1a1c6e314d54f15d7e11784e2671002e854854
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074514"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304292"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Ontwikkel uw bedrijfsactiviteiten in de marketplace 
 Nadat u uw aanbieding in AppSource of in de Azure Marketplace hebt gepubliceerd, kunt u uw aanbieding gebruiken als een launchpad voor gezamenlijke (GTM)-activiteiten met go-to-market met Microsoft. Verkeer naar uw Marketplace-aanbieding te stimuleren en nurturing Marketplace leads, zijn bijvoorbeeld geweldige manieren om uw zakelijke groei te versnellen. 
@@ -33,7 +33,7 @@ De tabellen in de volgende secties vindt u suggesties voor het maken van aantrek
 ### <a name="storefront-offer-details"></a>Details van StoreFront aanbieding
 | StoreFront instelling | Best practices |
 |:--- |:--- |  
-| Naam van aanbieding: | Geef een sterk titel:<br>Naam van uw app moet de core-waarde die uw klanten ontvangt communiceren. Inclusief zoekwoorden in de titel van uw app kunt u uw app die hoger in zoekmachineresultaten wordt gerangschikt.<br><br>Ga als volgt een set titel-indeling voor het service-aanbiedingen consulting:<br>[Naam van aanbieding]: [duur] [Aanbiedingstype (Offertype)] (bijvoorbeeld *Contoso: 2 weken implementatie*)<br><br>Voldoen aan de Merkrichtlijnen van:<br>Ga als volgt [Trademark van Microsoft en Merkrichtlijnen](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) en andere relevante, product-specifieke richtlijnen wanneer u naar handelsmerken van Microsoft en de namen van de Microsoft-software, producten en services verwijst. |
+| Naam van aanbieding: | Geef een sterk titel:<br>Naam van uw app moet de core-waarde die uw klanten ontvangt communiceren. Inclusief zoekwoorden in de titel van uw app kunt u uw app die hoger in zoekmachineresultaten wordt gerangschikt.<br><br>Ga als volgt een set titel-indeling voor het service-aanbiedingen consulting:<br>[Naam van aanbieding]: [duur] [Aanbiedingstype (Offertype)] (bijvoorbeeld *Contoso: 2 weken implementatie*)<br><br>Voldoen aan de Merkrichtlijnen van:<br>Ga als volgt [Trademark van Microsoft en Merkrichtlijnen](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/) en andere relevante, product-specifieke richtlijnen wanneer u naar handelsmerken van Microsoft en de namen van de Microsoft-software, producten en services verwijst. |
 | Beschrijving van aanbieding | Geef een beschrijving wissen aanbieding:<br>Duidelijk waardevoorstel in de eerste paar zinnen van de beschrijving van uw aanbieding te beschrijven. Houd er rekening mee dat de eerste paar zinnen kunnen worden weergegeven in zoekmachineresultaten. Vertrouw niet op de functies en functionaliteit om uw product te verkopen. In plaats daarvan richten op de waarde die u levert. Branchespecifieke vocabulaire of op basis van een voordeel bewoording zo veel mogelijk gebruiken.<br><br>Belangrijkste onderdelen van de toegevoegde waarde moeten de volgende informatie opnemen:<ul><li>Beschrijving van het product</li><li>Type van de gebruiker om te kunnen van het product profiteren</li><li>Klant- of pijn die het product</li></ul> |
 
 ### <a name="storefront-listing-details"></a>De details van StoreFront aanbieding
@@ -42,7 +42,7 @@ De tabellen in de volgende secties vindt u suggesties voor het maken van aantrek
 | Branches: AppSource-apps en adviesservices alleen | Selecteer branches als uw aanbieding branche-specifieke vereisten adressen:<br>Aanroepen per branche mogelijkheden in de beschrijving van uw aanbieding.<br><br>**Opmerking**: Het maximum aantal opties is afhankelijk van het aanbiedingtype en wordt aangegeven in de Cloud Partner-portal. |
 | Categorieën | Selecteer de categorieën die het beste zijn afgestemd op uw aanbieding:<br>Kies de categorieën zorgvuldig, omdat klanten deze gebruiken om te zoeken naar relevante apps. Zorg ervoor dat houden hoe uw aanbieding categorie-specifieke behoeften in de beschrijving van de aanbieding ondersteunt.<br><br> **Opmerking**: Het maximum aantal opties is afhankelijk van het aanbiedingtype en wordt aangegeven in de Cloud Partner-portal. |
 | Producten die uw app met werkt (3&nbsp;max): AppSource-apps | Lijst met aanvullende producten en technologieën die uw oplossing wordt gebruikt of uitbreiden:<br>Bijvoorbeeld, Azure IoT Hub of Azure Machine Learning. |
-| Trefwoorden zoeken (3&nbsp;max) | Gebruik zoekwoorden waarmee zakelijke gebruikers uw aanbieding vinden wanneer ze zoeken in de Azure Marketplace en op AppSource of met behulp van zoekmachines:<br>Identificeren van de top drie zoekwoorden voor uw aanbieding; de zoekwoorden in uw aanbieding samenvatting en beschrijving; opnemen en hier de trefwoorden te vermelden. |
+| Search keywords (3&nbsp;max) | Gebruik zoekwoorden waarmee zakelijke gebruikers uw aanbieding vinden wanneer ze zoeken in de Azure Marketplace en op AppSource of met behulp van zoekmachines:<br>Identificeren van de top drie zoekwoorden voor uw aanbieding; de zoekwoorden in uw aanbieding samenvatting en beschrijving; opnemen en hier de trefwoorden te vermelden. |
 
 ### <a name="storefront-marketing-details"></a>Details van StoreFront marketing
 | StoreFront instelling | Best practices |
@@ -147,7 +147,7 @@ De Azure Marketplace-badge wordt geleverd als onderdeel van uw gratis [go-to-mar
 
 ### <a name="link-to-your-app-listing-page-in-the-marketplace-from-your-website"></a>Koppeling naar de pagina voor uw app-aanbieding op marketplace van uw website
 Wanneer u een koppeling van de badge AppSource of Azure Marketplace op uw site aan uw aanbieding op marketplace, bieden ondersteuning voor sterke analyse en rapportage door de volgende queryparameters aan het einde van de URL:
-* **SRC**: De bron van waaruit het verkeer wordt doorgestuurd naar AppSource (bijvoorbeeld, website, LinkedIn of Facebook) opnemen.
+* **src**: De bron van waaruit het verkeer wordt doorgestuurd naar AppSource (bijvoorbeeld, website, LinkedIn of Facebook) opnemen.
 * **mktcmpid**: Uw marketing campagne-ID, die mag maximaal 16 tekens in een willekeurige combinatie van letters, cijfers, onderstrepingstekens, en afbreekstreepjes (bijvoorbeeld *blogpost_12*).
 
 Het volgende voorbeeld-URL bevat zowel van de voorgaande queryparameters: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`

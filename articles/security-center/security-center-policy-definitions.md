@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011627"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261890"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Beleid voor Azure-beveiliging bewaakt door Azure Security Center
-In dit artikel biedt een overzicht van Azure Policy-definities die kan worden bewaakt in Security Center.
+In dit artikel biedt een overzicht van Azure Policy-definities die kan worden bewaakt in Security Center. Zie voor meer informatie over beveiligingsbeleid, [werken met beleidsregels voor veiligheid](tutorial-security-policy.md).
 
 ## <a name="available-security-policies"></a>Beschikbaar beleid
 
@@ -54,34 +54,34 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |Configuratie van metrische waarschuwingsregels in Batch-accounts controleren|Configuratie van regels voor metrische waarschuwingen op Batch-account om in te schakelen van de vereiste metrische gegevens controleren.| 
 |Configuratie van metrische waarschuwingsregels in Batch-accounts controleren|Configuratie van regels voor metrische waarschuwingen op Batch-account om in te schakelen van de vereiste metrische gegevens controleren.| 
 |Inschakelen van diagnostische logboeken in Batch-accounts controleren|Audit logs in te schakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.| 
-|Inschakelen van versleuteling van Automation-accountvariabelen controleren|Het is belangrijk om de versleuteling van variabele assets in een Automation-account in te schakelen bij het opslaan van gevoelige gegevens.| 
+|Inschakelen van versleuteling van Automation-accountvariabelen controleren|Het is belangrijk om in te schakelen van versleuteling van variabele assets van Automation-account bij het opslaan van gevoelige gegevens.| 
 |Inschakelen van diagnostische logboeken in App Services controleren|Controle inschakelen van diagnostische logboeken op de app. Hiermee kunt u activiteit sporen onderzoek opnieuw maken als een beveiligingsincident optreedt of als uw netwerk is gecompromitteerd.| 
 |Controlestatus van transparante gegevensversleuteling|Controlestatus van transparante gegevensversleuteling voor SQL-databases.| 
 |Instellingen voor SQL-controle op serverniveau|Controleert het bestaan van de SQL-controle op serverniveau.| 
-|[Preview]: Niet-versleutelde SQL-database bewaken in Azure Security Center|Niet-versleutelde SQL-servers of databases wordt bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Niet-gecontroleerde SQL-database bewaken in Azure Security Center|SQL-servers en databases waarvoor geen SQL-controle ingeschakeld zal worden bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Ontbrekende systeemupdates bewaken in Azure Security Center|Ontbrekende beveiligingssysteemupdates op uw servers zullen worden bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview-versie]: ontbrekende blob-versleuteling voor opslagaccounts controleren|Dit beleid controleert opslagaccounts zonder blobversleuteling. Dit is alleen van toepassing op Microsoft.Storage-resourcetypen, niet op andere opslagproviders. Mogelijk netwerk Just In Time-toegang wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
-|[Preview]: Mogelijke Just In Time-netwerktoegang (JIT) bewaken in Azure Security Center|Mogelijke netwerktoegang alleen In tijd (JIT) worden door Azure Security Center als aanbevelingen bewaakt.| 
-|[Preview]: Mogelijkheid voor de lijst met goedgekeurde apps bewaken in Azure Security Center|Mogelijke whitelistconfiguratie voor toepassingen wordt bewaakt door Azure Security Center.| 
-|[Preview]: Ruime netwerktoegang bewaken in Azure Security Center|Netwerkbeveiligingsgroepen met te ruime regels worden door Azure Security Center als aanbevelingen bewaakt.| 
+|[Preview]: Niet-versleutelde SQL-database in Azure Security Center bewaken|Niet-versleutelde SQL-servers of databases wordt bewaakt door Azure Security Center als aanbevelingen.| 
+|[Preview]: Niet-gecontroleerde SQL-database in Azure Security Center bewaken|SQL-servers en databases waarvoor geen SQL-controle ingeschakeld zal worden bewaakt door Azure Security Center als aanbevelingen.| 
+|[Preview]: Ontbrekende systeemupdates in Azure Security Center bewaken|Ontbrekende beveiligingssysteemupdates op uw servers zullen worden bewaakt door Azure Security Center als aanbevelingen.| 
+|[Preview]: Controle uitvoeren op ontbrekende blobversleuteling voor opslagaccounts|Dit beleid controleert opslagaccounts zonder blobversleuteling. Dit is alleen van toepassing op Microsoft.Storage-resourcetypen, niet op andere opslagproviders. Mogelijk netwerk Just In Time-toegang wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
+|[Preview]: Mogelijk alleen In tijd (JIT)-toegang in Azure Security Center bewaken|Mogelijke netwerktoegang alleen In tijd (JIT) worden door Azure Security Center als aanbevelingen bewaakt.| 
+|[Preview]: Mogelijke opname Apps op Whitelist in Azure Security Center bewaken|Mogelijke whitelistconfiguratie voor toepassingen wordt bewaakt door Azure Security Center.| 
+|[Preview]: Ruime netwerktoegang in Azure Security Center bewaken|Netwerkbeveiligingsgroepen met te ruime regels worden door Azure Security Center als aanbevelingen bewaakt.| 
 |[Preview]: Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center|Servers die niet voldoen aan de ingestelde basislijn worden bewaakt door Azure Security Center als aanbevelingen.| 
 |[Preview]: Ontbrekende Endpoint Protection bewaken in Azure Security Center|Servers zonder een geïnstalleerde Endpoint Protection-agent worden bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Niet-versleutelde VM-schijven bewaken in Azure Security Center|Virtuele machines zonder ingeschakelde schijfversleuteling worden door Azure Security Center als aanbevelingen bewaakt.| 
-|[Preview]: Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center|Hiermee worden beveiligingsproblemen die door de oplossing voor evaluatie van beveiligingsproblemen zijn gedetecteerd en virtuele machines zonder oplossing voor evaluatie van beveiligingsproblemen bewaakt als aanbevelingen in Azure Security Center.| 
-|[Preview]: Niet-beveiligde webtoepassing bewaken in Azure Security Center|Webtoepassingen zonder Web Application Firewall bescherming wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
-|[Preview]: Niet-beveiligde netwerkeindpunten bewaken in Azure Security Center|Netwerkeindpunten zonder een Next Generation Firewall beveiliging wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
-|[Preview]: Resultaten van SQL-beveiligingsevaluatie bewaken in Azure Security Center|Bewaken van de scanresultaten en aanbevelingen van de beveiligingsevaluatie over het herstellen van beveiligingsproblemen in een database.| 
-|[Preview-versie]: controle maximale aantal eigenaars voor een abonnement|Het wordt aanbevolen maximaal drie abonnementseigenaren toe te wijzen om het risico dat een gecomprimeerde eigenaar inbreuk kan plegen te beperken.| 
-|[Preview-versie]: controle minimale aantal eigenaars voor een abonnement|We raden u aan meer dan één abonnementseigenaar toe te wijzen voor toegangsredundantie voor beheerders.| 
-|[Preview-versie]: Accounts met eigenaarsmachtigingen controleren waarbij MFA niet is ingeschakeld in een abonnement|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met eigenaarsmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
-|[Preview-versie]: controle accounts met schrijfmachtigingen waarbij MFA niet is ingeschakeld in een abonnement|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
-|[Preview-versie]: controle accounts met leesmachtigingen waarbij MFA niet is ingeschakeld in een abonnement|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
-|[Preview-versie]: controle afgeschafte accounts met eigenaarsmachtigingen in een abonnement|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
-|[Preview-versie]: controle afgeschafte accounts in een abonnement|Afgeschafte accounts moeten worden verwijderd van uw abonnementen. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
-|[Preview-versie]: controle externe accounts met eigenaarsmachtigingen in een abonnement|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.| 
-|[Preview-versie]: controle externe accounts met schrijfmachtigingen in een abonnement|Externe accounts met schrijfmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
-|[Preview-versie]: controle externe accounts met leesmachtigingen in een abonnement|Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
+|[Preview]: Niet-versleutelde VM-schijven in Azure Security Center bewaken|Virtuele machines zonder ingeschakelde schijfversleuteling worden door Azure Security Center als aanbevelingen bewaakt.| 
+|[Preview]: Beveiligingsproblemen van de monitor voor virtuele machines in Azure Security Center|Hiermee worden beveiligingsproblemen die door de oplossing voor evaluatie van beveiligingsproblemen zijn gedetecteerd en virtuele machines zonder oplossing voor evaluatie van beveiligingsproblemen bewaakt als aanbevelingen in Azure Security Center.| 
+|[Preview]: Niet-beveiligde web-App in Azure Security Center bewaken|Webtoepassingen zonder Web Application Firewall bescherming wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
+|[Preview]: Netwerkeindpunten in Azure Security Center bewaken|Netwerkeindpunten zonder een Next Generation Firewall beveiliging wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
+|[Preview]: Evaluatie van beveiligingsproblemen SQL monitor resulteert in Azure Security Center|Bewaken van de scanresultaten en aanbevelingen van de beveiligingsevaluatie over het herstellen van beveiligingsproblemen in een database.| 
+|[Preview]: Maximum aantal eigenaars voor een abonnement controleren|Het wordt aanbevolen maximaal drie abonnementseigenaren toe te wijzen om het risico dat een gecomprimeerde eigenaar inbreuk kan plegen te beperken.| 
+|[Preview]: Minimum aantal eigenaren voor het abonnement controleren|We raden u aan meer dan één abonnementseigenaar toe te wijzen voor toegangsredundantie voor beheerders.| 
+|[Preview]: Accounts met eigenaarsmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met eigenaarsmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
+|[Preview]: Accounts met schrijfmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
+|[Preview]: Accounts met leesmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
+|[Preview]: Afgeschafte accounts met eigenaarsmachtigingen voor een abonnement controleren|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
+|[Preview]: Afgeschafte accounts op een abonnement controleren|Afgeschafte accounts moeten worden verwijderd uit uw abonnementen. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
+|[Preview]: Externe accounts met eigenaarsmachtigingen voor een abonnement controleren|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.| 
+|[Preview]: Controle van externe accounts met schrijfmachtigingen heeft voor een abonnement|Externe accounts met schrijfmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
+|[Preview]: Externe accounts met leesmachtigingen voor een abonnement controleren|Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
 
 
 
@@ -89,11 +89,11 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Center configureert. Zie de volgende artikelen voor meer informatie over Security Center:
 
-* [Gids voor de planning en werking van Azure Security Center](security-center-planning-and-operations-guide.md): leer de ontwerpoverwegingen kennen en leer hiervoor te plannen voor Azure Security Center.
-* [Beveiligingsstatus controleren in Azure Security Center](security-center-monitoring.md): meer informatie over het controleren van de status van uw Azure-resources.
-* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
-* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
-* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
+* [Azure Security Center planning- en bedieningsgids voor](security-center-planning-and-operations-guide.md): Leer hoe u Azure Security Center de ontwerpoverwegingen kennen en plan.
+* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): Meer informatie over het controleren van de status van uw Azure-resources.
+* [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md): Informatie over het beheren van en reageren op beveiligingswaarschuwingen.
+* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): Meer informatie over het bewaken van de status van uw partneroplossingen.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): Krijg antwoorden op veelgestelde vragen over het gebruik van de service.
+* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): Raadpleeg de blogberichten over beveiliging en naleving in Azure.
 
 Zie [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md) voor meer informatie over Azure Policy.
