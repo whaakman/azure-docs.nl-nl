@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260715"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262214"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -19,7 +19,7 @@ Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wor
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **VMware**: De virtuele machines die u wilt migreren, moeten worden beheerd door vCenter-Server versie 5.5, 6.0 of 6.5. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
+- **VMware**: De virtuele machines die u wilt migreren, moeten worden beheerd door vCenter-Server versie 5.5, 6.0, 6.5 of 6.7. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
 - **vCenter-account**: U moet een alleen-lezen-account voor toegang tot de vCenter-Server. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
 - **Machtigingen**: In de vCenter-Server moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in OVA-indeling.
 - **Instellingen voor statistieken**: Deze vereiste is alleen van toepassing op de [eenmalige detectie model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) die nu is afgeschaft. Voor detectie van eenmalige-model, moeten de instellingen voor statistieken voor de vCenter-Server worden ingesteld op niveau 3 voordat u begint met implementatie. Het statistiekniveau van de is ingesteld op 3 voor elk van de dag, week en maand verzameling intervallen. Als het niveau lager dan 3 voor elk van de drie verzameling intervallen is, werkt de beoordeling wel, maar de prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt vervolgens worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
@@ -134,13 +134,13 @@ Als u meerdere projecten hebt, moet u het collector-apparaat slechts één keer 
     > [!NOTE]
     > Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure.
 
-    **Direct resultaat:** Met het continue detectie-apparaat, wanneer de detectie is voltooid (duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
+    **Onmiddellijk resultaat:** als de detectie met het apparaat voor continue detectie voltooid is (wat enkele uren kan duren, afhankelijk van het aantal virtuele machines), kunt u meteen evaluaties gaan maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
     Houd er rekening mee dat het apparaat alleen continu prestatiegegevens verzamelt, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
-    - Het toevoegen van items (virtuele machines, schijven, kernen enz.): Als gevolg van deze wijzigingen in de Azure-portal, kunt u stoppen van de detectie van het apparaat en probeer het opnieuw. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+    - Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
-    - Verwijderen van virtuele machines: Vanwege de manier waarop die het apparaat is ontworpen, het verwijderen van virtuele machines niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+    - Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
 
 3. In **projectreferenties kopiëren**, kopieert u de ID en de sleutel voor het project. U hebt deze nodig tijdens de configuratie van collector.
 
@@ -286,14 +286,14 @@ Het collector-apparaat verzamelt de volgende prestatiemeteritems voor elke virtu
 
 **Teller** |  **Gevolgen voor de evaluatie**
 --- | ---
-CPU.Usage.Average | Aanbevolen VM-grootte en kosten  
-Mem.Usage.Average | Aanbevolen VM-grootte en kosten  
+cpu.usage.average | Aanbevolen VM-grootte en kosten  
+mem.usage.average | Aanbevolen VM-grootte en kosten  
 virtualDisk.read.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.write.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.numberReadAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.numberWriteAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 NET.Received.Average | Berekent de VM-grootte                          
-NET.transmitted.Average | Berekent de VM-grootte     
+net.transmitted.average | Berekent de VM-grootte     
 
 > [!WARNING]
 > De eenmalige detectiemethode die op vCenter-Server statistiek-instellingen voor het verzamelen van prestatiegegevens vertrouwen is nu verouderd.

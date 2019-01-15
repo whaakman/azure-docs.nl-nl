@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e31c957e9ef24079d6917109ec9c5f85928bfbd7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545311"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260972"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
@@ -27,7 +27,7 @@ Een combinatie van het resourcetype (beschikbaar in de `resourceId` eigenschap) 
 |---|---|---|
 | time | Vereist | De tijdstempel (UTC) van de gebeurtenis. |
 | resourceId | Vereist | De resource-ID van de resource die de gebeurtenis verzonden. Dit is van het formulier /tenants/tenant-id/providers/provider-name voor tenantservices. |
-| tenant-id | Vereist voor de tenant-Logboeken | De tenant-ID van de Active Directory-tenant die deze gebeurtenis is gekoppeld aan. Deze eigenschap wordt alleen gebruikt voor op tenantniveau-Logboeken is het niet wordt weergegeven in Logboeken op het niveau van resources. |
+| tenantId | Vereist voor de tenant-Logboeken | De tenant-ID van de Active Directory-tenant die deze gebeurtenis is gekoppeld aan. Deze eigenschap wordt alleen gebruikt voor op tenantniveau-Logboeken is het niet wordt weergegeven in Logboeken op het niveau van resources. |
 | operationName | Vereist | De naam van de bewerking die wordt vertegenwoordigd door deze gebeurtenis. Als de gebeurtenis een RBAC-bewerking stelt, is dit de naam van de RBAC-bewerking (bv. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Doorgaans zijn gemodelleerd in de vorm van een Resource Manager-bewerking, zelfs als ze niet werkelijke gedocumenteerde Resource Manager-bewerkingen zijn (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Optioneel | De api-versie die is gekoppeld aan de bewerking als de operationName is uitgevoerd met behulp van een API (bijvoorbeeld) `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Als er geen API die overeenkomt met deze bewerking, vertegenwoordigt de versie van de versie van deze bewerking in het geval de eigenschappen die zijn gekoppeld aan de bewerking in de toekomst worden gewijzigd. |
 | category | Vereist | De categorie van de logboekbestanden van de gebeurtenis. Categorie is de granulatie waarmee u kunt inschakelen of uitschakelen van Logboeken op een bepaalde resource. De eigenschappen die worden weergegeven in de blob eigenschappen van een gebeurtenis zijn hetzelfde binnen een bepaalde categorie en resource Logboektype. Typische logboekcategorieën zijn 'Controle' "operationele" "Uitvoeren" en "-aanvraag. |
@@ -97,7 +97,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API-server|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
 |Microsoft.ContainerService/managedClusters|cluster-automatisch schalen|Automatische schaalaanpassing van Kubernetes-cluster|
-|Microsoft.ContainerService/managedClusters|kube-planner|Kubernetes Scheduler|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes Scheduler|
 |Microsoft.ContainerService/managedClusters|GUARD|Verificatiewebhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Uitvoeringen van pijplijn activiteitenlogboek|
@@ -120,7 +120,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Devices/IotHubs|TwinQueries|Apparaatdubbel-query 's|
 |Microsoft.Devices/IotHubs|JobsOperations|Taakbewerkingen|
 |Microsoft.Devices/IotHubs|DirectMethods|Directe methoden|
-|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E diagnostische gegevens (Preview)|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E Diagnostics (Preview)|
 |Microsoft.Devices/IotHubs|Configuraties|Configuraties|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Apparaatbewerkingen|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Servicebewerkingen|
@@ -200,12 +200,12 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Sql/managedInstances/databases|Fouten|Fouten|
 |Microsoft.StreamAnalytics/streamingjobs|Uitvoering|Uitvoering|
 |Microsoft.StreamAnalytics/streamingjobs|Ontwerpen|Ontwerpen|
-|Microsoft.Web/sites|FunctionExecutionLogs|Logboekbestanden voor het uitvoeren van functie|
-|Microsoft.Web/sites/slots|FunctionExecutionLogs|Logboekbestanden voor het uitvoeren van functie|
+|microsoft.web/sites|FunctionExecutionLogs|Logboekbestanden voor het uitvoeren van functie|
+|microsoft.web/sites/slots|FunctionExecutionLogs|Logboekbestanden voor het uitvoeren van functie|
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie over diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [Diagnostische logboeken van de resource naar Stream **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
-* [Diagnostische instellingen voor resources met behulp van de REST-API van Azure Monitor wijzigt](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Diagnostische instellingen voor resources met behulp van de REST-API van Azure Monitor wijzigt](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Logboeken van Azure storage met Log Analytics analyseren](../../azure-monitor/platform/collect-azure-metrics-logs.md)

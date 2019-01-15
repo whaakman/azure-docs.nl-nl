@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313629"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306114"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>Wat zijn FPGA's en Project Brainwave?
 
@@ -33,13 +33,13 @@ Het volgende diagram en tabel laten u zien hoe FPGA's zich verhouden tot andere 
 |Processor||Description|
 |---|:-------:|------|
 |Toepassingsspecifieke geïntegreerde circuits|ASICs|Aangepaste circuits, zoals Google TensorFlow Processor eenheden (TPU), biedt het hoogste rendement. Ze kunnen niet opnieuw worden geconfigureerd wanneer uw behoeften veranderen.|
-|Veld-programmable gate arrays|FPGA 's|FPGA's, zoals die beschikbaar zijn op Azure, levert prestaties dicht bij ASICs. Ze zijn ook flexibele en herconfigureerbare gedurende een periode, om nieuwe logica te implementeren.|
+|Veld-programmable gate arrays|FPGAs|FPGA's, zoals die beschikbaar zijn op Azure, levert prestaties dicht bij ASICs. Ze zijn ook flexibele en herconfigureerbare gedurende een periode, om nieuwe logica te implementeren.|
 |Grafische verwerkingseenheden|GPU 's|Een populaire optie voor AI-berekeningen. GPU's bieden mogelijkheden voor parallelle verwerking, waardoor het sneller op beeldweergave dan CPU's.|
 |Central processing units|CPU's|Voor algemene doeleinden processors, de prestaties van die niet ideaal voor grafische afbeeldingen en video verwerking is.|
 
 ## <a name="project-brainwave-on-azure"></a>Project Brainwave op Azure
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is een hardwarearchitectuur van Microsoft. Deze gebaseerd op Intel FPGA apparaten, welke data scientists en ontwikkelaars met realtime AI-berekeningen te versnellen. Deze architectuur FPGA-functionaliteit biedt prestaties, flexibiliteit en de schaal en is beschikbaar op Azure.
+[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) is een hardwarearchitectuur van Microsoft. Deze gebaseerd op Intel FPGA apparaten, welke data scientists en ontwikkelaars met realtime AI-berekeningen te versnellen. Deze architectuur FPGA-functionaliteit biedt prestaties, flexibiliteit en de schaal en is beschikbaar op Azure.
 
 FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen. Asynchrone aanvragen (batchverwerking) niet meer nodig hebt. Batchverwerking kan de latentie, veroorzaken, omdat er meer gegevens moet worden verwerkt. Project Brainwave implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie kan dus minder vaak, vergeleken met de CPU en GPU-processors.
 

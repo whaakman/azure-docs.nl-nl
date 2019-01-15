@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192053"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259679"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>De Azure VM-Agent installeren in de offlinemodus bevindt 
 
@@ -35,6 +35,14 @@ De VM-Agent installeren in de offlinemodus bevindt in de volgende scenario's:
 ## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Het installeren van de VM-Agent in de offlinemodus bevindt
 
 Gebruik de volgende stappen voor het installeren van de VM-Agent in de offlinemodus bevindt.
+
+> [!NOTE]
+> U kunt het proces van het installeren van de VM-Agent in de offlinemodus automatiseren.
+> U doet dit door gebruik van de [Scripts voor herstel van Azure-VM](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Als u ervoor kiest om de Azure VM Recovery Scripts te gebruiken, kunt u het volgende proces:
+> 1. Stap 1 overslaan met behulp van de scripts de besturingssysteemschijf van de betrokken virtuele machine koppelen aan een virtuele machine voor herstel.
+> 2. Volg de stappen 2 – 10 om toe te passen van de oplossingen.
+> 3. Stap 11 overslaan met behulp van de scripts opnieuw opbouwen van de virtuele machine.
+> 4. Volg stap 12.
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Stap 1: Koppel de besturingssysteemschijf van de virtuele machine naar een andere virtuele machine als gegevensschijf
 

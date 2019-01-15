@@ -1,26 +1,8 @@
 ---
-title: Machine Learning Studio Veelgestelde vragen - Azure | Microsoft Docs
-description: 'Azure Machine Learning Studio: Veelgestelde vragen over facturering, mogelijkheden en beperkingen van een cloudservice voor gestroomlijnde voorspellende modellen.'
-keywords: inleiding machine learning,voorspellende modellen,wat is machine learning
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091278"
+Titel: Machine Learning Studio Veelgestelde vragen titleSuffix: Azure Machine Learning Studio description: 'Azure Machine Learning Studio: Veelgestelde vragen over facturering, mogelijkheden en beperkingen van een cloudservice voor gestroomlijnde voorspellende modellen.'
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: conceptueel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
 ---
 # <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio Veelgestelde vragen over: Facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
@@ -55,8 +37,8 @@ Machine Learning-webservices bieden een interface tussen een toepassing en een s
 
 Azure Machine Learning heeft twee soorten webservices:
 
-* Request Response-service (RRS): een schaalbare webservice met weinig latentie die wordt gebruikt om een interface te creëren voor staatloze modellen die worden gemaakt en geïmplementeerd als Machine Learning Studio wordt gebruikt.
-* Batchuitvoeringsservice (BES): een asynchrone service die een batch voor gegevensrecords scoort.
+* Request-Response Service (RRS): Een lage latentie en zeer schaalbare service die voorziet in een interface te creëren voor staatloze modellen die zijn gemaakt en geïmplementeerd met behulp van Machine Learning Studio.
+* Batch Execution Service (BES): Een asynchrone service die scores een batch voor gegevensrecords.
 
 Er zijn verschillende manieren om de REST-API te gebruiken en toegang te krijgen tot de webservice. U kunt bijvoorbeeld een toepassing schrijven in C#, R of Python met behulp van de voorbeeldcode die wordt gegenereerd tijdens de implementatie van de webservice.
 
@@ -271,7 +253,7 @@ Voor gegevenssets die groter zijn dan een paar GB moet u de gegevens uploaden na
 
 **Zijn er beperkingen voor de vectorgrootte?**
 
-Rijen en kolommen zijn beperkt tot de .NET-beperking van Max Int: 2.147.483.647.
+Rijen en kolommen zijn alle beperkt tot de .NET-beperking van Max Int: 2,147,483,647.
 
 **Kan ik grootte van de virtuele machine aanpassen waarop de webservice wordt uitgevoerd?**
 
@@ -438,7 +420,7 @@ De nieuwe abonnementen zijn beschikbaar in de drie productieregio‘s waar de ni
 
 Ja. Planprijzen variëren per regio. Wanneer u een webservice implementeert in een andere regio, moet u aan de webservice een plan toewijzen dat specifiek is voor deze regio. Zie [Producten beschikbaar per regio]( https://azure.microsoft.com/regions/services/) voor meer informatie.
 
-### <a name="new-web-services-overages"></a>Nieuwe webservices - overschrijdingen
+### <a name="new-web-services-overages"></a>Nieuwe webservices: Overschrijdingen
 **Hoe kan ik controleren of mijn webserviceverbruik de limiet overschrijdt?**
 
 Op de pagina Plannen in de Azure Machine Learning-webservicesportal kunt u het verbruik van al uw plannen bekijken. Meld u aan bij de portal en klik op de menuoptie **Plannen**.
@@ -483,20 +465,20 @@ De Azure Machine Learning API-service wordt gefactureerd afhankelijk van of het 
 
 De volgende kosten worden bij elkaar opgeteld per werkruimte voor uw abonnement.
 
-* Een abonnement op Machine Learning-werkruimte: voor het abonnement op Machine Learning-werkruimte betaalt u een maandelijks bedrag en hebt u toegang tot een Machine Learning Studio-werkruimte. Het abonnement is vereist om experimenten in de studio te kunnen uitvoeren en om de productie-API’s te kunnen gebruiken.
-* Studio-experimenturen: met deze meter worden alle rekenkosten voor actieve experimenten in Machine Learning Studio en actieve productie-API-aanroepen in de faseringsomgeving bij elkaar opgeteld.
+* Machine Learning Workspace Subscription: Het abonnement Machine Learning-werkruimte is een maandelijks bedrag waarmee u toegang tot een Machine Learning Studio-werkruimte krijgt. Het abonnement is vereist om experimenten in de studio te kunnen uitvoeren en om de productie-API’s te kunnen gebruiken.
+* Studio-experimenturen: Deze meter worden alle rekenkosten voor actieve experimenten in Machine Learning Studio en actieve productie-API-aanroepen in de faseringsomgeving.
 * Krijg toegang tot gegevens door verbinding te maken met een on-premises server waarop SQL-server wordt uitgevoerd, in de modellen voor training en scoren.
 * Voor klassieke webservices:
-  * Rekenuren productie-API: deze meter bevat bij elkaar opgetelde rekenkosten voor webservices die actief zijn in productie.
-  * Transacties productie-API (in duizenden): deze meter bevat kosten die per aanroep naar de productiewebservice bij elkaar zijn opgeteld.
+  * Productie-API-Rekenuren: Deze meter bevat bij elkaar opgetelde rekenkosten voor actieve webservices in productie.
+  * Productietransacties-API (per 1000): Deze meter bevat kosten die per aanroep naar de webservice voor productie moeten worden samengevoegd.
 
 Naast de voornoemde kosten worden er, in het geval van op Resource Manager gebaseerde webservices, kosten verrekend voor het geselecteerde plan:
 
-* Standard S1/S2/S3 API-plan (eenheden): deze meter vertegenwoordigt het type exemplaar dat is geselecteerd voor nieuwe op Resource Manager gebaseerde webservices.
-* Standard S1/S2/S3 overschrijding API-rekenuren: deze meter bevat bij elkaar opgetelde rekenkosten voor het uitvoeren van op Resource Manager gebaseerde webservices in productie nadat de inbegrepen hoeveelheden in bestaande exemplaren zijn verbruikt. Het extra gebruik wordt verrekend tegen het overschrijdingstarief dat is gekoppeld aan de planlaag S1/S2/S3.
-* Standard S1/S2/S3 overschrijding API-transacties (in duizenden): deze meter bevat bij elkaar opgetelde kosten per aanroep naar de op Resource Manager gebaseerde webservice nadat de inbegrepen hoeveelheden in bestaande exemplaren zijn verbruikt. Het extra gebruik wordt verrekend tegen het overschrijdingstarief dat is gekoppeld aan de planlaag S1/S2/S3.
-* Inbegrepen hoeveelheid API-rekenuren: in op Resource Manager gebaseerde webservices vertegenwoordigt deze meter het inbegrepen aantal API-rekenuren.
-* Inbegrepen hoeveelheid API-transacties (in duizenden): in de op Resource Manager gebaseerde webservices vertegenwoordigt deze meter het inbegrepen aantal API-transacties.
+* Standard S1/S2/S3 API-abonnement (eenheden): Deze meter vertegenwoordigt het type exemplaar dat geselecteerd voor Resource Manager gebaseerde webservices.
+* Standard S1/S2/S3 overschrijding API-Rekenuren uren: Deze meter bevat bij elkaar opgetelde voor Resource Manager gebaseerde webservices die worden uitgevoerd in productie rekenkosten nadat de inbegrepen hoeveelheden in bestaande exemplaren zijn verbruikt. Het extra gebruik wordt verrekend tegen het overschrijdingstarief dat is gekoppeld aan de planlaag S1/S2/S3.
+* Standard S1/S2/S3 overschrijding aantal API-transacties (per 1000): Deze meter omvat de opgetelde kosten per aanroep naar de Resource Manager gebaseerde webservice nadat de inbegrepen hoeveelheden in bestaande exemplaren zijn verbruikt. Het extra gebruik wordt verrekend tegen het overschrijdingstarief dat is gekoppeld aan de planlaag S1/S2/S3.
+* Inbegrepen aantal API-Rekenuren: Met Resource Manager gebaseerde webservices vertegenwoordigt deze meter het inbegrepen aantal API-rekenuren.
+* Inbegrepen aantal API-transacties (per 1000): Met Resource Manager gebaseerde webservices vertegenwoordigt deze meter het inbegrepen aantal API-transacties.
 
 **Hoe registreer ik me voor de gratis laag van Azure Machine Learning?**
 

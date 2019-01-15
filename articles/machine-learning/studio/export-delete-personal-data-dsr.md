@@ -1,22 +1,10 @@
 ---
-title: Exporteren en verwijderen van uw gegevens vanuit Machine Learning Studio - Azure | Microsoft Docs
-description: In het product gegevens die zijn opgeslagen door Azure Machine Learning Studio is beschikbaar voor exporteren en verwijderen via de Azure-portal en via geverifieerde REST-API's. Telemetriegegevens zijn toegankelijk via de Azure-Privacy-Portal. In dit artikel ziet u hoe u.
-services: machine-learning
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-ms.reviewer: jmartens, mldocs
-ms.service: machine-learning
-ms.component: studio
-ms.topic: conceptual
-ms.date: 05/25/2018
-ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276255"
+Titel: Exporteren en verwijderen van uw gegevens van Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: In het product gegevens die zijn opgeslagen door Azure Machine Learning Studio is beschikbaar voor exporteren en verwijderen via de Azure-portal en via geverifieerde REST-API's. Telemetriegegevens zijn toegankelijk via de Azure-Privacy-Portal. In dit artikel ziet u hoe u.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: conceptueel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 05/25/2018
 ---
+
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exporteren en verwijderen van gebruikersgegevens in het product van Azure Machine Learning Studio
 
 U kunt verwijderen of het exporteren van gegevens in het product die zijn opgeslagen door Azure Machine Learning Studio met behulp van Azure portal, de Studio-interface, PowerShell, en geverifieerde REST-API's. In dit artikel leest u hoe. 

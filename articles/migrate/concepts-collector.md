@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104200"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262605"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -112,7 +112,7 @@ De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst
 **URL** | **Details**  | **Het controleren van vereisten**
 --- | --- | ---
 *.portal.azure.com | Van toepassing op Azure wereldwijd. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
-*. portal.azure.us | Alleen van toepassing op Azure Government. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
+*.portal.azure.us | Alleen van toepassing op Azure Government. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Voor het downloaden van de PowerShell-module voor vCenter PowerCLI. | Toegang tot URL's is optioneel.<br/><br/> Controle van vereisten wordt niet mislukken.<br/><br/> Installatie van de automatische module op de Collector-VM mislukt. U moet de module handmatig installeren.
 
 
@@ -126,12 +126,9 @@ De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst
 
 De Collector verbinding maakt met de vCenter-Server en query's voor VM-metagegevens en prestatiemeteritems. Dit is wat u nodig hebt voor de verbinding.
 
-- Alleen worden vCenter Server 5.5, 6.0 en 6.5 ondersteund.
+- Alleen worden vCenter Server 5.5, 6.0 of 6.5 te of 6.7 ondersteund.
 - U hebt een alleen-lezen-account nodig met de machtigingen die zijn samengevat hieronder voor detectie. Alleen datacenters die toegankelijk zijn met het account is toegankelijk voor detectie.
 - Standaard u verbinding maken met vCenter-Server met een FQDN-naam of IP-adres. VCenter-Server op een andere poort luistert, u verbinding maken met met behulp van het formulier *IPAddress:Port_Number* of *FQDN:Port_Number*.
-- Voor het verzamelen van prestatiegegevens voor opslag en netwerken, de instellingen voor statistieken voor vCenter-Server moet worden ingesteld op niveau 3.
-- Als het niveau lager dan drie, detectie werkt is, maar de gegevens worden niet verzameld. Sommige items kunnen worden verzameld, maar andere worden ingesteld op nul.
-- Als de prestatiegegevens voor opslag en netwerken is niet verzameld, worden aanbevelingen voor de evaluatie van de grootte op basis van prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
 - De Collector moet een netwerk verbinding met de vCenter-server hebben.
 
 #### <a name="account-permissions"></a>Accountmachtigingen
@@ -186,7 +183,7 @@ U kunt de Collector upgraden naar de meest recente versie zonder het ova-bestand
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (gebruik voorbeeld C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
+    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Kopieer het zip-bestand naar de Azure Migrate collector virtuele machine (collector-apparaat).
 4. Met de rechtermuisknop op het zip-bestand en selecteer Alles uitpakken.
 5. Met de rechtermuisknop op Setup.ps1 en selecteer uitvoeren met PowerShell en volg de instructies op het scherm om de update te installeren.
@@ -223,14 +220,14 @@ Het collector-apparaat wordt de volgende metagegevens van de configuratie voor e
 
 **Teller** |  **Gevolgen voor de evaluatie**
 --- | ---
-CPU.Usage.Average | Aanbevolen VM-grootte en kosten  
-Mem.Usage.Average | Aanbevolen VM-grootte en kosten  
+cpu.usage.average | Aanbevolen VM-grootte en kosten  
+mem.usage.average | Aanbevolen VM-grootte en kosten  
 virtualDisk.read.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.write.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.numberReadAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.numberWriteAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 NET.Received.Average | Berekent de VM-grootte                          
-NET.transmitted.Average | Berekent de VM-grootte     
+net.transmitted.average | Berekent de VM-grootte     
 
 ## <a name="next-steps"></a>Volgende stappen
 

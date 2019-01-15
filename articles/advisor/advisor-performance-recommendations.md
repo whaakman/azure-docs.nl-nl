@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 53571fa0c29c4b9bf5493a1e558356eba38fe617
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244413"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266742"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-aanbevelingen voor prestaties
 
@@ -77,7 +77,8 @@ Advisor identificeert de tabellen die geen gerepliceerde tabellen zijn, maar vee
 
 Migreer uw Storage-Account-implementatiemodel naar Azure Resource Manager (ARM) om te profiteren van sjabloonimplementaties, extra beveiligingsopties en de mogelijkheid om te upgraden naar een GPv2-account voor het gebruik van de nieuwste functies van Azure Storage. Advisor identificeert een zelfstandige storage-accounts die van het klassieke implementatiemodel gebruikmaken en beveelt migreren naar het ARM-implementatiemodel.
 
-Klassieke waarschuwingen in Azure Monitor is aangekondigd buiten gebruik stellen in juni 2019, het wordt aanbevolen dat u uw klassieke storage-account upgraden naar ARM wilt behouden waarschuwingen functionaliteit met het nieuwe platform voor waarschuwingen. Zie voor meer informatie, [buiten gebruik stellen met klassieke waarschuwingen](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
+> [!NOTE]
+> Klassieke waarschuwingen in Azure Monitor is aangekondigd buiten gebruik stellen in juni 2019, het wordt aanbevolen dat u uw klassieke storage-account upgraden naar ARM wilt behouden waarschuwingen functionaliteit met het nieuwe platform. Zie voor meer informatie, [buiten gebruik stellen met klassieke waarschuwingen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor prestaties in Advisor
 

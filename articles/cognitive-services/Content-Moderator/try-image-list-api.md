@@ -1,28 +1,28 @@
 ---
-title: 'Gemiddeld afbeeldingen met behulp van aangepaste lijsten met de API-console: Content Moderator'
+title: Gemiddeld installatiekopieën met aangepaste lijsten en de API-console - Content Moderator
 titlesuffix: Azure Content Moderator
-description: Maak een proefrit met aangepaste afbeeldingslijsten in de Content Moderator-API-console.
+description: U kunt de lijst met Management-API in Azure Content Moderator aangepaste lijsten van installatiekopieën maken.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e573262879b6a16e3cd530757900b86228ae299
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c42fdb037e1803db8255518f5c7ae7b2abd90c60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219954"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259356"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Gemiddelde met aangepaste afbeeldingslijsten in de API-console
 
 U gebruikt de [lijst Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure Content Moderator om aangepaste lijsten van installatiekopieën te maken. Gebruik de aangepaste lijsten van afbeeldingen met de afbeeldingen-API voor beheer. De bewerking van de toezicht installatiekopie evalueert uw installatiekopie. Als u aangepaste lijsten maakt, wordt deze door de bewerking ook vergeleken met de afbeeldingen in uw aangepaste lijsten. U kunt aangepaste lijsten blokkeren of toestaan dat de installatiekopie.
 
 > [!NOTE]
-> Er is een maximumlimiet van **5 image lijsten** met elke lijst **niet meer dan 10.000 afbeeldingen**.
+> Er is een maximumlimiet van **5 afbeeldingslijsten** waarbij elke lijst **niet meer dan 10.000 afbeeldingen mag bevatten**.
 >
 
 In dat geval gebruikt u de lijst Management-API in de volgende taken uitvoeren:
@@ -32,11 +32,11 @@ In dat geval gebruikt u de lijst Management-API in de volgende taken uitvoeren:
 - Installatiekopieën van het scherm op basis van de afbeeldingen in een lijst.
 - Afbeeldingen uit een lijst verwijderen.
 - Een lijst verwijderen.
-- Bewerk de gegevens weer te geven.
-- De index vernieuwen zodat wijzigingen in de lijst zijn opgenomen in een nieuwe scan.
+- Lijstgegevens bewerken.
+- De index vernieuwen zodat wijzigingen in de lijst worden gebruikt in een nieuwe scan.
 
 ## <a name="use-the-api-console"></a>De API-console gebruiken
-Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie voor meer informatie, [overzicht](overview.md).
+Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie [Overzicht](overview.md) voor meer informatie.
 
 ## <a name="refresh-search-index"></a>Search-index vernieuwen
 
@@ -121,7 +121,7 @@ Het is eenvoudig een installatiekopie of een lijst te verwijderen. De API kunt u
 
 - Een installatiekopie verwijderen. (**Image - verwijderen**)
 - Alle installatiekopieën in een lijst verwijderen zonder te verwijderen van de lijst. (**Afbeelding: verwijdert u alle installatiekopieën**)
-- Een lijst en alle inhoud verwijderd. (**Afbeeldingslijsten - verwijderen**)
+- Een lijst en alle inhoud verwijderen. (**Afbeeldingslijsten - verwijderen**)
 
 In dit voorbeeld wordt een één installatiekopie verwijderd:
 

@@ -1,27 +1,8 @@
 ---
-title: Gegevenswetenschap voor Beginners - Azure Machine Learning Studio | Microsoft Docs
-description: Gegevenswetenschap leert voor Beginners is basisconcepten in 5 korte video's, beginnend met de 5 vragen Gegevenswetenschap antwoord geeft. Vanuit Azure Machine Learning.
-keywords: organiseert wetenschappelijke gegevens, data science beginners, gegevenswetenschap voor beginners, data science basisbeginselen, data science vragen, data science-video, data science-Inleiding
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2018
-ms.openlocfilehash: 9f6d951dcbb0a0a01961bf3f6c924a0c40fd4d29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252912"
+Titel: Gegevenswetenschap voor Beginners titleSuffix: Azure Machine Learning Studio description: Gegevenswetenschap leert voor Beginners is basisconcepten in 5 korte video's, beginnend met de 5 vragen Gegevenswetenschap antwoord geeft. Vanuit Azure Machine Learning.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Gegevenswetenschap voor Beginners, video 1: Gegevenswetenschap antwoord geeft op de 5 vragen
 Een korte inleiding data Science van *Gegevenswetenschap voor Beginners* in vijf korte video's van een top gegevenswetenschapper. Deze video's zijn basis, maar kan handig zijn, of u geïnteresseerd bent in de gegevenswetenschap of u de datawetenschappers samenwerkt.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f5ba6a001f8933283e0867367ef7bd8d3918c3fd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 59a3a92640c7f0bc434881921e520d1b9cb352c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405375"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265488"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: IaaS-webtoepassing voor FedRAMP
 
@@ -63,7 +63,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Details van de impl
 - Azure Application Gateway
     - (1) de WAF-toepassingsgateway ingeschakeld
         - Firewallmodus: preventie
-        - Regelset: OWASP 3.0
+        - regel is ingesteld: OWASP 3.0
         - listener: poort 443
 - Azure Storage
     - (7) Geo-redundant storage-accounts
@@ -79,12 +79,12 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Details van de impl
 
 De volgende sectie bevat de elementen van de ontwikkeling en implementatie.
 
-**Bastionhost**: de bastionhost is de enkel ingangspunt die een beveiligde verbinding voor beheerders voor toegang tot geïmplementeerd resources biedt. De bastionomgeving van host NSG kunt verbindingen alleen op TCP-poort 3389 voor RDP. Klanten kunnen de bastionhost om te voldoen aan de organisatie system beperkingsvereisten voor verdere configureren.
+**Bastionhost**: De bastionhost is de enkel ingangspunt die een beveiligde verbinding voor beheerders voor toegang tot geïmplementeerd resources biedt. De bastionomgeving van host NSG kunt verbindingen alleen op TCP-poort 3389 voor RDP. Klanten kunnen de bastionhost om te voldoen aan de organisatie system beperkingsvereisten voor verdere configureren.
 
 ### <a name="virtual-network"></a>Virtueel netwerk
 De architectuur definieert een particulier virtueel netwerk met een adresruimte van 10.200.0.0/16.
 
-**Netwerkbeveiligingsgroepen**: deze oplossing wordt geïmplementeerd voor resources in een architectuur met een afzonderlijke subnet, database-subnet, Active Directory-subnet en beheersubnet binnen een virtueel netwerk. Subnetten worden logisch gescheiden door regels voor netwerkbeveiligingsgroepen toegepast op de afzonderlijke subnetten te beperken het verkeer tussen subnetten die alleen dat nodig is voor het systeem en de beheerfunctionaliteit.
+**Netwerkbeveiligingsgroepen**: Deze oplossing wordt geïmplementeerd resources in een architectuur met een afzonderlijke subnet, database-subnet, Active Directory-subnet en beheersubnet binnen een virtueel netwerk. Subnetten worden logisch gescheiden door regels voor netwerkbeveiligingsgroepen toegepast op de afzonderlijke subnetten te beperken het verkeer tussen subnetten die alleen dat nodig is voor het systeem en de beheerfunctionaliteit.
 
 Raadpleeg de configuratie voor [netwerkbeveiligingsgroepen](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) met deze oplossing wordt geïmplementeerd. Klanten kunnen netwerkbeveiligingsgroepen configureren door het bewerken van het bestand hoger via [deze documentatie](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) als richtlijn.
 
@@ -95,13 +95,13 @@ Elk van de subnetten heeft een speciale netwerkbeveiligingsgroep (NSG):
 - 1 NSG voor SQL-Servers (SQLNSG)
 - 1 NSG voor weblaag (WEBNSG)
 
-**Subnetten**: elk subnet is gekoppeld aan de bijbehorende NSG.
+**Subnetten**: Elk subnet is gekoppeld aan de bijbehorende NSG.
 
 ### <a name="data-at-rest"></a>Data-at-rest
 
 De architectuur beveiligt data-at-rest met behulp van verschillende versleuteling metingen.
 
-**Azure Storage**: om te voldoen aan vereisten voor de versleuteling van data-at-rest, het gebruik van alle opslagaccounts [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+**Azure Storage**: Om te voldoen aan vereisten voor de versleuteling van data-at-rest, het gebruik van alle opslagaccounts [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 **SQL Server**: SQL Server is geconfigureerd voor het gebruik van [transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), die voert realtime versleuteling en ontsleuteling van gegevens en logboekbestanden om gegevens in rust te beveiligen. TDE biedt de zekerheid dat de opgeslagen gegevens niet is onderworpen aan onbevoegde toegang.
 
@@ -113,7 +113,7 @@ Klanten kunnen ook de volgende metingen van de SQL Server-beveiliging configurer
 -   [Altijd versleuteld kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ervoor te zorgen dat gevoelige gegevens nooit wordt weergegeven als tekst zonder opmaak in de database-systeem. Na het inschakelen van versleuteling van gegevens, alleen clienttoepassingen of appservers met toegang tot de sleutels gegevens zijn toegankelijk als tekst zonder opmaak.
 -   [SQL Database dynamische gegevensmaskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kan worden uitgevoerd nadat de referentiearchitectuur implementeert. Klanten moet aanpassen, dynamische gegevensmaskering instellingen om te voldoen aan het schema van de database.
 
-**Azure Disk Encryption**: Azure Disk Encryption wordt gebruikt Windows IaaS VM-schijven worden versleuteld. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows om volumeversleuteling voor het besturingssysteem en gegevensschijven te bieden. De oplossing is geïntegreerd met Azure Key Vault voor het beheren en beheren van de versleutelingssleutels op de schijf.
+**Azure Disk Encryption**: Azure Disk Encryption wordt gebruikt om versleutelde Windows IaaS VM-schijven. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows om volumeversleuteling voor het besturingssysteem en gegevensschijven te bieden. De oplossing is geïntegreerd met Azure Key Vault voor het beheren en beheren van de versleutelingssleutels op de schijf.
 
 ### <a name="identity-management"></a>Identiteitsbeheer
 
@@ -124,13 +124,13 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 - Een geïmplementeerde IaaS Active Directory-exemplaar biedt identiteitsbeheer op besturingssysteemniveau voor geïmplementeerde virtuele machines van IaaS.
 
 ### <a name="security"></a>Beveiliging
-**Geheimen management**: de oplossing maakt gebruik van [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Azure Key Vault helpt bij het beheer van IaaS VM-schijfversleuteling sleutels en geheimen voor deze referentiearchitectuur.
+**Geheimen management**: De oplossing maakt gebruik van [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Azure Key Vault helpt bij het beheer van IaaS VM-schijfversleuteling sleutels en geheimen voor deze referentiearchitectuur.
 
-**Patchbeheer**: Windows virtuele machines geïmplementeerd met deze Azure-beveiliging en naleving blauwdruk Automation zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de Azure Automation-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches voor Windows-servers wanneer dat nodig is.
+**Patchbeheer**: Windows virtuele machines geïmplementeerd met deze Azure-beveiliging en naleving blauwdruk Automation zijn standaard automatisch updates ontvangen van Windows Update-Service geconfigureerd. Deze oplossing implementeert ook de Azure Automation-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches voor Windows-servers wanneer dat nodig is.
 
-**Bescherming tegen schadelijke software**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) voor virtuele Machines biedt de mogelijkheid van de realtime-beveiliging die helpt bij identificeren en virussen, spyware en andere schadelijke software, met configureerbare meldingen verwijderen Wanneer u bekende schadelijke of ongewenste software probeert te installeren of uitvoeren op de beveiligde virtuele machines.
+**Bescherming tegen schadelijke software**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) voor virtuele Machines biedt realtime-beveiliging-functie die helpt te identificeren en verwijderen van virussen, spyware en andere schadelijke software, met configureerbare meldingen wanneer bekende schadelijke of ongewenste software wil installeren of uitvoeren op de beveiligde virtuele machines.
 
-**Application Gateway**: de architectuur vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met web application firewall (WAF) en de OWASP-ruleset ingeschakeld. Aanvullende mogelijkheden zijn onder andere:
+**Application Gateway**: De architectuur vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met web application firewall (WAF) en de OWASP ruleset ingeschakeld. Aanvullende mogelijkheden zijn onder andere:
 
 - [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Schakel [SSL-Offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
@@ -140,9 +140,9 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 
 ### <a name="business-continuity"></a>Bedrijfscontinuïteit
 
-**Hoge beschikbaarheid**: ten minste één virtuele machine beschikbaar is tijdens gepland of ongepland onderhoud, voldoen aan de 99,95% Azure SLA. De oplossing wordt geïmplementeerd voor alle weblaag en de gegevens laag virtuele machines in een [Beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Beschikbaarheidssets zorgen ervoor dat de virtuele machines worden verdeeld over meerdere geïsoleerde hardwareclusters beschikbaarheid verbeteren. Daarnaast wordt deze oplossing implementeert de virtuele machines met SQL Server in een Beschikbaarheidsset als een [AlwaysOn-beschikbaarheidsgroep](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). De Always On availability group-functie voorziet in mogelijkheden voor hoge beschikbaarheid en herstel na noodgevallen.
+**Hoge beschikbaarheid**: Ten minste één virtuele machine beschikbaar is tijdens gepland of ongepland onderhoud, voldoen aan de 99,95% Azure SLA. De oplossing wordt geïmplementeerd voor alle weblaag en de gegevens laag virtuele machines in een [Beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Beschikbaarheidssets zorgen ervoor dat de virtuele machines worden verdeeld over meerdere geïsoleerde hardwareclusters beschikbaarheid verbeteren. Daarnaast wordt deze oplossing implementeert de virtuele machines met SQL Server in een Beschikbaarheidsset als een [AlwaysOn-beschikbaarheidsgroep](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). De Always On availability group-functie voorziet in mogelijkheden voor hoge beschikbaarheid en herstel na noodgevallen.
 
-**Recovery Services-kluis**: de [Recovery Services-kluis](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) -instellingen van de back-upgegevens en alle configuraties van Azure Virtual Machines in deze architectuur beveiligt. Met een Recovery Services-kluis, klanten kunnen bestanden en mappen terugzetten vanuit een IaaS-VM zonder te herstellen van de hele virtuele machine, waardoor sneller worden hersteld.
+**Recovery Services-kluis**: De [Recovery Services-kluis](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) -instellingen van de back-upgegevens en alle configuraties van Azure Virtual Machines in deze architectuur beveiligt. Met een Recovery Services-kluis, klanten kunnen bestanden en mappen terugzetten vanuit een IaaS-VM zonder te herstellen van de hele virtuele machine, waardoor sneller worden hersteld.
 
 **Cloud-Witness**: [Cloud-Witness](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) is een type failovercluster-quorumwitness in Windows Server 2016 die gebruikmaakt van Azure als arbitragepunt. De Cloud-Witness, net als elke andere quorumwitness een stem opgehaald en kunt deelnemen aan de quorumberekeningen, maar hierbij de standaard openbare Azure Blob Storage. Dit elimineert de noodzaak extra onderhoud van virtuele machines die worden gehost in een openbare cloud.
 
@@ -150,20 +150,20 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 
 Log Analytics biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. De [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) oplossing verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
 
-- **Activiteitenlogboeken:**[activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement.   Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
-- **Logboeken met diagnostische gegevens:**[diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource.   Deze logboeken bevatten de logboeken voor Windows-systeem, Azure-opslaglogboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken.
-- **Logboek archiveren:** alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen. Deze logboeken verbinding maken met Azure Log Analytics voor verwerking, opslag en -dashboardrapporten.
+- **Activiteitenlogboeken:**  [Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
+- **Logboeken met diagnostische gegevens:**  [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem, Azure-opslaglogboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken.
+- **Logboek archiveren:**  Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen. Deze logboeken verbinding maken met Azure Log Analytics voor verwerking, opslag en -dashboardrapporten.
 
 Bovendien worden de volgende bewakingsoplossingen geïnstalleerd als onderdeel van deze architectuur. Houd er rekening mee dat het verantwoordelijkheid van de klant het configureren van deze oplossingen aan te passen aan FedRAMP beveiligingscontroles is:
--   [AD-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): het Active Directory statuscontrole oplossing beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
--   [Antimalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): de antimalwareoplossing rapporten over malware, bedreigingen en bescherming van de status.
--   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): de Azure Automation-oplossing worden opgeslagen, wordt uitgevoerd runbooks worden beheerd.
--   [Beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): de beveiliging en controle dashboard biedt een hoogwaardig inzicht in de beveiligingsstatus van resources, dankzij metrische gegevens over beveiligingsdomeinen, problemen die aandacht vereisen, detecties, bedreigingsinformatie en algemene Beveiligingsquery's.
--   [SQL-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): statuscontrole van de SQL-oplossing beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt klanten een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
--   [Updatebeheer](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): de updatebeheer-oplossing maakt Klantenbeheer van de beveiligingsupdates besturingssysteem, met inbegrip van de status van de beschikbare updates en het installatieproces van vereiste updates.
--   [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): oplossing status van de Agent rapporteert het aantal agents zijn geïmplementeerd en hun geografische verdeling, evenals hoeveel agents die niet meer reageert en het aantal agents die zijn operationele gegevens kan verzenden.
--   [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): de Activity Log Analytics-oplossing biedt ondersteuning voor analyse van de Azure-activiteitenlogboeken voor alle Azure-abonnementen voor een klant.
--   [Wijzigingen bijhouden](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): de functie Wijzigingen bijhouden kan klanten eenvoudig wijzigingen in de omgeving identificeren.
+-   [AD-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): De oplossing statuscontrole van Active Directory beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
+-   [Antimalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): De Antimalware-oplossing rapporteert over de status van schadelijke software, bedreigingen en beveiliging.
+-   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): De oplossing Azure Automation opgeslagen, wordt uitgevoerd en runbooks worden beheerd.
+-   [Beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): Het dashboard beveiliging en controle biedt een hoogwaardig inzicht in de beveiligingsstatus van resources, dankzij metrische gegevens over beveiligingsdomeinen, problemen die aandacht vereisen, detecties, bedreigingsinformatie en algemene Beveiligingsquery's.
+-   [SQL-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): De oplossing SQL-statuscontrole beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt klanten een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
+-   [Updatebeheer](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): De oplossing Update Management kunt Klantenbeheer van updates voor besturingssysteem, met inbegrip van de status van de beschikbare updates en het installatieproces van vereiste updates.
+-   [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): De oplossing status van Agent rapporteert het aantal agents zijn geïmplementeerd en hun geografische verdeling, evenals hoeveel agents die niet meer reageert en het aantal agents die zijn operationele gegevens kan verzenden.
+-   [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): De oplossing Activity Log Analytics biedt ondersteuning voor analyse van de Azure-activiteitenlogboeken voor alle Azure-abonnementen voor een klant.
+-   [Wijzigingen bijhouden](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): De oplossing wijzigingen bijhouden kan klanten eenvoudig wijzigingen in de omgeving identificeren.
 
 **Azure Monitor**
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt gebruikers bij het bijhouden van prestaties, beveiliging en trends te identificeren doordat organisaties om te controleren, waarschuwingen maken en archiveren van gegevens, zoals het bijhouden van API-aanroepen in klanten Azure-resources.
@@ -171,7 +171,7 @@ Bovendien worden de volgende bewakingsoplossingen geïnstalleerd als onderdeel v
 ## <a name="threat-model"></a>Risicomodel
 Het diagram van de gegevensstroom voor deze referentiearchitectuur is beschikbaar voor [downloaden](https://aka.ms/fedrampWAdfd) of vindt u hieronder. Dit model kunt klanten inzicht krijgen in de punten van de mogelijke risico's in de infrastructuur van het systeem als u wijzigingen aanbrengt.
 
-![IaaS-webtoepassing voor FedRAMP risicomodel](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton voor risicomodel FedRAMP")
+![IaaS-webtoepassing voor FedRAMP risicomodel](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS-webtoepassing voor risicomodel FedRAMP")
 
 ## <a name="compliance-documentation"></a>Naleving-documentatie
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 511cd5c8304201fe6dfd101ac95b8f6c72806648
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232257"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261567"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare Service Fabric-services partitioneren
 In dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric reliable services partitioneren. De broncode die wordt gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -365,7 +365,7 @@ Als we letterlijk één partitie per letter hebben willen, kunnen we gebruiken 0
 De volledige broncode van het voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Betrouwbare Services en Actor subprocessen vertakking
-Service Fabric biedt geen ondersteuning voor betrouwbare services en later reliable actors subprocessen vertakken. Een voorbeeld van waarom niet wordt ondersteund is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan niet worden gebruikt voor het registreren van een niet-ondersteunde subproces en annulering tokens worden alleen verzonden voor geregistreerde processen, wat resulteert in allerlei problemen, zoals upgrade mislukt, wanneer subprocessen niet sluit nadat het bovenliggende proces-token van een annulering heeft ontvangen. 
+Service Fabric biedt geen ondersteuning voor betrouwbare services en later reliable actors subprocessen vertakken. Een voorbeeld van waarom niet wordt ondersteund is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan niet worden gebruikt voor het registreren van een niet-ondersteunde subproces en annuleringstokens worden alleen verzonden voor geregistreerde processen, wat resulteert in allerlei problemen, zoals upgrade mislukt, wanneer subprocessen niet sluit nadat het bovenliggende proces-token van een annulering heeft ontvangen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor informatie over Service Fabric-concepten, Zie de volgende:

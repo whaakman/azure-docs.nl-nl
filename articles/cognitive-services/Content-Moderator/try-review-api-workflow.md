@@ -1,21 +1,21 @@
 ---
 title: Werkstromen voor inhoudstoezicht vanuit de API-console - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Informatie over het gebruik van werkstromen voor inhoudstoezicht vanuit de API-console.
+description: Gebruik de werkstroombewerkingen in Azure Content Moderator maken of bijwerken van een werkstroom of Werkstroomdetails van ophalen met behulp van de API controleren.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 24c451dda398cfa65dd24a4500871c67943b79bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223847"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259446"
 ---
 # <a name="workflows-from-the-api-console"></a>Werkstromen uit de API-console
 
@@ -80,9 +80,9 @@ Voor **Open API testconsole**, selecteer de regio die het beste past bij uw loca
 
 Voer waarden in voor **team**, **workflowname**, en **Ocp-Apim-Subscription-Key** (uw abonnementssleutel):
 
-- **team**: de team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: de naam van uw werkstroom. Gebruik `default`.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
+- **team**: Het team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: De naam van uw werkstroom. Gebruik `default`.
+- **Ocp-Apim-Subscription-Key**: Zich op de **instellingen** tabblad. Zie [Overzicht](overview.md) voor meer informatie.
 
   ![Query-parameters en headers ophalen](images/workflow-get-default.PNG)
 
@@ -138,9 +138,9 @@ Voor **Open API testconsole**, selecteer de regio die het beste past bij uw loca
 
 Voer waarden in voor **team**, **workflowname**, en **Ocp-Apim-Subscription-Key** (uw abonnementssleutel):
 
-- **team**: de team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: de naam van de nieuwe werkstroom.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
+- **team**: Het team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: De naam van de nieuwe werkstroom.
+- **Ocp-Apim-Subscription-Key**: Zich op de **instellingen** tabblad. Zie [Overzicht](overview.md) voor meer informatie.
 
   ![Werkstroom - of Update-console query-parameters en headers maken](images/workflow-console-parameters.PNG)
 

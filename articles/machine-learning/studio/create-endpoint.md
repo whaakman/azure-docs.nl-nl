@@ -1,26 +1,8 @@
 ---
-title: Het maken van Web service-eindpunten - Azure Machine Learning Studio | Microsoft Docs
-description: Het maken van Web service-eindpunten in Azure Machine Learning. Elk eindpunt in de webservice is onafhankelijk van elkaar geadresseerd, beperkt en beheerd.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 10/04/2016
-ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275887"
+Titel: Het maken van Web service-eindpunten titleSuffix: Azure Machine Learning Studio description: Het maken van Web service-eindpunten in Azure Machine Learning. Elk eindpunt in de webservice is onafhankelijk van elkaar geadresseerd, beperkt en beheerd.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Het maken van eindpunten voor geïmplementeerde Azure Machine Learning Studio-webservices
 > [!NOTE]

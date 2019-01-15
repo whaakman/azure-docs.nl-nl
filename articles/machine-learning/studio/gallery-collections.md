@@ -1,26 +1,7 @@
 ---
-title: 'Azure AI Gallery verzamelingen: Azure Machine Learning Studio | Microsoft Docs'
-description: U kunt een verzameling in Azure AI Gallery gebruiken om te experimenten, API's en andere galerie-items die u voor een bepaalde oplossing of -concept gebruikt groeperen. U kunt ze gebruiken, om op te slaan voor later gebruik of om te delen te groeperen.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: b88489f826bbeab636903c7c9918f34d16b2f122
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271355"
+Titel: Azure AI Gallery verzamelingen titleSuffix: Azure Machine Learning Studio description: U kunt een verzameling in Azure AI Gallery gebruiken om te experimenten, API's en andere galerie-items die u voor een bepaalde oplossing of -concept gebruikt groeperen. U kunt ze gebruiken, om op te slaan voor later gebruik of om te delen te groeperen.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel  
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 03/31/2017
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Ontdekken en delen van verzamelingen in Azure AI Gallery
 

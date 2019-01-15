@@ -1,26 +1,8 @@
 ---
-title: Hoe een model voor Machine Learning Studio wordt een webservice - Azure | Microsoft Docs
-description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure Machine Learning-model van een ontwikkeling met een ingezette webservice experimenteren.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253864"
+Titel: Hoe wordt een model voor Machine Learning Studio een web service titleSuffix: Azure Machine Learning Studio description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure Machine Learning-model van een ontwikkeling met een ingezette webservice experimenteren.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 03/20/2017
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hoe een model voor Machine Learning Studio wordt uitgevoerd van een experiment naar een ingezette-webservice
 Azure Machine Learning Studio biedt een interactief canvas waarmee u kunt ontwikkelen, te worden uitgevoerd, te testen en te herhalen een ***experimenteren*** vertegenwoordigt een predictive Analytics-model. Er zijn tal van modules die kunnen:

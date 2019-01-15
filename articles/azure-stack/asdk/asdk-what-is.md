@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e849b4a6101cd10ce17e52056efdfe2f903381
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961328"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267110"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Wat is Azure Stack Development Kit?
 [Microsoft Azure Stack-geïntegreerde systemen](../azure-stack-poc.md) in grootte variëren van 4-16 knooppunten en gezamenlijk worden ondersteund door een hardware-partner en Microsoft. Gebruik Azure Stack-geïntegreerde systemen om in te schakelen van nieuwe scenario's voor uw productieworkloads. Als u Azure Stack-operators die u beheert de infrastructuur geïntegreerde systemen en services biedt, raadpleegt u onze [operator documentatie](https://docs.microsoft.com/azure/azure-stack).
@@ -45,7 +45,7 @@ Bekijk deze korte video voor meer informatie over de ASDK:
 ## <a name="asdk-and-multi-node-azure-stack-differences"></a>Azure Stack verschillen in ASDK en meerdere knooppunten
 Implementaties van één knooppunt ASDK verschillen van de Azure Stack implementaties met meerdere knooppunten in een aantal belangrijke manieren die u moet rekening houden met.
 
-|Beschrijving|ASDK|Azure Stack met meerdere knooppunten|
+|Description|ASDK|Azure Stack met meerdere knooppunten|
 |-----|-----|-----|
 |**Schalen**|Alle onderdelen zijn geïnstalleerd op een computer met één knooppunt-server.|De grootte van 4-16 knooppunten kan variëren.|
 |**Flexibiliteit**|Configuratie met één knooppunt biedt geen hoge beschikbaarheid|[Hoge beschikbaarheid](../azure-stack-key-features.md#high-availability-for-azure-stack) mogelijkheden worden ondersteund.|

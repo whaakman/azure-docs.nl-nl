@@ -1,27 +1,8 @@
 ---
-title: Gegevens importeren in Machine Learning Studio - Azure | Microsoft Docs
-description: Hoe u uw gegevens importeren in Azure Machine Learning Studio van verschillende gegevensbronnen. Meer informatie over welke gegevenstypen en opmaak van gegevens worden ondersteund.
-keywords: gegevens, de indeling, gegevenstypen, gegevensbronnen, trainingsgegevens importeren
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269954"
+Titel: Gegevens importeren in Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Hoe u uw gegevens importeren in Azure Machine Learning Studio van verschillende gegevensbronnen. Meer informatie over welke gegevenstypen en opmaak van gegevens worden ondersteund.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Uw trainingsgegevens vanuit verschillende gegevensbronnen importeren in Azure Machine Learning Studio
 
@@ -51,7 +32,7 @@ U kunt op elk gewenst moment in uw experiment weergeven of downloaden van de geg
 ## <a name="data-formats-and-data-types-supported"></a>Gegevens-indelingen en gegevenstypen ondersteund
 U kunt verschillende soorten gegevens importeren in uw experiment, afhankelijk van welke mechanisme die u voor het importeren van gegevens en waar deze vandaan gebruiken:
 
-* Tekst zonder opmaak (.txt)
+* Tekst zonder opmaak (*.txt)
 * Door komma's gescheiden waarden (CSV met een koptekst (.csv) of zonder) (. nh.csv)
 * Door tabs gescheiden waarden (TSV met een koptekst (.tsv) of zonder) (. nh.tsv)
 * Excel-bestand

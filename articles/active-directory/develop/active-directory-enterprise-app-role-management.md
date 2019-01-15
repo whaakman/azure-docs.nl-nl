@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904226"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263653"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Hoe: configureren van de rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: Configureren van de rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen
 
 U kunt met behulp van Azure Active Directory (Azure AD), het claimtype aanpassen voor de rol claim in het antwoordtoken dat wordt weergegeven nadat u een app toestaan.
 
@@ -151,25 +151,29 @@ Als uw toepassing wordt verwacht dat de aangepaste rollen in een SAML-antwoord w
 
 8. Update de **kenmerken** tabel voor het definiëren van een aangepaste toewijzing van de rol-claim.
 
-9. In de **gebruikerskenmerken** sectie van de **eenmalige aanmelding** dialoogvenster vak, configureren van het kenmerk van SAML-token, zoals weergegeven in de afbeelding en voer de volgende stappen uit.
+9. In de **gebruikerskenmerken en Claims** sectie van de **eenmalige aanmelding** dialoogvenster vak, configureren van het kenmerk van SAML-token, zoals weergegeven in de afbeelding en voer de volgende stappen uit.
 
     | De naam van kenmerk | De waarde van kenmerk |
     | -------------- | ----------------|
-    | Rolnaam  | User.assignedroles |
+    | Rolnaam  | user.assignedroles |
 
-    a. Selecteer **kenmerk toevoegen** openen de **kenmerk toevoegen** deelvenster.
+    a. Klik op **bewerken** te openen **gebruikerskenmerken** dialoogvenster.
+
+      ![Knop 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. Selecteer **kenmerk toevoegen** openen de **gebruikersclaims beheren** deelvenster.
 
       ![Knop 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       ![Deelvenster 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. In de **naam** typt u de kenmerknaam indien nodig. In dit voorbeeld wordt **rolnaam** als naam van de claim.
-
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. In de **naam** typt u de kenmerknaam indien nodig. In dit voorbeeld wordt **rolnaam** als naam van de claim.
 
     d. Laat de **Namespace** vak leeg.
 
-    e. Selecteer **OK**.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
+
+    f. Selecteer **Opslaan**.
 
 10. Als u wilt uw toepassing testen in een eenmalige aanmelding die geïnitieerd door een id-provider, moet u zich aanmelden bij de [Toegangsvenster](https://myapps.microsoft.com) en selecteer de tegel voor uw toepassing. In het SAML-token ziet u de toegewezen rollen voor de gebruiker met de naam van de claim die u hebt opgegeven.
 

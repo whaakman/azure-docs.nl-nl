@@ -1,27 +1,8 @@
 ---
-title: 'Gegevens importeren uit bestand: Azure Machine Learning Studio | Microsoft Docs'
-description: Informatie over het uploaden van een gegevensbestand training van de harde schijf voor Azure Machine Learning Studio. Hiermee maakt u een gegevensset-module in de werkruimte.
-keywords: gegevens, de indeling, gegevenstypen, gegevensbronnen, trainingsgegevens importeren
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 096d2d4a8c1ee1727b124a5416ec77e8281c97d7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254857"
+Titel: Gegevens importeren uit bestand titleSuffix: Azure Machine Learning Studio description: Informatie over het uploaden van een gegevensbestand training van de harde schijf voor Azure Machine Learning Studio. Hiermee maakt u een gegevensset-module in de werkruimte.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-azure-machine-learning-studio"></a>Trainingsgegevens importeren uit een bestand op uw harde schijf in Azure Machine Learning Studio
 

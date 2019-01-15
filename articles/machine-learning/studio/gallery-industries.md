@@ -1,26 +1,8 @@
 ---
-title: Azure AI Gallery industrieoplossingen - Azure Machine Learning Studio | Microsoft Docs
-description: De sectie branches van Azure AI Gallery combineert verschillende bronnen die specifiek voor dergelijke branches detailhandel, productie, bankieren en gezondheidszorg zijn.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-editor: cgronlun
-ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.custom: previous-ms.author=garye, previous-author=garyericson
-ms.author: amlstudiodocs
-ms.openlocfilehash: 4f9495027c7027f659f877930b6aabc72b361ae8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269325"
+Titel: Azure AI Gallery industry solutions titleSuffix: Azure Machine Learning Studio description: De sectie branches van Azure AI Gallery combineert verschillende bronnen die specifiek voor dergelijke branches detailhandel, productie, bankieren en gezondheidszorg zijn.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=garye, vorige auteur = garyericson ms.date: 03/31/2017
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Ontdek branchespecifieke oplossingen in de Azure AI Gallery
 

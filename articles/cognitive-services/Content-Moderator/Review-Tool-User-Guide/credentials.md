@@ -1,22 +1,23 @@
 ---
-title: De referenties in Azure Content Moderator | Microsoft Docs
-description: Content Moderator-referenties gebruiken met de API's beheren.
+title: Beheren van referenties in Azure Content Moderator - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Content Moderator referenties beheren, moet u de API's gebruiken.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3d183870938f44cd71f1dab4105eec390ba12d94
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260088"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266142"
 ---
-# <a name="manage-credentials"></a>Referenties beheren
+# <a name="manage-content-moderator-service-credentials"></a>Content Moderator Servicereferenties beheren
 
 De referenties van uw Content Moderator worden gemaakt in de volgende locaties:
 
@@ -68,7 +69,7 @@ Let ook op uw regio-id voor uw API-eindpunt. Bijvoorbeeld, **westus** is de regi
 
 Deze set met velden wordt beschreven in de vorige sectie [het Azure-account gebruiken met het hulpprogramma voor beoordeling en API](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Dit veld is meestal leeg, tenzij u uw Azure-Resource-Id aan dit veld toevoegen, zoals wordt beschreven in de vorige sectie.
 
-### <a name="workflows"></a>Werkstromen
+### <a name="workflows"></a>Workflows
 
 Deze set met velden wordt beschreven in de vorige sectie [het Azure-account gebruiken met de werkstromen in het controlehulpprogramma](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Standaard, het beoordelingsprogramma maakt gebruik van de automatisch gegenereerde proefversie sleutel voor het uitvoeren van de werkstromen en dat is wat wordt eerst weergegeven. De andere twee velden kunnen met behulp van lijsten termijn en afbeelding in de tekst op het scherm en evalueren afbeelding operations respectievelijk.
 

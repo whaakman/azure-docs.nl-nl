@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 360f5cca3da5e9987b5e057449fb9c2cbb910552
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 665db66bc7302710ed73ae46aad0e9afcfd44400
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157833"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258455"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn Beschikbaarheidszones in Azure?
 Beschikbaarheidszones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen in datacenters hoge beschikbaarheid. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om ervoor te zorgen tolerantie, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen Beschikbaarheidszones binnen een regio beschermt toepassingen en gegevens tegen storingen in datacenters. Zone-redundante services repliceren uw toepassingen en gegevens in meerdere Beschikbaarheidszones om te beschermen tegen enkele punten van de fout. Met Beschikbaarheidszones biedt Azure branche aanbevolen VM uptime SLA van 99,99%. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
@@ -40,7 +40,7 @@ Bouw uw toepassingsarchitectuur met behulp van de combinatie van de Beschikbaarh
 ## <a name="regions-that-support-availability-zones"></a>Regio's die ondersteuning voor Beschikbaarheidszones
 
 - US - centraal
-- VS-Oost 2 (Preview)
+- US - oost 2
 - Frankrijk - centraal
 - Europa - noord
 - Azië - zuidoost 
@@ -56,7 +56,7 @@ De Azure-services die ondersteuning voor Beschikbaarheidszones zijn:
 - Windows Virtual Machines
 - Virtual Machine Scale Sets
 - Beheerde schijven
-- Netwerktaakverdeler
+- Load Balancer
 - Openbaar IP-adres
 - Zone-redundante opslag
 - SQL Database
@@ -67,7 +67,7 @@ De Azure-services die ondersteuning voor Beschikbaarheidszones zijn:
 - Application Gateway (preview)
 
 
-## <a name="pricing"></a>Prijs
+## <a name="pricing"></a>Prijzen
 Er is geen extra kosten voor virtuele machines die in een Beschikbaarheidszone is geïmplementeerd. Virtuele machine een uptime van 99,99% SLA wordt aangeboden wanneer twee of meer virtuele machines in twee of meer Beschikbaarheidszones binnen een Azure-regio worden geïmplementeerd. Er zijn aanvullende tussen beschikbaarheid Zone VM naar VM kosten voor gegevensoverdracht. Raadpleeg voor meer informatie de [bandbreedte prijzen](https://azure.microsoft.com/pricing/details/bandwidth/) pagina.
 
 

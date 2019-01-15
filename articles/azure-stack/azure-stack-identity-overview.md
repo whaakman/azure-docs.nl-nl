@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245681"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306536"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Overzicht van de identiteit voor Azure Stack
 
 Azure Stack is vereist voor Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS), ondersteund door Active Directory als id-provider. De keuze van een provider is een eenmalige beslissing die u neemt bij het implementeren van Azure Stack. De concepten en autorisatie-informatie in dit artikel kunt u kiezen tussen het id-providers.
 
-Uw eigen keuze aan Azure AD of AD FS kan worden bepaald door de modus waarin u Azure Stack implementeren:
+Uw eigen keuze aan Azure AD of AD FS wordt bepaald door de modus waarin u Azure Stack implementeren:
 
 - Wanneer u deze in een verbonden modus implementeert, kunt u een Azure AD of AD FS.
 - Wanneer u deze in een niet-verbonden modus, zonder een verbinding met internet implementeert, wordt alleen AD FS wordt ondersteund.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 624dcae6cadefd27b663699552068b37e658d9bf
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198856"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304367"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-Python
 
@@ -231,7 +231,7 @@ def main(req: func.HttpRequest):
 
 U kunt ook gedeelde code in een zelfstandige pakket geplaatst, deze publiceren naar een openbare of een persoonlijke PyPI-exemplaar en dit opgeven als een reguliere afhankelijkheid.
 
-## <a name="async"></a>Asynchrone
+## <a name="async"></a>Async
 
 Aangezien een enkel Python proces per functie-app kan bestaan, wordt u aangeraden voor het implementeren van uw Azure-functie als een asynchrone coroutine met behulp van de `async def` instructie.
 
@@ -317,7 +317,7 @@ The terminal process terminated with exit code: 1
 Automatisch installeren en configureren van de vereiste binaire bestanden, [Docker installeren](https://docs.docker.com/install/) op uw lokale computer en voer de volgende opdracht om te publiceren met behulp van de [Azure Functions Core Tools](functions-run-local.md#v2) (func). Vervang `<app name>` met de naam van uw functie-app in Azure. 
 
 ```bash
-func azure functionapp <app name> --build-native-deps
+func azure functionapp publish <app name> --build-native-deps
 ```
 
 Eronder, Core Tools docker wordt gebruikt om uit te voeren de [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) afbeelding als een container op uw lokale computer. Met behulp van deze omgeving, deze vervolgens ontwikkelt en de vereiste modules te installeren vanuit de bron-distributie, voordat ze verpakking voor laatste implementatie naar Azure.

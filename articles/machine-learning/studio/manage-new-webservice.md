@@ -1,26 +1,8 @@
 ---
-title: De portal van Azure Machine Learning Studio-webservices gebruiken | Microsoft Docs
-description: U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2017
-ms.openlocfilehash: cf5a15ba88a3a4d678e6856d270b98697ecf5a3d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271773"
+Titel: Gebruik de Azure Machine Learning Studio-webservices portal titleSuffix: Azure Machine Learning Studio description: U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 02/28/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Een webservice met behulp van de portal van Azure Machine Learning Studio-webservices beheren
 U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.

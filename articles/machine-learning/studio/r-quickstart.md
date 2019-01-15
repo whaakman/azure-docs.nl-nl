@@ -1,27 +1,8 @@
 ---
-title: Beknopte zelfstudie voor de taal R voor Machine Learning Studio - Azure | Microsoft Docs
-description: Gebruik deze programmeren R-zelfstudie aan de slag snel met behulp van de R-taal met Azure Machine Learning Studio om een prognose-oplossing te maken.
-keywords: Quick Start, r-taal, de programmeertaal r, programmeren r-zelfstudie
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278658"
+Titel: Snelstartgids voor R-taal titleSuffix: Azure Machine Learning Studio description: Gebruik deze programmeren R-zelfstudie aan de slag snel met behulp van de R-taal met Azure Machine Learning Studio om een prognose-oplossing te maken.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Beknopte zelfstudie voor de programmeertaal R voor Azure Machine Learning Studio
 
@@ -684,7 +665,7 @@ Controleer het logboek. Het moet eruitzien als afbeelding 15.
     [ModuleOutput] 
     [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
-*Afbeelding 15. Samenvatting van het gegevensframe met een time series-object.*
+*Figure 15. Samenvatting van het gegevensframe met een time series-object.*
 
 We kunt in het overzicht dat de nieuwe kolom in feite van klasse POSIXct is zien.
 
@@ -878,7 +859,7 @@ De code wordt uitgevoerd, wordt de uitvoer die wordt weergegeven in afbeelding 1
 
 ![Uitvoer van de resultaten van de correlatieanalyse][20]
 
-*Afbeelding 19. Resultaten uitvoer van de correlatieanalyse.*
+*Figure 19. Resultaten uitvoer van de correlatieanalyse.*
 
 ## <a id="seasonalforecasting"></a>Time series-voorbeeld: seizoensgebonden prognoses
 Onze gegevens is nu in een formulier die geschikt zijn voor analyse en er zijn geen belangrijke correlaties tussen de variabelen hebt vastgesteld. Laten we gaan en een tijdreeks prognose model maken. Met dit model wordt we Californië melkproductie voor de 12 maanden van 2013 prognose.

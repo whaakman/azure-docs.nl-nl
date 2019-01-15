@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ad1234b6a0296a2fa46fe56786bbca4aca9ed470
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376949"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305958"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Vervangen van een fysieke schijf in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 In dit artikel beschrijft het algemene proces ter vervanging van een fysieke schijf in Azure Stack. Als een fysieke schijf is mislukt, moet u deze zo snel mogelijk vervangen.
 
 U kunt deze procedure gebruiken voor geïntegreerde systemen, en voor development kit implementaties met hot swappable schijven.
 
-Nieuwe werkelijke schijf stappen verschillen, is afhankelijk van uw hardwareleverancier oorspronkelijke leveranciers (OEM). Zie van uw leverancier veld FRU (replaceable unit)-documentatie voor gedetailleerde stappen die specifiek voor uw systeem zijn. 
+Nieuwe werkelijke schijf stappen verschillen, is afhankelijk van uw hardwareleverancier oorspronkelijke leveranciers (OEM). Zie van uw leverancier veld FRU (replaceable unit)-documentatie voor gedetailleerde stappen die specifiek voor uw systeem zijn. 
 
 ## <a name="review-disk-alert-information"></a>Bekijk informatie over de waarschuwingen van schijf
-Wanneer u een schijf uitvalt, ontvangt u een waarschuwing die aangeeft dat de verbinding verbroken met een fysieke schijf is. 
+Wanneer u een schijf uitvalt, ontvangt u een waarschuwing die aangeeft dat de verbinding verbroken met een fysieke schijf is. 
 
  ![Waarschuwing weergeven verbinding met de fysieke schijf is verbroken](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ Ga als volgt uw OEM-hardwareleverancier FRU instructies voor het werkelijke schi
 
 Als u wilt voorkomen dat het gebruik van een niet-ondersteunde schijf in een geïntegreerd systeem, blokkeert het systeem worden niet ondersteund door de leverancier van uw schijven. Als u probeert om een niet-ondersteunde schijf te gebruiken, een nieuwe waarschuwing geeft aan dat een schijf is in quarantaine vanwege een niet-ondersteunde model of de firmware.
 
-Nadat u de schijf vervangt, Azure Stack automatisch de nieuwe schijf wordt gedetecteerd en wordt het reparatieproces virtuele schijf gestart.  
+Nadat u de schijf vervangt, Azure Stack automatisch de nieuwe schijf wordt gedetecteerd en wordt het reparatieproces virtuele schijf gestart.  
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Controleer de status van de virtuele schijf herstellen
  

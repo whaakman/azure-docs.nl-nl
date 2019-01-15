@@ -1,24 +1,10 @@
 ---
-title: Een werkruimte - Azure Machine Learning Studio maken | Microsoft Docs
-description: Voor het gebruik van Azure Machine Learning Studio, moet u een Machine Learning Studio-werkruimte. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
-services: machine-learning
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.topic: article
-ms.date: 12/07/2017
-ms.openlocfilehash: e6835afd66d054a79c422a35839d64ae89031de5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268254"
+Titel: Maak een werkruimte titleSuffix: Azure Machine Learning Studio description: Voor het gebruik van Azure Machine Learning Studio, moet u een Machine Learning Studio-werkruimte. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 12/07/2017
 ---
+
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Maken en delen van een Azure Machine Learning Studio-werkruimte
 
 Voor het gebruik van Azure Machine Learning Studio, moet u een Machine Learning Studio-werkruimte. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.

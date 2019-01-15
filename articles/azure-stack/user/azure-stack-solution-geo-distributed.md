@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 85400269be13295161aaff5936a6ae8c7d503b34
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: da6c9fa416d19916243860178d15619306aaf3c0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245868"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305312"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
@@ -41,7 +41,7 @@ Met het patroon geografisch gedistribueerde, kan uw app in regio's omvat. U kunt
 
 #### <a name="scalability-considerations"></a>Schaalbaarheidsoverwegingen
 
-De oplossing u met deze zelfstudie bouwt is niet geschikt voor schaalbaarheid. Echter als gebruikt in combinatie met andere Azure en On-Premises technologieën en oplossingen kunt u gebruikmaken van de vereisten voor schaalbaarheid. Zie voor meer informatie over het maken van een oplossing hyrbid met automatisch schalen via traffic manager [vergroten/verkleinen cross-cloudoplossingen te maken met Azure](azure-stack-solution-cloud-burst.md).
+De oplossing u met deze zelfstudie bouwt is niet geschikt voor schaalbaarheid. Echter als gebruikt in combinatie met andere Azure en On-Premises technologieën en oplossingen kunt u gebruikmaken van de vereisten voor schaalbaarheid. Zie voor meer informatie over het maken van een hybride oplossing met automatisch schalen via traffic manager [vergroten/verkleinen cross-cloudoplossingen te maken met Azure](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Beschikbaarheidsoverwegingen
 
@@ -93,7 +93,7 @@ Een Azure-abonnement en Azure Stack-installatie zijn vereist.
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>Verkrijgen van een aangepast domein en DNS configureren
 
-Werk de DNS-zone bestand foCreate web-apps en publishr het domein. Azure AD kan vervolgens eigendom van de aangepaste domeinnaam te verifiëren. Gebruik [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) Azure/Office 365/externe DNS-records in Azure, of Voeg de DNS-vermelding op [een andere DNS-registratieservice](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Werk de DNS-zonebestand voor het domein. Azure AD kan vervolgens eigendom van de aangepaste domeinnaam te verifiëren. Gebruik [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) Azure/Office 365/externe DNS-records in Azure, of Voeg de DNS-vermelding op [een andere DNS-registratieservice](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Een aangepast domein met een openbare Registrar registreren.
 
@@ -273,7 +273,7 @@ Werk de DNS-zonebestand voor het domein. Azure AD wordt eigenaar van de aangepas
 
 -   De DNS-zonebestand voor het domein bijwerken door de DNS-vermelding die is geleverd door Azure AD toe te voegen.
 
-Bijvoorbeeld, om toe te voegen DNS-vermeldingen fornorthwindcloud.comand www.northwindcloud.com, DNS-instellingen voor het hoofddomein thenorthwindcloud.com configureren.
+Bijvoorbeeld, om toe te voegen DNS-vermeldingen voor northwindcloud.com en www.northwindcloud.com, DNS-instellingen voor het hoofddomein northwindcloud.com configureren.
 
 > [!Note]  
 >  De naam van een domein kan worden gekocht met de [Azure-portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
@@ -302,7 +302,7 @@ In de schermafbeelding hieronder wordt een voorbeeld van een pagina met DNS-reco
 
 2.  Voeg een CNAME-record voor een subdomein toewijzen aan de standaardhostnaam van de app.
 
-  Voor het voorbeeld www.northwindcloud.comdomain toevoegen een CNAME-record die wordt toegewezen, de namewwwto < app\_naam >. azurewebsites.net.
+  Voor het domeinvoorbeeld www.northwindcloud.com toevoegen een CNAME-record die wordt toegewezen, de naam < app\_naam >. azurewebsites.net.
 
 Nadat de CNAME zijn toegevoegd, lijkt de pagina met DNS-records in het volgende voorbeeld:
 
@@ -549,7 +549,7 @@ Selecteer in de web-app-pagina **SL-instellingen**. Klik op **Alleen HTTPS** en 
 
 Wanneer de bewerking is voltooid, gaat u naar een van de HTTP-URL's die naar de app verwijzen. Bijvoorbeeld:
 
--   http://<APP_NAME>.azurewebsites.NET
+-   http://<app_name>.azurewebsites.net
 -   http://northwindcloud.com
 -   <http://www.northwindcloud.com>
 

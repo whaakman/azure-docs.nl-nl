@@ -1,26 +1,8 @@
 ---
-title: Oplossingen voor Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
-description: In de galerie met Azure AI-oplossingen ontdekken. Een oplossing biedt een snelle startsessie voor het bouwen van Cortana Intelligence-oplossingen snel van vooraf geconfigureerde oplossingen, referentiearchitectuur en ontwerppatronen.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: 8bfcbac45dd50ebed5491b0411d5f1faa5b5f078
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271331"
+Titel: Azure AI Gallery-oplossingen titleSuffix: Azure Machine Learning Studio description: In de galerie met Azure AI-oplossingen ontdekken. Een oplossing biedt een snelle startsessie voor het bouwen van Cortana Intelligence-oplossingen snel van vooraf geconfigureerde oplossingen, referentiearchitectuur en ontwerppatronen.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/31/2017
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>In de galerie met Azure AI-oplossingen ontdekken
 

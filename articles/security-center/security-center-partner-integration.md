@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 25975739f7992a8e7a5318775b99d05715863ed1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580736"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260107"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Beveiligingsoplossingen integreren in Azure Security Center
 Dit document helpt u bij het beheren van beveiligingsoplossingen die al zijn gekoppeld aan Azure Security Center en bij het toevoegen van nieuwe oplossingen.
@@ -33,29 +33,12 @@ Met Security Center kunt u gemakkelijk geïntegreerde beveiligingsoplossingen in
 
 Geïntegreerde beveiligingsoplossingen omvatten momenteel:
 
-- Bescherming van eindpunten ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) en [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - Firewall voor webtoepassingen ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) en [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Firewall van de volgende generatie ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) en [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Evaluatie van beveiligingsproblemen ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) en [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
 > Security Center installeert de Microsoft Monitoring Agent niet op virtuele apparaten van partners omdat de meeste leveranciers van beveiligingsoplossingen het niet toestaan dat externe agents worden uitgevoerd op hun apparaat.
->
->
-
-
-| Eindpuntbeveiliging               | Platformen                             | Security Center-installatie | Security Center Discovery |
-|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | Nee, ingebouwd in besturingssysteem           | Ja                       |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (Zie opmerking hieronder) | Via extensie                | Ja                       |
-| Trend Micro: alle versies         | Windows Server-familie                 | Nee                           | Ja                       |
-| Symantec v12.1.1100+              | Windows Server-familie                 | Nee                           | Ja                       |
-| McAfee v10+                       | Windows Server-familie                 | Nee                           | Ja                       |
-| Kaspersky                         | Windows Server-familie                 | Nee                           | Nee                        |
-| Sophos                            | Windows Server-familie                 | Nee                           | Nee                        |
-
-> [!NOTE]
-> Detectie van System Center Endpoint Protection (SCEP) op een virtuele machine van Windows Server 2008 R2 moet SCEP moet worden geïnstalleerd na PowerShell 3.0 (of een hogere versie).
 >
 >
 
@@ -237,9 +220,9 @@ Hier volgt een aantal Splunk-query's die u kunt gebruiken voor het ophalen van w
 
 | **Beschrijving van Query** | **Query** |
 |----|----|
-| Alle waarschuwingen| index = belangrijkste Microsoft.Security/locations/alerts|
+| Alle waarschuwingen| index=main Microsoft.Security/locations/alerts|
 | Aantal bewerkingen met hun naam samenvatten| index = belangrijkste sourcetype = "amal: security" \| tabel operationName \| statistieken operationName tellen|
-| Waarschuwingen ophalen: Tijd, naam, status, -ID en -abonnement | index = belangrijkste Microsoft.Security/locations/alerts \| tabel \_tijd, properties.eventName, status, properties.operationId, am_subscriptionId |
+| Waarschuwingen ophalen: Tijd, naam, status, -ID en -abonnement | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Volgende stappen

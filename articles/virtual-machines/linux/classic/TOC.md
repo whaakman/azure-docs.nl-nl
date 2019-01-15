@@ -1,4 +1,4 @@
-# [Overzicht](../overview.md)
+# Overzicht
 ## [VM-extensies](agents-and-extensions-classic.md)
 ## [Beschikbaarheid](configure-availability-classic.md)
 ## [Veelgestelde vragen](faq-classic.md)
@@ -49,7 +49,6 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure-CLI](/cli/azure/vm)
 ## [Java](/java/api)
-## [Resource Manager-sjablonen schrijven](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)
 ## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)

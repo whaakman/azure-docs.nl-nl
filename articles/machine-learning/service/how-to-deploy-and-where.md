@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2c71b0abd5069aeb00b63fde8b76e5bb0fc0beda
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3341dbc486ebd184979381fa6bef05ec9404aa98
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246429"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304094"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
 De Azure Machine Learning-service biedt verschillende manieren waarop die u het getrainde model met behulp van de SDK kunt implementeren. In dit document leert u hoe u uw model als een webservice in de Azure-cloud, of op IoT edge-apparaten implementeren.
+
+> [!IMPORTANT]
+> Cross-origin resource sharing (CORS) wordt momenteel niet ondersteund bij het implementeren van een model als een webservice.
 
 U kunt modellen implementeren op de volgende compute-doelen:
 
@@ -31,41 +34,34 @@ U kunt modellen implementeren op de volgende compute-doelen:
 | [Azure IoT Edge](#iotedge) | IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
 | [Veld-programmable gate array (FPGA)](#fpga) | Webservice | Zeer lage latentie voor realtime inferentietaken. |
 
+Het proces voor het implementeren van een model is vergelijkbaar voor alle compute-doelen:
+
+1. Training en registreren van een model.
+1. Configureren en registreren van een installatiekopie die gebruikmaakt van het model.
+1. De installatiekopie implementeert op een compute-doel.
+1. De implementatie testen
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
+
+Zie voor meer informatie over de concepten die betrokken zijn bij de implementatiewerkstroom [beheren, implementeren en controleren van modellen met Azure Machine Learning-Service](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
+- Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+
 - Een werkruimte van Azure Machine Learning-service en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [aan de slag met Azure Machine Learning-snelstartgids](quickstart-get-started.md).
 
-- Een getraind model in een van beide pickle (`.pkl`) of u kunt ONNX (`.onnx`) indeling. Als u een getraind model hebt, gebruikt u de stappen in de [trainen van modellen](tutorial-train-models-with-aml.md) zelfstudie om te trainen en te registreren met de Azure Machine Learning-service.
+- Een getraind model. Als u een getraind model hebt, gebruikt u de stappen in de [trainen van modellen](tutorial-train-models-with-aml.md) zelfstudie om te trainen en te registreren met de Azure Machine Learning-service.
 
-- De Codesecties wordt ervan uitgegaan dat `ws` verwijst naar uw machine learning-werkruimte. Bijvoorbeeld `ws = Workspace.from_config()`.
+    > [!NOTE]
+    > Terwijl de service Azure Machine Learning met een algemeen model dat kan worden geladen in Python 3 werken kunt, wordt in de voorbeelden in dit document worden met behulp van een model dat is opgeslagen in pickle-indeling.
+    > 
+    > Zie voor meer informatie over het gebruik van ONNX-modellen, de [ONNX en Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
-## <a name="deployment-workflow"></a>Implementatiewerkstroom
+## <a id="registermodel"></a> Registreren van een getraind model
 
-Het proces voor het implementeren van een model is vergelijkbaar voor alle compute-doelen:
-
-1. Een model te trainen.
-1. Registreer het model.
-1. De configuratie van een installatiekopie maken.
-1. Maak de installatiekopie.
-1. De installatiekopie implementeert op een compute-doel.
-1. De implementatie testen
-1. (Optioneel) Opschonen van artefacten.
-
-    * Wanneer **implementeren als een webservice**, er zijn drie opties voor implementatie:
-
-        * [Implementeer](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): Wanneer u deze methode gebruikt, hoeft u niet te registreren van het model of maken van de installatiekopie. Maar u geen invloed hebben op de naam van het model of de afbeelding of gekoppelde tags en beschrijvingen.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): Wanneer u deze methode gebruikt, hoeft u niet om een installatiekopie te maken. Maar u hebt geen controle over de naam van de installatiekopie die wordt gemaakt.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Registreer het model en een installatiekopie maken voordat u deze methode.
-
-        De voorbeelden in dit document gebruiken `deploy_from_image`.
-
-    * Wanneer **implementeren als een IoT Edge-module**, moet u het model registreren en maken van de installatiekopie.
-
-## <a name="register-a-model"></a>Een model registreren
-
-Alleen getrainde modellen kunnen worden geïmplementeerd. Het model kan worden getraind met behulp van Azure Machine Learning, of een andere service. Gebruik de volgende code voor het registreren van een model uit bestand:
+Het register model is een manier voor het opslaan en delen van uw getrainde modellen in de Azure-cloud. Modellen zijn geregistreerd in de werkruimte van uw Azure Machine Learning-service. Het model kan worden getraind met behulp van Azure Machine Learning, of een andere service. Gebruik de volgende code voor het registreren van een model uit bestand:
 
 ```python
 from azureml.core.model import Model
@@ -77,16 +73,15 @@ model = Model.register(model_path = "model.pkl",
                        workspace = ws)
 ```
 
-> [!NOTE]
-> Hoewel het voorbeeld met behulp van een model dat is opgeslagen als een pickle-bestand op, maar u kunt ook gebruikte ONNX-modellen. Zie voor meer informatie over het gebruik van ONNX-modellen, de [ONNX en Azure Machine Learning](how-to-build-deploy-onnx.md) document.
+**Geschatte tijd**: Ongeveer 10 seconden.
 
 Zie voor meer informatie de documentatie bij de [Modelklasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a id="configureimage"></a> De configuratie van een installatiekopie maken
+## <a id="configureimage"></a> Maken en registreren van een installatiekopie
 
 Geïmplementeerde modellen zijn verpakt als een afbeelding. De afbeelding bevat de afhankelijkheden die nodig zijn om uit te voeren van het model.
 
-Voor **Azure Container Instances**, **Azure Kubernetes Service**, en **Azure IoT Edge** implementaties, de `azureml.core.image.ContainerImage` klasse wordt gebruikt om de configuratie van een installatiekopie te maken. De configuratie van de installatiekopie wordt vervolgens gebruikt om te maken van een nieuwe Docker-installatiekopie. 
+Voor **Azure Container Instances**, **Azure Kubernetes Service**, en **Azure IoT Edge** implementaties, de [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klasse wordt gebruikt om de configuratie van een installatiekopie te maken. De configuratie van de installatiekopie wordt vervolgens gebruikt om te maken van een nieuwe Docker-installatiekopie. 
 
 De volgende code ziet u hoe u de configuratie van een nieuwe installatiekopie gemaakt:
 
@@ -102,24 +97,101 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-Deze configuratie maakt gebruik van een `score.py` bestand om door te geven aanvragen naar het model. Dit bestand bevat twee functies:
+**Geschatte tijd**: Ongeveer 10 seconden.
 
-* `init()`: Deze functie worden doorgaans het model in een globale objecttoegang geladen. Deze functie wordt slechts één keer uitgevoerd wanneer de Docker-container wordt gestart. 
+De belangrijke parameters in dit voorbeeld wordt beschreven in de volgende tabel:
 
-* `run(input_data)`: Deze functie maakt gebruik van het model om te voorspellen van een waarde op basis van de ingevoerde gegevens. De in- en uitvoer van de uitvoerbewerking maken doorgaans gebruik van JSON voor serialisatie en deserialisatie, maar andere indelingen worden ook ondersteund.
-
-Voor een voorbeeld `score.py` bestand, raadpleegt u de [installatiekopie classificatie zelfstudie](tutorial-deploy-models-with-aml.md#make-script). Zie voor een voorbeeld dat gebruikmaakt van een ONNX-model, de [ONNX en Azure Machine Learning](how-to-build-deploy-onnx.md) document.
-
-De `conda_file` parameter wordt gebruikt voor een bestand conda-omgeving. Dit bestand definieert het conda-omgeving voor het gedistribueerde model. Zie voor meer informatie over het maken van dit bestand [maakt u een omgevingsbestand (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file).
+| Parameter | Description |
+| ----- | ----- |
+| `execution_script` | Hiermee geeft u een Python-script dat wordt gebruikt om aanvragen verzonden naar de service te ontvangen. In dit voorbeeld wordt het script is opgenomen in de `score.py` bestand. Zie voor meer informatie de [tot uitvoering van script](#script) sectie. |
+| `runtime` | Geeft aan dat de installatiekopie van het maakt gebruik van Python. De andere mogelijkheid is `spark-py`, die Python gebruikt met Apache Spark. |
+| `conda_file` | Gebruikt om een bestand conda-omgeving. Dit bestand definieert het conda-omgeving voor het gedistribueerde model. Zie voor meer informatie over het maken van dit bestand [maakt u een omgevingsbestand (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
 
 Zie voor meer informatie de documentatie bij [ContainerImage klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
 
-## <a id="createimage"></a> De installatiekopie maken
+### <a id="script"></a> Uitvoering van script
 
-Als u de configuratie van de installatiekopie hebt gemaakt, kunt u deze kunt gebruiken om een installatiekopie te maken. Deze installatiekopie wordt opgeslagen in de container registry voor uw werkruimte. Nadat u hebt gemaakt, kunt u dezelfde installatiekopie implementeren naar meerdere services.
+De uitvoering van script ontvangt gegevens verzonden naar een geïmplementeerde installatiekopie, en wordt doorgegeven aan het model. Vervolgens wordt het antwoord geretourneerd door het model en retourneert die naar de client. Het script is specifiek voor uw model. Deze moet de gegevens die het model wordt verwacht en retourneert begrijpen. Het script bevat doorgaans twee functies die worden geladen en het model uitvoeren:
+
+* `init()`: Deze functie worden doorgaans het model in een globale objecttoegang geladen. Deze functie wordt slechts één keer uitgevoerd wanneer de Docker-container wordt gestart. 
+
+* `run(input_data)`: Deze functie maakt gebruik van het model om te voorspellen van een waarde op basis van de ingevoerde gegevens. Invoer en uitvoer aan het run maken doorgaans gebruik van JSON voor serialisatie en het deserialiseren. Ook kunt u werken met onbewerkte binaire gegevens. U kunt de gegevens te transformeren voordat ze worden verzonden naar het model of voordat u terugkeert naar de client. 
+
+#### <a name="working-with-json-data"></a>Werken met JSON-gegevens
+
+Hier volgt een voorbeeldscript dat wordt geaccepteerd en JSON-gegevens geretourneerd. De `run` functie transformeert de gegevens uit JSON naar een indeling die wordt verwacht dat het model en vervolgens het antwoord naar JSON worden getransformeerd alvorens deze:
 
 ```python
-# Create the image from the image configuration
+# import things required by this script
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+
+from azureml.core.model import Model
+
+# load the model
+def init():
+    global model
+    # retrieve the path to the model file using the model name
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
+
+# Passes data to the model and returns the prediction
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
+
+#### <a name="working-with-binary-data"></a>Werken met binaire gegevens
+
+Als uw model accepteert __binaire gegevens__, gebruikt u `AMLRequest`, `AMLResponse`, en `rawhttp`. Hier volgt een voorbeeld van een script dat binaire gegevens accepteert en retourneert de omgekeerde bytes voor POST-aanvragen. Voor GET-aanvragen retourneert deze de volledige URL in de hoofdtekst van antwoord:
+
+```python
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+# Accept and return binary data
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    # handle GET requests
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    # handle POST requests
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> De `azureml.contrib` naamruimte vaak verandert, zoals we werken om de service te verbeteren. Als zodanig moet in deze naamruimte worden beschouwd als een Preview-versie, en niet volledig ondersteund door Microsoft.
+>
+> Als u testen op uw lokale ontwikkelomgeving wilt, kunt u de onderdelen in installeren de `contrib` naamruimte met behulp van de volgende opdracht uit: 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+### <a id="createimage"></a> De installatiekopie van het registreren
+
+Als u de configuratie van de installatiekopie hebt gemaakt, kunt u deze kunt gebruiken voor het registreren van een installatiekopie. Deze installatiekopie wordt opgeslagen in de container registry voor uw werkruimte. Nadat u hebt gemaakt, kunt u dezelfde installatiekopie implementeren naar meerdere services.
+
+```python
+# Register the image from the image configuration
 image = ContainerImage.create(name = "myimage", 
                               models = [model], #this is the model object
                               image_config = image_config,
@@ -133,7 +205,7 @@ Afbeeldingen zijn samengesteld automatisch wanneer u meerdere installatiekopieë
 
 Zie voor meer informatie de documentatie bij [ContainerImage klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a name="deploy-the-image"></a>De installatiekopie implementeren
+## <a id="deploy"></a> De installatiekopie implementeren
 
 Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk van de compute-doel die u implementeert op. Gebruik de informatie in de volgende secties voor informatie over het implementeren op:
 
@@ -141,6 +213,17 @@ Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk v
 * [Azure Kubernetes-Services](#aks)
 * [Project Brainwave (veld-programmable gate arrays)](#fpga)
 * [Azure IoT Edge-apparaten](#iotedge)
+
+> [!NOTE]
+> Wanneer **implementeren als een webservice**, er zijn drie methoden voor het implementeren u kunt gebruiken:
+>
+> | Methode | Opmerkingen |
+> | ----- | ----- |
+> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | U moet het model registreren en een installatiekopie maken voordat u deze methode. |
+> | [Implementeren](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | Wanneer u deze methode gebruikt, hoeft u niet te registreren van het model of maken van de installatiekopie. Maar u geen invloed hebben op de naam van het model of de afbeelding of gekoppelde tags en beschrijvingen. |
+> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | Wanneer u deze methode gebruikt, hoeft u niet om een installatiekopie te maken. Maar u hebt geen controle over de naam van de installatiekopie die wordt gemaakt. |
+>
+> De voorbeelden in dit document gebruiken `deploy_from_image`.
 
 ### <a id="aci"></a> Implementeren in Azure Container Instances
 
@@ -179,75 +262,82 @@ Azure Kubernetes Service biedt de volgende mogelijkheden:
 * Gegevensverzameling van model
 * Snelle responstijden voor uw web-services
 
-Als u wilt implementeren in Azure Kubernetes Service, gebruikt u de volgende stappen uit:
+#### <a name="create-a-new-cluster"></a>Maak een nieuw cluster
 
-1. Gebruik de volgende code voor het maken van een AKS-cluster:
+Gebruik de volgende code voor het maken van een nieuw Azure Kubernetes Service-cluster:
 
-    > [!IMPORTANT]
-    > Het maken van het AKS-cluster is een proces tijd voor uw werkruimte. Nadat u hebt gemaakt, kunt u dit cluster voor meerdere implementaties opnieuw gebruiken. Als u het cluster of de resourcegroep waarin het verwijdert, moet klikt u vervolgens u een nieuw cluster de volgende keer dat u wilt implementeren.
-    > Voor [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), als u aangepaste waarden voor agent_count en vm_size, kiest, moet u om ervoor te zorgen agent_count vermenigvuldigd met vm_size is groter dan of gelijk zijn aan 12 virtuele CPU's. Bijvoorbeeld, als u een vm_size van 'Standard_D3_v2', met 4 virtuele CPU's, moet vervolgens u kiezen een agent_count van 3 of hoger.
+> [!IMPORTANT]
+> Het maken van het AKS-cluster is een proces tijd voor uw werkruimte. Nadat u hebt gemaakt, kunt u dit cluster voor meerdere implementaties opnieuw gebruiken. Als u het cluster of de resourcegroep waarin het verwijdert, moet klikt u vervolgens u een nieuw cluster de volgende keer dat u wilt implementeren.
+> Voor [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), als u aangepaste waarden voor agent_count en vm_size, kiest, moet u om ervoor te zorgen agent_count vermenigvuldigd met vm_size is groter dan of gelijk zijn aan 12 virtuele CPU's. Bijvoorbeeld, als u een vm_size van 'Standard_D3_v2', met 4 virtuele CPU's, moet vervolgens u kiezen een agent_count van 3 of hoger.
 
-    ```python
-    from azureml.core.compute import AksCompute, ComputeTarget
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
 
-    # Use the default configuration (you can also provide parameters to customize this)
-    prov_config = AksCompute.provisioning_configuration()
+# Use the default configuration (you can also provide parameters to customize this)
+prov_config = AksCompute.provisioning_configuration()
 
-    aks_name = 'aml-aks-1' 
-    # Create the cluster
-    aks_target = ComputeTarget.create(workspace = ws, 
-                                        name = aks_name, 
-                                        provisioning_configuration = prov_config)
+aks_name = 'aml-aks-1' 
+# Create the cluster
+aks_target = ComputeTarget.create(workspace = ws, 
+                                    name = aks_name, 
+                                    provisioning_configuration = prov_config)
 
-    # Wait for the create process to complete
-    aks_target.wait_for_completion(show_output = True)
-    print(aks_target.provisioning_state)
-    print(aks_target.provisioning_errors)
-    ```
+# Wait for the create process to complete
+aks_target.wait_for_completion(show_output = True)
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+```
 
-    **Geschatte tijd**: Ongeveer 20 minuten.
+**Geschatte tijd**: Ongeveer 20 minuten.
 
-    > [!TIP]
-    > Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.11. *, kunt u het implementeren van uw installatiekopie. De volgende code ziet u hoe u een bestaand cluster koppelt aan uw werkruimte:
-    >
-    > ```python
-    > from azureml.core.compute import AksCompute, ComputeTarget
-    > # Set the resource group that contains the AKS cluster and the cluster name
-    > resource_group = 'myresourcegroup'
-    > cluster_name = 'mycluster'
-    > 
-    > # Attatch the cluster to your workgroup
-    > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-    >                                          cluster_name = cluster_name)
-    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-    > 
-    > # Wait for the operation to complete
-    > aks_target.wait_for_completion(True)
-    > ```
+#### <a name="use-an-existing-cluster"></a>Gebruik een bestaand cluster
 
-2. Implementeren van de installatiekopie hebt gemaakt in de [maken van de installatiekopie](#createimage) sectie van dit document, gebruik de volgende code:
+Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.11. *, kunt u het implementeren van uw installatiekopie. De volgende code ziet u hoe u een bestaand cluster koppelt aan uw werkruimte:
 
-    ```python
-    from azureml.core.webservice import Webservice, AksWebservice
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
+# Set the resource group that contains the AKS cluster and the cluster name
+resource_group = 'myresourcegroup'
+cluster_name = 'mycluster'
 
-    # Set configuration and service name
-    aks_config = AksWebservice.deploy_configuration()
-    aks_service_name ='aks-service-1'
-    # Deploy from image
-    service = Webservice.deploy_from_image(workspace = ws, 
-                                                name = aks_service_name,
-                                                image = image,
-                                                deployment_config = aks_config,
-                                                deployment_target = aks_target)
-    # Wait for the deployment to complete
-    service.wait_for_deployment(show_output = True)
-    print(service.state)
-    ```
+# Attatch the cluster to your workgroup
+attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name)
+aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 
-    > [!TIP]
-    > Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de AKS-service-logboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
+# Wait for the operation to complete
+aks_target.wait_for_completion(True)
+```
 
-Zie voor meer informatie de documentatie bij de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) klassen.
+**Geschatte tijd**: Ongeveer 3 minuten.
+
+#### <a name="deploy-the-image"></a>De installatiekopie implementeren
+
+Implementeren van de installatiekopie hebt gemaakt in de [maken van de installatiekopie](#createimage) sectie van dit document om het cluster Azure Kubernetes-Server, gebruik de volgende code:
+
+```python
+from azureml.core.webservice import Webservice, AksWebservice
+
+# Set configuration and service name
+aks_config = AksWebservice.deploy_configuration()
+aks_service_name ='aks-service-1'
+# Deploy from image
+service = Webservice.deploy_from_image(workspace = ws, 
+                                            name = aks_service_name,
+                                            image = image,
+                                            deployment_config = aks_config,
+                                            deployment_target = aks_target)
+# Wait for the deployment to complete
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+**Geschatte tijd**: Ongeveer 3 minuten.
+
+> [!TIP]
+> Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de AKS-service-logboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
+
+Zie voor meer informatie de documentatie bij de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klassen.
 
 ### <a id="fpga"></a> Implementeren naar het veld-programmable gate arrays (FPGA)
 
@@ -375,7 +465,9 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## <a name="update-the-web-service"></a>Bijwerken van de webservice
+De webservice is een REST-API, zodat u toepassingen in diverse programmeertalen maken kunt. Zie voor meer informatie, [-client maken toepassingen gebruik van webservices kunnen](how-to-consume-web-service.md).
+
+## <a id="update"></a> Bijwerken van de webservice
 
 Voor het bijwerken van de webservice, gebruikt u de `update` methode. De volgende code ziet u hoe u de webservice voor het gebruik van een nieuwe installatiekopie bijwerken:
 
@@ -397,6 +489,8 @@ print(service.state)
 > [!NOTE]
 > Wanneer u een installatiekopie van een bijwerkt, wordt de webservice niet automatisch bijgewerkt. Elke service die u wilt gebruiken van de nieuwe installatiekopie moet u handmatig bijwerken.
 
+Zie voor meer informatie de documentatie bij de [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klasse.
+
 ## <a name="clean-up"></a>Opruimen
 
 Als u wilt verwijderen van een geïmplementeerde webservice, gebruikt u `service.delete()`.
@@ -405,9 +499,14 @@ Als u wilt verwijderen van een installatiekopie, gebruikt u `image.delete()`.
 
 Als u wilt een geregistreerde model verwijderen, gebruikt u `model.delete()`.
 
+Zie voor meer informatie de documentatie bij [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), en [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Azure Machine Learning-webservices met SSL beveiligde](how-to-secure-web-service.md)
 * [Een ML-Model dat is geïmplementeerd als een webservice gebruiken](how-to-consume-web-service.md)
 * [Het uitvoeren van voorspellingen van batch](how-to-run-batch-predictions.md)
+* [Uw Azure Machine Learning-modellen met Application Insights bewaken](how-to-enable-app-insights.md)
+* [Verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md)
+* [Azure Machine Learning-service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Azure Machine Learning-service gebruiken met Azure Virtual Networks](how-to-enable-virtual-network.md)

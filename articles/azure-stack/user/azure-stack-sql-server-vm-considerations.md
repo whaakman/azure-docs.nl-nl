@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585863"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304350"
 ---
 # <a name="optimize-sql-server-performance"></a>SQL Server-prestaties optimaliseren
 
@@ -29,7 +29,7 @@ Dit artikel bevat richtlijnen voor het optimaliseren van prestaties van SQL Serv
 Bij het maken van SQL Server-installatiekopieën, [Houd rekening met het inrichten van uw virtuele machines in de Azure Stack-portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). De SQL IaaS-extensie downloaden uit het beheer van de Marketplace in de Azure Stack-beheerportal en downloaden van uw eigen keuze aan SQL virtuele machine virtuele harde schijven (VHD's). Hieronder vallen SQL2014SP2, SQL2016SP1 en SQL2017.
 
 > [!NOTE]  
-> Hoewel het artikel wordt beschreven hoe u een SQL Server-machine inrichten met de globale Azure-portal, de richtlijn geldt ook voor Azure Stack met de volgende verschillen: SSD is niet beschikbaar voor de besturingssysteemschijf, beheerde schijven zijn niet beschikbaar, en Er zijn kleine verschillen in de configuratie van de opslag.
+> Hoewel het artikel wordt beschreven hoe u een SQL Server-machine inrichten met de globale Azure-portal, geldt de richtlijn ook voor Azure Stack met de volgende verschillen: Er zijn kleine verschillen in de opslagconfiguratie SSD is niet beschikbaar voor de besturingssysteemschijf en beheerde schijven zijn niet beschikbaar.
 
 Aan de *aanbevolen* prestaties voor SQL Server op virtuele machines van Azure Stack is de focus van dit artikel. Als uw werkbelasting minder zwaar worden belast is, kan u niet elke aanbevolen optimalisatie nodig. Houd rekening met uw prestatiebehoeften en patronen van werkbelasting kijkt u bij het evalueren van deze aanbevelingen.
 
@@ -76,11 +76,11 @@ Bij het maken van een storage-account in Azure Stack, heeft de geo-replicatie-op
 
 Er zijn drie schijftypen van de belangrijkste op een virtuele machine van Azure Stack:
 
-- **Besturingssysteemschijf:** wanneer u een virtuele machine van Azure Stack maakt, koppelt u het platform ten minste één schijf (met het label de **C** station) op de virtuele machine voor de schijf van uw besturingssysteem. Deze schijf is een VHD die is opgeslagen als pagina-blob in de opslag.
+- **Schijf van besturingssysteem:** Wanneer u een virtuele machine van Azure Stack maakt, koppelt u het platform ten minste één schijf (met het label de **C** station) op de virtuele machine voor de schijf van uw besturingssysteem. Deze schijf is een VHD die is opgeslagen als pagina-blob in de opslag.
 
-- **Tijdelijke schijf:** Azure Stack virtuele machines bevatten een andere schijf met de naam de tijdelijke schijf (met het label de **D** station). Dit is een schijf op het knooppunt dat kan worden gebruikt voor scratchruimte.
+- **Tijdelijke schijf:** Virtuele machines van Azure Stack bevatten een andere schijf met de naam de tijdelijke schijf (met het label de **D** station). Dit is een schijf op het knooppunt dat kan worden gebruikt voor scratchruimte.
 
-- **Gegevensschijven:** kunt u extra schijven aan uw virtuele machine als gegevensschijven koppelen en deze schijven in de opslag worden opgeslagen als pagina-blobs.
+- **Gegevensschijven:** U kunt extra schijven toevoegen aan uw virtuele machine als gegevensschijven en deze schijven in de opslag worden opgeslagen als pagina-blobs.
 
 De volgende secties beschrijven de aanbevelingen voor het gebruik van deze verschillende schijven.
 
@@ -101,7 +101,7 @@ U wordt aangeraden TempDB opslaan op een gegevensschijf, omdat elke gegevensschi
 > [!NOTE]  
 > Wanneer u een SQL Server-machine in de portal inrichten, hebt u de mogelijkheid om de opslagconfiguratie bewerken. Afhankelijk van uw configuratie, configureert Azure Stack u een of meer schijven. Meerdere schijven zijn gecombineerd tot een één opslaggroep. De gegevens en logboekbestanden bestanden bevinden zich samen in deze configuratie.
 
-- **Schijfsegmentering:** meer doorvoer, kunt u extra gegevensschijven toevoegen en gebruiken van striping van de schijf. Om te bepalen het aantal gegevensschijven die u nodig hebt, het aantal IOPS en bandbreedte die vereist is voor uw logboekbestanden en voor uw gegevens en het TempDB-bestanden te analyseren. U ziet dat de IOPS-limieten per gegevensschijf op basis van de virtuele machine-serie en niet op basis van de grootte van de virtuele machine. Netwerk-bandbreedtelimieten, echter zijn gebaseerd op de grootte van de virtuele machine. Overzicht van de tabellen op [groottes van virtuele machines in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) voor meer informatie. Gebruik de volgende richtlijnen:
+- **Striping van de schijf:** Voor meer doorvoer, kunt u extra gegevensschijven toevoegen en striping van de schijf. Om te bepalen het aantal gegevensschijven die u nodig hebt, het aantal IOPS en bandbreedte die vereist is voor uw logboekbestanden en voor uw gegevens en het TempDB-bestanden te analyseren. U ziet dat de IOPS-limieten per gegevensschijf op basis van de virtuele machine-serie en niet op basis van de grootte van de virtuele machine. Netwerk-bandbreedtelimieten, echter zijn gebaseerd op de grootte van de virtuele machine. Overzicht van de tabellen op [groottes van virtuele machines in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) voor meer informatie. Gebruik de volgende richtlijnen:
 
     - Voor Windows Server 2012 of hoger, gebruikt u [opslagruimten](https://technet.microsoft.com/library/hh831739.aspx) met de volgende richtlijnen:
 
@@ -120,8 +120,8 @@ U wordt aangeraden TempDB opslaan op een gegevensschijf, omdat elke gegevensschi
 
 - Bepaalt het aantal schijven die zijn gekoppeld aan uw opslaggroep op basis van de load-verwachtingen. Houd er rekening mee dat andere VM-grootten verschillende aantallen stellen gekoppelde gegevensschijven. Zie voor meer informatie, [grootten van virtuele machines worden ondersteund in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Om de maximale IOPS mogelijk voor gegevensschijven, is de aanbeveling is om toe te voegen van het maximum aantal gegevensschijven dat wordt ondersteund door uw [grootte van virtuele machine](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) en gebruik schijfsegmentering.
-- **Grootte van NTFS-toewijzingseenheid:** bij het opmaken van de gegevensschijf, is het aanbevolen dat u een clustergrootte van 64 KB voor gegevens en logboekbestanden, evenals TempDB gebruiken.
-- **Procedures voor schijf:** bij het verwijderen van een gegevensschijf, stopt u de SQL Server-service tijdens de wijziging. Ook niet wijzigen cache-instellingen op de schijven als het niet mogelijk om een verbeterde prestaties.
+- **Grootte van NTFS-toewijzingseenheid:** Bij het opmaken van de gegevensschijf, verdient het aanbeveling gebruik te maken van een clustergrootte van 64 KB voor gegevens en logboekbestanden, evenals TempDB.
+- **Procedures voor schijf:** Bij het verwijderen van een gegevensschijf, stopt u de SQL Server-service tijdens de wijziging. Ook niet wijzigen cache-instellingen op de schijven als het niet mogelijk om een verbeterde prestaties.
 
 > [!WARNING]  
 > Fout bij stoppen van de SQL-Service tijdens deze bewerkingen kan leiden tot beschadiging van de database.
@@ -151,7 +151,7 @@ Sommige implementaties mogelijk extra prestatievoordelen biedt met meer geavance
 
     Wanneer u de informatie in het dialoogvenster SQL Server-back-up plaatsen:
 
-    ![Back-up van SQL Server](./media/sql-server-vm-considerations/image3.png)
+    ![SQL Server Backup](./media/sql-server-vm-considerations/image3.png)
 
     > [!NOTE]  
     > De handtekening voor gedeelde toegang is het SAS-token van de Azure Stack-portal, zonder dat de voorloopspaties '?' in de tekenreeks. Als u de functie kopiëren vanuit de portal gebruikt, moet u de voorloopspaties verwijderen '?' voor het token voor het werken in SQL Server.

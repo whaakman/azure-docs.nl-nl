@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073999"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264679"
 ---
 # <a name="requirements-by-listing-type"></a>Vereisten van het Type aanbieding  
 De technische en marketingmateriaal inhoud vereisten variëren per winkel, aanbiedingtype en het type van de aanbieding. Bekijk de volgende specificaties om te controleren of de naleving.  
@@ -64,8 +64,8 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Adviesdiensten | AppSource | [Vereisten: AppSource: Lijst met: Adviesservices](#requirements-appsource-list-consulting-services) |  
-| Adviesdiensten | Azure Marketplace | [Vereisten: Azure Marketplace: Lijst met: Adviesservices](#requirements-azure-marketplace-list-consulting-services) |  
+| Adviesdiensten | AppSource | [Vereisten: AppSource: Lijst met: Consulting Services](#requirements-appsource-list-consulting-services) |  
+| Adviesdiensten | Azure Marketplace | [Vereisten: Azure Marketplace: Lijst met: Consulting Services](#requirements-azure-marketplace-list-consulting-services) |  
 | Contact opnemen | AppSource | [](#) |  
 | Contact opnemen | Azure Marketplace | [Vereisten: AppSource: Lijst met: Contact met mij](#requirements-azure-marketplace-list-contact-me) |  
 
@@ -74,14 +74,14 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 | Vereisten | Details |  
 |:--- |:--- |  
 | Kenmerken van de service-aanbieding | Uw advies-service moet voldoen aan de volgende criteria voldoen.<ul> <li>Lever een engagement vaste bereik, vaste duur, vaste prijs (of gratis).</li> <li>De plaatsen volgens voornamelijk voor voorverkoop.</li> <li>Beperkt tot één klant.</li> <li>Uitvoeren op de site.</li> </ul> |  
-| Vereisten voor Consulting Services partner | U voldoet aan de criteria in het desbetreffende gebied voor uw service.<table><tr><th>Oplossingsgebied</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Silver- of Gold Cloud Customer Relationship Management competentie hebben.</td></tr><tr><td>Dynamics 365 voor Finance and Operations, Enterprise edition</td><td>Silver- of Gold Enterprise Resource Planning competentie en opbrengst van uw cloudbewerkingen in de afsluitende 12 maanden van $25.000 of meer hebben.</td></tr><tr><td>Dynamics 365 voor Finance and Operations, Business edition</td><td>Fungeren als Cloud Services-Provider (CSP) of digitale Partner van Record (DPOR) voor een of meer klanten.</td></tr><tr><td>Power BI</td><td>Voldoen aan de criteria Solution Partner.</td></tr><tr><td>PowerApps</td><td>Een oplossing Partnershowcase hebt.</td></tr></table><ul> <li>Voor meer informatie over klantrelatiebeheer, gaat u naar de Cloud Customer Relationship Management-pagina te vinden op [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Voor meer informatie over het plannen van resources, gaat u naar de Enterprise Resource Planning pagina zich bevindt op [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Ga naar de pagina te vinden op Cloud Services-Provider voor meer informatie over CSP [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Voor meer informatie over DPOR, gaat u naar de Digital Partner of Record en koppeling van de Partner-pagina te vinden op [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Voor meer informatie over solution partner criteria, gaat u naar het overzicht van de Partner van de oplossing en Incentives document dat zich bevindt in [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Voor meer informatie over partnershowcase, gaat u naar de pagina te vinden op Partnershowcase [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+| Vereisten voor Consulting Services partner | U voldoet aan de criteria in het desbetreffende gebied voor uw service.<table><tr><th>Oplossingsgebied</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Silver- of Gold Cloud Customer Relationship Management competentie hebben.</td></tr><tr><td>Dynamics 365 voor Finance and Operations, Enterprise edition</td><td>Silver- of Gold Enterprise Resource Planning competentie en opbrengst van uw cloudbewerkingen in de afsluitende 12 maanden van $25.000 of meer hebben.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business edition</td><td>Fungeren als Cloud Services-Provider (CSP) of digitale Partner van Record (DPOR) voor een of meer klanten.</td></tr><tr><td>Power BI</td><td>Voldoen aan de criteria Solution Partner.</td></tr><tr><td>PowerApps</td><td>Een oplossing Partnershowcase hebt.</td></tr></table><ul> <li>Voor meer informatie over klantrelatiebeheer, gaat u naar de Cloud Customer Relationship Management-pagina te vinden op [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Voor meer informatie over het plannen van resources, gaat u naar de Enterprise Resource Planning pagina zich bevindt op [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Ga naar de pagina te vinden op Cloud Services-Provider voor meer informatie over CSP [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Voor meer informatie over DPOR, gaat u naar de Digital Partner of Record en koppeling van de Partner-pagina te vinden op [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Voor meer informatie over solution partner criteria, gaat u naar het overzicht van de Partner van de oplossing en Incentives document dat zich bevindt in [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Voor meer informatie over partnershowcase, gaat u naar de pagina te vinden op Partnershowcase [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 #### <a name="requirements-azure-marketplace-list-consulting-service"></a>Vereisten: Azure Marketplace: Lijst met: Consulting Services  
 
 | Vereisten | Details |  
 |:--- |:--- |  
 | Kenmerken van de service-aanbieding | Uw advies-service moet voldoen aan de volgende criteria voldoen.<ul> <li>Lever een engagement vaste bereik, vaste duur, vaste prijs (of gratis).</li> <li>De plaatsen volgens voornamelijk voor voorverkoop.</li> <li>Beperkt tot één klant.</li> <li>Uitvoeren op de site.</li> </ul> |  
-| Vereisten voor Consulting Services partner | U moet silver- of gold hebben in een van de volgende bevoegdheden in het desbetreffende gebied voor uw service. <table><tr><th>Oplossingsgebied</th><th>Competentie</th></tr><td>Cloud-Platform en infrastructuur</td><td>Cloud-Platform<br />Datacentrum</td><tr><td>Ontwikkeling van toepassingen en ISV</td><td>Ontwikkeling van toepassingen<br />Integratie van toepassingen<br />DevOps</td></tr><tr><td>Gegevensbeheer van en analyses</td><td>Gegevensanalyse<br />Data Platform</td></tr></table><ul> <li>Voor meer informatie over de competenties die zijn, gaat u naar de competenties die via Microsoft Partner Network pagina zich bevindt op [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>Voor meer informatie over de aanbieding, gaat u naar de Azure Marketplace Consulting Services pagina zich bevindt op [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
+| Vereisten voor Consulting Services partner | U moet silver- of gold hebben in een van de volgende bevoegdheden in het desbetreffende gebied voor uw service. <table><tr><th>Oplossingsgebied</th><th>Competentie</th></tr><td>Cloud-Platform en infrastructuur</td><td>Cloud Platform<br />Datacentrum</td><tr><td>Ontwikkeling van toepassingen en ISV</td><td>Ontwikkeling van toepassingen<br />Integratie van toepassingen<br />DevOps</td></tr><tr><td>Gegevensbeheer van en analyses</td><td>Gegevensanalyse<br />Data Platform</td></tr></table><ul> <li>Voor meer informatie over de competenties die zijn, gaat u naar de competenties die via Microsoft Partner Network pagina zich bevindt op [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>Voor meer informatie over de aanbieding, gaat u naar de Azure Marketplace Consulting Services pagina zich bevindt op [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
@@ -91,11 +91,11 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Gratis / SaaS-proef | AppSource | [Vereisten voor het Type van aanbieding: Proefversie](#listing-type-requirements-trial) |  
+| Gratis / SaaS-proef | AppSource | [Vereisten voor het Type van aanbieding: Trial](#listing-type-requirements-trial) |  
 | Gratis / SaaS-proef | Azure Marketplace | [Vereisten: Azure Marketplace: Proefversie: Gratis proefversie / SaaS-proef](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Interactieve demo | AppSource | [Vereisten voor het Type van aanbieding: Proefversie](#listing-type-requirements-trial) |  
+| Interactieve demo | AppSource | [Vereisten voor het Type van aanbieding: Trial](#listing-type-requirements-trial) |  
 | Interactieve demo | Azure Marketplace | [Vereisten: Azure Marketplace: Proefversie: Interactieve demo](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Vereisten voor het Type van aanbieding: Proefversie](#listing-type-requirements-trial) |  
+| Test drive | AppSource | [Vereisten voor het Type van aanbieding: Trial](#listing-type-requirements-trial) |  
 | Test drive | Azure Marketplace | [Vereisten: Azure Marketplace: Proefversie: U kunt uitproberen](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Vereisten: Azure Marketplace: Proefversie  

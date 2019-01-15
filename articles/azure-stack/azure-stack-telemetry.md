@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341052"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265614"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-telemetrie
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Azure Stack-telemetrie wordt automatisch systeemgegevens geüpload naar Microsoft via de gebruikerservaring verbonden. Microsoft-teams gebruiken de gegevens die door Azure Stack telemetrie wordt verzameld voor het verbeteren van klantervaring. Deze gegevens wordt ook gebruikt voor beveiliging, status, kwaliteit en analyse van prestaties.
 
@@ -33,7 +33,7 @@ Telemetrie-voor Azure Stack-operators, krijgt u inzicht in de enterprise-impleme
 > [!NOTE]
 > U kunt ook Azure Stack voor het doorsturen van gebruiksgegevens naar Azure voor facturering. Dit is vereist voor meerdere knooppunten Azure Stack-klanten die betalen als u-gebruik facturering. Rapportage over het gebruik van de telemetriegegevens onafhankelijk van elkaar wordt beheerd en is niet vereist zijn voor klanten met meerdere knooppunten die het capaciteitsmodel of voor gebruikers van Azure Stack Development Kit. Voor deze scenario's, rapportage over het gebruik kan worden uitgeschakeld [met behulp van het script voor de registratie](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-Azure Stack-telemetrie is gebaseerd op de verbonden gebruikerservaring van Windows Server 2016 en telemetrie-onderdeel dat gebruikmaakt van de [Event Tracing voor Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technologie voor het verzamelen en opslaan van gegevens over gebeurtenissen en. Azure Stack-onderdelen gebruikt dezelfde technologie voor het publiceren van gebeurtenissen en gegevens die worden verzameld met behulp van openbare besturingssysteem logboekregistratie en tracering van API's. Voorbeelden van deze Azure Stack-onderdelen zijn deze providers: netwerkbron, Opslagresource Resource bewaking en resources bijwerken. Het onderdeel gebruikerservaring verbonden en telemetrie versleutelt gegevens met behulp van SSL en maakt gebruik van certificaten vast te maken voor het verzenden van gegevens via HTTPS naar de Microsoft Data Management-service.
+Azure Stack-telemetrie is gebaseerd op de verbonden gebruikerservaring van Windows Server 2016 en telemetrie-onderdeel dat gebruikmaakt van de [Event Tracing voor Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technologie voor het verzamelen en opslaan van gegevens over gebeurtenissen en. Azure Stack-onderdelen gebruikt dezelfde technologie voor het publiceren van gebeurtenissen en gegevens die worden verzameld met behulp van openbare besturingssysteem logboekregistratie en tracering van API's. Voorbeelden van deze Azure Stack-onderdelen zijn deze providers: Het netwerk van Resource, Opslagresource, bewaking Resource en Resource bijwerken. Het onderdeel gebruikerservaring verbonden en telemetrie versleutelt gegevens met behulp van SSL en maakt gebruik van certificaten vast te maken voor het verzenden van gegevens via HTTPS naar de Microsoft Data Management-service.
 
 > [!IMPORTANT]
 > Om in te schakelen telemetriegegevensstroom, moet poort 443 (HTTPS) openen in uw netwerk. Het onderdeel gebruikerservaring verbonden en telemetrie maakt verbinding met de Microsoft Data Management-service op https://v10.vortex-win.data.microsoft.com. Het onderdeel gebruikerservaring verbonden en telemetrie ook verbinding maakt met https://settings-win.data.microsoft.com voor het downloaden van configuratie-informatie.
@@ -77,7 +77,7 @@ De telemetrie-instellingen zijn gegroepeerd in vier niveaus (0-3) die cumulatief
 **0 (beveiliging)**</br>
 Alleen beveiligingsgegevens. De informatie die vereist zijn ter beveiliging van het besturingssysteem. Dit omvat gegevens over de instellingen voor gebruikerservaring verbonden en telemetrie-onderdeel en de Windows Defender. Er is geen specifiek voor Azure Stack telemetrie wordt verzonden op dit niveau.
 
-**1 (basis)**</br>
+**1 (Basic)**</br>
 Beveiligingsgegevens, en Basisbewaking van statussen en kwaliteit. Basic apparaatgegevens, met inbegrip van: gegevens met betrekking tot kwaliteit, app-compatibiliteit, basisgegevens, en de gegevens uit de **Security** niveau. Uw telemetrieniveau instellen op Basic kunnen Azure Stack telemetrie. De gegevens die zijn verzameld op dit niveau bevat:
 
 - *Basic apparaatgegevens* die zorgt voor een goed begrip over de typen en -configuraties van systeemeigen en virtuele Windows Server 2016-instanties in het ecosysteem. Dit omvat:
@@ -91,7 +91,7 @@ Beveiligingsgegevens, en Basisbewaking van statussen en kwaliteit. Basic apparaa
 - *Informatie met betrekking tot kwaliteit* die helpt Microsoft bij het ontwikkelen van een basiskennis hebt van hoe Azure Stack wordt uitgevoerd. Bijvoorbeeld, het aantal kritieke waarschuwingen op een specifieke hardwareconfiguratie.
 - *Compatibiliteit* die zorgt voor een goed begrip over welke Resource-Providers geïnstalleerd op een systeem- en een virtuele machine. Hiermee wordt aangegeven voor mogelijke compatibiliteitsproblemen.
 
-**2 (uitgebreid)**</br>
+**2 (Enhanced)**</br>
 Extra inzichten, met inbegrip van: hoe het besturingssysteem en Azure Stack-services worden gebruikt, hoe deze services uitvoeren, geavanceerde betrouwbaarheid gegevens en gegevens van de **Security** en **Basic** niveaus.
 
 > [!NOTE]
@@ -112,7 +112,7 @@ De Windows-register-Editor kunt u het telemetrieniveau van de handmatig instelle
 Voordat u implementeert Azure Stack op de host van development kit, opstarten naar CloudBuilder.vhdx en voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

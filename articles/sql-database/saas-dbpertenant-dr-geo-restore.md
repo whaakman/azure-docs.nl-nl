@@ -1,5 +1,5 @@
 ---
-title: 'SaaS-apps: Azure SQL Database geografisch redundante back-ups voor herstel na noodgevallen | Microsoft Docs'
+title: 'SaaS-apps: Azure SQL-Database geografisch redundante back-ups voor herstel na noodgevallen | Microsoft Docs'
 description: Meer informatie over het gebruik van geografisch redundante back-ups van Azure SQL Database om te herstellen van een multitenant SaaS-app na een storing
 services: sql-database
 ms.service: sql-database
@@ -12,18 +12,18 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352928"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264747"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Geo-herstel met een multitenant SaaS-toepassing herstellen vanuit back-ups
 
 Deze zelfstudie worden een volledige noodherstelscenario voor een multitenant SaaS-toepassing geïmplementeerd met de database per tenant-model. U gebruikt [geo-herstel](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) om te herstellen van de catalogus en tenant-databases van automatisch onderhouden geografisch redundante back-ups in een andere regio. Nadat de onderbreking opgelost is, gebruikt u [geo-replicatie](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) te repatriëren gewijzigde databases naar hun oorspronkelijke regio.
 
-![Geo-restore-architectuur](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Geo-restore-architecture](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 Geo-restore is de oplossing voor noodherstel van de laagste kosten voor Azure SQL Database. Echter, terugzetten vanuit geografisch redundante back-ups kan leiden tot verlies van gegevens van maximaal één uur. Het kan veel tijd, afhankelijk van de grootte van elke database duren. 
 
@@ -114,7 +114,7 @@ In deze taak start u een proces voor het synchroniseren van de configuratie van 
 
 3. Stelt u het volgende:
 
-    $DemoScenario = 1: start een achtergrondtaak die worden gesynchroniseerd met tenantserver en informatie over de configuratie van de groep van toepassingen in de catalogus.
+    $DemoScenario = 1: Start een achtergrondtaak die worden gesynchroniseerd met tenantserver en informatie over de configuratie van de groep van toepassingen in de catalogus.
 
 4. Selecteer het synchronisatie-script wordt uitgevoerd, F5. 
 
@@ -174,7 +174,7 @@ Stel dat er is een onderbreking in de regio waarin de toepassing is geïmplement
 
 1. Stel de volgende waarde in het ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script in de PowerShell ISE:
 
-    $DemoScenario = 2: de app in een regio voor recovery herstellen door te herstellen vanuit geografisch redundante back-ups.
+    $DemoScenario = 2: Herstellen van de app in een herstelregio voor door te herstellen vanuit geografisch redundante back-ups.
 
 2. Selecteer het script wordt uitgevoerd, F5.  
 
@@ -209,7 +209,7 @@ Zelfs nog voor tenant-databases zijn hersteld, kunt u nieuwe tenants in de herst
 
 1. In de PowerShell ISE in het script van de Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 voor ...\Learning, stelt de volgende eigenschap:
 
-    $DemoScenario = 3: een nieuwe tenant in de herstelregio in te richten.
+    $DemoScenario = 3: Een nieuwe tenant in de herstelregio in te richten.
 
 2. Selecteer het script wordt uitgevoerd, F5.
 
@@ -262,7 +262,7 @@ In deze taak werkt u een van de herstelde tenant-databases. Het proces repatrië
 
 2. Stel de volgende waarde in het ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script in de PowerShell ISE:
 
-    $DemoScenario = 4: een gebeurtenis verwijderen uit een tenant in de herstelregio voor.
+    $DemoScenario = 4: Een gebeurtenis verwijderen uit een tenant in de herstelregio voor.
 
 3. Selecteer F5 voor het uitvoeren van het script.
 
@@ -320,13 +320,13 @@ Als u de zelfstudie hebt gevolgd, het script onmiddellijk opnieuw geactiveerd Fa
   
 1. Controleer in de PowerShell ISE, in de ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script, of dat het proces van synchronisatie catalogus nog steeds wordt uitgevoerd in de PowerShell-sessie. Indien nodig, start u het opnieuw door in te stellen:
 
-    $DemoScenario = 1: start met het synchroniseren van de tenantserver-, pool- en informatie over de configuratie van de database in de catalogus.
+    $DemoScenario = 1: Beginnen met het synchroniseren van de tenantserver-, pool- en informatie over de configuratie van de database in de catalogus.
 
     Selecteer het script wordt uitgevoerd, F5.
 
 2.  Stel vervolgens de volgende opdracht voor het starten van het proces repatriëring:
 
-    $DemoScenario = 5: de app in de oorspronkelijke regio repatriëren.
+    $DemoScenario = 5: De app in de oorspronkelijke regio repatriëren.
 
     Selecteer het herstelscript uitgevoerd in een nieuw PowerShell-venster, F5. Repatriëring duurt enkele minuten en kan worden gecontroleerd in het PowerShell-venster.
 
@@ -352,7 +352,7 @@ Het herstelproces wordt gemaakt van alle herstel-resources in een resourcegroep 
 
 1. In de PowerShell ISE, in het ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script instellen:
     
-    $DemoScenario = 6: verouderd resources verwijderen uit de herstelregio voor.
+    $DemoScenario = 6: Verouderd resources verwijderen uit de herstelregio voor.
 
 2. Selecteer het script wordt uitgevoerd, F5.
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426251"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306485"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor vraagprognose van energie
 ## <a name="executive-summary"></a>Managementsamenvatting
@@ -172,7 +172,7 @@ In veel gevallen de klant mogelijk geïnteresseerd zijn bij het maken van een za
 
 Aan de andere kant moet één hebben een goed begrip van de bedrijfswaarde van het besturingssysteem van een vraag naar energie voorspellen (korte of lange termijn). In feite is het belangrijk om te profiteren van de bedrijfswaarde van elke bewerking prognose. Bijvoorbeeld, nauwkeurig power load prognose voor de volgende 24 uur overproduction kunt voorkomen of overloads in het raster kunt voorkomen en dit kan worden gekwantificeerd in termen van financiële besparing op dagelijks.
 
-Een eenvoudige formule voor het berekenen van de financiële voordelen van de vraag prognose-oplossing: ![eenvoudige formule voor het berekenen van de financiële voordelen van de vraag prognose-oplossing](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Een eenvoudige formule voor het berekenen van de financiële voordelen van de vraag prognose-oplossing: ![Eenvoudige formule voor het berekenen van de financiële voordelen van de vraag prognose-oplossing](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Omdat Cortana Intelligence Suite voorziet in een prijsmodel voor betalen per gebruik, is er geen behoefte waarbij extra kosten voor een vaste prijs onderdeel op deze formule. Deze formule kan worden berekend op basis van een dagelijks, maandelijks of jaarlijks.
 
@@ -269,7 +269,7 @@ Cortana Intelligence Suite kunt ondersteuning voor de meest voorkomende opmaak v
 ### <a name="data-ingestion"></a>Gegevensopname
 Omdat vraagprognose energie wordt voortdurend en vaak voorspeld, moeten we ervoor zorgen dat de onbewerkte gegevens met behulp van een solide en betrouwbare opname-proces worden doorgestuurd. De opname-proces moet garanderen dat de onbewerkte gegevens beschikbaar voor de prognoses proces op de tijd die nodig is is. Dat betekent dat de gegevensfrequentie van opname groter zijn dan de prognoses frequentie moet.
 
-Bijvoorbeeld: als onze oplossing voor vraagprognose een nieuwe prognose om 8:00 uur dagelijks genereert vervolgens we zorgen ervoor moeten dat alle gegevens die zijn verzameld tijdens de afgelopen 24 uur is volledig tot dat moment zijn opgenomen en is zelfs het afgelopen uur  de gegevens.
+Bijvoorbeeld: Als onze oplossing voor vraagprognose een nieuwe prognose om 8:00 uur dagelijks genereert vervolgens moeten we ervoor zorgen dat alle gegevens die zijn verzameld tijdens de afgelopen 24 uur volledig zijn opgenomen dat moment tot en om op te nemen zelfs het afgelopen uur gegevens heeft.
 
 Cortana Intelligence Suite biedt hiervoor, verschillende manieren voor ondersteuning van een betrouwbare opname-proces. Dit wordt nader besproken in de **implementatie** sectie van dit document.
 
@@ -287,7 +287,7 @@ Nadat de onbewerkte gegevens heeft die is opgenomen (Zie **gegevensopname**) en 
 
 In deze sectie die wordt een overzicht van de algemene functies voor gegevens die zijn opgenomen in de energie vraagprognose modellen.
 
-**Tijd gestuurde functies:** deze functies zijn afgeleid van de gegevens van de datum/tijdstempel. Deze zijn geëxtraheerd en geconverteerd naar categorische functies zoals:
+**Tijd gestuurde functies:** Deze functies zijn afgeleid van de gegevens van de datum/tijdstempel. Deze zijn geëxtraheerd en geconverteerd naar categorische functies zoals:
 
 * Tijd van de dag – dit het uur van de dag waarbij waarden tussen 0 en 23 is
 * Dag van week – dit staat voor de dag van de week en waarden van 1 (zondag) tot en met 7 (zaterdag)
@@ -297,16 +297,16 @@ In deze sectie die wordt een overzicht van de algemene functies voor gegevens di
 * Vakantiedag - dit is een binaire waarde-functie die de waarden van 0 voor een normale dag of 1 voor een feestdag
 * Fourier voorwaarden: de voorwaarden Fourier zijn gewichten die zijn afgeleid van de tijdstempel en worden gebruikt om vast te leggen van de periodieke variatie (cycli) in de gegevens. Omdat we meerdere seizoenen in onze gegevens hebben mogelijk moet er mogelijk meerdere Fourier voorwaarden. Waarden van de aanvraag kunnen bijvoorbeeld jaarlijkse wekelijks en dagelijks seizoenen /-cycli die tot 3 Fourier voorwaarden leidt.
 
-**Onafhankelijke meting functies:** de onafhankelijke functies omvatten alle gegevenselementen die we graag gebruiken als variabelen in het model. Hier wordt de afhankelijke functie die we om te voorspellen moet uitsluiten.
+**Onafhankelijke meting functies:** De onafhankelijke functies omvatten alle gegevenselementen die we graag gebruiken als variabelen in het model. Hier wordt de afhankelijke functie die we om te voorspellen moet uitsluiten.
 
 * De functie lag: dit zijn tijd verschoven waarden van de vraag. De functies lag 1 bevatten bijvoorbeeld de waarde van de aanvraag in het vorige uur (ervan uitgaande dat de gegevens per uur) ten opzichte van de huidige tijdstempel. Op deze manier kunnen we lag 2 toevoegen, 3, vertraging *enzovoort*. De werkelijke combinatie van lag-functies die worden gebruikt worden tijdens de fase modellering is bepaald door de evaluatie van de modelresultaten.
 * Lange termijn trends: deze functie vertegenwoordigt de lineaire groei in de vraag tussen jaar.
 
-**Afhankelijke functie:** de afhankelijke functie is de kolom met gegevens die we graag onze model om te voorspellen. Met [onder supervisie van machine learning](https://en.wikipedia.org/wiki/Supervised_learning), moeten we eerst het model met behulp van de afhankelijke onderdelen (dit wordt ook wel labels) te trainen. Hiermee wordt het model voor meer informatie over de patronen in de gegevens die zijn gekoppeld aan het afhankelijke onderdeel. In de vraag naar energie voorspellen willen we meestal om te voorspellen van de vraag en daarom gebruiken we dit als het afhankelijke onderdeel.
+**Afhankelijke functie:** Het afhankelijke onderdeel is de kolom met gegevens die we graag onze model om te voorspellen. Met [onder supervisie van machine learning](https://en.wikipedia.org/wiki/Supervised_learning), moeten we eerst het model met behulp van de afhankelijke onderdelen (dit wordt ook wel labels) te trainen. Hiermee wordt het model voor meer informatie over de patronen in de gegevens die zijn gekoppeld aan het afhankelijke onderdeel. In de vraag naar energie voorspellen willen we meestal om te voorspellen van de vraag en daarom gebruiken we dit als het afhankelijke onderdeel.
 
-**Verwerking van de ontbrekende waarden:** tijdens de voorbereidingsfase gegevens moet we de beste strategie voor het afhandelen van ontbrekende waarden te bepalen. Dit gebeurt meestal met behulp van de verschillende statistische [toerekening metody](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). In het geval van energie-on-demand prognose rekenen we meestal ontbrekende waarden met behulp van zwevend gemiddelde van de vorige punten van de beschikbare gegevens.
+**Verwerking van de ontbrekende waarden:** Tijdens de voorbereidingsfase gegevens moet we de beste strategie voor het afhandelen van ontbrekende waarden te bepalen. Dit gebeurt meestal met behulp van de verschillende statistische [toerekening metody](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). In het geval van energie-on-demand prognose rekenen we meestal ontbrekende waarden met behulp van zwevend gemiddelde van de vorige punten van de beschikbare gegevens.
 
-**Gegevens normaliseren:** gegevensnormalisatie is een ander type transformatie die wordt gebruikt voor alle numerieke gegevens, zoals vraagprognose overzetten naar een soortgelijke schaal. Dit doorgaans verbetert de nauwkeurigheid van model en de precisie. We zouden dit meestal doen door de werkelijke waarde te delen door het bereik van de gegevens.
+**Normalisering van gegevens:** Gegevensnormalisatie is een ander type transformatie die wordt gebruikt voor alle numerieke gegevens, zoals vraagprognose overzetten naar een soortgelijke schaal. Dit doorgaans verbetert de nauwkeurigheid van model en de precisie. We zouden dit meestal doen door de werkelijke waarde te delen door het bereik van de gegevens.
 Hiermee wordt de oorspronkelijke waarde omlaag schalen in een kleiner bereik, meestal tussen 1 en 1.
 
 ## <a name="modeling"></a>Modelleren
@@ -320,21 +320,21 @@ In het geval van de vraag voorspelt maken we gebruik van historische gegevens di
 In de afgelopen jaren zijn geavanceerde algoritmen ontwikkeld voor time series-prognoses en de nauwkeurigheid van prognoses verbeteren. We beschreven enkele van deze hier kort.
 
 > [!NOTE]
-> In deze sectie is niet bedoeld om te worden gebruikt als een machine learning en voorspeld overzicht, maar in plaats van als een korte enquête van het modelleren van technieken die vaak worden gebruikt voor de prognose van vraag. Voor meer informatie en educatieve materiaal over time series-prognoses, is het raadzaam het online boek [Forecasting: principes en praktijken](https://www.otexts.org/book/fpp).
+> In deze sectie is niet bedoeld om te worden gebruikt als een machine learning en voorspeld overzicht, maar in plaats van als een korte enquête van het modelleren van technieken die vaak worden gebruikt voor de prognose van vraag. Voor meer informatie en educatieve materiaal over time series-prognoses, is het raadzaam het online boek [Forecasting: principes en praktijken](https://www.otexts.org/).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (zwevend gemiddelde)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (zwevend gemiddelde)**
 Zwevend gemiddelde is een van de eerste analytische technieken die is gebruikt voor time series-prognoses en is nog steeds een van de meest gangbare technieken vanaf vandaag. Het is ook de basis voor meer geavanceerde technieken prognose. Met het zwevend gemiddelde zijn we het volgende gegevenspunt gemiddelde over de meest recente punten K, waarbij K de volgorde van de zwevend gemiddelde geeft van de prognose.
 
 De zwevend gemiddelde techniek is het effect van de prognose-aanpassing en daarom kan niet worden verwerkt en grote volatiliteit van de gegevens.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (exponentieel vloeiend maken)**](https://www.otexts.org/fpp/7/5)
-Exponentieel vloeiend maken (ETS) is een productreeks met verschillende methoden die gewogen gemiddelde van recente gegevenspunten gebruiken om te voorspellen van de volgende gegevenspunt. Het idee is hoger gewicht toewijzen aan meer recente waarden en dit gewicht voor oudere meetwaarden geleidelijk te verlagen. Er zijn een aantal verschillende manieren met deze serie, zijn enkele van deze verwerking van de periodieke variatie in de gegevens, zoals [Holt-Winters seizoensgebonden methode](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothing"></a>**ETS (exponentieel vloeiend maken)**
+Exponentieel vloeiend maken (ETS) is een productreeks met verschillende methoden die gewogen gemiddelde van recente gegevenspunten gebruiken om te voorspellen van de volgende gegevenspunt. Het idee is hoger gewicht toewijzen aan meer recente waarden en dit gewicht voor oudere meetwaarden geleidelijk te verlagen. Er zijn een aantal verschillende manieren met deze serie, enkele van deze verwerking van de periodieke variatie zijn in de gegevens, zoals seizoensgebonden methode Holt-Winters.
 
 Sommige van deze methoden factor ook in de periodieke variatie van de gegevens.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (automatisch regressie Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (automatisch regressie Integrated Moving Average)**
 Automatisch regressie geïntegreerde zwevend gemiddelde (ARIMA) is een andere serie van methoden die wordt doorgaans gebruikt voor het maken van prognoses tijdreeksen. Het automatisch regressie methoden voor het praktisch combineert met zwevend gemiddelde. Automatisch regressie methoden maken gebruik van regressiemodellen door vorige tijdwaarden van de serie als u wilt de volgende datum punt compute. ARIMA methoden differentiërende methoden, zoals het verschil tussen de gegevenspunten berekenen en u deze in plaats van de oorspronkelijke gemeten waarde ook van toepassing. Ten slotte ARIMA ook maakt gebruik van de zwevend gemiddelde technieken die hierboven worden beschreven. De combinatie van al deze methoden op verschillende manieren is wat de familie van ARIMA methoden bouwt.
 
 ETS en ARIMA zijn tegenwoordig gebruikte voor vraagprognose energie en tal van andere prognoses problemen. In veel gevallen deze worden gecombineerd samen aan het leveren van zeer nauwkeurige resultaten.

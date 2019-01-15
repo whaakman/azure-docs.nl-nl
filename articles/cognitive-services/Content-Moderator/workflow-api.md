@@ -1,23 +1,23 @@
 ---
 title: Beheer van werkstromen - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Werkstromen met inhoudstoezicht gebruiken.
+description: Werkstromen met bewerkingen van de taak van de beoordeling-API gebruiken voor het automatiseren van human-in-the-loop beoordelingen op basis van uw inhoud en drempelwaarden.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3a3ff5ed325205c5ae17aaff053127f4e84504bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226871"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262656"
 ---
-# <a name="moderation-workflows"></a>Beheer van werkstromen
+# <a name="automate-moderation-reviews-with-workflows"></a>Toezicht op beoordelingen met werkstromen automatiseren
 
 Content Moderator bevat hulpprogramma's en API's voor het beheren van werkstromen. Gebruik van werkstromen met de [taakbewerkingen bekijken API's](review-api.md) om human-in-the-loop beoordeling maken op basis van uw inhoud beleid en de drempelwaarden te automatiseren.
 
@@ -41,7 +41,7 @@ Navigeer naar de [bekijken van de tool-werkstromen](Review-Tool-User-Guide/Workf
 
 ### <a name="open-the-default-workflow"></a>Open de standaardwerkstroom
 
-Gebruik de **bewerken** optie voor het openen van de werkstroom pagina bewerkt, zoals wordt weergegeven in de volgende afbeelding: ![standaardwerkstroom Content Moderator](images/default-workflow-listed.PNG)
+Gebruik de **bewerken** optie voor het openen van de werkstroom pagina bewerkt, zoals wordt weergegeven in de volgende afbeelding: ![Content Moderator standaardwerkstroom](images/default-workflow-listed.PNG)
 
 ### <a name="the-designer-view"></a>De designer-weergave
 
@@ -218,9 +218,9 @@ De [werkstroombewerkingen](https://westus.dev.cognitive.microsoft.com/docs/servi
 
 De **werkstroom Get** bewerking accepteert de invoer van de volgende:
 
-- **team**: de team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: de naam van uw werkstroom. Gebruik `default` begint met.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
+- **team**: Het team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: De naam van uw werkstroom. Gebruik `default` begint met.
+- **Ocp-Apim-Subscription-Key**: Zich op de **instellingen** tabblad. Zie [Overzicht](overview.md) voor meer informatie.
 
 Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK` en de **antwoordinhoud** in het definitie van de werkstroom weergegeven in de JSON-indeling.
 Lees voor meer informatie de [werkstroom API-console snelstartgids](try-review-api-job.md).
@@ -231,9 +231,9 @@ De bewerking voor het maken en bijwerken kunt het maken van de werkstroom van de
 
 De **werkstroom maken of bijwerken** bewerking accepteert de invoer van de volgende:
 
-- **team**: de team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: de naam van uw werkstroom. Gebruik `default` begint met.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
+- **team**: Het team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: De naam van uw werkstroom. Gebruik `default` begint met.
+- **Ocp-Apim-Subscription-Key**: Zich op de **instellingen** tabblad. Zie [Overzicht](overview.md) voor meer informatie.
 
 Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK` en de **antwoordinhoud** bevat `true`. Voor meer informatie, [testen de `Create` bewerking](try-review-api-job.md).
 

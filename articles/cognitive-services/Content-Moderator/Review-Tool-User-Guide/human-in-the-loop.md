@@ -1,22 +1,23 @@
 ---
-title: Geautomatiseerd inhoudstoezicht en onlinebeoordelingen door mensen in de Content Moderator | Microsoft Docs
+title: Het opnemen van onlinebeoordelingen door mensen in inhoudstoezicht - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Hoe machines en mensen samen de beste resultaten voor inhoudstoezicht bieden
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7d2e87ac5353f103e654f4dcb6656916e4b271ae
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854217"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264730"
 ---
-# <a name="review-tool-overview"></a>Hulpprogramma-overzicht bekijken
+# <a name="learn-about-the-review-tool"></a>Meer informatie over het beoordelingsprogramma
 
 U krijgt de beste resultaten wanneer wanneer mensen en apparaten samen voor inhoudstoezicht werken. Machines toevoeging effectieve zijn voor onlinebeoordelingen door mensen waarbij het vertrouwen op de voorspellingen worden telefonische of gematigd door in de context van een echte wereld heeft. Het resultaat is een hybride inhoudstoezicht-proces dat beter presteert dan als de mens of machines alleen zijn werkt.
 

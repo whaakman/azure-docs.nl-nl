@@ -8,25 +8,25 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261737"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266991"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Beveiligingsfuncties die u helpen hybride back-ups die gebruikmaken van Azure back-up beveiligen
 Opmerkingen over beveiligingsproblemen, zoals malware, ransomware en inbraakdetectie, verhogen. Deze beveiligingsproblemen met zich mee kunnen erg kostbaar zijn, in termen van gegevens en geld. Als u wilt beveiligen tegen dergelijke aanvallen, biedt Azure Backup nu beveiligingsfuncties ter bescherming van hybride back-ups. In dit artikel wordt uitgelegd hoe u inschakelen en gebruiken van deze functies, met behulp van een Azure Recovery Services-agent en de Azure Backup Server. Deze functies zijn onder andere:
 
 - **Preventie**. Een extra verificatielaag wordt toegevoegd wanneer er een kritieke bewerking zoals het wijzigen van een wachtwoordzin wordt uitgevoerd. Deze validatie is om ervoor te zorgen dat deze bewerkingen kunnen worden uitgevoerd door gebruikers met geldig Azure-referenties.
 - **Waarschuwingen**. Een e-mailmelding verzonden naar de beheerder van abonnement telkens wanneer een kritieke bewerking, zoals back-upgegevens verwijderen wordt uitgevoerd. Dit e-mailbericht zorgt ervoor dat de gebruiker snel wordt geïnformeerd over deze acties.
-- **Herstel**. Verwijderde back-upgegevens worden bewaard voor een extra veertien dagen vanaf de datum van de verwijdering. Dit zorgt ervoor dat herstel van de gegevens binnen een bepaalde periode, zodat er zonder verlies van gegevens, zelfs als een aanval plaatsvindt. Ook worden een groter aantal minimale herstelpunten bewaard ter bescherming tegen beschadigde gegevens.
+- **Recovery**. Verwijderde back-upgegevens worden bewaard voor een extra veertien dagen vanaf de datum van de verwijdering. Dit zorgt ervoor dat herstel van de gegevens binnen een bepaalde periode, zodat er zonder verlies van gegevens, zelfs als een aanval plaatsvindt. Ook worden een groter aantal minimale herstelpunten bewaard ter bescherming tegen beschadigde gegevens.
 
 > [!NOTE]
 > Beveiligingsfuncties mag niet worden ingeschakeld als u infrastructuur als een service (IaaS)-VM back-up. Deze functies nog niet beschikbaar voor IaaS VM backup, zodat dit van invloed is niet om hen in staat hoeven wordt. Beveiligingsfuncties die moeten worden ingeschakeld, alleen als u gebruikmaakt van: <br/>
 >  * **Azure backup-agent**. Agentversie 2.0.9052 van de minimale. Nadat u deze functies hebt ingeschakeld, moet u upgraden naar deze versie van agent kritieke bewerkingen uit te voeren. <br/>
 >  * **Azure Backup Server**. Minimale Azure Backup-agentversie 2.0.9052 met Azure Backup Server-update 1. <br/>
->  * **System Center Data Protection Manager**. Azure Backup agent minimumversie 2.0.9052 met Data Protection Manager 2012 R2 UR12 of Data Protection Manager 2016 UR2. <br/> 
+>  * **System Center Data Protection Manager**. Azure Backup agent minimumversie 2.0.9052 met Data Protection Manager 2012 R2 UR12 of Data Protection Manager 2016 UR2. <br/>
 
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Back-up verwijderde back-upgegevens worden bewaard een extra 14 dagen en wordt n
 
 Voor **Azure Recovery Services-agent** gebruikers:
 
-1. Als de computer waar de back-ups zijn gebeurt nog steeds beschikbaar is, gebruikt u [gegevens op dezelfde computer herstellen](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in de Azure Recovery Services, om van de oude herstelpunten te herstellen.
+1. Als de computer waar de back-ups zijn gebeurt nog steeds beschikbaar is, de verwijderde gegevensbronnen opnieuw te beveiligen en gebruiken de [gegevens op dezelfde computer herstellen](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in de Azure Recovery Services, om van de oude herstelpunten te herstellen.
 2. Als deze computer niet beschikbaar is, gebruikt u [herstellen naar een alternatieve machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) aan het gebruik van een andere Azure Recovery Services-computer om deze gegevens.
 
 Voor **Azure Backup Server** gebruikers:
@@ -83,7 +83,7 @@ Als onderdeel van het toevoegen van een extra verificatielaag voor essentiële b
 
 > [!NOTE]
 
-> Beveiligingspincode wordt momenteel niet ondersteund voor **beveiliging stoppen en verwijder gegevens** voor DPM en MABS. 
+> Beveiligingspincode wordt momenteel niet ondersteund voor **beveiliging stoppen en verwijder gegevens** voor DPM en MABS.
 
 Voor het ontvangen van deze PINCODE:
 

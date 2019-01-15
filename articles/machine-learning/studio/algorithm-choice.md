@@ -1,23 +1,21 @@
 ---
-title: Algoritmen kiezen voor Azure Machine Learning Studio | Microsoft Docs
+title: Algoritmes kiezen
+titleSuffix: Azure Machine Learning Studio
 description: Klik hier voor meer informatie over het kiezen van Azure Machine Learning Studio-algoritmen voor leren met en zonder supervisie in clustering-, classificatie- of regressiemodel experimenten.
 services: machine-learning
-author: ericlicoding
-ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.author: amlstudiodocs
-editor: cgronlun
-tags: ''
-ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 20debfe2a1f3cf92e1a90867ca2b3a01852f7f9c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256924"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267348"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
 
@@ -133,7 +131,7 @@ Sommige learning-algoritmen moeten u bepaalde veronderstellingen over de structu
 | [neurale netwerk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Controleer de eigenschappen van de twee klassen methode geselecteerd |
 | **Regressie** | | | | | |
-| [Lineair](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Bayesiaanse lineair](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [beslissingsforest met](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [boosted-beslisboom](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Het geheugengebruik van grote |

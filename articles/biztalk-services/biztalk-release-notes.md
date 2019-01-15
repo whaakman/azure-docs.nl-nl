@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253428"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260318"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Opmerkingen bij de release voor Azure BizTalk Services
 
@@ -35,8 +35,8 @@ De opmerkingen bij de release voor Microsoft Azure BizTalk Services bevatten de 
 ## <a name="update-history"></a>Historie van updates
 ### <a name="october-update"></a>Update van oktober
 * Organisatie-accounts worden ondersteund:  
-  * **Scenario**: u hebt een BizTalk Service-implementatie met behulp van een Microsoft-account geregistreerd (zoals user@live.com). In dit scenario kunnen alleen gebruikers van Microsoft-Account de BizTalk Service met behulp van de BizTalk Services-portal beheren. Een organisatie-account kan niet worden gebruikt.  
-  * **Scenario**: u hebt een BizTalk Service-implementatie met behulp van een organisatie-account in een Azure Active Directory geregistreerd (zoals user@fabrikam.com of user@contoso.com). In dit scenario beheren alleen Azure Active Directory-gebruikers binnen dezelfde organisatie de BizTalk Service met behulp van de BizTalk Services-portal. Een Microsoft-account kan niet worden gebruikt.  
+  * **Scenario**: U een BizTalk Service-implementatie met behulp van een Microsoft-account geregistreerd (zoals user@live.com). In dit scenario kunnen alleen gebruikers van Microsoft-Account de BizTalk Service met behulp van de BizTalk Services-portal beheren. Een organisatie-account kan niet worden gebruikt.  
+  * **Scenario**: U een BizTalk Service-implementatie met behulp van een organisatie-account in een Azure Active Directory geregistreerd (zoals user@fabrikam.com of user@contoso.com). In dit scenario beheren alleen Azure Active Directory-gebruikers binnen dezelfde organisatie de BizTalk Service met behulp van de BizTalk Services-portal. Een Microsoft-account kan niet worden gebruikt.  
 * Wanneer u een BizTalk Service maakt, wordt u automatisch geregistreerd in de BizTalk Services-Portal.
   * **Scenario**: U zich aanmeldt bij Azure, een BizTalk Service maken en selecteer vervolgens **beheren** voor de eerste keer. Wanneer de BizTalk Services-portal wordt geopend, wordt de BizTalk Service automatisch wordt geregistreerd en gereed is voor uw implementaties.  
     Zie [registreren en bijwerken van een BizTalk Service-implementatie op de BizTalk Services-Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
@@ -87,7 +87,7 @@ Traceringsgebeurtenissen worden vastgelegd maximaal de EDI-berichtverwerking en 
 De X12 ontvangen en verzenden van instellingen ([maken een X12 overeenkomst in de Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) bevatten informatie over de Protocol-fase.  
 
 ### <a name="update-agreement"></a>Overeenkomst bijwerken
-De BizTalk Services-Portal kunt u de kwalificatie van een identiteit wijzigen wanneer een overeenkomst is geconfigureerd. Dit kan resulteren in de eigenschappen van is inconsistent. Er is bijvoorbeeld een overeenkomst met behulp van ZZ:1234567 en ZZ:7654321 de kwalificatie. In de profielinstellingen van BizTalk Services-Portal wijzigt u ZZ:1234567 01:ChangedValue worden. Opent u de overeenkomst en 01:ChangedValue wordt weergegeven in plaats van ZZ:1234567.
+De BizTalk Services-Portal kunt u de kwalificatie van een identiteit wijzigen wanneer een overeenkomst is geconfigureerd. Dit kan leiden tot inconsistent eigenschappen. Er is bijvoorbeeld een overeenkomst met behulp van ZZ:1234567 en ZZ:7654321 de kwalificatie. In de profielinstellingen van BizTalk Services-Portal wijzigt u ZZ:1234567 01:ChangedValue worden. Opent u de overeenkomst en 01:ChangedValue wordt weergegeven in plaats van ZZ:1234567.
 De kwalificatie van een identiteit wijzigen, verwijderen van de overeenkomst, bijwerken **identiteiten** in het Partnerprofiel en het vervolgens opnieuw de overeenkomst.  
 
 > AZURE. Waarschuwing: dit probleem heeft gevolgen voor X12 en AS2.  
@@ -175,16 +175,16 @@ Houd rekening met het volgende scenario:
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Bruggen geen bijgewerkte-certificaat gebruiken, zelfs nadat u een certificaat is bijgewerkt in de store artefact
 Houd rekening met de volgende scenario's:  
 
-**Scenario 1: Gebruik van certificaten op basis van de vingerafdruk voor het beveiligen van bericht overdracht van een brug naar een service-eindpunt**  
+**Scenario 1: Met behulp van certificaten op basis van de vingerafdruk voor het beveiligen van bericht overdracht van een brug naar een service-eindpunt**  
 U hebt een scenario waarin u certificaten op basis van een vingerafdruk in uw BizTalk Service-project gebruiken. U het certificaat in de BizTalk Services-Portal met dezelfde naam maar met een andere vingerafdruk bijwerken, maar de BizTalk Service-project niet dienovereenkomstig bijgewerkt. In een dergelijk scenario blijven de brug mogelijk de berichten worden verwerkt omdat de gegevens van het oudere certificaat mogelijk nog steeds in de cache van het kanaal. Hierna berichtverwerking is mislukt.  
 
-**Tijdelijke oplossing**: het certificaat in de BizTalk Service-project bijwerken en opnieuw implementeren van het project.  
+**Tijdelijke oplossing**: Het certificaat in de BizTalk Service-project bijwerken en opnieuw implementeren van het project.  
 
-**Scenario 2: Gedrag op basis van naam gebruiken om te identificeren van certificaten voor het beveiligen van bericht overdracht van een brug naar een service-eindpunt**
+**Scenario 2: Met behulp van gedrag op basis van een naam voor het identificeren van certificaten voor het beveiligen van bericht overdracht van een brug naar een service-eindpunt**
 
 Houd rekening met een scenario waarbij u gedrag op basis van een naam voor het identificeren van certificaten in uw BizTalk Service-project. Bijwerken van het certificaat in de BizTalk Services-Portal, maar de BizTalk Service-project niet dienovereenkomstig bijgewerkt. In een dergelijk scenario blijven de brug mogelijk de berichten worden verwerkt omdat de gegevens van het oudere certificaat mogelijk nog steeds in de cache van het kanaal. Hierna berichtverwerking is mislukt.  
 
-**Tijdelijke oplossing**: het certificaat in de BizTalk Service-project bijwerken en opnieuw implementeren van het project.  
+**Tijdelijke oplossing**: Het certificaat in de BizTalk Service-project bijwerken en opnieuw implementeren van het project.  
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Bruggen blijven voor het verwerken van berichten, zelfs als de SQL-database offline is
 De BizTalk Services-bruggen blijven voor het verwerken van berichten voor een tijdje, zelfs als de Microsoft Azure SQL-Database (die de actieve informatie, zoals geïmplementeerde artefacten en pijplijnen opgeslagen), offline is. Dit komt doordat de BizTalk Services maakt gebruik van de artefacten in de cache en de brugconfiguratie.
@@ -196,25 +196,25 @@ U hebt een scenario waarin u wilt lezen van een XML-bericht in een brug van aang
 ### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>Verzenden van berichten naar een brug met behulp van WCF schalen niet
 Berichten die worden verzonden naar een brug met behulp van WCF schaalt niet. Als u een schaalbare client wilt, moet u in plaats daarvan HttpWebRequest gebruiken.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>UPGRADE: Token providerfout na de upgrade van de Preview-versie van BizTalk Services naar algemene beschikbaarheid (GA)
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>UPGRADE: Providerfout token na de upgrade van de Preview-versie van BizTalk Services naar algemene beschikbaarheid (GA)
 Er is een EDI- of AS2-overeenkomst met actieve batches. Wanneer de BizTalk Service is bijgewerkt van Preview-versie voor algemene beschikbaarheid, optreden de volgende:
 
-* Fout: De tokenprovider kon niet leveren van een beveiligingstoken. Tokenprovider bericht geretourneerd: de externe naam kan niet worden omgezet.
+* Fout: De tokenprovider kon bieden een beveiligingstoken. De tokenprovider bericht geretourneerd: Kan de externe naam niet omzetten.
 * Batch-taken worden geannuleerd.
 
-**Tijdelijke oplossing**: nadat de BizTalk-Service is bijgewerkt naar algemene beschikbaarheid (GA), opnieuw implementeren van de overeenkomst.  
+**Tijdelijke oplossing**: Nadat de BizTalk-Service wordt bijgewerkt naar algemene beschikbaarheid (GA), implementeert u de overeenkomst opnieuw.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>UPGRADE: Werkset bevat de oude bridge-pictogrammen na de upgrade van de BizTalk Services SDK
+### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>UPGRADE: Werkset ziet u de oude bridge-pictogrammen na de upgrade van de BizTalk Services SDK
 Na de upgrade van een eerdere versie van de BizTalk Services SDK, waarvoor een oude pictogrammen die de bruggen vertegenwoordigt, wordt de werkset blijft de oude pictogrammen voor de bruggen weer te geven. Als u een brug aan de BizTalk Service-project ontwerpoppervlak voor pijplijnen toevoegt, bevat het oppervlak het pictogram Nieuw.  
 
 **Tijdelijke oplossing**. U kunt dit probleem omzeilen door het verwijderen van de bestanden .tbd onder <system drive>: \Users\<gebruiker > \AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>UPGRADE: BizTalk-Portal-update van Preview-versie voor algemene beschikbaarheid mogelijk weer een foutbericht dat aangeeft dat de EDI-mogelijkheid niet beschikbaar is
+### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>UPGRADE: BizTalk-Portal-update van Preview-versie voor algemene beschikbaarheid mogelijk een foutbericht dat aangeeft dat de EDI-mogelijkheid niet beschikbaar is weergeven
 Als u bent aangemeld bij de BizTalk Services-Portal terwijl de BizTalk Services is bijgewerkt van Preview-versie voor algemene beschikbaarheid, krijgt u mogelijk de volgende fout in de portal:  
 
 Deze mogelijkheid is niet beschikbaar als onderdeel van deze versie van Microsoft Azure BizTalk Services. Voor het gebruik van overschakelen deze mogelijkheden naar een juiste editie.  
 
-**Resolutie**: afmelden van de portal, sluiten en open de browser en meld u aan bij de portal.  
+**Oplossing**: Meld u af bij de portal, sluit en open de browser en meld u aan bij de portal.  
 
 ### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>UPGRADE: Nieuwe traceergegevens niet wordt weergegeven na de upgrade van BizTalk Services algemeen beschikbaar
 Wordt ervan uitgegaan dat u een scenario waarin u werkt met een XML-brug geïmplementeerd op de Preview-versie van BizTalk Services-abonnement. U berichten verzenden naar de brug en de bijbehorende gegevens voor het bijhouden is beschikbaar op de BizTalk Services-Portal. Nu, als de BizTalk Services-Portal en BizTalk Services runtime-bits zijn bijgewerkt naar algemene beschikbaarheid, en u een bericht naar het eindpunt van de dezelfde bridge eerder hebt geïmplementeerd verzenden, de traceringsgegevens wordt niet weergegeven voor berichten die worden verzonden na de upgrade.  

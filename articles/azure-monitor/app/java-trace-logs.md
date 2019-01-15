@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: e1575afde326875558cea437de775515b8606f01
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980643"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266191"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Java in Application Insights traceerlogboeken verkennen
 Als u Logback en Log4J (versie 1.2 of 2.0) voor tracering, kunt u uw logboeken met traceringen automatisch verzonden naar Application Insights waar u kunt verkennen en zoeken op deze hebt.
@@ -98,13 +98,13 @@ Vernieuw vervolgens de Projectafhankelijkheden, om de binaire bestanden te downl
 ```
 
 #### <a name="otherwise-"></a>Of...
-Volg de richtlijnen voor het handmatig Application Insights Java SDK installeren, downloaden de jar (na aantal luisteraars of op Maven Central pagina klikt u op de koppeling 'jar' in de sectie downloaden) voor de juiste appender toe en toevoegen van de jar gedownloade appender toe aan het project.
+Volg de richtlijnen voor het handmatig Application Insights Java SDK installeren, downloaden van de jar (na die binnenkomen in Maven Central pagina op 'jar' koppeling in de sectie downloaden) voor de juiste appender toe en toevoegen van de jar gedownloade appender toe aan het project.
 
 | Logger | Downloaden | Bibliotheek |
 | --- | --- | --- |
-| Logback |[Logback appender toe Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |Application Insights-logboekregistratie-logback |
-| Log4J v2.0 |[Log4J v2 appender toe Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |Application Insights-logboekregistratie-log4j2 |
-| Log4j v1.2 |[Log4J v1.2 appender toe Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |Application Insights-logboekregistratie-log4j1_2 |
+| Logback |[Logback appender toe Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Log4J v2 appender toe Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Log4J v1.2 appender toe Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Voeg de appender toe aan uw framework voor logboekregistratie
@@ -156,7 +156,7 @@ De Application Insights-appenders kunnen worden verwezen door een geconfigureerd
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Verken uw traceringen in de Application Insights-portal
 Nu dat u uw project voor het verzenden van traceringen naar Application Insights hebt geconfigureerd, kunt u bekijken en zoeken van deze traceringen in Application Insights-portal in de [zoeken] [ diagnostic] blade.
 
-Uitzonderingen verzonden via kunt wordt weergegeven op de portal als Uitzonderingstelemetrie.
+Uitzonderingen die zijn ingediend via kunt wordt weergegeven op de portal als Uitzonderingstelemetrie.
 
 ![Open in de Application Insights-portal zoeken](./media/java-trace-logs/10-diagnostics.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 0680140d9f4f4e77b5029c30c37f4c531652c6f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119115"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262486"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Beheer en onderhoud van de Log Analytics-agent voor Windows en Linux
 
@@ -175,7 +175,7 @@ Gebruik een van de volgende procedures voor het verwijderen van de Windows- of L
 Het gedownloade bestand voor de agent is een op zichzelf staand installatiepakket met IExpress gemaakt. Het installatieprogramma voor de agent en de ondersteunende bestanden zijn opgenomen in het pakket en moet worden opgehaald wordt geplaatst om correct verwijderen via de opdrachtregel die wordt weergegeven in het volgende voorbeeld.
 
 1. Meld u aan bij de computer met een account dat beheerdersrechten heeft.
-2. De bestanden van de installatie van agent ophalen uit een opdrachtprompt met verhoogde bevoegdheid uitvoeren `extract MMASetup-<platform>.exe` en wordt u gevraagd voor het pad voor het uitpakken van bestanden. U kunt ook het pad opgeven doordat argumenten worden doorgegeven `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Zie voor meer informatie over het opdrachtregelprogramma switches ondersteund door IExpress [opdrachtregelopties voor IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) en werk vervolgens in het voorbeeld aan uw behoeften.
+2. De bestanden van de installatie van agent ophalen uit een opdrachtprompt met verhoogde bevoegdheid uitvoeren `extract MMASetup-<platform>.exe` en wordt u gevraagd voor het pad voor het uitpakken van bestanden. U kunt ook het pad opgeven doordat argumenten worden doorgegeven `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Zie voor meer informatie over de opdrachtregelopties die wordt ondersteund door IExpress [opdrachtregelopties voor IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) en werk vervolgens in het voorbeeld aan uw behoeften.
 3. Typ bij de opdrachtprompt `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 
 ### <a name="linux-agent"></a>Linux-agent

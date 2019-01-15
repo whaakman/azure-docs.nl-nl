@@ -1,26 +1,8 @@
 ---
-title: In Excel - Azure Machine Learning Studio-webservice gebruiken | Microsoft Docs
-description: Azure Machine Learning Studio maakt het eenvoudig om aan te roepen webservices rechtstreeks vanuit Excel zonder code te schrijven.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: ad7eae16c2933790aefba3cee1551be29ee457be
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276924"
+Titel: Webservice in Excel titleSuffix gebruiken: Azure Machine Learning Studio description: Azure Machine Learning Studio maakt het eenvoudig om aan te roepen webservices rechtstreeks vanuit Excel zonder code te schrijven.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Een Azure Machine Learning Studio-webservice uit Excel gebruiken
 

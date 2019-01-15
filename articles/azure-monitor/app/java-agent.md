@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228806"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262129"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen onderschept en methode uitvoertijd in Java-web-apps bewaken
 
@@ -34,7 +34,7 @@ Als u hebt [uw Java-web-app met Application Insights geïnstrumenteerd][java], k
 Voor het gebruik van de Java-agent, installeren u deze op uw server. Uw web-apps moeten zijn uitgerust met de [Application Insights Java SDK][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>De Application Insights-agent voor Java installeren
-1. Op de computer waarop u uw Java-server wordt uitgevoerd [downloaden van de agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Zorg ervoor dat u het downloaden van de dezelfde verson van Java-Agent als de pakketten core- en web Application Insights Java SDK.
+1. Op de computer waarop u uw Java-server wordt uitgevoerd [downloaden van de agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Zorg ervoor dat u het downloaden van de dezelfde versie van Java-Agent als de pakketten core- en web Application Insights Java SDK.
 2. Bewerk het opstartscript van de toepassing-server en toevoegen van de volgende JVM:
    
     `javaagent:`*volledige pad naar het JAR-bestand van agent*

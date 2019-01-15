@@ -1,5 +1,5 @@
 ---
-title: Video-inhoud voor aanstootgevende materiaal in analyserenC#
+title: Video-inhoud voor aanstootgevende materiaal in analyseren C# -Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Over het analyseren van video-inhoud voor verschillende ongewenst materiaal met de inhoud Moderator SDK voor .NET
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008280"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265512"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Video-inhoud voor aanstootgevende materiaal in analyserenC#
 
@@ -55,18 +55,18 @@ Azure Media Services Explorer is een gebruiksvriendelijke frontend voor AMS. Geb
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
 1. In Visual Studio, maak een nieuwe **Console-app (.NET Framework)** project en geef deze de naam **VideoModeration**. 
-1. Als er andere projecten in uw oplossing, selecteert u deze een als één opstartproject.
-1. Haal de vereiste NuGet-pakketten. Met de rechtermuisknop op uw project in Solution Explorer en selecteer **NuGet-pakketten beheren**; vinden en installeren van de volgende pakketten:
+1. Als uw oplossing nog meer projecten bevat, selecteert u deze als het enkele opstartproject.
+1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op uw project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Zoek en installeer vervolgens de volgende pakketten:
     - windowsazure.mediaservices
-    - windowsazure.mediaservices.Extensions
+    - windowsazure.mediaservices.extensions
 
 ## <a name="add-video-moderation-code"></a>Videotoezicht code toevoegen
 
-Vervolgens maakt u kopiëren en plak de code van deze handleiding in uw project voor het implementeren van een eenvoudige inhoudstoezicht-scenario.
+Vervolgens kopieert en plakt u de code uit deze handleiding in uw project om een eenvoudig scenario voor inhoudstoezicht te implementeren.
 
 ### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
-Voeg de volgende `using` instructies toe aan de bovenkant van uw _Program.cs_ bestand.
+Voeg aan het begin van het bestand _Program.cs_ de volgende `using`-instructies toe.
 
 ```csharp
 using System;
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Verwijzingen van de resource instellen
 
-De volgende statische velden toevoegen aan de **programma** in klasse _Program.cs_. Deze velden bevatten de informatie die nodig zijn om verbinding te maken met uw AMS-abonnement. Vul deze met de waarden die u hebt verkregen in de bovenstaande stappen. Houd er rekening mee dat `CLIENT_ID` is de **toepassings-ID** waarde van uw Azure AD-app en `CLIENT_SECRET` is de waarde van de 'VideoModKey' die u hebt gemaakt voor die app.
+Voeg de volgende statische velden toe aan de klasse **Program** in _Program.cs_. Deze velden bevatten de informatie die nodig zijn om verbinding te maken met uw AMS-abonnement. Vul deze met de waarden die u hebt verkregen in de bovenstaande stappen. Houd er rekening mee dat `CLIENT_ID` is de **toepassings-ID** waarde van uw Azure AD-app en `CLIENT_SECRET` is de waarde van de 'VideoModKey' die u hebt gemaakt voor die app.
 
 ```csharp
 // declare constants and globals

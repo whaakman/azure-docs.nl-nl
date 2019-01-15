@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 805c983c0c2db4256dade641f32363ca6514023c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1a99ffb751414d255f2aacfe514e5a8f474255bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600808"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267212"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing Avg
 
@@ -35,7 +35,7 @@ Deze referentiearchitectuur, gekoppelde Implementatiehandleiding en risicomodel 
 ## <a name="architecture-diagram-and-components"></a>Diagram van architectuur en onderdelen
 Deze oplossing biedt een referentiearchitectuur voor een PaaS-webtoepassing met een Azure SQL Database-back-end. De web-App wordt gehost in een geïsoleerde Azure App Service Environment, dit een exclusieve privéomgeving in een Azure-datacenter is. De omgeving verdeelt verkeer voor de web-App voor virtuele machines die worden beheerd door Azure. Deze architectuur bevat ook netwerkbeveiligingsgroepen, een Application Gateway, Azure DNS en Load Balancer. Bovendien biedt Azure Monitor realtime analyses van de systeemstatus. **Azure wordt aanbevolen voor het configureren van een VPN of ExpressRoute-verbinding voor beheer en de gegevens importeren in het subnet van referentie-architectuur.**
 
-![PaaS Web Applicaiton voor AVG verwijzing Architectuurdiagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Applicaiton voor Architectuurdiagram van GDPR-verwijzing")
+![PaaS-webtoepassing voor AVG verwijzing Architectuurdiagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS-webtoepassing voor Architectuurdiagram van GDPR-verwijzing")
 
 Deze oplossing maakt gebruik van de volgende Azure-services. Details van de implementatiearchitectuur bevinden zich in de [architectuur](#deployment-architecture) sectie.
 
@@ -48,7 +48,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Details van de impl
         - regel is ingesteld: OWASP 3.0
         - listener: poort 443
 - Azure Virtual Network
-- netwerkbeveiligingsgroepen
+- Netwerkbeveiligingsgroepen
 - Azure DNS
 - Azure Storage
 - Azure Monitor
@@ -181,7 +181,7 @@ Bovendien is de volgende bewakingsoplossingen, opgenomen als onderdeel van deze 
 
 Het diagram van de gegevensstroom voor deze referentiearchitectuur is beschikbaar voor [downloaden](https://aka.ms/gdprPaaSdfd) of vindt u hieronder. Dit model kunt klanten inzicht krijgen in de punten van de mogelijke risico's in de infrastructuur van het systeem als u wijzigingen aanbrengt.
 
-![PaaS Web Applicaiton voor AVG risicomodel](images/gdpr-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton voor risicomodel Avg")
+![PaaS-webtoepassing voor AVG risicomodel](images/gdpr-paaswa-threat-model.png?raw=true "PaaS-webtoepassing voor risicomodel Avg")
 
 ## <a name="compliance-documentation"></a>Naleving-documentatie
 De [Azure-beveiliging en naleving blauwdruk – AVG klant verantwoordelijkheid Matrix](https://aka.ms/gdprCRM) controller en processor verantwoordelijkheden voor alle AVG artikelen bevat. Houd er rekening mee dat voor Azure-services, een klant meestal de controller is en Microsoft als de processor fungeert.

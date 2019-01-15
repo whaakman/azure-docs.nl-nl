@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: adgera
-ms.openlocfilehash: a5d0b6abdee44bdd1e174fa2c8551fbeac768e5d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232631"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259271"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -102,7 +102,7 @@ Na het voltooien van de vorige stappen, Postman als u wilt maken van een geverif
 
 1. Niet-tekstuele gegevens serialiseren naar bestanden. JSON-gegevens wordt opgeslagen als JSON-bestand.
 1. Onder de **hoofdtekst** tabblad, voegt u elk bestand door toe te wijzen een **sleutel** naam selecteren `file` of `text`.
-1. Selecteer vervolgens het bestand via de **bestand kiezen** knop.
+1. Selecteer vervolgens elk bestand via de **bestand kiezen** knop.
 
    ![Voorbeeld van de postman-client][5]
 

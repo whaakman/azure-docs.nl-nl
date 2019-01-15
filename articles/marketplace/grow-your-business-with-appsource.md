@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 33607043e9b462c4611106c72192f41f1d56c0b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077994"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305907"
 ---
 # <a name="grow-your-business-with-appsource"></a>Ontwikkel uw bedrijfsactiviteiten met AppSource  
 AppSource gebruiken wanneer u Houd contact met zakelijke klanten om te zoeken, uitproberen en line-of-business-software krijgen als een service (SaaS)-apps en implementatieservices om te helpen bedrijfsresultaten te verbeteren en beperk de waarde.  
@@ -67,7 +67,7 @@ De kwaliteit van uw publicatie van de app en de betrokkenheid bij klantgerichte 
 De volgende controlelijst bevat de aanbevolen procedures voor marketing en resources om u te overwegen bij het maken van aanbiedingen te publiceren op AppSource:  
 *   **Houd rekening met het Microsoft Trademark & Merkrichtlijnen.**  
     Naam van uw app en verwijzen naar handelsmerken van Microsoft en de namen van de Microsoft-software, producten en services, wanneer de Trademark van Microsoft en Merkrichtlijnen, evenals relevante product-specifieke richtlijnen volgen.  
-    *   Ga naar de Trademark van Microsoft voor meer informatie over handelsmerken van Microsoft en een huisstijl en Merkrichtlijnen van pagina zich bevindt op [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Ga naar de Trademark van Microsoft voor meer informatie over handelsmerken van Microsoft en een huisstijl en Merkrichtlijnen van pagina zich bevindt op [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).
 *   **In een gratis proefversie, het nu ondervindt, get- of test drive-ervaring voor uw app.**  
     Zakelijke gebruikers willen om uw app eerst handmatig.  
 *   **Bouw een sterke waardevoorstel.**  
@@ -104,7 +104,7 @@ De volgende tabellen worden de details elke stap van het invullen van de aanbied
 
 | Instelling van de aanbieding | Aanbevolen procedures | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Naam** | **Naamgeving van uw aanbieding**<br />Het kiezen van een naam voor uw app is een belangrijke beslissing. Op basis van een voordeel namen zijn efficiënter dan beschrijvende namen. Naam van uw app moet contact opnemen voor dat de core value-klanten worden ontvangen. Inclusief zoekwoorden in de titel van uw app, kunt ook uw app die hoger in zoekmachineresultaten wordt gerangschikt. Volg de Trademark van Microsoft en Merkrichtlijnen, evenals relevante productspecifieke richtlijnen met betrekking tot handelsmerken van Microsoft en de namen van Microsoft, software, producten en services.<ul> <li>Ga naar de Trademark van Microsoft voor meer informatie over handelsmerken van Microsoft en een huisstijl en Merkrichtlijnen van pagina zich bevindt op [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Naam** | **Naamgeving van uw aanbieding**<br />Het kiezen van een naam voor uw app is een belangrijke beslissing. Op basis van een voordeel namen zijn efficiënter dan beschrijvende namen. Naam van uw app moet contact opnemen voor dat de core value-klanten worden ontvangen. Inclusief zoekwoorden in de titel van uw app, kunt ook uw app die hoger in zoekmachineresultaten wordt gerangschikt. Volg de Trademark van Microsoft en Merkrichtlijnen, evenals relevante productspecifieke richtlijnen met betrekking tot handelsmerken van Microsoft en de namen van Microsoft, software, producten en services.<ul> <li>Ga naar de Trademark van Microsoft voor meer informatie over handelsmerken van Microsoft en een huisstijl en Merkrichtlijnen van pagina zich bevindt op [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).</li> </ul> |
 
 **Details van StoreFront - details van aanbieding**  
 

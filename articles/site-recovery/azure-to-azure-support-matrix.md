@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7e5f72ca637cb657369a3b384aee666e0935b9d0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103759"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263541"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -44,9 +44,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 
 U kunt repliceren en herstellen van virtuele machines tussen elke twee regio's binnen hetzelfde geografische cluster. Geografische clusters worden gedefinieerd gegevenslatentie en -soevereiniteit waarmee u rekening moet houden.
 
->[!NOTE]
->Als u zich niet aan een regio binnen een geografische cluster ziet tijdens het inschakelen van replicatie en zorg ervoor dat uw abonnement heeft toegang tot de virtuele machine maken in deze regio. Als dat niet dan een aanvraag ondersteuning onder het abonnement 'Type probleem'.
->
+
 **Geografische cluster** | **Azure-regio's**
 -- | --
 Amerika | Canada-Oost, Canada-midden, Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2, VS-midden, Noord-centraal VS
@@ -59,9 +57,13 @@ China | China-Oost, China-Noord, China North2, China-Oost 2
 
 >[!NOTE]
 >
-> U kunt voor de regio Brazilië-Zuid, repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's.
->
-> Er moet worden opgemerkt Site Recovery is alleen ingeschakeld voor Brazilië-Zuid moet worden gebruikt als een regio van de gegevensbron van waar de virtuele machines kunnen worden beveiligd. Het kan niet worden gebruikt als een doel-DR-regio voor het gebruik van de Azure-regio's, zoals Zuid-centraal VS. De reden hiervoor is dat van latentie waargenomen vanwege geografische afstand dat het verdient aanbeveling om te selecteren van een andere Amerika andere regio dan Brazilië-Zuid.
+> - Voor **Brazilië-Zuid** regio, die u kunt repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's. Er moet worden opgemerkt Site Recovery is alleen ingeschakeld voor Brazilië-Zuid moet worden gebruikt als een regio van de gegevensbron van waar de virtuele machines kunnen worden beveiligd. Deze **kan niet worden gebruikt als een doel-DR-regio** voor het gebruik van de Azure-regio's, zoals Zuid-centraal VS. De reden hiervoor is dat van latentie waargenomen vanwege geografische afstand dat het verdient aanbeveling om te selecteren van een andere Amerika andere regio dan Brazilië-Zuid.
+> 
+> - Als u **niet kunnen zien van een regio** waar u **een kluis maken** Controleer vervolgens of uw abonnement heeft toegang tot resources in die regio maken. Bijvoorbeeld: Als u niet kunt-kluis maken in Frankrijk-Zuid kunnen uw abonnement geen toegang hebben tot Frankrijk-Zuid-regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' whitlelist abonnement voor de XXX Azure-regio '
+> 
+> - Als u **niet kunnen zien van een regio** binnen een geografische cluster **tijdens het inschakelen van replicatie** Controleer vervolgens of uw abonnement heeft toegang tot de virtuele machine maken in deze regio. Bijvoorbeeld: Als u probeert te beveiligen van virtuele machines van Frankrijk-centraal aan Frankrijk-Zuid en ziet Frankrijk-Zuid onder de regio vervolgkeuzelijst en vervolgens uw abonnement heeft geen toegang tot het implementeren van virtuele machine in deze regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' whitlelist abonnement voor de XXX Azure-regio '
+> - U kunt geen regio's in meerdere geografische computerclusters hierboven genoemde selecteren.
+
 
 ## <a name="cache-storage"></a>Cacheopslag
 
@@ -90,16 +92,16 @@ Windows Server 2008 R2 | Met SP1 of hoger
 
 **Besturingssysteem** | **Details**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7,6  
-CentOS | 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7,6
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Ubuntu 14.04 LTS-Server | [Versies van de ondersteunde kernel](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Ubuntu 16.04 LTS-Server | [Ondersteunde kernelversie](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servers met behulp van verificatie op basis van wachtwoorden en aanmelding en de cloud-init-pakket voor het configureren van virtuele machines, cloud mogelijk op basis van wachtwoorden aanmelding is uitgeschakeld op failover (afhankelijk van de configuratie cloudinit). Aanmelding op basis van wachtwoorden kan opnieuw worden ingeschakeld op de virtuele machine door de fabrieksinstellingen van het wachtwoord van de ondersteuning voor > probleemoplossing > menu instellingen (van de failover VM in Azure portal.
+Ubuntu 16.04 LTS Server | [Ondersteunde kernelversie](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servers met behulp van verificatie op basis van wachtwoorden en aanmelding en de cloud-init-pakket voor het configureren van virtuele machines, cloud mogelijk op basis van wachtwoorden aanmelding is uitgeschakeld op failover (afhankelijk van de configuratie cloudinit). Aanmelding op basis van wachtwoorden kan opnieuw worden ingeschakeld op de virtuele machine door de fabrieksinstellingen van het wachtwoord van de ondersteuning voor > probleemoplossing > menu instellingen (van de failover VM in Azure portal.
 Debian 7 | [Versies van de ondersteunde kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versies van de ondersteunde kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3. [(Ondersteunde kernelversie versies)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1,SP2,SP3. [(Ondersteunde kernelversie versies)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Upgrade van de machines repliceren van SP3 naar SP4 wordt niet ondersteund. Als een gerepliceerde virtuele machine is bijgewerkt, moet u replicatie uitschakelen en weer inschakelen replicatie na de upgrade.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> De Red Hat compatibele kernel- of Unbreakable Enterprise Kernel versie 3 (UEK3) uitgevoerd.
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> De Red Hat compatibele kernel- of Unbreakable Enterprise Kernel versie 3 (UEK3) uitgevoerd.
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ondersteunde versies van Ubuntu kernel voor virtuele machines van Azure
@@ -123,9 +125,9 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 --- | --- | --- |
 Debian 7 | 9.18,9.19,9.20,9.21 | 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.20, 9.21 | 3.16.0-4-AMD64 naar 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.8-amd64 |
-Debian 8 | 9.19 | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.7-amd64 |
-Debian 8 | 9.18 | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.20, 9.21 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
+Debian 8 | 9.19 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.7-amd64 |
+Debian 8 | 9.18 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Ondersteunde versies van SUSE Linux Enterprise Server 12 kernel voor virtuele machines van Azure
 

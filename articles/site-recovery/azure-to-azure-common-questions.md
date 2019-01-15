@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155147"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260461"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
@@ -59,7 +59,7 @@ Met Site Recovery kunt u repliceren en herstellen van virtuele machines tussen e
 
 Nee, Site Recovery is geen verbinding met internet vereist. Maar dit vereist toegang tot de Site Recovery-URL's en IP-adressen, zoals vermeld in [in dit artikel](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-## <a name="replication-policy"></a>Replicatiebeleid
+## <a name="replication-policy"></a>Beleid voor replicatie
 
 ### <a name="what-is-a-replication-policy"></a>Wat is beleid voor replicatie?
 Hiermee worden de instellingen voor de bewaargeschiedenis van herstelpunten en de frequentie van de app-consistente momentopnamen gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van:
@@ -74,10 +74,16 @@ Een crash-consistente herstelpunt vertegenwoordigt de gegevens op de schijf als 
 
 Vandaag de dag kunnen de meeste toepassingen herstellen van crash-consistente momentopnamen. Een crash-consistente herstelpunt is meestal genoeg voor niet-database-besturingssystemen en toepassingen, zoals bestandsservers, DHCP-servers en afdrukservers.
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Wat is de frequentie van de crash-consistent herstelpunt punt generatie?
+Site Recovery maakt een crash-consistente herstelpunt om de 5 minuten.
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Wat is een toepassingsconsistente herstelpunt? 
 Toepassingsconsistente herstelpunten zijn gemaakt op basis van toepassingsconsistente momentopnamen. Toepassingsconsistente momentopnamen kunt u dezelfde gegevens als crash-consistente momentopnamen, met de toevoeging van alle gegevens in het geheugen en alle lopende transacties vastleggen. 
 
 Vanwege de extra inhoud toepassingsconsistente momentopnamen zijn het meest betrokken en nemen de langste om uit te voeren. Het wordt aangeraden de toepassingsconsistente herstelpunten voor database-besturingssystemen en toepassingen, zoals SQL Server.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Wat is de minimale frequentie van toepassingsconsistente recovery point generatie?
+Site Recovery maakt een toepassingsconsistente herstelpunt met een minimale frequentie van binnen 1 uur.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Hoe worden herstelpunten die zijn gegenereerd en opgeslagen?
 Om te begrijpen hoe herstelpunten in Site Recovery wordt gegenereerd, we nemen een voorbeeld van een replicatiebeleid waarvoor een herstelpunt bewaarperiode van 24 uur en een momentopname van een app-consistente frequentie van 1 uur.
@@ -153,6 +159,9 @@ De **laatst verwerkt** optie mislukt op alle virtuele machines in het plan naar 
 
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Als ik repliceer tussen twee Azure-regio's, wat gebeurt er als mijn primaire regio een stroomstoring optreedt?
 U kunt een failover wordt geactiveerd nadat de onderbreking. Site Recovery hoeft niet de connectiviteit van de primaire regio om uit te voeren van de failover.
+
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Wat is een RTO van een virtuele machine failover?
+Site Recovery heeft een [RTO SLA van twee uur](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). De meeste van de tijd, mislukt Site Recovery echter failover van virtuele machines binnen enkele minuten. U kunt de RTO berekenen door te gaan naar de failover taken waarin de tijd die nodig was voor de virtuele machine openen. Plan voor herstel RTO, raadpleegt u onderstaande sectie. 
 
 ## <a name="recovery-plan"></a>Herstelplan
 

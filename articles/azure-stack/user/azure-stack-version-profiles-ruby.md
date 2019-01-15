@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: df3222c361e4a8f6451326d967d574b1eb8eed1b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157442"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263646"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>API-versieprofielen gebruiken met Ruby in Azure Stack
 
@@ -90,7 +90,7 @@ Als u wilt gebruiken de Ruby-SDK van Azure met Azure Stack, moet u de volgende w
 | Client-id | AZURE_CLIENT_ID | De service principal toepassings-ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.  |
 | Abonnements-id | AZURE_SUBSCRIPTION_ID | De [abonnements-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
 | Clientgeheim | AZURE_CLIENT_SECRET | De service-principal toepassing geheim opgeslagen bij het service-principal is gemaakt. |
-| Resource Manager-eindpunt | ARM_ENDPOINT | Zie [de Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
+| Resource Manager-eindpunt | ARM_ENDPOINT | Zie [de Azure Stack resource manager-eindpunt](#The-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>De Azure Stack resource manager-eindpunt
 
@@ -131,7 +131,7 @@ Het updatepakket Azure_sdk gem heeft de volgende twee profielen:
 
 1. **V2017_03_09**  
   Het profiel is die is gebouwd voor Azure Stack. Gebruik dit profiel voor services op het meest compatibel zijn met de Azure Stack.
-2. **meest recente**  
+2. **Latest**  
   Profiel bestaat uit de meest recente versies van alle services. Gebruik de nieuwste versies van alle services.
 
 Zie voor meer informatie over Azure Stack- en API-profielen, de [samenvatting van de API-profielen](azure-stack-version-profiles.md#summary-of-api-profiles).

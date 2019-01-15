@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313238"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304921"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Controlelogboeken van Azure Active Directory integreren
 
@@ -28,7 +28,7 @@ Controlegebeurtenissen van Azure Active Directory (Azure AD) kunnen u bevoegde a
 
 
 >[!IMPORTANT]
-> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads uitgeschakeld door 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads zijn uitgeschakeld op 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stappen voor het integreren van Azure Active Directory-auditlogboeken
 
@@ -73,7 +73,7 @@ U kunt ook openen een [ondersteuningsaanvraag](../azure-supportability/how-to-cr
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over Azure-Logboekintegratie:
 
-* [Microsoft Azure-Logboekintegratie voor Azure-logboeken](https://www.microsoft.com/download/details.aspx?id=53324): Downloadcentrum deze pagina geeft details, systeemvereisten en installatie-instructies voor Azure-Logboekintegratie.
-* [Inleiding tot Azure-Logboekintegratie](security-azure-log-integration-overview.md): in dit artikel bevat een inleiding tot Azure-Logboekintegratie, de belangrijkste mogelijkheden en hoe het werkt.
-* [Veelgestelde vragen over van Azure Log integratie](security-azure-log-integration-faq.md): in dit artikel vindt u antwoorden op vragen over Azure-Logboekintegratie.
-* [Nieuwe functies voor Azure Diagnostics en Azure-auditlogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): in dit blogbericht bevat een inleiding tot Azure-auditlogboeken en andere functies waarmee u inzicht in de bewerkingen van uw Azure-resources.
+* [Microsoft Azure-Logboekintegratie voor Azure-logboeken](https://www.microsoft.com/download/details.aspx?id=53324): Deze pagina Download Center geeft details, systeemvereisten en installatie-instructies voor Azure-Logboekintegratie.
+* [Inleiding tot Azure-Logboekintegratie](security-azure-log-integration-overview.md): In dit artikel vindt u Azure-Logboekintegratie, de belangrijkste mogelijkheden en hoe het werkt.
+* [Azure-Logboekintegratie Veelgestelde vragen over](security-azure-log-integration-faq.md): In dit artikel vindt u antwoorden op vragen over Azure-Logboekintegratie.
+* [Nieuwe functies voor Azure Diagnostics en Azure-auditlogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Dit blogbericht bevat een inleiding tot Azure-auditlogboeken en andere functies waarmee u inzicht in de bewerkingen van uw Azure-resources.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 991199747f51f379ee6f3efe8009ab9166c33ac7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 65ab6b62b1da925880b3197036f52407e868ece7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832003"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263587"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>De manier waarop eindgebruikers toestemming voor een toepassing in Azure Active Directory geven configureren
 Informatie over het configureren van de manier waarop gebruikers toestemming voor machtigingen van de toepassing geven. Verleent toestemming van een beheerder kunt u de gebruikerservaring vereenvoudigen. Dit artikel bevat de verschillende manieren waarop die u toestemming van de gebruiker kunt configureren. De methoden van toepassing op alle gebruikers in uw tenant Azure Active Directory (Azure AD). 
@@ -26,6 +26,8 @@ Zie voor meer informatie over het stemt ermee in dat toepassingen [Azure Active 
 ## <a name="prerequisites"></a>Vereisten
 
 Verlenen van toestemming van een beheerder, moet u zich aanmeldt als hoofdbeheerder, een beheerder van de toepassing of een beheerder van de cloudtoepassing.
+
+Als u wilt beperken de toegang tot toepassingen, moet u Gebruikerstoewijzing vereisen en vervolgens gebruikers of groepen toewijzen aan de toepassing.  Zie voor meer informatie, [methoden voor het toewijzen van gebruikers en groepen](methods-for-assigning-users-and-groups.md).
 
 ## <a name="grant-admin-consent-to-enterprise-apps-in-the-azure-portal"></a>Beheerder toestemming voor enterprise-apps in Azure portal
 

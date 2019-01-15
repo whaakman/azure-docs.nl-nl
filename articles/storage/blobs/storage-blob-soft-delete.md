@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 7f7071c9f87528eddbfe3d541cd85624e308948f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 77e0a9fc12519615765e1846ac8808bb3fbb27f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633382"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260648"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Voorlopig verwijderen voor Azure Storage-blobs
 Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.
@@ -198,7 +198,7 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
-Als u zoekt het bewaarbeleid van currrent voorlopig verwijderen, gebruik de volgende opdracht:
+Als u wilt zoeken in het huidige bewaarbeleid voor voorlopig verwijderen, gebruik de volgende opdracht:
 
 ```azurepowershell-interactive
    $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
@@ -319,7 +319,7 @@ Het is mogelijk om te profiteren van de functie voor voorlopig verwijderen, onge
 
 ## <a name="next-steps"></a>Volgende stappen
 * [.NET-voorbeeldcode](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
-* [REST-API voor BLOB-Service](/rest/api/storageservices/blob-service-rest-api)
+* [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage-replicatie](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Maximaal beschikbare toepassingen met RA-GRS ontwerpen](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Wat te doen als een Azure Storage-storing](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

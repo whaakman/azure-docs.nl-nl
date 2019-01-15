@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865230"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266651"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Afhankelijkheden van de taak voor het uitvoeren van taken die afhankelijk van andere taken zijn maken
 
@@ -123,7 +123,7 @@ Voor het maken van de afhankelijkheid, geef de eerste en laatste taak-id's in he
 > [!IMPORTANT]
 > Wanneer u taak-ID bereiken voor uw afhankelijkheden, wordt alleen taken met de id's voor gehele getallen worden geselecteerd door het bereik. Dus het bereik `1..10` selecteert taken `3` en `7`, maar niet `5flamingoes`. 
 > 
-> Voorloopnullen zijn niet significante bij het evalueren van bereik afhankelijkheden, zodat taken met een tekenreeks-id's `4`, `04` en `004` worden alle *binnen* het bereik en ze zullen worden behandeld als taak `4`, zodat het eerste item om te voltooien, voldoen aan de afhankelijkheid.
+> Voorloopnullen zijn niet significant bij het evalueren van bereik afhankelijkheden, zodat taken met een tekenreeks-id's `4`, `04` en `004` worden alle *binnen* het bereik en ze zullen worden behandeld als taak `4`, zodat het eerste item om te voltooien, voldoen aan de afhankelijkheid.
 > 
 > Elke taak in het bereik moet voldoen aan de afhankelijkheid, door het niet wordt voltooid of door te voeren met een fout die gekoppeld aan een afhankelijkheid-actie ingesteld op **Satisfy**. Zie de [afhankelijkheid acties](#dependency-actions) sectie voor meer informatie.
 >

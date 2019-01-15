@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: da2e742f0dde0cb4b98bfb107d18eca779d10021
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd2914c675d3bca32ca8951ffca1b04e23786400
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234592"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266901"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Beveiliging-Frame: Invoervalidatie | Oplossingen 
 | Product/Service | Artikel |
@@ -27,7 +27,7 @@ ms.locfileid: "51234592"
 | **Web-App** | <ul><li>[XSLT-scripts voor alle transformaties met behulp van niet-vertrouwde opmaakmodellen uitschakelen](#disable-xslt)</li><li>[Zorg ervoor dat elke pagina waarop gebruikers te beheren zijn inhoud bevatten, kan worden gebruikt buiten het automatische MIME-controle](#out-sniffing)</li><li>[Beveiliging van in- of uitschakelen van XML-entiteit resolutie](#xml-resolution)</li><li>[URL-standaardisatie verificatie uitvoeren met toepassingen die gebruikmaken van http.sys](#app-verification)</li><li>[Zorg ervoor dat de juiste besturingselementen wordt toegepast bij het accepteren van bestanden van gebruikers](#controls-users)</li><li>[Zorg ervoor dat type veilig parameters in Web-App worden gebruikt voor toegang tot gegevens](#typesafe)</li><li>[Afzonderlijke model-binding klassen gebruiken of bindingsfilter weer te geven om te voorkomen dat MVC massale toewijzing beveiligingsproblemen](#binding-mvc)</li><li>[Niet-vertrouwde webuitvoer vóór rendering coderen](#rendering)</li><li>[Invoervalidatie en filteren op alle tekenreekstype modeleigenschappen uitvoeren](#typemodel)</li><li>[Opschonen moet worden toegepast op formuliervelden die alle tekens, bijvoorbeeld, RTF-editor accepteren](#richtext)</li><li>[Wijs geen DOM-elementen naar sinks waarvoor geen ingebouwde codering](#inbuilt-encode)</li><li>[Controleer of alle omleidingen in de toepassing worden gesloten of veilig gedaan](#redirect-safe)</li><li>[Invoervalidatie implementeren op alle tekenreeksparameters van het type geaccepteerd door controllermethoden](#string-method)</li><li>[Bovenlimiet van time-out voor reguliere expressie om te voorkomen van DoS vanwege ongeldige reguliere expressies verwerking instellen](#dos-expression)</li><li>[Vermijd het gebruik van Html.Raw in Razor-weergaven](#html-razor)</li></ul> | 
 | **Database** | <ul><li>[Gebruik geen dynamische query's in opgeslagen procedures](#stored-proc)</li></ul> |
 | **Web-API** | <ul><li>[Zorg ervoor dat de validatie is uitgevoerd op een Web-API-methoden](#validation-api)</li><li>[Invoervalidatie implementeren op alle tekenreeksparameters van het type geaccepteerd door de Web-API-methoden](#string-api)</li><li>[Zorg ervoor dat type veilig parameters in Web-API worden gebruikt voor toegang tot gegevens](#typesafe-api)</li></ul> | 
-| **Azure Documentdb** | <ul><li>[Constructorreeks mag SQL-query's gebruiken voor Azure Cosmos DB](#sql-docdb)</li></ul> | 
+| **Azure Document DB** | <ul><li>[Geparameteriseerde SQL-query's gebruiken voor Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Validatie van WCF-invoer via schemabinding](#schema-binding)</li><li>[Validatie van WCF - invoer via Parameter Inspectors](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>XSLT-scripts voor alle transformaties met behulp van niet-vertrouwde opmaakmodellen uitschakelen
@@ -38,8 +38,8 @@ ms.locfileid: "51234592"
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [XSLT-beveiliging](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript eigenschap](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **Stappen** | XSLT biedt ondersteuning voor scripts in opmaakmodellen met behulp van de `<msxml:script>` element. Dit kan aangepaste functies worden gebruikt in een XSLT-transformatie. Het script wordt uitgevoerd in de context van het proces voor het uitvoeren van de transformatie. XSLT-script moet worden uitgeschakeld wanneer u zich in een niet-vertrouwde omgeving om te voorkomen dat de uitvoering van niet-vertrouwde code. *Als u met behulp van .NET:* XSLT-scripting is standaard uitgeschakeld; echter, moet u ervoor zorgen dat deze is niet expliciet ingeschakeld via de `XsltSettings.EnableScript` eigenschap.|
+| **Verwijzingen**              | [XSLT Security](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript Property](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
+| **Stappen** | XSLT biedt ondersteuning voor scripts in opmaakmodellen met behulp van de `<msxml:script>` element. Dit kan aangepaste functies worden gebruikt in een XSLT-transformatie. Het script wordt uitgevoerd in de context van het proces voor het uitvoeren van de transformatie. XSLT-script moet worden uitgeschakeld wanneer u zich in een niet-vertrouwde omgeving om te voorkomen dat de uitvoering van niet-vertrouwde code. *Als u met behulp van .NET:* XSLT-scripting is standaard uitgeschakeld. echter, moet u ervoor zorgen dat deze is niet expliciet ingeschakeld via de `XsltSettings.EnableScript` eigenschap.|
 
 ### <a name="example"></a>Voorbeeld 
 
@@ -191,7 +191,7 @@ settings.MaxCharactersFromEntities = 1000;
 settings.XmlResolver = null;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Houd er rekening mee dat in MSXML6, ProhibitDTD is standaard ingesteld op true (uitschakelen DTD processing). Voor Apple iOS-OS x-code, zijn er twee XML-parsers kunt u: NSXMLParser en libXML2. 
+Houd er rekening mee dat in MSXML6, ProhibitDTD is standaard ingesteld op true (uitschakelen DTD processing). Er zijn twee XML-parsers die kunt u voor Apple iOS-OS x-code: NSXMLParser en libXML2. 
 
 ## <a id="app-verification"></a>URL-standaardisatie verificatie uitvoeren met toepassingen die gebruikmaken van http.sys
 
@@ -367,7 +367,7 @@ De invoerwaarde kan niet langer zijn dan 11 tekens in het vorige codevoorbeeld. 
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemeen, Web Forms, MVC5, MVC6 |
+| **Van toepassing technologieën** | Generic, Web Forms, MVC5, MVC6 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Om te voorkomen dat Cross-site scripting in ASP.NET](https://msdn.microsoft.com/library/ms998274.aspx), [Cross-site Scripting](http://cwe.mitre.org/data/definitions/79.html), [XSS (Cross-Site Scripting) preventie Cheat Sheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
 | **Stappen** | Cross-site scripting (vaak afgekort als XSS) is een aanvalsvector voor online services of een toepassing/onderdeel is dat invoer van het web worden verbruikt. XSS beveiligingsproblemen kunnen een aanvaller om uit te voeren script op de computer een andere gebruiker via een kwetsbaar webtoepassing. Schadelijke scripts kunnen worden gebruikt om het stelen van cookies en anders kunnen knoeien met de computer van het slachtoffer via JavaScript. XSS is voorkomen door het valideren van invoer van de gebruiker en ervoor te zorgen dat deze goed is gevormd codering voordat deze wordt weergegeven in een webpagina. Validatie voor invoer en uitvoer encoding kunnen worden gedaan met behulp van Web-beveiliging-bibliotheek. Voor beheerde code (C\#, VB.net, enzovoort), gebruikt u een of meer coderingsmethoden van de beveiliging van Internet (Anti-XSS)-bibliotheek, afhankelijk van de context waarin de invoer van de gebruiker met deze eigenschap wordt overgenomen van toepassing:| 
@@ -392,7 +392,7 @@ De invoerwaarde kan niet langer zijn dan 11 tekens in het vorige codevoorbeeld. 
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemeen, MVC5, MVC6 |
+| **Van toepassing technologieën** | Generic, MVC5, MVC6 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Toe te voegen validatie](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [valideren van modelgegevens in een MVC-toepassing](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [richtsnoer voor uw ASP.NET MVC-toepassingen](https://msdn.microsoft.com/magazine/dd942822.aspx) |
 | **Stappen** | <p>Alle invoerparameters die moeten worden gevalideerd voordat ze worden gebruikt in de toepassing om ervoor te zorgen dat de toepassing waarin wordt beschermd tegen kwaadwillende gebruikersinvoer. De ingevoerde waarden met behulp van de reguliere expressie validaties aan serverzijde met een strategie voor een lijst met toegestane adressen validatie valideren. Gebruikersinvoer unsanitized / parameters doorgegeven aan de methoden kunnen leiden tot code beveiligingsproblemen met injectie.</p><p>Voor webtoepassingen bevatten toegangspunten ook velden in het formulier, queryreeksen waarmee, cookies, HTTP-headers en webserviceparameters.</p><p>De volgende Invoervalidatie controles moeten worden uitgevoerd na de binding model:</p><ul><li>De eigenschappen van het model moeten worden voorzien van aantekeningen met RegularExpression aantekening, voor het accepteren van toegestane tekens en maximaal toegestane lengte</li><li>De controllermethoden moeten ModelState geldigheid uitvoeren</li></ul>|
@@ -447,7 +447,7 @@ Gebruik geen `innerHtml`; gebruik in plaats daarvan `innerText`. Op dezelfde man
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemeen, MVC5, MVC6 |
+| **Van toepassing technologieën** | Generic, MVC5, MVC6 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Valideren van modelgegevens in een MVC-toepassing](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [richtsnoer voor uw ASP.NET MVC-toepassingen](https://msdn.microsoft.com/magazine/dd942822.aspx) |
 | **Stappen** | Methoden die alleen primitieve gegevenstype en geen modellen als argument accepteren, moet Invoervalidatie met behulp van de reguliere expressie worden uitgevoerd. Hier moet Regex.IsMatch worden gebruikt met een geldige regex-patroon. Als de invoer komt niet overeen met de opgegeven reguliere expressie, besturingselement moet niet verder en een voldoende waarschuwing met betrekking tot mislukte validatie moet worden weergegeven.| 
@@ -458,9 +458,9 @@ Gebruik geen `innerHtml`; gebruik in plaats daarvan `innerText`. Op dezelfde man
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemeen, Web Forms, MVC5, MVC6  |
+| **Van toepassing technologieën** | Generic, Web Forms, MVC5, MVC6  |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [De eigenschap DefaultRegexMatchTimeout ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
+| **Verwijzingen**              | [DefaultRegexMatchTimeout Property ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | **Stappen** | Gemaakte reguliere expressies, die ertoe leiden veel backtracking dat, ingesteld om ervoor te zorgen denial of service-aanvallen op een ongeldige time-out voor de algemene standaardwaarde. Als de verwerkingstijd langer duurt dan de bovengrens van de gedefinieerde, zou dit een time-outuitzondering genereren. Als er niets is geconfigureerd, is de time-out is oneindig.| 
 
 ### <a name="example"></a>Voorbeeld
@@ -618,7 +618,7 @@ namespace MyApi.Controllers
 | ----------------------- | ------------ |
 | **Onderdeel**               | Web-API | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemeen, MVC 5, 6 MVC |
+| **Van toepassing technologieën** | Generic, MVC 5, MVC 6 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Valideren van modelgegevens in een MVC-toepassing](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [richtsnoer voor uw ASP.NET MVC-toepassingen](https://msdn.microsoft.com/magazine/dd942822.aspx) |
 | **Stappen** | Methoden die alleen primitieve gegevenstype en geen modellen als argument accepteren, moet Invoervalidatie met behulp van de reguliere expressie worden uitgevoerd. Hier moet Regex.IsMatch worden gebruikt met een geldige regex-patroon. Als de invoer komt niet overeen met de opgegeven reguliere expressie, besturingselement moet niet verder en een voldoende waarschuwing met betrekking tot mislukte validatie moet worden weergegeven.|
@@ -653,11 +653,11 @@ myCommand.Fill(userDataset);
 ```
 De invoerwaarde kan niet langer zijn dan 11 tekens in het vorige codevoorbeeld. Als de gegevens niet met het type of de lengte die zijn gedefinieerd door de parameter overeenkomt, de klasse SqlParameter een uitzondering genereert. 
 
-## <a id="sql-docdb"></a>Constructorreeks mag SQL-query's gebruiken voor Cosmos DB
+## <a id="sql-docdb"></a>Geparameteriseerde SQL-query's gebruiken voor Cosmos DB
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Azure Documentdb | 
+| **Onderdeel**               | Azure Document DB | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |

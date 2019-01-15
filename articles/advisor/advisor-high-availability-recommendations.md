@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 61e85861ab5829620699d07fe24b1ebfdfc7cbdc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839503"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305068"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor-aanbevelingen voor hoge beschikbaarheid
 
@@ -35,20 +35,16 @@ U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset 
 
 U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset te groeperen, om uw toepassing van redundantie te voorzien. Advisor identificeert beschikbaarheidssets met een enkele virtuele machine en beveelt een of meer virtuele machines toe te voegen. Deze configuratie zorgt ervoor dat ten minste één virtuele machine tijdens een gepland of ongepland onderhoud, beschikbaar is en voldoet aan de virtuele machine van Azure SLA. U kunt kiezen om te maken van een virtuele machine of een bestaande virtuele machine toevoegen aan de beschikbaarheidsset.  
 
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Beheerde schijven gebruiken voor verbeterde betrouwbaarheid van gegevens
+Virtuele machines die zich in een beschikbaarheidsset met schijven die opslagaccounts of opslagschaaleenheden delen zijn niet ongevoelig voor één eenheid schalingsfouten tijdens onderbrekingen. Advisor worden geïdentificeerd deze beschikbaarheidssets, en het beste migreren naar Azure Managed Disks. Dit zorgt ervoor dat de schijven van de verschillende virtuele machines in de beschikbaarheidsset voldoende geïsoleerd zijn om te voorkomen dat een single point of failure. 
+
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Zorg ervoor dat de fouttolerantie van application gateway
+
 Om ervoor te zorgen de bedrijfscontinuïteit van essentiële toepassingen die worden aangestuurd door de Toepassingsgateways, Advisor identificeert application gateway-instanties die niet zijn geconfigureerd voor fouttolerantie en er wordt verwezen naar herstelacties die u kunt ondernemen. Advisor identificeert middelgrote of grote single instance Toepassingsgateways en dit is de aanbevolen ten minste één meer exemplaar toe te voegen. Ook één of meerdere instance korte Toepassingsgateways identificeert en wordt aanbevolen voor middelgrote of grote SKU's migreren. Advisor raadt aan om deze acties om ervoor te zorgen dat uw application gateway-instanties zijn geconfigureerd om te voldoen aan de huidige SLA-vereisten voor deze resources.
-
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>De prestaties en betrouwbaarheid van virtuele-machineschijven verbeteren
-
-Advisor identificeert virtuele machines met standaardschijven en beveelt een upgrade naar premium-schijven.
- 
-Azure Premium Storage voorziet in ondersteuning voor hoge prestaties en lage latentie schijven voor virtuele machines die I/O-intensieve workloads uitvoeren. VM-schijven die gebruikmaken van premium storage-accounts worden gegevens opgeslagen op SSD-schijven (SSD's). Voor de beste prestaties voor uw toepassing, wordt u aangeraden dat u alle schijven van virtuele machines waarvoor hoge IOPS naar premium storage migreert. 
-
-Als uw schijven geen hoge IOPS vereisen, kunt u de kosten beperken door het onderhoud ervan in de standard-opslag. Standard-opslag opgeslagen gegevens van de virtuele machine-schijf op hardeschijfstations (HDD's) in plaats van SSD's. U kunt de schijven van uw virtuele machines migreren naar premium-schijven. Premium-schijven worden ondersteund op de meeste VM-SKU's. In sommige gevallen, als u wilt gebruikmaken van premium-schijven, hoeft u wellicht uw virtuele machine SKU's ook bijwerken.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>De gegevens van uw virtuele machines beschermen tegen onopzettelijk verwijderen
 
-Instellen van de virtuele machine back-up zorgt ervoor dat de beschikbaarheid van uw bedrijfskritieke gegevens en biedt beveiliging tegen per ongeluk verwijderen of beschadiging.  Advisor identificeert virtuele machines waarbij back-up is niet ingeschakeld, en dit is de aanbevolen back-up inschakelen. 
+Instellen van de virtuele machine back-up zorgt ervoor dat de beschikbaarheid van uw bedrijfskritieke gegevens en biedt beveiliging tegen per ongeluk verwijderen of beschadiging. Advisor identificeert virtuele machines waarbij back-up is niet ingeschakeld, en dit is de aanbevolen back-up inschakelen. 
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Zorg ervoor dat u toegang tot experts van Azure-cloud hebt u nodig hebt
 
@@ -69,6 +65,10 @@ Als een Traffic Manager-profiel is geconfigureerd voor de geografische routering
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Gebruik voorlopig verwijderen in uw Azure Storage-Account te bewaren en herstellen van gegevens in het geval van per ongeluk overschrijven of verwijderen
 
 Schakel [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) op uw storage-account zodat de blobs overgang naar een voorlopig verwijderde status in plaats van definitief verwijderd verwijderd. Wanneer gegevens worden overschreven, wordt een voorlopig verwijderde momentopname is gegenereerd om op te slaan de status van de gegevens overschreven. Hiermee kunt u om te herstellen in het geval van per ongeluk verwijderen of worden overschreven. Advisor identificeert Azure Storage-Accounts waarvoor geen voorlopig verwijderen zijn ingeschakeld en stelt dat u dit inschakelen.
+
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>De actief / actief VPN-gateway configureren voor verbindingstolerantie
+
+In de actief / actief-configuratie, beide exemplaren van een VPN-gateway S2S VPN-tunnels naar uw on-premises VPN-apparaat tot stand brengen. Als een gepland onderhoud of niet-geplande gebeurtenis op een gatewayexemplaar gebeurt, wordt verkeer omgeleid naar de andere actieve IPsec-tunnel automatisch. Azure Advisor worden VPN-gateways die niet zijn geconfigureerd als actief / actief-geïdentificeerd en voorstellen dat u deze voor hoge beschikbaarheid configureert.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor hoge beschikbaarheid in Advisor
 

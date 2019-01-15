@@ -1,26 +1,8 @@
 ---
-title: 'Stap 4: Voorspellende analysemodellen - Azure Machine Learning Studio trainen | Microsoft Docs'
-description: 'Stap 4 van het ontwikkelen van een overzicht van de voorspellende oplossing: Trainen, beoordelen en evalueren van meerdere modellen in Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 2464ef0ba89f138834bedfdc9f29347092e5fe99
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254510"
+Titel: ' Stap 4: Train modellen voor voorspellende analyses titleSuffix: Azure Machine Learning Studio description: ' Stap 4 van het ontwikkelen van een overzicht van de voorspellende oplossing: Trainen en evalueren van meerdere modellen in Azure Machine Learning Studio score. "
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 03/23/2017
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Kennismaken, stap 4: Trainen en evalueren van de voorspellende analysemodellen in Machine Learning Studio
 In dit onderwerp bevat de vierde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)

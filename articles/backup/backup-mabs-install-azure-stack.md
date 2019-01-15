@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: raynew
-ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 31052276f06c5afdf78bf094637b7f60be4acbec
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877164"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262724"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Backup Server installeren op Azure Stack
 
@@ -36,7 +36,7 @@ Azure Backup Server beveiligt de volgende werkbelastingen van de Azure Stack-vir
 | Windows Server Semi-Annual-kanaal - Enterprise-Datacenter/Standard | Volumes, bestanden, mappen |
 | WindowsServer 2016 - Enterprise-Datacenter/Standard | Volumes, bestanden, mappen |
 | Windows Server 2012 R2 - Enterprise-Datacenter/Standard | Volumes, bestanden, mappen |
-| WindowsServer 2012: Datacenter/Entprise/Standard | Volumes, bestanden, mappen |
+| Windows Server 2012 - Datacenter/Enterprise/Standard | Volumes, bestanden, mappen |
 | Windows Server 2008 R2 - Enterprise-Datacenter/Standard | Volumes, bestanden, mappen |
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
@@ -90,7 +90,7 @@ De virtuele machine van Azure Backup Server moet worden toegevoegd aan een domei
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Met behulp van een IaaS-VM in Azure Stack
 
-Bij het kiezen van een server voor Azure Backup Server, kunt u beginnen met een installatiekopie van de galerie met Windows Server 2012 R2 Datacenter of Windows Server 2016 Datacenter. Het artikel [uw eerste Windows-machine maken in Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), bevat een zelfstudie voor aan de slag met de aanbevolen virtuele machine. De aanbevolen minimale vereisten voor de server-machine (VM) moeten zijn: Standard A2 met twee kernen en 3,5 GB RAM-geheugen.
+Bij het kiezen van een server voor Azure Backup Server, kunt u beginnen met een installatiekopie van de galerie met Windows Server 2012 R2 Datacenter of Windows Server 2016 Datacenter. Het artikel [uw eerste Windows-machine maken in Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), bevat een zelfstudie voor aan de slag met de aanbevolen virtuele machine. De aanbevolen minimale vereisten voor de server-machine (VM) moet zijn: Standard a2 met twee kernen en 3,5 GB RAM-geheugen.
 
 Werklasten beveiligen met Azure Backup Server heeft veel aspecten. Het artikel [DPM installeren als een virtuele machine van Azure](https://technet.microsoft.com/library/jj852163.aspx), helpt deze aspecten uitgelegd. Lees dit artikel volledig voordat het implementeren van de machine.
 
@@ -129,7 +129,7 @@ Er zijn twee manieren om te downloaden van het installatieprogramma van Azure Ba
 
     ![Recovery Services typt in het dialoogvenster voor alle services](./media/backup-mabs-install-azure-stack/all-services.png)
 
-    De lijst met Recovery Services-kluizen in het abonnement wordt weergegeven.
+    De lijst met Recovery Services-kluizen in het abonnement wordt weergeven.
 
 4. Selecteer in de lijst met Recovery Services-kluizen, uw kluis om het dashboard te openen.
 
@@ -217,7 +217,7 @@ Azure Backup Server deelt code met Data Protection Manager. Hier ziet u verwijzi
 
     ![Azure Backup Server - welkomstpagina en de vereisten controleren](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Als uw omgeving de benodigde vereisten heeft, ziet u een bericht weergegeven dat aangeeft dat de machine voldoet aan de vereisten. Klik op **Volgende**.  
+    Als uw omgeving de benodigde vereisten heeft, ziet u een bericht weergegeven dat aangeeft dat de machine voldoet aan de vereisten. Klik op **volgende**.  
 
     ![Met Azure Backup Server - vereisten controleren is voltooid](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -241,13 +241,13 @@ Azure Backup Server deelt code met Data Protection Manager. Hier ziet u verwijzi
 
 5. In de **installatie-instellingen**, Geef een locatie voor de installatie van Microsoft Azure Backup server-bestanden en klikt u op **volgende**.
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
     De nieuwe locatie is vereist voor back-up naar Azure. Zorg ervoor dat de grootte van de nieuwe locatie is gelijk aan ten minste 5% van de gegevens die zijn gepland om te worden back-ups op Azure. Voor bescherming van de schijf moeten afzonderlijke schijven worden geconfigureerd nadat de installatie is voltooid. Zie voor meer informatie over opslaggroepen [configureert u opslaggroepen en schijfopslag](https://technet.microsoft.com/library/hh758075.aspx).
 
 6. Op de **beveiligingsinstellingen** scherm, een sterk wachtwoord opgeven voor de beperkte lokale gebruikersaccounts en klikt u op **volgende**.
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-security-12.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-security-12.png)
 
 7. Op de **Opt-In voor Microsoft Update** scherm, selecteert u of u wilt gebruiken *Microsoft Update* om te controleren op updates en klikt u op **volgende**.
 
@@ -255,17 +255,17 @@ Azure Backup Server deelt code met Data Protection Manager. Hier ziet u verwijzi
    > We raden u aan Windows Update wordt omgeleid naar de Microsoft Update beveiligingsupdates en belangrijke updates voor Windows en andere producten, zoals Microsoft Azure Backup Server biedt.
    >
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
 8. Controleer de *samenvatting van instellingen* en klikt u op **installeren**.
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-summary-14.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-summary-14.png)
 
     Wanneer Azure Backup Server is voltooid installeert, wordt het installatieprogramma van de Microsoft Azure Recovery Services-agent in het installatieprogramma onmiddellijk gestart.
 
 9. De Microsoft Azure Recovery Services-Agent-installatieprogramma wordt geopend en de controles voor verbinding met Internet. Als de verbinding met Internet beschikbaar is, gaat u verder met de installatie. Als er geen verbinding, geeft u de proxygegevens verbinding maken met Internet. Nadat u de proxy-instellingen hebt opgegeven, klikt u op **volgende**.
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-proxy-15.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-proxy-15.png)
 
 10. Voor het installeren van de Microsoft Azure Recovery Services-Agent, klikt u op **installeren**.
 

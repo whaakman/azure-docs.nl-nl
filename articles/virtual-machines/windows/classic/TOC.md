@@ -1,5 +1,6 @@
 # Overzicht
-## [Informatie over virtuele machines](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [VM-extensies](agents-and-extensions-classic.md)
+## [Beschikbaarheid](configure-availability-classic.md)
 ## [Veelgestelde vragen](faq-classic.md)
 
 # Aan de slag
@@ -29,20 +30,17 @@
 ### [Onderhoud](planned-maintenance-schedule-classic.md)
 
 ## Beheren
-### [Migreren van klassiek naar Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Migreren van klassiek naar Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [Uw VM’s beheren met Azure PowerShell](manage-psh-classic.md)
 ### [Informatie over de VM-agent en -extensies](agents-and-extensions-classic.md)
 ### [VM-extensies beheren](manage-extensions-classic.md)
 
 ## Workloads beheren
-### [HPC (High Performance Computing)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### HPC (High Performance Computing)
 #### [Automatisch resources schalen](hpcpack-cluster-node-autogrowshrink.md)
 #### [Rekenknooppunten beheren](hpcpack-cluster-node-manage.md)
 #### [Een cluster maken](hpcpack-cluster-powershell-script.md)
 #### [Een cluster voor het uitvoeren van MPI-toepassingen instellen](hpcpack-rdma-cluster.md)
-#### [Excel- en SOA-workloads uitvoeren](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Het hoofdknooppunt maken met een Microsoft Azure Marketplace-installatiekopie](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Taken van on-premises naar Azure verzenden](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -57,7 +55,6 @@
 ## [Azure-CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Resource Manager-sjablonen schrijven](../../../resource-group-authoring-templates.md)
 ## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)
 ## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)

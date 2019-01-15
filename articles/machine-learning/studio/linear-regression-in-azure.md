@@ -1,27 +1,7 @@
 ---
-title: Lineaire regressie gebruiken in Machine Learning Studio - Azure | Microsoft Docs
-description: Een vergelijking van de lineaire regressiemodellen in Excel en in Azure Machine Learning Studio
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276670"
+Titel: Lineaire regressie gebruiken in Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Een vergelijking van de lineaire regressiemodellen in Excel en in Azure Machine Learning Studio-services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Lineaire regressie gebruiken in Azure Machine Learning Studio
 > *Kate Baroni* en *Ben Boatman* enterprise oplossingsarchitecten in van de Microsoft Data Insights Center Excellence zijn. In dit artikel beschreven ze hun ervaring migreren van een bestaande regressie analysis-pakket naar een cloud-gebaseerde oplossing met behulp van Azure Machine Learning. 
@@ -72,7 +52,7 @@ Op het eerste gezicht de Excel-gegevensmodel duidelijk beter dan het model voor 
 Wanneer we onze proces en de resultaten door de ontwikkelaars en gegevenswetenschappers uitgevoerd op de Machine Learning-team, opgegeven ze snel enkele nuttige tips. 
 
 * Wanneer u gebruikt de [lineaire regressie] [ linear-regression] -module in Machine Learning Studio, twee methoden worden gebruikt:
-  * Online leren met stochastische Gradiëntdaling: Mogelijk meer geschikt is voor grotere problemen
+  * Online Gradient Descent: Mogelijk meer geschikt is voor grotere problemen
   * Gewone kleinste kwadraten: Dit is de methode die de meeste personen denken als ze lineaire regressie hoort. Voor kleine gegevenssets, kan normale kleinste kwadraten een meer optimale keuze zijn.
 * Houd rekening met het aanpassen van de parameter L2 regularisatie gewicht om prestaties te verbeteren. Deze standaard is ingesteld op 0,001, maar voor ons kleine gegevensset we hebben het ingesteld op 0,005 om prestaties te verbeteren. 
 
@@ -83,7 +63,7 @@ Wanneer we de aanbevelingen hebt toegepast, bereikt we dezelfde basislijnprestat
 | --- |:---:|:---:|:---:|
 | Label waarde |Werkelijke waarden (numeriek) |Dezelfde |Dezelfde |
 | Learner |Excel-gegevens > Analysis -> regressie |Lineaire regressie. |Lineaire regressie |
-| Opties voor learner |N/A |Standaardwaarden |gewone kleinste kwadraten<br />L2 0,005 = |
+| Opties voor learner |N/A |Standaardwaarden |gewone kleinste kwadraten<br />L2 = 0.005 |
 | Gegevensset |26 rijen, 3-functies, 1 label. Alle numerieke. |Dezelfde |Dezelfde |
 | Splitsen: Trainen |Excel die zijn getraind op de eerste 18 rijen zijn getest op de laatste 8 rijen. |Dezelfde |Dezelfde |
 | Splitsen: Testen |Regressieformule toegepast op de laatste 8 rijen in Excel |Dezelfde |Dezelfde |
@@ -130,7 +110,7 @@ Als u experimenteren met regressie wilt, is een goede gegevensset om te proberen
 | Boosted-beslisboom |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | Lineaire regressie (met stochastische Gradiëntdaling) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
 | Neural Network regressie |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
-| Lineaire regressie (normale kleinste kwadraten) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
+| Linear Regression (Ordinary Least Squares) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Belangrijkste Takeaways
 We veel geleerd door van actieve Excel regressie en Azure Machine Learning-experimenten parallel. Het maken van de basislijn-model in Excel en vergelijken met modellen met behulp van Machine Learning [lineaire regressie] [ linear-regression] ertoe bijgedragen ons informatie over Azure Machine Learning en er mogelijkheden voor verbetering van de gegevens zijn gedetecteerd prestaties van de selectie en het model. 
@@ -144,7 +124,7 @@ Hier volgen enkele resources voor u werken met regressie te helpen:
 
 * Regressie in Excel. Als u nooit regressie in Excel hebt geprobeerd, met deze zelfstudie kunt eenvoudig kunnen worden gebruikt: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regressie vs prognose. Tyler Chessman geschreven een blogartikel waarin wordt uitgelegd hoe u uitvoeren op tijden reeks prognoses in Excel, die een goede beginners beschrijving van de lineaire regressie bevat. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Gewone minst kwadraten lineaire regressie: Beveiligingsfouten, problemen en valkuilen. Voor een inleiding en een beschrijving van de regressie: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Ordinary Least Squares Linear Regression: Beveiligingsfouten, problemen en valkuilen. Voor een inleiding en een beschrijving van de regressie: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

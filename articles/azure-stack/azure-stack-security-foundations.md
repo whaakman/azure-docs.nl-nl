@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727086"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306451"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure-infrastructuur stack-beveiliging
 
@@ -70,7 +71,7 @@ Elk onderdeel in Azure Stack (Hyper-V-hosts en virtuele Machines) wordt bescherm
 Antivirus-definitie en engine-updates worden meerdere keren per dag toegepast in verbonden scenario's. In niet-verbonden scenario's worden anti-malware-updates toegepast als onderdeel van de maandelijkse updates van Azure Stack. Zie voor meer informatie, [bijwerken van Windows Defender Antivirus op Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Beperkte beheermodel
-Beheer in Azure Stack wordt beheerd door het gebruik van drie toegangspunten, elk met een specifiek doel: 
+Beheer in Azure Stack wordt geregeld via drie toegangspunten, elk met een specifiek doel: 
 1. De [Beheerdersportal](azure-stack-manage-portals.md) biedt een aanwijzen en klikken voor dagelijkse beheertaken uit te voeren.
 2. Azure Resource Manager wordt aangegeven dat alle beheerbewerkingen van de Beheerdersportal via een REST-API, die worden gebruikt door PowerShell en Azure CLI. 
 3. Voor bepaalde bewerkingen op laag niveau, bijvoorbeeld data center-integratie of ondersteuning van scenario's, Azure Stack wordt aangegeven dat een PowerShell-eindpunt met de naam [bevoegde eindpunt](azure-stack-privileged-endpoint.md). Dit eindpunt wordt alleen een goedgekeurde set cmdlets en het is sterk gecontroleerd.

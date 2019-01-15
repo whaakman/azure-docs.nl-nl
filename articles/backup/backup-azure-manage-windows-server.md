@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871320"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261499"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 
@@ -67,17 +67,17 @@ Klik op de tegels (met uitzondering van opslag, back-up) om het bijbehorende men
 
 ![Back-up waarschuwingenmenu gefilterd voor kritieke waarschuwingen](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-Het menu back-up waarschuwingen in de afbeelding hierboven, wordt gefilterd op: de Status actief is, ernst is kritiek en -tijd is de afgelopen 24 uur.
+Het menu back-up waarschuwingen in de afbeelding hierboven, wordt gefilterd op: Status actief is, ernst is kritiek en -tijd is de afgelopen 24 uur.
 
 ## <a name="manage-backup-alerts"></a>Back-up waarschuwingen beheren
 
 Klik op toegang tot het menu back-up waarschuwingen in het menu Recovery Services-kluis **waarschuwingen voor back-up**.
 
-![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
+![Waarschuwingen voor back-ups](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
 Waarschuwingen voor back-up in dit rapport worden de waarschuwingen voor de kluis. 
 
-![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/backup-alerts.png)
+![Waarschuwingen voor back-ups](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
 ### <a name="alerts"></a>Waarschuwingen
 
@@ -85,15 +85,15 @@ De lijst met waarschuwingen voor back-up weergegeven de geselecteerde gegevens v
 
 | Waarschuwingsniveau | Gebeurtenissen die waarschuwingen genereren |
 | ----------- | ----------- |
-| Kritiek | U ontvangt kritieke waarschuwingen wanneer: back-up taken mislukken, mislukt de recovery-taken, en wanneer u beveiliging stoppen op een server, maar blijven de gegevens bewaard.|
-| Waarschuwing | U waarschuwing ontvangt wanneer een waarschuwing: back-uptaken voltooid met waarschuwingen, bijvoorbeeld wanneer minder dan 100 bestanden worden niet opgeslagen vanwege problemen met de beschadiging, of wanneer meer dan 1.000.000 bestanden kunnen worden opgeslagen). |
+| Kritiek | U ontvangt kritieke waarschuwingen wanneer: Back-uptaken mislukken, recovery-taken mislukken, en wanneer u beveiliging stoppen op een server, maar blijven de gegevens bewaard.|
+| Waarschuwing | U waarschuwing ontvangt wanneer een waarschuwing: Back-uptaken voltooid met waarschuwingen, bijvoorbeeld wanneer minder dan 100 bestanden worden niet opgeslagen vanwege problemen met de beschadiging, of wanneer meer dan 1.000.000 bestanden kunnen worden opgeslagen). |
 | Informatief | Er is geen informatieve waarschuwingen zijn momenteel in gebruik. |
 
 ### <a name="viewing-alert-details"></a>Waarschuwingsdetails weergeven
 
 Het rapport waarschuwingen voor back-up worden bijgehouden acht details over elke waarschuwing. Gebruik de **kolommen kiezen** om de details in het rapport bewerken.
 
-![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/backup-alerts.png)
+![Waarschuwingen voor back-ups](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
 Standaard worden alle gegevens, met uitzondering van **tijd laatste keer voorgekomen**, worden weergegeven in het rapport.
 
@@ -110,7 +110,7 @@ Standaard worden alle gegevens, met uitzondering van **tijd laatste keer voorgek
 
 1. Voor het wijzigen van de rapportgegevens in de **waarschuwingen voor back-up** menu, klikt u op **kolommen kiezen**.
 
-   ![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
+   ![Waarschuwingen voor back-ups](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
 
    De **kolommen kiezen** menu wordt geopend.
 
@@ -251,7 +251,7 @@ De dag en tijdstip waarop de query eindigt.
 
 Gebruik **taken exporteren** een werkblad met alle taken menugegevens maken. Het werkblad heeft een blad dat bevat een overzicht van alle taken en afzonderlijke werkbladen voor elke taak.
 
-Als u wilt de gegevens van taken naar een spreadsheet exporteren, klikt u op **taken exporteren**. De service maakt een speadsheet met de naam van de kluis en de datum, maar u kunt de naam wijzigen.
+Als u wilt de gegevens van taken naar een spreadsheet exporteren, klikt u op **taken exporteren**. De service maakt een werkblad met de naam van de kluis en de datum, maar u kunt de naam wijzigen.
 
 ## <a name="monitor-backup-usage"></a>Bewaak het gebruik van de back-up
 
@@ -281,9 +281,9 @@ A3. Ja. In de volgende situaties, worden geen meldingen verzonden.
 
 ## <a name="troubleshooting-monitoring-issues"></a>Het oplossen van problemen met de bewaking
 
-**Probleem:** taken en/of waarschuwingen van de Azure backup-agent worden niet weergegeven in de portal.
+**Probleem:** Taken en/of waarschuwingen van de Azure backup-agent ook niet weergegeven in de portal.
 
-**Stappen voor probleemoplossing:** het proces ```OBRecoveryServicesManagementAgent```, verzendt de taak en de waarschuwing naar de Azure Backup-service. Van tijd tot tijd dit proces kan zijn vastgelopen of afsluiten.
+**Stappen voor probleemoplossing:** Het proces ```OBRecoveryServicesManagementAgent```, verzendt de taak en de waarschuwing naar de Azure Backup-service. Van tijd tot tijd dit proces kan zijn vastgelopen of afsluiten.
 
 1. Als u wilt controleren of het proces wordt niet uitgevoerd, opent u **Taakbeheer**, en Controleer ```OBRecoveryServicesManagementAgent``` wordt uitgevoerd.
 

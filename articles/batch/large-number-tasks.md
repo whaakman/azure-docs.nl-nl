@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: a3327c2c6f9684efe0d86b0cf923886f7310e1b0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: fae5b9ee84c9352bbeb6f14b1f3a6006ce4804e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199781"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261669"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Een groot aantal taken aan een Batch-taak verzenden
 
@@ -65,7 +65,7 @@ Het kan enige tijd een groot aantal taken bijvoorbeeld toevoegen aan een job - d
 
 De volgende C#-codefragmenten weergeven-instellingen configureren bij het toevoegen van een groot aantal taken met behulp van de Batch .NET API.
 
-Voor een betere doorvoer van de taak, verhoogt u de waarde van de [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) eigenschap van de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Bijvoorbeeld:
+Voor een betere doorvoer van de taak, verhoogt u de waarde van de [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) eigenschap van de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Bijvoorbeeld:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()

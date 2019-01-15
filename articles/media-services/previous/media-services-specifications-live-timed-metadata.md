@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384680"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265887"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Getimede metagegevens signaleren in Live streamen
 
@@ -43,9 +43,9 @@ De sleutel woorden 'moet', zijn 'Mag niet', 'Vereist', "Worden", "Wordt niet", '
 | Ontvangsttijd      | De tijd die een bericht wordt ontvangen. De tijd is meestal hetzelfde als de presentatietijd van de gebeurtenis, aangezien gebeurtenisberichten vooraf de presentatie van de gebeurtenis worden verzonden.                                     |
 | Sparse bijhouden      | Media bijhouden die niet continu en is gesynchroniseerd met een bovenliggende of het besturingselement bijhouden.                                                                                                                                    |
 | Oorsprong            | De Service Azure Media streamen                                                                                                                                                                                                |
-| Kanaal-Sink      | De Azure Media Live-Streamingservice                                                                                                                                                                                           |
+| Channel Sink      | De Azure Media Live-Streamingservice                                                                                                                                                                                           |
 | HLS               | Apple HTTP Live Streaming-protocol                                                                                                                                                                                               |
-| STREEPJE              | Dynamic Adaptive Streaming via HTTP                                                                                                                                                                                             |
+| DASH              | Dynamic Adaptive Streaming via HTTP                                                                                                                                                                                             |
 | Vloeiend            | Smooth Streaming-Protocol                                                                                                                                                                                                        |
 | MPEG2-TS          | Stromen voor MPEG-2-Transport                                                                                                                                                                                                         |
 | RTMP              | Realtime Multimedia-Protocol                                                                                                                                                                                                    |
@@ -89,7 +89,7 @@ Voor eenvoudige RTMP-modus ondersteunt Media Services een enkele AMF hint-berich
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 annulering en Updates
+#### <a name="211-cancellation-and-updates"></a>2.1.1 annulering en Updates
 
 Berichten kunnen worden geannuleerd of door het verzenden van meerdere berichten met dezelfde id en presentatietijd bijgewerkt De presentatietijd en de ID unieke identificatie van de gebeurtenis en het laatste bericht ontvangen voor een specifieke presentatie die voldoet aan de implementatie van de pre-beperkingen is het bericht dat wordt gereageerd. De bijgewerkte gebeurtenis vervangt alle eerder ontvangen berichten. De implementatie van de pre-beperking is vier seconden. Berichten ontvangen van ten minste vier seconden voorafgaand aan het moment van de presentatie zal worden gereageerd.
 
@@ -106,7 +106,7 @@ De track voor sparse moet worden gedeclareerd in het Manifest van Live-Server me
 | manifestOutput     | Booleaans        | Vereist      | Moet 'true', om aan te geven dat de track voor sparse worden ingesloten in het manifest Smooth client.                                                                                                                                                               |
 | Subtype            | Reeks         | Vereist      | MOET worden de vier tekens van de code "Gegevens".                                                                                                                                                                                                                         |
 | Schema             | Reeks         | Vereist      | Moet een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten moet dit "urn: scte:scte35:2013a:bin" in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67]. |
-| TrackName          | Reeks         | Vereist      | Moet u de naam van de sparse bijhouden. De trackName kan worden gebruikt om onderscheid maken tussen meerdere gebeurtenisstreams met hetzelfde schema. Elke unieke gebeurtenisstroom moet de naam van een uniek nummer hebben.                                                                           |
+| trackName          | Reeks         | Vereist      | Moet u de naam van de sparse bijhouden. De trackName kan worden gebruikt om onderscheid maken tussen meerdere gebeurtenisstreams met hetzelfde schema. Elke unieke gebeurtenisstroom moet de naam van een uniek nummer hebben.                                                                           |
 | tijdschaal          | Aantal         | Optioneel      | Moet u de tijdschaal van de bovenliggende bijhouden.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -157,7 +157,7 @@ Het vak MediaDataBox (mdat) moet de volgende indeling hebben:
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 annulering en Updates
+### <a name="224-cancellation-and-updates"></a>2.2.4 annulering en Updates
 Berichten kunnen worden geannuleerd of door het verzenden van meerdere berichten met dezelfde id en presentatietijd bijgewerkt  De presentatietijd en de ID is een unieke identificatie van de gebeurtenis. Het laatste bericht ontvangen voor een specifieke presentatie, die voldoet aan de implementatie van de pre-beperkingen, is het bericht dat wordt gereageerd. Het bijgewerkte bericht vervangt alle eerder ontvangen berichten.  De implementatie van de pre-beperking is vier seconden. Berichten ontvangen van ten minste vier seconden voorafgaand aan het moment van de presentatie zal worden gereageerd. 
 
 
@@ -386,7 +386,7 @@ Smooth Streaming opnemen is vereist dat de Media Data Box (mdat) moet bevatten d
 
 ## <a name="5-references"></a>5-verwijzingen
 
-**[SCTE-35]**  ANSI/SCTE 35 2013a – digitale programma invoegen in wachtrij zetten... bericht voor 2013a-kabel
+**[SCTE-35]** ANSI/SCTE 35 2013a – Digital Program Insertion Cueing Message for Cable, 2013a
 
 **[SCTE-67]**  ANSI/SCTE 67 2014 – aanbevolen procedures voor SCTE 35: Programma voor digitale invoegen in wachtrij zetten... bericht voor de kabel
 
@@ -398,9 +398,9 @@ Smooth Streaming opnemen is vereist dat de Media Data Box (mdat) moet bevatten d
 
 **[AMF0]**  ["Actie bericht indeling AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[LIVE-FMP4]**  [Specificatie van azure mediaservices Live gefragmenteerde MP4-Liveopname](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
+**[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]**  ISO/IEC 14496-12: Deel 12 ISO base media bestandsindeling, vierde editie 2012-07-15.
+**[ISO-14496-12]** ISO/IEC 14496-12: Deel 12 ISO base media bestandsindeling, vierde editie 2012-07-15.
 
 **[RTMP]**  ["Adobe realtime berichtenprotocol', 21 December 2012](https://www.adobe.com/devnet/rtmp.html) 
 

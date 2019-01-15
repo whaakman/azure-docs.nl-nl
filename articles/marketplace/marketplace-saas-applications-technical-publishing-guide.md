@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074713"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261142"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden Publicatiehandleiding voor
 
@@ -29,10 +29,10 @@ SaaS-toepassingen kunnen worden gepubliceerd in de marketplace met drie verschil
 
 SaaS-toepassingen zijn beschikbaar in zowel Azure Storefronts de volgende tabel beschrijft de huidige beschikbare opties:
 
-| StoreFront optie | Aanbieding | Proefversie/Transact |  
+| StoreFront optie | Aanbieding | Trial/Transact |  
 | --- | --- | --- |  
 | AppSource | Ja (contact met mij opnemen) | Ja (Power BI/Dynamics) |
-| Azure Marketplace | Nee | Ja (SaaS-Apps) |   
+| Azure Marketplace | Nee | Yes (SaaS Apps) |   
 
 **Lijst met:**  De publicatieoptie vermelding bestaat uit een contactpersoon Me type aanbieding en wordt gebruikt wanneer de deelname van een evaluatieversie of transactieniveau op niet haalbaar is. Het voordeel van deze benadering is dat Hiermee uitgevers met een oplossing in de markt begint onmiddellijk met het ontvangen van leads die kunnen worden omgezet in deals kunnen te verhogen van uw bedrijf.  
 **Proefversie/transactie:**  De klant beschikt over de optie voor het rechtstreeks kopen of vraag een proefversie voor uw oplossing. Leveren van een proefversie, verhoogt het niveau van de engagement aangeboden aan klanten en kan klanten voor het verkennen van uw oplossing voor het kopen. Met een evaluatie-ervaring, hebt u betere kans promotie in de storefronts en u kunt verwachten meer en uitgebreidere leads van interacties met klanten. Proefversies moeten ten minste gratis ondersteuning bevatten voor de duur van de proefperiode is afgelopen.  
@@ -40,7 +40,7 @@ SaaS-toepassingen zijn beschikbaar in zowel Azure Storefronts de volgende tabel 
 | Aanbieding voor SaaS-Apps | Zakelijke vereisten | Technische vereisten |  
 | --- | --- | --- |  
 | **Contact opnemen** | Ja | Nee |  
-| **Power BI / Dynamics** | Ja | Ja (Azure AD-integratie) |  
+| **PowerBI / Dynamics** | Ja | Ja (Azure AD-integratie) |  
 | **SaaS-apps**| Ja | Ja (Azure AD-integratie) |     
 
 ## <a name="saas-list"></a>Lijst met SaaS
@@ -54,7 +54,7 @@ U hoeft niet te configureren van Azure Active Directory om een SaaS-toepassing.
 |Uw app is een SaaS-aanbieding  |   Uw oplossing is een SaaS-aanbieding en bieden van een multitenant SaaS-product.      |
 
 
-## <a name="saas-trial"></a>SaaS-proef
+## <a name="saas-trial"></a>SaaS Trial
 
 U beschikt over een oplossing of de app met behulp van een gratis-naar-gebruik, software-as-a-service (SaaS)-op basis van de proefversie. Gratis proefversie aanbiedingen kunnen worden aangeboden als een proefaccount voor beperkt gebruik of beperkte duur. 
 

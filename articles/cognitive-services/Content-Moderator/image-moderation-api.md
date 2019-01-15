@@ -1,23 +1,23 @@
 ---
 title: Afbeelding van beheer - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Beheer van afbeeldingen op ongepaste afbeeldingen normaal gebruiken
+description: Gebruik de Content Moderator geautomatiseerd beheer van afbeeldingen en human-in-the-loop beoordelingsprogramma tot matige installatiekopieën voor erotische en ongepaste inhoud.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 952777af0a233f0233f14c749fe0ebfdeaa8344a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852704"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262928"
 ---
-# <a name="image-moderation"></a>Beheer van afbeeldingen
+# <a name="learn-image-moderation-concepts"></a>Kennis met de installatiekopie afbeeldingstoezicht-concepten
 
 Gebruik de Content Moderator geautomatiseerd beheer van afbeeldingen en [human-in-the-loop beoordelingsprogramma](Review-Tool-User-Guide/human-in-the-loop.md) tot gemiddelde van installatiekopieën voor erotische en ongepaste inhoud. Scan afbeeldingen voor tekstinhoud en Detecteer gezichten die tekst extraheren. U kunt installatiekopieën met aangepaste lijsten overeenkomen en verdere actie te ondernemen.
 

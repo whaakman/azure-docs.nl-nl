@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 2e3cec4564c509cd225a9bcd43185f6f5b344e8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 473fb95de5da4a14c81d0fa3a5aafa33302d9ab2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833449"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258676"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Inrichten van virtuele machine disk-opslag in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Dit artikel wordt beschreven hoe u om in te richten schijfopslag voor virtuele machine met behulp van de Azure Stack-portal of met behulp van PowerShell.
 
@@ -70,7 +70,7 @@ Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container wo
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>De portal gebruiken om te maken en een nieuwe gegevensschijf koppelen
 
 1.  Kies in de portal **virtuele machines**.    
-    ![Voorbeeld:-Dashboard voor VM 's](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+    ![Voorbeeld: Dashboard voor VM 's](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Selecteer een virtuele machine die eerder zijn ingericht.   
     ![Voorbeeld: Selecteer een virtuele machine in het dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
@@ -88,7 +88,7 @@ Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container wo
     ![Voorbeeld: Volledige schijf bijlage](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Nadat Azure Stack de schijf wordt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen van de schijven van de virtuele machine onder **GEGEVENSSCHIJVEN**.   
-    ![Voorbeeld: Weergave-schijf](media/azure-stack-manage-vm-disks/view-data-disk.png)
+    ![Voorbeeld: Schijf weergeven](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Een bestaande gegevensschijf koppelen aan een virtuele machine
@@ -117,7 +117,7 @@ Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container wo
   ![Voorbeeld: Koppel het VHD-bestand](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Nadat Azure Stack de schijf wordt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen van de schijven van de virtuele machine onder **gegevensschijven**.   
-  ![Voorbeeld: Voer de schijf koppelen](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
+  ![Voorbeeld: Voltooid de schijf koppelen](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>PowerShell gebruiken voor meerdere niet-beheerde schijven toevoegen aan een virtuele machine
@@ -129,45 +129,45 @@ De **Add-azurermvmdatadisk en** cmdlet een gegevensschijf aan een virtuele machi
 De volgende voorbeelden PowerShell-opdrachten gebruiken om te maken van een virtuele machine met de drie gegevensschijven, elk in een andere container geplaatst.
 
 De eerste opdracht wordt een object van de virtuele machine gemaakt en wordt vervolgens opgeslagen in de *$VirtualMachine* variabele. De opdracht wordt een naam en de grootte van toegewezen aan de virtuele machine.
-  ```
+  ```powershell
   $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
   ```
 
 De volgende drie opdrachten toewijzen paden van drie gegevensschijven die aan de *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03* variabelen. Definieer de naam van een ander pad in de URL voor het distribueren van de schijven naar verschillende containers.     
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 De laatste drie opdrachten gegevensschijven toegevoegd aan de virtuele machine die zijn opgeslagen in *$VirtualMachine*. Elke opdracht geeft u de naam, locatie en de aanvullende eigenschappen van de schijf. De URI van elke schijf wordt opgeslagen in *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03*.
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                   -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                   -VhdUri $DataDiskVhdUri01 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                  -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                  -VhdUri $DataDiskVhdUri02 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                   -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                   -VhdUri $DataDiskVhdUri03 -CreateOption Empty
   ```
 
 Gebruik de volgende PowerShell-opdrachten om toe te voegen van de schijf- en configuratie van het besturingssysteem op de virtuele machine en start vervolgens de nieuwe virtuele machine.
-  ```
+  ```powershell
   #set variables
   $rgName = "myResourceGroup"
   $location = "local"
@@ -192,7 +192,7 @@ Gebruik de volgende PowerShell-opdrachten om toe te voegen van de schijf- en con
   $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
       -AllocationMethod Dynamic
 
-  # Create a network security group cnfiguration
+  # Create a network security group configuration
   $nsgName = "myNsg"
   $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
       -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
@@ -218,34 +218,34 @@ Gebruik de volgende PowerShell-opdrachten om toe te voegen van de schijf- en con
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>Gegevensschijven toevoegen aan een bestaande virtuele machine
 PowerShell-opdrachten in de volgende voorbeelden gebruiken drie gegevensschijven toevoegen aan een bestaande virtuele machine.
 De eerste opdracht wordt de virtuele machine met de naam VirtualMachine met behulp van de **Get-AzureRmVM** cmdlet. De opdracht slaat de virtuele machine in de *$VirtualMachine* variabele.
-  ```
+  ```powershell
   $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                   -Name "VirtualMachine"
   ```
 De volgende drie opdrachten toewijzen paden van de drie gegevensschijven aan de variabelen $DataDiskVhdUri01 $DataDiskVhdUri02 en $DataDiskVhdUri03.  De namen van ander pad in de vhduri geven aan verschillende containers voor de plaatsing van de schijf.
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 
   De volgende drie opdrachten de gegevensschijven toegevoegd aan de virtuele machine die zijn opgeslagen in de *$VirtualMachine* variabele. Elke opdracht geeft u de naam, locatie en de aanvullende eigenschappen van de schijf. De URI van elke schijf wordt opgeslagen in *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03*.
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
                         -VhdUri $DataDiskVhdUri01 -LUN 0 `
                         -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk2" `
                         -VhdUri $DataDiskVhdUri02 -LUN 1 `
                         -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                         -VhdUri $DataDiskVhdUri03 -LUN 2 `
                         -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
@@ -253,7 +253,7 @@ De volgende drie opdrachten toewijzen paden van de drie gegevensschijven aan de 
 
 
   De laatste opdracht werkt de status van de virtuele machine die zijn opgeslagen in *$VirtualMachine* in -*ResourceGroupName*.
-  ```
+  ```powershell
   Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
   ```
 <!-- Pending scripts  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a4f9147008ceb0de32e0f5879a194b45bd4c6421
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 251caa840446e75ff13d9b4dcebcbae3a36473c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245392"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265444"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Importbeperkingen voor API- en bekende problemen
 ## <a name="about-this-list"></a>Over deze lijst
@@ -35,7 +35,7 @@ Als u fouten importeren van uw OpenAPI-document ontvangt, zorg er dan voor dat u
 * **$ref** aanwijzers kunnen niet verwijzen naar externe bestanden.
 * **x-ms-paden** en **x-servers** zijn de enige ondersteunde extensies.
 * Aangepaste extensies worden niet worden genegeerd tijdens het importeren en opgeslagen of bewaard totdat de export.
-* **Recursie** -definities gedefinieerd recursief (bijvoorbeeld verwijzen naar zichzelf) biedt geen ondersteuning voor API Management.
+* **Recursie** -definities gedefinieerd recursief (bijvoorbeeld schema's die verwijzen naar zichzelf) biedt geen ondersteuning voor API Management.
 * Bestand bron-URL (indien beschikbaar) wordt toegepast op de relatieve URL's.
 
 ### <a name="open-api-v2"> </a>OpenAPI versie 2

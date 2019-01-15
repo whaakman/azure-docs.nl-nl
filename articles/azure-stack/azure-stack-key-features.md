@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: d4c5def3cc61c1920ae99d5aa9f97b46cbda0045
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244491"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303581"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Belangrijke functies en concepten in Azure Stack
 Als u geen ervaring met Microsoft Azure Stack, kunnen deze voorwaarden en beschrijvingen van functies in kwestie nuttig zijn.
@@ -129,23 +129,13 @@ Azure Queue Storage biedt uitwisseling van berichten tussen toepassingsonderdele
 De KeyVault RP biedt beheer en controle van geheimen zoals wachtwoorden en certificaten. Als u bijvoorbeeld kunt een tenant de RP KeyVault gebruiken voor beheerderswachtwoorden of sleutels tijdens de implementatie van de virtuele machine.
 
 ## <a name="high-availability-for-azure-stack"></a>Hoge beschikbaarheid voor Azure Stack
-*Van toepassing op: Azure Stack 1802 of hogere versies*
+Voor het bereiken van hoge beschikbaarheid van een systeem van de productie multi-VM in Azure, virtuele machines worden geplaatst een [beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) die ze verspreidt over meerdere foutdomeinen en updatedomeinen. Een foutdomein in een beschikbaarheidsset is in de kleinere schaal van Azure Stack gedefinieerd als een enkel knooppunt in de schaaleenheid.  
 
-Virtuele machines worden voor het bereiken van hoge beschikbaarheid van een systeem van de productie multi-VM in Azure, geplaatst in een beschikbaarheidsset die zich ze in verschillende foutdomeinen en updatedomeinen verspreidt. Op deze manier [virtuele machines die worden geïmplementeerd in beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) zijn fysiek geïsoleerd van elkaar op afzonderlijke server rekken om toe te staan voor fout tolerantie, zoals wordt weergegeven in het volgende diagram:
-
-  ![Hoge beschikbaarheid voor Azure Stack](media/azure-stack-key-features/high-availability.png)
-
-### <a name="availability-sets-in-azure-stack"></a>Beschikbaarheidssets in Azure Stack
 Terwijl de infrastructuur van Azure Stack al tegen uitvallen is, de onderliggende technologie (Failoverclustering) nog steeds leidt tot enige uitvaltijd voor virtuele machines op een betrokken fysieke server als er een hardwarestoring optreedt. Azure Stack biedt ondersteuning voor met een beschikbaarheidsset met een maximum van drie foutdomeinen zodat deze overeenkomt met Azure.
 
 - **Foutdomeinen**. Virtuele machines in een beschikbaarheidsset geplaatst worden fysiek van elkaar geïsoleerd door ze zo gelijkmatig mogelijk te spreiden over meerdere foutdomeinen (Azure Stack-knooppunten). Als er een hardwarestoring optreedt, wordt virtuele machines van de mislukte foutdomein opnieuw opgestart in andere domeinen met fouten, maar, indien mogelijk wordt gehouden in afzonderlijke foutdomeinen van de andere virtuele machines in dezelfde beschikbaarheidsset. Wanneer de hardware weer online komt, worden virtuele machines worden uitgevoerd voor het onderhouden van hoge beschikbaarheid. 
  
 - **Updatedomeinen**. Update-domeinen zijn een andere Azure concept, dat zorgt voor hoge beschikbaarheid in beschikbaarheidssets. Een updatedomein is een logische groep onderliggende hardware die onderhoud kan ondergaan op hetzelfde moment. Virtuele machines die zich in hetzelfde updatedomein wordt opnieuw gestart samen tijdens gepland onderhoud. Als tenants virtuele machines in een beschikbaarheidsset maakt, het Azure-platform verdeelt virtuele machines automatisch tussen deze updatedomeinen. In Azure Stack zijn virtuele machines live op andere online hosts in het cluster wordt gemigreerd voordat de hun onderliggende host is bijgewerkt. Omdat er geen tenant-downtime tijdens het bijwerken van een host is, wordt de updatefunctie-domein in Azure Stack alleen bestaat voor de sjabloon voor compatibiliteit met Azure. 
-
-### <a name="upgrade-scenarios"></a>Upgradescenario 's 
-Virtuele machines in beschikbaarheidssets die zijn gemaakt voordat Azure Stack-versie 1802 krijgt een aantal fout- en updatedomeinen (1 en 1 respectievelijk). Voor het bereiken van hoge beschikbaarheid voor virtuele machines in deze vooraf bestaande beschikbaarheidssets, moet u eerst de bestaande VM's te verwijderen en deze vervolgens opnieuw te implementeren in een nieuwe beschikbaarheidsset met de juiste fout- en domein aantallen zoals beschreven in [wijzigen de beschikbaarheidsset voor een Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-Voor virtuele-machineschaalsets, een beschikbaarheidsset maakt intern met een standaardaantal foutdomeinen van het domein en de update (3 en 5 respectievelijk). Een virtuele machine-schaalsets die zijn gemaakt voordat de update 1802 worden geplaatst in een beschikbaarheidsset met de fout- en standaarddomein telt (1 en 1 respectievelijk). Voor het bijwerken van deze virtuele machine schaalsetinstanties voor het bereiken van de nieuwere verspreiding, de virtuele-machineschaalsets uitschalen door het aantal exemplaren die vóór de update 1802 aanwezig waren en verwijder vervolgens de oudere exemplaren van de virtuele-machineschaalsets. 
 
 ## <a name="role-based-access-control-rbac"></a>Op rollen gebaseerd toegangsbeheer (RBAC)
 U kunt RBAC systeemtoegang verlenen tot gemachtigde gebruikers, groepen en services door het toewijzen van rollen bij een abonnement, resourcegroep of afzonderlijke resourceniveau gebruiken. Elke rol definieert het toegangsniveau dat een gebruiker, groep of service voor Microsoft Azure Stack-resources heeft.

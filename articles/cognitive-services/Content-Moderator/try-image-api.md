@@ -1,28 +1,28 @@
 ---
 title: 'Gemiddeld installatiekopieën met de API-Console: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Maak een proefrit met beheer van afbeeldingen in de Content Moderator-API-console.
+description: De afbeeldingen-API voor beheer in Azure Content Moderator gebruiken om te scannen en revisie toezicht werkstromen voor de inhoud van initiëren.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: a88eb1e0fc91fb47a95c8b1fea84cfac32674266
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 154a7cd4855429bfe3274974a0f4ae5c8be841f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224952"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265937"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Gemiddeld installatiekopieën uit de API-console
 
 Gebruik de [afbeeldingen-API voor beheer van](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator om te scannen en revisie toezicht werkstromen voor de inhoud van initiëren. De beheer-taak scant uw taalgebruik en vergelijkt die met de aangepaste en gedeelde zwarte lijsten.
 
 ## <a name="use-the-api-console"></a>De API-console gebruiken
-Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie voor meer informatie, [overzicht](overview.md).
+Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie [Overzicht](overview.md) voor meer informatie.
 
 1.  Ga naar [installatiekopie Afbeeldingstoezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
@@ -54,7 +54,7 @@ Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleu
 
   ![Probeer de installatiekopie - console kans score evalueren en bepaling van voorwaarde](images/try-image-api-3.PNG)
 
-## <a name="face-detection"></a>Gezichtsherkenning
+## <a name="face-detection"></a>Gezichtsdetectie
 
 De Afbeeldingstoezicht-API kunt u gezichten zoeken in een afbeelding. Deze optie kan nuttig zijn wanneer u vragen over privacy leiden hebt en wilt voorkomen dat een bepaald gezicht wordt geplaatst op uw platform. 
 

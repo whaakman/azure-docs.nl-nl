@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 5b90ebc554738c89816cf88f8984ffab01c87d4d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 398a33e3f2f16cd694e77224dbd26324fe332fa1
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451310"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306400"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Hulpprogramma's voor Azure Stack downloaden vanuit GitHub
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 **AzureStack-hulpprogramma's** is een [GitHub-opslagplaats](https://github.com/Azure/AzureStack-Tools) die als host fungeert voor PowerShell-modules voor het beheren en implementeren van resources met Azure Stack. Als u van plan bent om VPN-verbinding te maken, kunt u deze PowerShell-modules downloaden op de Azure Stack Development Kit, of op een externe Windows-client. U kunt deze hulpprogramma's, de GitHub-opslagplaats klonen of downloaden de **AzureStack-hulpprogramma's** map het volgende script uit te voeren:
 
@@ -51,7 +51,7 @@ cd AzureStack-Tools-master
 
 De **AzureStack-hulpprogramma's** opslagplaats bevat een PowerShell-modules die ondersteuning bieden voor de volgende functies voor Azure Stack:  
 
-| Functionaliteit | Beschrijving | Wie kan deze module gebruiken? |
+| Functionaliteit | Description | Wie kan deze module gebruiken? |
 | --- | --- | --- |
 | [Mogelijkheden van de cloud](user/azure-stack-validate-templates.md) | Gebruik deze module om op te halen van de mogelijkheden van de cloud van een cloud. Bijvoorbeeld, met behulp van deze module, krijgt u de mogelijkheden van de cloud, zoals API-versie en Azure Resource Manager-resources. U kunt ook de VM-extensies voor Azure Stack en Azure-clouds ophalen met behulp van deze module. | Cloudoperators en gebruikers |
 | [Resource Manager-beleid voor Azure Stack](user/azure-stack-policy-module.md) | Gebruik deze module voor het configureren van een Azure-abonnement of een Azure-resourcegroep met de dezelfde versiebeheer en service-beschikbaarheid als Azure Stack. | Cloudoperators en gebruikers |

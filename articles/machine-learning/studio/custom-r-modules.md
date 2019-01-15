@@ -1,26 +1,7 @@
 ---
-title: Aangepaste R-modules - Azure Machine Learning Studio definieert | Microsoft Docs
-description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 11/29/2017
-ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277927"
+Titel: Definieer aangepaste R-modules titleSuffix: Azure Machine Learning Studio description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Aangepaste R-modules voor Azure Machine Learning Studio definieert
 
@@ -158,7 +139,7 @@ Ingangspoorten kunnen u gegevens doorgeven aan uw R-functie en de werkruimte. De
 De **id** die zijn gekoppeld aan elk kenmerk **DataTable** invoerpoort moet een unieke waarde hebben en deze waarde moet overeenkomen met de bijbehorende parameter in de R-functie met de naam.
 Optionele **DataTable** poorten die niet worden doorgegeven als invoer in een experiment hebben de waarde **NULL** doorgegeven aan de R-functie en de optionele zip poorten worden genegeerd als de invoer niet is verbonden. De **isOptional** kenmerk is optioneel voor zowel de **DataTable** en **Zip** van het type en is *false* standaard.
 
-**Postcode:** Aangepaste modules kunnen u een zip-bestand accepteren als invoer. Deze invoer is uitgepakt in de R-werkmap van uw functie
+**Zip:** Aangepaste modules kunnen u een zip-bestand accepteren als invoer. Deze invoer is uitgepakt in de R-werkmap van uw functie
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>

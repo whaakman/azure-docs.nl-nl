@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cfcb33f9586033db9f4197a341227365d43601cc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 0a18bcf9f9e1217b674bda5f5ae698908f1911a8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232716"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262911"
 ---
 # <a name="publish-azure-application-offer"></a>Aanbieding voor Azure-toepassing publiceren
 
@@ -35,8 +35,8 @@ De volgende tabel geeft een lijst van en beschrijft elke stap publiceren en bied
 
 |  **Publiceren stap**           | **tijd**    | **Beschrijving**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Valideer de vereisten         | < 15 minuten    | Biedt informatie en bieden instellingen worden gevalideerd.                        |
-| Beïnvloed omzet instellingen valideren | < 15 minuten  |      |
+| Valideer de vereisten         | < 15 min    | Biedt informatie en bieden instellingen worden gevalideerd.                        |
+| Beïnvloed omzet instellingen valideren | < 15 min  |      |
 | Certificering                  | < 1 dag     | Aanbieding wordt geanalyseerd door het Team van Azure-certificering. De aanbieding is gescand op virussen, malware, veiligheid, compatibiliteit en beveiligingsproblemen met zich mee. De aanbieding wordt gecontroleerd om te zien dat het voldoet aan alle criteria in de in aanmerking te komen. Zie voor meer informatie, [vereisten](./cpp-prerequisites.md). Feedback wordt gegeven als er een probleem is gevonden. |
 | Test Drive niet valideren          | < 2 uur   | (Optioneel) Als een Test Drive aanwezig is, wordt Microsoft valideert dat kan worden gedistribueerd en gerepliceerd.  |
 | Pakketten en lead generatie registratie | < 1 uur  | Technische activa van de aanbieding zijn verpakt voor gebruik door de klant en de lead-systemen worden geconfigureerd en geïmplementeerd. |
@@ -70,7 +70,7 @@ Als u wilt weergeven van de VSTS-items waarnaar wordt verwezen in lees feedback,
 1. De volgende informatie verzamelen:
     - De naam van de uitgever en -ID
     - Aanbiedingstype (Azure-app), bieden een naam en SKU-ID
-    - De pull-aanvraag koppelen, bijvoorbeeld `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/jfrog/pullrequest/<number>`.  Deze URL kan worden opgehaald uit de melding of het adres van de pagina 401-respons.
+    - De pull-aanvraag koppelen, bijvoorbeeld: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  Deze URL kan worden opgehaald uit de melding of het adres van de pagina 401-respons.
     - De e-mailadressen van personen van de uitgever die u toegang verleend wilt aan.  Hierbij moet de eigenaar van adressen die u hebt opgegeven bij het registreren als een publisher op de Cloud Partner-Portal.
 2. Maak een ondersteuningsincident.  Selecteer in de titelbalk van de Cloud Partner-Portal, de **Help** knop, en kies vervolgens **ondersteuning** in het menu.  U standaard web browser moet starten en navigeer naar de Microsoft nieuwe incidenten ondersteuningspagina.  (U hebt mogelijk eerst aanmelden.)
 3. Geef de **probleemtype** als **marketplace onboarding** en **categorie** als **probleem met toegang tot**en selecteer vervolgens **starten aanvraag**.
@@ -78,7 +78,7 @@ Als u wilt weergeven van de VSTS-items waarnaar wordt verwezen in lees feedback,
     ![Ondersteuning voor ticket categorie](./media/support-incident1.png)
 
 4. In **stap 1 van 2** pagina, Geef uw contactgegevens en selecteer **doorgaan**.
-5. In **stap 2 van 2** pagina, geeft u de titel van een incident en geef de gegevens die u hebt verzameld in de eerste stap (hierboven).  Lees en accepteer de overeenkomst, en selecteer vervolgens **indienen**.
+5. In **stap 2 van 2** pagina, de titel van een incident opgeven (bijvoorbeeld `Request VSTS access`) en geef de gegevens die u hebt verzameld in de eerste stap (hierboven).  Lees en accepteer de overeenkomst, en selecteer vervolgens **indienen**.
 
 Als het incident maken voltooid is, wordt een bevestigingspagina weergegeven.  De Bevestigingsgegevens ter referentie niet opslaan.  Microsoft-ondersteuning moet binnen een paar dagen antwoord op uw aanvraag voor toegang.
 

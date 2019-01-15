@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: b5d931225edce92590b9c2b7f28ad39630362e6d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2afdd3f78a99d9aae5e84bc2fdf1b21cbdc150d2
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213821"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306383"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -79,6 +79,14 @@ Een groep voor synchronisatie heeft de volgende eigenschappen:
 -   **Het oplossen van conflicten:** Data Sync biedt twee opties voor conflictoplossing, *Hub wins* of *lid wins*.
     -   Als u selecteert *Hub wins*, wijzigingen in het lid altijd worden overschreven door de wijzigingen in de hub.
     -   Als u selecteert *lid wins*, de wijzigingen in de wijzigingen overschrijven in de hub. Als er meer dan één lid, afhankelijk van de uiteindelijke waarde waarvoor de eerst synchroniseert.
+
+## <a name="compare-data-sync-with-transactional-replication"></a>Gegevens synchroniseren met transactionele replicatie vergelijken
+
+| | Gegevens synchroniseren | Transactionele replicatie |
+|---|---|---|
+| Voordelen | -Actief / actief-ondersteuning<br/>Bi-directioneel tussen on-premises en Azure SQL Database | -Lagere latentie<br/>-Transactionele consistentie<br/>-Bestaande topologie gebruiken na de migratie |
+| Nadelen | -5 min of meer latentie<br/>-Geen transactionele consistentie<br/>-Hogere invloed op de prestaties | -Uit Azure SQL Database single database publiceren niet<br/>-Hoge onderhoudskosten |
+| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Aan de slag met SQL Data Sync
 

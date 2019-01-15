@@ -1,27 +1,8 @@
 ---
-title: Vraag een vraaggegevens kunt beantwoorden - Azure Machine Learning Studio | Microsoft Docs
-description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor Beginners video 3 formuleren. Bevat een vergelijking van classificatie- en regressiemodellen vragen.
-keywords: problemen met Data science, data science vragen, formuleren vragen, regressie vragen, vragen over classificatie, sharp vraag
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cjgronlund
-ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2018
-ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250974"
+Titel: Vraag dat een vraaggegevens titleSuffix kunt beantwoorden: Azure Machine Learning Studio description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor Beginners video 3 formuleren. Bevat een vergelijking van classificatie- en regressiemodellen vragen.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 01/03/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Stel een vraag die u met gegevens kunt beantwoorden
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Gegevenswetenschap voor Beginners-serie
@@ -85,7 +66,7 @@ Als u wilt zien hoe we deze kunnen transformeren, bekijk de vraag 'welke boodsch
 
 Maar deze vraag is mogelijk beter te beantwoorden als u deze als de tekst 'hoe interessante is elk artikel op deze lijst voor deze lezer?' Nu krijgt elk artikel een numerieke score en is het eenvoudig om te identificeren van het hoogst scorende artikel. Dit is een formuleren van de classificatie-vraag in een regressie vraag of hoeveel?
 
-![Reformulate uw vraag. Classificatie vraag versus regressie vraag.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
+![Reformulate uw vraag. Classification question vs. regression question.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 Hoe u een vraag is een aanwijzing naar welke algoritme vragen kunnen worden beantwoord.
 

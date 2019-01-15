@@ -1,6 +1,6 @@
 ---
 title: Een Azure Stack back-up met behulp van de ASDK valideren | Microsoft Docs
-description: Klik hier voor meer informatie over het valideren van een Azure Stack integerated systemen back-up met behulp van de ASDK.
+description: Klik hier voor meer informatie over het valideren van een Azure Stack geïntegreerde systemen back-up met behulp van de ASDK.
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12d5c2448bc6a5241f6aa4e283acdf9c5a0f602a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961422"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265648"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>De ASDK gebruiken om te valideren van een back-up van Azure Stack
 Na het implementeren van Azure Stack en de inrichting van Gebruikersresources, zoals aanbiedingen, plannen, quota en abonnementen, moet u [back-up van Azure Stack-infrastructuur inschakelen](../azure-stack-backup-enable-backup-console.md). Plannen en uitvoeren van back-ups regelmatig infrastructuur zorgt ervoor dat infrastructuur voor beheergegevens is niet verloren gaan als er een catastrofale hardware- of -fout-service.
 
 > [!TIP]
-> We raden u [uitvoeren van een on-demand back-up](../azure-stack-backup-back-up-azure-stack.md) voordat u begint met deze procedure om te controleren of u hebt een kopie van de meest recente infrastrcuture gegevens beschikbaar. Zorg ervoor dat u het vastleggen van de back-up-ID nadat de back-up is voltooid. Deze ID is vereist tijdens het cloudherstel. 
+> We raden u [uitvoeren van een on-demand back-up](../azure-stack-backup-back-up-azure-stack.md) voordat u begint met deze procedure om te controleren of u hebt een kopie van de meest recente beschikbare infrastructuur-gegevens. Zorg ervoor dat u het vastleggen van de back-up-ID nadat de back-up is voltooid. Deze ID is vereist tijdens het cloudherstel. 
 
 Back-ups van Azure Stack-infrastructuur bevatten belangrijke gegevens over uw cloud dat kan worden hersteld tijdens het opnieuw implementeren van Azure Stack. U kunt de ASDK gebruiken voor het valideren van deze back-ups zonder enige impact op uw productie-cloud. 
 
@@ -49,7 +49,7 @@ Infrastructuur voor back-ups van uw implementatie geïntegreerde systemen kunnen
 ### <a name="cloud-recovery-prerequisites"></a>Vereisten voor cloud-herstel
 Voordat u begint met een cloudimplementatie voor herstel van de ASDK, zorg ervoor dat u de volgende informatie hebt:
 
-|Vereiste|Beschrijving|
+|Vereiste|Description|
 |-----|-----|
 |Pad van de back-upshare.|Het UNC-sharepad van de meest recente Azure Stack back-up die wordt gebruikt voor het herstellen van informatie over de Azure Stack-infrastructuur. Deze lokale share wordt gemaakt tijdens het implementatieproces voor cloud-herstel.|
 |Back-up van versleutelingssleutel.|De versleutelingssleutel die is gebruikt voor het plannen van de infrastructuur voor back-up wilt uitvoeren met behulp van de Azure Stack-beheerportal.|

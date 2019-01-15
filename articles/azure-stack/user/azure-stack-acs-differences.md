@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 947886a96ab31150cf81ebea0a3cdd69e0273b01
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717868"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305750"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: Verschillen en overwegingen
 
@@ -71,7 +72,7 @@ Azure Storage service-API's:
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [07-2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 update 1802 1809 update:
@@ -79,7 +80,7 @@ update 1802 1809 update:
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
-- [07-2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Vorige versies:
@@ -110,7 +111,7 @@ Azure Stack-storage ondersteunt de volgende clientbibliotheken:
 | C++            | Van 2.4.0 naar 3.1.0           | NuGet-pakket:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Verbindingsinstellingen voor tekenreeks      |
 | PHP            | Van 0.15.0 naar 1.0.0          | Release van GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Via Composer installeren (Zie hieronder voor meer informatie)                                                                                                                                                                                                                  | Verbindingsinstellingen voor tekenreeks      |
 | Python         | Van 0.30.0 naar 1.0.0          | Release van GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | De declaratie van de service-exemplaar |
-| Ruby           | Van 0.12.1 naar 1.0.1          | Pakket van RubyGems:<br>Algemene:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Wachtrij: https://rubygems.org/gems/azure-storage-queue/<br>Tabel: https://rubygems.org/gems/azure-storage-table/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Verbindingsinstellingen voor tekenreeks      |
+| Ruby           | Van 0.12.1 naar 1.0.1          | Pakket van RubyGems:<br>Algemene:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Wachtrij: https://rubygems.org/gems/azure-storage-queue/<br>Tabel: https://rubygems.org/gems/azure-storage-table/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Verbindingsinstellingen voor tekenreeks      |
 
 ## <a name="next-steps"></a>Volgende stappen
 

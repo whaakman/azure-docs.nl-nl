@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 94769ea0ff05565ee11f7c167e28f239ca304d3d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213736"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264407"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van logboek- en metrische gegevens die zijn opgeslagen in Azure Monitor.
@@ -35,7 +35,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 - Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics-query's](../azure-monitor/log-query/log-query-overview.md), en [toegewezen](../azure-monitor/app/app-map.md) en beschikbaarheid in Application Insights.
 - De optie voor persoonlijke of gedeelde dashboards. Geïntegreerd met Azure [verificatie op basis van rollen (RBAC)](../role-based-access-control/overview.md).
 - Automatische vernieuwing. Metrische gegevens over Gegevensvernieuwing is afhankelijk van tijdsbereik met ten minste vijf minuten. Logboeken vernieuwen op één minuut.
-- Constructorreeks mag metrische gegevens over dashboards met tijdstempel en aangepaste parameters.
+- Metrische gegevens over dashboards met tijdstempel en aangepaste parameters als parameters gebruikt.
 - Opties voor flexibele lay-out.
 - Modus volledig scherm.
 

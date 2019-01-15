@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 98b1072dc560de79e40fc4f802203459633dda28
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6ce99e70d57fd8d29b0f5cb2bd1084accfc4757
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440938"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262962"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS-servicelaag (preview) wordt buiten gebruik gesteld - opties voor migratie
 
@@ -27,7 +27,7 @@ Hier volgen de migratie bestemmingen en prijsopties kiezen die geschikt zijn voo
 
 - vCore-servicelaag
 
-  De **algemeen** en **bedrijfskritiek** Servicelagen in de [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Deze twee Servicelagen zijn in algemene beschikbaarheid. Het vCore-aanschafmodel biedt ook de **grootschalige** servicelaag (in openbare preview) die u kunt on-demand om uw werkbelasting met automatisch schalen tot 100 TB per database aanpassen. De servicelaag grootschalige biedt i/o-prestaties die vergelijkbaar is met de Premium-servicelaag in de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) tegen een prijs dichter bij de servicelaag Premium RS.
+  De **algemeen** en **bedrijfskritiek** Servicelagen in de [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Deze twee Servicelagen zijn algemeen beschikbaar. Het vCore-aanschafmodel biedt ook de **grootschalige** servicelaag (in openbare preview) die u kunt on-demand om uw werkbelasting met automatisch schalen tot 100 TB per database aanpassen. De servicelaag grootschalige biedt i/o-prestaties die vergelijkbaar is met de Premium-servicelaag in de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) tegen een prijs dichter bij de servicelaag Premium RS.
 - Prijsopties voor Dev/Test
 
   [Prijsopties voor ontwikkelen/testen](https://azure.microsoft.com/pricing/dev-test/) zorgt voor besparingen tot 55% ten opzichte van de tarieven inclusief licenties aan uw Visual Studio-abonnement.

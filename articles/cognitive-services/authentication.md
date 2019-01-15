@@ -7,14 +7,14 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726287"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305448"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Verifiëren van aanvragen voor Azure Cognitive Services
 
@@ -35,7 +35,7 @@ Laten we snel bekijken de verificatieheaders die beschikbaar zijn voor gebruik m
 | Header | Description |
 |--------|-------------|
 | OCP-Apim-Subscription-Key | Deze header gebruiken om te verifiëren met een abonnementssleutel voor een bepaalde service of een abonnementssleutel met meerdere service. |
-| OCP-Apim-abonnement-regio | Deze header is alleen vereist als u een abonnementssleutel met meerdere service-met de [Translator Text-API](./Translator/reference/v3-0-reference.md). Gebruik deze header de regio van het abonnement op te geven. |
+| Ocp-Apim-Subscription-Region | Deze header is alleen vereist als u een abonnementssleutel met meerdere service-met de [Translator Text-API](./Translator/reference/v3-0-reference.md). Gebruik deze header de regio van het abonnement op te geven. |
 | Autorisatie | Gebruik deze header als u een verificatietoken. De stappen voor het uitvoeren van een token exchange worden beschreven in de volgende secties. De opgegeven waarde volgende indeling: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Verifiëren met een enkele service-abonnementssleutel
@@ -58,6 +58,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+De volgende video ziet u een Cognitive Services-sleutel gebruikt. 
+
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Verifiëren met een abonnementssleutel met meerdere service
 
 >[!WARNING]
@@ -66,6 +68,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Deze optie gebruikt ook een abonnementssleutel om aanvragen te verifiëren. Het belangrijkste verschil is dat de abonnementssleutel van een is niet gekoppeld aan een bepaalde service, in plaats daarvan één sleutel kan worden gebruikt voor het verifiëren van aanvragen voor meerdere Cognitive Services. Zie [prijzen voor Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) voor informatie over regionale beschikbaarheid, ondersteunde functies en prijzen.
 
 De abonnementssleutel is opgegeven in elke aanvraag als de `Ocp-Apim-Subscription-Key` header.
+
+[![Belangrijkste demonstratie meerdere service-abonnement voor Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Ondersteunde regio’s
 

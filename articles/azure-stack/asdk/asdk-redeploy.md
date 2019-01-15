@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037376"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263508"
 ---
 # <a name="redeploy-the-asdk"></a>De ASDK opnieuw implementeren
 In dit artikel leert u hoe u de Azure Stack Development Kit (ASDK) in een niet-productieomgeving opnieuw implementeren. Omdat de ASDK upgraden wordt niet ondersteund, moet u helemaal opnieuw te implementeren om te verplaatsen naar een nieuwere versie. U kunt ook de ASDK herimplementatie op elk moment dat u alleen wilt helemaal opnieuw beginnen.
@@ -32,7 +32,7 @@ In dit artikel leert u hoe u de Azure Stack Development Kit (ASDK) in een niet-p
 ## <a name="remove-azure-registration"></a>Verwijderen van registratie van Azure 
 Als u de installatie van de ASDK eerder met Azure hebt geregistreerd, moet u de registratie-resource verwijderen voordat u de ASDK opnieuw te implementeren. Registreer opnieuw de ASDK om in te schakelen van de beschikbaarheid van de items in de marketplace wanneer u de ASDK opnieuw implementeert. Als u eerder hebt niet de ASDK hebt geregistreerd bij uw Azure-abonnement, kunt u deze sectie overslaan.
 
-Als u wilt verwijderen van de registratie-resource, gebruikt u de **Remove-AzsRegistration** cmdlet registratie van Azure Stack. Vervolgens gebruikt u de **Remove-AzureRMRsourceGroup** cmdlet voor het verwijderen van de Azure Stack-resourcegroep van uw Azure-abonnement:
+Als u wilt verwijderen van de registratie-resource, gebruikt u de **Remove-AzsRegistration** cmdlet registratie van Azure Stack. Vervolgens gebruikt u de **Remove-AzureRMResourceGroup** cmdlet voor het verwijderen van de Azure Stack-resourcegroep van uw Azure-abonnement:
 
 1. Open een PowerShell-console als beheerder op een computer die toegang tot het eindpunt van de bevoegdheden heeft. Voor de ASDK is dat de hostcomputer development kit.
 

@@ -1,6 +1,6 @@
 ---
 title: Probleem met het toevoegen van een toepassing buiten de galerie | Microsoft Docs
-description: Inzicht in het gezicht voor mensen van algemene problemen bij het toevoegen van aangepaste niet-galerietoepassingen
+description: Informatie over veelvoorkomende problemen met mensen gezichten bij het toevoegen van aangepaste niet-galerietoepassingen
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 290e68e8367570bee3497a039f98d140a8d3ffe1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 56cf9837bf67187f71eb94e73b516b613b8d6c6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423623"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259883"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Probleem met het toevoegen van een toepassing buiten de galerie
 
@@ -117,7 +117,7 @@ Zie de volgende beschrijvingen voor meer informatie over de meldingen.
 
 -   **Object-ID** – **(mag leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
 
-   *  Voorbeeld: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+   *  Example – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
 -   **Details** : de gedetailleerde beschrijving van wat is het gevolg van de bewerking
 

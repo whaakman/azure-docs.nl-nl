@@ -1,26 +1,8 @@
 ---
-title: Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
-description: Delen en ontdekken analytics-resources en meer in de Azure AI Gallery. Leer van anderen en uw eigen bijdragen aan de community.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: c9acd902eb536bbd252f0aca6d162ff92d9e6e00
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270957"
+Titel: Azure AI Gallery titleSuffix: Azure Machine Learning Studio description: Delen en ontdekken analytics-resources en meer in de Azure AI Gallery. Leer van anderen en uw eigen bijdragen aan de community.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/31/2017
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Delen en ontdekken van bronnen in de Azure AI Gallery
 
@@ -85,7 +67,7 @@ U kunt zich aanmelden met een discussie hulpprogramma zoals Disqus en meldingen 
 U kunt de volgende items bijdragen aan de galerie - Volg deze koppelingen voor meer informatie:
 
 * **[Verzamelingen](gallery-collections.md#contribute)**
-* **[Experimenten](gallery-experiments.md#contribute)**
+* **[Experiments](gallery-experiments.md#contribute)**
 * **[Zelfstudies](gallery-tutorials.md#contribute)**
 
 ## <a name="we-want-to-hear-from-you"></a>We horen graag van u!

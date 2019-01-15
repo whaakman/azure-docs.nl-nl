@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6db4de61f84280b7e34f8a9d5c3290ff6d4f97ab
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200066"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267382"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: Een on-premises-app op Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep rehost
 
@@ -107,7 +107,7 @@ Contoso evalueert het voorgestelde ontwerp door het samenstellen van een lijst m
 
 **Overweging** | **Details**
 --- | ---
-**Professionals** | WEBVM wordt verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> De SQL Server-laag wordt uitgevoerd op SQL Server 2017 en Windows Server 2016. De huidige Windows Server 2008 R2-besturingssysteem wordt hierdoor en uitvoeren van SQL Server 2017 biedt ondersteuning voor de technische vereisten en de doelstellingen van Contoso. IT is 100% compatibel tijdens het verplaatsen van SQL Server 2008 R2.<br/><br/> Contoso kan gebruikmaken van hun investering in Software Assurance, met behulp van Azure Hybrid Benefit.<br/><br/> Een SQL Server-implementatie in Azure met hoge beschikbaarheid biedt fouttolerantie, zodat de gegevenslaag van de app niet langer een single point of failover is.
+**Pros** | WEBVM wordt verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> De SQL Server-laag wordt uitgevoerd op SQL Server 2017 en Windows Server 2016. De huidige Windows Server 2008 R2-besturingssysteem wordt hierdoor en uitvoeren van SQL Server 2017 biedt ondersteuning voor de technische vereisten en de doelstellingen van Contoso. IT is 100% compatibel tijdens het verplaatsen van SQL Server 2008 R2.<br/><br/> Contoso kan gebruikmaken van hun investering in Software Assurance, met behulp van Azure Hybrid Benefit.<br/><br/> Een SQL Server-implementatie in Azure met hoge beschikbaarheid biedt fouttolerantie, zodat de gegevenslaag van de app niet langer een single point of failover is.
 **Nadelen** | WEBVM wordt Windows Server 2008 R2 uitgevoerd. Het besturingssysteem wordt ondersteund door Azure voor specifieke rollen (juli 2018). [Meer informatie](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> De weblaag van de app blijft een single point of failover.</br><br/> Contoso moet doorgaan met ondersteuning van de weblaag als een Azure-VM in plaats van verplaatsen naar een beheerde service zoals Azure App Service.<br/><br/> Met de oplossing voor gekozen moet Contoso doorgaan met twee SQL Server-VM's beheren in plaats van verplaatsen naar een beheerd platform, zoals Azure SQL Database Managed Instance. Contoso kan bovendien met Software Assurance wisselen hun bestaande licenties voor gereduceerde tarieven voor Azure SQL Database Managed Instance.
 
 

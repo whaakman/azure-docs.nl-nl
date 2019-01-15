@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-09/28/2018started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 783262a5b55bd645ae3b85c1f00434648d7ee35f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 837b96246191bd88ec380f122cf9ece85f822203
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584964"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304530"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Maak kennis met IDN's voor Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 IDN's is een Azure Stack-netwerken functie waarmee u externe DNS-namen worden omgezet (bijvoorbeeld http://www.bing.com.) ook kunt u intern virtueel netwerknamen te registreren. Op deze manier kunt u virtuele machines in hetzelfde virtuele netwerk oplossen door de naam in plaats van IP-adres. Deze aanpak wordt de noodzaak voor aangepaste DNS-serververmeldingen verwijderd. Zie voor meer informatie over DNS de [Azure DNS-overzicht](https://docs.microsoft.com/azure/dns/dns-overview).
 

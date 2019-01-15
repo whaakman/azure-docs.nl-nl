@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/15/2019
+ms.openlocfilehash: 93ab8b2aca49fcd0d2f27ec17f7fc519b19bf563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724195"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305156"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL Database Managed Instance met Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger naar een Azure SQL Database Managed Instance met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar naar Azure SQL Database Managed Instance migreren met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
@@ -61,8 +61,8 @@ U kunt een nieuw exemplaar van Azure Database Migration Service maken met behulp
 - *De naam van de Azure-resourcegroep*. U kunt [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) opdracht voor het maken van Azure-resourcegroep als eerder weergegeven en geeft de naam op als een parameter.
 - *Servicenaam*. Tekenreeks die overeenkomt met de naam van de gewenste unieke service voor Azure Database Migration Service 
 - *Locatie*. Hiermee geeft u de locatie van de service. Geef een locatie van een Azure data center, zoals VS-West of Zuidoost-Azië
-- *SKU*. Deze parameter komt overeen met de naam van de DMS-Sku. Namen van de momenteel ondersteunde Sku zijn *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
-- *Virtuele Subnet-id*. U kunt de cmdlet gebruiken [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) om een subnet te maken. 
+- *Sku*. Deze parameter komt overeen met de naam van de DMS-Sku. Namen van de momenteel ondersteunde Sku zijn *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
+- *Virtual Subnet Identifier*. U kunt de cmdlet gebruiken [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) om een subnet te maken. 
 
 Het volgende voorbeeld wordt een service met de naam *MyDMS* in de resourcegroep *MyDMSResourceGroup* zich in de *VS-Oost* regio met behulp van een virtueel netwerk met de naam  *MyVNET* en subnet met de naam *MySubnet*.
 
@@ -199,7 +199,7 @@ Gebruik de `New-AzureRmDataMigrationTask` cmdlet voor het maken en starten van e
 - *Naam resourcegroep*. De naam van de Azure-resourcegroep waarin de taak te maken.
 - *ServiceName*. Azure Database Migration Service-instantie in voor het maken van de taak.
 - *ProjectName*. Naam van Azure Database Migration Service-project waarin de taak te maken. 
-- *Taaknaam*. De naam van de taak moet worden gemaakt. 
+- *TaskName*. De naam van de taak moet worden gemaakt. 
 - *SourceConnection*. AzureRmDmsConnInfo-object voor bron SQL Server-verbinding.
 - *TargetConnection*. AzureRmDmsConnInfo-object van doel-Azure SQL Database Managed Instance-verbinding.
 - *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object voor het verbinden met de bronserver.
@@ -237,6 +237,13 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 {
   write-host "migration task running"
 }
+```
+
+## <a name="deleting-the-dms-instance"></a>Verwijderen van het exemplaar van DMS
+Nadat de migratie voltooid is, kunt u het Azure DMS-exemplaar verwijderen:
+
+```powershell
+Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581756"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302048"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Over het beheren van sleutels in QnA Maker
 
@@ -42,7 +42,7 @@ U kunt weergeven en opnieuw instellen van uw abonnementssleutels vanuit de Azure
 
 Eindpunt-sleutels kunnen worden beheerd vanuit de [QnA Maker portal](https://qnamaker.ai).
 
-1. Meld u aan bij de [QnA Maker portal](https://qnamaker.ai), en Ga naar **Service-instellingen**.
+1. Meld u aan bij de [QnA Maker portal](https://qnamaker.ai), gaat u naar uw profiel en klik vervolgens op **Service-instellingen**.
 
     ![Eindpuntsleutel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

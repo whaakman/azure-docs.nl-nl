@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9eb3cc029e60acd18fc6611ca14817488a2d983
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956717"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266550"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Oplossen van uw implementatie naar Kubernetes met Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
 > Kubernetes in Azure Stack is in preview.
@@ -45,10 +45,10 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
 1. Invoerparameters verzamelen over de marketplace-item.
 
     Voer de waarden die u nodig hebt voor het instellen van het Kubernetes-cluster, met inbegrip van:
-    -  **Gebruikersnaam**: de naam van de gebruiker voor de virtuele Linux-machines die deel van de Kubernetes-cluster en DVM uitmaken.
-    -  **Openbare SSH-sleutel**: de sleutel die wordt gebruikt voor de autorisatie van alle Linux-machines die zijn gemaakt als onderdeel van de Kubernetes-cluster en DVM.
-    -  **Service-Principal**: de ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De client-ID die wordt geïdentificeerd als de toepassings-ID bij het maken van uw service-principal. 
-    -  **Clientgeheim**: ze sleutel u hebt gemaakt tijdens het maken van uw service-principal.
+    -  **Gebruikersnaam**: De gebruikersnaam voor de virtuele Linux-machines die deel van de Kubernetes-cluster en DVM uitmaken.
+    -  **Openbare SSH-sleutel**: De sleutel die wordt gebruikt voor de autorisatie van alle Linux-machines die zijn gemaakt als onderdeel van de Kubernetes-cluster en DVM.
+    -  **Service-Principal**: De ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De client-ID die wordt geïdentificeerd als de toepassings-ID bij het maken van uw service-principal. 
+    -  **Clientgeheim**: Deze sleutel u hebt gemaakt tijdens het maken van uw service-principal.
 
 2. De implementatie van virtuele machine maken en de extensie voor aangepaste scripts.
     -  De implementatie van Linux-VM maken met behulp van de Linux-installatiekopie marketplace **Ubuntu Server 16.04-LTS**.
@@ -109,7 +109,7 @@ Wanneer u uw Kubernetes-cluster implementeert, kunt u de status van de implement
 
 4.  Raadpleeg het venster voor het oplossen van problemen. Elke geïmplementeerde resources bevat de volgende informatie:
     
-    | Eigenschap | Beschrijving |
+    | Eigenschap | Description |
     | ----     | ----        |
     | Resource | De naam van de resource. |
     | Type | De resourceprovider en het type resource. |
@@ -151,10 +151,10 @@ Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
     ```
 
 4. Controleer de parameters en stel de waarden op basis van uw omgeving.
-    | Parameter           | Beschrijving                                                                                                      | Voorbeeld                                                                       |
+    | Parameter           | Description                                                                                                      | Voorbeeld                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
-    | h-,--host          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN-naam: k8s-12345.local.cloudapp.azurestack.external      |
+    | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
+    | h-,--host          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u-,--gebruiker          | De gebruikersnaam van de Kubernetes-cluster master VM. U stelt deze naam wanneer u de marketplace-item configureren.                                                                    | azureuser                                                                     |
     | -d--vmdhost       | Het openbare IP-adres of de FQDN-naam van de DVM. De naam van de virtuele machine wordt gestart met `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 

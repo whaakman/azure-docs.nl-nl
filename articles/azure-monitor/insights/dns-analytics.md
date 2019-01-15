@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 5641792c058d10bba1bfd468f3c5c90b9217226e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187650"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266330"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -76,11 +76,11 @@ Klik op het dashboard van de oplossing **configuratie** om de pagina configurati
 
 Als u van de Microsoft Monitoring Agent gebruikmaakt verbinding maken met uw Log Analytics-werkruimte, worden de volgende managementpack is geïnstalleerd:
 
-- Microsoft DNS-gegevens Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS-gegevens Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
 
 Als uw Operations Manager-beheergroep is verbonden met uw Log Analytics-werkruimte, worden de volgende management packs geïnstalleerd in Operations Manager wanneer u deze oplossing toevoegt. Er is geen vereiste configuratie of onderhoud van deze management packs:
 
-- Microsoft DNS-gegevens Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS-gegevens Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics-configuratie (Microsoft.IntelligencePack.Dns.Configuration)
 
 Zie [Operations Manager koppelen aan Log Analytics](../../azure-monitor/platform/om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.

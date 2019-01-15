@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbfa5ce0e277df3648e98be29fe91a44b15a52b7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137834"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262282"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM-Gast OS firewall is onjuist geconfigureerd
 
@@ -51,11 +51,11 @@ De volgende regels kunnen worden bewerkt voor de toegang tot de virtuele machine
 
 *   Extern bureaublad (TCP-In): Dit is de standaard-regel die de primaire toegang tot de virtuele machine biedt door toe te staan van RDP in Azure.
 
-*   Windows Remote Management (HTTP-In): Met deze regel kunt u verbinding maken met de virtuele machine met behulp van PowerShell., In Azure, dit soort toegang kunt u het uitvoeren van scripts aspect van externe scripts en probleemoplossing.
+*   Windows Remote Management (HTTP-In): Deze regel kunt u verbinding maken met de virtuele machine met behulp van PowerShell., In Azure, dit soort toegang kunt u gebruik van het uitvoeren van scripts aspect van externe scripts en probleemoplossing.
 
-*   Bestands- en printerdeling (SMB-In): deze regel kunnen de toegang tot het netwerk delen als een optie voor het oplossen van problemen.
+*   Bestands- en printerdeling (SMB-In): Deze regel kunnen de toegang tot het netwerk delen als een optie voor het oplossen van problemen.
 
-*   Bestands- en printerdeling (Echoaanvraag - ICMPv4-In): met deze regel kunt u de virtuele machine te pingen.
+*   Bestands- en printerdeling (Echoaanvraag - ICMPv4-In): Deze regel kunt u de virtuele machine te pingen.
 
 U kunt de huidige status van de firewallregel opvragen in de toegang tot de seriële Console-exemplaar.
 
@@ -68,7 +68,7 @@ U kunt de huidige status van de firewallregel opvragen in de toegang tot de seri
 *   Query's uitvoeren met behulp van de lokale poort die gebruikmaakt van de toepassing:
 
     ```cmd
-    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICAITON PORT>)" -context 9,4 | more
+    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICATION PORT>)" -context 9,4 | more
     ```
 
 *   Query's uitvoeren met behulp van het lokale IP-adres die gebruikmaakt van de toepassing:

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 95a76cd46a86f70213ca381df4d52463666ace8d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 778690fb2796cea3154b3acbb662341fdaea87da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108452"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259594"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Micrometer gebruiken met Azure Application Insights-SDK voor Java
 Micrometer bewaking metingen metrische toepassingsgegevens voor JVM-gebaseerde toepassing code en kunt u de gegevens exporteren naar uw favoriete bewakingssystemen. In dit artikel leert u hoe u Micrometer met Application Insights voor zowel Spring Boot en Spring Boot-toepassingen.
@@ -27,7 +27,7 @@ De volgende afhankelijkheden toe aan het bestand pom.xml of build.gradle toevoeg
 * [Application Insights spring boot-starter-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA of hoger
 * Micrometer Azure Registry 1.1.0 of hoger
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 of hoger (deze backports de autoconfig-code in de Spring-framework).
-* [Application Insights-Resource](../../azure-monitor/app/create-new-resource.md )
+* [ApplicationInsights Resource](../../azure-monitor/app/create-new-resource.md )
 
 Stappen
 
@@ -89,7 +89,7 @@ Standaard metrische gegevens:
 *    Metrische gegevens automatisch geconfigureerd voor Tomcat, JVM, Logback metrische gegevens, Log4J metrische gegevens, actieve tijdsduur van metrische gegevens, metrische gegevens voor Processor, FileDescriptorMetrics.
 *    Bijvoorbeeld, krijgen we deze metrische gegevens ook als de netflix hystrix in klassepad aanwezig is. 
 *    De volgende metrische gegevens kan door toe te voegen van de respectieve bonen beschikbaar zijn. 
-        - CacheMetrics (CaffineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -101,19 +101,19 @@ Standaard metrische gegevens:
 Het inschakelen van automatische metrische gegevens verzamelen uit: 
  
 - JVM metrische gegevens: 
-    - Management.metrics.binders.JVM.Enabled=False 
+    - management.metrics.binders.jvm.enabled=false 
 - Logback metrische gegevens: 
-    - Management.metrics.binders.logback.Enabled=False
+    - management.metrics.binders.logback.enabled=false
 - Actieve tijdsduur van metrische gegevens: 
-    - Management.metrics.binders.uptime.Enabled=False 
+    - management.metrics.binders.uptime.enabled=false 
 - Processor metrische gegevens:
-    -  Management.metrics.binders.processor.Enabled=False 
+    -  management.metrics.binders.processor.enabled=false 
 - FileDescriptorMetrics:
-    - Management.metrics.binders.Files.Enabled=False 
+    - management.metrics.binders.files.enabled=false 
 - Hystrix metrische gegevens als bibliotheek op het klassepad van: 
-    - Management.metrics.binders.hystrix.Enabled=False 
+    - management.metrics.binders.hystrix.enabled=false 
 - AspectJ metrische gegevens als bibliotheek op het klassepad van: 
-    - Spring.aop.Enabled=False 
+    - spring.aop.enabled=false 
 
 > [!NOTE]
 > Geef de eigenschappen boven in de application.properties of application.yml-bestand van de Spring Boot-toepassing

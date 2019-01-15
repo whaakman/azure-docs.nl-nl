@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082948"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263404"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs integreren in uw Azure DevOps, continue integratie en van leveringspijplijn
 U kunt de *Azure DevTest Labs-taken* -extensie die geïnstalleerd in Azure DevOps tot eenvoudig uw CI/CD-build-en release-pijplijn integreren met Azure DevTest Labs. De extensie installeert drie taken: 

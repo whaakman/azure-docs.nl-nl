@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: f220aee3fa0d9a79723383fc31fec0eed2554bb4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833683"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261550"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -98,6 +98,9 @@ Zoeken naar **Microsoft.Media** en **Microsoft.EventGrid**. Als u niet in de sta
 
 Als de verbinding met Azure is mislukt, kunt u proberen het probleem oplossen door handmatig verbinding te maken.
 
+> [!NOTE]
+> Het is raadzaam om de volgende drie accounts in dezelfde regio: de Video Indexer-account dat u verbinding met het Media Services-account, evenals de Azure storage-account maakt verbonden met de dezelfde Media Services-account.
+
 ### <a name="create-and-configure-a-media-services-account"></a>Een Media Services-account maken en configureren
 
 1. Gebruik de [Azure](https://portal.azure.com/) portal om te maken van een Azure Media Services-account, zoals beschreven in [maken van een account](../previous/media-services-portal-create-account.md).
@@ -135,7 +138,7 @@ In de **Video Indexer verbinding maken met een Azure-abonnement** dialoogvenster
 
 Geef in het dialoogvenster de volgende informatie:
 
-|Instelling|Beschrijving|
+|Instelling|Description|
 |---|---|
 |Video Indexer-accountregio|De naam van de regio van de Video Indexer-account. Voor betere prestaties en lagere kosten, is het raadzaam om op te geven van de naam van de regio waar de resource van Azure Media Services en Azure Storage-account zich bevinden. |
 |Azure Active Directory (AAD)-tenant|De naam van de Azure AD-tenant, bijvoorbeeld 'contoso.onmicrosoft.com'. De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek. Zoek de naam aan de rechterkant van **domein**.|
@@ -168,7 +171,7 @@ De volgende Azure Media Services gerelateerde overwegingen zijn van toepassing:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt via programmacode communiceren met uw proefaccount en/of met uw Video Indexer-accounts die zijn verbonden met azure door de instructies in: [gebruik API's](video-indexer-use-apis.md).
+U kunt via programmacode communiceren met uw proefaccount en/of met uw Video Indexer-accounts die zijn verbonden met azure door de instructies in: [API's gebruiken](video-indexer-use-apis.md).
 
 U moet dezelfde Azure AD-gebruiker die u hebt gebruikt bij het verbinden met Azure.
 

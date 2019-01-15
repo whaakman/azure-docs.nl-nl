@@ -1,26 +1,8 @@
 ---
-title: Machine Learning Studio modellen programmatisch opnieuw trainen - Azure | Microsoft Docs
-description: Meer informatie over het programmatisch opnieuw trainen een model met C# en de service Machine Learning Batch Execution.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257390"
+Titel: Retrain Machine Learning Studio-modellen programmatisch titleSuffix: Azure Machine Learning Studio description: Meer informatie over het programmatisch opnieuw trainen een model met C# en de service Machine Learning Batch Execution.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Azure Machine Learning Studio-modellen programmatisch opnieuw trainen
 In dit scenario leert u hoe u programmatisch opnieuw trainen een Azure Machine Learning Studio web service via C# en de service Machine Learning Batch Execution.
@@ -42,7 +24,7 @@ Het experiment maken:
 1. Meld u aan bij Microsoft Azure Machine Learning Studio. 
 2. Klik op de rechterbenedenhoek van het dashboard, **nieuw**.
 3. Selecteer in de Microsoft-Samples voorbeeld 5.
-4. Wijzig de naam van het experiment, aan de bovenkant van het experimentcanvas, selecteert u de naam van het experiment "voorbeeld 5: Trainen, testen, evalueren voor binaire classificatie: Volwassenen gegevensset'.
+4. Wijzig de naam van het experiment, aan de bovenkant van het experimentcanvas, selecteert u de naam van het experiment "voorbeeld 5: Trainen, testen, evalueren voor binaire classificatie: Adult Dataset".
 5. Type telling Model.
 6. Aan de onderkant van het experimentcanvas, klikt u op **uitvoeren**.
 7. Klik op **instellen webservice** en selecteer **webservice opnieuw trainen**. 

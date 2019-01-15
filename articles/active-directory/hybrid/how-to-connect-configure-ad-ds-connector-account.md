@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809876"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304037"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Accountmachtigingen voor AD DS-Connector configureren 
 
-Een nieuwe PowerShell-Module met de naam [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) werd geïntroduceerd in build 1.1.880.0 (uitgebracht in augustus 2018) een verzameling van cmdlets bevat kunt u de juiste Active Directory-machtigingen configureren voor uw Azure AD Verbinding met het maken van de implementatie. 
+De PowerShell-Module met de naam [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) werd geïntroduceerd in build 1.1.880.0 (uitgebracht in augustus 2018) een verzameling van cmdlets bevat kunt u de juiste Active Directory-machtigingen configureren voor uw Azure AD Verbinding met het maken van de implementatie. 
 
 ## <a name="overview"></a>Overzicht 
 De volgende PowerShell-cmdlets kan worden gebruikt voor installatie van Active Directory-machtigingen van de AD DS-Connector-account voor elke functie die u alleen om in te schakelen in Azure AD Connect. Om te voorkomen dat problemen ondervindt, moet u bereid Active Directory-machtigingen op voorhand voor wanneer u wilt installeren, Azure AD Connect met behulp van een aangepast domein-account verbinding maken met uw forest. Deze module ADSyncConfig kan ook worden gebruikt om machtigingen te configureren na de implementatie van Azure AD Connect.
@@ -72,7 +72,7 @@ bijvoorbeeld:
 
 `Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
 
-Of; 
+Or; 
 
 `Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
 
@@ -280,7 +280,7 @@ Bijvoorbeeld:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 Deze cmdlet wordt de volgende machtigingen ingesteld: 

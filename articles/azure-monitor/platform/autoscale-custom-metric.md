@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 224756785d5609cf40bc0f62ff76a1ba44206b1b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2aa0b152a4fd50e8023df00ec5dd59d1b2a6e6b0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388839"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262231"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure
 In dit artikel wordt beschreven hoe u uw resource schalen door een aangepaste metrische gegevens in Azure portal.
@@ -31,7 +31,7 @@ In dit artikel wordt ervan uitgegaan dat u een web-app met application insights 
 > Opmerking: De onderstaande stappen gebruiken een app service-plan dat is gekoppeld aan een web-app met app insights is geconfigureerd.
 - U ziet dat het huidige aantal instanties 1 is in de blade van de instelling schaal voor de resource. Klik op 'Inschakelen voor automatisch schalen'.
   ![Instelling voor de nieuwe web-app schalen][5]
-- Geef een naam voor de schaalinstelling van de en het klikken op 'Een regel toevoegen'. U ziet de schaalopties regel die wordt geopend in een deelvenster context in de rechterkant. Standaard wordt de optie voor het schalen van uw aantal instanties met 1 als het CPU-percetage van de resource groter is dan 70%. De bron van metrische gegevens aan de bovenkant wijzigen in 'Application Insights', selecteert u de app insights-resource in de vervolgkeuzelijst 'Resource' en selecteer vervolgens de aangepaste metrische gegevens op basis van die u wilt schalen.
+- Geef een naam voor de schaalinstelling van de en het klikken op 'Een regel toevoegen'. U ziet de schaalopties regel die wordt geopend in een deelvenster context in de rechterkant. Standaard wordt de optie voor het schalen van uw aantal instanties met 1 als het CPU-percentage van de resource groter is dan 70%. De bron van metrische gegevens aan de bovenkant wijzigen in 'Application Insights', selecteert u de app insights-resource in de vervolgkeuzelijst 'Resource' en selecteer vervolgens de aangepaste metrische gegevens op basis van die u wilt schalen.
   ![Schalen door aangepaste metrische gegevens][6]
 - Net als bij de stap hierboven, een scale-regel die wordt geschaald en de schaalaanpassingsaantal verlagen met 1 als de aangepaste metrische gegevens lager dan een drempel is toevoegen.
   ![Schaal op basis van cpu][7]

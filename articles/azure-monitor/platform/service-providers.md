@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340535"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264766"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics voor serviceproviders
 Log Analytics kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
@@ -63,7 +63,7 @@ De nadelen van deze architectuur zijn:
 * Het is mogelijk moeilijk te scheiden van de gegevens tussen de klanten wanneer ze worden samengevoegd in één werkruimte. De enige methode om dit te doen is voor het gebruik van de computer volledig gekwalificeerde domeinnaam (FQDN) of via het Azure-abonnement-id. 
 * Alle gegevens van alle klanten worden, opgeslagen in dezelfde regio met één factuur en dezelfde bewaartermijn en configuratie-instellingen.
 * Azure-infrastructuur- en PaaS-services zoals Azure Diagnostics- en auditlogboeken van Azure moet de werkruimte zich in dezelfde tenant als de resource, dus kunnen ze de logboeken verzenden naar de centrale werkruimte.
-* Alle VM-agents van alle klanten wordt geverifieerd op de cental-werkruimte met behulp van dezelfde werkruimte-ID en sleutel. Er is geen methode voor het blokkeren van Logboeken van een specifieke klant zonder te onderbreken van andere klanten.
+* Alle VM-agents van alle klanten wordt geverifieerd op de centrale werkruimte met behulp van dezelfde werkruimte-ID en sleutel. Er is geen methode voor het blokkeren van Logboeken van een specifieke klant zonder te onderbreken van andere klanten.
 
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Hybride - logboeken worden opgeslagen in de werkruimte zich in de tenant van de klant en sommige hiervan naar een centrale locatie worden opgehaald.

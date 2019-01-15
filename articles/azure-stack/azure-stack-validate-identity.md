@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245937"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267331"
 ---
 # <a name="validate-azure-identity"></a>Valideren van de Azure-identiteit 
 Gebruik het hulpprogramma Azure Stack gereedheid van de Registercontrole (AzsReadinessChecker) om te valideren dat uw Azure Active Directory (Azure AD) klaar is voor gebruik met Azure Stack. Uw Azure identity-oplossing te valideren voordat u begint met een Azure Stack-implementatie.  
@@ -48,7 +48,7 @@ De volgende vereisten moeten worden voldaan.
 **Azure Active Directory-omgeving:**
  - Identificeer de Azure AD-account u wilt gebruiken voor Azure Stack en zorg ervoor dat het een Azure Active Directory globale beheerder is.
  - Geef de naam van uw Azure AD-Tenant. Naam van de tenant moet de *primaire* domeinnaam voor uw Azure Active Directory. Bijvoorbeeld, *contoso.onmicrosoft.com*. 
- - Identificeer de AzureEnvironement die u wilt gebruiken. Ondersteunde waarden voor de parameter voor de omgeving zijn AzureCloud, AzureChinaCloud of AzureUSGovernment, afhankelijk van welke Azure-abonnement u gebruikt.
+ - Identificeer de Azure-omgeving u gebruikt. Ondersteunde waarden voor de parameter voor de omgeving zijn AzureCloud, AzureChinaCloud of AzureUSGovernment, afhankelijk van welke Azure-abonnement u gebruikt.
 
 ## <a name="validate-azure-identity"></a>Valideren van de Azure-identiteit 
 1. Open een PowerShell-prompt met beheerdersrechten op een computer die voldoet aan de vereisten, en voer de volgende opdracht voor het installeren van de AzsReadinessChecker:  
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **Oorzaak** -het account zich niet aanmelden bij de opgegeven Azure Active Directory (AADDirectoryTenantName). In dit voorbeeld *AzureChinaCloud* is opgegeven als de *AzureEnvironment*.
 
-**Resolutie** -bevestigen dat het account geldig voor de opgegeven Azure-omgeving is. Voer in PowerShell het volgende om te controleren of dat het account is geldig voor een specifieke omgeving:   Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
+**Resolutie** -bevestigen dat het account geldig voor de opgegeven Azure-omgeving is. Voer in PowerShell het volgende om te controleren of dat het account is geldig voor een specifieke omgeving:   Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Account is niet een beheerder 
  
 ````PowerShell

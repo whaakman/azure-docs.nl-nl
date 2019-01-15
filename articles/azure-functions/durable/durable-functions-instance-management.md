@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 19abd905bbc5e8ab724f7a2f25cb6da90db82841
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042458"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262639"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>-Exemplaren in duurzame functies in Azure beheren
 
@@ -23,7 +23,7 @@ ms.locfileid: "54042458"
 
 ## <a name="starting-instances"></a>De exemplaren starten
 
-De [StartNewAsync] (https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) methode voor het [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) of `startNew` op de `DurableOrchestrationClient` (JavaScript) start een nieuw exemplaar van een orchestrator-functie. Instanties van deze klasse kunnen worden verkregen met behulp van de `orchestrationClient` binding. Intern maakt de enqueues van deze methode een bericht in de wachtrij besturingselement, dat vervolgens wordt het begin van een functie met de opgegeven naam die gebruikmaakt van de `orchestrationTrigger` binding activeren.
+De [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) methode voor het [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) of `startNew` op de `DurableOrchestrationClient` (JavaScript) start een nieuw exemplaar van een orchestrator-functie. Instanties van deze klasse kunnen worden verkregen met behulp van de `orchestrationClient` binding. Intern maakt de enqueues van deze methode een bericht in de wachtrij besturingselement, dat vervolgens wordt het begin van een functie met de opgegeven naam die gebruikmaakt van de `orchestrationTrigger` binding activeren.
 
 Deze asynchrone bewerking is voltooid wanneer de orchestration-proces met succes is gepland. De orchestration-proces moet worden gestart binnen 30 seconden. Als het langer duurt een `TimeoutException` wordt gegenereerd.
 
@@ -36,7 +36,7 @@ De parameters voor [StartNewAsync](https://azure.github.io/azure-functions-durab
 
 * **Naam**: De naam van de orchestrator-functie te plannen.
 * **Invoer**: JSON-geserialiseerd gegevens die moet worden doorgegeven als invoer voor de orchestrator-functie.
-* **instanceId**: (Optioneel) De unieke ID van het exemplaar. Indien niet opgegeven, wordt een willekeurig exemplaar-ID worden gegenereerd.
+* **InstanceId**: (Optioneel) De unieke ID van het exemplaar. Indien niet opgegeven, wordt een willekeurig exemplaar-ID worden gegenereerd.
 
 Hier is een eenvoudig C#-voorbeeld:
 
@@ -57,7 +57,7 @@ public static async Task Run(
 De parameters voor `startNew` zijn als volgt:
 
 * **Naam**: De naam van de orchestrator-functie te plannen.
-* **instanceId**: (Optioneel) De unieke ID van het exemplaar. Indien niet opgegeven, wordt een willekeurig exemplaar-ID worden gegenereerd.
+* **InstanceId**: (Optioneel) De unieke ID van het exemplaar. Indien niet opgegeven, wordt een willekeurig exemplaar-ID worden gegenereerd.
 * **Invoer**: (Optioneel) JSON-geserialiseerd gegevens die moet worden doorgegeven als invoer voor de orchestrator-functie.
 
 Hier volgt een voorbeeld van een eenvoudige JavaScript:
@@ -108,13 +108,13 @@ Het duurt voordat een `instanceId` (vereist), `showHistory` (optioneel), `showHi
 De methode retourneert een JSON-object met de volgende eigenschappen:
 
 * **Naam**: De naam van de orchestrator-functie.
-* **instanceId**: De exemplaar-ID van de indeling (moet gelijk zijn aan de `instanceId` invoer).
+* **InstanceId**: De exemplaar-ID van de indeling (moet gelijk zijn aan de `instanceId` invoer).
 * **Aanmaaktijd**: De tijd waarop de orchestrator-functie is gestart.
 * **LastUpdatedTime**: Het tijdstip waarop de orchestration laatste controlepunt.
 * **Invoer**: De invoer van de functie als een JSON-waarde. Dit veld niet ingevuld als `showInput` is ingesteld op false.
 * **CustomStatus**: De status van de aangepaste indeling in JSON-indeling.
 * **Uitvoer**: De uitvoer van de functie als een JSON-waarde (als de functie is voltooid). Als de orchestrator-functie is mislukt, bevat deze eigenschap de foutdetails. Als de orchestrator-functie is beëindigd, bevat deze eigenschap de opgegeven reden voor de beëindiging (indien aanwezig).
-* **runtimeStatus**: Een van de volgende waarden:
+* **RuntimeStatus**: Een van de volgende waarden:
   * **In behandeling**: Het exemplaar is gepland, maar is nog niet begonnen uitgevoerd.
   * **Uitvoeren**: Het exemplaar is gestart.
   * **Voltooid**: Het exemplaar is normaal gesproken voltooid.
@@ -350,7 +350,7 @@ Meldingen van gebeurtenissen kunnen worden verzonden naar het uitvoeren van exem
 
 De parameters voor [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) en `raiseEvent` (JavaScript) zijn als volgt:
 
-* **instanceId**: De unieke ID van het exemplaar.
+* **InstanceId**: De unieke ID van het exemplaar.
 * **EventName**: De naam van de gebeurtenis te verzenden.
 * **EventData**: De nettolading van een JSON-serialisatie om te verzenden naar het exemplaar.
 

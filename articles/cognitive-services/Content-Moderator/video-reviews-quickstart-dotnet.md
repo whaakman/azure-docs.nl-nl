@@ -1,21 +1,21 @@
 ---
 title: Video beoordelingen met behulp van .NET - Content Moderator maken
 titlesuffix: Azure Cognitive Services
-description: Over het maken van video beoordeelt met de Content Moderator-SDK voor .NET
+description: In dit artikel vindt u informatie en voorbeelden van code om u te helpen snel aan de slag met de Content Moderator-SDK met C# video beoordelingen maken.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219037"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262508"
 ---
 # <a name="create-video-reviews-using-net"></a>Maak video beoordelingen met behulp van .NET
 
@@ -35,20 +35,19 @@ In dit artikel wordt ook van uitgegaan dat u al bekend met Visual Studio en C# b
 
 ## <a name="sign-up-for-content-moderator"></a>Aanmelden voor Content Moderator
 
-Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
-Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
+Om de Content Moderator-services via de REST-API of de SDK te kunnen gebruiken, hebt u een abonnementssleutel nodig. Volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op Content Moderator en uw sleutel op te halen.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Zich registreren voor een hulpprogramma voor beoordeling account als niet in de vorige stap is voltooid
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Aanmelden voor een account voor het beoordelingsprogramma als dat niet in de vorige stap is gedaan
 
-Als u uw Content Moderator vanuit de Azure-portal ook hebt [zich registreren voor de beoordeling hulpprogramma account](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. U moet het team-Id en het beoordelingsprogramma de API controleren als u wilt een taak starten en de evaluaties weergeven in het controlehulpprogramma aan te roepen.
+Als u uw Content Moderator via de Azure-portal hebt gekregen, [schrijf u dan ook in voor het account voor een beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een taak te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Zorg ervoor dat uw API-sleutel de beoordeling-API kunt aanroepen voor het maken van de beoordeling
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
-Na het voltooien van de vorige stappen, zou u uiteindelijk met twee Content Moderator-sleutels als u vanuit de Azure-portal gestart. 
+Nadat u de vorige stappen hebt uitgevoerd, zou u twee Content Moderator-sleutels kunnen hebben als u vanuit de Azure-portal bent gestart. 
 
-Als u van plan bent de Azure-opgegeven API-sleutel in de SDK-voorbeeld gebruiken, volgt u de stappen in de [met behulp van Azure-sleutel met de API controleren](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) sectie waarmee uw toepassing in de beoordeling-API aanroepen en beoordelingen te maken.
+Als u van plan bent de door Azure verstrekte API-sleutel in uw SDK-voorbeeld te gebruiken, volgt u de stappen in de sectie [De Azure-sleutel met de beoordelings-API gebruiken](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) zodat uw app de beoordelings-API kan aanroepen en beoordelingen kan maken.
 
-Als u de gratis proefversie sleutel gegenereerd door het beoordelingsprogramma, uw beoordeling hulpprogramma-account al op de hoogte van de sleutel en daarom geen extra stappen zijn vereist.
+Als u de gratis proefversie van de sleutel gebruikt die wordt gegenereerd door het beoordelingsprogramma, is uw account van het beoordelingsprogramma al op de hoogte van de sleutel, zodat er geen extra stappen zijn vereist.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Uw video en de videoframes voorbereiden voor controle
 
@@ -67,15 +66,15 @@ Gebruik de volgende afbeeldingen voor de videoframes (installatiekopieën):
 
 ![Miniatuur van video frame 1](images/ams-video-frame-thumbnails-1.PNG) | ![Miniatuur van video kader 2](images/ams-video-frame-thumbnails-2.PNG) | ![Miniatuur van video kader 3](images/ams-video-frame-thumbnails-3.PNG) |
 | :---: | :---: | :---: |
-[Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Kader 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Kader 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
+[Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Frame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Frame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
+## <a name="create-your-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
+1. Voeg een nieuw project van het type **Console app (.NET Framework)** toe aan uw oplossing.
 
 1. Noem het project **VideoReviews**.
 
-1. Selecteer dit project als opstartproject één voor de oplossing.
+1. Selecteer dit project als het enige opstartproject voor de oplossing.
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
@@ -86,7 +85,7 @@ Installeer de volgende NuGet-pakketten voor het project TermLists.
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
 Wijzig het programma de using-instructies toe als volgt.
 
@@ -100,7 +99,7 @@ Wijzig het programma de using-instructies toe als volgt.
     using Newtonsoft.Json;
 
 
-### <a name="add-private-properties"></a>Privé-eigenschappen toevoegen
+### <a name="add-private-properties"></a>Private-eigenschappen toevoegen
 
 De volgende persoonlijke eigenschappen toevoegen aan de naamruimte VideoReviews, klasse Program.
 
@@ -168,7 +167,7 @@ De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programm
 
 ## <a name="create-a-video-review"></a>Maken van een video beoordeling
 
-Maken van een video bekijken met **ContentModeratorClient.Reviews.CreateVideoReviews**. Zie voor meer informatie de [API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Maken van een video bekijken met **ContentModeratorClient.Reviews.CreateVideoReviews**. Zie voor meer informatie de [API-naslaghandleiding](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 **CreateVideoReviews** heeft de volgende vereiste parameters:
 1. Een tekenreeks met een MIME-type moet ' application/json'. 
@@ -217,13 +216,13 @@ De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programm
     }
 
 > [!NOTE]
-> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS) en als u de limiet overschrijdt, de SDK een uitzondering met een foutcode 429 genereert. 
+> De sleutel van uw Content Moderator-service heeft een limiet voor het aantal aanvragen per seconde (RPS). Als u die limiet overschrijdt, genereert de SDK een uitzondering met foutcode 429. 
 >
-> De sleutel van een gratis laag heeft een limiet van één RPS.
+> Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
 ## <a name="add-video-frames-to-the-video-review"></a>Videoframes voor de video revisie toevoegen
 
-U videoframes toevoegen aan een video bekijken met **ContentModeratorClient.Reviews.AddVideoFrameUrl** (als uw videoframes online worden gehost) of **ContentModeratorClient.Reviews.AddVideoFrameStream** () Als uw videoframes worden gehost lokaal). In deze snelstartgids wordt ervan uitgegaan dat uw videoframes online worden gehost en gebruikt dus **AddVideoFrameUrl**. Zie voor meer informatie de [API-verwijzing](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
+U videoframes toevoegen aan een video bekijken met **ContentModeratorClient.Reviews.AddVideoFrameUrl** (als uw videoframes online worden gehost) of **ContentModeratorClient.Reviews.AddVideoFrameStream** () Als uw videoframes worden gehost lokaal). In deze snelstartgids wordt ervan uitgegaan dat uw videoframes online worden gehost en gebruikt dus **AddVideoFrameUrl**. Zie voor meer informatie de [API-naslaghandleiding](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
 
 **AddVideoFrameUrl** heeft de volgende vereiste parameters:
 1. Een tekenreeks met een MIME-type moet ' application/json'.
@@ -234,10 +233,10 @@ U videoframes toevoegen aan een video bekijken met **ContentModeratorClient.Revi
 **VideoFrameBodyItem** heeft de volgende eigenschappen:
 - **Tijdstempel**. Een tekenreeks is die bevat, in seconden, de tijd in de video van waaruit u de video-frame gehaald.
 - **FrameImage**. De URL van de video-frame.
-- **Metagegevens**. IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is gewoon een sleutel/waarde-paar. Geldige sleutels zijn onder andere:
+- **Metadata**. IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is gewoon een sleutel/waarde-paar. Geldige sleutels zijn onder andere:
 - **reviewRecommended**. Waar, als een menselijke beoordeling van het kader van de video wordt aanbevolen.
 - **adultScore**. Een waarde tussen 0 en 1 die tarieven van de ernst van inhoud voor volwassenen in het kader van de video.
-- **een**. True als de video inhoud voor volwassenen bevat.
+- **a**. True als de video inhoud voor volwassenen bevat.
 - **racyScore**. Een waarde tussen 0 en 1 die tarieven van de ernst van ongepaste inhoud in de video-frame.
 - **r**. Waar als de video-frame ongepaste inhoud bevat.
 - **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is gewoon een sleutel/waarde-paar. Een toepassing kan deze tags gebruiken om te organiseren videoframes.
@@ -373,7 +372,7 @@ De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programm
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Dit alles
+## <a name="putting-it-all-together"></a>Alles samenvoegen
 
 Voeg de **Main** methodedefinitie naamruimte VideoReviews, klasse programma. Tot slot sluit de klasse Program en de VideoReviews-naamruimte.
 
@@ -407,7 +406,7 @@ Voeg de **Main** methodedefinitie naamruimte VideoReviews, klasse programma. Tot
         }
     }
 
-## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
+## <a name="run-the-program-and-review-the-output"></a>Het programma uitvoeren en de uitvoer controleren
 Als u de toepassing uitvoert, ziet u uitvoer op de volgende regels:
 
     Creating a video review.

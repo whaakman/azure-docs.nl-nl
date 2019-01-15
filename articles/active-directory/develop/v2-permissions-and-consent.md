@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620129"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261176"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 
@@ -38,7 +38,7 @@ Toepassingen die zijn geïntegreerd met Microsoft identity-platform gaat u als v
 De Microsoft identity platform implementeert de [OAuth 2.0](active-directory-v2-protocols.md) (authorization protocol). OAuth 2.0 is een methode waarmee een app van derden toegang web gehoste bronnen namens een gebruiker tot. Een web-hosted-resource die kan worden geïntegreerd met het Microsoft identity-platform is een resource-id of *URI toepassings-ID*. Bijvoorbeeld, van Microsoft web hosting resources onder andere:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* API voor Office 365-e-Mail: `https://outlook.office.com`
+* Office 365 Mail API: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Hetzelfde geldt voor alle resources van derden die zijn geïntegreerd met het Mi
 
 * Lezen van een gebruiker agenda
 * Schrijven naar de agenda van een gebruiker
-* E-mail met een gebruiker als afzender verzenden
+* E-mail verzenden als een gebruiker
 
 De resource heeft met het definiëren van deze typen machtigingen, uiterst gedetailleerde controle over de gegevens en hoe de functionaliteit van de API wordt weergegeven. Een app van derden kan deze machtigingen aanvragen van gebruikers en beheerders die de aanvraag voor de app moet goedkeuren kunnen krijgen tot gegevens of handelen namens een gebruiker. Door logische groepen te verdelen van de resource-functionaliteit in kleinere machtigingensets, kunnen apps van derden worden gebouwd om aan te vragen van alleen de specifieke machtigingen die ze nodig hebben om uit te voeren hun functie. Gebruikers en beheerders weet precies welke gegevens de app toegang heeft tot, en deze kunnen mogelijk meer vertrouwen dat deze is niet aan de hand met kwade bedoelingen. Ontwikkelaars moeten altijd ontmoeten door het concept van minimale bevoegdheden, alleen de machtigingen die ze nodig hebben voor hun toepassingen goed te laten wordt gevraagd.
 
@@ -87,7 +87,7 @@ Als een app aanmelden met behulp van uitvoert [OpenID Connect](active-directory-
 
 De `email` bereik kan worden gebruikt met de `openid` bereik en voor eventuele andere. Geeft de apptoegang tot de primaire e-mailadres van de gebruiker in de vorm van de `email` claim. De `email` claim is opgenomen in een token alleen als een e-mailadres is gekoppeld aan het gebruikersaccount dat niet altijd het geval is is. Als deze gebruikt de `email` bereik, uw app moet worden voorbereid voor het afhandelen van een aanvraag waarin de `email` claim bestaat niet in het token.
 
-### <a name="profile"></a>profiel
+### <a name="profile"></a>Profiel
 
 De `profile` bereik kan worden gebruikt met de `openid` bereik en voor eventuele andere. Deze geeft de apptoegang tot een aanzienlijke hoeveelheid informatie over de gebruiker. Deze toegang heeft tot informatie bevat, maar is niet beperkt tot, van de gebruiker de voornaam, achternaam, gewenste gebruikersnaam en object-ID. Zie voor een volledige lijst van het profiel claims die beschikbaar zijn in de parameter id_tokens voor een specifieke gebruiker, de [ `id_tokens` verwijzing](id-tokens.md).
 
@@ -145,7 +145,7 @@ Als uw app nodig heeft voor toegang tot beperkte beheerder bereiken voor bedrijv
 
 Als de toepassing aanvraagt hoge bevoegdheid overgedragen machtigingen en een beheerder deze machtigingen via het eindpunt beheerder toestemming verleent, wordt toestemming verleend voor alle gebruikers in de tenant.
 
-Als de toepassing machtigingen van de toepassing aanvraagt en een beheerder verleent dat deze machtigingen via de beheerder toestemming eindpunt, wordt deze machtiging niet gedaan namens een specifieke gebruiker. In plaats daarvan de clienttoepassing krijgt de machtigingen *rechtstreeks*. Deze typen machtigingen zijn doorgaans alleen gebruikt door daemon servies en andere niet-interactieve toepassingen die worden uitgevoerd op de achtergrond.
+Als de toepassing machtigingen van de toepassing aanvraagt en een beheerder verleent dat deze machtigingen via de beheerder toestemming eindpunt, wordt deze machtiging niet gedaan namens een specifieke gebruiker. In plaats daarvan de clienttoepassing krijgt de machtigingen *rechtstreeks*. Deze typen machtigingen zijn doorgaans alleen gebruikt door de daemon-services en andere niet-interactieve toepassingen die worden uitgevoerd op de achtergrond.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Met behulp van het eindpunt beheerder toestemming
 
@@ -191,7 +191,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Voorwaarde | Beschrijving |
+| Parameter | Voorwaarde | Description |
 | --- | --- | --- |
 | `tenant` | Vereist | De directory-tenant die u wilt toestemming van aanvragen. Kan worden opgegeven in de beschrijvende naamindeling of GUID of algemeen waarnaar wordt verwezen met 'algemene' zoals te zien is in het voorbeeld. |
 | `client_id` | Vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
@@ -208,7 +208,7 @@ Als de beheerder heeft de machtigingen voor uw app goedgekeurd, is de geslaagde 
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- | --- |
 | `tenant` | De directory-tenant die uw toepassing, de machtigingen aangevraagd, in GUID-indeling. |
 | `state` | Een waarde die is opgenomen in de aanvraag die ook in het token antwoord worden geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. De status wordt gebruikt om informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
@@ -222,7 +222,7 @@ Als de beheerder worden de machtigingen voor uw app niet goedgekeurd, wordt de m
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- | --- |
 | `error` |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een fout identificeren. |
@@ -254,4 +254,4 @@ Zie voor meer informatie over het OAuth 2.0-protocol en toegangstokens verkrijge
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als u of gebruikers van uw toepassing onverwachte fouten tijdens de toestemming ziet, Raadpleeg dit artikel voor stappen voor probleemoplossing: [onverwachte fout bij het uitvoeren van toestemming voor een toepassing](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+Als u of gebruikers van uw toepassing onverwachte fouten tijdens de toestemming ziet, raadpleeg dan in dit artikel voor stappen voor probleemoplossing: [Onverwachte fout bij het uitvoeren van toestemming voor een toepassing](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

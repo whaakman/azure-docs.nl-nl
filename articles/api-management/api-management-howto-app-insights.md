@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390020"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262758"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hoe u Azure API Management te integreren met Azure Application Insights
 
@@ -64,22 +64,24 @@ Voordat u Azure Application Insights gebruiken kunt, moet u eerst een exemplaar 
 6. Controleer de **inschakelen** vak.
 7. Selecteer uw gekoppelde logger in de **bestemming** vervolgkeuzelijst.
 8. Invoer **100** als **steekproeven (%)** en vink het **fouten in het altijd** selectievakje.
-9. Invoer **1024** in de **eerste bytes van de hoofdtekst van** veld.
-10. Klik op **Opslaan**.
+9. Klik op **Opslaan**.
+
+> [!WARNING]
+> De standaardwaarde overschrijven **0** in de **eerste bytes van de hoofdtekst van** veld kan de prestaties van uw API's aanzienlijk verminderen.
 
 > [!NOTE]
 > Achter de scène, een [diagnostische](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) entiteit met de naam 'Application Insights' wordt gemaakt op de API-niveau.
 
-| De naam van instelling                        | Waardetype                        | Beschrijving                                                                                                                                                                                                                                                                                                                                      |
+| Naam van instelling                        | Waardetype                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Inschakelen                              | booleaans                           | Hiermee geeft u op of de registratie van deze API is ingeschakeld.                                                                                                                                                                                                                                                                                                |
 | Doel                         | Azure Application Insights-logboek | Hiermee geeft u de Azure Application Insights logger moet worden gebruikt                                                                                                                                                                                                                                                                                           |
 | Steekproeven (%)                        | decimal                           | De waarden tussen 0 en 100 (procent). <br/> Hiermee geeft u op welk percentage van de aanvragen worden geregistreerd voor Azure Application Insights. 0% steekproeven betekent nul aanvragen die zijn vastgelegd, terwijl steekproeven van 100% betekent alle aanvragen die zijn geregistreerd dat. <br/> Deze instelling wordt gebruikt voor het verminderen van de gevolgen voor de prestaties van logboekregistratie van aanvragen naar Azure Application Insights (Zie de sectie hieronder). |
 | Altijd fouten in het logboek                   | booleaans                           | Als deze instelling is ingeschakeld, alle fouten worden geregistreerd voor Azure Application Insights, ongeacht de **steekproeven** instelling.                                                                                                                                                                                                                  |
-| Basisopties: Headers              | list                              | Hiermee geeft u de headers die worden geregistreerd voor Azure Application Insights voor aanvragen en antwoorden.  Standaard: geen headers worden geregistreerd.                                                                                                                                                                                                             |
-| Eenvoudige opties: Eerste bytes van de hoofdtekst  | geheel getal                           | Hiermee geeft u op hoeveel eerste bytes van de instantie worden geregistreerd in Azure Application Insights voor aanvragen en antwoorden.  Standaard: hoofdtekst is niet geregistreerd.                                                                                                                                                                                              |
+| Eenvoudige opties: Headers              | list                              | Hiermee geeft u de headers die worden geregistreerd voor Azure Application Insights voor aanvragen en antwoorden.  Standaard: geen headers worden geregistreerd.                                                                                                                                                                                                             |
+| Eenvoudige opties: Eerste bytes van hoofdtekst  | geheel getal                           | Hiermee geeft u op hoeveel eerste bytes van de instantie worden geregistreerd in Azure Application Insights voor aanvragen en antwoorden.  Standaard: hoofdtekst is niet geregistreerd.                                                                                                                                                                                              |
 | Geavanceerde opties: Frontend-aanvraag  |                                   | Hiermee geeft u op of en hoe *frontend aanvragen* naar Azure Application Insights worden geregistreerd. *Frontend-aanvraag* is een aanvraag binnenkomende naar de Azure API Management-service.                                                                                                                                                                        |
-| Geavanceerde opties: Frontend antwoord |                                   | Hiermee geeft u op of en hoe *frontend antwoorden* naar Azure Application Insights worden geregistreerd. *Frontend-antwoord* is een antwoord uitgaande van de Azure API Management-service.                                                                                                                                                                   |
+| Geavanceerde opties: Frontend-antwoord |                                   | Hiermee geeft u op of en hoe *frontend antwoorden* naar Azure Application Insights worden geregistreerd. *Frontend-antwoord* is een antwoord uitgaande van de Azure API Management-service.                                                                                                                                                                   |
 | Geavanceerde opties: Back-end-aanvraag   |                                   | Hiermee geeft u op of en hoe *back-end aanvragen* naar Azure Application Insights worden geregistreerd. *Back-end-aanvraag* is een aanvraag van uitgaande van de Azure API Management-service.                                                                                                                                                                        |
 | Geavanceerde opties: Back-end-antwoord  |                                   | Hiermee geeft u op of en hoe *back-end antwoorden* naar Azure Application Insights worden geregistreerd. *Back-end antwoord* is een antwoord binnenkomende naar de Azure API Management-service.                                                                                                                                                                       |
 

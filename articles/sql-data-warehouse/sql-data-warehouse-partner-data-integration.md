@@ -10,18 +10,18 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 09be96a4a6fd4e36412e4e0958683a14873e172d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3b83f6df85271f7f4c38a87c48ec4537025af053
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961821"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305516"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Integratiepartners voor SQL Data Warehouse-gegevens
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw datawarehouse-oplossing. In dit artikel ziet u Microsoft partnerbedrijven met oplossingen voor integratie met de ondersteuning van Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Integratiepartners gegevens
-| Partner | Beschrijving | Koppelingen | Video's |
+| Partner | Description | Koppelingen | Video's |
 | --- | --- | --- | --- |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Designer biedt een herhaalbare werkstroom voor selfservice gegevensanalyse die tot meer inzicht te krijgen in uren, niet de weken van traditionele benaderingen typische leidt! Alteryx Designer helpt gegevensanalisten door het combineren van gegevens voor te bereiden, blending van gegevens en analyses: voorspellende, statistische en ruimtelijke – met behulp van de intuïtieve gebruikersinterface. |[Marketplace][alteryx_marketplace]<br>[Website][alteryx_designer_website]<br>[Technisch document][alteryx_whitepaper]<br>[Gegevensblad][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Alteryx video](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
 | ![Attunity][2] |**Attunity**<br>Attunity CloudBeam biedt een geautomatiseerde en geoptimaliseerde oplossing voor het laden van gegevens naar SQL Data Warehouse. Met een ontwerp "Klik load" het vereenvoudigt en versnelt u zowel het laden van batch als incrementele replicatie uit verschillende heterogene databases zoals SQL Server, Oracle, DB2, Sybase en mySQL. |[Marketplace][attunity_marketplace]<br>[Snel starten][attunity_quickstart]<br>[Website][attunity_cloudbeam_website]<br>[Gegevensblad][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] |[![Attunity video](./media/sql-data-warehouse-partner-data-integration/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
@@ -82,7 +82,7 @@ Zie voor meer informatie over andere partners, [Business Intelligence partners] 
 
 <!--[bryte_systems_marketplace]:https://azure.microsoft.com/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
 
-[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services/
+[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
 
 <!--[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
 [informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/-->

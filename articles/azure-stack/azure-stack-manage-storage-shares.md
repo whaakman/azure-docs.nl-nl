@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249894"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304390"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure Stack beheren 
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 De informatie in dit artikel helpt bij de Azure Stack cloud operator bewaken en beheren van de opslagcapaciteit van hun Azure Stack-implementatie. De Azure Stack-opslaginfrastructuur wijst een subset van de totale opslagcapaciteit van de Azure Stack-implementatie moet worden gebruikt voor **opslagservices**. De storage-services opslaan van de gegevens van een tenant in shares op volumes die met de knooppunten van de implementatie overeenkomen.
 
@@ -79,7 +79,7 @@ Gebruik PowerShell of de admin-portal voor het bewaken van shares, zodat u inzic
 
 ### <a name="use-powershell"></a>PowerShell gebruiken
 Als een cloud-operator, kunt u de opslagcapaciteit van een share met behulp van PowerShell controleren **Get-AzsStorageShare** cmdlet. De cmdlet Get-AzsStorageShare retourneert het totale aantal toegewezen en vrije ruimte in bytes op elk van de shares.   
-![Voorbeeld: De vrije ruimte voor shares retourneren](media/azure-stack-manage-storage-shares/free-space.png)
+![Voorbeeld: Vrije ruimte voor shares retourneren](media/azure-stack-manage-storage-shares/free-space.png)
 
 - **Totale capaciteit** is de totale ruimte in bytes die beschikbaar op de share zijn. Deze ruimte wordt gebruikt voor gegevens en metagegevens die wordt beheerd door de storage-services.
 - **Capaciteitsplanning** is de hoeveelheid gegevens in bytes die wordt gebruikt door alle gebieden van de bestanden die de gegevens van de tenant en gekoppelde metagegevens opgeslagen.
@@ -90,7 +90,7 @@ Als een cloud-operator, kunt u de beheerportal om de opslagcapaciteit van alle s
 1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
 2. Selecteer **alle services** > **opslag** openen van de lijst met de bestandsshare waar u de informatie over het gebruik kunt bekijken. 
 
-  ![Voorbeeld: Opslag-bestandsshares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+  ![Voorbeeld: Bestandsshares voor opslag](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **Totaal aantal** is de totale ruimte in bytes die beschikbaar op de share zijn. Deze ruimte wordt gebruikt voor gegevens en metagegevens die wordt beheerd door de storage-services.
   - **GEBRUIKT** is de hoeveelheid gegevens in bytes die wordt gebruikt door alle gebieden van de bestanden die de gegevens van de tenant en gekoppelde metagegevens opgeslagen.
@@ -101,12 +101,12 @@ Wanneer u de beheerportal gebruikt, ontvangt u meldingen over shares die weinig 
 > [!IMPORTANT]
 > Als een cloud-operator, houd u shares volledig gebruik wordt bereikt. Wanneer een share is 100% gebruikt, de opslag-service niet meer functies voor deze share. Als u wilt herstellen van de vrije ruimte en herstelbewerkingen op een share die 100% gebruikt, moet u contact op met Microsoft ondersteuning.
 
-**Waarschuwing**: wanneer een bestandsshare meer dan 80 is % gebruikt, ontvangt u een *waarschuwing* waarschuwing in het beheerportal: ![voorbeeld: waarschuwing](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Waarschuwing**: Wanneer een bestandsshare meer dan 80 is % gebruikt, ontvangt u een *waarschuwing* waarschuwing in het beheerportal: ![Voorbeeld: Waarschuwing](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**Kritieke**: wanneer een bestandsshare meer dan 90 is % gebruikt, ontvangt u een *kritieke* waarschuwing in het beheerportal: ![voorbeeld: kritieke waarschuwing](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Kritieke**: Wanneer een bestandsshare meer dan 90 is % gebruikt, ontvangt u een *kritieke* waarschuwing in het beheerportal: ![Voorbeeld: Kritieke waarschuwing](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Details weergeven**: In de beheerportal kunt u de details van een waarschuwing om weer te geven van de opties voor risicobeperking openen: ![voorbeeld: Waarschuwingsdetails weergeven](media/azure-stack-manage-storage-shares/alert-details.png)
+**Details weergeven**: U kunt de details van een waarschuwing om weer te geven van de opties voor risicobeperking openen in de beheerportal: ![Voorbeeld: Waarschuwingsdetails weergeven](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Beschikbare ruimte beheren
@@ -119,7 +119,7 @@ U kunt de capaciteit die wordt gebruikt door tenantaccounts die zijn verwijderd 
 
 Zie voor meer informatie, [vrijmaken capaciteit](azure-stack-manage-storage-accounts.md#reclaim) in de storage-resources beheren.
 
-### <a name="migrate-a-container-between-volumes"></a>Migreren van een container tussen volumes
+### <a name="migrate-a-container-between-volumes"></a>Een container tussen volumes migreren
 *Deze optie geldt alleen voor implementaties met meerdere knooppunten.*
 
 Vanwege de gebruikspatronen van de tenant gebruiken sommige bestandsshares tenant meer ruimte dan andere. Het resultaat is een share die op ruimte vóór andere shares die relatief ongebruikte zijn laag wordt uitgevoerd.
@@ -196,11 +196,11 @@ Migratie consolideert alle een blob van containers op de nieuwe share.
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
   ````
 
-  ![Voorbeeld: Terugdraaien van de status](media/azure-stack-manage-storage-shares/rollback.png)
+  ![Voorbeeld: Van de terugdraaistatus](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. U kunt de opdracht in stap 6 opnieuw uitvoeren, totdat de status wordt bevestigd dat de migratietaak is **geannuleerd**:  
 
-    ![Voorbeeld: Status is geannuleerd](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![Voorbeeld: Status geannuleerd](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>VM-schijven verplaatsen
 *Deze optie geldt alleen voor implementaties met meerdere knooppunten.*

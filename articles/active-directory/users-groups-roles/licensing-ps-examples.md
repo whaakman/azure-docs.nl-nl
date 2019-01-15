@@ -13,12 +13,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
-ms.openlocfilehash: d046b8e6c054131a4154654637f12dbdc26608a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9e0e1a70926127389101c79121ffab03e411f56a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210428"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265141"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-voorbeelden voor Groepslicenties in Azure AD
 
@@ -32,7 +32,7 @@ Volledige functionaliteit voor Groepslicenties is beschikbaar via de [Azure-port
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Weergave-productlicenties die is toegewezen aan een groep
 De [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet kan worden gebruikt voor het ophalen van het groepsobject en controleer de *licenties* eigenschap: geeft een lijst van alle productlicenties momenteel toegewezen aan de groep.
-```
+```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
@@ -78,11 +78,11 @@ HTTP/1.1 200 OK
 ## <a name="get-all-groups-with-licenses"></a>Ophalen van alle groepen met licenties
 
 Hier vindt u alle groepen met een licentie is toegewezen door het uitvoeren van de volgende opdracht uit:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses}
 ```
 Meer informatie u kunt weergeven over welke producten zijn toegewezen:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses} | Select `
     ObjectId, `
     DisplayName, `
@@ -102,7 +102,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ## <a name="get-statistics-for-groups-with-licenses"></a>Statistieken voor groepen met licenties ophalen
 U kunt rapporten van basisstatistieken voor groepen met licenties. Het script in het volgende voorbeeld wordt een lijst met het aantal totale aantal gebruikers, het aantal gebruikers met licenties die zijn al toegewezen door de groep en de telling van gebruikers voor wie kunnen geen licenties van de groep worden toegewezen.
 
-```
+```powershell
 #get all groups with licenses
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $groupId = $_.ObjectId;
@@ -160,7 +160,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 
 ## <a name="get-all-groups-with-license-errors"></a>Alle groepen met licentie fouten ophalen
 Om groepen te vinden die bevatten sommige gebruikers voor wie de licenties niet kunnen worden toegewezen:
-```
+```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
 Uitvoer:
@@ -201,7 +201,7 @@ HTTP/1.1 200 OK
 
 Een groep met enkele fouten met betrekking tot licentie worden gegeven, kunt u nu weergeven alle gebruikers die worden beïnvloed door deze fouten. Een gebruiker kan fouten van andere groepen te hebben. Echter, in dit voorbeeld dat we resultaten alleen op fouten die relevant zijn voor de betreffende groep beperken door het controleren van de **ReferencedObjectId** eigenschap van elk **IndirectLicenseError** vermelding op de gebruiker.
 
-```
+```powershell
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
@@ -209,7 +209,7 @@ $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
-    #filter out users without license errors and users with licenense errors from other groups
+    #filter out users without license errors and users with license errors from other groups
     Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId} |
     #display id, name and error detail. Note: we are filtering out license errors from other groups
     Select ObjectId, `
@@ -252,7 +252,7 @@ Het volgende script kan worden gebruikt om op te halen van alle gebruikers met l
 > [!NOTE]
 > Met dit script worden alle gebruikers in de tenant, die misschien niet optimaal voor grote tenants opgesomd.
 
-```
+```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
@@ -278,7 +278,7 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 
 Hier volgt een andere versie van het script dat wordt alleen in groepen met licentie fouten gezocht. Deze mogelijk meer worden geoptimaliseerd voor scenario's waarin u verwacht dat bepaalde groepen met problemen hebben.
 
-```
+```powershell
 $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
     foreach ($groupId in $groupIds) {
     Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
@@ -296,7 +296,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 Voor een object is het mogelijk om te controleren of een bepaald product-licentie is toegewezen uit een groep of als het rechtstreeks is toegewezen.
 
 De onderstaande twee Voorbeeldfuncties kunnen worden gebruikt voor het analyseren van het type van de toewijzing aan een afzonderlijke gebruiker:
-```
+```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
 {
@@ -358,7 +358,7 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 Dit script wordt uitgevoerd die functies op elke gebruiker in de tenant, met behulp van de SKU-ID als invoer: in dit voorbeeld zijn we geïnteresseerd in de licentie voor *Enterprise Mobility + Security*, die in onze tenant wordt weergegeven met de ID  *Contoso:EMS*:
-```
+```powershell
 #the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
@@ -436,7 +436,7 @@ Het doel van dit script is Verwijder onnodige direct licenties van gebruikers di
 > [!NOTE]
 > Het is belangrijk voor het eerst valideren dat de directe licenties moeten worden verwijderd niet de mogelijkheid meer servicefunctionaliteit dan de overgenomen licenties. Verwijderen van de directe licentie kan anders toegang tot services en gegevens voor gebruikers uitschakelen. Het is momenteel niet mogelijk om te controleren via PowerShell welke services zijn ingeschakeld via directe overgenomen licenties voor Visual Studio. In het script geven we het minimale niveau van services die we weten dat worden overgenomen van groepen en controleer tegen om ervoor te zorgen dat gebruikers niet onverwacht toegang tot services verliezen.
 
-```
+```powershell
 #BEGIN: Helper functions used by the script
 
 #Returns TRUE if the user has the license assigned directly

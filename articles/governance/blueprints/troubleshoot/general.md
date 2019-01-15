@@ -4,17 +4,17 @@ description: Informatie over het oplossen van problemen met het maken en toewijz
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315519"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261924"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Problemen oplossen met behulp van Azure blauwdrukken
 
@@ -52,6 +52,20 @@ Een beleid voor kan strijdig zijn met de implementatie voor een aantal oorzaken 
 #### <a name="resolution"></a>Oplossing
 
 De blauwdruk wijzigen zodat deze niet met de beleidsregels in de foutdetails conflicteert. Als deze wijziging niet mogelijk is, wordt een alternatief is dat het bereik van de beleidstoewijzing gewijzigd, zodat de blauwdruk is niet langer een conflict met het beleid.
+
+### <a name="escape-function-parameter"></a>Scenario: Blauwdrukparameter is een functie
+
+#### <a name="issue"></a>Probleem
+
+Blauwdrukparameters die functies worden verwerkt voordat ze worden doorgegeven aan artefacten.
+
+#### <a name="cause"></a>Oorzaak
+
+Een blauwdrukparameter doorgeven die gebruikmaakt van een functie, zoals `[resourceGroup().tags.myTag]`, naar een artefact resulteert in het verwerkte resultaat van de functie wordt ingesteld op het artefact in plaats van de dynamische functie.
+
+#### <a name="resolution"></a>Oplossing
+
+Als u wilt een werkt alleen in als een parameter doorgeven, escape voor de gehele tekenreeks met `[` dat lijkt op de blauwdrukparameter `[[resourceGroup().tags.myTag]`. Het escape-teken zorgt ervoor dat de blauwdrukken te behandelen de waarde als een tekenreeks bij het verwerken van de blauwdruk. Blauwdrukken plaatst vervolgens de functie op het artefact zodat het kan worden dynamische zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
 

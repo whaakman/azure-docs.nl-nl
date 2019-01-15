@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a6272f0a6da10075db299d0f8c87f0d748a7a946
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996467"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259781"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Vergelijking van Azure Data Lake Storage Gen1 en Azure Blob-opslag
   >[!NOTE] 
-    >[Azure Data Lake Storage Gen2 Preview](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) onlangs is aangekondigd. Preview van Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure Blob Storage geconvergeerd en [Azure Data Lake Storage Gen1] (https://docs.microsoft.com/azure/data-lake-store/index). Functies van Azure Data Lake Storage Gen1, zoals de semantiek van het bestandssysteem, op bestandsniveau beveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Wij raden u Gen2 Preview van Data Lake-opslag gebruiken als basis voor het bouwen van uw enterprise datalakes en krijgt het beste van Azure Blob Storage, evenals Azure Data Lake Storage Gen1.
+    >[Azure Data Lake Storage Gen2 Preview](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) onlangs is aangekondigd. Preview van Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure Blob Storage geconvergeerd en [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index). Functies van Azure Data Lake Storage Gen1, zoals de semantiek van het bestandssysteem, op bestandsniveau beveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Wij raden u Gen2 Preview van Data Lake-opslag gebruiken als basis voor het bouwen van uw enterprise datalakes en krijgt het beste van Azure Blob Storage, evenals Azure Data Lake Storage Gen1.
 
 De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data Lake Storage Gen1 en Azure Blob Storage langs een aantal belangrijke aspecten van de verwerking van big data. Azure Blob-opslag is een algemeen gebruik, schaalbare opslag die is ontworpen voor een groot aantal scenario's voor opslag. Azure Data Lake Storage Gen1 is een zeer grote opslagruimte die is geoptimaliseerd voor workloads voor analyse van big data.
 
@@ -36,7 +36,7 @@ De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data
 | Belangrijkste concepten |Data Lake Storage Gen1-account bevat mappen die op zijn beurt gegevens die zijn opgeslagen als bestanden bevat |Storage-account heeft containers, die op zijn beurt de gegevens in de vorm van blobs |
 | structuur |Hiërarchisch bestandssysteem |Objectarchief met platte-naamruimte |
 | API |REST-API via HTTPS |REST-API via HTTP/HTTPS |
-| Server-side-API |[WebHDFS compatibele REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST-API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| Server-side-API |[WebHDFS compatibele REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop-bestand System-Client |Ja |Ja |
 | Gegevensbewerkingen - verificatie |Op basis van [Azure Active Directory-identiteiten](../active-directory/develop/authentication-scenarios.md) |Op basis van gedeelde geheimen - [toegangssleutels](../storage/common/storage-account-manage.md#access-keys) en [gedeelde toegangssleutels handtekening](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Gegevensbewerkingen - verificatieprotocol |OAuth 2.0. Oproepen moeten bevatten een ongeldig JWT (JSON Web Token) dat is uitgegeven door Azure Active Directory |Hash-based Message Authentication Code (HMAC). Aanroepen, moeten een Base64-gecodeerd SHA-256-hash bevatten over een deel van de HTTP-aanvraag. |

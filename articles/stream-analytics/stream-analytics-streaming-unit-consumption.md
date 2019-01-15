@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002651"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304836"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
@@ -58,6 +58,8 @@ Zie voor meer informatie over het kiezen van het juiste aantal su's op deze pagi
 Tijdelijke (tijdgebaseerde) query-elementen zijn de kernset aan stateful operators geleverd door Stream Analytics. Stream Analytics beheert de status van deze bewerkingen intern namens gebruiker, door het beheer van geheugenverbruik, plaatsen van controlepunten voor tolerantie en herstel van de status tijdens upgrades van de service. Hoewel de Stream Analytics wordt volledig beheerd voor de Staten, zijn er een aantal aanbevolen werkwijzen besproken waarmee gebruikers rekening moeten houden.
 
 Houd er rekening mee dat een taak met de logica van complexe query gebruikspercentage voor hoge hebben kan, zelfs wanneer deze niet voortdurend invoergebeurtenissen ontvangt. Dit kan gebeuren wanneer een plotselinge piek in de invoer- en gebeurtenissen. De taak kan blijven onderhouden van de status in het geheugen als de query complex is.
+
+Gebruikspercentage kan plotseling verwijderen op 0 voor een korte periode voordat binnenkort terug naar de verwachte niveaus. Dit gebeurt vanwege tijdelijke fouten of door systeem gestarte upgrades worden uitgevoerd.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Stateful querylogica in de tijdelijke elementen
 Een van de unieke mogelijkheid van Azure Stream Analytics-taak is stateful verwerking, zoals statische functies in vensters, tijdelijke joins en tijdelijke analytische functies uit te voeren. Elk van deze operators houdt de statusinformatie. De maximale venstergrootte voor deze query-elementen is zeven dagen. 

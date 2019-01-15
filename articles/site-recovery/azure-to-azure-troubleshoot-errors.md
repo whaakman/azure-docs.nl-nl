@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: e120c10468ca95b604ef8f857959607d3a066ea0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8023129bf700793447b63f0686acd22f6ac2b25c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973550"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265002"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -286,6 +286,39 @@ U kunt 'Services'-console opent en zorg ervoor dat de ' COM + System Application
 --- | --- | ---
 150172<br></br>**Bericht**: Beveiliging kan niet worden ingeschakeld voor de virtuele machine omdat er (DiskName) met grootte (DiskSize) die lager is dan de minimaal ondersteunde grootte van 10 GB. | -De schijf is kleiner dan de ondersteunde grootte van 1024 MB| Ervoor zorgen dat de schijfgrootten binnen het ondersteunde bereik valt en probeer het opnieuw. 
 
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Schakel de beveiliging is mislukt omdat de apparaatnaam die worden vermeld in de GRUB-configuratie in plaats van de UUID (foutcode 151126)
 
-## <a name="next-steps"></a>Volgende stappen
-[Virtuele Azure-machines repliceren](site-recovery-replicate-azure-to-azure.md)
+**Mogelijke oorzaak:** </br>
+De GRUB-configuratiebestanden (' / boot/grub/menu.lst ', ' / boot/grub/grub.cfg ', ' / boot/grub2/grub.cfg ' of '/ standaard/etc/wormgaten') kan de waarde voor de parameters bevatten **hoofdmap** en **hervatten** als de werkelijke apparaatnamen in plaats van UUID. Site Recovery mandaten UUID benadering, zoals de naam van de apparaten voor opnieuw opstarten van de virtuele machine verschilt mogelijk als virtuele machine mogelijk niet afkomstig is-up met dezelfde naam leidt tot problemen met failover. Bijvoorbeeld: </br>
+
+
+- De volgende regel wordt uit het bestand WORMGATEN **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- De volgende regel wordt uit het bestand WORMGATEN **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = / dev/sda2** **= / dev/sda1 hervatten ** splash = op de achtergrond crashkernel 256M-:128M showopts vga = 0x314 =*
+
+Als u de bovenstaande vet tekenreeks ziet, bevat WORMGATEN daadwerkelijk apparaatnamen voor de parameters "root" en "Doorgaan" in plaats van UUID.
+ 
+**Over het oplossen van:**<br>
+De apparaatnamen moeten worden vervangen door de bijbehorende UUID.<br>
+
+
+1. De UUID van het apparaat vinden door het uitvoeren van de opdracht ' blkid <device name>'. Bijvoorbeeld:<br>
+```
+blkid /dev/sda1 
+```<br>
+```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+```blkid /dev/sda2```<br> 
+```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```<br>
+
+
+
+1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+
+## Next steps
+[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

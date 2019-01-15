@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 41509c1f35d42a1e8558299b4244ad515c36ec17
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 607351718ddffbea5fa4dbbae333d81aac230f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816052"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258948"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - ondersteuning voor Downlevel-clients en IP-eindpunt voor Tabelcontrole wordt gewijzigd
 
@@ -43,7 +43,7 @@ Een gedeeltelijke lijst van 'Downlevel-clients' bevat:
 * JDBC (Hoewel JDBC TDS 7.4 ondersteunt, de functie voor TDS-omleiding wordt niet volledig ondersteund)
 * Tedious (voor Node.JS)
 
-**Opmerking:** de bovenstaande server FQDN wijzigingen zijn mogelijk nuttig zijn ook voor het toepassen van een beleid voor controle van SQL Server op zonder nodig voor de configuratie van een stap in elke database (tijdelijke risicobeperking).
+**Opmerking:** De bovenstaande server FQDN wijzigingen zijn mogelijk nuttig zijn ook voor het toepassen van een beleid voor controle van SQL Server op zonder dat nodig is voor een configuratiestap in elke database (tijdelijke risicobeperking).
 
 ## <a id="subheading-2"></a>IP-eindpunt wijzigingen bij het inschakelen van controle
 Houd er rekening mee dat wanneer u de Tabelcontrole inschakelt, het IP-eindpunt van uw database worden gewijzigd. Als u strikte firewall-instellingen hebt, werkt u de firewall-instellingen dienovereenkomstig.
@@ -52,8 +52,8 @@ De nieuwe database IP-eindpunt is afhankelijk van de databaseregio:
 
 | Databaseregio | Mogelijke IP-eindpunten |
 | --- | --- |
-| Noord-China |139.217.29.176, 139.217.28.254 |
-| China Oost |42.159.245.65, 42.159.246.245 |
+| China - noord |139.217.29.176, 139.217.28.254 |
+| China East |42.159.245.65, 42.159.246.245 |
 | Australië - oost |104.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
 | Australië - zuidoost |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
 | Brazilië - zuid |104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
@@ -72,11 +72,11 @@ De nieuwe database IP-eindpunt is afhankelijk van de databaseregio:
 | Europa - noord |104.41.209.221, 40.85.139.245, 137.116.251.66, 40.85.142.176 |
 | US - zuid-centraal |191.238.184.128, 40.84.190.84, 23.102.160.153, 40.84.186.66 |
 | Azië - zuidoost |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
-| Europa - west |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
+| Europa -west |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
 | US - west |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
 | US - west 2 |13.66.224.156, 13.66.227.8 |
 | US - west-centraal |52.161.29.186, 52.161.27.213 |
-| Canada Centraal |13.88.248.106, 13.88.248.110 |
-| Canada Oost |40.86.227.82, 40.86.225.194 |
-| VK Noord |13.87.101.18, 13.87.100.232 |
-| VK Zuid 2 |13.87.32.202, 13.87.32.226 |
+| Canada - midden |13.88.248.106, 13.88.248.110 |
+| Canada - oost |40.86.227.82, 40.86.225.194 |
+| VK, noord |13.87.101.18, 13.87.100.232 |
+| VK, zuid 2 |13.87.32.202, 13.87.32.226 |

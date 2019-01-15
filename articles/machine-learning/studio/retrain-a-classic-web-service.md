@@ -1,26 +1,8 @@
 ---
-title: Opnieuw trainen van een klassieke webservice - Azure Machine Learning Studio | Microsoft Docs
-description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554755"
+Titel: Opnieuw trainen een klassieke web service titleSuffix: Azure Machine Learning Studio description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 04/19/2017
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Een klassieke Azure Machine Learning Studio-webservice opnieuw trainen
 De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling scoringeindpunt. Standaardeindpunten worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren van experimenten en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt de webservice opnieuw trainen, moet u een nieuw eindpunt toevoegen aan de webservice.

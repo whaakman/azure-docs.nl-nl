@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 36c16cd48ffba704b9cc8b0884491c3b92543b5c
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215487"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306247"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -29,6 +29,7 @@ Azure biedt een breed scala aan configureerbare beveiliging, controle en logboek
 > Bepaalde aanbevelingen in dit artikel kunnen leiden tot grotere hoeveelheden gegevens, netwerk- of computerresources en de kosten van uw licentie of abonnement verhogen.
 
 ## <a name="types-of-logs-in-azure"></a>Verschillende typen logboeken in Azure
+
 Cloud-Apps zijn complexe, met veel bewegende onderdelen bevatten. -Logboeken bieden gegevens voor bescherming van uw toepassingen operationeel te houden. Logboeken helpen bij het oplossen van problemen met het verleden of te voorkomen dat de mogelijkheden die zijn. En ze kunnen helpen verbeteren de prestaties van toepassingen of onderhoud of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
 
 Logboeken in Azure zijn onderverdeeld in de volgende typen:
@@ -42,16 +43,17 @@ De volgende tabel bevat de belangrijkste typen logboeken beschikbaar zijn in Azu
 
 | Logboekcategorie | Logboektype | Gebruik | Integratie |
 | ------------ | -------- | ------ | ----------- |
-|[Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Besturingselement vlak gebeurtenissen op Azure Resource Manager-resources|   Biedt inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.|    De rest-API, [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
+|[Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Besturingselement vlak gebeurtenissen op Azure Resource Manager-resources|   Biedt inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.|    Rest API, [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Diagnostische logboeken van Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Regelmatig gegevens over de werking van Azure Resource Manager-resources in het abonnement|    Biedt inzicht in bewerkingen die uw resource zelf uitgevoerd.| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Azure AD-rapportage](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logboeken en rapporten | Rapporten aanmelden gebruikersactiviteiten en informatie over gebruikers- en groepsbeheer systeemactiviteit.|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Virtuele machines en cloudservices](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows Event Log-service en de Linux Syslog|  Systeemgegevens en logboekregistratie op de virtuele machines vastgelegd en die gegevens overdraagt naar een storage-account van uw keuze.|   Windows (met behulp van Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] opslag) en Linux in Azure Monitor|
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Logboekregistratie van opslag, biedt metrische gegevens voor een storage-account|Biedt inzicht in de trace-aanvragen, analyseert trends in gebruik en vaststellen van problemen met uw storage-account.|   REST-API of de [-clientbibliotheek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Stroomlogboeken van Netwerkbeveiligingsgroep (NSG)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling, ziet u binnenkomende en uitgaande stromen op basis van per regel|Geeft informatie weer over de inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnoses|   Biedt een application performance monitoring (APM)-service voor webontwikkelaars op meerdere platforms.| REST-API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
+|[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnoses|   Biedt een application performance monitoring (APM)-service voor webontwikkelaars op meerdere platforms.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Gegevens verwerken / beveiligingswaarschuwingen|    Waarschuwingen in Azure Security Center, Azure Log Analytics-waarschuwingen|   Biedt informatie over beveiliging en waarschuwingen.|  REST-API's, JSON|
 
 ### <a name="activity-logs"></a>Activiteitenlogboeken
+
 [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement. Activiteitenlogboeken werden voorheen bekend als 'audit logs' of 'operationele logs', omdat ze rapporteren [bedieningsvlak gebeurtenissen](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) voor uw abonnementen. 
 
 Activiteitenlogboeken help u bepalen de ' wat, wie, en wanneer ' voor schrijfbewerkingen (dat wil zeggen, PUT, POST of te verwijderen). Activiteitenlogboek registreert ook informatie geven over de status van de bewerking en andere relevante eigenschappen. Activiteitenlogboeken bevatten geen lees (GET)-bewerkingen.
@@ -81,6 +83,7 @@ Integratie van scenario's voor het activiteitenlogboek:
 U kunt een storage-account gebruiken of [event hub-naamruimte](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) die zich niet in hetzelfde abonnement bevinden als het account waarmee het logboek wordt verzenden. Degene die de instelling configureert moet de juiste [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) toegang tot beide abonnementen.
 
 ### <a name="azure-diagnostics-logs"></a>Diagnostische logboeken van Azure
+
 Diagnostische logboeken van Azure worden gegenereerd door een resource die uitgebreide, regelmatig gegevens over de werking van die resource biedt. Resourcetype is afhankelijk van de inhoud van deze logboeken. Bijvoorbeeld, [Windows-gebeurtenislogboeken system](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) zijn van een categorie van logboeken met diagnostische gegevens voor virtuele machines, en [blob, table en wachtrijlogboeken](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) categorieën van diagnostische logboeken voor storage-accounts zijn. Diagnoselogboeken verschillen van activiteitenlogboeken die inzicht geven in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
 
 ![Diagnostische logboeken van Azure diagrammen](./media/azure-log-audit/azure-log-audit-fig2.png)
@@ -115,6 +118,7 @@ Diagnostische logboeken van Azure bieden meerdere configuratieopties, zoals de A
 |Azure Service Bus|[Diagnostische logboeken van Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Azure Active Directory-rapportage
+
 Azure Active Directory (Azure AD) bevat beveiligings-, activiteit- en controlerapporten voor de map van een gebruiker. De [Azure AD-controlerapport](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helpt u bij het identificeren van bevoegde acties die zijn opgetreden in de Azure AD-exemplaar van de gebruiker. Bevoegde acties zijn wijzigingen van de uitbreiding van bevoegdheden (bijvoorbeeld rol maken of opnieuw instellen van wachtwoorden), veranderende beleidsconfiguraties (bijvoorbeeld wachtwoordbeleid) of wijzigingen in de directory-configuratie (bijvoorbeeld: wijzigingen in domein federatie-instellingen).
 
 De rapporten bevatten de controlerecord voor de naam van de gebeurtenis, de gebruiker die de actie, de doelresource beïnvloed door de wijziging en de datum en tijd (in UTC) wordt uitgevoerd. Gebruikers kunnen de lijst met controlegebeurtenissen ophalen voor Azure AD via de [Azure-portal](https://portal.azure.com/), zoals beschreven in [uw auditlogboeken weergeven](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
@@ -143,6 +147,7 @@ Gebeurtenissen in het controlerapport Azure AD worden gedurende 180 dagen bewaar
 Als u geïnteresseerd bent in uw controlegebeurtenissen langer bewaren, gebruikt u de rapportage-API voor het ophalen van regelmatig [controlegebeurtenissen](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) in een afzonderlijk gegevensarchief.
 
 ### <a name="virtual-machine-logs-that-use-azure-diagnostics"></a>Virtuele machines, apparaatlogboeken die gebruikmaken van Azure Diagnostics
+
 [Azure Diagnostics](https://docs.microsoft.com/azure/azure-diagnostics) is de mogelijkheid in Azure die kunt u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een van verschillende bronnen. Op dit moment ondersteund zijn [Azure cloud service-web- en werkrollen rollen](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me).
 
 ![Virtuele machines, apparaatlogboeken die gebruikmaken van Azure Diagnostics](./media/azure-log-audit/azure-log-audit-fig3.png)
@@ -160,6 +165,7 @@ U kunt Azure Diagnostics op een virtuele machine inschakelen door een van de vol
 * [Een Windows-machine met controle en diagnostiek met behulp van een Azure Resource Manager-sjabloon maken](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>Storage Analytics
+
 [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) logboeken en metrische gegevens biedt voor een opslagaccount. Deze gegevens kunt u gebruiken om aanvragen te traceren, gebruikstrends te analyseren en een diagnose uit te voeren voor problemen met uw opslagaccount. Logboekregistratie van opslag Analytics is beschikbaar voor de [Azure Blob-, Azure Queue- en Azure Table storage-services](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics wordt gedetailleerde informatie over geslaagde en mislukte aanvragen in een storage-service geregistreerd.
 
 U kunt deze informatie gebruiken voor het bewaken van afzonderlijke aanvragen en om problemen met een opslagservice te diagnosticeren. Aanvragen worden geregistreerd op basis van best-effort. Logboekvermeldingen worden alleen als er aanvragen voor het service-eindpunt gemaakt. Bijvoorbeeld, als een storage-account heeft een activiteit in de blobeindpunt, maar niet in de tabel of wachtrij eindpunten, zijn alleen de logboeken die betrekking op de Blob storage-service hebben gemaakt.
@@ -185,6 +191,7 @@ Storage Analytics registreert de volgende soorten geverifieerde en anonieme aanv
 | Aanvragen van Storage Analytics zelf, zoals logboekbestanden worden gemaakt of verwijderd, worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt gedocumenteerd in [Opslaganalyse vastgelegd operations en statusberichten](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) en [Opslaganalyse logboekindeling](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | Alle andere mislukte anonieme aanvragen worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt gedocumenteerd in [Opslaganalyse vastgelegd operations en statusberichten](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) en [Opslaganalyse logboekindeling](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
 ### <a name="azure-networking-logs"></a>Azure-netwerklogboeken
+
 Netwerk logboekregistratie en bewaking in Azure is uitgebreid en omvat onderverdeeld in twee hoofdcategorieën:
 
 * [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Scenario's gebaseerde netwerkbewaking is opgegeven met de functies van Network Watcher. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
@@ -282,6 +289,7 @@ De volgende tabel geeft een lijst van en beschrijft integratiescenario's:
 |[Continue export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Bulksgewijs exporteren van onbewerkte gegevens naar de opslag wanneer ze worden ontvangen.||
 
 ### <a name="azure-security-center-alerts"></a>Azure Security Center-waarschuwingen
+
 Azure Security Center werkt volgens het automatisch verzamelen van gegevens van de beveiliging van uw Azure-resources, het netwerk en verbonden partneroplossingen. Deze informatie wordt door Security Center geanalyseerd, waarbij vaak informatie uit meerdere bronnen wordt samengebracht om bedreigingen te analyseren. Beveiligingswaarschuwingen krijgen in Security Center een prioriteit, evenals aanbevelingen voor het oplossen van de bedreiging. Zie voor meer informatie, [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
 
 ![Azure Security Center-diagram](./media/azure-log-audit/azure-log-audit-fig7.png)
@@ -296,7 +304,7 @@ Security Center maakt gebruik van geavanceerde beveiligingsanalyses die veel ver
 
 Veel beveiligingsbewerkingen en incident response teams vertrouwen op een SIEM-oplossing als startpunt voor het sorteren en onderzoeken van beveiligingswaarschuwingen. Met Azure-Logboekintegratie, kunt u waarschuwingen van Beveiligingscentrum en VM-beveiligingsgebeurtenissen, die worden verzameld door de diagnose en controle in Logboeken in Azure, met uw Log Analytics of SIEM-oplossing in bijna realtime synchroniseren.
 
-## <a name="log-analytics"></a>Log Analytics 
+## <a name="log-analytics"></a>Log Analytics
 
 Log Analytics is een service in Azure waarmee u verzamelen en analyseren van gegevens die wordt gegenereerd door resources in uw cloud en kunt on-premises omgevingen. Dit biedt u realtime inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers, ongeacht hun fysieke locatie.
 
@@ -309,6 +317,7 @@ Verbonden bronnen zijn de computers en andere resources die de gegevens die word
 [Gegevensbronnen](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) worden de verschillende soorten gegevens die worden verzameld van elke verbonden bron. Bronnen omvatten gebeurtenissen en [prestatiegegevens](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) van [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) en Linux-agenten naast gegevensbronnen zoals [IIS-logboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) en [aangepaste tekstlogboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). U configureert elke gegevensbron die u wenst te verzamelen en de configuratie wordt automatisch doorgegeven aan elke verbonden bron.
 
 Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Azure-services](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
+
 * Azure Diagnostics rechtstreeks naar Log Analytics (**Diagnostics** in de volgende tabel)
 
 * Azure Diagnostics naar Azure-opslag naar Log Analytics (**opslag** in de volgende tabel)
@@ -330,7 +339,7 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 |Azure Event Hub-naamruimte| Microsoft.EventHub/<br>Naamruimten|  Diagnostiek|    Diagnostiek||
 |Azure IoT Hub| Microsoft.Devices/<br>IotHubs||     Diagnostiek||
 |Azure Key Vault|   Microsoft.KeyVault/<br>Kluizen|  Diagnostiek  || [Key Vault-analyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
-|Azure Load Balancer|   Microsoft.Network/<br>load balancers|    Diagnostiek|||
+|Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
 |Azure Logic Apps|  Microsoft.Logic/<br>Werkstromen|  Diagnostiek|    Diagnostiek||
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Azure Network Security Group analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
@@ -341,17 +350,18 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 |SQL (v12)| Microsoft.Sql/<br>servers /<br>databases||       Diagnostiek||
 ||Microsoft.Sql/<br>servers /<br>elasticPools||||
 |Storage|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|Azure Virtual Machines|    Microsoft.Compute/<br>virtuele machines|  Toestelnummer|  Toestelnummer||
+|Azure Virtual Machines|    Microsoft.Compute/<br>virtualMachines|  Toestelnummer|  Toestelnummer||
 ||||Diagnostiek||
-|Virtuele-machineschaalsets|    Microsoft.Compute/<br>virtuele machines    ||Diagnostiek||
-||Microsoft.Compute/<br>virtualMachineScaleSets /<br>virtuele machines||||
+|Virtuele-machineschaalsets|    Microsoft.Compute/<br>virtualMachines    ||Diagnostiek||
+||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Web server-farms|Microsoft.Web/<br>serverfarms||   Diagnostiek
-|Websites|  Microsoft.Web/<br>Sites ||      Diagnostiek|    [Meer informatie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites /<br>sleuven|||||
+|Websites|  Microsoft.Web/<br>sites ||      Diagnostiek|    [Meer informatie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+||Microsoft.Web/<br>sites/<br>sleuven|||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integratie met on-premises SIEM-systemen
-Met [Azure-Logboekintegratie](https://www.microsoft.com/download/details.aspx?id=53324), kunt u de onbewerkte logboeken integreren van uw Azure-resources met uw on-premises SIEM-systeem (Security information en event management system).
+
+U kunt met Azure-Logboekintegratie onbewerkte logboeken integreren van uw Azure-resources met uw on-premises SIEM-systeem (Security information en event management system). AzLog downloads zijn uitgeschakeld op 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 ![Meld u integratie-diagram](./media/azure-log-audit/azure-log-audit-fig9.png)
 

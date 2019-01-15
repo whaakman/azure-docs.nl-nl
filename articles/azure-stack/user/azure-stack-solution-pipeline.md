@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 49f1d7e1fac1125984f7376cffdcaf2e60f5611b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247874"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263217"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
@@ -198,7 +198,7 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
 Azure Role-Based Access Control (RBAC) biedt verfijnd toegangsbeheer voor Azure. Met RBAC kunt kunt u het niveau van toegang die gebruikers nodig hebben om hun werk te doen beheren. Zie voor meer informatie over Role-Based Access Control [toegang beheren tot de Resources voor Azure-abonnement](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="azure-devops-services-agent-pools"></a>Agentpools van Azure DevOps-Services
+### <a name="azure-devops-services-agent-pools"></a>Azure DevOps Services Agent Pools
 
 In plaats van elke agent afzonderlijk beheren, kunt u agents indelen in groepen van de agent. Een agentpool definieert de delen grens voor alle agents in die groep. Agentpools zijn in Azure DevOps-Services gericht op de organisatie Azure DevOps-Services, wat betekent dat u een agentpool projecten kunt delen. Zie voor meer informatie over agentpools [Agentpools maken en wachtrijen](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
@@ -254,7 +254,7 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 2. Op **instellingen**, selecteer **Security**.
 3. In **Azure DevOps-Services groepen**, selecteer **makers van eindpunt**.
 
-    ![Makers van NorthwindCloud eindpunt](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
+    ![NorthwindCloud Endpoint Creators](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. Op de **leden** tabblad **toevoegen**.
 
@@ -264,7 +264,7 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 6. Selecteer **wijzigingen opslaan**.
 7. In de **Azure DevOps-Services groepen** in de lijst met **eindpunt beheerders**.
 
-    ![NorthwindCloud Endpoint-beheerders](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
+    ![NorthwindCloud Endpoint Administrators](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. Op de **leden** tabblad **toevoegen**.
 9. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
@@ -289,7 +289,7 @@ U kunt een serviceverbinding maken met de volgende toewijzing:
 | Abonnements-id | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Gebruiker abonnements-ID van Azure Stack |
 | Abonnementsnaam | name@contoso.com | Naam van gebruikersabonnement van Azure Stack. |
 | Service-Principal-client-ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | De principal-ID van [dit](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sectie in dit artikel. |
-| Service-Principal-sleutel | THESCRETGOESHERE = | De sleutel van hetzelfde artikel (of het wachtwoord als u het script gebruikt). |
+| Service-Principal-sleutel | THESCRETGOESHERE= | De sleutel van hetzelfde artikel (of het wachtwoord als u het script gebruikt). |
 | Tenant-id | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | De tenant-ID die u na de instructie op ophalen [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Verbinding: | Niet gecontroleerd | Controleer de verbindingsinstellingen voor de service-principal. |
 
@@ -360,7 +360,7 @@ Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurco
 
 1. Meld u met Azure DevOps-Services met een organisatie die een build-pijplijn kunt maken.
 
-2. Navigeer naar de **bouwen Web Applicaiton** pagina voor het project.
+2. Navigeer naar de **webtoepassing bouwen** pagina voor het project.
 
 3. In **argumenten**, toevoegen **win10 - r-x64** code. Dit is vereist voor het activeren van een onafhankelijke implementatie met .net Core.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 5aa998ef7af157f84a3985fdb458c2800f2575f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ecc29e9422c1d427dd76059f1a427f3d49da38f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249367"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262368"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Een op SLES of openSUSE gebaseerde virtuele machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -49,7 +49,7 @@ Als alternatief voor het bouwen van uw eigen VHD SUSE publiceert ook BYOS (uw ei
         # sudo zypper update
 5. De Azure Linux Agent installeren vanaf de SLES-opslagplaats:
    
-        # sudo zypper install WALinuxAgent
+        # sudo zypper install python-azure-agent
 6. Chkconfig inchecken als waagent is ingesteld op 'aan', en als dat niet inschakelen voor automatisch starten:
    
         # sudo chkconfig waagent on
@@ -132,11 +132,11 @@ Als alternatief voor het bouwen van uw eigen VHD SUSE publiceert ook BYOS (uw ei
         # sudo zypper install WALinuxAgent
 6. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Om dit te doen, opent u het volgende: "/ boot/grub/menu.lst" in een teksteditor en zorg ervoor dat de kernel standaard de volgende parameters bevat:
    
-     console = ttyS0 earlyprintk = ttyS0 rootdelay = 300
+     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
    Hierdoor kunnen alle consoleberichten worden verzonden naar de eerste seriële poort, die Azure helpen kan ondersteuning bij het opsporen van problemen. Bovendien de volgende parameters uit de kernel boot line verwijderen als deze bestaan:
    
-     libata.atapi_enabled=0 reserve = 0x1f0, 0x8
+     libata.atapi_enabled=0 reserve=0x1f0,0x8
 7. Het wordt aanbevolen om het bestand te bewerken '/ etc/sysconfig/netwerk/dhcp' en wijzig de `DHCLIENT_SET_HOSTNAME` parameter in het volgende:
    
      DHCLIENT_SET_HOSTNAME="no"

@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 12/14/2018
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d1110669bd0ca8c0ba0caf34ef41861c500bdd33
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4d25e4cd94fec35f31594544b619aa054a35d58d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790025"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302337"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Aanbevolen live streaming-coderingsprogramma 's
 
@@ -40,11 +40,11 @@ Media Services raadt het gebruik van een van de volgende live coderingsprogramma
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB
 - Haivision Makito X HEVC
-- IB-Studio
+- OBS Studio
 - Overschakelen naar Studio (iOS)
 - Telestream Wirecast 8.1 +
 - Telestream Wirecast S
-- Teradek segment 756
+- Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
 - VMIX
@@ -52,10 +52,10 @@ Media Services raadt het gebruik van een van de volgende live coderingsprogramma
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Live coderingsprogramma's die gefragmenteerd MP4-uitvoer
 
-Media Services raadt het gebruik van een van de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming (gefragmenteerde MP4) als uitvoer. De ondersteunde URL-schema's zijn `rtmp://` of `rtmps://`.
+Media Services raadt het gebruik van een van de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming (gefragmenteerde MP4) als uitvoer. De ondersteunde URL-schema's zijn `http://` of `https://`.
 
 - Ateme TITAN Live
-- Cisco digitale Media Encoder 2200
+- Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 ALG III
 - Imagine Communications Selenio MCP3

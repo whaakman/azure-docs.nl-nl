@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dd475c776a3cdb4f2281b9b5468968745024ac
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215164"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265206"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Lever een geïntegreerde ervaring meerdere Azure Monitor Application Insights-resources 
 In dit artikel wordt beschreven hoe u query's uitvoeren en Bekijk alle uw Application Insights toepassing logboekgegevens op één plek, zelfs wanneer ze zich in verschillende Azure-abonnementen, als vervanging voor de afschaffing van de Application Insights-Connector.  
@@ -64,7 +64,7 @@ applicationsScoping //this brings data from Application Insights resources
 | where success == 'False' 
 | where duration > 1000 
 | union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics worspace 
+    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
     | where TimeGenerated < (datetime("2018-12-01") 
     | where RequestSuccess == 'False' 
     | where RequestDuration > 1000 
@@ -82,9 +82,9 @@ De volgende tabel ziet u de schemaverschillen tussen Log Analytics en Applicatio
 
 | Meld u eigenschappen van de Analytics-werkruimte| Application Insights-resource-eigenschappen|
 |------------|------------| 
-| AnonUserId | USER_ID|
+| AnonUserId | user_id|
 | ApplicationId | appId|
-| ApplicationName | AppName|
+| ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duur |
@@ -101,31 +101,31 @@ De volgende tabel ziet u de schemaverschillen tussen Log Analytics en Applicatio
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | naam | 
-| deviceModel | client_Model | 
+| DeviceModel | client_Model | 
 | Apparaattype | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
 | ExceptionType | type |
 | Bewerkings-id | operation_id |
-| OperationName | opeation_Name | 
+| OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duur | 
 | PageViewName | naam | 
-| ParentOpeartionID | operation_Id | 
+| ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duur | 
 | Aanvraag-id | id | 
 | RequestName | naam | 
 | RequestSuccess | voltooid | 
-| ResponseCode | ResultCode | 
+| ResponseCode | resultCode | 
 | Rol | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | sessie-id | type session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
-| URL | _chat-URL |
+| URL | _url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Volgende stappen

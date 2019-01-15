@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9c163ddf7859246fcdaa28edfd4b598a24a32be2
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 48be60a7ba5770f8c329cb6323a5caa8fcf7f961
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196790"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265053"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Een Azure-VM van een gebruiker VHD implementeren
 
@@ -39,9 +39,9 @@ De Azure Resource Manager-sjabloon voor het kopiëren [VHD implementatie](cpp-de
 | subscriptionId             | Azure-abonnement-id                                                  |
 | Locatie                   | Standaard Azure geografische locatie van de resourcegroep                       |
 | vmName                     | Naam van de virtuele machine                                                    |
-| VaultName                  | Naam van de key vault                                                          |
+| vaultName                  | Naam van de key vault                                                          |
 | vaultResourceGroup         | Resourcegroep van de key vault
-| certificateUrl             | URL van het certificaat, met inbegrip van de versie die is opgeslagen in de key vault, bijvoorbeeld:  https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7 |
+| certificateUrl             | URL van het certificaat, met inbegrip van de versie die is opgeslagen in de key vault, bijvoorbeeld:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL van de virtuele harde schijf                                                   |
 | vmSize                     | Grootte van de virtuele machine-instantie                                           |
 | publicIPAddressName        | Naam van het openbare IP-adres                                                  |

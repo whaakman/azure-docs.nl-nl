@@ -1,26 +1,8 @@
 ---
-title: 'Stap 3: Maak een nieuw experiment in Machine Learning Studio - Azure | Microsoft Docs'
-description: 'Stap 3 van het ontwikkelen van een overzicht van de voorspellende oplossing: Een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260783"
+Titel: ' Stap 3: Een nieuw Machine Learning Studio-experiment maken ' titleSuffix: Azure Machine Learning Studio description: ' Stap 3 van het ontwikkelen van een overzicht van de voorspellende oplossing: Een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 03/23/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Kennismaken, stap 3: Een nieuw Azure Machine Learning Studio-experiment maken
 Dit is de derde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)

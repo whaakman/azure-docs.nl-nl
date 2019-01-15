@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244693"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263319"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -79,7 +79,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 - Back-upservice infrastructuur verplaatst van de [openbare infrastructuurnetwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) naar de [openbare VIP-netwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Klanten moet om te controleren of de service heeft toegang tot de back-upopslag-locatie van het openbare VIP-netwerk.  
 
 > [!IMPORTANT]  
-> Hebt u een firewall die verbindingen van het openbare VIP-netwerk met de server niet is toegestaan, wordt deze wijziging infrastructuur back-ups mislukken met 'Fout 53 het netwerkpad is niet gevonden'. Dit is een belangrijke wijziging waarvoor geen redelijke oplossing. Op basis van feedback van klanten, wordt Microsoft deze wijziging in een hotfix hersteld. Raadpleeg de [update stappen sectie boeken](#post-update-steps) voor meer informatie over beschikbare hotfixes voor 1809. Zodra de hotfix beschikbaar is, zorg ervoor dat er na het bijwerken van 1809 alleen als uw beleid voor netwerken niet toestaan het openbare VIP-netwerk dat voor toegang tot bronnen van de infrastructuur van toepassing. in 1811, wordt deze wijziging wordt toegepast op alle systemen. Als u de hotfix in 1809 toegepast, is er geen verdere actie vereist.  
+> Hebt u een firewall die verbindingen van het openbare VIP-netwerk met de server niet is toegestaan, wordt deze wijziging infrastructuur back-ups mislukken met 'Fout 53 het netwerkpad is niet gevonden'. Dit is een belangrijke wijziging waarvoor geen redelijke oplossing. Op basis van feedback van klanten, wordt Microsoft deze wijziging in een hotfix hersteld. Raadpleeg de [update stappen sectie boeken](#post-update-steps) voor meer informatie over beschikbare hotfixes voor 1809. Zodra de hotfix beschikbaar is, zorg ervoor dat deze na het bijwerken van 1809 alleen als uw beleid voor netwerken niet toestaan het openbare VIP-netwerk voor toegang tot infrastructuurresources dat toepassen. in 1811, wordt deze wijziging wordt toegepast op alle systemen. Als u de hotfix in 1809 toegepast, is er geen verdere actie vereist.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Veelvoorkomende beveiligingsproblemen en risico 's
 

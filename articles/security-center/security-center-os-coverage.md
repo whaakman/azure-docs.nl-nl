@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608831"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265461"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die worden ondersteund door Azure Security Center
 
@@ -74,10 +74,10 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |Omgeving|Azure|Niet-Azure|Azure|Niet-Azure|
 |VMBA dagelijks geconstateerde waarschuwingen|✔|✔|✔ (op ondersteunde versies)|✔|
 |Waarschuwingen voor detectie van bedreigingen op basis van netwerk|✔|X|✔|X|
-|Windows Defender ATP-integratie *|✔ (op ondersteunde versies)|✔|X|X|
+|Windows Defender ATP-integratie|✔ (op ondersteunde versies)|✔|X|X|
 |Ontbrekende patches.|✔|✔|✔|✔|
 |Beveiligingsconfiguraties|✔|✔|✔|✔|
-|Antimalwareprogramma 's|✔|✔|X|X|
+|Eindpuntbeveiliging|✔|✔|X|X|
 |JIT-VM-toegang|✔|X|✔|X|
 |Adaptieve toepassingsbesturingselementen|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |Netwerktoewijzingen|✔|X|✔|X|
 |Besturingselementen voor adaptieve netwerk|✔|X|✔|X|
 
-\* Deze functies worden momenteel ondersteund in openbare preview.
 
+### <a name="supported-endpoint-protection-solutions"></a>Oplossingen voor ondersteunde eindpuntbeveiliging
+
+De volgende tabel bevat een matrix met:
+ - U kunt of Azure Security Center gebruiken voor het installeren van elke oplossing voor u.
+ - Welke endpoint protection solutions Security Center kan detecteren. Als een van deze oplossingen voor eindpuntbeveiliging wordt gedetecteerd, wordt in Security Center niet aanbevolen een installeren.
+
+| Eindpuntbeveiliging| Platformen | Security Center-installatie | Security Center Discovery |
+|------|------|-----|-----|
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Nee, ingebouwd in besturingssysteem| Ja |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (Zie opmerking hieronder) | Via extensie | Ja |
+| Trend Micro: alle versies | Windows Server-familie  | Nee | Ja |
+| Symantec v12.1.1100+| Windows Server-familie  | Nee | Ja |
+| McAfee v10+ | Windows Server-familie  | Nee | Ja |
+| Kaspersky| Windows Server-familie  | Nee | Nee  |
+| Sophos| Windows Server-familie  | Nee | Nee  |
+
+> [!NOTE]
+> - Detectie van System Center Endpoint Protection (SCEP) op een virtuele machine van Windows Server 2008 R2 moet SCEP moet worden geïnstalleerd na PowerShell 3.0 (of een hogere versie).
+>
+>
 
 ## <a name="supported-paas-features"></a>Ondersteunde PaaS-functies 
 
@@ -97,8 +116,8 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |Service|Aanbevelingen|Detectie van bedreigingen|
 |----|----|----|
 |SQL|✔| ✔|
-|PostGreSQL *|✔| ✔|
-|MySQL *|✔| ✔|
+|PostGreSQL*|✔| ✔|
+|MySQL*|✔| ✔|
 |Azure Blob storage-accounts *|✔| ✔|
 |App-services|✔| ✔|
 |Cloud Services|✔| X|
@@ -109,6 +128,8 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |Abonnement|✔| ✔|
 
 \* Deze functies worden momenteel ondersteund in openbare preview. 
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

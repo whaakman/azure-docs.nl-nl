@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194670"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260631"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Cognitive Services implementeren in Azure Stack
 
@@ -41,7 +41,7 @@ Containerstrategie is een benadering voor softwaredistributie waarin een toepass
   App-gebruikers-versie en de update van de modellen die zijn geïmplementeerd in hun oplossing bieden.
 
 - **Draagbare-architectuur**  
-  Het maken van een draagbare app-architectuur inschakelen, zodat u uw oplossing voor de openbare cloud, om een privécloud op systemen of de rand implementeren kunt. U kunt de container implementeren in Azure Kubernetes Service, Azure Container Instances, of in een Kubernetes-cluster in met Azure Stack. Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Het maken van een draagbare app-architectuur inschakelen, zodat u uw oplossing voor de openbare cloud, met een particulier implementeren kunt on-premises of de rand in de cloud. U kunt de container implementeren in Azure Kubernetes Service, Azure Container Instances, of in een Kubernetes-cluster in met Azure Stack. Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **Hoge doorvoer en lage latentie**  
    Uw appgebruikers de mogelijkheid om te schalen met pieken in verkeer voor hoge doorvoer en lage latentie bieden. Cognitive Services om uit te voeren in Azure Kubernetes Service fysiek dicht bij hun logica van toepassingen en gegevens inschakelen.
@@ -66,7 +66,7 @@ Voordat u begint, moet u naar:
 
 Maak een bron van Cognitive Service in Azure om een voorbeeld van de containers Face, LUIS of tekst herkennen, respectievelijk. U moet het abonnement sleutel en het eindpunt-URL van de resource exemplaar maken van de servicecontainers cognitive gebruiken.
 
-1.  Maak een Azure-resource in Azure portal. Als u wilt om een voorbeeld van de Face-containers, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie, [Quick Start: Een Cognitive Services-account maken in Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1.  Maak een Azure-resource in Azure portal. Als u wilt om een voorbeeld van de Face-containers, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie [Snelstart: Een Cognitive Services-account maken in Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
     >  [!Note]  
     >  De Face- of Computer Vision-bron moet de prijscategorie F0 gebruiken.
@@ -140,10 +140,10 @@ Als u meer informatie over de velden voor sleutels:
 | Veld | Opmerkingen |
 | --- | --- |
 | replicaNumber | Hiermee definieert u de initiële replica's van exemplaren te maken. U kunt deze staren schalen later na de implementatie. |
-| imageLocation | Geeft de locatie van de installatiekopie van de specifieke cognitive service-container in de ACR. Bijvoorbeeld, de face-service: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| ImageLocation | Geeft de locatie van de installatiekopie van de specifieke cognitive service-container in de ACR. Bijvoorbeeld, de face-service: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |De eindpunt-URL die u hebt genoteerd in stap van [Azure-Resource maken](#create-azure-resources) |
 | ApiKey | De abonnementssleutel die u hebt genoteerd in stap van [Azure-Resource maken](#create-azure-resources) |
-| secretName | De geheime naam die u zojuist hebt genoteerd in stap van [maken voor toegang tot de privécontainerregister secrete](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | De geheime naam die u zojuist hebt genoteerd in stap van [maken voor toegang tot de privécontainerregister secrete](#create-secrete-to-access-the-private-container-registry) |
 
 ## <a name="deploy-the-cognitive-service"></a>De cognitive service implementeren
 

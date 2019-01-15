@@ -14,12 +14,12 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce276b5fcedecc53c379d41de55080bf61e2386e
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9d22bb288bafb5e9984c357d0bf9139973f5d262
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243658"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262997"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack-validatie met PowerShell automatiseren
 
@@ -72,12 +72,12 @@ In deze zelfstudie leert u hoe u het maken van een script dat:
 
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserld | Uw VaaS gebruikers-ID. |
+    | VaaSUserId | Uw VaaS gebruikers-ID. |
     | VaaSUserPassword | Uw wachtwoord VaaS. |
     | VaaSAccountTenantId | Uw tenant VaaS GUID. |
     | VaaSSolutionName | De naam van de VaaS-oplossing waarmee het doorgeven van de test wordt uitgevoerd. |
     | VaaSTestPassName | De naam van de test VaaS doorgeven werkstroom te maken. |
-    | VaaSTestCategories | `Integration`, `Functional`, of. `Reliability`. Als u meerdere waarden gebruikt, scheidt u elke waarde door een komma.  |
+    | VaaSTestCategories | `Integration`, `Functional`, or. `Reliability`. Als u meerdere waarden gebruikt, scheidt u elke waarde door een komma.  |
     | ServiceAdminUserName | Uw Azure Stack-account voor service-beheerder.  |
     | ServiceAdminPassword | Het wachtwoord van de Azure Stack-service.  |
     | TenantAdminUserName | De beheerder voor de primaire tenant.  |

@@ -1,23 +1,23 @@
 ---
 title: Beheer van taken en human-in-the-loop beoordelingen - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Menselijk toezicht van toepassing op de computer-ondersteund toezicht op voor de beste resultaten.
+description: Geautomatiseerd beheer met mogelijkheden voor human-in-the-loop combineren met behulp van het Azure Content Moderator revisie-API om op te halen van de beste resultaten voor uw bedrijf.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223250"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265342"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Beheer van taken en beoordelingen
+# <a name="content-moderation-jobs-and-reviews"></a>Taken voor inhoudstoezicht en beoordelingen
 
 Geautomatiseerd beheer met human-in-the-loop mogelijkheden te combineren met behulp van het Azure Content Moderator [revisie API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) om op te halen van de beste resultaten voor uw bedrijf.
 
@@ -55,12 +55,12 @@ Gebruik de `Job.Get` bewerking en de taak-id voor de details van een taak die wo
 
 De invoer zijn onder andere de volgende informatie:
 
-- De revisie team-ID: de taak-id die wordt geretourneerd door de vorige bewerking
+- De ID van de controle-team: De taak-id die wordt geretourneerd door de vorige bewerking
 
 Het antwoord bevat de volgende informatie:
 
 - De id van de beoordeling gemaakt. (Deze ID gebruiken om op te halen van de resultaten van de uiteindelijke beoordeling.)
-- De status van de taak (voltooid of wordt uitgevoerd): de toegewezen toezicht tags (sleutel / waarde-paren).
+- De status van de taak (voltooid of wordt uitgevoerd): De labels van het beheer van toegewezen (sleutel / waarde-paren).
 - Het rapport van de taak kan worden uitgevoerd.
  
  
@@ -110,7 +110,7 @@ Het antwoord bevat de volgende informatie:
             ]
         }
  
-![Beoordeling van de installatiekopie van menselijke moderators](images/ocr-sample-image.PNG)
+![Beoordeling van afbeelding voor menselijke beoordelaars](images/ocr-sample-image.PNG)
 
 ## <a name="review-operations"></a>Bewerkingen controleren
 

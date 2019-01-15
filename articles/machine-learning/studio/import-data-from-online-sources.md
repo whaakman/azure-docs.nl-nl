@@ -1,27 +1,8 @@
 ---
-title: Gegevens importeren in Machine Learning Studio uit online-gegevensbronnen - Azure | Microsoft Docs
-description: Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig zijn voor het verplaatsen van gegevens uit deze bronnen in een Azure Machine Learning Studio-experiment.
-keywords: gegevens, de indeling, gegevenstypen, gegevensbronnen, trainingsgegevens importeren
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: a81765620b31af8a23d70d35cf8f86fc4b8e0033
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256091"
+Titel: Gegevens importeren in Machine Learning Studio van online-gegevensbronnen titleSuffix: Azure Machine Learning Studio description: Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig zijn voor het verplaatsen van gegevens uit deze bronnen in een Azure Machine Learning Studio-experiment.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Gegevens importeren in Azure Machine Learning Studio uit online-gegevensbronnen 
 Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig zijn voor het verplaatsen van gegevens uit deze bronnen in een Azure Machine Learning Studio-experiment.

@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250197"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302966"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
@@ -29,18 +29,25 @@ De implementatiewerkstroom bevat de volgende stappen uit:
 1. **Registreren van een installatiekopie van een** die een model met een scoring-script en de afhankelijkheden in een container draagbaar paren 
 1. **Implementeer** de afbeelding als een webservice in de cloud of naar edge-apparaten
 1. **Controleren en verzamelen van gegevens**
+1. **Update** een implementatie van het gebruik van een nieuwe installatiekopie.
 
 Elke stap kan worden uitgevoerd, onafhankelijk van elkaar of als onderdeel van een met één implementatieopdracht. Bovendien kunt u integreren implementatie in een **CI/CD-werkstroom** zoals geïllustreerd in deze afbeelding.
 
 [ !['Azure Machine Learning continue integratie/continue implementatie (CI/CD) cyclus'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-
 ## <a name="step-1-register-model"></a>Stap 1: Model registreren
 
-Het register model houdt van alle modellen in de Service van Azure Machine Learning-werkruimte.
-Modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen.
+Registratie van het model kunt u om op te slaan en versie van uw modellen in de Azure-cloud in uw werkruimte. Het register model kunt u eenvoudig is om te organiseren en bijhouden van uw getrainde modellen.
+ 
+Geregistreerde modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen. De Azure Machine Learning-service ondersteunt modellen die zijn opgeslagen met behulp van een model dat kan worden geladen met behulp van Python 3. 
 
 U kunt modellen die worden gebruikt door een installatiekopie niet verwijderen.
+
+Zie voor meer informatie de sectie voor het model van registreren van [modellen implementeren](how-to-deploy-and-where.md#registermodel).
+
+Zie voor een voorbeeld van het registreren van een model dat is opgeslagen in de indeling van pickle [zelfstudie: Een installatiekopie van classificatie-model te trainen](tutorial-deploy-models-with-aml.md).
+
+Zie voor meer informatie over het gebruik van ONNX-modellen de [ONNX en Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
 ## <a name="step-2-register-image"></a>Stap 2: Registreren van installatiekopie
 
@@ -58,6 +65,8 @@ Azure Machine Learning biedt ondersteuning voor de meest populaire frameworks, m
 Als uw werkruimte is gemaakt, zijn dus andere verschillende andere Azure-resources gebruikt door deze werkruimte.
 Alle objecten die worden gebruikt voor het maken van de installatiekopie worden opgeslagen in de Azure storage-account in uw werkruimte. De installatiekopie is gemaakt en opgeslagen in Azure Container Registry. U kunt aanvullende metagegevenstags opgeven bij het maken van de installatiekopie, die ook door het installatiekopieregister worden opgeslagen en kunnen worden opgevraagd om de afbeelding te zoeken.
 
+Voor meer informatie, Zie de configureren en registreren sectie van de installatiekopie van [modellen implementeren](how-to-deploy-and-where.md#configureimage).
+
 ## <a name="step-3-deploy-image"></a>Stap 3: Installatiekopie implementeren
 
 U kunt geregistreerde installatiekopieën implementeren naar de cloud of naar edge-apparaten. Het implementatieproces maakt de resources die nodig zijn om te controleren, taakverdeling en automatisch schalen uw model. Toegang tot de geïmplementeerde services kan worden beveiligd met verificatie op basis van door te geven van de activa beveiliging tijdens de implementatie. U kunt ook een bestaande implementatie voor het gebruik van een nieuwe installatiekopie bijwerken.
@@ -66,7 +75,7 @@ Webservice-implementaties zijn ook doorzoekbaar. Bijvoorbeeld, u kunt zoeken naa
 
 [ ![Inferentietaken doelen](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
-U kunt uw installatiekopieën implementeren op de volgende [implementatiedoelen](how-to-deploy-and-where.md) in de cloud:
+U kunt uw installatiekopieën implementeren naar de volgende implementatiedoelen in de cloud:
 
 * Azure Container Instance
 * Azure Kubernetes Service
@@ -75,17 +84,27 @@ U kunt uw installatiekopieën implementeren op de volgende [implementatiedoelen]
 
 Als de service is geïmplementeerd, de aanvraag inferentietaken wordt automatisch taakverdeling en het cluster wordt geschaald om te voldoen aan pieken vertoont op aanvraag. [Telemetrie over uw service kan worden vastgelegd](how-to-enable-app-insights.md) in de Azure Application Insights-service die is gekoppeld aan uw werkruimte.
 
+Zie voor meer informatie de sectie implementeren van [modellen implementeren](how-to-deploy-and-where.md#deploy).
+
 ## <a name="step-4-monitor-models-and-collect-data"></a>Stap 4: Modellen controleren en verzamelen van gegevens
 
 Een SDK voor het vastleggen van gegevens en vastleggen in een model is beschikbaar, zodat u invoer, uitvoer en andere relevante gegevens uit het model kunt volgen. De gegevens worden opgeslagen als een blob in de Azure Storage-account voor uw werkruimte.
 
 Voor het gebruik van de SDK met het model, importeert u de SDK in uw scoring-script of toepassing. U kunt vervolgens de SDK gebruiken om gegevens, zoals parameters, resultaten of gegevens te registreren.
 
-Als u te besluit [inschakelen van gegevensverzameling van model](how-to-enable-data-collection.md) telkens wanneer u de installatiekopie implementeert, de gegevens die nodig zijn om vast te leggen van de gegevens, zoals de referenties voor uw persoonlijke blob-archief, automatisch worden ingericht.
+Als u besluit om in te schakelen van gegevensverzameling van model telkens wanneer u de installatiekopie implementeert, worden de gegevens die nodig zijn om vast te leggen van de gegevens, zoals de referenties voor uw persoonlijke blob-archief, automatisch ingericht.
 
 > [!Important]
 > Microsoft heeft niet de gegevens die moeten worden verzameld uit uw model weergegeven. De gegevens is rechtstreeks naar de Azure storage-account voor uw werkruimte verzonden.
 
+Zie voor meer informatie, [het inschakelen van gegevensverzameling van model](how-to-enable-data-collection.md).
+
+## <a name="step-5-update-the-deployment"></a>Stap 5: De implementatie bijwerken
+
+Updates aan uw model zijn niet automatisch worden geregistreerd. Op dezelfde manier wordt voor het registreren van een nieuwe installatiekopie niet automatisch bijgewerkt implementaties die zijn gemaakt op basis van een eerdere versie van de installatiekopie. In plaats daarvan moet u handmatig registreren van het model, de installatiekopie van het registreren en vervolgens het model bijwerken. Zie voor meer informatie, sectie van de update [modellen implementeren](how-to-deploy-and-where.md#update).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over [hoe en waar u modellen kunt implementeren](how-to-deploy-and-where.md) met de Azure Machine Learning-service.
+
+Meer informatie over het maken van client-toepassingen en services waar [een model geïmplementeerd als een webservice gebruiken](how-to-consume-web-service.md).

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c841fb8676cff8d15f54384aac84721bc8fb163b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728445"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267518"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -33,26 +33,26 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.AAD/domainServices/delete | Domeinservice verwijderen |
+> | Bewerking | Microsoft.AAD/domainServices/delete | Delete Domain Service |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/delete | Organisatie-eenheid Container verwijderen |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/read | Organisatie-eenheid-Containers gelezen |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/write | Organisatie-eenheid Container schrijven |
-> | Bewerking | Microsoft.AAD/domainServices/read | Domain Services lezen |
+> | Bewerking | Microsoft.AAD/domainServices/read | Read Domain Services |
 > | Bewerking | Microsoft.AAD/domainServices/write | Write-domeinservice |
 > | Bewerking | Microsoft.AAD/locations/operationresults/read |  |
 > | Bewerking | Microsoft.AAD/Operations/read |  |
-> | Bewerking | Microsoft.AAD/register/action | Domeinservice registreren |
-> | Bewerking | Microsoft.AAD/unregister/action | Registratie-domeinservice |
+> | Bewerking | Microsoft.AAD/register/action | Register Domain Service |
+> | Bewerking | Microsoft.AAD/unregister/action | Unregister Domain Service |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.aadiam/diagnosticsettings/DELETE | Een diagnostische instelling verwijderen |
-> | Bewerking | Microsoft.aadiam/diagnosticsettings/Read | Een diagnostische instelling lezen |
-> | Bewerking | Microsoft.aadiam/diagnosticsettings/Write | Een diagnostische instelling schrijven |
-> | Bewerking | Microsoft.aadiam/diagnosticsettingscategories/Read | De categorieën van een diagnostische instelling lezen |
+> | Bewerking | microsoft.aadiam/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
+> | Bewerking | microsoft.aadiam/diagnosticsettings/read | Een diagnostische instelling lezen |
+> | Bewerking | microsoft.aadiam/diagnosticsettings/write | Een diagnostische instelling schrijven |
+> | Bewerking | microsoft.aadiam/diagnosticsettingscategories/read | De categorieën van een diagnostische instelling lezen |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -511,7 +511,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/delete | Hiermee verwijdert u de Software-Updateconfiguratie van een Azure Automation |
 > | Bewerking | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/read | Een Azure Automation Software-Updateconfiguratie opgehaald |
 > | Bewerking | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/write | Hiermee maakt of Software-Updateconfiguratie voor Azure Automation werkt |
-> | Bewerking | Microsoft.Automation/automationAccounts/statistics/read | Azure Automation-statistieken opgehaald |
+> | Bewerking | Microsoft.Automation/automationAccounts/statistics/read | Gets Azure Automation Statistics |
 > | Bewerking | Microsoft.Automation/automationAccounts/updateDeploymentMachineRuns/read | Een Azure Automation-update-implementatie virtuele machine ophalen |
 > | Bewerking | Microsoft.Automation/automationAccounts/updateManagementPatchJob/read | Een Azure Automation update management patch-taak opgehaald |
 > | Bewerking | Microsoft.Automation/automationAccounts/usages/read | Gebruik Azure Automation opgehaald |
@@ -1010,9 +1010,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read | Hiermee wordt de bewerkingsstatus voor de resource ingelezen. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/disks/read | Hiermee wordt de opslagaccountschijf geretourneerd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/disks/write | Hiermee wordt een opslagaccountschijf toegevoegd. |
-> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/delete | Hiermee verwijdert u een installatiekopie van het opgegeven opslagaccount. (Afgeschaft. Gebruik 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/delete | Hiermee verwijdert u een installatiekopie van het opgegeven opslagaccount. (Afgeschaft. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/operationstatuses/read | Hiermee wordt de bewerkingsstatus van de opslagaccountinstallatiekopie geretourneerd. |
-> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/read | Retourneert de installatiekopie van het opslagaccount. (Afgeschaft. Gebruik 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/read | Retourneert de installatiekopie van het opslagaccount. (Afgeschaft. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Hiermee worden de toegangssleutels voor de opslagaccounts weergegeven. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/operationStatuses/read | Hiermee wordt de bewerkingsstatus voor de resource ingelezen. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/osImages/delete | Hiermee wordt de betreffende installatiekopie van het besturingssysteem van een opslagaccount verwijderd. |
@@ -1087,7 +1087,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Compute/locations/capsOperations/read | Hiermee wordt de status van een asynchrone Caps-bewerking opgehaald |
 > | Bewerking | Microsoft.Compute/locations/diskOperations/read | Hiermee wordt de status van een asynchrone schijfbewerking opgehaald |
 > | Bewerking | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Logboeken maken om het totale aantal aanvragen op tijdsinterval weer te geven voor hulp bij diagnose van beperkingen. |
-> | Bewerking | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Logboeken maken om samengevoegde gegevens weer te geen van beperkte aanvragen gegroepeerd op ResourceName, OperationName of het toegepaste beleid voor beperken. |
+> | Bewerking | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Logboeken maken om geaggregeerde gegevens weer te geen van beperkte aanvragen gegroepeerd op ResourceName, OperationName of het toegepaste beleid voor beperken. |
 > | Bewerking | Microsoft.Compute/locations/operations/read | Hiermee wordt de status van een asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | De eigenschappen van een platforminstallatiekopieaanbieding ophalen |
 > | Bewerking | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | De eigenschappen van een platforminstallatiekopie-SKU ophalen |
@@ -3230,8 +3230,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/checkTrafficManagerNameAvailability/action | Controleert de beschikbaarheid van een Traffic Manager ten opzichte van DNS-naam. |
 > | Bewerking | Microsoft.Network/connections/delete | Deletes VirtualNetworkGatewayConnection |
 > | Bewerking | Microsoft.Network/connections/read | Gets VirtualNetworkGatewayConnection |
-> | Bewerking | Microsoft.Network/connections/sharedkey/action | VirtualNetworkGatewayConnection SharedKey ophalen |
-> | Bewerking | Microsoft.Network/connections/sharedKey/read | VirtualNetworkGatewayConnection SharedKey opgehaald |
+> | Bewerking | Microsoft.Network/connections/sharedkey/action | Get VirtualNetworkGatewayConnection SharedKey |
+> | Bewerking | Microsoft.Network/connections/sharedKey/read | Gets VirtualNetworkGatewayConnection SharedKey |
 > | Bewerking | Microsoft.Network/connections/sharedKey/write | Hiermee maakt of een bestaande VirtualNetworkGatewayConnection SharedKey werkt |
 > | Bewerking | Microsoft.Network/connections/vpndeviceconfigurationscript/action | VPN-apparaatconfiguratie van VirtualNetworkGatewayConnection opgehaald |
 > | Bewerking | Microsoft.Network/connections/write | Hiermee maakt of een bestaande VirtualNetworkGatewayConnection werkt |
@@ -3309,10 +3309,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/expressRouteGateways/expressRouteConnections/write | Een Express Route-verbinding hiermee maken of bijwerken van een bestaande Express Route-verbinding |
 > | Bewerking | Microsoft.Network/expressRouteGateways/join/action | Lid wordt van een Expressroute-Gateway |
 > | Bewerking | Microsoft.Network/expressRouteGateways/read | Verkrijg de Gateway van het Express Route |
-> | Bewerking | Microsoft.Network/expressRoutePorts/delete | Hiermee verwijdert u ExpressRoutePorts |
+> | Bewerking | Microsoft.Network/expressRoutePorts/delete | Deletes ExpressRoutePorts |
 > | Bewerking | Microsoft.Network/expressRoutePorts/join/action | Joins ExpressRoutePorts |
-> | Bewerking | Microsoft.Network/expressRoutePorts/links/read | ExpressRouteLink opgehaald |
-> | Bewerking | Microsoft.Network/expressRoutePorts/read | ExpressRoutePorts opgehaald |
+> | Bewerking | Microsoft.Network/expressRoutePorts/links/read | Gets ExpressRouteLink |
+> | Bewerking | Microsoft.Network/expressRoutePorts/read | Gets ExpressRoutePorts |
 > | Bewerking | Microsoft.Network/expressRoutePorts/write | Hiermee maakt of ExpressRoutePorts werkt |
 > | Bewerking | Microsoft.Network/expressRoutePortsLocations/read | Get Express Route poorten locaties |
 > | Bewerking | Microsoft.Network/expressRouteServiceProviders/read | Express Route-serviceproviders opgehaald |
@@ -3512,20 +3512,20 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualHubs/hubVirtualNetworkConnections/write | Maken of bijwerken van een HubVirtualNetworkConnection |
 > | Bewerking | Microsoft.Network/virtualHubs/read | Een virtuele Hub ophalen |
 > | Bewerking | Microsoft.Network/virtualHubs/write | Maken of bijwerken van een virtuele Hub |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/Connections/Read | VirtualNetworkGatewayConnection ophalen |
+> | Bewerking | microsoft.network/virtualnetworkgateways/connections/read | Get VirtualNetworkGatewayConnection |
 > | Bewerking | Microsoft.Network/virtualNetworkGateways/delete | Hiermee verwijdert u een virtualNetworkGateway |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/generatevpnclientpackage/Action | VpnClient-pakket voor virtualNetworkGateway genereren |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/generatevpnprofile/Action | Genereren van VpnProfile-pakket voor VirtualNetworkGateway |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/getadvertisedroutes/Action | Haalt virtualNetworkGateway aangekondigde routes |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/getbgppeerstatus/Action | Met deze eigenschap virtualNetworkGateway bgp-peer-status |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/getlearnedroutes/Action | Virtualnetworkgateway geleerde routes opgehaald |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/getvpnclientconnectionhealth/Action | Per status van Vpn-Client de verbinding voor VirtualNetworkGateway ophalen |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/getvpnclientipsecparameters/Action | Get Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client. |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/getvpnprofilepackageurl/Action | Hiermee haalt u de URL van het hulpprogramma voor het profiel van een vooraf gegenereerde vpn-clientpakket |
+> | Bewerking | microsoft.network/virtualnetworkgateways/generatevpnclientpackage/action | VpnClient-pakket voor virtualNetworkGateway genereren |
+> | Bewerking | microsoft.network/virtualnetworkgateways/generatevpnprofile/action | Genereren van VpnProfile-pakket voor VirtualNetworkGateway |
+> | Bewerking | microsoft.network/virtualnetworkgateways/getadvertisedroutes/action | Haalt virtualNetworkGateway aangekondigde routes |
+> | Bewerking | microsoft.network/virtualnetworkgateways/getbgppeerstatus/action | Met deze eigenschap virtualNetworkGateway bgp-peer-status |
+> | Bewerking | microsoft.network/virtualnetworkgateways/getlearnedroutes/action | Virtualnetworkgateway geleerde routes opgehaald |
+> | Bewerking | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | Per status van Vpn-Client de verbinding voor VirtualNetworkGateway ophalen |
+> | Bewerking | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Get Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client. |
+> | Bewerking | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Hiermee haalt u de URL van het hulpprogramma voor het profiel van een vooraf gegenereerde vpn-clientpakket |
 > | Bewerking | Microsoft.Network/virtualNetworkGateways/read | Een VirtualNetworkGateway opgehaald |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/reset/Action | Hiermee stelt u een virtualNetworkGateway |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/resetvpnclientsharedkey/Action | Opnieuw instellen zonder gedeelde sleutel voor VirtualNetworkGateway P2S-client. |
-> | Bewerking | Microsoft.Network/virtualnetworkgateways/setvpnclientipsecparameters/Action | Stel Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client. |
+> | Bewerking | microsoft.network/virtualnetworkgateways/reset/action | Hiermee stelt u een virtualNetworkGateway |
+> | Bewerking | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | Opnieuw instellen zonder gedeelde sleutel voor VirtualNetworkGateway P2S-client. |
+> | Bewerking | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Stel Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client. |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Een lijst met ondersteunde Vpn-apparaten |
 > | Bewerking | Microsoft.Network/virtualNetworkGateways/write | Hiermee maakt of een VirtualNetworkGateway werkt |
 > | Bewerking | Microsoft.Network/virtualNetworks/BastionHosts/action | Hiermee haalt bastionhost refrences in een Virtueelnetwerk. |
@@ -3560,9 +3560,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualWans/vpnSites/read | Hiermee haalt u alle VPN-Sites die verwijzen naar een virtueel Wan. |
 > | Bewerking | Microsoft.Network/virtualWans/write | Maken of bijwerken van een virtueel Wan |
 > | Bewerking | Microsoft.Network/vpnGateways/delete | Hiermee verwijdert u een VPN-gateway. |
-> | Bewerking | Microsoft.Network/vpngateways/listvpnconnectionshealth/Action | Status van de verbinding opgehaald voor alle of een subset van verbindingen op een VPN-gateway |
+> | Bewerking | microsoft.network/vpngateways/listvpnconnectionshealth/action | Status van de verbinding opgehaald voor alle of een subset van verbindingen op een VPN-gateway |
 > | Bewerking | Microsoft.Network/vpnGateways/read | Hiermee haalt u een VPN-gateway. |
-> | Bewerking | Microsoft.Network/vpngateways/reset/Action | Hiermee stelt u een VPN-gateway |
+> | Bewerking | microsoft.network/vpngateways/reset/action | Hiermee stelt u een VPN-gateway |
 > | Bewerking | microsoft.network/vpnGateways/vpnConnections/delete | Hiermee verwijdert u een VPN-verbinding. |
 > | Bewerking | microsoft.network/vpnGateways/vpnConnections/read | Hiermee haalt u een VPN-verbinding. |
 > | Bewerking | microsoft.network/vpnGateways/vpnConnections/write | Hebt u een VPN-verbinding. |
@@ -3669,7 +3669,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OperationalInsights/linkTargets/read | Een lijst met bestaande accounts die niet gekoppeld aan een Azure-abonnement zijn. Als u wilt dit Azure-abonnement koppelen aan een werkruimte, gebruikt u een klant-id die is geretourneerd door deze bewerking in de eigenschap van de klant-id van de bewerking werkruimte maken. |
-> | Bewerking | Microsoft.operationalinsights/Operations/Read | Een lijst met alle van de beschikbare OperationalInsights Rest-API-bewerkingen. |
+> | Bewerking | microsoft.operationalinsights/operations/read | Een lijst met alle van de beschikbare OperationalInsights Rest-API-bewerkingen. |
 > | Bewerking | Microsoft.OperationalInsights/register/action | Een abonnement bij een resourceprovider registreren. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/analytics/query/action | Zoeken met de nieuwe engine. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Zoekschema V2 ophalen. |
@@ -3686,7 +3686,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Het certificaat voor serverregistratie voor de werkruimte gegenereerd. Dit certificaat wordt gebruikt om Microsoft System Center Operation Manager verbinden met de werkruimte. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Hiermee wordt een intelligence pack voor een opgegeven werkruimte uitgeschakeld. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Hiermee kunt een intelligence pack voor een opgegeven werkruimte. |
-> | Bewerking | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Hiermee worden alle intelligencepacks die zichtbaar voor een bepaalde werkruimte zijn en ook wordt aangegeven of het pack is ingeschakeld of uitgeschakeld voor die werkruimte. |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Hiermee worden alle intelligencepacks die zichtbaar zijn voor een opgegeven werkruimte en ook wordt aangegeven of het pack is ingeschakeld of uitgeschakeld voor die werkruimte. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/linkedServices/delete | Verwijderen gekoppelde services onder de opgegeven werkruimte. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/linkedServices/read | Profiteer van gekoppelde services onder de opgegeven werkruimte. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/linkedServices/write | Maken/bijwerken gekoppelde services onder de opgegeven werkruimte. |
@@ -3857,20 +3857,20 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Gegevens lezen uit de tabel WUDOStatus |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/read | Een bestaande werkruimte opgehaald |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | De opgegeven werkruimte gedeelde sleutel opnieuw genereren |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/Rules/Read | Alle regels voor waarschuwingen ophalen. |
+> | Bewerking | microsoft.operationalinsights/workspaces/rules/read | Alle regels voor waarschuwingen ophalen. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Hiermee verwijdert u een opgeslagen zoekquery |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/savedSearches/read | Een opgeslagen zoekquery opgehaald |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/savedsearches/Results/Read | Opgeslagen zoekopdrachten resultaten. Afgeschaft |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/DELETE | Geplande zoekacties verwijderen. |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Read | Geplande zoekacties ophalen. |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Write | Maken of bijwerken van de geplande zoekacties. |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/DELETE | Geplande zoekopdrachten verwijderen. |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Read | Geplande zoekopdrachten ophalen. |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Write | Maken of bijwerken van de geplande zoekopdrachten. |
+> | Bewerking | microsoft.operationalinsights/workspaces/savedsearches/results/read | Opgeslagen zoekopdrachten resultaten. Afgeschaft |
+> | Bewerking | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | Geplande zoekacties verwijderen. |
+> | Bewerking | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/read | Geplande zoekacties ophalen. |
+> | Bewerking | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | Maken of bijwerken van de geplande zoekacties. |
+> | Bewerking | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | Geplande zoekopdrachten verwijderen. |
+> | Bewerking | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | Geplande zoekopdrachten ophalen. |
+> | Bewerking | microsoft.operationalinsights/workspaces/savedsearches/schedules/write | Maken of bijwerken van de geplande zoekopdrachten. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/savedSearches/write | Hiermee maakt u een opgeslagen zoekquery |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/schema/read | Hiermee haalt het zoekschema voor de werkruimte.  Het zoekschema bevat de beschikbare velden en hun type. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/search/action | Een zoekquery uitgevoerd |
-> | Bewerking | Microsoft.operationalinsights/Workspaces/Search/Read | Zoekresultaten ophalen. Afgeschaft. |
+> | Bewerking | microsoft.operationalinsights/workspaces/search/read | Zoekresultaten ophalen. Afgeschaft. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Hiermee haalt u de gedeelde sleutels voor de werkruimte. Deze sleutels worden gebruikt om agents van Microsoft Operational Insights verbinding naar de werkruimte te maken. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Hiermee haalt u de gedeelde sleutels voor de werkruimte. Deze sleutels worden gebruikt om agents van Microsoft Operational Insights verbinding naar de werkruimte te maken. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | Hiermee wordt een opslagconfiguratie verwijderd. Microsoft Operational Insights, deze niet meer gegevens te lezen uit het opslagaccount. |
@@ -4621,7 +4621,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/servers/databases/maintenanceWindows/write | Hiermee stelt u onderhoud windows-instellingen voor een geselecteerde database. |
 > | Bewerking | Microsoft.Sql/servers/databases/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor databases zijn |
 > | Bewerking | Microsoft.Sql/servers/databases/metrics/read | Metrische gegevens voor de databases terug |
-> | Bewerking | Microsoft.Sql/servers/databases/move/action | Wijzig de naam van Azure SQL Database |
+> | Bewerking | Microsoft.Sql/servers/databases/move/action | Rename Azure SQL Database |
 > | Bewerking | Microsoft.Sql/servers/databases/operationResults/read | Hiermee haalt u de status van een databasebewerking. |
 > | Bewerking | Microsoft.Sql/servers/databases/operations/cancel/action | Azure SQL Database, wordt geannuleerd in afwachting van asynchrone bewerking die nog niet is voltooid. |
 > | Bewerking | Microsoft.Sql/servers/databases/operations/read | Retourneert de lijst met bewerkingen die worden uitgevoerd op de database |
@@ -5141,44 +5141,44 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/apiacls/Read | Api Management-Accounts Apiacls ophalen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/apiacls/DELETE | Api Management Accounts API's Apiacls verwijderen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/apiacls/Read | Api Management Accounts API's Apiacls ophalen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/apiacls/Write | Api Management Accounts API's Apiacls bijwerken. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/connectionacls/Read | Api Management Accounts API's Connectionacls ophalen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/confirmconsentcode/Action | Controleer of u toestemming Code Api Management-Accounts API-verbindingen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/connectionacls/DELETE | Api Management-Accounts API's verbindingen Connectionacls verwijderen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/connectionacls/Read | Api Management-Accounts API's verbindingen Connectionacls ophalen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/connectionacls/Write | Api Management-Accounts API's verbindingen Connectionacls bijwerken. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/DELETE | Api Management-Accounts API's verbindingen verwijderen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/getconsentlinks/Action | Instemmingskoppelingen voor Api Management-Accounts API-verbindingen ophalen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/listconnectionkeys/Action | Lijst met verbinding sleutels Api Management-Accounts API's-verbindingen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/listsecrets/Action | Lijst met geheimen Api Management-Accounts API-verbindingen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/Read | Api Management-Accounts API-verbindingen ophalen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Connections/Write | Api Management-Accounts API's verbindingen bijwerken. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/DELETE | Api Management-API's-Accounts verwijderen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/localizeddefinitions/DELETE | Verwijderen van Api Management API's voor Accounts gelokaliseerd definities. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/localizeddefinitions/Read | Ophalen van Api Management API's voor Accounts gelokaliseerd definities. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/localizeddefinitions/Write | API's van update Api Management-Accounts gelokaliseerd definities. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Read | Api Management-API's-Accounts ophalen. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/APIs/Write | Api Management-API's-Accounts worden bijgewerkt. |
-> | Bewerking | Microsoft.Web/apimanagementaccounts/connectionacls/Read | Api Management-Accounts Connectionacls ophalen. |
-> | Bewerking | Microsoft.Web/availablestacks/Read | Get-Stacks beschikbaar. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apiacls/read | Api Management-Accounts Apiacls ophalen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/apiacls/delete | Api Management Accounts API's Apiacls verwijderen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/apiacls/read | Api Management Accounts API's Apiacls ophalen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/apiacls/write | Api Management Accounts API's Apiacls bijwerken. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connectionacls/read | Api Management Accounts API's Connectionacls ophalen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/confirmconsentcode/action | Controleer of u toestemming Code Api Management-Accounts API-verbindingen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/delete | Api Management-Accounts API's verbindingen Connectionacls verwijderen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/read | Api Management-Accounts API's verbindingen Connectionacls ophalen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/write | Api Management-Accounts API's verbindingen Connectionacls bijwerken. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/delete | Api Management-Accounts API's verbindingen verwijderen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/getconsentlinks/action | Instemmingskoppelingen voor Api Management-Accounts API-verbindingen ophalen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/listconnectionkeys/action | Lijst met verbinding sleutels Api Management-Accounts API's-verbindingen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/listsecrets/action | Lijst met geheimen Api Management-Accounts API-verbindingen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/read | Api Management-Accounts API-verbindingen ophalen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/connections/write | Api Management-Accounts API's verbindingen bijwerken. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/delete | Api Management-API's-Accounts verwijderen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/delete | Verwijderen van Api Management API's voor Accounts gelokaliseerd definities. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/read | Ophalen van Api Management API's voor Accounts gelokaliseerd definities. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/write | API's van update Api Management-Accounts gelokaliseerd definities. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/read | Api Management-API's-Accounts ophalen. |
+> | Bewerking | microsoft.web/apimanagementaccounts/apis/write | Api Management-API's-Accounts worden bijgewerkt. |
+> | Bewerking | microsoft.web/apimanagementaccounts/connectionacls/read | Api Management-Accounts Connectionacls ophalen. |
+> | Bewerking | microsoft.web/availablestacks/read | Get-Stacks beschikbaar. |
 > | Bewerking | Microsoft.Web/certificates/Delete | Een bestaand certificaat verwijderen. |
 > | Bewerking | Microsoft.Web/certificates/Read | De lijst met certificaten ophalen. |
 > | Bewerking | Microsoft.Web/certificates/Write | Voeg een nieuw certificaat of een bestaande bijgewerkt. |
-> | Bewerking | Microsoft.Web/checknameavailability/Read | Controleer of de resourcenaam van de beschikbaar is. |
-> | Bewerking | Microsoft.Web/classicmobileservices/Read | Klassieke mobiele Services ophalen. |
+> | Bewerking | microsoft.web/checknameavailability/read | Controleer of de resourcenaam van de beschikbaar is. |
+> | Bewerking | microsoft.web/classicmobileservices/read | Klassieke mobiele Services ophalen. |
 > | Bewerking | Microsoft.Web/connectionGateways/Delete | Hiermee verwijdert u de Verbindingsgateway van een. |
 > | Bewerking | Microsoft.Web/connectionGateways/Join/Action | Lid wordt van de Verbindingsgateway van een. |
 > | Bewerking | Microsoft.Web/connectionGateways/ListStatus/Action | Hiermee wordt de status van een Gateway-verbinding. |
 > | Bewerking | Microsoft.Web/connectionGateways/Move/Action | Hiermee verplaatst u de Verbindingsgateway van een. |
 > | Bewerking | Microsoft.Web/connectionGateways/Read | De lijst met Gateways verbinding verkrijgen. |
 > | Bewerking | Microsoft.Web/connectionGateways/Write | Hiermee of bijwerken van een Gateway-verbinding. |
-> | Bewerking | Microsoft.Web/Connections/confirmconsentcode/Action | Controleer of verbindingen toestemming Code. |
+> | Bewerking | microsoft.web/connections/confirmconsentcode/action | Controleer of verbindingen toestemming Code. |
 > | Bewerking | Microsoft.Web/connections/Delete | Hiermee verwijdert u een verbinding. |
 > | Bewerking | Microsoft.Web/connections/Join/Action | Lid wordt van een verbinding. |
-> | Bewerking | Microsoft.Web/Connections/listconsentlinks/Action | Lijst met Instemmingskoppelingen voor verbindingen. |
+> | Bewerking | microsoft.web/connections/listconsentlinks/action | Lijst met Instemmingskoppelingen voor verbindingen. |
 > | Bewerking | Microsoft.Web/connections/Move/Action | Hiermee plaatst u een verbinding. |
 > | Bewerking | Microsoft.Web/connections/Read | De lijst met verbindingen ophalen. |
 > | Bewerking | Microsoft.Web/connections/Write | Hiermee of een verbinding bijwerken. |
@@ -5190,338 +5190,338 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/customApis/Read | De lijst met aangepaste API voor ophalen. |
 > | Bewerking | Microsoft.Web/customApis/Write | Hiermee of een aangepaste API bijgewerkt. |
 > | Bewerking | Microsoft.Web/deletedSites/Read | Hiermee worden de eigenschappen van een Web-App met verwijderd |
-> | Bewerking | Microsoft.Web/deploymentlocations/Read | Implementatie locaties ophalen. |
+> | Bewerking | microsoft.web/deploymentlocations/read | Implementatie locaties ophalen. |
 > | Bewerking | Microsoft.Web/geoRegions/Read | Haal de lijst geografische regio's. |
-> | Bewerking | Microsoft.Web/hostingenvironments/capacities/Read | Ophalen die als host fungeert omgevingen capaciteit. |
+> | Bewerking | microsoft.web/hostingenvironments/capacities/read | Ophalen die als host fungeert omgevingen capaciteit. |
 > | Bewerking | Microsoft.Web/hostingEnvironments/Delete | Een App Service-omgeving verwijderen |
-> | Bewerking | Microsoft.Web/hostingenvironments/detectors/Read | Ophalen die als host fungeert detectoren omgevingen. |
-> | Bewerking | Microsoft.Web/hostingenvironments/Diagnostics/Read | Ophalen die als host fungeert omgevingen diagnostische gegevens. |
-> | Bewerking | Microsoft.Web/hostingenvironments/inboundnetworkdependenciesendpoints/Read | De netwerkeindpunten van alle inkomende afhankelijkheden ophalen. |
-> | Bewerking | Microsoft.Web/hostingenvironments/metricdefinitions/Read | Ophalen die als host fungeert de metrische definities van omgevingen. |
-> | Bewerking | Microsoft.Web/hostingenvironments/multirolepools/metricdefinitions/Read | Metrische definities van omgevingen met meerdere rollen hebben groepen ophalen worden gehost. |
-> | Bewerking | Microsoft.Web/hostingenvironments/multirolepools/metrics/Read | Omgevingen met meerdere rollen hebben Pools metrische gegevens ophalen worden gehost. |
+> | Bewerking | microsoft.web/hostingenvironments/detectors/read | Ophalen die als host fungeert detectoren omgevingen. |
+> | Bewerking | microsoft.web/hostingenvironments/diagnostics/read | Ophalen die als host fungeert omgevingen diagnostische gegevens. |
+> | Bewerking | microsoft.web/hostingenvironments/inboundnetworkdependenciesendpoints/read | De netwerkeindpunten van alle inkomende afhankelijkheden ophalen. |
+> | Bewerking | microsoft.web/hostingenvironments/metricdefinitions/read | Ophalen die als host fungeert de metrische definities van omgevingen. |
+> | Bewerking | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | Metrische definities van omgevingen met meerdere rollen hebben groepen ophalen worden gehost. |
+> | Bewerking | microsoft.web/hostingenvironments/multirolepools/metrics/read | Omgevingen met meerdere rollen hebben Pools metrische gegevens ophalen worden gehost. |
 > | Bewerking | Microsoft.Web/hostingEnvironments/multiRolePools/Read | Hiermee worden de eigenschappen van een front-Endgroep in een App Service Environment |
-> | Bewerking | Microsoft.Web/hostingenvironments/multirolepools/skus/Read | Ophalen die als host fungeert omgevingen met meerdere rollen hebben Pools SKU's. |
-> | Bewerking | Microsoft.Web/hostingenvironments/multirolepools/usages/Read | Ophalen hosten van meerdere rollen hebben Pools het gebruik van omgevingen. |
+> | Bewerking | microsoft.web/hostingenvironments/multirolepools/skus/read | Ophalen die als host fungeert omgevingen met meerdere rollen hebben Pools SKU's. |
+> | Bewerking | microsoft.web/hostingenvironments/multirolepools/usages/read | Ophalen hosten van meerdere rollen hebben Pools het gebruik van omgevingen. |
 > | Bewerking | Microsoft.Web/hostingEnvironments/multiRolePools/Write | Een nieuwe front-Endgroep in een App Service Environment maken of een bestaande bijgewerkt |
-> | Bewerking | Microsoft.Web/hostingenvironments/Operations/Read | Ophalen die als host fungeert omgevingen bewerkingen. |
-> | Bewerking | Microsoft.Web/hostingenvironments/outboundnetworkdependenciesendpoints/Read | De netwerkeindpunten van alle uitgaande afhankelijkheden ophalen. |
+> | Bewerking | microsoft.web/hostingenvironments/operations/read | Ophalen die als host fungeert omgevingen bewerkingen. |
+> | Bewerking | microsoft.web/hostingenvironments/outboundnetworkdependenciesendpoints/read | De netwerkeindpunten van alle uitgaande afhankelijkheden ophalen. |
 > | Bewerking | Microsoft.Web/hostingEnvironments/Read | Hiermee worden de eigenschappen van een App Service Environment |
 > | Bewerking | Microsoft.Web/hostingEnvironments/reboot/Action | Alle machines in een App Service Environment opnieuw opstarten |
-> | Bewerking | Microsoft.Web/hostingenvironments/Resume/Action | Hostingomgevingen worden hervat. |
-> | Bewerking | Microsoft.Web/hostingenvironments/serverfarms/Read | Get-omgevingen met App Service-plannen die als host fungeert. |
-> | Bewerking | Microsoft.Web/hostingenvironments/sites/Read | Get-omgevingen met WebApps host. |
-> | Bewerking | Microsoft.Web/hostingenvironments/Suspend/Action | Onderbreken hostingomgevingen. |
-> | Bewerking | Microsoft.Web/hostingenvironments/usages/Read | Ophalen hosten van het gebruik van omgevingen. |
-> | Bewerking | Microsoft.Web/hostingenvironments/workerpools/metricdefinitions/Read | Die als host fungeert omgevingen Workerpools metrische definities ophalen. |
-> | Bewerking | Microsoft.Web/hostingenvironments/workerpools/metrics/Read | Omgevingen Workerpools metrische gegevens ophalen worden gehost. |
+> | Bewerking | microsoft.web/hostingenvironments/resume/action | Hostingomgevingen worden hervat. |
+> | Bewerking | microsoft.web/hostingenvironments/serverfarms/read | Get-omgevingen met App Service-plannen die als host fungeert. |
+> | Bewerking | microsoft.web/hostingenvironments/sites/read | Get-omgevingen met WebApps host. |
+> | Bewerking | microsoft.web/hostingenvironments/suspend/action | Onderbreken hostingomgevingen. |
+> | Bewerking | microsoft.web/hostingenvironments/usages/read | Ophalen hosten van het gebruik van omgevingen. |
+> | Bewerking | microsoft.web/hostingenvironments/workerpools/metricdefinitions/read | Die als host fungeert omgevingen Workerpools metrische definities ophalen. |
+> | Bewerking | microsoft.web/hostingenvironments/workerpools/metrics/read | Omgevingen Workerpools metrische gegevens ophalen worden gehost. |
 > | Bewerking | Microsoft.Web/hostingEnvironments/workerPools/Read | Hiermee worden de eigenschappen van een groep met werkrollen in een App Service Environment |
-> | Bewerking | Microsoft.Web/hostingenvironments/workerpools/skus/Read | Ophalen die als host fungeert omgevingen Workerpools SKU's. |
-> | Bewerking | Microsoft.Web/hostingenvironments/workerpools/usages/Read | Ophalen die als host fungeert Workerpools het gebruik van omgevingen. |
+> | Bewerking | microsoft.web/hostingenvironments/workerpools/skus/read | Ophalen die als host fungeert omgevingen Workerpools SKU's. |
+> | Bewerking | microsoft.web/hostingenvironments/workerpools/usages/read | Ophalen die als host fungeert Workerpools het gebruik van omgevingen. |
 > | Bewerking | Microsoft.Web/hostingEnvironments/workerPools/Write | Een nieuwe groep met werkrollen in een App Service Environment maken of een bestaande bijgewerkt |
 > | Bewerking | Microsoft.Web/hostingEnvironments/Write | Een nieuwe App Service-omgeving maken of bestaande bijgewerkt |
-> | Bewerking | Microsoft.Web/ishostingenvironmentnameavailable/Read | U ontvangt als de naam van de host-omgeving beschikbaar is. |
-> | Bewerking | Microsoft.Web/ishostnameavailable/Read | Controleer of de hostnaam beschikbaar is. |
-> | Bewerking | Microsoft.Web/isusernameavailable/Read | Controleer of de gebruikersnaam beschikbaar is. |
+> | Bewerking | microsoft.web/ishostingenvironmentnameavailable/read | U ontvangt als de naam van de host-omgeving beschikbaar is. |
+> | Bewerking | microsoft.web/ishostnameavailable/read | Controleer of de hostnaam beschikbaar is. |
+> | Bewerking | microsoft.web/isusernameavailable/read | Controleer of de gebruikersnaam beschikbaar is. |
 > | Bewerking | Microsoft.Web/listSitesAssignedToHostName/Read | Namen van sites die zijn toegewezen aan de hostnaam ophalen. |
-> | Bewerking | Microsoft.Web/Locations/apioperations/Read | Locaties API-bewerkingen ophalen. |
-> | Bewerking | Microsoft.Web/Locations/connectiongatewayinstallations/Read | Get-locaties verbinding Gateway installaties. |
+> | Bewerking | microsoft.web/locations/apioperations/read | Locaties API-bewerkingen ophalen. |
+> | Bewerking | microsoft.web/locations/connectiongatewayinstallations/read | Get-locaties verbinding Gateway installaties. |
 > | Bewerking | microsoft.web/locations/deleteVirtualNetworkOrSubnets/action | Vnet of subnet verwijderen melding voor locaties. |
-> | Bewerking | Microsoft.Web/Locations/extractapidefinitionfromwsdl/Action | Api-definitie uit WSDL uitpakken voor locaties. |
-> | Bewerking | Microsoft.Web/Locations/listwsdlinterfaces/Action | Lijst met WSDL-Interfaces voor locaties. |
-> | Bewerking | Microsoft.Web/Locations/managedapis/apioperations/Read | Locaties beheerde API-bewerkingen ophalen. |
+> | Bewerking | microsoft.web/locations/extractapidefinitionfromwsdl/action | Api-definitie uit WSDL uitpakken voor locaties. |
+> | Bewerking | microsoft.web/locations/listwsdlinterfaces/action | Lijst met WSDL-Interfaces voor locaties. |
+> | Bewerking | microsoft.web/locations/managedapis/apioperations/read | Locaties beheerde API-bewerkingen ophalen. |
 > | Bewerking | Microsoft.Web/locations/managedapis/Join/Action | Lid wordt van een beheerde API. |
-> | Bewerking | Microsoft.Web/Locations/managedapis/Read | Get-locaties beheerde API's. |
-> | Bewerking | Microsoft.Web/Operations/Read | Bewerkingen ophalen. |
-> | Bewerking | Microsoft.Web/publishingusers/Read | Krijg gebruikers. |
-> | Bewerking | Microsoft.Web/publishingusers/Write | Update gebruikers publiceren. |
+> | Bewerking | microsoft.web/locations/managedapis/read | Get-locaties beheerde API's. |
+> | Bewerking | microsoft.web/operations/read | Bewerkingen ophalen. |
+> | Bewerking | microsoft.web/publishingusers/read | Krijg gebruikers. |
+> | Bewerking | microsoft.web/publishingusers/write | Update gebruikers publiceren. |
 > | Bewerking | Microsoft.Web/recommendations/Read | De lijst met aanbevelingen voor abonnementen ophalen. |
-> | Bewerking | Microsoft.Web/register/Action | Registreer de resourceprovider Microsoft.Web voor het abonnement. |
-> | Bewerking | Microsoft.Web/resourcehealthmetadata/Read | Resource Health metagegevens ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/Capabilities/Read | Get-mogelijkheden van App Service-abonnementen. |
+> | Bewerking | microsoft.web/register/action | Registreer de resourceprovider Microsoft.Web voor het abonnement. |
+> | Bewerking | microsoft.web/resourcehealthmetadata/read | Resource Health metagegevens ophalen. |
+> | Bewerking | microsoft.web/serverfarms/capabilities/read | Get-mogelijkheden van App Service-abonnementen. |
 > | Bewerking | Microsoft.Web/serverfarms/Delete | Een bestaande App Service-Plan verwijderen |
-> | Bewerking | Microsoft.Web/serverfarms/firstpartyapps/Settings/DELETE | App Service-abonnementen eerste partij Apps instellingen verwijderen. |
-> | Bewerking | Microsoft.Web/serverfarms/firstpartyapps/Settings/Read | Eerste partij Apps instellingen voor App Service-abonnementen ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/firstpartyapps/Settings/Write | App Service-abonnementen eerste partij Apps instellingen bijwerken. |
-> | Bewerking | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/DELETE | App Service-abonnementen hybride verbinding naamruimten Relays verwijderen. |
-> | Bewerking | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/Read | App Service-abonnementen hybride verbinding naamruimten Relays ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/sites/Read | App Service-abonnementen hybride verbinding naamruimten Relays WebApps ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/hybridconnectionplanlimits/Read | Get-Plan limieten van App Service-abonnementen hybride verbinding. |
-> | Bewerking | Microsoft.Web/serverfarms/hybridconnectionrelays/Read | App Service-abonnementen hybride verbinding Relays ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/metricdefinitions/Read | Metrische definities van App Service-abonnementen ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/metrics/Read | App Service-abonnementen metrische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/operationresults/Read | App Service-abonnementen Bewerkingsresultaten krijgt. |
+> | Bewerking | microsoft.web/serverfarms/firstpartyapps/settings/delete | App Service-abonnementen eerste partij Apps instellingen verwijderen. |
+> | Bewerking | microsoft.web/serverfarms/firstpartyapps/settings/read | Eerste partij Apps instellingen voor App Service-abonnementen ophalen. |
+> | Bewerking | microsoft.web/serverfarms/firstpartyapps/settings/write | App Service-abonnementen eerste partij Apps instellingen bijwerken. |
+> | Bewerking | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | App Service-abonnementen hybride verbinding naamruimten Relays verwijderen. |
+> | Bewerking | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/read | App Service-abonnementen hybride verbinding naamruimten Relays ophalen. |
+> | Bewerking | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/sites/read | App Service-abonnementen hybride verbinding naamruimten Relays WebApps ophalen. |
+> | Bewerking | microsoft.web/serverfarms/hybridconnectionplanlimits/read | Get-Plan limieten van App Service-abonnementen hybride verbinding. |
+> | Bewerking | microsoft.web/serverfarms/hybridconnectionrelays/read | App Service-abonnementen hybride verbinding Relays ophalen. |
+> | Bewerking | microsoft.web/serverfarms/metricdefinitions/read | Metrische definities van App Service-abonnementen ophalen. |
+> | Bewerking | microsoft.web/serverfarms/metrics/read | App Service-abonnementen metrische gegevens ophalen. |
+> | Bewerking | microsoft.web/serverfarms/operationresults/read | App Service-abonnementen Bewerkingsresultaten krijgt. |
 > | Bewerking | Microsoft.Web/serverfarms/Read | Hiermee worden de eigenschappen van een App Service-Plan |
 > | Bewerking | Microsoft.Web/serverfarms/restartSites/Action | Start opnieuw op alle Web-Apps in een App Service-Plan |
-> | Bewerking | Microsoft.Web/serverfarms/sites/Read | Get-Web-Apps van App Service-plannen. |
-> | Bewerking | Microsoft.Web/serverfarms/skus/Read | App Service-abonnementen SKU's ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/usages/Read | Het gebruik van App Service-abonnementen ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/virtualnetworkconnections/gateways/Write | App Service-abonnementen Virtual Network-verbindingen Gateways bijwerken. |
-> | Bewerking | Microsoft.Web/serverfarms/virtualnetworkconnections/Read | App Service-abonnementen Virtual Network-verbindingen ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/DELETE | App Service-abonnementen Virtual Network-verbindingen Routes verwijderen. |
-> | Bewerking | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/Read | App Service-abonnementen Virtual Network-verbindingen Routes ophalen. |
-> | Bewerking | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/Write | App Service-abonnementen Virtual Network-verbindingen Routes bijwerken. |
-> | Bewerking | Microsoft.Web/serverfarms/workers/reboot/Action | Opnieuw opstarten werkrollen voor App Service-plannen. |
+> | Bewerking | microsoft.web/serverfarms/sites/read | Get-Web-Apps van App Service-plannen. |
+> | Bewerking | microsoft.web/serverfarms/skus/read | App Service-abonnementen SKU's ophalen. |
+> | Bewerking | microsoft.web/serverfarms/usages/read | Het gebruik van App Service-abonnementen ophalen. |
+> | Bewerking | microsoft.web/serverfarms/virtualnetworkconnections/gateways/write | App Service-abonnementen Virtual Network-verbindingen Gateways bijwerken. |
+> | Bewerking | microsoft.web/serverfarms/virtualnetworkconnections/read | App Service-abonnementen Virtual Network-verbindingen ophalen. |
+> | Bewerking | microsoft.web/serverfarms/virtualnetworkconnections/routes/delete | App Service-abonnementen Virtual Network-verbindingen Routes verwijderen. |
+> | Bewerking | microsoft.web/serverfarms/virtualnetworkconnections/routes/read | App Service-abonnementen Virtual Network-verbindingen Routes ophalen. |
+> | Bewerking | microsoft.web/serverfarms/virtualnetworkconnections/routes/write | App Service-abonnementen Virtual Network-verbindingen Routes bijwerken. |
+> | Bewerking | microsoft.web/serverfarms/workers/reboot/action | Opnieuw opstarten werkrollen voor App Service-plannen. |
 > | Bewerking | Microsoft.Web/serverfarms/Write | Maak een nieuwe App Service-Plan of een bestaande bijgewerkt |
-> | Bewerking | Microsoft.Web/sites/analyzecustomhostname/Read | Analyseer aangepaste hostnaam. |
+> | Bewerking | microsoft.web/sites/analyzecustomhostname/read | Analyseer aangepaste hostnaam. |
 > | Bewerking | Microsoft.Web/sites/applySlotConfig/Action | Web app siteconfiguratie van doelsleuf naar de huidige webtoepassing toepassen |
 > | Bewerking | Microsoft.Web/sites/backup/Action | Een nieuwe web-app back-up maken |
-> | Bewerking | Microsoft.Web/sites/Backup/Read | Get-back-up van Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/Backup/Write | Back-up van Web-Apps bijwerken. |
-> | Bewerking | Microsoft.Web/sites/backups/Action | Detecteert een bestaand app back-up die kan worden hersteld vanuit een blob in Azure storage. |
-> | Bewerking | Microsoft.Web/sites/backups/DELETE | Back-ups van Web-Apps verwijderen. |
-> | Bewerking | Microsoft.Web/sites/backups/List/Action | Lijst met Web Apps back-ups. |
+> | Bewerking | microsoft.web/sites/backup/read | Get-back-up van Web-Apps. |
+> | Bewerking | microsoft.web/sites/backup/write | Back-up van Web-Apps bijwerken. |
+> | Bewerking | microsoft.web/sites/backups/action | Detecteert een bestaand app back-up die kan worden hersteld vanuit een blob in Azure storage. |
+> | Bewerking | microsoft.web/sites/backups/delete | Back-ups van Web-Apps verwijderen. |
+> | Bewerking | microsoft.web/sites/backups/list/action | Lijst met Web Apps back-ups. |
 > | Bewerking | Microsoft.Web/sites/backups/Read | Hiermee worden de eigenschappen van back-up van een web-app |
-> | Bewerking | Microsoft.Web/sites/backups/Restore/Action | Herstellen van back-ups van Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/backups/Write | Back-ups van Web-Apps bijwerken. |
-> | Bewerking | Microsoft.Web/sites/config/DELETE | Configuratie van de Web-Apps verwijderen. |
+> | Bewerking | microsoft.web/sites/backups/restore/action | Herstellen van back-ups van Web-Apps. |
+> | Bewerking | microsoft.web/sites/backups/write | Back-ups van Web-Apps bijwerken. |
+> | Bewerking | microsoft.web/sites/config/delete | Configuratie van de Web-Apps verwijderen. |
 > | Bewerking | Microsoft.Web/sites/config/list/Action | Overzicht van Web-App gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen |
 > | Bewerking | Microsoft.Web/sites/config/Read | Instellingen voor Web-App-configuratie ophalen |
-> | Bewerking | Microsoft.Web/sites/config/Snapshots/Read | Web Apps-Config momentopnamen ophalen. |
+> | Bewerking | microsoft.web/sites/config/snapshots/read | Web Apps-Config momentopnamen ophalen. |
 > | Bewerking | Microsoft.Web/sites/config/Write | Web-App-configuratie-instellingen bijwerken |
-> | Bewerking | Microsoft.Web/sites/containerlogs/Action | Containerlogbestanden ophalen voor Web-App worden ingepakt. |
-> | Bewerking | Microsoft.Web/sites/continuouswebjobs/DELETE | Doorlopende webtaken van Web-Apps verwijderen. |
-> | Bewerking | Microsoft.Web/sites/continuouswebjobs/Read | Doorlopende webtaken van Web-Apps ophalen. |
-> | Bewerking | Microsoft.Web/sites/continuouswebjobs/start/Action | Doorlopende webtaken van Web Apps starten. |
-> | Bewerking | Microsoft.Web/sites/continuouswebjobs/Stop/Action | Web Apps doorlopende webtaken stoppen. |
+> | Bewerking | microsoft.web/sites/containerlogs/action | Containerlogbestanden ophalen voor Web-App worden ingepakt. |
+> | Bewerking | microsoft.web/sites/continuouswebjobs/delete | Doorlopende webtaken van Web-Apps verwijderen. |
+> | Bewerking | microsoft.web/sites/continuouswebjobs/read | Doorlopende webtaken van Web-Apps ophalen. |
+> | Bewerking | microsoft.web/sites/continuouswebjobs/start/action | Doorlopende webtaken van Web Apps starten. |
+> | Bewerking | microsoft.web/sites/continuouswebjobs/stop/action | Web Apps doorlopende webtaken stoppen. |
 > | Bewerking | Microsoft.Web/sites/Delete | Een bestaande Web-App verwijderen |
-> | Bewerking | Microsoft.Web/sites/Deployments/DELETE | Verwijder Web Apps-implementaties. |
-> | Bewerking | Microsoft.Web/sites/Deployments/log/Read | Get-logboek voor Web Apps-implementaties. |
-> | Bewerking | Microsoft.Web/sites/Deployments/Read | Get-implementaties van Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/Deployments/Write | Update-implementaties van Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/detectors/Read | Get-detectoren voor Web-Apps. |
+> | Bewerking | microsoft.web/sites/deployments/delete | Verwijder Web Apps-implementaties. |
+> | Bewerking | microsoft.web/sites/deployments/log/read | Get-logboek voor Web Apps-implementaties. |
+> | Bewerking | microsoft.web/sites/deployments/read | Get-implementaties van Web-Apps. |
+> | Bewerking | microsoft.web/sites/deployments/write | Update-implementaties van Web-Apps. |
+> | Bewerking | microsoft.web/sites/detectors/read | Get-detectoren voor Web-Apps. |
 > | Bewerking | microsoft.web/sites/diagnostics/analyses/execute/Action | Web Apps diagnostische analyses uitvoeren. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/analyses/Read | Analyse van Web Apps diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/aspnetcore/Read | Diagnostische gegevens van Web-Apps ophalen voor ASP.NET Core-app. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/autoheal/Read | Web Apps Diagnostics Autoheal ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/Deployment/Read | Implementatie van Web Apps diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/Deployments/Read | Get-Web-Apps diagnostische gegevens over implementaties. |
+> | Bewerking | microsoft.web/sites/diagnostics/analyses/read | Analyse van Web Apps diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/aspnetcore/read | Diagnostische gegevens van Web-Apps ophalen voor ASP.NET Core-app. |
+> | Bewerking | microsoft.web/sites/diagnostics/autoheal/read | Web Apps Diagnostics Autoheal ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/deployment/read | Implementatie van Web Apps diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/deployments/read | Get-Web-Apps diagnostische gegevens over implementaties. |
 > | Bewerking | microsoft.web/sites/diagnostics/detectors/execute/Action | Web Apps Diagnostics Detector worden uitgevoerd. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/detectors/Read | Web Apps Diagnostics Detector ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/failedrequestsperuri/Read | Web Apps diagnostische gegevens over mislukte aanvragen Per Uri ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/frebanalysis/Read | Get-Web-Apps diagnostische gegevens FREB analyse. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/loganalyzer/Read | Web Apps Diagnostics Log Analyzer ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/Read | Categorieën voor Web-Apps diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/runtimeavailability/Read | Web Apps diagnostische gegevens over Runtime-beschikbaarheid ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/servicehealth/Read | Status van de Service Web Apps diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/sitecpuanalysis/Read | Analyse van CPU-Web-Apps diagnostische gegevens Site ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/sitecrashes/Read | Web Apps Diagnostics Site Crashes ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/sitelatency/Read | Latentie van de Site Web Apps diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/sitememoryanalysis/Read | Analyse van Web Apps diagnostische gegevens over de Site geheugen ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/siterestartsettingupdate/Read | Get-Web-Apps diagnostische gegevens Site opnieuw opstarten instelling bijwerken. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/siterestartuserinitiated/Read | Web Apps Diagnostics Site opnieuw starten door de gebruiker geïnitieerde ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/siteswap/Read | Get-Site wisselen van Web Apps diagnostische gegevens. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/ThreadCount/Read | Threadaantal van Web Apps diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/workeravailability/Read | Web Apps Diagnostics Workeravailability ophalen. |
-> | Bewerking | Microsoft.Web/sites/Diagnostics/workerprocessrecycle/Read | Recyclen van Web Apps Diagnostics Worker proces ophalen. |
-> | Bewerking | Microsoft.Web/sites/domainownershipidentifiers/Read | Web Apps-domein eigenaar-id's ophalen |
-> | Bewerking | Microsoft.Web/sites/domainownershipidentifiers/Write | Web Apps-domein eigenaar-id's worden bijgewerkt. |
-> | Bewerking | Microsoft.Web/sites/Functions/Action | Functies van Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/Functions/DELETE | Verwijderen van functies voor Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/Functions/listsecrets/Action | Lijst met geheimen Web Apps-functies. |
-> | Bewerking | Microsoft.Web/sites/Functions/masterKey/Read | Get-hoofdsleutel voor Web Apps-functies. |
-> | Bewerking | Microsoft.Web/sites/Functions/Read | Get-functies voor Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/Functions/token/Read | Get Web Apps-functies-Token. |
-> | Bewerking | Microsoft.Web/sites/Functions/Write | Web Apps-functies bijwerken. |
-> | Bewerking | Microsoft.Web/sites/hostnamebindings/DELETE | Web Apps-Hostnaambindingen verwijderen. |
-> | Bewerking | Microsoft.Web/sites/hostnamebindings/Read | Web Apps-Hostnaambindingen ophalen. |
-> | Bewerking | Microsoft.Web/sites/hostnamebindings/Write | Web Apps-Hostnaambindingen bijwerken. |
+> | Bewerking | microsoft.web/sites/diagnostics/detectors/read | Web Apps Diagnostics Detector ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/failedrequestsperuri/read | Web Apps diagnostische gegevens over mislukte aanvragen Per Uri ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/frebanalysis/read | Get-Web-Apps diagnostische gegevens FREB analyse. |
+> | Bewerking | microsoft.web/sites/diagnostics/loganalyzer/read | Get Web Apps Diagnostics Log Analyzer. |
+> | Bewerking | microsoft.web/sites/diagnostics/read | Categorieën voor Web-Apps diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/runtimeavailability/read | Web Apps diagnostische gegevens over Runtime-beschikbaarheid ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/servicehealth/read | Status van de Service Web Apps diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/sitecpuanalysis/read | Analyse van CPU-Web-Apps diagnostische gegevens Site ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/sitecrashes/read | Web Apps Diagnostics Site Crashes ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/sitelatency/read | Latentie van de Site Web Apps diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/sitememoryanalysis/read | Analyse van Web Apps diagnostische gegevens over de Site geheugen ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/siterestartsettingupdate/read | Get-Web-Apps diagnostische gegevens Site opnieuw opstarten instelling bijwerken. |
+> | Bewerking | microsoft.web/sites/diagnostics/siterestartuserinitiated/read | Web Apps Diagnostics Site opnieuw starten door de gebruiker geïnitieerde ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/siteswap/read | Get-Site wisselen van Web Apps diagnostische gegevens. |
+> | Bewerking | microsoft.web/sites/diagnostics/threadcount/read | Threadaantal van Web Apps diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/workeravailability/read | Web Apps Diagnostics Workeravailability ophalen. |
+> | Bewerking | microsoft.web/sites/diagnostics/workerprocessrecycle/read | Recyclen van Web Apps Diagnostics Worker proces ophalen. |
+> | Bewerking | microsoft.web/sites/domainownershipidentifiers/read | Web Apps-domein eigenaar-id's ophalen |
+> | Bewerking | microsoft.web/sites/domainownershipidentifiers/write | Web Apps-domein eigenaar-id's worden bijgewerkt. |
+> | Bewerking | microsoft.web/sites/functions/action | Functies van Web-Apps. |
+> | Bewerking | microsoft.web/sites/functions/delete | Verwijderen van functies voor Web-Apps. |
+> | Bewerking | microsoft.web/sites/functions/listsecrets/action | Lijst met geheimen Web Apps-functies. |
+> | Bewerking | microsoft.web/sites/functions/masterkey/read | Get-hoofdsleutel voor Web Apps-functies. |
+> | Bewerking | microsoft.web/sites/functions/read | Get-functies voor Web-Apps. |
+> | Bewerking | microsoft.web/sites/functions/token/read | Get Web Apps-functies-Token. |
+> | Bewerking | microsoft.web/sites/functions/write | Web Apps-functies bijwerken. |
+> | Bewerking | microsoft.web/sites/hostnamebindings/delete | Web Apps-Hostnaambindingen verwijderen. |
+> | Bewerking | microsoft.web/sites/hostnamebindings/read | Web Apps-Hostnaambindingen ophalen. |
+> | Bewerking | microsoft.web/sites/hostnamebindings/write | Web Apps-Hostnaambindingen bijwerken. |
 > | Bewerking | Microsoft.Web/sites/hostruntime/host/_master/read | De hoofdsleutel van de functie-App voor de bewerkingen ophalen |
 > | Bewerking | Microsoft.Web/sites/hostruntime/host/action | Runtime-actie, zoals triggers synchroniseren, functies toevoegen, aanroepen van functies, functies enzovoort verwijderen van functie-App uitvoeren. |
-> | Bewerking | Microsoft.Web/sites/hybridconnection/DELETE | Web Apps hybride verbinding verwijderen. |
-> | Bewerking | Microsoft.Web/sites/hybridconnection/Read | Get-Web-Apps hybride verbinding. |
-> | Bewerking | Microsoft.Web/sites/hybridconnection/Write | Web Apps hybride verbinding bijwerken. |
-> | Bewerking | Microsoft.Web/sites/hybridconnectionnamespaces/relays/DELETE | Web Apps hybride verbinding naamruimten Relays verwijderen. |
-> | Bewerking | Microsoft.Web/sites/hybridconnectionnamespaces/relays/listkeys/Action | Lijst met sleutels Web Apps hybride verbinding naamruimten Relays. |
-> | Bewerking | Microsoft.Web/sites/hybridconnectionnamespaces/relays/Read | Get-Web-Apps hybride verbinding naamruimten Relays. |
-> | Bewerking | Microsoft.Web/sites/hybridconnectionnamespaces/relays/Write | Web Apps hybride verbinding naamruimten Relays werk. |
-> | Bewerking | Microsoft.Web/sites/hybridconnectionrelays/Read | Get-Web-Apps hybride verbinding Relays. |
-> | Bewerking | Microsoft.Web/sites/Instances/Deployments/DELETE | Web Apps-instanties implementaties verwijderen. |
-> | Bewerking | Microsoft.Web/sites/Instances/Deployments/Read | Web Apps-instanties implementaties ophalen. |
-> | Bewerking | Microsoft.Web/sites/Instances/Extensions/log/Read | Web Apps-instanties extensies Log ophalen. |
-> | Bewerking | Microsoft.Web/sites/Instances/Extensions/Read | Get-extensies voor Web Apps-instanties. |
-> | Bewerking | Microsoft.Web/sites/Instances/processes/DELETE | Verwijderen van Web Apps-instanties processen. |
-> | Bewerking | Microsoft.Web/sites/Instances/processes/Read | Web Apps-instanties processen ophalen. |
-> | Bewerking | Microsoft.Web/sites/Instances/processes/threads/Read | Web Apps-instanties processen Threads ophalen. |
-> | Bewerking | Microsoft.Web/sites/Instances/Read | Web Apps-instanties ophalen. |
-> | Bewerking | Microsoft.Web/sites/listsyncfunctiontriggerstatus/Action | Lijst met synchronisatie functie Trigger Status Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/metricdefinitions/Read | Web Apps metrische definities ophalen. |
-> | Bewerking | Microsoft.Web/sites/metrics/Read | Web Apps-metrische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/metricsdefinitions/Read | Web Apps metrische definities ophalen. |
-> | Bewerking | Microsoft.Web/sites/migratemysql/Action | MySql-Web-Apps migreren. |
-> | Bewerking | Microsoft.Web/sites/migratemysql/Read | Ophalen van Web Apps MySql migreren. |
-> | Bewerking | Microsoft.Web/sites/networktrace/Action | Netwerk traceren Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/NewPassword/Action | NewPassword Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/operationresults/Read | Web Apps Bewerkingsresultaten krijgt. |
-> | Bewerking | Microsoft.Web/sites/Operations/Read | Bewerkingen voor Web-Apps ophalen. |
-> | Bewerking | Microsoft.Web/sites/perfcounters/Read | Get-prestatiemeteritems voor Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/premieraddons/DELETE | Web Apps Premier-invoegtoepassingen verwijderen. |
-> | Bewerking | Microsoft.Web/sites/premieraddons/Read | Web Apps Premier-invoegtoepassingen ophalen. |
-> | Bewerking | Microsoft.Web/sites/premieraddons/Write | Web Apps Premier-invoegtoepassingen werken. |
-> | Bewerking | Microsoft.Web/sites/privateaccess/Read | Ophalen van gegevens over persoonlijke site toegang inschakelen en toegestane virtuele netwerken die toegang hebben tot de site. |
-> | Bewerking | Microsoft.Web/sites/processes/Read | Web Apps processen ophalen. |
-> | Bewerking | Microsoft.Web/sites/publiccertificates/DELETE | Web Apps openbare certificaten verwijderen. |
-> | Bewerking | Microsoft.Web/sites/publiccertificates/Read | Web Apps openbare certificaten ophalen. |
-> | Bewerking | Microsoft.Web/sites/publiccertificates/Write | Web Apps openbare certificaten bijwerken. |
+> | Bewerking | microsoft.web/sites/hybridconnection/delete | Web Apps hybride verbinding verwijderen. |
+> | Bewerking | microsoft.web/sites/hybridconnection/read | Get-Web-Apps hybride verbinding. |
+> | Bewerking | microsoft.web/sites/hybridconnection/write | Web Apps hybride verbinding bijwerken. |
+> | Bewerking | microsoft.web/sites/hybridconnectionnamespaces/relays/delete | Web Apps hybride verbinding naamruimten Relays verwijderen. |
+> | Bewerking | microsoft.web/sites/hybridconnectionnamespaces/relays/listkeys/action | Lijst met sleutels Web Apps hybride verbinding naamruimten Relays. |
+> | Bewerking | microsoft.web/sites/hybridconnectionnamespaces/relays/read | Get-Web-Apps hybride verbinding naamruimten Relays. |
+> | Bewerking | microsoft.web/sites/hybridconnectionnamespaces/relays/write | Web Apps hybride verbinding naamruimten Relays werk. |
+> | Bewerking | microsoft.web/sites/hybridconnectionrelays/read | Get-Web-Apps hybride verbinding Relays. |
+> | Bewerking | microsoft.web/sites/instances/deployments/delete | Web Apps-instanties implementaties verwijderen. |
+> | Bewerking | microsoft.web/sites/instances/deployments/read | Web Apps-instanties implementaties ophalen. |
+> | Bewerking | microsoft.web/sites/instances/extensions/log/read | Web Apps-instanties extensies Log ophalen. |
+> | Bewerking | microsoft.web/sites/instances/extensions/read | Get-extensies voor Web Apps-instanties. |
+> | Bewerking | microsoft.web/sites/instances/processes/delete | Verwijderen van Web Apps-instanties processen. |
+> | Bewerking | microsoft.web/sites/instances/processes/read | Web Apps-instanties processen ophalen. |
+> | Bewerking | microsoft.web/sites/instances/processes/threads/read | Web Apps-instanties processen Threads ophalen. |
+> | Bewerking | microsoft.web/sites/instances/read | Web Apps-instanties ophalen. |
+> | Bewerking | microsoft.web/sites/listsyncfunctiontriggerstatus/action | Lijst met synchronisatie functie Trigger Status Web-Apps. |
+> | Bewerking | microsoft.web/sites/metricdefinitions/read | Web Apps metrische definities ophalen. |
+> | Bewerking | microsoft.web/sites/metrics/read | Web Apps-metrische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/metricsdefinitions/read | Web Apps metrische definities ophalen. |
+> | Bewerking | microsoft.web/sites/migratemysql/action | MySql-Web-Apps migreren. |
+> | Bewerking | microsoft.web/sites/migratemysql/read | Ophalen van Web Apps MySql migreren. |
+> | Bewerking | microsoft.web/sites/networktrace/action | Netwerk traceren Web-Apps. |
+> | Bewerking | microsoft.web/sites/newpassword/action | NewPassword Web-Apps. |
+> | Bewerking | microsoft.web/sites/operationresults/read | Web Apps Bewerkingsresultaten krijgt. |
+> | Bewerking | microsoft.web/sites/operations/read | Bewerkingen voor Web-Apps ophalen. |
+> | Bewerking | microsoft.web/sites/perfcounters/read | Get-prestatiemeteritems voor Web-Apps. |
+> | Bewerking | microsoft.web/sites/premieraddons/delete | Web Apps Premier-invoegtoepassingen verwijderen. |
+> | Bewerking | microsoft.web/sites/premieraddons/read | Web Apps Premier-invoegtoepassingen ophalen. |
+> | Bewerking | microsoft.web/sites/premieraddons/write | Web Apps Premier-invoegtoepassingen werken. |
+> | Bewerking | microsoft.web/sites/privateaccess/read | Ophalen van gegevens over persoonlijke site toegang inschakelen en toegestane virtuele netwerken die toegang hebben tot de site. |
+> | Bewerking | microsoft.web/sites/processes/read | Web Apps processen ophalen. |
+> | Bewerking | microsoft.web/sites/publiccertificates/delete | Web Apps openbare certificaten verwijderen. |
+> | Bewerking | microsoft.web/sites/publiccertificates/read | Web Apps openbare certificaten ophalen. |
+> | Bewerking | microsoft.web/sites/publiccertificates/write | Web Apps openbare certificaten bijwerken. |
 > | Bewerking | Microsoft.Web/sites/publish/Action | Een Web-App publiceren |
 > | Bewerking | Microsoft.Web/sites/publishxml/Action | Ophalen van de XML-bestand profiel voor een Web-App publiceren |
-> | Bewerking | Microsoft.Web/sites/PublishXml/Read | Get-Web-Apps publiceren XML. |
+> | Bewerking | microsoft.web/sites/publishxml/read | Get-Web-Apps publiceren XML. |
 > | Bewerking | Microsoft.Web/sites/Read | Hiermee worden de eigenschappen van een Web-App |
-> | Bewerking | Microsoft.Web/sites/recommendationhistory/Read | Ophalen van de Web-Apps aanbeveling geschiedenis. |
-> | Bewerking | Microsoft.Web/sites/Recommendations/Disable/Action | Web Apps aanbevelingen uitschakelen. |
+> | Bewerking | microsoft.web/sites/recommendationhistory/read | Ophalen van de Web-Apps aanbeveling geschiedenis. |
+> | Bewerking | microsoft.web/sites/recommendations/disable/action | Web Apps aanbevelingen uitschakelen. |
 > | Bewerking | Microsoft.Web/sites/recommendations/Read | De lijst met aanbevelingen voor web-app ophalen. |
-> | Bewerking | Microsoft.Web/sites/recover/Action | Herstellen van Web-Apps. |
+> | Bewerking | microsoft.web/sites/recover/action | Herstellen van Web-Apps. |
 > | Bewerking | Microsoft.Web/sites/resetSlotConfig/Action | Web app-configuratie opnieuw instellen |
-> | Bewerking | Microsoft.Web/sites/resourcehealthmetadata/Read | Web Apps-Resource Health metagegevens ophalen. |
+> | Bewerking | microsoft.web/sites/resourcehealthmetadata/read | Web Apps-Resource Health metagegevens ophalen. |
 > | Bewerking | Microsoft.Web/sites/restart/Action | Een Web-App opnieuw starten |
-> | Bewerking | Microsoft.Web/sites/Restore/Read | Herstellen van Web-Apps ophalen. |
-> | Bewerking | Microsoft.Web/sites/Restore/Write | Herstellen van WebApps. |
-> | Bewerking | Microsoft.Web/sites/restorefrombackupblob/Action | Web-App herstellen vanuit back-Blob. |
-> | Bewerking | Microsoft.Web/sites/restorefromdeletedwebapp/Action | Web-Apps herstellen van verwijderde App. |
-> | Bewerking | Microsoft.Web/sites/restoresnapshot/Action | Terugzetten van momentopnamen van de Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/siteextensions/DELETE | Verwijderen van Web Apps-Site-uitbreidingen. |
-> | Bewerking | Microsoft.Web/sites/siteextensions/Read | Get-Web-Apps-Site-uitbreidingen. |
-> | Bewerking | Microsoft.Web/sites/siteextensions/Write | Web Apps-Site-extensies worden bijgewerkt. |
-> | Bewerking | Microsoft.Web/sites/slots/analyzecustomhostname/Read | Ophalen van Web Apps-sleuven analyseren aangepaste hostnaam. |
+> | Bewerking | microsoft.web/sites/restore/read | Herstellen van Web-Apps ophalen. |
+> | Bewerking | microsoft.web/sites/restore/write | Herstellen van WebApps. |
+> | Bewerking | microsoft.web/sites/restorefrombackupblob/action | Web-App herstellen vanuit back-Blob. |
+> | Bewerking | microsoft.web/sites/restorefromdeletedwebapp/action | Web-Apps herstellen van verwijderde App. |
+> | Bewerking | microsoft.web/sites/restoresnapshot/action | Terugzetten van momentopnamen van de Web-Apps. |
+> | Bewerking | microsoft.web/sites/siteextensions/delete | Verwijderen van Web Apps-Site-uitbreidingen. |
+> | Bewerking | microsoft.web/sites/siteextensions/read | Get-Web-Apps-Site-uitbreidingen. |
+> | Bewerking | microsoft.web/sites/siteextensions/write | Web Apps-Site-extensies worden bijgewerkt. |
+> | Bewerking | microsoft.web/sites/slots/analyzecustomhostname/read | Ophalen van Web Apps-sleuven analyseren aangepaste hostnaam. |
 > | Bewerking | Microsoft.Web/sites/slots/applySlotConfig/Action | Web app-site-configuratie van doelsleuf voor de huidige sleuf van toepassing. |
 > | Bewerking | Microsoft.Web/sites/slots/backup/Action | Nieuwe Web-App sleuf back-up maken. |
-> | Bewerking | Microsoft.Web/sites/slots/Backup/Read | Get-back-up-sleuven voor Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/slots/Backup/Write | Web Apps-sleuven back-up. |
-> | Bewerking | Microsoft.Web/sites/slots/backups/Action | Web Apps-sleuven back-ups detecteren. |
-> | Bewerking | Microsoft.Web/sites/slots/backups/DELETE | Back-ups sleuven voor Web-Apps verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/backups/List/Action | Lijst met Web Apps-sleuven back-ups. |
+> | Bewerking | microsoft.web/sites/slots/backup/read | Get-back-up-sleuven voor Web-Apps. |
+> | Bewerking | microsoft.web/sites/slots/backup/write | Web Apps-sleuven back-up. |
+> | Bewerking | microsoft.web/sites/slots/backups/action | Web Apps-sleuven back-ups detecteren. |
+> | Bewerking | microsoft.web/sites/slots/backups/delete | Back-ups sleuven voor Web-Apps verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/backups/list/action | Lijst met Web Apps-sleuven back-ups. |
 > | Bewerking | Microsoft.Web/sites/slots/backups/Read | Hiermee worden de eigenschappen van een web-appsites back-up |
-> | Bewerking | Microsoft.Web/sites/slots/backups/Restore/Action | Web Apps-sleuven back-ups herstellen. |
-> | Bewerking | Microsoft.Web/sites/slots/config/DELETE | Configuratie van Web Apps-sleuven verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/backups/restore/action | Web Apps-sleuven back-ups herstellen. |
+> | Bewerking | microsoft.web/sites/slots/config/delete | Delete Web Apps Slots Config. |
 > | Bewerking | Microsoft.Web/sites/slots/config/list/Action | Overzicht van Web-App sleuf gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen |
 > | Bewerking | Microsoft.Web/sites/slots/config/Read | Configuratie-instellingen voor Web-App sleuf ophalen |
 > | Bewerking | Microsoft.Web/sites/slots/config/Write | Web-App sleuf configuratie-instellingen bijwerken |
-> | Bewerking | Microsoft.Web/sites/slots/containerlogs/Action | Logboeken voor containers ophalen voor de Web-App-site worden ingepakt. |
-> | Bewerking | Microsoft.Web/sites/slots/continuouswebjobs/DELETE | Web Apps-sleuven doorlopende webtaken verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/continuouswebjobs/Read | Web Apps-sleuven doorlopende webtaken ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/continuouswebjobs/start/Action | Web Apps-sleuven doorlopende webtaken starten. |
-> | Bewerking | Microsoft.Web/sites/slots/continuouswebjobs/Stop/Action | Web Apps-sleuven doorlopende webtaken stoppen. |
+> | Bewerking | microsoft.web/sites/slots/containerlogs/action | Logboeken voor containers ophalen voor de Web-App-site worden ingepakt. |
+> | Bewerking | microsoft.web/sites/slots/continuouswebjobs/delete | Web Apps-sleuven doorlopende webtaken verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/continuouswebjobs/read | Web Apps-sleuven doorlopende webtaken ophalen. |
+> | Bewerking | microsoft.web/sites/slots/continuouswebjobs/start/action | Web Apps-sleuven doorlopende webtaken starten. |
+> | Bewerking | microsoft.web/sites/slots/continuouswebjobs/stop/action | Web Apps-sleuven doorlopende webtaken stoppen. |
 > | Bewerking | Microsoft.Web/sites/slots/Delete | Verwijderen van een bestaande sleuf van de Web-App |
-> | Bewerking | Microsoft.Web/sites/slots/Deployments/DELETE | Web Apps-sleuven implementaties verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/Deployments/log/Read | Web Apps-sleuven implementaties Log ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Deployments/Read | Web Apps-sleuven implementaties ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Deployments/Write | Update-implementaties van Web Apps-sleuven. |
-> | Bewerking | Microsoft.Web/sites/slots/detectors/Read | Web Apps-sleuven detectoren ophalen. |
+> | Bewerking | microsoft.web/sites/slots/deployments/delete | Web Apps-sleuven implementaties verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/deployments/log/read | Web Apps-sleuven implementaties Log ophalen. |
+> | Bewerking | microsoft.web/sites/slots/deployments/read | Web Apps-sleuven implementaties ophalen. |
+> | Bewerking | microsoft.web/sites/slots/deployments/write | Update-implementaties van Web Apps-sleuven. |
+> | Bewerking | microsoft.web/sites/slots/detectors/read | Web Apps-sleuven detectoren ophalen. |
 > | Bewerking | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Web Apps-sleuven diagnostische analyses uitvoeren. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/analyses/Read | Analyse van Web Apps-sleuven diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/aspnetcore/Read | Web Apps-sleuven diagnostische gegevens ophalen voor ASP.NET Core-app. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/autoheal/Read | Web Apps-sleuven Diagnostics Autoheal ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/Deployment/Read | Implementatie van Web Apps-sleuven diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/Deployments/Read | Web Apps-sleuven diagnostische gegevens over implementaties ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/analyses/read | Analyse van Web Apps-sleuven diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/aspnetcore/read | Web Apps-sleuven diagnostische gegevens ophalen voor ASP.NET Core-app. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/autoheal/read | Web Apps-sleuven Diagnostics Autoheal ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/deployment/read | Implementatie van Web Apps-sleuven diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/deployments/read | Web Apps-sleuven diagnostische gegevens over implementaties ophalen. |
 > | Bewerking | microsoft.web/sites/slots/diagnostics/detectors/execute/Action | Web Apps-sleuven Diagnostics Detector worden uitgevoerd. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/detectors/Read | Web Apps-sleuven Diagnostics Detector ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/frebanalysis/Read | Get-Web-Apps-sleuven Diagnostics FREB analyse. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/loganalyzer/Read | Web Apps-sleuven Diagnostics Log Analyzer ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/Read | Web Apps-sleuven diagnostische gegevens ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/runtimeavailability/Read | Web Apps-sleuven diagnostische gegevens over Runtime-beschikbaarheid ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/servicehealth/Read | Web Apps-sleuven Diagnostics-servicestatus ophalen |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/sitecpuanalysis/Read | Get Web Apps-sleuven diagnostische Site analyse van CPU. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/sitecrashes/Read | Web Apps-sleuven Diagnostics Site Crashes ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/sitelatency/Read | Get-latentie van Web Apps-sleuven diagnostische gegevens van Site. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/sitememoryanalysis/Read | Get-analyse over het geheugen van de Site van Web Apps-sleuven diagnostische gegevens. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/siterestartsettingupdate/Read | Get-Web-Apps-sleuven Diagnostics Site opnieuw opstarten instelling bijwerken. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/siterestartuserinitiated/Read | Web Apps-sleuven Diagnostics Site opnieuw starten door de gebruiker geïnitieerde ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/siteswap/Read | Get-Site wisselen van Web Apps-sleuven diagnostische gegevens. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/ThreadCount/Read | Get-threads van Web Apps-sleuven diagnostische gegevens. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/workeravailability/Read | Web Apps-sleuven Diagnostics Workeravailability ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Diagnostics/workerprocessrecycle/Read | Recyclen van Web Apps-sleuven Diagnostics Worker proces ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/domainownershipidentifiers/Read | Web Apps-sleuven domein eigenaar-id's ophalen |
-> | Bewerking | Microsoft.Web/sites/slots/Functions/Read | Get-functies van Web Apps-sleuven. |
-> | Bewerking | Microsoft.Web/sites/slots/hostnamebindings/DELETE | Web Apps-sleuven Hostnaambindingen verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/hostnamebindings/Read | Web Apps-sleuven Hostnaambindingen ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/hostnamebindings/Write | Web Apps-sleuven Hostnaambindingen bijwerken. |
-> | Bewerking | Microsoft.Web/sites/slots/hybridconnection/DELETE | Web Apps-sleuven hybride verbinding verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/hybridconnection/Read | Get-Web-Apps-sleuven hybride verbinding. |
-> | Bewerking | Microsoft.Web/sites/slots/hybridconnection/Write | Web Apps-sleuven hybride verbinding bijwerken. |
-> | Bewerking | Microsoft.Web/sites/slots/hybridconnectionnamespaces/relays/DELETE | Web Apps-sleuven hybride verbinding naamruimten Relays verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/hybridconnectionnamespaces/relays/Write | Web Apps-sleuven hybride verbinding naamruimten Relays werk. |
-> | Bewerking | Microsoft.Web/sites/slots/hybridconnectionrelays/Read | Web Apps-sleuven hybride verbinding Relays ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Instances/Deployments/Read | Web Apps-sleuven exemplaren implementaties ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Instances/processes/DELETE | Verwijderen van Web Apps-sleuven exemplaren processen. |
-> | Bewerking | Microsoft.Web/sites/slots/Instances/processes/Read | Web Apps-sleuven exemplaren processen ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/Instances/Read | Web Apps-sleuven instanties ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/metricdefinitions/Read | Web Apps-sleuven metrische definities ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/metrics/Read | Metrische gegevens voor sleuven van Web-Apps ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/migratemysql/Read | Ophalen van Web Apps-sleuven MySql migreren. |
-> | Bewerking | Microsoft.Web/sites/slots/networktrace/Action | Netwerk traceren Web Apps-sleuven. |
-> | Bewerking | Microsoft.Web/sites/slots/NewPassword/Action | Sleuven NewPassword Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/slots/operationresults/Read | Web Apps-sleuven Bewerkingsresultaten krijgt. |
-> | Bewerking | Microsoft.Web/sites/slots/Operations/Read | Web Apps-sleuven bewerkingen ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/perfcounters/Read | Prestatiemeteritems voor Web Apps-sleuven ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/phplogging/Read | Web Apps-sleuven Phplogging ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/premieraddons/DELETE | Web Apps sleuven Premier-invoegtoepassingen verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/premieraddons/Read | Web Apps sleuven Premier-invoegtoepassingen ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/premieraddons/Write | Web Apps sleuven Premier-invoegtoepassingen werken. |
-> | Bewerking | Microsoft.Web/sites/slots/publiccertificates/DELETE | Web Apps-sleuven openbare certificaten verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/publiccertificates/Read | Web Apps-sleuven openbare certificaten ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/publiccertificates/Write | Maken of bijwerken van Web Apps-sleuven openbare certificaten. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/detectors/read | Web Apps-sleuven Diagnostics Detector ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/frebanalysis/read | Get-Web-Apps-sleuven Diagnostics FREB analyse. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/loganalyzer/read | Get Web Apps Slots Diagnostics Log Analyzer. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/read | Web Apps-sleuven diagnostische gegevens ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/runtimeavailability/read | Web Apps-sleuven diagnostische gegevens over Runtime-beschikbaarheid ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/servicehealth/read | Web Apps-sleuven Diagnostics-servicestatus ophalen |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/sitecpuanalysis/read | Get Web Apps-sleuven diagnostische Site analyse van CPU. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/sitecrashes/read | Web Apps-sleuven Diagnostics Site Crashes ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/sitelatency/read | Get-latentie van Web Apps-sleuven diagnostische gegevens van Site. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/sitememoryanalysis/read | Get-analyse over het geheugen van de Site van Web Apps-sleuven diagnostische gegevens. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/siterestartsettingupdate/read | Get-Web-Apps-sleuven Diagnostics Site opnieuw opstarten instelling bijwerken. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/siterestartuserinitiated/read | Web Apps-sleuven Diagnostics Site opnieuw starten door de gebruiker geïnitieerde ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/siteswap/read | Get-Site wisselen van Web Apps-sleuven diagnostische gegevens. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/threadcount/read | Get-threads van Web Apps-sleuven diagnostische gegevens. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/workeravailability/read | Web Apps-sleuven Diagnostics Workeravailability ophalen. |
+> | Bewerking | microsoft.web/sites/slots/diagnostics/workerprocessrecycle/read | Recyclen van Web Apps-sleuven Diagnostics Worker proces ophalen. |
+> | Bewerking | microsoft.web/sites/slots/domainownershipidentifiers/read | Get Web Apps Slots Domain Ownership Identifiers. |
+> | Bewerking | microsoft.web/sites/slots/functions/read | Get-functies van Web Apps-sleuven. |
+> | Bewerking | microsoft.web/sites/slots/hostnamebindings/delete | Web Apps-sleuven Hostnaambindingen verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/hostnamebindings/read | Web Apps-sleuven Hostnaambindingen ophalen. |
+> | Bewerking | microsoft.web/sites/slots/hostnamebindings/write | Web Apps-sleuven Hostnaambindingen bijwerken. |
+> | Bewerking | microsoft.web/sites/slots/hybridconnection/delete | Web Apps-sleuven hybride verbinding verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/hybridconnection/read | Get-Web-Apps-sleuven hybride verbinding. |
+> | Bewerking | microsoft.web/sites/slots/hybridconnection/write | Web Apps-sleuven hybride verbinding bijwerken. |
+> | Bewerking | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/delete | Web Apps-sleuven hybride verbinding naamruimten Relays verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/write | Web Apps-sleuven hybride verbinding naamruimten Relays werk. |
+> | Bewerking | microsoft.web/sites/slots/hybridconnectionrelays/read | Web Apps-sleuven hybride verbinding Relays ophalen. |
+> | Bewerking | microsoft.web/sites/slots/instances/deployments/read | Web Apps-sleuven exemplaren implementaties ophalen. |
+> | Bewerking | microsoft.web/sites/slots/instances/processes/delete | Verwijderen van Web Apps-sleuven exemplaren processen. |
+> | Bewerking | microsoft.web/sites/slots/instances/processes/read | Web Apps-sleuven exemplaren processen ophalen. |
+> | Bewerking | microsoft.web/sites/slots/instances/read | Web Apps-sleuven instanties ophalen. |
+> | Bewerking | microsoft.web/sites/slots/metricdefinitions/read | Web Apps-sleuven metrische definities ophalen. |
+> | Bewerking | microsoft.web/sites/slots/metrics/read | Metrische gegevens voor sleuven van Web-Apps ophalen. |
+> | Bewerking | microsoft.web/sites/slots/migratemysql/read | Get Web Apps Slots Migrate MySql. |
+> | Bewerking | microsoft.web/sites/slots/networktrace/action | Netwerk traceren Web Apps-sleuven. |
+> | Bewerking | microsoft.web/sites/slots/newpassword/action | Sleuven NewPassword Web-Apps. |
+> | Bewerking | microsoft.web/sites/slots/operationresults/read | Web Apps-sleuven Bewerkingsresultaten krijgt. |
+> | Bewerking | microsoft.web/sites/slots/operations/read | Web Apps-sleuven bewerkingen ophalen. |
+> | Bewerking | microsoft.web/sites/slots/perfcounters/read | Prestatiemeteritems voor Web Apps-sleuven ophalen. |
+> | Bewerking | microsoft.web/sites/slots/phplogging/read | Web Apps-sleuven Phplogging ophalen. |
+> | Bewerking | microsoft.web/sites/slots/premieraddons/delete | Web Apps sleuven Premier-invoegtoepassingen verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/premieraddons/read | Web Apps sleuven Premier-invoegtoepassingen ophalen. |
+> | Bewerking | microsoft.web/sites/slots/premieraddons/write | Web Apps sleuven Premier-invoegtoepassingen werken. |
+> | Bewerking | microsoft.web/sites/slots/publiccertificates/delete | Web Apps-sleuven openbare certificaten verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/publiccertificates/read | Web Apps-sleuven openbare certificaten ophalen. |
+> | Bewerking | microsoft.web/sites/slots/publiccertificates/write | Maken of bijwerken van Web Apps-sleuven openbare certificaten. |
 > | Bewerking | Microsoft.Web/sites/slots/publish/Action | Een Web-App-site publiceren |
 > | Bewerking | Microsoft.Web/sites/slots/publishxml/Action | Ophalen van de XML-bestand profiel voor de Web-App-site publiceren |
 > | Bewerking | Microsoft.Web/sites/slots/Read | Hiermee worden de eigenschappen van de implementatiesite voor een Web-App |
-> | Bewerking | Microsoft.Web/sites/slots/recover/Action | Web Apps-sleuven herstellen. |
+> | Bewerking | microsoft.web/sites/slots/recover/action | Web Apps-sleuven herstellen. |
 > | Bewerking | Microsoft.Web/sites/slots/resetSlotConfig/Action | Web app-site-configuratie opnieuw instellen |
-> | Bewerking | Microsoft.Web/sites/slots/resourcehealthmetadata/Read | Web Apps-sleuven Resource Health metagegevens ophalen. |
+> | Bewerking | microsoft.web/sites/slots/resourcehealthmetadata/read | Web Apps-sleuven Resource Health metagegevens ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/restart/Action | Opnieuw opstarten van een Web-App-sleuf |
-> | Bewerking | Microsoft.Web/sites/slots/Restore/Read | Get-Web-Apps-sleuven terugzetten. |
-> | Bewerking | Microsoft.Web/sites/slots/Restore/Write | Web Apps-sleuven herstellen. |
-> | Bewerking | Microsoft.Web/sites/slots/restorefrombackupblob/Action | Web Apps-sleuf herstellen vanuit back-Blob. |
-> | Bewerking | Microsoft.Web/sites/slots/restorefromdeletedwebapp/Action | Web-Appsites herstellen van verwijderde App. |
-> | Bewerking | Microsoft.Web/sites/slots/restoresnapshot/Action | Web Apps-sleuven momentopnamen terugzetten. |
-> | Bewerking | Microsoft.Web/sites/slots/siteextensions/DELETE | Site-uitbreidingen voor Web Apps-sleuven verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/siteextensions/Read | Get-Site-uitbreidingen voor Web Apps-sleuven. |
-> | Bewerking | Microsoft.Web/sites/slots/siteextensions/Write | Site-uitbreidingen voor Web Apps-sleuven bijwerken. |
+> | Bewerking | microsoft.web/sites/slots/restore/read | Get-Web-Apps-sleuven terugzetten. |
+> | Bewerking | microsoft.web/sites/slots/restore/write | Web Apps-sleuven herstellen. |
+> | Bewerking | microsoft.web/sites/slots/restorefrombackupblob/action | Web Apps-sleuf herstellen vanuit back-Blob. |
+> | Bewerking | microsoft.web/sites/slots/restorefromdeletedwebapp/action | Web-Appsites herstellen van verwijderde App. |
+> | Bewerking | microsoft.web/sites/slots/restoresnapshot/action | Web Apps-sleuven momentopnamen terugzetten. |
+> | Bewerking | microsoft.web/sites/slots/siteextensions/delete | Site-uitbreidingen voor Web Apps-sleuven verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/siteextensions/read | Get-Site-uitbreidingen voor Web Apps-sleuven. |
+> | Bewerking | microsoft.web/sites/slots/siteextensions/write | Site-uitbreidingen voor Web Apps-sleuven bijwerken. |
 > | Bewerking | Microsoft.Web/sites/slots/slotsdiffs/Action | Ophalen van de verschillen in de configuratie tussen web-app en sleuven |
 > | Bewerking | Microsoft.Web/sites/slots/slotsswap/Action | Web-App implementatiesites wisselen |
-> | Bewerking | Microsoft.Web/sites/slots/Snapshots/Read | Web Apps-sleuven momentopnamen ophalen. |
+> | Bewerking | microsoft.web/sites/slots/snapshots/read | Web Apps-sleuven momentopnamen ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/sourcecontrols/Delete | Instellingen voor Web-App sleuf bronbeheer configuratie verwijderen |
 > | Bewerking | Microsoft.Web/sites/slots/sourcecontrols/Read | Configuratie-instellingen voor broncodebeheer voor Web-App sleuf ophalen |
 > | Bewerking | Microsoft.Web/sites/slots/sourcecontrols/Write | Web-App sleuf bron besturingselement configuratie-instellingen bijwerken |
 > | Bewerking | Microsoft.Web/sites/slots/start/Action | Een Web-App-site starten |
 > | Bewerking | Microsoft.Web/sites/slots/stop/Action | Een Web-App-site stoppen |
-> | Bewerking | Microsoft.Web/sites/slots/Sync/Action | Synchronisatie van Web Apps-sleuven. |
-> | Bewerking | Microsoft.Web/sites/slots/triggeredwebjobs/DELETE | Web Apps-sleuven geactiveerde webtaken verwijderen. |
-> | Bewerking | Microsoft.Web/sites/slots/triggeredwebjobs/Read | Web Apps-sleuven geactiveerde webtaken ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/triggeredwebjobs/Run/Action | Web Apps-sleuven geactiveerde webtaken uitvoeren. |
-> | Bewerking | Microsoft.Web/sites/slots/usages/Read | Het gebruik van Web Apps-sleuven ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/virtualnetworkconnections/DELETE | Verwijderen van Web Apps-sleuven virtuele netwerkverbindingen. |
-> | Bewerking | Microsoft.Web/sites/slots/virtualnetworkconnections/gateways/Write | Web Apps-sleuven virtueel netwerk verbindingen Gateways bijwerken. |
-> | Bewerking | Microsoft.Web/sites/slots/virtualnetworkconnections/Read | Web Apps-sleuven Virtual Network-verbindingen ophalen. |
-> | Bewerking | Microsoft.Web/sites/slots/virtualnetworkconnections/Write | Web Apps-sleuven virtuele netwerkverbindingen worden bijgewerkt. |
-> | Bewerking | Microsoft.Web/sites/slots/webjobs/Read | Web Apps-sleuven WebJobs ophalen. |
+> | Bewerking | microsoft.web/sites/slots/sync/action | Synchronisatie van Web Apps-sleuven. |
+> | Bewerking | microsoft.web/sites/slots/triggeredwebjobs/delete | Web Apps-sleuven geactiveerde webtaken verwijderen. |
+> | Bewerking | microsoft.web/sites/slots/triggeredwebjobs/read | Get Web Apps Slots Triggered WebJobs. |
+> | Bewerking | microsoft.web/sites/slots/triggeredwebjobs/run/action | Run Web Apps Slots Triggered WebJobs. |
+> | Bewerking | microsoft.web/sites/slots/usages/read | Get Web Apps Slots Usages. |
+> | Bewerking | microsoft.web/sites/slots/virtualnetworkconnections/delete | Verwijderen van Web Apps-sleuven virtuele netwerkverbindingen. |
+> | Bewerking | microsoft.web/sites/slots/virtualnetworkconnections/gateways/write | Web Apps-sleuven virtueel netwerk verbindingen Gateways bijwerken. |
+> | Bewerking | microsoft.web/sites/slots/virtualnetworkconnections/read | Web Apps-sleuven Virtual Network-verbindingen ophalen. |
+> | Bewerking | microsoft.web/sites/slots/virtualnetworkconnections/write | Web Apps-sleuven virtuele netwerkverbindingen worden bijgewerkt. |
+> | Bewerking | microsoft.web/sites/slots/webjobs/read | Get Web Apps Slots WebJobs. |
 > | Bewerking | Microsoft.Web/sites/slots/Write | Een nieuwe sleuf van de Web-App maken of een bestaande bijgewerkt |
 > | Bewerking | Microsoft.Web/sites/slotsdiffs/Action | Ophalen van de verschillen in de configuratie tussen web-app en sleuven |
 > | Bewerking | Microsoft.Web/sites/slotsswap/Action | Web-App implementatiesites wisselen |
-> | Bewerking | Microsoft.Web/sites/Snapshots/Read | Momentopnamen van de Web-Apps ophalen. |
+> | Bewerking | microsoft.web/sites/snapshots/read | Momentopnamen van de Web-Apps ophalen. |
 > | Bewerking | Microsoft.Web/sites/sourcecontrols/Delete | Instellingen voor Web-App bronbeheer-configuratie verwijderen |
 > | Bewerking | Microsoft.Web/sites/sourcecontrols/Read | Broncodebeheer voor Web-App-configuratie-instellingen ophalen |
 > | Bewerking | Microsoft.Web/sites/sourcecontrols/Write | Instellingen voor configuratie bronbeheer van Web-App bijwerken |
 > | Bewerking | Microsoft.Web/sites/start/Action | Een Web-App starten |
 > | Bewerking | Microsoft.Web/sites/stop/Action | Een Web-App stoppen |
-> | Bewerking | Microsoft.Web/sites/Sync/Action | Synchronisatie van Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/syncfunctiontriggers/Action | Synchronisatie-functie wordt geactiveerd voor Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/triggeredwebjobs/DELETE | Geactiveerde webtaken voor Web-Apps verwijderen. |
-> | Bewerking | Microsoft.Web/sites/triggeredwebjobs/history/Read | Ophalen van de Web Apps geactiveerde webtaken geschiedenis. |
-> | Bewerking | Microsoft.Web/sites/triggeredwebjobs/Read | Get-Web-Apps geactiveerde webtaken. |
-> | Bewerking | Microsoft.Web/sites/triggeredwebjobs/Run/Action | Web Apps geactiveerde webtaken uitvoeren. |
-> | Bewerking | Microsoft.Web/sites/usages/Read | Het gebruik van Web-Apps ophalen. |
-> | Bewerking | Microsoft.Web/sites/virtualnetworkconnections/DELETE | Verwijder virtuele netwerkverbindingen van Web-Apps. |
-> | Bewerking | Microsoft.Web/sites/virtualnetworkconnections/gateways/Read | Web Apps virtuele verbindingen netwerkgateways ophalen. |
-> | Bewerking | Microsoft.Web/sites/virtualnetworkconnections/gateways/Write | Web Apps virtueel netwerk verbindingen Gateways bijwerken. |
-> | Bewerking | Microsoft.Web/sites/virtualnetworkconnections/Read | Web Apps Virtual Network-verbindingen ophalen. |
-> | Bewerking | Microsoft.Web/sites/virtualnetworkconnections/Write | Web Apps-virtuele netwerkverbindingen worden bijgewerkt. |
-> | Bewerking | Microsoft.Web/sites/webjobs/Read | WebJobs voor Web-Apps ophalen. |
+> | Bewerking | microsoft.web/sites/sync/action | Synchronisatie van Web-Apps. |
+> | Bewerking | microsoft.web/sites/syncfunctiontriggers/action | Synchronisatie-functie wordt geactiveerd voor Web-Apps. |
+> | Bewerking | microsoft.web/sites/triggeredwebjobs/delete | Geactiveerde webtaken voor Web-Apps verwijderen. |
+> | Bewerking | microsoft.web/sites/triggeredwebjobs/history/read | Ophalen van de Web Apps geactiveerde webtaken geschiedenis. |
+> | Bewerking | microsoft.web/sites/triggeredwebjobs/read | Get-Web-Apps geactiveerde webtaken. |
+> | Bewerking | microsoft.web/sites/triggeredwebjobs/run/action | Web Apps geactiveerde webtaken uitvoeren. |
+> | Bewerking | microsoft.web/sites/usages/read | Het gebruik van Web-Apps ophalen. |
+> | Bewerking | microsoft.web/sites/virtualnetworkconnections/delete | Verwijder virtuele netwerkverbindingen van Web-Apps. |
+> | Bewerking | microsoft.web/sites/virtualnetworkconnections/gateways/read | Web Apps virtuele verbindingen netwerkgateways ophalen. |
+> | Bewerking | microsoft.web/sites/virtualnetworkconnections/gateways/write | Web Apps virtueel netwerk verbindingen Gateways bijwerken. |
+> | Bewerking | microsoft.web/sites/virtualnetworkconnections/read | Web Apps Virtual Network-verbindingen ophalen. |
+> | Bewerking | microsoft.web/sites/virtualnetworkconnections/write | Web Apps-virtuele netwerkverbindingen worden bijgewerkt. |
+> | Bewerking | microsoft.web/sites/webjobs/read | WebJobs voor Web-Apps ophalen. |
 > | Bewerking | Microsoft.Web/sites/Write | Een nieuwe Web-App maken of een bestaande bijgewerkt |
-> | Bewerking | Microsoft.Web/skus/Read | SKU's ophalen. |
-> | Bewerking | Microsoft.Web/sourcecontrols/Read | Besturingselementen voor gegevensbronnen ophalen. |
-> | Bewerking | Microsoft.Web/sourcecontrols/Write | Besturingselementen voor gegevensbronnen bijwerken. |
-> | Bewerking | Microsoft.Web/unregister/Action | Registratie van de resourceprovider Microsoft.Web voor het abonnement. |
-> | Bewerking | Microsoft.Web/Validate/Action | Valideren. |
-> | Bewerking | Microsoft.Web/verifyhostingenvironmentvnet/Action | Controleer of die als host fungeert omgeving Vnet. |
+> | Bewerking | microsoft.web/skus/read | SKU's ophalen. |
+> | Bewerking | microsoft.web/sourcecontrols/read | Besturingselementen voor gegevensbronnen ophalen. |
+> | Bewerking | microsoft.web/sourcecontrols/write | Besturingselementen voor gegevensbronnen bijwerken. |
+> | Bewerking | microsoft.web/unregister/action | Registratie van de resourceprovider Microsoft.Web voor het abonnement. |
+> | Bewerking | microsoft.web/validate/action | Valideren. |
+> | Bewerking | microsoft.web/verifyhostingenvironmentvnet/action | Controleer of die als host fungeert omgeving Vnet. |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 

@@ -1,22 +1,23 @@
 ---
-title: Afbeeldingen in Azure Content Moderator beoordelen | Microsoft Docs
-description: Het beoordelingsprogramma kunt menselijke moderators om te controleren van installatiekopieën.
+title: Gelabelde afbeeldingen - Content Moderator beoordelen
+titlesuffix: Azure Cognitive Services
+description: Meer informatie over hoe het beoordelingsprogramma kunt menselijke moderators om te controleren van afbeeldingen in een webportal.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 08/06/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 655c4b6d142c9f792a3b16c6b20d53efef51ea5b
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 14bcac5a16baa5566525952d29111566583c7b84
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852823"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259220"
 ---
-# <a name="review-moderated-images"></a>Gecontroleerde afbeeldingen beoordelen
+# <a name="let-human-reviewers-review-images"></a>Menselijke revisoren afbeeldingen beoordelen
 
 Nadat u hebt geregistreerd voor Inhoudstoezicht en een abonnementssleutel hebt verkregen, kunt u de installatiekopie controleren-functies kunt uitproberen.
 

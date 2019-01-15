@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ab5dad550e590cd70f54ad5c8d4727d0f6370190
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5a9859fda2c6cac6acf08c8dcca3a0ce205d2e15
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379709"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302728"
 ---
 # <a name="tenant-resource-usage-api"></a>Resourcegebruik-API voor de tenantsleutel
 
@@ -79,10 +79,10 @@ HAAL /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSt
 | *id* |De unieke ID van het totaal gebruik |
 | *De naam* |Naam van het totaal gebruik |
 | *type* |Resource-uitbreiding |
-| *Abonnements-id* |Abonnements-id van de Azure-gebruiker |
+| *subscriptionId* |Abonnements-id van de Azure-gebruiker |
 | *usageStartTime* |UTC-begintijd van de gebruik bucket waartoe dit gebruik statistische functie behoort |
 | *usageEndTime* |UTC-eindtijd van de gebruik bucket waartoe dit gebruik statistische functie behoort |
-| *instanceData* |Sleutel / waarde-paren van exemplaardetails (in een nieuwe indeling):<br>  *resourceUri*: volledig gekwalificeerde resource-ID, zoals resourcegroepen en exemplaarnaam <br>  *locatie*: regio waarin deze service is uitgevoerd <br>  *tags*: resourcetags die de gebruiker opgeeft <br>  *aanvullende informatie*: meer informatie over de resource die is verbruikt, bijvoorbeeld de versie of de afbeelding type besturingssysteem |
+| *instanceData* |Sleutel / waarde-paren van exemplaardetails (in een nieuwe indeling):<br>  *resourceUri*: Volledig gekwalificeerde resource-ID, zoals resourcegroepen en exemplaarnaam <br>  *Locatie*: Regio waarin deze service is uitgevoerd <br>  *tags*: Resourcetags die de gebruiker opgeeft <br>  *additionalInfo*: Typ voor meer informatie over de resource die is verbruikt, bijvoorbeeld de versie van het besturingssysteem of de afbeelding |
 | *Hoeveelheid* |Hoeveelheid van het gebruik van resources die in deze periode zijn opgetreden |
 | *meterId* |Unieke ID voor de resource die is verbruikt (ook wel genoemd *ResourceID*) |
 

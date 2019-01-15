@@ -9,18 +9,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.openlocfilehash: 623d03c96866392ef245fb924cbf6600e7850ffe
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057917"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303272"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics-uitvoer naar Azure SQL Database
 
 Dit artikel worden besproken tips voor betere prestaties voor schrijven-doorvoer bereiken wanneer u het laden van gegevens in SQL Azure-Database met behulp van Azure Stream Analytics.
 
-SQL-uitvoer in Azure Stream Analytics biedt ondersteuning voor schrijven parallel als een optie. Deze optie [volledig parallelle](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) topologieën, waarbij meerdere partities voor uitvoer naar de doeltabel parallel schrijft taak. Als u deze optie in Azure Stream Analytics inschakelt echter mogelijk niet voldoende voor een hogere doorvoercapaciteit, omdat deze afhankelijk aanzienlijk uw configuratie voor SQL Azure-database en de tabelschema. De keuze van de indexen, clustering sleutel, index-opvulfactor en compressie wordt een invloed hebben op de tijd voor het laden van tabellen. Zie voor meer informatie over het optimaliseren van uw SQL Azure database voor het verbeteren van query en prestaties op basis van interne benchmarks laden [prestatierichtlijnen voor SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance).
+SQL-uitvoer in Azure Stream Analytics biedt ondersteuning voor schrijven parallel als een optie. Deze optie [volledig parallelle](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) topologieën, waarbij meerdere partities voor uitvoer naar de doeltabel parallel schrijft taak. Als u deze optie in Azure Stream Analytics inschakelt echter mogelijk niet voldoende voor een hogere doorvoercapaciteit, omdat deze afhankelijk aanzienlijk uw configuratie voor SQL Azure-database en de tabelschema. De keuze van de indexen, clustering sleutel, index-opvulfactor en compressie wordt een invloed hebben op de tijd voor het laden van tabellen. Zie voor meer informatie over het optimaliseren van uw SQL Azure database voor het verbeteren van query en prestaties op basis van interne benchmarks laden [prestatierichtlijnen voor SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance). Ordening van schrijfbewerkingen is niet noodzakelijkerwijs bij het schrijven van parallel met SQL Azure-Database.
 
 Hier volgen enkele configuraties binnen elke service die u kan helpen verbeteren de algehele doorvoer van uw oplossing.
 

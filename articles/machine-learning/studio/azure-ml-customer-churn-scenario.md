@@ -1,26 +1,21 @@
 ---
-title: Analyseren van klantverloop - Azure Machine Learning Studio | Microsoft Docs
+title: Klantverloop analyseren
+titleSuffix: Azure Machine Learning Studio
 description: Casestudy van het ontwikkelen van een geïntegreerde model voor het analyseren en scoring-klantverloop met behulp van Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272164"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260598"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analyse van het traject van de klant met behulp van Azure Machine Learning Studio
 ## <a name="overview"></a>Overzicht
@@ -111,7 +106,7 @@ De volgende diagrammen ziet u de gegevens die is gebruikt.
  
 
 > Houd er rekening mee dat deze gegevens privé is; daarom het model en de gegevens kunnen niet worden gedeeld.
-> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Bij Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Voor meer informatie over hoe u een verloop Analytics-model met behulp van Cortana Intelligence Suite kunt implementeren, wordt ook aangeraden [in deze video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) door Senior Program Manager Westerse Hyong Tok. 
 > 
@@ -220,9 +215,9 @@ Dit document beschrijft een functionele aanpak voor het aanpakken van het algeme
 
 [2] Wikipedia-artikel: [Nauwkeurigheid en precisie](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [HELDERE-DM 1.0: Stapsgewijze datamining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: Stapsgewijze datamining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Marketing voor big Data: Bied uw klanten effectiever en stimuleren van waarde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Bied uw klanten effectiever en stimuleren van waarde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Telco verloop model sjabloon](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
  

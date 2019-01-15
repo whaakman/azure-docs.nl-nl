@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4e862a8b74339bc8dd1de6c0b231ddb15425974c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 672d801b9a6c45a8ab3eb9964b6e061eeee11f59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220938"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266821"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Maken van videotranscriptie beoordelingen met behulp van .NET
 
@@ -33,20 +33,19 @@ In dit artikel wordt ook van uitgegaan dat u al bekend met Visual Studio en C# b
 
 ## <a name="sign-up-for-content-moderator"></a>Aanmelden voor Content Moderator
 
-Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
-Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
+Om de Content Moderator-services via de REST-API of de SDK te kunnen gebruiken, hebt u een abonnementssleutel nodig. Volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op Content Moderator en uw sleutel op te halen.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Zich registreren voor een hulpprogramma voor beoordeling account als niet in de vorige stap is voltooid
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Aanmelden voor een account voor het beoordelingsprogramma als dat niet in de vorige stap is gedaan
 
-Als u uw Content Moderator vanuit de Azure-portal ook hebt [zich registreren voor de beoordeling hulpprogramma account](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. U moet het team-Id en het beoordelingsprogramma de API controleren als u wilt een taak starten en de evaluaties weergeven in het controlehulpprogramma aan te roepen.
+Als u uw Content Moderator via de Azure-portal hebt gekregen, [schrijf u dan ook in voor het account voor een beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een taak te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>Zorg ervoor dat uw API-sleutel (project maken) van de beoordeling-API kunt aanroepen
 
-Na het voltooien van de vorige stappen, zou u uiteindelijk met twee Content Moderator-sleutels als u vanuit de Azure-portal gestart. 
+Nadat u de vorige stappen hebt uitgevoerd, zou u twee Content Moderator-sleutels kunnen hebben als u vanuit de Azure-portal bent gestart. 
 
-Als u van plan bent de Azure-opgegeven API-sleutel in de SDK-voorbeeld gebruiken, volgt u de stappen in de [met behulp van Azure-sleutel met de API controleren](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) sectie waarmee uw toepassing in de beoordeling-API aanroepen en beoordelingen te maken.
+Als u van plan bent de door Azure verstrekte API-sleutel in uw SDK-voorbeeld te gebruiken, volgt u de stappen in de sectie [De Azure-sleutel met de beoordelings-API gebruiken](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) zodat uw app de beoordelings-API kan aanroepen en beoordelingen kan maken.
 
-Als u de gratis proefversie sleutel gegenereerd door het beoordelingsprogramma, uw beoordeling hulpprogramma-account al op de hoogte van de sleutel en daarom geen extra stappen zijn vereist.
+Als u de gratis proefversie van de sleutel gebruikt die wordt gegenereerd door het beoordelingsprogramma, is uw account van het beoordelingsprogramma al op de hoogte van de sleutel, zodat er geen extra stappen zijn vereist.
 
 ## <a name="prepare-your-video-for-review"></a>Uw video voorbereiden voor controle
 
@@ -56,13 +55,13 @@ Het transcript toevoegen aan een video beoordeling. De video moet online zijn ge
 
 - Kopieer de **URL** op deze [demo van Azure Media Services](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) -pagina voor de manifest-URL.
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
+## <a name="create-your-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
+1. Voeg een nieuw project van het type **Console app (.NET Framework)** toe aan uw oplossing.
 
 1. Noem het project **VideoTranscriptReviews**.
 
-1. Selecteer dit project als opstartproject één voor de oplossing.
+1. Selecteer dit project als het enige opstartproject voor de oplossing.
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
@@ -73,7 +72,7 @@ Installeer de volgende NuGet-pakketten voor het project TermLists.
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
 Wijzig het programma de using-instructies toe als volgt.
 
@@ -87,7 +86,7 @@ Wijzig het programma de using-instructies toe als volgt.
     using Newtonsoft.Json;
 
 
-### <a name="add-private-properties"></a>Privé-eigenschappen toevoegen
+### <a name="add-private-properties"></a>Private-eigenschappen toevoegen
 
 De volgende persoonlijke eigenschappen toevoegen aan de naamruimte VideoTranscriptReviews, klasse Program.
 
@@ -155,7 +154,7 @@ De methodedefinitie van de volgende aan naamruimte VideoTranscriptReviews, klass
 
 ## <a name="create-a-video-review"></a>Maken van een video beoordeling
 
-Maken van een video bekijken met **ContentModeratorClient.Reviews.CreateVideoReviews**. Zie voor meer informatie de [API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Maken van een video bekijken met **ContentModeratorClient.Reviews.CreateVideoReviews**. Zie voor meer informatie de [API-naslaghandleiding](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 **CreateVideoReviews** heeft de volgende vereiste parameters:
 1. Een tekenreeks met een MIME-type moet ' application/json'. 
@@ -204,9 +203,9 @@ De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programm
     }
 
 > [!NOTE]
-> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS). Als u de limiet overschrijdt, wordt in de SDK een uitzondering met een foutcode 429 genereert. 
+> Er geldt een limiet voor het aantal aanvragen per seconde (RPS) voor de sleutel van de Content Moderator-service. Als u de limiet overschrijdt, veroorzaakt dit een uitzondering met foutcode 429 in de SDK. 
 >
-> De sleutel van een gratis laag heeft een limiet van één RPS.
+> Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
 ## <a name="add-transcript-to-video-review"></a>Transcript aan video revisie toevoegen
 
@@ -215,7 +214,7 @@ U een transcript toevoegen aan een video bekijken met **ContentModeratorClient.R
 1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
 1. Een **Stream** -object dat het transcript bevat.
 
-Het transcript moet zich in de WebVTT-indeling. Zie voor meer informatie, [WebVTT: The Web Video nummers tekstindeling](https://www.w3.org/TR/webvtt1/).
+Het transcript moet zich in de WebVTT-indeling. Zie voor meer informatie, [WebVTT: De tekst van Web-Video wordt bijgehouden indeling](https://www.w3.org/TR/webvtt1/).
 
 > [!NOTE]
 > Het programma gebruikt een transcript voorbeeld in de VTT-indeling. In een echte oplossing, gebruikt u de service Azure Media Indexer [genereren een transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) van een video.
@@ -240,7 +239,7 @@ De methodedefinitie van de volgende aan naamruimte VideotranscriptReviews, klass
 
 ## <a name="add-a-transcript-moderation-result-to-video-review"></a>Toevoegen van een transcript toezicht resultaat naar video-overzicht
 
-Naast het toevoegen van een transcript naar een video-overzicht, moet u ook het resultaat van toezicht houden op dit transcript toevoegen. U doet met **ContentModeratorClient.Reviews.AddVideoTranscriptModerationResult**. Zie voor meer informatie de [API-verwijzing](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
+Naast het toevoegen van een transcript naar een video-overzicht, moet u ook het resultaat van toezicht houden op dit transcript toevoegen. U doet met **ContentModeratorClient.Reviews.AddVideoTranscriptModerationResult**. Zie voor meer informatie de [API-naslaghandleiding](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
 
 **AddVideoTranscriptModerationResult** heeft de volgende vereiste parameters:
 1. Een tekenreeks met een MIME-type moet ' application/json'. 
@@ -252,7 +251,7 @@ Naast het toevoegen van een transcript naar een video-overzicht, moet u ook het 
 - **Term**. Een tekenreeks is die de term bevat.
 - **Tijdstempel**. Een tekenreeks is die bevat, in seconden, de tijd in het transcript waarop de voorwaarden worden gevonden.
 
-Het transcript moet zich in de WebVTT-indeling. Zie voor meer informatie, [WebVTT: The Web Video nummers tekstindeling](https://www.w3.org/TR/webvtt1/).
+Het transcript moet zich in de WebVTT-indeling. Zie voor meer informatie, [WebVTT: De tekst van Web-Video wordt bijgehouden indeling](https://www.w3.org/TR/webvtt1/).
 
 De methodedefinitie van de volgende aan naamruimte VideoTranscriptReviews, klasse programma toevoegen. Deze methode verzendt een transcript naar de **ContentModeratorClient.TextModeration.ScreenText** methode. Ook wordt het resultaat omgezet in een IList<TranscriptModerationBodyItem>, en verzendt naar **AddVideoTranscriptModerationResult**.
 
@@ -321,7 +320,7 @@ De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programm
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Dit alles
+## <a name="putting-it-all-together"></a>Alles samenvoegen
 
 Voeg de **Main** methodedefinitie naamruimte VideoTranscriptReviews, klasse programma. Tot slot sluit de klasse Program en de VideoTranscriptReviews-naamruimte.
 
@@ -358,7 +357,7 @@ Voeg de **Main** methodedefinitie naamruimte VideoTranscriptReviews, klasse prog
         }
     }
 
-## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
+## <a name="run-the-program-and-review-the-output"></a>Het programma uitvoeren en de uitvoer controleren
 
 Als u de toepassing uitvoert, ziet u uitvoer op de volgende regels:
 

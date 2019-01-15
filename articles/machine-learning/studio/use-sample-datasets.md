@@ -1,26 +1,8 @@
 ---
-title: De voorbeeldgegevenssets - Azure Machine Learning Studio gebruiken | Microsoft Docs
-description: Beschrijvingen van de gegevenssets die worden gebruikt in de voorbeeld-modellen die zijn opgenomen in Machine Learning Studio. U kunt deze voorbeeldgegevenssets gebruiken voor de experimenten nodig hebben.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
-ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270481"
+Titel: Gebruik het voorbeeld gegevenssets titleSuffix: Azure Machine Learning Studio description: Beschrijvingen van de gegevenssets die worden gebruikt in de voorbeeld-modellen die zijn opgenomen in Machine Learning Studio. U kunt deze voorbeeldgegevenssets gebruiken voor de experimenten nodig hebben.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/19/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
@@ -49,7 +31,7 @@ Een subset van de database 1994 telling, met behulp van volwassenen werken via d
 <p></p>
 <b>Gebruik:</b> Classificeren van mensen met behulp van demografische gegevens om te voorspellen of een persoon jaaromzet van meer dan 50K per jaar.
 <p></p>
-<b>Gerelateerde Research:</b> Kohavi, r, Becker, B., (1996). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -114,7 +96,7 @@ Een van drie kanker productspecifieke gegevenssets geleverd door het Oncology In
 <p></p>
 <b>Gebruik:</b> Classificeren van het type van kanker, op basis van 9 kenmerken, waarvan sommige zijn lineair en sommige categorische zijn. 
 <p></p>
-<b>Gerelateerde Research:</b> Wohlberg, W.H., adres, W.N. & Mangasarian, O.L. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -180,7 +162,7 @@ De gegevensset bevat informatie over de periode van April-oktober 2013. Voordat 
   <li>De gegevensset is gefilterd zodat alleen de 70 drukste luchthavens in de Verenigde Staten</li>
   <li>Geannuleerde vluchten zijn gelabeld als meer dan 15 minuten vertraagd</li>
   <li>Omgereden vluchten zijn gefilterd.</li>
-  <li>De volgende kolommen zijn geselecteerd: Jaar, maand, DayofMonth, DayOfWeek, provider, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, geannuleerd</li>
+  <li>De volgende kolommen zijn geselecteerd: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
 </ul>
 </td>
 </tr>
@@ -203,9 +185,9 @@ Bevat gegevens van de weersomstandigheden, zoals temperatuur en vochtigheid inde
 <p></p>
 <b>Gebruik:</b> Dit is een taak die moeilijk regressie, waarbij het doel is om te voorspellen van het gebrande gebied van bosbranden. 
 <p></p>
-<b>Gerelateerde Research:</b> Cortez, s., & Morais, A. (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen
+<b>Gerelateerde Research:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen
 <p></p>
-[Cortez en Morais, 2007] P. Cortez en A. Morais. Een Data Mining benadering voor het voorspellen bosbranden Meteorological gegevens gebruiken. In J. Neves, M. f kan zijn. Santos en J. Machado Eds., nieuwe Trends in kunstmatige intelligentie, procedures van de 13 EPIA 2007 - Portugees Conferentie van kunstmatige intelligentie, December Guimarães, Portugal, p. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Beschikbaar op: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
+[Cortez and Morais, 2007] P. Cortez and A. Morais. Een Data Mining benadering voor het voorspellen bosbranden Meteorological gegevens gebruiken. In J. Neves, M. f kan zijn. Santos en J. Machado Eds., nieuwe Trends in kunstmatige intelligentie, procedures van de 13 EPIA 2007 - Portugees Conferentie van kunstmatige intelligentie, December Guimarães, Portugal, p. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Beschikbaar op: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 
@@ -251,7 +233,7 @@ De gegevens van het verbruik stimuleren voor verschillende auto's in mijl per ga
 <p></p>
 <b>Gebruik:</b> Voorspel brandstof economie op basis van drie waarden discrete kenmerken en vijf doorlopende kenmerken. 
 <p></p>
-<b>Gerelateerde Research:</b> StatLib, Carnegie Mellon University (1993). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -271,7 +253,7 @@ Een set van metagegevens over klanten, waaronder demografische gegevens en voork
 <p></p>
 <b>Gebruik:</b> Deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
 <p></p>
-<b>Gerelateerde Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
+<b>Gerelateerde Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
   </td>
 </tr>
 
@@ -282,7 +264,7 @@ Een set van metagegevens over restaurants en hun functies, zoals food, doen-stij
 <p></p>
 <b>Gebruik:</b> Deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
 <p></p>
-<b>Gerelateerde Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
+<b>Gerelateerde Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
   </td>
 </tr>
 
@@ -293,7 +275,7 @@ Bevat de classificaties die zijn opgegeven door gebruikers restaurants op een sc
 <p></p>
 <b>Gebruik:</b> Deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
 <p></p>
-<b>Gerelateerde Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
+<b>Gerelateerde Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
   </td>
 </tr>
 
@@ -346,7 +328,7 @@ De weergegevens bevat informatie over observaties uit luchthaven weer stations, 
 </tr>
 
 <tr>
-  <td>Wikipedia SP 500 gegevensset</td>
+  <td>Wikipedia SP 500 Dataset</td>
   <td>
 Gegevens worden afgeleid van Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) op basis van de artikelen van elk S & P 500-bedrijf, opgeslagen als XML-gegevens.
 <p></p>

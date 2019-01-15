@@ -1,26 +1,8 @@
 ---
-title: 'NET # Neurale netwerken - Azure Machine Learning Studio | Microsoft Docs'
-description: 'De syntaxis voor de Net # neurale netwerken specificatietaal, samen met voorbeelden van hoe u een aangepaste neural network-model met Net # met Azure Machine Learning Studio maakt.'
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: reference
-ms.date: 03/01/2018
-ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631122"
+Titel: NET # Neurale netwerken titleSuffix: Azure Machine Learning Studio description: De syntaxis voor de Net # neurale netwerken specificatietaal, samen met voorbeelden van hoe u een aangepaste neural network-model met Net # met Azure Machine Learning Studio maakt.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: verwijzing
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 
@@ -137,11 +119,11 @@ De volgende uitvoer-functies worden ondersteund:
 + Lineair
 + softmax
 + rlinear
-+ Vierkant
++ square
 + WORTEL
 + srlinear
 + ABS
-+ TANH
++ tanh
 + brlinear
 
 De volgende declaratie gebruikt bijvoorbeeld de **softmax** functie:

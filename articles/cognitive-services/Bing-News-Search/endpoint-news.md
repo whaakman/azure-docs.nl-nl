@@ -8,41 +8,50 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc38dff7cd3ae8d10d8a20cbf98749d724de1ee6
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800542"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262808"
 ---
-# <a name="bing-news-search-endpoints"></a>Bing Nieuws zoeken-eindpunten
-De **nieuws zoeken-API** retourneert nieuws artikelen, webpagina's, afbeeldingen, video's, en [entiteiten](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteiten bevat overzichtsinformatie over een persoon, plaats of onderwerp.
-## <a name="endpoints"></a>Eindpunten
-Als u met behulp van de API voor Bing zoekresultaten voor nieuws, verzendt een `GET` aanvraag naar een van de volgende eindpunten. De kop- en URL-parameters definiëren verder specificaties.
+# <a name="bing-news-search-api-endpoints"></a>Bing nieuws zoeken-API-eindpunten
 
-**Eindpunt 1:** nieuwsitems op basis van de zoekquery van de gebruiker geretourneerd. Als de query leeg is, retourneert de aanroep van de bovenste nieuwsartikelen. De query `?q=""` optie kan ook worden gebruikt met de `/news` URL. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-search-endpoint).
+De **nieuws zoeken-API** retourneert nieuws artikelen, webpagina's, afbeeldingen, video's, en [entiteiten](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteiten bevat overzichtsinformatie over een persoon, plaats of onderwerp.
+
+## <a name="endpoints"></a>Eindpunten
+
+Nieuws om zoekresultaten te krijgen met behulp van de Bing nieuws zoeken-API, verzendt een `GET` aanvraag naar een van de volgende eindpunten. De kop- en URL-parameters definiëren verder specificaties.
+
+### <a name="news-items-by-search-query"></a>Nieuwsitems door zoekquery
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-**Eindpunt 2:** retourneert de nieuws-items per categorie. U kunt de beste zakelijke, sport of entertainment artikelen zijn die specifiek aanvragen `category=business`, `category=sports`, of `category=entertainment`.  De `category` parameter kan alleen worden gebruikt met de `/news` URL. Er zijn een paar formele vereisten voor het opgeven van categorieën; Raadpleeg `category` in de [queryparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentatie. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-endpoint).
+Retourneert de nieuwsitems op basis van een zoekquery. Als de query leeg is, wordt de API bovenste nieuwsartikelen geretourneerd uit verschillende categorieën. Verzenden van een query door de url van uw zoekterm codering en u dit toevoegt aan de`q=""` parameter. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-search-endpoint).
+
+### <a name="top-news-items-by-category"></a>Nieuwsitems per categorie
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-**3-eindpunt:** nieuwsonderwerpen retourneert die momenteel zijn populair op sociale netwerken. Wanneer de `/trendingtopics` optie is opgenomen, zoeken in Bing verschillende andere parameters worden genegeerd, zoals `freshness` en `?q=""`. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-trending-endpoint).
+Retourneert de nieuws-items per categorie. U kunt de beste zakelijke, sport of entertainment artikelen zijn die specifiek aanvragen `category=business`, `category=sports`, of `category=entertainment`.  De `category` parameter kan alleen worden gebruikt met de `/news` URL. Er zijn een paar formele vereisten voor het opgeven van categorieën; Raadpleeg `category` in de [queryparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentatie. Verzenden van een query door de url van uw zoekterm codering en u dit toevoegt aan de`q=""` parameter. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-endpoint).
+
+### <a name="trending-news-topics"></a>Actuele nieuwsonderwerpen op 
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [zoeken in Bing nieuws-API versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) verwijzing.
-## <a name="response-json"></a>JSON-antwoord
-Het antwoord op een zoekaanvraag nieuws neemt de resultaten op als JSON-objecten. Procedures voor het verwerken van de elementen van elk type parseren van de resultaten worden vereist. Zie de [zelfstudie](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/tutorial-bing-news-search-single-page-app) en [broncode](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/tutorial-bing-news-search-single-page-app-source) voor voorbeelden.
+Nieuwsonderwerpen retourneert die momenteel zijn populair op sociale netwerken. Wanneer de `/trendingtopics` optie is opgenomen, zoeken in Bing verschillende andere parameters worden genegeerd, zoals `freshness` en `?q=""`. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Volgende stappen
-De **Bing** API's ondersteunen zoekacties die retourneren van resultaten op basis van hun type. Alle eindpunten voor zoeken worden resultaten geretourneerd als JSON-antwoord-objecten.  Alle eindpunten ondersteuning voor query's die een specifieke taal en/of locatie door lengtegraad, breedtegraad en zoeken radius retourneren.
+
+Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [zoeken in Bing nieuws-API versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) verwijzing.
 
 Zie de referentiepagina's voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
 Zie voor meer voorbeelden van basic met behulp van het nieuws zoeken-API-aanvragen [snel starten van zoeken in Bing nieuws](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).

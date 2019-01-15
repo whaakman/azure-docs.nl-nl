@@ -1,6 +1,6 @@
 ---
 title: Azure-facturering en budgetscenario voor het beheer van kosten | Microsoft Docs
-description: Informatie over het gebruik van Azure automatation om virtuele machines op basis van specifieke budgetdrempels af te sluiten.
+description: Leer hoe u Azure automation gebruiken om virtuele machines op basis van specifieke budgetdrempels af te sluiten.
 services: billing
 documentationcenter: ''
 author: Erikre
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0c67b100b0d44b539a37a8ea54954d58bba38cb5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094810"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267195"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Kosten beheren met Azure Budgets
 
@@ -116,7 +116,7 @@ De logische app worden verschillende acties worden uitgevoerd. De volgende lijst
 
 De volgende stappen nodig zijn om te maken van de logische app die de bovenstaande stappen uit:
 
-1.  In de [Azure-portal](https://portal.azure.com/), selecteer **een resource maken** > **integratie** > **logische App**.
+1.  Selecteer in [Azure Portal](https://portal.azure.com/) **Een resource maken** > **Integratie** > **Logische app**.
     
     ![Azure - resource voor de logische App selecteren](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png)
 2.  In de **logische app maken** blade, geef de details wilt maken van uw logische app, selecteer **vastmaken aan dashboard**, en klikt u op **maken**. 

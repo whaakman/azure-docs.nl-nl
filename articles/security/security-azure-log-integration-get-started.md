@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602185"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304407"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure-Logboekintegratie met Azure Diagnostics-logboeken en Windows event forwarding
 
 
 >[!IMPORTANT]
-> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads uitgeschakeld door 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads zijn uitgeschakeld op 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 U moet Azure-Logboekintegratie alleen gebruiken als een [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector niet beschikbaar is via de leverancier van uw Security Incident and Event Management (SIEM).
 
@@ -85,7 +85,7 @@ Om prestaties te verbeteren, hebt u ook de mogelijkheid om te schalen van de Azu
 
 ## <a name="install-azure-log-integration"></a>Installeren van Azure-Logboekintegratie
 
-Voor het installeren van Azure-Logboekintegratie, downloaden de [Azure-Logboekintegratie](https://www.microsoft.com/download/details.aspx?id=53324) bestand voor installatie. De installatie te voltooien. Kies of u telemetrie om informatie te verstrekken aan Microsoft.
+Uitvoeren via de instellen routine. Kies of u telemetrie om informatie te verstrekken aan Microsoft.
 
 De service Azure-Logboekintegratie verzamelt telemetriegegevens van de machine waarop deze geïnstalleerd.  
 
@@ -245,7 +245,6 @@ U kunt ook openen een [ondersteuningsaanvraag](../azure-supportability/how-to-cr
 
 Zie voor meer informatie over Azure-Logboekintegratie, de volgende artikelen: Voordat u de stappen in dit artikel, moet u lees dan het artikel van Get-gestarte en voltooi de stappen bevat.
 
-* [Azure-Logboekintegratie voor Azure-logboeken](https://www.microsoft.com/download/details.aspx?id=53324). Het Download Center bevat details, systeemvereisten en installatie-instructies voor Azure-Logboekintegratie.
 * [Inleiding tot Azure-Logboekintegratie](security-azure-log-integration-overview.md). In dit artikel vindt u Azure-Logboekintegratie, de belangrijkste mogelijkheden en hoe het werkt.
 * [Stappen voor het configureren van partners](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Dit blogbericht wordt beschreven hoe u Azure-Logboekintegratie om te werken met oplossingen van partners Splunk, HP ArcSight en IBM QRadar configureren. Hierin wordt beschreven onze huidige richtlijnen over het configureren van de SIEM-onderdelen. Neem contact op met de leverancier van uw SIEM voor meer informatie.
 * [Veelgestelde vragen (FAQ) Azure-Logboekintegratie](security-azure-log-integration-faq.md). Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over Azure-Logboekintegratie.

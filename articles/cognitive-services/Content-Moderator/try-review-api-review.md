@@ -1,21 +1,21 @@
 ---
-title: 'Beheren van inhoud met behulp van onlinebeoordelingen door mensen met de API-console: Content Moderator'
+title: 'Gemiddeld inhoud met behulp van onlinebeoordelingen door mensen met de API-console: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Informatie over het maken van onlinebeoordelingen door mensen in de Content Moderator-API-console.
+description: Bewerkingen van de beoordeling van de lees-API gebruiken om te maken van afbeelding of tekst beoordelingen voor menselijk toezicht.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9d2daad06ad6cb97fe562db98cab57c4ed970a60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219750"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260206"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Beoordelingen van de API-console maken
 
@@ -26,10 +26,10 @@ Nadat een menselijke moderator de labels automatisch toegewezen en voorspellings
 ## <a name="use-the-api-console"></a>De API-console gebruiken
 Als u wilt Maak een proefrit met de API met behulp van de online-console, moet u enkele waarden invoeren in de console:
 
-- **teamName**: de teamnaam in die u hebt gemaakt bij het instellen van uw account lees-hulpprogramma. 
-- **ContentId**: deze reeks wordt doorgegeven aan de API en die zijn geretourneerd via de callback. De ContentId is handig voor het koppelen van interne id's of metagegevens met de resultaten van een taak voor beheer.
-- **Metagegevens**: aangepaste sleutel / waarde-paren tijdens de callback die aan uw API-eindpunt geretourneerd. Als de sleutel een korte code die is gedefinieerd in het beoordelingsprogramma is, wordt deze weergegeven als een label.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
+- **teamName**: De teamnaam dat u hebt gemaakt bij het instellen van uw account lees-hulpprogramma. 
+- **ContentId**: Deze reeks wordt doorgegeven aan de API en die zijn geretourneerd via de callback. De ContentId is handig voor het koppelen van interne id's of metagegevens met de resultaten van een taak voor beheer.
+- **Metadata**: Aangepaste sleutel / waarde-paren tijdens de callback die aan uw API-eindpunt geretourneerd. Als de sleutel een korte code die is gedefinieerd in het beoordelingsprogramma is, wordt deze weergegeven als een label.
+- **Ocp-Apim-Subscription-Key**: Zich op de **instellingen** tabblad. Zie [Overzicht](overview.md) voor meer informatie.
 
 De eenvoudigste manier om toegang tot een testconsole is van de **referenties** venster.
 

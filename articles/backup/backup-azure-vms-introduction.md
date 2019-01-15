@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198759"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265410"
 ---
 # <a name="about-azure-vm-backup"></a>Over Azure VM backup
 
@@ -55,6 +55,10 @@ Als u momentopnamen wanneer apps worden uitgevoerd, wordt back-up van Azure app-
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Voer de onderstaande opdracht uit vanaf een opdrachtprompt met verhoogde bevoegdheid (als beheerder) om de bovenstaande registersleutel:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Virtuele Linux-machines**: Om ervoor te zorgen dat uw virtuele Linux-machines app-consistente zijn wanneer Azure back-up een momentopname maakt, kunt u het Pre-script en post-script framework voor Linux. U kunt uw eigen aangepaste scripts om te zorgen voor consistentie bij het maken van een VM-momentopname schrijven.
     -  Azure Backup alleen aanroept vóór en na scripts die door u zijn geschreven.
     - Als de Pre-script en scripts die volgen is uitvoert, markeert Azure Backup het herstelpunt als toepassingsconsistente. U kunt echter verantwoordelijk is voor de toepassingsconsistentie bij het gebruik van aangepaste scripts.
@@ -65,7 +69,7 @@ Als u momentopnamen wanneer apps worden uitgevoerd, wordt back-up van Azure app-
 
 De volgende tabel beschrijft de verschillende typen consistentie.
 
-**momentopname** | **Op basis van VSS** | **Details** | **Herstel**
+**momentopname** | **Op basis van VSS** | **Details** | **Recovery**
 --- | --- | --- | ---
 **Toepassingsconsistent** | Ja (alleen Windows) | App-consistente back-ups vastleggen geheugen inhoud en i/o-bewerkingen in behandeling. App-consistente momentopnamen gebruiken VSS-schrijver (of pre-/ post-script voor Linux) die ervoor zorgen dat de consistentie van de app-gegevens voordat u een back-up plaatsvindt. | Tijdens het herstellen van met een app-consistente momentopname, de VM wordt opgestart. Er is geen beschadigde gegevens of gegevensverlies. De apps starten in een consistente status.
 **Bestandssysteemconsistent** | Ja (alleen Windows) |  Bestand toepassingsconsistente back-ups bieden consistente back-ups van schijf-bestanden door het maken van een momentopname van alle bestanden op hetzelfde moment.<br/><br/> Azure back-up herstelpunten zijn consistent zijn voor bestand:<br/><br/> -Linux VM's, back-ups die geen pre/post-scripts, of die script hebt dat is mislukt.<br/><br/> -Windows-VM back-ups waar de VSS is mislukt. | Tijdens het herstellen van met een bestand-consistente momentopname, de VM wordt opgestart. Er is geen beschadigde gegevens of gegevensverlies. Apps moeten voor het implementeren van hun eigen mechanisme 'bijwerken' om ervoor te zorgen dat de herstelde gegevens consistent is.
@@ -118,7 +122,7 @@ Situaties die invloed kunnen hebben op de back-uptijd omvatten het volgende:
 
 - **Eerste back-up voor een nieuw toegevoegde schijf aan een al beveiligde virtuele machine**: Als een virtuele machine incrementele back-up ondergaat en een nieuwe schijf wordt toegevoegd aan deze virtuele machine, en vervolgens de duur van de back-up kunt verder gaan dan 24 uur omdat de nieuw toegevoegde schijf heeft ondergaan initiële replicatie en replicatie van verschillen van bestaande schijven.
 - **Fragmentatie**: Back-product scant naar incrementele wijzigingen tussen de twee back-ups bewerkingen. Back-upbewerkingen zijn sneller wanneer de wijzigingen op de schijf worden geplaatst in vergelijking tot wijzigingen worden verspreid via vervolgens de schijf. 
-- **Verloop**: Dagelijkse verloop (voor incrementele replicatie) per schijf die groter is dan 200 GB duurt langer dan ~ 8 uur om de bewerking te voltooien. Als de virtuele machine heeft meer dan één schijf en als een van deze schijven langer back-up maken duurt, klikt u vervolgens het kan invloed hebben op de algemene back-upbewerking (of kan resulteren in mislukte). 
+- **Churn**: Dagelijkse verloop (voor incrementele replicatie) per schijf die groter is dan 200 GB duurt langer dan ~ 8 uur om de bewerking te voltooien. Als de virtuele machine heeft meer dan één schijf en als een van deze schijven langer back-up maken duurt, klikt u vervolgens het kan invloed hebben op de algemene back-upbewerking (of kan resulteren in mislukte). 
 - **Controlesom vergelijking (CC) modus**: CC-modus is relatief langzamer dan geoptimaliseerde modus die worden gebruikt door directe RP. Als u al van directe RP gebruikmaakt en de Tier-1-momentopnamen hebt verwijderd, klikt u vervolgens back-up schakelt over naar de CC-modus waardoor de back-up bewerking langer dan 24 uur (of mislukken).
 
 ## <a name="restore-considerations"></a>Overwegingen met betrekking tot herstellen

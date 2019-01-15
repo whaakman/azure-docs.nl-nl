@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: adigan
-ms.openlocfilehash: aa2796ab8e4cd9b8ab5e7fc3b4804f5535ac3518
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 66d78be296d0786626325df36aa133d277131b3b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254448"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267093"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Gegevens herstellen vanaf Azure Backup Server
 U kunt Azure Backup Server gebruiken om de gegevens die u een back-naar een Recovery Services-kluis hebt gemaakt te herstellen. Het proces voor het doen dus is geïntegreerd in de beheerconsole voor Azure Backup Server en is vergelijkbaar met de werkstroom herstellen voor andere onderdelen van Azure Backup.
 
 > [!NOTE]
-> In dit artikel is van toepassing op [System Center Data Protection Manager 2012 R2 met UR7 of hoger] (https://support.microsoft.com/en-us/kb/3065246), gecombineerd met de [meest recente Azure backup-agent](https://aka.ms/azurebackup_agent).
+> In dit artikel is van toepassing op [System Center Data Protection Manager 2012 R2 met UR7 of hoger](https://support.microsoft.com/en-us/kb/3065246), gecombineerd met de [meest recente Azure backup-agent](https://aka.ms/azurebackup_agent).
 >
 >
 
@@ -82,10 +82,10 @@ Gegevens herstellen vanaf een Azure Backup-Server:
 ## <a name="troubleshooting-error-messages"></a>-Foutberichten oplossen
 | Nee. | Foutbericht | Stappen voor probleemoplossing |
 |:---:|:--- |:--- |
-| 1. |Deze server is niet geregistreerd bij de kluis die is opgegeven via de kluisreferentie. |**Oorzaak:** deze fout treedt op wanneer het kluisreferentiebestand geselecteerd behoort niet tot de Recovery Services-kluis die zijn gekoppeld aan Azure Backup Server waarop het herstel wordt uitgevoerd. <br> **Oplossing:** Download het kluisreferentiebestand van de Recovery Services-kluis op die de Azure Backup Server is geregistreerd. |
-| 2. |De herstelbare gegevens zijn niet beschikbaar of de geselecteerde server is niet een DPM-server. |**Oorzaak:** er zijn geen andere Azure back-up-Servers geregistreerd bij de Recovery Services-kluis of de servers zijn de metagegevens van de nog niet geüpload of de geselecteerde server is niet een Azure Backup-Server (ook wel Windows Server of Windows-Client). <br> **Oplossing:** als er andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd. <br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt de metagegevens voor alle de beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
-| 3. |Er zijn geen andere DPM-server is geregistreerd bij deze kluis. |**Oorzaak:** er zijn geen andere Azure Backup-Servers die zijn geregistreerd bij de kluis van waaruit het herstel is een poging wordt gedaan.<br>**Oplossing:** als er andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd.<br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt u de metagegevens voor alle beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
-| 4. |De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin die is gekoppeld aan de volgende server: **<server name>** |**Oorzaak:** de wachtwoordzin voor versleuteling gebruikt bij het versleutelen van de gegevens van de Azure Backup-Server-gegevens die wordt hersteld komt niet overeen met de opgegeven wachtwoordzin voor versleuteling. De agent is om de gegevens te ontsleutelen. Daarom mislukt het herstellen.<br>**Oplossing:** Geef de exacte dezelfde wachtwoordzin voor versleuteling die zijn gekoppeld aan de Azure Backup-Server waarvan de gegevens wordt hersteld. |
+| 1. |Deze server is niet geregistreerd bij de kluis die is opgegeven via de kluisreferentie. |**Oorzaak:** Deze fout treedt op wanneer het kluisreferentiebestand geselecteerd behoort niet tot de Recovery Services-kluis die zijn gekoppeld aan Azure Backup Server waarop het herstel wordt uitgevoerd. <br> **Oplossing:** Download het kluisreferentiebestand van de Recovery Services-kluis waarbij de Azure Backup Server is geregistreerd. |
+| 2. |De herstelbare gegevens zijn niet beschikbaar of de geselecteerde server is niet een DPM-server. |**Oorzaak:** Er zijn dat geen andere Azure back-up-Servers geregistreerd bij de Recovery Services-kluis of de servers zijn de metagegevens van de nog niet geüpload of de geselecteerde server is niet een Azure Backup-Server (ook wel Windows Server of Windows-Client). <br> **Oplossing:** Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd. <br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt de metagegevens voor alle de beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
+| 3. |Er zijn geen andere DPM-server is geregistreerd bij deze kluis. |**Oorzaak:** Er zijn geen andere Azure Backup-Servers die zijn geregistreerd bij de kluis van waaruit het herstel is een poging wordt gedaan.<br>**Oplossing:** Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd.<br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt u de metagegevens voor alle beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
+| 4. |De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin die is gekoppeld aan de volgende server: **<server name>** |**Oorzaak:** De wachtwoordzin voor versleuteling gebruikt bij het versleutelen van de gegevens van de Azure Backup-Server-gegevens die wordt hersteld, komt niet overeen met de opgegeven wachtwoordzin voor versleuteling. De agent is om de gegevens te ontsleutelen. Daarom mislukt het herstellen.<br>**Oplossing:** Geef de exacte dezelfde wachtwoordzin voor versleuteling die zijn gekoppeld aan de Azure Backup-Server waarvan de gegevens wordt hersteld. |
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

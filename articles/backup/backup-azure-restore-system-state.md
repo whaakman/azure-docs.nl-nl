@@ -1,5 +1,5 @@
 ---
-title: 'Azure back-up: Systeemstatus herstellen naar een WindowsServer'
+title: 'Azure Backup: De systeemstatus herstellen naar een Windows-Server'
 description: Voor stap door stap uitleg voor Windows Server-systeemstatus herstellen vanuit een back-up in Azure.
 services: backup
 author: saurabhsensharma
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230781"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266481"
 ---
 # <a name="restore-system-state-to-windows-server"></a>De systeemstatus herstellen naar WindowsServer
 
@@ -157,7 +157,7 @@ Nadat u de systeemstatus als bestanden met behulp van Azure Recovery Services-Ag
 
 10. Voor de locatie van de systeemstatus te herstellen, selecteert u **oorspronkelijke locatie**, en klikt u op **volgende**.
 
-11. Bekijk de details bevestigen, Controleer de instellingen voor opnieuw opstarten en klikt u op **herstellen** op de herstelde systeemstatus applly bestanden.
+11. Bekijk de details bevestigen, Controleer de instellingen voor opnieuw opstarten en klikt u op **herstellen** om toe te passen van de herstelde bestanden van de systeemstatus.
 
     ![Start het terugzetten van bestanden van de systeemstatus](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 

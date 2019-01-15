@@ -1,6 +1,6 @@
 ---
-title: Azure quotum fouten | Microsoft Docs
-description: Beschrijft hoe resource qouta fouten op te lossen.
+title: Azure-quotum fouten | Microsoft Docs
+description: Beschrijft hoe u resource-quotum oplossen.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9048ae531abedb89b70989ce1c962357c514cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357041"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260223"
 ---
-# <a name="resolve-errors-for-resource-quotas"></a>Los de fouten voor de resource-quota
+# <a name="resolve-errors-for-resource-quotas"></a>Los fouten voor resourcequota
 
-Dit artikel wordt beschreven quotum fouten die optreden kunnen bij het implementeren van resources.
+Dit artikel wordt beschreven quotum fouten die optreden kunnen tijdens het implementeren van resources.
 
 ## <a name="symptom"></a>Symptoom
 
-Als u een sjabloon die wordt gemaakt van resources die uw Azure-quota overschrijdt implementeert, kunt u een implementatiefout dat lijkt op krijgen:
+Als u een sjabloon die wordt gemaakt van resources die groter zijn dan uw Azure-quota implementeert, krijgt u een implementatiefout opgetreden dat lijkt op:
 
 ```
 Code=OperationNotAllowed
@@ -34,7 +34,7 @@ Message=Operation results in exceeding quota limits of Core.
 Maximum allowed: 4, Current in use: 4, Additional requested: 2.
 ```
 
-Of u kunt tegenkomen:
+Of, ziet u mogelijk:
 
 ```
 Code=ResourceQuotaExceeded
@@ -45,20 +45,20 @@ please delete some resources of this type before creating a new one.
 
 ## <a name="cause"></a>Oorzaak
 
-Quota's zijn per resourcegroep, abonnementen, accounts en andere scopes toegepast. Uw abonnement kan bijvoorbeeld worden geconfigureerd om te beperken het aantal kernen voor een regio. Als u een virtuele machine met meer cores dan de toegestane hoeveelheid implementeren probeert, ontvangt u een foutmelding weergegeven dat het quotum is overschreden.
-Zie voor informatie voltooid quotum [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
+Quota's worden toegepast per resourcegroep, abonnementen, accounts en andere bereiken. Uw abonnement kan bijvoorbeeld worden geconfigureerd om te beperken van het aantal kernen voor een regio. Als u probeert te implementeren van een virtuele machine met meer kernen dan de toegestane hoeveelheid, ontvangt u een foutmelding waarin staat dat het quotum is overschreden.
+Zie voor meer informatie het volledige quotum, [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Voor Azure CLI, gebruikt u de `az vm list-usage` opdracht quota van de virtuele machine vinden.
+Voor Azure CLI, gebruikt u de `az vm list-usage` opdracht om te bepalen van de virtuele machine quota.
 
 ```azurecli
 az vm list-usage --location "South Central US"
 ```
 
-Die wordt geretourneerd:
+Dat geeft als resultaat:
 
 ```azurecli
 [
@@ -76,13 +76,13 @@ Die wordt geretourneerd:
 
 ### <a name="powershell"></a>PowerShell
 
-Voor PowerShell, gebruikt u de **Get-AzureRmVMUsage** opdracht quota van de virtuele machine vinden.
+Gebruik voor PowerShell de **Get-AzureRmVMUsage** opdracht om te bepalen van de virtuele machine quota.
 
 ```powershell
 Get-AzureRmVMUsage -Location "South Central US"
 ```
 
-Die wordt geretourneerd:
+Dat geeft als resultaat:
 
 ```powershell
 Name                             Current Value Limit  Unit
@@ -94,29 +94,29 @@ Virtual Machines                             0 10000 Count
 
 ## <a name="solution"></a>Oplossing
 
-Om aan te vragen een verhoging van het quotum, gaat u naar de portal en bestanden van een probleem met ondersteuning. In het probleem ondersteuning verzoeken om een verhoging van uw quotum voor de regio waarin u wilt implementeren.
+Om aan te vragen een quotaverhoging, gaat u naar de portal en een Ondersteuningsprobleem met voor het bestand. In het Ondersteuningsprobleem voor een verhoging van uw quotum aanvragen voor de regio waarin u wilt implementeren.
 
 > [!NOTE]
-> Vergeet niet dat voor de resourcegroepen het quotum voor elke afzonderlijke regio, niet voor het hele abonnement. Als u implementeren, 30 kernen in VS-West wilt, hebt u vragen om 30 Resource Manager kernen in VS-West. Als u implementeren, 30 kernen in een van de regio's waartoe u toegang hebt wilt, vraagt u 30 Resource Manager kernen in alle regio's.
+> Houd er rekening mee dat voor resourcegroepen, het quotum voor elke afzonderlijke regio, niet voor het hele abonnement is. Als u implementeren van 30 cores in VS-West wilt, hebt u vragen om 30 cores voor Resource Manager in VS-West. Als u implementeren van 30 cores in een van de regio's waartoe u toegang hebt wilt, moet u vragen voor 30 Resource Manager-kerngeheugens in alle regio's.
 >
 >
 
-1. Selecteer **abonnementen**.
+1. Selecteer **Abonnementen**.
 
    ![Abonnementen](./media/resource-manager-quota-errors/subscriptions.png)
 
-2. Selecteer het abonnement waarvoor u een grotere quota.
+2. Selecteer het abonnement waarvoor het quotum moet worden verhoogd.
 
    ![Abonnement selecteren](./media/resource-manager-quota-errors/select-subscription.png)
 
 3. Selecteer **gebruik + quota**
 
-   ![Informatie over het gebruik en quota's selecteren](./media/resource-manager-quota-errors/select-usage-quotas.png)
+   ![Gebruik en quota's selecteren](./media/resource-manager-quota-errors/select-usage-quotas.png)
 
-4. Selecteer in de rechterbovenhoek **verhoging aanvragen**.
+4. Selecteer in de rechterbovenhoek **verhoging**.
 
    ![Verhoging aanvragen](./media/resource-manager-quota-errors/request-increase.png)
 
-5. Vul in de formulieren voor het type quota die u wilt verhogen.
+5. Vul de formulieren in voor het type quotum dat u wilt verhogen.
 
    ![Formulier invullen](./media/resource-manager-quota-errors/forms.png)
