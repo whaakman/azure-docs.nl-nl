@@ -19,7 +19,7 @@ ms.locfileid: "54108256"
 ---
 # <a name="azure-blockchain-workbench-application-versioning"></a>Azure Blockchain Workbench-toepassing-versiebeheer
 
-U kunt maken en gebruiken van meerdere versies van een Azure Blockchain Workbench-app. Als er meerdere versies van dezelfde toepassing zijn geüpload, een versiegeschiedenis is beschikbaar en gebruikers kunnen kiezen welke versie moet worden gebruikt.
+U kunt meerdere versies van een Azure Blockchain Workbench-app maken en gebruiken. Als meerdere versies van dezelfde applicatie zijn geüpload, is er een versiegeschiedenis beschikbaar en kunnen gebruikers kiezen welke versie ze willen gebruiken.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,35 +30,35 @@ U kunt maken en gebruiken van meerdere versies van een Azure Blockchain Workbenc
 
 ## <a name="add-an-app-version"></a>Een appversie toevoegen
 
-Om toe te voegen een nieuwe versie, moet u de nieuwe configuratie en slimme contract bestanden uploaden Blockchain Workbench.
+Voeg de nieuwe configuratie en slimme contractbestanden toe aan Blockchain Workbench om een nieuwe versie toe te voegen.
 
 1. Navigeer in een webbrowser naar het webadres van Blockchain Workbench. Bijvoorbeeld, `https://{workbench URL}.azurewebsites.net/` Zie voor meer informatie over het vinden van uw Blockchain Workbench webadres [Blockchain Workbench Web-URL](deploy.md#blockchain-workbench-web-url)
 2. Meld u aan als een [Blockchain Workbench beheerder](manage-users.md#manage-blockchain-workbench-administrators).
 3. Selecteer de blockchain-toepassing die u wilt bijwerken met een andere versie.
-4. Selecteer **toevoegen versie**. De **toevoegen versie** deelvenster wordt weergegeven.
-5. Kiest u de nieuwe configuratie van de versie-contract en contract codebestanden te uploaden. Het configuratiebestand wordt automatisch gevalideerd. Corrigeer eventuele validatiefouten voordat u de toepassing implementeert.
-6. Selecteer **toevoegen versie** om toe te voegen van de nieuwe versie van de blockchain-toepassingen.
+4. Selecteer **toevoegen versie**. Het **toevoegen versie** deelvenster wordt weergegeven.
+5. Kies de nieuwe configuratie van het versie-contract en contract codebestanden om te uploaden. Het configuratiebestand wordt automatisch gevalideerd. Corrigeer eventuele validatiefouten voordat u de toepassing implementeert.
+6. Selecteer **toevoegen versie** om de nieuwe versie van de blockchain-toepassing toe te voegen.
 
     ![Een nieuwe versie toevoegen](media/version-app/add-version.png)
 
-Implementatie van de blockchain-toepassing kan een paar minuten duren. Wanneer de implementatie is voltooid, vernieuwt u de toepassingspagina. Kies de toepassing en selecteer de **versiegeschiedenis** knop, bevat een overzicht van de toepassing.
+Implementatie van de blockchain-toepassing kan een paar minuten duren. Wanneer de implementatie is voltooid, vernieuwt u de toepassingspagina. Kies de toepassing en selecteer de knop **versiegeschiedenis** om een versiegeschiedenis van de toepassing te tonen.
 
 > [!IMPORTANT]
-> Vorige versies van de toepassing zijn uitgeschakeld. U kunt afzonderlijk opnieuw inschakelen vorige versies.
+> Vorige versies van de toepassing zijn uitgeschakeld. U kunt vorige versies afzonderlijk opnieuw inschakelen.
 >
-> U moet mogelijk opnieuw toevoegen van leden aan de toepassingsrollen als er wijzigingen zijn aangebracht aan de rollen van de toepassing in de nieuwe versie.
+> Mogelijk moet u leden opnieuw toevoegen aan toepassingsrollen als er wijzigingen zijn aangebracht in de toepassingsrollen in de nieuwe versie.
 
-## <a name="using-app-versions"></a>Met behulp van app-versies
+## <a name="using-app-versions"></a>Gebruik van app-versies
 
-De meest recente ingeschakelde versie van de toepassing wordt standaard gebruikt in Blockchain Workbench. Als u gebruiken van een eerdere versie van een toepassing wilt, moet u eerst kiest u de versie van de toepassingspagina.
+Standaard wordt de nieuwste ingeschakelde versie van de toepassing gebruikt in Blockchain Workbench. Als u een vorige versie van een toepassing wilt gebruiken, moet u eerst de versie kiezen via de toepassingspagina.
 
-1. In de sectie Blockchain Workbench-toepassing, het selectievakje toepassing met de opdracht die u wilt gebruiken. Als eerdere versies zijn ingeschakeld, is de knop versie geschiedenis beschikbaar.
-2. Selecteer de **versiegeschiedenis** knop.
-3. Kies in het deelvenster van de geschiedenis van versie de versie van de toepassing door te selecteren van de koppeling in de *wijzigingsdatum* kolom.
+1. Selecteer in de sectie toepassingen van Blockchain Workbench het selectievakje de toepassing die het contract bevat dat u wilt gebruiken. Als eerdere versies zijn ingeschakeld, is de knop versie geschiedenis beschikbaar.
+2. Selecteer de knop **versiegeschiedenis**.
+3. Kies in het deelvenster van de versiegeschiedenis de versie van de toepassing door de koppeling te selecteren in de kolom *wijzigingsdatum*.
 
     ![Kies een vorige versie](media/version-app/use-version.png)
 
-    U kunt maken van nieuwe opdrachten of acties uitvoeren op de vorige versie contracten. De versie van de toepassing wordt weergegeven na de toepassingsnaam en een waarschuwing wordt weergegeven over de oudere versie.
+    U kunt nieuwe contracten maken of acties uitvoeren op contracten van eerdere versies. De versie van de applicatie wordt weergegeven na de naam van de applicatie en er wordt een waarschuwing weergegeven over de oudere versie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
