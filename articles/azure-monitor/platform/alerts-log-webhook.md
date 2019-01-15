@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 26c98a87b736132eb50cddffd06c1173d205c34d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720302"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265427"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
 Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
@@ -49,7 +49,7 @@ Webhooks omvatten een URL en een nettolading opgemaakt in JSON die de gegevens z
 | Search Interval StartTime |#searchintervalstarttimeutc |Begintijd voor de query in UTC, format - mm/dd/jjjj uu: mm: ss AM/PM... 
 | SearchQuery |#searchquery |Zoekquery voor de logboekbestanden die worden gebruikt door de waarschuwingsregel. |
 | Zoekresultaten |"IncludeSearchResults": true|Records die door de query wordt geretourneerd als een JSON-tabel, beperkt tot de eerste 1000 records. Als "IncludeSearchResults": true wordt toegevoegd aan de aangepaste JSON-webhook-definitie als een eigenschap op het hoogste niveau. |
-| Werkruimte-id |#workspaceid |ID van uw Log Analytics-werkruimte. |
+| WorkspaceID |#workspaceid |ID van uw Log Analytics-werkruimte. |
 | Toepassings-id |#applicationid |ID van uw Application Insights app. |
 | Abonnements-id |#subscriptionid |ID van uw Azure-abonnement gebruikt met Application Insights. 
 
@@ -198,7 +198,7 @@ Hieronder volgt een voorbeeld-nettolading voor een aangepaste webhookactie voor 
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen ](alerts-unified-log.md)
-- Inzicht in [managaing waarschuwingen in Azure](alerts-log.md)
+- Inzicht in [waarschuwingen in Azure beheren](alerts-log.md)
 - Maken en beheren van [actiegroepen in Azure](action-groups.md)
 - Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md)
 - Meer informatie over [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 

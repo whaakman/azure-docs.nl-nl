@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036236"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264611"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure Stack
 
@@ -26,9 +26,9 @@ U vindt de resourceprovider en de versienummers voor elke API-profiel dat door A
 
 De API-profiel maakt gebruik van drie naamgevingsregels:
 
- - **meest recente**
+ - **latest**
  - **yyyy-mm-dd-hybrid**
- - **jjjj-mm-dd-profiel**
+ - **yyyy-mm-dd-profile**
 
 Zie voor een uitleg van de API-profielen en -versie worden uitgerold voor Azure Stack, [beheren API-versieprofielen in Azure Stack](azure-stack-version-profiles.md).
 
@@ -40,14 +40,14 @@ Zie voor een uitleg van de API-profielen en -versie worden uitgerold voor Azure 
 | Resourceprovider | API-versie |
 |-----------------------------------------------|-----------------------------------------------------|
 | Microsoft.Compute | 2017-03-30 |
-| Microsoft.Network | 10-01-2017<br>VPN-Gateway moet 2017-03-01 |
-| Microsoft.Storage (gegevenslaag) | 2017-04-17 |
+| Microsoft.Network | 2017-10-01<br>VPN-Gateway moet 2017-03-01 |
+| Microsoft.Storage (Data Plane) | 2017-04-17 |
 | Microsoft.Storage (Controlelaag) | 2016-01-01 |
-| Microsoft. Web | 08-01-2016<br>Dit is de meest recente (vanaf nu) in Azure |
+| Microsoft. Web | 2016-08-01<br>Dit is de meest recente (vanaf nu) in Azure |
 | Microsoft.KeyVault | 2016-10-01 (niet wijzigen) |
-| Microsoft.Resources (Azure Resource Manager zelf) | 01-02-2016 |
-| Microsoft.Authorization (bewerkingen voor beleid) | 01-11-2015 |
-| Microsoft.Insights | 01-11-2015 |
+| Microsoft.Resources (Azure Resource Manager zelf) | 2016-02-01 |
+| Microsoft.Authorization (bewerkingen voor beleid) | 2015-11-01 |
+| Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
 | Beleid | 2016-10-01 |
 | Resources | 2016-10-01 |
@@ -63,19 +63,19 @@ Zie voor meer een lijst van de versies voor elk resourcetype voor de providers i
 |------------------------------------------------|------------------------------|
 | Microsoft.Compute | 30-03-2016 |
 | Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (gegevenslaag) | 2015-04-05  |
+| Microsoft.Storage (Data Plane) | 2015-04-05  |
 | Microsoft.Storage (Controlelaag) | 2016-01-01   |
 | Microsoft.Websites | 2016-01-01 |
 | Microsoft.KeyVault | 2016-10-01<br>(Niet wijzigen) |
-| Microsoft.Resources<br>(Azure Resource Manager zelf) | 01-02-2016 |
-| Microsoft.Authorization<Br>(bewerkingen voor beleid) | 01-11-2015 |
-| Microsoft.Insights | 01-11-2015 |
+| Microsoft.Resources<br>(Azure Resource Manager zelf) | 2016-02-01 |
+| Microsoft.Authorization<Br>(bewerkingen voor beleid) | 2015-11-01 |
+| Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
 | Beleid | 2015-10-01-preview |
-| Resources | 01-02-2016 |
+| Resources | 2016-02-01 |
 | Resources_Links | 2016-09-01 |
 | Resources_Locks | 2016-09-01 |
-| Abonnementen | 1-06-2016 |
+| Abonnementen | 2016-06-1 |
 
 Voor een lijst van de versies van elk resourcetype voor de providers in het API-profiel, Zie de volgende sectie.
 
@@ -115,8 +115,8 @@ De Azure Compute API's bieden u programmatische toegang tot virtuele machines en
 |---------------------------------------------------------------|-------------|
 | Beschikbaarheidssets | 30-03-2016 |
 | Locaties | 30-03-2016 |
-| Locaties/operations | 30-03-2016 |
-| Locaties /-uitgever | 30-03-2016 |
+| Locations/operations | 30-03-2016 |
+| Locations/publishers | 30-03-2016 |
 | Locaties/vormen van gebruik | 30-03-2016 |
 | Locaties/vmSizes | 30-03-2016 |
 | Bewerkingen | 30-03-2016 |
@@ -126,7 +126,7 @@ De Azure Compute API's bieden u programmatische toegang tot virtuele machines en
 | Virtual Machine Scale Sets/extensies | 30-03-2016 |
 | Virtual Machine Scale Sets /-netwerkinterfaces | 30-03-2016 |
 | Virtual Machine Scale Sets/virtuele Machines | 30-03-2016 |
-| Virtuele Machines Scale Sets/virtuele machines/netwerkinterfaces | 30-03-2016 |
+| Virtual Machines Scale Sets/virtualMachines/networkInterfaces | 30-03-2016 |
 
 ### <a name="microsoftgallery"></a>Microsoft.Gallery
 
@@ -177,7 +177,7 @@ De operations-aanroepresultaat is een weergave van de lijst met beschikbare netw
 | Lokale netwerkgateway | 2015-06-15 |
 | Locaties | 2016-04-01 |
 | Locatie/operationResults | 2016-04-01 |
-| Locaties/operations | 2016-04-01 |
+| Locations/operations | 2016-04-01 |
 | Locaties/vormen van gebruik | 2016-04-01 |
 | Netwerkinterfaces | 2015-06-15 |
 | Netwerkbeveiligingsgroepen | 2015-06-15 |
@@ -197,7 +197,7 @@ Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implem
 | Resourcenaam controleren | 2016-09-01 |
 | Gedelegeerde Providers | 2015-01-01 |
 | Gedelegeerde Providers/aanbiedingen | 2015-01-01 |
-| DelegatedProviders/aanbiedingen/estimatePrice | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Implementaties | 2016-09-01 |
 | Implementaties/operations | 2016-09-01 |
 | De metagegevens van de extensies | 2015-01-01 |
@@ -215,8 +215,8 @@ Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implem
 | Abonnementen/resourcegroepen | 2016-09-01 |
 | Abonnementen/resourceGroups/resources | 2016-09-01 |
 | Abonnementen/resources | 2016-09-01 |
-| Abonnementen/tagNames | 2016-09-01 |
-| Abonnementen/tagNames/tagValues | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Tenants | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
@@ -229,12 +229,12 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Locaties | 2016-01-01 |
 | Locaties/quota | 2016-01-01 |
 | Bewerkingen | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Het gebruik van | 2016-01-01 |
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Details van de 2018-03-01-hybride
 
-### <a name="microsoft-authorization"></a>Microsoft-autorisatie
+### <a name="microsoft-authorization"></a>Microsoft-authorisatie
 
 | Resourcetypen | API-versies |
 |---------------------|---------------------------------|
@@ -253,8 +253,8 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 |---------------------------------------------------------------|-------------|
 | Beschikbaarheidssets | 30-03-2016 |
 | Locaties | 30-03-2016 |
-| Locaties/operations | 30-03-2016 |
-| Locaties /-uitgever | 30-03-2016 |
+| Locations/operations | 30-03-2016 |
+| Locations/publishers | 30-03-2016 |
 | Locaties/vormen van gebruik | 30-03-2016 |
 | Locaties/vmSizes | 30-03-2016 |
 | Bewerkingen | 30-03-2016 |
@@ -264,7 +264,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Virtual Machine Scale Sets/extensies | 30-03-2016 |
 | Virtual Machine Scale Sets /-netwerkinterfaces | 30-03-2016 |
 | Virtual Machine Scale Sets/virtuele Machines | 30-03-2016 |
-| Virtuele Machines Scale Sets/virtuele machines/netwerkinterfaces | 30-03-2016 |
+| Virtual Machines Scale Sets/virtualMachines/networkInterfaces | 30-03-2016 |
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -276,7 +276,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Lokale netwerkgateway | 2015-06-15 |
 | Locaties | 2016-04-01 |
 | Locatie/operationResults | 2016-04-01 |
-| Locaties/operations | 2016-04-01 |
+| Locations/operations | 2016-04-01 |
 | Locaties/vormen van gebruik | 2016-04-01 |
 | Netwerkinterfaces | 2015-06-15 |
 | Netwerkbeveiligingsgroepen | 2015-06-15 |
@@ -294,7 +294,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Resourcenaam controleren | 2016-09-01 |
 | Gedelegeerde Providers | 2015-01-01 |
 | Gedelegeerde Providers/aanbiedingen | 2015-01-01 |
-| DelegatedProviders/aanbiedingen/estimatePrice | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Implementaties | 2016-09-01 |
 | Implementaties/operations | 2016-09-01 |
 | De metagegevens van de extensies | 2015-01-01 |
@@ -312,8 +312,8 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Abonnementen/resourcegroepen | 2016-09-01 |
 | Abonnementen/resourceGroups/resources | 2016-09-01 |
 | Abonnementen/resources | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
-| Abonnementen/tagNames/tagValues | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Tenants | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
@@ -324,7 +324,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Locaties | 2016-01-01 |
 | Locaties/quota | 2016-01-01 |
 | Bewerkingen | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Het gebruik van | 2016-01-01 |
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960531"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264051"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!note]  
 > Kubernetes in Azure Stack is in preview.
@@ -46,7 +46,7 @@ Maak een plan, een aanbieding en een abonnement voor het Kubernetes-Marketplace-
 
 1. Selecteer **overzicht** in de blade van de aanbieding.
 
-1. Selecteer **in een statuswijziging**. Selecteer **openbare**.
+1. Selecteer **in een statuswijziging**. Selecteer **Openbaar**.
 
 1. Selecteer **+ een resource maken** > **aanbiedingen en abonnementen** > **abonnement** naar een nieuw abonnement maken.
 
@@ -73,9 +73,9 @@ De volgende Ubuntu-Server-installatiekopie toevoegen aan de Marketplace:
 1. Voer `UbuntuServer` in.
 
 1. Selecteer de nieuwste versie van de server. De volledige versie controleren en ervoor te zorgen dat u de nieuwste versie hebt:
-    - **Uitgever**: Canonical
+    - **Publisher**: Canonical
     - **Bieden**: UbuntuServer
-    - **Versie**: 16.04.201806120
+    - **Versie**: 16.04.201806120 (of hoger)
     - **SKU**: 16.04-LTS
 
 1. Selecteer **downloaden.**
@@ -93,12 +93,12 @@ De Kubernetes uit de Marketplace toevoegen:
 1. Voer `Custom Script for Linux` in.
 
 1. Het script met het volgende profiel te selecteren:
-    - **Bieden**: aangepast Script voor Linux 2.0
-    - **Versie**: 2.0.6
-    - **Uitgever**: Microsoft Corp
+    - **Bieden**: Aangepast Script voor Linux 2.0
+    - **Versie**: 2.0.6 (of hoger)
+    - **Publisher**: Microsoft Corp
 
     > [!Note]  
-    > Meer dan één versie van het aangepaste Script voor Linux kan worden vermeld. U moet de versie die overeenkomt met toevoegen. De Kubernetes is vereist voor de exacte versie van het item.
+    > Meer dan één versie van het aangepaste Script voor Linux kan worden vermeld. U moet de meest recente versie van het item toevoegen.
 
 1. Selecteer **downloaden.**
 
@@ -149,7 +149,5 @@ De Kubernetes-item verwijderen:
 ## <a name="next-steps"></a>Volgende stappen
 
 [Een Kubernetes met Azure Stack implementeren](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-
-
 
 [Overzicht van services in Azure Stack-aanbieding](azure-stack-offer-services-overview.md)

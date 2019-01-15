@@ -8,20 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063910"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303884"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Zelfstudie voor Azure-Logboekintegratie: Azure Key Vault-gebeurtenissen verwerken met behulp van Event Hubs
 
 >[!IMPORTANT]
-> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads uitgeschakeld door 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads zijn uitgeschakeld op 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 U kunt Azure-Logboekintegratie vastgelegde gebeurtenissen ophalen en deze beschikbaar te maken voor uw systeem security information en event management (SIEM). In deze zelfstudie toont een voorbeeld van hoe Azure-Logboekintegratie kan worden gebruikt voor het verwerken van logboeken die worden verkregen via de Azure Event Hubs.
 
@@ -56,21 +56,21 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
  
 1. Een systeem met toegang tot het internet die voldoet aan de vereisten voor het installeren van Azure-Logboekintegratie. Het systeem kan zich op een service in de cloud of on-premises gehost.
 
-1. [Azure-Logboekintegratie](https://www.microsoft.com/download/details.aspx?id=53324) geïnstalleerd. Om deze te installeren:
+1. Azure-Logboekintegratie geïnstalleerd. Om deze te installeren:
 
    a. Extern bureaublad gebruiken voor het verbinding maken met het systeem vermeld in stap 2.   
-   b. Kopieer het installatieprogramma van de Azure-Logboekintegratie naar het systeem. U kunt [de installatiebestanden downloaden](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Start het installatieprogramma en accepteer de licentievoorwaarden voor Microsoft-Software.   
-   d. Als u telemetrie-informatie wordt verstrekt, laat u het selectievakje ingeschakeld. Als u informatie over het gebruik in plaats daarvan niet naar Microsoft verzenden zou, schakelt u het selectievakje in.
-   
+   b. Kopieer het installatieprogramma van de Azure-Logboekintegratie naar het systeem. c. Start het installatieprogramma en accepteer de licentievoorwaarden voor Microsoft-Software.
+
+1. Als u telemetrie-informatie wordt verstrekt, laat u het selectievakje ingeschakeld. Als u informatie over het gebruik in plaats daarvan niet naar Microsoft verzenden zou, schakelt u het selectievakje in.
+
    Zie voor meer informatie over Azure-Logboekintegratie en hoe u deze installeert [Azure-Logboekintegratie met Azure Diagnostics-logboeken en Windows Event Forwarding](security-azure-log-integration-get-started.md).
 
 1. De meest recente versie van PowerShell.
- 
+
    Als u Windows Server 2016 is geïnstalleerd hebt, hebt u ten minste PowerShell 5.0. Als u een andere versie van Windows Server, hebt u mogelijk een eerdere versie van PowerShell is geïnstalleerd. U kunt controleren welke versie door in te voeren ```get-host``` in een PowerShell-venster. Als u geen PowerShell 5.0 is geïnstalleerd, kunt u [downloaden](https://www.microsoft.com/download/details.aspx?id=50395).
 
    Nadat u ten minste hebt PowerShell 5.0, kunt u doorgaan met de meest recente versie te installeren:
-   
+
    a. Voer in een PowerShell-venster de ```Install-Module Azure``` opdracht. Voer de installatiestappen uit.    
    b. Voer de ```Install-Module AzureRM``` opdracht. Voer de installatiestappen uit.
 

@@ -10,19 +10,19 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 93ca61c610856ebba64bff46b2338090f317ad56
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117398"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302031"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
 Azure Active Directory B2C (Azure AD B2C) verzendt auditlogboeken dat activiteiteninformatie bevat over B2C-resources, uitgegeven tokens en toegang als beheerder. In dit artikel geeft een kort overzicht van de informatie is beschikbaar via de logboeken voor controle en instructies over hoe u toegang tot deze gegevens voor uw Azure AD B2C-tenant.
 
 > [!IMPORTANT]
-> Auditlogboeken worden alleen gedurende zeven dagen bewaard. Plannen om te downloaden en opslaan van uw logboeken met behulp van een van de methoden die hieronder wordt weergegeven als u een langere bewaartermijn nodig. 
+> Auditlogboeken worden alleen gedurende zeven dagen bewaard. Plannen om te downloaden en opslaan van uw logboeken met behulp van een van de methoden die hieronder wordt weergegeven als u een langere bewaartermijn nodig.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
 De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
@@ -43,7 +43,7 @@ Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebrui
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Auditlogboeken openen via de Azure Portal
 1. Ga naar de [Azure Portal](https://portal.azure.com). Zorg ervoor dat u zich in uw B2C-directory.
-2. Klik op **Azure Active Directory** in de werkbalk met Favorieten aan de linkerkant 
+2. Klik op **Azure Active Directory** in de werkbalk met Favorieten aan de linkerkant
     
     ![Auditlogboeken - AAD-knop](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
@@ -56,14 +56,14 @@ Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebrui
 
     ![Auditlogboeken - categorie](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
-Hier ziet u een lijst van activiteiten die zijn geregistreerd in de afgelopen zeven dagen. 
+Hier ziet u een lijst van activiteiten die zijn geregistreerd in de afgelopen zeven dagen.
 - Gebruik de **resourcetype van activiteit** vervolgkeuzelijst om te filteren op de activiteitstypen die hierboven worden beschreven
 - Gebruik de **datumbereik** vervolgkeuzelijst voor het filteren van het datumbereik van de activiteiten die worden weergegeven
 - Als u op een specifieke rij in de lijst klikt, ziet een contextuele vak aan de rechterkant u aanvullende kenmerken die zijn gekoppeld aan de activiteit
 - Klik op **downloaden** voor het downloaden van de activiteiten als een csv-bestand
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Auditlogboeken openen via de Azure AD rapportage-API
-Auditlogboeken worden gepubliceerd naar de dezelfde pijplijn als andere activiteiten voor Azure Active Directory, zodat ze kunnen worden geopend via de [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
+Auditlogboeken worden gepubliceerd naar de dezelfde pijplijn als andere activiteiten voor Azure Active Directory, zodat ze kunnen worden geopend via de [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
 ### <a name="prerequisites"></a>Vereisten
 Als u wilt verifiëren met de Azure AD rapportage-API moet u eerst het registreren van een toepassing. Zorg ervoor dat u de stappen in [vereisten voor toegang tot de rapportage-API's Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
@@ -82,7 +82,7 @@ Het volgende script geeft een voorbeeld van een query uitvoeren op de rapportage
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-$loginURL       = "https://login.microsoftonline.com"     
+$loginURL       = "https://login.microsoftonline.com"
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
 $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -93,13 +93,13 @@ $body       = @{grant_type="client_credentials";resource=$resource;client_id=$Cl
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
 # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
-if ($oauth.access_token -ne $null) {   
+if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago 
+    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
 
     # loop through each query page (1 through n)
-    Do{
+    Do {
         # display each event on the console window
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
@@ -117,4 +117,3 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
-

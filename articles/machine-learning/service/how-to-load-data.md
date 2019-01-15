@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87096e1507c080f68652ea27b368364d9ac7952a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232495"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263812"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
@@ -37,7 +37,13 @@ import azureml.dataprep as dprep
 dataflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
-Deze functie is handig bij het bestandstype niet expliciet is bekend. Een voorbeeld van gebruik is een map met honderden bestanden van verschillende typen worden geconverteerd naar objecten van de gegevensstroom. Uitvoeren van een iteratie via elke bestandspad en roepen `auto_read_file()` kunt u eenvoudig verwerken van de bestanden in de map in een lijst van objecten van de gegevensstroom.
+Deze functie is handig voor het bestandstype, codering en andere parseren argumenten allemaal vanaf één handige invoerpunt automatisch te detecteren. De functie voert ook automatisch de volgende stappen uit die vaak worden uitgevoerd bij het laden van gegevens met scheidingstekens:
+
+* Voorbeeldgrootte en het instellen van het scheidingsteken
+* Lege records aan de bovenkant van het bestand wordt overgeslagen
+* Voorbeeldgrootte en het instellen van de rij met koppen
+
+Als u het bestand typt u vooraf en expliciet bepalen hoe die deze wordt geparseerd wilt weten, blijven ook volgende dit artikel om te zien dat de gespecialiseerde functies de SDK biedt.
 
 ## <a name="load-text-line-data"></a>Laden van gegevens van de tekst
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: fd912885335b41e3d7ca8ee717b6bb1b9c88e729
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 905ea05d2b3bc58428831ae815238de818912928
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984142"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304428"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw Query. Stream Analytics maakt gebruik van Azure Blob-opslag als de opslaglaag voor referentiegegevens en met Azure Data Factory-verwijzing gegevens kunnen worden getransformeerd en/of gekopieerd naar Azure Blob-opslag, voor gebruik als referentiegegevens, van [een willekeurig aantal cloudgebaseerde en on-premises gegevensarchieven](../data-factory/copy-activity-overview.md). Referentiegegevens is gemodelleerd als een reeks blobs (gedefinieerd in de configuratie van de invoer), in oplopende volgorde van de datum/tijd opgegeven in de blobnaam. Deze **alleen** ondersteunt het toevoegen aan het einde van de reeks met behulp van een datum/tijd **groter** dan de versie die is opgegeven door de laatste blob in de reeks.
@@ -39,9 +39,9 @@ Voor het configureren van de referentiegegevens, moet u eerst het maken van de i
 |Invoeralias   | Een beschrijvende naam die in de taakquery wordt gebruikt om te verwijzen naar deze invoer.   |
 |Opslagaccount   | De naam van het opslagaccount waar uw BLOB's zich bevinden. Als deze zich in hetzelfde abonnement als uw Stream Analytics-taak, kunt u deze selecteren in de vervolgkeuzelijst.   |
 |Opslagaccountsleutel   | De geheime sleutel die is gekoppeld aan de storage-account. Dit wordt automatisch ingevuld als het opslagaccount zich in hetzelfde abonnement als uw Stream Analytics-taak.   |
-|Storage-Container   | Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob geüpload naar de Blob-service, moet u een container voor die blob opgeven.   |
-|Padpatroon   | Het pad dat wordt gebruikt om uw blobs in de opgegeven container te vinden. U kunt kiezen binnen het pad naar een of meer exemplaren van de volgende 2 variabelen opgeven:<BR>{date}, {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv<BR><br> Als de blob in het opgegeven pad niet bestaat, wordt de Stream Analytics-taak voor onbepaalde tijd wachten op de blob weer beschikbaar.   |
-|[Optioneel] datumnotatie   | Als u {date} binnen het pad-patroon dat u hebt opgegeven gebruikt hebt, kunt u de datumnotatie waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst van de ondersteunde indelingen selecteren.<BR>Bijvoorbeeld: Jjjj/MM/DD MM/DD/JJJJ, enzovoort.   |
+|Opslagcontainer   | Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob geüpload naar de Blob-service, moet u een container voor die blob opgeven.   |
+|Padpatroon   | Het pad dat wordt gebruikt om uw blobs in de opgegeven container te vinden. U kunt kiezen binnen het pad naar een of meer exemplaren van de volgende 2 variabelen opgeven:<BR>{date}, {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv<BR>Voorbeeld 3: product-list.csv<BR><br> Als de blob in het opgegeven pad niet bestaat, wordt de Stream Analytics-taak voor onbepaalde tijd wachten op de blob weer beschikbaar.   |
+|[Optioneel] datumnotatie   | Als u {date} binnen het pad-patroon dat u hebt opgegeven gebruikt hebt, kunt u de datumnotatie waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst van de ondersteunde indelingen selecteren.<BR>Voorbeeld: JJJJ/MM/DD, MM/DD/JJJJ, enzovoort.   |
 |[Optioneel] tijdnotatie   | Als u {time} hebt gebruikt in het pad-patroon dat u hebt opgegeven, kunt u de indeling waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst van de ondersteunde indelingen selecteren.<BR>Voorbeeld: HH, uu mm/of uu: mm.  |
 |Serialisatie-indeling voor gebeurtenissen   | Er moet in Stream Analytics zijn aangegeven welke serialisatie-indeling wordt gebruikt voor inkomende gegevensstromen om te controleren of uw query's werken zoals verwacht. Voor referentiegegevens zijn de ondersteunde indelingen CSV en JSON.  |
 |Encoding   | Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.  |
@@ -78,7 +78,7 @@ Azure Stream Analytics scant automatisch voor vernieuwd referentiegegevens-blobs
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Snelstart: Een Stream Analytics-taak maken met behulp van de Azure-portal](stream-analytics-quick-create-portal.md)
+> [Snelstart: Een Stream Analytics-taak maken met behulp van Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

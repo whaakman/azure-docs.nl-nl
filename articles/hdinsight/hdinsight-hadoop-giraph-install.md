@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3ee1cfaa9e5eb08b2fe6ee7d210dcb84a8c39d78
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715321"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260484"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installeren en Apache Giraph gebruikt op Windows gebaseerde HDInsight-clusters
 
@@ -50,7 +50,7 @@ U Giraph kunt installeren op elk type cluster (Hadoop, Storm, HBase, Spark) op A
         <tr><th>Eigenschap</th><th>Waarde</th></tr>
         <tr><td>Name</td>
             <td>Geef een naam voor de scriptactie. Bijvoorbeeld, <b>Giraph installeren</b>.</td></tr>
-        <tr><td>Script-URI</td>
+        <tr><td>Script URI</td>
             <td>Geef de Uniform Resource Identifier (URI) naar het script dat wordt aangeroepen voor het aanpassen van het cluster. Bijvoorbeeld: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
         <tr><td>Soort knooppunt</td>
             <td>Geef op de knooppunten waarop de aanpassing-script wordt uitgevoerd. U kunt ervoor kiezen <b>alle knooppunten</b>, <b>hoofdknooppunten alleen</b>, of <b>Worker-knooppunten</b>.
@@ -153,7 +153,7 @@ We gebruiken het SimpleShortestPathsComputation-voorbeeld ter illustratie van de
 
     ![Tekenen van objecten als cirkels met kortste paden tussen getekend](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
-## <a name="install-giraph-using-aure-powershell"></a>Met behulp van Aure PowerShell Giraph installeren
+## <a name="install-giraph-using-azure-powershell"></a>Giraph met behulp van Azure PowerShell installeren
 Zie [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Het voorbeeld ziet u hoe u Apache Spark met behulp van Azure PowerShell installeren. U moet het script te gebruiken aanpassen [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>Giraph met .NET SDK installeren

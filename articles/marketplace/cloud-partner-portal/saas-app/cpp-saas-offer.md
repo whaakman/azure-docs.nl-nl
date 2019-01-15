@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa1b043f94897e752f3aa6b638995d3c2aa1eae5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196867"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263625"
 ---
 # <a name="azure-saas-application-offer"></a>Aanbieding voor Azure SaaS-toepassing
 
@@ -49,7 +49,7 @@ In deze sectie beschrijft de elementen van het publiceren van een SaaS-aanbiedin
 
 - [Vereisten](./cpp-prerequisites.md) -geeft een lijst van de technische en zakelijke vereisten voor het maken of een SaaS-aanbieding publiceren. 
 - [Maken van de aanbieding](./cpp-create-offer.md) -bevat de stappen die vereist voor het maken van een nieuwe SaaS-aanbieding vermelding met behulp van de Cloud Partner-Portal. 
-- [De aanbieding publiceren](./cpp-publish-offer.md) -Exlains het indienen van de aanbieding voor publicatie naar de Azure Marketplace. 
+- [De aanbieding publiceren](./cpp-publish-offer.md) -wordt uitgelegd hoe u om in te dienen de aanbieding voor publicatie naar de Azure Marketplace. 
 
 ## <a name="saas-publishing-process"></a>SaaS-publicatieproces 
 

@@ -13,27 +13,30 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339329"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259961"
 ---
-# <a name="working-with-security-policies"></a>Werken met beleidsregels voor veiligheid
+# <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
 
 In dit artikel wordt uitgelegd hoe beleidsregels voor veiligheid zijn geconfigureerd en hoe ze weergeven in Security Center. Azure Security Center wordt automatisch toegewezen de [ingebouwde beveiligingsbeleid](security-center-policy-definitions.md) voor elk abonnement dat is geïmplementeerd. U kunt configureren dat ze in [Azure Policy](../azure-policy/azure-policy-introduction.md), die u kunt ook beleidsregels binnen beheergroepen en voor meerdere abonnementen.
 
 Zie voor instructies over het instellen van beleidsregels met behulp van PowerShell [Quick Start: Een beleidstoewijzing maken om te identificeren van niet-compatibele resources met behulp van de Azure DB PowerShell-module](../azure-policy/assign-policy-definition-ps.md).
 
+>[!NOTE]
+> Security Center aan de slag van de integratie met Azure Policy. Bestaande klanten wordt automatisch worden gemigreerd naar het nieuwe ingebouwde initiatief in Azure Policy, in plaats van het vorige beveiligingsbeleid in Security Center. Deze wijziging wordt geen invloed op uw resources of de omgeving, met uitzondering van de aanwezigheid van de nieuwe initiatief in Azure Policy.
+
 ## <a name="what-are-security-policies"></a>Wat is beveiligingsbeleid?
 Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. In Azure Policy, kunt u beleidsregels definiëren voor uw Azure-abonnementen en past u dit aan uw type workload of de vertrouwelijkheid van uw gegevens. Toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, kunnen bijvoorbeeld vereisen dat een hoger beveiligingsniveau dan andere werkbelastingen. Als u wilt een beleid instellen voor abonnementen of beheergroepen, stelt u deze [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-
-
 Uw beveiligingsbeleid de aanbevelingen voor beveiliging die in Azure Security Center u krijgt het station. Naleving van deze kunt u mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen, kunt u controleren. Zie voor meer informatie over hoe om te bepalen welke optie geschikt is voor u is, de lijst met [ingebouwde beveiligingsbeleid](security-center-policy-definitions.md).
+
+Wanneer u Security Center inschakelt, wordt het beveiligingsbeleid ingebouwd in Security Center in Azure Policy weergegeven als een ingebouwde initiatief onder de categorie Security Center. De ingebouwde intitiative wordt automatisch toegewezen aan Security Center is geregistreerd op alle abonnementen (gratis of Standard-lagen). De ingebouwde initiatief bevat alleen controlebeleid. 
 
 
 ### <a name="management-groups"></a>Beheergroepen
@@ -57,8 +60,6 @@ De Azure-beleid bestaat uit de volgende onderdelen:
 - Een **initiatief** is een verzameling van het beleid.
 - Een **toewijzing** is de toepassing van een initiatief of een beleid voor een bepaald bereik (beheergroep, abonnement of resourcegroep).
 
-Een resource wordt geëvalueerd op basis van de beleidsregels die eraan zijn toegewezen en krijgt een waardering op basis van het aantal beleidsregels waaraan de resource voldoet.
-
 ## <a name="view-security-policies"></a>Beveiligingsbeleid bekijken
 
 Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Security Center:
@@ -76,12 +77,9 @@ Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Securi
   De kolommen in de tabel bevat de volgende gegevens:
 
  - **Toewijzing beleidsinitiatieven** – Security Center [ingebouwde beleidsregels](security-center-policy-definitions.md) en initiatieven die zijn toegewezen aan een groep abonnement of de beheergroep.
- - **Naleving** : totale nalevingsscore voor een beheergroep, het abonnement of de werkruimte. De score is het gewogen gemiddelde van de toewijzingen. Bij het gewogen gemiddelde wordt rekening gehouden met het aantal beleidsregels in één toewijzing en het aantal resources waarop de toewijzing van toepassing is.
-
- Als uw abonnement bijvoorbeeld twee virtuele machines heeft en een initiatief waaraan vijf beleidsregels zijn toegewezen, dan hebt u 10 beoordelingen in uw abonnement. Als een van de virtuele machines niet aan twee van de beleidsregels voldoet, is de algemene nalevingsscore van uw abonnementstoewijzing 80%.
-
  - **Dekking** – identificeert de prijscategorie gratis of Standard, dat de beheergroep, het abonnement of de werkruimte op wordt uitgevoerd.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
  - **Instellingen voor** – abonnementen hebben de koppeling **instellingen bewerken**. Selecteren **instellingen bewerken** kunt u werken uw [Security Center-instellingen](security-center-policies-overview.md) voor elke groep abonnement of de beheergroep.
+ - **Beveiligde score** : de [beveiligde score](security-center-secure-score.md) biedt een zekere mate van hoe de beveiliging van uw werkbelasting beveiligingsstrategie en helpt u bij het prioriteren van aanbevelingen voor verbetering.
 
 2. Selecteer de groep abonnement of de beheergroep waarvan beleidsregels die u wilt weergeven.
 
@@ -214,7 +212,7 @@ Dit voorbeeld ziet u hoe u een toewijzing verwijderen:
 |Beveiligingsconfiguraties |Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Eindpuntbeveiliging |Ontbrekende Endpoint Protection bewaken in Azure Security Center |endpointProtectionMonitoringEffect |
 |Schijfversleuteling |Niet-versleutelde VM-schijven in Azure Security Center bewaken |diskEncryptionMonitoringEffect|
-|Evaluatie van beveiligingsproblemen |Beveiligingsproblemen van de monitor voor virtuele machines in Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Evaluatie van beveiligingsproblemen |Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
 |Web Application Firewall |Niet-beveiligde web-App in Azure Security Center bewaken |webApplicationFirewallMonitoringEffect |
 |Next Generation Firewall |Netwerkeindpunten in Azure Security Center bewaken| |
 

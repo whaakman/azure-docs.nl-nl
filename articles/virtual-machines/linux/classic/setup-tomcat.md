@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420078"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266940"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Tomcat7 instellen op een Linux-machine met Azure
 Apache Tomcat (of gewoon gebruik van Tomcat, ook voorheen Jakarta Tomcat) is een open-source-webserver en servletcontainer die zijn ontwikkeld door de Apache Software Foundation (AVP). Tomcat implementeert de Java Servlet- en JavaServer Pages (JSP) specificaties van Sun Microsystems. Tomcat biedt een zuivere Java HTTP web server-omgeving waarin u Java-code uit te voeren. In de eenvoudigste configuratie, Tomcat uitgevoerd in een bepaald besturingssysteem-proces. Dit proces wordt uitgevoerd een Java virtual machine (JVM). Elke HTTP-aanvraag vanuit een browser Tomcat wordt verwerkt als een afzonderlijke thread in de Tomcat-proces.  
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Azure Resource Manager en klassiek](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over het gebruik van het klassieke implementatiemodel. We raden aan dat de meeste nieuwe implementaties het Resource Manager-model gebruiken. Als u een Resource Manager-sjabloon wilt implementeren van een Ubuntu-VM met Open JDK en Tomcat, Zie [in dit artikel](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Azure Resource Manager en klassieke](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over het gebruik van het klassieke implementatiemodel. We raden aan dat de meeste nieuwe implementaties het Resource Manager-model gebruiken. Als u een Resource Manager-sjabloon wilt implementeren van een Ubuntu-VM met Open JDK en Tomcat, Zie [in dit artikel](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In dit artikel hebt u Tomcat7 installeren op een Linux-installatiekopie en implementeren in Azure.  
@@ -44,7 +44,7 @@ In dit artikel wordt ervan uitgegaan dat u een werkende basiskennis hebben van T
 ## <a name="phase-1-create-an-image"></a>Fase 1: Een installatiekopie maken
 In deze fase maakt u een virtuele machine met behulp van een installatiekopie van Linux in Azure.  
 
-### <a name="step-1-generate-an-ssh-authentication-key"></a>Stap 1: Een SSH-sleutel voor verificatie genereren
+### <a name="step-1-generate-an-ssh-authentication-key"></a>Stap 1: Een SSH-sleutel voor verificatie
 SSH is een belangrijk hulpprogramma voor systeembeheerders. Configureren van de toegangsbeveiliging op basis van een wachtwoord human bepaald wordt echter niet aanbevolen. Kwaadwillende gebruikers kunnen in uw systeem op basis van een gebruikersnaam en een zwak wachtwoord opsplitsen.
 
 Het goede nieuws is dat er een manier te laten RAS openen en u geen zorgen over wachtwoorden. Deze methode bestaat uit de verificatie met asymmetrische cryptografie. De persoonlijke sleutel van de gebruiker is het account waarmee de verificatie wordt verleend. U kunt zelfs van het gebruikersaccount niet toestaat wachtwoordverificatie vergrendelen.
@@ -64,7 +64,7 @@ Volg deze stappen voor het genereren van de SSH-sleutel voor verificatie.
 5. Selecteer en kopieer de openbare sleutel en opslaan in een bestand met de naam publicKey.pem. Klik niet op **openbare sleutel opslaan**, omdat de bestandsindeling opgeslagen van de openbare sleutel verschilt van de openbare sleutel die we willen.
 6. Klik op **persoonlijke sleutel opslaan**, en sla deze in een bestand met de naam privateKey.ppk.
 
-### <a name="step-2-create-the-image-in-the-azure-portal"></a>Stap 2: De installatiekopie in Azure portal maken
+### <a name="step-2-create-the-image-in-the-azure-portal"></a>Stap 2: Maken van de installatiekopie in Azure portal
 1. In de [portal](https://portal.azure.com/), klikt u op **een resource maken** in de taakbalk om een installatiekopie te maken. Kies vervolgens de Linux-installatiekopie die is gebaseerd op uw behoeften. Het volgende voorbeeld wordt de installatiekopie van het Ubuntu 14.04.
 ![Schermafbeelding van de portal die de nieuwe knop wordt weergegeven][3]
 
@@ -78,7 +78,7 @@ Volg deze stappen voor het genereren van de SSH-sleutel voor verificatie.
 ## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>Fase 2: Uw virtuele machine voorbereiden voor Tomcat7
 In deze fase, wordt u een eindpunt configureert voor Tomcat-verkeer en maak verbinding met uw nieuwe virtuele machine.
 
-### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Stap 1: De HTTP-poort voor webtoegang openen
+### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Stap 1: Open de HTTP-poort voor webtoegang
 Eindpunten in Azure bestaan uit een TCP of UDP-protocol, samen met een openbare en particuliere poort. De particuliere poort is de poort die de service op de virtuele machine luistert. De openbare poort is de poort die de Azure-cloudservice naar extern voor binnenkomend verkeer op basis van het Internet luistert.  
 
 TCP-poort 8080 is het standaardpoortnummer die gebruikmaakt van Tomcat om te luisteren. Als deze poort wordt geopend met een Azure-eindpunt, u en andere internetclients hebben toegang tot Tomcat-pagina's.  
@@ -114,7 +114,7 @@ U kunt een SSH-hulpprogramma om verbinding met uw virtuele machine te kiezen. In
 4. Nadat u hebt gedownload, klikt u op het uitvoerbare bestand Putty.exe. In de PuTTY-configuratie, de basisopties configureren met de naam van de host en het poortnummer dat is verkregen van de eigenschappen van uw virtuele machine.   
 ![Schermafbeelding van de PuTTY-configuratie hosten opties voor naam en het poortnummer][9]
 
-5. Klik in het linkerdeelvenster op **verbinding** > **SSH** > **Auth**, en klik vervolgens op **Bladeren** om op te geven de locatie van het bestand privateKey.ppk. Het bestand privateKey.ppk bevat de persoonlijke sleutel die wordt gegenereerd door PuTTYgen eerder in de ' fase 1: een installatiekopie maken ' sectie van dit artikel.  
+5. Klik in het linkerdeelvenster op **verbinding** > **SSH** > **Auth**, en klik vervolgens op **Bladeren** om op te geven de locatie van het bestand privateKey.ppk. Het bestand privateKey.ppk bevat de persoonlijke sleutel die wordt gegenereerd door PuTTYgen eerder in de ' fase 1: Een installatiekopie maken' sectie van dit artikel.  
 ![Schermafbeelding van de mapstructuur van de verbinding en knop Bladeren][10]
 
 6. Klik op **Openen**. U kunt door een berichtvenster worden gewaarschuwd. Als u hebt geconfigureerd de DNS-naam en het poortnummer juist, klikt u op **Ja**.
@@ -123,10 +123,10 @@ U kunt een SSH-hulpprogramma om verbinding met uw virtuele machine te kiezen. In
 7. U wordt gevraagd uw gebruikersnaam invoeren.  
 ![Schermopname die laat waar zien u de gebruikersnaam invoeren][12]
 
-8. Voer de gebruikersnaam die u gebruikt voor het maken van de virtuele machine in de ' fase 1: een installatiekopie maken ' sectie eerder in dit artikel. U ziet er ongeveer als volgt uit:  
+8. Voer de gebruikersnaam die u gebruikt voor het maken van de virtuele machine in de ' fase 1: Een installatiekopie maken' sectie eerder in dit artikel. U ziet er ongeveer als volgt uit:  
 ![Schermafbeelding van de verificatie-bevestiging][13]
 
-## <a name="phase-3-install-software"></a>Fase 3:-Software installeren
+## <a name="phase-3-install-software"></a>Fase 3: Software installeren
 In deze fase installeert u de Java runtime environment Tomcat7 en andere onderdelen Tomcat7.  
 
 ### <a name="java-runtime-environment"></a>Java runtime-omgeving
@@ -135,13 +135,13 @@ Tomcat is geschreven in Java. Zie [Azure ondersteund JDK](https://aka.ms/azure-j
 
 #### <a name="install-azure-supported-jdk"></a>Azure ondersteunde JDK installeren
 
-Ga als volgt de `apt-get` installatie-instructies die worden beschreven op de [Azul Zulu van voor Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) website.
+Ga als volgt de `apt-get` installatie-instructies die worden beschreven op de [Azul Zulu Enterprise voor Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) website.
 
 #### <a name="confirm-that-java-installation-is-successful"></a>Bevestig dat Java-installatie voltooid is
 U kunt een opdracht als volgt gebruiken om te controleren of de Java-runtime-omgeving juist is geïnstalleerd:  
     Java-versie  
 
-U ziet een bericht als volgt: ![geslaagde OpenJDK installatie bericht][14]
+U ziet een bericht als volgt uit: ![Bericht OpenJDK installatie is voltooid][14]
 
 
 ### <a name="install-tomcat7"></a>Tomcat7 installeren
@@ -212,7 +212,7 @@ Nadat u verbinding hebt moet u iets zien die vergelijkbaar is met het volgende:
 
   * De Tomcat listen-poort is niet gelijk zijn aan de particuliere poort van het eindpunt van de virtuele machine voor Tomcat-verkeer.  
 
-     Controleer uw openbare poort en particuliere poort eindpuntinstellingen en zorg ervoor dat de particuliere poort is dat hetzelfde als de Tomcat poort voor luisteren. Zie "fase 1: een installatiekopie maken ' sectie van dit artikel voor meer informatie over het configureren van eindpunten voor uw virtuele machine.  
+     Controleer uw openbare poort en particuliere poort eindpuntinstellingen en zorg ervoor dat de particuliere poort is dat hetzelfde als de Tomcat poort voor luisteren. Zie "fase 1: Een installatiekopie maken' sectie van dit artikel voor meer informatie over het configureren van eindpunten voor uw virtuele machine.  
 
      Open om te bepalen de listen-poort van Tomcat, /etc/httpd/conf/httpd.conf (Red Hat-release), of /etc/tomcat7/server.xml (Debian-versie). Standaard is de Tomcat listen-poort 8080. Hier volgt een voorbeeld:  
 

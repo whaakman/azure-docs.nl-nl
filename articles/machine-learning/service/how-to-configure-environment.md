@@ -1,7 +1,7 @@
 ---
 title: Een Python-ontwikkelomgeving instellen
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u een ontwikkelomgeving configureren wanneer u met de Azure Machine Learning-service werkt. In dit artikel leert u hoe u Conda-omgevingen gebruiken, configuratiebestanden maken en configureren van Jupyter Notebooks, Azure-laptops, IDE's, code-editors en de Data Science Virtual Machine.
+description: Leer hoe u een ontwikkelomgeving configureren wanneer u met de Azure Machine Learning-service werkt. In dit artikel leert u hoe u Conda-omgevingen gebruiken, configuratiebestanden maken en configureren van Jupyter Notebooks, Azure-laptops, Azure Databricks, IDE's, code-editors en de Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: 46a1872d2ac5d1670620148edf7ee273580826d3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: db853be456dbf893163f53bbc797cf12172d38b7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811270"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261091"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -242,9 +242,50 @@ U kunt een aangepaste versie van de Azure Machine Learning-SDK voor Azure Databr
 
 Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
 
-1. Maak een [Databricks-cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) met een Databricks-runtimeversie van 4.x (hoog gelijktijdigheid bij voorkeur) met Python 3. 
+1. Maak een [Databricks-cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) met de volgende instellingen:
 
-1. Om te installeren en koppelen van de Azure Machine Learning-SDK voor Python `azureml-sdk[databricks]` PyPi-pakket in uw cluster [maakt u een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library).  
+    | Instelling | Waarde |
+    |----|---|
+    | Clusternaam | yourclustername |
+    | Databricks Runtime | Een runtime niet ML (niet ML 4.x, 5.x) |
+    | Python-versie | 3 |
+    | Medewerkers | 2 of hoger |
+
+    Gebruik deze instellingen alleen als u automatische machine learning met op Databricks:
+    
+    |   Instelling | Waarde |
+    |----|---|
+    | VM-typen voor worker-knooppunt | Virtuele machine bij voorkeur is geoptimaliseerd voor geheugen |
+    | Automatisch schalen inschakelen | Schakel het selectievakje |
+    
+    Het aantal worker-knooppunten in uw Databricks-cluster bepaalt het maximum aantal gelijktijdige iteraties in geautomatiseerde ML-instellingen.  
+
+    Het duurt enkele minuten om het cluster te maken. Wacht totdat het cluster wordt uitgevoerd voordat u doorgaat.
+
+1. Installeren en het Azure Machine Learning-SDK-pakket te koppelen aan uw cluster.  
+
+    * [Maken van een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) met een van deze instellingen (één van deze opties kiezen):
+    
+        * Azure Machine Learning-SDK installeren zonder geautomatiseerde machine learning-mogelijkheden:
+            | Instelling | Waarde |
+            |----|---|
+            |Bron | Uploaden van Python EI of PyPI
+            |De naam van de PyPi | azureml-sdk[databricks]
+    
+        * Azure Machine Learning-SDK installeren met geautomatiseerde machine learning:
+            | Instelling | Waarde |
+            |----|---|
+            |Bron | Uploaden van Python EI of PyPI
+            |De naam van de PyPi | azureml-sdk[automl_databricks]
+    
+    * Schakel niet **automatisch koppelen aan alle clusters**
+
+    * Selecteer **Attach** naast de clusternaam van uw
+
+    * Zorg ervoor dat er geen fouten zijn totdat de status gewijzigd in **gekoppeld**. Het kan enkele minuten duren.
+
+    Als u een oude versie van de SDK hebt, deze van de geïnstalleerde bibliotheken van het cluster uit te schakelen en verplaatsen naar de Prullenbak. De nieuwe versie van de SDK installeren en opnieuw starten van het cluster. Als er een probleem na deze is, loskoppelen en opnieuw koppelen van uw cluster.
+
     Wanneer u klaar bent, wordt de bibliotheek gekoppeld, zoals wordt weergegeven in de volgende afbeelding. Houd rekening met deze [problemen Databricks](resource-known-issues.md#databricks).
 
    ![SDK is geïnstalleerd op Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
@@ -257,13 +298,12 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
 
    c. Op de **bibliotheken** tabblad **opnieuw**.
 
-1. Download de [SDK van Azure Databricks/Azure Machine Learning-notebook archiefbestand](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
+1. Download de [SDK van Azure Databricks/Azure Machine Learning-notebook archiefbestand](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc).
 
    >[!Warning]
    > Veel voorbeeldnotitieblokken zijn beschikbaar voor gebruik met Azure Machine Learning-service. Alleen [deze voorbeeldnotitieblokken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) werken met Azure Databricks.
-   > 
 
-1.  [Importeren van dit bestand archiveren](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) naar uw Databricks-cluster en beginnen met het verkennen, zoals wordt beschreven op de [Machine Learning-laptops](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) pagina.
+1.  [Importeren van het archiefbestand](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) naar uw Databricks-cluster en beginnen met het verkennen, zoals wordt beschreven op de [Machine Learning-laptops](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) pagina.
 
 
 ## <a id="workspace"></a>Het configuratiebestand van een werkruimte maken
@@ -311,6 +351,6 @@ U kunt het configuratiebestand op drie manieren maken:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een model trainen op Azure Machine Learning met de MNIST-gegevensset](tutorial-train-models-with-aml.md)
-- [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk)
-- [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
+- [Een model te trainen](tutorial-train-models-with-aml.md) op Azure Machine Learning met de gegevensset MNIST]
+- Weergave de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) verwijzing
+- Meer informatie over de [SDK voor Azure Machine Learning-Dataprep](https://aka.ms/data-prep-sdk)

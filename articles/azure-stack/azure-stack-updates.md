@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ca09427de2f18612146ff03e4eef705006823ca8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222493"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302609"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Updates beheren in Azure Stack-overzicht
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 Microsoft-updatepakketten vrij voor Azure Stack-systemen doorgaans geïntegreerde rond de vierde dinsdag van elke maand. Stel uw OEM over hun specifieke melding om ervoor te zorgen updatemeldingen bereiken in uw organisatie. U kunt ook controleren in deze Documentatiebibliotheek onder **overzicht** > **opmerkingen bij de Release** voor informatie over de versies die in de actieve ondersteuning zijn. 
 

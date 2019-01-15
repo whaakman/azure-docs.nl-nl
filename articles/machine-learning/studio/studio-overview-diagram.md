@@ -1,27 +1,8 @@
 ---
-title: Overzichtsdiagram van de mogelijkheden van Machine Learning Studio - Azure | Microsoft Docs
-description: Een afdrukbaar diagram van de mogelijkheden van Azure Machine Learning Studio dat laat zien hoe u met Studio een predictive analytics-experiment opzet en dit in de Azure-cloud implementeert.
-keywords: Machine Learning Studio, overzichtsdiagram, downloaden
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-ms.author=haining, previous-author=hning86
-ms.author: garye
-editor: cgronlun
-ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-ms.date: 04/04/2017
-ms.openlocfilehash: ce842d11d47529eca2be894a230b60417cea102f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278012"
+Titel: Overzichtsdiagram van Machine Learning Studio mogelijkheden titleSuffix: Azure Machine Learning Studio description: Een afdrukbaar diagram van de mogelijkheden van Azure Machine Learning Studio dat laat zien hoe u met Studio een predictive analytics-experiment opzet en dit in de Azure-cloud implementeert.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: overzicht
+
+Auteur: garyericson ms.author: garye ms.custom: vorige ms.author=haining, vorige auteur = hning86 ms.date: 04/04/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio
 Het diagram **Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio** geeft u een overzicht van hoe u Machine Learning Studio kunt gebruiken om een predictive analytics-model op te zetten en dit te implementeren in de Azure-cloud.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e8f80e7d19a961c22b4e1e88556ac165d2558034
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 764088e7f463f0c249f176514d485944d9c9d76e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082740"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264628"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Profiel web-apps die worden uitgevoerd op een Azure-machine of virtuele-machineschaalset met Application Insights Profiler
 U kunt Application Insights profiler voor deze services ook implementeren:
@@ -53,7 +53,7 @@ Deze pagina leidt u door de stappen die nodig zijn om op te halen die worden uit
 
    Om toe te passen de wijzigingen, omvat deze doorgaans een implementatie van de volledige sjabloon of een cloudservice op basis van publiceren via PowerShell-cmdlets of Visual Studio.  
 
-   De volgende powershell-opdrachten zijn een alternatieve benadering voor bestaande virtuele machines die alleen de Azure Diagnostics-extensie is van toepassing. U hoeft alleen de ProfilerSink, zoals hierboven wordt vermeld op de configuratie die is geretourneerd door de opdracht Get-AzureRmVMDiagnosticsExtension toevoegen. Vervolgens moet u de bijgewerkte configuratie doorgeven aan de opdracht Set-AzureRmVMDiagnosticsExcension.
+   De volgende powershell-opdrachten zijn een alternatieve benadering voor bestaande virtuele machines die alleen de Azure Diagnostics-extensie is van toepassing. U hoeft alleen de ProfilerSink, zoals hierboven wordt vermeld op de configuratie die is geretourneerd door de opdracht Get-AzureRmVMDiagnosticsExtension toevoegen. Vervolgens moet u de bijgewerkte configuratie doorgeven aan de opdracht Set-AzureRmVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

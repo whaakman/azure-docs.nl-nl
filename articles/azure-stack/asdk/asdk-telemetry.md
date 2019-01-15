@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0e8138f66c9284531b9610c9bc2996974e2075ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 831c233672e162462439056e56a244e6fb8a2f31
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339506"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264204"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-telemetrie
 
@@ -68,7 +68,7 @@ De Windows-register-Editor wordt gebruikt om het telemetrieniveau van de handmat
 Voordat u implementeert Azure Stack op de host van development kit, opstarten naar de CloudBuilder.vhdx en voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host
@@ -93,7 +93,7 @@ De telemetrie-niveaus zijn cumulatief en gecategoriseerd in vier niveaus (0-3):
 - **Informatie met betrekking tot kwaliteit** die helpt Microsoft bij het ontwikkelen van een basiskennis hebt van hoe Azure Stack wordt uitgevoerd. Een voorbeeld is het aantal kritieke waarschuwingen op een specifieke hardwareconfiguratie.
 - **Compatibiliteit**, die zorgt voor een goed begrip over welke Resource Providers zijn geïnstalleerd op een systeem en de virtuele machine en identificeert mogelijke compatibiliteitsproblemen.
 
-**2 (uitgebreid)**. Extra inzichten, met inbegrip van: informatie over hoe het besturingssysteem en andere Azure Stack-services worden gebruikt, hoe ze uitvoeren, geavanceerde betrouwbaarheidsgegevens en gegevens van zowel de Basic- en beveiligingsniveaus.
+**2 (Enhanced)**. Extra inzichten, met inbegrip van: informatie over hoe het besturingssysteem en andere Azure Stack-services worden gebruikt, hoe ze uitvoeren, geavanceerde betrouwbaarheidsgegevens en gegevens van zowel de Basic- en beveiligingsniveaus.
 
 **3 (volledig)**. Alle gegevens die nodig zijn om te identificeren en te helpen problemen op te lossen, plus gegevens uit de **Security**, **Basic**, en **uitgebreid** niveaus.
 

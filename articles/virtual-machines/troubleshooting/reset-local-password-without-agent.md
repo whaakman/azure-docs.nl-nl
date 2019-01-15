@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412785"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267042"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Lokale Windows-wachtwoord offline voor Azure-VM herstellen
 U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure met de [Azure portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voorwaarde dat de Azure-gastagent is geïnstalleerd. Deze methode is de belangrijkste manier om een wachtwoord opnieuw instellen voor een Azure-VM. Als u problemen ondervindt met de Azure-gastagent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron-OS-schijf koppelen aan een andere virtuele machine. De stappen in dit artikel niet van toepassing op Windows-domeincontrollers. 
@@ -37,6 +37,19 @@ De belangrijkste stappen voor het uitvoeren van een lokaal wachtwoord opnieuw in
 * Loskoppelen van de besturingssysteemschijf van de virtuele machine van de VM voor probleemoplossing.
 * Resource Manager-sjabloon gebruiken om te maken van een VM met behulp van de oorspronkelijke virtuele schijf.
 * Wanneer de nieuwe virtuele machine wordt opgestart, werk de configuratiebestanden die u maakt het wachtwoord van de gebruiker vereist.
+
+> [!NOTE]
+> U kunt de volgende processen automatiseren:
+>
+> - Het maken van de virtuele machine voor probleemoplossing
+> - De OS-schijf koppelen
+> - De oorspronkelijke virtuele machine opnieuw te maken
+> 
+> U doet dit door gebruik van de [Scripts voor herstel van Azure-VM](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Als u ervoor kiest om de Azure VM Recovery Scripts te gebruiken, kunt u het volgende proces in de sectie 'Gedetailleerde stappen':
+> 1. Overslaan 1 en 2 van de stappen in met behulp van de scripts de besturingssysteemschijf van de betrokken virtuele machine koppelen aan een virtuele machine voor herstel.
+> 2. Volg de stappen 3 – 6 om toe te passen van de oplossingen.
+> 3. Sla stap 7 tot 9 met behulp van de scripts opnieuw opbouwen van de virtuele machine.
+> 4. Volg stap 10 en 11.
 
 ## <a name="detailed-steps"></a>Gedetailleerde stappen
 
@@ -133,7 +146,7 @@ Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of 
      ![Kopiëren van schijf-URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Een virtuele machine maken van de besturingssysteemschijf van de bron-VM:
    
-   Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) aan een virtuele machine maken vanaf een gespecialiseerde VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
+   * Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) aan een virtuele machine maken vanaf een gespecialiseerde VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
    * Als u behouden van alle voorgaande instellingen voor de virtuele machine wilt, selecteert u *template bewerken* voor uw bestaande VNet, subnet, netwerkadapter of openbaar IP-adres.
    * In de `OSDISKVHDURI` parameter tekstvak, plak de URI van de bron-VHD verkrijgen in de vorige stap:
      
@@ -144,8 +157,8 @@ Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of 
     * From %windir%\System32
       * remove FixAzureVM.cmd
     * From %windir%\System32\GroupPolicy\Machine\
-      * scripts.ini verwijderen
-    * Van %windir%\System32\GroupPolicy
+      * remove scripts.ini
+    * From %windir%\System32\GroupPolicy
       * gpt.ini verwijderen (als gpt.ini bestond, en u deze hebt gewijzigd in gpt.ini.bak, het bestand .bak terug naar gpt.ini wijzigen)
 
 ## <a name="next-steps"></a>Volgende stappen

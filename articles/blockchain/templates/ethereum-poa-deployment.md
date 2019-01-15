@@ -1,6 +1,6 @@
 ---
 title: Ethereum Proof-of-Authority Consortium - Azure
-description: De oplossing Etherereum Proof-of-Authority Consortium gebruiken om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk
+description: De oplossing Ethereum Proof-of-Authority Consortium gebruiken om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk
 services: azure-blockchain
 keywords: ''
 author: CodyBorn
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974043"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260377"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -273,7 +273,7 @@ Hier volgt een gedetailleerde beschrijving van elke parameter:
   Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Consortium lid-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. Lid-ID moet in het geval van een particulier netwerk, uniek zijn in verschillende organisaties in hetzelfde netwerk.  Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's. Noteer de waarde van deze parameter omdat moet u deze delen met andere leden van de gekoppelde om ervoor te zorgen dat er geen conflicten.|0-255|N.v.t.
-Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999.999.999|10101010
+Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999,999,999|10101010
 Ethereum-mailadres van beheerder|Het adres Ethereum die wordt gebruikt voor uw deelname aan PoA governance.  We adviseren MetaMask gebruiken voor het genereren van een Ethereum-adres.|42 alfanumerieke tekens beginnen met 0 x|N.v.t.
 Geavanceerde opties|Geavanceerde opties voor Ethereum-instellingen|In- of uitschakelen|Uitschakelen
 Openbaar IP-adres (geavanceerde opties = inschakelen)|Het netwerk achter een VNet-Gateway implementeert en peering toegang verwijderd. Als deze optie is geselecteerd, moeten alle leden van een VNet-Gateway voor de verbinding gebruiken om compatibel te zijn.|Openbaar IP-adres privé VNet|Openbare IP
@@ -314,7 +314,7 @@ Als de implementatie is voltooid, kunt u zult toegang kunnen krijgen tot de beno
 
 -   Governance-Dashboard-URL
 
--   Azure Monitor-URL
+-   Azure Monitor URL
 
 -   Gegevens-URL
 
@@ -347,7 +347,7 @@ Deze eerste stap is met behulp van de implementatie op basis van een openbaar IP
 
 1.  De volgende informatie delen met het gekoppelde lid. Deze informatie kan worden gevonden in uw e-mail na de implementatie of in de uitvoer van de portal-implementatiescenario.
 
-    -  Consortium gegevens-Url
+    -  Consortium Data Url
 
     -  Het aantal knooppunten dat u hebt geïmplementeerd
 
@@ -463,7 +463,7 @@ Uit veiligheidsoverwegingen, de toegang tot de SSH-poort is standaard niet toege
 
 3.  Selecteer de \"toestaan-ssh\" regel
 
-    ![SSH-toestaan](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
 
 4.  Wijziging \"actie\" om toe te staan
 

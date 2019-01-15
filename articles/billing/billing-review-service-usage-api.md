@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
-ms.openlocfilehash: bddb72f2b76d6e652dd26f2e383b7d06fded881b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395454"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265750"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Bekijk het gebruik van Azure-resource met behulp van de REST-API
 
@@ -39,11 +39,11 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-De `{subscriptionGuid}` -parameter is vereist en moet een abonnements-ID die kan worden gelezen met behulp van de provieed referenties in de API-token bevatten. de `{reportName}`
+De `{subscriptionGuid}` -parameter is vereist en moet een abonnements-ID die kan worden gelezen met de referenties die zijn opgegeven in de API-token bevatten. de `{reportName}`
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Beschrijving|  
+|Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*| Vereist. Ingesteld op `application/json`. |  
 |*Autorisatie:*| Vereist. Ingesteld op een geldige `Bearer` token. |
@@ -146,7 +146,7 @@ De `Resource` dimensie kunt u kosten voor specifieke resources rapporteren.
 
 ### <a name="changing-timeframes"></a>Tijdsbestek wijzigen
 
-Stel de `timeframe` de definitie `Custom` in te stellen van een bepaald tijdsbestek buiten de week op datum en maand tot heden van ingebouwde opties.
+Stel de `timeframe` definitie `Custom` in te stellen van een bepaald tijdsbestek buiten de week op datum en maand tot datum ingebouwde opties.
 
 ```json
 "timeframe": "Custom",

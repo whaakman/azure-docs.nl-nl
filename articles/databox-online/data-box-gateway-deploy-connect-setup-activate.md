@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120510"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260428"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Zelfstudie: Verbinding maken, instellen, het activeren van Azure Data Box-Gateway (Preview) 
 
@@ -86,7 +86,7 @@ U bent nu op de **Dashboard** van uw apparaat.
     - U kunt uw netwerk-interface configureren als IPv4.
 
     >[!NOTE] 
-    > We raden aan dat u het lokale IP-adres van de interface netowrk van statisch naar DCHP, niet overschakelen, tenzij u een ander IP-adres verbinding maken met het apparaat hebt. Als u met behulp van een netwerkinterface en u overschakelen naar DHCP, zou er geen manier om te bepalen van de DHCP-adres. Als u wijzigen in een DHCP-adres wilt, wachten totdat het apparaat is geregistreerd bij de service en vervolgens wijzigen. U kunt bekijken, de IP-adressen van alle adpaters in de **apparaateigenschappen** in Azure portal voor uw service.
+    > We raden aan dat u het lokale IP-adres van de netwerkinterface van statisch naar DHCP, niet overschakelen, tenzij u een ander IP-adres verbinding maken met het apparaat hebt. Als u met behulp van een netwerkinterface en u overschakelen naar DHCP, zou er geen manier om te bepalen van de DHCP-adres. Als u wijzigen in een DHCP-adres wilt, wachten totdat het apparaat is geregistreerd bij de service en vervolgens wijzigen. U kunt bekijken, de IP-adressen van alle adpaters in de **apparaateigenschappen** in Azure portal voor uw service.
 
 4. (Optioneel) Configureer uw webproxyserver. Hoewel webproxyconfiguratie optioneel is, er rekening mee dat als u een webproxy gebruikt, u alleen deze hier configureren kunt.
    
@@ -94,7 +94,7 @@ U bent nu op de **Dashboard** van uw apparaat.
    
    In de **Web proxy** pagina:
    
-   1. Geef de **Web-URL van proxy** in deze indeling: *http://&lt;host-IP-adres of FQDN&gt;: poortnummer*. Houd er rekening mee dat HTTPS-URL's worden niet ondersteund.
+   1. Geef de **Web-URL van proxy** in deze indeling: *http://&lt;host-IP-adres of FQDN-naam&gt;: poortnummer*. Houd er rekening mee dat HTTPS-URL's worden niet ondersteund.
    2. Geef **verificatie** als **Basic** of **geen**.
    3. Als u verificatie gebruikt, ook moet u voor een **gebruikersnaam** en **wachtwoord**.
    4. Klik op **Toepassen**. Dit wordt gevalideerd en de geconfigureerde web proxy-instellingen toepassen.

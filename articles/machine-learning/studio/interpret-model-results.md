@@ -1,26 +1,8 @@
 ---
-title: Interpreteren modelresultaten in Machine Learning Studio - Azure | Microsoft Docs
-description: Klik hier voor meer informatie over het kiezen van de optimale parameter is ingesteld voor een algoritme gebruikt en score model uitvoer visualiseren.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 9f8ff93efb74bca427cf74351af9d2442f9ab757
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276482"
+Titel: Modelresultaten in Machine Learning Studio titleSuffix interpreteren: Azure Machine Learning Studio description: Klik hier voor meer informatie over het kiezen van de optimale parameter is ingesteld voor een algoritme gebruikt en score model uitvoer visualiseren.
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Modelresultaten in Azure Machine Learning Studio interpreteren
 In dit onderwerp wordt uitgelegd hoe te visualiseren en te interpreteren voorspellingsresultaten in Azure Machine Learning Studio. Nadat u hebt een model wordt getraind en voorspellingen daarboven ("het model beoordeeld') wordt uitgevoerd, moet u om te begrijpen en interpreteren van het resultaat voorspelling.

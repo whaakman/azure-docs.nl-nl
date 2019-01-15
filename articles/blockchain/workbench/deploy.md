@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102989"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266584"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -30,7 +30,7 @@ Met Blockchain Workbench kunt u een blockchain grootboek, samen met een set van 
 * 1 Event Grid-Topic
 * 1-Service Bus Namespace
 * 1 Application Insights
-* 1 SQL-Database (Standard S0)
+* 1 SQL Database (Standard S0)
 * 2 App Services (standaard)
 * 2 Azure Key Vaults
 * 2 Azure Storage-accounts (Standard LRS)
@@ -240,7 +240,7 @@ Vervolgens moet u het manifest voor het gebruik van toepassingsrollen in Azure A
     > [!IMPORTANT]
     > De waarde **beheerder** is nodig voor het identificeren van Blockchain Workbench-beheerders.
 
-4. In het manifest, wijzigt u ook de **Oauth2AllowImplictFlow** waarde die moet worden **waar**.
+4. In het manifest, wijzigt u ook de **Oauth2AllowImplicitFlow** waarde die moet worden **waar**.
 
     ``` json
     "oauth2AllowImplicitFlow": true,

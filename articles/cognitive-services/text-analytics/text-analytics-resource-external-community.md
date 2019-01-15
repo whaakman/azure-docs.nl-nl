@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: heidist
-ms.openlocfilehash: fbea686ba0f67cdab79f1553344bd99dd105fc00
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 139699fac1a84273174f2c3bd30da2a911de46b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605246"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302253"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Externe en community-inhoud voor de Text Analytics-Cognitive Service
 
@@ -25,7 +25,7 @@ ms.locfileid: "45605246"
 
 + [Text Analytics API oorspronkelijke aankondiging (Azure-blog)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
 
-+ [Met behulp van Tekstanalyse sleutel woordgroep Cognitive Services-API van PowerShell (MSDN-blog)](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
++ [Met behulp van Tekstanalyse sleutel woordgroep Cognitive Services-API van PowerShell (AutomationNext blog)](https://automationnext.wordpress.com/tag/text-analytics/)
 
 + [R snel tip: Microsoft Cognitive Services Text Analytics-API (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
@@ -33,7 +33,7 @@ ms.locfileid: "45605246"
 
 + [Sentimentanalyse met Dynamics 365 CRM Online (MSDN-blog)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
 
-+ Power BI-blog: extractie van sleutel woordgroepen uit Facebook-berichten: [deel 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) en [deel 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Power BI-blog: Extractie van sleuteluitdrukkingen uit Facebook-berichten: [Deel 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) en [deel 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
 ## <a name="videos"></a>Video's
 
@@ -49,5 +49,5 @@ Zoekt u informatie over een functie of use-casescenario die we hebben geen betre
 
 ## <a name="see-also"></a>Zie ook
 
- [StackOverflow: Azure Text Analytics-API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

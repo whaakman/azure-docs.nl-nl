@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ecbd555809799619d61a7ff33911b7f28dcb3005
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232529"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262707"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack-beheerde schijven: de verschillen en overwegingen met betrekking tot
 
@@ -40,11 +40,11 @@ Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer va
 |Installatiekopie          | Ondersteuning voor beheerde aangepaste installatiekopie |Nog niet ondersteund|
 |Opties voor back-up |Ondersteuning voor Azure Backup-Service |Nog niet ondersteund |
 |Opties voor herstel na noodgevallen |Ondersteuning voor Azure Site Recovery |Nog niet ondersteund|
-|Schijftypen     |Premium SSD, Standard-SSD (Preview) en Standard HDD |Premium SSD, standaard harde schijven |
+|Schijftypen     |Premium SSD, Standard-SSD (Preview) en Standard HDD |Premium SSD, Standard HDD |
 |Premium-schijven  |Volledig ondersteund |Kan worden ingericht, maar er is geen prestatielimiet voor of garanderen  |
 |Premium-schijven IOPs  |Afhankelijk van de schijfgrootte  |2300 IOP's per schijf |
 |Doorvoer van Premium-schijven |Afhankelijk van de schijfgrootte |145 MB/s per schijf |
-|Schijfgrootte  |Azure Premium-schijf: P4 (32 GiB) naar P80 (32 TiB)<br>Azure Standard-SSD-schijf: E10 (128 GiB) naar E80 (32 TiB)<br>Azure Standard harde schijf: S4 (32 GiB) naar S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 giB |
+|Schijfgrootte  |Azure Premium Disk: P4 (32 GiB) naar P80 (32 TiB)<br>Azure Standard SSD Disk: E10 (128 GiB) naar E80 (32 TiB)<br>Azure Standard HDD Disk: S4 (32 GiB) naar S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 GiB |
 |Exemplaar van de momentopname schijven|Momentopname maken van Azure beheerde schijven zijn gekoppeld aan een actieve virtuele machine die wordt ondersteund|Nog niet ondersteund |
 |Schijven prestaties analytische |Cumulatieve metrische gegevens en per schijf ondersteunde metrische gegevens |Nog niet ondersteund |
 |Migratie      |Hulpprogramma voor het migreren van bestaande niet-beheerde Azure Resource Manager VM's zonder de noodzaak om de virtuele machine opnieuw te bieden  |Nog niet ondersteund |
@@ -72,7 +72,7 @@ Na het toepassen van de 1808 bijwerken of hoger, moet u de volgende configuratie
 - Als een abonnement is gemaakt vóór de update 1808, volg de onderstaande stappen voor het bijwerken van het abonnement. Anders wordt kan het implementeren van virtuele machines in dit abonnement mislukken met een foutbericht "Interne fout in Schijfbeheer."
    1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
    2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
-- Als u een omgeving met meerdere tenants, vraagt u uw cloud-operator (mei in uw eigen organisatie of van de serviceprovider) te configureren op elk van uw adreslijsten Gast Volg deze stappen in [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Implementatie van VM's in een abonnement dat is gekoppeld aan een gastenlijst anders kan mislukken met een foutbericht "Interne fout in Schijfbeheer."
+- Als u een omgeving met meerdere tenants gebruikt, vraagt u uw cloud-operator (mogelijk in uw eigen organisatie of van de Service Provider) opnieuw configureren van elk van uw gast-adreslijsten na de volgende stappen uit in [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Implementatie van VM's in een abonnement dat is gekoppeld aan die directory Gast anders kan mislukken met een foutbericht "Interne fout in Schijfbeheer."
 
 
 ## <a name="next-steps"></a>Volgende stappen

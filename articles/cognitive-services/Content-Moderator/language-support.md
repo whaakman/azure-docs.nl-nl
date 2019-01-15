@@ -1,21 +1,21 @@
 ---
 title: Taalondersteuning - Content Moderator-API
 titleSuffix: Azure Cognitive Services
-description: Een lijst van natuurlijke talen die worden ondersteund door de Content Moderator-API.
+description: Dit is een lijst van natuurlijke talen die ondersteuning biedt voor de Content Moderator-API.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 95e7f5ce52f4bcf45153b4e455c1427f7117641c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276372"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263651"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Taalondersteuning voor Content Moderator-API
 
@@ -33,11 +33,11 @@ ms.locfileid: "52276372"
 | Buginees | Arabisch | Tsjechisch                     | Nederlands
 | Buhid | Armeens | Deens                     | Fins
 | Carian | Assamees | Nederlands                     | Frans
-| Chinees (vereenvoudigd) | Azerbeidzjaans | Nederlands  | Grieks (modern)
+| Chinees (vereenvoudigd) | Azerbeidzjaans | Nederlands  | Greek (modern)
 | Chinees (traditioneel) | Bengalees - Bangladesh | Fins  | Italiaans
-| Kerk (Slavisch) | Bengalees - India | Frans     | Koreaans
+| Kerk (Slavisch) | Bangla - India | Frans     | Koreaans
 | Koptisch | Baskisch | Duits                      | Noors
-| Tsjechisch |  Belarussisch | Grieks (modern)         | Pools
+| Tsjechisch |  Belarussisch | Greek (modern)         | Pools
 | Dhivehi | Bosnisch - Cyrillisch | Hongaars      | Portugees
 | Nederlands | Bosnisch - Latijns | Italiaans             | Roemeens
 | Nederlands | (Creole) | Bretons [niet GeoPol] | Japans  | Russisch
@@ -97,7 +97,7 @@ ms.locfileid: "52276372"
 | | Mahratti
 | | Mongools
 | | Nepalees
-| | Noors (Bokmål)
+| | Norwegian (Bokmål)
 | | Noors (Nynorsk)
 | | Odia
 | | Pashto
@@ -115,7 +115,7 @@ ms.locfileid: "52276372"
 | | Servisch (Cyrillisch)
 | | Servisch (Cyrillisch, Bosnië en Herzegovina)
 | | Servisch (Latijns)
-| | Noord
+| | Sesotho
 | | Noord-Sotho
 | | Tswana
 | | Sindhi

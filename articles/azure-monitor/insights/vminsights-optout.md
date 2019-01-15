@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: f0addcc0b6220bcf877c3cac20f2d1376eb19e61
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191068"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263353"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Het uitschakelen van de bewaking van uw virtuele machines met Azure Monitor voor virtuele machines (preview)
 
@@ -31,7 +31,7 @@ Azure Monitor voor virtuele machines, is afhankelijk van de volgende onderdelen 
 * Een Log Analytics-werkruimte, waarin gegevens worden opgeslagen die worden verzameld van VM's en andere bronnen.
 * Verzamelen van prestatiemeteritems die zijn geconfigureerd in de werkruimte, die updates van de configuratie van de bewaking op alle virtuele machines verbonden met de werkruimte.
 * Twee bewakingsoplossingen geconfigureerd in de werkruimte - **InfrastructureInsights** en **ServiceMap**, welke configuratie van de bewaking update op alle virtuele machines die zijn verbonden met de werkruimte.
-* Twee virtuele Azure-machine-uitbreidingen, de **MicrosoftMonitoringAgent** en de **DepenendencyAgent**, die verzamelen en verzenden van gegevens naar de werkruimte.
+* Twee virtuele Azure-machine-uitbreidingen, de **MicrosoftMonitoringAgent** en de **DependencyAgent**, die verzamelen en verzenden van gegevens naar de werkruimte.
 
 Overweeg het volgende bij de voorbereiding op het controleren van uw virtuele machines met virtuele machines met Azure Monitor uitschakelen:
 
@@ -43,7 +43,7 @@ Overweeg het volgende bij de voorbereiding op het controleren van uw virtuele ma
 
 ## <a name="complete-removal-of-azure-monitor-for-vms"></a>Verwijderen van Azure Monitor voor virtuele machines
 
-De volgende stappen wordt beschreven hoe u voor het verwijderen van Azure Monitor voor virtuele machines als u nog steeds de Log Analytics-werkruimte nodig hebt. U gaat verwijderen de **InfastructureInsights** en **ServiceMap** oplossingen van de werkruimte.  
+De volgende stappen wordt beschreven hoe u voor het verwijderen van Azure Monitor voor virtuele machines als u nog steeds de Log Analytics-werkruimte nodig hebt. U gaat verwijderen de **InfrastructureInsights** en **ServiceMap** oplossingen van de werkruimte.  
 
 >[!NOTE]
 >Als u het Serviceoverzicht bewakingsoplossing voor het inschakelen van Azure Monitor voor virtuele machines en u nog steeds afhankelijk van deze zijn, zijn niet verwijderd die oplossing zoals beschreven in stap 6 hieronder.  

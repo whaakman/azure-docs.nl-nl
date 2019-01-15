@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a8f7ccdb199f934011b6d64d813eb36cc9dff952
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d8a46287d2b84735ffb6d5159346cb9b8243472
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804545"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263987"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Ondersteuning voor taal en regio voor de Bing nieuws zoeken-API
 
@@ -46,21 +46,21 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Maleisië|Nederlands|en Mijn|
 |Nieuw-Zeeland|Nederlands|NL-NZ|
 |Republiek der Filippijnen|Nederlands|NL-PH|
-|Singapore|Nederlands|en-Lidmaatschappen|
-|Verenigde Staten|Nederlands|nl-NL|
-|Nederlands|Algemene|NL-WW|
-|Nederlands|Algemene|NL-XA|
-|Zuid-Afrika|Nederlands|NL-ZA|
-|Argentinië|Spaans|ES-AR|
-|Chili|Spaans|ES-CL|
+|Singapore|Nederlands|en-SG|
+|Verenigde Staten|Nederlands|en-US|
+|Nederlands|Algemene|en-WW|
+|Nederlands|Algemene|en-XA|
+|Zuid-Afrika|Nederlands|en-ZA|
+|Argentinië|Spaans|es-AR|
+|Chili|Spaans|es-CL|
 |Spanje|Spaans|es-ES|
 |Mexico|Spaans|es-MX|
-|Verenigde Staten|Spaans|ES-US|
+|Verenigde Staten|Spaans|es-US|
 |Spaans|Algemene|ES-Excel|
 |Finland|Fins|fi-FI|  
-|Frankrijk|Frans|FR-worden|
+|Frankrijk|Frans|fr-BE|
 |Canada|Frans|fr-CA|
-|België|Nederlands|NL-worden|
+|België|Nederlands|nl-BE|
 |Zwitserland|Frans|FR-h|
 |Frankrijk|Frans|fr-FR|  
 |Italië|Italiaans|IT-IT|
@@ -86,11 +86,11 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Duitsland|Duits|de-DE|
 |Australië|Nederlands|en-AU|
 |Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|nl-NL|
-|Nederlands|Algemene|NL-WW|
-|Chili|Spaans|ES-CL|
+|Verenigde Staten|Nederlands|en-US|
+|Nederlands|Algemene|en-WW|
+|Chili|Spaans|es-CL|
 |Mexico|Spaans|es-MX|
-|Verenigde Staten|Spaans|ES-US|
+|Verenigde Staten|Spaans|es-US|
 |Finland|Fins|fi-FI|  
 |Canada|Frans|fr-CA|
 |Frankrijk|Frans|fr-FR|  
@@ -108,7 +108,7 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Duitsland|Duits|de-DE|
 |Australië|Nederlands|en-AU|
 |Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|nl-NL|
+|Verenigde Staten|Nederlands|en-US|
 |Canada|Nederlands|NL-CA|
 |India|Nederlands|NL-IN|
 |Frankrijk|Frans|fr-FR|
@@ -125,9 +125,9 @@ Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparame
 |Land/regio|Landnummer|  
 |---------------------|------------------|  
 |Argentinië|AR|  
-|Australië|AUSTRALIË|  
+|Australië|AU|  
 |Oostenrijk|AT|  
-|België|WORDEN|  
+|België|BE|  
 |Brazilië|BR|  
 |Canada|CA|  
 |Chili|CL|  
@@ -141,12 +141,12 @@ Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparame
 |Italië|IT|  
 |Japan|JP|  
 |Korea|KR|  
-|Maleisië|MIJN|  
+|Maleisië|MY|  
 |Mexico|MX|  
 |Nederland|NL|  
 |Nieuw-Zeeland|NZ|  
-|Noorwegen|NEE|  
-|Volksrepubliek China|ALGEMENE NAAM|  
+|Noorwegen|NO|  
+|Volksrepubliek China|CN|  
 |Polen|PL|  
 |Portugal|PT|  
 |Republiek der Filippijnen|PH|  
@@ -154,9 +154,9 @@ Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparame
 |Saoedi-Arabië|SA|  
 |Zuid-Afrika|ZA|  
 |Spanje|ES|  
-|Zweden|TWEEDE EDITIE|  
+|Zweden|SE|  
 |Zwitserland|CH|  
-|Taiwan|TWEE|  
+|Taiwan|TW|  
 |Turkije|TR|  
 |Verenigd Koninkrijk|GB|  
 |Verenigde Staten|VS|

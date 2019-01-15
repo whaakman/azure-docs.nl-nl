@@ -1,26 +1,8 @@
 ---
-title: 'Stap 1: Een werkruimte - Azure Machine Learning Studio maken | Microsoft Docs'
-description: 'Stap 1 van het ontwikkelen van een overzicht van de voorspellende oplossing: Meer informatie over het instellen van een nieuwe Azure Machine Learning Studio-werkruimte.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: bc83fa6e3fa7d5ef31515309f5c1cd0b025c8906
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256363"
+Titel: ' Stap 1: Een werkruimte maken ' titleSuffix: Azure Machine Learning Studio description: ' Stap 1 van het ontwikkelen van een overzicht van de voorspellende oplossing: Meer informatie over het instellen van een nieuwe Azure Machine Learning Studio-werkruimte. "
+Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/23/2017
 ---
 # <a name="walkthrough-step-1-create-an-azure-machine-learning-studio-workspace"></a>Kennismaken, stap 1: Een Azure Machine Learning Studio-werkruimte maken
 Dit is de eerste stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md).

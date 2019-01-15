@@ -1,6 +1,6 @@
 ---
 title: Ethereum bewijs van werk consortium-oplossingssjabloon
-description: De oplossingssjabloon Etherereum bewijs van werk Consortium gebruiken om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk
+description: De oplossingssjabloon Ethereum bewijs van werk Consortium gebruiken om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231794"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260530"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum bewijs van werk consortium-oplossingssjabloon
 
@@ -49,7 +49,7 @@ Elke implementatie maakt een nieuw exemplaar van de Log Analytics is ook of kan 
 
 ## <a name="deployment-architecture"></a>Implementatie-architectuur
 
-### <a name="description"></a>Beschrijving
+### <a name="description"></a>Description
 
 Deze oplossingssjabloon kan één of meerdere items regio op basis van meerdere lid Ethereum consortium network implementeren. Het virtuele netwerk van elke regio is verbonden met andere regio's in een keten-topologie met behulp van de VNET-gateways en verbindingsresources. Het product biedt ook een registrar, waarin de vereiste gegevens van alle minder en transactie knooppunten geïmplementeerd in elke regio.
 
@@ -67,7 +67,7 @@ Dit proces vereist een Azure-abonnement dat u kunt ondersteuning voor de impleme
 
 Nadat een abonnement is beveiligd, gaat u naar Azure portal. Selecteer **+ een resource maken**, Marketplace (Zie alle), en zoek naar de **Ethereum bewijs van werk Consortium**.
 
-De sjabloonimplementatie begeleidt u bij het configureren van het eerste lid footprint in het netwerk. De stroom van de implementatie is onderverdeeld in vijf stappen: basisbeginselen, Operations Management Suite, regio's voor implementatie, netwerk-grootte en prestaties, Ethereum-instellingen.
+De sjabloonimplementatie begeleidt u bij het configureren van het eerste lid footprint in het netwerk. De stroom van de implementatie is onderverdeeld in vijf stappen: Basisbeginselen, Operations Management Suite, regio's voor implementatie, netwerk-grootte en prestaties, Ethereum-instellingen.
 
 ### <a name="basics"></a>Basisbeginselen
 
@@ -75,7 +75,7 @@ Onder **basisbeginselen**, waarden opgeven voor standard parameters voor elke im
 
 ![Basisbeginselen](./media/ethereum-deployment/sample-deployment.png)
 
-Parameternaam|Beschrijving| Toegestane waarden|Standaardwaarden
+Parameternaam|Description| Toegestane waarden|Standaardwaarden
 ---|---|---|---
 Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
 Implementeren van een netwerk die deel van een consortium uitmaken?|Een netwerk consortium kunt toekomstige implementaties voor deelname aan dit netwerk (zichtbaar wanneer *nieuw* hierboven is geselecteerd)|Zelfstandige Consortium|Zelfstandig
@@ -96,7 +96,7 @@ De blade Operations Management Suite (OMS) kunt u een OMS-resource voor het netw
 
 ![Het maken van nieuwe OMS](./media/ethereum-deployment/new-oms.png)
 
-Parameternaam|Beschrijving| Toegestane waarden|Standaardwaarden
+Parameternaam|Description| Toegestane waarden|Standaardwaarden
 ---|---|---|---
 Verbinding maken met bestaande OMS|Maak een nieuw exemplaar van de Log Analytics of Word lid van een bestaand exemplaar|Nieuwe Join bestaande maken|Nieuwe locatie van de Log Analytics maken|De regio waarin de nieuwe met Log Analytics worden geïmplementeerd (weergegeven indien *nieuw* is geselecteerd)
 Bestaande OMS-werkruimte-Id|Werkruimte-ID van het bestaande exemplaar (weergegeven indien *deelnemen aan bestaande* is geselecteerd) categorie OMS-Service|Kies de prijscategorie voor het nieuwe exemplaar. Meer informatie op https://azure.microsoft.com/pricing/details/log-analytics/ (weergegeven indien *deelnemen aan bestaande* is geselecteerd)|Gratis zelfstandige Per knooppunt|Gratis
@@ -108,7 +108,7 @@ Vervolgens onder **implementatie regio's**, geef de invoer voor **aantal regio('
 
 ![Implementatie-regio 's](./media/ethereum-deployment/deployment-regions.png)
 
-Parameternaam| Beschrijving| Toegestane waarden |Standaardwaarden
+Parameternaam| Description| Toegestane waarden |Standaardwaarden
 ---|---|---|---
 Aantal regio('s)| Aantal regio's om de consortium-netwerk te implementeren|1, 2, 3, 4, 5| 2
 Eerste regio| Eerste regio voor de implementatie van het netwerk consortium|Alle toegestaan Azure-regio 's| US - west
@@ -123,7 +123,7 @@ Vervolgens onder **grootte en prestaties van het netwerk** invoer voor de groott
 
 ![Netwerkgrootte en prestaties](./media/ethereum-deployment/network-size-performance.png)
 
-Parameternaam |Beschrijving |Toegestane waarden| Standaardwaarden
+Parameternaam |Description |Toegestane waarden| Standaardwaarden
 ---|---|---|---
 Aantal knooppunten voor gegevensanalyse|Het aantal analysestructuur knooppunten geïmplementeerd per regio|2 - 15| 2
 Analysestructuur knooppunt opslagprestaties|Het type beheerde schijf een back-up elk van de geïmplementeerde gegevensanalyse-knooppunten.|Standard- of Premium|Standard
@@ -138,10 +138,10 @@ Vervolgens onder **Ethereum-instellingen**, Ethereum-gerelateerde configuratie-i
 
 ![Ethereum-instellingen](./media/ethereum-deployment/standalone-leader-deployment.png)
 
-Parameternaam |Beschrijving |Toegestane waarden|Standaardwaarden
+Parameternaam |Description |Toegestane waarden|Standaardwaarden
 ---|---|---|---
 ConsortiumMember-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. <br /><br />Lid-ID moet uniek zijn in verschillende organisaties in hetzelfde netwerk. Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's.<br /><br />Noteer de waarde van deze parameter omdat moet u deze delen met andere leden van de lid te worden.|0 - 255
-Ethereum-netwerk-ID|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd. Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk. Toegang tot het netwerk is niet toegestaan voor de analysestructuur knooppunten, raden wij nog steeds gebruik van een groot aantal om te voorkomen van conflicten.|5 - 999.999.999| 10101010
+Ethereum Network ID|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd. Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk. Toegang tot het netwerk is niet toegestaan voor de analysestructuur knooppunten, raden wij nog steeds gebruik van een groot aantal om te voorkomen van conflicten.|5 - 999,999,999| 10101010
 Aangepaste genesis blokkeren|Optie voor het automatisch genereren van een blok genesis of geef een aangepaste classificatie.|Ja/Nee| Nee
 Ethereum-accountwachtwoord (aangepaste genesis blok = Nee)|Het administrator-wachtwoord gebruikt om de Ethereum-account dat is geïmporteerd in elk knooppunt te beveiligen. Het wachtwoord moet bevatten het volgende: 1 hoofdletter, 1 kleine letter en 1 cijfer.|12 of meer tekens|N.v.t.
 Ethereum-wachtwoordzin voor persoonlijke sleutel (aangepaste genesis blok = Nee)|De wachtwoordzin die wordt gebruikt voor het genereren van de persoonlijke sleutel van ECC die zijn gekoppeld aan de standaard Ethereum-account die wordt gegenereerd. Een vooraf gegenereerde persoonlijke sleutel hoeft niet expliciet worden doorgegeven.<br /><br />Houd rekening met een wachtwoordzin met voldoende aanvraaggrootte om ervoor te zorgen voor een sterke persoonlijke sleutel en zonder overlap met andere leden consortium. De wachtwoordzin moet de volgende ten minste bevatten: 1 hoofdletter, 1 kleine letter en 1 cijfer.<br /><br />Houd er rekening mee als twee leden gebruikmaken van dezelfde wachtwoordzin de accounts die gegenereerd zijn hetzelfde. Dezelfde wachtwoordzin is handig als één organisatie probeert te implementeren in regio's en wil delen van één account (munt basis) voor alle knooppunten.|12 of meer tekens|N.v.t.
@@ -189,7 +189,7 @@ Status van het knooppunt wordt elke tien seconden vernieuwd. Laad de pagina via 
 
 Uw OMS-portal kunt u vinden door de koppeling in de implementatie-uitvoer (OMSPORTALURL) of door de OMS-resource in de geïmplementeerde resourcegroep selecteren.
 
-![OMS-URL](./media/ethereum-deployment/oms-url.png)
+![OMS URL](./media/ethereum-deployment/oms-url.png)
 
 ![OMS-resource](./media/ethereum-deployment/oms-resource.png)
 
@@ -215,9 +215,9 @@ Bijvoorbeeld:
 
 Hostnaam van Azure portal| Werkelijke hostnaam
 ---|---
-Mn-ethwvu-reg1_0| Mn-ethwvu-reg1000000
-Mn-ethwvu-reg1_1 |Mn-ethwvu-reg1000001
-Mn-ethwvu-reg1_2 |Mn-ethwvu-reg1000002
+mn-ethwvu-reg1_0| mn-ethwvu-reg1000000
+mn-ethwvu-reg1_1 |mn-ethwvu-reg1000001
+mn-ethwvu-reg1_2 |mn-ethwvu-reg1000002
 
 ## <a name="adding-a-new-consortium-member"></a>Een nieuwe consortium lid toevoegen
 
@@ -226,12 +226,12 @@ Mn-ethwvu-reg1_2 |Mn-ethwvu-reg1000002
 Als het eerste lid (of een verbonden lid) van het consortium moet u andere leden van de bieden een aantal soorten informatie, zodat ze kunnen lid worden en de verbinding tot stand brengen. Specifiek:
 
 1. **Gedeelde Consortium configuratiegegevens**: Er is een set gegevens die worden gebruikt voor het indelen van de Ethereum-verbinding tussen de twee leden. De nodige informatie, waaronder de genesis blokkeren, consortium netwerk-ID en -opstartknooppunten, is naar een bestand op de transactie-knooppunten van de leider of een ander lid van de geïmplementeerde geschreven. De locatie van dit bestand wordt vermeld in de sjabloon implementatie output-parameter met de naam **CONSORTIUM gegevens**.
-2. **Peer-Info eindpunt**: de Peer info registrar eindpunt ophalen van gegevens van alle knooppunten die al verbonden met het Ethereum-netwerk van de leiders of een ander lid van de implementatie. De DB slaat een verzameling van informatie met betrekking tot elk knooppunt is verbonden in het netwerk, informatie zoals de hostnaam van het knooppunt, privé-IP-adres, enzovoort. Dit is de sjabloon implementatie output-parameter met de naam **PEER_INFO_ENDPOINT**.
-3. **Peer-primaire sleutel Info**: primaire sleutel van de Peer info registrar wordt gebruikt om te profiteren van de leider of andere adreslid Peer info primaire sleutel. Dit is de sjabloon implementatie output-parameter met de naam **PEER_INFO_PRIMARY_KEY**.
+2. **Peer-Info eindpunt**: Registrar eindpunt van de Peer-info voor informatie van alle knooppunten die al verbonden met het Ethereum-netwerk van de leiders of een ander lid van de implementatie. De DB slaat een verzameling van informatie met betrekking tot elk knooppunt is verbonden in het netwerk, informatie zoals de hostnaam van het knooppunt, privé-IP-adres, enzovoort. Dit is de sjabloon implementatie output-parameter met de naam **PEER_INFO_ENDPOINT**.
+3. **Peer-primaire sleutel Info**: De Peer info registrar primaire sleutel wordt gebruikt voor toegang tot een van de leider of andere adreslid Peer info primaire sleutel. Dit is de sjabloon implementatie output-parameter met de naam **PEER_INFO_PRIMARY_KEY**.
 
 
-4. **VNET-Gateway**: elk lid van een verbinding met het hele blockchain-netwerk via een bestaand lid. Als u wilt verbinding maken met een VNET, moet u de resourcepad naar de VNET-Gateway van het lid waarmee u verbinding maakt. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
-5. **Gedeelde sleutel**: een vooraf vastgestelde geheime tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt. Dit is een alfanumerieke tekenreeks (tussen 1 tot 128 tekens) die is overeengekomen buiten de context van de implementatie. (Bijvoorbeeld **MySharedKeyAbc123**)
+4. **VNET-Gateway**: Elk lid van verbinding een met het hele blockchain-netwerk via een bestaand lid. Als u wilt verbinding maken met een VNET, moet u de resourcepad naar de VNET-Gateway van het lid waarmee u verbinding maakt. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
+5. **Gedeelde sleutel**: Een vooraf vastgestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt. Dit is een alfanumerieke tekenreeks (tussen 1 tot 128 tekens) die is overeengekomen buiten de context van de implementatie. (Bijvoorbeeld **MySharedKeyAbc123**)
 
 ### <a name="acceptance-of-new-member"></a>Acceptatie van nieuwe lid
 
@@ -243,7 +243,7 @@ Meer informatie over hoe u aan de slag met Azure PowerShell-cmdlets en Azure xPl
 
 U moet de meest recente versie van de Azure-cmdlets lokaal is geïnstalleerd en een sessie geopend. Zorg ervoor dat u zich aanmelden bij de sessie met de referenties van uw Azure-abonnement.
 
-**PowerShell: Verbinding maken**
+**PowerShell: Verbinding tot stand brengen**
 
 De PowerShell-module downloaden en lokaal opslaat. De locatie van de PowerShell-module is opgegeven als de **paar-GATEWAY-PS-MODULE** sjabloonimplementatie uitvoerparameter.
 
@@ -261,24 +261,24 @@ Importeer vervolgens de module:
 
 Ten slotte de functie uitvoeren met de juiste invoer:
 
-- **MyGatewayResourceId:** resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** resourcepad van de gateway van het gekoppelde lid. Dit wordt geleverd door het gekoppelde lid en is de sjabloon output-parameter van de implementatie ook met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **Verbindingsnaam:** een naam op voor u deze Gateway-verbinding wilt aanduiden.
-- **Gedeelde sleutel:** het vooraf vastgestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
+- **MyGatewayResourceId:** Het resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Het resourcepad van het gekoppelde lid-gateway. Dit wordt geleverd door het gekoppelde lid en is de sjabloon output-parameter van de implementatie ook met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Verbindingsnaam:** Een naam voor u deze Gateway-verbinding wilt aanduiden.
+- **Gedeelde sleutel:** De vooraf ingestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < bronpad van het gekoppelde lid gateway > - ConnectionName mijnVerbinding - SharedKey "MySharedKeyAbc123"
 
-**xPlat CLI: verbinding tot stand brengen**
+**xPlat CLI: Verbinding tot stand brengen**
 
 De Azure CLI-script downloaden en lokaal opslaat. De locatie van de Azure CLI-script is opgegeven in de implementatie sjabloonparameter met de naam **paar-GATEWAY-AZURE-CLI-SCRIPT**.
 
 Voer het script met de juiste invoer:
 
-- **MyGatewayResourceId:** resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** resourcepad van de gateway van het gekoppelde lid. Dit wordt geleverd door het gekoppelde lid en parameter voor de implementatie van hun implementatie ook met de naam is **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **Verbindingsnaam:** een naam op voor u deze Gateway-verbinding wilt aanduiden.
-- **Gedeelde sleutel:** het vooraf vastgestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
-- **Locatie:** de Azure-regio waar uw gateway-resource is geïmplementeerd.
+- **MyGatewayResourceId:** Het resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Het resourcepad van het gekoppelde lid-gateway. Dit wordt geleverd door het gekoppelde lid en parameter voor de implementatie van hun implementatie ook met de naam is **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Verbindingsnaam:** Een naam voor u deze Gateway-verbinding wilt aanduiden.
+- **Gedeelde sleutel:** De vooraf ingestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
+- **Locatie:** De Azure-regio waar uw gateway-resource is geïmplementeerd.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

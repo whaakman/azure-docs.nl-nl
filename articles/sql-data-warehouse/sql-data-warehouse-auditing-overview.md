@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d35ac7cac5c14a7bd57913046e8f4c09a22f177a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260377"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267433"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -107,7 +107,7 @@ Voordat het instellen van audit, auditing selectievakje in als u een ['Downlevel
 
 5. Klik op de **OK** om op te slaan van de opslagconfiguratie voor meer informatie.
 6. Onder **LOGBOEKREGISTRATIE door GEBEURTENIS**, klikt u op **SUCCES** en **fout** aan te melden van alle gebeurtenissen of afzonderlijke gebeurteniscategorieën kiezen.
-7. Als u controle voor een database configureert, moet u mogelijk om te wijzigen van de verbindingsreeks van uw client om te controleren of de controle van de gegevens correct wordt vastgelegd. Controleer de [FDQN op de Server wijzigen in de connection string](sql-data-warehouse-auditing-downlevel-clients.md) onderwerp voor downlevel-clientverbindingen.
+7. Als u controle voor een database configureert, moet u mogelijk om te wijzigen van de verbindingsreeks van uw client om te controleren of de controle van de gegevens correct wordt vastgelegd. Controleer de [FQDN van Server wijzigen in de connection string](sql-data-warehouse-auditing-downlevel-clients.md) onderwerp voor downlevel-clientverbindingen.
 8. Klik op **OK**.
 
 ## <a id="subheading-3"></a>Analyseren van controlelogboeken en -rapporten
@@ -196,7 +196,7 @@ Een gedeeltelijke lijst van 'Downlevel-clients' bevat:
 * JDBC (Hoewel JDBC TDS 7.4 ondersteunt, de functie voor TDS-omleiding wordt niet volledig ondersteund)
 * Tedious (voor Node.JS)
 
-**Opmerking:** de voorgaande wijziging van de FDQN-server zijn mogelijk nuttig zijn ook voor het toepassen van een beleid voor controle van SQL Server op zonder nodig voor de configuratie van een stap in elke database (tijdelijke risicobeperking).     
+**Opmerking:** De voorgaande wijziging van de FQDN-server zijn mogelijk nuttig zijn ook voor het toepassen van een beleid voor controle van SQL Server op zonder dat nodig is voor een configuratiestap in elke database (tijdelijke risicobeperking).     
 
 
 

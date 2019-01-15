@@ -1,23 +1,21 @@
 ---
-title: Machine learning-algoritme - referentiemateriaal voor Azure Machine Learning Studio | Microsoft Docs
+title: Machine learning-overzichtskaart algoritmen
+titleSuffix: Azure Machine Learning Studio
 description: Een afdrukbaar machine learning-overzichtskaart helpt u bij de juiste algoritme voor uw voorspellende model kiezen in Azure Machine Learning Studio.
-keywords: overzichtskaart algoritmen, referentiemateriaal voor, machine learning-algoritme
 services: machine-learning
-author: ericlicoding
-ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274500"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264305"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-overzichtskaart voor Azure Machine Learning Studio
 

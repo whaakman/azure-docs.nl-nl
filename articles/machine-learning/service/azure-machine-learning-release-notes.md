@@ -11,20 +11,38 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: a7a15e4cd8670e71e1000bc6b1827a4b9292302b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200612"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304091"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
 
+## <a name="2019-01-14"></a>2019-01-14
+
+### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning-SDK voor Python v1.0.8
+
++ **SDK-referentiedocumenten**: https://aka.ms/aml-sdk
+
++ **Oplossingen voor problemen**: Deze release bevat voornamelijk kleine correcties
+
+### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Prep SDK v1.0.7
+
++ **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
+
++ **Nieuwe functies**
+  + Verbeteringen voor gegevensopslag (beschreven in [gegevensopslag How-to-naar-handleiding](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + De mogelijkheid om te lezen uit en schrijven naar Azure-bestandsshare en ADLS gegevensopslag in scale-up is toegevoegd.
+    + Bij het gebruik van gegevensopslag, Data Prep biedt nu ondersteuning voor verificatie van service-principal gebruiken in plaats van interactieve verificatie.
+    + Er is ondersteuning toegevoegd voor wasb en wasbs URL's.
+
 ## <a name="2019-01-09"></a>2019-01-09
 
-### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning-Dataprep SDK v1.0.6
+### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning Data Prep SDK v1.0.6
 
 + **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
 
@@ -39,7 +57,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 + **Oplossingen voor problemen**: Deze release bevat voornamelijk kleine correcties
 
-### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning-Dataprep SDK gebruikgemaakt van v1.0.4
+### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
 
 + **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
 
@@ -116,7 +134,7 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
   + Meer informatie over het [uw eerste pijplijn maken](how-to-create-your-first-pipeline.md)
   + Meer informatie over het [voorspellingen van batch met behulp van pijplijnen worden uitgevoerd](how-to-run-batch-predictions.md)
 + Azure Machine Learning-compute-doel
-  + [Voorbeeldnotitieblokken] (https://aka.ms/aml-notebooks) nu voor het gebruik van de nieuwe beheerde berekening worden bijgewerkt.
+  + [Voorbeeld van notitieblokken](https://aka.ms/aml-notebooks) nu voor het gebruik van de nieuwe beheerde berekening worden bijgewerkt.
   + [Meer informatie over deze rekenkracht](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Azure-portal: nieuwe functies
@@ -137,7 +155,7 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
 
 + **Belangrijke wijzigingen** 
   * *azureml.Train.widgets* naamruimte is verplaatst naar *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* Hiermee wordt de volgende klassen - vervangen *azureml.core.compute.BatchAICompute* en *azureml.core.compute.DSVMCompute*. De laatste klasse wordt verwijderd in toekomstige releases. De klasse AmlCompute heeft nu een eenvoudiger definitie gewoon moet een vm_size en de max_nodes en wordt uw cluster vanaf 0 naar de max_nodes automatisch schalen wanneer een job wordt verzonden. Onze [voorbeeldnotitieblokken] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) zijn bijgewerkt met deze informatie en geeft u voorbeelden van het gebruik. We hopen u, zoals deze vereenvoudiging en nog veel meer interessante functies komen in een latere versie.
+  * *azureml.core.compute.AmlCompute* Hiermee wordt de volgende klassen - vervangen *azureml.core.compute.BatchAICompute* en *azureml.core.compute.DSVMCompute*. De laatste klasse wordt verwijderd in toekomstige releases. De klasse AmlCompute heeft nu een eenvoudiger definitie gewoon moet een vm_size en de max_nodes en wordt uw cluster vanaf 0 naar de max_nodes automatisch schalen wanneer een job wordt verzonden. Onze [voorbeeld notitieblokken](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) zijn bijgewerkt met deze informatie en geeft u voorbeelden van het gebruik. We hopen u, zoals deze vereenvoudiging en nog veel meer interessante functies komen in een latere versie.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning-Dataprep SDK v0.5.1 
 

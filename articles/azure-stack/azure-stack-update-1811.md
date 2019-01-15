@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247619"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267314"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -262,6 +262,14 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    De fout doet zich voor als u diagnostische gegevens over opstarten op een virtuele machine inschakelt, maar uw boot diagnostics storage-account verwijderen. U kunt dit probleem omzeilen, maakt u opnieuw de storage-account met dezelfde naam als u eerder hebt gebruikt.
 
 - Bij het maken van een [Dv2-serie VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 VM's kunnen u 4, 8, 16 en 32 gegevensschijven respectievelijk maken. Het deelvenster van de virtuele machine maken bevat, 8, 16, 32 en 64 gegevensschijven.
+
+- Gebruiksrecords in Azure Stack kunnen onverwachte hoofdlettergebruik; bevatten bijvoorbeeld:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   In dit voorbeeld wordt de naam van de resourcegroep moet **AndrewRG**. U kunt deze inconsistentie negeren.
 
 <!-- 3235634 – IS, ASDK -->
 - Het implementeren van VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, geef het achtervoegsel als **Standard_A2_v2** (kleine letters v). Gebruik geen **Standard_A2_V2** (V hoofdletters). Dit werkt in de globale Azure en is een inconsistentie in Azure Stack.

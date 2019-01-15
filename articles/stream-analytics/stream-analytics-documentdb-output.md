@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106563"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267127"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-uitvoer naar Azure Cosmos DB  
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, gegevens archiveren en lage latentie-query's voor niet-gestructureerde JSON-gegevens. In dit document staan enkele aanbevolen procedures voor het implementeren van deze configuratie.
@@ -58,16 +58,17 @@ Stream Analytics kunnen omhoog of omlaag schalen wanneer ze volledig op geen enk
 Schrijven naar meerdere vaste containers wordt afgeschaft en is niet de aanbevolen aanpak voor het schalen van uw Stream Analytics-taak. Het artikel [partitioneren en schalen in Cosmos DB](../cosmos-db/sql-api-partition-data.md) biedt meer details.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Cosmos DB-instellingen voor JSON-uitvoer
-Het maken van Cosmos DB als uitvoer in Stream Analytics, genereert een prompt voor meer informatie, zoals hieronder wordt weergegeven. In deze sectie bevat een uitleg van de definitie van de eigenschappen.
 
+Het maken van Cosmos DB als uitvoer in Stream Analytics, genereert een prompt voor meer informatie, zoals hieronder wordt weergegeven. In deze sectie bevat een uitleg van de definitie van de eigenschappen.
 
 ![documentdb stream analytics uitvoerscherm](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Veld           | Description 
--------------   | -------------
-Uitvoeralias    | Een alias om te verwijzen deze uitvoer in de ASA-query   
-Accountnaam    | De naam of het eindpunt-URI van de Azure Cosmos DB-account 
-Accountsleutel     | De gedeelde toegangssleutel voor het Azure Cosmos DB-account
-Database        | De naam van de Azure Cosmos DB-database
-Verzamelingnaam | De naam van de verzameling voor de verzameling moet worden gebruikt. `MyCollection` een voorbeeld van geldige invoer - één verzameling met de naam is `MyCollection` moet bestaan.  
-Document-id     | Optioneel. De naam van de kolom in uitvoergebeurtenissen dat wordt gebruikt als de unieke sleutel bij welke invoegen of bijwerken bewerkingen moeten worden gebaseerd. Als u niets opgeeft, wordt alle gebeurtenissen ingevoegd, zonder optie update.
+|Veld           | Description|
+|-------------   | -------------|
+|Uitvoeralias    | Een alias om te verwijzen deze uitvoer in de ASA-query.|
+|Abonnement    | Kies de uw Azure-abonnement.|
+|Account-id      | De naam of URI van de Azure Cosmos DB-account van het eindpunt.|
+|Accountcode     | De gedeelde toegangssleutel voor het Azure Cosmos DB-account.|
+|Database        | De naam van de Azure Cosmos DB-database.|
+|Patroon voor de collectienaam | De naam van de verzameling voor de verzameling moet worden gebruikt. `MyCollection` een voorbeeld van geldige invoer - één verzameling met de naam is `MyCollection` moet bestaan.  |
+|Document-id     | Optioneel. De naam van de kolom in uitvoergebeurtenissen dat wordt gebruikt als de unieke sleutel bij welke invoegen of bijwerken bewerkingen moeten worden gebaseerd. Als u niets opgeeft, wordt alle gebeurtenissen ingevoegd, zonder optie update.|

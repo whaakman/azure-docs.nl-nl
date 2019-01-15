@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b123caebfdba94b8b5e1c7bcf1c8a998d5199fda
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954892"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259747"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>Zelfstudie: SQL-databases met hoge beschikbaarheid bieden
+# <a name="tutorial-offer-highly-available-sql-databases"></a>Zelfstudie: Maximaal beschikbare SQL-databases bieden
 
 Als een Azure Stack-Operator, kunt u server-machines naar host SQL Server-databases configureren. Na een SQL host-server met succes is gemaakt en beheerd door Azure Stack, SQL-databases eenvoudig door gebruikers die zijn geabonneerd op SQL-services kunnen maken.
 
@@ -141,7 +141,7 @@ Zorg ervoor dat het gebruik van het openbare IP-adres of de volledige FQDN voor 
 > [!NOTE]
 > Deze stap moet worden uitgevoerd vanaf de Azure Stack-beheerportal door een Azure Stack-Operator.
 
-Met de SQL AlwaysOn-beschikbaarheidsgroep load balancer listener aanmeldingsgegevens voor openbaar IP-adres en de SQL-verificatie, kunt een Azure Stack-Operator nu [maken van een SQL host-Server met behulp van de groep SQL AlwaysOn-beschikbaarheid](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+Met de SQL AlwaysOn-beschikbaarheidsgroep load balancer listener aanmeldingsgegevens voor openbaar IP-adres en de SQL-verificatie, kunt een Azure Stack-Operator nu [maken van een SQL host-Server met behulp van de SQL AlwaysOn-beschikbaarheidsgroep](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
 
 Zorg er ook voor dat u hebt gemaakt plannen en aanbiedingen voor het maken van de SQL AlwaysOn-database beschikbaar maken voor gebruikers. De operator moet toevoegen de **Microsoft.SqlAdapter** service naar een plan en maak een nieuw quotum specifiek voor databases met hoge beschikbaarheid. Zie voor meer informatie over het maken van abonnementen [Plan, aanbieding, quota en abonnementen overzicht](azure-stack-plan-offer-quota-overview.md).
 

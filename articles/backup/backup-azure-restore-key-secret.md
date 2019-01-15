@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3bcd752f14f5d43c8cb8f686534e016690c7c40
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 85c284c2a0e49d7fa20c0ec342878ffdf9d47387
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198062"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261159"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Key Vault-sleutel en -geheim voor versleutelde virtuele machines met behulp van Azure back-up terugzetten
 In dit artikel vertelt over het gebruik van Azure VM Backup voor herstel van versleutelde virtuele machines van Azure uitvoeren als uw sleutel en -geheim niet bestaan in de key vault. Deze stappen kunnen ook worden gebruikt als u wilt behouden een afzonderlijk exemplaar van de sleutel (Key-versleutelingssleutel) en -geheim (BitLocker-versleutelingssleutel) voor de herstelde virtuele machine.
@@ -62,7 +62,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 
 ## <a name="restore-secret"></a>Herstellen van geheim
 
-Als uw Azure-VM zonder Azure AD is versleuteld met behulp van de BEK alleen (voor zowel Windows als Linux-VM's), het genereren van de geheime naam en waarde via bovenstaande opdrachten en voer deze om in te stellen geheime cmdlet om het geheim (BEK) terug in de key vault.
+Gebruik de JSON-bestand gegenereerd hierboven voor het ophalen van de geheime naam en waarde en hieraan geheime cmdlet om het geheim (BEK) terug in de key vault instellen. Deze cmdlets gebruiken als uw **virtuele machine is versleuteld met behulp van (bek) en KEK**.
 
 **Deze cmdlets gebruiken als uw Windows-VM is versleuteld met behulp van (bek) en KEK-sleutel.**
 
@@ -84,7 +84,7 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Als uw Azure-VM met AD **versleuteld met behulp van de BEK alleen**geheime blob-bestand genereren vanuit de JSON en hieraan voor het herstellen van geheime cmdlet om het geheim (BEK) terug in de key vault.
+Gebruik de JSON-bestand gegenereerd hierboven voor het ophalen van de geheime naam en waarde en hieraan geheime cmdlet om het geheim (BEK) terug in de key vault instellen. Deze cmdlets gebruiken als uw **virtuele machine is versleuteld met behulp van de BEK** alleen.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'

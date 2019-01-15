@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245205"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267399"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een oplossing voor hybride cloudopslag met Azure en Azure Stack implementeren
 
@@ -77,7 +77,7 @@ Voordat u deze zelfstudie begint, zorg er dan voor dat u kunt voldoen aan de vol
 
 2. Op de **Dashboard**, selecteer **Marketplace**.
 
-    ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
 3. In **Marketplace**, selecteer **Compute**, en kies vervolgens **meer**. Onder **meer**, selecteer de **gratis licentie voor SQL Server: SQL Server 2017 Developer op Windows Server** installatiekopie.
 
@@ -308,7 +308,7 @@ Wanneer u uw web-app maken in een App Service-omgeving die wordt gestart met Ã©Ã
 
     ![Automatisch schalen inschakelen](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. Voer een naam in voor **naam van de instelling voor automatisch schalen**. Voor de **standaard** automatisch schalen regel, selecteer **schalen op basis van een metrische waarde**. Stel de **Instantielimieten** naar **Minimum: 1**, **maximale: 10**, en **standaard: 1**.
+3. Voer een naam in voor **naam van de instelling voor automatisch schalen**. Voor de **standaard** automatisch schalen regel, selecteer **schalen op basis van een metrische waarde**. Stel de **Instantielimieten** naar **Minimum: 1**, **Maximum: 10**, en **standaard: 1**.
 
     ![Automatisch schalen configureren](media/azure-stack-solution-hybrid-cloud/image18.png)
 

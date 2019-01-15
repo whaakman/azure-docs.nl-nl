@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192188"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305146"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Preview: Een gedeelde afbeeldingengalerie maken met Azure PowerShell 
 
@@ -49,7 +49,7 @@ Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande behe
  
 ## <a name="create-vms-from-an-image"></a>Virtuele machines maken van een installatiekopie
 
-Als de versie van de installatiekopie is complte, kunt u een of meer nieuwe virtuele machines maken. Met behulp van de vereenvoudigde parameter ingesteld voor de [New-AzureRMVM]() cmdlet, hoeft u alleen te bieden van afbeeldings-ID van de versie van de installatiekopie. 
+Als de versie van de installatiekopie is voltooid, kunt u een of meer nieuwe virtuele machines maken. Met behulp van de vereenvoudigde parameter ingesteld voor de [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet, hoeft u alleen te bieden van afbeeldings-ID van de versie van de installatiekopie. 
 
 Dit voorbeeld maakt u een virtuele machine met de naam *myVMfromImage*, in de *myResourceGroup* in de *VS-Oost* datacenter.
 

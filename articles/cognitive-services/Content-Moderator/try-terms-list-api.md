@@ -1,44 +1,44 @@
 ---
 title: Gemiddeld tekst met aangepaste terminologielijsten - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Maak een proefrit met aangepaste terminologielijsten in de Content Moderator-API-console.
+description: Gebruik de lijst met Management-API om aangepaste lijsten van voorwaarden voor gebruik met de tekst Afbeeldingstoezicht-API te maken.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 99df9fda2cc56f169a61ec215a976de28fc13d27
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fea671df0609b9c4dca9eaae99d1bfe667616837
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220275"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259424"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Gemiddelde met aangepaste terminologielijsten in de API-console
 
-De standaard globale lijst met voorwaarden in Azure Content Moderator is voldoende voor de meest content moderation behoeften. U moet echter mogelijk scherm van de termen die specifiek voor uw organisatie zijn. Bijvoorbeeld, kunt u code concurrent namen voor verder onderzoek. 
+De standaardlijst met algemene termen van Azure Content Moderator is voldoende voor de meeste moderatietaken voor inhoudsbeheer. Het is echter mogelijk dat u inhoud moet controleren op termen die specifiek zijn voor uw organisatie. Zo is het bijvoorbeeld mogelijk dat u namen van concurrenten wilt taggen voor nader onderzoek. 
 
 Gebruik de [lijst Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) om aangepaste lijsten van voorwaarden voor gebruik met de tekst Afbeeldingstoezicht-API te maken. De **tekst - scherm** bewerking scant uw tekst taalgebruik en ook vergelijkt tekst tegen aangepaste en gedeelde zwarte lijsten.
 
 > [!NOTE]
-> Er is een maximumlimiet van **geeft een lijst van 5 term** met elke lijst **niet meer dan 10.000 voorwaarden**.
+> Er is een maximumlimiet van **5 terminologielijsten** waarbij elke lijst **niet meer dan 10.000 termen mag bevatten**.
 >
 
 De lijst met Management-API kunt u de volgende taken uitvoeren:
 - Een lijst maken.
-- Voorwaarden toevoegen aan een lijst.
-- Scherm voorwaarden op basis van de voorwaarden in een lijst.
-- Gebruiksvoorwaarden verwijderen uit een lijst.
+- Termen toevoegen aan een lijst.
+- Termen vergelijken met de termen in een lijst.
+- Termen verwijderen uit een lijst.
 - Een lijst verwijderen.
-- Bewerk de gegevens weer te geven.
-- De index vernieuwen zodat wijzigingen in de lijst zijn opgenomen in een nieuwe scan.
+- Lijstgegevens bewerken.
+- De index vernieuwen zodat wijzigingen in de lijst worden gebruikt in een nieuwe scan.
 
 ## <a name="use-the-api-console"></a>De API-console gebruiken
 
-Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Deze sleutel bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie voor meer informatie, [overzicht](overview.md).
+Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Deze sleutel bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie [Overzicht](overview.md) voor meer informatie.
 
 ## <a name="refresh-search-index"></a>Search-index vernieuwen
 
@@ -58,7 +58,7 @@ Nadat u wijzigingen aan een terminologielijst met aanbrengt, moet u de index voo
 
   ![Terminologielijsten API - vak met de Search-Index vernieuwen console antwoord inhoud](images/try-terms-list-refresh-1.png)
 
-## <a name="create-a-term-list"></a>Een terminologielijst maken
+## <a name="create-a-term-list"></a>Een termenlijst maken
 1.  Ga naar de [Term lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
   De **Term bevat - maken** pagina wordt geopend.
@@ -119,13 +119,13 @@ Nadat u wijzigingen aan een terminologielijst met aanbrengt, moet u de index voo
  
 13. Een paar meer voorwaarden toevoegen. Nu u een aangepaste lijst met voorwaarden hebt gemaakt, kunt u proberen [tekst scannen](try-text-api.md) met behulp van de lijst van de aangepaste periode. 
 
-## <a name="delete-terms-and-lists"></a>Voorwaarden verwijderen en lijsten
+## <a name="delete-terms-and-lists"></a>Termen en lijsten verwijderen
 
-Het is eenvoudig een abonnement of een lijst te verwijderen. U de API gebruiken om de volgende taken uitvoeren:
+U kunt eenvoudig term of lijsten verwijderen. U de API gebruiken om de volgende taken uitvoeren:
 
-- Een term te verwijderen. (**Termijn - verwijderen**)
-- De voorwaarden in een lijst verwijderen zonder te verwijderen van de lijst. (**Termijn: verwijderen van alle voorwaarden**)
-- Een lijst en alle inhoud verwijderd. (**Terminologielijsten - verwijderen**)
+- Een term verwijderen. (**Termijn - verwijderen**)
+- Alle termen in een lijst verwijderen zonder de lijst te verwijderen. (**Termijn: verwijderen van alle voorwaarden**)
+- Een lijst en alle inhoud verwijderen. (**Terminologielijsten - verwijderen**)
 
 In dit voorbeeld wordt een termijn van één verwijderd.
 

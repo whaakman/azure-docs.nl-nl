@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: a018740a44424fd138b787b86b0f527d897f4188
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230540"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261227"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -36,7 +36,7 @@ Wanneer u een Azure Migrate-project hebt verwijderd, worden het migratieproject 
 1. Blader naar de Log Analytics-werkruimte die is gekoppeld aan het project.
    a. Als u hebt niet de migration-project hebt verwijderd, kunt u de koppeling vinden in de werkruimte van de overzichtspagina van het project in de sectie Essentials.
 
-   ![LA werkruimte](./media/troubleshooting-general/LA-workspace.png)
+   ![LA Workspace](./media/troubleshooting-general/LA-workspace.png)
 
    b. Als u het migratieproject al hebt verwijderd, klikt u op **resourcegroepen** in het linkerdeelvenster in Azure portal en Ga naar de resourcegroep waarin de werkruimte is gemaakt en blader vervolgens naar deze.
 2. Volg de instructies [in dit artikel](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) om de werkruimte te verwijderen.
@@ -98,7 +98,7 @@ Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voo
 
 1. Controleer of als Azure Migrate Collector OVA-bestand correct is gedownload door het controleren van de hash-waarde. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om de hash-waarde te controleren. Als de hash-waarde niet overeen komt, het OVA-bestand opnieuw te downloaden en de implementatie opnieuw probeert.
 2. Als deze nog steeds mislukt en u VMware vSphere Client gebruikt om de OVF te implementeren, kunt u proberen deze te implementeren via de vSphere Web Client. Als het nog steeds mislukt, probeer het met andere webbrowser.
-3. Als u met behulp van vSphere-webclient en probeert te implementeren op de vCenter Server 6.5, probeert het ova-bestand rechtstreeks op de ESXi-host implementeren door de onderstaande stappen te volgen:
+3. Als u met behulp van vSphere-webclient en probeert te implementeren op de vCenter-Server 6.5 of 6.7, probeert het ova-bestand rechtstreeks op de ESXi-host implementeren door de onderstaande stappen te volgen:
   - Verbinding maken met de ESXi-host rechtstreeks (in plaats van vCenter-Server) met behulp van de webclient (https:// <*host IP-adres*> /ui)
   - Ga naar de introductiepagina van > inventaris
   - Klik op bestand > implementeren van OVF-sjabloon > Ga naar het ova-bestand en de implementatie te voltooien
@@ -156,7 +156,7 @@ Dit probleem kan optreden vanwege een probleem met de installatie van VMware Pow
 2. Als u de meest recente versie van de collector al hebt, handmatig installeren [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) en controleer of het probleem opgelost is.
 3. Als de bovenstaande niet los het probleem, navigeer naar de map C:\Program Files\ProfilerService en verwijderen van de VMware.dll en VimService65.dll bestanden die aanwezig zijn in de map en start de 'Azure Migrate Collector-service in Windows-Services beheren (Open ' Voer ' en het type 'services.msc' om Windows Service Manager te openen).
 
-### <a name="error-unabletoconnecttoserver"></a>Fout UnableToConnectToServer
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
 Kan geen verbinding maken met vCenter-Server 'Servernaam.com:9443' vanwege fout: Er is geen eindpunt dat luistert op https://Servername.com:9443/sdk die het bericht kan accepteren.
 
@@ -176,9 +176,9 @@ Als u wilt beperken van het apparaat Azure Migrate, die u wilt uitsluiten van de
 - Map met de binaire bestanden voor Azure Migrate-Service. Sluit alle submappen.
   %ProgramFiles%\ProfilerService  
 - Azure Migrate Web-toepassing. Sluit alle submappen.
-  %SYSTEMDRIVE%\Inetpub\wwwroot
+  %SystemDrive%\inetpub\wwwroot
 - Lokale Cache voor de Database en logboekbestanden. Azure migrate-service moet RW toegang tot deze map.
-  %SYSTEMDRIVE%\Profiler
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Problemen met visualisatie van afhankelijkheden
 

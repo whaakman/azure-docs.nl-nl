@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 565c0ed877cf4500131f7ad3099f3c7d3f1a1220
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 46551680937eddef898739fb57b671a0918f2338
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955034"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259288"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Upgradehandleiding nieuws zoeken-API
 
@@ -37,7 +37,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|De subCode|Beschrijving
+|Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
