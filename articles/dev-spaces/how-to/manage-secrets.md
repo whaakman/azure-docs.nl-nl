@@ -64,7 +64,7 @@ Azure Dev Spaces biedt twee aanbevolen opties voor het opslaan van geheimen: in 
       kubectl get secret --namespace default -o yaml 
       ```
 
-7. Zorg ervoor dat u _values.dev.yaml_ toevoegt aan het bestand _.gitignore_ om te voorkomen dat geheimen in broncodebeheer wordt vastgelegd.
+7. Zorg ervoor dat u _values.dev.yaml_ toevoegt aan het bestand _.gitignore_ om te voorkomen dat geheimen in broncodebeheer worden vastgelegd.
  
  
 ## <a name="method-2-inline-directly-in-azdsyaml"></a>Methode 2: Inline rechtstreeks in azds.yaml
