@@ -20,7 +20,7 @@ ms.locfileid: "53013998"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Geheimen beheren bij het werken met een Azure Dev-adresruimte
 
-Uw services kunnen bepaalde wachtwoorden, connectiestrings en andere geheimen vereisen, zoals voor databases of andere beveiligde Azure-services. Door de waarden van deze geheimen in configuratiebestanden in te stellen, kunt u ze als omgevingsvariabelen beschikbaar maken in uw code. Deze moeten met zorg worden behandeld om te voorkomen dat de veiligheid van de geheimen in gevaar komt.
+Uw services kunnen bepaalde wachtwoorden, connectiestrings en andere geheimen vereisen, zoals voor databases of andere beveiligde Azure-services. Door de waarden van deze geheimen in configuratiebestanden in te stellen, kunt u ze als omgevingsvariabelen beschikbaar maken in uw code.  Deze moeten met zorg worden behandeld om te voorkomen dat de veiligheid van de geheimen in gevaar komt.
 
 Azure Dev Spaces biedt twee aanbevolen opties voor het opslaan van geheimen: in het bestand values.dev.yaml en direct inline in azds.yaml. Het is niet aan te raden om geheimen op te slaan in values.yaml.
  
@@ -83,7 +83,7 @@ Azure Dev Spaces biedt twee aanbevolen opties voor het opslaan van geheimen: in 
                 key: "$REDIS_KEY_DEV"
     ```
      
-2.  Maak een _.env_ bestand in dezelfde map als _azds.yaml_. Voer geheimen in met behulp van standaard sleutel=waarde-notatie. Neem het _.env_ bestand niet op in broncodebeheer. (Om bestanden uit te sluiten vanuit broncodebeheer in git-gebaseerde versiebeheersystemen voegt u deze toe aan het bestand _.gitignore_.) Het volgende voorbeeld toont een _.env_ bestand:
+2.  Maak een _.env_ bestand in dezelfde map als _azds.yaml_. Voer geheimen met behulp van standaard sleutel = waarde-notatie. Niet doorvoeren de _.env_ bestand broncodebeheer. (Als u wilt weglaten vanuit broncodebeheer in git gebaseerde versiebeheersystemen, toe te voegen aan de _.gitignore_ bestand.) Het volgende voorbeeld wordt een _.env_ bestand:
 
     ```
     REDIS_PORT_DEV=3333
@@ -98,7 +98,7 @@ Azure Dev Spaces biedt twee aanbevolen opties voor het opslaan van geheimen: in 
     var theKey = process.env.REDIS_KEY
     ```
  
-3.  Werk de services bij die worden uitgevoerd in uw cluster met deze wijzigingen. Voer op de opdrachtregel de opdracht uit:
+3.  Werk de services die in uw cluster worden uitgevoerd bij met deze wijzigingen. Voer de volgende opdracht op de opdrachtregel uit:
 
     ```
     azds up

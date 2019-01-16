@@ -3,7 +3,7 @@ title: Beheren van kosten effectief voor SQL Server op Azure virtual machines | 
 description: Bevat de aanbevolen procedures voor het kiezen van de juiste SQL-Server-machine prijsmodel.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
-ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496482"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330786"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor SQL Server Azure VM 's
 
@@ -91,7 +92,7 @@ Voor het maken van een SQL Server 2017 Azure VM met een van de betalen per gebru
 >Deze omvatten geen aanvullende SQL Server-licentiekosten voor Web, Standard en Enterprise-edities. Als u de meest nauwkeurige schatting van de prijzen, selecteert u uw besturingssysteem en de editie van SQL Server op de pagina met prijzen voor [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) of [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> Het is nu mogelijk om te wijzigen van de licentiemodel van betalen per gebruik uw eigen licentie (BYOL) en vervolgens weer. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md). 
+> Het is nu mogelijk om te wijzigen van de licentiemodel van betalen per gebruik uw eigen licentie (BYOL) en vervolgens weer. Zie [Het licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md) voor meer informatie. 
 
 ## <a id="byol"></a> Uw eigen licentie (BYOL)
 
@@ -111,7 +112,7 @@ Om uw eigen SQL wordt-licentieverlening License Mobility through aanbevolen voor
 
 Voor het gebruik van BYOL met een SQL Server-VM, moet u beschikken over een licentie voor SQL Server Standard of Enterprise en [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), dit is een vereiste optie via een volumelicentieprogramma's en een optionele aankoop met anderen. Het niveau van de prijzen geleverd via Volume Licensing-programma's kan variëren, afhankelijk van het type van de overeenkomst en de hoeveelheid en/of toezegging voor SQL Server. Maar als vuistregel, uw eigen licentie bevat voor continue productieworkloads biedt de volgende voordelen:
 
-| BYOL-voordeel | Beschrijving |
+| BYOL-voordeel | Description |
 |-----|-----|
 | **Profiteer van kostenbesparing** | Om uw eigen SQL Server-licentie is voordeliger dan betalen per gebruik als een werkbelasting wordt continu uitgevoerd, SQL Server Standard of Enterprise voor *meer dan 10 maanden*. |
 | **Besparingen op lange termijn** | Gemiddeld is *30% lager tarief per jaar* te kopen of vernieuwen van een SQL Server-licentie voor de eerste drie jaar. Na drie jaar overneemt hoeft u verder te meer vernieuwen van de licentie, alleen betalen voor Software Assurance. Op dat moment is *200% goedkoper*. |
@@ -126,7 +127,7 @@ Voor het maken van een SQL Server 2017 Azure VM met een van deze installatiekopi
 > Laat het ons weten binnen 10 dagen hoeveel SQL Server-licenties die u in Azure gebruikt. De koppelingen naar de vorige afbeeldingen hebben instructies over hoe u dit doet.
 
 > [!NOTE]
-> Het is nu mogelijk om te wijzigen van de licentiemodel van betalen per gebruik uw eigen licentie (BYOL) en vervolgens weer. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md). 
+> Het is nu mogelijk om te wijzigen van de licentiemodel van betalen per gebruik uw eigen licentie (BYOL) en vervolgens weer. Zie [Het licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md) voor meer informatie. 
 
 
 

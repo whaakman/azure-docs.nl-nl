@@ -3,7 +3,7 @@ title: Inrichting-handleiding voor Windows SQL Server-VM's in Azure portal | Mic
 description: In deze gebruiksaanwijzing wordt beschreven hoe u voor het maken van Windows SQL Server 2017 virtuele machines in Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
-ms.author: jroth
-ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704535"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330888"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hoe u een Windows SQL Server-machine inrichten in Azure portal
 
@@ -54,7 +55,7 @@ Als u een SQL Server-machine maakt, selecteert u een van verschillende vooraf ge
 
 1. Bekijk de beschikbare SQL Server-installatiekopieën. Elke installatiekopie correspondeert met een bepaalde SQL Server-versie en een bepaald besturingssysteem.
 
-1. Selecteer de installatiekopie met de naam **Gratis licentie voor SQL Server: SQL Server 2017 Developer op Windows Server 2016**.
+1. Selecteer de installatiekopie met de naam **gratis licentie voor SQL Server: SQL Server 2017 Developer op WindowsServer 2016**.
 
    > [!TIP]
    > De Developer edition wordt gebruikt in dit scenario, omdat het is een volledig functionele, gratis editie van SQL Server voor het testen van ontwikkeling. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine. Echter, bent u een van de afbeeldingen te gebruiken in dit scenario kiezen. Zie voor een beschrijving van de beschikbare installatiekopieën, de [overzicht van SQL Server Windows Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -73,7 +74,7 @@ Als u een SQL Server-machine maakt, selecteert u een van verschillende vooraf ge
 ## <a id="configure"></a> Configuratie-opties
 Er zijn vijf vensters voor het configureren van een virtuele SQL Server-machine.
 
-| Stap | Beschrijving |
+| Stap | Description |
 | --- | --- |
 | **Basisinstellingen** |[Basisinstellingen configureren](#1-configure-basic-settings) |
 | **Grootte** |[De grootte van de virtuele machine kiezen](#2-choose-virtual-machine-size) |
@@ -249,7 +250,7 @@ De volgende tabel bevat de vereiste parameters voor het configureren van de Azur
 | **Key Vault-URL** |De locatie van de sleutelkluis. |https://contosokeyvault.vault.azure.net/ |
 | **Principal-naam** |Principal-naam voor de Azure Active Directory-service. Deze naam wordt ook wel aangeduid als de Client-ID. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Principal-geheim** |Principal-geheim voor de Azure Active Directory-service. Dit geheim wordt ook wel aangeduid als het Clientgeheim. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Referentienaam** |**Referentienaam**: de Azure Sleutelkluis-integratie maakt een referentie in SQL Server, zodat de virtuele machine toegang heeft tot de sleutelkluis. Kies een naam voor deze referentie. |mycred1 |
+| **Referentienaam** |**Referentienaam**: Azure Sleutelkluis-integratie maakt u een referentie binnen SQL Server, zodat de virtuele machine toegang heeft tot de key vault. Kies een naam voor deze referentie. |mycred1 |
 
 Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQL Server op Azure-VM's](virtual-machines-windows-ps-sql-keyvault.md).
 
@@ -268,7 +269,7 @@ Bekijk in het venster **Samenvatting** de samenvatting en klik op **Kopen** om d
 U kunt de implementatie bewaken vanuit Azure Portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
 
 > [!NOTE]
-> Om u een idee te geven van de implementatietijden, heb ik een virtuele SQL-machine voor de regio VS - oost geïmplementeerd met standaardinstellingen. Deze testimplementatie nam in totaal ongeveer 12 minuten in beslag. Afhankelijk van uw regio en de geselecteerde instellingen bent u mogelijk meer of minder tijd kwijt aan de implementatie.
+> Om u een idee te geven van de implementatietijden, heb ik een virtuele SQL-machine voor de regio US - oost geïmplementeerd met standaardinstellingen. Deze testimplementatie nam in totaal ongeveer 12 minuten in beslag. Afhankelijk van uw regio en de geselecteerde instellingen bent u mogelijk meer of minder tijd kwijt aan de implementatie.
 
 ## <a id="remotedesktop"></a> De virtuele machine openen via Extern bureaublad
 

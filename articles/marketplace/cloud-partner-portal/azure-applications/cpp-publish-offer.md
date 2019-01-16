@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a18bcf9f9e1217b674bda5f5ae698908f1911a8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262911"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329987"
 ---
 # <a name="publish-azure-application-offer"></a>Aanbieding voor Azure-toepassing publiceren
 
@@ -41,7 +41,7 @@ De volgende tabel geeft een lijst van en beschrijft elke stap publiceren en bied
 | Test Drive niet valideren          | < 2 uur   | (Optioneel) Als een Test Drive aanwezig is, wordt Microsoft valideert dat kan worden gedistribueerd en gerepliceerd.  |
 | Pakketten en lead generatie registratie | < 1 uur  | Technische activa van de aanbieding zijn verpakt voor gebruik door de klant en de lead-systemen worden geconfigureerd en geïmplementeerd. |
 |  Goedkeuring van uitgever             |  Handmatig    | Laatste uitgever controleren en de bevestiging voordat de aanbieding live meteen. De aanbieding is nu beschikbaar als preview.  U kunt uw aanbieding in de geselecteerde abonnementen (in de aanbieding informatie stappen) implementeren om te controleren of het voldoet aan alle vereisten van uw.  Nadat u hebt gecontroleerd dat de aanbieding, selecteert u **Go Live** , zodat uw aanbieding naar de volgende stap verplaatsen kunt. |
-| Controle van Microsoft                | 7 - 14 dagen * | Microsoft zuinigste beoordelingen van uw Azure-toepassing en u een e-mail stuurt als er problemen worden ontdekt.  * Zelden, deze stap duurt mogelijk langer dan 14 dagen, afhankelijk van de complexiteit van de toepassing en de problemen zijn gedetecteerd.  |
+| Controle van Microsoft                | 7 - 14 dagen | Microsoft zuinigste beoordelingen van uw Azure-toepassing en u een e-mail stuurt als er problemen worden ontdekt.  De lengte van deze stap is afhankelijk van de complexiteit van de toepassing, de gevonden problemen en hoe snel u erop kan reageren.  |
 | Live                           | < 1 dag | Aanbieding is uitgebracht, gerepliceerd naar de opgegeven regio's en beschikbaar gesteld voor het publiek. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
  

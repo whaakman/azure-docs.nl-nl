@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbe957d4327770daee51f8a46d90978373fed53a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3363b0bbd98b125f0108ca842d5c0b6b9941bf9e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317012"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330378"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -38,7 +38,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 | BadRequest | U hebt verzonden implementatie waarden die niet overeenkomen met wat er door Resource Manager wordt verwacht. Controleer de binnenste statusbericht voor hulp bij het oplossen van problemen. | [Sjabloonverwijzing](/azure/templates/) en [ondersteunde locaties](resource-manager-templates-resources.md#location) |
 | Conflict | U vraagt om een bewerking die in de huidige status van de resource is niet toegestaan. Bijvoorbeeld, de schijfgrootte mag alleen als het maken van een virtuele machine of als de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wachten op voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |
-| Implementatie mislukt | De implementatie mislukt-fout is een algemene fout dat biedt geen informatie die u nodig hebt voor het oplossen van de fout. Zoek in de foutdetails voor een foutcode die vindt u meer informatie. | [Foutcode vinden](#find-error-code) |
+| DeploymentFailed | De implementatie mislukt-fout is een algemene fout dat biedt geen informatie die u nodig hebt voor het oplossen van de fout. Zoek in de foutdetails voor een foutcode die vindt u meer informatie. | [Foutcode vinden](#find-error-code) |
 | DeploymentQuotaExceeded | Als u de limiet van 800 implementaties per resourcegroep bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az group deployment verwijderen](/cli/azure/group/deployment#az-group-deployment-delete) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Een vermelding verwijderen uit de implementatiegeschiedenis heeft geen invloed op de resources implementeren. | |
 | DnsRecordInUse | De naam van de DNS-record moet uniek zijn. U kunt een andere naam of de bestaande record wijzigen. | |
 | ImageNotFound | Controleer de instellingen van de VM-installatiekopie. |  |
@@ -250,5 +250,7 @@ Of Stel dat u regelmatig fouten bij de implementatie die u denkt dat ze zijn ger
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
+* Als u wilt u een zelfstudie voor problemen oplossen, Zie [zelfstudie: Problemen met sjabloonimplementaties van Resource Manager-oplossen](./resource-manager-tutorial-troubleshoot.md)
 * Zie voor meer informatie over het controleren van acties, [bewerkingen controleren met Resource Manager](resource-group-audit.md).
 * Zie voor meer informatie over acties voor het bepalen van de fouten tijdens de implementatie, [implementatiebewerkingen bekijken](resource-manager-deployment-operations.md).

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 01/15/2019
+ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102802"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320052"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status van het migratiescenario's ondersteund door de Azure Database Migration Service
 Azure Database Migration Service is ontworpen ter ondersteuning van verschillende migratiescenario's (bron-/ doelparen) voor zowel offline (eenmalig) en online (doorlopende synchronisatie). De dekking scenario is geleverd door de Azure Database Migration Service wordt uitgebreid na verloop van tijd. Nieuwe scenario's er worden regelmatig toegevoegd. In dit artikel geeft de migratiescenario's die momenteel worden ondersteund door de Azure Database Migration Service en de status (privé [of beperkte] Preview, Public Preview of algemeen beschikbaar) of elk scenario.
@@ -40,18 +40,18 @@ De volgende tabel ziet u Azure Database Migration Service ondersteuning voor off
 | Doel  | Bron | Ondersteuning |
 | ------------- | ------------- | :-------------: |
 | **Azure SQL DB**  | SQL Server | ✔ |
-|   | EXTERN BUREAUBLAD-SERVICES SQL  |  ✔ |
+|   | RDS SQL  |  ✔ |
 |   | Oracle  |   |
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | EXTERN BUREAUBLAD-SERVICES SQL  | ✔ |
+|   | RDS SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **Azure SQL-VM**  | SQL Server  | ✔ |
+| **Azure SQL VM**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB voor MySQL**  | MySLQ  |  |
+| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure DB voor MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **Azure database voor PostgresSQL**  | PostgreSQL |  |
-|  | Extern bureaublad-services PostgreSQL  |  |
+|  | RDS PostgreSQL  |  |
 
 ### <a name="online-continuous-sync-migration-support"></a>Ondersteuning voor online (doorlopende synchronisatie)
 De volgende tabel ziet u Azure Database Migration Service ondersteuning voor online migraties.
@@ -59,18 +59,18 @@ De volgende tabel ziet u Azure Database Migration Service ondersteuning voor onl
 | Doel  | Bron | Ondersteuning |
 | ------------- | ------------- | :-------------: |
 | **Azure SQL DB**  | SQL Server | ✔ |
-|   | EXTERN BUREAUBLAD-SERVICES SQL  |   |
+|   | RDS SQL  |   |
 |   | Oracle  |  ✔ |
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | EXTERN BUREAUBLAD-SERVICES SQL  |  |
+|   | RDS SQL  |  |
 |   | Oracle  | ✔  |
-| **Azure SQL-VM**  | SQL Server  |   |
+| **Azure SQL VM**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB voor MySQL**  | MySLQ  | ✔ |
+| **Azure DB voor MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Azure database voor PostgresSQL**  | PostgreSQL | ✔ |
-|  | Extern bureaublad-services PostgreSQL  | ✔ |
+|  | RDS PostgreSQL  | ✔ |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie het artikel voor een overzicht van de Azure Database Migration Service en de regionale beschikbaarheid [wat is de Azure Database Migration Service](dms-overview.md). 

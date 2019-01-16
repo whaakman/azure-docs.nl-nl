@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824282"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332299"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen
 
@@ -33,10 +33,12 @@ Stroomlogboeken voor nsg's doel, zijn ze niet hetzelfde als de andere logboeken 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+U kunt stroomlogboeken analyseren en inzicht verkrijgen in uw netwerkverkeer met [traffic analytics](traffic-analytics.md).
+
 De dezelfde bewaarbeleid zichtbaar voor andere logboeken van toepassing op Logboeken van de stroom. U kunt beleid voor het bewaren van logboek ingesteld van 1 dag op 2147483647 dagen. Als geen bewaarbeleid is ingesteld, worden de logboeken voor altijd bewaard.
 
-U kunt ook met stroomlogboeken analyseren [traffic analytics](traffic-analytics.md).
+> [!NOTE] 
+> Met de functie voor het beleid van retentie met NSG Flow logboekregistratie kan resulteren in een groot aantal opslagbewerkingen en de bijbehorende kosten. Als u de functie voor retentie beleid vereist, wordt u aangeraden dat u deze waarde ingesteld op 0.
 
 
 ## <a name="log-file"></a>Logboekbestand
@@ -47,7 +49,7 @@ Logboeken van de stroom zijn onder andere de volgende eigenschappen:
 * **systeem-id** -Netwerkbeveiligingsgroep resource-id.
 * **categorie** -de categorie van de gebeurtenis. De categorie is altijd **NetworkSecurityGroupFlowEvent**
 * **ResourceID** -de resource-Id van de NSG
-* **operationName** -altijd NetworkSecurityGroupFlowEvents
+* **operationName** - Always NetworkSecurityGroupFlowEvents
 * **Eigenschappen van** -een verzameling eigenschappen van de stroom
     * **Versie** -versienummer van het schema van de event Log Flow
     * **stromen** -een verzameling van stromen. Deze eigenschap heeft meerdere vermeldingen voor verschillende regels
@@ -63,15 +65,15 @@ Logboeken van de stroom zijn onder andere de volgende eigenschappen:
                     * **Protocol** -het protocol van de stroom. Geldige waarden zijn **T** voor TCP- en **U** voor UDP
                     * **Verkeersstroom** -de richting van het netwerkverkeer. Geldige waarden zijn **ik** voor binnenkomend en **O** voor uitgaande.
                     * **Verkeer besluit** - of verkeer is toegestaan of geweigerd. Geldige waarden zijn **A** voor toegestaan en **D** voor geweigerd.
-                    * **Stroom State - versie 2 alleen** -de status van de stroom worden vastgelegd. Mogelijke statussen zijn **B**: Begin, als u een stroom maakt. Statistieken zijn niet opgegeven. **C**: voor een continue stroom wordt voortgezet. Statistieken worden geleverd met 5 minuten durende intervallen. **E**: einde, als een stroom wordt beëindigd. Statistieken worden geleverd.
+                    * **Stroom State - versie 2 alleen** -de status van de stroom worden vastgelegd. Mogelijke statussen zijn **B**: Begint wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Voor een continue stroom wordt voortgezet. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Einde, als een stroom wordt beëindigd. Er worden statistische gegevens geleverd.
                     * **Pakketten - bron naar bestemming - versie 2 alleen** het totale aantal TCP of UDP-pakketten worden verzonden vanuit de bron naar bestemming sinds de laatste update.
-                    * **Bytes verzonden - bron naar doel - versie 2 alleen** het totale aantal TCP of UDP-pakketten bytes verzonden van bron naar bestemming sinds de laatste update. Pakket bytes zijn de header van het pakket en -nettolading.
+                    * **Bytes verzonden - bron naar doel - versie 2 alleen** het totale aantal TCP of UDP-pakketten bytes verzonden van bron naar bestemming sinds de laatste update. Pakketbytes omvatten de pakket-header en -nettolading.
                     * **Pakketten - doel naar bron - versie 2 alleen** het totale aantal TCP of UDP-pakketten van doel naar bron verzonden sinds de laatste update.
-                    * **Bytes verzonden - doel naar bron - versie 2 alleen** het totale aantal TCP en UDP-pakket verzonden bytes van doel naar bron sinds de laatste update. Pakket bytes zijn pakketheader en -nettolading.
+                    * **Bytes verzonden - doel naar bron - versie 2 alleen** het totale aantal TCP en UDP-pakket verzonden bytes van doel naar bron sinds de laatste update. Pakketbytes omvatten een pakket-header en -nettolading.
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG-stroomlogboeken versie 2
 > [!NOTE] 
-> Stroom logboeken versie 2 zijn alleen beschikbaar in de centrale regio VS-West. Configuratie is beschikbaar via de Azure Portal en de REST-API. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
+> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
 
 Versie 2 van de logboeken introduceert stroom staat. U kunt configureren welke versie van de logboeken van de stroom die u ontvangt. Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
 
@@ -79,13 +81,19 @@ Status Flow *B* wordt geregistreerd wanneer een stroom wordt gestart. Status Flo
 
 Voor Vervolg *C* en end *E* stroom staat, aantal bytes en pakket cumulatieve aantal vanaf het moment van de vorige stroom tuple record zijn. Verwijst naar het vorige voorbeeld-gesprek, is het totale aantal pakketten die zijn overgebracht 1021 + 52 + 8005 + 47 = 9125. Het totale aantal bytes dat wordt overgebracht is 588096 + 29952 + 4610880 + 27072 = 5256000.
 
-**Voorbeeld**: tuples van een TCP-conversatie tussen 185.170.185.105:35370 en 10.2.0.4:23 Flow:
+**Voorbeeld**: Stroom tuples van een TCP-conversatie tussen 185.170.185.105:35370 en 10.2.0.4:23:
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
 
 Voor Vervolg *C* en end *E* stroom staat, aantal bytes en pakket cumulatieve aantal vanaf het moment van de vorige stroom tuple record zijn. Verwijst naar het vorige voorbeeld-gesprek, is het totale aantal pakketten die zijn overgebracht 1021 + 52 + 8005 + 47 = 9125. Het totale aantal bytes dat wordt overgebracht is 588096 + 29952 + 4610880 + 27072 = 5256000.
 
 De tekst die volgt is een voorbeeld van een stroomlogboek. Zoals u ziet, zijn er meerdere records die de lijst met eigenschappen die worden beschreven in de voorgaande sectie volgen.
+
+## <a name="nsg-flow-logging-considerations"></a>Overwegingen voor logboekregistratie van NSG-stroom
+
+**NSG Flow logboekregistratie inschakelen op alle nsg's die zijn gekoppeld aan een resource**: Stroom logboekregistratie in Azure is geconfigureerd op de NSG-resource. Een stroom alleen worden gekoppeld aan een NSG-regel. In scenario's waarbij meerdere nsg's worden gebruikt, raden wij of NSG-stroomlogboeken is ingeschakeld op alle nsg's toegepast van de resource-subnet of netwerkinterface om ervoor te zorgen dat al het verkeer wordt vastgelegd. Zie [hoe verkeer wordt geëvalueerd](../virtual-network/security-overview.md#how-traffic-is-evaluated) voor meer informatie over Netwerkbeveiligingsgroepen. 
+
+**Logboekregistratie kosten Flow**: NSG-stroomlogboeken wordt in rekening gebracht op het volume van de logboeken die wordt geproduceerd. Intensief verkeersvolume kan resulteren in grote stroom logboekvolume en de bijbehorende kosten. Prijzen voor log Stroomlogboeken omvat niet de onderliggende kosten van opslag. Met de functie voor het beleid van retentie met NSG Flow logboekregistratie kan resulteren in een groot aantal opslagbewerkingen en de bijbehorende kosten. Als u de functie voor retentie beleid vereist, wordt u aangeraden dat u deze waarde ingesteld op 0. Zie [prijzen voor Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) en [prijzen voor Azure Storage](https://azure.microsoft.com/en-us/pricing/details/storage/) voor meer informatie.
 
 ## <a name="sample-log-records"></a>Voorbeeld van records in logboek registreren
 

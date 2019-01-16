@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: d2db9d426da58b3783b07210165a55cc6ec27658
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185950"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321888"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standaardeigenschappen in Log Analytics-records
 Gegevens in [Log Analytics](../log-query/log-query-overview.md) wordt opgeslagen als een set records, elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.
@@ -84,6 +84,70 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+## <a name="isbillable"></a>\_IsBillable
+De  **\_IsBillable** eigenschap geeft aan of opgenomen gegevens betaald zijn. Gegevens met  **\_IsBillable** gelijk zijn aan _false_ worden verzameld voor gratis en niet in rekening gebracht bij uw Azure-account.
+
+### <a name="examples"></a>Voorbeelden
+Als u een lijst met computers die worden gefactureerd gegevenstypen verzenden, gebruikt u de volgende query uit:
+
+> [!NOTE]
+> Met query's met `union withsource = tt *` spaarzaam scans voor data-gegevenstypen zijn kostbaar zijn om uit te voeren. 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
+
+Dit kan worden uitgebreid om terug te keren de telling van computers per uur die verzenden in rekening gebracht gegevenstypen:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
+
+## <a name="billedsize"></a>\_BilledSize
+De  **\_BilledSize** eigenschap geeft de grootte in bytes aan gegevens dat wordt gefactureerd naar uw Azure-account als  **\_IsBillable** is ingesteld op true.
+
+### <a name="examples"></a>Voorbeelden
+Als de grootte van factureerbare gebeurtenissen die per computer weergeven, gebruikt u de `_BilledSize` eigenschap waarmee u de grootte in bytes:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
+```
+
+Als het aantal gebeurtenissen die per computer weergeven, gebruikt u de volgende query uit:
+
+```Kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
+
+Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt u de volgende query uit: 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last
+```
+
+Als u zien van de aantallen voor factureerbare gegevenstypen zijn gegevens te verzenden naar een specifieke computer wilt, gebruikt u de volgende query uit:
+
+```Kusto
+union withsource = tt *
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last 
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

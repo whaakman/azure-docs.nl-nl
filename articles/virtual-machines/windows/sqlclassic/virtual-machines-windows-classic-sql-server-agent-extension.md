@@ -3,7 +3,7 @@ title: Automatiseer beheertaken op SQL-VM's (klassiek) | Microsoft Docs
 description: In dit onderwerp wordt beschreven hoe u voor het beheren van de SQL Server agent-extensie, welke specifieke SQL Server-beheertaken worden geautomatiseerd. Het gaat hierbij om automatische back-up, automatisch patchen en integratie van Azure Sleutelkluis. In dit onderwerp wordt gebruikgemaakt van de klassieke implementatiemodus.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55a31d7a0ab603dd7fe7de514d11d003e044240a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 2b719185aabd39cd70b9cb890a9599aa06ca4ff4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008328"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330529"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatiseer beheertaken op Azure Virtual Machines met de SQL Server Agent-extensie (klassiek)
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ De SQL Server IaaS Agent-extensie (SQLIaaSAgent) wordt uitgevoerd op Azure virtu
 ## <a name="supported-services"></a>Ondersteunde services
 De SQL Server IaaS Agent-extensie ondersteunt de volgende beheertaken:
 
-| Beheer-functie | Beschrijving |
+| Beheer-functie | Description |
 | --- | --- |
 | **Automatische back-up van SQL** |Automatiseert de planning van de back-ups voor alle databases voor het standaardexemplaar van SQL Server in de virtuele machine. Zie voor meer informatie, [automatische back-up voor SQL Server in Azure Virtual Machines (klassiek)](../classic/sql-automated-backup.md). |
 | **Automatisch patchen van SQL** |Hiermee configureert u een onderhoudsvenster waarin belangrijke updates voor Windows met uw virtuele machine plaatsvinden kunnen, zodat u dat updates tijdens piektijden voor uw workload voorkomen kunt. Zie voor meer informatie, [automatische patches voor SQL Server in Azure Virtual Machines (klassiek)](../classic/sql-automated-patching.md). |

@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4d1a9696587ae128b35970414c6c8753179c3f81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385122"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332571"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD toegangsbeoordelingen
 
@@ -43,11 +43,11 @@ U kunt ook vragen gastgebruikers ook kunnen op hun eigen toegang beoordelen. Voo
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Maken en een toegangscontrole uitvoeren voor gasten
 
-Eerst, schakel toegangsbeoordelingen in op de toegangsdeelvensters van de beoordelaar worden weergegeven. Ga als globale beheerder of gebruikersaccountbeheerder naar de [pagina Toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+Eerst wordt als een globale beheerder of beheerder van gebruikersaccounts, gaat u naar de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) om ervoor te zorgen dat toegangsbeoordelingen gereed is voor uw organisatie. 
 
 Azure AD kunt verschillende scenario's voor het controleren van gastgebruikers.
 
-Selecteer een van de volgende opties:
+U kunt een bekijken:
 
  - Een groep in Azure AD en waaraan een of meer gasten als leden.
  - Een toepassing verbonden met Azure AD en waaraan een of meer gastgebruikers die zijn toegewezen. 
@@ -66,7 +66,7 @@ U kunt met toegangsbeoordelingen gebruiken om ervoor te zorgen dat gebruikers di
 
 3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Raadpleeg voor meer informatie [Complete an access review](complete-access-review.md) (Een toegangscontrole voltooien).
 
-4. Naast de gebruikers die hun eigen behoefte voor blijvende toegang geweigerd, kunt u ook gebruikers die reageerde niet verwijderen. Gebruikers niet reageert ontvangt mogelijk niet langer e-mail.
+4. Naast de gebruikers die hun eigen geweigerd voor blijvende toegang nodig, kunt u ook gebruikers die reageerde niet verwijderen. Gebruikers niet reageert ontvangt mogelijk niet langer e-mail.
 
 5. Als de groep wordt niet voor beheer van toegang gebruikt, kunt u ook gebruikers die niet zijn geselecteerd voor deelname aan onderzoek omdat ze hun uitnodiging niet accepteren verwijderen. Accepteert geen kan erop wijzen dat e-mailadres van de uitgenodigde gebruiker al een typefout gemaakt. Als een groep wordt gebruikt als een distributielijst, niet zijn wellicht sommige gastgebruikers ook kunnen geselecteerd om deel te nemen omdat ze contact op met objecten.
 
@@ -86,7 +86,7 @@ U kunt met toegangsbeoordelingen gebruiken om ervoor te zorgen dat gebruikers di
 
 1. Voor het starten van een toegangscontrole voor de toepassing, selecteert u de controle om op te nemen alleen gasten en dat gebruikers hun eigen toegang beoordelen. Raadpleeg voor meer informatie [Create an access review](create-access-review.md) (Een toegangscontrole maken).
 
-2. Vraag de Gast om te controleren van hun eigen toegang tot de toepassing. Standaard ontvangt elke gast die een uitnodiging geaccepteerd een e-mailbericht van Azure AD met een koppeling naar de toegangsbeoordeling in het toegangsvenster van uw organisatie. Azure AD bevat instructies voor gasten voor het [hun toegang beoordelen](perform-access-review.md).
+2. Vraag de Gast om te controleren van hun eigen toegang tot de toepassing. Standaard wordt met elke gast die een uitnodiging geaccepteerd een e-mailbericht ontvangt van Azure AD. Dat e-mailbericht een koppeling naar de toegangsbeoordeling in het toegangsvenster van uw organisatie heeft. Azure AD bevat instructies voor gasten voor het [hun toegang beoordelen](perform-access-review.md).
 
 3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Raadpleeg voor meer informatie [Complete an access review](complete-access-review.md) (Een toegangscontrole voltooien).
 
@@ -109,7 +109,7 @@ In sommige organisaties gasten mogelijk niet op de hoogte van de groepslidmaatsc
 > [!NOTE]
 > Eerdere versies van de Azure-portal niet toestaan dat beheerderstoegang door gebruikers met de UserType Gast. In sommige gevallen kan een beheerder in uw directory is mogelijk gewijzigd van een gast UserType-waarde in lid met behulp van PowerShell. Als deze wijziging is eerder is opgetreden in uw directory, kan niet alle gastgebruikers die in het verleden had administratieve toegangsrechten bevatten in de vorige query. In dit geval moet u handmatig de Gast opnemen in het lidmaatschap van de of wijzigen van de Gast UserType.
 
-1. Als een geschikte groep nog niet bestaat, moet u een security group maken in Azure AD met de gasten als leden. U kunt bijvoorbeeld een groep maken met een handmatig beheerd lidmaatschap van de gasten. Of u kunt een dynamische groep maken met een naam, bijvoorbeeld 'Gasten van Contoso' voor gebruikers in de Contoso-tenant met de waarde van het UserType-kenmerk van de Gast.  Voor efficiëntie en zorg ervoor dat de groep is voornamelijk gasten - Selecteer niet een groep met gebruikers die niet hoeven te worden gecontroleerd.
+1. Als een geschikte groep nog niet bestaat, moet u een security group maken in Azure AD met de gasten als leden. U kunt bijvoorbeeld een groep maken met een handmatig beheerd lidmaatschap van de gasten. Of u kunt een dynamische groep maken met een naam, bijvoorbeeld 'Gasten van Contoso' voor gebruikers in de Contoso-tenant met de waarde van het UserType-kenmerk van de Gast.  Voor efficiëntie en zorg ervoor dat de groep is voornamelijk gasten - Selecteer een groep met lidgebruikers die, niet als lidgebruikers hoeft te worden gecontroleerd.  Houd er ook rekening mee dat een gastgebruiker lid van de groep is die de andere leden van de groep kan zien.
 
 2. Selecteer eerst een toegangscontrole voor de groep die de beoordelaars feedback te worden van de leden zelf. Raadpleeg voor meer informatie [Create an access review](create-access-review.md) (Een toegangscontrole maken).
 

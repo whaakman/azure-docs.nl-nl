@@ -6,27 +6,27 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7aeb9a9557694f8773af4fe67f47950bf82afe87
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d91a7ba8d2c05e2d24738764438ce91325743699
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621408"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330854"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certificaatassets in Azure Automation
 
 Certificaten kunnen worden veilig opgeslagen in Azure Automation zodat ze kunnen worden geopend door runbooks of DSC-configuraties met behulp van de **Get-AzureRmAutomationCertificate** activiteit voor Azure Resource Manager-resources. Deze mogelijkheid kunt u runbooks en DSC-configuraties die gebruikmaken van certificaten voor verificatie maken of toegevoegd aan Azure of externe resources.
 
 >[!NOTE]
->Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze apparaten worden versleuteld en opgeslagen in Azure Automation met behulp van een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in Key Vault. Voordat u een beveiligd bedrijfsmiddel opslaat, is de sleutel geladen uit Key Vault en vervolgens worden gebruikt voor het versleutelen van de asset.
+>Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze apparaten worden versleuteld en opgeslagen in Azure Automation met behulp van een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in een systeem beheerd Key Vault. Voordat u een beveiligd bedrijfsmiddel opslaat, is de sleutel geladen uit Key Vault en vervolgens worden gebruikt voor het versleutelen van de asset. Dit proces wordt beheerd door Azure Automation.
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
 De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation-referentie-assets met Windows PowerShell. Ze geleverd als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
-|Cmdlets|Beschrijving|
+|Cmdlets|Description|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Haalt informatie op over een certificaat wilt gebruiken in een runbook of DSC-configuratie. U kunt alleen het certificaat zelf ophalen van Get-AutomationCertificate activiteit.|
 |[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Hiermee maakt u een nieuw certificaat in Azure Automation.|
@@ -37,7 +37,7 @@ De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren v
 ## <a name="activities"></a>Activiteiten
 De activiteiten in de volgende tabel worden gebruikt voor toegang tot de certificaten in een runbook en DSC-configuraties.
 
-| Activiteiten | Beschrijving |
+| Activiteiten | Description |
 |:---|:---|
 |Get-AutomationCertificate|Hiermee haalt u een certificaat wilt gebruiken in een runbook of DSC-configuratie. Retourneert een [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate2.aspx) object.|
 
@@ -48,7 +48,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot de certifi
 
 De functie in de volgende tabel wordt gebruikt voor toegang tot de certificaten in een Python2-runbook.
 
-| Functie | Beschrijving |
+| Function | Description |
 |:---|:---|
 | automationassets.get_automation_certificate | Informatie over een certificaatasset opgehaald. |
 
@@ -57,7 +57,7 @@ De functie in de volgende tabel wordt gebruikt voor toegang tot de certificaten 
 
 ## <a name="creating-a-new-certificate"></a>Een nieuw certificaat maken
 
-Wanneer u een nieuw certificaat maakt, kunt u een cer- of pfx-bestand uploaden naar Azure Automation. Als u het certificaat als exporteerbaar markeren, kunt klikt u vervolgens u overbrengen deze uit het certificaatarchief van de Azure Automation. Als deze niet kan worden geëxporteerd, kan klikt u vervolgens deze alleen worden gebruikt voor het ondertekenen van binnen het runbook of DSC-configuratie. Het certificaat om de provider is vereist voor Azure Automation: **Microsoft Enhanced RSA and AES Cryptographic Provider**.
+Wanneer u een nieuw certificaat maakt, kunt u een cer- of pfx-bestand uploaden naar Azure Automation. Als u het certificaat als exporteerbaar markeren, kunt klikt u vervolgens u overbrengen deze uit het certificaatarchief van de Azure Automation. Als deze niet kan worden geëxporteerd, kan klikt u vervolgens deze alleen worden gebruikt voor het ondertekenen van binnen het runbook of DSC-configuratie. Het certificaat om de provider is vereist voor Azure Automation: **Microsoft Enhanced RSA en AES Cryptographic Provider**.
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Een nieuw certificaat maken met de Azure-portal
 

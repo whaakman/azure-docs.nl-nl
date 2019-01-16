@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211533"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329475"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificeren en oplossen van problemen toewijzing voor een groep in Azure Active Directory
 
@@ -53,7 +53,7 @@ De volgende secties geven een beschrijving van elke mogelijke problemen en de ma
 
 ## <a name="not-enough-licenses"></a>Er zijn niet genoeg licenties
 
-**Probleem:** er niet voldoende beschikbare licenties voor een van de producten die is opgegeven in de groep. U moet koop meer licenties voor het product of niet-gebruikte licenties van andere gebruikers of groepen vrij.
+**Probleem:** Er zijn niet voldoende beschikbare licenties voor een van de producten die is opgegeven in de groep. U moet koop meer licenties voor het product of niet-gebruikte licenties van andere gebruikers of groepen vrij.
 
 Als u wilt zien hoeveel licenties er beschikbaar zijn, gaat u naar **Azure Active Directory** > **licenties** > **alle producten**.
 
@@ -63,7 +63,7 @@ Als u wilt zien welke gebruikers en groepen licenties worden verbruikt, moet u e
 
 ## <a name="conflicting-service-plans"></a>Conflicterende serviceabonnementen
 
-**Probleem:** een van de producten die is opgegeven in de groep bevat een service-plan die strijdig is met een andere service-plan al aan de gebruiker via een ander product toegewezen is. Sommige service-abonnementen zijn geconfigureerd op een manier dat ze niet worden toegewezen aan dezelfde gebruiker als een andere, gerelateerde service-plan.
+**Probleem:** Een van de producten die is opgegeven in de groep bevat een service-plan die conflicteert met een andere service-plan al toegewezen aan de gebruiker via een ander product. Sommige service-abonnementen zijn geconfigureerd op een manier dat ze niet worden toegewezen aan dezelfde gebruiker als een andere, gerelateerde service-plan.
 
 Overweeg het volgende scenariovoorbeeld. Een gebruiker heeft een licentie voor Office 365 Enterprise *E1* toegewezen rechtstreeks met de abonnementen die zijn ingeschakeld. De gebruiker is toegevoegd aan een groep met de Office 365 Enterprise *E3* toegewezen aan het product. Het product E3 bevat service-plannen die elkaar niet overlappen met de abonnementen die zijn opgenomen in E1, zodat de groep licentietoewijzing is mislukt met de fout 'Conflicterende serviceabonnementen'. In dit voorbeeld zijn de conflicterende serviceabonnementen:
 
@@ -78,7 +78,7 @@ De beslissing over het oplossen van conflicterende productlicenties altijd hoort
 
 ## <a name="other-products-depend-on-this-license"></a>Andere producten zijn afhankelijk van deze licentie
 
-**Probleem:** een van de producten die is opgegeven in de groep bevat een service-plan dat moet worden ingeschakeld voor een andere service-plan, in een ander product, te laten functioneren. Deze fout treedt op wanneer Azure AD probeert te verwijderen van de onderliggende service-plan. Dit kan bijvoorbeeld gebeuren wanneer u de gebruiker uit de groep verwijderen.
+**Probleem:** Een van de producten die is opgegeven in de groep bevat een service-plan dat moet worden ingeschakeld voor een andere service-plan, in een ander product, te laten functioneren. Deze fout treedt op wanneer Azure AD probeert te verwijderen van de onderliggende service-plan. Dit kan bijvoorbeeld gebeuren wanneer u de gebruiker uit de groep verwijderen.
 
 U lost dit probleem, moet u om ervoor te zorgen dat de vereiste planning nog steeds aan gebruikers via een andere methode toegewezen wordt of dat de bijbehorende afhankelijke services zijn uitgeschakeld voor deze gebruikers. Nadat u dat doet, kunt u de groepslicentie correct verwijderen van deze gebruikers.
 
@@ -86,7 +86,7 @@ U lost dit probleem, moet u om ervoor te zorgen dat de vereiste planning nog ste
 
 ## <a name="usage-location-isnt-allowed"></a>Gebruikslocatie is niet toegestaan
 
-**Probleem:** bepaalde Microsoft-services zijn beschikbaar op alle locaties vanwege lokale wetten en voorschriften. Voordat u een licentie aan een gebruiker toewijzen kunt, moet u de **gebruikslocatie** eigenschap voor de gebruiker. Kunt u de locatie onder de **gebruiker** > **profiel** > **instellingen** sectie in Azure portal.
+**Probleem:** Sommige Microsoft-services zijn niet beschikbaar op alle locaties vanwege lokale wetten en voorschriften. Voordat u een licentie aan een gebruiker toewijzen kunt, moet u de **gebruikslocatie** eigenschap voor de gebruiker. Kunt u de locatie onder de **gebruiker** > **profiel** > **instellingen** sectie in Azure portal.
 
 Wanneer Azure AD probeert een groepslicentie toewijzen aan een gebruiker waarvan gebruikslocatie wordt niet ondersteund, mislukt en registreert een fout op de gebruiker.
 
@@ -118,6 +118,12 @@ Azure AD wil alle licenties die zijn opgegeven in de groep aan elke gebruiker to
 
 Hier ziet u de gebruikers die kunnen niet worden toegewezen en te controleren welke producten worden beïnvloed door dit probleem.
 
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Wat gebeurt er wanneer een groep met licenties die zijn toegewezen wordt verwijderd?
+
+Alle licenties die zijn toegewezen aan een groep voordat u de groep kunt verwijderen, moet u verwijderen. Verwijderen van licenties van alle gebruikers in de groep kan echter tijd duren. Tijdens het toewijzen van licenties is verwijderd uit een groep, kunnen er fouten als de gebruiker heeft een afhankelijke licentie is toegewezen of als er een proxy-adres conflict probleem dat voorkomt het verwijderen van de licentie dat. Als een gebruiker een licentie die afhankelijk is van een licentie die wordt verwijderd vanwege verwijderen heeft, wordt de licentietoewijzing aan de gebruiker geconverteerd van overgenomen om te sturen.
+
+Neem bijvoorbeeld een groep die Office 365 E3/E5 toegewezen met een Skype voor bedrijven-serviceplan ingeschakeld heeft. Ook Stel dat een aantal leden van de groep Audio vergaderingen licenties rechtstreeks toegewezen hebt. Wanneer de groep wordt verwijderd, probeert Groepslicenties te verwijderen voor alle gebruikers Office 365 E3/E5. Omdat de Audio-vergaderingen is afhankelijk van Skype voor bedrijven, voor alle gebruikers met een Audio-vergaderingen converteert toegewezen, groepsgebaseerde licentieverlening de Office 365 E3/E5-licenties om de licentietoewijzing.
+
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Hoe beheer ik licenties voor producten aan de vereisten?
 
 Sommige Microsoft Online-producten die u mogelijk de eigenaar zijn *invoegtoepassingen*. Invoegtoepassingen is een vereiste service-plan voor een gebruiker of groep worden ingeschakeld voordat ze kunnen worden toegewezen licentie vereist. Met Groepslicenties, het systeem is vereist dat de vereiste en de invoegtoepassing voor service-abonnementen aanwezig zijn in dezelfde groep. Dit wordt gedaan om ervoor te zorgen dat alle gebruikers die zijn toegevoegd aan de groep het product volledig werkende kunnen ontvangen. Laten we eens bekijken in het volgende voorbeeld:
@@ -146,8 +152,6 @@ Van nu af aan alle gebruikers die zijn toegevoegd aan deze groep een licentie va
 
 > [!TIP]
 > U kunt meerdere groepen voor elke vereiste service-plan maken. Als u Office 365 Enterprise E1 en Office 365 Enterprise E3 voor uw gebruikers gebruiken, kunt u bijvoorbeeld twee groepen aan licentie Microsoft Workplace Analytics maken: een E1 gebruikt als een vereiste en de andere die gebruikmaakt van E3. Hiermee kunt u de invoegtoepassing E1 en E3 gebruikers distribueren zonder aanvullende licenties verbruikt.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hoe Dwing u licentie-verwerking van een groep oplossen?
 

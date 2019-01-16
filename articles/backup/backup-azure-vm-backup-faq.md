@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201309"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332248"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Veelgestelde vragen over Azure Backup
 
@@ -76,12 +76,12 @@ We hebben een beperkte preview voor een back-up van SAP HANA met een RPO van 15 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Hoe bepaal ik of alleen schijven herstellen of een volledige virtuele machine?
 Zien van een virtuele machine als geheel als de optie voor een snelle versie maken voor een Azure-VM. Deze optie wijzigt de namen van de schijf, containers die worden gebruikt door de schijven, het openbare IP-adressen en de netwerkinterfacenamen. De wijziging houdt unieke bronnen wanneer een virtuele machine wordt gemaakt. De virtuele machine is niet toegevoegd aan een beschikbaarheidsset.
 
-De schijfoptie voor terugzetten als u wilt:
+Als u wilt, kunt u de optie voor terugzetten schijf gebruiken:
   * Aanpassen van de virtuele machine die wordt gemaakt. Bijvoorbeeld de grootte wijzigen.
   * Configuratie-instellingen die niet er op het moment van back-up waren toevoegen
   * Beheer de naamgevingsconventie voor resources die zijn gemaakt.
   * De virtuele machine toevoegen aan een beschikbaarheidsset.
-  * Alle andere instellingen die moet worden geconfigureerd met behulp van PowerShell of een sjabloon toevoegen.  W
+  * Alle andere instellingen die moet worden geconfigureerd met behulp van PowerShell of een sjabloon toevoegen.  w
 
 ### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Kan ik back-ups van niet-beheerde VM-schijven herstellen nadat ik een upgrade naar managed disks uitvoeren?
 Ja, kunt u back-ups uitgevoerd voordat de schijven zijn gemigreerd vanuit niet-beheerde beheerd.

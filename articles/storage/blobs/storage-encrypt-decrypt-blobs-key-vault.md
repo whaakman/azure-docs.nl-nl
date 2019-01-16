@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Blobs versleutelen en ontsleutelen in Azure Storage met behulp van Azure Key Vault | Microsoft Docs'
+title: 'Zelfstudie: Blobs in Azure Storage met behulp van Azure Key Vault versleutelen en ontsleutelen | Microsoft Docs'
 description: Het versleutelen en ontsleutelen van een blob met behulp van versleuteling op de client voor Microsoft Azure Storage met Azure Key Vault.
 services: storage
 author: tamram
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 213190863702ec5a7f2ae764c8e2d892764740f9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233096"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332197"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Zelfstudie: Blobs versleutelen en ontsleutelen in Microsoft Azure Storage met behulp van Azure Key Vault
+# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Zelfstudie: Blobs in Microsoft Azure Storage met behulp van Azure Key Vault versleutelen en ontsleutelen
 ## <a name="introduction"></a>Inleiding
 Deze zelfstudie wordt uitgelegd hoe u het gebruik van versleuteling van de client-side-opslag met Azure Key Vault. Dit helpt u bij het versleutelen en ontsleutelen van een blob in een consoletoepassing met behulp van deze technologieën.
 
-**Geschatte duur:** 20 minuten
+**Geschatte tijdsduur:** 20 minuten
 
 Zie voor informatie over Azure Key Vault, [wat is Azure Key Vault?](../../key-vault/key-vault-whatis.md).
 
@@ -52,7 +52,7 @@ Om door te gaan met deze zelfstudie, moet u de volgende stappen uitvoert, worden
 
 Noteer de ClientID en ClientSecret die zijn gegenereerd tijdens het registreren van een toepassing met Azure Active Directory.
 
-Beide sleutels maken in de key vault. Gaan we ervan uit voor de rest van de zelfstudie die u hebt de volgende namen hebben gebruikt: ContosoKeyVault en TestRSAKey1.
+Beide sleutels maken in de key vault. We ervan uitgaan dat voor de rest van de zelfstudie die u hebt de volgende namen hebben gebruikt: ContosoKeyVault en TestRSAKey1.
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>Maak een consoletoepassing met pakketten en AppSettings
 Maak een nieuwe consoletoepassing in Visual Studio.
@@ -191,7 +191,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 ## <a name="use-key-vault-secrets"></a>Gebruik Key Vault-geheimen
 De manier waarop het gebruik van een geheim met client-side encryption is via de klasse SymmetricKey omdat een geheim in feite een symmetrische sleutel is. Maar zoals eerder vermeld, een geheim in Key Vault niet kan worden toegewezen aan een SymmetricKey precies. Er zijn een paar dingen om te begrijpen:
 
-* De sleutel in een SymmetricKey is een vaste lengte: 128, 192, 256, 384 of 512 bits.
+* De sleutel in een SymmetricKey heeft een vaste lengte zijn: 128, 192, 256, 384 of 512 bits.
 * De sleutel in een SymmetricKey moet Base64-gecodeerd.
 * Een Key Vault-geheim dat wordt gebruikt als een SymmetricKey moet een inhoudstype van 'application/octet-stream' in Key Vault.
 
@@ -208,7 +208,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 In uw consoletoepassing, kunt u dezelfde aanroep als voordat dit geheim als een SymmetricKey ophalen.

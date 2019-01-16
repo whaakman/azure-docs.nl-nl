@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021115"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331806"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -86,7 +86,7 @@ U kunt de zelf-hostende integratieruntime installeren met het downloaden van een
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Installeren en zelf-hostende IR in het Downloadcentrum registreren
 
 1. Ga naar de [downloadpagina van Microsoft integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Selecteer **downloaden**, selecteer de juiste versie (**32-bits** of **64-bits**), en selecteer **volgende**.
+2. Selecteer **downloaden**, selecteert u de 64-bits versie (32-bits wordt niet ondersteund), en selecteer **volgende**.
 3. Het MSI-bestand rechtstreeks uitvoeren of sla deze op uw harde schijf en voer deze uit.
 4. Op de **Welkom** pagina, selecteer een taal en selecteer **volgende**.
 5. Accepteer de licentievoorwaarden voor Microsoft-Software en selecteer **volgende**.

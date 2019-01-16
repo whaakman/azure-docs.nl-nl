@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9b8c44cd0afa7e156cfa7a20ff47316fa5242d7
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104009"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320613"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Een Red Hat gebaseerde virtuele machine voorbereiden voor Azure Stack
 
@@ -670,6 +670,6 @@ Zie voor meer informatie, [opnieuw opbouwen van initramfs](https://access.redhat
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt nu uw Red Hat Enterprise Linux virtuele harde schijf gebruiken om te maken van nieuwe virtuele machines in Azure Stack. Als dit de eerste keer dat u de VHD-bestand naar Azure Stack uploadt, Zie [gebruik van de toolkit Marketplace maken en publiceren van marketplace-items](azure-stack-marketplace-publisher.md).
+U kunt nu uw Red Hat Enterprise Linux virtuele harde schijf gebruiken om te maken van nieuwe virtuele machines in Azure Stack. Als dit de eerste keer dat u de VHD-bestand naar Azure Stack uploadt, Zie [maken en publiceren van een Marketplace-item](azure-stack-create-and-publish-marketplace-item.md).
 
 Zie voor meer informatie over de hypervisors die zijn gecertificeerd voor Red Hat Enterprise Linux, [de Red Hat-website](https://access.redhat.com/certified-hypervisors).

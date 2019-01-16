@@ -12,30 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233732"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321401"
 ---
 # <a name="application-architecture-on-azure"></a>Toepassingsarchitectuur in Azure
 Om u te helpen beveiligen van uw cloud-gebaseerde oplossingen op Microsoft Azure, een solide basis van de architectuur is essentieel. Architecten, ontwerpers en uitvoerders profiteren van een sterke kennis van de architectuur van toepassingen en services. Deze fundamentele kennis helpt u inzicht in de onderdelen van uw cloud-gebaseerde oplossingen en het eenvoudiger is om te integreren beveiliging in alle aspecten van uw ontwerp en de implementatie.
 
 We hebben het volgende voor hulp bij uw architectonische onderzoeken en ontwerpen:
 
-* Architectuur infographics
 * Blauwdrukken van cloudarchitectuur
 * Cloud en enterprise symbool instellen
 * 3D-blauwdruk Visio-sjabloon
-
-## <a name="architectural-infographics"></a>Architectuur infographics
-Microsoft publiceert verschillende architectuur gerelateerde posters/infographics. Ze omvatten:
-
-* [Real-World Cloud-toepassingen ontwikkelen](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Schalen met Cloudservices](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Blauwdrukken van cloudarchitectuur
 Microsoft publiceert een set op hoog niveau [blauwdrukken van cloudarchitectuur](https://aka.ms/azblueprints) weergegeven over het bouwen van bepaalde typen systemen met behulp van Microsoft-producten.

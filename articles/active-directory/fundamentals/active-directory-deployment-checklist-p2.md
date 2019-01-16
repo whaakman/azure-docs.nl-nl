@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 1bfc97eb850cf81ff638f92bc628c856fa75681e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9ec183c55a74a2ab12c8accb8b3578ea530f1da2
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230659"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322075"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory-functie-Implementatiehandleiding
 
@@ -36,9 +36,9 @@ Meer informatie over licentieverlening vindt u op de volgende pagina's:
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Azure AD B2B-licentieverlening richtlijnen](../b2b/licensing-guidance.md)
 
-## <a name="phase-1-foundation-of-security"></a>Fase 1: Basis van beveiliging
+## <a name="phase-1-build-a-foundation-of-security"></a>Fase 1: Bouw een basis van beveiliging
 
-Beheerders inschakelen in fase 1, basislijn beveiligingsfuncties die u het maken van een basis veiliger en gemakkelijk te gebruiken in Azure AD voordat we importeer of maak gewone gebruikersaccounts. Deze fundamentele fase zorgt ervoor dat u een beter beveiligde status vanaf het begin en dat uw eindgebruikers alleen moeten worden opgenomen in de nieuwe concepten één keer.
+In deze fase inschakelen beheerders basislijn beveiligingsfuncties die u het maken van een basis veiliger en gemakkelijk te gebruiken in Azure AD voordat we importeer of maak gewone gebruikersaccounts. Deze fundamentele fase zorgt ervoor dat u een beter beveiligde status vanaf het begin en dat uw eindgebruikers alleen moeten worden opgenomen in de nieuwe concepten één keer.
 
 | Taak | Detail | Vereiste licentie |
 | ---- | ------ | ---------------- |
@@ -57,9 +57,9 @@ Beheerders inschakelen in fase 1, basislijn beveiligingsfuncties die u het maken
 | [Risicogebeurtenissen die worden gebruikt voor het activeren van multi-factor authentication en het wachtwoord te wijzigen](../authentication/tutorial-risk-based-sspr-mfa.md) | Die gebeurtenissen, zoals meervoudige verificatie, wachtwoord opnieuw instellen en het blokkeren van aanmeldingen op basis van risico's kunt activeren-automatisering inschakelen. | Azure AD Premium P2 |
 | [Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure AD multi-factor Authentication (preview) inschakelen](../authentication/concept-registration-mfa-sspr-converged.md) | Toestaan dat uw gebruikers zich registreren vanuit een gemeenschappelijke ervaring voor zowel de Azure multi-factor Authentication en de self-service voor wachtwoord opnieuw instellen. | Azure AD Premium P1 |
 
-## <a name="phase-2-users-synchronization-and-devices"></a>Fase 2: Gebruikers, synchronisatie en apparaten
+## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Gebruikers importeren, schakelt u de synchronisatie en apparaten beheren
 
-In fase 2, die we toevoegen aan de basis vastgesteld fase 1 van onze gebruikers importeren en het inschakelen van synchronisatie plannen voor toegang voor gasten en voorbereiden om aanvullende functionaliteit te ondersteunen.
+Voeg vervolgens we toe aan de foundation in fase 1 grond van onze gebruikers importeren en het inschakelen van synchronisatie plannen voor toegang voor gasten en voorbereiden om aanvullende functionaliteit te ondersteunen.
 
 | Taak | Detail | Vereiste licentie |
 | ---- | ------ | ---------------- |
@@ -72,9 +72,9 @@ In fase 2, die we toevoegen aan de basis vastgesteld fase 1 van onze gebruikers 
 | [Beslissen over de strategie voor het beheer van apparaat](../devices/overview.md) | Bepaal uw organisatie kan met betrekking tot de apparaten. Registreren van vs lid wordt, Bring Your Own Device vs opgegeven bedrijf. | |
 | [Windows Hello voor bedrijven in uw organisatie implementeren](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Voorbereiden op het zonder wachtwoord verificatie met behulp van Windows Hello | |
 
-## <a name="phase-3-applications"></a>Fase 3: Applicaties
+## <a name="phase-3-manage-applications"></a>Fase 3: Toepassingen beheren
 
-In fase 3 beginnen beheerders met het continue proces om toe te voegen in toepassingen.
+Als we doorgaan met het bouwen van op de vorige fasen, we bepalen welke toepassingen kandidaat voor de migratie en integratie met Azure AD en voltooit de installatie van deze toepassingen.
 
 | Taak | Detail | Vereiste licentie |
 | ---- | ------ | ---------------- |
@@ -82,15 +82,15 @@ In fase 3 beginnen beheerders met het continue proces om toe te voegen in toepas
 | [Ondersteunde SaaS-toepassingen in de galerie integreren](../manage-apps/add-application-portal.md) | Azure AD heeft een galerie met duizenden vooraf geïntegreerde toepassingen. Enkele van de toepassingen die uw organisatie gebruikt, waarschijnlijk in de galerie die toegankelijk is rechtstreeks vanuit de Azure portal. | Azure AD Free |
 | [Application Proxy gebruiken om te integreren van on-premises toepassingen](../manage-apps/application-proxy-add-on-premises-application.md) | Application Proxy kan gebruikers toegang tot on-premises toepassingen aanmelden met hun Azure AD-account. | Azure AD Basic |
 
-## <a name="phase-4-privileged-identities-access-reviews-and-user-lifecycle"></a>Fase 4: Bevoorrechte identiteiten, beoordelingen en levenscyclus van de gebruiker
+## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: Bevoorrechte identiteiten controleren en beheren van de levenscyclus van de gebruiker een toegangscontrole voltooien
 
 Fase 4 ziet beheerders afdwingen van minimale bevoegdheden beginselen voor het beheer, hun eerste toegangsbeoordelingen voltooien en het inschakelen van automatisering van algemene taken van de levenscyclus van gebruiker.
 
 | Taak | Detail | Vereiste licentie |
 | ---- | ------ | ---------------- |
-| [Het gebruik van Privileged Identity Management afdwingen](../privileged-identity-management/pim-configure.md) | Verwijder beheerdersrollen van normale dagelijkse gebruikersaccounts. Controleer gebruikers met beheerdersrechten in aanmerking voor het gebruik van hun rol na een controle van de multi-factor authentication slaagt, een zakelijke rechtvaardiging te geven of aanvragen van goedkeuring van fiatteurs. | Azure AD Premium P2 |
+| [Het gebruik van Privileged Identity Management afdwingen](../privileged-identity-management/pim-security-wizard.md) | Verwijder beheerdersrollen van normale dagelijkse gebruikersaccounts. Controleer gebruikers met beheerdersrechten in aanmerking voor het gebruik van hun rol na een controle van de multi-factor authentication slaagt, een zakelijke rechtvaardiging te geven of aanvragen van goedkeuring van fiatteurs. | Azure AD Premium P2 |
 | [Een toegangscontrole voor Azure AD directory-rollen in PIM voltooien](../privileged-identity-management/pim-how-to-start-security-review.md) | Werken met uw beveiligings- en leiderschap teams om het maken van een toegangsbeleid voor de beoordeling om te controleren met beheerdersrechten toegang op basis van beleid van uw organisatie. | Azure AD Premium P2 |
-| [Beleid voor het lidmaatschap van dynamische groep implementeren](../users-groups-roles/groups-dynamic-membership.md) | Dynamische groepen gebruiken om gebruikers automatisch toewijzen aan groepen op basis van hun kenmerken van HR (of de bron is), zoals afdeling, titel, regio, en andere kenmerken. |  |
+| [Een dynamische groepslidmaatschap beleid implementeren](../users-groups-roles/groups-dynamic-membership.md) | Dynamische groepen gebruiken om gebruikers automatisch toewijzen aan groepen op basis van hun kenmerken van HR (of de bron is), zoals afdeling, titel, regio, en andere kenmerken. |  |
 | [Inrichten van de groep op basis van toepassingen implementeren](../manage-apps/what-is-access-management.md) | Gebruik toegangsbeheer op basis van een groep inrichting op automatisch gebruikers inrichten voor SaaS-toepassingen. |  |
 | [Inrichten van gebruikers en het opheffen van inrichting automatiseren](../manage-apps/user-provisioning.md) | Handmatige stappen van de levenscyclus van de werknemer-account om te voorkomen dat onbevoegde toegang verwijderen. Identiteiten van de bron van de waarheid (HR-systeem) naar Azure AD synchroniseren. |  |
 

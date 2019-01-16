@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bdf2d4e9c5ee659666eeb1a6e92c34c181ba805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284537"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331789"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -23,13 +23,13 @@ Een Automation-verbindingsasset bevat de vereiste informatie op verbinding maken
 Wanneer u een verbinding maakt, moet u een *verbindingstype*. Het verbindingstype is een sjabloon die een set eigenschappen definieert. De verbinding definieert de waarden voor elke eigenschap die is gedefinieerd in het verbindingstype. Verbindingstypen worden toegevoegd aan Azure Automation in integratiemodules of die zijn gemaakt met de [API van Azure Automation](https://msdn.microsoft.com/library/azure/mt163818.aspx) als de integratiemodule een verbindingstype bevat en wordt geïmporteerd in uw Automation-account. Anders moet u een bestand met metagegevens om op te geven van een Automation-verbindingstype te maken.  Zie voor meer informatie over dit [integratiemodules](automation-integration-modules.md).  
 
 >[!NOTE]
->Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze apparaten worden versleuteld en opgeslagen in Azure Automation met behulp van een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in Key Vault. Voordat u een beveiligd bedrijfsmiddel opslaat, is de sleutel geladen uit Key Vault en vervolgens worden gebruikt voor het versleutelen van de asset.
+>Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze apparaten worden versleuteld en opgeslagen in Azure Automation met behulp van een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in een systeem beheerd Key Vault. Voordat u een beveiligd bedrijfsmiddel opslaat, is de sleutel geladen uit Key Vault en vervolgens worden gebruikt voor het versleutelen van de asset. Dit proces wordt beheerd door Azure Automation.
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
 
 De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van Automation-verbindingen met Windows PowerShell. Ze geleverd als onderdeel van de [Azure PowerShell-module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
-|Cmdlet|Beschrijving|
+|Cmdlet|Description|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Hiermee haalt u een verbinding. Bevat een hash-tabel met de waarden van de velden van de verbinding.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Hiermee maakt u een nieuwe verbinding.|
@@ -40,7 +40,7 @@ De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van Au
 
 De activiteiten in de volgende tabel worden gebruikt voor toegang tot verbindingen in een runbook of DSC-configuratie.
 
-|Activiteiten|Beschrijving|
+|Activiteiten|Description|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hiermee haalt u een verbinding moet worden gebruikt. Retourneert een hashtabel met de eigenschappen van de verbinding.|
 
@@ -51,7 +51,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot verbinding
 ## <a name="python2-functions"></a>Python2-functies 
 De functie in de volgende tabel wordt gebruikt voor toegang tot verbindingen in een Python2-runbook. 
 
-| Functie | Beschrijving | 
+| Function | Description | 
 |:---|:---| 
 | automationassets.get_automation_connection | Hiermee haalt u een verbinding. Retourneert een woordenlijst met de eigenschappen van de verbinding. | 
 

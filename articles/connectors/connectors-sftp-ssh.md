@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/31/2018
-ms.openlocfilehash: 336288aaf3817fe267d58a225249bf54cca691bc
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 01/15/2019
+ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979094"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320783"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van SSH en Azure Logic Apps
 
@@ -27,7 +27,7 @@ Voor het automatiseren van taken die bewaken, maken, verzenden en ontvangen van 
 * Inhoud van bestanden en metagegevens ophalen.
 * Pak archieven voor mappen.
 
-In vergelijking met de [SFTP-connector](../connectors/connectors-create-api-sftp.md), de SFTP-SSH-connector kan lezen of schrijven van bestanden tot *1 GB* in grootte. Voor bestanden die groter zijn dan 1 GB, kunt u de SFTP-SSH connector plus [logische groepen te verdelen voor het verwerken van grote berichten](../logic-apps/logic-apps-handle-large-messages.md). Raadpleeg voor meer verschillen [vergelijken SFTP-SSH versus SFTP](#comparison) verderop in dit artikel.
+In vergelijking met de [SFTP-connector](../connectors/connectors-create-api-sftp.md), de SFTP-SSH-connector kan lezen of schrijven van bestanden tot *1 GB* in grootte. Raadpleeg voor meer verschillen [vergelijken SFTP-SSH versus SFTP](#comparison) verderop in dit artikel.
 
 U kunt triggers die gebeurtenissen op uw SFTP-server bewaken en uitvoer beschikbaar voor andere acties. U kunt acties waarmee verschillende taken worden uitgevoerd op uw SFTP-server gebruiken. U kunt ook andere acties in uw logische app de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailmeldingen over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -44,11 +44,11 @@ Hier volgen andere belangrijke verschillen tussen de SFTP-SSH-connector en de SF
   >
   > De SFTP-SSH-connector ondersteunt *alleen* deze persoonlijke sleutels, indelingen, algoritmen en vingerafdrukken:
   > 
-  > * **Persoonlijke sleutel indelingen**: RSA (Rivest-Shamir-Adleman) en DSA (Digital Signature Algorithm) sleutels in OpenSSH en ssh.com indelingen
+  > * **Persoonlijke sleutel indelingen**: RSA (Rivest-Shamir-Adleman) en sleutels in OpenSSH- en ssh.com indelingen DSA (Digital Signature Algorithm)
   > * **Versleutelingsalgoritmen**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC 192-AES-CBC en AES-256-CBC
-  > * **Vingerafdruk**: MD5
+  > * **Fingerprint**: MD5
 
-* Leest of schrijft bestanden tot *1 GB* in grootte in vergelijking met de SFTP-connector. Voor bestanden die groter zijn dan 1 GB, gebruikt u [logische groepen te verdelen voor het verwerken van grote berichten](../logic-apps/logic-apps-handle-large-messages.md). 
+* Leest of schrijft bestanden tot *1 GB* in grootte in vergelijking met de SFTP-connector, gegevens in 50 MB stukken, niet 1 GB-onderdelen, maar verwerkt.
 
 * Biedt de **map maken** actie maakt u een map op het opgegeven pad op de SFTP-server.
 
@@ -66,9 +66,9 @@ Hier volgen andere belangrijke verschillen tussen de SFTP-SSH-connector en de SF
   >
   > De SFTP-SSH-connector ondersteunt *alleen* deze persoonlijke sleutel indelingen, algoritmen en vingerafdrukken:
   > 
-  > * **Persoonlijke sleutel indelingen**: RSA (Rivest-Shamir-Adleman) en DSA (Digital Signature Algorithm) sleutels in OpenSSH en ssh.com indelingen
+  > * **Persoonlijke sleutel indelingen**: RSA (Rivest-Shamir-Adleman) en sleutels in OpenSSH- en ssh.com indelingen DSA (Digital Signature Algorithm)
   > * **Versleutelingsalgoritmen**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC 192-AES-CBC en AES-256-CBC
-  > * **Vingerafdruk**: MD5
+  > * **Fingerprint**: MD5
   >
   > Wanneer u uw logische app, maakt nadat u de SFTP-SSH-trigger of actie die u wilt toevoegen, moet u de verbindingsgegevens voor uw SFTP-server opgeven. 
   > Als u een persoonlijke SSH-sleutel gebruikt, zorg ervoor dat u ***kopie*** de sleutel van uw SSH bestand met persoonlijke sleutel en ***plakken*** die sleutel in de details van de verbinding, ***niet handmatig invoeren of de sleutelbewerken***, waardoor de verbinding is mislukt. 
@@ -125,7 +125,7 @@ De SFTP-SSH-triggers werken door het bestandssysteem SFTP polling en op zoek naa
 | SFTP-client | Bewerking | 
 |-------------|--------| 
 | Winscp | Ga naar **opties** > **voorkeuren** > **Transfer** > **bewerken**  >  **Behouden timestamp** > **uitschakelen** |
-| Filezilla werkt | Ga naar **Transfer** > **tijdstempels van overgebrachte bestanden behouden** > **uitschakelen** | 
+| FileZilla | Ga naar **Transfer** > **tijdstempels van overgebrachte bestanden behouden** > **uitschakelen** | 
 ||| 
 
 Als een trigger een nieuw bestand wordt gevonden, wordt de trigger wordt gecontroleerd dat het nieuwe bestand voltooid en geen gedeeltelijk geschreven is. Bijvoorbeeld, een bestand mogelijk wijzigingen wordt uitgevoerd wanneer de trigger wordt gecontroleerd voor de bestandsserver. Om te voorkomen dat een gedeeltelijk geschreven bestand retourneren, merkt de trigger de tijdstempel voor het bestand dat recente wijzigingen, maar niet direct dat bestand geretourneerd. De trigger retourneert het bestand alleen wanneer u een polling van de server opnieuw. Dit gedrag kan soms leiden tot een vertraging die is maximaal twee keer van de trigger polling-interval. 
@@ -137,13 +137,13 @@ Bij het aanvragen van de inhoud van bestand, kan de trigger bestanden groter dan
 
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH activeren: wanneer een bestand wordt toegevoegd of gewijzigd
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH activeren: Wanneer een bestand is toegevoegd of gewijzigd
 
 Deze trigger wordt een werkstroom voor logische app gestart wanneer een bestand wordt toegevoegd of gewijzigd op een SFTP-server. U kunt bijvoorbeeld een voorwaarde die controleert of de inhoud van het bestand en wordt de inhoud op basis van of de inhoud voldoet aan een opgegeven voorwaarde toevoegen. U kunt vervolgens een actie toevoegen die de bestandsinhoud opgehaald en die inhoud in een map op de SFTP-server geplaatst. 
 
 **Voorbeeld van de onderneming**: U kunt deze trigger gebruiken voor het bewaken van een SFTP-map voor nieuwe bestanden die staan voor klanten en orders. U kunt vervolgens een SFTP-actie zoals gebruiken **bestandsinhoud ophalen** , zodat u de volgorde van de inhoud ophalen voor verdere verwerking en die volgorde opslaan in een orderdatabase.
 
-### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH actie: inhoud ophalen
+### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH actie: Inhoud ophalen
 
 Deze actie wordt de inhoud opgehaald van een bestand in een SFTP-server. U kunt bijvoorbeeld de trigger toevoegen uit het vorige voorbeeld en een voorwaarde die moet voldoen aan de inhoud van het bestand. Als de voorwaarde waar is, wordt de actie die wordt de inhoud opgehaald kunt uitvoeren. 
 

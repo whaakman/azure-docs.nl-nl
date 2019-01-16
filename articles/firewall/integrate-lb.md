@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 1/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9d10383b84cbd1b85216cb9ae4582db4c7a10743
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54268072"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321769"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Firewall van Azure integreren met Azure Standard Load Balancer
 
@@ -26,7 +26,7 @@ De load balancer is met een openbare load balancer geïmplementeerd met een open
 
 ### <a name="asymmetric-routing"></a>Asymmetrisch routeren
 
-Asymmetrische routering is waar een pakket wordt een pad naar de bestemming en een ander pad neemt als u terugkeert naar de bron. Een probleem kan optreden wanneer een subnet heeft een standaardroute privé IP-adres van de firewall en een openbare load balancer. In dit geval wordt het binnenkomende verkeer van load balancer is ontvangen via het openbare IP-adres, maar de return pad verloopt via de privé IP-adres van de firewall. Aangezien de firewall stateful is, wordt het bestaande pakket geweigerd omdat de firewall niet op de hoogte van een vastgestelde sessie.
+Asymmetrische routering is waar een pakket wordt een pad naar de bestemming en een ander pad neemt als u terugkeert naar de bron. Dit probleem treedt op wanneer een subnet is een standaard-route naar de privé IP-adres van de firewall en u een openbare load balancer. In dit geval wordt het binnenkomende verkeer van load balancer is ontvangen via het openbare IP-adres, maar de return pad verloopt via de privé IP-adres van de firewall. Aangezien de firewall stateful is, wordt het bestaande pakket geweigerd omdat de firewall niet op de hoogte van een vastgestelde sessie.
 
 ### <a name="fix-the-routing-issue"></a>Probleem met de routering
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855751"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329970"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>OS- en framework patchen met ACR taken automatiseren
 
@@ -24,10 +24,10 @@ Containers bieden nieuwe niveaus voor virtualisatie, isoleren van toepassings- e
 
 Bouwen en testen van containerinstallatiekopieën met ACR-taken in vier manieren:
 
-* [Snelle taak](#quick-task): maken en pushen van container afbeeldingen op aanvraag, in Azure, zonder een lokale Docker-Engine-installatie. Denkt `docker build`, `docker push` in de cloud. Samengesteld op basis van de lokale broncode of een Git-opslagplaats.
-* [Bouwen op bron doorvoercode](#automatic-build-on-source-code-commit): een build van container-installatiekopie automatisch activeren wanneer code vastgelegd in een Git-opslagplaats is.
-* [Bouwen op updates van basisinstallatiekopieën](#automate-os-and-framework-patching): een build van container-installatiekopie wordt geactiveerd wanneer de basisinstallatiekopie van die installatiekopie is bijgewerkt.
-* [Taken met meerdere stappen](#multi-step-tasks-preview) (preview): meerdere stappen taken die afbeeldingen bouwen, containers run as-opdrachten en installatiekopieën pushen naar een register definiëren. Uitvoering van de taak op aanvraag biedt ondersteuning voor deze preview-functie van de ACR-taken en parallelle installatiekopie bouwen, testen en push-bewerkingen.
+* [Snelle taak](#quick-task): Bouw en push-container afbeeldingen op aanvraag, in Azure, zonder een lokale Docker-Engine-installatie. Denkt `docker build`, `docker push` in de cloud. Samengesteld op basis van de lokale broncode of een Git-opslagplaats.
+* [Bouwen op bron doorvoercode](#automatic-build-on-source-code-commit): Een build van container-installatiekopie automatisch wordt geactiveerd wanneer de code wordt doorgevoerd aan een Git-opslagplaats.
+* [Bouwen op updates van basisinstallatiekopieën](#automate-os-and-framework-patching): Een build van container-installatiekopie geactiveerd wanneer de basisinstallatiekopie van die installatiekopie is bijgewerkt.
+* [Taken met meerdere stappen](#multi-step-tasks-preview) (preview): WebTest met meerdere stappen taken die afbeeldingen bouwen, containers run as-opdrachten en installatiekopieën pushen naar een register definiëren. Uitvoering van de taak op aanvraag biedt ondersteuning voor deze preview-functie van de ACR-taken en parallelle installatiekopie bouwen, testen en push-bewerkingen.
 
 ## <a name="quick-task"></a>Snelle taken
 
@@ -39,7 +39,7 @@ Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr
 
 De volgende tabel ziet u enkele voorbeelden van context ondersteunde locaties voor ACR taken:
 
-| Locatie van de context | Beschrijving | Voorbeeld |
+| Locatie van de context | Description | Voorbeeld |
 | ---------------- | ----------- | ------- |
 | Lokaal bestandssysteem | Bestanden in een map op het lokale bestandssysteem. | `/home/user/projects/myapp` |
 | Master-vertakking van GitHub | De vertakking van de bestanden in de master (of andere standaard) van een GitHub-opslagplaats.  | `https://github.com/gituser/myapp-repo.git` |
@@ -57,7 +57,7 @@ Informatie over het gebruik van snelle taken in de eerste zelfstudie van de ACR-
 ACR-taken gebruiken om automatisch een containerinstallatiekopie bouwen wanneer de code wordt doorgevoerd aan een Git-opslagplaats. Buildtaken, kunnen worden geconfigureerd met de Azure CLI-opdracht [az acr taak][az-acr-task], kunt u een Git-opslagplaats en eventueel een vertakking en docker-bestand op te geven. Als uw team code naar de opslagplaats doorvoeringen, wordt een build van de containerinstallatiekopie die is gedefinieerd in de opslagplaats geactiveerd door een webhook ACR taken gemaakt.
 
 > [!IMPORTANT]
-> Als u taken voor het eerder hebt gemaakt tijdens de Preview-versie met de `az acr build-task` opdracht, deze taken moeten opnieuw worden gemaakt met behulp van de [az acr taak] [ az-acr-task] opdracht.
+> Als u eerder taken hebt gemaakt tijdens de preview met de opdracht `az acr build-task`, moeten deze taken opnieuw worden gemaakt met de opdracht [az acr task][az-acr-task].
 
 Meer informatie over het activeren van builds op bron code doorvoeren in de tweede zelfstudie ACR taken [automatiseren containerinstallatiekopie maakt met Azure Container Registry taken](container-registry-tutorial-build-task.md).
 
@@ -65,7 +65,7 @@ Meer informatie over het activeren van builds op bron code doorvoeren in de twee
 
 De kracht van de ACR-taken voor het verbeteren van de werkstroom van uw container build echt zijn afkomstig uit de mogelijkheid voor het detecteren van een update naar een basisinstallatiekopie. Wanneer de bijgewerkte installatiekopie naar het register is gepusht, kunt ACR taken automatisch op basis van deze toepassing afbeeldingen bouwen.
 
-Containerinstallatiekopieën kunnen grotendeels worden onderverdeeld in *basis* afbeeldingen en *toepassing* afbeeldingen. De basisinstallatiekopieën bevatten doorgaans het besturingssysteem en toepassingsframeworks waarop uw toepassing is gemaakt, samen met andere aanpassingen. Deze basisinstallatiekopieën zijn doorgaans gebaseerd op openbare upstream afbeeldingen, bijvoorbeeld: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], of [Node.js][base-node]. Verschillende van uw toepassingsinstallatiekopieën mogelijk delen een gemeenschappelijke basisinstallatiekopie.
+Containerinstallatiekopieën kunnen grotendeels worden onderverdeeld in *basis* afbeeldingen en *toepassing* afbeeldingen. De basisinstallatiekopieën bevatten doorgaans het besturingssysteem en toepassingsframeworks waarop uw toepassing is gemaakt, samen met andere aanpassingen. Deze basisinstallatiekopieën zijn zich doorgaans op basis van openbare upstream afbeeldingen, bijvoorbeeld: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], of [Node.js ][base-node]. Verschillende van uw toepassingsinstallatiekopieën mogelijk delen een gemeenschappelijke basisinstallatiekopie.
 
 Wanneer de installatiekopie van een besturingssysteem of app-framework wordt bijgewerkt door de upstream maintainer, moet bijvoorbeeld met een kritieke OS-beveiligingspatch, u ook bijwerken de basisinstallatiekopieën om op te nemen van de kritieke oplossing. De installatiekopie van elke toepassing moet vervolgens ook opnieuw worden opgebouwd zodanig dat deze upstream oplossingen nu opgenomen in de basisinstallatiekopie.
 
@@ -78,7 +78,7 @@ Meer informatie over het besturingssysteem en framework patching uit handen in d
 
 ## <a name="multi-step-tasks-preview"></a>Taken met meerdere stappen (preview)
 
-WebTest met meerdere stappen taken, een preview-functie van de ACR-taken, biedt op basis van een stap taakdefinitie en kan worden uitgevoerd voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke container-installatiekopie bouwen en push-bewerkingen. Ze kunnen ook de uitvoering van een of meer containers, met elke stap met behulp van de container als de uitvoeringsomgeving definiëren.
+WebTest met meerdere stappen taken, een preview-functie van de ACR-taken, biedt op basis van een stap taakdefinitie en kan worden uitgevoerd voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke ontwikkel- en pushbewerkingen voor containerinstallatiekopieën. Ze kunnen ook de uitvoering definiëren van een of meer containers, waarbij elke stap de container als uitvoeringsomgeving gebruikt.
 
 U kunt bijvoorbeeld een taak meerdere stappen waarmee de volgende maken:
 
@@ -101,7 +101,7 @@ Meer informatie over taken meerdere stappen in [WebTest met meerdere stappen bou
 Wanneer u gereed bent voor het automatiseren van OS- en framework patchen met het bouwen van uw containerinstallatiekopieën in de cloud, controleert u de driedelige reeks zelfstudies ACR-taken.
 
 > [!div class="nextstepaction"]
-> [In de cloud met Azure Container Registry taken installatiekopieën compileren](container-registry-tutorial-quick-task.md)
+> [Zelfstudie: containerinstallatiekopieën bouwen in de cloud met Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

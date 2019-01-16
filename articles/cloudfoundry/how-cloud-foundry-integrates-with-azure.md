@@ -1,6 +1,6 @@
 ---
 title: Hoe Cloud Foundry kan worden geïntegreerd met Azure | Microsoft Docs
-description: Hierin wordt beschreven hoe Cloud Foundry kan utlize Azure-services ter verbetering van de Enterprice-ervaring
+description: Hierin wordt beschreven hoe Azure-services ter verbetering van de ervaring Enterprice kunnen gebruikmaken van Cloud Foundry
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406140"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329800"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry integreren met Azure
 
 [Cloud Foundry](https://docs.cloudfoundry.org/) is een PaaS-platform uitgevoerd boven op cloudproviders IaaS-platform. Deze biedt toepassingen op een consistente implementatie-ervaring in de cloudproviders. Bovendien kan het ook integreren met verschillende Azure-services, met geavanceerde HA, schaalbaarheid en kostenbesparingen.
-Er zijn [6 subsystemen van de Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), die kan worden flexibel schalen online, met inbegrip van: routering, verificatie, beheer van de levenscyclus van toepassingen, Service management, berichten en bewaking. U kunt Cloud Foundry voor gebruik van geadresseerde Azure-service configureren voor elk van de subsystemen. 
+Er zijn [6 subsystemen van de Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), die kan worden flexibel schalen online, met inbegrip van: Routering, verificatie, beheer van de levenscyclus van toepassingen, Service management, berichten en bewaking. U kunt Cloud Foundry voor gebruik van geadresseerde Azure-service configureren voor elk van de subsystemen. 
 
 ![Cloud Foundry op Azure-integratie-architectuur](media/CFOnAzureEcosystem-colored.png)
 
 ## <a name="1-high-availability-and-scalability"></a>1. Hoge beschikbaarheid en schaalbaarheid
-### <a name="managed-disk"></a>Beheerde schijf
+### <a name="managed-disk"></a>Managed Disk
 Bosh maakt gebruik van Azure KPI (Cloud Provider Interface) voor het maken van de schijf en routines verwijderen. Standaard, worden niet-beheerde schijven gebruikt. De klant handmatig maken van de storage-accounts en vervolgens configureert u de accounts in CF manifestbestanden is vereist. Dit komt door de beperking op het aantal schijven per opslagaccount gebruikt.
 Nu [Managed Disk](https://azure.microsoft.com/services/managed-disks/) beschikbaar is, biedt een beheerde schijf van beveiligde en betrouwbare opslag voor virtuele machines. De klant is niet meer nodig hebt om op te lossen met de storage-account voor schaalbaarheid en HA. Azure worden de schijven automatisch gerangschikt. Of het nu een nieuwe of een bestaande implementatie, wordt de KPI Azure het maken of de migratie van de beheerde schijf tijdens de implementatie van een CF verwerken. Met PCF 1.11 wordt ondersteund. U kunt ook de open-source Cloud Foundry verkennen [Managed Disk-richtlijnen](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks) ter referentie. 
 ### <a name="availability-zone-"></a>Binnen een Beschikbaarheidszone *
@@ -78,7 +78,7 @@ Klik op [hier](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-no
 ### <a name="cost-saving-for-devtest-environments"></a>Geld besparen voor Dev/Test-omgevingen
 #### <a name="b-series-"></a>B-serie: *
 Hoewel F en VM van de D-serie zijn vaak voor productie-omgeving van Pivotal Cloud Foundry, wordt aangeraden de nieuwe '' burstable '' [B-serie](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) zorgt voor de nieuwe opties. De VM's met burstfunctie B-serie zijn ideaal voor workloads die niet continu de volledige prestaties van de CPU nodig hebt, zoals webservers, kleine databases en de ontwikkeling en testomgevingen. Deze werkbelastingen hebben meestal ' burstable ' prestatie-eisen. Deze $0.012/ uur (B1) in vergelijking met $0.05/ uur (F1) is, raadpleegt u de volledige lijst met [VM-grootten](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) en [prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) voor meer informatie. 
-#### <a name="managed-standard-disk"></a>Beheerde standaardschijven: 
+#### <a name="managed-standard-disk"></a>Managed Standard Disk: 
 Premium-schijven zijn aanbevolen voor betrouwbare prestaties in de productieomgeving.  Met [Managed Disk](https://azure.microsoft.com/services/managed-disks/), standard-opslag kan ook vergelijkbare betrouwbaarheid, met verschillende prestaties leveren. Voor de werkbelasting die geen prestatie-intensieve, zoals dev/Test- of niet-kritieke omgeving bieden beheerde standaardschijven een alternatief met lagere kosten.  
 ### <a name="cost-saving-in-general"></a>Kosten in het algemeen opslaan 
 #### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Belangrijke VM kosten opslaan met Azure-reserveringen: 

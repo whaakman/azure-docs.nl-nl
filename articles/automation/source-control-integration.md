@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342235"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330763"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
@@ -51,14 +51,17 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |---------|---------|
 |Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer        |
 |Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
-|Opslagplaats     | De naam van de opslagplaats of het project. Deze waarde wordt opgehaald uit de opslagplaats voor bronbeheer. Voorbeeld: $/ ContosoFinanceTFVCExample         |
-|Branche     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
+|Opslagplaats     | De naam van de opslagplaats of het project. Deze waarde wordt opgehaald uit de opslagplaats voor bronbeheer. Example: $/ContosoFinanceTFVCExample         |
+|Branch     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks         |
 |Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
 |Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch worden gepubliceerd.         |
 |Description     | Een tekstveld om meer duidelijkheid te geven        |
 
 ![Overzicht van de bron-besturingselement](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> Zorg ervoor dat u bent aangemeld met het juiste account bij het configureren van broncodebeheer. Als er een waarover twijfel bestaat, een nieuw tabblad geopend in uw browser en meld u af bij visualstudio.com of github.com en probeer het opnieuw verbinden broncodebeheer.
 
 ## <a name="syncing"></a>Synchroniseren...
 
@@ -115,9 +118,9 @@ Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. D
 |status van-opslagplaats:     | Commit-toegangsstatus         |
 |repo_deployment      | Implementatie-toegangsstatus         |
 |public_repo     | Toegang tot openbare opslagplaatsen         |
-|**Admin: repo_hook**     |         |
-|schrijven: repo_hook     | Opslagplaats hooks schrijven         |
-|lezen: repo_hook|Opslagplaats hooks lezen|
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Opslagplaats hooks schrijven         |
+|read:repo_hook|Opslagplaats hooks lezen|
 
 ### <a name="azure-devops"></a>Azure DevOps
 

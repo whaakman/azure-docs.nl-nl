@@ -10,30 +10,30 @@ ms.component: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: c52fcd544e22c274d0e9053da93d2b9dee0df695
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286629"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320358"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Augustus 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in augustus 2018.
 
-## <a name="automatic-intelligent-insights"></a>Automatische Intelligent Insights
+## <a name="automatic-intelligent-insights"></a>Automatic Intelligent Insights
 Microsoft heeft geïntroduceerd [automatische intelligent insights](https://azure.microsoft.com/blog/automatic-intelligent-insights-to-optimize-performance-with-sql-data-warehouse/) op de cloud belofte van automatisering voor uw datawarehouse te leveren. U wordt niet meer nodig hebt voor het bewaken van uw datawarehouse voor gegevens scheeftrekken en suboptimale tabelstatistieken. SQL Data Warehouse oppervlakken zonder extra kosten, intelligent insights voor alle exemplaren van Gen2. Door te integreren met [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), kunt u aanbevolen werkwijzen besproken voor het verbeteren van de prestaties van uw actieve werklasten automatisch ontvangen. SQL Data Warehouse analyseert uw werkbelasting en oppervlakken aanbevelingen op basis van uw gebruik. Deze analyse gebeurt dagelijkse zodat u kunt de rapporten over het gebruik en de aanbevelingen voor verbeteringen aan uw workload controleren.
 
-U kunt de aanbevelingen weergeven in de portal voor Azure Advisor: ![aanbevelingen voor de Portal van Azure Advisor voor Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png)
+U kunt de aanbevelingen weergeven in de portal voor Azure Advisor: ![Azure Advisor Portal aanbevelingen voor Azure SQL datawarehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png)
 
-U kunt inzoomen op elke categorie om te zien van de aanbevelingen voor de specifieke waarschuwing: ![Azure Advisor Portal Details van de aanbeveling voor Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png)
+U kunt inzoomen op elke categorie om te zien van de aanbevelingen voor de specifieke waarschuwing: ![Meer informatie voor Azure Advisor Portal aanbeveling voor Azure SQL datawarehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png)
 
 
 ## <a name="bug-fixes"></a>Opgeloste fouten
 
-| Titel | Beschrijving |
+| Titel | Description |
 |:---|:---|
 | **Mogelijke Query mislukt wanneer het aantal split overschrijdt de maximale limiet** |Wanneer de bovengrens van 1 miljoen bestand-split-limiet wordt overschreden is een onverwerkte uitzondering veroorzaakt de SQL-Engine dump en alle query's is mislukt. Deze oplossing addresse het probleem met de uitzondering correct verwerken en een fout geretourneerd zonder dat de query's mislukken. |
-| **Verbeterde ExternalMoveReadersPerNode standaardwaarde voor het verbeteren van de load-prestatie** |Dit probleem is veroorzaakt door de instelling van de eigenschap ExternalMoveReadersPerNode wordt niet gesynchroniseerd met de service fabric instellen. Deze regressie veroorzaakt een verslechterde Gen2 laadprestaties. De oplossing voorziet in Gen2 laadprestaties binnen geoptimaliseerde ontwerpparameters gebruikt.|
+| **Verbeterde ExternalMoveReadersPerNode standaardwaarde laden prestaties te verbeteren** |Dit probleem is veroorzaakt door de instelling van de eigenschap ExternalMoveReadersPerNode wordt niet gesynchroniseerd met de service fabric instellen. Deze regressie veroorzaakt een verslechterde Gen2 laadprestaties. De oplossing voorziet in Gen2 laadprestaties binnen geoptimaliseerde ontwerpparameters gebruikt.|
 
 
 ## <a name="next-steps"></a>Volgende stappen

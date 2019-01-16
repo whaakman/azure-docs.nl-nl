@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794240"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322092"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informatie over periodieke back-upconfiguratie in Azure Service Fabric
 
@@ -45,7 +45,7 @@ Een back-upbeleid bestaat uit de volgende configuraties:
 
 * **Back-upschema**: De tijd of de frequentie waarmee periodieke back-ups maken. Een kunt back-ups om te worden herhaald op basis van opgegeven interval of op een vaste tijd dagelijks / wekelijks plannen.
 
-    1. **Op basis van een frequentie van back-upschema**: Dit schematype moet worden gebruikt als de noodzaak is het back-up van gegevens met vaste intervallen. Gewenste tijdsinterval tussen twee opeenvolgende back-ups is gedefinieerd met behulp van de ISO8601-notatie. Op basis van een frequentie van back-upschema ondersteunt interval resolutie van maximaal minuut.
+    1. **Op basis van een frequentie van back-upschema**: Dit schematype moet worden gebruikt als de noodzaak is het back-up van gegevens met vaste intervallen. Gewenste tijdsinterval tussen twee opeenvolgende back-ups is gedefinieerd met behulp van de ISO8601-notatie. Op basis van een frequentie van back-upschema ondersteunt resolutie van het interval op de minuut.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

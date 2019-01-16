@@ -13,14 +13,14 @@ ms.topic: How to
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0e9ad89e504ce1cb86daad48bec9ffe9423e2cf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426924"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319542"
 ---
-# <a name="schedule-your-first-test"></a>Uw eerste test plannen
+# <a name="scheduling-a-test"></a>Plannen van een test
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -35,8 +35,8 @@ Terwijl de werkstroom testronde kan worden gebruikt om uit te voeren van elke te
 Voordat u deze Quick Start volgen, moet u klaar bent met de volgende items:
 
 - [De validatie als een serviceresources instellen](azure-stack-vaas-set-up-resources.md)
-- [Implementeren van de lokale agent](azure-stack-vaas-local-agent.md) (aanbevolen)
-- [Validatie uit als een Service-belangrijkste concepten](azure-stack-vaas-key-concepts.md) (aanbevolen)
+- [Implementeren van de lokale agent](azure-stack-vaas-local-agent.md) (vereist)
+- [Validatie uit als een Service-belangrijkste concepten](azure-stack-vaas-key-concepts.md) (vereist)
 
 ## <a name="start-a-workflow"></a>Een werkstroom starten
 

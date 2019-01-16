@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/11/2019
-ms.openlocfilehash: 5db9e1f348fed9592d33e9240180db7f2667bb56
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244542"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329460"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replicatie met SQL Database Managed Instance
 
@@ -29,13 +29,13 @@ In het algemeen de uitgever en de distributor als beide zijn in de cloud of on-p
 
 - **Uitgever met lokale distributeur voor beheerd exemplaar**
 
-   ![Replication-with-Azure-SQL-DB-Single-Managed-Instance-Publisher-Distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
    Uitgever en de distributor databases zijn geconfigureerd op een beheerd exemplaar van één.
 
 - **Uitgever met externe distributor voor beheerd exemplaar**
 
-   ![Replication-with-Azure-SQL-DB-separate-Managed-Instances-Publisher-Distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
+   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
    Uitgever en de distributor zijn geconfigureerd op twee beheerde exemplaren. In deze configuratie:
 
@@ -45,7 +45,7 @@ In het algemeen de uitgever en de distributor als beide zijn in de cloud of on-p
 
 - **Uitgever en de distributor on-premises met-abonnee in beheerd exemplaar**
 
-   ![Replication-from-on-premises-to-Azure-SQL-DB-Subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
+   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
 
    In deze configuratie is een Azure SQL database een abonnee. Deze configuratie biedt ondersteuning voor migratie van on-premises naar Azure. In de rol van de abonnee vereist SQL-database niet beheerd exemplaar, maar u een SQL Database Managed Instance als een stap in de migratie van on-premises naar Azure gebruiken kunt. Zie voor meer informatie over Azure SQL Database-abonnees, [replicatie met SQL-Database](replication-to-sql-database.md).
 
@@ -199,4 +199,5 @@ De volgende functies worden niet ondersteund:
 
 ## <a name="see-also"></a>Zie ook
 
+- [Transactionele replicatie](sql-database-managed-instance-transactional-replication.md)
 - [Wat is een beheerd exemplaar?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

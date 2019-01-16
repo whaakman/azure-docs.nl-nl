@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044175"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331959"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Ontwerpen van schaalbare en performante tabellen
 
@@ -213,7 +213,7 @@ De eerdere sectie [overzicht van Azure Table service](#overview) beschrijft een 
 * Ten tweede beste is een ***Bereikquery*** die gebruikmaakt van de **PartitionKey** en filters op een scala aan **RowKey** die moeten worden geretourneerd van meer dan één entiteit. De **PartitionKey** waarde geeft een specifieke partitie en de **RowKey** waarden identificeren een subset van de entiteiten in de betreffende partitie. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop en RowKey ge van' en RowKey lt 'T'  
 * Derde beste is een ***partitie scannen*** die gebruikmaakt van de **PartitionKey** en filters op een andere niet-sleuteleigenschap en die meer dan één entiteit kunnen retourneren. De **PartitionKey** waarde geeft een specifieke partitie en de eigenschap waarden selecteren voor een subset van de entiteiten in de betreffende partitie. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop'- en achternaam eq 'Smith'  
 * Een ***tabel scannen*** omvat niet de **PartitionKey** en is inefficiënt omdat wordt gezocht in alle van de partities die gezamenlijk uw tabel op zijn beurt voor elke overeenkomende entiteiten. Wordt uitgevoerd om een tabelscan, ongeacht of uw filter maakt gebruik van de **RowKey**. Bijvoorbeeld: $filter = LastName eq 'Jones'  
-* Query's die meerdere entiteiten retourneren, retourneren ze gesorteerd **PartitionKey** en **RowKey** volgorde. Om te voorkomen dat de entiteiten in de client codeactiviteit, kies een **RowKey** die de meest voorkomende sorteervolgorde definieert.  
+* Azure Table Storage-query's die meerdere entiteiten retourneren retourneren ze gesorteerd **PartitionKey** en **RowKey** volgorde. Om te voorkomen dat de entiteiten in de client codeactiviteit, kies een **RowKey** die de meest voorkomende sorteervolgorde definieert. De resultaten van de query is geretourneerd door de Azure Table-API in Azure Cosmso DB worden niet gesorteerd op partitiesleutel of rijsleutel. Zie voor een gedetailleerd overzicht van de Functieverschillen [verschillen tussen de tabel-API in Azure Cosmos DB en Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Met behulp van een '**of**"om op te geven van een filter op basis van **RowKey** waarden resulteert in een partitie-scan en wordt niet beschouwd als een bereikquery. Daarom moet u query's die gebruikmaken van filters zoals voorkomen: $filter = PartitionKey eq 'Verkoop' (RowKey eq '121' of een RowKey eq '322')  
 
@@ -251,7 +251,13 @@ Veel ontwerpen moeten voldoen aan de vereisten voor het opzoeken van de entiteit
 * [Index entiteiten patroon](#index-entities-pattern) -entiteiten zodat efficiënte zoekopdrachten die resulteren in een lijst met entiteiten index onderhouden.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Sorteren van gegevens in de Table-service
-De Table-service retourneert entiteiten gesorteerd in oplopende volgorde op basis van **PartitionKey** en vervolgens op **RowKey**. Deze sleutels worden tekenreekswaarden en om ervoor te zorgen dat numerieke waarden correct sorteren, moet u deze converteren naar een vaste lengte en ze worden opgevuld met nullen. Bijvoorbeeld, als de waarde van de werknemer-id die u gebruiken als de **RowKey** is een geheel getal, moet u de werknemer-id converteren **123** naar **00000123**.  
+
+De resultaten van de query is geretourneerd door de zijn gesorteerd in oplopende volgorde op basis van **PartitionKey** en vervolgens op **RowKey**.
+
+> [!NOTE]
+> De resultaten van de query is geretourneerd door de Azure Table-API in Azure Cosmso DB worden niet gesorteerd op partitiesleutel of rijsleutel. Zie voor een gedetailleerd overzicht van de Functieverschillen [verschillen tussen de tabel-API in Azure Cosmos DB en Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+
+Sleutels in Azure Storage-tabel worden tekenreekswaarden en om ervoor te zorgen dat numerieke waarden correct sorteren, moet u deze converteren naar een vaste lengte en ze worden opgevuld met nullen. Bijvoorbeeld, als de waarde van de werknemer-id die u gebruiken als de **RowKey** is een geheel getal, moet u de werknemer-id converteren **123** naar **00000123**. 
 
 Veel toepassingen zijn vereisten voor het gebruik van de gegevens gesorteerd op verschillende plekken: bijvoorbeeld werknemers sorteren op naam, of lid wordt van datum. De volgende patronen in de sectie [tabel ontwerppatronen](#table-design-patterns) hoe u de sorteervolgorde voor uw entiteiten met alternatieve adres:  
 

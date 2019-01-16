@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b681b4344512f26f1edc4a5264e718deac569ae
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441686"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319847"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Bijwerken en schalen van een Azure API Management-exemplaar  
 
@@ -47,7 +47,7 @@ Als u wilt volgen de stappen in dit artikel, moet u:
 
 U kunt kiezen uit vier lagen: **Developer**, **Basic**, **Standard** en **Premium**. De **Developer** laag moet worden gebruikt om de service evalueren; mag niet worden gebruikt voor productie. De **Developer** laag heeft geen SLA en u deze laag (eenheden toevoegen of verwijderen) kan niet schalen. 
 
-**Basic**, **Standard** en **Premium** zijn productie-lagen die SLA hebben en kunnen worden geschaald. De **Basic** -laag is de goedkoopste laag met SLA-geschaalde maximaal 2 eenheden, kan het zijn **Standard** laag kan worden geschaald naar maximaal vier eenheden. U kunt een willekeurig aantal eenheden toevoegen de **Premium** laag.
+**Basic**, **Standard** en **Premium** zijn productie-lagen die SLA hebben en kunnen worden geschaald. De **Basic** laag is de goedkoopste laag met SLA en deze kan worden geschaald tot maximaal 2 eenheden **Standard** laag kan worden geschaald naar maximaal vier eenheden. U kunt een willekeurig aantal eenheden toevoegen de **Premium** laag.
 
 De **Premium** laag kunt u voor het distribueren van één Azure API Management-exemplaar naar een willekeurig aantal gewenste Azure-regio's. Wanneer u in eerste instantie een Azure API Management-service maakt, wordt het exemplaar bevat slechts één eenheid en bevindt zich in één Azure-regio. De eerste regio wordt aangewezen als het **primaire** regio. Extra regio's kunnen eenvoudig worden toegevoegd. Wanneer u een regio toevoegt, geeft u het aantal eenheden dat u wilt toewijzen. U kunt bijvoorbeeld één eenheid hebben de **primaire** regio en vijf eenheden in een andere regio. U kunt het aantal eenheden op het verkeer die u in elke regio hebt aanpassen. Zie voor meer informatie, [over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio's](api-management-howto-deploy-multi-region.md).
 

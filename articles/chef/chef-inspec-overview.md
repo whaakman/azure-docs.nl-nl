@@ -1,19 +1,19 @@
 ---
 title: InSpec gebruiken voor het automatiseren van de naleving van uw Azure-infrastructuur
 description: Informatie over het gebruik van InSpec om problemen te detecteren in uw Azure-implementaties
-keywords: Azure, chef, devops, virtuele machines, overzicht, automatiseren, inspce
+keywords: Azure, chef, devops, virtuele machines, overzicht, automatiseren, inspectie mogelijk
 ms.service: virtual-machines-linux
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: e854b140c32773fc5d64e828e7dd40fab1f6ca8d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050724"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332367"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>InSpec gebruiken voor het automatiseren van de naleving van uw Azure-infrastructuur
 [Inspectie mogelijk](https://www.chef.io/inspec/) is een gratis en open-source framework voor het testen en controleren van uw toepassingen en infrastructuur. InSpec werkt door het vergelijken van de huidige status van uw systeem met de gewenste status die u snelle in gemakkelijk te lezen en eenvoudig te schrijven inspectie mogelijk code. InSpec schendingen detecteert en worden resultaten weergegeven in de vorm van een rapport, maar staat u controle over herstel. U kunt InSpec gebruiken voor het valideren van de status van uw virtuele machines die worden uitgevoerd in Azure. U kunt ook InSpec gebruiken om te scannen en valideren van de status van resources en resourcegroepen binnen een abonnement.

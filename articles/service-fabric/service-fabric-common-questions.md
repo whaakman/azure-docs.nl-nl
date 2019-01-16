@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537617"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320596"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -56,7 +56,7 @@ Voor clusters die niet worden uitgevoerd in Azure, hebben we [opgegeven van een 
 
 **Korte antwoord** : Nee 
 
-**Lang antwoord** : hoewel de grote virtuele-machineschaalsets u kunnen voor het schalen van een virtuele machine maximaal 1000 VM-exemplaren schalen, doet dit door het gebruik van Plaatsingsgroepen (PGs). Foutdomeinen (FD's) en upgrade-domeinen (ud's) zijn alleen consistent binnen een plaatsing groep Service fabric gebruikt Foutdomeinen en Upgradedomeinen om beslissingen te plaatsing van uw service-replica's / Service-exemplaren. Aangezien de Foutdomeinen en Upgradedomeinen alleen binnen een plaatsingsgroep vergelijkbare zijn, moet op SF deze niet gebruiken. Bijvoorbeeld, als VM1 in PG1 een topologie van FD heeft = 0 en VM9 in PG2 heeft een topologie van FD = 4, dit betekent niet dat VM1 en VM2 zich op twee verschillende Hardware rekken, daarom SF niet gebruiken de FD-waarden in dit geval om beslissingen voor plaatsing.
+**Lang antwoord** : hoewel de grote virtuele-machineschaalsets u kunnen voor het schalen van een virtuele machine maximaal 1000 VM-exemplaren Virtual Machine scale sets, doet dit door het gebruik van Plaatsingsgroepen (PGs). Foutdomeinen (FD's) en upgrade-domeinen (ud's) zijn alleen consistent binnen een plaatsing groep Service fabric gebruikt Foutdomeinen en Upgradedomeinen om beslissingen te plaatsing van uw service-replica's / Service-exemplaren. Aangezien de Foutdomeinen en Upgradedomeinen alleen binnen een plaatsingsgroep vergelijkbare zijn, moet op SF deze niet gebruiken. Bijvoorbeeld, als VM1 in PG1 een topologie van FD heeft = 0 en VM9 in PG2 heeft een topologie van FD = 4, dit betekent niet dat VM1 en VM2 zich op twee verschillende Hardware rekken, daarom SF niet gebruiken de FD-waarden in dit geval om beslissingen voor plaatsing.
 
 Er momenteel andere problemen met grote virtuele-machineschaalsets, zoals het ontbreken van een niveau-4 taakverdeling ondersteuning niet laden. Raadpleeg voor [meer informatie over grote schaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 

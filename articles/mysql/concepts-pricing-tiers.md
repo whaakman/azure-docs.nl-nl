@@ -5,17 +5,17 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 805f7844b144da1feb141a46080912790008f32e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538768"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321378"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
-U kunt een Azure Database for MySQL-server maken in een van drie verschillende Prijscategorieën: Basic, algemeen gebruik en geoptimaliseerd voor geheugen. De Prijscategorieën worden onderscheiden op basis van de hoeveelheid Computing in vCores die kunnen worden ingericht, het geheugen per vCore en de technologie voor gegevensopslag gebruikt voor het opslaan van de gegevens. Alle resources zijn ingericht op het niveau van de MySQL-server. Een server kan een of meer databases bevatten.
+U kunt een Azure Database for MySQL-server maken in een van drie verschillende Prijscategorieën: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. De Prijscategorieën worden onderscheiden op basis van de hoeveelheid Computing in vCores die kunnen worden ingericht, het geheugen per vCore en de technologie voor gegevensopslag gebruikt voor het opslaan van de gegevens. Alle resources zijn ingericht op het niveau van de MySQL-server. Een server kan een of meer databases bevatten.
 
 |    | **Basic** | **Algemeen gebruik** | **Geoptimaliseerd voor geheugen** |
 |:---|:----------|:--------------------|:---------------------|
@@ -52,14 +52,14 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 | US - zuid-centraal | X | X |
 | US - west | X | X |
 | US - west 2 |  | X |
+| Brazilië - zuid | X | X |
 | Canada - midden | X | X |
 | Canada - oost | X | X |
-| Brazilië - zuid | X | X |
 | Europa - noord | X | X |
 | Europa -west |  | X |
 | Frankrijk - centraal |  | X |
-| Verenigd Koninkrijk West |  | X |
 | Verenigd Koninkrijk Zuid |  | X |
+| Verenigd Koninkrijk West |  | X |
 | Azië - oost | X | X |
 | Azië - zuidoost | X | X |
 | Australië - oost |  | X |
@@ -67,17 +67,22 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 | Australië - centraal 2 |  | X |
 | Australië - zuidoost |  | X |
 | India - centraal | X | X |
-| India - west | X | X |
 | India - zuid |  | X |
+| India - west | X | X |
 | Japan - oost | X | X |
 | Japan - west | X | X |
 | Korea - centraal |  | X |
 | Korea - zuid |  | X |
+| China Oost 1 | X |  |
+| China - oost 2 |  | X |
+| China North 1 | X |  |
+| China - noord 2 |  | X |
 | Duitsland - centraal |  | X |
 | US DoD - centraal  | X |  |
 | US DoD - oost  | X |  |
 | VS (overheid) - Arizona |  | X |
 | VS (overheid) - Texas |  | X |
+| VS (overheid) - Virginia |  | X |
 
 ## <a name="storage"></a>Storage
 

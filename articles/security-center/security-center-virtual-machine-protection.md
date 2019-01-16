@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723226"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321583"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -44,7 +44,6 @@ Onder **Compute en apps**, er zijn de volgende tabbladen:
 - **Cloud Services**: lijst van al uw web- en werkrollen die worden bewaakt door Security Center.
 - **App-services (Preview)**: lijst met uw App service-omgevingen en de huidige beveiligingsstatus van elk.
 - **Containers (Preview)**: lijst met de containers die worden gehost op IaaS Linux-machines en beoordelen van de beveiliging van de Docker-configuraties.
-- **VM-schaalsets (Preview)**: lijst met uw schaalsets en aanbevelingen voor elk.
 - **Rekenresources (Preview)**: lijst met aanbevelingen voor uw compute-resources, zoals Service Fabric-clusters en eventhubs.
 
 Als u wilt doorgaan, selecteer **Compute en apps** onder **Resource beveiliging hygeine**.
@@ -162,24 +161,6 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 
     ![App Service-herstel](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>Virtuele-machineschaalsets (Preview)
-Security Center detecteert automatisch of u ingesteld voor schalen hebt en raadt u aan de Microsoft Monitoring Agent installeren op deze scale sets. 
-
-De Microsoft Monitoring Agent installeren: 
-
-1. Selecteer de aanbeveling **monitoring agent installeren op virtuele-machineschaalset**. U ophalen een lijst van niet-bewaakte schaalsets.
-2. Selecteer een schaalset niet in orde. Volg de instructies voor het installeren van de bewakingsagent met behulp van een bestaande ingevuld werkruimte of maak een nieuwe. Zorg ervoor dat u de werkruimte [prijscategorie](security-center-pricing.md) als deze niet ingesteld.
-
- ![MMS installeren](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-Als u wilt instellen schaalsets nieuwe automatisch de Microsoft Monitoring Agent wilt installeren:
-1. Ga naar Azure Policy en klikt u op **definities**.
-2. Zoeken naar het beleid **implementeren Log Analytics-agent voor Windows-VM-schaalsets** en klik erop.
-3. Klik op **Toewijzen**.
-4. Stel de **bereik** en **Log Analytics-werkruimte** en klikt u op **toewijzen**.
-
-Als u wilt instellen, alle bestaande schaalsets voor het installeren van Microsoft Monitoring Agent, in de Azure-beleid, gaat u naar **herstel** en het bestaande beleid toepassen op bestaande schaalsets.
-
 
 ## <a name="compute-and-app-recommendations"></a>Reken- en app-aanbevelingen
 |Resourcetype|Beveiligingsscore|Aanbeveling|Description|
@@ -238,11 +219,7 @@ Als u wilt instellen, alle bestaande schaalsets voor het installeren van Microso
 |Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
 |Machine|1|Virtuele machines migreren naar nieuwe Azure Resource Manager-resources|Gebruik Azure Resource Manager voor uw virtuele machines voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer. |
 |Machine|30|Beveiligingsproblemen met behulp van een oplossing voor evaluatie van beveiligingsproblemen herstellen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
-|Schaalset voor virtuele machines |4|Diagnostische logboeken in Virtual Machine Scale Sets inschakelen|Logboeken inschakelen en behouden voor maximaal een jaar. Hiermee kunt u activiteit sporen onderzoek opnieuw te maken. Dit is handig wanneer een beveiligingsincident voordoet, of uw netwerk is gecompromitteerd.|
-|Schaalset voor virtuele machines|35|Beveiligingsproblemen in de configuratie van de beveiliging van uw virtuele-machineschaalsets herstellen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van uw virtuele-machineschaalsets om beveiliging tegen aanvallen te bieden. |
-|Schaalset voor virtuele machines|5|Endpoint protection-statusfouten op schaalsets voor virtuele machines herstellen|Fouten in de eindpuntbeveiligingsstatus van uw virtuele-machineschaalsets verhelpen om deze te beschermen tegen bedreigingen en beveiligingsproblemen. |
-|Schaalset voor virtuele machines|10|Oplossing voor eindpuntbeveiliging installeren op virtuele-machineschaalsets|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele-machineschaalsets, ze te beschermen tegen bedreigingen en zwakke plekken. |
-|Schaalset voor virtuele machines|40|Systeemupdates installeren op virtuele-machineschaalsets|Ontbrekende systeembeveiliging en essentiële updates installeren ter beveiliging van de virtuele-machineschaalsets voor Windows en Linux. |
+
  
 
 

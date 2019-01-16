@@ -1,18 +1,18 @@
 ---
 title: Bekijk het rapport met kostenramingen in de Azure Site Recovery Deployment Planner | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u het rapport met kostenramingen in de Azure Site Recovery-Implementatieplanner voor VMware naar Azure noodherstel bekijken.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 46ec116b357df8cc5de889f64d4620544c062979
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848337"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321484"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Bekijk het rapport met kostenramingen in de Site Recovery Deployment Planner voor noodherstel van VMware naar Azure
 
@@ -28,13 +28,13 @@ De samenvatting helpt u bij het begrijpen van de kosten die u nodig hebt om te b
  
 U kunt de kosten maandelijks of jaarlijks weergeven. Meer informatie over [ondersteunde doelregio's](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) en [ondersteunde valuta's](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Kosten per onderdelen** De totale kosten voor Noodherstel zijn onderverdeeld in vier onderdelen: Compute, Storage, netwerk en Azure Site Recovery-licentiekosten. De kosten worden berekend op basis van het verbruik dat zal plaatsvinden tijdens de replicatie, en bij Noodherstel de tijd voor de rekensnelheid, opslag (premium en standard), de ExpressRoute/VPN die is geconfigureerd tussen de lokale site en Azure, en Azure Site Recovery-licentie.
+**Kosten per onderdelen** de totale kosten voor Noodherstel zijn onderverdeeld in vier onderdelen: COMPUTE, opslag, netwerk en Azure Site Recovery-licentiekosten. De kosten worden berekend op basis van het verbruik dat zal plaatsvinden tijdens de replicatie, en bij Noodherstel de tijd voor de rekensnelheid, opslag (premium en standard), de ExpressRoute/VPN die is geconfigureerd tussen de lokale site en Azure, en Azure Site Recovery-licentie.
 
 **Kosten per statussen** De kosten voor een totaal noodherstel (DR) zijn is gebaseerd op twee verschillende statussen: Replicatie en Noodherstel. 
 
-**Replicatiekosten**: de kosten die zullen worden gemaakt tijdens de replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie. 
+**Replicatiekosten**:  De kosten die zullen worden gemaakt tijdens de replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie. 
 
-**Kosten voor DR-oefeningen**: de kosten die zullen worden gemaakt tijdens de testfailovers. Azure Site Recovery laat virtuele machines draaien tijdens de testfailover. De details voor DR-kosten zijn de kosten voor de berekenings- en opslagkosten van de actieve virtuele machines. 
+**Kosten voor DR-oefeningen**: De kosten die zullen worden gemaakt tijdens testfailovers. Azure Site Recovery laat virtuele machines draaien tijdens de testfailover. De details voor DR-kosten zijn de kosten voor de berekenings- en opslagkosten van de actieve virtuele machines. 
 
 **Azure-opslagkosten per maand-jaar** Dit toont de totale opslagkosten die zullen worden gemaakt voor premium en standard-opslag voor replicatie en details voor DR.
 
@@ -49,19 +49,19 @@ Voor het hele rapport geldt dat de cellen die grijs zijn gemarkeerd, alleen-leze
 ### <a name="overall-dr-cost-by-components"></a>Totale DR-kosten per onderdelen
 In de eerste sectie ziet u de totale DR-kosten per onderdelen en per statussen. 
 
-**Berekenen**: de kosten voor IaaS-VM's die worden uitgevoerd op Azure voor DR-behoeften. Hierbij inbegrepen zijn de kosten voor virtuele machines die zijn gemaakt door Azure Site Recovery tijdens DR-oefeningen (testfailovers) en voor virtuele machines die worden uitgevoerd op Azure, zoals SQL Server met AlwaysOn-beschikbaarheidsgroepen en domeincontrollers/DNS (Domain Name Servers).
+**COMPUTE**: Kosten van IaaS-VM's die worden uitgevoerd op Azure voor DR-behoeften. Hierbij inbegrepen zijn de kosten voor virtuele machines die zijn gemaakt door Azure Site Recovery tijdens DR-oefeningen (testfailovers) en voor virtuele machines die worden uitgevoerd op Azure, zoals SQL Server met AlwaysOn-beschikbaarheidsgroepen en domeincontrollers/DNS (Domain Name Servers).
 
-**Opslag**: de kosten voor het opslagverbruik van Azure voor DR-behoeften. Deze omvatten de kosten voor het opslagverbruik voor replicatie en tijdens DR-oefeningen.
-Netwerk: kosten voor ExpressRoute en voor site-naar-site VPN voor DR-behoeften. 
+**Opslag**: Kosten van Azure storage-verbruik voor herstel na Noodgevallen moet. Deze omvatten de kosten voor het opslagverbruik voor replicatie en tijdens DR-oefeningen.
+Netwerk: ExpressRoute en Site-naar-Site VPN-kosten voor DR-behoeften. 
 
-**ASR-licentie**: kosten voor de Azure Site Recovery-licentie voor alle compatibele virtuele machines. Als u handmatig een virtuele machine in de tabel met de gedetailleerde kostenanalyse hebt ingevoerd, worden de kosten voor de licentie van Azure Site Recovery ook voor die VM inbegrepen.
+**ASR-licentie**: Azure Site Recovery-licentiekosten voor alle compatibele virtuele machines. Als u handmatig een virtuele machine in de tabel met de gedetailleerde kostenanalyse hebt ingevoerd, worden de kosten voor de licentie van Azure Site Recovery ook voor die VM inbegrepen.
 
 ### <a name="overall-dr-cost-by-states"></a>Totale DR-kosten per statussen
 De total kosten voor DR zijn gebaseerd op twee verschillende statussen: replicatie en DR-oefening.
 
-**Replicatiekosten**: de kosten die zijn gemoeid met een replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie. 
+**Replicatiekosten**: De kosten worden in rekening gebracht op het moment van replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie. 
 
-**Kosten voor DR-oefeningen**: de kosten die zijn gemoeid met DR-oefeningen. Azure Site Recovery laat virtuele machines draaien tijdens DR-oefeningen. De kosten voor DR-oefeningen zijn de kosten voor de reken- en opslagkosten van de actieve virtuele machines.
+**Kosten voor DR-oefeningen**: De kosten gemoeid met DR-oefeningen. Azure Site Recovery laat virtuele machines draaien tijdens DR-oefeningen. De kosten voor DR-oefeningen zijn de kosten voor de reken- en opslagkosten van de actieve virtuele machines.
 Totaal duur van DR-oefeningen in = aantal DR-oefeningen x de duur van elke DR-oefening (dagen) Gemiddelde kosten DR-oefeningen (per maand) = totale kosten DR-oefeningen/12
 
 ### <a name="storage-cost-table"></a>Tabel met opslagkosten:
@@ -70,11 +70,11 @@ Deze tabel bevat de Premium- en Standard-opslagkosten die zijn gemoeid met repli
 ### <a name="site-to-azure-network"></a>Site-naar-Azure-netwerk
 Selecteer de gewenste instelling overeenkomstig uw vereisten. 
 
-**ExpressRoute**: het hulpprogramma selecteert standaard het ExpressRoute-abonnement dat het meest overeenkomt met de vereiste netwerkbandbreedte voor replicatie van verschillen. U kunt het abonnement wijzigen overeenkomstig uw vereisten.
+**ExpressRoute**: Het hulpprogramma selecteert standaard de dichtstbijzijnde ExpressRoute-abonnement dat met de vereiste netwerkbandbreedte voor replicatie van verschillen overeenkomt. U kunt het abonnement wijzigen overeenkomstig uw vereisten.
 
-**VPN Gateway**: selecteer VPN Gateway als u die in uw omgeving hebt. Dit is standaard niet van toepassing.
+**VPN Gateway**: Selecteer de VPN-Gateway als u in uw omgeving hebt. Dit is standaard niet van toepassing.
 
-**Doelregio**: Azure-regio die voor DR is opgegeven. De prijs die in het rapport wordt gebruikt voor het berekenen, de opslag, het netwerk en de licentie, is gebaseerd op de Azure-prijzen voor die regio. 
+**Doelregio**: Opgegeven Azure-regio voor herstel na Noodgevallen. De prijs die in het rapport wordt gebruikt voor het berekenen, de opslag, het netwerk en de licentie, is gebaseerd op de Azure-prijzen voor die regio. 
 
 ### <a name="vm-running-on-azure"></a>VM uitgevoerd op Azure
 Als u een domeincontroller of DNS-VM of SQL Server-VM met AlwaysOn-beschikbaarheidsgroepen hebt die op Azure voor DR worden uitgevoerd, kunt u het aantal virtuele machines en de grootte ervan opgeven, als u wilt dat de rekenkosten ervan worden meegenomen in de totale kosten voor DR. 
@@ -86,9 +86,9 @@ Als u een Azure-partner of -klant bent en recht hebt op een korting op algemene 
 Deze tabel toont het aantal Windows- en niet-Windows-VM's, en voor elk ervan de rekenkosten voor de DR-oefening.
 
 ### <a name="settings"></a>Instellingen 
-**Beheerde schijf gebruiken**: dit duidt aan of een beheerde schijf wordt gebruikt ten tijde van DR-oefeningen. De standaardwaarde is ingesteld op Ja. Als u -UseManagedDisks ingesteld op Nee hebt ingesteld, wordt de prijs voor het gebruik van een niet-beheerde schijf voor het berekenen van de kosten toegepast.
+**Met behulp van de beheerde schijf**: Hiermee geeft u of beheerde schijf wordt gebruikt op het moment van DR-oefeningen. De standaardwaarde is ingesteld op Ja. Als u -UseManagedDisks ingesteld op Nee hebt ingesteld, wordt de prijs voor het gebruik van een niet-beheerde schijf voor het berekenen van de kosten toegepast.
 
-**Valuta**: de valuta die voor het te genereren rapport wordt gebruikt. Duur van de kosten: u kunt alle kosten voor de maand of voor het hele jaar weergeven. 
+**Valuta**: De valuta waarin het rapport wordt gegenereerd. Kosten duur:  U kunt alle kosten weergeven voor de maand of voor het hele jaar. 
 
 ## <a name="detailed-cost-analysis-table"></a>Tabel Gedetailleerde kostenanalyse
 ![Gedetailleerde kostenanalyse](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png) In de tabel wordt de verdeling van de kosten over alle compatibele VM's weergegeven. Als u handmatig VM's toevoegt, kunt deze tabel ook gebruiken als u een kostenraming voor DR voor niet-geprofileerde VM's in Azure wilt zien. Dit is handig in gevallen waarin u Azure-kosten wilt ramen voor een nieuwe implementatie na een noodgeval, zonder dat er een gedetailleerde profilering wordt uitgevoerd.
@@ -110,35 +110,35 @@ Handmatig VM's toevoegen:
 
 4.  Klik op Kosten opnieuw berekenen om de kosten bij te werken.
 
-**VM-naam**: de naam van de virtuele machine.
+**VM-naam**: De naam van de virtuele machine.
 
-**Aantal VM's**: het aantal virtuele machines dat overeenkomt met de configuratie. U kunt het aantal bestaande virtuele machines bijwerken als vergelijkbare configuratie-VM's niet zijn geprofileerd maar toch worden beveiligd.
+**Aantal virtuele machines**: Het aantal virtuele machines die overeenkomen met de configuratie. U kunt het aantal bestaande virtuele machines bijwerken als vergelijkbare configuratie-VM's niet zijn geprofileerd maar toch worden beveiligd.
 
-**De grootte van de IaaS (aanbevolen)**: dit is de grootte van de VM-rol van de compatibele VM die door het hulpprogramma wordt aanbevolen. 
+**Grootte van IaaS (aanbeveling)**: Het is de grootte van de VM-rol van de compatibele VM die het hulpprogramma wordt aanbevolen. 
 
-**De grootte van de IaaS-grootte (uw selectie)**: standaard is deze gelijk aan de aanbevolen grootte van de VM-rol. U kunt de rol aanpassen aan uw behoefte. De kosten voor het rekenen zijn gebaseerd op de geselecteerde grootte van de VM-rol.
+**Grootte van IaaS (uw selectie)**: Standaard is dit hetzelfde als aanbevolen grootte van de VM-rol. U kunt de rol aanpassen aan uw behoefte. De kosten voor het rekenen zijn gebaseerd op de geselecteerde grootte van de VM-rol.
 
-**Opslagtype**: het type opslag dat wordt gebruikt door de virtuele machine. Dit is Standard- of Premium-opslag.
+**Opslagtype**: Het type van de opslag die wordt gebruikt door de virtuele machine. Dit is Standard- of Premium-opslag.
 
-**De grootte van de totale VM-opslagruimte (GB)**: de totale opslag van de virtuele machine.
+**Grootte van VM-totale opslag (GB)**: De totale opslagruimte van de virtuele machine.
 
-**Aantal DR-oefeningen in een jaar**: het aantal keer dat u DR-oefeningen in een jaar uitvoert. Dit is standaard vier keer per jaar. U kunt de periode voor specifieke virtuele machines wijzigen of op alle VM's toepassen door de nieuwe waarde in de bovenste rij in te voeren en op de knop Op alles toepassen te klikken. Op basis van het aantal DR-oefeningen in een jaar en de duur van elke DR-oefening worden de totale kosten van de DR-oefening berekend.  
+**Aantal DR-oefeningen in een jaar**: Het aantal keren dat die u DR-oefeningen in een jaar uitvoert. Dit is standaard vier keer per jaar. U kunt de periode voor specifieke virtuele machines wijzigen of op alle VM's toepassen door de nieuwe waarde in de bovenste rij in te voeren en op de knop Op alles toepassen te klikken. Op basis van het aantal DR-oefeningen in een jaar en de duur van elke DR-oefening worden de totale kosten van de DR-oefening berekend.  
 
-**Duur van elke DR-oefening (dagen)**: de duur van elke DR-oefening. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). U kunt de periode voor specifieke virtuele machines wijzigen of op alle VM's toepassen door een nieuwe waarde in de bovenste rij in te voeren en op de knop 'Op alles toepassen' te klikken. De totale kosten voor DR-oefeningen worden berekend op basis van het aantal DR-oefeningen in een jaar en de duur van elke DR-oefening.
+**De duur van elke DR-oefening (dagen)**: De duur van elke DR-oefening. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). U kunt de periode voor specifieke virtuele machines wijzigen of op alle VM's toepassen door een nieuwe waarde in de bovenste rij in te voeren en op de knop 'Op alles toepassen' te klikken. De totale kosten voor DR-oefeningen worden berekend op basis van het aantal DR-oefeningen in een jaar en de duur van elke DR-oefening.
   
-**Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit is Windows of Linux. Als het type besturingssysteem Windows is, kan Azure Hybrid Use Benefit op die VM worden toegepast. 
+**Type besturingssysteem**: Het type besturingssysteem van de virtuele machine. Dit is Windows of Linux. Als het type besturingssysteem Windows is, kan Azure Hybrid Use Benefit op die VM worden toegepast. 
 
-**Gegevensredundantie**: dit kan een van de volgende zijn: lokaal redundante opslag (LRS), geografisch redundante opslag (GRS) of geografisch redundante opslag met leestoegang (RA-GRS). Standaard is LRS. U kunt het type wijzigen op basis van uw opslagaccount voor specifieke virtuele machines of u kunt het nieuwe type toepassen op alle virtuele machines door het type in de eerste rij te wijzigen en op de knop Op alles toepassen te klikken.  De opslagkosten voor replicatie worden berekend op basis van de prijs van de gegevensredundantie die u hebt geselecteerd. 
+**Gegevensredundantie**: Het kan zijn dat een van de volgende zijn: lokaal redundante opslag (LRS), geografisch redundante opslag (GRS) of geo-redundante opslag met leestoegang (RA-GRS). Standaard is LRS. U kunt het type wijzigen op basis van uw opslagaccount voor specifieke virtuele machines of u kunt het nieuwe type toepassen op alle virtuele machines door het type in de eerste rij te wijzigen en op de knop Op alles toepassen te klikken.  De opslagkosten voor replicatie worden berekend op basis van de prijs van de gegevensredundantie die u hebt geselecteerd. 
 
-**Azure Hybrid Benefit**: u kunt Azure Hybrid Benefit toepassen op Windows-VM's, indien van toepassing.  Standaard is Ja. U kunt de instelling voor specifieke virtuele machines wijzigen of alle virtuele machines bijwerken door op de knop Op alles toepassen te klikken.
+**Azure Hybrid Benefit**: U kunt Azure Hybrid use Benefit toepassen op Windows-VM's, indien van toepassing.  Standaard is Ja. U kunt de instelling voor specifieke virtuele machines wijzigen of alle virtuele machines bijwerken door op de knop Op alles toepassen te klikken.
 
-**Totaal Azure-verbruik**: dit omvat de kosten voor het rekenen, de opslag en de Azure Site Recovery-licentie voor uw DR. Afhankelijk van wat u hebt geselecteerd, worden hier de maandelijkse of jaarlijkse kosten weergegeven.
+**Totaal Azure-verbruik**: Deze bevat compute-, opslag- en kosten voor Azure Site Recovery-licentie voor herstel na Noodgeval. Afhankelijk van wat u hebt geselecteerd, worden hier de maandelijkse of jaarlijkse kosten weergegeven.
 
-**Replicatiekosten juiste gereedstatus**: hierin zijn de opslagkosten voor replicatie opgenomen.
+**Replicatiekosten juiste gereedstatus**: Dit omvat de opslagkosten voor replicatie.
 
-**Totale kosten DR-oefening (gemiddeld)**: hierin zijn de reken- en opslagkosten voor de DR-oefening opgenomen.
+**Totale kosten DR-oefening (gemiddeld)**: Dit omvat reken- en opslagkosten voor Noodherstelanalyse.
 
-**Kosten ASR-licentie**: de kosten voor een Azure Site Recovery-licentie.
+**Kosten ASR-licentie**: Kosten voor Azure Site Recovery-licentie.
 
 ## <a name="supported-target-regions"></a>Ondersteunde doelregio's
 De Azure Site Recovery-implementatieplanner biedt een schatting van de kosten voor de volgende Azure-regio's. Als uw regio hieronder niet wordt vermeld, kunt u een van de volgende regio's gebruiken waarvan de prijzen het dichtst bij die van uw regio liggen.
@@ -148,7 +148,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Ondersteunde valuta's
 Met Azure Site Recovery Deployment Planner kunt u het kostenrapport genereren met een van de volgende valuta's.
 
-|Valuta|Naam||Valuta|Naam||Valuta|Naam|
+|Valuta|Name||Valuta|Name||Valuta|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Argentijnse peso ($)||AUD|Australische dollar ($)||BRL|Braziliaanse real (R$)|
 |CAD|Canadese dollar ($)||CHF|Zwitserse frank. (chf)||DKK|Deense kroon (kr)|

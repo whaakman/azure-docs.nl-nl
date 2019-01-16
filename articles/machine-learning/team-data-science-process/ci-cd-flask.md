@@ -1,6 +1,6 @@
 ---
 title: Maak continue integratie Azure pijplijn - Team Data Science Process
-description: 'DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes'
+description: 'DevOps voor kunstmatige intelligentie (AI)-toepassingen: Het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes'
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bace951141ea1d437d102b11ac4f548beaf5c75e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134281"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329409"
 ---
-# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Het maken van de pijplijn voor continue integratie in Azure met behulp van Docker, Kubernetes en Python Flask-toepassing
+# <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Het maken van de pijplijn voor continue integratie in Azure met behulp van Docker, Kubernetes en Python Flask-toepassing
 Er zijn vaak twee stromen werkzaamheden, Data Scientists, het bouwen van machine learning-modellen en App-ontwikkelaars het bouwen van de toepassing en beschikbaar te maken voor eindgebruikers te gebruiken voor een toepassing AI. In dit artikel laten we zien hoe u voor het implementeren van een continue integratie (CI) / pijplijn voor continue levering (CD) voor een AI-toepassing. AI-toepassing is een combinatie van een model dat machine learning (ML) zijn ingebed toepassingscode. In dit artikel we bij het ophalen van een pretrained model vanuit een persoonlijke Azure-blob storage-account, wordt een AWS S3-account. Voor het artikel gebruiken we een eenvoudige python flask-toepassing.
 
 > [!NOTE]

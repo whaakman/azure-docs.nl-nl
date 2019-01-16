@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413265"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331214"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>naslaginformatie over host.JSON voor Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Azure Functions runtime die u gebruikt: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versie 1:](functions-host-json-v1.md)
 > * [Versie 2](functions-host-json.md)
 
@@ -92,7 +92,7 @@ De volgende secties van dit artikel wordt uitgelegd dat elke eigenschap op het h
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
-## <a name="applicationinsights"></a>Application Insights
+## <a name="applicationinsights"></a>applicationInsights
 
 Deze instelling is een onderliggend element van [logboekregistratie](#logging).
 
@@ -108,6 +108,9 @@ Besturingselementen voor de [functie steekproeven in Application Insights](./fun
     }
 }
 ```
+
+> [!NOTE]
+> Logboek steekproeven kan ertoe leiden dat sommige uitvoeringen niet weergegeven in de Application Insights-blade monitor.
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
@@ -172,7 +175,7 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 |healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond-status wordt gecontroleerd. | 
 |healthCheckWindow|2 minuten|Een verschuivend tijdvenster gebruikt in combinatie met de `healthCheckThreshold` instelling.| 
 |healthCheckThreshold|6|Maximum aantal keren dat de statuscontrole kan mislukken voordat het recyclen van een host wordt gestart.| 
-|counterThreshold|0,80|De drempelwaarde waarmee een prestatiemeteritem wordt beschouwd als niet in orde.| 
+|counterThreshold|0.80|De drempelwaarde waarmee een prestatiemeteritem wordt beschouwd als niet in orde.| 
 
 ## <a name="http"></a>http
 
@@ -202,7 +205,7 @@ Hiermee bepaalt u het gedrag van de registratie van de functie-app, met inbegrip
 |fileLoggingMode|debugOnly|Hiermee definieert u welk niveau van logboekregistratie is ingeschakeld.  Opties zijn `never`, `always`, `debugOnly`. |
 |LogLevel|N.v.t.|Object dat definieert de logboekcategorie filteren voor functies in de app. Versie 2.x volgt de ASP.NET Core-indeling voor het filteren van logboek-categorie. Hiermee kunt u filteren van logboekregistratie voor specifieke functies. Zie voor meer informatie, [logboek filteren](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in de documentatie van ASP.NET Core. |
 |console|N.v.t.| De [console](#console) instelling voor logboekregistratie. |
-|Application Insights|N.v.t.| De [applicationInsights](#applicationinsights) instelling. |
+|applicationInsights|N.v.t.| De [applicationInsights](#applicationinsights) instelling. |
 
 ## <a name="console"></a>console
 
@@ -224,11 +227,11 @@ Deze instelling is een onderliggend element van [logboekregistratie](#logging). 
 |---------|---------|---------| 
 |isEnabled|false|Hiermee of console logboekregistratie uitgeschakeld.| 
 
-## <a name="queues"></a>wachtrijen
+## <a name="queues"></a>queues
 
 Configuratie-instellingen kunnen u vinden in [Storage queue-triggers en bindingen](functions-bindings-storage-queue.md#host-json).  
 
-## <a name="sendgrid"></a>SendGrid
+## <a name="sendgrid"></a>sendGrid
 
 Configuratie-instelling kunt u vinden in [SendGrid triggers en bindingen](functions-bindings-sendgrid.md#host-json).
 
@@ -236,7 +239,7 @@ Configuratie-instelling kunt u vinden in [SendGrid triggers en bindingen](functi
 
 Configuratie-instelling kunt u vinden in [Service Bus-triggers en bindingen](functions-bindings-service-bus.md#host-json).
 
-## <a name="singleton"></a>Singleton
+## <a name="singleton"></a>singleton
 
 Configuratie-instellingen voor het gedrag van Singleton vergrendelen. Zie voor meer informatie, [GitHub-probleem over de ondersteuning van singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 

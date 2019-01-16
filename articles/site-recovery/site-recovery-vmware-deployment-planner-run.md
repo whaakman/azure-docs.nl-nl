@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811559"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321548"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>De Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -90,7 +90,7 @@ Tijdens het profileren kunt u eventueel de naam en sleutel van een opslagaccount
 
 U kunt meerdere exemplaren van het hulpprogramma uitvoeren voor verschillende sets virtuele machines. Zorg ervoor dat de namen van de virtuele machines niet worden herhaald in een van de profileringssets. Als u bijvoorbeeld tien virtuele machines hebt geprofileerd (VM1 tot en met VM10) en na een paar dagen vijf andere virtuele machines wilt profileren (VM11 tot en met VM15), kunt u voor de tweede set virtuele machines (VM11 tot en met VM15) het hulpprogramma uitvoeren vanuit een andere opdrachtregelconsole. Zorg er wel voor dat de tweede set virtuele machines geen namen bevat van de eerste reeks geprofileerde virtuele machines of gebruik voor de tweede set een andere uitvoerdirectory. Als er voor het profileren van dezelfde virtuele machines twee exemplaren van het hulpprogramma worden gebruikt en dezelfde uitvoerdirectory wordt gebruikt, is het gegenereerde rapport niet correct.
 
-Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines te profileren en te bewaken. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
+Het hulpprogramma is standaard geconfigureerd als u wilt profileren en rapport maximaal 1000 VM's. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -168,7 +168,7 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 |-OfferId|(Optioneel) De aanbieding is gekoppeld aan het vermelde abonnement. De standaardwaarde is MS-AZR-0003P (betalen naar gebruik).|
 |-Currency|(Optioneel) De valuta waarin de kosten in het gegenereerde rapport worden weergegeven. Standaard is Amerikaanse Dollar ($) of de laatst gebruikte valuta.<br>Raadpleeg de lijst met [ondersteunde valuta's](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines te profileren en te bewaken. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
+Het hulpprogramma is standaard geconfigureerd om te profileren en rapport maximaal 1000 VM's. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>

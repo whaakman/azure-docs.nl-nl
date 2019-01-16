@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073404"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320924"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -45,10 +45,13 @@ De volgende Linux-distributies worden momenteel ondersteund tijdens de Preview-v
 
 | Distributie | Versie |
 | --- | --- |
-| CentOS | CentOS 6,9 en CentOS 7.4 |
+| CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
-| Red Hat Enterprise Linux | RHEL 6, RHEL 7 | 
+| openSUSE | openSUSE Leap 42,3 |
+| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| SUSE Linux Enteprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 Ubuntu Server 17.10 en Ubuntu Server 18.04 |
+
 
 De volgende Azure-regio's worden momenteel ondersteund tijdens de Preview-versie van deze functie:
 

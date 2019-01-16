@@ -3,7 +3,7 @@ title: Automatische back-up v2 voor Azure VM's SQL Server 2016-2017 | Microsoft 
 description: Verklaart de functie voor automatische back-up voor SQL Server 2016-2017-VM's die worden uitgevoerd in Azure. In dit artikel is specifiek voor virtuele machines met Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246817"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331641"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatische back-up v2 voor virtuele Azure-Machines (Resource Manager)
 
@@ -61,7 +62,7 @@ De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor aut
 
 ### <a name="basic-settings"></a>Basisinstellingen
 
-| Instelling | Bereik (standaard) | Beschrijving |
+| Instelling | Bereik (standaard) | Description |
 | --- | --- | --- |
 | **Automatische back-up** | In-of uitschakelen (uitgeschakeld) | Hiermee schakelt automatische back-up voor een Azure-VM met SQL Server 2016/2017 Developer, Standard of Enterprise of. |
 | **Bewaarperiode** | 1-30 dagen (30 dagen) | Het aantal dagen aan back-ups. |
@@ -71,9 +72,9 @@ De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor aut
 
 ### <a name="advanced-settings"></a>Geavanceerde instellingen
 
-| Instelling | Bereik (standaard) | Beschrijving |
+| Instelling | Bereik (standaard) | Description |
 | --- | --- | --- |
-| **Back-ups van de Database** | In-of uitschakelen (uitgeschakeld) | Wanneer dit is ingeschakeld, deze functie ook een back-up van de systeemdatabases: Master, MSDB en Model. Voor de databases MSDB en het Model en Ga na of deze in de modus voor volledig herstel als u wilt dat de logboekback-ups moeten worden uitgevoerd. Logboekback-ups worden nooit genomen voor Master. En geen back-ups worden genomen voor TempDB. |
+| **Back-ups van de Database** | In-of uitschakelen (uitgeschakeld) | Wanneer dit is ingeschakeld, deze functie ook back-ups van de systeemdatabases: Master, MSDB en Model. Voor de databases MSDB en het Model en Ga na of deze in de modus voor volledig herstel als u wilt dat de logboekback-ups moeten worden uitgevoerd. Logboekback-ups worden nooit genomen voor Master. En geen back-ups worden genomen voor TempDB. |
 | **Back-upschema** | Handmatig/geautomatiseerde (automatisch) | Standaard de back-upschema automatisch bepaald op basis van de groei van het logboek. Handmatige back-upschema kan de gebruiker om op te geven van het tijdvenster voor back-ups. In dit geval plaatsvinden back-ups alleen op de opgegeven frequentie en tijdens de opgegeven periode van een bepaalde dag. |
 | **Volledige back-upfrequentie** | Dagelijks/wekelijks | De frequentie van volledige back-ups. In beide gevallen moet beginnen met volledige back-ups tijdens de volgende geplande tijdstip. Wanneer u wekelijks is ingeschakeld, kunnen back-ups over meerdere dagen worden tot alle databases hebt is een back-up. |
 | **Begintijd volledige back-up** | 00:00 – 23:00 (01:00) | Begintijd van een bepaalde dag, gedurende welke de volledige back-ups kunnen plaatsvinden. |
@@ -88,9 +89,9 @@ U hebt een SQL Server-VM met een aantal grote databases.
 
 Op maandag, kunt u automatische back-up v2 inschakelen met de volgende instellingen:
 
-- Back-upschema: **handmatig**
-- Volledige back-upfrequentie: **wekelijks**
-- Volledige begintijd back-up: **01:00 uur**
+- Back-upschema: **Handmatig**
+- Frequentie van volledige back-up: **Weekly**
+- Begintijd van volledige back-up: **01:00**
 - Tijdvenster volledige back-up: **1 uur**
 
 Dit betekent dat het volgende beschikbare back-upvenster dinsdag om 1 uur voor 1 uur. Op dat moment begint automatische back-up back-ups van uw één bewerking tegelijk. In dit scenario zijn uw databases groot genoeg volledige back-ups uit te voeren voor de eerste paar-databases. Echter na één uur niet alle databases back-ups zijn.
@@ -106,9 +107,9 @@ U hebt een SQL Server-VM met een aantal grote databases.
 
 Op maandag, kunt u automatische back-up v2 inschakelen met de volgende instellingen:
 
-- Back-upschema: handmatig
-- Volledige back-upfrequentie: dagelijks
-- Volledige begintijd back-up: 22:00 uur
+- Back-upschema: Handmatig
+- Frequentie van volledige back-up: Dagelijks
+- Begintijd van volledige back-up: 22:00
 - Tijdvenster volledige back-up: 6 uur
 
 Dit betekent dat het volgende beschikbare back-upvenster maandag om 22 uur gedurende 6 uur. Op dat moment begint automatische back-up back-ups van uw één bewerking tegelijk.
@@ -331,7 +332,7 @@ Een andere optie is om te profiteren van de ingebouwde functie van Database Mail
 ## <a name="next-steps"></a>Volgende stappen
 Geautomatiseerde back-up v2 Hiermee configureert u Managed Backup op Azure Virtual machines. Het is dus belangrijk om te [Raadpleeg de documentatie voor beheerde back-up](https://msdn.microsoft.com/library/dn449496.aspx) om te begrijpen van het gedrag en de gevolgen.
 
-U vindt aanvullende back-up en herstellen van de richtlijnen voor het SQL Server op Azure Virtual machines in het volgende artikel: [back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+U vindt aanvullende back-up en herstellen van de richtlijnen voor het SQL Server op Azure Virtual machines in het volgende artikel: [Back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
 Zie voor meer informatie over andere beschikbare automatiseringstaken [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).
 

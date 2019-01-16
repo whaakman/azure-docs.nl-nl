@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025705"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331874"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Gegevens verplaatsen van PostgreSQL met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-onprem-postgresql-connector.md)
 > * [Versie 2 (huidige versie)](../connector-postgresql.md)
 
@@ -31,7 +31,7 @@ ms.locfileid: "54025705"
 
 In dit artikel wordt uitgelegd hoe u van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een on-premises PostgreSQL-database. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.
 
-U kunt gegevens uit een on-premises PostgreSQL-gegevensarchief kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory ondersteunt momenteel de gegevens te verplaatsen van een PostgreSQL-database naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven met een PostgreSQL-database. 
+U kunt gegevens uit een on-premises PostgreSQL-gegevensarchief kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory ondersteunt momenteel de gegevens te verplaatsen van een PostgreSQL-database naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven met een PostgreSQL-database.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,10 +46,10 @@ Gateway is vereist, zelfs als de PostgreSQL-database wordt gehost in een Azure I
 Voor Data Management Gateway verbinding maken met de PostgreSQL-Database, installeert u de [Ngpsql data provider voor PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) met versie tussen 2.0.12 en punt 3.1.9 op hetzelfde systeem als Data Management Gateway. PostgreSQL-versie 7.4 en hoger wordt ondersteund.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises PostgreSQL-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's. 
+U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises PostgreSQL-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's.
 
-- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren. 
-- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: 
+- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
+- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken:
     - Azure Portal
     - Visual Studio
     - Azure PowerShell
@@ -57,15 +57,15 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-prem
     - .NET API
     - REST-API
 
-     Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
+    Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
 1. Maak **gekoppelde services** opgeslagen om invoer- en gegevens te koppelen aan uw data factory.
-2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking. 
-3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
+2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking.
+3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer.
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises PostgreSQL-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van PostgreSQL naar Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) sectie van dit artikel. 
+Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling. Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises PostgreSQL-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van PostgreSQL naar Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) sectie van dit artikel.
 
 De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar een PostgreSQL-gegevensarchief:
 
@@ -104,14 +104,14 @@ Wanneer de bron is van het type **RelationalSource** (waaronder PostgreSQL), de 
 | query |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nee (als **tableName** van **gegevensset** is opgegeven) |
 
 > [!NOTE]
-> Schema- en tabelnamen zijn hoofdlettergevoelig. Deze omsluit `""` (dubbele aanhalingstekens) in de query.  
+> Schema- en tabelnamen zijn hoofdlettergevoelig. Deze omsluit `""` (dubbele aanhalingstekens) in de query.
 
 **Voorbeeld:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van PostgreSQL naar Azure Blob
-In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van de PostgreSQL-database naar Azure Blob Storage. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.   
+In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van de PostgreSQL-database naar Azure Blob Storage. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 > [!IMPORTANT]
 > In dit voorbeeld bevat JSON-fragmenten. Deze omvatten geen stapsgewijze instructies voor het maken van de data factory. Zie [om gegevens te verplaatsen tussen on-premises locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies.
@@ -153,10 +153,10 @@ Instellen als eerste stap van de data management gateway. De instructies vindt u
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+        }
     }
 }
 ```
@@ -309,20 +309,20 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 | abstime | |Datum en tijd | &nbsp;
 | bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bits [(n)] | |Byte [], String | &nbsp;
-| bit verschillende [(n)] |varbit |Byte [], String |
+| bits [(n)] | |Byte[], String | &nbsp;
+| bit verschillende [(n)] |varbit |Byte[], String |
 | booleaans |bool |Booleaans |
-| Vak | |Byte [], String |&nbsp;
-| bytea | |Byte [], String |&nbsp;
+| Vak | |Byte[], String |&nbsp;
+| bytea | |Byte[], String |&nbsp;
 | teken [(n)] |char [(n)] |Reeks |
 | teken uiteenlopende [(n)] |varchar [(n)] |Reeks |
 | CID | |Reeks |&nbsp;
 | CIDR | |Reeks |&nbsp;
-| Cirkel | |Byte [], String |&nbsp;
+| Cirkel | |Byte[], String |&nbsp;
 | date | |Datum en tijd |&nbsp;
 | DateRange | |Reeks |&nbsp;
 | dubbele precisie |FLOAT8 |Double-waarde |
-| inet | |Byte [], String |&nbsp;
+| inet | |Byte[], String |&nbsp;
 | intarry | |Reeks |&nbsp;
 | int4range | |Reeks |&nbsp;
 | int8range | |Reeks |&nbsp;
@@ -330,18 +330,18 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 | interval [velden] [(p)] | |Periode |&nbsp;
 | json | |Reeks |&nbsp;
 | jsonb | |Byte[] |&nbsp;
-| Regel | |Byte [], String |&nbsp;
-| lseg | |Byte [], String |&nbsp;
-| macaddr | |Byte [], String |&nbsp;
+| Regel | |Byte[], String |&nbsp;
+| lseg | |Byte[], String |&nbsp;
+| macaddr | |Byte[], String |&nbsp;
 | money | |Decimaal |&nbsp;
 | numerieke [(p, s)] |decimale waarde [(p, s)] |Decimaal |
 | numrange | |Reeks |&nbsp;
 | OID | |Int32 |&nbsp;
-| pad | |Byte [], String |&nbsp;
+| pad | |Byte[], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| Punt | |Byte [], String |&nbsp;
-| Veelhoek | |Byte [], String |&nbsp;
-| echte |FLOAT4 |Enkelvoudig |
+| Punt | |Byte[], String |&nbsp;
+| polygon | |Byte[], String |&nbsp;
+| echte |float4 |Enkelvoudig |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serieel |serial4 |Int32 |

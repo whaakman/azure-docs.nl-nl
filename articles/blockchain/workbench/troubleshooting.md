@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405481"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329732"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench oplossen van problemen
 
@@ -26,7 +26,7 @@ Een PowerShell-script is beschikbaar ter ondersteuning van foutopsporing door de
 * Application Insights
 * Azure Monitoring (Log Analytics)
 
-U kunt de informatie gebruiken om de volgende stappen te bepalen en de hoofdoorzaak van problemen te achterhalen. 
+U kunt de informatie gebruiken om de volgende stappen te bepalen en de hoofdoorzaak van problemen te achterhalen.
 
 ## <a name="troubleshooting-script"></a>Script voor het oplossen van problemen
 
@@ -75,4 +75,4 @@ De **metrische gegevens** map bevat metrische gegevens van verschillende onderde
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Architectuur van Azure Blockchain Workbench](architecture.md)
+> [Probleemoplossingsgids voor Azure Blockchain Workbench Application Insights](https://aka.ms/workbenchtroubleshooting)

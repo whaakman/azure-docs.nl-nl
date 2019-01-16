@@ -3,7 +3,7 @@ title: Verbinding maken met een SQL Server-Machine (Resource Manager) | Microsof
 description: Leer hoe u verbinding maken met SQL Server die wordt uitgevoerd op een virtuele Machine in Azure. In dit onderwerp wordt gebruikgemaakt van het klassieke implementatiemodel. De scenario's variëren, afhankelijk van de configuratie van netwerken en de locatie van de client.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
-ms.author: jroth
-ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 3baa4a9b91e76b9072714229b6a46e9fca69bcdd
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705959"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331381"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Verbinding maken met een SQL Server-Machine in Azure
 
@@ -39,11 +40,11 @@ Als u een SQL Server-VM in Azure portal inricht, hebt u de optie voor het opgeve
 
 Uw opties voor connectiviteit zijn onder andere:
 
-| Optie | Beschrijving |
+| Optie | Description |
 |---|---|
-| **Openbare** | Verbinding maken met SQL Server via internet |
+| **Public** | Verbinding maken met SQL Server via internet |
 | **Persoonlijke** | Verbinding maken met SQL Server in hetzelfde virtuele netwerk |
-| **lokale** | Verbinding maken met SQL Server lokaal op dezelfde virtuele machine | 
+| **Local** | Verbinding maken met SQL Server lokaal op dezelfde virtuele machine | 
 
 De volgende secties worden de **openbare** en **persoonlijke** opties in meer detail.
 
@@ -133,7 +134,7 @@ Hoewel de portal opties biedt voor het automatisch verbinding te configureren, i
 
 De volgende tabel bevat de vereisten voor het verbinding maken met SQL Server in een Azure-VM wordt uitgevoerd.
 
-| Vereiste | Beschrijving |
+| Vereiste | Description |
 |---|---|
 | [Modus van SQL Server-verificatie inschakelen](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server-verificatie is vereist voor het verbinding maken met de virtuele machine op afstand, tenzij u Active Directory op een Virtueelnetwerk hebt geconfigureerd. |
 | [Maken van een SQL-aanmelding](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Als u SQL-verificatie gebruikt, moet u een SQL-aanmelding met een gebruikersnaam en wachtwoord die ook beschikt over machtigingen voor de doeldatabase. |

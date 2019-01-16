@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4059d8d2f6020a23e3593bb906c2e3fc64a4779e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025586"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331534"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Gegevens verplaatsen van MongoDB met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-on-premises-mongodb-connector.md)
 > * [Versie 2 (huidige versie)](../connector-mongodb.md)
 
@@ -31,12 +31,12 @@ ms.locfileid: "54025586"
 
 In dit artikel wordt uitgelegd hoe u van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een on-premises MongoDB-database. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.
 
-U kunt gegevens uit een on-premises MongoDB-gegevensarchief kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen gegevens te verplaatsen van een MongoDB-gegevensarchief naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven met een MongoDB-gegevensarchief. 
+U kunt gegevens uit een on-premises MongoDB-gegevensarchief kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen gegevens te verplaatsen van een MongoDB-gegevensarchief naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven met een MongoDB-gegevensarchief.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor de Azure Data Factory-service te kunnen verbinding maken met uw on-premises MongoDB-database, moet u de volgende onderdelen installeren:
 
-- Ondersteunde MongoDB-versies zijn:  2.4, 2.6, 3.0, 3.2, 3.4 en 3.6.
+- Ondersteunde MongoDB-versies zijn: 2.4, 2.6, 3.0, 3.2, 3.4 en 3.6.
 - Data Management Gateway op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer om te voorkomen en dingen om de resources met de database. Data Management Gateway is software waarmee on-premises gegevensbronnen met cloud-services in een veilige, beheerde manier verbinding maakt. Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over Data Management Gateway. Zie [gegevens verplaatsen van on-premises naar de cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies over het instellen van de gateway van een pijplijn om gegevens te verplaatsen.
 
     Wanneer u de gateway installeert, installeert deze automatisch een MongoDB-ODBC-stuurprogramma dat is gebruikt om te verbinden met MongoDB.
@@ -49,15 +49,15 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-prem
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
-Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren: 
+Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
 1. Maak **gekoppelde services** opgeslagen om invoer- en gegevens te koppelen aan uw data factory.
-2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking. 
-3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
+2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking.
+3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer.
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises MongoDB-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van MongoDB naar Azure Blob](#json-example-copy-data-from-mongodb-to-azure-blob) sectie van dit artikel. 
+Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises MongoDB-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van MongoDB naar Azure Blob](#json-example-copy-data-from-mongodb-to-azure-blob) sectie van dit artikel.
 
 De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor MongoDB-bron:
 
@@ -125,11 +125,11 @@ Instellen als eerste stap de data management gateway aan de hand van de instruct
         "typeProperties":
         {
             "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",  
+            "server": "< The IP address or host name of the MongoDB server >",
             "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
             "username": "<username>",
             "password": "<password>",
-           "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "authSource": "< The database that you want to use to check your credentials for authentication. >",
             "databaseName": "<database name>",
             "gatewayName": "<mygateway>"
         }
@@ -155,12 +155,12 @@ Instellen als eerste stap de data management gateway aan de hand van de instruct
 
 ```json
 {
-     "name":  "MongoDbInputDataset",
+    "name": "MongoDbInputDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": "OnPremisesMongoDbLinkedService",
         "typeProperties": {
-            "collectionName": "<Collection name>"    
+            "collectionName": "<Collection name>"
         },
         "availability": {
             "frequency": "Hour",
@@ -246,7 +246,7 @@ De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor gebruik van d
                 "typeProperties": {
                     "source": {
                         "type": "MongoDbSource",
-                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
+                        "query": "$$Text.Format('select * from MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
                     },
                     "sink": {
                         "type": "BlobSink",
@@ -324,14 +324,14 @@ U kunt de [Kopieerwizard](data-factory-data-movement-activities.md#create-a-pipe
 ### <a name="example"></a>Voorbeeld
 Bijvoorbeeld, is "ExampleTable" hieronder een MongoDB-tabel met één kolom met een matrix met objecten in elke cel – facturen en één kolom met een matrix met scalaire typen – classificaties.
 
-| i_d | Naam van de klant | Facturen | Servicelaag | Beoordelingen |
+| _id | Naam van de klant | Facturen | Servicelaag | Beoordelingen |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123", artikel: "toaster", prijs: "456", korting: "0.2"}, {invoice_id: "124", item: "oven", prijs: korting "1235",: "0.2"}] |Zilver |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135", item: "koelkast", price: "12543", korting: "0.0"}] |Goudkleurig |[1,2] |
 
 Het stuurprogramma genereert meerdere virtuele tabellen om weer te geven deze enkele tabel. De eerste virtuele tabel is de basistabel met de naam 'ExampleTable', hieronder weergegeven. De basistabel bevat alle gegevens van de oorspronkelijke tabel, maar de gegevens van de matrices is weggelaten en in de virtuele tabellen is uitgevouwen.
 
-| i_d | Naam van de klant | Servicelaag |
+| _id | Naam van de klant | Servicelaag |
 | --- | --- | --- |
 | 1111 |ABC |Zilver |
 | 2222 |XYZ |Goudkleurig |
@@ -344,7 +344,7 @@ De volgende tabellen ziet u de virtuele tabellen waarbij de oorspronkelijke matr
 
 Tabel 'ExampleTable_Invoices':
 
-| i_d | ExampleTable_Invoices_dim1_idx | invoice_id | Item | price | Korting |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Korting |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
@@ -352,7 +352,7 @@ Tabel 'ExampleTable_Invoices':
 
 Tabel 'ExampleTable_Ratings':
 
-| i_d | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |

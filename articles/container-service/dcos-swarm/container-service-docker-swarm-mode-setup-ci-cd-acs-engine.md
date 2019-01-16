@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4befcbb6b2297c6f80fb577b1fe22053a8c77ada
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995056"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331075"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(AFGESCHAFT) Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met ACS-Engine en Docker Swarm-modus met behulp van Azure DevOps
 
@@ -60,7 +60,7 @@ Voordat u deze zelfstudie begint, moet u de volgende taken uitvoeren:
 > De Docker Swarm-orchestrator in Azure Container Service maakt gebruik van legacy standalone Swarm. Momenteel is de geïntegreerde [Swarm-modus](https://docs.docker.com/engine/swarm/) (in Docker 1.12 en hoger) geen ondersteunde orchestrator in Azure Container Service. Daarom gebruiken we [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), een door de community bijgedragen [quickstart-sjabloon](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), of een Docker-oplossing in de [Azure Marketplace](https://azuremarketplace.microsoft.com).
 >
 
-## <a name="step-1-configure-your-azure-devops-organization"></a>Stap 1: Uw organisatie Azure DevOps configureren 
+## <a name="step-1-configure-your-azure-devops-organization"></a>Stap 1: Configureren van uw organisatie Azure DevOps 
 
 In deze sectie configureert u uw organisatie Azure DevOps. Voor het configureren van Azure DevOps-Services-eindpunten in uw Azure DevOps-project, klikt u op de **instellingen** pictogram in de werkbalk en selecteert u **Services**.
 
@@ -131,7 +131,7 @@ Er zijn vijf containerinstallatiekopieën maken voor de *MyShop* toepassing. Elk
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * Winkelpagina
 
 U moet twee Docker-stappen voor elke afbeelding, een om de installatiekopie te bouwen en een met de installatiekopie in Azure container registry hebt gepusht. 

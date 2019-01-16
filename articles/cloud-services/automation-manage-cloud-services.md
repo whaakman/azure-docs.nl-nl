@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 6b5acac1b8647c324988c316cd5602b3dba98a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23842935"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54328865"
 ---
-# <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Cloud Services met behulp van Azure Automation beheren
+# <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Cloud Services met Azure Automation beheren
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van uw Azure-cloud-services.
 
 ## <a name="what-is-azure-automation"></a>Wat is Azure Automation?
-[Azure Automation](https://azure.microsoft.com/services/automation/) is een Azure-service voor het cloudbeheer via procesautomatisering vereenvoudigen. Met behulp van Azure Automation, worden langlopende, handmatige, foutgevoelige en regelmatig herhaalde taken geautomatiseerd om betrouwbaarheid, efficiëntie en tijd voor de waarde voor uw organisatie te verhogen.
+[Azure Automation](https://azure.microsoft.com/services/automation/) is een Azure-service voor cloudbeheer via procesautomatisering te vereenvoudigen. Met Azure Automation, worden langlopende, handmatige, foutgevoelige en regelmatig herhaalde taken geautomatiseerd om de betrouwbaarheid, efficiëntie en tijd tot waarde voor uw organisatie te verhogen.
 
-Azure Automation biedt een engine voor het uitvoeren van maximaal betrouwbaar en maximaal beschikbare werkstroom die schaalbaar is om te voldoen aan de behoeften van uw wanneer uw organisatie groeit. In Azure Automation kunnen processen worden gestarte handmatig, door systemen van derden 3rd of met regelmatige tussenpozen zodat taken gebeuren precies wanneer deze nodig is.
+Azure Automation biedt een uiterst betrouwbare en maximaal beschikbare engine voor werkstroomuitvoering die kan worden geschaald om te voldoen aan uw behoeften wanneer uw organisatie groeit. In Azure Automation, kunnen processen worden gestart handmatig, door systemen 3rd derden of met regelmatige tussenpozen zodat taken gebeuren precies wanneer dat nodig is.
 
-Lagere operationele overhead en vrijmaken IT / DevOps-personeel te concentreren op het werk dat zakelijke voegt waarde door uw cloud-beheertaken automatisch wordt uitgevoerd door Azure Automation te verplaatsen.
+Lagere operationele overhead en vrij IT / DevOps-personeel te concentreren op werk dat wordt toegevoegd business value door te verplaatsen van uw cloud-beheertaken automatisch wordt uitgevoerd door Azure Automation.
 
-## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Hoe kan Azure Automation helpen Azure-cloudservices beheren
-Azure-cloud-services in Azure Automation kunnen worden beheerd met behulp van de PowerShell-cmdlets die beschikbaar zijn in de [hulpprogramma's van Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation heeft deze cloud service PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw cloud service management-taken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services, complexe om taken te automatiseren via Azure-services en 3e systemen van derden koppelen.
+## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Hoe u kunt Azure Automation beheren Azure-cloudservices?
+Azure cloudservices kunnen worden beheerd in Azure Automation met behulp van de PowerShell-cmdlets die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation heeft deze cloud service PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw cloud service-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken in Azure-services en 3e systemen van derden worden gekoppeld.
 
-Sommige voorbeeld maakt gebruik van Azure Automation voor het beheren van Azure Cloud Services omvatten:
+Enkele gebruikstoepassingen voorbeeld van Azure Automation voor het beheren van Azure Cloud Services zijn onder andere:
 
-* [Continue implementatie van een Cloudservice wanneer cscfg of cspkg wordt bijgewerkt in Azure Blob-opslag](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [Cloud Service-exemplaren parallel één upgradedomein tegelijk opnieuw op te starten](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [Continue implementatie van een Service in de Cloud wanneer cscfg of cspkg worden bijgewerkt in Azure Blob-opslag](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [Cloud Service-exemplaren in parallelle, één upgradedomein tegelijk opnieuw opstarten](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u de basisprincipes van Azure Automation en hoe deze kan worden gebruikt voor het beheren van Azure-cloudservices hebt geleerd, volgt u deze koppelingen voor meer informatie over Azure Automation.
+Nu dat u de basisbeginselen van Azure Automation en hoe deze kan worden gebruikt voor het beheren van Azure-cloudservices hebt geleerd, volgt u deze koppelingen voor meer informatie over Azure Automation.
 
 * [Overzicht van Azure Automation](../automation/automation-intro.md)
 * [Mijn eerste runbook](../automation/automation-first-runbook-graphical.md)
-* [Azure Automation-leeroverzicht](https://azure.microsoft.com/documentation/learning-paths/automation/)
+* [Leertraject voor Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)

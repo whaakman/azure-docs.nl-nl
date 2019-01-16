@@ -54,7 +54,7 @@ Een NuGet-feed instellen:
 
 3. Als u broncodebeheer gebruikt:
     - Neem `NuGet.Config` op in uw `.gitignore` bestand, zodat u niet per ongeluk toegangsreferenties in uw versiebeheersysteem vastlegt.
-    - Open het bestand `azds.yaml` in uw project, en ga naar de sectie `build`. Voeg hier het volgende fragment toe om ervoor te zorgen dat het bestand `NuGet.Config` wordt gesynchroniseerd naar Azure zodat deze tijdens het bouwproces van container-installatiekopie wordt gebruikt. (Standaard worden in Azure Dev Spaces geen bestanden gesynchroniseerd die overeenkomen met `.gitignore` en `.dockerignore` regels.)
+    - Open de `azds.yaml` -bestand in uw project, en Ga naar de `build` uit en voeg het volgende fragment om ervoor te zorgen dat de `NuGet.Config` bestand wordt gesynchroniseerd naar Azure zodat deze tijdens het bouwproces van container-installatiekopie gebruikt. (Standaard Azure Dev opslagruimten wordt niet gesynchroniseerd bestanden die overeenkomen met `.gitignore` en `.dockerignore` regels.)
 
         ```yaml
         build:

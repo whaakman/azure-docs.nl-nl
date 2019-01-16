@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230370"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330667"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -469,7 +469,10 @@ Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke 
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Tekst wordt verzonden als de instantie van een HTTP `POST` aanvraag. Kan het zijn tekst zonder opmaak (ASCII- of UTF-8) of [spraak synthese Markup Language](speech-synthesis-markup.md) (SSML)-indeling (UTF-8). Tekst zonder opmaak aanvragen gebruiken de Spraakservice standaard spraak en taal. Met SSML kunt u de spraak- en taal.
+De hoofdtekst van elk `POST` aanvraag wordt verzonden als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md). SSML kunt u de spraak- en taal van de kunstmatige spraak geretourneerd door de Text to Speech-service kiezen. Zie voor een volledige lijst van ondersteunde stemmen, [taalondersteuning](language-support.md#text-to-speech).
+
+> [!NOTE]
+> Als u een aangepaste spraak, kan de hoofdtekst van een aanvraag kan worden verzonden als tekst zonder opmaak (ASCII- of UTF-8).
 
 ### <a name="sample-request"></a>Voorbeeld van een aanvraag
 

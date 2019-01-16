@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 2aa0b152a4fd50e8023df00ec5dd59d1b2a6e6b0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 275c954ac54aab5ab4b41f4d6f6610a01573483f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262231"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319066"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure
 In dit artikel wordt beschreven hoe u uw resource schalen door een aangepaste metrische gegevens in Azure portal.
@@ -39,7 +39,7 @@ In dit artikel wordt ervan uitgegaan dat u een web-app met application insights 
 > Opmerking: In het geval er een probleem opgetreden bij het lezen van de metrische gegevens voor resources en de huidige capaciteit lager dan de standaardcapaciteit is, wordt klikt u vervolgens voor de beschikbaarheid van de resource voor automatisch schalen uitgeschaald op de standaardwaarde. Als de huidige capaciteit al hoger is dan de standaardcapaciteit, wordt niet automatisch schalen geschaald.
 - Klik op 'Opslaan'
 
-Gefeliciteerd! U nu is gemaakt in uw instelling voor automatisch schalen schalen uw web-app op basis van een aangepaste meetwaarde.
+Gefeliciteerd! U nu de instelling voor automatisch schalen van uw web-app op basis van een aangepaste meetwaarde schaalset is gemaakt.
 
 > Opmerking: Dezelfde stappen zijn van toepassing aan de slag met een VMSS of cloud service-rol.
 

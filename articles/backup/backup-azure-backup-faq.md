@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: dd8e0950de6aae71dd123d21b59c6de591bd7f29
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107703"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319457"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -120,7 +120,7 @@ Windows Server 2016, 64-bits | Standard, Datacenter, Essentials | Dat de meest r
 Windows Server 2012 R2 64-bits | Standard, Datacenter, Foundation | Met de nieuwste service packs/updates.
 Windows Server 2012, 64-bits | Datacenter, Foundation, Standard | Met de nieuwste service packs/updates.
 Windows Storage Server 2016, 64-bits | Standard, Workgroup | Met de nieuwste service packs/updates.
-Windows Storage Server 2012 R2 64-bits | Standard, werkgroep, essentiële | Met de nieuwste service packs/updates.
+Windows Storage Server 2012 R2 64-bits | Standard, Workgroup, Essential | Met de nieuwste service packs/updates.
 Windows Storage Server 2012, 64-bits | Standard, Workgroup | Met de nieuwste service packs/updates.
 Windows Server 2008 R2 SP1 64-bits | Standard, Enterprise, Datacenter, Foundation | Met de nieuwste updates.
 Windows Server 2008 64-bits | Standard, Enterprise, Datacenter | Met de meest recente updates.

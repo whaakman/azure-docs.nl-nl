@@ -1,6 +1,6 @@
 ---
-title: De naam van groepsbeleidinstellingen voor Office 365-groepen in Azure Active Directory (preview) | Microsoft Docs
-description: Over het instellen van de vervaldatum voor Office 365-groepen in Azure Active Directory (preview)
+title: Groepsbeleid naam (preview) - Office 365-groepen - Azure Active Directory | Microsoft Docs
+description: Over het instellen van het naamgevingsbeleid voor Office 365-groepen in Azure Active Directory (preview)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275105"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321718"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Afdwingen van een naamgevingsbeleid voor Office 365-groepen in Azure Active Directory (preview)
 
@@ -45,7 +45,7 @@ Voor- en achtervoegsels kunnen speciale tekens die worden ondersteund in de groe
 
 #### <a name="fixed-strings"></a>Vaste tekenreeksen
 
-Tekenreeksen kunt u het eenvoudiger om te scannen en groepen in de globale adreslijst en in de navigatiebalk aan de linkerkant een koppeling van de groep werkbelastingen te onderscheiden. Enkele van de algemene voorvoegsels zijn trefwoorden, zoals ' groep\_naam ', '\#naam ','\_naam '
+Tekenreeksen kunt u het eenvoudiger om te scannen en groepen in de globale adreslijst en in de navigatiebalk aan de linkerkant een koppeling van de groep werkbelastingen te onderscheiden. Some of the common prefixes are keywords like ‘Grp\_Name’ , ‘\#Name’, ‘\_Name’
 
 #### <a name="user-attributes"></a>Gebruikerskenmerken
 
@@ -105,7 +105,7 @@ Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. H
 
 3. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md) om groepsinstellingen voor deze tenant te maken.
 
-### <a name="view-the-current-settings"></a>De huidige instellingen weergeven
+### <a name="view-the-current-settings"></a>Huidige instellingen weergeven
 
 1. Ophalen van de huidige naamgevingsbeleid om de huidige instellingen weer te geven.
   
@@ -121,7 +121,7 @@ Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. H
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Stel de naamgevingsbeleid en de geblokkeerde dan speciale woorden
 
-1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell. Voor de functie werkt alleen goed, [GroupName] moet worden opgenomen in de instelling.
+1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell. [GroupName] moet in de instelling worden opgenomen om de functie goed te laten werken.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -170,19 +170,19 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Een naamgevingsbeleid verwijderen
 
-1. De groep naam voorvoegsels en achtervoegsels in Azure AD PowerShell leeg.
+1. Wis de voor- en achtervoegsels van de groepsnaam in Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. De aangepaste geblokkeerde woorden leeg. 
+2. Maak de aangepaste lijst met geblokkeerde woorden leeg. 
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. De instellingen niet opslaan.
+3. Sla de instellingen op.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting

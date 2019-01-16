@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025875"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331637"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 
@@ -108,7 +108,7 @@ Een **cloud data movement eenheid (DMU)** is een meting met de kracht (een combi
 Als u wilt deze standaardwaarde onderdrukken, Geef een waarde op voor de **cloudDataMovementUnits** eigenschap als volgt te werk. De **toegestane waarden** voor de **cloudDataMovementUnits** eigenschap 2, 4, 8, 16 of 32 zijn. De **werkelijke aantal cloud DMUs** dat gebruikmaakt van de kopieerbewerking tijdens de uitvoering is gelijk aan of kleiner is dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk bij het configureren van meer eenheden voor een specifiek exemplaar gegevensbronnen en sinks, de [prestaties verwijzing](#performance-reference).
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -135,7 +135,7 @@ Als u wilt deze standaardwaarde onderdrukken, Geef een waarde op voor de **cloud
 ### <a name="parallelcopies"></a>parallelCopies
 U kunt de **parallelCopies** eigenschap om aan te geven van de parallelle uitvoering die u wilt dat de Kopieeractiviteit om te gebruiken. U kunt deze eigenschap beschouwen als het maximum aantal threads in een Kopieeractiviteit waarmee u kunt vanuit de bron lezen of schrijven naar de sinkgegevensopslag parallel.
 
-Data Factory bepaalt voor elke kopie-activiteit die wordt uitgevoerd, het aantal parallelle exemplaren te gebruiken om gegevens te kopiëren van de bron-gegevens opslaan en op te slaan op de doelgegevens. Het aantal parallelle exemplaren die worden gebruikt, is afhankelijk van het type van de bron en sink die u gebruikt.  
+Data Factory bepaalt voor elke kopie-activiteit die wordt uitgevoerd, het aantal parallelle exemplaren te gebruiken om gegevens te kopiëren van de bron-gegevens opslaan en op te slaan op de doelgegevens. Het aantal parallelle exemplaren die worden gebruikt, is afhankelijk van het type van de bron en sink die u gebruikt.
 
 | Bron en sink | Standaard parallelle kopie aantal bepaald door de service |
 | --- | --- |
@@ -146,7 +146,7 @@ Data Factory bepaalt voor elke kopie-activiteit die wordt uitgevoerd, het aantal
 Normaal gesproken geeft het standaardgedrag u de beste doorvoer. Echter voor het beheren van de belasting van de machines waarop uw gegevens worden opgeslagen of als u wilt kopiëren-prestaties afstemmen, kunt u besluiten de standaardwaarde overschrijven en geef een waarde op voor de **parallelCopies** eigenschap. De waarde moet tussen 1 en 32 liggen (zowel inclusief). Tijdens de uitvoering voor de beste prestaties Copy-activiteit maakt gebruik van een waarde die kleiner is dan of gelijk zijn aan de waarde die u hebt ingesteld.
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -176,7 +176,7 @@ Die u moet weten:
 >
 >
 
-Zie voor een beter gebruik van deze twee eigenschappen, en voor het verbeteren van uw doorvoercapaciteit voor gegevens, de [voorbeeld gebruiksvoorbeelden](#case-study-use-parallel-copy). U hoeft te configureren **parallelCopies** om te profiteren van het standaardgedrag. Als u configureert en **parallelCopies** is te klein, meerdere cloud DMUs mogelijk niet volledig worden gebruikt.  
+Zie voor een beter gebruik van deze twee eigenschappen, en voor het verbeteren van uw doorvoercapaciteit voor gegevens, de [voorbeeld gebruiksvoorbeelden](#case-study-use-parallel-copy). U hoeft te configureren **parallelCopies** om te profiteren van het standaardgedrag. Als u configureert en **parallelCopies** is te klein, meerdere cloud DMUs mogelijk niet volledig worden gebruikt.
 
 ### <a name="billing-impact"></a>Facturering-impact
 Er **belangrijk** te onthouden dat de kosten worden berekend op basis van de totale tijd van de kopieerbewerking. Als een kopieertaak voorheen een uur duren voordat met een cloudeenheid en nu 15 minuten met vier cloudeenheden duurt, blijft de totale factuur bijna hetzelfde. Bijvoorbeeld, u vier cloudeenheden. De eerste cloudeenheid 10 minuten, de tweede waarde 10 minuten, de derde versie, 5 minuten, en de vierde versie, 5 minuten, allemaal in één Kopieeractiviteit uitvoeren. De tijd van totale kopieertaak (verplaatsing van gegevens), dat 10 + 10 + 5 + 5 = 30 minuten in rekening worden gebracht. Met behulp van **parallelCopies** heeft geen invloed op de facturering.
@@ -216,7 +216,7 @@ Configureer de **enableStaging** instellen in de Kopieeractiviteit om op te geve
 Hier volgt een voorbeelddefinitie van Kopieeractiviteit met de eigenschappen die worden beschreven in de voorgaande tabel:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -273,9 +273,9 @@ Het is raadzaam dat u deze stappen voor het afstemmen van de prestaties van uw D
 3. **De configuratie van de uitbreiden naar uw volledige gegevensset**. Wanneer u tevreden met de resultaten van het uitvoeren en de prestaties bent, kunt u de definitie en de actieve periode van de pijplijn voor uw volledige gegevensset kunt uitbreiden.
 
 ## <a name="considerations-for-data-management-gateway"></a>Overwegingen voor Data Management Gateway
-**Gateway-installatie**: U wordt aangeraden dat u een toegewezen machine naar Data Management Gateway-host. Zie [overwegingen voor het gebruik van Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Gateway-installatie**: U wordt aangeraden dat u een toegewezen machine naar Data Management Gateway-host. Zie [overwegingen voor het gebruik van Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Controle van de gateway en scale-up/out**: Een enkele logische gateway met een of meer gatewayknooppunten kan meerdere Kopieeractiviteit wordt uitgevoerd op hetzelfde moment gelijktijdig fungeren. U kunt bijna realtime momentopname van Resourcegebruik (CPU, geheugen, network(in/out), enzovoort) weergeven op een gateway-apparaat en het aantal gelijktijdige taken uitgevoerd ten opzichte van de limiet in Azure portal, Zie [Monitor-gateway in de portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Als u zware nodig voor hybride verplaatsing van gegevens met een groot aantal uitvoeringen van activiteit gelijktijdige kopiëren of met een grote hoeveelheid gegevens hebt te kopiëren, kunt u overwegen om te [omhoog of uitschalen gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) zodat deze beter gebruikmaken van de bron of om in te richten meer resources om te kopiëren. 
+**Controle van de gateway en scale-up/out**: Een enkele logische gateway met een of meer gatewayknooppunten kan meerdere Kopieeractiviteit wordt uitgevoerd op hetzelfde moment gelijktijdig fungeren. U kunt bijna realtime momentopname van Resourcegebruik (CPU, geheugen, network(in/out), enzovoort) weergeven op een gateway-apparaat en het aantal gelijktijdige taken uitgevoerd ten opzichte van de limiet in Azure portal, Zie [Monitor-gateway in de portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Als u zware nodig voor hybride verplaatsing van gegevens met een groot aantal uitvoeringen van activiteit gelijktijdige kopiëren of met een grote hoeveelheid gegevens hebt te kopiëren, kunt u overwegen om te [omhoog of uitschalen gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) zodat deze beter gebruikmaken van de bron of om in te richten meer resources om te kopiëren.
 
 ## <a name="considerations-for-the-source"></a>Overwegingen voor de bron
 ### <a name="general"></a>Algemeen
@@ -391,7 +391,7 @@ Een of meer van de volgende factoren kan leiden tot de bottleneck in de prestati
     * **Serialisatie**: Tijdens het serialiseren van de gegevensstroom naar de CSV-indeling is traag doorvoer.
     * **Compressie**: U hebt ervoor gekozen een trage compressiecodec (bijvoorbeeld, bzip2, namelijk 2,8 MBps met Core i7).
   * **WAN**: Is een lage bandbreedte tussen het bedrijfsnetwerk en uw Azure-services (bijvoorbeeld T1 = 1,544 kbps. Tijdstip T2 = 6,312 kbps).
-* **Sink-**: BLOB-opslag heeft lage doorvoer. (In dit scenario is niet waarschijnlijk omdat de SLA wordt gegarandeerd minimaal 60 MBps.)
+* **Sink**: BLOB-opslag heeft lage doorvoer. (In dit scenario is niet waarschijnlijk omdat de SLA wordt gegarandeerd minimaal 60 MBps.)
 
 In dit geval kan bzip2 gegevenscompressie worden vertraagd de hele pijplijn. Overschakelen naar een compressiecodec gzip, kan dit knelpunt vereenvoudigen.
 
@@ -404,7 +404,7 @@ In dit geval kan bzip2 gegevenscompressie worden vertraagd de hele pijplijn. Ove
 
 **Scenario II**: 20 blobs van 500 MB van Blob-opslag kopiëren met Data Lake Store Analytics en vervolgens het afstemmen van prestaties.
 
-**Analyse en het afstemmen van prestaties**: In dit scenario, Data Factory kopieert de gegevens uit Blob storage naar Data Lake Store met behulp van één exemplaar (**parallelCopies** ingesteld op 1) en één cloud eenheden voor gegevensverplaatsing. De doorvoer die u ziet dat zal worden dicht bij die wordt beschreven in de [prestaties naslagsectie](#performance-reference).   
+**Analyse en het afstemmen van prestaties**: In dit scenario, Data Factory kopieert de gegevens uit Blob storage naar Data Lake Store met behulp van één exemplaar (**parallelCopies** ingesteld op 1) en één cloud eenheden voor gegevensverplaatsing. De doorvoer die u ziet dat zal worden dicht bij die wordt beschreven in de [prestaties naslagsectie](#performance-reference).
 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
@@ -419,7 +419,7 @@ Hier zijn prestaties controleren en afstemmen van verwijzingen voor enkele van d
 
 * Azure Storage (inclusief Blob storage en Table storage): [Azure Storage-schaalbaarheidsdoelen](../../storage/common/storage-scalability-targets.md) en [controlelijst voor de prestaties en schaalbaarheid van Azure Storage](../../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: U kunt [bewaken van de prestaties](../../sql-database/sql-database-single-database-monitor.md) en controleert u het percentage van database transaction unit (DTU)
-* Azure SQL datawarehouse: De mogelijkheid wordt gemeten in datawarehouse units (dwu's); Zie [beheren rekenkracht in Azure SQL Data Warehouse (overzicht)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure SQL Data Warehouse: De mogelijkheid wordt gemeten in datawarehouse units (dwu's); Zie [beheren rekenkracht in Azure SQL Data Warehouse (overzicht)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Prestatieniveaus in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * On-premises SQL Server: [Controleren en afstemmen van prestaties](https://msdn.microsoft.com/library/ms189081.aspx)
 * On-premises bestandsserver: [Prestaties afstemmen voor bestandsservers](https://msdn.microsoft.com/library/dn567661.aspx)

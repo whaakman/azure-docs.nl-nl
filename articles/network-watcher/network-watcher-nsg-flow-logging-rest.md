@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 30f20e2671b4428f08c38eeb93ec90f0b745eea6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 58486ab821b6b01f531f62445a9d4ade1336569a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819114"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332010"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Stroomlogboeken van Netwerkbeveiligingsgroep configureren met behulp van REST-API
 
@@ -32,7 +32,7 @@ ms.locfileid: "51819114"
 Stroomlogboeken van Netwerkbeveiligingsgroep zijn een functie van Network Watcher waarmee u informatie wilt weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze logboeken van de stroom zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, de NIC die de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
 
 > [!NOTE] 
-> Stroom logboeken versie 2 zijn alleen beschikbaar in de centrale regio VS-West. Configuratie is beschikbaar via de Azure Portal en de REST-API. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
+> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b1020389ef28c18c03536d686cd47ef0c65b9204
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e50a82f0f141fec266a8348c0a1a8b5fbdb38b45
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242337"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329844"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Gegevens van Azure Blockchain Workbench weergeven met Microsoft Power BI
 
@@ -25,9 +25,9 @@ Dit artikel bevat stapsgewijze instructies om vanuit Power BI Desktop verbinding
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Download [PowerBI Desktop](https://aka.ms/pbidesktopstore).
+* Download [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-powerbi-to-data-in-azure-blockchain-workbench"></a>Power BI verbinden met gegevens in Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Power BI verbinding te maken met gegevens in Azure Blockchain Workbench
 
 1.  Open Power BI Desktop.
 2.  Selecteer **Gegevens ophalen**.
@@ -49,7 +49,7 @@ Dit artikel bevat stapsgewijze instructies om vanuit Power BI Desktop verbinding
 
     ![Navigator](./media/data-powerbi/navigator.png)
 
-7.  Selecteer de weergaven die u wilt opnemen in het rapport. Om zo veel mogelijk functionaliteit te laten zien, nemen we ook **vwContractAction** op, om details weer te geven van alle acties die hebben plaatsgevonden voor een contract.
+7.  Selecteer de weergaven die u wilt opnemen in het rapport. Voor demonstratiedoeleinden te gebruiken, nemen we **vwContractAction**, waarmee u meer informatie over de acties die hebben plaatsgevonden in een contract.
 
     ![Weergaven selecteren](./media/data-powerbi/select-views.png)
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971100"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321565"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van Stream Analytics
 
@@ -36,7 +36,7 @@ U moet de volgende vereisten voor het voltooien van deze oplossing:
 ## <a name="scenario-introduction-hello-toll"></a>Inleiding in scenario: "Hallo, gratis!"
 Een station nummer is een algemene verschijnsel. U ondervindt ze op tal van autowegen, bruggen en tunnels over de hele wereld. Elk station nummer heeft meerdere nummer stands. Bij handmatige stands stoppen u om te betalen van de gratis naar een daarmee gepaard gaande. Bij geautomatiseerde stands scant een sensor boven op elke stand een RFID-kaart die wordt aangebracht op de voorruit van het voertuig als u het nummer tolloket doorgeven. Het is gemakkelijk om te visualiseren van het verstrijken van de door middel van deze stations nummer als een gebeurtenisstroom waarover interessante bewerkingen kunnen worden uitgevoerd.
 
-! [Afbeelding van auto's op nummer stands] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![Afbeelding van auto's op nummer stands](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Binnenkomende gegevens
 Deze oplossing werkt met twee gegevensstromen. Sensoren die in de in- en afsluiten van de stations nummer geïnstalleerd produceren de eerste stream. De tweede stream is een statische lookup-gegevensset waarvoor vehicle-registratiegegevens.

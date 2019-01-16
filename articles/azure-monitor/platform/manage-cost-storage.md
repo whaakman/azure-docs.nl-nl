@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ed720b0db68a11c573a763c4269349db97977eff
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231067"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332316"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gebruik en kosten voor Log Analytics beheren
 
@@ -67,7 +66,7 @@ De volgende stappen wordt beschreven hoe u een limiet voor het beheren van de ho
 
 1. Selecteer in de werkruimte in het linkerdeelvenster **Gebruik en geschatte kosten**.
 2. Op de **gebruik en geraamde kosten** pagina voor de geselecteerde werkruimte, klikt u op **gegevensvolumebeheer** vanaf de bovenkant van de pagina. 
-5. Dagelijkse limiet is **OFF** standaard – klikt u op **ON** wilt inschakelen, en stelt de limiet voor het volume van gegevens in GB per dag.<br><br> ![Log Analytics configureren gegevenslimiet](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Dagelijkse limiet is **OFF** standaard – klikt u op **ON** wilt inschakelen, en stelt de limiet voor het volume van gegevens in GB per dag.<br><br> ![Log Analytics configureren gegevenslimiet](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Ontvang een waarschuwing wanneer de dagelijkse limiet bereikt
 Terwijl we een visuele hint aanwezig in Azure portal wanneer uw limiet drempelwaarde wordt voldaan, wordt dit gedrag niet per se uitlijnen voor het beheren van operationele problemen die onmiddellijke aandacht.  Voor het ontvangen van een waarschuwingsmelding, kunt u een nieuwe waarschuwingsregel maken in Azure Monitor.  Zie voor meer informatie, [maken, weergeven en beheren van waarschuwingen](alerts-metric.md).      
@@ -161,7 +160,7 @@ Voor meer informatie over het aantal computers (knooppunten) waarvoor gegevens e
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Voor een lijst van computers die verzenden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis), gebruikmaken van de `_IsBilled` eigenschap:
+Voor een lijst van computers die verzenden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis), gebruikmaken van de [_IsBillable](log-standard-properties.md#isbillable) eigenschap:
 
 `union withsource = tt * 
 | where _IsBillable == true 

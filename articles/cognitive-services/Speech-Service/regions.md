@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d302fc67225213ad55687797c97c7a2a8a17cc6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091642"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329504"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service ondersteunde regio 's
 
@@ -46,11 +46,24 @@ De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning** en **vert
 
 ### <a name="intent-recognition"></a>Intentieherkenning
 
-**Intentieherkenning** voor de shares spraak SDK-regio's met LUIS ondersteunen. Zie voor een volledige lijst van beschikbare regio's, [publiceren regio's en -eindpunten - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
+Beschikbare regio's voor **intentieherkenning** via de spraak-SDK worden de volgende:
 
-Beschikbare regio's voor **intentieherkenning** via de SDK spraak worden weergegeven op de [Language Understanding service regio pagina](/azure/cognitive-services/luis/luis-reference-regions).
+ Globale regio | Regio | Parameter voor spraak-SDK
+ ------|-------|--------
+ Azië | Azië - oost | `eastasia`
+ Azië | Azië - zuidoost | `southeastasia`
+ Australië | Australië - oost | `australiaeast`
+ Europa | Europa - noord | `northeurope`
+ Europa | Europa -west | `westeurope`
+ Noord-Amerika | US - oost | `eastus`
+ Noord-Amerika | US - oost 2 | `eastus2`
+ Noord-Amerika | US - zuid-centraal | `southcentralus`
+ Noord-Amerika | US - west-centraal | `westcentralus`
+ Noord-Amerika | US - west | `westus`
+ Noord-Amerika | US - west 2 | `westus2`
+ Zuid-Amerika | Brazilië - zuid | `brazilsouth`
 
-Voor elke publishing regio die wordt weergegeven, gebruikt u de opgegeven **API regionaam**. Gebruik bijvoorbeeld `westus` voor VS-West.
+Dit is een subset van de publicatie regio's ondersteund door de [Language Understanding-service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
 ## <a name="rest-apis"></a>REST-API’s
 

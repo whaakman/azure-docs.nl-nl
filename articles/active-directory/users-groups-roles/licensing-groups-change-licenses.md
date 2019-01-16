@@ -1,10 +1,10 @@
 ---
-title: Gebruikers tussen productlicenties met behulp van Groepslicenties in Azure Active Directory veilig migreren | Microsoft Docs
+title: Het migreren van gebruikers tussen productlicenties met groepen - Azure Active Directory | Microsoft Docs
 description: Beschrijving van de aanbevolen procedure voor het migreren van gebruikers tussen verschillende productlicenties (Office 365 Enterprise E1 en E3) met behulp van Groepslicenties
 services: active-directory
 keywords: Azure AD-licenties
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211788"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319415"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Gebruikers tussen productlicenties met behulp van Groepslicenties veilig migreren
 
@@ -66,15 +67,15 @@ Het doel van de migratie is met Groepslicenties wijzigen gebruikerslicenties van
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migreren van één gebruiker met behulp van de Azure-portal
 Dit is een eenvoudig scenario voor het migreren van één gebruiker.
 
-**STAP 1**: de gebruiker heeft een *sourcelicentie* die overgenomen van de groep. Er zijn geen directe toewijzingen voor de licentie:
+**STAP 1**: De gebruiker heeft een *sourcelicentie* die overgenomen van de groep. Er zijn geen directe toewijzingen voor de licentie:
 
 ![Gebruiker met een bron-licentie is overgenomen van de groep](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
-**STAP 2**: de gebruiker wordt toegevoegd aan de doelgroep en de wijziging Groepslicenties verwerkt. De gebruiker heeft nu zowel de *sourcelicentie* en *doel licentie* die zijn overgenomen van groepen:
+**STAP 2**: De gebruiker wordt toegevoegd aan de doelgroep en de wijziging Groepslicenties verwerkt. De gebruiker heeft nu zowel de *sourcelicentie* en *doel licentie* die zijn overgenomen van groepen:
 
 ![Gebruiker met een bron- en doel-licentie is overgenomen van groepen](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
-**STAP 3**: de gebruiker wordt verwijderd uit de brongroep en de wijziging Groepslicenties verwerkt. De gebruiker heeft nu alleen de *doel licentie*:
+**STAP 3**: De gebruiker is verwijderd uit de brongroep en de wijziging Groepslicenties verwerkt. De gebruiker heeft nu alleen de *doel licentie*:
 
 ![Gebruiker met een doel-licentie is overgenomen van de groep](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migreren van gebruikers tussen producten waarvan de conflicterende serviceabonnementen
-Het doel van de migratie is met Groepslicenties wijzigen gebruikerslicenties van een *sourcelicentie* (in dit voorbeeld: Office 365 Enterprise E1) naar een *doel licentie* (in dit voorbeeld: Office 365 Enterprise E3). De twee producten in dit scenario bevat conflicterende serviceabonnementen, dus u het conflict moet voor het migreren van de gebruikers naadloos te omzeilen. Zie voor meer informatie over deze conflicten [Active Directory-licentieverlening groep problemen worden opgelost: conflicterende serviceabonnementen](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Op niet moment tijdens de migratie moeten gebruikers geen toegang meer tot services of gegevens. De migratie wordt uitgevoerd in kleine "batches." U kunt valideren van het resultaat voor elke batch en het bereik van eventuele problemen die tijdens het proces optreden kunnen te minimaliseren. Over het algemeen is het proces als volgt:
+Het doel van de migratie is met Groepslicenties wijzigen gebruikerslicenties van een *sourcelicentie* (in dit voorbeeld: Office 365 Enterprise E1) naar een *doel licentie* (in dit voorbeeld: Office 365 Enterprise E3). De twee producten in dit scenario bevat conflicterende serviceabonnementen, dus u het conflict moet voor het migreren van de gebruikers naadloos te omzeilen. Zie voor meer informatie over deze conflicten [Active Directory-licentieverlening groep problemen worden opgelost: Conflicterende serviceabonnementen](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Op niet moment tijdens de migratie moeten gebruikers geen toegang meer tot services of gegevens. De migratie wordt uitgevoerd in kleine "batches." U kunt valideren van het resultaat voor elke batch en het bereik van eventuele problemen die tijdens het proces optreden kunnen te minimaliseren. Over het algemeen is het proces als volgt:
 
 1.  Gebruikers lid zijn van een brongroep en nemen ze de *sourcelicentie* uit die groep.
 
@@ -195,15 +196,15 @@ Het doel van de migratie is met Groepslicenties wijzigen gebruikerslicenties van
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migreren van één gebruiker met behulp van de Azure-portal
 Dit is een eenvoudig scenario voor het migreren van één gebruiker.
 
-**STAP 1**: de gebruiker heeft een *sourcelicentie* die overgenomen van de groep. Er zijn geen directe toewijzingen voor de licentie:
+**STAP 1**: De gebruiker heeft een *sourcelicentie* die overgenomen van de groep. Er zijn geen directe toewijzingen voor de licentie:
 
 ![Gebruiker met een bron-licentie is overgenomen van de groep](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
-**STAP 2**: de gebruiker wordt toegevoegd aan de doelgroep en de wijziging Groepslicenties verwerkt. Omdat de gebruiker nog steeds heeft de *sourcelicentie*, wordt de *doel licentie* heeft een foutstatus vanwege het conflict:
+**STAP 2**: De gebruiker wordt toegevoegd aan de doelgroep en de wijziging Groepslicenties verwerkt. Omdat de gebruiker nog steeds heeft de *sourcelicentie*, wordt de *doel licentie* heeft een foutstatus vanwege het conflict:
 
 ![Gebruiker met een bron-licentie is overgenomen van de groep en het doel-licentie in een foutstatus](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-**STAP 3**: de gebruiker wordt verwijderd uit de brongroep en de wijziging Groepslicenties verwerkt. De *doel licentie* wordt toegepast op de gebruiker:
+**STAP 3**: De gebruiker is verwijderd uit de brongroep en de wijziging Groepslicenties verwerkt. De *doel licentie* wordt toegepast op de gebruiker:
 
 ![Gebruiker met een doel-licentie is overgenomen van de groep](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020333"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332605"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,18 +31,18 @@ ms.locfileid: "54020333"
 Dit artikel wordt beschreven welke gegevenssets bent, hoe ze worden gedefinieerd in JSON-indeling, en hoe ze worden gebruikt Azure Data Factory-pijplijnen. Het biedt details over elke sectie (bijvoorbeeld structuur, beschikbaarheid en beleid) in de gegevensset JSON-definitie. Het artikel bevat ook voorbeelden voor het gebruik van de **offset**, **anchorDateTime**, en **stijl** eigenschappen in de JSON-definitie van een gegevensset.
 
 > [!NOTE]
-> Als u niet bekend bent met Data Factory, raadpleegt u [Inleiding tot Azure Data Factory](data-factory-introduction.md) voor een overzicht. Als u praktische ervaring met het maken van data factory's hebt, krijgt u een beter begrip van het lezen van de [data transformation zelfstudie](data-factory-build-your-first-pipeline.md) en de [data movement zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+> Als u niet bekend bent met Data Factory, raadpleegt u [Inleiding tot Azure Data Factory](data-factory-introduction.md) voor een overzicht. Als u praktische ervaring met het maken van data factory's hebt, krijgt u een beter begrip van het lezen van de [data transformation zelfstudie](data-factory-build-your-first-pipeline.md) en de [data movement zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Overzicht
 Een gegevensfactory kan één of meer pijplijnen hebben. Een **pijplijn** is een logische groepering van **activiteiten** die samen een taak uitvoeren. Met activiteiten in een pijplijn definieert u welk acties moeten worden uitgevoerd voor uw gegevens. Bijvoorbeeld, kunt u een kopieeractiviteit om gegevens te kopiëren uit een on-premises SQL Server naar Azure Blob storage. Vervolgens kunt u een Hive-activiteit die een Hive-script uitvoert op een Azure HDInsight-cluster om gegevens te verwerken van Blob-opslag om uitvoergegevens te produceren. U kunt tot slot een tweede kopieeractiviteit gebruiken om het kopiëren van de uitvoergegevens naar Azure SQL Data Warehouse, boven op welke business intelligence (BI) reporting oplossingen zijn gemaakt. Zie voor meer informatie over pijplijnen en activiteiten [pijplijnen en activiteiten in Azure Data Factory](data-factory-create-pipelines.md).
 
-Een activiteit kan nul of meer duren **gegevenssets**, en een of meer uitvoergegevenssets produceren. Een invoergegevensset vertegenwoordigt de invoer voor een activiteit in de pijplijn en een uitvoergegevensset vertegenwoordigt de uitvoer voor de activiteit. Met gegevenssets worden gegevens binnen andere gegevensarchieven geïdentificeerd, waaronder tabellen, bestanden, mappen en documenten. Een Azure Blob-gegevensset benoemt bijvoorbeeld de blobcontainer en -map in Blob-opslag van waaruit de pijplijn de gegevens moet lezen. 
+Een activiteit kan nul of meer duren **gegevenssets**, en een of meer uitvoergegevenssets produceren. Een invoergegevensset vertegenwoordigt de invoer voor een activiteit in de pijplijn en een uitvoergegevensset vertegenwoordigt de uitvoer voor de activiteit. Met gegevenssets worden gegevens binnen andere gegevensarchieven geïdentificeerd, waaronder tabellen, bestanden, mappen en documenten. Een Azure Blob-gegevensset benoemt bijvoorbeeld de blobcontainer en -map in Blob-opslag van waaruit de pijplijn de gegevens moet lezen.
 
-Voordat u een gegevensset maakt, maakt u een **gekoppelde service** uw gegevensopslag aan de data factory koppelen. Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindingsinformatie bevatten die Data Factory nodig heeft om verbinding te maken met externe bronnen. Gegevenssets worden gegevens in de gekoppelde gegevensarchieven, zoals SQL-tabellen, bestanden, mappen en documenten identificeren. Bijvoorbeeld, gekoppelde een Azure Storage-service wordt een storage-account aan de data factory. Een Azure Blob-gegevensset geeft de blob-container en de map met de blobs voor invoer om te worden verwerkt. 
+Voordat u een gegevensset maakt, maakt u een **gekoppelde service** uw gegevensopslag aan de data factory koppelen. Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindingsinformatie bevatten die Data Factory nodig heeft om verbinding te maken met externe bronnen. Gegevenssets worden gegevens in de gekoppelde gegevensarchieven, zoals SQL-tabellen, bestanden, mappen en documenten identificeren. Bijvoorbeeld, gekoppelde een Azure Storage-service wordt een storage-account aan de data factory. Een Azure Blob-gegevensset geeft de blob-container en de map met de blobs voor invoer om te worden verwerkt.
 
 Hier volgt een voorbeeldscenario. Om gegevens te kopiëren van Blob-opslag met een SQL-database, moet u twee gekoppelde services maken: Azure Storage en Azure SQL-Database. Vervolgens maakt u twee gegevenssets: Azure Blob-gegevensset (die verwijst naar de gekoppelde Azure Storage-service) en Azure SQL Table-gegevensset (die verwijst naar de gekoppelde Azure SQL Database-service). De Azure Storage en de gekoppelde Azure SQL Database-services bevatten verbindingsreeksen die Data Factory tijdens runtime gebruikt verbinding maken met uw Azure Storage en Azure SQL Database, respectievelijk. De Azure Blob-gegevensset specificeert de blob-container en de blob-map met de blobs voor invoer in uw Blob storage. De Azure SQL Table-gegevensset bevat de SQL-tabel in uw SQL-database waarnaar de gegevens zijn om te worden gekopieerd.
 
-Het volgende diagram toont de relaties tussen de pijplijn, activiteit, gegevensset en gekoppelde service in Data Factory: 
+Het volgende diagram toont de relaties tussen de pijplijn, activiteit, gegevensset en gekoppelde service in Data Factory:
 
 ![Relatie tussen pijplijn, activiteit, gegevensset, gekoppelde services](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
@@ -70,14 +70,14 @@ Een gegevensset in Data Factory wordt in JSON-indeling als volgt gedefinieerd:
             "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
             "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
         },
-       "policy":
-        {      
+        "policy":
+        {
         }
     }
 }
 ```
 
-De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:   
+De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
 | Eigenschap | Description | Vereist | Standaard |
 | --- | --- | --- | --- |
@@ -115,8 +115,8 @@ Houd rekening met de volgende punten:
 
 * **type** is ingesteld op AzureSqlTable.
 * **tableName** type eigenschap (specifiek voor AzureSqlTable) is ingesteld op MyTable.
-* **linkedServiceName** verwijst naar een gekoppelde service van het type AzureSqlDatabase, die is gedefinieerd in de volgende JSON-codefragment. 
-* **beschikbaarheid frequentie** is ingesteld op de dag en **interval** is ingesteld op 1. Dit betekent dat het segment gegevensset dagelijks wordt geproduceerd.  
+* **linkedServiceName** verwijst naar een gekoppelde service van het type AzureSqlDatabase, die is gedefinieerd in de volgende JSON-codefragment.
+* **beschikbaarheid frequentie** is ingesteld op de dag en **interval** is ingesteld op 1. Dit betekent dat het segment gegevensset dagelijks wordt geproduceerd.
 
 **AzureSqlLinkedService** wordt als volgt gedefinieerd:
 
@@ -136,13 +136,12 @@ Houd rekening met de volgende punten:
 In het voorgaande JSON-fragment:
 
 * **type** is ingesteld op AzureSqlDatabase.
-* **connectionString** type-eigenschap geeft u informatie om te verbinden met een SQL-database.  
+* **connectionString** type-eigenschap geeft u informatie om te verbinden met een SQL-database.
 
-Zoals u ziet, definieert de gekoppelde service verbinding maken met een SQL-database. De gegevensset wordt gedefinieerd welke tabel wordt gebruikt als invoer en uitvoer voor de activiteit in een pijplijn.   
+Zoals u ziet, definieert de gekoppelde service verbinding maken met een SQL-database. De gegevensset wordt gedefinieerd welke tabel wordt gebruikt als invoer en uitvoer voor de activiteit in een pijplijn.
 
 > [!IMPORTANT]
-> Tenzij een gegevensset wordt geproduceerd door de pijplijn, deze moet worden gemarkeerd als **externe**. Deze instelling geldt doorgaans voor invoer van de eerste activiteit in een pijplijn.   
-
+> Tenzij een gegevensset wordt geproduceerd door de pijplijn, deze moet worden gemarkeerd als **externe**. Deze instelling geldt doorgaans voor invoer van de eerste activiteit in een pijplijn.
 
 ## <a name="Type"></a> Type Brongegevensset
 Het type van de gegevensset is afhankelijk van het gegevensarchief dat u gebruikt. Zie de volgende tabel voor een lijst met gegevensarchieven die worden ondersteund door Data Factory. Klik op een gegevensarchief voor informatie over het maken van een gekoppelde service en een gegevensset voor het betreffende gegevensarchief.
@@ -182,7 +181,7 @@ In het voorbeeld in de vorige sectie, het type van de gegevensset is ingesteld o
 De **structuur** sectie is optioneel. Het schema van de gegevensset wordt gedefinieerd door een verzameling van namen en gegevenstypen van kolommen. De structuur sectie kunt u opgeven type-informatie die wordt gebruikt om te converteren en kolommen uit de bron naar de bestemming toewijzen. In het volgende voorbeeld wordt de gegevensset heeft drie kolommen: `slicetimestamp`, `projectname`, en `pageviews`. Ze zijn van het type String, String en Decimal.
 
 ```json
-structure:  
+structure:
 [
     { "name": "slicetimestamp", "type": "String"},
     { "name": "projectname", "type": "String"},
@@ -201,15 +200,14 @@ Elke kolom in de structuur bevat de volgende eigenschappen:
 
 De volgende richtlijnen kunnen u bepalen waar structuur informatie op te nemen, en wat u wilt opnemen de **structuur** sectie.
 
-* **Voor gestructureerde gegevensbronnen**, geef de structuur sectie alleen als u toewijzen bronkolommen wilt sink-kolommen, en hun namen niet hetzelfde zijn. Dit soort gestructureerde gegevens worden opgeslagen gegevens schema en het type informatie samen met de gegevens zelf. Voorbeelden van gestructureerde gegevensbronnen zijn SQL Server, Oracle en Azure-tabel. 
+* **Voor gestructureerde gegevensbronnen**, geef de structuur sectie alleen als u toewijzen bronkolommen wilt sink-kolommen, en hun namen niet hetzelfde zijn. Dit soort gestructureerde gegevens worden opgeslagen gegevens schema en het type informatie samen met de gegevens zelf. Voorbeelden van gestructureerde gegevensbronnen zijn SQL Server, Oracle en Azure-tabel.
   
     Als u informatie over het type is al beschikbaar voor gestructureerde gegevensbronnen, moet u informatie over het type niet opnemen wanneer u de sectie structuur opgeeft.
-* **Voor het schema op lezen gegevensbronnen (met name Blob storage)**, u kunt kiezen voor het opslaan van gegevens zonder een schema of het type informatie met de gegevens op te slaan. Voor deze typen gegevensbronnen, structuur opnemen wanneer u toewijzen bronkolommen wilt sink-kolommen. Structuur ook bevatten wanneer de gegevensset een invoer voor een kopieeractiviteit is en gegevenstypen van brongegevensset moeten worden geconverteerd naar native-typen voor de sink. 
+* **Voor het schema op lezen gegevensbronnen (met name Blob storage)**, u kunt kiezen voor het opslaan van gegevens zonder een schema of het type informatie met de gegevens op te slaan. Voor deze typen gegevensbronnen, structuur opnemen wanneer u toewijzen bronkolommen wilt sink-kolommen. Structuur ook bevatten wanneer de gegevensset een invoer voor een kopieeractiviteit is en gegevenstypen van brongegevensset moeten worden geconverteerd naar native-typen voor de sink.
     
     Data Factory ondersteunt de volgende waarden voor het ontwikkelen van type informatie in de structuur: **Int16, Int32, Int64, één, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, datum/tijd, Datetimeoffset en Timespan**. Deze waarden zijn Common Language Specification (CLS)-compatibel zijn,. Type NET-op basis van waarden.
 
-Data Factory wordt automatisch typeconversies voert bij het verplaatsen van gegevens van een brongegevensarchief naar een sink-gegevensopslag. 
-  
+Data Factory wordt automatisch typeconversies voert bij het verplaatsen van gegevens van een brongegevensarchief naar een sink-gegevensopslag.
 
 ## <a name="dataset-availability"></a>Beschikbaarheid van gegevenssets
 De **beschikbaarheid** gedeelte in een gegevensset definieert het segmenteringsmodel voor de gegevensset (bijvoorbeeld elk uur, dagelijks of wekelijks). Zie voor meer informatie over activiteitsvensters [planning en uitvoering](data-factory-scheduling-and-execution.md).
@@ -217,21 +215,21 @@ De **beschikbaarheid** gedeelte in een gegevensset definieert het segmenteringsm
 De volgende sectie van de beschikbaarheid geeft aan dat de uitvoergegevensset ofwel per uur wordt geproduceerd, of de invoergegevensset beschikbaar per uur is:
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 1    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 1
 }
 ```
 
-Als de pijplijn de volgende begin- en eindtijd ervan heeft:  
+Als de pijplijn de volgende begin- en eindtijd ervan heeft:
 
 ```json
     "start": "2016-08-25T00:00:00Z",
     "end": "2016-08-25T05:00:00Z",
 ```
 
-De uitvoergegevensset wordt geproduceerd per uur in de pijplijn starten en de eindtijd. Daarom zijn er vijf gegevensset segmenten die worden geproduceerd door deze pijplijn, één voor elke activiteitvenster (12: 00 uur - 1 uur, 01: 00 - 2 AM, 2 AM - 3 uur, 3 AM - 4 AM, 4 AM - 5 uur). 
+De uitvoergegevensset wordt geproduceerd per uur in de pijplijn starten en de eindtijd. Daarom zijn er vijf gegevensset segmenten die worden geproduceerd door deze pijplijn, één voor elke activiteitvenster (12: 00 uur - 1 uur, 01: 00 - 2 AM, 2 AM - 3 uur, 3 AM - 4 AM, 4 AM - 5 uur).
 
 De volgende tabel beschrijft de eigenschappen die u in de beschikbaarheidssectie gebruiken kunt:
 
@@ -244,7 +242,7 @@ De volgende tabel beschrijft de eigenschappen die u in de beschikbaarheidssectie
 | offset |TimeSpan waarmee het begin en einde van alle segmenten van de gegevensset worden verschoven. <br/><br/>Houd er rekening mee dat als beide **anchorDateTime** en **offset** zijn opgegeven, wordt het resultaat is de gecombineerde verschuiving. |Nee |N.v.t. |
 
 ### <a name="offset-example"></a>Voorbeeld van de offset
-Standaard dagelijks (`"frequency": "Day", "interval": 1`) segmenten beginnen bij 12: 00 uur (middernacht) Coordinated Universal Time (UTC). Als u de begintijd moet 6 AM UTC-tijd in plaats daarvan wilt, stelt u de verschuiving zoals wordt weergegeven in het volgende codefragment: 
+Standaard dagelijks (`"frequency": "Day", "interval": 1`) segmenten beginnen bij 12: 00 uur (middernacht) Coordinated Universal Time (UTC). Als u de begintijd moet 6 AM UTC-tijd in plaats daarvan wilt, stelt u de verschuiving zoals wordt weergegeven in het volgende codefragment:
 
 ```json
 "availability":
@@ -258,11 +256,11 @@ Standaard dagelijks (`"frequency": "Day", "interval": 1`) segmenten beginnen bij
 In het volgende voorbeeld wordt de elke 23 uur in de gegevensset wordt geproduceerd. Het eerste segment wordt gestart op het moment dat is opgegeven door **anchorDateTime**, die is ingesteld op `2017-04-19T08:00:00` (UTC).
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 23,    
-    "anchorDateTime":"2017-04-19T08:00:00"    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 23,
+    "anchorDateTime":"2017-04-19T08:00:00"
 }
 ```
 
@@ -320,16 +318,16 @@ Tenzij een gegevensset wordt geproduceerd door Data Factory, deze moet worden ge
 
 | Name | Description | Vereist | Standaardwaarde |
 | --- | --- | --- | --- |
-| dataDelay |De tijd te stellen de controle van de beschikbaarheid van de externe gegevens voor het opgegeven segment. Bijvoorbeeld, kunt u een per uur controleren met behulp van deze instelling uitstellen.<br/><br/>De instelling is alleen van toepassing op de huidige tijd.  Bijvoorbeeld, als het is nu om 13:00 uur en deze waarde 10 minuten is, begint de validatie om 1:10 uur.<br/><br/>Houd er rekening mee dat deze instelling heeft geen invloed op segmenten in het verleden. Segmenten met **eindtijd gegevenssegment** + **dataDelay** < **nu** zonder enige vertraging worden verwerkt.<br/><br/>Keer groter zijn dan 23:59 uur moeten worden opgegeven met behulp van de `day.hours:minutes:seconds` indeling. Bijvoorbeeld, om op te geven 24 uur, gebruik geen 24:00:00 uur. Gebruik in plaats daarvan 1.00:00:00. Als u 24:00:00, wordt dit beschouwd als 24 dagen (24.00:00:00). Geef 1:04:00:00 1 dag en vier uur. |Nee |0 |
+| dataDelay |De tijd te stellen de controle van de beschikbaarheid van de externe gegevens voor het opgegeven segment. Bijvoorbeeld, kunt u een per uur controleren met behulp van deze instelling uitstellen.<br/><br/>De instelling is alleen van toepassing op de huidige tijd. Bijvoorbeeld, als het is nu om 13:00 uur en deze waarde 10 minuten is, begint de validatie om 1:10 uur.<br/><br/>Houd er rekening mee dat deze instelling heeft geen invloed op segmenten in het verleden. Segmenten met **eindtijd gegevenssegment** + **dataDelay** < **nu** zonder enige vertraging worden verwerkt.<br/><br/>Keer groter zijn dan 23:59 uur moeten worden opgegeven met behulp van de `day.hours:minutes:seconds` indeling. Bijvoorbeeld, om op te geven 24 uur, gebruik geen 24:00:00 uur. Gebruik in plaats daarvan 1.00:00:00. Als u 24:00:00, wordt dit beschouwd als 24 dagen (24.00:00:00). Geef 1:04:00:00 1 dag en vier uur. |Nee |0 |
 | retryInterval |De wachttijd tussen een storing en de volgende poging. Deze instelling geldt voor de huidige tijd. Als de vorige is mislukt probeert, de volgende poging is na de **retryInterval** periode. <br/><br/>Als het nu om 13:00 uur, beginnen we de eerste poging. Als de duur van de eerste van validatiecontrole is 1 minuut en de bewerking is mislukt, de volgende poging is 1:00 + 1 min (duur) + 1 minuut (interval voor opnieuw proberen) = 13:02 uur. <br/><br/>Er is geen vertraging voor segmenten in het verleden. De nieuwe poging gebeurt onmiddellijk. |Nee |00:01:00 uur (1 minuut) |
 | retryTimeout |De time-out voor elke nieuwe poging.<br/><br/>Als deze eigenschap is ingesteld op 10 minuten, moet de validatie worden uitgevoerd binnen 10 minuten. Als het duurt langer dan 10 minuten duren om uit te voeren van de validatie, wordt de nieuwe poging verloopt.<br/><br/>Als alle pogingen voor de time-out voor de validatie van het segment is gemarkeerd als **TimedOut**. |Nee |00:10:00 uur (10 minuten) |
 | maximumRetry |Het aantal keren om te controleren op de beschikbaarheid van de externe gegevens. De maximaal toegestane waarde is 10. |Nee |3 |
 
 
 ## <a name="create-datasets"></a>Gegevenssets maken
-U kunt gegevenssets maken met behulp van een van deze hulpprogramma's of de SDK's: 
+U kunt gegevenssets maken met behulp van een van deze hulpprogramma's of de SDK's:
 
-- De wizard Kopiëren 
+- De wizard Kopiëren
 - Azure Portal
 - Visual Studio
 - PowerShell
@@ -338,18 +336,17 @@ U kunt gegevenssets maken met behulp van een van deze hulpprogramma's of de SDK'
 - .NET API
 
 Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van pijplijnen en gegevenssets met behulp van een van deze hulpprogramma's of de SDK's:
- 
+
 - [Een pijplijn met een transformatieactiviteit voor gegevens bouwen](data-factory-build-your-first-pipeline.md)
 - [Een pijplijn met een activiteit van de verplaatsing van gegevens maken](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-Nadat u een pijplijn wordt gemaakt en geïmplementeerd, kunt u deze kunt beheren en bewaken van uw pijplijnen met behulp van de Azure portal-blades of de app bewaking en beheer. Zie de volgende onderwerpen voor stapsgewijze instructies: 
+Nadat u een pijplijn wordt gemaakt en geïmplementeerd, kunt u deze kunt beheren en bewaken van uw pijplijnen met behulp van de Azure portal-blades of de app bewaking en beheer. Zie de volgende onderwerpen voor stapsgewijze instructies:
 
 - [Pijplijnen bewaken en beheren met behulp van Azure portal-blades](data-factory-monitor-manage-pipelines.md)
 - [Pijplijnen bewaken en beheren met behulp van de app bewaking en beheer](data-factory-monitor-manage-app.md)
 
-
 ## <a name="scoped-datasets"></a>Scoped gegevenssets
-Kunt u gegevenssets die zijn gericht op een pijplijn met behulp van de **gegevenssets** eigenschap. Deze gegevenssets kan alleen worden gebruikt door activiteiten binnen deze pijplijn, niet door de activiteiten in andere pijplijnen. Het volgende voorbeeld definieert een pijplijn met twee gegevenssets (InputDataset rdc en OutputDataset rdc) moet worden gebruikt in de pijplijn.  
+Kunt u gegevenssets die zijn gericht op een pijplijn met behulp van de **gegevenssets** eigenschap. Deze gegevenssets kan alleen worden gebruikt door activiteiten binnen deze pijplijn, niet door de activiteiten in andere pijplijnen. Het volgende voorbeeld definieert een pijplijn met twee gegevenssets (InputDataset rdc en OutputDataset rdc) moet worden gebruikt in de pijplijn.
 
 > [!IMPORTANT]
 > Scoped gegevenssets worden alleen ondersteund met eenmalige pijplijnen (waarbij **pipelineMode** is ingesteld op **OneTime**). Zie [Onetime pijplijn](data-factory-create-pipelines.md#onetime-pipeline) voor meer informatie.
@@ -448,5 +445,5 @@ Kunt u gegevenssets die zijn gericht op een pijplijn met behulp van de **gegeven
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor meer informatie over pijplijnen [pijplijnen maken](data-factory-create-pipelines.md). 
-- Zie voor meer informatie over hoe pijplijnen worden gepland en uitgevoerd, [planning en uitvoering in Azure Data Factory](data-factory-scheduling-and-execution.md). 
+- Zie voor meer informatie over pijplijnen [pijplijnen maken](data-factory-create-pipelines.md).
+- Zie voor meer informatie over hoe pijplijnen worden gepland en uitgevoerd, [planning en uitvoering in Azure Data Factory](data-factory-scheduling-and-execution.md).

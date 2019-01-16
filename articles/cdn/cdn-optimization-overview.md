@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091739"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320295"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Azure CDN voor het type van de levering van inhoud optimaliseren
 
@@ -83,7 +83,7 @@ Algemene webweergave is de meest voorkomende optimalisatieoptie. Het ontworpen v
 Een typische website bevat statische en dynamische inhoud. Statische inhoud bevat afbeeldingen, JavaScript-bibliotheken en opmaakmodellen die kunnen worden opgeslagen in de cache en geleverd aan andere gebruikers. Dynamische inhoud is aangepast voor een afzonderlijke gebruiker, zoals nieuwsitems die zijn afgestemd op een gebruikersprofiel. Dynamische inhoud, zoals winkelwagentjes winkelwagen inhoud, is niet in cache opgeslagen omdat het is uniek voor elke gebruiker. Algemene webweergave kan uw hele website te optimaliseren. 
 
 > [!NOTE]
-> Als u een **Azure CDN Standard van Akamai** profiel, selecteert u dit type eindpuntoptimalisatie als de gemiddelde grootte kleiner is dan 10 MB. Othewise, als uw gemiddelde grootte groter is dan 10 MB, selecteer **grote bestanden downloaden** uit de **geoptimaliseerd voor** vervolgkeuzelijst.
+> Als u een **Azure CDN Standard van Akamai** profiel, selecteert u dit type eindpuntoptimalisatie als de gemiddelde grootte kleiner is dan 10 MB. Anders selecteert u als de gemiddelde grootte groter dan 10 MB is, **grote bestanden downloaden** uit de **geoptimaliseerd voor** vervolgkeuzelijst.
 
 ### <a name="general-media-streaming"></a>Algemene mediastreaming
 

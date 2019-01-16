@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 064a9fc48ae60e530a11633b0823764a2f862811
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722393"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320018"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes op Azure Stack implementeren
 
@@ -139,7 +139,7 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 
 1. Voer de **openbare SSH-sleutel** gebruikt voor verificatie op alle Linux-machines gemaakt als onderdeel van de Kubernetes-cluster en DVM.
 
-1. Voer de **Master profiel DNS-voorvoegsel** die uniek is voor de regio. Dit moet een regio-unieke naam, zoals `k8s-12345`. Probeer te hebt gekozen deze gelijk zijn aan de resourcegroep een naam als best practice.
+1. Voer de **Master profiel DNS-voorvoegsel** die uniek is voor de regio. Dit moet een regio-unieke naam, zoals `k8s-12345`. Probeer zodat deze hetzelfde als de naam van de resource als een best practice.
 
     > [!Note]  
     > Gebruik een master profiel van nieuwe en unieke DNS-voorvoegsel voor elk cluster.
@@ -150,9 +150,9 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 
 1. Selecteer de **groep Kubernetes-profiel knooppunten**. Het aantal bevat het aantal agents in het cluster. 
 
-1. Selecteer de **Opslagprofiel**. U kunt ervoor kiezen **Blob schijf** of **beheerde schijf**. Hiermee geeft u het VM-grootte van de Kubernetes-knooppunt VM's. 
+1. Selecteer de **Opslagprofiel**. U kunt ervoor kiezen **Blob schijf** of **beheerde schijf**. 
 
-1. Voer de **Service-Principal ClientId** dit wordt gebruikt door de Kubernetes Azure-cloud-provider. De Client-ID die is geïdentificeerd als de toepassings-ID wanneer uw uw service-principal gemaakt.
+1. Voer de **Service-Principal ClientId** dit wordt gebruikt door de Kubernetes Azure-cloud-provider. De Client-ID als de toepassings-ID is geïdentificeerd als uw uw service-principal gemaakt.
 
 1. Voer de **Clientgeheim Service-Principal** die u hebt gemaakt bij het maken van uw service-principal.
 
@@ -160,7 +160,7 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 
 ### <a name="3-summary"></a>3. Samenvatting
 
-1. Selecteer Samenvatting. De blade wordt een validatiebericht voor de configuratie-instellingen van uw Kubernetes-Cluster.
+1. Selecteer Samenvatting. De blade wordt een validatiebericht voor uw configuratie-instellingen van het Kubernetes-Cluster.
 
     ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 

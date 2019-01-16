@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fba62a7838ad4b8f349e233eef5e8d82450f1453
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949016"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320222"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure portal
 
@@ -76,9 +76,9 @@ Als u sleutels uit een Azure Key Vault gebruikt om versleuteling te configureren
 
 > [!NOTE]
 > U kunt ook een Gen1 van Data Lake Storage-account met behulp van Azure Resource Manager-sjablonen maken. Deze sjablonen zijn toegankelijk vanaf [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-    - Zonder gegevensversleuteling: [implementeren Azure Data Lake Storage Gen1 account zonder gegevensversleuteling](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Met gegevensversleuteling met behulp van Data Lake Storage Gen1: [account van de Data Lake Storage Gen1 implementeren met versleuteling (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Met gegevensversleuteling met behulp van Azure Key Vault: [implementeren Data Lake Storage Gen1-account met versleuteling (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+    - Zonder gegevensversleuteling: [Implementeren van Azure Data Lake Storage Gen1 account zonder gegevensversleuteling](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+    - Met gegevensversleuteling met behulp van Data Lake Storage Gen1: [Gen1 van Data Lake Storage-account met versleuteling (Data Lake) implementeren](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - Met gegevensversleuteling met behulp van Azure Key Vault: [Gen1 van Data Lake Storage-account met versleuteling (Key Vault) implementeren](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
@@ -95,7 +95,7 @@ U kunt mappen maken onder uw Data Lake Storage Gen1-account te beheren en opslaa
    
     ![Mappen maken in een Data Lake Storage Gen1 account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "mappen maken in een Data Lake Storage Gen1-account")
    
-    De zojuist gemaakte map wordt vermeld op de blade **Data Explorer**. U kunt geneste mappen maken tot elk gewenst niveau.
+    De zojuist gemaakte map wordt vermeld op de blade **Data Explorer**. U kunt geneste mappen naar een willekeurig niveau maken.
    
     ![Mappen maken in een Data Lake-account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "mappen maken in een Data Lake-account")
 

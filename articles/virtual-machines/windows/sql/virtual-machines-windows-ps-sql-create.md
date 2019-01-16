@@ -3,7 +3,7 @@ title: Inrichting-handleiding voor SQL Server-VM's met Azure PowerShell | Micros
 description: Bevat de stappen en PowerShell-opdrachten voor het maken van een Azure-VM met SQL Server-installatiekopieën voor virtuele machines galerie.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
-ms.author: jroth
-ms.openlocfilehash: 770272372c77421ef994f3adc9d36f47a235093c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 8282901dfcacb7ca0330274d114cd4c2990fdec1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261805"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330447"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Over het inrichten van SQL Server-machines met Azure PowerShell
 

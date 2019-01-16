@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3540d68491d6f2c8282aa1ef0b385300aaa190cf
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e7a03f1235dab7eefd63b6611890897285d86ea
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822480"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332333"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Network Security Group Flow logboeken configureren met Azure CLI
 
@@ -34,7 +34,7 @@ Stroomlogboeken van Netwerkbeveiligingsgroep zijn een functie van Network Watche
 Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (CLI)](/cli/azure/install-azure-cli).
 
 > [!NOTE] 
-> Stroom logboeken versie 2 zijn alleen beschikbaar in de centrale regio VS-West. Configuratie is beschikbaar via de Azure Portal en de REST-API. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
+> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
 
 ## <a name="register-insights-provider"></a>Insights-provider registreren
 
@@ -50,6 +50,8 @@ De opdracht uit om Logboeken van de stroom wordt weergegeven in het volgende voo
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+# Configure 
+az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
 Het opslagaccount dat u opgeeft kan niet zijn geconfigureerd voor het netwerkregels waarmee toegang tot het netwerk wordt beperkt tot alleen Microsoft-services of specifieke virtuele netwerken. Het opslagaccount kan zich in dezelfde of een ander Azure-abonnement, dan de NSG waarmee het stroomlogboek voor. Als u verschillende abonnementen vallen, moeten ze beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Het account dat u voor elk abonnement gebruikt moet hebben de [benodigde machtigingen](required-rbac-permissions.md). 
@@ -68,7 +70,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 De opslaglocatie van het stroomlogboek van een wordt gedefinieerd bij het maken ervan. Een handig hulpmiddel voor toegang tot deze stroomlogboeken die zijn opgeslagen op een storage-account is Microsoft Azure Storage Explorer, die u kunt hier downloaden:  http://storageexplorer.com/
 
-Als een storage-account is opgegeven, worden pakketten vastleggen van bestanden worden opgeslagen in een storage-account op de volgende locatie:
+Als een storage-account is opgegeven, worden logboekbestanden van de stroom worden opgeslagen in een storage-account op de volgende locatie:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

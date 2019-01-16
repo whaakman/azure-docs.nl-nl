@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958802"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322041"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
 
 In dit artikel wordt beschreven hoe u een Azure Automation-account maken in Azure portal. U kunt de portal Automation-account gebruiken om te evalueren en meer informatie over Automation zonder aanvullende beheeroplossingen of integratie met Azure Log Analytics. U kunt deze beheeroplossingen toevoegen of integreren in Log Analytics voor geavanceerde controle van runbooktaken op elk gewenst moment in de toekomst.
 
-Met een Automation-account, kunt u runbooks verifiëren met het beheren van resources in Azure Resource Manager of het klassieke implementatiemodel. Een Automation-Account kunt-resources in alle regio's en abonnementen voor een bepaalde tenant beheren.
+Met een Automation-account, kunt u runbooks verifiëren met het beheren van resources in Azure Resource Manager of het klassieke implementatiemodel. Met één Automation-account kunt u resources in alle regio's en abonnementen voor een bepaalde tenant beheren.
 
 Wanneer u een Automation-account in Azure portal maakt, worden deze accounts worden automatisch gemaakt:
 
@@ -69,7 +69,7 @@ Voor het maken van een Azure Automation-account in Azure portal, moet u de volge
   >
   > ![Waarschuwing voor Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. In de **Automation-Account toevoegen** deelvenster in de **naam** vak, voer een naam in voor uw nieuwe Automation-account. Deze naam kan niet worden gewijzigd nadat deze is geselecteerd. *Automation-accountnamen zijn unieke per regio en resourcegroep.*
+1. In de **Automation-Account toevoegen** deelvenster in de **naam** vak, voer een naam in voor uw nieuwe Automation-account. Deze naam kan niet worden gewijzigd nadat deze is geselecteerd. *Automation-accountnamen zijn unieke per regio en resourcegroep. Namen voor Automation-Accounts die zijn verwijderd is mogelijk niet onmiddellijk beschikbaar.*
 1. Als u meer dan één abonnement hebt, in de **abonnement** , geeft u het abonnement dat u wilt gebruiken voor het nieuwe account.
 1. Voor **resourcegroep**, invoeren of een nieuwe of bestaande resourcegroep selecteren.
 1. Voor **locatie**, selecteert u een Azure-datacenter-locatie.
@@ -89,7 +89,7 @@ Voor het maken van een Azure Automation-account in Azure portal, moet u de volge
 
 Wanneer het Automation-account is gemaakt, worden er automatisch verschillende resources voor u gemaakt. Na het maken, deze runbooks kunnen veilig worden verwijderd als u niet wilt houden. Het Run As-Accounts, kan worden gebruikt om uw account in een runbook te verifiëren, en moet worden gelaten, tenzij u een andere groep maken of ze niet vereist. In de volgende tabel vindt u een overzicht van de bronnen voor het Uitvoeren als-account.
 
-| Resource | Beschrijving |
+| Resource | Description |
 | --- | --- |
 | AzureAutomationTutorial Runbook |Een voorbeeld van een grafisch runbook dat laat hoe u verifieert zien met behulp van de uitvoeren als-account. Het runbook ophaalt alle Resource Managers-resources. |
 | AzureAutomationTutorialScript Runbook |Een voorbeeld van de PowerShell-runbook dat laat hoe u verifieert zien met behulp van de uitvoeren als-account. Het runbook ophaalt alle Resource Managers-resources. |
@@ -99,7 +99,7 @@ Wanneer het Automation-account is gemaakt, worden er automatisch verschillende r
 
 In de volgende tabel vindt u een overzicht van de bronnen voor het klassieke Uitvoeren als-account.
 
-| Resource | Beschrijving |
+| Resource | Description |
 | --- | --- |
 | AzureClassicAutomationTutorial Runbook |Een voorbeeld van een grafisch runbook. Het runbook wordt alle klassieke virtuele machines in een abonnement ophaalt met behulp van het klassieke uitvoeren als-Account (certificaat). Vervolgens geeft de namen van de virtuele machine en de status. |
 | AzureClassicAutomationTutorial Script Runbook |Een voorbeeld van de PowerShell-runbook. Het runbook wordt alle klassieke virtuele machines in een abonnement ophaalt met behulp van het klassieke uitvoeren als-Account (certificaat). Vervolgens geeft de namen van de virtuele machine en de status. |

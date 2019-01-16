@@ -11,24 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161953"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332520"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Rapport van Azure Stack-gebruiksgegevens naar Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Rapport van Azure Stack-gebruiksgegevens naar Azure
 
-Gegevens over gebruik, ook wel genoemd verbruiksgegevens, vertegenwoordigt de hoeveelheid resources die worden gebruikt. 
+Gegevens over gebruik, ook wel genoemd verbruiksgegevens, vertegenwoordigt de hoeveelheid resources die worden gebruikt.
 
 Azure Stack met meerdere knooppunten-systemen die gebruikmaken van het factureringsmodel op basis van gebruik moeten gegevens over gebruik rapporteren naar Azure voor factureringsdoeleinden. Azure Stack-operators moeten hun Azure Stack-exemplaar om rapport gebruiksgegevens naar Azure te configureren.
 
-> [!NOTE]
-> Rapportage van gebruik van gegevens is vereist voor de gebruikers van de Azure Stack-meerdere knooppunten met een licentie onder het model betalen als u-gebruik. Het is optioneel voor klanten die een licentie onder het model capaciteit (Zie de [over het aanschaffen van pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Voor gebruikers van Azure Stack Development Kit, Azure Stack-operators rapporteren van gegevens over gebruik en de functie testen. Echter gebruikers niet gefactureerd voor het gebruik die ze in rekening worden gebracht. 
+> [!IMPORTANT]
+> Alle werkbelastingen [moet worden geïmplementeerd onder de tenant-abonnementen](#are-users-charged-for-the-infrastructure-vms) om te voldoen aan de licentievoorwaarden van Azure Stack.
+
+Rapportage van gebruik van gegevens is vereist voor de gebruikers van de Azure Stack-meerdere knooppunten met een licentie onder het model betalen als u-gebruik. Het is optioneel voor klanten die een licentie onder het model capaciteit (Zie de [over het aanschaffen van pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Voor gebruikers van Azure Stack Development Kit, Azure Stack-operators rapporteren van gegevens over gebruik en de functie testen. Echter gebruikers niet gefactureerd voor het gebruik die ze in rekening worden gebracht.
 
 ![Facturering stroom](media/azure-stack-usage-reporting/billing-flow.png)
 

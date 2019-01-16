@@ -1,5 +1,5 @@
 ---
-title: Overname van de beheerder van een niet-beheerde adreslijst of een schaduwkopie tenant in Azure Active Directory | Microsoft Docs
+title: Overname van een niet-beheerde directory - beheerder - Azure Active Directory | Microsoft Docs
 description: Klik hier voor meer informatie over het overnemen van een DNS-domeinnaam in een niet-beheerde adreslijst (shadow tenant) in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121189"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320239"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
 Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](directory-self-service-signup.md)
@@ -94,7 +94,7 @@ De ondersteunde service-abonnementen bevatten:
 
 - Power BI gratis
 - Power BI Pro
-- PowerApps-gratis
+- PowerApps Free
 - Gratis PowerFlow
 - RMS voor personen
 - Microsoft Stream
@@ -118,7 +118,7 @@ Wanneer het uitvoeren van een externe, openbaar, Power BI-inhoud is die is gemaa
 U ziet deze cmdlets gebruikt in [PowerShell-voorbeeld](#powershell-example).
 
 
-Cmdlet | Gebruik 
+cmdlet | Gebruik 
 ------- | -------
 `connect-msolservice` | Wanneer u hierom wordt gevraagd, moet u zich aanmelden bij uw beheerde tenant.
 `get-msoldomain` | Geeft de domeinnamen van uw dat is gekoppeld aan de huidige tenant.
