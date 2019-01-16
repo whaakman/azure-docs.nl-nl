@@ -83,7 +83,7 @@ Azure Dev Spaces biedt twee aanbevolen opties voor het opslaan van geheimen: in 
                 key: "$REDIS_KEY_DEV"
     ```
      
-2.  Maak een _.env_ bestand in dezelfde map als _azds.yaml_. Voer geheimen met behulp van standaard sleutel = waarde-notatie. Niet doorvoeren de _.env_ bestand broncodebeheer. (Als u wilt weglaten vanuit broncodebeheer in git gebaseerde versiebeheersystemen, toe te voegen aan de _.gitignore_ bestand.) Het volgende voorbeeld wordt een _.env_ bestand:
+2.  Maak een _.env_ bestand in dezelfde map als _azds.yaml_. Voer geheimen met behulp van standaard sleutel = waarde-notatie. Neem het _.env_ bestand niet op in broncodebeheer. (Om bestanden uit te sluiten vanuit broncodebeheer in git-gebaseerde versiebeheersystemen voegt u deze toe aan het bestand _.gitignore_ .) Het volgende voorbeeld toont een _.env_ bestand:
 
     ```
     REDIS_PORT_DEV=3333
