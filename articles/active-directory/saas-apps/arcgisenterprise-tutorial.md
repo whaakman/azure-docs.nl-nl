@@ -1,254 +1,229 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met ArcGIS Enterprise | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ArcGIS Enterprise.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en ArcGIS Enterprise configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/23/2018
+ms.topic: tutorial
+ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: MT
+ms.openlocfilehash: 1b8e69fbdabffc52efca9beea99297f3c1258ff7
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306339"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met ArcGIS Enterprise
 
-In deze zelfstudie leert u hoe u ArcGIS-onderneming integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u ArcGIS Enterprise integreert met Azure Active Directory (Azure AD).
+De integratie van ArcGIS Enterprise met Azure AD heeft de volgende voordelen:
 
-ArcGIS-onderneming integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot ArcGIS Enterprise.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij ArcGIS Enterprise (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot ArcGIS Enterprise heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij ArcGIS Enterprise (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ArcGIS Enterprise, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met ArcGIS Enterprise te configureren:
 
-- Een Azure AD-abonnement
-- Een ArcGIS ondernemingsbrede eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op ArcGIS Enterprise waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. ArcGIS Enterprise uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-arcgis-enterprise-from-the-gallery"></a>ArcGIS Enterprise uit de galerie toe te voegen
 
-Voor het configureren van de integratie van ArcGIS Enterprise in Azure AD, moet u ArcGIS Enterprise uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* ArcGIS Enterprise biedt ondersteuning voor door **SP en IDP** geïnitieerde eenmalige aanmelding
+* ArcGIS Enterprise biedt ondersteuning voor het **Just In Time** inrichten van gebruikers
 
-**Als u wilt toevoegen ArcGIS Enterprise uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+## <a name="adding-arcgis-enterprise-from-the-gallery"></a>ArcGIS Enterprise toevoegen vanuit de galerie
 
-    ![De Azure Active Directory-knop][1]
+Als u de integratie van ArcGIS Enterprise in Azure AD wilt configureren, moet u ArcGIS Enterprise vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+**Voer de volgende stappen uit om ArcGIS Enterprise toe te voegen vanuit de galerie:**
 
-    ![De blade Enterprise-toepassingen][2]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-4. Typ in het zoekvak **ArcGIS Enterprise**, selecteer **ArcGIS Enterprise** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![ArcGIS-onderneming in de lijst met resultaten](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie configureert u en test Azure AD eenmalige aanmelding met ArcGIS Enterprise op basis van een testgebruiker 'Britta Simon' genoemd.
+4. Typ **ArcGIS Enterprise** in het zoekvak, selecteer **ArcGIS Enterprise** in het deelvenster met resultaten en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in de onderneming ArcGIS is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in de onderneming ArcGIS tot stand worden gebracht.
+     ![ArcGIS Enterprise toevoegen vanuit de galerie](common/search-new-app.png)
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met ArcGIS Enterprise, u nodig hebt voor de volgende bouwstenen:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker ArcGIS Enterprise](#create-an-arcgis-enterprise-test-user)**  : als u wilt een equivalent van Britta Simon in ArcGIS-onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In deze sectie gaat u Azure AD-eenmalige aanmelding met [toepassingsnaam] configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerd gebruiker in [toepassingsnaam] tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Als u Azure AD-eenmalige aanmelding met [toepassingsnaam] wilt configureren en testen, moet u de volgende stappen uitvoeren:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing ArcGIS Enterprise.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor ArcGIS Enterprise configureren](#configure-arcgis-enterprise-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de toepassingszijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor ArcGIS Enterprise maken](#create-arcgis-enterprise-test-user)**: als u een equivalent van Britta Simon in ArcGIS Enterprise wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met ArcGIS Enterprise, moet u de volgende stappen uitvoeren:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **ArcGIS Enterprise** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], moet u de volgende stappen uitvoeren:
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **ArcGIS Enterprise** en selecteer **Eenmalige aanmelding**.
 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-3. Op de **ArcGIS Enterprise domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![ArcGIS Enterprise domein en URL's, eenmalige aanmelding informatie](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_url1.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `<EXTERNAL_DNS_NAME>.portal`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u de toepassing in de door **IDP geïnitieerde** modus wilt configureren:
 
-    ![ArcGIS Enterprise domein en URL's, eenmalige aanmelding informatie](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_url2.png)
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van ArcGIS Enterprise](common/idp-intiated.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `<EXTERNAL_DNS_NAME>.portal`
+
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+
+    c. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
+
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van ArcGIS Enterprise](common/metadata-upload-additional-signon.png)
+
+    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [ArcGIS Enterprise Client-ondersteuningsteam](mailto:support@esri.com) om deze waarden te verkrijgen. Krijgt u de id-waarde van **id-Provider instellen** sectie, die verderop in deze zelfstudie wordt uitgelegd.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [klantondersteuningsteam van ArcGIS Enterprise](mailto:support@esri.com) om deze waarden op te vragen. De waarde voor de id is beschikbaar in de sectie **Set Identity Provider**. Dit wordt verderop in deze zelfstudie uitgelegd.
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_certificate.png)
+    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
-6. Klik op **opslaan** knop.
+### <a name="configure-arcgis-enterprise-single-sign-on"></a>Eenmalige aanmelding configureren voor ArcGIS Enterprise
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/arcgisenterprise-tutorial/tutorial_general_400.png)
+1. Meld u in een ander browservenster als beheerder aan bij de bedrijfssite van ArcGIS Enterprise.
 
-7. In een ander browservenster aanmelden bij uw bedrijf ArcGIS Enterprise site als beheerder.
+2. Selecteer **Organization >EDIT SETTINGS**.
 
-8. Selecteer **organisatie > Instellingen bewerken**.
+    ![Configuratie van ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
 
-    ![ArcGIS-Ondernemingsconfiguratie](./media/arcgisenterprise-tutorial/configure1.png)
+3. Selecteer het tabblad **Security**.
 
-9. Selecteer **Security** tabblad.
+    ![Configuratie van ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
 
-    ![ArcGIS-Ondernemingsconfiguratie](./media/arcgisenterprise-tutorial/configure2.png)
+4. Blader omlaag naar de sectie **Enterprise Logins via SAML** en selecteer **SET ENTERPRISE LOGIN**.
 
-10. Schuif omlaag naar de **Enterprise aanmeldingen via SAML** sectie en selecteer **ENTERPRISE-aanmelding instellen**.
+    ![Configuratie van ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
 
-    ![ArcGIS-Ondernemingsconfiguratie](./media/arcgisenterprise-tutorial/configure3.png)
+5. Voer in de sectie **Set Identity Provider** de volgende stappen uit:
 
-11. Op de **id-Provider instellen** sectie, voert u de volgende stappen uit:
+    ![Configuratie van ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
 
-    ![ArcGIS-Ondernemingsconfiguratie](./media/arcgisenterprise-tutorial/configure4.png)
+    a. Geef in het tekstvak **Name** een naam op, zoals **Azure Active Directory Test**.
 
-    a. Geef een naam, zoals **Azure Active Directory-Test** in de **naam** tekstvak.
+    b. Plak in het tekstvak **URL** de waarde van **App-URL voor federatieve metagegevens** die u uit de Azure-portal hebt gekopieerd.
 
-    b. In de **URL** tekstvak, plak de **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd vanuit Azure portal.
-
-    c. Klik op **geavanceerde instellingen weergeven** en kopieer de **entiteit-ID** waarde en plak deze in de **id** -tekstvak in de **ArcGIS Enterprise domein en URL's** sectie in Azure portal.
+    c. Klik op **Show advanced settings**, kopieer de waarde van **Entity ID** en plak deze in het tekstvak **Id** in de sectie **ArcGIS Enterprise-domein en -URL's** in de Azure-portal.
     
-    ![ArcGIS-Ondernemingsconfiguratie](./media/arcgisenterprise-tutorial/configure5.png)
+    ![Configuratie van ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure5.png)
 
-    d. Klik op **id-PROVIDER voor UPDATE**.
+    d. Klik op **UPDATE IDENTITY PROVIDER**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/arcgisenterprise-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/arcgisenterprise-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/arcgisenterprise-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/arcgisenterprise-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="create-an-arcgis-enterprise-test-user"></a>Maak een testgebruiker ArcGIS Enterprise
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in ArcGIS Enterprise. ArcGIS Enterprise biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot ArcGIS Enterprise als deze nog niet bestaat.
-
-> [!Note]
-> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [ArcGIS Enterprise-ondersteuningsteam](mailto:support@esri.com).
-
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan ArcGIS onderneming.
+In dit gedeelte stelt u Britta Simon in staat om gebruik te maken van eenmalige aanmelding van Azure door haar toegang te geven tot ArcGIS Enterprise.
 
-![De de gebruikersrol toewijzen][200]
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **ArcGIS Enterprise**.
 
-**Als u wilt toewijzen Britta Simon voor ArcGIS-onderneming, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Typ en selecteer **ArcGIS Enterprise** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201]
+    ![De koppeling naar ArcGIS Enterprise in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **ArcGIS Enterprise**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De ArcGIS Enterprise-koppeling in de lijst met toepassingen](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-arcgis-enterprise-test-user"></a>Een testgebruiker maken voor ArcGIS Enterprise
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in ArcGIS Enterprise. ArcGIS Enterprise biedt ondersteuning voor Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker bestaat in ArcGIS Enterprise, wordt er een nieuwe gemaakt na verificatie.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+> [!Note]
+> Als u handmatig een gebruiker moet maken, neemt u contact op met het  [ondersteuningsteam van ArcGIS Enterprise](mailto:support@esri.com).
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel ArcGIS Enterprise in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing ArcGIS Enterprise.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel ArcGIS Enterprise klikt, wordt u automatisch aangemeld bij de instantie van ArcGIS Enterprise waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/arcgisenterprise-tutorial/tutorial_general_01.png
-[2]: ./media/arcgisenterprise-tutorial/tutorial_general_02.png
-[3]: ./media/arcgisenterprise-tutorial/tutorial_general_03.png
-[4]: ./media/arcgisenterprise-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/arcgisenterprise-tutorial/tutorial_general_100.png
-
-[200]: ./media/arcgisenterprise-tutorial/tutorial_general_200.png
-[201]: ./media/arcgisenterprise-tutorial/tutorial_general_201.png
-[202]: ./media/arcgisenterprise-tutorial/tutorial_general_202.png
-[203]: ./media/arcgisenterprise-tutorial/tutorial_general_203.png

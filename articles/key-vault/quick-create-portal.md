@@ -1,6 +1,6 @@
 ---
-title: 'Azure-snelstart: Een geheim uit Key Vault instellen en ophalen met de Azure-portal | Microsoft Docs'
-description: Snelstart waarin wordt getoond hoe u een geheim uit Azure Key Vault instelt en ophaalt met behulp van de Azure-portal
+title: 'Azure-snelstart: Een geheim uit Key Vault instellen en ophalen met Azure Portal | Microsoft Docs'
+description: Snelstart waarin wordt getoond hoe u een geheim uit Azure Key Vault instelt en ophaalt met behulp van de Azure Portal
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -9,31 +9,30 @@ ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 864c80fe0ab8b061439b5a80a111edbd1b2004b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027024"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078385"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van de Azure-portal
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van de Azure Portal
 
-Azure Key Vault is een cloudservice die werkt als een beveiligd archief voor geheimen. U kunt veilig sleutels, wachtwoorden, certificaten en andere geheime informatie opslaan. Azure-sleutelkluizen kunnen worden gemaakt en beheerd via de Azure-portal. In deze snelstart kunt u een sleutelkluis maken en daarin een geheim opslaan. Raadpleeg het [Overzicht](key-vault-overview.md) voor meer informatie over Key Vault.
+Azure Key Vault is een cloudservice die werkt als een beveiligd archief voor geheimen. U kunt veilig sleutels, wachtwoorden, certificaten en andere geheime informatie opslaan. Azure-sleutelkluizen kunnen worden gemaakt en beheerd via Azure Portal. In deze snelstart kunt u een sleutelkluis maken en daarin een geheim opslaan. Raadpleeg het [Overzicht](key-vault-overview.md) voor meer informatie over Key Vault.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure-portal op http://portal.azure.com.
+Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Een kluis maken
 
-1. Selecteer de optie **Een resource maken** in de linkerbovenhoek van de Azure-portal
+1. Selecteer de optie **Een resource maken** in de linkerbovenhoek van Azure Portal
 
     ![Uitvoer nadat het maken van de sleutelkluis is voltooid](./media/quick-create-portal/search-services.png)
 2. Typ **Sleutelkluis** in het zoekvak.
@@ -41,7 +40,7 @@ Meld u aan bij de Azure-portal op http://portal.azure.com.
 4. Kies **Maken** in de sectie Sleutelkluis.
 5. Geef in de sectie **Sleutelkluis maken** de volgende gegevens op:
     - **Naam**: geef een unieke naam op. Voor deze snelstart gebruiken we **Contoso-vault2**. 
-    - **Abonnement**: kies een abonnement.
+    - **Abonnement**: Kies een abonnement.
     - Kies **Nieuw** bij **Resourcegroep** en voer de naam van een resourcegroep in.
     - Kies een locatie in de vervolgkeuzelijst **Locatie**.
     - Schakel het selectievakje bij **Vastmaken aan dashboard** in.

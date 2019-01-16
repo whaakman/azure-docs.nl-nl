@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 01/09/2019
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 196435a8bd260c7f1679c06127610aeee29c0fe3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3f863d0d5d0a7ee30ff7cfdfd55f0b656d487ed0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843476"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242342"
 ---
-| Mobiele en systeemeigen apps | Web-apps en web-API's | Rechtstreeks integreren met protocollen |
+| Mobiele en systeemeigen apps | Web-apps en SPA's | Web-API's |
 | --- | --- | --- |
-| [Aanmelden toevoegen aan een iOS-toepassing](../articles/active-directory/develop/tutorial-v2-ios.md) | [Aanmelden toevoegen aan JavaScript-toepassing met één pagina (SPA)](../articles/active-directory/develop/tutorial-v2-javascript-spa.md) |[Een toepassing registreren](../articles/active-directory/develop/quickstart-v2-register-an-app.md) |
-| [Aanmelden toevoegen aan een Android-toepassing](../articles/active-directory/develop/tutorial-v2-android.md) | [Aanmelden toevoegen aan een ASP.NET-toepassing](../articles/active-directory/develop/tutorial-v2-asp-webapp.md) |[Mobiele toepassingen met het protocol OAuth 2.0](../articles/active-directory/develop/v2-oauth2-auth-code-flow.md) |
-| [Aanmelden toevoegen aan een Windows-bureaubladtoepassing](../articles/active-directory/develop/guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  [Aanmelden toevoegen aan een ASP.NET Core-webtoepassing](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2) | [Webtoepassingen met het protocol OpenID Connect](../articles/active-directory/develop/v2-protocols-oidc.md) |
-| [Aanmelden toevoegen aan een Xamarin-toepassing met meerdere platforms](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| [Aanmelden toevoegen aan een Node.js-webtoepassing](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) |[JavaScript-toepassingen met één pagina (SPA's) met het protocol OpenID Connect](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) |
-|  | [Een ASP.NET-web-API beveiligen](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet) | [Daemon-toepassingen met de OAuth 2.0-clientreferentiestroom](../articles/active-directory/develop/v2-oauth2-client-creds-grant-flow.md) |
-|  | [Een ASP.NET Core-web-API beveiligen](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) | |
+|<img width="40" role="presentation" alt="iOS" src="../articles/active-directory/develop/media/index/logo_ios.svg" data-linktype="relative-path" /><br/>[Aanmelden en een token opvragen bij een iOS-app](../articles/active-directory/develop/quickstart-v2-ios.md) | <img width="40" role="presentation" alt="JavaScript" src="../articles/active-directory/develop/media/index/logo_js.svg"/><br/>[Aanmelden en een token opvragen bij een JavaScript-SPA](../articles/active-directory/develop/quickstart-v2-javascript.md) |<img width="40" role="presentation" alt="ASP.NET Web API" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/> [Een ASP.NET-web-API beveiligen](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)  |
+|<img width="40" role="presentation" alt="Android" src="../articles/active-directory/develop/media/index/logo_android.svg" /><br/>[Aanmelden en een token opvragen bij een Android-app](../articles/active-directory/develop/quickstart-v2-android.md) | <img width="40" role="presentation" alt="ASP.NET" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/>[Aanmelden toevoegen aan een ASP.NET-toepassing](../articles/active-directory/develop/quickstart-v2-aspnet-webapp.md) |<img width="40" role="presentation" alt="ASP.NET Core Web API" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/>[Een ASP.NET Core-web-API beveiligen](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) |
+|<img width="40" role="presentation" alt="Windows Desktop" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/>[Aanmelden en een token opvragen bij een Windows-bureaublad-app](../articles/active-directory/develop/quickstart-v2-windows-desktop.md) | <img width="40" role="presentation" alt=".NET Core" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Aanmelden toevoegen aan een ASP.NET Core-webtoepassing](../articles/active-directory/develop/quickstart-v2-aspnet-core-webapp.md) | |
+|<img width="40" role="presentation" alt="Xamarin" src="../articles/active-directory/develop/media/index/logo_xamarin.svg" /><br/> [Aanmelden toevoegen aan een Xamarin-toepassing met meerdere platforms](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| <img width="40" role="presentation" alt="Node.js" src="../articles/active-directory/develop/media/index/logo_nodejs.svg" /><br/>[Aanmelden toevoegen aan een Node.js-webtoepassing](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+|<img width="40" role="presentation" alt="Universal Windows Platform" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/> [Aanmelden en een token opvragen bij een UWP-app](../articles/active-directory/develop/quickstart-v2-uwp.md)| | |
+|<img width="40" role="presentation" alt=".NET Core Daemon" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Een token opvragen bij een niet-interactieve .NET Core-app](../articles/active-directory/develop/quickstart-v2-netcore-daemon.md)| | |

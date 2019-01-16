@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Een Azure Database for MySQL-server inrichten met behulp van Azure Resource Manager-sjablonen'
-description: In deze zelfstudie wordt uitgelegd hoe u Azure Database for MySQL-serverimplementaties inricht en automatiseert met behulp van Azure Resource Manager-sjablonen.
+title: 'Zelfstudie: Een Azure Database for MySQL-server inrichten met behulp van een Azure Resource Manager-sjabloon'
+description: In deze zelfstudie wordt uitgelegd hoe u Azure Database for MySQL-serverimplementaties inricht en automatiseert met behulp van een Azure Resource Manager-sjabloon.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -8,20 +8,20 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c89c5cc0b299852f85836dd416b5bb270757719
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004072"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061037"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>Zelfstudie: Een Azure Database for MySQL-server inrichten met behulp van Azure Resource Manager-sjablonen
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Zelfstudie: Een Azure Database for MySQL-server inrichten met behulp van een Azure Resource Manager-sjabloon
 
 Met de [Azure Database for MySQL REST API](https://docs.microsoft.com/en-us/rest/api/mysql/) kunnen DevOps-technici de inrichting, configuratie en bewerkingen van beheerde MySQL-servers en -databases in Azure automatiseren en integreren.  Met de API kunnen MySQL-servers en -databases in de Azure Database for MySQL-service worden gemaakt, opgesomd, beheerd en verwijderd.
 
-Azure Resource Manager-sjablonen maken gebruik van de onderliggende REST API om de Azure-resources die nodig zijn voor grootschalige implementaties te declareren en te programmeren, in lijn met de infrastructuur als codeconcept. De sjabloon maakt een parameter van de Azure-resourcenaam, de SKU, het netwerk, de firewallconfiguratie en de instellingen, zodat deze eenmalig kan worden gemaakt en meerdere malen kan worden gebruikt.  Azure Resource Manager-sjablonen kunnen eenvoudig worden gemaakt met behulp van [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) of [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Ze zijn bedoeld voor het inpakken van toepassingen, standaardisatie en automatisering van de implementatie, geschikt voor integratie in de CI/CD-pijplijn van DevOps.  Als u bijvoorbeeld snel een web-app met Azure Database for MySQL-back-end wilt implementeren, kunt u de end-to-end-implementatie uitvoeren met behulp van deze [snelstartsjabloon](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) uit de GitHub-galerie.
+Azure Resource Manager maakt gebruik van de onderliggende REST-API om de Azure-resources te declareren en te programmeren die nodig zijn voor grootschalige implementaties, in lijn met de infrastructuur als codeconcept. De sjabloon maakt een parameter van de Azure-resourcenaam, de SKU, het netwerk, de firewallconfiguratie en de instellingen, zodat deze eenmalig kan worden gemaakt en meerdere malen kan worden gebruikt.  Azure Resource Manager-sjablonen kunnen eenvoudig worden gemaakt met behulp van [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) of [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Ze zijn bedoeld voor het inpakken van toepassingen, standaardisatie en automatisering van de implementatie, geschikt voor integratie in de CI/CD-pijplijn van DevOps.  Als u bijvoorbeeld snel een web-app met Azure Database for MySQL-back-end wilt implementeren, kunt u de end-to-end-implementatie uitvoeren met behulp van deze [snelstartsjabloon](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) uit de GitHub-galerie.
 
-In deze zelfstudie gebruikt u Azure Resource Manager-sjablonen en andere hulpprogramma's om het volgende te leren:
+In deze zelfstudie gebruikt u een sjabloon van Azure Resource Manager en andere hulpprogramma's om het volgende te leren:
 
 > [!div class="checklist"]
 > * Een Azure Database for MySQL-server met VNet-service-eindpunt maken met behulp van een Azure Resource Manager-sjabloon
@@ -32,7 +32,7 @@ In deze zelfstudie gebruikt u Azure Resource Manager-sjablonen en andere hulppro
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Een Azure Database for MySQL-server met VNet-service-eindpunt maken met behulp van een Azure Resource Manager-sjabloon
 
-Als u een verwijzing van de JSON-sjabloon voor een Azure Database for MySQL-server wilt ophalen, gaat u naar de sjabloonverwijzing Microsoft.DBforMySQL-servers (https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Hieronder ziet u de JSON-voorbeeldsjabloon die kan worden gebruikt om een nieuwe server met Azure Database for MySQL met een VNet-service-eindpunt te maken.
+Als u een verwijzing van de JSON-sjabloon voor een Azure Database for MySQL-server wilt ophalen, gaat u naar de sjabloonverwijzing [Microsoft.DBforMySQL servers](/azure/templates/microsoft.dbformysql/servers) (Microsoft.DBforMySQL-servers). Hieronder ziet u de JSON-voorbeeldsjabloon die kan worden gebruikt om een nieuwe server met Azure Database for MySQL met een VNet-service-eindpunt te maken.
 ```json
 {
   "apiVersion": "2017-12-01",

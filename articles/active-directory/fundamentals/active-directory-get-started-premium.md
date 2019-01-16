@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fd5f9567c92201b4dfa08c74574df97fa8c91ae2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073989"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065559"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Registreren voor Azure Active Directory Premium-edities
 U kunt Azure Active Directory (Azure AD) Premium-edities kopen en deze koppelen aan uw Azure-abonnement. Als u een nieuw Azure-abonnement moet maken, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren.
@@ -39,7 +39,7 @@ Aanmelden met uw Azure-abonnement met de Azure AD-licenties die eerder werden ge
 Als abonnee van Azure of Office 365 kunt u Azure Active Directory Premium-edities online kopen. Zie [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Azure Active Directory Premium aanschaffen - bestaande klanten) of [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Azure Active Directory Premium aanschaffen - nieuwe klanten) voor gedetailleerde instructies.
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>Aanmelding met behulp van uw Enterprise Mobility + Security-licentieplan
-Enterprise Mobility + Security is een suite, bestaande uit een Azure AD Premium, Azure Information Protection en Microsoft Intune. U kunt aan de slag met Azure AD als u al een EMS-licentie hebt met een van de volgende licentieopties:
+Enterprise Mobility + Security is een suite, bestaande uit Azure AD Premium, Azure Information Protection en Microsoft Intune. U kunt aan de slag met Azure AD als u al een EMS-licentie hebt met een van de volgende licentieopties:
 
 Zie de [Enterprise Mobility + Security website ](https://www.microsoft.com/cloud-platform/enterprise-mobility-security) voor meer informatie over EMS.
 
@@ -66,7 +66,7 @@ Als u zich hebt aangemeld met behulp van een nieuw Azure AD-licentieplan, moet u
    
     ![Aanmelden](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **Aanmelden.** Als u een bestaande tenant hebt, klikt u op deze link, en vervolgens meldt u zich aan met uw bestaande administrator-account. U moet een globale administrator zijn op de tenant waarin de licenties worden geactiveerd.
+    - **Aanmelden.** Als u een bestaande tenant hebt, klikt u op deze link, en vervolgens meldt u zich aan met uw bestaande administrator-account. U moet een globale beheerder zijn van de tenant waarin de licenties worden geactiveerd.
 
     - **Registreren.** Als u een nieuwe Azure AD-tenant wilt maken voor gebruik met uw licentieplan, klikt u op deze link om de pagina **Accountprofiel maken** te openen.
 

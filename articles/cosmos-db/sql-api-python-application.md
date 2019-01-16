@@ -1,22 +1,19 @@
 ---
 title: Zelfstudie voor Python Flask-webtoepassingen voor Azure Cosmos DB
 description: Bekijk een databasezelfstudie over het gebruik van Azure Cosmos DB voor het opslaan van en de toegang tot gegevens uit een Python Flask-webtoepassing die wordt gehost in Azure. Oplossingen voor het ontwikkelen van toepassingen zoeken.
-keywords: Toepassingsontwikkeling, python flask, python-webtoepassing, python-webontwikkeling
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081901"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037154"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Een Python Flask-webtoepassing bouwen met Azure Cosmos DB
 
@@ -325,8 +322,8 @@ def vote():
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. Navigeer in de [Azure-portal](https://portal.azure.com/) naar de pagina **Sleutels** door op **Bladeren** en **Azure Cosmos DB-accounts** te klikken. Dubbelklik op de naam van het account dat u wilt gebruiken en klik vervolgens op de knop **Sleutels** in het gebied **Essentials**. Kopieer op de pagina **Sleutels** de **URI**-waarde en plak deze in het bestand **config.py** als waarde voor de eigenschap **COSMOSDB\_HOST**. 
-4. Terug in de Azure-portal kopieert u op de pagina **Sleutels** de waarde van de **primaire sleutel** of de **secundaire sleutel** en plakt u deze in het bestand **config_cosmos.py** als waarde voor de eigenschap **COSMOSDB\_KEY**.
+3. Navigeer in [Azure Portal](https://portal.azure.com/) naar de pagina **Sleutels** door op **Bladeren** en **Azure Cosmos DB-accounts** te klikken. Dubbelklik op de naam van het account dat u wilt gebruiken en klik vervolgens op de knop **Sleutels** in het gebied **Essentials**. Kopieer op de pagina **Sleutels** de **URI**-waarde en plak deze in het bestand **config.py** als waarde voor de eigenschap **COSMOSDB\_HOST**. 
+4. Terug in Azure Portal kopieert u op de pagina **Sleutels** de waarde van de **primaire sleutel** of de **secundaire sleutel** en plakt u deze in het bestand **config_cosmos.py** als waarde voor de eigenschap **COSMOSDB\_KEY**.
 5. Voeg in het bestand **\_\_init\_\_.py** de volgende regels toe om het lezen van het configuratiebestand en basislogboekregistratie op te nemen: 
    
         app.config.from_object('config_cosmos')
@@ -400,7 +397,7 @@ Nu de volledige toepassing correct werkt met Azure Cosmos DB, gaan we een web.co
     ![Schermopname van het venster Microsoft Azure Web Apps (Web-apps van Microsoft Azure)](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. Na een paar seconden kopieert Visual Studio uw bestanden naar de server en wordt 'De pagina kan niet worden weergegeven omdat er een interne serverfout is opgetreden' weergegeven. op de pagina `http://<your app service>.azurewebsites.net/`.
 
-9. Open in de Azure-portal uw nieuwe App Service-account en schuif in het navigatiemenu omlaag naar de sectie **Ontwikkelprogramma's**, selecteer **Extensies** en klik vervolgens op **+ Toevoegen**.
+9. Open in Azure Portal uw nieuwe App Service-account en schuif in het navigatiemenu omlaag naar de sectie **Ontwikkelprogramma's**, selecteer **Extensies** en klik vervolgens op **+ Toevoegen**.
 
 10. Schuif op de pagina **Extensie kiezen** omlaag naar de meest recente Python 2.7-installatie en selecteer de optie x86 bits of x64 bits en klik op **OK** om de juridische voorwaarden te accepteren.  
    
@@ -410,7 +407,7 @@ Nu de volledige toepassing correct werkt met Azure Cosmos DB, gaan we een web.co
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
     ```          
 
-12. Start de App Service opnieuw in de Azure-portal nadat u de nieuwe pakketten hebt geïnstalleerd door op de knop **Opnieuw starten** te drukken. 
+12. Start de App Service opnieuw in Azure Portal nadat u de nieuwe pakketten hebt geïnstalleerd door op de knop **Opnieuw starten** te drukken. 
 
     > [!Tip] 
     > Als u wijzigingen aanbrengt in het bestand `requirements.txt` van uw app, moet u de Kudu-console nogmaals gebruiken om de pakketten te installeren die nu in dit bestand worden vermeld. 
@@ -436,4 +433,4 @@ Als u de functionaliteit van uw webtoepassing wilt uitbreiden, bekijkt u de besc
 
 Zie [Python-ontwikkelaarscentrum](https://azure.microsoft.com/develop/python/) voor meer informatie over Azure, Visual Studio en Python. 
 
-Zie [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) (Engelstalig) voor aanvullende zelfstudies over Python Flask.  
+Aanvullende zelfstudies over Python Flask vindt u in [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) (Engelstalig). 

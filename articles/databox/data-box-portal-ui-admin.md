@@ -6,24 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974986"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158105"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>De Azure-portal gebruiken om uw Data Box Disk te beheren (preview)
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>De Azure-portal gebruiken om uw Data Box te beheren
 
 De zelfstudies in dit artikel zijn van toepassing op de preview-versie van de Microsoft Azure Data Box Disk. In dit artikel worden enkele van de complexe werkstromen en beheertaken beschreven die kunnen worden uitgevoerd in de Data Box Disk. 
 
 U kunt de Data Box Disk beheren via de Azure-portal. Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van de Azure-portal. Gebruik de Azure-portal voor het beheren van orders, beheren van apparaten en bijhouden van de status van de order terwijl deze naar de definitieve fase gaat.
-
-> [!IMPORTANT]
-> Data Box Disk is beschikbaar als preview-versie. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
-
 
 ## <a name="cancel-an-order"></a>Een order annuleren
 

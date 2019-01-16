@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385833"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188552"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Quickstart: De Azure Data Box implementeren met behulp van de Azure-portal
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Snelstart: De Azure Data Box implementeren met behulp van de Azure-portal
 
 In deze quickstart wordt beschreven hoe u de Azure Data Box implementeert met behulp van de Azure-portal. De stappen omvatten het aansluiten van de kabels, het configureren en het kopiëren van gegevens naar de Data Box, zodat deze kunnen worden geüpload naar Azure. De quickstart wordt uitgevoerd in de Azure-portal en op de lokale webgebruikersinterface van het apparaat.
 
-Ga naar [Zelfstudie: Azure Data Box bestellen](data-box-deploy-ordered.md) voor gedetailleerde stapsgewijze instructies voor implementatie en tracering
+Gedetailleerde stapsgewijze instructies voor implementatie en tracering vindt u in [Zelfstudie: Azure Data Box bestellen](data-box-deploy-ordered.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,7 +28,6 @@ Voordat u begint:
 - Zorg ervoor dat het abonnement dat u voor de Data Box-service gebruikt, een van de volgende typen is:
     - Microsoft Enterprise Agreement (EA). Meer informatie over [EA-abonnementen](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Meer informatie over het [Azure CSP-programma](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consumption - Betalen per gebruik. Meer informatie over [Betalen per gebruik-abonnementen](https://azure.microsoft.com/offers/ms-azr-0003p/) van Azure.
     - Microsoft Azure Sponsorship. Meer informatie over het [Azure Sponsorship-programma](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - U hebt eigenaars- of inzenderstoegang tot het abonnement nodig om een Data Box-order te kunnen maken.

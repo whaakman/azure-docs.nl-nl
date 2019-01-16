@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 12/10/2018
+ms.date: 01/09/2018
 ms.author: diberry
-ms.openlocfilehash: ca92a6a2eb92e3b7fed9452d135c0a6bce55a57c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f587791dd1b864d0088408c377001c23546654c5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273235"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191272"
 ---
 # <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
 
@@ -115,6 +115,10 @@ Andere cognitieve services die kunnen worden gebruikt in combinatie met LUIS:
 * [Spraakservice](../Speech-Service/overview.md) - hiermee kunt u gesproken taalaanvragen converteren naar tekst. 
 * [Conversation Learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) - hiermee kunt u sneller bot-gesprekken met LUIS bouwen.
 * [Project Personality Chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) - hiermee kunt u bot-smalltalk afhandelen.
+
+Voorbeelden die gebruikmaken van LUIS:
+* GitHub-opslagplaats voor [AI met gespreksfuncties](https://github.com/Microsoft/AI).
+* Azure-voorbeelden van [Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding)
 
 ## <a name="next-steps"></a>Volgende stappen
 

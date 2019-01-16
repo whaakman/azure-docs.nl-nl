@@ -9,23 +9,22 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042730"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: een Azure Data Factory maken op basis van een Azure Resource Manager-sjabloon
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Huidige versie](quickstart-create-data-factory-resource-manager-template.md) 
 
-In deze QuickStart wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Azure Data Factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het **transformeren** van gegevens met Azure Data Factory. 
+In deze QuickStart wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Azure Data Factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Meer informatie over het **transformeren** van gegevens met behulp van Azure Data Factory vindt u in [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Dit artikel is geen gedetailleerde introductie tot de Data Factory-service. Zie [Inleiding tot Azure Data Factory](introduction.md) voor een inleiding tot Azure Data Factory-service.
@@ -39,6 +38,8 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
 Zie [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over Azure Resource Manager-sjablonen. 
 
 In de volgende sectie vindt u de volledige Resource Manager-sjabloon voor het definiëren van Data Factory-entiteiten zodat u de zelfstudie snel kunt doorlopen en de sjabloon kunt testen. Raadpleeg de sectie [Data Factory-entiteiten in de sjabloon](#data-factory-entities-in-the-template) om te lezen hoe elke Data Factory-entiteit wordt gedefinieerd.
+
+Zie [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions) (Microsoft.DataFactory-resourcetypen) voor informatie over de JSON-syntaxis en de eigenschappen voor Data Factory-resources in een sjabloon.
 
 ## <a name="data-factory-json"></a>JSON van data factory 
 Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFTutorial** en voeg de volgende inhoud toe:
@@ -440,7 +441,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     ![De uitvoering van de pijplijn controleren](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 
     > [!IMPORTANT]
-    > Zoals u ziet, wordt de pijplijn alleen uitgevoerd op het hele uur (bijvoorbeeld om 4:00 uur, 5:00 uur, 6:00 uur enz.). Klik op **Vernieuwen** op de werkbalk om de lijst te vernieuwen wanneer het volgende uur wordt bereikt. 
+    > Zoals u ziet, wordt de pijplijn alleen uitgevoerd op het hele uur (bijvoorbeeld om 4:00 uur, 5:00 uur, 6:00 uur, enzovoort). Klik op **Vernieuwen** op de werkbalk om de lijst te vernieuwen wanneer het volgende uur wordt bereikt. 
 5. Klik op de koppeling in de kolom **Acties**. 
 
     ![Koppeling voor pijplijnacties](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)

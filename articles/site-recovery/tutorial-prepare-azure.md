@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973516"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159006"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Azure-resources voorbereiden op herstel na noodgevallen van on-premises machines
 
@@ -68,11 +68,12 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
-1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Opslag** > **Back-up en siteherstel (OMS)**.
-2. Voer in **Naam** een beschrijvende naam in om de kluis aan te duiden. Voor deze reeks zelfstudies gebruiken we **ContosoVMVault**.
-3. Voor **Resourcegroep** gebruiken we **contosoRG**.
-4. Voor **Locatie**. gebruiken we **Europa - west**.
-5. Voor snelle toegang tot de kluis vanuit het dashboard, selecteert u **Aan dashboard vastmaken** > **Maken**.
+1. Klik in de Azure-portal op **+ Een resource maken** en zoek in de Marketplace naar **Recovery services**.
+2. Klik op **Backup and Site Recovery (OMS)** en klik op de pagina Backup and Site Recovery op **Maken**. 
+1. Ga naar **Recovery Services-kluis** > **Naam** en voer een beschrijvende naam in voor de kluis. Voor deze reeks zelfstudies gebruiken we **ContosoVMVault**.
+2. Selecteer bij **Resourcegroep** een bestaande resourcegroep of maak een nieuwe. Voor deze zelfstudie gebruiken we **contosoRG**.
+3. Selecteer bij **Locatie** de regio waarin de kluis zich moet bevinden. In dit voorbeeld gebruiken we **Europa - west**.
+4. Voor snelle toegang tot de kluis vanuit het dashboard, selecteert u **Aan dashboard vastmaken** > **Maken**.
 
    ![Een nieuwe kluis maken](./media/tutorial-prepare-azure/new-vault-settings.png)
 

@@ -1,44 +1,45 @@
 ---
 title: Een Stream Analytics-taak maken met behulp van Azure PowerShell
-description: In deze snelstart vindt u informatie over het gebruik van de Azure PowerShell-module om een Azure Stream Analytics-taak te implementeren en uit te voeren.
+description: In deze quickstart wordt uitgelegd hoe u met de Azure PowerShell-module een Azure Stream Analytics-taak kunt implementeren en uitvoeren.
 services: stream-analytics
-author: sidramadoss
-ms.author: sidram
-ms.date: 05/14/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: 126677df01ad34d488863dd83e2f8c9a2d947824
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 42cca961d58b9fd58e8a9c1b2fc2ddc369deb6d0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958887"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017191"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Snelstart: Een Stream Analytics-taak maken met behulp van Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Quickstart: Een Stream Analytics-taak maken met behulp van Azure PowerShell
 
 De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources met behulp van PowerShell-cmdlets of -scripts. In deze snelstart vindt u informatie over het gebruik van de Azure PowerShell-module om een Azure Stream Analytics-taak te implementeren en uit te voeren. 
- 
-De voorbeeldtaak leest streaminggegevens vanuit een blob in Azure Blob-opslag. Het bestand met invoergegevens dat wordt gebruikt in deze snelstart, bevat statische gegevens die alleen zijn bedoeld ter illustratie. In een werkelijk scenario gebruikt u streaming-invoergegevens voor een Stream Analytics-taak. Vervolgens transformeert de taak de gegevens met behulp van de Stream Analytics-querytaal om de gemiddelde temperatuur te berekenen wanneer deze hoger is dan 100°. Tot slot worden de resulterende uitvoergebeurtenissen naar een ander bestand geschreven. 
+
+De voorbeeldtaak leest streaminggegevens vanaf een IoT Hub-apparaat. De invoergegevens worden gegenereerd door Raspberry Pi Online Simulator. De Stream Analytics-taak transformeert de gegevens vervolgens met behulp van de Stream Analytics-querytaal om te filteren op berichten met een temperatuur van meer dan 27°. Tot slot worden de resulterende uitvoergebeurtenissen naar een bestand in blobopslag geschreven. 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 * Als u nog geen Azure-abonnement hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan.  
 
-* Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie op te zoeken die op uw lokale computer is geïnstalleerd. Als u PowerShell wilt installeren of upgraden, raadpleegt u het artikel [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
+* Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie op te zoeken die op uw lokale computer is geïnstalleerd. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+* Sommige IoT Hub acties worden niet ondersteund door Azure PowerShell en moeten worden voltooid met behulp van Azure CLI-versie 2.0.24 of hoger en de IoT-extensie voor Azure CLI. [Installeer de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en gebruik `az extension add --name azure-cli-iot-ext` voor het installeren van de IoT-extensie.
 
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u met de opdracht `Connect-AzureRmAccount` aam bij uw Azure-abonnement en voer uw Azure-referenties in de pop-upbrowser in:
+Meld u met de opdracht `Connect-AzureRmAccount` aan bij uw Azure-abonnement en voer uw Azure-referenties in de pop-upbrowser in:
 
 ```powershell
-# Log in to your Azure account
+# Connect to your Azure account
 Connect-AzureRmAccount
 ```
 
-Selecteer als u meerdere abonnementen hebt nadat u zich hebt aangemeld het abonnement dat u wilt gebruiken voor deze snelstart door de volgende cmdlets uit te voeren. Vervang <your subscription name> door de naam van uw abonnement:  
+Als u meer dan één abonnement hebt, selecteert u het abonnement dat u wilt gebruiken voor deze quickstart door de volgende cmdlets uit te voeren. Vervang `<your subscription name>` door de naam van uw abonnement:  
 
 ```powershell
 # List all available subscriptions.
@@ -64,20 +65,62 @@ New-AzureRmResourceGroup `
 
 Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden die als invoer voor de taak zijn geconfigureerd.
 
-1. Download de [sensorvoorbeeldgegevens](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) in GitHub. Klik met de rechtermuisknop op de koppeling en kies **Koppeling opslaan als...**  of **Doel opslaan als**.
+In het volgende codeblok van de Azure CLI worden meerdere opdrachten uitgevoerd om de invoergegevens voor te bereiden die nodig zijn voor de taak. Bekijk de secties om de code te begrijpen.
 
-2. In het volgende PowerShell-codeblok worden meerdere opdrachten uitgevoerd om de invoergegevens voor te bereiden die de taak nodig heeft. Bekijk de secties om de code te begrijpen. 
+1. Voer in het PowerShell-venster de opdracht [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) uit om u aan te melden bij uw Azure-account. 
 
-   1. Maak een standaardopslagaccount voor algemeen gebruik met de cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  In dit voorbeeld wordt een opslagaccount met de naam mystorageaccount met lokaal redundante opslag (LRS) en blob-codering (standaard ingeschakeld) gemaakt.  
+   Wanneer u bent aangemeld, retourneert de Azure CLI een lijst met uw abonnementen. Kopieer het abonnement dat u gebruikt voor deze quickstart en voer de opdracht [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) uit om dat abonnement te selecteren. Kies het abonnement dat u hebt geselecteerd in de vorige sectie met PowerShell. Vergeet niet om `<your subscription name>` te vervangen door de naam van uw abonnement.
 
-   2. Haal de opslagaccountcontext op waarin het te gebruiken opslagaccount `$storageAccount.Context` is gedefinieerd. Als u werkt met opslagaccounts, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. 
+   ```azurecli
+   az login
+   
+   az account set --subscription "<your subscription>"
+   ```
 
-   3. Maak een opslagcontainer met [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) en upload de [voorbeeldgegevens van de sensor](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) die u eerder hebt gedownload. 
+2. Maak een IoT Hub met de opdracht [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). In dit voorbeeld wordt een IoT Hub met de naam **MyASAIoTHub** gemaakt. Omdat namen van IoT Hubs uniek moeten zijn, moet u zelf een naam bedenken voor uw IoT Hub. Stel de SKU in op F1 om de gratis laag te gebruiken als deze beschikbaar is met uw abonnement. Als dat niet het geval is, kiest u de eerstvolgende lagere categorie.
 
-   4. Kopieer de opslagsleutel die de code heeft gegenereerd en plak de sleutel in de JSON-bestanden om later de invoer en uitvoer van de streamingtaak te maken.
+   ```azurecli
+   az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
+   ```
+
+   Zodra de IoT Hub is gemaakt, vraagt u de verbindingsreeks voor IoT Hub op met de opdracht [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest). Kopieer de volledige verbindingsreeks en bewaar deze totdat u de IoT Hub als invoer gaat toevoegen aan uw Stream Analytics-taak.
+   
+   ```azurecli
+   az iot hub show-connection-string --hub-name "MyASAIoTHub"
+   ```
+
+3. Voeg een apparaat toe aan IoT Hub met behulp van de opdracht [az iothub-device identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). In dit voorbeeld maakt u een apparaat met de naam **MyASAIoTDevice**.
+
+   ```azurecli
+   az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
+   ```
+
+4. Vraag de verbindingsreeks van het apparaat op met de opdracht [az iot hub device-identity show-connection-string](). Kopieer de volledige verbindingsreeks en bewaar deze totdat u de Raspberry Pi-simulator gaat maken.
+
+   ```azurecli
+   az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
+   ```
+
+   **Voorbeeld van uitvoer:**
+
+   ```azurecli
+   HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
+   ```
+
+## <a name="create-blob-storage"></a>Blob-opslag maken
+
+Het volgende codeblok van Azure PowerShell bevat opdrachten voor het maken van blob-opslag die wordt gebruikt voor taakuitvoer. Bekijk de secties om de code te begrijpen.
+
+1. Maak een standaardopslagaccount voor algemeen gebruik met de cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  In dit voorbeeld wordt een opslagaccount met de naam **myasaquickstartstorage** gemaakt met lokaal redundante opslag (LRS) en blob-codering (standaard ingeschakeld).  
+   
+2. Haal de opslagaccountcontext op waarin het te gebruiken opslagaccount `$storageAccount.Context` is gedefinieerd. Als u werkt met opslagaccounts, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. 
+
+3. Maak een nieuwe opslagcontainer met [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer).
+
+4. Kopieer de opslagsleutel die is uitgevoerd door de code en bewaar deze sleutel om later de uitvoer van de streamingtaak te maken.
 
    ```powershell
-   $storageAccountName = "mystorageaccount"
+   $storageAccountName = "myasaquickstartstorage"
    $storageAccount = New-AzureRmStorageAccount `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName `
@@ -86,29 +129,23 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
      -Kind Storage
    
    $ctx = $storageAccount.Context
-   $containerName = "streamanalytics"
+   $containerName = "container1"
    
    New-AzureStorageContainer `
      -Name $containerName `
      -Context $ctx
    
-   Set-AzureStorageBlobContent `
-     -File "c:\HelloWorldASA-InputStream.json" `
-     -Blob "input/HelloWorldASA-InputStream.json" `
-     -Container $containerName `
-     -Context $ctx  
-   
    $storageAccountKey = (Get-AzureRmStorageAccountKey `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName).Value[0]
    
-   Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files with this key value:" 
+   Write-Host "The <storage account key> placeholder needs to be replaced in your output json files with this key value:" 
    Write-Host $storageAccountKey -ForegroundColor Cyan
    ```
 
 ## <a name="create-a-stream-analytics-job"></a>Een Stream Analytics-taak maken
 
-Maak een Stream Analytics-taak met behulp van de cmdlet [New-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0). Deze cmdlet gebruikt de taaknaam, resourcegroepnaam en de taakdefinitie als parameters. De taaknaam kan elke gewenste beschrijvende naam zijn voor de taak. Deze mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet tussen de 3 en 63 tekens lang zijn. De taakdefinitie is een JSON-bestand dat de eigenschappen bevat die zijn vereist voor het maken van een taak. Maak op uw lokale machine een bestand met de naam `JobDefinition.json` en voeg er de volgende JSON-gegevens aan toe:
+Maak een Stream Analytics-taak met behulp van de cmdlet [New-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0). Deze cmdlet gebruikt de taaknaam, de naam van de resourcegroep en de taakdefinitie als parameters. De taaknaam kan elke gewenste beschrijvende naam zijn voor de taak. De naam mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet tussen de 3 en 63 tekens lang zijn. De taakdefinitie is een JSON-bestand dat de eigenschappen bevat die zijn vereist voor het maken van een taak. Maak op uw lokale machine een bestand met de naam `JobDefinition.json` en voeg er de volgende JSON-gegevens aan toe:
 
 ```json
 {    
@@ -124,7 +161,7 @@ Maak een Stream Analytics-taak met behulp van de cmdlet [New-AzureRmStreamAnalyt
 }
 ```
 
-Voer vervolgens de cmdlet `New-AzureRmStreamAnalyticsJob` uit. Let erop dat u de waarde van de variabele `jobDefinitionFile` vervangt door het pad waar u het JSON-bestand met de taakdefinitie hebt opgeslagen. 
+Voer vervolgens de cmdlet `New-AzureRmStreamAnalyticsJob` uit. Vergeet niet om de waarde van de variabele `jobDefinitionFile` te vervangen door het pad waar u het JSON-bestand met de taakdefinitie hebt opgeslagen. 
 
 ```powershell
 $jobName = "MyStreamingJob"
@@ -140,25 +177,24 @@ New-AzureRmStreamAnalyticsJob `
 
 Voeg invoer aan uw taak toe met behulp van de cmdlet [New-AzureRmStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0). Deze cmdlet gebruikt de taaknaam, taakinvoernaam, resourcegroepnaam en de taakinvoerdefinitie als parameters. De taakinvoerdefinitie is een JSON-bestand dat de eigenschappen bevat die nodig zijn om de invoer van de taak te configureren. In dit voorbeeld maakt u een blobopslag als invoer. 
 
-Maak op uw lokale machine een bestand met de naam `JobInputDefinition.json` en voeg er de volgende JSON-gegevens aan toe. Let erop dat u de waarde voor `accountKey` vervangt door de toegangssleutel van uw opslagaccount. Deze is opgeslagen in de waarde $storageAccountKey. 
+Maak op uw lokale machine een bestand met de naam `JobInputDefinition.json` en voeg er de volgende JSON-gegevens aan toe. Vervang de waarde voor `accesspolicykey` door het gedeelte `SharedAccessKey` uit de IoT Hub-verbindingsreeks die u in een eerdere sectie hebt opgeslagen.
 
 ```json
 {
     "properties": {
         "type": "Stream",
         "datasource": {
-            "type": "Microsoft.Storage/Blob",
+            "type": "Microsoft.Devices/IotHubs",
             "properties": {
-                "storageAccounts": [
-                {
-                   "accountName": "mystorageaccount",
-                   "accountKey":"<storage account key>"
-                }],
-                "container": "streamanalytics",
-                "pathPattern": "input/",
-                "dateFormat": "yyyy/MM/dd",
-                "timeFormat": "HH"
-            }
+                "iotHubNamespace": "MyASAIoTHub",
+                "sharedAccessPolicyName": "iothubowner",
+                "sharedAccessPolicyKey": "accesspolicykey",
+                "endpoint": "messages/events",
+                "consumerGroupName": "$Default"
+                }
+        },
+        "compression": {
+            "type": "None"
         },
         "serialization": {
             "type": "Json",
@@ -167,15 +203,15 @@ Maak op uw lokale machine een bestand met de naam `JobInputDefinition.json` en v
             }
         }
     },
-    "name": "MyBlobInput",
+    "name": "IoTHubInput",
     "type": "Microsoft.StreamAnalytics/streamingjobs/inputs"
 }
 ```
 
-Voer daarna de cmdlet `New-AzureRmStreamAnalyticsInput` uit waarbij u de waarde van `jobDefinitionFile` vervangt door het pad waar u het JSON-bestand met de taakinvoerdefinitie hebt opgeslagen. 
+Voer daarna de cmdlet `New-AzureRmStreamAnalyticsInput` uit. Vergeet niet om de waarde van `jobDefinitionFile` te vervangen door het pad waar u het JSON-bestand met de invoerdefinitie voor de taak hebt opgeslagen. 
 
 ```powershell
-$jobInputName = "MyBlobInput"
+$jobInputName = "IoTHubInput"
 $jobInputDefinitionFile = "C:\JobInputDefinition.json"
 New-AzureRmStreamAnalyticsInput `
   -ResourceGroupName $resourceGroup `
@@ -198,10 +234,10 @@ Maak op uw lokale machine een bestand met de naam `JobOutputDefinition.json` en 
             "properties": {
                 "storageAccounts": [
                     {
-                      "accountName": "mystorageaccount",
+                      "accountName": "asaquickstartstorage",
                       "accountKey": "<storage account key>"
                     }],
-                "container": "streamanalytics",
+                "container": "container1",
                 "pathPattern": "output/",
                 "dateFormat": "yyyy/MM/dd",
                 "timeFormat": "HH"
@@ -215,7 +251,7 @@ Maak op uw lokale machine een bestand met de naam `JobOutputDefinition.json` en 
             }
         }
     },
-    "name": "MyBlobOutput",
+    "name": "BlobOutput",
     "type": "Microsoft.StreamAnalytics/streamingjobs/outputs"
 }
 ```
@@ -223,7 +259,7 @@ Maak op uw lokale machine een bestand met de naam `JobOutputDefinition.json` en 
 Voer vervolgens de cmdlet `New-AzureRmStreamAnalyticsOutput` uit. Let erop dat u de waarde van de variabele `jobOutputDefinitionFile` vervangt door het pad waar u het JSON-bestand met de taakuitvoerdefinitie hebt opgeslagen. 
 
 ```powershell
-$jobOutputName = "MyBlobOutput"
+$jobOutputName = "BlobOutput"
 $jobOutputDefinitionFile = "C:\JobOutputDefinition.json"
 New-AzureRmStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
@@ -243,12 +279,12 @@ Voeg een transformatie aan uw taak toe met behulp van de cmdlet [New-AzureRmStre
    "properties":{    
       "streamingUnits":1,  
       "script":null,  
-      "query":" SELECT System.Timestamp AS OutputTime, dspl AS SensorName, Avg(temp) AS AvgTemperature INTO MyBlobOutput FROM MyBlobInput TIMESTAMP BY time GROUP BY TumblingWindow(second,30),dspl HAVING Avg(temp)>100"  
+      "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"  
    }  
 }
 ```
 
-Voer vervolgens de cmdlet `New-AzureRmStreamAnalyticsTransformation` uit. Let erop dat u de waarde van de variabele `jobTransformationDefinitionFile` vervangt door het pad waar u het JSON-bestand met de taaktransformatiedefinitie hebt opgeslagen. 
+Voer vervolgens de cmdlet `New-AzureRmStreamAnalyticsTransformation` uit. Let erop dat u de waarde van de variabele `jobTransformationDefinitionFile` vervangt door het pad waar u het JSON-bestand met de definitie voor taaktransformatie hebt opgeslagen. 
 
 ```powershell
 $jobTransformationName = "MyJobTransformation"
@@ -259,24 +295,32 @@ New-AzureRmStreamAnalyticsTransformation `
   -File $jobTransformationDefinitionFile `
   -Name $jobTransformationName -Force
 ```
+## <a name="run-the-iot-simulator"></a>De IoT-simulator uitvoeren
+
+1. Open de [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/).
+
+2. Vervang de tijdelijke aanduiding op regel 15 door de verbindingsreeks van het Azure IoT Hub-apparaat die u hebt opgeslagen in een eerdere sectie.
+
+3. Klik op **Run**. De uitvoer geeft de sensorgegevens en berichten weer die worden verzonden naar de IoT-hub.
+
+   ![Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>De Stream Analytics-taak starten en uitvoer controleren
 
-Start de taak met de cmdlet [Start AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Deze cmdlet gebruikt de taaknaam, resourcegroepnaam, uitvoerstartmodus en begintijd als parameters. `OutputStartMode` accepteert waarden van `JobStartTime`, `CustomTime` of `LastOutputEventTime`. Zie de sectie [Parameters](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) in de PowerShell-documentatie voor meer informatie over waar deze waarden naar verwijzen. Geef in dit voorbeeld de modus `CustomTime` op en geef een waarde op voor de `OutputStartTime`. 
+Start de taak met de cmdlet [Start AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Deze cmdlet gebruikt de taaknaam, resourcegroepnaam, uitvoerstartmodus en begintijd als parameters. `OutputStartMode` accepteert waarden van `JobStartTime`, `CustomTime` of `LastOutputEventTime`. Zie de sectie [Parameters](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) in de PowerShell-documentatie voor meer informatie over waar deze waarden naar verwijzen. 
 
-Selecteer de tijdwaarde `2018-01-01`. Deze begindatum is gekozen omdat deze voorafgaat aan de timestamp voor de gebeurtenis uit de voorbeeldgegevens. Nadat u de volgende cmdlet hebt uitgevoerd, retourneert deze `True` als uitvoer als de taak wordt gestart. In de opslagcontainer wordt een uitvoermap met de getransformeerde gegevens gemaakt. 
+Nadat u de volgende cmdlet hebt uitgevoerd, retourneert deze `True` als uitvoer als de taak wordt gestart. In de opslagcontainer wordt een uitvoermap met de getransformeerde gegevens gemaakt. 
 
 ```powershell
 Start-AzureRmStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
-  -OutputStartMode CustomTime `
-  -OutputStartTime 2018-01-01T00:00:00Z 
+  -OutputStartMode 'JobStartTime'
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u de verwijdering ervan overslaan en de taak nu stoppen. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze snelstart zijn gemaakt. Daarvoor voert u de volgende cmdlet uit:
+Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u de verwijdering ervan overslaan en de taak nu stoppen. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze quickstart zijn gemaakt door de volgende cmdlet uit te voeren:
 
 ```powershell
 Remove-AzureRmResourceGroup `

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544682"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189476"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -132,7 +132,7 @@ Totale kosten zijn afhankelijk van een aantal factoren; bijvoorbeeld uw gekozen 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Gebaseerd op SQL Server Analysis Services
 
-Azure Analysis Services is compatibel met veel geweldige functies die al deel uitmaken van SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellarische modellen met het [compatibiliteitsniveau](analysis-services-compat-level.md) 1200 of hoger. Tabellarische modellen zijn constructies voor relationele modellering (model, tabellen, kolommen), geformuleerd in tabellarische metagegevensobjectdefinities in TMSL- (Tabular Model Scripting Language) en TOM-code (Tabular Object Model. Partities, perspectieven, beveiliging op rijniveau, bidirectionele relaties en translaties worden allemaal ondersteund*. Multidimensionale modellen en PowerPivot voor Sharepoint *worden niet* ondersteund in Azure Analysis Services.
+Azure Analysis Services is compatibel met veel geweldige functies die al deel uitmaken van SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellarische modellen met het [compatibiliteitsniveau](analysis-services-compat-level.md) 1200 of hoger. Tabellarische modellen zijn constructies voor relationele modellering (model, tabellen, kolommen), geformuleerd in tabellarische metagegevensobjectdefinities in TMSL- (Tabular Model Scripting Language) en TOM-code (Tabular Object Model. Partities, perspectieven, beveiliging op rijniveau, bidirectionele relaties en translaties worden allemaal ondersteund*. Multidimensionale modellen en PowerPivot voor SharePoint *worden niet* ondersteund in Azure Analysis Services.
 
 Tabellarische modellen in zowel in-memory- als DirectQuery-modi worden ondersteund. In de in-memory-modus (standaard) ondersteunen tabellarische modellen meerdere gegevensbronnen. Omdat modelgegevens in hoge mate worden gecomprimeerd en in het geheugen worden gecachet, biedt deze modus de snelste queryrespons op grote hoeveelheden gegevens. Deze modus biedt ook de meeste flexibiliteit voor complexe gegevenssets en query's. Partitionering maakt incrementele belastingen mogelijk, verhoogt de parallellisatie en vermindert het geheugenverbruik. Andere geavanceerde functies voor gegevensmodellering, zoals berekende tabellen, en alle DAX-functies worden ondersteund. Geheugenmodellen moeten worden vernieuwd (verwerkt) om gecachete gegevens uit gegevensbronnen bij te werken. Dankzij Azure-service-principal-ondersteuning bieden onbeheerde vernieuwingsbewerkingen met PowerShell, TOM, TMSL en REST flexibiliteit om ervoor te zorgen dat uw modelgegevens altijd up-to-date zijn. 
 
@@ -176,7 +176,7 @@ Tabellarische modellen op alle compatibiliteitsniveaus ondersteunen beveiliging 
 
 Tabellarische modellen op het 1400-compatibiliteitsniveau ondersteunen beveiliging op objectniveau, waaronder beveiliging op paginaniveau en beveiliging op kolomniveau. Beveiliging op objectniveau wordt met behulp van TMSL of TOM ingesteld in de op JSON-gebaseerde metagegevens in het bestand Model.bim. Zie [Object-level security](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security) (beveiliging op objectniveau) voor meer informatie.
 
-### <a name="automation-through-service-principles"></a>Automatisering via service-principals
+### <a name="automation-through-service-principals"></a>Automatisering via service-principals
 
 Service-principals zijn een Azure Active Directory-toepassingsresource die u in uw tenant maakt om onbeheerde bewerkingen op resource- en serviceniveau uit te voeren. Service-principals worden gebruikt met Azure Automation, de onbeheerde PowerShell-modus, aangepaste clienttoepassingen en webapps om veelvoorkomende taken zoals gegevensvernieuwing, omhoog/omlaag schalen en onderbreken/hervatten te automatiseren. Machtigingen worden aan service-principals toegewezen via rollidmaatschappen. Zie [Automatisering met service-principals](analysis-services-service-principal.md) voor meer informatie.
 

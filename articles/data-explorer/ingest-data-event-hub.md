@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654101"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064692"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer
 
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (laden van gegevens) vanuit Event Hubs, een big data-streamingplatform en service voor gebeurtenisopname. Event Hubs kunnen miljoenen gebeurtenissen per seconde in bijna realtime verwerken. In deze quickstart maakt u een Event Hub, maakt u verbinding met deze hub vanuit Azure Data Explorer, en ziet u de gegevens door het systeem stromen.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (laden van gegevens) vanuit Event Hubs, een big data-streamingplatform en service voor gebeurtenisopname. [Event Hubs](/azure/event-hubs/event-hubs-about) kunnen miljoenen gebeurtenissen per seconde in bijna realtime verwerken. In deze quickstart maakt u een Event Hub, maakt u verbinding met deze hub vanuit Azure Data Explorer, en ziet u de gegevens door het systeem stromen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -25,7 +25,7 @@ Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logb
 
 * [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
 
-* [Een voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) die gegevens genereert en deze verzendt naar een event hub
+* [Een voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) die gegevens genereert en deze verzendt naar een event hub. Download de voorbeeld-app naar uw systeem.
 
 * [Visual Studio 2017-versie 15.3.2 of groter](https://www.visualstudio.com/vs/) om de voorbeeld-app uit te voeren
 
@@ -37,7 +37,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 In deze quickstart genereert u voorbeeldgegevens en verzendt u deze naar een Event Hub. De eerste stap is het maken van een Event Hub. U doet dit door in de Azure Portal een Azure Resource Manager-sjabloon te gebruiken.
 
-1. Gebruik de volgende knop om de implementatie te starten. Het is raadzaam om de koppeling te openen in een ander tabblad of venster, zodat u de rest van de stappen in dit artikel kunt volgen.
+1. Als u een Event Hub wilt maken, gebruikt u de volgende knop om de implementatie te starten. Klik met de rechtermuisknop en selecteer de koppeling **In nieuw venster openen** zodat u de rest van de stappen in dit artikel kunt volgen op een ander tabblad of in een ander venster.
 
     [![Implementeren in Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -79,7 +79,7 @@ Nu maakt u een tabel in Azure Data Explorer waarnaar via Event Hubs gegevens wor
 
     ![Toepassingskoppeling voor query](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. Kopieer de volgende opdracht in het venster en selecteer **Uitvoeren**.
+1. Kopieer de volgende opdracht in het venster en selecteer **Uitvoeren** om de tabel (TestTable) te maken waarin de opgenomen gegevens worden geplaatst.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -87,12 +87,11 @@ Nu maakt u een tabel in Azure Data Explorer waarnaar via Event Hubs gegevens wor
 
     ![Maken van query uitvoeren](media/ingest-data-event-hub/run-create-query.png)
 
-1. Kopieer de volgende opdracht in het venster en selecteer **Uitvoeren**.
+1. Kopieer de volgende opdracht in het venster en selecteer **Uitvoeren** om de binnenkomende JSON-gegevens toe te wijzen aan de kolomnamen en gegevenstypen van de tabel (TestTable).
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Met deze opdracht worden binnenkomende JSON-gegevens toegewezen aan de kolomnamen en gegevenstypen van de tabel (TestTable).
 
 ## <a name="connect-to-the-event-hub"></a>Verbinding maken met de Event Hub
 
@@ -112,13 +111,23 @@ Nu kunt u vanuit Azure Data Explorer verbinding maken met de event hub. Wanneer 
 
     ![Event Hub-verbinding](media/ingest-data-event-hub/event-hub-connection.png)
 
+    Gegevensbron:
+
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
     | Naam van gegevensverbinding | *test-hub-connection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
     | Event hub-naamruimte | Een unieke naam voor de naamruimte | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
     | Event Hub | *test-hub* | De Event Hub die u hebt gemaakt. |
     | Consumentengroep | *test-group* | De consumentengroep die u hebt gedefinieerd in de gemaakte Event Hub. |
-    | Doeltabel | Laat **Mijn gegevens omvatten routeringsgegevens** uitgeschakeld. | Er zijn twee opties voor de routering: *statische* en *dynamische*. Voor deze snelstart gebruikt u statische routering (standaardinstelling), waarbij u de tabelnaam, bestandsindeling en toewijzing opgeeft. U kunt ook dynamische routering gebruiken, waarbij uw gegevens benodigde routeringsgegevens bevatten. |
+    | | |
+
+    Doeltabel:
+
+    Er zijn twee opties voor de routering: *statische* en *dynamische*. Voor deze snelstart gebruikt u statische routering (standaardinstelling), waarbij u de tabelnaam, bestandsindeling en toewijzing opgeeft. Laat **Mijn gegevens omvatten routeringsgegevens** daarom uitgeschakeld.
+    U kunt ook dynamische routering gebruiken, waarbij uw gegevens benodigde routeringsgegevens bevatten.
+
+     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
+    |---|---|---|
     | Tabel | *TestTable* | De tabel die u hebt gemaakt in **TestDatabase**. |
     | Gegevensindeling | *JSON* | JSON- en CSV-indelingen worden ondersteund. |
     | Toewijzen van kolommen | *TestMapping* | De toewijzing die u hebt gemaakt in **TestDatabase** en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van **TestTable**.|
@@ -138,7 +147,7 @@ Wanneer u de [voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-
 
 ## <a name="generate-sample-data"></a>Voorbeeldgegevens genereren
 
-Nu Azure Data Explorer en de Event Hub zijn verbonden, gebruikt u de [voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) die u hebt gedownload, om gegevens te genereren.
+Gebruik de [voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) u hebt gedownload om gegevens te genereren.
 
 1. Open de voorbeeld-app in Visual Studio.
 
@@ -162,8 +171,6 @@ Nu de app gegevens genereert, kunt u de stroom van die gegevens vanuit de event 
 
     ![Event Hub-grafiek](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Ga terug naar de voorbeeld-app en stop de app wanneer deze 99 berichten heeft bereikt.
-
 1. Als u wilt controleren hoeveel berichten er op dat moment de database hebben bereikt, voert u de volgende query uit in de testdatabase.
 
     ```Kusto
@@ -171,15 +178,18 @@ Nu de app gegevens genereert, kunt u de stroom van die gegevens vanuit de event 
     | count
     ```
 
-1. Voer de volgende query uit om de inhoud van de berichten te zien.
+1. Voer de volgende query uit om de inhoud van de berichten te bekijken:
 
     ```Kusto
     TestTable
     ```
 
-    De resultatenset ziet er ongeveer als volgt uit.
+    De resultatenset ziet er ongeveer als volgt uit:
 
     ![Berichtresultatenset](media/ingest-data-event-hub/message-result-set.png)
+
+    > [!NOTE]
+    > ADX heeft een aggregatiebeleid (batchverwerking) voor gegevensopname, ontworpen om de gegevensopname te optimaliseren. Het beleid is ingesteld op vijf minuten; u kunt dus enige latentie ondervinden.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

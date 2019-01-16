@@ -6,42 +6,45 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f24d601fc3b589daf22788ad0d05eb74a7b51f0a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556013"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156762"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Zelfstudie: Meldingen ontvangen uit uw Azure Digital Twins-ruimten met behulp van Logic Apps
 
-Nadat u uw Azure Digital Twins-exemplaar hebt geïmplementeerd, uw opslagruimten hebt ingericht en aangepaste functies hebt geïmplementeerd voor het bewaken van specifieke voorwaarden, kunt u uw gebouwbeheerder via e-mail waarschuwen wanneer de bewaakte voorwaarden optreden. 
+Nadat u uw Azure Digital Twins-exemplaar hebt geïmplementeerd, uw opslagruimten hebt ingericht en aangepaste functies hebt geïmplementeerd voor het bewaken van specifieke voorwaarden, kunt u uw gebouwbeheerder via e-mail waarschuwen wanneer de bewaakte voorwaarden optreden.
 
 In [de eerste zelfstudie](tutorial-facilities-setup.md) hebt u de ruimtelijke grafiek van een denkbeeldige gebouw geconfigureerd. Een kamer in het gebouw bevat sensoren voor beweging, kooldioxide en temperatuur. In [de tweede zelfstudie](tutorial-facilities-udf.md) hebt u uw grafiek en een door de gebruiker gedefinieerde functie ingericht om deze sensorwaarden te bewaken en meldingen te activeren wanneer de ruimte leeg is en de waarden voor temperatuur en koolstofdioxide in orde zijn. 
 
-In deze zelfstudie leert hoe u deze meldingen kunt integreren met Azure Logic Apps om e-mails te verzenden wanneer een dergelijke ruimte beschikbaar is. Een gebouwbeheerder kan deze informatie gebruiken om werknemers te helpen de meest productieve vergaderruimte te boeken. 
+In deze zelfstudie leert hoe u deze meldingen kunt integreren met Azure Logic Apps om e-mails te verzenden wanneer een dergelijke ruimte beschikbaar is. Een gebouwbeheerder kan deze informatie gebruiken om werknemers te helpen de meest productieve vergaderruimte te boeken.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Gebeurtenissen integreren met Azure Event Grid.
 > * Gebeurtenissen melden met Logic Apps.
-    
+
 ## <a name="prerequisites"></a>Vereisten
 
 In deze zelfstudie wordt ervan uitgegaan dat u de Azure Digital Twins-installatie hebt [geconfigureerd](tutorial-facilities-setup.md) en [ingericht](tutorial-facilities-udf.md). Voordat u doorgaat, moet u ervoor zorgen voor dat u beschikt over:
+
 - Een [Azure-account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Een actief exemplaar van Digital Twins.
 - De gedownloade en uitgepakte [Digital Twins C#-voorbeelden](https://github.com/Azure-Samples/digital-twins-samples-csharp) op een werkcomputer.
-- [.NET Core SDK-versie 2.1.403 of hoger](https://www.microsoft.com/net/download) op een ontwikkelcomputer om het voorbeeld uit te voeren. Voer `dotnet --version` uit om te controleren of de juiste versie is geïnstalleerd. 
+- [.NET Core SDK-versie 2.1.403 of hoger](https://www.microsoft.com/net/download) op een ontwikkelcomputer om het voorbeeld uit te voeren. Voer `dotnet --version` uit om te controleren of de juiste versie is geïnstalleerd.
 - Een Office 365-account voor het verzenden van melding via e-mail.
 
-## <a name="integrate-events-with-event-grid"></a>Gebeurtenissen integreren met Event Grid 
+## <a name="integrate-events-with-event-grid"></a>Gebeurtenissen integreren met Event Grid
+
 In deze sectie stelt u een [Event Grid](../event-grid/overview.md) in voor het verzamelen van gebeurtenissen uit uw Azure Digital Twins-instantie en stuurt u deze door naar een [gebeurtenis-handler](../event-grid/event-handlers.md) zoals Azure Logic Apps.
 
 ### <a name="create-an-event-grid-topic"></a>Een Event Grid-onderwerp maken
+
 [Event Grid-onderwerpen](../event-grid/concepts.md#topics) bieden een interface voor het routeren van de gebeurtenissen die worden gegenereerd door de functie die door de gebruiker is gedefinieerd. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -56,7 +59,7 @@ In deze sectie stelt u een [Event Grid](../event-grid/overview.md) in voor het v
 
 1. Blader naar het Event Grid-onderwerp in de resourcegroep, selecteer **Overzicht** en kopieer de waarde voor **Eindpunt onderwerp** naar een tijdelijk bestand. U hebt deze URL nodig in de volgende sectie. 
 
-1. Selecteer **Toegangssleutels** en kopieer **Sleutel 1** en **Sleutel 2** naar een tijdelijk bestand. U hebt deze waarden nodig om het eindpunt in de volgende sectie te maken.
+1. Selecteer **Toegangssleutels** en kopieer **UW_SLEUTEL_1** en **UW_SLEUTEL_ 2** naar een tijdelijk bestand. U hebt deze waarden nodig om het eindpunt in de volgende sectie te maken.
 
     ![Event Grid-sleutels](./media/tutorial-facilities-events/event-grid-keys.png)
 
@@ -78,11 +81,11 @@ In deze sectie stelt u een [Event Grid](../event-grid/overview.md) in voor het v
       path: Event_Grid_Topic_Path
     ```
 
-1. Vervang de tijdelijke aanduiding `Primary_connection_string_for_your_Event_Grid` door de waarde van **Sleutel 1**. 
+1. Vervang de tijdelijke aanduiding `Primary_connection_string_for_your_Event_Grid` door de waarde van **YOUR_KEY_1**.
 
-1. Vervang de tijdelijke aanduiding `Secondary_connection_string_for_your_Event_Grid` door de waarde van **Sleutel 2**.
+1. Vervang de tijdelijke aanduiding `Secondary_connection_string_for_your_Event_Grid` door de waarde van **YOUR_KEY_2**.
 
-1. Vervang de tijdelijke aanduiding `Event_Grid_Topic_Path` door het pad van het Event Grid-onderwerp. Haal dit pad op door **https://** en de daarop volgende resourcepaden uit de URL van het **Eindpunt onderwerp** te verwijderen. Het moet er uitzien zoals deze indeling: *yourEventGridName.yourLocation.eventgrid.azure.net*. 
+1. Vervang de tijdelijke aanduiding `Event_Grid_Topic_Path` door het pad van het Event Grid-onderwerp. Haal dit pad op door **https://** en de daarop volgende resourcepaden uit de URL van het **Eindpunt onderwerp** te verwijderen. Het moet er uitzien zoals deze indeling: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Voer alle waarden in zonder aanhalingstekens. Zorg dat de dubbele punten in het YAML-bestand worden gevolgd door minstens één spatie. U kunt de inhoud van het YAML-bestand ook valideren met behulp van een YAML-onlinevalidatie, zoals met [dit hulpprogramma](https://onlineyamltools.com/validate-yaml).
@@ -97,8 +100,8 @@ In deze sectie stelt u een [Event Grid](../event-grid/overview.md) in voor het v
 
    ![Eindpunten voor Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
 
-
 ## <a name="notify-events-with-logic-apps"></a>Gebeurtenissen melden met Logic Apps
+
 Met de [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-service kunt u geautomatiseerde taken maken voor gebeurtenissen die zijn ontvangen van andere services. In deze sectie stelt u Azure Logic Apps in om e-mailmeldingen te maken voor gebeurtenissen die zijn doorgestuurd vanuit uw ruimtesensoren, met behulp van een [Event Grid-onderwerp](../event-grid/overview.md).
 
 1. Selecteer in het linkerdeelvenster van de [Azure-portal](https://portal.azure.com) de optie **Een resource maken**.
@@ -126,49 +129,49 @@ Met de [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-service kunt u g
 1. Selecteer de knop **Nieuwe stap**.
 
 1. In het venster **Kies een actie**:
-    
+
    a. Zoekt u de woordgroep **JSON parseren** en selecteert u de actie **JSON parseren**.
 
    b. Selecteer in het veld **Inhoud** de optie **Hoofdtekst** in de lijst **Dynamische inhoud**.
 
    c. Selecteer **Voorbeeldnettolading om een schema te genereren**. Plak de volgende JSON-nettolading en selecteer **Gereed**.
 
-        ```JSON
-        {
-        "id": "32162f00-a8f1-4d37-aee2-9312aabba0fd",
-        "subject": "UdfCustom",
-        "data": {
-          "TopologyObjectId": "20efd3a8-34cb-4d96-a502-e02bffdabb14",
-          "ResourceType": "Space",
-          "Payload": "\"Air quality is poor.\"",
-          "CorrelationId": "32162f00-a8f1-4d37-aee2-9312aabba0fd"
-        },
-        "eventType": "UdfCustom",
-        "eventTime": "0001-01-01T00:00:00Z",
-        "dataVersion": "1.0",
-        "metadataVersion": "1",
-        "topic": "/subscriptions/a382ee71-b48e-4382-b6be-eec7540cf271/resourceGroups/HOL/providers/Microsoft.EventGrid/topics/DigitalTwinEventGrid"
-        }
-        ```
-    
+    ```JSON
+    {
+    "id": "32162f00-a8f1-4d37-aee2-9312aabba0fd",
+    "subject": "UdfCustom",
+    "data": {
+      "TopologyObjectId": "20efd3a8-34cb-4d96-a502-e02bffdabb14",
+      "ResourceType": "Space",
+      "Payload": "\"Air quality is poor.\"",
+      "CorrelationId": "32162f00-a8f1-4d37-aee2-9312aabba0fd"
+    },
+    "eventType": "UdfCustom",
+    "eventTime": "0001-01-01T00:00:00Z",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/a382ee71-b48e-4382-b6be-eec7540cf271/resourceGroups/HOL/providers/Microsoft.EventGrid/topics/DigitalTwinEventGrid"
+    }
+    ```
+
     Deze nettolading heeft fictieve waarden. Logic Apps maakt gebruik van dit voorbeeld van nettolading voor het genereren van een *Schema*.
-    
+
     ![Venster JSON parseren in Logic Apps voor Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
 
 1. Selecteer de knop **Nieuwe stap**.
 
 1. In het venster **Kies een actie**:
 
-   a. Zoek en selecteer **Beheer van voorwaarden** in de lijst **Acties**. 
+   a. Selecteer **Besturing > Voorwaarde** of zoek **Voorwaarde** in de lijst **Acties**. 
 
    b. Selecteer in het eerste tekstvak van **Een waarde kiezen** de optie **Type gebeurtenis** in de lijst **Dynamische inhoud** voor het venster **JSON parseren**.
 
-   c. In het tweede tekstvak van **Een waarde kiezen** voert u **UdfCustom** in.
+   c. In het tweede tekstvak **Kies een waarde** voert u `UdfCustom` in.
 
    ![Geselecteerde voorwaarden](./media/tutorial-facilities-events/logic-app-condition.png)
 
 1. In het venster **Indien waar**:
-   
+
    a. Selecteer **Een actie toevoegen** en selecteer **Office 365 Outlook**.
 
    b. Selecteer in de lijst **Acties** de optie **Een e-mail verzenden**. Selecteer **Aanmelden** en gebruik de referenties van uw e-mailaccount. Selecteer **Toegang toestaan** wanneer hierom wordt gevraagd.
@@ -189,7 +192,6 @@ Binnen een paar minuten moet u e-mailmeldingen gaan ontvangen van deze resource 
 
 Als u wilt stoppen met het ontvangen van deze e-mailberichten, gaat u naar uw resource voor Logic Apps in de portal en selecteert u het deelvenster **Overzicht**. Selecteer **Uitschakelen**.
 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u Azure Digital Twins niet verder wilt verkennen, kunt u de resources die in deze zelfstudie zijn gemaakt, gerust verwijderen:
@@ -199,15 +201,16 @@ Als u Azure Digital Twins niet verder wilt verkennen, kunt u de resources die in
     > [!TIP]
     > Als u problemen hebt bij het verwijderen van uw Digital Twins-exemplaar, is er een service-update met de oplossing hiervoor beschikbaar. Probeer opnieuw of u het exemplaar kunt verwijderen.
 
-2. Verwijder zo nodig de voorbeeldtoepassingen van uw werkcomputer. 
-
+2. Verwijder zo nodig de voorbeeldtoepassingen van uw werkcomputer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga verder met de volgende zelfstudie voor meer informatie over hoe u uw sensorgegevens kunt visualiseren, trends kunt analyseren en afwijkingen kunt vinden: 
+Ga verder met de volgende zelfstudie voor meer informatie over hoe u uw sensorgegevens kunt visualiseren, trends kunt analyseren en afwijkingen kunt vinden:
+
 > [!div class="nextstepaction"]
 > [Zelfstudie: Gebeurtenissen uit Azure Digital Twins-ruimten visualiseren en analyseren met Time Series Insights](tutorial-facilities-analyze.md)
 
-U kunt ook meer leren over grafieken voor ruimtelijke intelligentie en objectmodellen in Azure Digital Twins: 
+U kunt ook meer leren over grafieken voor ruimtelijke intelligentie en objectmodellen in Azure Digital Twins:
+
 > [!div class="nextstepaction"]
 > [Begrip van objectmodellen en grafieken voor ruimtelijke intelligentie van Digital Twins](concepts-objectmodel-spatialgraph.md)

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633755"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104519"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Uw eerste functie maken met Visual Studio Code
 
@@ -27,7 +27,7 @@ In dit artikel leert u hoe u de [Azure Functions extension for Visual Studio Cod
 
 ![Azure-functiecode in een Visual Studio-project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-De extensie ondersteunt momenteel C#-, JavaScript- en Java-functies. De stappen in dit artikel kunnen enigszins afwijken, afhankelijk van de taal die u kiest voor het Azure Functions-project. De extensie is momenteel beschikbaar als preview-product. Zie de uitbreidingspagina [Azure Functions extension for Visual Studio Code] (Azure Functions-extensie voor Visual Studio Code) voor meer informatie.
+De extensie biedt op dit moment volledige ondersteuning voor functies van C#, JavaScript en Java, terwijl de ondersteuning voor Python in preview is. De stappen in dit artikel kunnen enigszins afwijken, afhankelijk van de taal die u kiest voor het Azure Functions-project. De extensie is momenteel beschikbaar als preview-product. Zie de uitbreidingspagina [Azure Functions extension for Visual Studio Code] (Azure Functions-extensie voor Visual Studio Code) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -55,7 +55,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 ## <a name="create-an-http-triggered-function"></a>Een door HTTP geactiveerde functie maken
 
-1. Kies vanuit **Azure: Functions** het pictogram Create Function (Functie maken).
+1. In **Azure: Functions** kiest u het pictogram Functie maken.
 
     ![Een functie maken](./media/functions-create-first-function-vs-code/create-function.png)
 
@@ -93,7 +93,7 @@ Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitv
 
     ![De reactie van de lokale host van de functie in de browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. Als u wilt stoppen met fouten opsporen, drukt u op Shift+F1.
+1. Als u wilt stoppen met fouten opsporen, drukt u op Shift + F5.
 
 Nadat u hebt gecontroleerd of de functie correct wordt uitgevoerd op uw lokale computer, is het tijd om het project te publiceren in Azure.
 

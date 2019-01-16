@@ -1,6 +1,6 @@
 ---
-title: Uw eerste werkstroom maken en automatiseren - Azure Logic Apps | Microsoft Docs
-description: Snelstart voor het maken van uw eerste logische app voor het automatiseren van taken, processen en werkstromen met Azure Logic Apps. Logische apps maken voor systeemintegratie en EAI-oplossingen (Enterprise Application Integration) voor uw systemen en cloudservices
+title: 'Snelstartgids: Uw eerste werkstroom maken en automatiseren - Azure Logic Apps | Microsoft Docs'
+description: Maak uw eerste logische app voor het automatiseren van taken, processen en werkstromen met Azure Logic Apps. Logische apps maken voor systeemintegratie en EAI-oplossingen (Enterprise Application Integration) voor uw systemen en cloudservices
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233681"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065185"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snelstart: maak uw eerste geautomatiseerde werkstroom met Azure Logic Apps - Azure-portal
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Quickstart: uw eerste geautomatiseerde werkstroom maken met Azure Logic Apps - Azure-portal
 
 In deze snelstart leert u uw eerste geautomatiseerde werkstroom bouwen met [Azure Logic Apps](../logic-apps/logic-apps-overview.md). In dit artikel maakt u een logische app waarmee de RSS-feed van een website regelmatig wordt gecontroleerd op nieuwe items. Als er nieuwe items bestaan, stuurt de logische app een e-mail voor elk item. Wanneer u bent klaar, ziet uw logische app eruit als deze werkstroom op hoog niveau:
 
@@ -38,7 +38,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
    ![Logische app maken](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. Onder **Logische app maken** geeft u informatie op over uw logische app zoals hier wordt weergegeven. Als u klaar bent, kiest u **Vastmaken aan dashboard** > **Maken**.
+3. Onder **Logische app maken** geeft u informatie op over uw logische app zoals hier wordt weergegeven. Als u klaar bent, kiest u **Maken**.
 
    ![Gegevens van logische app opgeven](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -63,7 +63,7 @@ Vervolgens voegt u een [trigger](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. Typ 'rss' in het zoekvak van de ontwerpfunctie. Selecteer deze trigger: **RSS - Wanneer een feeditem wordt gepubliceerd**
 
-   ![Selecteer de trigger: 'RSS - Wanneer een feeditem wordt gepubliceerd'](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![Trigger selecteren: 'RSS - Wanneer een feeditem wordt gepubliceerd'](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. Geef deze informatie voor de trigger op zoals weergegeven en beschreven: 
 
@@ -91,13 +91,13 @@ Uw logische app is nu live, maar kan alleen de RSS-feed controleren. Daarom gaat
 
 Voeg nu een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) waardoor een e-mail wordt verzonden zodra een nieuw item in de RSS-feed wordt weergegeven. 
 
-1. Onder de trigger **Wanneer een feeditem wordt gepubliceerd** kiest u **+ Nieuwe stap** > **Een actie toevoegen**.
+1. Onder de trigger **Wanneer een feeditem wordt gepubliceerd** kiest u **Nieuwe stap**.
 
    ![Een actie toevoegen](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Voer onder **Kies een actie** 'een e-mail verzenden' als filter in. Selecteer in de lijst met acties de actie 'een e-mail verzenden' voor de gewenste e-mailprovider. 
+2. Typ onder **Kies een actie** 'een e-mail verzenden' in het zoekvak. Kies **Alle** onder het zoekvak. Selecteer in de lijst met acties de actie 'een e-mail verzenden' voor de gewenste e-mailprovider. 
 
-   ![Selecteer deze actie: 'Office 365 Outlook - Een e-mail verzenden'](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Selecteer deze actie: 'Office 365 Outlook - een e-mail verzenden'](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Als u de lijst met acties wilt filteren op een bepaalde app of service, kunt u eerst die app of service selecteren:
 

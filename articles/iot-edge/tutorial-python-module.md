@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a8edf8d67c55cad856eacf883a6449606e594887
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 89c19adc571d500fff54d493072bb9976ce51aa9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343765"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052884"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Zelfstudie: een Python IoT Edge-module maken en implementeren op uw gesimuleerde apparaat
 
@@ -46,7 +46,7 @@ Cloudresources:
 Ontwikkelingsresources:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) voor Visual Studio Code.
+* [Azure IoT-hulpprogramma's](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) voor Visual Studio Code.
 * [Python-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (Engelstalig). 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
@@ -57,13 +57,13 @@ Ontwikkelingsresources:
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
-In deze zelfstudie gebruikt u de Azure IoT Edge-extensie voor Visual Studio Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
+In deze zelfstudie gebruikt u de Azure IoT-hulpprogramma's voor Visual Studio Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
 
 U kunt een Docker-register gebruiken om de containerinstallatiekopieën op te slaan. Twee populaire Docker-registerservices zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In deze zelfstudie wordt Azure Container Registry gebruikt. 
 
 Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw containerregister te maken in Azure:
 
-1. Selecteer in de [Azure-portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
+1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
 
 2. Geef de volgende waarden op om uw containerregister te maken:
 
@@ -83,7 +83,7 @@ Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw contain
 7. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in de zelfstudie om toegang te verlenen tot het containerregister. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT Edge-moduleproject creëren
-Met de volgende stappen maakt u een IoT Edge Python-module met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
+Met de volgende stappen maakt u een IoT Edge Python-module met behulp van Visual Studio Code en de Azure IoT-hulpprogramma's.
 
 ### <a name="create-a-new-solution"></a>Een nieuwe oplossing maken
 
@@ -202,13 +202,19 @@ Elke sjabloon bevat voorbeeldcode. Met deze code worden gesimuleerde sensorgegev
     self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
-7. Sla dit bestand op.
+7. Sla het bestand main.py op.
 
-8. Open in VS Code Explorer het bestand **deployment.template.json**. 
+8. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand laat aan de IoT Edge-agent weten welke modules moeten worden geïmplementeerd. In dit geval gaat het om **tempSensor** en **PythonModule**. Het bestand laat de IoT Edge-hub ook weten hoe berichten tussen de modules moeten worden gerouteerd. De Visual Studio Code-extensie vult automatisch het overgrote deel van de informatie in die u nodig hebt in de implementatiesjabloon. Controleer echter wel of alles klopt voor uw oplossing: 
 
-   Dit bestand zorgt ervoor dat deze twee modules worden geïmplementeerd in **$edgeAgent**: **tempSensor** (waarmee apparaatgegevens worden gesimuleerd) en **PythonModule**. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **PythonModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** of **windows-amd64** als dit de architectuur van het IoT Edge-apparaat is. Zie [Informatie over het gebruiken, configureren en hergebruiken van IoT Edge-modules](module-composition.md) voor meer informatie over distributiemanifesten.
+   1. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **PythonModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** of **windows-amd64** als dit de architectuur van het IoT Edge-apparaat is. 
 
-   Dit bestand bevat ook uw registerreferenties. Uw gebruikersnaam en wachtwoord in het sjabloonbestand zijn tijdelijke aanduidingen. Wanneer u het distributiemanifest genereert, worden de velden bijgewerkt met de waarden die u aan het .env-bestand hebt toegevoegd. 
+      ![Het installatiekopieplatform van de module bijwerken](./media/tutorial-python-module/image-platform.png)
+
+   2. Controleer of de sjabloon de juiste modulenaam heeft, niet de **SampleModule**-standaardnaam die u hebt gewijzigd tijdens het maken van de IoT Edge-oplossing.
+
+   3. In de sectie **registryCredentials** worden uw Docker-registerreferenties opgeslagen zodat de IoT Edge-agent uw module-installatiekopie kan ophalen. De actuele gebruikersnaam en het bijbehorende wachtwoord zijn opgeslagen in het .env-bestand, dat wordt genegeerd door Git. Voeg uw referenties toe aan het ENV-bestand als u dat nog niet hebt gedaan.  
+
+   4. Als u meer informatie wilt over distributiemanifesten, gaat u naar [Meer informatie over het implementeren van modules en het instellen van routes in IoT Edge](module-composition.md).
 
 9. Voeg de moduledubbel **PythonModule** toe aan het distributiemanifest. Voeg de volgende JSON-inhoud onderaan de sectie **moduleContent** in, na de moduledubbel **$edgeHub**: 
 
@@ -222,7 +228,7 @@ Elke sjabloon bevat voorbeeldcode. Met deze code worden gesimuleerde sensorgegev
 
    ![Moduledubbel toevoegen aan implementatiesjabloon](./media/tutorial-python-module/module-twin.png)
 
-10. Sla dit bestand op.
+10. Sla het bestand deployment.template.json op.
 
 ## <a name="build-and-push-your-solution"></a>De oplossing bouwen en pushen
 

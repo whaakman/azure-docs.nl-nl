@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258760"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156796"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Snelstartgids: Nieuws zoeken met de Bing News Search-SDK voor C#
 
@@ -35,14 +35,14 @@ Wanneer u het [Nieuws zoeken-SDK-pakket voor NuGet](https://www.nuget.org/packag
 * Newtonsoft.Json
 
 ## <a name="news-search-client"></a>Nieuws zoeken-client
-Als u een exemplaar van de client `NewsSearchAPI` wilt maken, voegt u dit toe met behulp van de instructie:
+Als u een exemplaar van de `NewsSearchClient` wilt maken, voegt u dit toe met behulp van de instructie:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
 Instantieer vervolgens de client:
 ```
-var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
@@ -56,7 +56,7 @@ Parseer het nieuws dat is geretourneerd in de resultaten van de vorige query:
 ```
 if (newsResults.Value.Count > 0)
 {
-    var firstNewsResult = newsResults.Value.First();
+    var firstNewsResult = newsResults.Value[0];
 
     Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
     Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -64,7 +64,7 @@ if (newsResults.Value.Count > 0)
     Console.WriteLine($"First news url: {firstNewsResult.Url}");
     Console.WriteLine($"First news description: {firstNewsResult.Description}");
     Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
 }
 
 else
@@ -88,7 +88,7 @@ namespace NewsSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -141,7 +141,7 @@ namespace NewsSrchSDK
 ## <a name="recent-news-freshness-and-sortby-parameters"></a>De parameters voor recent nieuws, nieuwheid en sortBy
 De volgende code zoekt naar het meest recente nieuws voor 'Artificial Intelligence' met de parameters `freshness` en `sortBy`. De code controleert het aantal resultaten en geeft `totalEstimatedMatches`, `name`, `url`, `description`, `published time` en `name` weer voor de provider voor het eerste nieuwsresultaat.
 ```
-        public static void NewsSearchWithFilters(NewsSearchAPI client)
+        public static void NewsSearchWithFilters(NewsSearchClient client)
         {
             try
             {
@@ -184,7 +184,7 @@ De volgende code zoekt naar het meest recente nieuws voor 'Artificial Intelligen
 ## <a name="category-news-safe-search"></a>Nieuwscategorie, veilig zoeken
 De volgende code doorzoekt de nieuwscategorieën voor films en tv-entertainment met veilig zoeken.  De code controleert het aantal resultaten en geeft `category`, `name`, `url`, `description`, `published time` en `name` weer voor de provider voor het eerste nieuwsresultaat.
 ```
-        public static void NewsCategory(NewsSearchAPI client)
+        public static void NewsCategory(NewsSearchClient client)
         {
             try
             {
@@ -226,7 +226,7 @@ De volgende code doorzoekt de nieuwscategorieën voor films en tv-entertainment 
 ## <a name="trending-topics"></a>Trending onderwerpen
 De volgende code doorzoekt trending nieuwsonderwerpen in Bing. De code controleert het aantal resultaten en geeft `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` en `image.Url` weer voor het eerste nieuwsresultaat.
 ```
-        public static void TrendingTopics(NewsSearchAPI client)
+        public static void TrendingTopics(NewsSearchClient client)
         {
             try
             {

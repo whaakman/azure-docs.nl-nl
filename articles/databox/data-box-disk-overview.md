@@ -6,27 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 874142df31d96de36b2b5be81a863c2f31317c52
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229608"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158037"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>Wat is Azure Data Box Disk? (Preview)
+# <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
 Met de oplossing van Microsoft Azure Data Box Disk kunt u terabytes aan on-premises gegevens op een snelle, goedkope en betrouwbare manier naar Azure verzenden. De beveiligde gegevensoverdracht wordt versneld door u één tot vijf SSD's (solid-state drives) te verzenden. Deze versleutelde schijven van 8 TB worden naar uw datacenter gestuurd via een regionale vervoerder. 
 
 U kunt deze schijven snel configureren, verbinden en ontgrendelen via de Data Box-service in Azure Portal. Kopieer uw gegevens op schijven en stuur de schijven terug naar Azure. In het Azure-datacenter worden uw gegevens automatisch van de schijven naar de cloud geüpload met behulp van een snelle en persoonlijke uploadlink.
-
-
-> [!IMPORTANT]
-> - Data Box Disk is in de preview-fase. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
-> - U moet u registreren voor deze service. Ga naar de [Preview-portal](https://aka.ms/azuredataboxfromdiskdocs) om u te registreren.
-> - Tijdens de preview-fase wordt Data Box Disk verzonden naar klanten in de Verenigde Staten en de Europese Unie. Ga naar [Beschikbaarheid in de regio](#region-availability) voor meer informatie.
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 
@@ -95,7 +89,7 @@ Ga naar [Azure Data Box Disk-beveiliging en -gegevensbescherming](data-box-disk-
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-Tijdens de preview kan Data Box Disk gegevens overdragen in de volgende Azure-regio's:
+Op dit moment kan Data Box Disk gegevens overdragen naar de volgende Azure-regio's:
 
 
 |Azure-regio  |Azure-regio  |
@@ -112,7 +106,7 @@ Tijdens de preview kan Data Box Disk gegevens overdragen in de volgende Azure-re
 
 ## <a name="pricing"></a>Prijzen
 
-Ga naar de [pagina met prijzen voor preview-versies](https://azure.microsoft.com/pricing/details/storage/databox/disk/) voor meer informatie over prijzen.
+Ga naar de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/databox/disk/) voor informatie over prijzen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

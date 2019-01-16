@@ -1,12 +1,12 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met UNIFI | Microsoft Docs'
-description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en UNIFI.
+title: 'Zelfstudie: Azure Active Directory-integratie met Flex Global View | Microsoft Docs'
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Flex Global View configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: e1f49ee4-d2d4-4a82-9baf-0587ca1f20f6
+ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: c5b237c87817af8ff84cefe6bab79956c426b28d
+ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
 ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063708"
+ms.locfileid: "54067495"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Zelfstudie: Azure Active Directory-integratie met UNIFI
+# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>Zelfstudie: Azure Active Directory-integratie met Flex Global View
 
-In deze zelfstudie leert u hoe u UNIFI integreert met Azure Active Directory (Azure AD).
-Als u UNIFI integreert met Azure AD profiteert u van de volgende voordelen:
+In deze zelfstudie leert u hoe u Flex Global View kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Flex Global View met Azure AD biedt de volgende voordelen:
 
-* U kunt in Azure AD bepalen wie er toegang heeft tot UNIFI.
-* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij UNIFI (eenmalige aanmelding).
+* U kunt in Azure AD bepalen wie er toegang heeft tot Flex Global View.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Flex Global View (eenmalige aanmelding).
 * U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
@@ -35,23 +35,22 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met UNIFI hebt u de volgende items nodig:
+Om Azure AD-integratie te configureren met Flex Global View hebt u het volgende nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Een abonnement op UNIFI waarvoor eenmalige aanmelding is ingeschakeld
+* Een abonnement op Flex Global View waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* UNIFI biedt ondersteuning voor door **SP en IDP** geïnitieerde eenmalige aanmelding (SSO)
-* UNIFI ondersteunt het **geautomatiseerd** inrichten van gebruikers
+* Flex Global View biedt ondersteuning voor door **IDP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-unifi-from-the-gallery"></a>UNIFI toevoegen vanuit de galerie
+## <a name="adding-flex-global-view-from-the-gallery"></a>Flex Global View toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van UNIFI in Azure AD, moet u UNIFI uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Om de integratie van Flex Global View te configureren in Azure AD, moet u Flex Global View vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u UNIFI vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Flex Global View vanuit de galerie toe te voegen:**
 
 1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
@@ -65,31 +64,31 @@ Voor het configureren van de integratie van UNIFI in Azure AD, moet u UNIFI uit 
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **UNIFI**, selecteer **UNIFI** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Typ **Flex Global View** in het zoekvak, selecteer **Flex Global View** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![UNIFI in de lijst met resultaten](common/search-new-app.png)
+     ![Flex Global View toevoegen vanuit de galerie](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie configureert en test u Azure AD-eenmalige aanmelding met UNIFI op basis van een testgebruiker met de naam **Britta Simon**.
-Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in UNIFI tot stand is gebracht.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Flex Global View op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Flex Global View tot stand is gebracht.
 
-Als u Azure AD-eenmalige aanmelding met UNIFI wilt configureren en testen, moet u de volgende bouwstenen uitvoeren:
+Om eenmalige aanmelding van Azure AD met Flex Global View te configureren en testen, moet u de volgende procedures voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor UNIFI configureren](#configure-unifi-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+2. **[Eenmalige aanmelding voor Flex Global View configureren](#configure-flex-global-view-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[UNIFI-testgebruiker maken](#create-unifi-test-user)** : als u een equivalent wilt hebben van Britta Simon in UNIFI dat is gekoppeld aan de Azure AD-versie van de gebruiker.
+5. **[Een testgebruiker voor Flex Global View maken](#create-flex-global-view-test-user)**: als u een tegenhanger van Britta Simon in Flex Global View wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD-eenmalige aanmelding met UNIFI voert u de volgende stappen uit:
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Flex Global View:
 
-1. Selecteer in de [Azure-portal](https://portal.azure.com/) op de integratiepagina van de **UNIFI**-toepassing de optie **Eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **Flex Global View** en selecteer **Eenmalige aanmelding**.
 
     ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
@@ -101,55 +100,30 @@ Voor het configureren van Azure AD-eenmalige aanmelding met UNIFI voert u de vol
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
+4. Voer in de sectie **Standaard SAML-configuratie** de volgende stappen uit als u beschikt over een **bestand met metagegevens van de serviceprovider**:
 
-    ![Informatie over het UNIFI-domein en de URL voor eenmalige aanmelding](common/idp-identifier.png)
+    a. Klik op **Metagegevensbestand uploaden**.
 
-    In het tekstvak **Id** typt u deze URL: `INVIEWlabs`
+    ![image](common/upload-metadata.png)
 
-5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
+    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://app.discoverunifi.com/login`
+    ![image](common/browse-upload-metadata.png)
 
-    ![image](common/both-preintegrated-signon.png)
+    c. Zodra het bestand met metagegevens is geüpload, worden de waarde voor **Id** en **Antwoord-URL** automatisch ingevuld in de sectie Standaard SAML-configuratie voor Flex Global View:
 
-6. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+    ![image](common/idp-intiated.png)
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    > [!Note]
+    > Als de waarden voor **Id** en **Antwoord-URL** niet automatisch worden ingevuld, kunt u de waarden zelf invullen afhankelijk van uw behoeften.
 
-7. In dit gedeelte **UNIFI instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-    a. Aanmeldings-URL
+### <a name="configure-flex-global-view-single-sign-on"></a>Eenmalige aanmelding configureren voor Flex Global View
 
-    b. Azure AD-id
-
-    c. Afmeldings-URL
-
-### <a name="configure-unifi-single-sign-on"></a>Eenmalige aanmelding voor UNIFI configureren
-
-1. Meld u in een andere browser als beheerder aan bij de bedrijfssite van **UNIFI**.
-
-2. Klik op de **gebruikers**.
-
-    ![Eenmalige aanmelding configureren](./media/unifi-tutorial/app1.png)
-
-3. Klik op **Nieuwe id-provider toevoegen**.
-
-    ![Eenmalige aanmelding configureren](./media/unifi-tutorial/app2.png)
-
-4. Voer in de sectie **Id-provider toevoegen** de volgende stappen uit:
-
-    ![Eenmalige aanmelding configureren](./media/unifi-tutorial/app3.png) 
-
-    a. In het tekstvak **Providernaam** typt u de naam van de id-provider...
-
-    b. Plak in het tekstvak voor de **provider-URL** de waarde van de **aanmeldings-URL** die u uit de Azure-portal hebt gekopieerd.
-
-    c. Open het certificaat dat u uit de Azure-portal hebt gedownload in Kladblok, verwijder de tags **---BEGIN CERTIFICATE---** en **---END CERTIFICATE---** en plak dan de overige inhoud in het tekstvak **Certificaat**.
-
-    d. Schakel het selectievakje **is de standaardprovider** in.
+Om eenmalige aanmelding te configureren in **Flex Global View**, moet u het **XML-bestand met federatieve metagegevens** verzenden naar het [ondersteuningsteam van Flex Global View](mailto:support@gtnexus.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -178,15 +152,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot UNIFI.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Flex Global View.
 
-1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **UNIFI**.
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Flex Global View**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen de optie **UNIFI**.
+2. Selecteer **Flex Global View** in de lijst met toepassingen.
 
-    ![De koppeling UNIFI in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling naar Flex Global View in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -202,15 +176,15 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-unifi-test-user"></a>Een UNIFI-testgebruiker maken
+### <a name="create-flex-global-view-test-user"></a>Een testgebruiker maken voor Flex Global View
 
-In deze sectie gaat u een gebruiker maken met de naam Britta Simon. **UNIFI** biedt ondersteuning voor het automatisch inrichten van gebruikers. Er hoeven dus geen handmatige stappen te worden uitgevoerd. Gebruikers worden automatisch gemaakt nadat Azure AD de verificatie heeft voltooid.
+In deze sectie gaat u in Flex Global View een gebruiker maken met de naam Britta Simon. Neem contact op met met [ondersteuningsteam van Flex Global View](mailto:support@gtnexus.com) om de gebruikers toe te voegen aan het platform van Flex Global View. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel UNIFI in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van UNIFI waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u in het toegangsvenster op de tegel Flex Global View klikt, wordt u automatisch aangemeld bij de instantie van Flex Global View waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
@@ -219,4 +193,3 @@ Wanneer u op de tegel UNIFI in het toegangsvenster klikt, wordt u automatisch aa
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: De REST API van de Custom Vision Service gebruiken'
+title: 'Zelfstudie: de REST API van Custom Vision Service gebruiken'
 titlesuffix: Azure Cognitive Services
 description: Gebruik de REST API voor het maken, trainen, testen en exporteren van een aangepast Vision-model.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5e5cf04bb631585c14d2ec7403bf0332f41dc626
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334717"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054206"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>Zelfstudie: De Custom Vision REST API gebruiken
+# <a name="tutorial-use-the-custom-vision-rest-api"></a>Zelfstudie: de REST API van Custom Vision gebruiken
 
 Leer de REST API van de Custom Vision Service gebruiken om een model te maken, te trainen, te testen en te exporteren.
 

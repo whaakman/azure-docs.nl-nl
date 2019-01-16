@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Alternatieve vertalingen zoeken, Go - Translator Text-API'
+title: 'Snelstart: Woorden opzoeken met een tweetalige woordenlijst, Go - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Go.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000595"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158564"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Snelstartgids: De Translator Text-API gebruiken om alternatieve vertalingen op te halen met behulp van Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Go
 
 In deze snelstartgids leert u hoe u alternatieve vertalingen en gebruiksvoorbeelden voor een bepaalde tekst kunt vinden met behulp van Go en de Translator Text-REST API.
 
@@ -88,7 +88,7 @@ func altTranslations(subscriptionKey string) {
 }
 ```
 
-Maak nu de URL. De URL is gebouwd met behulp van de methoden `Parse()` en `Query()`. U ziet dat de parameters worden toegevoegd met de methode `Add()`. In dit voorbeeld vertalen we van het Engels naar het Spaans.
+Maak nu de URL. De URL wordt gebouwd met behulp van de methoden `Parse()` en `Query()`. U ziet dat de parameters worden toegevoegd met de methode `Add()`. In dit voorbeeld vertalen we van het Engels naar het Spaans.
 
 Kopieer deze code naar de functie `altTranslations`.
 

@@ -3,17 +3,17 @@ title: Toepassingen implementeren in schaalsets voor virtuele machines in Azure 
 description: Meer informatie over het gebruik van Ansible voor het configureren van een schaalset voor virtuele machines en het implementeren van een toepassing in de schaalset voor virtuele machines in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, virtuele machine, schaalset voor virtuele machines, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408371"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156541"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Toepassingen implementeren in schaalsets voor virtuele machines in Azure met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken om uw toepassingen te implementeren in Azure. In dit artikel leest u hoe u een Java-toepassing implementeert in een schaalset voor virtuele Azure-machines (VMSS).  
@@ -150,7 +150,7 @@ Met de volgende sectie in een Ansible-playbook wordt de JRE (Java Runtime Enviro
 U kunt het voorgaande voorbeeld-Ansible-playbook opslaan als `vmss-setup-deploy.yml` of [het volledige voorbeeld-playbook downloaden](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 Als u het ssh-verbindingstype wilt gebruiken met wachtwoorden, moet u het sshpass-programma installeren. 
-  - Voor Ubunto 16.04 voert u de opdracht `apt-get install sshpass` uit.
+  - Voor Ubuntu 16.04 voert u de opdracht `apt-get install sshpass` uit.
   - Voor CentOS 7.4 voert u de opdracht `yum install sshpass` uit.
 
 U ziet mogelijk een foutbericht zoals **Het gebruik van een SSH-wachtwoord in plaats van een sleutel is niet mogelijk omdat de controle van de hostsleutel is ingeschakeld en dit niet wordt ondersteund door sshpass. Voeg de vingerafdruk van deze host toe aan het bestand known_hosts om deze host te beheren.** Als u deze fout ziet, kunt u de controle van de hostsleutel uitschakelen door de volgende regel toe te voegen aan het bestand `/etc/ansible/ansible.cfg` of het bestand `~/.ansible.cfg`:

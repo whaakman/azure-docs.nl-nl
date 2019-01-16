@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Alternatieve vertalingen ophalen, Node.js -Translator Text-API'
+title: 'Snelstart: Woorden opzoeken met een tweetalige woordenlijst, Node.js - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart leert u hoe u alternatieve vertalingen en gebruiksvoorbeelden voor een bepaalde tekst vindt met behulp van Node.js en de Translator Text-REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: f7f779ccd10eeffc9ddfcba5dbb9abde00e1f735
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035625"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160009"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>Snelstart: De Translator Text-API gebruiken om alternatieve vertalingen op te halen met Node.js
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Node.js
 
 In deze snelstart leert u hoe u alternatieve vertalingen en gebruiksvoorbeelden voor een bepaalde tekst vindt met behulp van Node.js en de Translator Text-REST API.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert u de aanvraag:
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: in woordenlijst opzoeken](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: opzoeken in woordenlijst](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```javascript
 let options = {

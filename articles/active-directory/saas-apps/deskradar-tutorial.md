@@ -1,33 +1,33 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Trello | Microsoft Docs'
-description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Trello.
+title: 'Zelfstudie: Azure Active Directory-integratie met Deskradar | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Deskradar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
+ms.assetid: 5ff3e014-b79f-4a6c-bb0b-38462bea5d10
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 981bcb6bc9160969e7225342a0e4cda6afc3ed7c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 41846e2e7fd047ca573892e39d960a353bc7fd18
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064557"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079790"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Zelfstudie: Azure Active Directory-integratie met Trello
+# <a name="tutorial-azure-active-directory-integration-with-deskradar"></a>Zelfstudie: Azure Active Directory-integratie met Deskradar
 
-In deze zelfstudie leert u hoe u Trello kunt integreren met Azure Active Directory (Azure AD).
-De integratie van Trello met Azure AD heeft de volgende voordelen:
+In deze zelfstudie leert u hoe u Deskradar integreert met Azure Active Directory (Azure AD).
+Integratie van Deskradar met Azure AD heeft de volgende voordelen:
 
-* U kunt in Azure AD beheren wie toegang heeft tot Trello.
-* U kunt uw gebruikers zich automatisch laten aanmelden bij Trello (eenmalige aanmelding) met hun Azure AD-account.
+* U kunt in Azure AD beheren wie toegang heeft tot Deskradar.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Deskradar (eenmalige aanmelding).
 * U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
@@ -35,24 +35,22 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Trello hebt u het volgende nodig:
+Voor de configuratie van Azure AD-integratie met Deskradar, hebt u de volgende items nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Een abonnement op Trello waarvoor eenmalige aanmelding is ingeschakeld
+* Een abonnement op Deskradar waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Trello ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding (SSO)
+* Deskradar ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding (SSO)
 
-* Trello ondersteunt het **Just-In-Time** inrichten van gebruikers
+## <a name="add-deskradar-from-the-gallery"></a>Deskradar toevoegen vanuit de galerie
 
-## <a name="adding-trello-from-the-gallery"></a>Trello toevoegen vanuit de galerie
+Voor het configureren van de integratie van Deskradar in Azure AD, moet u Deskradar vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-Voor het configureren van de integratie van Trello in Azure AD moet u Trello uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
-
-**Voer de volgende stappen uit om Trello toe te voegen vanuit de galerie:**
+**Als u Deskradar wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
@@ -66,9 +64,9 @@ Voor het configureren van de integratie van Trello in Azure AD moet u Trello uit
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ **Trello** in het zoekvak, selecteer **Trello** in het resultaatvenster en klik op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Typ **Deskradar** in het zoekvak, selecteer **Deskradar** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![Trello in de resultatenlijst](common/search-new-app.png)
+     ![Deskradar in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
@@ -78,22 +76,19 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 Als u Azure AD-eenmalige aanmelding met [toepassingsnaam] wilt configureren en testen, moet u de volgende stappen uitvoeren:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor Trello configureren](#configure-trello-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+2. **[Eenmalige aanmelding voor Deskradar configureren](#configure-deskradar-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Een testgebruiker maken in Trello](#create-trello-test-user)**: om in Trello een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+5. **[Een testgebruiker maken voor Deskradar](#create-deskradar-test-user)**: als u in Deskradar een equivalent van Britta Simon wilt die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-> [!NOTE]
-> U krijgt de **\<enterprise\>**-slug van Trello. Als u de waarde van de slug niet hebt, neem dan contact op met het [ondersteuningsteam van Trello](mailto:support@trello.com) om de slug voor uw onderneming te krijgen.
-
 Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], moet u de volgende stappen uitvoeren:
 
-1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Trello**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina voor de integratie van de toepassing **Deskradar** en selecteer **Eenmalige aanmelding**.
 
     ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
@@ -107,32 +102,33 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Trello](common/idp-intiated.png)
+    ![Informatie over eenmalige aanmelding bij het Deskradar-domein en URL's](common/idp-intiated.png)
 
-    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://trello.com/auth/saml/metadata`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://YOURDOMAIN.deskradar.cloud`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://trello.com/auth/saml/consume/<enterprise>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Trello](common/metadata-upload-additional-signon.png)
+    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login`
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://trello.com/auth/saml/login/<enterprise>`
+    ![Informatie over eenmalige aanmelding bij het Deskradar-domein en URL's](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Trello](mailto:support@trello.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Vervang **UWDOMEIN** door het domein van uw Deskradar-exemplaar. Neem contact op met het [Deskradar-clientondersteuningsteam](mailto:support@deskradar.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-6. De Trello-toepassing verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+6. De toepassing Deskradar verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
     ![image](common/edit-attribute.png)
 
 7. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
 
-    | Naam |  Bronkenmerk|
-    | --- | --- |
-    | User.Email | user.mail |
-    | User.FirstName | user.givenname |
-    | User.LastName | user.surname |
+    | Naam | Bronkenmerk|
+    | ---------------| --------- |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.userprincipalname |
+    | | |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -156,7 +152,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-9. In het gedeelte **Trello instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+9. In de sectie **Deskradar instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -166,11 +162,29 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
     c. Afmeldings-URL
 
-### <a name="configure-trello-single-sign-on"></a>Eenmalige aanmelding voor Trello configureren
+### <a name="configure-deskradar-single-sign-on"></a>Deskradar configureren voor eenmalige aanmelding
 
-Om eenmalige aanmelding te configureren aan de kant van **Trello**, moet u het gedownloade **Certificaat (Base64)** en de juiste uit de Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Trello](mailto:support@trello.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+1. Meld u bij uw Deskradar-exemplaar aan met het administrator-account en gebruik het e-mailadres en wachtwoord dat u hebt gedefinieerd toen u zich registreerde met behulp van een uitnodigingskoppeling.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+2. Open het deelvenster **Team** door te klikken op het pictogram in de zijbalk.
+
+3. Ga naar het tabblad **Verificatie**.
+
+4. Voer op het tabblad **SAML 2.0** de volgende stappen uit:
+
+    ![Configuratie van Deskradar](./media/deskradar-tutorial/14-paste-urls.jpg)
+
+    a. Schakel de verificatiemethode **SAML** in.
+
+    b. Voer in het tekstvak **URL voor eenmalige aanmelding met SAML** de waarde van de **aanmeldings-URL** in die u uit de Azure-portal hebt gekopieerd.
+
+    c. Voer in het tekstvak **URL van id-provider** de waarde van de **Azure Ad-id** in die u hebt gekopieerd uit de Azure-portal.
+
+5. Open het gedownloade **certificaatbestand (Base64)** met een teksteditor en kopieer en plak de inhoud ervan in het veld **Openbaar certificaat** in Deskradar.
+
+    ![Configuratie van Deskradar](./media/deskradar-tutorial/15-paste-certificate.jpg)
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -197,15 +211,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Trello.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Deskradar.
 
-1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Trello**.
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Deskradar**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer **Trello** in de lijst met toepassingen.
+2. Selecteer **Deskradar** in de lijst met toepassingen.
 
-    ![De koppeling Trello in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling Deskradar in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -221,18 +235,28 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-trello-test-user"></a>Een testgebruiker maken in Trello
+### <a name="create-deskradar-test-user"></a>Een Deskradar-testgebruiker maken
 
-In dit gedeelte maakt u in Trello een gebruiker met de naam Britta Simon. Trello ondersteunt Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in Trello bestaat, wordt er een nieuwe gemaakt na verificatie.
+In deze sectie maakt u een gebruiker met de naam Britta Simon in Deskradar. Neem contact op met het  [Deskradar-clientondersteuningsteam](mailto:support@deskradar.com)  als u gebruikers wilt toevoegen in het Deskradar-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-> [!Note]
-> Neem contact op met het  [ondersteuningsteam van Trello](mailto:support@trello.com) als u handmatig een gebruiker wilt maken.
-
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel Trello in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Trello waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+**Volg onderstaande stappen als u de toepassing wilt gebruiken in de door SP geïnitieerde modus:**
+
+1. Start uw Deskradar-exemplaar door de URL te openen in uw browser: `https://YOURDOMAIN.deskradar.cloud` (vervang `YOURDOMAIN` door het domein van uw Deskradar-exemplaar ). 
+1. Selecteer **Eenmalige aanmelding in de organisatie**.
+
+    ![Deskradar](./media/deskradar-tutorial/16-sso-button.jpg)
+
+- U wordt direct aangemeld bij Deskradar als u al bent aangemeld in Active Directory.
+- U wordt omgeleid naar het aanmeldingsformulier van Active Directory als u nog niet bent aangemeld. U kunt daar de referenties van uw zakelijk account invoeren om u aan te melden.
+- U gaat naar Deskradar en wordt bij Deskradar aangemeld na een geslaagde aanmelding met de referenties van uw zakelijk account.
+
+**Volg onderstaande stap als u de toepassing wilt gebruiken in de door IDP geïnitieerde modus:**
+
+Wanneer u in het toegangsvenster op de tegel Deskradar klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Deskradar waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
@@ -241,4 +265,3 @@ Wanneer u op de tegel Trello in het toegangsvenster klikt, zou u automatisch moe
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

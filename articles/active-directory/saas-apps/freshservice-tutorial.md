@@ -1,279 +1,258 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Freshservice | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Freshservice.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Freshservice configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/16/2017
+ms.topic: tutorial
+ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: eb848ede258d8d25d4734664bd500235f34359e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 1254941e8b5673e772ae70fc538f62ed14a13ef1
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440657"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Zelfstudie: Azure Active Directory-integratie met Freshservice
 
-In deze zelfstudie leert u hoe u Freshservice integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Freshservice kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Freshservice met Azure AD biedt de volgende voordelen:
 
-Freshservice integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Freshservice.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Freshservice (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Freshservice heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Freshservice (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Freshservice, moet u de volgende items:
+Om Azure AD-integratie te configureren met Freshservice hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Freshservice eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Freshservice waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Freshservice uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-freshservice-from-the-gallery"></a>Freshservice uit de galerie toe te voegen
-Voor het configureren van de integratie van Freshservice in Azure AD, moet u Freshservice uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Freshservice biedt ondersteuning voor door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Freshservice uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-freshservice-from-the-gallery"></a>Freshservice toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Freshservice te configureren in Azure AD, moet u Freshservice vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit om Freshservice vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Toepassingen][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Freshservice**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshservice-tutorial/tutorial_freshservice_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **Freshservice**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshservice-tutorial/tutorial_freshservice_addfromgallery.png)
+4. Typ **Freshservice**, selecteer **Freshservice** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Freshservice op basis van een testgebruiker 'Julia steen' genoemd.
+     ![Freshservice toevoegen vanuit de galerie](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Freshservice is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Freshservice tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In Freshservice, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Freshservice op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Freshservice tot stand is gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Freshservice, moet u de volgende bouwstenen voltooien:
+Om eenmalige aanmelding van Azure AD met Freshservice te configureren en testen, moet u de volgende procedures voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Freshservice](#creating-a-freshservice-test-user)**  : als u wilt een equivalent van Britta Simon in Freshservice die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Freshservice configureren](#configure-freshservice-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor Freshservice maken](#create-freshservice-test-user)**: als u een tegenhanger van Britta Simon in Freshservice wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Freshservice.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Freshservice, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Freshservice:
 
-1. In de Azure-portal op de **Freshservice** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de integratiepagina van **Freshservice** en selecteer **Eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/freshservice-tutorial/tutorial_freshservice_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Freshservice domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/freshservice-tutorial/tutorial_freshservice_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<democompany>.freshservice.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<democompany>.freshservice.com`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Freshservice Client ondersteuningsteam](https://support.freshservice.com/) om deze waarden te verkrijgen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, kopiëren **VINGERAFDRUK** waarde van het certificaat.
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van Freshservice](common/sp-identifier.png)
 
-    ![Eenmalige aanmelding configureren](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<democompany>.freshservice.com`
 
-1. Klik op **opslaan** knop.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<democompany>.freshservice.com`
 
-    ![Eenmalige aanmelding configureren](./media/freshservice-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantondersteuningsteam van Freshservice](https://support.freshservice.com/) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **Freshservice configuratie** sectie, klikt u op **configureren Freshservice** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+5. Klik in de sectie **SAML-handtekeningcertificaat** op de knop **Bewerken** om het dialoogvenster **SAML-handtekeningcertificaat** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/freshservice-tutorial/tutorial_freshservice_configure.png) 
+    ![SAML-handtekeningcertificaat bewerken](common/edit-certificate.png)
 
-1. In een ander browservenster aanmelden bij uw bedrijf Freshservice site als beheerder.
+6. Kopieer in de sectie **SAML-handtekeningcertificaat** de waarde voor **VINGERAFDRUK** en sla deze op de computer op.
 
-1. Klik in het menu aan de bovenkant op **Admin**.
-   
-    ![Beheerder](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Waarde van vingerafdruk kopiëren](common/copy-thumbprint.png)
 
-1. In de **Customer Portal**, klikt u op **Security**.
-   
-    ![Beveiliging](./media/freshservice-tutorial/ic790815.png "beveiliging")
+7. Kopieer in de sectie **Freshservice instellen** de juiste URL('s) op basis van uw behoeften.
 
-1. In de **Security** sectie, voert u de volgende stappen uit:
-   
-    ![Eenmalige aanmelding](./media/freshservice-tutorial/ic790816.png "eenmalige aanmelding")
-   
-    a. Switch **eenmalige aanmelding**.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-freshservice-single-sign-on"></a>Eenmalige aanmelding configureren voor Freshservice
+
+1. Meld u in een ander browservenster als beheerder aan bij de bedrijfssite van Freshservice.
+
+2. Klik in het menu bovenaan op **Admin**.
+
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
+
+3. Klik in de **Customer Portal** op **Security**.
+
+    ![Beveiliging](./media/freshservice-tutorial/ic790815.png "Beveiliging")
+
+4. Voer in de sectie **Security** de volgende stappen uit:
+
+    ![Single Sign On](./media/freshservice-tutorial/ic790816.png "Single Sign On")
+
+    a. Zet **Single Sign On** op ON.
 
     b. Selecteer **SAML SSO**.
 
-    c. In de **aanmeldings-URL voor SAML** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
+    c. Plak in het tekstvak **SAML Login URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-    d. In de **afmeldings-URL van** tekstvak, plak de waarde van **afmelding URL**, die u hebt gekopieerd vanuit Azure portal.
+    d. Plak in het tekstvak **Logout URL** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-    e. In **Security certificaat vingerafdruk** tekstvak, plak de **VINGERAFDRUK** waarde van het certificaat dat u hebt gekopieerd vanuit Azure portal.
+    e. Plak in het tekstvak **Security Certificate Fingerprint** de waarde van **VINGERAFDRUK** die u hebt gekopieerd uit de Azure-portal.
 
     f. Klik op **Opslaan**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-![Azure AD-gebruiker maken][100]
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshservice-tutorial/create_aaduser_01.png) 
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/freshservice-tutorial/create_aaduser_02.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshservice-tutorial/create_aaduser_03.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshservice-tutorial/create_aaduser_04.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-freshservice-test-user"></a>Het maken van een testgebruiker Freshservice
 
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij FreshService, moeten ze worden ingericht voor FreshService. In het geval van FreshService is inrichten een handmatige taak.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Freshservice.
 
-1. Meld u aan bij uw **FreshService** bedrijf site als beheerder.
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Freshservice**.
 
-1. Klik in het menu aan de bovenkant op **Admin**.
-   
-    ![Beheerder](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. In de **Gebruikersbeheer** sectie, klikt u op **aanvragers**.
-   
-    ![Aanvragers](./media/freshservice-tutorial/ic790818.png "aanvragers")
+2. Selecteer **Freshservice** in de lijst met toepassingen.
 
-1. Klik op **nieuwe aanvrager**.
-   
-    ![Nieuwe aanvragers](./media/freshservice-tutorial/ic790819.png "nieuwe aanvragers")
+    ![De koppeling naar Freshservice in de lijst met toepassingen](common/all-applications.png)
 
-1. In de **nieuwe aanvrager** sectie, voert u de volgende stappen uit:
-   
-    ![Nieuwe aanvrager](./media/freshservice-tutorial/ic790820.png "nieuwe aanvrager")   
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    a. Voer de **voornaam** en **e** kenmerken van een geldige Azure Active Directory-account dat u inrichten in de bijbehorende tekstvakken wilt.
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-freshservice-test-user"></a>Een testgebruiker maken voor Freshservice
+
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij FreshService, moeten ze worden ingericht voor FreshService. In het geval van FreshService is dat een handmatige taak.
+
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+
+1. Meld u als beheerder aan bij de bedrijfssite van **Freshservice**.
+
+2. Klik in het menu bovenaan op **Admin**.
+
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
+
+3. Klik in de sectie **User Management** op **Requesters**.
+
+    ![Requesters](./media/freshservice-tutorial/ic790818.png "Requesters")
+
+4. Klik op **New Requester**.
+
+    ![New Requester](./media/freshservice-tutorial/ic790819.png "New Requester")
+
+5. Voer de volgende stappen uit in de sectie **New Requester**:
+
+    ![New Requester](./media/freshservice-tutorial/ic790820.png "New Requester")  
+
+    a. Typ in de tekstvakken **First Name** en **Email** kenmerken van een geldig Azure Active Directory-account dat u wilt inrichten.
 
     b. Klik op **Opslaan**.
-   
-    >[!NOTE]
-    >De houder van Azure Active Directory-account ontvangt een e-mail ook een koppeling voor het account te bevestigen voordat deze geactiveerd wordt
+
+    > [!NOTE]
+    > De houder van het Azure Active Directory-account ontvangt een e-mail met een koppeling om het account te bevestigen voordat het actief wordt.
     >  
 
->[!NOTE]
->U kunt alle andere FreshService gebruiker-account maken van hulpprogramma's of API's geleverd door FreshService aan inrichten AAD-gebruikersaccounts.
->  
+> [!NOTE]
+> U kunt andere hulpprogramma's of API's van FreshService gebruiken om AAD-gebruikersaccounts in te richten.
 
-![Gebruiker toewijzen][200] 
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-**Als u wilt Britta Simon aan Freshservice toewijst, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **Freshservice**.
-
-    ![Eenmalige aanmelding configureren](./media/freshservice-tutorial/tutorial_freshservice_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.
-
-Wanneer u op de tegel Freshservice in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Freshservice.
+Wanneer u in het toegangsvenster op de tegel Freshservice klikt, wordt u automatisch aangemeld bij de instantie van Freshservice waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/freshservice-tutorial/tutorial_general_01.png
-[2]: ./media/freshservice-tutorial/tutorial_general_02.png
-[3]: ./media/freshservice-tutorial/tutorial_general_03.png
-[4]: ./media/freshservice-tutorial/tutorial_general_04.png
-
-[100]: ./media/freshservice-tutorial/tutorial_general_100.png
-
-[200]: ./media/freshservice-tutorial/tutorial_general_200.png
-[201]: ./media/freshservice-tutorial/tutorial_general_201.png
-[202]: ./media/freshservice-tutorial/tutorial_general_202.png
-[203]: ./media/freshservice-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

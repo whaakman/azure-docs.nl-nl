@@ -1,7 +1,7 @@
 ---
 title: Zelfstudie - CI/CD van Jenkins voor Azure VM's met Azure DevOps Services | Microsoft Docs
 description: In deze zelfstudie leert u hoe u continue integratie (CI) en continue implementatie (CD) van een Node.js-app kunt instellen met Jenkins voor Azure VM's vanuit Release Management in Visual Studio Team Services of Microsoft Team Foundation Server
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388479"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074764"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Zelfstudie: Uw app implementeren voor Linux Virtual Machines in Azure met Jenkins en Azure DevOps Services
 
@@ -68,7 +68,7 @@ Maak een fork van deze app en noteer de locatie (URL) voor gebruik in latere sta
 
 ## <a name="configure-jenkins-plug-ins"></a>Jenkins-invoegtoepassingen configureren
 
-Eerst moet u twee Jenkins-invoegtoepassingen configureren: **NodeJS** en **Continue implementatie van VS Team Services**.
+Eerst moet u twee Jenkins-invoegtoepassingen configureren: **NodeJS** en **VS Team Services Continuous Deployment**.
 
 1. Open uw Jenkins-account en selecteer **Jenkins beheren**.
 2. Selecteer op de pagina **Jenkins beheren** de optie **Invoegtoepassingen beheren**.

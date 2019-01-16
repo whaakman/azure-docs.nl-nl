@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001784"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121546"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Quickstart: Ingebouwde portalprogramma's gebruiken voor importeren, indexeren en query's uitvoeren in Azure Search
 
@@ -48,7 +48,7 @@ Veel klanten beginnen met de gratis service. Deze versie is beperkt tot drie ind
 
 Op secties in het servicedashboard wordt weergegeven hoeveel indexen, indexeerfuncties en gegevensbronnen u al hebt. 
 
-![Lijsten met indexen, indexeerfuncties en gegevensbronnen][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Lijsten met indexen, indexeerfuncties en gegevensbronnen](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Een index maken en gegevens laden
 
@@ -124,9 +124,13 @@ Het kan een paar minuten duren voordat in de portal de pagina is bijgewerkt, maa
 
 ## <a name="view-the-index"></a>De index bekijken
 
-In de lijst **Indexen** zijn de bestaande indexen vermeld, waaronder de index *realestate-us-sample* die u zojuist met de wizard hebt gemaakt.
+De belangrijkste servicepagina bevat koppelingen naar de resources die in uw Azure Search-service zijn gemaakt.  Als u de index wilt bekijken die u zojuist hebt gemaakt, klikt u op **Indexen** in de lijst met koppelingen. 
 
-Vanuit deze lijst kunt u het indexschema weergeven en desgewenst nieuwe velden toevoegen, maar u kunt bestaande velden niet wijzigen. Bestaande velden hebben een fysieke weergave in Azure Search en kunnen daarom niet worden gewijzigd, zelfs niet in code. Als u een bestaand veld fundamenteel wilt wijzigen, maakt u een nieuwe index en verwijdert u het oorspronkelijke veld.
+   ![Lijst met indexen op het servicedashboard](media/search-get-started-portal/indexes-list.png)
+
+In deze lijst kunt u op de index *realestate-us-sample* klikken die u zojuist hebt gemaakt, het indexschema bekijken. en eventueel nieuwe velden toevoegen. 
+
+Op het tabblad **Velden** wordt het indexschema getoond. Scroll naar de onderkant van de lijst om een nieuw veld in te voeren. In de meeste gevallen kunt u geen bestaande velden wijzigen. Bestaande velden hebben een fysieke weergave in Azure Search en kunnen daarom niet worden gewijzigd, zelfs niet in code. Als u een bestaand veld fundamenteel wilt wijzigen, maakt u een nieuwe index en verwijdert u het oorspronkelijke veld.
 
    ![voorbeeld van indexdefinitie](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ Neem even de tijd voor het bekijken van de indexdefinitieopties om duidelijk te 
 ## <a name="query-index"></a> Query die Search Explorer gebruikt
 
 U zou nu een zoekindex moeten hebben die klaar is om query’s uit te voeren met de ingebouwde querypagina [**Search Explorer**](search-explorer.md). Deze pagina biedt een zoekvak waarmee u willekeurige queryreeksen kunt testen.
+
+**Search Explorer** kan alleen omgaan met [REST API-aanvragen](https://docs.microsoft.com/rest/api/searchservice/search-documents), maar er wordt syntaxis geaccepteerd voor [eenvoudige querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en [volledige Lucene-queryparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus alle zoekparameters die beschikbaar zijn in bewerkingen voor [Search-document-REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > De volgende stappen worden na 6 min 8 sec gedemonstreerd in de [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -150,11 +156,9 @@ U zou nu een zoekindex moeten hebben die klaar is om query’s uit te voeren met
 
    ![Index- en API-opdrachten](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. Voer in de zoekbalk de onderstaande querytekenreeksen in en klik op **Zoeken**.
+3. Plak in de zoekbalk de onderstaande querytekenreeksen en klik op **Zoeken**.
 
-    > [!NOTE]
-    > **Search Explorer** is alleen uitgerust om [REST API-aanvragen](https://docs.microsoft.com/rest/api/searchservice/search-documents) te verwerken. Er wordt syntaxis geaccepteerd voor [eenvoudige querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en [volledige Lucene-queryparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus alle zoekparameters die beschikbaar zijn in bewerkingen voor [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-    >
+   ![Querytekenreeks en knop Zoeken](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>Voorbeelden van query's
 

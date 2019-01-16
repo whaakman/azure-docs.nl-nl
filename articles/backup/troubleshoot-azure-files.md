@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787440"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064114"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Problemen bij het maken van back-ups van Azure-bestanden oplossen
 U kunt met behulp van de informatie in de volgende tabellen problemen en fouten oplossen die optreden tijdens het maken van back-ups van Azure-bestandsshares.
@@ -36,7 +36,7 @@ Back-up voor Azure-bestandsshares in opslagaccounts met replicatie via [zone-red
 ## <a name="configuring-backup"></a>Back-up configureren
 De volgende tabel is bedoeld voor het configureren van de back-up:
 
-| Back-up configureren | Tips voor (tijdelijke) oplossing |
+| Foutberichten | Tips voor (tijdelijke) oplossing |
 | ------------------ | ----------------------------- |
 | Kan mijn opslagaccount niet vinden voor het configureren van back-up voor Azure-bestandsshares | <ul><li>Wacht totdat de detectie is voltooid. <li>Controleer of een bestandsshare van het opslagaccount al is beveiligd met een andere Recovery Services-kluis. **Opmerking**: Alle bestandsshares in een opslagaccount kunnen in maar één Recovery Services-kluis worden beveiligd. <li>Controleer of de bestandsshare niet aanwezig is in een van de niet-ondersteunde opslagaccounts.|
 | Fout in de portal geeft aan dat de detectie van opslagaccounts is mislukt. | Als uw abonnement een partnerabonnement (CSP ingeschakeld) is, kunt u de fout negeren. Als CSP niet is ingeschakeld voor uw abonnement en uw opslagaccounts niet kunnen worden gedetecteerd, neemt u contact op met de ondersteuning.|
@@ -64,6 +64,14 @@ De volgende tabel is bedoeld voor het configureren van de back-up:
 | Herstelbewerking mislukt omdat de doelbestandsshare vol is. | Vergroot het quotum voor grootte van de doelbestandsshare om ruimte te bieden voor de herstelgegevens en probeer het opnieuw. |
 | Herstel is mislukt omdat er een fout is opgetreden tijdens het uitvoeren van pre-herstelbewerkingen op aan de doelbestandsshare gekoppelde bestandssynchronisatieserviceresources. | Probeer het later opnieuw. Neem contact op met Microsoft ondersteuning als het probleem zich blijft voordoen. |
 | Een of meer bestanden kunnen niet worden hersteld. Controleer de lijst met mislukte bestanden in het pad hierboven voor meer informatie. | <ul> <li> Oorzaken voor het mislukken van de hersteltaak worden in het bestand vermeld (pad staat in de taakgegevens). Los de oorzaken op en voer de herstelbewerking alleen voor de mislukte bestanden opnieuw uit. <li> Veelvoorkomende oorzaken voor fouten bij bestand terugzetten: <br/> -Controleer of de mislukte bestanden niet in gebruik zijn op dit moment. <br/> -Er bestaat een map met dezelfde naam als het mislukte bestand in de bovenliggende map. |
+
+
+## <a name="modify-policy"></a>Beleid wijzigen
+| Foutberichten | Tips voor (tijdelijke) oplossing |
+| ------------------ | ----------------------------- |
+| Er wordt een andere configuratiebewerking voor beveiliging uitgevoerd voor dit item. | Wacht totdat de vorige bewerking voor het aanpassen van het beleid is voltooid en probeer het na enige tijd opnieuw.|
+| Er wordt een andere bewerking uitgevoerd op het geselecteerde item. | Wacht totdat de andere bewerking is voltooid en probeer het na enige tijd opnieuw |
+
 
 ## <a name="see-also"></a>Zie ook
 Voor meer informatie over het maken van back-ups van Azure-bestandsshares raadpleegt u de volgende artikelen:

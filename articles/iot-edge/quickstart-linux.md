@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: af95c2a5182a8adca9aeb40f047c7767413b9b1c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dcfbc014eaa191c7992a2da195f9bcd10b44194f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973666"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191476"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstartgids: Uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -238,7 +238,9 @@ Beheer uw Azure IoT Edge-apparaat vanuit de cloud om een module te implementeren
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
-In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de IoT Edge-runtime erop geïnstalleerd. Vervolgens hebt u Azure Portal gebruikt om een IoT Edge-module te pushen om te worden uitgevoerd op het apparaat zonder dat er wijzigingen in het apparaat zelf aangebracht hoefden te worden. In dit geval worden met de module die u hebt gepusht, omgevingsgegevens gemaakt die u voor de zelfstudies kunt gebruiken.
+In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de IoT Edge-runtime erop geïnstalleerd. Vervolgens hebt u de Azure-portal gebruikt om een IoT Edge-module te implementeren om te worden uitgevoerd op het apparaat zonder dat er wijzigingen aan het apparaat zelf hoefden te worden aangebracht. 
+
+In dit geval worden met de module die u hebt gepusht voorbeeldgegevens gemaakt die u voor testen kunt gebruiken. De gesimuleerde temperatuursensormodule genereert omgevingsgegevens die u later kunt gebruiken voor testen. De gesimuleerde sensor bewaakt zowel een machine als de omgeving rond die machine. Deze sensor kan zich bijvoorbeeld in een serverruimte, in een fabriek of op een windturbine bevinden. Het bericht bevat informatie over de omgevingstemperatuur, de luchtvochtigheid, de machinetemperatuur en de druk, evenals een tijdstempel. In de IoT Edge-zelfstudies worden gegevens van deze module gebruikt als testgegevens voor analyses.
 
 Open de opdrachtprompt op uw IoT Edge-apparaat opnieuw. Bevestig dat de module die vanuit de cloud is geïmplementeerd, op uw IoT Edge -apparaat wordt uitgevoerd:
 
@@ -258,8 +260,6 @@ De berichten bekijken die vanuit de temperatuursensormodule worden verzonden:
    >IoT Edge-opdrachten zijn hoofdlettergevoelig wanneer u naar modulenamen verwijst.
 
    ![De gegevens van uw module bekijken](./media/quickstart-linux/iotedge-logs.png)
-
-De temperatuursensormodule wacht mogelijk op verbinding met Edge Hub als **Using transport Mqtt_Tcp_Only** (Transport Mqtt_Tcp_Only gebruiken) de laatste regel is die u in het logboek ziet. Beëindig de module en laat deze opnieuw starten door de Edge-agent. U kunt de module beëindigen met de opdracht `sudo docker stop SimulatedTemperatureSensor`.
 
 U kunt de berichten ook zien binnenkomen bij uw IoT Hub door de [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie) te gebruiken. 
 
@@ -285,20 +285,6 @@ Verwijder de IoT Edge-runtime.
 
    ```bash
    sudo apt-get remove --purge iotedge
-   ```
-
-Wanneer de IoT Edge-runtime is verwijderd, worden de containers die deze heeft gemaakt gestopt. Ze worden echter niet van uw apparaat verwijderd. Geef alle containers weer.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt. 
-
-   ```bash
-   sudo docker rm -f SimulatedTemperatureSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
    ```
 
 Verwijder de container-runtime.

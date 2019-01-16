@@ -1,23 +1,21 @@
 ---
-title: 'Azure Cosmos DB: zelfstudie Aan de slag met de SQL-API'
+title: 'Azure Cosmos DB: Zelfstudie Aan de slag met SQL API'
 description: Een zelfstudie waarmee u een online database en een C#-consoletoepassing maakt met de SQL-API.
-keywords: nosql zelfstudie, onlinedatabase, c#-consoletoepassing
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867526"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043444"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: zelfstudie Aan de slag met de SQL-API
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Zelfstudie Aan de slag met SQL API
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -55,12 +53,12 @@ Tijd om aan de slag te gaan.
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Stap 1: een Azure Cosmos DB-account maken
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Stap 1: Maak een Azure Cosmos DB-account
 Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt dat u wilt gebruiken, gaat u verder naar de stap [Uw Visual Studio-oplossing instellen](#SetupVS). Als u Azure Cosmos DB Emulator gebruikt, volgt u de stappen in [Azure Cosmos DB Emulator](local-emulator.md) om de emulator in te stellen en meteen naar [Uw Visual Studio-oplossing instellen](#SetupVS) te gaan.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Stap 2: uw Visual Studio-oplossing instellen
+## <a id="SetupVS"></a>Stap 2: Uw Visual Studio-oplossing instellen
 1. Open **Visual Studio 2017** op uw computer.
 2. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 3. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Sjablonen** / **Visual C#** / **Consoletoepassing**, geef een naam op voor uw op en klik vervolgens op **OK**.
@@ -77,7 +75,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 
 Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrijven van code. Op [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) vindt u een voltooid codeproject voor deze zelfstudie.
 
-## <a id="Connect"></a>Stap 3: verbinding maken met een Azure Cosmos DB-account
+## <a id="Connect"></a>Stap 3: Verbinding maken met een Azure Cosmos DB-account
 Voeg eerst deze verwijzingen toe aan het begin van de C#-toepassing in het bestand Program.cs:
 
     using System;
@@ -156,7 +154,7 @@ Druk op **F5** om uw toepassing uit te voeren. In het consolevenster wordt nu he
 
 Gefeliciteerd! U hebt verbinding gemaakt met een Azure Cosmos DB-account. U gaat nu aan de slag met Azure Cosmos DB-resources.  
 
-## <a name="step-4-create-a-database"></a>Stap 4: een database maken
+## <a name="step-4-create-a-database"></a>Stap 4: Een database maken
 Voordat u de code voor het maken van een database toevoegt, moet u een Help-methode toevoegen om naar de console te kunnen schrijven.
 
 Kopieer de methode **WriteToConsoleAndPromptToContinue** en plak deze na de methode **GetStartedDemo**.
@@ -184,7 +182,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.  
 
-## <a id="CreateColl"></a>Stap 5: een verzameling maken
+## <a id="CreateColl"></a>Stap 5: Een verzameling maken
 > [!WARNING]
 > Met **CreateDocumentCollectionIfNotExistsAsync** maakt u een nieuwe verzameling met gereserveerde doorvoer, wat gevolgen heeft voor de kosten. Zie onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) voor meer informatie.
 > 
@@ -367,7 +365,7 @@ Gefeliciteerd! U hebt twee Azure Cosmos DB-documenten gemaakt.
 
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Stap 7: query's uitvoeren op Azure Cosmos DB-resources
+## <a id="Query"></a>Stap 7: Query's uitvoeren op Azure Cosmos DB-resources
 Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](how-to-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode bevat verschillende query's, waarvoor zowel gebruik wordt gemaakt van de Azure Cosmos DB SQL-syntaxis als LINQ, die u kunt uitvoeren voor de documenten die zijn ingevoegd tijdens de vorige stap.
 
 Kopieer de methode **ExecuteSimpleQuery** en plak deze na de methode **CreateFamilyDocumentIfNotExists**.
@@ -478,7 +476,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een Azure Cosmos DB-document verwijderd.
 
-## <a id="DeleteDatabase"></a>Stap 10: de database verwijderen
+## <a id="DeleteDatabase"></a>Stap 10: De database verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten, enz.) verwijderd.
 
 Kopieer en plak de volgende code in de methode **GetStartedDemo** na het verwijderen van het document om de volledige database en alle onderliggende resources te verwijderen.
@@ -495,7 +493,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een Azure Cosmos DB-database verwijderd.
 
-## <a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
+## <a id="Run"></a>Stap 11: Uw C#-consoletoepassing volledig uitvoeren
 Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bouwen.
 
 In een consolevenster zou de uitvoer moeten worden weergegeven van de toepassing die we voor deze zelfstudie hebben gemaakt. De uitvoer bevat de resultaten van de query's die zijn toegevoegd en moet overeenkomen met de onderstaande voorbeeldtekst.
@@ -538,7 +536,7 @@ Dat is alles, bouw nu de oplossing. Succes!
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wilt u een complexere ASP.NET MVC-zelfstudie? Zie [Zelfstudie ASP.NET MVC: webtoepassingen ontwikkelen met Azure Cosmos DB](sql-api-dotnet-application.md).
+* Wilt u een complexere ASP.NET MVC-zelfstudie? Zie [ASP.NET MVC-zelfstudie: Webtoepassingsontwikkeling met Azure Cosmos DB](sql-api-dotnet-application.md).
 * Wilt u de schaal en prestaties testen met Azure Cosmos DB? Zie [Performance and Scale Testing with Azure Cosmos DB (Prestaties en schaal testen met Azure Cosmos DB)](performance-testing.md)
 * Meer informatie over het [controleren van aanvragen, gebruik en opslag voor Azure Cosmos DB](monitor-accounts.md).
 * Voer query's uit op onze voorbeeldgegevensset in de [Queryspeelplaats](https://www.documentdb.com/sql/demo).

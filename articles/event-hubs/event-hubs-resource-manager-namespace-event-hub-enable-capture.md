@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 36764b661d88f034b306251f76d47d72298308dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1ec0945996f0232553c9c1e0469289235f506611
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139993"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054823"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Een naamruimte maken met Event Hub en Capture inschakelen met behulp van een sjabloon
 
@@ -27,7 +27,7 @@ In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon gebrui
 
 Ook wordt uitgelegd hoe u kunt opgeven dat gebeurtenissen worden vastgelegd in Azure Storage-blobs of in een Azure Data Lake Store, op basis van de bestemming die u kiest.
 
-Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
+Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen. Zie [Microsoft.EventHub resource types](/azure/templates/microsoft.eventhub/allversions) (Microsoft.EventHub-resourcetypen) voor de JSON-syntaxis en eigenschappen die u kunt gebruiken in een sjabloon.
 
 Zie [Naming Conventions][Azure Resources naming conventions] (Naamgevingsconventies) voor meer informatie over de patronen en procedures voor naamgevingsconventies van Azure Resources.
 

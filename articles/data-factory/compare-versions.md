@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638237"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014893"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory vergelijken met Data Factory-versie 1
 In dit artikel wordt Data Factory vergeleken met Data Factory-versie 1. Zie [Inleiding tot Data Factory](introduction.md) voor een inleiding tot Data Factory. Zie [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md) voor een inleiding tot Data Factory-versie 1. 
@@ -68,7 +67,7 @@ Pijplijnen kunnen op aanvraag (op basis van een gebeurtenis, ofwel blob-bericht)
 De [activiteit Execute Pipeline](control-flow-execute-pipeline-activity.md) stelt een Data Factory-pijplijn in staat om een andere pijplijn aan te roepen.
 
 ### <a name="delta-flows"></a>Deltastromen
-Een belangrijke use case in ETL-patronen zijn 'deltaladingen', waarin alleen gegevens worden geladen die zijn gewijzigd sinds de laatste iteratie van een pijplijn. Nieuwe mogelijkheden in de huidige versie, zoals de [activiteit lookup](control-flow-lookup-activity.md), flexibele planning en controlestroom maken deze use case op een natuurlijke manier mogelijk. Zie [Zelfstudie: stapsgewijs kopiëren](tutorial-incremental-copy-powershell.md) voor een zelfstudie met stapsgewijze instructies.
+Een belangrijke use case in ETL-patronen zijn 'deltaladingen', waarin alleen gegevens worden geladen die zijn gewijzigd sinds de laatste iteratie van een pijplijn. Nieuwe mogelijkheden in de huidige versie, zoals de [activiteit lookup](control-flow-lookup-activity.md), flexibele planning en controlestroom maken deze use case op een natuurlijke manier mogelijk. Zie [Zelfstudie: stapsgewijs kopiëren](tutorial-incremental-copy-powershell.md) voor een zelfstudie met stapsgewijze instructies. 
 
 ### <a name="other-control-flow-activities"></a>Andere controlestroomactiviteiten
 Hier volgen nog enkele controlestroomactiviteiten die worden ondersteund in de huidige versie van Data Factory. 
@@ -147,4 +146,4 @@ In de huidige versie kunt u ook gegevensfactory’s controleren met behulp van [
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In de volgende QuickStarts vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md) en [REST-API](quickstart-create-data-factory-rest-api.md). 
+In de volgende quickstarts vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 

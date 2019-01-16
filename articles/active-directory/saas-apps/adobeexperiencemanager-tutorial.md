@@ -1,303 +1,274 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Adobe Experience Manager | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Adobe Experience Manager.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Adobe Experience Manager configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 88a95bb5-c17c-474f-bb92-1f80f5344b5a
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2017
+ms.topic: tutorial
+ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 56b392e57809cea0ae93800df39bb9dacd164ce2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: MT
+ms.openlocfilehash: 536db4e4927c03cafff35a3e811727a566c79dbd
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054179"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Experience Manager
 
 In deze zelfstudie leert u hoe u Adobe Experience Manager integreert met Azure Active Directory (Azure AD).
+De integratie van Adobe Experience Manager met Azure AD heeft de volgende voordelen:
 
-Adobe Experience Manager integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Adobe Experience Manager.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Adobe Experience Manager (eenmalige aanmelding of SSO).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD wie toegang tot Adobe Experience Manager heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld voor Adobe Experience Manager met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie, de Azure-portal beheren.
-
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Adobe Experience Manager, moet u de volgende items:
+Voor het configureren van de Azure AD-integratie met Adobe Experience Manager hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Adobe Experience Manager eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> U kunt beter geen een productie-omgeving voor het testen van de stappen in deze zelfstudie.
-
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
-
-- Gebruik uw productie-omgeving niet als dat nodig is.
-- Als u een proefversie Azure AD-omgeving, geen [een gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Adobe Experience Manager waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario dat wordt beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Adobe Experience Manager uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="add-adobe-experience-manager-from-the-gallery"></a>Adobe Experience Manager uit de galerie toevoegen
-Voor het configureren van de integratie van Adobe Experience Manager in Azure AD, moet u Adobe Experience Manager uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Adobe Experience Manager ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Adobe Experience Manager uit de galerie, moet u de volgende stappen uitvoeren:**
+* Adobe Experience Manager biedt ondersteuning voor het **just in time** inrichten van gebruikers
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram. 
+## <a name="adding-adobe-experience-manager-from-the-gallery"></a>Adobe Experience Manager toevoegen vanuit de galerie
 
-    ![De Azure Active Directory-knop][1]
+Om de integratie van Adobe Experience Manager te configureren in Azure AD, moet u Adobe Experience Manager vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-2. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+**Ga als volgt te werk om Adobe Experience Manager vanuit de galerie toe te voegen:**
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-4. Typ in het zoekvak **Adobe Experience Manager**. Selecteer **Adobe Experience Manager** vanuit het deelvenster met resultaten en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Adobe Experience Manager in de lijst met resultaten](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_addfromgallery.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Adobe Experience Manager op basis van een testgebruiker met de naam "Britta Simon."
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD te weten wie de gebruiker equivalent in Adobe Experience Manager is een gebruiker in Azure AD. Met andere woorden, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker maken in Adobe Experience Manager.
+4. Typ **Adobe Experience Manager** in het zoekvak, selecteer **Adobe Experience Manager** in het deelvenster met resultaten en klik vervolgens op **Toevoegen** om de toepassing toe te voegen.
 
-De waarde in Adobe Experience Manager geven **gebruikersnaam** dezelfde waarde voor de **gebruikersnaam** in Azure AD. Nu hebt u de koppeling tussen de twee gebruikers gemaakt. 
+     ![Adobe Experience Manager toevoegen vanuit de galerie](common/search-new-app.png)
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Adobe Experience Manager, voert u de volgende bouwstenen:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. [Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-2. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. [Maak een testgebruiker Adobe Experience Manager](#create-an-adobe-experience-manager-test-user) hebben een equivalent van Britta Simon in Adobe Experience Manager die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
+In deze sectie gaat u Azure AD-eenmalige aanmelding met [toepassingsnaam] configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerd gebruiker in [toepassingsnaam] tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Als u Azure AD-eenmalige aanmelding met [toepassingsnaam] wilt configureren en testen, moet u de volgende stappen uitvoeren:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Adobe Experience Manager.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Adobe Experience Manager configureren](#configure-adobe-experience-manager-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[Een testgebruiker voor Adobe Experience Manager definiëren](#create-adobe-experience-manager-test-user)**: een tegenhanger voor Britta Simon definiëren in Adobe Experience Manager die is gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Adobe Experience Manager, moet u de volgende stappen uitvoeren:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **Adobe Experience Manager** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], moet u de volgende stappen uitvoeren:
 
-2. Voor het inschakelen van eenmalige aanmelding in de **eenmalige aanmelding** in het dialoogvenster de **modus** vervolgkeuzelijst in het menu **SAML gebaseerde aanmelding**.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_samlbase.png)
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de overzichtspagina van de integratie van **Adobe Experience Manager** en selecteer **Eenmalige aanmelding**.
 
-3. In de **Adobe Experience Manager-domein en URL's** sectie, voert de volgende stappen uit als u wilt configureren in de app **IdP** modus:
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![Adobe Experience Manager-domein en URL's, eenmalige aanmelding informatie](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_url1.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    a. In de **id** typt u een unieke waarde die u definieert op uw AEM-server. 
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    b. In de **antwoord-URL** vak, typ een URL met het volgende patroon: `https://<AEM Server Url>/saml_login`.
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id en antwoord-URL. Als u deze waarden, neem contact op met de [Adobe Experience Manager ondersteuningsteam](https://helpx.adobe.com/support/experience-manager.html).
- 
-4. Controleer **geavanceerde URL-instellingen weergeven**. Vervolgens voert de volgende stappen uit als u wilt configureren van de toepassing in **SP** modus gestart:
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![Adobe Experience Manager-domein en URL's, eenmalige aanmelding informatie](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_spconfigure.png)
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    In de **aanmelding URL** vak, typ de URL van uw Adobe Experience Manager-server. 
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van Adobe Experience Manager](common/idp-intiated.png)
 
-5. In de **SAML-handtekeningcertificaat** sectie, selecteer **certificaat (Base64)**. Sla het certificaatbestand op uw computer.
+    a. In het tekstvak **Id** typt u een unieke waarde die u daarna ook definieert op uw AEM-server.
 
-    ![De downloadkoppeling certificaat](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<AEM Server Url>/saml_login`
 
-6. Als het venster van de aanmeldings-configuratie in de sectie configuratie van Adobe Experience Manager, schakelt u **configureren Adobe Experience Manager**. Kopiëren de **SAML-aanmelding de URL van de Service**, **SAML entiteit-ID**, en **afmelding ID** uit de sectie ter referentie.
+    > [!NOTE]
+    > De waarde van de antwoord-URL is niet de echte waarde. Werk de waarde voor de antwoord-URL bij met de werkelijke antwoord-URL. Neem contact op met het [klantondersteuningsteam van Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html) om deze waarde op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Sectie configuratiekoppeling](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-7. Selecteer **Opslaan**.
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van Adobe Experience Manager](common/metadata-upload-additional-signon.png)
 
-    ![Configureren van eenmalige aanmelding knop Opslaan](./media/adobeexperiencemanager-tutorial/tutorial_general_400.png)
+    Typ in het tekstvak **Aanmeldings-URL** de URL van uw Adobe Experience Manager-server.
 
-8. Open in een ander browservenster de **Adobe Experience Manager** -beheerportal.
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-9. Selecteer **instellingen** > **Security** > **gebruikers**.
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-    ![Configureer de eenmalige aanmelding knop Opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+7. Kopieer in het gedeelte **Adobe Experience Manager instellen** de juiste URL('s) op basis van wat u nodig hebt.
 
-10. Selecteer **beheerder** of een andere relevante gebruiker.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    a. Aanmeldings-URL
 
-11. Selecteer **Accountinstellingen** > **TrustStore beheren**.
+    b. Azure AD-id
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    c. Afmeldings-URL
 
-12. Onder **certificaat in CER-bestand toevoegen**, klikt u op **certificaatbestand selecteren**. Blader naar en selecteer het certificaatbestand dat u hebt al gedownload vanuit Azure portal.
+### <a name="configure-adobe-experience-manager-single-sign-on"></a>Eenmalige aanmelding configureren voor Adobe Experience Manager
 
-    ![Configureren van eenmalige aanmelding knop Opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+1. Open in een ander browservenster de beheerportal van **Adobe Experience Manager**.
 
-13. Het certificaat wordt toegevoegd aan de TrustStore. Houd er rekening mee de alias van het certificaat.
+2. Select **Settings** > **Security** > **Users**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
-14. Op de **gebruikers** weergeeft, schakelt **verificatieservice**.
+3. Selecteer **Administrator** of een andere relevante gebruiker.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
-15. Selecteer **Accountinstellingen** > **maken/beheren KeyStore**. KeyStore maken door het opgeven van een wachtwoord.
+4. Selecteer **Account settings** > **Manage TrustStore**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
-16. Ga terug naar het scherm van de beheerder. Selecteer vervolgens **instellingen** > **Operations** > **webconsole**.
+5. Klik onder **Add Certificate from CER file** op **Select Certificate File**. Blader naar het certificaatbestand dat u hebt al gedownload uit de Azure-portal en selecteer het bestand.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+
+6. Het certificaat wordt toegevoegd aan de TrustStore. Noteer de alias van het certificaat.
+
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+
+7. Selecteer **authentication-service** op de pagina **Users**.
+
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+
+8. Selecteer **Account settings** > **Create/Manage KeyStore**. Maak een KeyStore door een wachtwoord op te geven.
+
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+
+9. Ga terug naar het beginscherm. Selecteer vervolgens **Settings** > **Operations** > **Web Console**.
+
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     Hiermee opent u de configuratiepagina.
 
-    ![Configureer de eenmalige aanmelding knop Opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
 
-17. Zoek **Adobe Granieten SAML 2.0-verificatie Handler**. Selecteer vervolgens de **toevoegen** pictogram.
+10. Zoek **Adobe Granite SAML 2.0 Authentication Handler**. Selecteer vervolgens het pictogram **Add**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
-19. De volgende acties uitvoeren op deze pagina.
+11. Voer de volgende handelingen uit op deze pagina.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. In de **pad** Voer **/**.
+    a. Typ **/** in het vak **Path**.
 
-    b. In de **IDP URL** voert u de **SAML-aanmelding de URL van de Service** waarde die u hebt gekopieerd uit de Azure-portal.
+    b. Typ in het vak **IDP URL** de waarde voor **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-    c. In de **IDP certificaat Alias** voert u de **certificaat Alias** waarde die u hebt toegevoegd in TrustStore.
+    c. Typ in het vak **IDP Certificate Alias** de waarde voor **Alias** die u hebt toegevoegd in TrustStore.
 
-    d. In de **beveiligings-ID opgegeven entiteit** voert u de unieke **SAML entiteit-ID** waarde die u hebt geconfigureerd in Azure portal.
+    d. Typ in het vak **Service Provider Entity ID** de unieke waarde voor **Id** die u hebt geconfigureerd in de Azure-portal.
 
-    e. In de **URL van de Bevestigingsconsumerservice** voert u de **antwoord-URL** waarde die u hebt geconfigureerd in Azure portal.
+    e. Typ in het vak **Assertion Consumer Service URL** de waarde voor **Antwoord-URL** die u hebt geconfigureerd in de Azure-portal.
 
-    f. In de **wachtwoord van de sleutel Store** voert u de **wachtwoord** die u in KeyStore ingesteld.
+    f. Typ in het vak **Password of Key Store** de waarde voor **Password** die u hebt ingesteld in de KeyStore.
 
-    g. In de **kenmerk-ID van gebruiker** voert u de **naam-ID** of een andere gebruikers-ID die relevant is in uw situatie.
+    g. Typ in het vak **UserID Attribute** de waarde voor **NameId** of een andere gebruikers-id die relevant is in uw situatie.
 
-    h. Selecteer **Autocreate CRX gebruikers**.
+    h. Selecteer **Autocreate CRX Users**.
 
-    i. In de **afmeldings-URL van** voert u de unieke **afmelding URL** waarde die u hebt verkregen via de Azure-portal.
+    i. Typ in het vak **Logout URL** de unieke waarde voor **Afmeldings-URL** die u hebt verkregen via de Azure-portal.
 
     j. Selecteer **Opslaan**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app. Nadat u deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad. Vervolgens toegang tot de ingesloten documentatie via de **configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie op [documentatie over Azure AD embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/adobeexperiencemanager-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/adobeexperiencemanager-tutorial/create_aaduser_02.png)
-
-3. Om te openen de **gebruiker** in het dialoogvenster, aan de bovenkant van de **alle gebruikers** in het dialoogvenster, selecteer **toevoegen**.
-
-    ![De knop toevoegen](./media/adobeexperiencemanager-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/adobeexperiencemanager-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje. Noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Selecteer **Maken**.
+    a. Voer in het veld **Naam****Britta Simon** in.
   
-### <a name="create-an-adobe-experience-manager-test-user"></a>Maak een testgebruiker Adobe Experience Manager
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-In deze sectie maakt u een gebruiker met de naam Britta Simon in Adobe Experience Manager. Als u hebt geselecteerd de **Autocreate CRX gebruikers** optie gebruikers worden automatisch gemaakt na een geslaagde authenticatie. 
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-Als u wilt dat gebruikers handmatig maken, samen met de [Adobe Experience Manager ondersteuningsteam](https://helpx.adobe.com/support/experience-manager.html) om toe te voegen de gebruikers in het platform, Adobe Experience Manager. 
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken ze door toegang te verlenen aan Adobe Experience Manager.
+In dit gedeelte geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van Azure te gebruiken door haar toegang te geven tot Adobe Experience Manager.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Adobe Experience Manager**.
 
-**Als u wilt toewijzen Britta Simon naar Adobe Experience Manager, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de toepassingen in de Azure-portal. Ga vervolgens naar de directoryweergave, selecteer **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+2. Selecteer **Adobe Experience Manager** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar Adobe Experience Manager in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Adobe Experience Manager**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Adobe Experience Manager in de lijst met toepassingen](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Selecteer de **toevoegen** knop. Klik in de **toevoegen toewijzing** in het dialoogvenster, selecteer **gebruikers en groepen**.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de gebruikerslijst.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. In de **gebruikers en groepen** in het dialoogvenster, klikt u op de **Selecteer** knop.
+### <a name="create-adobe-experience-manager-test-user"></a>Adobe Experience Manager-testgebruiker maken
 
-7. In de **toevoegen toewijzing** in het dialoogvenster, selecteer de **toewijzen** knop.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie maakt u een gebruiker met de naam Britta Simon in Adobe Experience Manager. Als u de optie **Autocreate CRX Users** hebt geselecteerd, worden gebruikers automatisch gemaakt na een geslaagde verificatie.
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
+Als u de gebruikers handmatig wilt maken, neemt u contact op met het [ondersteuningsteam van Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html) om de gebruikers toe te voegen aan het Adobe Experience Manager-platform.
 
-Wanneer u de tegel Adobe Experience Manager in het toegangsvenster selecteert, moet u u automatisch aangemeld bij uw Adobe Experience Manager-toepassing.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel Adobe Experience Manager klikt, wordt u als het goed is automatisch aangemeld bij het exemplaar van Adobe Experience Manager waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/adobeexperiencemanager-tutorial/tutorial_general_01.png
-[2]: ./media/adobeexperiencemanager-tutorial/tutorial_general_02.png
-[3]: ./media/adobeexperiencemanager-tutorial/tutorial_general_03.png
-[4]: ./media/adobeexperiencemanager-tutorial/tutorial_general_04.png
-
-[100]: ./media/adobeexperiencemanager-tutorial/tutorial_general_100.png
-
-[200]: ./media/adobeexperiencemanager-tutorial/tutorial_general_200.png
-[201]: ./media/adobeexperiencemanager-tutorial/tutorial_general_201.png
-[202]: ./media/adobeexperiencemanager-tutorial/tutorial_general_202.png
-[203]: ./media/adobeexperiencemanager-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

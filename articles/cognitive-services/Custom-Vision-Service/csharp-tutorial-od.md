@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: een objectdetectieproject maken met de Custom Vision-SDK voor C#'
+title: 'Snelstart: een objectdetectieproject maken met de Custom Vision-SDK voor C#'
 titlesuffix: Azure Cognitive Services
 description: Maak een project, voeg labels toe, upload afbeeldingen, train uw project en detecteer objecten met de .NET SDK met C#.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 1ffe75b088b3e6db5717746ab2fc00ef4b350e8b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14123c316b2881c2ded36a5e30ce62a961183991
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971866"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079150"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Quickstart: een objectdetectieproject maken met de .NET SDK van Custom Vision
 
@@ -42,6 +42,10 @@ Met dit Visual Studio-project wordt een nieuw Custom Vision-project gemaakt met 
 Open het bestand _Program.cs_ en inspecteer de code. Voeg uw abonnementssleutels in de juiste definities in in de methode **Main**.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
+
+De parameter Endpoint moet verwijzen naar de regio waarin de Azure-resourcegroep met de Custom Vision-resources is gemaakt. In dit voorbeeld wordt uitgegaan van de regio US - zuid-centraal en gebruiken we:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
 ### <a name="create-a-new-custom-vision-service-project"></a>Een nieuw Custom Vision Service-project maken
 

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602389"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075495"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Beschikbaarheid in regio’s voor Azure Container Instances
 
@@ -24,7 +24,7 @@ Alle Azure-services bevatten bepaalde standaardlimieten en -quota voor resources
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-Azure Container Instances is beschikbaar in de volgende regio's met de opgegeven CPU en geheugenlimieten. Waarden zijn actueel op het moment van publicatie. Gebruik de API [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) voor actuele informatie.
+Azure Container Instances is beschikbaar in de volgende regio's met de opgegeven CPU en geheugenlimieten. Waarden zijn actueel op het moment van publicatie. Gebruik de API [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) voor actuele informatie. Beschikbaarheids- en resourcelimieten kunnen verschillen wanneer u Azure Container Instances gebruikt met een [virtueel netwerk](container-instances-vnet.md) (preview) of met [GPU-resources](container-instances-gpu.md) (preview).
 
 | Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |

@@ -1,229 +1,196 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Symantec Web Security Service (WSS) | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Symantec Web Security Service (WSS).
+description: Leer hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Symantec Web Security Service (WSS).
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: d6e4d893-1f14-4522-ac20-0c73b18c72a5
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/27/2017
+ms.topic: tutorial
+ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: fb2247b15cf32326f141e1d0973bdf9145d92534
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838768"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Zelfstudie: Azure Active Directory-integratie met Symantec Web Security Service (WSS)
 
-In deze zelfstudie leert u hoe u uw account Symantec Web Security Service (WSS) integreren met uw Azure Active Directory (Azure AD)-account zodat WSS kunt verifiëren van een eindgebruiker die is ingericht in de Azure AD met behulp van SAML-verificatie en afdwingen van de gebruiker of regels voor beleid op abonnementsniveau.
+In deze zelfstudie leert u hoe u uw account van Symantec Web Security Service (WSS) integreert met uw Azure Active Directory-account (Azure AD), zodat WSS een eindgebruiker die is ingericht in Azure AD kan verifiëren met behulp van SAML-verificatie en beleidsregels op gebruikers- of groepsniveau kan afdwingen.
 
-Symantec Web Security Service (WSS) integreren met Azure AD biedt u de volgende voordelen:
+De integratie van Symantec Web Security Service (WSS) met Azure AD heeft de volgende voordelen:
 
-- Alle gebruikers en groepen die worden gebruikt door uw WSS-account van uw Azure AD-portal beheren. 
+- Alle eindgebruikers en groepen die worden gebruikt door uw WSS-account beheren via de Azure AD-portal.
 
-- De gebruikers om zich te authentiseren in WSS met behulp van hun Azure AD-referenties toestaan.
+- Eindgebruikers toestaan om zich met hun Azure AD-referenties te verifiëren in WSS.
 
-- Inschakelen van de naleving van de gebruiker en groep niveau beleidsregels die zijn gedefinieerd in uw WSS-account.
+- Beleidsregels die zijn gedefinieerd in uw WSS-account afdwingen op gebruikers- en groepsniveau.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Symantec Web Security Service (WSS), moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Symantec Web Security Service (WSS):
 
-- Een Azure AD-abonnement
-- Een Symantec Web Security Service (WSS)-account
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met een WSS-account dat momenteel wordt gebruikt voor productie-doel.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik niet de WSS-account dat momenteel wordt gebruikt voor productie-doel voor deze test als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Symantec Web Security Service (WSS) waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie configureert u uw Azure AD om in te schakelen single sign-on bij WSS met behulp van de referenties van de gebruiker gedefinieerd in uw Azure AD-account.
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Toevoegen van de Symantec Web Security Service (WSS)-app uit de galerie
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-symantec-web-security-service-wss-from-the-gallery"></a>Symantec Web Security Service (WSS) uit de galerie toe te voegen
-Voor het configureren van de integratie van Symantec Web Security Service (WSS) in Azure AD, moet u Symantec Web Security Service (WSS) uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Symantec Web Security Service (WSS) biedt ondersteuning voor door **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Symantec Web Security Service (WSS) uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-symantec-web-security-service-wss-from-the-gallery"></a>Symantec Web Security Service (WSS) toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Symantec Web Security Service (WSS) met Azure AD te configureren, moet u Symantec Web Security Service (WSS) vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Voer de volgende stappen uit om Symantec Web Security Service (WSS) toe te voegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Symantec Web Security Service (WSS)**, selecteer **Symantec Web Security Service (WSS)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Symantec Web Security Service (WSS) in de lijst met resultaten](./media/symantec-tutorial/tutorial_symantecwebsecurityservicewss_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Symantec Web Security Service (WSS) hebt op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ **Symantec Web Security Service (WSS)** in het zoekvak, selecteer **Symantec Web Security Service (WSS)** in het deelvenster met resultaten en klik vervolgens op **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Symantec Web Security Service (WSS) is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Symantec Web Security Service (WSS) tot stand worden gebracht.
+     ![Symantec Web Security Service (WSS) toevoegen vanuit de galerie](common/search-new-app.png)
 
-In Symantec Web Security Service (WSS), wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Symantec Web Security Service (WSS), moet u de volgende bouwstenen voltooien:
+In dit gedeelte gaat u eenmalige aanmelding bij Symantec Web Security Service (WSS) met Azure AD configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Symantec Web Security Service (WSS) tot stand is gebracht.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker Symantec Web Security Service (WSS)](#create-a-symantec-web-security-service-wss-test-user)**  - hebben een equivalent van Britta Simon in Symantec Web Security Service (WSS) die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Symantec Web Security Service (WSS), moet u de volgende procedures uitvoeren:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Symantec Web Security Service (WSS) configureren](#configure-symantec-web-security-service-(wss)-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Symantec Web Security Service (WSS) maken](#create-symantec-web-security-service-wss-test-user)**: een tegenhanger voor Britta Simon maken in Symantec Web Security Service (WSS) die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Symantec Web Security Service (WSS).
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Symantec Web Security Service (WSS), moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **Symantec Web Security Service (WSS)** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voer de volgende stappen uit om eenmalige aanmelding met Azure AD te configureren voor Symantec Web Security Service (WSS):
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de overzichtspagina van de integratie voor **Symantec Web Security Service (WSS)** en selecteer **Eenmalige aanmelding**.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/symantec-tutorial/tutorial_symantecwebsecurityservicewss_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **Symantec Web Security Service (WSS)-domein en URL's** sectie, voert u de volgende stappen uit:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Symantec Web Security Service (WSS)-domein en URL's, eenmalige aanmelding informatie](./media/symantec-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    a. In de **id** tekstvak typt u de URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    b. In de **antwoord-URL** tekstvak typt u de URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. Voer in het dialoogvenster **Standaard SAML-configuratie** de volgende stappen uit:
+
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding bij Symantec Web Security Service (WSS)](common/idp-intiated.png)
+
+    a. In het tekstvak **Id** typt u een URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
+
+    b. In het tekstvak **Antwoord-URL** typt u een URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
     > [!NOTE]
-    > Neem contact op met de [Symantec Web Security Service (WSS) Client-ondersteuningsteam](https://www.symantec.com/contact-us) als de waarden voor de **id** en **antwoord-URL** werken niet voor een of andere reden.
+    > Neem contact op met het [klantondersteuningsteam van Symantec Web Security Service (WSS)](https://www.symantec.com/contact-us) als de waarden voor **Id** en **Antwoord-URL** onverhoopt niet werken. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/symantec-tutorial/tutorial_symantecwebsecurityservicewss_certificate.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-1. Klik op **opslaan** knop.
+### <a name="configure-symantec-web-security-service-wss-single-sign-on"></a>Eenmalige aanmelding configureren voor Symantec Web Security Service (WSS)
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/symantec-tutorial/tutorial_general_400.png)
-    
-1. Raadpleeg de online WSS-documentatie voor het configureren van eenmalige aanmelding aan van de Symantec Web Security Service (WSS). De gedownloade **Metadata XML** bestand moet worden geïmporteerd in de WSS-portal. Neem contact op met de [Symantec Web Security Service (WSS) ondersteuningsteam](https://www.symantec.com/contact-us) als u hulp nodig hebt bij de configuratie op de WSS-portal.
+Raadpleeg de online documentatie van WSS voor het configureren van eenmalige aanmelding in Symantec Web Security Service (WSS). Het gedownloade XML-bestand met **federatieve metagegevens** moet worden geïmporteerd in de WSS-portal. Neem contact op met het [ondersteuningsteam van Symantec Web Security Service (WSS)](https://www.symantec.com/contact-us) als u hulp nodig hebt bij de configuratie in de WSS-portal.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/symantec-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/symantec-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/symantec-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/symantec-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-symantec-web-security-service-wss-test-user"></a>Maak een testgebruiker Symantec Web Security Service (WSS)
-
-In deze sectie maakt u een gebruiker met de naam Britta Simon in Symantec Web Security Service (WSS). De bijbehorende end-gebruikersnaam kan handmatig worden gemaakt in de WSS-portal of u kunt wachten op de gebruikers/groepen ingericht in de Azure AD worden gesynchroniseerd met de portal WSS na een paar minuten (ongeveer 15 minuten). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. Het openbare IP-adres van de eindgebruiker-machine die wordt gebruikt om te bladeren websites moet ook worden ingericht in de portal voor Symantec Web Security Service (WSS).
-
-> [!NOTE]
-> Neem [Klik hier](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) om op te halen van de computer het openbare IP-adres.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Symantec Web Security Service (WSS).
+In dit gedeelte geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van Azure te gebruiken door haar toegang te geven tot Symantec Web Security Service (WSS).
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Symantec Web Security Service (WSS)**.
 
-**Als u wilt toewijzen Britta Simon naar Symantec Web Security Service (WSS), moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Typ en selecteer **Symantec Web Security Service (WSS)** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Symantec Web Security Service (WSS) in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Symantec Web Security Service (WSS)**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Symantec Web Security Service (WSS) in de lijst met toepassingen](./media/symantec-tutorial/tutorial_symantecwebsecurityservicewss_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-symantec-web-security-service-wss-test-user"></a>Testgebruiker maken voor Symantec Web Security Service (WSS)
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie maakt u een gebruiker met de naam Britta Simon in Symantec Web Security Service (WSS). De bijbehorende eindgebruikersnaam kan handmatig worden gemaakt in de WSS-portal of u kunt een paar minuten (ongeveer 15 minuten) wachten totdat de gebruikers/groepen die zijn ingericht in Azure AD zijn gesynchroniseerd met de WSS-portal. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken. Het openbare IP-adres van de computer van de eindgebruiker, dat wordt gebruikt om te browsen op websites, moet ook worden ingericht in de WSS-portal (Symantec Web Security Service).
 
-In deze sectie test u de functionaliteit van eenmalige aanmelding nu dat u uw WSS-account voor het gebruik van uw Azure AD voor SAML-verificatie hebt geconfigureerd.
+> [!NOTE]
+> Klik [hier](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) om het openbare IP-adres van uw computer op te halen.
 
-Nadat u hebt uw webbrowser naar de proxy het verkeer naar WSS, geconfigureerd wanneer u uw webbrowser Open en probeert om te bladeren naar een site, wordt u omgeleid naar de pagina voor Azure. Geef de referenties van de eindgebruiker test die is ingericht in de Azure AD (dat wil zeggen, BrittaSimon) en het wachtwoord dat is gekoppeld. Eenmaal is geverifieerd, moet u mogelijk zijn om te navigeren naar de website die u hebt gekozen. U moet een beleidsregel maken aan de WSS BrittaSimon van bladeren naar een bepaalde site en vervolgens u de pagina van WSS blokkeren ziet wanneer u probeert om te bladeren naar die site als gebruiker BrittaSimon blokkeren.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u de functionaliteit van eenmalige aanmelding testen nu het WSS-account is geconfigureerd voor het gebruik van Azure AD voor SAML-verificatie.
+
+Nadat u in uw webbrowser hebt ingesteld dat verkeer via de proxy moet worden omgeleid naar WSS, wordt de aanmeldingspagina van Azure weergegeven wanneer u uw webbrowser opent en naar een site gaat. Voer de referenties in van de eindgebruiker die is ingericht in Azure AD (BrittaSimon in dit geval), evenals het bijbehorende wachtwoord. Als de verificatie is voltooid, kunt u naar de gewenste website browsen. Als u in WSS een beleidsregel definieert om te voorkomen dat BrittaSimon naar een bepaalde site kan browsen, ziet u vervolgens een blokkeringsbericht van WSS wanneer u probeert om als BrittaSimon naar die site te gaan.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/symantec-tutorial/tutorial_general_01.png
-[2]: ./media/symantec-tutorial/tutorial_general_02.png
-[3]: ./media/symantec-tutorial/tutorial_general_03.png
-[4]: ./media/symantec-tutorial/tutorial_general_04.png
-
-[100]: ./media/symantec-tutorial/tutorial_general_100.png
-
-[200]: ./media/symantec-tutorial/tutorial_general_200.png
-[201]: ./media/symantec-tutorial/tutorial_general_201.png
-[202]: ./media/symantec-tutorial/tutorial_general_202.png
-[203]: ./media/symantec-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

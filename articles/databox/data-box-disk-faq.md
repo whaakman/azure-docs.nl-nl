@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f437f1fd61cfdaa4d2ff908f6e294fa0c679b9a5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4320e56b04761c6adcae1db259eeecf332fbd781
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273049"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158785"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>Wat is Azure Data Box Disk? (Preview)
+# <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
 Met de cloudoplossing Microsoft Azure Data Box Disk kunt u terabytes aan gegevens op een snelle, goedkope en betrouwbare manier naar Azure verzenden. Hier vindt u antwoorden op vragen die u mogelijk hebt over het gebruik van Data Box-schijven in de Azure-portal. 
 
@@ -27,8 +27,6 @@ De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
 - Gegevens migreren 
 - Gegevens verifiëren en uploaden 
 
-> [!IMPORTANT]
-> Data Box Disk is in de preview-fase. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
 
 ## <a name="about-the-service"></a>Over de service
 
@@ -44,19 +42,19 @@ Schijven worden versleuteld met Microsoft BitLocker-stationsversleuteling en uw 
 A. Als u 40 TB (of minder) aan gegevens naar Azure wilt overdragen, hebt u baat bij het gebruik van Data Box Disks.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>V. Wat kosten Data Box-schijven?
-A. Ga naar de [pagina Preview-prijzen](https://azure.microsoft.com/pricing/details/storage/databox/disk/) voor informatie over de prijs van Data Box-schijven.
+A. Ga naar de [pagina Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/disk/) voor informatie over de prijs van Data Box-schijven.
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>V. Hoe verkrijg ik Data Box-schijven? 
-A.  U registreert u eerst voor de [previewversie van Data Box Disk](https://aka.ms/AzureDataBox) als u Azure Data Box-schijven wilt hebben. Vervolgens meldt u zich aan bij Azure Portal en plaatst u een Data Box-bestelling voor schijven. Geef uw contactgegevens en overige informatie op. Zodra u een bestelling hebt geplaatst, worden de schijven op basis van beschikbaarheid binnen tien dagen verzonden.   
+A.  Als u Azure Data Box-schijven wilt aanschaffen, meldt u zich aan bij Azure Portal en plaatst u een Data Box-bestelling voor schijven. Geef uw contactgegevens en overige informatie op. Zodra u een bestelling hebt geplaatst, worden de schijven op basis van beschikbaarheid binnen tien dagen verzonden.
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>V. Wat is de maximale hoeveelheid gegevens die ik met Data Box-schijven in één keer kan overdragen?
-A. Bij vijf schijven van 8 TB (7 TB aan bruikbare capaciteit), bedraagt de maximaal bruikbare capaciteit 35 TB. U kunt dus 35 TB aan gegevens in één keer overdragen.  Als u meer gegevens wilt overdragen, moet u meer schijven bestellen.
+A. Bij vijf schijven van 8 TB (7 TB aan bruikbare capaciteit), bedraagt de maximaal bruikbare capaciteit 35 TB. U kunt dus 35 TB aan gegevens in één keer overdragen. Als u meer gegevens wilt overdragen, moet u meer schijven bestellen.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>V. Hoe kan ik controleren of Data Box Disk in mijn regio beschikbaar is? 
-A.  Data Box Disks is tijdens de previewfase beschikbaar in de V.S., Canada, Australië en alle landen in de Europese Unie.  
+A.  Data Box-schijven zijn momenteel beschikbaar in de V.S., Canada, Australië en alle landen in de Europese Unie.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>V. In welke regio's kan ik gegevens opslaan met Data Box Disk?
-A. Data Box Disk wordt voor preview ondersteund in alle regio's binnen de V.S., Canada, Australië, en West- en Noord-Europa. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
+A. Data Box Disk wordt ondersteund in alle regio's binnen de V.S., Canada, Australië en West- en Noord-Europa. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box-schijven?
 A. Neem bij problemen met Data Box-schijven contact op met [Microsoft Ondersteuning](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -75,7 +73,7 @@ Voor stapsgewijze instructies gaat u naar [Schijven ontgrendelen op een Windows-
 A.  Ja. Zowel de Linux- als de Windows-client kan worden gebruikt om verbinding te maken en gegevens te kopiëren naar de Data Box-schijven. Ga naar de lijst met [Ondersteunde besturingssystemen](data-box-disk-system-requirements.md) voor uw hostcomputer voor meer informatie.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>V. Mijn schijven zijn verzonden, maar ik wil de bestelling annuleren. Waarom is er geen knop Annuleren?
-A.  U kunt de bestelling alleen annuleren nadat de schijven zijn besteld en voordat ze worden verzonden. Zodra de schijven zijn verzonden, kunt u de bestelling niet meer annuleren. Tijdens de previewfase kunt u de schijven kosteloos terugsturen, maar dat kan waarschijnlijk niet meer als deze oplossing algemeen beschikbaar is. 
+A.  U kunt de bestelling alleen annuleren nadat de schijven zijn besteld en voordat ze worden verzonden. Zodra de schijven zijn verzonden, kunt u de bestelling niet meer annuleren. U kunt uw schijven tegen extra kosten echter wel retourneren. 
 
 ### <a name="q-can-i-connect-multiple-data-box-disks-at-the-same-to-the-host-computer-to-transfer-data"></a>V. Kan de hostcomputer verbinding maken met meerdere Data Box-schijven tegelijk om gegevens over te dragen?
 A. Ja. Er kunnen meerdere Data Box-schijven verbinding maken met dezelfde hostcomputer om gegevens over te dragen en er kunnen meerdere kopieertaken parallel worden uitgevoerd.
@@ -91,10 +89,10 @@ A.  In de verpakking van de Data Box-schijven zit een verzendlabel. Bevestig het
 ## <a name="migrate-data"></a>Gegevens migreren
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box-disks"></a>V. Wat is de maximale hoeveelheid gegevens die voor Data Box-schijven kan worden gebruikt?  
-A.  Een Data Box Disk-oplossing kan uit maximaal vijf schijven bestaan met een maximale gebruikscapaciteit van 35 TB. De schijven zelf zijn elk 8 TB groot (waarvan 7 TB voor gebruik). 
+A.  Een Data Box Disk-oplossing kan uit maximaal vijf schijven bestaan met een maximale gebruikscapaciteit van 35 TB. De schijven zelf zijn elk 8 TB groot (waarvan 7 TB voor gebruik).
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box-disks"></a>V. Wat zijn de maximale groottes voor blok-blob en pagina-blob die voor Data Box-schijven worden ondersteund? 
-A.  De maximale groottes worden bepaald door Azure Storage-limieten. De maximale blok-blob is ongeveer 4,768 TiB en de maximale blobgrootte is 8 TiB. Ga naar [Schaalbaarheids- en prestatiedoelen in Azure Storage](../storage/common/storage-scalability-targets.md) voor meer informatie. 
+A.  De maximale groottes worden bepaald door Azure Storage-limieten. De maximale blok-blob is ongeveer 4,768 TiB en de maximale blobgrootte is 8 TiB. Ga naar [Schaalbaarheids- en prestatiedoelen in Azure Storage](../storage/common/storage-scalability-targets.md) voor meer informatie.
 
 ### <a name="q-what-is-the-data-transfer-speed-for-data-box-disks"></a>V. Wat is de snelheid van gegevensoverdracht voor Data Box-schijven?
 A. Bij een test met schijven die verbonden waren via USB 3.0 was de prestatie van de schijven maximaal 430 MB/s. De werkelijke waarden variëren, afhankelijk van de gebruikte bestandsgrootte. Voor kleinere bestanden zijn de prestaties lager.
@@ -103,7 +101,7 @@ A. Bij een test met schijven die verbonden waren via USB 3.0 was de prestatie va
 A.  Data Box-schijven zijn versleuteld met BitLocker AES-128-bitsversleuteling; de wachtwoordsleutel is alleen beschikbaar via Azure Portal. Meld u aan bij Azure Portal met uw accountreferenties om de wachtwoordsleutel op te halen. Geef deze wachtwoordsleutel op als u het Data Box Disk-ontgrendelingsprogramma wilt uitvoeren.
 
 ### <a name="q-how-do-i-copy-the-data-to-the-data-box-disks"></a>V. Hoe kan ik de gegevens naar de Data Box-schijven kopiëren? 
-A.  Gebruik een SMB-kopieerprogramma als Robocopy of Diskboss als u gegevens naar schijven wilt kopiëren. U kunt ook slepen vanuit Windows Verkenner. 
+A.  Gebruik een SMB-kopieerprogramma als Robocopy of Diskboss als u gegevens naar schijven wilt kopiëren. U kunt ook slepen vanuit Windows Verkenner.
 
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>V. Zijn er tips om het kopiëren van gegevens te versnellen?
 A.  U kunt het kopieerproces als volgt versnellen:
@@ -121,9 +119,19 @@ A.  U kunt het kopieerproces als volgt versnellen:
 - Koppel deze aan een VM.
 - Kopieer de bestanden naar de schijf van de VM.
 
-
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>V. Kan ik meerdere opslagaccounts gebruiken voor Data Box Disk?
-A.  Nee. Er wordt momenteel slechts één (algemeen of klassiek) opslagaccount ondersteund voor Data Box Disk. Zowel dynamische als statische blob wordt ondersteund. Tijdens de preview worden alleen de opslagaccounts in de V.S. en in West- en Noord-Europa in de openbare Azure-cloud ondersteund.
+A.  Nee. Er wordt momenteel slechts één (algemeen of klassiek) opslagaccount ondersteund voor Data Box Disk. Zowel dynamische als statische blob wordt ondersteund. Op dit moment worden alleen de opslagaccounts in de V.S. en in West- en Noord-Europa in de openbare Azure-cloud ondersteund.
+
+### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>V. Welke hulpprogramma's zijn er beschikbaar voor mijn gegevens op Data Box-schijven?
+A. Er zijn drie hulpprogramma's beschikbaar voor Data Box Disk:
+ - Het **ontgrendelingsprogramma voor Data Box Disk**: Gebruik dit hulpprogramma om de versleutelde schijven van Microsoft te ontgrendelen. Wanneer u schijven ontgrendelt met het hulpprogramma moet u een wachtwoordsleutel opgeven. Deze vindt u in de gegevens van de Data Box Disk-bestelling in de Azure-portal. 
+ - **Het validatieprogramma van Data Box Disk**: Gebruik dit hulpprogramma voor het controleren van de grootte, de indeling en de blob-namen op basis van de Azure-naamconventies. Hiermee worden ook controlesommen voor de gekopieerde gegevens gemaakt. Deze worden vervolgens gebruikt voor het verifiëren van de gegevens die naar Azure worden geüpload.
+ - **Het splits- en kopieerprogramma voor Data Box Disk**: U dit hulpprogramma gebruiken als u meerdere schijven gebruikt en u over een grote gegevensset beschikt die moet worden gesplitst en gekopieerd naar alle schijven. Dit hulpprogramma is momenteel beschikbaar voor Windows.
+
+De set hulpprogramma's is beschikbaar voor zowel Windows als Linux. U kunt de set hulpprogramma's hier downloaden:
+ - [Data Box Disk-toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
+ - [Data Box Disk-toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
+
 
 ## <a name="verify-and-upload"></a>Verifiëren en uploaden
 
@@ -131,7 +139,7 @@ A.  Nee. Er wordt momenteel slechts één (algemeen of klassiek) opslagaccount o
 A.  Zodra de bestellingsstatus voor Gegevens kopiëren als voltooid is aangemerkt, hebt u weer toegang tot uw gegevens.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>V. Waar bevinden zich mijn gegevens in Azure na het uploaden?
-A.  Als u de gegevens onder de mappen *BlockBlob* en *PageBlob* op uw schijf kopieert, wordt er voor elke submap onder de mappen *BlockBlob* en *PageBlob* een container gemaakt in het Azure Storage-account. Als u de bestanden onder de mappen *BlockBlob* en *PageBlob* rechtstreeks hebt gekopieerd, bevinden deze zich in de standaardcontainer *$root* onder het Azure Storage-account. 
+A.  Als u de gegevens onder de mappen *BlockBlob* en *PageBlob* op uw schijf kopieert, wordt er voor elke submap onder de mappen *BlockBlob* en *PageBlob* een container gemaakt in het Azure Storage-account. Als u de bestanden onder de mappen *BlockBlob* en *PageBlob* rechtstreeks hebt gekopieerd, bevinden deze zich in de standaardcontainer *$root* onder het Azure Storage-account.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>V. Ik heb gemerkt dat ik de naamgevingsvereisten voor Azure niet voor mijn containers heb gevolgd. Worden mijn gegevens niet naar Azure geüpload?
 A. Als de containernamen hoofdletters bevatten, worden deze automatisch naar kleine letters omgezet. Als de namen anderszins niet aan de vereisten voldoen (speciale tekens, andere taal, enzovoort), dan worden er geen gegevens geüpload. Ga voor meer informatie naar [Naamconventies](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
@@ -150,8 +158,6 @@ A. Ja. Als u besluit uw gegevens te valideren (aanbevolen), moet u de validatie 
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>V. Ik heb al mijn schijven gebruikt om gegevens over te dragen. Ik wil meer schijven bestellen. Kan ik dat op een snelle manier doen?
 A. U kunt een kloon maken van uw vorige bestelling. Hierdoor maakt u dezelfde bestelling als eerst en kunt u de details van de bestelling bewerken zonder dat u opnieuw uw adres, contactgegevens en meldingsinformatie hoeft te typen. 
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

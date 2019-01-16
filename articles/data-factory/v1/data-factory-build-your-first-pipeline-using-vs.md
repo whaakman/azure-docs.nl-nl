@@ -10,19 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.custom: vs-azure
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b152ea46c9d744f557157b2dac7478c8513d97fd
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ceaabdd9aa15e5979d8ab163a9b64986a03c8332
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243143"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023077"
 ---
-# <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Zelfstudie: Een data factory maken met behulp van Visual Studio
+# <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Zelfstudie: Een gegevensfactory maken met behulp van Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -33,14 +32,14 @@ ms.locfileid: "50243143"
 
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [snelstart: een gegevensfactory maken met Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Quickstart: een gegevensfactory maken met Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In deze zelfstudie leert u hoe u een Azure Data Factory maakt met Visual Studio. U maakt een Visual Studio-project met de Data Factory-projectsjabloon. Daarna definieert u Data Factory-entiteiten (gekoppelde services, gegevenssets en pipeline) in de JSON-indeling en vervolgens publiceert/implementeert u deze entiteiten in de cloud. 
 
-De pijplijn in deze zelfstudie heeft één activiteit: **HDInsight-componentactiviteit**. Deze activiteit voert een Hive-script uit op een Azure HDInsight-cluster dat invoergegevens transformeert om uitvoergegevens te produceren. De pijplijn is gepland on één keer per maand tussen de opgegeven begin- en eindtijd te worden uitgevoerd. 
+De pijplijn in deze zelfstudie heeft één activiteit: **HDInsight Hive-activiteit**. Deze activiteit voert een Hive-script uit op een Azure HDInsight-cluster dat invoergegevens transformeert om uitvoergegevens te produceren. De pijplijn is gepland on één keer per maand tussen de opgegeven begin- en eindtijd te worden uitgevoerd. 
 
 > [!NOTE]
-> In deze zelfstudie wordt niet getoond hoe u gegevens met Azure Data Factory kopieert. Zie [Zelfstudie: gegevens kopiëren van Blob Storage naar SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor informatie over het kopiëren van gegevens met Azure Data Factory.
+> In deze zelfstudie wordt niet getoond hoe u gegevens met Azure Data Factory kopieert. Meer informatie over het kopiëren van gegevens met behulp van Azure Data Factory vindt u in [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Zelfstudie: gegevens kopiëren vanuit blobopslag naar SQL Database).
 > 
 > Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie.
 
@@ -48,10 +47,10 @@ De pijplijn in deze zelfstudie heeft één activiteit: **HDInsight-componentacti
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Walkthrough: Data Factory-entiteiten maken en publiceren
 Hier volgen de stappen die u uitvoert als onderdeel van deze walkthrough:
 
-1. Maak twee gekoppelde services: **AzureStorageLinkedService1** en **HDInsightOnDemandLinkedService1**. 
+1. Twee gekoppelde services maken: **AzureStorageLinkedService1** en **HDInsightOnDemandLinkedService1**. 
    
     In deze zelfstudie bevinden de invoer- en uitvoergegevens voor de Hive-activiteit zich in dezelfde Azure Blob Storage. U gebruikt een HDInsight-cluster op aanvraag om bestaande invoergegevens te verwerken en uitvoergegevens te produceren. Wanneer de invoergegevens gereed zijn om te worden verwerkt, wordt het HDInsight-cluster op aanvraag automatisch in runtime voor u gemaakt door Azure Data Factory. U moet uw gegevensarchieven of computes aan uw data factory koppelen, zodat de Data Factory-service deze in runtime kan verbinden. Daarom koppelt u uw Azure Storage-Account aan de data factory met behulp van de AzureStorageLinkedService1 en koppelt u een HDInsight-cluster op aanvraag met behulp van de HDInsightOnDemandLinkedService1. Wanneer u publiceert, geeft u de naam op van de data factory die moet worden gemaakt of van een bestaande data factory.  
-2. Maak twee gegevenssets, **InputDataset** en **OutputDataset**. Deze staan voor de invoer- en uitvoergegevens die zijn opgeslagen in Azure Blob Storage. 
+2. Maak twee gegevenssets: **InputDataset** en **OutputDataset**. Deze staan voor de invoer- en uitvoergegevens die zijn opgeslagen in Azure Blob Storage. 
    
     Deze gegevenssetdefinities verwijzen naar de gekoppelde service Azure Storage die u in de vorige stap hebt gemaakt. Voor de InputDataset geeft u de blobcontainer (adfgetstarted) op en de map (inputdata) die een blob met de invoergegevens bevat. Voor de OutputDataset geeft u de blobcontainer (adfgetstarted) op en de map (partitioneddata) die de uitvoergegevens bevat. U geeft ook andere eigenschappen op, zoals de structuur, de beschikbaarheid en het beleid.
 3. Maak een pijplijn met de naam **MyFirstPipeline**. 
@@ -66,7 +65,7 @@ Hier volgen de stappen die u uitvoert als onderdeel van deze walkthrough:
 3. De volgende zaken moeten op uw computer zijn geïnstalleerd:
    * Visual Studio 2013 of Visual Studio 2015
    * Download de Azure SDK voor Visual Studio 2013 of Visual Studio 2015. Ga naar de [Azure-downloadpagina](https://azure.microsoft.com/downloads/) en klik in het gedeelte **.NET** op **VS 2013** of **VS 2015**.
-   * Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). U kunt de invoegtoepassing ook als volgt bijwerken: klik in het menu op **Extra** -> **Extensies en updates** -> **Online** -> **Visual Studio-galerie** -> **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Bijwerken**.
+   * Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). U kunt de invoegtoepassing ook bijwerken door de volgende stappen uit te voeren: Klik in het menu op **Extra** -> **Extensies en updates** -> **Online** -> **Visual Studio-galerie** -> **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Bijwerken**.
 
 Nu gaan we met Visual Studio een Azure-gegevensfactory maken.
 
@@ -80,7 +79,7 @@ Nu gaan we met Visual Studio een Azure-gegevensfactory maken.
     ![Solution Explorer](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ### <a name="create-linked-services"></a>Gekoppelde services maken
-In deze stap maakt u twee gekoppelde services: **Azure Storage** en **HDInsight op aanvraag**. 
+In deze stap maakt u twee gekoppelde services: **Azure Storage** en **HDInsight on-demand**. 
 
 De gekoppelde service Azure Storage koppelt uw Azure Storage-account aan de data factory door de verbindingsgegevens te verstrekken. De Data Factory-service gebruikt de verbindingsreeks van de gekoppelde service-instelling om in runtime verbinding te maken met de Azure-opslag. Deze opslag bevat invoer- en uitvoergegevens voor de pijplijn, en het Hive-scriptbestand dat door de Hive-activiteit wordt gebruikt. 
 
@@ -215,7 +214,7 @@ U maakt nu de uitvoergegevensset die staat voor uitvoergegevens die worden opges
 4. Sla het bestand **OutputDataset.json** op.
 
 ### <a name="create-pipeline"></a>Pijplijn maken
-Tot dusver hebt u de gekoppelde service Azure Storage en de invoer- en uitvoergegevenssets gemaakt. Nu gaat u een pijplijn met een **HDInsightHive**-activiteit maken. De **invoer** voor de componentactiviteit is ingesteld op **AzureBlobInput** en de **uitvoer** is ingesteld op **AzureBlobOutput**. Een segment van een invoergegevensset is maandelijks beschikbaar (frequentie: maand, interval: 1), en het uitvoersegment wordt eveneens maandelijks geproduceerd. 
+Tot dusver hebt u de gekoppelde service Azure Storage en de invoer- en uitvoergegevenssets gemaakt. Nu gaat u een pijplijn met een **HDInsightHive**-activiteit maken. De **invoer** voor de componentactiviteit is ingesteld op **AzureBlobInput** en de **uitvoer** is ingesteld op **AzureBlobOutput**. Een segment van een invoergegevensset is maandelijks beschikbaar (frequentie: Maand, interval: 1), en het uitvoersegment wordt ook maandelijks geproduceerd. 
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Pipelines**. Houd de muisaanwijzer op **Add** en klik op **New Item**.
 2. Selecteer **Hive Transformation Pipeline** in de lijst en klik op **Add**.
@@ -324,7 +323,7 @@ In deze stap publiceert u de Data Factory-entiteiten (gekoppelde services, gegev
 
 Belangrijke punten om op te letten:
 
-- Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
+- Als de volgende foutmelding wordt weergegeven: **Dit abonnement is niet geregistreerd voor gebruik van de naamruimte Microsoft.DataFactory**, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
     - Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren.
         ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -346,7 +345,7 @@ In deze stap bewaakt u de pijplijn in de diagramweergave van de data factory.
    1. Klik op **Meer services** en op **Gegevensfactory's**.
        
         ![Door gegevensfactory’s bladeren](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-   2. Selecteer de naam van de data factory (bijvoorbeeld: **DataFactoryUsingVS09152016**) in de lijst met gegevensfactory's.
+   2. Selecteer de naam van uw gegevensfactory (bijvoorbeeld: **DataFactoryUsingVS09152016** in de lijst met gegevensfactory’s.
    
        ![Uw gegevensfactory selecteren](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. Klik op de startpagina van uw gegevensfactory op **Diagram**.
@@ -415,7 +414,7 @@ U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewake
     
     Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 - Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. 
-- In deze zelfstudie wordt niet getoond hoe u gegevens met Azure Data Factory kopieert. Zie [Zelfstudie: gegevens kopiëren van Blob Storage naar SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor informatie over het kopiëren van gegevens met Azure Data Factory.
+- In deze zelfstudie wordt niet getoond hoe u gegevens met Azure Data Factory kopieert. Meer informatie over het kopiëren van gegevens met behulp van Azure Data Factory vindt u in [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Zelfstudie: gegevens kopiëren vanuit blobopslag naar SQL Database).
 
 
 ## <a name="use-server-explorer-to-view-data-factories"></a>Server Explorer gebruiken om gegevensfactory’s weer te geven
@@ -557,7 +556,7 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken v
 4. U hebt een **pijplijn** gemaakt met een **HDInsight Hive**-activiteit.  
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruik van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL.
+In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand HDInsight-cluster. Meer informatie over het gebruiken van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL vindt u in [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 
 

@@ -1,24 +1,23 @@
 ---
-title: Een Stream Analytics-taak maken met behulp van de Azure Stream Analytics-tools voor Visual Studio | Microsoft Docs
+title: Een Stream Analytics-taak maken met behulp van de Azure Stream Analytics-tools voor Visual Studio
 description: In deze snelstart wordt getoond hoe u aan de slag kunt door een Stream Analytics-taak te maken, invoer en uitvoer te configureren en een query te definiëren met Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/15/2018
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1a72e2874e28a2aa5b69866bd959743707ea9d99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954741"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021914"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Snelstart: Een Stream Analytics-taak maken met behulp van de Azure Stream Analytics-tools voor Visual Studio
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Quickstart: Een Stream Analytics-taak maken met behulp van de Azure Stream Analytics-tools voor Visual Studio
 
-Deze snelstart laat zien hoe u een Stream Analytics-taak kunt maken en uitvoeren met Azure Stream Analytics-tools voor Visual Studio. De voorbeeldtaak leest streaminggegevens uit Azure Blob-opslag. Het bestand met invoergegevens dat wordt gebruikt in deze snelstart, bevat statische gegevens die alleen zijn bedoeld ter illustratie. In een werkelijk scenario gebruikt u streaming-invoergegevens voor een Stream Analytics-taak. In deze snelstart definieert u een taak die de gemiddelde temperatuur bij meer dan 100° berekent en de resulterende uitvoergebeurtenissen naar een nieuw bestand schrijft.
+Deze snelstart laat zien hoe u een Stream Analytics-taak kunt maken en uitvoeren met Azure Stream Analytics-tools voor Visual Studio. De voorbeeldtaak leest streaminggegevens vanaf een IoT Hub-apparaat. U definieert een taak die de gemiddelde temperatuur bij meer dan 27° berekent en de resulterende uitvoergebeurtenissen naar een nieuw bestand in blobopslag schrijft.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -32,33 +31,54 @@ Deze snelstart laat zien hoe u een Stream Analytics-taak kunt maken en uitvoeren
 
 ## <a name="prepare-the-input-data"></a>De invoergegevens voorbereiden
 
-Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden die als invoer voor de taak worden geconfigureerd. Voer de volgende stappen uit om de invoergegevens voor te bereiden die zijn vereist voor de taak:
+Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden die later worden geconfigureerd als de taakinvoer. Voltooi de volgende stappen om de invoergegevens voor te bereiden die zijn vereist voor de taak:
 
-1. Download de [voorbeeldsensorgegevens](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) in GitHub. De voorbeeldgegevens bevatten sensorinformatie in de volgende JSON-indeling:  
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-   ```json
-   {
-     "time": "2018-01-26T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Selecteer **Een resource maken** > **Internet of Things** > **IoT Hub**.
 
-3. Selecteer in de linkerbovenhoek in Azure Portal **Een resource maken** > **Storage** > **Storage-account**. Vul de pagina voor de Storage-accounttaak in, waarbij **Naam** is ingesteld op 'asaquickstartstorage', **Locatie** op 'US - west', **Resourcegroep** op 'asaquickstart-resourcegroup' (host het opslagaccount in dezelfde resourcegroep als de streaming-taak voor betere prestaties). De overige instellingen kunnen op de standaardwaarden blijven staan.  
+3. Voer in het deelvenster **IoT Hub** de volgende informatie in:
+   
+   |**Instelling**  |**Voorgestelde waarde**  |**Beschrijving**  |
+   |---------|---------|---------|
+   |Abonnement  | \<Uw abonnement\> |  Selecteer het Azure-abonnement dat u wilt gebruiken. |
+   |Resourcegroep   |   asaquickstart-resourcegroup  |   Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. |
+   |Regio  |  \<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\> | Selecteer een geografische locatie waar u de IoT-hub kunt hosten. Gebruik de locatie die het dichtst bij uw gebruikers is. |
+   |Naam van de IoT-hub  | MyASAIoTHub  |   Selecteer een naam voor de IoT-hub.   |
 
-   ![Een opslagaccount maken](./media/stream-analytics-quick-create-vs/create-a-storage-account-vs.png)
+   ![Een IoT Hub maken](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. Ga op de pagina **Alle resources** naar het opslagaccount dat u in de vorige stap hebt gemaakt. Open de pagina **Overzicht** en open vervolgens de tegel **Blobs**.  
+4. Selecteer **Volgende: Grootte instellen en schaal aanpassen**.
 
-5. Selecteer op de pagina **Blob Service** **Container**, geef een **naam** op voor uw container, zoals *container 1* > selecteer **OK**.  
+5. Kies uw **prijs- en schaalcategorie**. Selecteer voor deze quickstart de categorie **F1 - Gratis** als deze nog beschikbaar is voor uw abonnement. Als de categorie Gratis niet beschikbaar is, kiest u de laagste beschikbare categorie. Zie [Prijsinformatie IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) voor meer informatie.
 
-   ![Een container maken](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
+   ![Grootte en schaal van de IoT-hub aanpassen](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
-6. Ga naar de container die u hebt gemaakt in de vorige stap. Selecteer **Uploaden** en upload de sensorgegevens die u hebt gekregen in de eerste stap.  
+6. Selecteer **Controleren + maken**. Controleer de informatie van de IoT-hub en klik op **Maken**. Het kan enkele minuten duren voordat de IoT-hub is gemaakt. U kunt de voortgang bewaken via het deelvenster **Meldingen**.
 
-   ![Voorbeeldgegevens uploaden naar blob](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
+7. Klik in het IoT Hub-navigatiemenu onder **IoT-apparaten** op **Toevoegen**. Voeg een **Apparaat-id** toe en klik op **Opslaan**.
+
+   ![Een apparaat toevoegen aan uw IoT-hub](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
+
+8. Zodra het apparaat is gemaakt, wordt het geopend vanuit de lijst **IoT-apparaten**. Kopieer de **Verbindingsreeks -- primaire sleutel** en sla deze in een kladblok op voor later gebruik.
+
+   ![Verbindingsreeks voor IoT Hub-apparaat kopiëren](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>Blob-opslag maken
+
+1. Selecteer in de linkerbovenhoek in Azure Portal **Een resource maken** > **Storage** > **Storage-account**.
+
+2. Voer in het deelvenster **Opslagaccount maken** een opslagaccountnaam, locatie en resourcegroep in. Kies dezelfde locatie en resourcegroep als de IoT-hub die u hebt gemaakt. Klik vervolgens op **Controleren en maken** om het account te maken.
+
+   ![Een opslagaccount maken](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. Zodra het opslagaccount is gemaakt, selecteert u in het deelvenster **Overzicht** de tegel **Blobs**.
+
+   ![Overzicht van opslagaccounts](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. Selecteer op de pagina **Blob Service** de optie **Container** en geef een naam op voor de container, bijvoorbeeld *container1*. Laat **Niveau openbare toegang** staan op **Privé (geen anonieme toegang)** en selecteer **OK**.
+
+   ![Blob-container maken](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-project"></a>Een Stream Analytics-project maken
 
@@ -92,12 +112,11 @@ Let op de elementen die zijn opgenomen in een Azure Stream Analytics-project.
    |**Instelling**  |**Voorgestelde waarde**  |**Beschrijving**   |
    |---------|---------|---------|
    |Invoeralias  |  Invoer   |  Voer een unieke naam in voor de invoer van de taak.   |
-   |Brontype   |  Gegevensstroom |  Kies de juiste invoerbron: gegevensstroom of referentiegegevens.   |
-   |Bron  |  Blob Storage |  Kies de juiste invoerbron.   |
+   |Brontype   |  Gegevensstroom |  Kies de juiste invoerbron: Gegevensstroom of Verwijzingsgegevens.   |
+   |Bron  |  IoT Hub |  Kies de juiste invoerbron.   |
    |Resource  | Kies gegevensbron van het huidige account | Kies ervoor om gegevens handmatig in te voeren of selecteer een bestaand account.   |
-   |Abonnement  |  \<Uw abonnement\>   | Selecteer het Azure-abonnement met het opslagaccount dat u hebt gemaakt. Het opslagaccount kan voor hetzelfde of een ander abonnement gelden. Voor dit voorbeeld wordt aangenomen dat u een opslagaccount voor hetzelfde abonnement hebt gemaakt.   |
-   |Opslagaccount  |  asaquickstartstorage   |  Kies of typ de naam van het opslagaccount. Namen van opslagaccounts worden automatisch gedetecteerd als ze worden gemaakt in hetzelfde abonnement.   |
-   |Container  |  container1   |  Selecteer de bestaande container die u in uw opslagaccount hebt gemaakt.   |
+   |Abonnement  |  \<Uw abonnement\>   | Selecteer het Azure-abonnement met de IoT-hub die u hebt gemaakt.   |
+   |IoT Hub  |  MyASAIoTHub   |  Kies uw IoT-hub, of voer de naam ervan in. Namen van IoT-hubs worden automatisch gedetecteerd als ze worden gemaakt in hetzelfde abonnement.   |
    
 3. De andere opties kunnen de standaardwaarden behouden. Selecteer **Opslaan** om de instellingen op te slaan.  
 
@@ -130,16 +149,10 @@ Let op de elementen die zijn opgenomen in een Azure Stream Analytics-project.
 2. Voeg de volgende query toe:
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     Output
-   FROM
-     Input TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
 ## <a name="submit-a-stream-analytics-query-to-azure"></a>Een Stream Analytics-query naar Azure verzenden
@@ -150,13 +163,23 @@ Let op de elementen die zijn opgenomen in een Azure Stream Analytics-project.
 
    ![Verzenden van de taak naar Azure](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
+## <a name="run-the-iot-simulator"></a>De IoT-simulator uitvoeren
+
+1. Open de [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/) in een nieuw browsertabblad of -venster.
+
+2. Vervang de tijdelijke aanduiding in regel 15 door de verbindingsreeks van het Azure IoT Hub-apparaat die u hebt opgeslagen in de vorige sectie.
+
+3. Klik op **Run**. De uitvoer geeft de sensorgegevens en berichten weer die worden verzonden naar de IoT-hub.
+
+   ![Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Stream Analytics-taak starten en uitvoer controleren
 
 1. Wanneer de taak is gemaakt, wordt de taakweergave automatisch geopend. Selecteer de knop met de groene pijl om de taak te starten.
 
    ![Stream Analytics-taak starten](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. Wijzig de datum van **Aangepaste tijd** in `2018-01-01` en selecteer **Start**.
+2. Wijzig de **startmodus** voor de uitvoertaak in **JobStartTime** en selecteer **Start**.
 
    ![Taakconfiguratie starten](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -180,7 +203,7 @@ Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep,
 
 In deze snelstart hebt u een eenvoudige Stream Analytics-taak met behulp van Visual Studio geïmplementeerd. U kunt Stream Analytics-taken ook implementeren met behulp van de [Azure-portal](stream-analytics-quick-create-portal.md) en [PowerShell](stream-analytics-quick-create-powershell.md). 
 
-Voor informatie over het configureren van andere invoerbronnen en het uitvoeren van detectie in realtime gaat u door naar het volgende artikel:
+Ga voor meer informatie over Azure Stream Analytics-hulpprogramma's voor Visual Studio naar het volgende artikel:
 
 > [!div class="nextstepaction"]
-> [Fraudedetectie in realtime met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+> [Visual Studio gebruiken om Azure Stream Analytics-taken weer te geven](stream-analytics-vs-tools.md)

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789243"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037834"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -45,7 +45,7 @@ Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's word
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Klik op **Een resource maken** > **Controle en beheer** > **Backup en Site Recovery**.
+2. Klik op **Een resource maken** > **Beheerhulpprogramma's** > **Backup en Site Recovery**.
 3. Bij **Naam** geeft u de beschrijvende naam **ContosoVMVault** op. Als u meer dan één abonnement hebt, selecteert u het gewenste abonnement.
 4. Maak een resourcegroep met de naam **ContosoRG**.
 5. Geef een Azure-regio op. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund.

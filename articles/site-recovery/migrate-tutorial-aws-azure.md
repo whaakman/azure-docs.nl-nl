@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793067"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042050"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -33,12 +33,14 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 - Zorg ervoor dat de VM’s die u wilt migreren, worden uitgevoerd met een ondersteunde versie van het besturingssysteem. Ondersteunde versies zijn onder andere: 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - 64-bits versie van Windows Server 2008 R2 SP1 of later
-  - Red Hat Enterprise Linux 6.7 (alleen gevirtualiseerde HVM-instanties), met alleen Citrix HW- of AWS HW-stuurprogramma's. Instanties waarop een RedHat HW-stuurprogramma wordt uitgevoerd, worden *niet* ondersteund.
- - De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - 64-bits versie van Windows Server 2008 R2 SP1 of later
+      - Red Hat Enterprise Linux 6.4–6.10, 71 –7.6 (alleen gevirtualiseerde HVM-instanties) *(Instanties met RedHat PV-stuurprogramma’s worden niet ondersteund.)*
+      - CentOS 6.4–6.10 7.1–7.6 (alleen gevirtualiseerde HVM-instanties)
+ 
+- De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. 
 
     > [!IMPORTANT]
     > Site Recovery installeert deze service automatisch wanneer u replicatie voor de VM inschakelt. Voor automatische installatie moet u op de EC2-instanties een account voorbereiden waarmee Site Recovery toegang kan krijgen tot de VM. U kunt een domein of lokale account gebruiken. 

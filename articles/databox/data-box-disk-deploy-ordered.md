@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567448"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156168"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Zelfstudie: een Azure Data Box Disk (preview) bestellen
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Zelfstudie: Een Azure Data Box Disk bestellen
 
 Azure Data Box Disk is een hybride cloudoplossing waarmee u uw on-premises gegevens snel, eenvoudig en betrouwbaar in Azure importeert. U zet uw gegevens op SSD-schijven (solid-state drives) die Microsoft naar u heeft verstuurd en u stuurt de schijven terug. Deze gegevens worden vervolgens geüpload in Azure.
 
 In deze zelfstudie wordt beschreven hoe u een Azure Data Box Disk bestelt. In deze zelfstudie komen deze onderwerpen aan bod:
 
 > [!div class="checklist"]
-> * Registreren voor Data Box Disk
 > * Een Data Box Disk bestellen
 > * De bestelling volgen
 > * De bestelling annuleren
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+## <a name="prerequisites"></a>Vereisten
 
-> [!IMPORTANT]
-> - Data Box Disk is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
-> - Tijdens de preview-fase wordt Data Box Disk verzonden naar klanten in de Verenigde Staten, West- en Noord-Europa, Canada en Australië. Ga naar [Beschikbaarheid in de regio](data-box-disk-overview.md#region-availability) voor meer informatie.
+Voltooi voordat u met de implementatie begint de volgende configuratievereisten voor Data Box service en Data Box Disk.
 
-## <a name="sign-up"></a>Aanmelden
+### <a name="for-service"></a>Voor de service
 
-Data Box Disk is in preview en u moet zich registreren voor de service. Voer de volgende stappen uit om u te registreren voor de Data Box-service:
+Zorg voordat u begint voor het volgende:
+- U hebt een Microsoft Azure Storage-account met toegangsreferenties.
+- Zorg ervoor dat het abonnement dat u voor de Data Box-service gebruikt, een van de volgende typen is:
+    - Microsoft Enterprise Agreement (EA). Meer informatie over [EA-abonnementen](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Cloud Solution Provider (CSP). Meer informatie over het [Azure CSP-programma](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- U hebt eigenaars- of inzenderstoegang tot het abonnement nodig om een Data Box-order te kunnen maken.
 
-1. Meld u aan bij Azure Portal via: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Selecteer het abonnement dat u wilt gebruiken voor de preview. Beantwoord de vragen met betrekking tot de gegevensgrootte, in welk land de gegevens zich bevinden, het tijdskader en de frequentie van gegevensoverdracht. Klik op **Inschrijven**.
-3. Nadat u zich hebt ingeschreven en aan de preview mag meedoen, kunt u een Data Box Disk bestellen.
+### <a name="for-device"></a>Voor het apparaat
+
+Zorg voordat u begint voor het volgende:
+- U hebt een clientcomputer beschikbaar van waaruit u de gegevens kunt kopiëren. De clientcomputer moet voldoen aan deze vereisten:
+    - Een [ondersteund besturingssysteem](data-box-disk-system-requirements.md#supported-operating-systems-for-clients) worden uitgevoerd.
+    - Andere [vereiste software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) is geïnstalleerd in het geval van een Windows-client.  
 
 ## <a name="order-data-box-disk"></a>Data Box Disk bestellen
 
@@ -97,7 +102,7 @@ Voer de volgende stappen uit in [Azure Portal](https://aka.ms/azuredataboxfromdi
  
 ## <a name="track-the-order"></a>De bestelling volgen
 
-Nadat u uw bestelling hebt geplaatst, kunt u de status van de bestelling volgen via Azure Portal. Ga naar uw bestelling en vervolgens naar **Overzicht** om de status te bekijken. In de portal ziet u dat de taak de status **Besteld** heeft. 
+Nadat u uw bestelling hebt geplaatst, kunt u de status van de bestelling volgen via de Azure-portal. Ga naar uw bestelling en vervolgens naar **Overzicht** om de status te bekijken. In de portal ziet u dat de taak de status **Besteld** heeft. 
 
 ![Status bestel van Data Box Disk](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Wanneer de schijfvoorbereiding is voltooid, wordt de bestelling in de portal wee
 
 Microsoft bereidt uw schijven vervolgens voor en verzendt deze met een regionale vervoerder. U ontvangt uw volgnummer wanneer de schijven zijn verzonden. In de portal wordt bestelling weergegeven met de status **Verzonden**.
 
-
-
 ## <a name="cancel-the-order"></a>De bestelling annuleren
 
-Als u deze bestelling wilt annuleren, gaat u in de Azure-previewportal naar **Overzicht** en klikt u in de opdrachtbalk op **Annuleren**. 
+Als u deze bestelling wilt annuleren, gaat u in de Azure-portal naar **Overzicht** en klikt u in de opdrachtbalk op **Annuleren**. 
 
 U kunt alleen annuleren wanneer de schijven zijn besteld en de bestelling nog wordt verwerkt voor verzending. Nadat de bestelling is verwerkt, kunt u de bestelling niet meer annuleren. 
 
 ![Bestelling annuleren](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-Als u een geannuleerde bestelling wilt verwijderen, gaat u naar **Overzicht** en klikt u in de opdrachtbalk op **Verwijderen**. 
+Als u een geannuleerde bestelling wilt verwijderen, gaat u naar **Overzicht** en klikt u in de opdrachtbalk op **Verwijderen**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -129,7 +132,6 @@ Als u een geannuleerde bestelling wilt verwijderen, gaat u naar **Overzicht** en
 In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Azure Data Box, zoals:
 
 > [!div class="checklist"]
-> * Registreren voor Data Box Disk
 > * Data Box Disk bestellen
 > * De bestelling volgen
 > * De bestelling annuleren

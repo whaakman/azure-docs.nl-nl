@@ -1,239 +1,213 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met CylancePROTECT | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en CylancePROTECT.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en CylancePROTECT.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ea392d8c-c8aa-4475-99d0-b08524ef0f3a
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 0baeea0dc8f32182fecf0b15fede56bf8c1f9b44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 2a9d5fb7d9ec150113a45b628b2b98c34146b8ab
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430134"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Zelfstudie: Azure Active Directory-integratie met CylancePROTECT
 
-In deze zelfstudie leert u hoe u CylancePROTECT integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u CylancePROTECT kunt integreren met Azure Active Directory (Azure AD).
+Integratie van CylancePROTECT met Azure AD heeft de volgende voordelen:
 
-CylancePROTECT integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot CylancePROTECT.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij CylancePROTECT (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot CylancePROTECT heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij CylancePROTECT (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met CylancePROTECT, moet u de volgende items:
+Voor de configuratie van Azure AD-integratie met CylancePROTECT, hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een CylancePROTECT eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op CylancePROTECT waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. CylancePROTECT uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-cylanceprotect-from-the-gallery"></a>CylancePROTECT uit de galerie toe te voegen
-Voor het configureren van de integratie van CylancePROTECT in Azure AD, moet u CylancePROTECT uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* CylancePROTECT ondersteunt door **IDP** geïnitieerde SSO
 
-**Als u wilt toevoegen CylancePROTECT uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-cylanceprotect-from-the-gallery"></a>CylancePROTECT toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van CylancePROTECT in Azure AD, moet u CylancePROTECT vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Als u CylancePROTECT wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **CylancePROTECT**, selecteer **CylancePROTECT** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![CylancePROTECT in de lijst met resultaten](./media/cylanceprotect-tutorial/tutorial_cylanceprotect_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met CylancePROTECT op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ **CylancePROTECT** in het zoekvak, selecteer **CylancePROTECT** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in CylancePROTECT is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in CylancePROTECT tot stand worden gebracht.
+     ![CylancePROTECT in de lijst met resultaten](common/search-new-app.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met CylancePROTECT, moet u de volgende bouwstenen voltooien:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker CylancePROTECT](#create-a-cylanceprotect-test-user)**  : als u wilt een equivalent van Britta Simon in CylancePROTECT die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In deze sectie configureert en test u Azure AD-eenmalige aanmelding met CylancePROTECT met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in CylancePROTECT tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Als u Azure AD-eenmalige aanmelding met CylancePROTECT wilt configureren en testen, moet u de volgende bouwstenen uitvoeren:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing CylancePROTECT.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor CylancePROTECT configureren](#configure-cylanceprotect-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker maken voor CylancePROTECT](#create-cylanceprotect-test-user)**: als u een tegenhanger van Britta Simon in CylancePROTECT wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met CylancePROTECT, moet u de volgende stappen uitvoeren:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **CylancePROTECT** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+Voor het configureren van Azure AD-eenmalige aanmelding met CylancePROTECT, moet u de volgende stappen uitvoeren:
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/cylanceprotect-tutorial/tutorial_cylanceprotect_samlbase.png)
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina voor de integratie van de toepassing **CylancePROTECT** en selecteer **Eenmalige aanmelding**.
 
-1. Op de **CylancePROTECT domein en URL's** sectie, voert u de volgende stappen uit:
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![CylancePROTECT domein en URL's, eenmalige aanmelding informatie](./media/cylanceprotect-tutorial/tutorial_cylanceprotect_url.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    a. In de **id** tekstvak typt u de URL:
-    
-    | Regio | URL-waarde |
-    |----------|---------|
-    | Azië en Stille Oceaan-Noordoost (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    | Azië-Pacific (Zuidoost) (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
-    | Europa centraal (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    | Noord-Amerika|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    | Zuid-Amerika (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    
-    b. In de **antwoord-URL** tekstvak typt u de URL:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
+
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. Klik op de pagina **Eenmalige aanmelding met SAML instellen** u de knop **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Informatie over eenmalige aanmelding bij het CylancePROTECT-domein en URL's](common/idp-intiated.png)
+
+    a. Typ de URL in het tekstvak **Id**:
     
     | Regio | URL-waarde |
     |----------|---------|
-    | Azië en Stille Oceaan-Noordoost (APNE1)|`https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    | Azië-Pacific (Zuidoost) (AU)|`https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    | Europa centraal (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Azië en Stille Oceaan - noordoost (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Azië en Stille Oceaan - zuidoost (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
+    | Centraal-Europa (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Noord-Amerika|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Zuid-Amerika (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en sla het bestand van het certificaat op uw computer.
+    b. Typ de URL in het tekstvak **Antwoord-URL**:
+    
+    | Regio | URL-waarde |
+    |----------|---------|
+    | Azië en Stille Oceaan - noordoost (APNE1)|`https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Azië en Stille Oceaan - zuidoost (AU)|`https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Centraal-Europa (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Noord-Amerika|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Zuid-Amerika (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 
-    ![De downloadkoppeling certificaat](./media/cylanceprotect-tutorial/tutorial_cylanceprotect_certificate.png) 
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-1. Klik op **opslaan** knop.
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/cylanceprotect-tutorial/tutorial_general_400.png)
+6. In de sectie **CylancePROTECT instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-1. Op de **CylancePROTECT configuratie** sectie, klikt u op **configureren CylancePROTECT** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![CylancePROTECT configuratie](./media/cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
+    a. Aanmeldings-URL
 
-1. Het configureren van eenmalige aanmelding op **CylancePROTECT** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64), URL van de afmelding, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar console-beheerder. Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+    b. Azure AD-id
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    c. Afmeldings-URL
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="configure-cylanceprotect-single-sign-on"></a>Eenmalige aanmelding configureren voor CylancePROTECT
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Om eenmalige aanmelding te configureren aan de kant van **CylancePROTECT**, moet u het gedownloade **Certificaat (Base64)** en de juiste uit de Azure-portal gekopieerde URL's verzenden naar de consolebeheerder. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-   ![Maak een testgebruiker Azure AD][100]
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![De Azure Active Directory-knop](./media/cylanceprotect-tutorial/create_aaduser_01.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/cylanceprotect-tutorial/create_aaduser_02.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![De knop toevoegen](./media/cylanceprotect-tutorial/create_aaduser_03.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![Het dialoogvenster gebruiker](./media/cylanceprotect-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
-  
-### <a name="create-a-cylanceprotect-test-user"></a>Maak een testgebruiker CylancePROTECT
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in CylancePROTECT. Werken met de beheerder om toe te voegen de gebruikers in het platform CylancePROTECT console. De houder van Azure Active Directory-account ontvangt een e-mailbericht en gaat u als volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan CylancePROTECT.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot CylancePROTECT.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **CylancePROTECT**.
 
-**Als u wilt Britta Simon aan CylancePROTECT toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **CylancePROTECT** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling CylancePROTECT in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **CylancePROTECT**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling CylancePROTECT in de lijst met toepassingen](./media/cylanceprotect-tutorial/tutorial_cylanceprotect_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-cylanceprotect-test-user"></a>Een CylancePROTECT-testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie maakt u een gebruiker met de naam Britta Simon in CylancePROTECT. Neem contact op met de consolebeheerder om de gebruikers toe te voegen in het CylancePROTECT platform. De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om zijn account te bevestigen voordat het actief wordt.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel CylancePROTECT in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing CylancePROTECT.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel CylancePROTECT klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van CylancePROTECT waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/cylanceprotect-tutorial/tutorial_general_01.png
-[2]: ./media/cylanceprotect-tutorial/tutorial_general_02.png
-[3]: ./media/cylanceprotect-tutorial/tutorial_general_03.png
-[4]: ./media/cylanceprotect-tutorial/tutorial_general_04.png
-
-[100]: ./media/cylanceprotect-tutorial/tutorial_general_100.png
-
-[200]: ./media/cylanceprotect-tutorial/tutorial_general_200.png
-[201]: ./media/cylanceprotect-tutorial/tutorial_general_201.png
-[202]: ./media/cylanceprotect-tutorial/tutorial_general_202.png
-[203]: ./media/cylanceprotect-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

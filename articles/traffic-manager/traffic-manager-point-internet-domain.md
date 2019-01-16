@@ -1,5 +1,5 @@
 ---
-title: Het internetdomein van een bedrijf naar een Traffic Manager-domeinnaam laten wijzen | Microsoft Docs
+title: Het internetdomein van een bedrijf naar een Azure Traffic Manager-domeinnaam laten wijzen | Microsoft Docs
 description: Aan de hand van dit artikel kunt u een domeinnaam van uw bedrijf laten wijzen naar een Traffic Manager-domeinnaam.
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 45fe4fd8511cd1d725275a5a04bd4b6e13eb68f7
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2b9b718a61d13790de38ea82f9b479e372e9de63
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138392"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052680"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Het internetdomein van een bedrijf naar een Traffic Manager-domein laten wijzen
 

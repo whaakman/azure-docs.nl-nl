@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e816799ba2df0f97aca7618e7c181a1086bb84a9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2fc88f82222deeecb55dac8fa77e1d8702ffe011
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791911"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055027"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Quickstart: Een Apache Spark-cluster in HDInsight maken met behulp van een sjabloon
 
@@ -29,7 +29,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Een HDInsight Spark-cluster maken
 
-U maakt een HDInsight Spark-cluster met behulp van een Azure Resource Manager-sjabloon. U vindt de sjabloon in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/).
+U maakt een HDInsight Spark-cluster met behulp van een Azure Resource Manager-sjabloon. U vindt de sjabloon in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Raadpleeg [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) voor de JSON-syntaxis en de eigenschappen van het cluster.
 
 1. Selecteer de link koppeling om de sjabloon te openen in een nieuw browsertabblad in Azure Portal:
 

@@ -1,242 +1,221 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met GoToMeeting | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en GoToMeeting.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en GoToMeeting configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/02/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: b62b3b7f9f3bfd55237ed4d894954a0bde48e7fc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: MT
+ms.openlocfilehash: f1632ffa6bf4f0896fe4155b9a3fe938d0e672fc
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043717"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Zelfstudie: Azure Active Directory-integratie met GoToMeeting
 
-In deze zelfstudie leert u hoe u GoToMeeting integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u GoToMeeting kunt integreren met Azure Active Directory (Azure AD).
+De integratie van GoToMeeting met Azure AD biedt de volgende voordelen:
 
-GoToMeeting integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot GoToMeeting.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij GoToMeeting (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot GoToMeeting heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij GoToMeeting (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met GoToMeeting, moet u de volgende items:
+Om Azure AD-integratie te configureren met GoToMeeting hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een GoToMeeting eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op GoToMeeting waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. GoToMeeting uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-gotomeeting-from-the-gallery"></a>GoToMeeting uit de galerie toe te voegen
-Voor het configureren van de integratie van GoToMeeting in Azure AD, moet u GoToMeeting uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* GoToMeeting ondersteunt door **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen GoToMeeting uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-gotomeeting-from-the-gallery"></a>GoToMeeting toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van GoToMeeting te configureren in Azure AD, moet u GoToMeeting vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Voer de volgende stappen uit om GoToMeeting vanuit de galerie toe te voegen:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-4. Typ in het zoekvak **GoToMeeting**, selecteer **GoToMeeting** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![GoToMeeting in de lijst met resultaten](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met GoToMeeting op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ **GoToMeeting** in het zoekvak, selecteer **GoToMeeting** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in GoToMeeting is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in GoToMeeting tot stand worden gebracht.
+     ![GoToMeeting toevoegen vanuit de galerie](common/search-new-app.png)
 
-In GoToMeeting, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met GoToMeeting, moet u de volgende bouwstenen voltooien:
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met GoToMeeting op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tot stand is gebracht tussen een Azure AD-gebruiker en de gerelateerde gebruiker in GoToMeeting.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker GoToMeeting](#create-a-gotomeeting-test-user)**  : als u wilt een equivalent van Britta Simon in GoToMeeting die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Om eenmalige aanmelding van Azure AD met GoToMeeting te configureren en testen, moet u de volgende procedures voltooien:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor GoToMeeting configureren](#configure-gotomeeting-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor GoToMeeting maken](#create-gotomeeting-test-user)**: als u een tegenhanger van Britta Simon in GoToMeeting wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing GoToMeeting.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met GoToMeeting, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **GoToMeeting** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met GoToMeeting:
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **GoToMeeting** en selecteer **Eenmalige aanmelding**.
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-3. Op de **GoToMeeting domein en URL's** sectie, voert u de volgende stappen uit:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![GoToMeeting domein en URL's, eenmalige aanmelding informatie](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    In de **id** tekstvak typt u de URL: `https://authentication.logmeininc.com/saml/sp`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-4. Klik op **geavanceerde URL weergeven configuratie** en configureert u de onderstaande URL's
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    **Aanmeldings-URL** (laat dit leeg)
-    
-    **Antwoord-URL**: `https://authentication.logmeininc.com/saml/acs`
-    
-    **RelayState**:
-    
-    - Gebruik voor GoToMeeting-App `https://global.gotomeeting.com`
-    
-    - Gebruik voor GoToTraining, `https://global.gototraining.com`
-    
-    - Voor gotowebinar toevoegen, gebruikt u `https://global.gotowebinar.com` 
-    
-    - Gebruik voor GoToAssist, `https://app.gotoassist.com`
-    
-5. Klik op **opslaan** knop.
+4. Klik op de pagina **Eenmalige aanmelding met SAML instellen** u de knop **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/citrix-gotomeeting-tutorial/tutorial_general_400.png)
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van GoToMeeting](common/both-allurls.png)
 
-6. In een ander browservenster en meld u aan bij uw [GoToMeeting organisatie Center](https://organization.logmeininc.com/). U wordt gevraagd om te bevestigen dat de id-provider is bijgewerkt
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://authentication.logmeininc.com/saml/sp`
 
-7. Schakel het selectievakje 'Mijn id-Provider is bijgewerkt met het nieuwe domein'. Klik op **gedaan** wanneer u klaar bent.
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://authentication.logmeininc.com/saml/acs`
 
+    c. Klik op **Extra URL's instellen** en configureer de onderstaande URL's
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. **Aanmeldings-URL** (laat dit leeg)
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+    e. Typ in het tekstvak **Relaystatus** een URL met het volgende patroon:
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    - Gebruik voor de GoToMeeting-app `https://global.gotomeeting.com`
 
-   ![Maak een testgebruiker Azure AD][100]
+    - Gebruik voor GoToTraining `https://global.gototraining.com`
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    - Gebruik voor GoToWebinar `https://global.gotowebinar.com` 
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    - Gebruik voor GoToAssist `https://app.gotoassist.com`
 
-    ![De Azure Active Directory-knop](./media/citrix-gotomeeting-tutorial/create_aaduser_01.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met het [klantondersteuningsteam van GoToMeeting](https://go.microsoft.com/fwlink/?linkid=845985) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/citrix-gotomeeting-tutorial/create_aaduser_02.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+6. Kopieer in het gedeelte **GoToMeeting instellen** de juiste URL('s) op basis van uw behoeften.
 
-    ![De knop toevoegen](./media/citrix-gotomeeting-tutorial/create_aaduser_03.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    a. Aanmeldings-URL
 
-    ![Het dialoogvenster gebruiker](./media/citrix-gotomeeting-tutorial/create_aaduser_04.png)
+    b. Azure AD-id
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    c. Afmeldings-URL
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+### <a name="configure-gotomeeting-single-sign-on"></a>Eenmalige aanmelding configureren voor GoToMeeting
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+1. Meld u in een ander browservenster aan bij [GoToMeeting Organization Center](https://organization.logmeininc.com/). U wordt gevraagd om te bevestigen dat de id-provider is bijgewerkt.
+
+2. Schakel het selectievakje 'My Identity Provider has been updated with the new domain' in. Klik op **Done** als u klaar bent.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
+
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
+
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
+
+    ![Knop Nieuwe gebruiker](common/new-user.png)
+
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
+
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
+
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
+
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-gotomeeting-test-user"></a>Maak een testgebruiker GoToMeeting
-
-In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in GoToMeeting. GoToMeeting biedt ondersteuning voor just-in-time inrichting, dat standaard is ingeschakeld.
-
-Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in GoToMeeting bestaat, wordt een nieuw bestand wordt gemaakt wanneer u probeert te krijgen tot GoToMeeting.
-
-> [!NOTE]
-> Als u wilt maken van een gebruiker handmatig, neem contact op met [GoToMeeting ondersteuningsteam](https://support.logmeininc.com/gotomeeting).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan GoToMeeting.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot GoToMeeting.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **GoToMeeting**.
 
-**Als u wilt toewijzen Britta Simon aan GoToMeeting, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **GoToMeeting** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar GoToMeeting in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **GoToMeeting**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling GoToMeeting in de lijst met toepassingen](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-gotomeeting-test-user"></a>Een testgebruiker maken voor GoToMeeting
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in GoToMeeting. GoToMeeting biedt ondersteuning voor just-in-time inrichting, wat standaard is ingeschakeld.
+
+Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in GoToMeeting, wordt er een nieuwe gemaakt wanneer u GoToMeeting opent.
+
+> [!NOTE]
+> Als u handmatig een gebruiker wilt maken, neemt u contact op met het [ondersteuningsteam van GoToMeeting](https://support.logmeininc.com/gotomeeting).
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel GoToMeeting in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing GoToMeeting.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u in het toegangsvenster op de tegel GoToMeeting klikt, wordt u automatisch aangemeld bij de instantie van GoToMeeting waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Inrichten van gebruikers configureren](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-<!--Image references-->
-
-[1]: ./media/gotomeeting-tutorial/tutorial_general_01.png
-[2]: ./media/gotomeeting-tutorial/tutorial_general_02.png
-[3]: ./media/gotomeeting-tutorial/tutorial_general_03.png
-[4]: ./media/gotomeeting-tutorial/tutorial_general_04.png
-
-[100]: ./media/gotomeeting-tutorial/tutorial_general_100.png
-
-[200]: ./media/gotomeeting-tutorial/tutorial_general_200.png
-[201]: ./media/gotomeeting-tutorial/tutorial_general_201.png
-[202]: ./media/gotomeeting-tutorial/tutorial_general_202.png
-[203]: ./media/gotomeeting-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

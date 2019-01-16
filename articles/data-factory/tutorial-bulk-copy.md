@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 1bf93ce9aa1733634b46c2a15b587d4cc0826ba1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c15c79e90b69fd72ed6b8968d35be95da50f838b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090930"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023864"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory
 Deze zelfstudie demonstreert het **kopiëren van een aantal tabellen uit Azure SQL Database naar Azure SQL Data Warehouse**. U kunt hetzelfde patroon toepassen in andere kopieerscenario's. Bijvoorbeeld het kopiëren van tabellen van SQL Server/Oracle naar Azure SQL Database/Data Warehouse/Azure Blob, verschillende paden kopiëren van Blob naar Azure SQL Database-tabellen.
@@ -108,7 +107,7 @@ Geef Azure-services toegang tot SQL-server voor zowel SQL Database als SQL Data 
         ```
 
     * Als u Data Factory-exemplaren wilt maken, moet u bijdrager of beheerder zijn van het Azure-abonnement.
-    * Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+    * Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
 
@@ -116,7 +115,7 @@ In deze zelfstudie maakt u drie gekoppelde services maken voor respectievelijk d
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Maak de gekoppelde Azure SQL Database-bronservice.
 
-1. Maak een JSON-bestand met de naam **AzureSqlDatabaseLinkedService.json** in de map **C:\ADFv2TutorialBulkCopy** met de volgende inhoud (maak de map ADFv2TutorialBulkCopy als deze nog niet bestaat):
+1. Maak een JSON-bestand met de naam **AzureSqlDWLinkedService.json** in de map **C:\ADFv2TutorialBulkCopy** en de volgende inhoud: (Maak de map ADFv2TutorialBulkCopy als deze nog niet bestaat.)
 
     > [!IMPORTANT]
     > Vervang &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; en &lt;password&gt; door de waarden van uw Azure SQL Database voordat u het bestand opslaat.
@@ -138,7 +137,7 @@ In deze zelfstudie maakt u drie gekoppelde services maken voor respectievelijk d
 
 2. Schakel in **Azure PowerShell** over naar de map **ADFv2TutorialBulkCopy**.
 
-3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureSqlDatabaseLinkedService** te maken. 
+3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service te maken: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -271,7 +270,7 @@ In deze zelfstudie maakt u bron- en sinkgegevenssets, waarmee de locatie wordt o
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Een gegevensset maken voor de sink in SQL Data Warehouse
 
-1. Maak een JSON-bestand met de naam **AzureSqlDWDataset.json** in de map **C:\ADFv2TutorialBulkCopy**, met de volgende inhoud: De tableName' wordt ingesteld als een parameter; de kopieeractiviteit waarin naar deze gegevensset wordt verwezen, geeft later de werkelijke waarde door naar de gegevensset.
+1. Maak een JSON-bestand met de naam **AzureSqlDWDataset.json** in de map **C:\ADFv2TutorialBulkCopy**. Geef dit bestand de volgende inhoud: 'tableName' is ingesteld als een parameter. De kopieeractiviteit die naar deze gegevensset verwijst, geeft de werkelijke waarde later door aan de gegevensset.
 
     ```json
     {

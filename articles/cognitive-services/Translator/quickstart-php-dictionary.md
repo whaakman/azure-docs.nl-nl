@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: alternatieve vertalingen zoeken, PHP - -Translator Text-API'
+title: Woorden opzoeken met een tweetalige woordenlijst, PHP - Translator Text-API
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met PHP.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ff1f0a97667260fa19c46bec6901113ff696aaab
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649757"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156881"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>Snelstart: alternatieve vertalingen zoeken met de Translator Text REST API (PHP)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Snelstart: Woorden opzoeken in een tweetalige woordenlijst met PHP
 
 In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
 

@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261805"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077399"
 ---
-# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Zelfstudie: Een punt-naar-site-verbinding maken met Azure Virtual WAN (Preview)
+# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Zelfstudie: een punt-naar-site-verbinding maken met Azure Virtual WAN (Preview)
 
 In deze zelfstudie leert u hoe u Virtual WAN kunt gebruiken om verbinding te maken met uw resources in Azure via een VPN-verbinding met IPsec/IKE (IKEv2)- of OpenVPN. Voor dit soort verbinding moet een client op de clientcomputer worden geconfigureerd. Zie voor meer informatie over Virtual WAN het [Overzicht van Virtual WAN](virtual-wan-about.md).
 
@@ -42,7 +42,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="register"></a>Deze functie registreren
 
-Klik op **Proberen** om deze functie eenvoudig te registreren met Azure Cloud Shell.
+Klik op **Proberen** om deze functie eenvoudig te registreren met Azure Cloud Shell. Als u PowerShell liever lokaal uitvoert, dient u over de meest recente versie te beschikken en meld u zich aan met behulp van de opdrachten **Connect-AzureRmAccount** en **Select-AzureRmSubscription**.
 
 >[!NOTE]
 >Als u deze functie niet registreert, kunt u de functie niet gebruiken en wordt deze ook niet weergegeven in de portal.
@@ -149,7 +149,7 @@ Gebruik het gedownloade profiel om de clients voor externe toegang te configurer
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Download en installeer de OpenVPN-client op de officiële website.
-2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuraties in Azure Portal of via New-AzureRmVpnClientConfiguration in PowerShell.
+2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuraties in de Azure-portal of via New-AzureRmVpnClientConfiguration in PowerShell.
 3.  Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn uit de map OpenVPN in Kladblok.
 4.  Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Hier ziet u hoe u een certificaat kunt exporteren om de gecodeerde openbare sleutel te verkrijgen.
 5.  Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Bekijk hier hoe u de persoonlijke sleutel kunt uitpakken.
@@ -168,7 +168,7 @@ Gebruik het gedownloade profiel om de clients voor externe toegang te configurer
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Download en installeer een OpenVPN-client, zoals TunnelBlik via https://tunnelblick.net/downloads.html 
-2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuratie in Azure Portal of via New-AzureRmVpnClientConfiguration in PowerShell.
+2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuratie in de Azure-portal of via New-AzureRmVpnClientConfiguration in PowerShell.
 3.  Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn uit de map OpenVPN in Kladblok.
 4.  Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Hier ziet u hoe u een certificaat kunt exporteren om de gecodeerde openbare sleutel te verkrijgen.
 5.  Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Bekijk hier hoe u de persoonlijke sleutel kunt uitpakken.

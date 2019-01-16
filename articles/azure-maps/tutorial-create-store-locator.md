@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317905"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189759"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Een winkelzoeker maken met behulp van Azure Maps
 
@@ -109,7 +109,7 @@ Voor het maken van het project kunt u [Visual Studio](https://visualstudio.micro
 
 Voor het maken van de gebruikersinterface voegt u code toe aan *index.html*:
 
-1. Voeg de volgende `meta`-tags toe aan de `head` van *index.html*. De tags definiëren de tekenset (UTF-8), geven aan dat Internet Explorer en Edge de nieuwste browserversies moeten gebruiken en specificeren een viewport die goed werkt voor responsieve lay-outs.
+1. Voeg de volgende `meta`-tags toe aan de `head` van *index.html*. De tags definiëren de tekenset (UTF-8), geven aan dat Internet Explorer en Microsoft Edge de nieuwste browserversies moeten gebruiken en specificeren een viewport die goed werkt voor responsieve lay-outs.
 
     ```HTML
     <meta charset="utf-8" /> 

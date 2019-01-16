@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 6b0a4b7a8b2a30b9572ecfc488e2af7554b46346
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017735"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016911"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>De Databricks Notebook-activiteit uitvoeren in Azure Data Factory op een Databricks-notebook
 
@@ -34,7 +33,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 
   - De pijplijnuitvoering controleert.
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+Als u nog geen Azure-abonnement hebt, maakt u een  [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 Bekijk de volgende video voor een inleiding en demonstratie van deze functie van 11 minuten:
 
@@ -46,37 +45,37 @@ Bekijk de volgende video voor een inleiding en demonstratie van deze functie van
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
-1.  Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
+1.  Start de webbrowser **Microsoft Edge** of **Google Chrome** . Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 
-1.  Selecteer **Een resource maken** in het menu links, selecteer **Analyse** en selecteer vervolgens **Data Factory**.
+1.  Selecteer  **Een resource maken**  in het menu links, selecteer  **Analyse** en selecteer vervolgens  **Data factory**.
 
     ![Een nieuwe gegevensfactory maken](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
-1.  Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**.
+1.  In het deelvenster **Nieuwe data factory** voert u **ADFTutorialDataFactory** in onder **Naam**.
 
-    De naam van de Azure-gegevensfactory moet *wereldwijd uniek* zijn. Als u de volgende fout ziet, wijzigt u de naam van de gegevensfactory. (Gebruik dan bijvoorbeeld **\<uwnaam\>ADFTutorialDataFactory**). Zie het artikel [Data factory - Naamgevingsregels](https://docs.microsoft.com/azure/data-factory/naming-rules) voor naamgevingsregels voor Data Factory-artefacten.
+    De naam van de Azure data factory moet  *wereldwijd uniek* zijn. Als u de volgende fout ziet, wijzigt u de naam van de gegevensfactory. (Gebruik bijvoorbeeld **\<uwnaam\>ADFTutorialDataFactory**). Zie het artikel [Data factory - Naamgevingsregels](https://docs.microsoft.com/azure/data-factory/naming-rules) voor meer informatie over naamgevingsregels voor data factory-artefacten.
 
     ![Een naam opgeven voor de nieuwe gegevensfactory](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
-1.  Selecteer voor **Abonnement** het Azure-abonnement waarin u de gegevensfactory wilt maken.
+1.  Selecteer voor  **Abonnement** het Azure-abonnement waarin u de data factory wilt maken.
 
-1.  Voer een van de volgende stappen uit voor **Resourcegroep**:
+1.  Voer een van de volgende stappen uit voor  **Resourcegroep**:
     
-    - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst.
+    - Selecteer  **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst.
     
-    - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.
+    - Selecteer  **Nieuwe maken** en voer de naam van een resourcegroep in.
 
-    Voor sommige van de stappen in deze snelstartgids wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) voor meer informatie.
+    Voor sommige van de stappen in deze quickstart wordt ervan uitgegaan dat u voor de resourcegroep de naam  **ADFTutorialResourceGroup**  gebruikt. Zie  [Resourcegroepen gebruiken om Azure-resources te beheren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) voor meer informatie.
 
-1.  Selecteer **V2** als **Versie**.
+1.  Bij  **Versie** selecteert u  **V2**.
 
-1.  Selecteer voor **Locatie** een locatie voor de data factory.
+1.  Selecteer voor  **Locatie** een locatie voor de data factory.
 
-    Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensarchieven (zoals Azure Storage en Azure SQL Database) en berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen zich in andere regio's bevinden.
-1.  Selecteer **Maken**.
+    Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensarchieven (zoals Azure Storage en Azure SQL Database) en berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen zich in andere regio's bevinden.
+1.  Selecteer  **Maken**.
 
 
-1.  Zodra de bewerking is voltooid, ziet u de pagina **Data Factory**. Selecteer de tegel **Maken en controleren** om de gebruikersinterface van Data Factory te openen op een afzonderlijk tabblad.
+1.  Zodra het maken is voltooid, ziet u de pagina  **Data factory** . Selecteer de tegel  **Maken en controleren**  om de gebruikersinterface van de data factory te openen op een afzonderlijk tabblad.
 
     ![De gebruikersinterface van Data Factory starten](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
 
@@ -86,19 +85,19 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
 ### <a name="create-an-azure-databricks-linked-service"></a>Een aan Azure Databricks gekoppelde service maken
 
-1.  Schakel op de pagina **Aan de slag** naar het tabblad **Bewerken** in het linkerpaneel.
+1.  Ga op de pagina  **Aan de slag** naar het tabblad  **Bewerken** in het linkerdeelvenster.
 
     ![De nieuwe gekoppelde service opslaan](media/transform-data-using-databricks-notebook/get-started-page.png)
 
-1.  Selecteer **Verbindingen** onder aan het venster en selecteer **+ Nieuw**.
+1.  Selecteer  **Verbindingen**  onder aan het venster en selecteer  **+ Nieuw**.
     
     ![Een nieuwe verbinding maken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  Selecteer in het venster **Nieuwe gekoppelde service** de optie **Compute** \> **Azure Databricks** en selecteer vervolgens **Doorgaan**.
+1.  Selecteer in het venster **Nieuwe gekoppelde service** de optie **Compute** \> **Azure Databricks**. Selecteer vervolgens **Doorgaan**.
     
     ![Een aan Databricks gekoppelde service opgeven](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
-1.  Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
+1.  Voer in het venster  **Nieuwe gekoppelde service**  de volgende stappen uit:
     
     1.  Voer bij **Naam** ***AzureDatabricks\_LinkedService*** in
     
@@ -122,7 +121,7 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
 ## <a name="create-a-pipeline"></a>Een pijplijn maken
 
-1.  Selecteer de knop **+** (plusteken) en selecteer vervolgens **Pijplijn** in het menu.
+1.  Selecteer de knop  **+**  (plusteken) en selecteer vervolgens  **Pijplijn** in het menu.
 
     ![Knoppen voor het maken van een nieuwe pijplijn](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
@@ -132,15 +131,15 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
     ![De naam van de parameter maken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
 
-1.  Vouw in de werkset **Activiteiten** **Databricks** uit. Sleep de activiteit **Notebook** vanuit de werkset **Activiteiten** naar het ontwerpoppervlak voor pijplijnen.
+1.  In de werkset **Activiteiten** breidt u **Databricks** uit. Sleep de activiteit **Notebook** vanuit de werkset **Activiteiten** naar het ontwerpoppervlak voor pijplijnen.
 
     ![Sleep de notebook naar het ontwerpoppervlak](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
-1.  Voer de volgende stappen uit in de eigenschappen voor het **Databricks** **Notebook**-activiteitvenster onderaan:
+1.  Voer de volgende stappen uit in de eigenschappen voor het **Databricks** **Notebook** -activiteitvenster onderaan:
 
-    a. Schakel over naar het tabblad **Azure Databricks**.
+    a. Schakel over naar het tabblad **Azure Databricks** .
 
-    b. Selecteer **AzureDatabricks\_LinkedService** (gemaakt in de vorige procedure).
+    b. Selecteer **AzureDatabricks\_LinkedService** (gemaakt in de vorige procedure).
 
     c. Schakel over naar het tabblad **Instellingen**
 
@@ -174,7 +173,7 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
        1. In dit geval is het **Notebook-pad** **/adftutorial/mynotebook**
 
-1.  Ga terug naar de **gebruikersinterface van Data Factory**. Ga naar het tabblad **Instellingen** onder **Notebook1-activiteit**. 
+1.  Ga terug naar de **gebruikersinterface van Data Factory**. Ga naar het tabblad **Instellingen** onder **Notebook1-activiteit**. 
     
     a.  **Voeg een parameter toe** aan de Notebook-activiteit. U gebruikt dezelfde parameter die u eerder aan de **pijplijn** hebt toegevoegd.
 
@@ -182,17 +181,17 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
     b.  Geef de parameter de naam **input** en geef de waarde op als de expressie  **@pipeline().parameters.name**.
 
-1.  Selecteer op de werkbalk de knop **Valideren** om de pijplijn te valideren. Selecteer de **\>\>** (pijl-rechts) om het validatievenster te sluiten.
+1.  Selecteer op de werkbalk de knop **Valideren** om de pijplijn te valideren. Selecteer de knop **\>\>** (pijl naar rechts) om het validatievenster te sluiten.
 
     ![De pijplijn valideren](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
-1.  Selecteer **Alles publiceren**. De gebruikersinterface van Data Factory publiceert entiteiten (gekoppelde services en pijplijn) naar de Azure Data Factory-service.
+1.  Selecteer **Alles publiceren**. De gebruikersinterface van Data Factory publiceert entiteiten (gekoppelde services en pijplijn) naar de Azure Data Factory-service.
 
     ![De nieuwe Data Factory-entiteiten publiceren](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Een pijplijnuitvoering activeren
 
-Selecteer op de werkbalk de optie **Activeren** en selecteer vervolgens **Nu activeren**.
+Selecteer op de werkbalk de optie **Activeren** en selecteer vervolgens **Nu activeren**.
 
 ![Opdracht Nu activeren selecteren](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image20.png)
 
@@ -202,17 +201,17 @@ Het dialoogvenster **Pijplijnuitvoering**vraagt naar de **naam**-parameter. Gebr
 
 ## <a name="monitor-the-pipeline-run"></a>De pijplijnuitvoering controleren.
 
-1.  Ga naar het tabblad **Controleren**. Controleer of u een pijplijnuitvoering ziet. Het duurt 5 tot 8 minuten om een Databricks-taakcluster te maken, waar de notebook wordt uitgevoerd.
+1.  Ga naar het tabblad  **Bewaken** . Controleer of u een pijplijnuitvoering ziet. Het duurt 5 tot 8 minuten om een Databricks-taakcluster te maken, waar de notebook wordt uitgevoerd.
 
     ![De pijplijn bewaken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
-1.  Selecteer regelmatig **Vernieuwen** om de status van de pijplijnuitvoering te controleren.
+1.  Selecteer regelmatig  **Vernieuwen** om de status van de pijplijnuitvoering te controleren.
 
-1.  Selecteer **Uitvoering van activiteiten weergeven** in de kolom **Acties** om de uitvoering van activiteiten weer te geven die zijn gekoppeld aan de pijplijnuitvoering.
+1.  Selecteer **Uitvoering van activiteiten weergeven** in de kolom **Acties** om de uitvoering van activiteiten weer te geven die zijn gekoppeld aan de pijplijnuitvoering.
 
     ![Uitvoeringen van activiteit bekijken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
 
-Als u wilt terugkeren naar de vorige weergave, selecteert u **Pijplijnen** bovenaan.
+Als u wilt terugkeren naar de vorige weergave, selecteert u **Pijplijnen** bovenaan.
 
 ## <a name="verify-the-output"></a>De uitvoer controleren
 

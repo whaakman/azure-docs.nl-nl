@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138912"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189267"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Zelfstudie: LUIS-bot in C# met Bot Framework 4.x en de Azure-web-app-bot
 Met C# kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt gebruik van de app HomeAutomation om een botoplossing te implementeren. De bot is gebouwd aan de hand van de Azure-[web-app-bot](https://docs.microsoft.com/azure/bot-service/) en [Bot Framework versie](https://github.com/Microsoft/botbuilder-js) 4.
@@ -301,6 +301,7 @@ Azure Bot Service maakt gebruik van de Bot Framework-SDK. Meer informatie over d
 
 U hebt een Azure-botservice gemaakt, u hebt het botgeheim en het `.bot`-bestandspad gekopieerd en u hebt het zip-bestand van de code gedownload. U hebt het vooraf gebouwde HomeAutomation-domein toegevoegd aan de LUIS-app. Deze app is gemaakt als onderdeel van de nieuwe Azure-botservice. Vervolgens id de app getraind en opnieuw gepubliceerd. U hebt het codeproject uitgepakt, een omgevingsbestand (`.env`) gemaakt en het botgeheim en het `.bot`-bestandspad ingesteld. In het bestand bot.js hebt u code toegevoegd om de twee nieuwe intenties te kunnen verwerken. Vervolgens hebt u de bot in de botemulator getest om de LUIS-reactie op een uiting van een van de nieuwe intenties te bekijken. 
 
+Bekijk meer [voorbeelden](https://github.com/Microsoft/AI) met gespreksbots. 
 
 > [!div class="nextstepaction"]
 > [Een aangepast domein bouwen in LUIS](luis-quickstart-intents-only.md)

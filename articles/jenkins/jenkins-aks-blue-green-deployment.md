@@ -3,17 +3,17 @@ title: Implementeren naar Azure Kubernetes Service (AKS) met behulp van Jenkins 
 description: Leer hoe u kunt implementeren naar Azure Kubernetes Service (AKS) met behulp van Jenkins en het blauw/groen-implementatiepatroon.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blauw/groen-implementatie, continue levering, cd
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387377"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073880"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementeren naar Azure Kubernetes Service (AKS) met behulp van Jenkins en het blauw/groen-implementatiepatroon
 
@@ -259,7 +259,7 @@ In deze sectie ziet u hoe u de Jenkins-server kunt voorbereiden om een build uit
 
 ## <a name="run-the-job"></a>De taak uitvoeren
 
-1. Verifieer dat u uw project succesvol kunt uitvoeren in uw lokale omgeving. U doet dit als volgt: [Project uitvoeren op lokale machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Verifieer dat u uw project succesvol kunt uitvoeren in uw lokale omgeving. Dit doet u al volgt: [Project uitvoeren op lokale machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Voer de Jenkins-taak uit. De eerste keer dat u de taak uitvoert, implementeert Jenkins de taken-app in de blauwe omgeving, die de standaard inactieve omgeving is. 
 

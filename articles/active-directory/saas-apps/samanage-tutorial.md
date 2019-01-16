@@ -1,283 +1,252 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Samanage | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Samanage.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Samanage.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/05/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 118ab72c9afc13c5792f229f9c7bc61d226553d5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 6f48d5b3adc59165a965a64966a6ff2cdc099d93
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420571"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Zelfstudie: Azure Active Directory-integratie met Samanage
 
-In deze zelfstudie leert u hoe u Samanage integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Samanage kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Samanage met Azure AD heeft de volgende voordelen:
 
-Samanage integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot Samanage.
+* U kunt uw gebruikers zich automatisch laten aanmelden bij Samanage (eenmalige aanmelding) met hun Azure AD-account.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Samanage heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Samanage (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Samanage, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Samanage hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Samanage eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Samanage waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Samanage uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-samanage-from-the-gallery"></a>Samanage uit de galerie toe te voegen
-Voor het configureren van de integratie van Samanage in Azure AD, moet u Samanage uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Samanage ondersteunt door **SP** geïnitieerde eenmalige aanmelding (SSO)
 
-**Als u wilt toevoegen Samanage uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-samanage-from-the-gallery"></a>Samanage toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van Samanage in Azure AD moet u Samanage uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit om Samanage toe te voegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Toepassingen][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Samanage**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/samanage-tutorial/tutorial_samanage_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **Samanage**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/samanage-tutorial/tutorial_samanage_addfromgallery.png)
+4. Typ **Samanage** in het zoekvak, selecteer **Samanage** in het resultaatvenster en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Samanage op basis van een testgebruiker 'Julia steen' genoemd.
+     ![Samanage in de resultatenlijst](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Samanage is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Samanage tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In Samanage, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie gaat u Azure AD-eenmalige aanmelding met Samanage configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Samanage tot stand is gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Samanage, moet u de volgende bouwstenen voltooien:
+Als u Azure AD-eenmalige aanmelding met Samanage wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Samanage](#creating-a-samanage-test-user)**  : als u wilt een equivalent van Britta Simon in Samanage die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Samanage configureren](#configure-samanage-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker maken in Samanage](#create-samanage-test-user)**: om in Samanage een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Samanage.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Samanage, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD-eenmalige aanmelding met Samanage moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **Samanage** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Samanage**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/samanage-tutorial/tutorial_samanage_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Samanage domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/samanage-tutorial/tutorial_samanage_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<Company Name>.samanage.com`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Samanage](common/sp-identifier.png)
+
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
+
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<Company Name>.samanage.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en de id, die later in de zelfstudie wordt uitgelegd. Voor meer informatie contact op met [Samanage Client ondersteuningsteam](https://www.samanage.com/support).    
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke URL voor eenmalige aanmelding en de id, zoals later in de zelfstudie wordt uitgelegd. Neem voor meer informatie contact op met het [ondersteuningsteam van Samanage](https://www.samanage.com/support). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/samanage-tutorial/tutorial_samanage_certificate.png) 
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-1. Klik op **opslaan** knop.
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-    ![Eenmalige aanmelding configureren](./media/samanage-tutorial/tutorial_general_400.png)
+6. In de sectie **Samanage instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-1. Op de **Samanage configuratie** sectie, klikt u op **configureren Samanage** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL en SAML entiteit-ID** uit de **Naslaggids sectie.**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Eenmalige aanmelding configureren](./media/samanage-tutorial/tutorial_samanage_configure.png) 
+    a. Aanmeldings-URL
 
-1. Meld u in een ander browservenster in uw bedrijf Samanage site als beheerder.
+    b. Azure AD-id
 
-1. Klik op **Dashboard** en selecteer **Setup** in het navigatiedeelvenster links.
+    c. Afmeldings-URL
+
+### <a name="configure-samanage-single-sign-on"></a>Eenmalige aanmelding voor Samanage configureren
+
+1. Meld u in een ander browservenster aan bij uw Samanage-bedrijfssite als beheerder.
+
+2. Klik op **Dashboard** en selecteer **Setup** in het linker navigatievenster.
    
     ![Dashboard](./media/samanage-tutorial/tutorial_samanage_001.png "Dashboard")
 
-1. Klik op **Single Sign-On**.
+3. Klik op **Single Sign-On**.
    
     ![Single Sign-On](./media/samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")
 
-1. Navigeer naar **Meld u aan met SAML** sectie, voert u de volgende stappen uit:
+4. Navigeer naar de sectie **Login using SAML** en voer de volgende stappen uit:
    
-    ![Meld u aan met SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Meld u aan met SAML")
+    ![Login using SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
  
-    a. Klik op **eenmalige aanmelding met SAML inschakelen**.  
+    a. Klik op **Enable Single Sign-On with SAML**.  
  
-    b. In de **URL van de id-Provider** tekstvak, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure portal.    
+    b. Plak de waarde van **Azure Ad-id**, die u hebt gekopieerd uit de Azure-portal, in het tekstvak **Identity Provider URL**.    
  
-    c. Controleer of de **aanmeldings-URL** komt overeen met de **aanmelding URL** van **Samanage domein en URL's** sectie in Azure portal.
+    c. Bevestig dat de **Login URL** overeenkomt met de **Aanmeldings-URL** van de sectie **Standaard SAML-configuratie** in de Azure-portal.
  
-    d. In de **afmeldings-URL van** tekstvak, voer de waarde van **afmelding URL** die u hebt gekopieerd vanuit Azure portal.
+    d. Plak in het tekstvak **Logout URL** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
  
-    e. In de **SAML verlener** tekstvak, type de URI van de app-id instellen in uw id-provider.
+    e. Typ in het tekstvak **SAML Issuer** de app-id-URI die is ingesteld in uw id-provider.
  
-    f. Open uw base-64 gecodeerde certificaat gedownload vanuit Azure portal in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **plak uw id-Provider x.509 certificaat onderstaande** tekstvak.
+    f. Open in Kladblok het met Base 64 gecodeerde certificaat dat u hebt gedownload uit de Azure-portal, kopieer de inhoud ervan naar het Klembord en plak deze vervolgens in het tekstvak **Paste your Identity Provider x.509 Certificate below**.
  
-    g. Klik op **gebruikers maken als deze nog niet bestaan in Samanage**.
+    g. Klik op **Create users if they do not exist in Samanage**.
  
     h. Klik op **Update**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
- 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-![Azure AD-gebruiker maken][100]
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/samanage-tutorial/create_aaduser_01.png) 
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/samanage-tutorial/create_aaduser_02.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/samanage-tutorial/create_aaduser_03.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/samanage-tutorial/create_aaduser_04.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-samanage-test-user"></a>Het maken van een testgebruiker Samanage
 
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij Samanage, moeten ze worden ingericht voor Samanage.  
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Samanage.
+
+1. Selecteer **Bedrijfstoepassingen** in Azure Portal, selecteer **Alle toepassingen** en selecteer vervolgens **Samanage**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer **Samanage** in de lijst met toepassingen.
+
+    ![De koppeling Samanage in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-samanage-test-user"></a>Een testgebruiker maken in Samanage
+
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Samanage, moeten ze worden ingericht in Samanage.  
 In het geval van Samanage is inrichten een handmatige taak.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
-1. Meld u in uw bedrijf Samanage site als beheerder.
+1. Meld u bij uw Samanage-bedrijfssite aan als beheerder.
 
-1. Klik op **Dashboard** en selecteer **Setup** in de navigatiebalk aan de linkerkant pannen.
+2. Klik op **Dashboard** en selecteer **Setup** in het linker navigatievenster.
    
     ![Setup](./media/samanage-tutorial/tutorial_samanage_001.png "Setup")
 
-1. Klik op de **gebruikers** tabblad
+3. Klik op het tabblad **Users**
    
-    ![Gebruikers](./media/samanage-tutorial/tutorial_samanage_006.png "gebruikers")
+    ![Gebruikers](./media/samanage-tutorial/tutorial_samanage_006.png "Gebruikers")
 
-1. Klik op **nieuwe gebruiker**.
+4. Klik op **New User**.
    
-    ![Nieuwe gebruiker](./media/samanage-tutorial/tutorial_samanage_007.png "nieuwe gebruiker")
+    ![New User](./media/samanage-tutorial/tutorial_samanage_007.png "New User")
 
-1. Type de **naam** en de **e-mailadres** van een Azure Active Directory-account dat u wilt inrichten en klikt u op **gebruiker maken**.
+5. Typ bij **Name** en **Email Address** de naam en het e-mailadres van een Azure Active Directory-account dat u wilt inrichten, en klik op **Create user**.
    
-    ![Gebruiker maken](./media/samanage-tutorial/tutorial_samanage_008.png "gebruiker maken")
+    ![Create User](./media/samanage-tutorial/tutorial_samanage_008.png "Create User")
    
    >[!NOTE]
-   >De houder van Azure Active Directory-account ontvangt een e-mailbericht en gaat u als volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt. U kunt elke andere Samanage gebruiker account hulpmiddelen voor het maken of API's geleverd door Samanage voor het inrichten van Azure Active Directory-gebruikersaccounts.
+   >De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om zijn account te bevestigen voordat het actief wordt. U kunt ook alle andere hulpprogramma's voor het creëren van Samanage-gebruikersaccounts of API's van Samanage gebruiken om Azure Active Directory-gebruikersaccounts in te richten.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Samanage.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-![Gebruiker toewijzen][200] 
-
-**Als u wilt Britta Simon aan Samanage toewijst, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **Samanage**.
-
-    ![Eenmalige aanmelding configureren](./media/samanage-tutorial/tutorial_samanage_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel Samanage in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Samanage.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u op de Samanage-tegel in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Samanage waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/samanage-tutorial/tutorial_general_01.png
-[2]: ./media/samanage-tutorial/tutorial_general_02.png
-[3]: ./media/samanage-tutorial/tutorial_general_03.png
-[4]: ./media/samanage-tutorial/tutorial_general_04.png
-
-[100]: ./media/samanage-tutorial/tutorial_general_100.png
-
-[200]: ./media/samanage-tutorial/tutorial_general_200.png
-[201]: ./media/samanage-tutorial/tutorial_general_201.png
-[202]: ./media/samanage-tutorial/tutorial_general_202.png
-[203]: ./media/samanage-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

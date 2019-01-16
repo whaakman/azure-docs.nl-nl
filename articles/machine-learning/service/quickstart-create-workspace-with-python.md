@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999047"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106559"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Quickstart: de Python-SDK gebruiken om aan de slag te gaan met Azure Machine Learning
 
@@ -76,7 +76,7 @@ Voordat u de SDK installeert, raden we u aan om een geïsoleerde omgeving voor P
 
 Installeer de SDK in de geactiveerde conda-omgeving. Met deze code worden de belangrijkste onderdelen van de Machine Learning SDK geïnstalleerd. Er wordt ook een Jupyter Notebook-server in de conda-omgeving geïnstalleerd. Afhankelijk van de configuratie van de computer duurt het enkele minuten voordat de installatie is voltooid.
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -86,7 +86,7 @@ pip install azureml-sdk[notebooks]
 
 U kunt extra sleutelwoorden gebruiken om andere onderdelen van de SDK te installeren:
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -97,13 +97,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-Gebruik in de Azure Databricks-omgeving de volgende installatieopdracht:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+Gebruik in de Azure Databricks-omgeving in plaats daarvan de [Databricks-installatiestappen](how-to-configure-environment.md#azure-databricks
+).
 
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken
@@ -143,11 +138,7 @@ pip install azureml-sdk[databricks]
 
 Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand heet *aml_config\config.json*.  
 
-Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt het samen met andere notitieblokken en scripts in dezelfde map of submap laden. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-Door de `write_config()`-API aan te roepen wordt het configuratiebestand in de huidige map gemaakt. Het bestand *config.json* bevat het volgende script:
+Door de `write_config()`-API aan te roepen wordt het configuratiebestand in de huidige map gemaakt. Het bestand *config.json* bevat het volgende:
 
 ```json
 {
@@ -156,6 +147,12 @@ Door de `write_config()`-API aan te roepen wordt het configuratiebestand in de h
     "workspace_name": "myworkspace"
 }
 ```
+
+Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt het samen met andere notitieblokken en scripts in dezelfde map of submap laden. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## <a name="use-the-workspace"></a>De werkruimte gebruiken
 
@@ -190,7 +187,7 @@ Als u de code wilt gebruiken met de Machine Learning-zelfstudies, hebt u nog enk
 
 1. Sluit het notitieblok in uw browser.
 1. Selecteer Ctrl+C in het opdrachtregelvenster om de Jupyter Notebook-server te stoppen.
-1. Installeer de extra pakketten.
+1. Installeer de extra pakketten.  Als u `azureml-sdk[automl]` hierboven niet hebt geïnstalleerd, dient u dit nu te doen.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

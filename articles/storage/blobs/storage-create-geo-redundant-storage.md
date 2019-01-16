@@ -1,61 +1,67 @@
 ---
-title: Toepassingsgegevens maximaal beschikbaar maken in Azure | Microsoft Docs
+title: 'Zelfstudie: Toepassingsgegevens maximaal beschikbaar maken in Azure | Microsoft Docs'
 description: Geografisch redundante opslag met leestoegang gebruiken om uw toepassingsgegevens maximaal beschikbaar te maken
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/26/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: 162b30444a22ea193d93e8a6a2c7374dcd2f5fd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6b64c7545e7a36b9178af84f88ee89b498077b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415981"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019093"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Zelfstudie: Toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Zelfstudie: Uw toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
 
-Deze zelfstudie is deel één van een serie. Hier ziet u hoe u uw toepassingsgegevens maximaal beschikbaar maakt in Azure. Wanneer u klaar bent, hebt u een consoletoepassing die een blob ophaalt en uploadt naar een [geografisch redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang (RA-GRS). RA-GRS werkt door transacties te repliceren van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio uiteindelijk consistent zijn. De toepassing gebruikt het [Circuitonderbrekers](/azure/architecture/patterns/circuit-breaker)patroon om te bepalen met welk eindpunt verbinding moet worden gemaakt. De toepassing schakelt over naar het secundaire eindpunt wanneer er een fout wordt gesimuleerd.
+Deze zelfstudie is deel één van een serie. In deze zelfstudie leert u hoe u uw toepassingsgegevens maximaal beschikbaar maakt in Azure.
+
+Wanneer u deze zelfstudie hebt afgerond, hebt u een consoletoepassing die een blob uploadt en ophaalt uit een [geografisch redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang (RA-GRS).
+
+RA-GRS werkt door transacties te repliceren van een primaire regio naar een secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio uiteindelijk consistent zijn. De toepassing gebruikt het patroon [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) om te bepalen met welk eindpunt er verbinding moet worden gemaakt, waarbij er automatisch wordt overgeschakeld tussen eindpunten terwijl er fouten en herstelbewerkingen worden gesimuleerd.
+
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 In deel 1 van de reeks leert u het volgende:
 
 > [!div class="checklist"]
 > * Create a storage account
-> * Het voorbeeld downloaden
 > * De verbindingsreeks instellen
 > * De consoletoepassing uitvoeren
 
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
- 
+
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
 * Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
   - **Azure-ontwikkeling**
 
   ![Azure-ontwikkeling (onder Web en Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* (Optioneel) [Fiddler](https://www.telerik.com/download/fiddler) downloaden en installeren
- 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+# <a name="python-tabpython"></a>[Python] (#tab/python)
 
 * [Python](https://www.python.org/downloads/) installeren
 * [Azure Storage-SDK voor Python](https://github.com/Azure/azure-storage-python) downloaden en installeren
-* (Optioneel) [Fiddler](https://www.telerik.com/download/fiddler) downloaden en installeren
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
 
 * Installeer en configureer [Maven](http://maven.apache.org/download.cgi) om te werken vanuit de opdrachtregel
-* Installeer en configureer een [JDK](https://aka.ms/azure-jdks)
+* Installeer en configureer een [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+* Installeer en configureer [Maven](http://maven.apache.org/download.cgi) om te werken vanuit de opdrachtregel
+* Installeer en configureer een [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -66,9 +72,9 @@ Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw 
 Volg deze stappen om een account voor geografisch redundante opslag met leestoegang te maken:
 
 1. Selecteer de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
-
-2. Selecteer **Opslag** op de pagina **Nieuw** en selecteer **Opslagaccount - Blob, File, Table, Queue** onder **Aanbevolen**.
-3. Vul het formulier voor het opslagaccount in met de informatie uit de volgende afbeelding en selecteer **Maken**:
+2. Selecteer **Opslag** op de pagina **Nieuw**.
+3. Selecteer **Storage-account: Blob, File, Table, Queue** onder **Aanbevolen**.
+4. Vul het formulier voor het opslagaccount in met de informatie uit de volgende afbeelding en selecteer **Maken**:
 
    | Instelling       | Voorgestelde waarde | Beschrijving |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -77,7 +83,6 @@ Volg deze stappen om een account voor geografisch redundante opslag met leestoeg
    | **Type account** | StorageV2 | Zie [Typen opslagaccounts](../common/storage-introduction.md#types-of-storage-accounts) voor meer informatie over de verschillende typen accounts |
    | **Prestaties** | Standard | Standard is voldoende voor het voorbeeldscenario. |
    | **Replicatie**| Geografisch redundante opslag met leestoegang (RA-GRS) | Dit is nodig om het voorbeeld te laten werken. |
-   |**Veilige overdracht vereist** | Uitgeschakeld| Veilige overdracht is niet vereist voor dit scenario. |
    |**Abonnement** | uw abonnement |Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    |**ResourceGroup** | myResourceGroup |Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen van resourcegroepen. |
    |**Locatie** | US - oost | Kies een locatie. |
@@ -93,7 +98,8 @@ Volg deze stappen om een account voor geografisch redundante opslag met leestoeg
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+# <a name="python-tabpython"></a>[Python] (#tab/python)
 
 [Download het voorbeeldproject](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) en pak (unzip) het bestand storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip uit. U kunt ook [git](https://git-scm.com/) gebruiken om een kopie van de toepassing te downloaden naar uw ontwikkelomgeving. Het voorbeeldproject bevat een basis Python-toepassing.
 
@@ -101,34 +107,100 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+
 [Download het voorbeeldproject](https://github.com/Azure-Samples/storage-java-ha-ra-grs) en pak het opslag-java-ragrs.zip-bestand uit. U kunt ook [git](https://git-scm.com/) gebruiken om een kopie van de toepassing te downloaden naar uw ontwikkelomgeving. Het voorbeeldproject bevat een eenvoudige Java-toepassing.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 ```
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+[Download het voorbeeldproject](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) en pak het opslag-java-ragrs.zip-bestand uit. U kunt ook [git](https://git-scm.com/) gebruiken om een kopie van de toepassing te downloaden naar uw ontwikkelomgeving. Het voorbeeldproject bevat een eenvoudige Java-toepassing.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+```
+
 ---
 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-## <a name="set-the-connection-string"></a>De verbindingsreeks instellen
+In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. Het wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
 
-In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. U wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
 
-Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **-opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
+### <a name="linux"></a>Linux
 
-# <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
+```
 export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a>Windows
 
-# <a name="windows-tabwindows"></a>[Windows] (#tab/windows) 
+```PowerShell
 setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="python-tabpython"></a>[Python] (#tab/python)
+
+In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. Het wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
+
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a>Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+
+In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. Het wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
+
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a>Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+Voor dit voorbeeld moet u de naam en sleutel van uw opslagaccount veilig opslaan. Bewaar ze in omgevingsvariabelen die lokaal zijn op de computer waarop het voorbeeld wordt uitgevoerd. Volg het Linux- of het Windows-voorbeeld, afhankelijk van uw besturingssysteem, voor het maken van de omgevingsvariabelen. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt.
+
+### <a name="linux-example"></a>Linux-voorbeeld
+
+```
+export AZURE_STORAGE_ACCOUNT="<youraccountname>"
+export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
+```
+
+### <a name="windows-example"></a>Windows-voorbeeld
+
+```
+setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
+setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
+```
 
 ---
-
 
 ## <a name="run-the-console-application"></a>De consoletoepassing uitvoeren
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
-Druk in Visual Studio op **F5** of selecteer **Start** om de foutopsporing van de toepassing te starten. Visual Studio herstelt automatisch ontbrekende NuGet-pakketten als dit zo is geconfigureerd. Ga naar [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) (Pakketten installeren en opnieuw installeren met pakketherstel) voor meer informatie.
+
+Druk in Visual Studio op **F5** of selecteer **Start** om foutopsporing van de toepassing te starten. Visual Studio herstelt automatisch ontbrekende NuGet-pakketten als dit zo is geconfigureerd. Ga naar [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) (Pakketten installeren en opnieuw installeren met pakketherstel) voor meer informatie.
 
 Er wordt een consolevenster geopend en de toepassing wordt gestart. De toepassing uploadt de afbeelding **HelloWorld.png** vanuit de oplossing naar het opslagaccount. De toepassing controleert of de afbeelding is gerepliceerd naar het secundaire RA-GRS-eindpunt. Daarna wordt de afbeelding maximaal 999 keer gedownload. Elke leesbewerking wordt voorgesteld door een **P** of een **S**. **P** staat voor het primaire eindpunt en **S** voor het secundaire eindpunt.
 
@@ -136,7 +208,8 @@ Er wordt een consolevenster geopend en de toepassing wordt gestart. De toepassin
 
 In de voorbeeldcode wordt de taak `RunCircuitBreakerAsync` in het bestand `Program.cs` gebruikt om een afbeelding met behulp van de [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)-methode te downloaden vanuit het opslagaccount. Voorafgaand aan de download is een [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) gedefinieerd. De bewerkingscontext definieert de gebeurtenis-handlers. Deze worden geactiveerd wanneer een download is voltooid of wanneer een download is mislukt en opnieuw wordt uitgevoerd.
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+# <a name="python-tabpython"></a>[Python] (#tab/python)
+
 Als u de toepassing wilt uitvoeren op een terminal of opdrachtprompt, gaat u naar de map **circuitbreaker.py** en voert u `python circuitbreaker.py` in. De toepassing uploadt de afbeelding **HelloWorld.png** vanuit de oplossing naar het opslagaccount. De toepassing controleert of de afbeelding is gerepliceerd naar het secundaire RA-GRS-eindpunt. Daarna wordt de afbeelding maximaal 999 keer gedownload. Elke leesbewerking wordt voorgesteld door een **P** of een **S**. **P** staat voor het primaire eindpunt en **S** voor het secundaire eindpunt.
 
 ![Console-app die wordt uitgevoerd](media/storage-create-geo-redundant-storage/figure3.png)
@@ -144,13 +217,58 @@ Als u de toepassing wilt uitvoeren op een terminal of opdrachtprompt, gaat u naa
 In de voorbeeldcode wordt de methode `run_circuit_breaker` in het bestand `circuitbreaker.py` gebruikt om een afbeelding met behulp van de [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html)-methode te downloaden vanuit het opslagaccount. 
 
 De functie Opnieuw van het opslagobject is ingesteld op een lineair beleid voor nieuwe pogingen. De functie Opnieuw bepaalt of een aanvraag opnieuw moet worden geprobeerd en geeft het aantal seconden op dat moet worden gewacht voordat opnieuw wordt geprobeerd de aanvraag uit te voeren. Stel de waarde van **retry\_to\_secondary** in op True als de aanvraag bij een volgende poging worden uitgevoerd naar het secundaire eindpunt als de eerste aanvraag naar het primaire eindpunt is mislukt. In de voorbeeldtoepassing is een aangepast beleid voor nieuwe pogingen gedefinieerd in de functie `retry_callback` van het opslagobject.
- 
+
 Vóór het downloaden zijn de functies [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) en [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) van het serviceobject gedefinieerd. Deze functies definiëren gebeurtenis-handlers die worden geactiveerd wanneer een download is voltooid of wanneer een download is mislukt en opnieuw wordt uitgevoerd.  
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK] (#tab/java-v7)
+
 U kunt de toepassing uitvoeren door een terminal of opdrachtprompt te openen binnen het bereik van de map voor gedownloade toepassingen. Voer van daaruit `mvn compile exec:java` in om de toepassing uit te voeren. De toepassing uploadt vervolgens de afbeelding **HelloWorld.png** uit de map naar uw opslagaccount en controleert of de afbeelding naar het eindpunt van de secundaire RA-GRS is gerepliceerd. Zodra de controle voltooid is, begint de toepassing met het herhaald downloaden van de afbeelding, terwijl ze het eindpunt terugrapporteert waarvan ze aan het downloaden is.
 
 De functie Opnieuw Proberen van het opslagobject is ingesteld op een lineair beleid voor nieuwe pogingen. De functie Opnieuw Proberen bepaalt of een aanvraag opnieuw moet worden geprobeerd en geeft het aantal seconden op dat moet worden gewacht voor elke nieuwe poging. De eigenschap **LocationMode** van uw **BlobRequestOptions** is ingesteld op **PRIMARY\_THEN\_SECONDARY**. Hierdoor kan de toepassing automatisch overschakelen naar de secundaire locatie als ze de primaire locatie niet kan bereiken wanneer u **HelloWorld.png** probeert te downloaden.
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+Gebruik Maven op de opdrachtregel om het voorbeeld uit te voeren.
+
+1. Open een shell en blader naar **storage-blobs-java-v10-quickstart** binnen de gekloonde map.
+2. Voer `mvn compile exec:java` in.
+
+Met dit voorbeeld wordt er een testbestand gemaakt in uw standaardmap. Voor Windows-gebruikers is dit **AppData\Local\Temp**. Het voorbeeld biedt vervolgens een keuze uit deze opdrachten die u kunt opgeven:
+
+- Voer **P** in voor het uitvoeren van een put blob-bewerking; er wordt een tijdelijk bestand geüpload naar uw opslagaccount.
+- Voer **L** in voor het uitvoeren van een list blob-bewerking; de blobs die momenteel aanwezig zijn in de container worden dan weergegeven.
+- Voer **G** in voor het uitvoeren van een get blob-bewerking; er wordt een bestand van uw opslagaccount naar uw lokale computer gedownload.
+- Voer **D** in voor het uitvoeren van een delete blob-bewerking; de blob wordt verwijderd uit uw opslagaccount.
+- Voer **E** in om het voorbeeld te sluiten; hiermee verwijdert u ook alle resources die in het voorbeeld zijn gemaakt.
+
+Dit voorbeeld toont uw uitvoer als u de toepassing op Windows uitvoert.
+
+```
+Created quickstart container
+Enter a command
+(P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
+# Enter a command :
+P
+Uploading the sample file into the container: https://<storageaccount>.blob.core.windows.net/quickstart
+# Enter a command :
+L
+Listing blobs in the container: https://<storageaccount>.blob.core.windows.net/quickstart
+Blob name: SampleBlob.txt
+# Enter a command :
+G
+Get the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+The blob was downloaded to C:\Users\<useraccount>\AppData\Local\Temp\downloadedFile13097087873115855761.txt
+# Enter a command :
+D
+Delete the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+
+# Enter a command :
+>> Blob deleted: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+E
+Cleaning up the sample and exiting!
+```
+
+U beheert het voorbeeld; voer dus opdrachten in om de code te laten uitvoeren. De invoer is hoofdlettergevoelig.
 
 ---
 
@@ -189,7 +307,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 ### <a name="request-completed-event-handler"></a>Gebeurtenis-handler Aanvraag voltooid
 
 De gebeurtenis-handler `OperationContextRequestCompleted` wordt aangeroepen wanneer het downloaden van de afbeelding is geslaagd. Als de toepassing het secundaire eindpunt gebruikt, blijft de toepassing dit eindpunt maximaal 20 keer gebruiken. Na 20 keer stelt de toepassing de [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) weer in op `PrimaryThenSecondary` en wordt het primaire eindpunt weer geprobeerd. Als een aanvraag is geslaagd, blijft de toepassing van het primaire eindpunt lezen.
- 
+
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -249,7 +367,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
 
 Met Java is het definiëren van retouraanroep-handlers niet nodig als de eigenschap **LocationMode** van uw **BlobRequestOptions** is ingesteld op **PRIMARY\_THEN\_SECONDARY**. Hierdoor kan de toepassing automatisch overschakelen naar de secundaire locatie als ze de primaire locatie niet kan bereiken wanneer u **HelloWorld.png** probeert te downloaden.
 
@@ -261,18 +379,23 @@ Met Java is het definiëren van retouraanroep-handlers niet nodig als de eigensc
 
     blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
 ```
----
 
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+Met de SDK voor Java V10 is het nog steeds niet nodig om handlers voor retouraanroepen te definiëren en de SDK verschilt nu aanzienlijk van de SDK voor versie 7. In plaats van LocationMode hebben we een secundaire **Pipeline**. U kunt een secundaire pijplijn definiëren via **RequestRetryOptions**. Als dat is gebeurd, kan de toepassing automatisch overschakelen naar de secundaire pijplijn als uw gegevens niet bereikbaar zijn via de primaire pijplijn.
+
+```java
+// We create pipeline options here so that they can be easily used between different pipelines
+PipelineOptions myOptions = new PipelineOptions();
+myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
+// We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
+final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
+```
+---
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel één van de serie hebt u geleerd hoe u een toepassing maximaal beschikbaar maakt met RA-GRS-opslagaccounts. U hebt bijvoorbeeld het volgende geleerd:
-
-> [!div class="checklist"]
-> * Create a storage account
-> * Het voorbeeld downloaden
-> * De verbindingsreeks instellen
-> * De consoletoepassing uitvoeren
+In deel één van de serie hebt u geleerd hoe u een toepassing maximaal beschikbaar maakt met RA-GRS-opslagaccounts.
 
 Ga naar deel twee van de serie voor informatie over hoe u een fout simuleert en uw toepassing dwingt om het secundaire RA-GRS-eindpunt te gebruiken.
 

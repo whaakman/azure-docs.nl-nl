@@ -1,224 +1,200 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met SAML 1.1 Token ingeschakeld LOB-App | Microsoft Docs'
-description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SAML 1.1 Token ingeschakeld LOB-App.
+title: 'Zelfstudie: Azure Active Directory-integratie met SAML 1.1 Token enabled LOB App | Microsoft Docs'
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en SAML 1.1 Token enabled LOB App configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ced1d88d-0e48-40d5-9aea-ef991cd9d270
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: edabc09f820093d088ec0b8ed1222fb26c800bee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 32fa6f7c13180179a49c656763e58d1b915fb607
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426425"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064658"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Zelfstudie: Azure Active Directory-integratie met SAML 1.1 Token ingeschakeld LOB-App
+# <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Zelfstudie: Azure Active Directory-integratie met SAML 1.1 Token enabled LOB App
 
-In deze zelfstudie leert u hoe u integreert SAML 1.1 Token LOB-App met Azure Active Directory (Azure AD) ingeschakeld.
+In deze zelfstudie leert u hoe u SAML 1.1 Token enabled LOB App kunt integreren met Azure Active Directory (Azure AD).
+De integratie van SAML 1.1 Token enabled LOB App met Azure AD biedt de volgende voordelen:
 
-Integratie van SAML 1.1 Token biedt ingeschakelde LOB-App met Azure AD u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot SAML 1.1 Token enabled LOB App.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij SAML 1.1 Token enabled LOB App (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot SAML 1.1 Token heeft ingeschakeld LOB-App.
-- U kunt uw gebruikers om automatisch aangemeld bij SAML 1.1 Token LOB-App (Single Sign-On) ingeschakeld met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het configureren van Azure AD-integratie met SAML 1.1 Token LOB-App is ingeschakeld, moet u de volgende items:
+Om Azure AD-integratie te configureren met SAML 1.1 Token enabled LOB App hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een SAML 1.1-tokens LOB-App met één aanmelding ingeschakeld abonnement ingeschakeld
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op SAML 1.1 Token enabled LOB App waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. LOB-App uit de galerie toe te voegen SAML 1.1 Token ingeschakeld
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-saml-11-token-enabled-lob-app-from-the-gallery"></a>LOB-App uit de galerie toe te voegen SAML 1.1 Token ingeschakeld
-Als u wilt configureren van de integratie van SAML 1.1 Token LOB-App in Azure AD is ingeschakeld, moet u SAML 1.1 Token ingeschakeld LOB-App uit de galerie aan de lijst met beheerde SaaS-apps toevoegen.
+* SAML 1.1 Token enabled LOB App ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen aan dat SAML 1.1 Token ingeschakeld LOB-App uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-saml-11-token-enabled-lob-app-from-the-gallery"></a>SAML 1.1 Token enabled LOB App toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van SAML 1.1 Token enabled LOB App te configureren in Azure AD, moet u SAML 1.1 Token enabled LOB App vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+ **Voer de volgende stappen uit om SAML 1.1 Token enabled LOB App vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **SAML 1.1 Token ingeschakeld LOB-App**, selecteer **SAML 1.1 Token ingeschakeld LOB-App** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![SAML 1.1 Token ingeschakeld LOB-App in de lijst met resultaten](./media/saml-tutorial/tutorial_saml_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met SAML 1.1 Token ingeschakelde LOB-App op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ **SAML 1.1 Token enabled LOB App** in het zoekvak, selecteer **SAML 1.1 Token enabled LOB App** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD weten wat de equivalente-gebruiker in SAML 1.1 Token ingeschakelde LOB-App aan een gebruiker in Azure AD is. Een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in SAML 1.1 Token ingeschakeld met andere woorden, LOB-App moet worden tot stand worden gebracht.
+     ![SAML 1.1 Token enabled LOB App toevoegen vanuit de galerie](common/search-new-app.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met SAML 1.1 Token LOB-App is ingeschakeld, moet u de volgende bouwstenen uitvoeren:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een SAML 1.1-Token ingeschakeld testgebruiker LOB-App](#create-a-saml-11-token-enabled-lob-app-test-user)**  : als u wilt hebben een equivalent van Britta Simon in SAML 1.1 Token ingeschakeld LOB-App die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met SAML 1.1 Token enabled LOB App op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in SAML 1.1 Token enabled LOB App tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Om eenmalige aanmelding van Azure AD met SAML 1.1 Token enabled LOB App te configureren en testen, moet u de volgende procedures voltooien:
 
-In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw SAML 1.1-Token-LOB-App-toepassing.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor SAML 1.1 Token enabled LOB App configureren](#configure-saml-11-token-enabled-lob-app-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor SAML 1.1 Token enabled LOB App maken](#create-saml-11-token-enabled-lob-app-test-user)**: als u een tegenhanger van Britta Simon in SAML 1.1 Token enabled LOB App wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Ingeschakeld voor het configureren van Azure AD eenmalige aanmelding met SAML 1.1 Token LOB-App, voer de volgende stappen uit:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **SAML 1.1 Token ingeschakeld LOB-App** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met SAML 1.1 Token enabled LOB App:
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/saml-tutorial/tutorial_saml_samlbase.png)
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **SAML 1.1 Token enabled LOB App** en selecteer **Eenmalige aanmelding**.
 
-1. Op de **SAML 1.1 Token ingeschakeld LOB-App-domein en URL's** sectie, voert u de volgende stappen uit:
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![SAML 1.1 Token LOB-App-domein en URL's één aanmelding informatie ingeschakeld](./media/saml-tutorial/tutorial_saml_url.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://your-app-url`
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    b. In de **id (entiteits-ID)** tekstvak, een URL met behulp van het volgende patroon: `https://your-app-url`
-     
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Vervang deze waarden met specifieke URL's van toepassing.  
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![De downloadkoppeling certificaat](./media/saml-tutorial/tutorial_saml_certificate.png) 
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-1. Klik op **opslaan** knop.
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van SAML 1.1 Token enabled LOB App](common/sp-identifier.png)
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/saml-tutorial/tutorial_general_400.png)
-    
-1. Op de **SAML 1.1 Token ingeschakeld LOB-App-configuratie** sectie, klikt u op **SAML 1.1 Token configureren ingeschakeld LOB-App** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://your-app-url`
 
-    ![SAML 1.1 Token ingeschakeld LOB-App-configuratie](./media/saml-tutorial/tutorial_saml_configure.png) 
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://your-app-url`
 
-1. Het configureren van eenmalige aanmelding op **SAML 1.1 Token ingeschakeld LOB-App** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64), URL van de afmelding, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar het ondersteuningsteam van de toepassing. Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het klantondersteuningsteam van SAML 1.1 Token enabled LOB App om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-   ![Maak een testgebruiker Azure AD][100]
+6. Kopieer in het gedeelte **SAML 1.1 Token enabled LOB App instellen** de juiste URL('s) op basis van uw behoeften.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    a. Aanmeldings-URL
 
-    ![De Azure Active Directory-knop](./media/saml-tutorial/create_aaduser_01.png)
+    b. Azure AD-id
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    c. Afmeldings-URL
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/saml-tutorial/create_aaduser_02.png)
+### <a name="configure-saml-11-token-enabled-lob-app-single-sign-on"></a>Eenmalige aanmelding configureren voor SAML 1.1 Token enabled LOB App
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+Als u eenmalige aanmelding wilt configureren in **SAML 1.1 Token enabled LOB App**, moet u het gedownloade **Certificaat (Base64)** en de betreffende uit de Azure-portal gekopieerde URL's verzenden naar het ondersteuningsteam van SAML 1.1 Token enabled LOB App. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-    ![De knop toevoegen](./media/saml-tutorial/create_aaduser_03.png)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-    ![Het dialoogvenster gebruiker](./media/saml-tutorial/create_aaduser_04.png)
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
+
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
+
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
+
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
+
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-saml-11-token-enabled-lob-app-test-user"></a>Maak een SAML 1.1-Token ingeschakeld testgebruiker LOB-App
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in SAML 1.1 Token ingeschakeld LOB-App. Werken met toepassing ondersteuningsteam om te maken van gebruiker aan toepassing. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie, schakelt u Britta Simon om Azure te gebruiken eenmalige aanmelding door toegang te verlenen aan SAML 1.1 Token ingeschakeld LOB-App.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot SAML 1.1 Token enabled LOB App.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen**en **SAML 1.1 Token enabled LOB App**.
 
-**Britta Simon toewijzen aan SAML 1.1 Token ingeschakeld LOB-App, voer de volgende stappen uit:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Typ en selecteer **SAML 1.1 Token enabled LOB App** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar SAML 1.1 Token enabled LOB App in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **SAML 1.1 Token ingeschakeld LOB-App**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De SAML 1.1-tokens LOB-App-koppeling in de lijst met toepassingen ingeschakeld](./media/saml-tutorial/tutorial_saml_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-saml-11-token-enabled-lob-app-test-user"></a>Een testgebruiker maken voor SAML 1.1 Token enabled LOB App
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie gaat u in SAML 1.1 Token enabled LOB App een gebruiker maken met de naam Britta Simon. Neem contact op met het ondersteuningsteam van SAML 1.1 Token enabled LOB App om gebruikers toe te voegen aan het platform SAML 1.1 Token enabled LOB App. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u klikt op de SAML 1.1-tokens ingeschakeld LOB-App-tegel in het toegangsvenster, krijgt u automatisch aangemeld bij uw SAML 1.1-Token-LOB-App-toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel SAML 1.1 Token enabled LOB App klikt, wordt u automatisch aangemeld bij de instantie van SAML 1.1 Token enabled LOB App waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/saml-tutorial/tutorial_general_01.png
-[2]: ./media/saml-tutorial/tutorial_general_02.png
-[3]: ./media/saml-tutorial/tutorial_general_03.png
-[4]: ./media/saml-tutorial/tutorial_general_04.png
-
-[100]: ./media/saml-tutorial/tutorial_general_100.png
-
-[200]: ./media/saml-tutorial/tutorial_general_200.png
-[201]: ./media/saml-tutorial/tutorial_general_201.png
-[202]: ./media/saml-tutorial/tutorial_general_202.png
-[203]: ./media/saml-tutorial/tutorial_general_203.png

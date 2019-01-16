@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716004"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120730"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Zelfstudie: Een on-premises toepassing voor externe toegang toevoegen via Application Proxy in Azure Active Directory
 
@@ -25,10 +25,10 @@ Azure Active Directory (Azure AD) heeft een Application Proxy-service waarmee ge
 Deze zelfstudie:
 
 > [!div class="checklist"]
-> * Opent poorten voor uitgaand verkeer en verschaft toegang tot specifieke URL 's
+> * Opent poorten voor uitgaand verkeer en verschaft toegang tot specifieke URL's
 > * Installeert de connector op uw Windows-server en registreert deze bij Application Proxy
 > * Controleert of de connector juist is geïnstalleerd en geregistreerd
-> * Voegt een toepassing toe aan uw Azure AD-tenant
+> * Voegt een on-premises toepassing toe aan uw Azure AD-tenant
 > * Controleert of een testgebruiker zich kan aanmelden bij de toepassing met behulp van een Azure AD-account
 
 ## <a name="before-you-begin"></a>Voordat u begint

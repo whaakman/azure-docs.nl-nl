@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913801"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155198"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: gegevens kopiëren naar de Azure Data Box-schijf en deze gegevens controleren
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box Disk en deze gegevens controleren
 
 In deze zelfstudie wordt beschreven hoe u vanaf uw hostcomputer gegevens kopieert en vervolgens controlesommen genereert om de gegevensintegriteit te controleren.
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg voordat u begint voor het volgende:
-- U hebt de [zelfstudie: Uw Azure Data Box-schijf installeren en configureren](data-box-disk-deploy-set-up.md) voltooid.
+- U hebt de zelfstudie [ uw Azure Data Box Disk installeren en configureren](data-box-disk-deploy-set-up.md) voltooid.
 - Uw schijven worden ontgrendeld en verbonden met een clientcomputer.
 - Er moet een [ondersteund besturingssysteem](data-box-disk-system-requirements.md##supported-operating-systems-for-clients) worden uitgevoerd op de clientcomputer die wordt gebruikt om gegevens naar de schijven te kopiëren.
 - Zorg ervoor dat het beoogde opslagtype voor uw gegevens overeenkomt met [Ondersteunde opslagtypen](data-box-disk-system-requirements.md#supported-storage-types).
@@ -148,19 +148,32 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     C:\Users>
     ```
  
+    Gebruik de volgende parameters in Robocopy om de prestaties te optimaliseren als u de gegevens kopieert.
+
+    |    Platform    |    Voornamelijk kleine bestanden van < 512 KB                           |    Voornamelijk middelgrote bestanden van 512 KB - 1 MB                      |    Voornamelijk grote bestanden van > 1 MB                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    Data Box Disk        |    4 Robocopy-sessies* <br> 16 threads per sessie    |    2 Robocopy-sessies* <br> 16 threads per sessie    |    2 Robocopy-sessies* <br> 16 threads per sessie    |  |
     
-7. Open de doelmap om de gekopieerde bestanden weer te geven en te controleren. Als er fouten zijn opgetreden tijdens het kopiëren, downloadt u de logboekbestanden om de problemen op te lossen. De logboekbestanden bevinden zich op de locatie die in de Robobopy-opdracht is aangegeven.
+    **Elke Robocopy-sessie kan maximaal 7.000 mappen en 150 miljoen bestanden hebben.*
+    
+    >[!NOTE]
+    > De hierboven voorgestelde parameters zijn gebaseerd op de omgeving die wij hebben gebruikt voor interne tests.
+    
+    Ga voor meer informatie over opdrachten voor Robocopy naar [Robocopy en een paar voorbeelden](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
+
+6. Open de doelmap om de gekopieerde bestanden weer te geven en te controleren. Als er fouten zijn opgetreden tijdens het kopiëren, downloadt u de logboekbestanden om de problemen op te lossen. De logboekbestanden bevinden zich op de locatie die in de Robobopy-opdracht is aangegeven.
  
-
-
 > [!IMPORTANT]
 > - Het is uw verantwoordelijkheid om ervoor te zorgen dat u de gegevens kopieert naar mappen met de juiste gegevensindeling. U moet bijvoorbeeld de blok-blobgegevens naar de map voor blok-blobs kopiëren. Als de gegevensindeling niet overeenkomt met de betreffende map (opslagtype), zal de gegevensupload naar Azure op een later tijdstip mislukken.
-> -  Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die staan beschreven in de [limieten voor Azure-opslag en Data Box-schijven](data-box-disk-limits.md). 
+> -  Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die staan beschreven in de [limieten voor Azure-opslag en Data Box-schijven](data-box-disk-limits.md).
 > - Als de gegevens die door Data Box Disk worden geüpload gelijktijdig door andere toepassingen buiten Data Box Disk worden geüpload, kan dit tot fouten voor de uploadtaak en beschadigde gegevens leiden.
 
 ### <a name="split-and-copy-data-to-disks"></a>Gegevens splitsen en kopiëren naar schijven
 
 U kunt deze optionele procedure gebruiken als u meerdere schijven gebruikt en u over een grote gegevensset beschikt die moet worden gesplitst en gekopieerd naar alle schijven. Met de Split Copy Tool van Data Box kunt u de gegevens op een Windows-computer splitsen en kopiëren.
+
+>[!IMPORTANT]
+> De Data Box Split Copy tool valideert ook uw gegevens. Als u de Data Box Split Copy tool gebruikt om gegevens te kopiëren, kunt u de [validatiestap](#validate-data) overslaan.
 
 1. Zorg er op uw Windows-computer voor dat u de Split Copy Tool van Data Box hebt gedownload en uitgepakt in een lokale map. Het hulpprogramma is gedownload toen u de werkset voor de Data Box-schijf voor Windows downloadde.
 2. Open Verkenner. Maak een notitie van het gegevensbronstation en welke stationsletters zijn toegewezen aan de Data Box-schijf. 
@@ -176,26 +189,26 @@ U kunt deze optionele procedure gebruiken als u meerdere schijven gebruikt en u 
 
          ![Gegevens splitsen en kopiëren ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. Ga naar de map waarin de software is uitgepakt. Zoek het bestand SampleConfig.json in die map. Dit is een alleen-lezen-bestand dat u kunt wijzigen en opslaan.
+4. Ga naar de map waarin de software is uitgepakt. Zoek het bestand `SampleConfig.json` in die map. Dit is een alleen-lezen-bestand dat u kunt wijzigen en opslaan.
 
    ![Gegevens splitsen en kopiëren ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. Wijzig het bestand SampleConfig.json.
+5. Wijzig het bestand `SampleConfig.json`.
  
     - Geef een taaknaam op. Hiermee maakt u een map in de Data Box-schijf. Uiteindelijk wordt dit de container in het Azure-opslagaccount dat is gekoppeld aan deze schijven. De taaknaam moet voldoen aan de naamgevingsconventies voor Azure-containers. 
-    - Geef een bronpad op en noteer de padindeling in het bestand SampleConfigFile.json. 
+    - Geef een bronpad op en noteer de padindeling in `SampleConfigFile.json`. 
     - Voer de stationsletters in voor de doelschijven. De gegevens worden via het bronpad verzameld en gekopieerd naar meerdere schijven.
-    - Geef een pad op voor de logboekbestanden. Standaard worden deze naar de huidige map verzonden, waar het .exe-bestand zich bevindt.
+    - Geef een pad op voor de logboekbestanden. Standaard worden deze naar de huidige map verzonden, waar het `.exe`-bestand zich bevindt.
 
      ![Gegevens splitsen en kopiëren ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. Ga naar JSONlint om de bestandsindeling te controleren. Sla het bestand op als ConfigFile.json. 
+6. Ga naar `JSONlint` om de bestandsindeling te controleren. Sla het bestand op als `ConfigFile.json`. 
 
      ![Gegevens splitsen en kopiëren ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Open een opdrachtpromptvenster. 
 
-8. Voer het bestand DataBoxDiskSplitCopy.exe uit. Type
+8. Voer `DataBoxDiskSplitCopy.exe` uit. Type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -214,7 +227,7 @@ U kunt deze optionele procedure gebruiken als u meerdere schijven gebruikt en u 
     ![Gegevens splitsen en kopiëren ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![Gegevens splitsen en kopiëren ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
-    Als u de inhoud van het station n: verder bekijkt, ziet u dat er twee submappen zijn gemaakt, een voor gegevens in de blok-blobindeling en een voor gegevens in de pagina-blobindeling.
+    Als u de inhoud van het station `n:` verder bekijkt, ziet u dat er twee submappen zijn gemaakt, een voor gegevens in de blok-blobindeling en een voor gegevens in de pagina-blobindeling.
     
      ![Gegevens splitsen en kopiëren ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -222,15 +235,14 @@ U kunt deze optionele procedure gebruiken als u meerdere schijven gebruikt en u 
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Nadat het kopiëren van gegevens voltooid is, kunt u doorgaan met het valideren van uw gegevens. Als u het hulpprogramma Split Copy gebruikt, slaat u de validatie over (Split Copy valideert ook) en gaat u door met de volgende zelfstudie.
 
-Wanneer het kopiëren van de gegevens is voltooid, gaat u de gegevens controleren. 
 
+## <a name="validate-data"></a>Gegevens valideren
 
-## <a name="validate-data"></a>Gegevens valideren 
+Als u niet de Split Copy tool gebruikt hebt om gegevens te kopiëren, moet u uw gegevens valideren. Voer de volgende stappen uit om de gegevens te controleren.
 
-Voer de volgende stappen uit om de gegevens te controleren.
-
-1. Voer `DataBoxDiskValidation.cmd` uit in de map *DataBoxDiskImport* van het station om de controlesom te controleren. 
+1. Voer `DataBoxDiskValidation.cmd` uit in de map *DataBoxDiskImport* van het station om de controlesom te controleren.
     
     ![Uitvoer van validatieprogramma van Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -240,7 +252,7 @@ Voer de volgende stappen uit om de gegevens te controleren.
 
     > [!TIP]
     > - Reset het programma tussen twee uitvoeringen.
-    > - Gebruik optie 1 om bestanden te valideren als het gaat om een grote gegevensset met kleine bestanden (~ KB). In deze gevallen kan het genereren van een controlesom erg lang duren en de prestaties dus tegenvallen.
+    > - Gebruik optie 1 als het gaat om een grote gegevensset met kleine bestanden (~ KB). Met deze optie worden alleen de bestanden gevalideerd, omdat het genereren van een controlesom erg lang kan duren en de prestaties dus tegenvallen.
 
 3. Als u meerdere schijven gebruikt, voert u de opdracht uit voor elke schijf.
 
@@ -256,4 +268,3 @@ Ga naar de volgende zelfstudie om te lezen hoe u de Data Box-schijf retourneert 
 
 > [!div class="nextstepaction"]
 > [Uw Azure Data Box-schijf retourneren naar Microsoft](./data-box-disk-deploy-picked-up.md)
-

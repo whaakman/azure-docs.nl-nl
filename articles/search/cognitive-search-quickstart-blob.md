@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998979"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015269"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: Een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
@@ -26,9 +26,9 @@ Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://p
 
 > [!div class="checklist"]
 > * Begin met voorbeeldgegevens in Azure Blob-opslag
-> * Configureer de [wizard Gegevens importeren](search-import-data-portal.md) voor cognitieve indexering en verrijking 
+> * Configureer de wizard [**Gegevens importeren**](search-import-data-portal.md) voor cognitieve indexering en verrijking 
 > * Voer de wizard uit (een entiteitsvaardigheid detecteert mensen, locatie en organisaties)
-> * Gebruik [Search Explorer](search-explorer.md) om query's op de verrijkte gegevens uit te voeren
+> * Gebruik [**Search Explorer**](search-explorer.md) om query's op de verrijkte gegevens uit te voeren
 
 ## <a name="supported-regions"></a> Ondersteunde regio's
 
@@ -98,9 +98,9 @@ De verrijkingspijplijn haalt gegevensbronnen op uit Azure ondersteund door [inde
 
 1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) die bestaan uit een kleine set van verschillende typen bestanden. 
 
-1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, meld u aan bij Storage Explorer en maak een container. Stel het openbare toegangsniveau in op **Container**. Zie de sectie [Een container maken](../storage/blobs/storage-unstructured-search.md#create-a-container) in de zelfstudie Niet-gestructureerde gegevens doorzoeken voor meer informatie.
+1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, open de Blob-servicepagina's en maak een container. Stel voor de container het openbare toegangsniveau in op **Container**. Zie de sectie [Een container maken](../storage/blobs/storage-unstructured-search.md#create-a-container) in de zelfstudie *Niet-gestructureerde gegevens doorzoeken* voor meer informatie.
 
-1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden.
+1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden die u in een vorige stap hebt gedownload.
 
   ![Bronbestanden in Azure-blobopslag](./media/cognitive-search-quickstart-blob/sample-data.png)
 

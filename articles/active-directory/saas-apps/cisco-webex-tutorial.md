@@ -4,279 +4,263 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 73e20afdcacec76482f8ebf01bf2cef2105912a6
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: MT
+ms.openlocfilehash: 61ea0874f76fb054ddb1ae23d42a7161bea2f96b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005513"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex
 
-In deze zelfstudie leert u hoe u Cisco Webex integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Cisco Webex kunt integreren met Azure Active Directory (Azure AD).
+Integratie van Cisco Webex met Azure AD biedt de volgende voordelen:
 
-Cisco Webex integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot Cisco Webex.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Cisco Webex (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Cisco Webex heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Cisco Webex met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie, de Azure-portal beheren.
-
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Cisco Webex, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met Cisco Webex te configureren:
 
-- Een Azure AD-abonnement
-- Cisco Webex één teken op ingeschakeld abonnement
-
-> [!NOTE]
-> U kunt beter geen een productie-omgeving voor het testen van de stappen in deze zelfstudie.
-
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
-
-- Gebruik uw productie-omgeving niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Cisco Webex waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Cisco Webex uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="add-cisco-webex-from-the-gallery"></a>Cisco Webex uit de galerie toevoegen
-Voor het configureren van de integratie van Cisco Webex in Azure AD, moet u Cisco Webex uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Cisco Webex ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Cisco Webex uit de galerie, moet u de volgende stappen uitvoeren:**
+* Cisco Webex ondersteunt het **Just-In-Time** inrichten van gebruikers
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram. 
+* Cisco Webex ondersteunt het **geautomatiseerd** inrichten van gebruikers
 
-    ![De Azure Active Directory-knop][1]
+## <a name="adding-cisco-webex-from-the-gallery"></a>Cisco Webex toevoegen vanuit de galerie
 
-2. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+Voor het configureren van de integratie van Cisco Webex in Azure AD moet u Cisco Webex vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan het dialoogvenster.
+**Voer de volgende stappen uit om Cisco Webex toe te voegen vanuit de galerie:**
 
-    ![De knop nieuwe toepassing][3]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-4. Typ in het zoekvak **Cisco Webex**. 
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-5. Selecteer **Cisco Webex** vanuit het deelvenster resultaten. Selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Cisco Webex in de lijst met resultaten](./media/cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Cisco Webex op basis van een testgebruiker met de naam "Britta Simon."
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD te weten wie de gebruiker equivalent in de Webex Cisco is aan een gebruiker in Azure AD. Met andere woorden, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Cisco Webex vast te stellen.
+4. Typ **Cisco Webex** in het zoekvak, selecteer **Cisco Webex** in het resultatenvenster en klik op **Toevoegen** om de toepassing toe te voegen.
 
-Geef de waarde in de Webex Cisco, **gebruikersnaam** dezelfde waarde als **gebruikersnaam** in Azure AD. Nu hebt u de koppeling tussen de twee gebruikers gemaakt. 
+     ![Cisco Webex in de resultatenlijst](common/search-new-app.png)
 
-Als u wilt configureren en Azure AD eenmalige aanmelding met Cisco Webex testen, voert u de volgende bouwstenen:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. [Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-2. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. [Maak een testgebruiker Cisco Webex](#create-a-cisco-webex-test-user) hebben een equivalent van Britta Simon in Cisco Webex die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Cisco Webex op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Cisco Webex tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Voltooi de volgende bouwstenen om Azure AD-eenmalige aanmelding met Cisco Webex te configureren en testen:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Cisco Webex-toepassing.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Cisco Webex configureren](#configure-cisco-webex-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Cisco Webex maken](#create-cisco-webex-test-user)**: als u een tegenhanger van Britta Simon in Cisco Webex wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Cisco Webex, voert u de volgende stappen uit:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **Cisco Webex** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met Cisco Webex te configureren:
 
-2. Voor het inschakelen van eenmalige aanmelding in de **eenmalige aanmelding** in het dialoogvenster de **modus** vervolgkeuzelijst, selecteer **SAML gebaseerde aanmelding**.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
+1. In de [Azure-portal](https://portal.azure.com/), op de pagina voor integratie van toepassingen met **Cisco Webex**, selecteert u **Eenmalige aanmelding**.
 
-3. In een ander browservenster aanmelden bij uw bedrijf Cisco Webex site als beheerder.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-4. Klik op **instellingen** vanaf de linkerkant van het menu.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
+
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
+
+3. Meld u in een ander browservenster aan bij de bedrijfssite van Cisco Webex als een beheerder.
+
+4. Klik op **Settings** aan de linkerkant van het menu.
 
     ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_cisco_webex_10.png)
 
-5. Op de instellingenpagina Schuif omlaag onder de **verificatie** sectie, klikt u op **wijzigen**.
+5. Schuif omlaag op de pagina met instellingen en klik onder de sectie **Authentication** op **Modify**.
 
     ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_cisco_webex_14.png)
 
-6. Selecteer **integreren van een 3rd party-id-provider. (Geavanceerd) ** en Ga naar het volgende scherm.
+6. Selecteer **Integrate a 3rd-party identity provider. (Advanced)** en ga naar het volgende scherm.
 
     ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_cisco_webex_15.png)
 
-7. Op de **Metagegevensmap exporteren** pagina, klikt u op **metagegevensbestand downloaden** voor het downloaden van het bestand met metagegevens.
+7. Klik op de pagina **Export Directory Metadata** op **Download Metadata File** om het metagegevensbestand te downloaden.
 
     ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_cisco_webex_16.png)
 
-8. In de Azure-portal, onder de **Cisco Webex-domein en URL's** gedeelte in en upload het gedownloade **Service Provider-bestand met metagegevens** en configureren van de toepassing door de volgende stappen uit:
+8. In de Azure-portal, op de pagina **Eenmalige aanmelding met SAML instellen**, klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Klik op **metagegevensbestand uploaden**.
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![Cisco Webex-domein en URL's, eenmalige aanmelding informatie](./media/cisco-webex-tutorial/tutorial_ciscowebex_upload.png)
+9. In de sectie **Standaard SAML-configuratie** uploadt u het bestand met metagegevens dat u hebt gedownload van de **serviceprovider** en configureert u de toepassing door de volgende stappen uit te voeren:
 
-    b. Klik op **map logo** voor het selecteren van het bestand met metagegevens en klikt u op **uploaden**.
+    a. Klik op **Metagegevensbestand uploaden**.
 
-    ![Cisco Webex-domein en URL's, eenmalige aanmelding informatie](./media/cisco-webex-tutorial/tutorial_ciscowebex_uploadconfig.png)
+    ![Metagegevensbestand uploaden](common/upload-metadata.png)
 
-    c. Na voltooiing van het uploaden van **Service Provider-bestand met metagegevens** de **id** en **antwoord-URL** waarden ophalen automatisch ingevuld **Cisco Webex Domein en URL's** sectie tekstvak, zoals hieronder weergegeven:
+    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
 
-    ![Cisco Webex-domein en URL's, eenmalige aanmelding informatie](./media/cisco-webex-tutorial/tutorial_ciscowebex_url.png)
+    ![Metagegevensbestand kiezen](common/browse-upload-metadata.png)
 
-    d. In de **aanmeldings-URL** vak, typ een URL met het volgende patroon: `https://<SUBDOMAIN>.webex.com/`
-     
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL. Neem contact op met [Cisco Webex-Client-ondersteuningsteam](https://www.webex.co.in/support/support-overview.html) om deze waarden te verkrijgen.
+    c. Als het uploaden van het metagegevensbestand van de serviceprovider is geslaagd, worden de waarden voor de **id** en **Antwoord-URL** automatisch ingevuld in de sectie **Standaard SAML-configuratie**:
 
-9. Cisco Webex-toepassing wordt verwacht dat de SAML-asserties ondertekend naar specifieke kenmerken bevatten. Configureer de volgende kenmerken voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+    ![Informatie over domein en URL's voor eenmalige aanmelding met Cisco Webex](common/sp-identifier-reply.png)
+
+    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<SUBDOMAIN>.webex.com/`
+
+    > [!Note]
+    > De waarde van de aanmeldings-URL is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [klantondersteuningsteam voor Cisco Webex](https://www.webex.co.in/support/support-overview.html) om deze waarde te verkrijgen.
+
+10. In de toepassing Cisco Webex worden de SAML-asserties in een specifieke indeling verwacht. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+
+    ![image](common/edit-attribute.png)
+
+11. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
     
-    ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_ciscowebex_07.png) 
+    | Naam | Bronkenmerk|
+    | ---------------| --------------- | --------- |
+    |   firstname    | user.givenname |
+    |   lastname    | user.surname |
+    |   uid    | user.mail |
 
-10. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    |  Naam kenmerk  | Waarde kenmerk |
-    | --------------- | -------------------- |    
-    |   Voornaam    | User.givenName |
-    |   Achternaam    | User.surname |
-    |   UID    | User.mail |
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    ![image](common/new-save-attribute.png)
 
-    ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-attribute-details.png)
 
-    ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_attribute_05.png)
-    
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
-    
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
-    
-    d. Klik op **OK**.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-11. Op de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
+    c. Laat **Naamruimte** leeg.
 
-    ![De downloadkoppeling certificaat](./media/cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
+    d. Selecteer Bron bij **Kenmerk**.
 
-12. Selecteer **Opslaan**.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    ![Configureer de eenmalige aanmelding knop Opslaan](./media/cisco-webex-tutorial/tutorial_general_400.png)
-    
-13. Gebruik de optie bestand browser om te zoeken en de Azure AD-metagegevensbestand uploaden op de pagina Cisco Webex bedrijf site beheerder. Selecteer **certificaat dat is ondertekend door een certificeringsinstantie in de metagegevens (veiliger) vereisen** en Ga naar het volgende scherm. 
+    f. Klik op **OK**.
+
+    g. Klik op **Opslaan**.
+
+12. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
+
+13. In de sectie **Cisco Webex instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-cisco-webex-single-sign-on"></a>Eenmalige aanmelding voor Cisco Webex configureren
+
+1. Gebruik de bestandsbrowseroptie op de pagina voor beheerders op de bedrijfssite van Cisco Webex om het Azure AD-metagegevensbestand te zoeken en te uploaden. Selecteer vervolgens **Require certificate signed by a certificate authority in Metadata (more secure)** en ga naar het volgende scherm. 
 
     ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_cisco_webex_11.png)
 
-14. Selecteer **SSO-testverbinding**, en wanneer er wordt een nieuw browsertabblad geopend, verifieert u met Azure AD met het aanmelden.
+2. Selecteer **Test SSO Connection**. Wanneer er een nieuw browsertabblad wordt geopend, moet u zich verifiëren bij Azure AD door u aan te melden.
 
-15. Ga terug naar de **Cisco samenwerking Cloudbeheer** browsertabblad. Als de test voltooid is, selecteert u **deze test is geslaagd. Inschakelen van Single Sign-On optie** en klikt u op **opslaan**.
+3. Ga terug naar het browsertabblad **Cisco Cloud Collaboration Management**. Als de test is geslaagd, selecteert u **This test was successful. Schakel de optie voor eenmalige aanmelding in** en klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/cisco-webex-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/cisco-webex-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/cisco-webex-tutorial/create_aaduser_03.png)
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/cisco-webex-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Selecteer **Maken**.
- 
-### <a name="create-a-cisco-webex-test-user"></a>Maak een testgebruiker Cisco Webex
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Cisco Webex. Cisco Webex biedt ondersteuning voor just-in-time inrichting en automatisch gebruikers inrichten, dit standaard ingeschakeld is. Meer informatie vindt u [hier](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial) voor het automatisch inrichten van gebruikers configureren.
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u de gebruiker Britta Simon Azure eenmalige aanmelding gebruiken ze door toegang te verlenen aan Cisco Webex.
+In deze sectie hebt u Britta Simon in staat gesteld gebruik te maken van eenmalige aanmelding van Azure door haar toegang te geven tot Cisco Webex.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **Cisco Webex**.
 
-**Als u wilt Britta Simon aan Cisco Webex toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de toepassingen in de Azure-portal. Volgende, gaat u naar de directoryweergave, en vervolgens naar **bedrijfstoepassingen**.  
+2. Typ en selecteer **Cisco Webex** in de lijst met toepassingen.
 
-2. Selecteer **alle toepassingen**.
+    ![De koppeling Cisco Webex in de lijst met toepassingen](common/all-applications.png)
 
-    ![Gebruiker toewijzen][201] 
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-3. Selecteer in de lijst met toepassingen, **Cisco Webex**.
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-    ![De Cisco Webex-koppeling in de lijst met toepassingen](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-4. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-5. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
+### <a name="create-cisco-webex-test-user"></a>Testgebruiker voor Cisco Webex maken
 
-6. In de **gebruikers en groepen** in het dialoogvenster, klikt u op de **Selecteer** knop.
+Het doel van deze sectie is het maken van een gebruiker met de naam Britta Simon in Cisco Webex. Cisco Webex ondersteunt just-in-time inrichting en automatische inrichting van gebruikers (standaard ingeschakeld). Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in Cisco Webex, wordt er een nieuwe gemaakt wanneer u Cisco Webex opent.
 
-7. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** in het dialoogvenster.
-    
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u de Cisco Webex-tegel in het toegangsvenster selecteert, ophalen u automatisch aangemeld bij uw Cisco Webex-toepassing.
-
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Cisco Webex in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Cisco Webex waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/cisco-webex-tutorial/tutorial_general_01.png
-[2]: ./media/cisco-webex-tutorial/tutorial_general_02.png
-[3]: ./media/cisco-webex-tutorial/tutorial_general_03.png
-[4]: ./media/cisco-webex-tutorial/tutorial_general_04.png
-
-[100]: ./media/cisco-webex-tutorial/tutorial_general_100.png
-
-[200]: ./media/cisco-webex-tutorial/tutorial_general_200.png
-[201]: ./media/cisco-webex-tutorial/tutorial_general_201.png
-[202]: ./media/cisco-webex-tutorial/tutorial_general_202.png
-[203]: ./media/cisco-webex-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

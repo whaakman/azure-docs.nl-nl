@@ -10,17 +10,16 @@ ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bfe1d022364455f6c3e22872358b6e18b0806e6a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ce2c3bffecd691acd5eb26b999c63fd2bb5dd510
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109333"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015336"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Zelfstudie: Een Data Factory-pijplijn maken die gegevens verplaatst met Azure PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +44,7 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
 > [!NOTE]
 > Dit artikel omvat niet alle Data Factory-cmdlets. Zie [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) (Naslaginformatie voor Data Factory-cmdlets) voor uitgebreide documentatie over deze cmdlets.
 > 
-> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
+> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Meer informatie over het transformeren van gegevens met behulp van Azure Data Factory vindt u in [Zelfstudie: een pijplijn bouwen om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Vereisten
 - U dient eerst te voldoen aan de vereisten in het artikel [Vereisten voor de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -55,7 +54,7 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
 Hier volgen de stappen die u uitvoert als onderdeel van deze zelfstudie:
 
 1. Een Azure-**gegevensfactory** maken. In deze stap maakt u een gegevensfactory met de naam ADFTutorialDataFactoryPSH. 
-1. **Gekoppelde services** maken in de gegevensfactory. In deze stap maakt u twee gekoppelde services van het type: Azure Storage en Azure SQL Database. 
+1. **Gekoppelde services** maken in de gegevensfactory. In deze stap maakt u twee gekoppelde services van de typen: Azure Storage en Azure SQL Database. 
     
     De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. U hebt een container gemaakt en gegevens naar dit opslagaccount geüpload als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
@@ -118,7 +117,7 @@ Houd rekening met de volgende punten:
     ```
 * Als u Data Factory-exemplaren wilt maken, moet u bijdrager of beheerder zijn van het Azure-abonnement.
 * De naam van de data factory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
-* Mogelijk wordt de volgende fout weergegeven: **Dit abonnement is niet geregistreerd voor gebruik van de naamruimte Microsoft.DataFactory**. Voer een van de volgende handelingen uit en probeer opnieuw te publiceren:
+* De volgende fout kan optreden: '**Dit abonnement is niet geregistreerd voor gebruik van de naamruimte Microsoft.DataFactory.**' Voer een van de volgende handelingen uit en probeer opnieuw te publiceren:
 
   * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren:
 
@@ -136,7 +135,7 @@ Houd rekening met de volgende punten:
 ## <a name="create-linked-services"></a>Gekoppelde services maken
 U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze zelfstudie gebruikt u niet een willekeurige compute-service, zoals Azure HDInsight of Azure Data Lake Analytics. U gebruikt twee gegevensarchieven van het type Azure Storage (bron) en Azure SQL Database (doel). 
 
-Daarom maakt u twee gekoppelde services met de naam AzureStorageLinkedService en AzureSqlLinkedService van het type: AzureStorage en AzureSqlDatabase.  
+Daarom maakt u twee gekoppelde services met de naam AzureStorageLinkedService en AzureSqlLinkedService van de typen AzureStorage en AzureSqlDatabase.  
 
 De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. Dit opslagaccount is het account waarin u een container hebt gemaakt en gegevens hebt geüpload als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
@@ -145,7 +144,7 @@ De AzureSqlLinkedService koppelt uw Azure SQL-database aan de gegevensfactory. D
 ### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Een gekoppelde service maken voor een Azure-opslagaccount
 In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory.
 
-1. Maak een JSON-bestand met de naam **AzureStorageLinkedService.json** in de map **C:\ADFGetStartedPSH** met de volgende inhoud: (maak de map ADFGetStartedPSH als deze nog niet bestaat.)
+1. Maak een JSON-bestand met de naam **AzureStorageLinkedService.json** in de map **C:\ADFGetStartedPSH** met de volgende inhoud. (Maak de map ADFGetStartedPSH als deze nog niet bestaat.)
 
     > [!IMPORTANT]
     > Vervang &lt;accountname&gt; en &lt;accountkey&gt; door de naam en sleutel van uw Azure Storage-account voordat u het bestand opslaat. 
@@ -162,7 +161,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory.
      }
     ``` 
 1. Schakel in **Azure PowerShell** over naar de map **ADFGetStartedPSH**.
-1. Voer de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde **AzureStorageLinkedService**-service te maken. Voor deze cmdlet en andere Data Factory-cmdlets die u in deze zelfstudie gebruikt, moet u waarden doorgeven voor de parameters **ResourceGroupName** en **DataFactoryName**. U kunt ook het DataFactory-object doorgeven dat door de cdmlet New-AzureRmDataFactory is geretourneerd. U hoeft dan niet telkens wanneer u een cmdlet uitvoert de ResourceGroupName en de DataFactoryName op te geven. 
+1. Voer de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde service te maken: **AzureStorageLinkedService**. Voor deze cmdlet en andere Data Factory-cmdlets die u in deze zelfstudie gebruikt, moet u waarden doorgeven voor de parameters **ResourceGroupName** en **DataFactoryName**. U kunt ook het DataFactory-object doorgeven dat door de cdmlet New-AzureRmDataFactory is geretourneerd. U hoeft dan niet telkens wanneer u een cmdlet uitvoert de ResourceGroupName en de DataFactoryName op te geven. 
 
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json

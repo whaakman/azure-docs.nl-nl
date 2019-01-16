@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963246"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065542"
 ---
 # <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
@@ -22,7 +22,7 @@ Azure Storage is Microsoft's cloudoplossing bedoeld voor scenario's voor gegeven
 - **Duurzaam en maximaal beschikbaar.** Redundantie zorgt ervoor dat uw gegevens veilig zijn in geval van tijdelijke hardwarefouten. U kunt er ook voor kiezen gegevens te repliceren in datacenters of geografische regio's voor extra beveiliging tegen lokale rampen of natuurrampen. Op deze manier gerepliceerde gegevens blijven maximaal beschikbaar in het geval van een stroomstoring. 
 - **Veilig.** Alle gegevens die naar Azure Storage worden geschreven, worden versleuteld door de service. Azure Storage biedt u gedetailleerde controle over wie toegang tot uw gegevens heeft.
 - **Schaalbaar.** Azure Storage is in hoge mate schaalbaar om te voldoen aan de gegevensopslag- en prestatiebehoeften van de huidige toepassingen. 
-- **Beheerd.** Microsoft Azure zorgt voor het onderhoud en handelt kritieke problemen voor u af.
+- **Beheerd.** Microsoft Azure zorgt voor het onderhoud van hardware, updates en het oplossen van ernstige problemen.
 - **Toegankelijk.** Gegevens in Azure Storage zijn overal ter wereld toegankelijk via HTTP of HTTPS. Microsoft biedt SDK's voor Azure Storage in verschillende talen, te weten .NET, Java, Node.js, Python, PHP, Ruby, Go en andere, samen met een goed ontwikkelde REST-API. Azure Storage ondersteunt scripts in Azure PowerShell of Azure CLI. En Azure Portal en Azure Storage Explorer bieden handige visuele oplossingen voor het werken met uw gegevens.  
 
 ## <a name="azure-storage-services"></a>Azure Storage-services
@@ -89,30 +89,9 @@ Azure Storage omvat ook mogelijkheden voor beheerde en onbeheerde schijven die w
 
 ## <a name="types-of-storage-accounts"></a>Typen opslagaccounts
 
-In deze tabel ziet u de verschillende soorten opslagaccounts en welke objecten met elk account kunnen worden gebruikt.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**Type opslagaccount**|**Algemeen Standard**|**Algemeen Premium**|**Blob-opslag, 'hot' en 'cool' toegangslagen**|
-|-----|-----|-----|-----|
-|**Ondersteunde services**| Blob-, File-, Queue- en Tabel-services | Blob-service | Blob-service|
-|**Typen ondersteunde blobs**|Blok-blobs, pagina-blobs en toevoeg-blobs | Pagina-blobs | Blok-blobs en toevoeg-blobs|
-
-### <a name="general-purpose-storage-accounts"></a>Opslagaccounts voor algemeen gebruik
-
-Er zijn twee soorten opslagaccounts voor algemeen gebruik.
-
-#### <a name="standard-storage"></a>Standard Storage
-
-De meest gebruikte opslagaccounts zijn standaardopslagaccounts, die kunnen worden gebruikt voor alle typen gegevens. Standaardopslagaccounts maken gebruiken van magnetische media voor het opslaan van gegevens.
-
-#### <a name="premium-storage"></a>Premium Storage
-
-Premium-opslag biedt krachtige opslag voor pagina-blobs, die voornamelijk worden gebruikt voor VHD-bestanden. Premium-opslagaccounts gebruiken SSD voor het opslaan van gegevens. Microsoft adviseert om Premium Storage te gebruiken voor al uw VM's.
-
-### <a name="blob-storage-accounts"></a>Blob Storage-accounts
-
-Het Blob Storage-account is een gespecialiseerd opslagaccount dat wordt gebruikt voor het opslaan van blok-blobs en toevoeg-blobs. U kunt geen pagina-blobs opslaan in deze accounts en dus ook geen VHD-bestanden. Deze accounts maken het mogelijk om een toegangslaag in te stellen als Hot of Cool. U kunt deze instelling overigens op elk gewenst moment wijzigen.
-
-De toegangslaag Hot wordt gebruikt voor bestanden die regelmatig worden geopend. U betaalt hogere kosten voor opslag, maar de kosten voor toegang tot de blobs zijn veel lager. Voor blobs die zijn opgeslagen in de toegangslaag Cool, betaalt u hogere kosten voor toegang tot de blobs, maar zijn de kosten voor opslag veel lager.
+Zie [Overzicht van Azure-opslagaccounts](storage-account-overview.md) voor meer informatie over de typen opslagaccounts. 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Toegang tot blobs, bestanden en wachtrijen
 
@@ -161,16 +140,7 @@ Zie [Wat te doen in het geval van een Azure Storage-storing](storage-disaster-re
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Gegevens overbrengen van en naar Azure Storage
 
-U kunt het opdrachtregelhulpprogramma AzCopy gebruiken om blob- en bestandsgegevens binnen uw opslagaccount of tussen opslagaccounts te kopiëren. Raadpleeg een van de volgende artikelen voor informatie:
-
-* [Transfer data with the AzCopy on Windows](storage-use-azcopy.md) (Gegevens overdragen met AzCopy voor Windows)
-* [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md) (Gegevens overdragen met AzCopy voor Linux)
-
-AzCopy is gebouwd boven op de [Azure-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), die momenteel beschikbaar is als voorbeeld.
-
-De Azure Import/Export-service kan worden gebruikt om grote hoeveelheden blob-gegevens naar of van uw opslagaccount te importeren of exporteren. U bereidt meerdere harde schijven voor en verstuurt die naar een Azure-datacenter, waar de gegevens vervolgens worden overgezet naar/van de harde schijven en de harde schijven vervolgens worden teruggestuurd. Zie [De Microsoft Azure Import/Export-service gebruiken om gegevens over te brengen naar Blob Storage](../storage-import-export-service.md) voor meer informatie over de Import/Export-service.
-
-Als u op een snelle, voordelige en betrouwbare manier grote hoeveelheden blob-gegevens in uw opslagaccount wilt importeren, kunt u ook Azure Data Box Disk gebruiken. Microsoft verzendt tot 5 versleutelde SSD’s (Solid-State Disks) met een capaciteit van 40 TB naar uw datacenter via een regionale transporteur. U kunt snel de schijven configureren, gegevens via een USB-verbinding naar de schijven kopiëren en de schijven naar Azure terugsturen. In het Azure-datacenter worden uw gegevens automatisch van de schijven naar de cloud geüpload. Ga naar [Overzicht van Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) voor meer informatie over deze oplossing.
+Er zijn verschillende mogelijkheden om gegevens te verplaatsen van of naar Azure Storage. Welke optie u kiest, is afhankelijk van de grootte van de gegevensset en de bandbreedte van het netwerk. Zie [Een Azure-oplossing kiezen voor gegevensoverdracht](storage-choose-data-transfer-solution.md) voor meer informatie.
 
 ## <a name="pricing"></a>Prijzen
 

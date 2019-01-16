@@ -4,17 +4,17 @@ description: Leer hoe u een Terraform-basissjabloon maakt in Azure met behulp va
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284332"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074510"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Een Terraform-basissjabloon maken in Azure met behulp van Yeoman
 
@@ -28,11 +28,11 @@ In dit artikel leert u hoe u de modulegenerator van Yeoman gebruikt om een Terra
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Azure-abonnement**: als u nog geen abonnement op Azure hebt, maakt u een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
-- **Visual Studio Code**: we gebruiken [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) om bestanden te onderzoeken die zijn gemaakt door de Yeoman-generator. U kunt echter ook een andere code-editor gebruiken.
-- **Terraform**: u hebt een installatie van [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) nodig om de module uit te voeren die door Yeoman is gemaakt.
-- **Docker**: we gebruiken [Docker](https://www.docker.com/get-started) om de module uit te voeren die door de Yeoman-generator is gemaakt. (Als u dat wilt, mag u ook Ruby in plaats van Docker gebruiken om de voorbeeldmodule uit te voeren.)
-- **Go-programmeertaal**: u hebt een installatie van [Go](https://golang.org/) nodig omdat de testscenario's die door Yeoman zijn gegenereerd, zijn geschreven in Go.
+- **Azure-abonnement**: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+- **Visual Studio Code**: We gebruiken [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) om bestanden te onderzoeken die zijn gemaakt door de Yeoman-generator. U kunt echter ook een andere code-editor gebruiken.
+- **Terraform**: U hebt een installatie van [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) nodig om de module uit te voeren die door Yeoman is gemaakt.
+- **Docker**: We gebruiken [Docker](https://www.docker.com/get-started) om de module uit te voeren die door de Yeoman-generator is gemaakt. (Als u dat wilt, mag u ook Ruby in plaats van Docker gebruiken om de voorbeeldmodule uit te voeren.)
+- **Go-programmeertaal**: U hebt een installatie van [Go](https://golang.org/) nodig omdat de testscenario's die door Yeoman zijn gegenereerd, zijn geschreven in Go.
 
 >[!NOTE]
 >De meeste procedures in deze zelfstudie hebben betrekking op opdrachtregelvermeldingen. De hier beschreven stappen zijn van toepassing op alle besturingssystemen en opdrachtregelprogramma's. In de voorbeelden hebben we ervoor gekozen om PowerShell te gebruiken voor de lokale omgeving en Git Bash voor de Cloud Shell-omgeving.
@@ -140,16 +140,16 @@ Definieert het resultaat van de module. Hier is het de waarde die wordt geretour
 
 Definieert de buildstappen. Deze stappen omvatten:
 
-- **build**: valideert de indeling van het bestand main.tf.
-- **eenheid**: het gegenereerde moduleraamwerk bevat geen code voor een eenheidstest. Als u een scenario voor een eenheidstest wilt opgeven, moet u hier code toevoegen.
-- **e2e**: voert een end-to-end-test van de module uit.
+- **build**: Hiermee wordt de indeling van het bestand main.tf gevalideerd.
+- **eenheid**: Het gegenereerde moduleraamwerk bevat geen code voor een eenheidstest. Als u een scenario voor een eenheidstest wilt opgeven, moet u hier code toevoegen.
+- **e2e**: Hiermee wordt een end-to-end-test van de module uitgevoerd.
 
 ### <a name="test"></a>test
 
 - Testcases worden geschreven in Go.
 - Alle codes in test zijn end-to-end-tests.
 - End-to-end-tests proberen Terraform te gebruiken om alle items in te richten die zijn gedefinieerd onder **aansluiting** en vergelijken vervolgens de uitvoer in de code **template_output.go** met de vooraf gedefinieerde verwachte waarden.
-- **Gopkg.lock** en **Gopkg.toml**: definiëren uw afhankelijkheden. 
+- **Gopkg.lock** en **Gopkg.toml**: Definieer uw afhankelijkheden. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>De nieuwe Terraform-module testen met behulp van een Docker-bestand
 

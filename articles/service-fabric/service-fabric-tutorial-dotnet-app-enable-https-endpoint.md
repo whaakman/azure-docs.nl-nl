@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115073"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077247"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web-API met behulp van Kestrel
 
@@ -54,10 +54,10 @@ Voor u met deze zelfstudie begint:
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Haal een certificaat op of maak een zelfondertekend ontwikkelingscertificaat.
 
-Gebruik voor productietoepassingen een certificaat van een [certificeringsinstantie (CA)](https://wikipedia.org/wiki/Certificate_authority). U kunt voor ontwikkelings- en testdoeleinden een zelfondertekend certificaat maken en gebruiken. De Service Fabric SDK bevat het *CertSetup.ps1*-script, dat een zelfondertekend certificaat maakt en dat certificaat vervolgens importeert naar het `Cert:\LocalMachine\My`-certificaatarchief. Open een opdrachtprompt als beheerder en voer de volgende opdracht uit voor het maken van een certificaat met het onderwerp 'CN=localhost':
+Gebruik voor productietoepassingen een certificaat van een [certificeringsinstantie (CA)](https://wikipedia.org/wiki/Certificate_authority). U kunt voor ontwikkelings- en testdoeleinden een zelfondertekend certificaat maken en gebruiken. De Service Fabric SDK bevat het *CertSetup.ps1*-script, dat een zelfondertekend certificaat maakt en dat certificaat vervolgens importeert naar het `Cert:\LocalMachine\My`-certificaatarchief. Open een opdrachtprompt als beheerder en voer de volgende opdracht uit voor het maken van een certificaat met het onderwerp 'CN=mytestcert':
 
 ```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
 Als u al een PFX-certificaatbestand hebt, voert u de volgende opdracht uit om het certificaat te importeren in het `Cert:\LocalMachine\My`-certificaatarchief:
@@ -158,7 +158,7 @@ serviceContext =>
         }))
 ```
 
-Voeg ook de volgende methode toe zodat Kestrel het certificaat kan vinden in het `Cert:\LocalMachine\My`-archief met behulp van het onderwerp.  Vervang '&lt;your_CN_value&gt;' door 'localhost' als u een zelfondertekend certificaat hebt gemaakt met de vorige PowerShell-opdracht, of gebruik de algemene naam van uw certificaat.
+Voeg ook de volgende methode toe zodat Kestrel het certificaat kan vinden in het `Cert:\LocalMachine\My`-archief met behulp van het onderwerp.  Vervang '&lt;your_CN_value&gt;' door 'mytestcert' als u een zelfondertekend certificaat hebt gemaakt met de vorige PowerShell-opdracht, of gebruik de algemene naam van uw certificaat.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -238,7 +238,7 @@ Wijzig de eigenschappen van het *Setup.bat*-bestand zodat **Naar uitvoermap kopi
 Klik in Solution Explorer met de rechtermuisknop op **VotingWeb**, selecteer **Toevoegen**->**Nieuw item** en voeg een nieuw bestand toe met de naam 'SetCertAccess.ps1'.  Bewerk het *SetCertAccess.ps1*-bestand en voeg het volgende script toe:
 
 ```powershell
-$subject="localhost"
+$subject="mytestcert"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
@@ -349,7 +349,7 @@ Sla alle bestanden op en druk op F5 om de toepassing lokaal uit te voeren.  Nada
 
 Voordat u de toepassing in Azure implementeert, installeert u het certificaat in het `Cert:\LocalMachine\My`-archief van de externe clusterknooppunten.  Wanneer de front-end webservice wordt gestart op een clusterknooppunt, zoekt het opstartscript naar het certificaat en worden er toegangsmachtigingen geconfigureerd.
 
-Exporteer als eerste het certificaat naar een PFX-bestand. Open de toepassing certlm.msc en navigeer naar **Persoonlijk**>**Certificaten**.  Klik met de rechtermuisknop op het certificaat *localhost* en selecteer **Alle taken**>**Exporteren**.
+Exporteer als eerste het certificaat naar een PFX-bestand. Open de toepassing certlm.msc en navigeer naar **Persoonlijk**>**Certificaten**.  Klik met de rechtermuisknop op het certificaat *mytestcert* en selecteer **Alle taken**>**Exporteren**.
 
 ![Certificaat exporteren][image4]
 

@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341045"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038146"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Uw eerste Durable Function maken in C\#
 
 *Durable Functions* is een extensie van [Azure Functions](../functions-overview.md) waarmee u stateful functies kunt schrijven in een serverloze omgeving. De extensie beheert status, controlepunten en het opnieuw opstarten voor u.
 
-In dit artikel leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Azure Functions lokaal een ‘Hallo wereld’-functie kunt maken en testen.  Deze functie deelt aanroepen naar andere functies in en koppelt ze aan elkaar. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017.
+In dit artikel leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Azure Functions lokaal een ‘Hallo wereld’-functie kunt maken en testen.  Met deze functie organiseert en koppelt u aanroepen naar andere functies. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017.
 
 ![Durable Function uitvoeren in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,7 +30,7 @@ In dit artikel leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Az
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer [Visual Studio 2017](https://azure.microsoft.com/downloads/) en zorg ervoor dat de werkbelasting **Azure development** ook wordt geïnstalleerd.
+* Installeer [Visual Studio 2017](https://azure.microsoft.com/downloads/). Zorg ervoor dat de werkbelasting **Azure development** ook is geïnstalleerd.
 
 * Zorg ervoor dat u beschikt over de [nieuwste versie van de hulpprogramma's van Azure Functions](../functions-develop-vs.md#check-your-tools-version).
 
@@ -40,7 +40,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 ## <a name="create-a-function-app-project"></a>Een functie-appproject maken
 
-De Azure Functions-projectsjabloon in Visual Studio maakt een project dat kan worden gepubliceerd in een functie-app in Azure. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources kunt beheren, implementeren en delen.
+De Azure Functions-sjabloon maakt een project dat kan worden gepubliceerd in een functie-app in Azure. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources kunt beheren, implementeren en delen.
 
 1. Selecteer **Nieuw** > **Project** in het menu **Bestand** in Visual Studio.
 
@@ -58,11 +58,11 @@ De Azure Functions-projectsjabloon in Visual Studio maakt een project dat kan wo
     | **Sjabloon** | Leeg | Hiermee wordt een lege functie-app gemaakt. |
     | **Opslagaccount**  | Opslagemulator | Een opslagaccount is vereist voor het statusbeheer van Durable Functions. |
 
-4. Klik op **OK** om een leeg Function-project te maken.
+4. Klik op **OK** om een leeg Function-project te maken. Dit project bevat de basisconfiguratiebestanden die nodig zijn voor het uitvoeren van uw functies.
 
 ## <a name="add-functions-to-the-app"></a>Functies toevoegen aan de app
 
-Visual Studio maakt een leeg Function-app-project.  Het bevat wel de elementaire configuratiebestanden die nodig zijn voor een app, maar nog geen functies.  Er moet een Durable Function-sjabloon aan het project worden toegevoegd.
+In de volgende stappen wordt een sjabloon gebruikt om de code van de Durable Function te maken in uw project.
 
 1. Klik met de rechtermuisknop op het project in Visual Studio en selecteer **Toevoegen** > **Nieuwe Azure-functie**.
 
@@ -74,11 +74,13 @@ Visual Studio maakt een leeg Function-app-project.  Het bevat wel de elementaire
 
     ![Durable sjabloon selecteren](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-Een nieuwe Durable Function wordt toegevoegd aan de app.  Open het nieuwe bestand om de inhoud weer te geven.  Deze Durable Function is een eenvoudig voorbeeld van het koppelen van functies.  
+Er wordt een nieuwe Durable Function toegevoegd aan de app.  Open het nieuwe CS-bestand om de inhoud te bekijken. Deze Durable Function is een eenvoudig voorbeeld van het koppelen van functies met behulp van de volgende methoden:  
 
-* De `RunOrchestrator`-methode is gekoppeld aan de Orchestrator-functie.  Deze functie wordt gestart, maakt een lijst en voegt het resultaat van drie functieaanroepen toe aan de lijst.  Wanneer de drie functieaanroepen zijn voltooid, wordt de lijst geretourneerd.  De functie die wordt aangeroepen, is de `SayHello`-methode (standaard wordt deze `<NameOfFile>_Hello` genoemd).
-* De `SayHello`-functie geeft als resultaat een Hello.
-* De `HttpStart`-methode beschrijft de functie waarmee exemplaren van de orchestrator worden gestart.  Deze is gekoppeld aan een [HTTP-trigger](../functions-bindings-http-webhook.md) die een nieuw exemplaar van de orchestrator start en de statuscontrole retourneert.
+| Methode | FunctionName | Beschrijving |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | Hiermee beheert u de Durable-indeling. In dit geval wordt de indeling gestart, wordt er een lijst gemaakt en wordt het resultaat van drie functieaanroepen aan de lijst toegevoegd.  Wanneer de drie functieaanroepen zijn voltooid, wordt de lijst geretourneerd. |
+| **`SayHello`** | `<file-name>_Hello` | De functie geeft 'Hello' als resultaat. Dit is de functie die de bedrijfslogica bevat die wordt ingedeeld. |
+| **`HttpStart`** | `<file-name>_HttpStart` | Een [door HTTP geactiveerde functie](../functions-bindings-http-webhook.md) die een exemplaar van de indeling start en een reactie voor de controlestatus retourneert. |
 
 Nu u uw functieproject en een Durable Function hebt gemaakt, kunt u deze testen op uw lokale computer.
 
@@ -143,4 +145,4 @@ Voordat u uw project kunt publiceren, moet u een functie-app in uw Azure-abonnem
 U hebt Visual Studio gebruikt om een Durable Function-app in C# te maken en te publiceren.
 
 > [!div class="nextstepaction"]
-> [Meer informatie over algemene patronen van Durable Functions](durable-functions-overview.md)
+> [Meer informatie over algemene patronen van Durable Functions](durable-functions-concepts.md)

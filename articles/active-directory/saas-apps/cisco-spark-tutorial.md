@@ -1,283 +1,263 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Cisco Spark | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Cisco Spark.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Cisco Spark configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bebc8d674d7448ea0ce6a1f11b7ae80335df9cdc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 493ba5853173c34fbd58236c1a2dd2b28dc59a90
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431695"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Spark
 
-In deze zelfstudie leert u hoe u Cisco Spark integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Cisco Spark kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Cisco Spark met Azure AD biedt de volgende voordelen:
 
-Cisco Spark integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Cisco Spark.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Cisco Spark (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Cisco Spark heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Cisco Spark (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Cisco Spark, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met Cisco Spark te configureren:
 
-- Een Azure AD-abonnement
-- Een Cisco-Spark eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Cisco Spark waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Cisco Spark uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Cisco Spark uit de galerie toe te voegen
-Voor het configureren van de integratie van Cisco Spark in Azure AD, moet u Cisco Spark uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Cisco Spark ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Cisco Spark uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-cisco-spark-from-the-gallery"></a>Cisco Spark toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Cisco Spark te configureren in Azure AD, moet u Cisco Spark vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit om Cisco Spark vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Toepassingen][2]
+    ![De knop Azure Active Directory](common/select-azuread.png)
+
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ **toe te voegen** in het zoekvak, selecteer **toe te voegen** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Cisco Spark toevoegen vanuit de galerie](common/search-new-app.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Cisco Spark op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Cisco Spark tot stand is gebracht.
+
+Om eenmalige aanmelding van Azure AD met Cisco Spark te configureren en testen, moet u de volgende procedures voltooien:
+
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Cisco Spark configureren](#configure-cisco-spark-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de toepassingszijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor Cisco Spark maken](#create-cisco-spark-test-user)**: als u een tegenhanger van Britta Simon in Cisco Spark wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
+
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Cisco Spark:
+
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **Cisco Spark** en selecteer **Eenmalige aanmelding**.
+
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
+
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
+
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van Cisco Spark](common/sp-identifier.png)
+
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://web.ciscospark.com/#/signin`
+
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://idbroker.webex.com/<companyname>`
+
+    > [!NOTE]
+    > Deze id is geen echte waarde. Werk deze waarde bij met de werkelijke id. Neem contact op met het [klantondersteuningsteam van Cisco Spark](https://support.ciscospark.com/) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+
+5. De toepassing Cisco Spark verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+
+    ![image](common/edit-attribute.png)
+
+6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    | Naam |  Bronkenmerk|
+    | ---------------|--------- |
+    | uid | user.userprincipalname |
 
-    ![Toepassingen][3]
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-1. Typ in het zoekvak **Cisco Spark**.
+    ![image](common/new-save-attribute.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/cisco-spark-tutorial/tutorial_ciscospark_search.png)
+    ![image](common/new-attribute-details.png)
 
-1. Selecteer in het deelvenster resultaten **Cisco Spark**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/cisco-spark-tutorial/tutorial_ciscospark_addfromgallery.png)
+    c. Laat **Naamruimte** leeg.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Cisco Spark op basis van een testgebruiker met de naam "Britta Simon."
+    d. Selecteer Bron bij **Kenmerk**.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Cisco Spark in Azure AD aan een gebruiker is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Cisco Spark tot stand worden gebracht.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-In Spark van Cisco, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+    f. Klik op **OK**.
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Cisco Spark, u nodig hebt voor de volgende bouwstenen:
+    g. Klik op **Opslaan**.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Cisco Spark](#creating-a-cisco-spark-test-user)**  : als u wilt een equivalent van Britta Simon in Spark van Cisco die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Cisco Spark-toepassing.
+8. Kopieer in de sectie **Cisco Spark instellen** de juiste URL('s) op basis van uw behoeften.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Cisco Spark, moet u de volgende stappen uitvoeren:**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-1. In de Azure-portal op de **Cisco Spark** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    a. Aanmeldings-URL
 
-    ![Eenmalige aanmelding configureren][4]
+    b. Azure AD-id
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_ciscospark_samlbase.png)
+    c. Afmeldings-URL
 
-1. Op de **Cisco Spark domein en URL's** sectie, voert u de volgende stappen uit:
+### <a name="configure-cisco-spark-single-sign-on"></a>Eenmalige aanmelding configureren voor Cisco Spark
 
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_ciscospark_url.png)
+1. Meld u aan bij [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) met uw volledige beheerdersreferenties.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL als: `https://web.ciscospark.com/#/signin`
+2. Selecteer **Settings** en klik in de sectie **Authentication** op **Modify**.
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://idbroker.webex.com/<companyname>`
-
-    > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke-id. Neem contact op met [Cisco Spark Client ondersteuningsteam](https://support.ciscospark.com/) deze waarde op te halen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
-
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_ciscospark_certificate.png) 
-
-1. Cisco-toepassing voor Spark wordt verwacht dat de SAML-asserties ondertekend naar specifieke kenmerken bevatten. Configureer de volgende kenmerken voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
-    
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_ciscospark_07.png) 
-
-1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk  | Waarde kenmerk |
-    | --------------- | -------------------- |    
-    |   UID    | User.userPrincipalName |   
-
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
-
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_attribute_04.png)
-
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_attribute_05.png)
-    
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
-    
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
-    
-    d. Klik op **OK**.
-
-1. Klik op **opslaan** knop.
-
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_general_400.png)
-
-1. Aanmelden bij [Cisco samenwerking Cloudbeheer](https://admin.ciscospark.com/) met uw volledige beheerdersreferenties.
-
-1. Selecteer **instellingen** en klikt u onder de **verificatie** sectie, klikt u op **wijzigen**.
-   
     ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
-    
-1. Selecteer **integreren van een 3rd party-id-provider. (Geavanceerd)**  en Ga naar het volgende scherm.
+  
+3. Selecteer **Integrate a 3rd-party identity provider. (Advanced)** en ga naar het volgende scherm.
 
-1. Op de **metagegevens van de id-provider importeren** pagina, een van beide slepen en neerzetten van het bestand met de Azure AD-metagegevens naar de pagina of de optie van de browser bestand gebruiken om te zoeken en de Azure AD-metagegevensbestand uploaden. Selecteer **certificaat dat is ondertekend door een certificeringsinstantie in de metagegevens (veiliger) vereisen** en klikt u op **volgende**. 
-    
+4. Sleep het bestand met de Azure AD-metagegevens naar de pagina **Import Idp Metadata** of gebruik de optie 'file browser' om het bestand te zoeken en te uploaden. Selecteer vervolgens **Require certificate signed by a certificate authority in Metadata (more secure)** en klik op **Next**.
+
     ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
 
-1. Selecteer **SSO-testverbinding**, en wanneer er wordt een nieuw browsertabblad geopend, verifieert u met Azure AD met het aanmelden.
+5. Selecteer **Test SSO Connection**. Wanneer er een nieuw browsertabblad wordt geopend, moet u zich verifiëren bij Azure AD door u aan te melden.
 
-1. Ga terug naar de **Cisco samenwerking Cloudbeheer** browsertabblad. Als de test voltooid is, selecteert u **deze test is geslaagd. Inschakelen van Single Sign-On optie** en klikt u op **volgende**.
+6. Ga terug naar het browsertabblad **Cisco Cloud Collaboration Management**. Als de test is geslaagd, selecteert u **This test was successful.** Schakel de optie voor eenmalige aanmelding in en klik op **Next**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/cisco-spark-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/cisco-spark-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/cisco-spark-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/cisco-spark-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-cisco-spark-test-user"></a>Het maken van een testgebruiker Cisco Spark
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Cisco Spark. In deze sectie maakt u een gebruiker met de naam van Britta Simon in Cisco Spark.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-1. Ga naar de [Cisco samenwerking Cloudbeheer](https://admin.ciscospark.com/) met uw volledige beheerdersreferenties.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Cisco Spark.
 
-1. Klik op **gebruikers** en vervolgens **gebruikers beheren**.
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Cisco Spark**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Typ en selecteer **Cisco Spark** in de lijst met toepassingen.
+
+    ![De koppeling naar Cisco Spark in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-cisco-spark-test-user"></a>Een testgebruiker maken voor Cisco Spark
+
+In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Spark. In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Spark.
+
+1. Meld u aan bij [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) met uw volledige beheerdersreferenties.
+
+2. Klik op **Users** en vervolgens op **Manage Users**.
    
     ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
 
-1. In de **beheren gebruiker** venster **handmatig toevoegen of wijzigen van gebruikers** en klikt u op **volgende**.
+3. Selecteer **Manually Add or Modify Users** in het venster **Manage User** en klik vervolgens op **Next**.
 
-1. Selecteer **namen en e-mailadres**. Vul vervolgens het tekstvak als volgt in:
-   
+4. Selecteer **Names and Email address**. Vul vervolgens de tekstvakken als volgt in:
+
     ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
-    
-    a. In de **voornaam** tekstvak, type **Julia**. 
-    
-    b. In de **achternaam** tekstvak, type **Simon**.
-    
-    c. In de **e-mailadres** tekstvak, type **britta.simon@contoso.com**.
 
-1. Klik op het plusteken om toe te voegen Britta Simon. Klik op **Volgende**.
+    a. Typ in het tekstvak **First Name** de voornaam van de gebruiker, bijvoorbeeld **Britta**.
 
-1. In de **Services toevoegen voor gebruikers** venster, klikt u op **opslaan** en vervolgens **voltooien**.
+    b. Typ in het tekstvak **Last Name** de achternaam van de gebruiker, bijvoorbeeld **Simon**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+    c. Typ in het tekstvak **Email address** het e-mailadres van de gebruiker, bijvoorbeeld **britta.simon@contoso.com**.
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot Cisco Spark.
+5. Klik op het plusteken om Britta Simon toe te voegen. Klik op **Volgende**.
 
-![Gebruiker toewijzen][200] 
+6. Klik in het venster **Add Services for Users** op **Save** en daarna op **Finish**.
 
-**Als u wilt toewijzen Britta Simon met Cisco Spark, moet u de volgende stappen uitvoeren:**
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **Cisco Spark**.
-
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_ciscospark_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.
-
-Wanneer u op de Cisco Spark-tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw Cisco Spark-toepassing.
+Wanneer u in het toegangsvenster op de tegel Cisco Spark klikt, wordt u automatisch aangemeld bij de instantie van Cisco Spark waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/cisco-spark-tutorial/tutorial_general_01.png
-[2]: ./media/cisco-spark-tutorial/tutorial_general_02.png
-[3]: ./media/cisco-spark-tutorial/tutorial_general_03.png
-[4]: ./media/cisco-spark-tutorial/tutorial_general_04.png
-[10]: ./media/cisco-spark-tutorial/tutorial_general_060.png
-[100]: ./media/cisco-spark-tutorial/tutorial_general_100.png
-
-[200]: ./media/cisco-spark-tutorial/tutorial_general_200.png
-[201]: ./media/cisco-spark-tutorial/tutorial_general_201.png
-[202]: ./media/cisco-spark-tutorial/tutorial_general_202.png
-[203]: ./media/cisco-spark-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

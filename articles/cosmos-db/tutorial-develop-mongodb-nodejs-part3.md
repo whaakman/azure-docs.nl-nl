@@ -4,18 +4,19 @@ titleSuffix: Azure Cosmos DB
 description: Deel 3 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB.
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 462d0ea036ee50a3eea6812d87772bba9559125c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788579"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158700"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Een Angular-app maken met de API voor MongoDB van Azure Cosmos DB - De gebruikersinterface maken met Angular
 
@@ -416,7 +417,7 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
 
 2. Ga in Visual Studio Code terug naar **heroes.components.ts**. In regel `constructor(private heroService: HeroService) {}` (regel 13) is `HeroService` rood onderlijnd. Klik op `HeroService` en u ziet links van het codeblok de gloeilamp verschijnen. Klik op de gloeilamp en vervolgens op **Import HeroService from "./hero.service ".** of op **Import HeroService from "/app/hero.service ".**
 
-    Als u op de gloeilamp klikt, wordt een nieuwe regel met code aan regel 2 toegevoegd. Als regel 2 naar de map /app/hero.service verwijst, wijzigt u de regel zodat wordt verwezen naar het hero-bestand vanuit de lokale map (./hero.serivce). Regel 2 moet er als volgt uitzien:
+    Als u op de gloeilamp klikt, wordt een nieuwe regel met code aan regel 2 toegevoegd. Als regel 2 naar de map /app/hero.service verwijst, wijzigt u de regel zodat wordt verwezen naar het hero-bestand in de lokale map (./hero.service). Regel 2 moet er als volgt uitzien:
     
     ```javascript
     import { HeroService } from "./hero.service"

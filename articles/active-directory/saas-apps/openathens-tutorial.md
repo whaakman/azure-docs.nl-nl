@@ -1,244 +1,229 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met OpenAthens | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en OpenAthens.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en OpenAthens configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: dd4adfc7-e238-41d5-8b25-1811f08078b6
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/05/2017
+ms.topic: tutorial
+ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 269b216a94b1233c5f9f9a634fda3c05e46cac90
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: b5765485ba9f45f95db7235a87bdba5b0dc5f9bd
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435899"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Zelfstudie: Azure Active Directory-integratie met OpenAthens
 
-In deze zelfstudie leert u hoe u OpenAthens integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u OpenAthens kunt integreren met Azure Active Directory (Azure AD).
+De integratie van OpenAthens met Azure AD biedt de volgende voordelen:
 
-OpenAthens integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot OpenAthens.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij OpenAthens (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot OpenAthens heeft.
-- U kunt uw gebruikers automatisch aan te melden op OpenAthens (eenmalige aanmelding) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie, de Azure-portal beheren.
-
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met OpenAthens, moet u de volgende items:
+Om Azure AD-integratie te configureren met OpenAthens hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een OpenAthens eenmalige aanmelding ingeschakeld abonnement
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op OpenAthens waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. OpenAthens uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-openathens-from-the-gallery"></a>OpenAthens uit de galerie toe te voegen
-Voor het configureren van de integratie van OpenAthens in Azure AD, moet u OpenAthens uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* OpenAthens ondersteunt door **IDP** geïnitieerde eenmalige aanmelding
 
-**OpenAthens uit de galerie toevoegen**
+* OpenAthens biedt ondersteuning voor het **Just-In-Time** inrichten van gebruikers
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram. 
+## <a name="adding-openathens-from-the-gallery"></a>OpenAthens toevoegen vanuit de galerie
 
-    ![De Azure Active Directory-knop][1]
+Om de integratie van OpenAthens te configureren in Azure AD, moet u OpenAthens vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-1. Blader naar **bedrijfstoepassingen**, en ga vervolgens naar **alle toepassingen**.
+**Voer de volgende stappen uit om OpenAthens vanuit de galerie toe te voegen:**
 
-    ![Het deelvenster met Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Typ in het zoekvak **OpenAthens**, selecteer **OpenAthens** vanuit het deelvenster met resultaten en selecteer vervolgens de **toevoegen** knop.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![OpenAthens in de lijst met resultaten](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met OpenAthens op basis van een testgebruiker met de naam "Britta Simon."
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in OpenAthens is voor de gebruiker in Azure AD. Met andere woorden, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in OpenAthens vast te stellen.
+4. Typ **OpenAthens** in het zoekvak, selecteer **OpenAthens** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-In OpenAthens, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+     ![OpenAthens toevoegen vanuit de galerie](common/search-new-app.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met OpenAthens, moet u de volgende bouwstenen voltooien:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. [Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on), zodat uw gebruikers deze functie wilt gebruiken.
-1. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user), voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. [Maak een testgebruiker OpenAthens](#create-a-openathens-test-user), hebben een equivalent van Britta Simon in OpenAthens die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-1. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user), Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. [Eenmalige aanmelding testen](#test-single-sign-on), om te controleren of de configuratie werkt.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met OpenAthens op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in OpenAthens tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Om eenmalige aanmelding van Azure AD met OpenAthens te configureren en testen, moet u de volgende procedures voltooien:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing OpenAthens.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor OpenAthens configureren](#configure-openathens-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker voor OpenAthens maken](#create-openathens-test-user)**: als u een tegenhanger van Britta Simon in OpenAthens wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Het configureren van Azure AD eenmalige aanmelding met OpenAthens**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **OpenAthens** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![De koppeling voor eenmalige aanmelding configureren][4]
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met OpenAthens:
 
-1. Voor het inschakelen van eenmalige aanmelding in de **eenmalige aanmelding** in het dialoogvenster, selecteer **SAML gebaseerde aanmelding** als de **modus**.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **OpenAthens** en selecteer **Eenmalige aanmelding**.
 
-1. In de **OpenAthens domein en URL's** sectie, voert u de waarde `https://login.openathens.net/saml/2/metadata-sp` in de **id** in het tekstvak.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![OpenAthens domein en URL's, eenmalige aanmelding informatie](./media/openathens-tutorial/tutorial_openathens_url.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. In de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Het certificaat voor ondertekening AMSL downloadkoppeling](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-1. Selecteer de knop **Opslaan**.
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![De eenmalige aanmelding knop Opslaan](./media/openathens-tutorial/tutorial_general_400.png)
+5. Upload in de sectie **Standaard SAML-configuratie** het **bestand met metagegevens van de serviceprovider**. De instructies hiervoor vindt u verderop in deze zelfstudie.
 
-1. In een ander browservenster aanmelden bij uw bedrijf OpenAthens site als beheerder.
+    a. Klik op **Metagegevensbestand uploaden**.
 
-1. Selecteer **verbindingen** in de lijst onder de **Management** tabblad. 
+    ![Metagegevens uploaden voor OpenAthens](common/upload-metadata.png)
+
+    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
+
+    ![Bestand met metagegevens selecteren en uploaden voor OpenAthens](common/browse-upload-metadata.png)
+
+    c. Zodra het bestand met metagegevens is geüpload, wordt de waarde voor **Id** automatisch ingevuld in de sectie **Standaard SAML-configuratie**:
+
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van OpenAthens](common/idp-identifier.png)
+
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
+
+### <a name="configure-openathens-single-sign-on"></a>Eenmalige aanmelding configureren voor OpenAthens
+
+1. Meld u in een ander browservenster als beheerder aan bij de bedrijfssite van OpenAthens.
+
+2. Selecteer **Connections** in de lijst onder het tabblad **Management**. 
 
     ![Eenmalige aanmelding configureren](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-1. Selecteer **SAML 1.1/2.0**, en selecteer vervolgens de **configureren** knop.
+3. Selecteer **SAML 1.1/2.0** en selecteer vervolgens de knop **Configure**.
 
     ![Eenmalige aanmelding configureren](./media/openathens-tutorial/tutorial_openathens_application2.png)
     
-1. Als u wilt toevoegen de configuratie, selecteer de **Bladeren** klikken om het uploaden van het metagegevens-XML-bestand dat u hebt gedownload vanuit Azure portal en selecteer vervolgens **toevoegen**.
+4. Als u de configuratie wilt toevoegen, selecteert u de knop **Browse** om het XML-bestand met metagegevens te uploaden dat u hebt gedownload uit de Azure-portal en selecteert u vervolgens **Add**.
 
     ![Eenmalige aanmelding configureren](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-1. Voer de volgende stappen uit onder de **Details** tabblad.
+5. Voer de volgende stappen uit op het tabblad **Details**.
 
     ![Eenmalige aanmelding configureren](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
-    a. In **weergave Gebruikersnaamtoewijzing**, selecteer **gebruikskenmerk**.
+    a. Selecteer **Use attribute** bij **Display name mapping**.
 
-    b. In de **weergave naamkenmerk** tekst voert u de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Typ de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` in het tekstvak **Display name attribute**.
     
-    c. In **unieke Gebruikerstoewijzing**, selecteer **gebruikskenmerk**.
+    c. Selecteer **Use attribute** bij **Unique user mapping**.
 
-    d. In de **unieke gebruikerskenmerk** tekst voert u de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    d. Typ de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` in het tekstvak **Unique user attribute**.
 
-    e. In **Status**, schakel alle drie selectievakjes.
+    e. SchakeI bij **Status** alle drie de selectievakjes in.
 
-    f. In **maken van lokale accounts**, selecteer **automatisch**.
+    f. Selecteer **automatically** bij **Create local accounts**.
 
-    g. Selecteer **wijzigingen opslaan**.
+    g. Selecteer **Save changes**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app. Nadat u deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie aan de onderkant. Zie voor meer informatie over de documentatie voor embedded-functie, de [documentatie over Azure AD embedded](https://go.microsoft.com/fwlink/?linkid=845985).
+    h. Ga naar het tabblad **</> Relying Party**, kopieer de waarde van **Metadata URL** en open deze URL in de browser om het **XML-bestand met metagegevens van de SP** te downloaden. Upload dit bestand met metagegevensbestand van de serviceprovider naar de sectie **Standaard SAML-configuratie** in Azure AD.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+    ![Eenmalige aanmelding configureren](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
-Het doel van deze sectie is het een testgebruiker maken in Azure portal met de naam "Britta Simon."
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-   ![Maak een testgebruiker Azure AD][100]
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-**Een testgebruiker maken in Azure AD**
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![De Azure Active Directory-knop](./media/openathens-tutorial/create_aaduser_01.png)
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/openathens-tutorial/create_aaduser_02.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    ![De knop toevoegen](./media/openathens-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/openathens-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het tekstvak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak typt u het e-mailadres voor Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** in het tekstvak.
-
-    d. Selecteer **Maken**.
+    a. Voer in het veld **Naam****Britta Simon** in.
   
-### <a name="create-an-openathens-test-user"></a>Maak een testgebruiker OpenAthens
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-OpenAthens ondersteunt just-in-time inrichting, en gebruikers automatisch worden gemaakt na een geslaagde authenticatie. U hoeft niet te elke actie in deze sectie uitvoeren.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
+
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot OpenAthens.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot OpenAthens.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **OpenAthens**.
 
-**Britta Simon toewijzen aan OpenAthens**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. In de Azure-portal, open de toepassingen zien, bladert u naar de directoryweergave en Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+2. Typ en selecteer **OpenAthens** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar OpenAthens in de lijst met toepassingen](common/all-applications.png)
 
-1. In de **toepassingen** in de lijst met **OpenAthens**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling OpenAthens in de lijst met toepassingen](./media/openathens-tutorial/tutorial_openathens_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** deelvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. In de **gebruikers en groepen** in de lijst met **Britta Simon**.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Selecteer de **Selecteer** knop in de **gebruikers en groepen** lijst.
+### <a name="create-openathens-test-user"></a>Een testgebruiker maken voor OpenAthens
 
-1. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** deelvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in OpenAthens. OpenAthens biedt ondersteuning voor **Just-In-Time-inrichting van gebruikers**. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in OpenAthens bestaat, wordt er een nieuwe gemaakt nadat deze is geverifieerd.
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u selecteert de **OpenAthens** tegel in het toegangsvenster, u moet automatisch aangemeld bij uw toepassing OpenAthens.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel OpenAthens klikt, wordt u automatisch aangemeld bij de instantie van OpenAthens waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* Zie voor een lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory, [zelfstudies over integratie van SaaS-app voor gebruik met Azure AD](tutorial-list.md).
-* Zie voor meer informatie over toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/openathens-tutorial/tutorial_general_01.png
-[2]: ./media/openathens-tutorial/tutorial_general_02.png
-[3]: ./media/openathens-tutorial/tutorial_general_03.png
-[4]: ./media/openathens-tutorial/tutorial_general_04.png
-
-[100]: ./media/openathens-tutorial/tutorial_general_100.png
-
-[200]: ./media/openathens-tutorial/tutorial_general_200.png
-[201]: ./media/openathens-tutorial/tutorial_general_201.png
-[202]: ./media/openathens-tutorial/tutorial_general_202.png
-[203]: ./media/openathens-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snelstart: Alternatieve vertalingen zoeken, Ruby - Translator Text-API'
+title: 'Quickstart: Woorden opzoeken met een tweetalige woordenlijst, Ruby - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Ruby.
+description: In deze quickstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: c9e33fd4be80c8bb95248e8be34f9540d9cd69ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649615"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157079"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-ruby"></a>Snelstart: Alternatieve vertalingen zoeken met de Translator Text REST API (Ruby)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Ruby
 
-In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
+In deze quickstart zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -224,7 +224,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze quickstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Ruby-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=ruby)

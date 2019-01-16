@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753945"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188467"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Zelfstudie: Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 
@@ -27,7 +27,7 @@ Deze zelfstudie is deel twee in een reeks zelfstudies over Azure Storage en is e
 
 Met behulp van de Azure CLI en Azure Portal kunt u de functionaliteit voor formaatwijziging toevoegen aan een bestaande app voor het uploaden van afbeeldingen.
 
-![Gepubliceerde web-app in de Edge-browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Gepubliceerde web-app in de browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 In deze zelfstudie leert u het volgende:
 
@@ -170,8 +170,8 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
     | **Abonneetype** |  automatisch gegenereerd |  Vooraf gedefinieerd als webhook. |
     | **Eindpunt abonnee** | automatisch gegenereerd | Gebruik de eindpunt-URL die voor u wordt gegenereerd. | 
     | **Naam** | imageresizersub | De naam voor het nieuwe gebeurtenisabonnement. | 
-
-4. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `imageresizerfunc` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbnails*.
+4. *Optioneel:* Als u in de toekomst meer containers in dezelfde blob-opslag wilt maken voor andere doeleinden, kunt u **Filteren van onderwerpen** op het tabblad **Filters** gebruiken om blob-gebeurtenissen nauwkeuriger te targeten om er zeker van te zijn dat uw functie-app alleen wordt aangeroepen wanneer blobs specifiek worden toegevoegd aan de container **images**. 
+5. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `imageresizerfunc` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbnails*.
 
 De services in de back-end zijn nu geconfigureerd. Dit betekent dat u de functionaliteit voor het aanpassen van het formaat van afbeeldingen kunt gaan testen in de voorbeeld-web-app. 
 
@@ -183,7 +183,7 @@ Klik ergens in het gebied **Foto's uploaden** om een bestand te selecteren en te
 
 Zodra de geüploade afbeelding is verdwenen, ziet u een kopie van de geüploade afbeelding in de carrousel **Gegenereerde miniaturen**. Het formaat van deze afbeelding werd gewijzigd door de functie, waarna de afbeelding werd toegevoegd aan de container *thumbnails* en gedownload door de webclient.
 
-![Gepubliceerde web-app in de Edge-browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Gepubliceerde web-app in de browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
