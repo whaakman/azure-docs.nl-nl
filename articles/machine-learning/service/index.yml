@@ -1,68 +1,49 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9fe3efba6cc18839f7d65d2f19dfb165bbdecc05
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271144"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331279"
 documentType: LandingData
 title: Documentatie over Azure Machine Learning-service
 metadata:
   title: Documentatie - Azure Machine Learning-service - zelfstudies, API-verwijzing | Microsoft Docs
   description: Uitleg over het integreren van intelligente algoritmen in apps en websites. Gebruik scikit-learn, TensorFlow, PyTorch of een ander op Python gebaseerd framework om uw Machine Learning-model te bouwen en het lokaal of in de cloud te trainen. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
   services: machine-learning
-  author: j-martens
-  manager: jhubbard
   ms.service: machine-learning
   ms.component: core
+  ms.topic: landing-page
+  manager: jhubbard
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 12/04/2018
+  ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
-  ms.custom: seodec18
 abstract:
   description: Uitleg over het integreren van intelligente algoritmen in apps en websites. Gebruik scikit-learn, TensorFlow, PyTorch of een ander op Python gebaseerd framework om uw Machine Learning-model te bouwen en het lokaal of in de cloud te trainen. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Meer informatie over de Azure Machine Learning-service
-      href: /azure/machine-learning/service/overview-what-is-azure-ml
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: Uw resources instellen voor de Azure Machine Learning-service.
+    text: 'Leer aan de hand van een quickstart hoe u de werkruimte en bronnen voor een Azure Machine Learning-service kunt instellen:'
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started.md">Aan de slag in de Azure-portal </a>
-    - html: <a href="quickstart-create-workspace-with-python.md">Aan de slag met behulp van Python</a>
+    - html: Aan de slag met behulp van de <a href="quickstart-get-started">Azure-portal</a>.
+    - html: Aan de slag met behulp van <a href="quickstart-create-workspace-with-python">Python</a>.
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: Uitleg over het instellen van een experiment en het operationeel maken van uw modellen.
-  - type: paragraph
-    text: <b>Zelfstudie voor afbeeldingsclassificatie met MNIST-gegevens:</b>
+    text: 'Ontdek hoe u gegevens kunt voorbereiden, experimenten kunt opzetten en machine learning-modellen operationeel kunt maken:'
   - type: list
     style: unordered
     items:
-    - html: Deel 1&#58; <a href="tutorial-train-models-with-aml">Uw eigen Machine Learning-model trainen</a>
-    - html: Deel 2&#58; <a href="tutorial-deploy-models-with-aml">Dat model implementeren</a>
+    - html: <a href="tutorial-train-models-with-aml">Modellen voor de classificatie van afbeeldingen trainen en implementeren</a> (<b>tweedelige reeks</b>).
+    - html: <a href="tutorial-data-prep">Gegevens voorbereiden en automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).<br>&nbsp;
   - type: paragraph
-    text: <b>Zelfstudie over hoe u regressie modelleert met taxigegevens uit NYC:</b>
-  - type: list
-    style: unordered
-    items:
-    - html: Part 1&#58; <a href="tutorial-data-prep">De taxigegevens van NYC voorbereiden voor modellering</a>
-    - html: Part 2&#58; <a href="tutorial-auto-train-models">Geautomatiseerde machine learning gebruiken om modellen te bouwen</a>
-  - type: paragraph
-    text: '<b>Voorbeelden van notebooks</b>: De service verkennen met deze <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Jupyter-notebooks</a> op GitHub.'
+    text: '<b>Voorbeelden</b>: Leer de service kennen met deze <a href="https://aka.ms/aml-notebooks">Jupyter-notebooks</a> op GitHub.'
 - title: Naslaginformatie
   items:
   - type: list

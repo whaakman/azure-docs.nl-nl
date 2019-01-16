@@ -1,17 +1,19 @@
 ---
 title: Een Linux-hoofddoelserver voor failback installeren op een on-premises site | Microsoft Docs
 description: Meer informatie over het instellen van een Linux-hoofddoelserver voor failback uitvoeren naar een on-premises site tijdens herstel na noodgevallen van virtuele VMware-machines naar Azure met Azure Site Recovery.
-author: nsoneji
+author: mayurigupta13
+services: site-recovery
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.author: mayg
+ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974361"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321398"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -39,7 +41,7 @@ Opmerkingen of vragen plaatsen aan het einde van dit artikel of op de [Azure Rec
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Aanbevelingen voor voor het maken van de hoofddoelserver
 
 Maak het hoofddoel in overeenstemming met de volgende richtlijnen voor de grootte:
-- **RAM-GEHEUGEN**: 6 GB of meer
+- **RAM**: 6 GB of meer
 - **Grootte besturingssysteemschijf**: 100 GB of meer (om te installeren besturingssysteem)
 - **Aanvullende schijfgrootte voor bewaarstation**: 1 TB
 - **CPU-kernen**: 4 kernen of meer
@@ -47,7 +49,7 @@ Maak het hoofddoel in overeenstemming met de volgende richtlijnen voor de groott
 De volgende ondersteunde Ubuntu-kernels worden ondersteund.
 
 
-|Kernel reeksen  |Ondersteuning voor maximaal  |
+|Kernel Series  |Ondersteuning voor maximaal  |
 |---------|---------|
 |4.4      |4.4.0-81-generic         |
 |4.8      |4.8.0-56-generic         |
@@ -56,7 +58,7 @@ De volgende ondersteunde Ubuntu-kernels worden ondersteund.
 
 ## <a name="deploy-the-master-target-server"></a>De hoofddoelserver implementeren
 
-### <a name="install-ubuntu-16042-minimal"></a>Installeren van Ubuntu 16.04.2 minimale
+### <a name="install-ubuntu-16042-minimal"></a>Install Ubuntu 16.04.2 Minimal
 
 Met het volgende de stappen voor het installeren van de Ubuntu 16.04.2 64-bits besturingssysteem.
 
@@ -349,7 +351,7 @@ U ziet dat de **versie** veld geeft het versienummer van het hoofddoel.
 * Het hoofddoel hoeft niet alle momentopnamen op de virtuele machine. Als er momentopnamen, mislukt de failback.
 
 * De netwerkinterface tijdens het opstarten is uitgeschakeld vanwege bepaalde aangepaste configuraties voor NIC, en de hoofddoelserver-agent kan niet worden geïnitialiseerd. Zorg ervoor dat de volgende eigenschappen correct zijn ingesteld. Controleer deze eigenschappen in de Ethernet-kaart van het bestand /etc/sysconfig/network-scripts/ifcfg-eth *.
-    * BOOTPROTO = dhcp
+    * BOOTPROTO=dhcp
     * ONBOOT = Ja
 
 
