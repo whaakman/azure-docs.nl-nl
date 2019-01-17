@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890378"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246361"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Zelfstudie: Een toepassing implementeren in Service Fabric Mesh met behulp van een sjabloon
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Zelfstudie: Een toepassing in Service Fabric Mesh implementeren met behulp van een sjabloon
 
 Deze zelfstudie is deel één van een serie. U leert hou een Azure Service Fabric Mesh-toepassing kunt implementeren met behulp van een sjabloon.  De toepassing bestaat uit een ASP.NET-web-front-endservice en een ASP.NET Core Web API-back-endservice. Deze zijn te vinden in Docker Hub.  U haalt de twee containerinstallatiekopieën uit Docker Hub en pusht ze vervolgens naar uw eigen persoonlijke register. Vervolgens maakt u een Azure RM-sjabloon voor de toepassing en implementeert u de toepassing vanuit uw containerregister naar Service Fabric Mesh. Als u klaar bent, hebt u een eenvoudige takenlijsttoepassing die in Service Fabric Mesh wordt uitgevoerd.
 
@@ -236,7 +236,7 @@ Services worden in de sjabloon gespecificeerd als eigenschappen van de toepassin
   },
   "resources": [
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "MyMeshApplication",
       "type": "Microsoft.ServiceFabricMesh/applications",
       "location": "[parameters('location')]",
@@ -319,7 +319,7 @@ Services worden in de sjabloon gespecificeerd als eigenschappen van de toepassin
       }
     },
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "ServiceAVolume",
       "type": "Microsoft.ServiceFabricMesh/volumes",
       "location": "[parameters('location')]",
@@ -375,7 +375,7 @@ Deze informatie wordt opgehaald uit de sectie ```outputs``` in de ARM-sjabloon. 
 ```json
   "outputs": {
     "publicIPAddress": {
-      "value": "[reference('helloWorldGateway').ipAddress]",
+      "value": "[reference('todolistappGateway').ipAddress]",
       "type": "string"
     }
   }
@@ -386,7 +386,7 @@ Deze informatie wordt opgehaald uit de sectie ```outputs``` in de ARM-sjabloon. 
 Haal het openbare IP-adres voor het service-eindpunt op zodra de toepassing is geïmplementeerd. De implementatieopdracht retourneert het openbare IP-adres van het service-eindpunt. Eventueel kunt u ook de netwerkbron opvragen om het openbare IP-adres van het service-eindpunt te vinden. De netwerkbronnaam voor deze toepassing is `todolistappNetwork`. Haal informatie hierover op met behulp van de volgende opdracht. 
 
 ```azurecli
-az mesh network show --resource-group myResourceGroup --name todolistappNetwork
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 Navigeer naar het IP-adres in een webbrowser.

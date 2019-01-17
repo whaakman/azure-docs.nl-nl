@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 02cfd00b8ab1f51c46e745dae480e39dee2ed710
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262041"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262333"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Zelfstudie: Een web-app met één pagina maken
 
-Met de Bing Nieuws zoeken-API kunt u op internet zoeken en resultaten ophalen van het type nieuws dat relevant is voor een zoekquery. In deze zelfstudie bouwen we een webtoepassing met één pagina die gebruikmaakt van de Bing Nieuws zoeken-API om zoekresultaten op de pagina weer te geven. De toepassing omvat HTML-, CSS- en JavaScript-onderdelen.
+Met de Bing Nieuws zoeken-API kunt u op internet zoeken en resultaten ophalen van het type nieuws dat relevant is voor een zoekquery. In deze zelfstudie bouwen we een webtoepassing met één pagina die gebruikmaakt van de Bing Nieuws zoeken-API om zoekresultaten op de pagina weer te geven. De toepassing omvat HTML-, CSS- en JavaScript-onderdelen. De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -39,8 +39,6 @@ In de zelfstudie-app leert u het volgende:
 > * Eventuele fouten verwerken
 
 De zelfstudiepagina staat volledig op zichzelf. Er worden geen externe frameworks, opmaakmodellen of afbeeldingsbestanden gebruikt. Er wordt alleen gebruikgemaakt van ondersteunde taalfuncties voor JavaScript en het werkt met actuele versies van alle bekende webbrowsers.
-
-In deze zelfstudie worden geselecteerde gedeelten van de broncode besproken. De volledige [broncode](tutorial-bing-news-search-single-page-app-source.md) is beschikbaar. Als u het voorbeeld wilt uitvoeren, kopieert en plakt u de broncode in een teksteditor en slaat u deze op als `bing.html`.
 
 ## <a name="app-components"></a>App-onderdelen
 Net zoals andere web-apps met één pagina bestaat de toepassing in deze zelfstudie uit drie onderdelen:

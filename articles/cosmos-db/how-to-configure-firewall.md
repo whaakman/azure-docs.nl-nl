@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7d451f7eae16426c85ed5540b35993cd9b218b83
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033142"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359422"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Een IP-firewall configureren voor uw Azure Cosmos DB-account
 
@@ -145,10 +145,10 @@ U kunt problemen met een beleid voor IP-toegangsbeheer oplossen met behulp van d
 Door een beleid voor toegangsbeheer IP voor uw Azure Cosmos DB-account is ingeschakeld, blokkeren u alle aanvragen naar uw account van computers buiten de toegestane lijst met IP-adresbereiken. Om in te schakelen portal data plane-bewerkingen, zoals bladeren, containers en opvragen van documenten, moet u expliciet toestaan toegang tot Azure portal met behulp van de **Firewall** deelvenster in de portal.
 
 ### <a name="sdks"></a>SDK's 
-Wanneer u Azure Cosmos DB-resources opent met behulp van SDK's van de computers die zich niet in de lijst met toegestane, een generieke **404 niet gevonden** antwoord wordt geretourneerd met geen aanvullende informatie. Controleer of de lijst met toegestane IP-voor uw account en zorg ervoor dat de configuratie van het juiste beleid wordt toegepast op uw Azure Cosmos DB-account. 
+Wanneer u Azure Cosmos DB-resources opent met behulp van SDK's van de computers die zich niet in de lijst met toegestane, een generieke **403-verboden** antwoord wordt geretourneerd met geen aanvullende informatie. Controleer of de lijst met toegestane IP-voor uw account en zorg ervoor dat de configuratie van het juiste beleid wordt toegepast op uw Azure Cosmos DB-account. 
 
 ### <a name="source-ips-in-blocked-requests"></a>Bron-IP's in geblokkeerde aanvragen
-Diagnostische logboekregistratie inschakelen op uw Azure Cosmos DB-account. Deze logboeken weergegeven voor elke aanvraag en reactie. De berichten met betrekking tot firewall worden intern geregistreerd met een 403 retourcode. Door deze berichten filteren, kunt u de bron-IP-adressen voor de geblokkeerde aanvragen bekijken. Zie [Diagnostische logboekregistratie van Azure Cosmos DB](logging.md).
+Diagnostische logboekregistratie inschakelen op uw Azure Cosmos DB-account. Deze logboeken weergegeven voor elke aanvraag en reactie. De firewall-berichten worden geregistreerd met een 403 retourcode. Door deze berichten filteren, kunt u de bron-IP-adressen voor de geblokkeerde aanvragen bekijken. Zie [Diagnostische logboekregistratie van Azure Cosmos DB](logging.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Aanvragen van een subnet met een service-eindpunt voor Azure Cosmos DB ingeschakeld
 Aanvragen van een subnet in een virtueel netwerk met een service-eindpunt voor Azure Cosmos DB is ingeschakeld, verzendt de identiteit van de virtuele netwerk en subnet met Azure Cosmos DB-accounts. Deze aanvragen beschikt niet over de openbare IP-adres van de bron, zodat het IP-filters weigeren. Zodat toegang vanaf specifieke subnetten in virtuele netwerken toevoegen een access control list, zoals wordt beschreven in [virtueel netwerk- en toegangsbeheer op basis van een subnet voor uw Azure Cosmos DB-account configureren](how-to-configure-vnet-service-endpoint.md). Het kan tot 15 minuten voor firewall-regels om toe te passen duren.

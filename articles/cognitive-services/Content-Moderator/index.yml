@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7e6205f49aeacc960b01cfe43f0577e83de2896c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c54ae8990de134ca9aee85646f2c1548a878a2a8
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654373"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351982"
 documentType: LandingData
 title: Content Moderator-documentatie
 metadata:
@@ -56,7 +56,7 @@ sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: Leer hoe u aan de slag gaat met Content Moderator door een pijlkoppeling te selecteren <img src="media/index/link.jpg" height="15" width="15"></img>.
+    text: Leer hoe u aan de slag gaat met Content Moderator door een pijlkoppeling te selecteren <img src="images/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
