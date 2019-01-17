@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792883"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353852"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Quickstart: Clusters instellen in HDInsight
 
@@ -25,6 +25,10 @@ Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die word
 >De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Meer informatie over het [een cluster verwijderen.](../../hdinsight/hdinsight-delete-cluster.md)
 
 Een opslagaccount met de mogelijkheden van Data Lake Storage Gen2 wordt gebruikt als de gegevenslaag in deze Quick Start. Met de eigen service hiërarchische naamruimte en [Hadoop stuurprogramma](data-lake-storage-abfs-driver.md), Data Lake Storage Gen2 is geoptimaliseerd voor gedistribueerde verwerking en analyse. Gegevens die zijn opgeslagen in een opslagaccount met Data Lake Storage Gen2 ingeschakeld zich blijft voordoen, zelfs nadat u een HDInsight-cluster wordt verwijderd.
+
+## <a name="prerequisites"></a>Vereisten
+
+- U moet een gebruiker toegewezen beheerde identiteit maken en vervolgens toe te wijzen de **rol van inzender voor Blob Storage** aan de identiteit. Zie [maken, list, delete of wijs een rol aan een gebruiker toegewezen beheerde identiteit met Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## <a name="cluster-setup-methods"></a>Cluster setup-methoden
 
@@ -104,8 +108,7 @@ Tijdens de configuratie voor het standaardeindpunt voor opslag geeft u Data Lake
 
 ![Instellingen voor de opslag van cluster: HDFS-compatibele opslag-eindpunten](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> Zorg ervoor dat u **Data Lake Store-toegang uitschakelen**. Deze instelling verwijst naar de oude *Data Lake Store* functionaliteit en moet worden uitgeschakeld zodat *Data Lake Storage* functies goed te laten werken.
+In de **gebruiker toegewezen beheerde identiteit**, zorg ervoor dat u selecteert de gebruiker wordt beheerd door de gebruiker toegewezen beheerde identiteit die u hebt gemaakt als een vereiste van dit artikel.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -212,7 +215,7 @@ Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worde
 Soms wilt u de volgende configuratiebestanden tijdens het maakproces configureren:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml

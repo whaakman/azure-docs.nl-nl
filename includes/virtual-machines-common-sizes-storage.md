@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 680bf282c2ab269bad19654c6602e4543a6e92ca
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53748457"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354656"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL, NoSQL-databases, gegevensopslag en grote transactionele databases.  Voorbeelden zijn onder meer Cassandra, MongoDB, Cloudera en Redis. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals lokale opslag en doorvoer netwerkbandbreedte voor elke grootte geoptimaliseerde.
 
-De Lsv2-serie functies hoge doorvoer en lage latentie en rechtstreeks toegewezen lokale NVMe-opslag die wordt uitgevoerd op de [AMD EPYC<sup>TM</sup> 7551 processor](https://www.amd.com/en/products/epyc-7000-series) met een alle core versterking van 2.55 GHz en een maximale versterking van 3.0 GHz. De Lsv2-serie VM's zijn verkrijgbaar in grootten van 8 op 80 vCPU in de configuratie van een gelijktijdige multithreading.  Er is 8 GiB geheugen per vCPU en één 1,92 TB NVMe SSD M.2 apparaat per 8 Vcpu, met maximaal 19,2 TB (10x1.92TB) beschikbaar is op de L80s v2.
+De Lsv2-serie functies hoge doorvoer en lage latentie en rechtstreeks toegewezen lokale NVMe-opslag die wordt uitgevoerd op de [AMD EPYC &trade; 7551 processor](https://www.amd.com/en/products/epyc-7000-series) met een alle core versterking van 2.55 GHz en een maximale versterking van 3.0 GHz. De VM's uit de Lsv2-serie zijn verkrijgbaar in groottes van 8 tot 80 vCPU in een simultane multithreading configuratie.  Er is 8 GiB geheugen per vCPU en één 1,92 TB NVMe SSD M.2-apparaat per 8 vCPU's, met maximaal 19,2 TB (10 x 1,92 TB) beschikbaar op de L80s v2.
 
 De Ls-serie biedt maximaal 32 vCPU's en maakt gebruik van een [Intel Xeon®-processor uit de E5 v3-familie](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). De Ls-serie heeft dezelfde CPU-prestaties als de G/GS-serie en wordt geleverd met 8 GiB geheugen per vCPU.
 
@@ -25,19 +25,19 @@ De Ls-serie biedt maximaal 32 vCPU's en maakt gebruik van een [Intel Xeon®-proc
 > De Lsv2-serie VM's zijn geoptimaliseerd voor het gebruik van de lokale schijf op het knooppunt rechtstreeks gekoppeld aan de virtuele machine, in plaats van met behulp van duurzame gegevensschijven.  Hiermee kunt u meer IOPs / doorvoer voor uw workloads.  De Lsv2 en Ls-serie bieden geen ondersteuning voor het maken van een lokale cache voor het verhogen van de IOPS haalbare door duurzame gegevensschijven. De hoge doorvoer en IOPS van de lokale schijf maakt de Lsv2 en Ls-serie VM's ideaal voor NoSQL-archieven, zoals Apache Cassandra en MongoDB waarmee gegevens worden gerepliceerd op meerdere virtuele machines voor persistentie in het geval van het uitvallen van één virtuele machine. 
 
 ## <a name="lsv2-series"></a>Lsv2-serie
-ACU: 150 175
+ACU: 150-175
 
 Premium-opslag: Ondersteund
 
-Preminu opslag in cache opslaan: Niet ondersteund
+Premium Storage Caching: Niet ondersteund
 
 | Grootte          | vCPU | Geheugen (GiB) | Tijdelijke schijf<sup>1</sup> (GiB) | NVMe-schijven | NVMe schijfdoorvoer<sup>2</sup> (IOPS voor lezen / MBps) | Cachegrootte hosten<sup>3</sup> | Maximum aantal gegevensschijven | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2000 | N/A | 16 | 2 / 3200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4.500 | N/A | 32 | 4 / 6400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.4 M / 9000    | N/A | 32 | 8 / 12.800 | 
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | N/A | 16 | 2 / 3,200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | N/A | 32 | 4 / 6,400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.4 M / 9000    | N/A | 32 | 8 / 12,800 | 
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18.000   | N/A | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32.000 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32,000 |
  
 <sup>1</sup> Lsv2-serie VM's hebben een standaardschijf van de basis van tijdelijke resource SCSI voor gebruik van een wisselbestand/wisselen bestand besturingssystemen (D: op Windows, /dev/sdb op Linux). Deze schijf biedt 80 GiB van opslag, 4000 IOPS en 80 MBps overdrachtssnelheid voor elke 8 vcpu's (bijvoorbeeld Standard_L80s_v2 biedt 800 GiB 40.000 IOPS en 800 MBPS). Dit zorgt ervoor dat de NVMe-stations kunnen volledig worden toegewezen aan het gebruik.
 
@@ -52,7 +52,7 @@ ACU: 180-240
 
 Premium-opslag:  Ondersteund
 
-Premium Storage opslaan in cache:  Niet ondersteund
+Premium Storage Caching:  Niet ondersteund
  
 | Grootte          | vCPU | Geheugen (GiB) | Tijdelijke opslag (GiB) | Max. aantal gegevensschijven | Maximale tijdelijke opslagdoorvoer (IOPS / MBps) | Belastingstests maximale schijfdoorvoer (IOPS / MBps) | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 

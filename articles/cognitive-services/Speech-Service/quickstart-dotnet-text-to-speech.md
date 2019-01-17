@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Converteren van tekst naar spraak, .NET Core - spraakservices'
+title: 'Snelstart: Converteren van tekst naar spraak, .NET Core - spraakservices'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u kunt converteren van tekst naar spraak met de REST-API van tekst naar spraak. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 207836baaaa30dca24edeab93e9bd1c4a1ac67e6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791442"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359082"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Quickstart: Converteert tekst naar spraak met behulp van .NET Core
 
@@ -232,9 +232,10 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie voor de Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [.NET-voorbeelden op GitHub bekijken](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
 ## <a name="see-also"></a>Zie ook
 
+* [Naslaginformatie voor de Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Het maken van aangepaste spraakstijlen](how-to-customize-voice-font.md)
 * [Record stem voorbeelden voor het maken van een aangepaste spraak](record-custom-voice-samples.md)

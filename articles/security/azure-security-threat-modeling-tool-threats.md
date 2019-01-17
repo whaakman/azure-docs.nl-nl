@@ -1,11 +1,11 @@
 ---
-title: -Microsoft Threat Modeling hulpprogramma - Azure bedreigingen | Microsoft Docs
-description: Threat categoriepagina voor het hulpprogramma Microsoft Threat Modeling met categorieën voor alle blootgesteld bedreigingen gegenereerd.
+title: Bedreigingen - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: Threat categoriepagina voor de Microsoft Threat Modeling Tool met categorieën voor alle blootgesteld bedreigingen gegenereerd.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 704f9995828866d4d2e4969e3aa922ed1e23c4ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867897"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359031"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling Tool bedreigingen
 
-Het hulpprogramma voor het modelleren van dreiging is een hoofdelement van de Microsoft Security Development Lifecycle (SDL). Kunt u softwarearchitecten te identificeren en beperken van mogelijke beveiligingsproblemen vroeg, wanneer ze zijn relatief eenvoudige en voordelige om op te lossen. Als gevolg hiervan vermindert aanzienlijk de totale kosten van ontwikkeling. Ook wordt het hulpprogramma ontworpen met experts van de niet voor beveiliging in acht nemen, waardoor risicomodel gemakkelijker voor alle ontwikkelaars doordat duidelijke richtlijn voor het maken en analyseren van threat modellen.
+De Threat Modeling Tool is een core-element van de Microsoft Security Development Lifecycle (SDL). Hiermee kunt de software-architecten kunt herkennen en mogelijke beveiligingsproblemen vroeg, verminderen wanneer ze zijn relatief eenvoudig en kosteneffectief worden opgelost. Als gevolg hiervan vermindert aanzienlijk de totale kosten voor ontwikkeling. We ook ontworpen het hulpprogramma met experts van de niet-beveiligde Denk eraan dat u gemakkelijker risicomodel voor alle ontwikkelaars door het bieden van duidelijke richtlijnen over het maken en analyseren van bedreigingsmodellen.
 
-> Ga naar de  **[Threat Modeling hulpprogramma](./azure-security-threat-modeling-tool.md)**  vandaag aan de slag!
+> Ga naar de **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** om vandaag nog aan de slag!
 
-Het hulpprogramma Threat Modeling helpt u bepaalde zoals de onderstaande vragen beantwoorden:
+De Threat Modeling Tool kunt u bepaalde beantwoorden, zoals de volgende oplossingen:
 
-* Hoe kan een aanvaller de verificatiegegevens wijzigen?
+* Hoe kan een aanvaller de gegevens van de verificatie wijzigen?
 * Wat zijn de gevolgen als een aanvaller de gebruikersprofielgegevens kunt lezen?
 * Wat gebeurt er als de toegang is geweigerd tot de database met gebruikersprofielen?
 
 ## <a name="stride-model"></a>STRIDE model
 
-Betere Help u dit soort verwijzen vragen formuleren, Microsoft gebruikt de STRIDE-model, dat verschillende soorten bedreigingen ingedeeld en de algehele beveiliging conversaties vereenvoudigt.
+Betere Help u dit soort verwezen vragen formuleren, Microsoft maakt gebruik van de STRIDE-model, die verschillende soorten bedreigingen ingedeeld en vereenvoudigt de algehele beveiliging-conversaties.
 
-| Category | Beschrijving |
+| Categorie | Description |
 | -------- | ----------- |
-| **Adresvervalsing (spoofing)** | Omvat illegale wijze toegang tot en met behulp van de verificatiegegevens van een andere gebruiker, zoals gebruikersnaam en wachtwoord |
-| **Manipulatie** | Omvat de schadelijke wijzigingen aan gegevens. Voorbeelden zijn onder meer niet-geautoriseerde wijzigingen aangebracht in de permanente gegevens, zoals in een database en de afwijking van gegevens, ondergebracht zoals wordt gebruikt tussen twee computers via een open netwerk, zoals het Internet |
-| **Repudiation** | Die zijn gekoppeld aan gebruikers die een actie uitvoert zonder andere partijen die van een manier om te bewijzen anders weigeren — bijvoorbeeld een gebruiker een ongeldige bewerking in een systeem waarmee u beschikt niet over de mogelijkheid om te traceren, de niet-toegestane bewerkingen uitvoert. Niet-afwijzing verwijst naar de mogelijkheid van een systeem op teller repudiation bedreigingen. Bijvoorbeeld, wellicht een gebruiker die een artikel koopt aan te melden voor het item bij ontvangst. De leverancier kan vervolgens de ondertekende ontvangst worden gebruikt als bewijs dat de gebruiker het pakket heeft ontvangen |
-| **Vrijgeven van informatie** | Omvat de blootstelling van gegevens aan personen die niet moeten toegang hebben tot het — bijvoorbeeld de mogelijkheid van gebruikers om te lezen van een bestand dat ze zijn geen toegang tot of de mogelijkheid van een indringer het lezen van gegevens tijdens de overdracht tussen twee computers |
-| **Denial of Service** | DOS-aanvallen (DoS) service weigeren aan geldige gebruikers, bijvoorbeeld door het maken van een webserver tijdelijk niet beschikbaar of onbruikbaar. U moet beschermen tegen een bepaalde soorten bedreigingen DoS gewoon systeembeschikbaarheid en betrouwbaarheid te verbeteren |
-| **Misbruik van bevoegdheden** | Een onbevoegde gebruiker bevoorrechte toegang te krijgen en waardoor voldoende toegangsrechten heeft voor beschadigen of vernietigen van het gehele systeem. Onrechtmatige uitbreiding van bevoegdheden bedreigingen situaties waarbij een aanvaller effectief alle systeem-beveiliging heeft gepenetreerd opnemen en deel uitmaken van het vertrouwde systeem zelf, een gevaarlijke situatie inderdaad |
+| **Adresvervalsing (spoofing)** | Omvat het illegale wijze toegang tot en met behulp van de verificatiegegevens van een andere gebruiker, zoals gebruikersnaam en wachtwoord |
+| **Tampering** | Omvat de schadelijke wijzigen van gegevens. Voorbeelden zijn onder meer niet-geautoriseerde wijzigingen aangebracht in uw permanente gegevens, zoals die in een database en de wijziging van de gegevens bewaard als deze tussen de twee computers via een open-netwerk, zoals het Internet stromen |
+| **Repudiation** | Dat is gekoppeld aan gebruikers die een actie wordt uitgevoerd zonder andere partijen die een manier om te bewijzen dat anders weigeren, bijvoorbeeld een gebruiker een ongeldige bewerking uitvoert in een systeem dat u beschikt niet over de mogelijkheid om de niet-toegestane bewerkingen traceren. Niet-afwijzing verwijst naar de mogelijkheid van een systeem op teller ontkenning bedreigingen. Bijvoorbeeld, een gebruiker die een item aankopen mogelijk aan te melden voor het item bij ontvangst. De leverancier kan vervolgens de ondertekende ontvangst worden gebruikt als bewijs dat de gebruiker het pakket is ontvangen |
+| **Openbaarmaking van informatie** | De blootstelling van personen die niet moeten toegang hebben tot deze informatie omvat — bijvoorbeeld, de mogelijkheid van gebruikers lezen van een bestand dat ze geen toegang tot zijn verleend, of de mogelijkheid van een indringer gebruik om te lezen van gegevens in transit tussen twee computers |
+| **Denial of Service** | Denial of service (DoS) aanval service tot geldige gebruikers weigeren, bijvoorbeeld door een webserver tijdelijk niet beschikbaar of onbruikbaar. U moet zich beschermen tegen bepaalde typen DoS-dreigingen gewoon voor betere beschikbaarheid van het systeem en betrouwbaarheid |
+| **Misbruik van bevoegdheden** | Een niet-gemachtigde gebruiker bevoegde toegang te krijgen en daardoor heeft voldoende toegangsrechten voor beschadigen of vernietigen van het hele systeem. Misbruik van bevoegdheden bedreigingen situaties waarbij een aanvaller effectief alle systeem-beveiliging heeft gepenetreerd opnemen en deel uitmaken van het vertrouwde systeem zelf, inderdaad een gevaarlijke situaties |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga door naar  **[Threat Modeling hulpprogramma oplossingen](./azure-security-threat-modeling-tool-mitigations.md)**  voor meer informatie over de verschillende manieren waarop u deze bedreigingen met Azure kunt verhelpen.
+Gaat u verder met **[Threat Modeling Tool oplossingen](./azure-security-threat-modeling-tool-mitigations.md)** voor meer informatie over de verschillende manieren waarop u deze bedreigingen met Azure kunt beperken.

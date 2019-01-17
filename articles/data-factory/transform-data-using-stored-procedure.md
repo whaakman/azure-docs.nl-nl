@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 9a724f8e319e652b85941810a6312c35a5036120
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a56e9c2a7cceed8012f35c9d02e9c3bc5703b31f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025722"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353206"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van de SQL Server opgeslagen Procedure-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-stored-proc-activity.md)
 > * [Huidige versie](transform-data-using-stored-procedure.md)
 
@@ -32,12 +32,12 @@ U kunt de activiteit opgeslagen Procedure gebruiken om aan te roepen een opgesla
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- SQL Server-Database.  Als u SQL Server gebruikt, installeert u zelf-hostende integratieruntime op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer die toegang tot de database heeft. Zelf-Hostende integratieruntime is een onderdeel waarmee gegevens verbonden gegevensbronnen on-premises/op virtuele Azure-machine met cloudservices op een veilige, beheerde manier. Zie [zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+- SQL Server Database.  Als u SQL Server gebruikt, installeert u zelf-hostende integratieruntime op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer die toegang tot de database heeft. Zelf-Hostende integratieruntime is een onderdeel waarmee gegevens verbonden gegevensbronnen on-premises/op virtuele Azure-machine met cloudservices op een veilige, beheerde manier. Zie [zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
 
 > [!IMPORTANT]
 > Het kopiëren van gegevens in Azure SQL Database of SQL Server, kunt u de **SqlSink** in de kopieeractiviteit om aan te roepen een opgeslagen procedure met behulp van de **sqlWriterStoredProcedureName** eigenschap. Voor meer informatie over de eigenschap, naar het volgende connector artikelen: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Aanroepen van een opgeslagen procedure tijdens het kopiëren van gegevens in een Azure SQL Data Warehouse met behulp van een kopieeractiviteit wordt niet ondersteund. Maar u kunt de opgeslagen procedure-activiteit gebruiken voor het aanroepen van een opgeslagen procedure in een SQL Data Warehouse. 
 >
-> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL datawarehouse](connector-azure-sql-data-warehouse.md)          
+> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -54,7 +54,7 @@ Dit is de JSON-indeling voor het definiëren van een activiteit opgeslagen Proce
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
-        "storedProcedureName": "sp_sample",
+        "storedProcedureName": "usp_sample",
         "storedProcedureParameters": {
             "identifier": { "value": "1", "type": "Int" },
             "stringData": { "value": "str1" }

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 48a0bf2a7209812af23c3dd9eec9703ec5826fa9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019568"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353003"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 > [!NOTE]
@@ -31,7 +31,7 @@ Dit artikel bevat informatie over functies en variabelen die worden ondersteund 
 | --- | --- | --- | --- |
 | WindowStart |Begin van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |activiteit |<ol><li>Geef gegevensselectiequery's. Zie de artikelen van connector waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
 | WindowEnd |Einde van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |activiteit |hetzelfde als WindowStart. |
-| Slicestart-waarde |Begin van het tijdsinterval voor het segment wordt geproduceerd |activiteit<br/>Gegevensset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden met data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
+| SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |activiteit<br/>Gegevensset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden met data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
 | SliceEnd |Einde van de tijdsinterval voor het huidige gegevenssegment. |activiteit<br/>Gegevensset |hetzelfde als de slicestart-waarde. |
 
 > [!NOTE]
@@ -153,7 +153,7 @@ In het volgende voorbeeld wordt de datum/tijd-parameter voor de activiteit opges
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

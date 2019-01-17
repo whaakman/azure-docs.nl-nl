@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407963"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352356"
 ---
 # <a name="using-a-cloud-dvr"></a>Een cloud-DVR gebruiken
 
@@ -35,7 +35,10 @@ Elke **LiveOutput** is gekoppeld aan een **Asset**, die wordt gebruikt om vast t
 Een **LiveEvent** ondersteunt maximaal drie gelijktijdig actieve **LiveOutput**s, zodat u maximaal 3 opnamen/archieven van een live stream maken kunt. Hierdoor kunt u verschillende onderdelen van een gebeurtenis naar behoefte publiceren en archiveren. Stel dat u nodig hebt voor het uitzenden van een 24 x 7 live lineaire feed en maak "opnamen' van de andere programma's gedurende de dag kunnen aanbieden aan klanten als on-demand inhoud voor de weergave bijwerken. In dit scenario voor u eerst een primaire LiveOutput maken met een korte archiefvenster van 1 uur of minder – dit de primaire live stream dat uw kijkers zou afstemmen op is. U maakt een **StreamingLocator** voor deze **LiveOutput** en deze publiceren naar uw toepassing of website als de feed 'Live'. Terwijl de **LiveEvent** is uitgevoerd, kunt u via een programma maken een tweede gelijktijdige **LiveOutput** aan het begin van een programma (of 5 minuten vroeg voor aantal ingangen later trim). Deze tweede **LiveOutput** 5 minuten na afloop van het programma kan worden verwijderd. Met deze tweede **Asset**, kunt u een nieuwe **StreamingLocator** dit programma publiceren als een activum op aanvraag in de catalogus van uw toepassing. U kunt dit proces herhalen meerdere keren voor andere programma grenzen of belangrijke functies die u wilt delen als on-demand video's, terwijl de 'Live' feed van de eerste **LiveOutput** blijft om uit te zenden van de lineaire feed. 
 
 > [!NOTE]
-> **LiveOutput**s starten bij het maken en te stoppen wanneer verwijderd. Wanneer u verwijdert de **LiveOutput**, verwijdert u niet de onderliggende **Asset** en de inhoud in de Asset.  
+> **LiveOutput**s starten bij het maken en te stoppen wanneer verwijderd. Wanneer u verwijdert de **LiveOutput**, verwijdert u niet de onderliggende **Asset** en de inhoud in de asset. 
+>
+> Als u hebt gepubliceerd **Streaming-Locator gemaakt**s voor de asset voor de **LiveOutput**, blijft de gebeurtenis (tot de lengte van het DVR-venster) worden weergegeven tot de eindtijd van de **Streaming-Locator gemaakt**  of tot wanneer u de locator verwijdert, afhankelijk van wat het eerste komt.   
+  
 
 ## <a name="next-steps"></a>Volgende stappen
 

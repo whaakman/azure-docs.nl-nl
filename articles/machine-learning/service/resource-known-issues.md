@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 25131fdbc7a3633bf4ba9af05fdff9163f41f26b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265104"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351795"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
  
@@ -44,12 +44,8 @@ Niet mogelijk om te implementeren van modellen op FPGA's totdat u hebt aangevraa
 ## <a name="databricks"></a>Databricks
 
 Problemen met Databricks en Azure Machine Learning.
-
-1. Aanbeveling voor Databricks-cluster:
-   
-   Uw Azure Databricks-cluster maken als v4.x met Python 3. U wordt aangeraden een cluster met hoge gelijktijdigheid.
  
-2. AML SDK installeren is mislukt op Databricks wanneer meer pakketten zijn geïnstalleerd.
+1. AML SDK installeren is mislukt op Databricks wanneer meer pakketten zijn geïnstalleerd.
 
    Sommige pakketten, zoals `psutil`, kan leiden tot conflicten. Om installatiefouten te voorkomen,-pakketten door blokkering lib versie te installeren. Dit probleem is met betrekking tot Databricks en niet met betrekking tot Azure ML-SDK - die zich kunnen voordoen deze met andere bibliotheken te. Voorbeeld:
    ```python
@@ -57,9 +53,10 @@ Problemen met Databricks en Azure Machine Learning.
    ```
    U kunt ook init scripts gebruiken als u problemen met Python-bibliotheken installeren houden aangesloten. Deze benadering is niet een aanpak die officieel ondersteund. U kunt verwijzen naar [dit document](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-3. Wanneer u automatische Machine Learning op Databricks, als u ziet `Import error: numpy.core.multiarray failed to import`
+2. Wanneer u automatische Machine Learning op Databricks, als u wilt een uitvoering annuleren en start een nieuw experiment uitvoeren, start u uw Azure Databricks-cluster.
 
-   Tijdelijke oplossing: Python-bibliotheek importeren `numpy==1.14.5` uw Databricks-cluster met een bibliotheek voor het maken [installeren en koppelen](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+3. In de automatische ml-instellingen, wanneer u > 10 iteraties Stel show_output als onwaar bij het indienen van uw uitvoering.
+
 
 ## <a name="azure-portal"></a>Azure Portal
 Als u rechtstreeks naar het weergeven van uw werkruimte van een koppeling voor het delen van de SDK of de portal gaat, wordt het niet mogelijk om de normale overzichtspagina met abonnementsgegevens in de extensie weer te geven. U wordt ook niet mogelijk om over te schakelen naar een andere werkruimte. Als u nodig hebt om een andere werkruimte weer te geven, de tijdelijke oplossing is het gaat u rechtstreeks naar de [Azure-portal](https://portal.azure.com) en zoek de naam van de werkruimte.

@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 530bb7b164ec7d7b31e6d4a58bca97aa17dc62fa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959533"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357875"
 ---
 # <a name="what-is-azure-stack"></a>Wat is Azure Stack?
 
@@ -29,8 +29,6 @@ Microsoft Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt
 
 Azure Stack wordt geleverd in twee implementatievarianten voor verschillende behoeften.
 
-## <a name="azure-stack-integrated-systems"></a>Geïntegreerde Azure Stack-systemen
-Geïntegreerde Azure Stack-systemen worden aangeboden op basis van een samenwerking tussen Microsoft en diverse [hardwarepartners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/). Dit staat garant voor een oplossing die de innovatieve mogelijkheden van de cloud combineert met eenvoudig rekenbeheer. Omdat Azure Stack wordt geleverd als een geïntegreerd hardware- en softwaresysteem, beschikt u over alle flexibiliteit en controle die u nodig hebt, terwijl u tegelijkertijd vanuit de cloud kunt innoveren. Azure Stack geïntegreerde systemen in grootte variëren van 4-16 knooppunten en gezamenlijk worden ondersteund door de hardware-partner en Microsoft.  Geïntegreerde Azure Stack-systemen zijn geknipt voor het maken van nieuwe scenario's en voor het implementeren van nieuwe oplossingen voor uw productieworkloads.
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
@@ -45,8 +43,11 @@ De ASDK heeft de volgende beperkingen:
 * Omdat de Azure Stack-onderdelen op één hostcomputer worden geïmplementeerd, is er maar een beperkt aantal fysieke resources beschikbaar voor tenantresources. Deze configuratie is niet bedoeld voor het evalueren van de opschaalmogelijkheden en de prestaties.
 * Het aantal netwerkscenario's is beperkt vanwege de vereisten met betrekking tot NIC-implementatie en gebruik van één host.
 
+## <a name="azure-stack-integrated-systems"></a>Geïntegreerde Azure Stack-systemen
+Geïntegreerde Azure Stack-systemen worden aangeboden op basis van een samenwerking tussen Microsoft en diverse [hardwarepartners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/). Dit staat garant voor een oplossing die de innovatieve mogelijkheden van de cloud combineert met eenvoudig rekenbeheer. Omdat Azure Stack wordt geleverd als een geïntegreerd hardware- en softwaresysteem, beschikt u over alle flexibiliteit en controle die u nodig hebt, terwijl u tegelijkertijd vanuit de cloud kunt innoveren. Azure Stack geïntegreerde systemen in grootte variëren van 4-16 knooppunten en gezamenlijk worden ondersteund door de hardware-partner en Microsoft.  Geïntegreerde Azure Stack-systemen zijn geknipt voor het maken van nieuwe scenario's en voor het implementeren van nieuwe oplossingen voor uw productieworkloads.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 [Belangrijke functies en concepten](azure-stack-key-features.md)
 
-[Azure Stack: een uitbreiding van Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack: Een uitbreiding van Azure (PDF-bestand)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

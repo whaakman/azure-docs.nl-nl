@@ -1,5 +1,5 @@
 ---
-title: Het wijzigen van de licentiemodel voor een SQL-VM in Azure | Microsoft Docs
+title: Het wijzigen van de licentiemodel voor SQL Server-VM in Azure | Microsoft Docs
 description: Informatie over het wijzigen van de licentieverlening voor een SQL-VM in Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,36 +15,38 @@ ms.workload: iaas-sql-server
 ms.date: 11/14/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c516bf9b48164f2ef8dc7fea6fb834bdae00a0d1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 1b1c7192eb8389d3ad3a1c7c935d9c7e2d8769a9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332146"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359915"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Het wijzigen van de licentiemodel voor een virtuele machine van SQL Server in Azure
-In dit artikel wordt beschreven hoe u de licentiemodel voor een virtuele machine van SQL Server in Azure met behulp van de nieuwe SQL-resourceprovider - **Microsoft.SqlVirtualMachine**. Er zijn twee modellen voor een virtuele machine (VM) die als host fungeert voor SQL Server - betalen per gebruik, licenties en uw eigen licentie (BYOL). En nu met behulp van PowerShell of Azure CLI, u kunt wijzigen welke licentiemodel maakt gebruik van uw SQL-VM. 
+In dit artikel wordt beschreven hoe u de licentiemodel voor een virtuele machine van SQL Server in Azure met behulp van de nieuwe SQL-VM-resourceprovider - **Microsoft.SqlVirtualMachine**. Er zijn twee modellen voor een virtuele machine (VM) die als host fungeert voor SQL Server - betalen per gebruik, licenties en uw eigen licentie (BYOL). En nu met behulp van PowerShell of Azure CLI, u kunt wijzigen welke licentiemodel maakt gebruik van uw SQL Server-VM. 
 
 De **betalen per gebruik** model betekent dat de kosten per seconde van het uitvoeren van de virtuele machine van Azure de kosten van de SQL Server-licentie bevat.
 
-De **Bring-your-own-license** model wordt ook wel bekend als de [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), en kunt u uw eigen SQL Server-licentie gebruiken met een virtuele machine met SQL Server. Zie voor meer informatie over prijzen [SQL VM prijzen handleiding](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
+De **Bring-your-own-license** model wordt ook wel bekend als de [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), en kunt u uw eigen SQL Server-licentie gebruiken met een virtuele machine met SQL Server. Zie voor meer informatie over prijzen [prijzen voor SQL Server-VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
-Schakelen tussen de twee licentiemodellen worden in rekening gebracht **zonder uitvaltijd**, de virtuele machine niet opnieuw wordt opgestart, wordt toegevoegd **zonder extra kosten** (in feite AHB activering vermindert de kosten) en **met onmiddellijke ingang effectief**. 
+Schakelen tussen de twee licentiemodellen worden in rekening gebracht **zonder uitvaltijd**, de virtuele machine niet opnieuw wordt opgestart, wordt toegevoegd **zonder extra kosten** (in feite activeren AHB *vermindert* kosten) en **met onmiddellijke ingang effectief**. 
 
 ## <a name="prerequisites"></a>Vereisten
 Het gebruik van de resourceprovider van SQL-VM moet de SQL IaaS-extensie. Als u wilt doorgaan met het gebruik van de resourceprovider van SQL-VM, moet u als zodanig het volgende:
 - Een [Azure-abonnement](https://azure.microsoft.com/free/).
 - Een [SQL Server-VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) met de [SQL IaaS-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) geïnstalleerd. 
 
-## <a name="register-existing-sql-vm-with-new-resource-provider"></a>Bestaande SQL-VM met nieuwe resourceprovider registreren
-De mogelijkheid om over te schakelen tussen licentiemodellen is een functie die wordt geleverd door de nieuwe SQL-VM resourceprovider (Microsoft.SqlVirtualMachine). Op dit moment als u wilt overschakelen van uw licentiemodel moet u eerst het registreren van de nieuwe provider voor uw abonnement en vervolgens uw bestaande virtuele machine met de nieuwe SQL-VM-resourceprovider te registreren. Als u wilt gebruikmaken van de resourceprovider van SQL-VM, moet u ook de SQL IaaS-extensie installeren. In dat geval kunt u voor het registreren van een virtuele machine die is geïmplementeerd met een VHD. Zie voor meer informatie, [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md). 
 
-  >[!IMPORTANT]
+## <a name="register-existing-sql-server-vm-with-new-resource-provider"></a>Bestaande SQL server-machine met nieuwe resourceprovider registreren
+De mogelijkheid om over te schakelen tussen licentiemodellen is een functie die wordt geleverd door de nieuwe SQL-VM resourceprovider (Microsoft.SqlVirtualMachine). SQL Server-VM's geïmplementeerd nadat December 2018 worden automatisch geregistreerd bij de nieuwe resourceprovider. Bestaande virtuele machines die zijn geïmplementeerd voordat u deze datum moeten echter handmatig worden geregistreerd bij de resourceprovider voordat ze kunnen hun licentiemodel overschakelen. 
+
+
+
+
   > Als u uw SQL-VM-resource, gaat u terug naar de vastgelegde licentie-instelling van de installatiekopie. 
-  
+
 
 ### <a name="powershell"></a>PowerShell
-
 
 Het volgende codefragment wordt u verbinding maken met Azure en controleer of welke abonnements-ID die u gebruikt. 
 ```PowerShell
@@ -59,13 +61,14 @@ Get-AzureRmContext
 Set-AzureRmContext -SubscriptionId <Subscription_ID>
 ```
 
-Het volgende codefragment eerst registreert de nieuwe SQL-resourceprovider voor uw abonnement en vervolgens uw bestaande SQL-VM voor de nieuwe resourceprovider geregistreerd. 
+Het volgende codefragment eerst registreert de nieuwe SQL-resourceprovider voor uw abonnement en vervolgens uw bestaande SQL Server-machine voor de nieuwe resourceprovider geregistreerd. 
 
 ```powershell
 # Register the new SQL resource provider for your subscription
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
-# Register your existing SQL VM with the new resource provider
+
+# Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzureRmVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
 New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
@@ -83,7 +86,7 @@ U kunt ook de nieuwe SQL-VM-resourceprovider met behulp van de portal registrere
 
 
 ## <a name="use-powershell"></a>PowerShell gebruiken 
-U kunt PowerShell gebruiken om te wijzigen van uw licentiemodel.  Zorg ervoor dat uw SQL-VM is al geregistreerd met de nieuwe SQL-resourceprovider voordat u overschakelt van de licentiemodel. 
+U kunt PowerShell gebruiken om te wijzigen van uw licentiemodel.  Zorg ervoor dat uw virtuele SQL Server-machine is al geregistreerd met de nieuwe SQL-resourceprovider voordat u overschakelt van de licentiemodel. 
 
 Uw licentiemodel voor betalen per gebruik verandert het volgende codefragment in een BYOL (of met behulp van Azure Hybrid Benefit): 
 ```PowerShell
@@ -110,11 +113,11 @@ $SqlVm | Set-AzureRmResource -Force
 ```
 
   >[!NOTE]
-  > Als u wilt overschakelen tussen licenties, moet u de nieuwe SQL-VM-resourceprovider. Als u probeert deze opdrachten uitvoeren voordat u uw SQL-VM met de nieuwe provider registreert, kunt u deze fout kan optreden: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Als u deze fout ziet, neemt u [registreren van uw SQL-VM met de nieuwe resourceprovider](#register-existing-SQL-vm-with-new-resource-provider). 
+  > Als u wilt overschakelen tussen licenties, moet u de nieuwe SQL-VM-resourceprovider. Als u probeert deze opdrachten uitvoeren voordat u uw SQL Server-VM met de nieuwe provider registreert, kunt u deze fout kan optreden: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Als u deze fout ziet, neemt u [registreren van uw SQL Server-VM met de nieuwe resourceprovider](#register-existing-SQL-vm-with-new-resource-provider). 
  
 
 ## <a name="use-azure-cli"></a>Azure CLI gebruiken
-Azure CLI kunt u uw licentiemodel wijzigen.  Zorg ervoor dat uw SQL-VM is al geregistreerd met de nieuwe SQL-resourceprovider voordat u overschakelt van de licentiemodel. 
+Azure CLI kunt u uw licentiemodel wijzigen.  Zorg ervoor dat uw virtuele SQL Server-machine is al geregistreerd met de nieuwe SQL-resourceprovider voordat u overschakelt van de licentiemodel. 
 
 Uw licentiemodel voor betalen per gebruik verandert het volgende codefragment in een BYOL (of met behulp van Azure Hybrid Benefit):
 ```azurecli
@@ -129,14 +132,14 @@ az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --reso
 ```
 
   >[!NOTE]
-  >Als u wilt overschakelen tussen licenties, moet u de nieuwe SQL-VM-resourceprovider. Als u probeert deze opdrachten uitvoeren voordat u uw SQL-VM met de nieuwe provider registreert, kunt u deze fout kan optreden: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` Als u deze fout ziet, neemt u [registreren van uw SQL-VM met de nieuwe resourceprovider](#register-existing-SQL-vm-with-new-resource-provider). 
+  >Als u wilt overschakelen tussen licenties, moet u de nieuwe SQL-VM-resourceprovider. Als u probeert deze opdrachten uitvoeren voordat u uw SQL Server-VM met de nieuwe provider registreert, kunt u deze fout kan optreden: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` Als u deze fout ziet, neemt u [registreren van uw SQL Server-VM met de nieuwe resourceprovider](#register-existing-SQL-vm-with-new-resource-provider). 
 
 ## <a name="view-current-licensing"></a>Huidige licentie weergeven 
 
-Het volgende codefragment kunt u uw huidige licentiemodel weergeven voor uw SQL-VM. 
+Het volgende codefragment kunt u uw huidige licentiemodel weergeven voor uw SQL Server-VM. 
 
 ```PowerShell
-# View current licensing model for your SQL VM
+# View current licensing model for your SQL Server VM
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType

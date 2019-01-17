@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5a8a58723b98c97c9f30ad7eb3173537ee194229
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 8cc676355f432a25550b337e5de747c4956d3142
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247721"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358878"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Snelstart: Converteert tekst naar spraak met behulp van Node.js
 
@@ -194,9 +194,10 @@ Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels,
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie voor de Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [Node.js-voorbeelden op GitHub verkennen](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
 ## <a name="see-also"></a>Zie ook
 
+* [Naslaginformatie voor de Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Het maken van aangepaste spraakstijlen](how-to-customize-voice-font.md)
 * [Record stem voorbeelden voor het maken van een aangepaste spraak](record-custom-voice-samples.md)

@@ -8,26 +8,27 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051325"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358147"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>De Chef-client installeren vanuit de Azure-portal
-Bij het maken of wijzigen van een Linux- of Windows virtuele machine van Azure portal, kunt u de Chef-extensie toevoegen aan de virtuele machine. Dit artikel begeleidt u bij dit proces met behulp van een nieuwe virtuele Linux-machine.
+U kunt de uitbreiding voor de Chef-client rechtstreeks naar een Linux- of Windows-machine toevoegen vanuit de Azure-portal. Dit artikel begeleidt u bij het proces met behulp van een nieuwe virtuele Linux-machine.
 
 ## <a name="prerequisites"></a>Vereisten
+
 - **Azure-abonnement**: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 
-- **Chef**: Als u geen een actieve Chef-account hebt, kunt u zich aanmelden voor een [gratis proefversie van Chef gehost](https://manage.chef.io/signup). Als u wilt volgen, samen met de instructies in dit artikel, moet u de volgende waarden uit uw Chef-account: 
-    - organization_validation sleutel
-    - degressieve
-    - run_list
+- **Chef**: Als u geen een actieve Chef-account hebt, kunt u zich aanmelden voor een [gratis proefversie van Chef gehost](https://manage.chef.io/signup). Als u wilt volgen, samen met de instructies in dit artikel, moet u de volgende waarden uit uw Chef-account:
+  - organization_validation sleutel
+  - degressieve
+  - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>De Chef-extensie installeren op een nieuwe virtuele Linux-machine
-In deze sectie gebruikt u eerst de Azure portal om een Linux-machine te maken. Tijdens het proces ziet u ook hoe u de Chef-extensie op de nieuwe virtuele machine installeert.
+In deze sectie gaat u eerst de Azure-portal gebruiken om een Linux-machine te maken. Gedurende dit proces ook ziet u hoe u de Chef-extensie op de nieuwe virtuele machine installeert.
 
 1. Blader naar de [Azure-portal](http://portal.azure.com).
 
@@ -53,7 +54,7 @@ In deze sectie gebruikt u eerst de Azure portal om een Linux-machine te maken. T
 
     - **Naam** -Voer een naam voor de nieuwe virtuele machine.
     - **VM-schijftype** -opgeven of **SSD** of **HDD** voor het opslagtype voor de schijf. Zie het artikel voor meer informatie over schijftypen van de virtuele machine op Azure, [High-performance Premium Storage en beheerde schijven voor virtuele machines](/azure/virtual-machines/windows/premium-storage).
-    - **Gebruikersnaam** -Voer een gebruikersnaam verleend beheerdersbevoegdheden op de virtuele machine.
+    - **Gebruikersnaam** -Voer een gebruikersnaam die wordt verleend beheerdersbevoegdheden op de virtuele machine.
     - **Verificatietype** : Selecteer **wachtwoord**. U kunt ook selecteren **openbare SSH-sleutel**, en een openbare SSH-sleutelwaarde hebt opgegeven. Ten behoeve van deze demo (en in de schermafbeeldingen) **wachtwoord** is geselecteerd.
     - **Wachtwoord** en **wachtwoord bevestigen** -Geef een wachtwoord voor de gebruiker.
     - **Meld u aan met Azure Active Directory** : Selecteer **uitgeschakelde**.
@@ -81,13 +82,13 @@ In deze sectie gebruikt u eerst de Azure portal om een Linux-machine te maken. T
 
 1. Op de **-extensie installeren** tabblad, geef de volgende waarden en selecteer vervolgens **OK**.
 
-    - **URL van chef** -Geef de URL van de Chef-Server met de naam van de organisatie, bijvoorbeeld *https://api.chef.io/organization/hessco*.
+    - **URL van chef** -Geef de URL van de Chef-Server met de naam van de organisatie, bijvoorbeeld *https://api.chef.io/organization/mycompany*.
     - **Naam van het knooppunt chef** -Geef de naam van de Chef-knooppunt. Dit kan een willekeurige waarde zijn.
     - **Run List** -voert u de lijst met Chef uitvoeren die wordt toegevoegd aan de machine. Dit kan leeg worden gelaten.
     - **Naam van de Client validatie** -Voer de naam van Chef validatie-Client. bijvoorbeeld, *tarcher validator*.
-    - **Validatiesleutel** -Selecteer een bestand met de validatiesleutel gebruikt bij het opstarten van uw machines. 
+    - **Validatiesleutel** -Selecteer een bestand met de validatiesleutel gebruikt bij het opstarten van uw machines.
     - **Client-configuratiebestand** -Selecteer een configuratiebestand voor chef-client. Dit kan leeg worden gelaten.
-    - **Chef-clientversie** -Geef de versie van de chef-client te installeren. Dit kan leeg worden gelaten. Een lege waarde resulteert in de meest recente versie wordt geïnstalleerd. 
+    - **Chef-clientversie** -Geef de versie van de chef-client te installeren. Dit kan leeg worden gelaten. Een lege waarde installeert de meest recente versie.
     - **SSL-verificatiemodus** -Selecteer **geen** of **Peer**. *Geen* is geselecteerd voor de demo.
     - **Chef-omgeving** -Geef de Chef-omgeving met dit knooppunt lid zijn van moet. Dit kan leeg worden gelaten.
     - **Versleuteld Databag geheim** -Selecteer een bestand met de geheime sleutel voor de Databag versleuteld deze machine toegang tot moeten hebben. Dit kan leeg worden gelaten.
@@ -106,4 +107,5 @@ Wanneer het proces voor het maken en implementeren van de virtuele machine met d
 ![Installatie van de Chef-Server op een Linux-machine](./media/chef-extension-portal/resource-created.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een Windows-machine maken op Azure met Chef](/azure/virtual-machines/windows/chef-automation)
+
+- [Een Windows-machine maken op Azure met Chef](/azure/virtual-machines/windows/chef-automation)

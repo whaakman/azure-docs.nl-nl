@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024886"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354260"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activiteit metagegevens ophalen in Azure Data Factory
 De GET metadata activity kan worden gebruikt om op te halen **metagegevens** van gegevens in Azure Data Factory. Deze activiteit kan worden gebruikt in de volgende scenario's:
@@ -33,7 +33,7 @@ De volgende functionaliteit is beschikbaar in de Controlestroom:
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvoer metagegevensinformatie beschikbaar als uitvoer van activiteit. Op dit moment de volgende connectors met bijbehorende ophaalbaar meatadata worden ondersteund en de grootte van de maximale ondersteunde metagegevens is tot **1MB**.
+De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvoer metagegevensinformatie beschikbaar als uitvoer van activiteit. Op dit moment de volgende connectors met bijbehorende ophaalbaar metagegevens worden ondersteund en de grootte van de maximale ondersteunde metagegevens is tot **1MB**.
 
 >[!NOTE]
 >Als u de activiteit GetMetadata op een zelfgehoste Cloudintegratieruntime uitvoert, wordt de meest recente mogelijkheid wordt ondersteund op versie 3.6 of hoger. 
@@ -42,10 +42,10 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 
 **Opslag van bestanden:**
 
-| Connector/metagegevens | Itemnaam<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | lastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | aantal kolommen<br>(bestand) | Er bestaat<br>(bestand/map) |
+| Connector/Metadata | itemName<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | lastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | columnCount<br>(bestand) | Er bestaat<br>(bestand/map) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
-| Azure Blob | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Bestandssysteem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -57,7 +57,7 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 
 **Relationele database:**
 
-| Connector/metagegevens | structuur | aantal kolommen | Er bestaat |
+| Connector/Metadata | structuur | columnCount | Er bestaat |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
 | Azure SQL Database Managed Instance | √ | √ | √ |
@@ -70,7 +70,7 @@ De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met ve
 
 | Metagegevenstype | Description |
 |:--- |:--- |
-| Itemnaam | De naam van het bestand of map. |
+| itemName | De naam van het bestand of map. |
 | itemType | Het type van het bestand of map. Uitvoerwaarde `File` of `Folder`. |
 | grootte | Grootte van het bestand in bytes. Van toepassing op het bestand alleen. |
 | gemaakt | Gemaakte datum en tijd van het bestand of map. |
@@ -78,7 +78,7 @@ De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met ve
 | childItems | Lijst met bestanden in de opgegeven map en submappen. Van toepassing op de map alleen. Waarde voor uitvoer is een lijst met naam en type van elk onderliggend item. |
 | contentMD5 | MD5-algoritme van het bestand. Van toepassing op het bestand alleen. |
 | structuur | De gegevensstructuur in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en het type van kolom. |
-| aantal kolommen | Het aantal kolommen in het bestand of een relationele tabel. |
+| columnCount | Het aantal kolommen in het bestand of een relationele tabel. |
 | Er bestaat| Of een bestand/map/table of niet bestaat. Houd er rekening mee dat als 'bestaat' is opgegeven in de veldenlijst GetaMetadata, de activiteit wordt niet mislukt, zelfs wanneer het item (bestand/map/table) niet bestaat. in plaats daarvan het resultaat `exists: false` in de uitvoer. |
 
 >[!TIP]
@@ -130,7 +130,7 @@ De activiteit GetMetadata kan momenteel de volgende typen metagegevens worden op
 
 Eigenschap | Description | Vereist
 -------- | ----------- | --------
-Veldenlijst | Bevat de soorten metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) gedeelte over ondersteunde metagegevens. | Ja 
+fieldList | Bevat de soorten metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) gedeelte over ondersteunde metagegevens. | Ja 
 Gegevensset | De verwijzing gegevensset waarvan de metagegevens van de activiteit moet worden opgehaald door de activiteit GetMetadata is. Zie [ondersteunde mogelijkheden](#supported-capabilities) sectie op ondersteunde connectors en verwijzen naar het onderwerp van de connector op de details van de syntaxis van de gegevensset. | Ja
 
 ## <a name="sample-output"></a>Voorbeelduitvoer

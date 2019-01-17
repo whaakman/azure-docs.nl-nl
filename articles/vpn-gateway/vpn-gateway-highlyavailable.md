@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060766"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353274"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Maximaal beschikbare cross-premises en VNet-naar-VNet-connectiviteit
 Dit artikel bevat een overzicht van maximaal beschikbare configuratieopties voor uw cross-premises en VNet-naar-VNet-connectiviteit met Azure VPN-gateways.
@@ -49,7 +49,8 @@ Deze configuratie biedt meerdere actieve tunnels van dezelfde Azure VPN-gateway 
 3. BGP is vereist voor deze configuratie. Elke lokale netwerkgateway voor een VPN-apparaat moet een uniek IP-adres voor BGP-peering hebben in de eigenschap 'BgpPeerIpAddress'.
 4. Het veld van de eigenschap AddressPrefix in elke lokale netwerkgateway mag niet overlappen. U moet 'BgpPeerIpAddress' in /32 CIDR-indeling opgeven in het veld AddressPrefix, bijvoorbeeld 10.200.200.254/32.
 5. Gebruik BGP om dezelfde voorvoegsels van dezelfde on-premises netwerkvoorvoegsels te adverteren naar uw Azure VPN-gateway. Het verkeer wordt tegelijkertijd doorgestuurd via deze tunnels.
-6. Elke verbinding wordt geteld tegen het maximale aantal tunnels voor uw Azure VPN-gateway, 10 voor de Basic en Standaard SKU's en 30 voor de HighPerformance SKU. 
+6. U moet gelijke kosten Multipath routering (ECMP).
+7. Elke verbinding wordt geteld tegen het maximale aantal tunnels voor uw Azure VPN-gateway, 10 voor de Basic en Standaard SKU's en 30 voor de HighPerformance SKU. 
 
 In deze configuratie bevindt de Azure VPN-gateway zich nog steeds in de actieve stand-bymodus, dus hetzelfde failovergedrag en de korte onderbreking die [hierboven](#activestandby) worden beschreven, zullen optreden. Deze installatie beschermt echter tegen storingen of onderbrekingen op uw on-premises netwerk en VPN-apparaten.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237961"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359932"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
 
@@ -71,10 +71,12 @@ Er zijn enkele dingen die u nodig hebt en een aantal dingen die u nodig hebt vol
 ### <a name="what-to-know"></a>Wat u moet weten
 U hebt een operationeel inzicht in de volgende technologieën:
 
-- [Windows-clustertechnologieën](https://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server-failovercluster-exemplaren](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows-clustertechnologieën](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server-failovercluster-exemplaren](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-U hebt ook een algemeen begrip van de volgende technologieën:
+Een belangrijk verschil is dat op een failovercluster voor Azure IaaS VM-Gast wordt aangeraden één NIC per server (clusterknooppunt) en één subnet. Azure-netwerken heeft fysieke redundantie extra NIC's en subnetten onnodige maakt op een Azure IaaS VM-gastcluster. Hoewel het clustervalidatierapport wordt een waarschuwing dat de knooppunten alleen bereikbaar is op één netwerk zijn uitgeeft, kan deze waarschuwing veilig worden genegeerd op Azure IaaS VM-gastclusters voor failover. 
+
+Bovendien hebt u een algemeen begrip van de volgende technologieën:
 
 - [Hypergeconvergeerde oplossing met opslagruimten Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure-resourcegroepen](../../../azure-resource-manager/resource-group-portal.md)
@@ -111,9 +113,9 @@ Met deze voorwaarden is voldaan, kunt u doorgaan met het ontwikkelen van uw fail
    - Klik op **beschikbaarheidsset**.
    - Klik op **Create**.
    - Op de **beschikbaarheidsset maken** blade, stel de volgende waarden:
-      - **Naam**: een naam op voor de beschikbaarheidsset.
-      - **Abonnement**: uw Azure-abonnement.
-      - **Resourcegroep**: als u gebruiken van een bestaande groep wilt, klikt u op **gebruik bestaande** en selecteer de groep in de vervolgkeuzelijst. Kies anders **nieuw** en typ een naam voor de groep.
+      - **Naam**: Een naam voor de beschikbaarheidsset.
+      - **Abonnement**: Uw Azure-abonnement.
+      - **Resourcegroep**: Als u gebruiken van een bestaande groep wilt, klikt u op **gebruik bestaande** en selecteer de groep in de vervolgkeuzelijst. Kies anders **nieuw** en typ een naam voor de groep.
       - **Locatie**: Stel de locatie waar u van plan bent om uw virtuele machines te maken.
       - **Foutdomeinen**: Gebruik de standaardwaarde (3).
       - **Updatedomeinen**: Gebruik de standaardwaarde (5).
@@ -139,7 +141,7 @@ Met deze voorwaarden is voldaan, kunt u doorgaan met het ontwikkelen van uw fail
 
    Kies de juiste installatiekopie op basis van hoe u wilt betalen voor de SQL Server-licentie:
 
-   - **Betalen per gebruik-licentieverlening**: de kosten per seconde van deze installatiekopieën bevat de SQL Server-licentie:
+   - **Betalen per gebruik-licentieverlening**: De kosten per seconde van deze installatiekopieën bevat de SQL Server-licentie:
       - **SQL Server 2016 Enterprise op Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard op Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer op Windows Server Datacenter 2016**
@@ -237,14 +239,14 @@ Voor het valideren van het cluster met de gebruikersinterface, moet u de volgend
 
 1. In **Serverbeheer**, klikt u op **extra**, klikt u vervolgens op **Failoverclusterbeheer**.
 1. In **Failoverclusterbeheer**, klikt u op **actie**, klikt u vervolgens op **configuratie valideren...** .
-1. Klik op **Volgende**.
+1. Klik op **volgende**.
 1. Op **Servers selecteren of een Cluster**, typ de naam van beide virtuele machines.
-1. Op **testopties**, kiest u **alleen mij geselecteerde tests uitvoeren**. Klik op **Volgende**.
+1. Op **testopties**, kiest u **alleen mij geselecteerde tests uitvoeren**. Klik op **volgende**.
 1. Op **testen selectie**, bevatten alle tests uit behalve **opslag**. Zie de volgende afbeelding:
 
    ![Valideren van Tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Klik op **Volgende**.
+1. Klik op **volgende**.
 1. Op **bevestiging**, klikt u op **volgende**.
 
 De **Wizard een configuratie valideren** de validatietests wordt uitgevoerd.
@@ -345,7 +347,7 @@ Nadat u de failover-cluster en alle clusteronderdelen van de, inclusief opslag h
    >[!NOTE]
    >Als u de installatiekopie van een Azure Marketplace-galerie met SQL Server gebruikt, is SQL Server-hulpprogramma's zijn opgenomen in de afbeelding. Als u deze installatiekopie niet hebt gebruikt, installeert u de SQL Server-hulpprogramma's afzonderlijk. Zie [downloaden van SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Stap 5: Azure load balancer maken
+## <a name="step-5-create-azure-load-balancer"></a>Stap 5: Azure-load balancer maken
 
 Op Azure virtual machines, clusters een load balancer gebruiken voor het opslaan van een IP-adres dat moet worden op één clusterknooppunt tegelijk. In deze oplossing bevat de load balancer het IP-adres voor de SQL Server-FCI.
 
@@ -363,14 +365,14 @@ De load balancer maken:
 
 1. Configureer de load balancer met:
 
-   - **Naam**: een naam ter identificatie van de load balancer.
-   - **Type**: de load balancer kan worden openbaar of privé zijn. Een privéadres voor de load balancer kunt toegankelijk vanaf binnen hetzelfde VNET. De meeste Azure-toepassingen gebruiken een privéadres voor de load balancer. Als uw toepassing toegang tot SQL Server rechtstreeks via Internet moet, gebruikt u een openbare load balancer.
-   - **Virtueel netwerk**: hetzelfde netwerk bevinden als de virtuele machines.
-   - **Subnet**: hetzelfde subnet als de virtuele machines.
-   - **Privé IP-adres**: hetzelfde IP-adres dat u hebt toegewezen aan de netwerkbron van FCI van SQL Server-cluster.
-   - **Abonnement**: uw Azure-abonnement.
-   - **Resourcegroep**: gebruik dezelfde resourcegroep bevinden als uw virtuele machines.
-   - **Locatie**: gebruik dezelfde Azure-locatie als uw virtuele machines.
+   - **Naam**: Een naam ter identificatie van de load balancer.
+   - **Type**: De load balancer kan worden openbaar of privé zijn. Een privéadres voor de load balancer kunt toegankelijk vanaf binnen hetzelfde VNET. De meeste Azure-toepassingen gebruiken een privéadres voor de load balancer. Als uw toepassing toegang tot SQL Server rechtstreeks via Internet moet, gebruikt u een openbare load balancer.
+   - **Virtueel netwerk**: Hetzelfde netwerk bevinden als de virtuele machines.
+   - **Subnet**: Hetzelfde subnet bevindt als de virtuele machines.
+   - **Privé IP-adres**: Hetzelfde IP-adres dat u hebt toegewezen aan de netwerkbron van FCI van SQL Server-cluster.
+   - **Abonnement**: Uw Azure-abonnement.
+   - **Resourcegroep**: Gebruik dezelfde resourcegroep bevinden als uw virtuele machines.
+   - **Locatie**: Gebruik dezelfde Azure-locatie als uw virtuele machines.
    Zie de volgende afbeelding:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -395,9 +397,9 @@ De load balancer maken:
 
 1. Op de **test toevoegen** blade <a name="probe"> </a>de status test parameters instellen:
 
-   - **Naam**: een naam op voor de statustest.
+   - **Naam**: Een naam voor de statustest.
    - **Protocol**: TCP.
-   - **Poort**: ingesteld op een beschikbare TCP-poort. Deze poort is een open firewallpoort vereist. Gebruik de [dezelfde poort](#ports) u op de firewall instellen voor de statustest.
+   - **Poort**: Ingesteld op een beschikbare TCP-poort. Deze poort is een open firewallpoort vereist. Gebruik de [dezelfde poort](#ports) u op de firewall instellen voor de statustest.
    - **Interval**: 5 seconden.
    - **Drempelwaarde voor onjuiste status**: 2 achtereenvolgende mislukte pogingen.
 
@@ -411,19 +413,19 @@ De load balancer maken:
 
 1. De load balancer-regels parameters instellen:
 
-   - **Naam**: een naam op voor de load balancer-regels.
-   - **Frontend-IP-adres**: IP-adres voor de netwerkbron van FCI van SQL Server-cluster gebruiken.
-   - **Poort**: voor de SQL Server FCI TCP-poort ingesteld. De exemplaar-standaardpoort is 1433.
-   - **Back-endpoort**: deze waarde gebruikt dezelfde poort als de **poort** wanneer u de waarde **zwevend IP (direct server return)**.
-   - **Back-endpool**: Gebruik de naam van de back-end-toepassingen die u eerder hebt geconfigureerd.
+   - **Naam**: Een naam voor de load balancer-regels.
+   - **Frontend-IP-adres**: Gebruik het IP-adres voor de netwerkbron van FCI van SQL Server-cluster.
+   - **Poort**: Voor de SQL Server FCI TCP-poort ingesteld. De exemplaar-standaardpoort is 1433.
+   - **Back-endpoort**: Deze waarde gebruikt dezelfde poort als de **poort** wanneer u de waarde **zwevend IP (direct server return)**.
+   - **Back-end-pool**: Gebruik de naam van de back-end-toepassingen die u eerder hebt geconfigureerd.
    - **Statustest**: Gebruik de statustest die u eerder hebt geconfigureerd.
-   - **Sessiepersistentie**: geen.
+   - **Sessiepersistentie**: Geen.
    - **Time-out (minuten)**: 4.
-   - **Zwevend IP (direct server return)**: ingeschakeld
+   - **Zwevend IP (direct server return)**: Ingeschakeld
 
 1. Klik op **OK**.
 
-## <a name="step-6-configure-cluster-for-probe"></a>Stap 6: Cluster voor test configureren
+## <a name="step-6-configure-cluster-for-probe"></a>Stap 6: Voor test-cluster configureren
 
 Stel de parameter van cluster test poort in PowerShell.
 
@@ -444,11 +446,11 @@ In het vorige script, stel de waarden voor uw omgeving. De volgende lijst beschr
 
    - `<Cluster Network Name>`: Windows Server Failover Cluster-naam voor het netwerk. In **Failoverclusterbeheer** > **netwerken**, met de rechtermuisknop op het netwerk en klikt u op **eigenschappen**. De juiste waarde ligt onder de **naam** op de **algemene** tabblad. 
 
-   - `<SQL Server FCI IP Address Resource Name>`: Resourcenaam SQL Server FCI-IP-adres. In **Failoverclusterbeheer** > **rollen**, onder de functie SQL Server FCI onder **servernaam**, klik met de rechtermuisknop op de resource van het IP-adres en klikt u op **Eigenschappen**. De juiste waarde ligt onder de **naam** op de **algemene** tabblad. 
+   - `<SQL Server FCI IP Address Resource Name>`: Naam voor de resource van SQL Server FCI IP-adres. In **Failoverclusterbeheer** > **rollen**, onder de functie SQL Server FCI onder **servernaam**, klik met de rechtermuisknop op de resource van het IP-adres en klikt u op **Eigenschappen**. De juiste waarde ligt onder de **naam** op de **algemene** tabblad. 
 
-   - `<ILBIP>`: De ILB IP-adres. Dit adres is geconfigureerd in Azure portal als de front-end-ILB-adres. Dit is ook het SQL Server FCI IP-adres. U vindt deze in **Failoverclusterbeheer** op dezelfde Eigenschappenpagina waar u zich de `<SQL Server FCI IP Address Resource Name>`.  
+   - `<ILBIP>`: Het ILB IP-adres. Dit adres is geconfigureerd in Azure portal als de front-end-ILB-adres. Dit is ook het SQL Server FCI IP-adres. U vindt deze in **Failoverclusterbeheer** op dezelfde Eigenschappenpagina waar u zich de `<SQL Server FCI IP Address Resource Name>`.  
 
-   - `<nnnnn>`: De testpoort die u hebt geconfigureerd in de load balancer-statustest is. Een niet-gebruikte TCP-poort is ongeldig. 
+   - `<nnnnn>`: Is de testpoort die u hebt geconfigureerd in de load balancer-statustest. Een niet-gebruikte TCP-poort is ongeldig. 
 
 >[!IMPORTANT]
 >Het subnetmasker voor de cluster-parameter moet het TCP IP broadcast-adres: `255.255.255.255`.
@@ -459,7 +461,7 @@ Na het instellen van de cluster-test ziet u alle van de clusterparameters in Pow
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>Stap 7: Testen FCI-failover
+## <a name="step-7-test-fci-failover"></a>Stap 7: Testfailover FCI
 
 Test-failover van de FCI clusterfunctionaliteit valideren. Voer de volgende stappen uit:
 

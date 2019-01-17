@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880145"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352918"
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -94,7 +94,7 @@ De functie van de omleidings-URL wordt bijgehouden in de achterstand van Azure D
 
 Ja. Azure DNS ondersteunt de uitgebreide ASCII codering voor TXT-recordsets. Maar u moet de nieuwste versie van de Azure REST API's, SDK's, PowerShell en de CLI. Versies die ouder zijn dan 1 oktober 2017, of SDK 2.1 bieden geen ondersteuning voor de uitgebreide ASCII-set. 
 
-Een gebruiker kan een tekenreeks, bijvoorbeeld opgeven als de waarde voor een TXT-record met de uitgebreide ASCII-teken \128. Een voorbeeld is "abcd\128efgh." Azure DNS maakt gebruik van de bytewaarde van dit teken 128 is, in interne weergave. Op het moment van DNS-omzetting, wordt deze bytewaarde in het antwoord geretourneerd. Let ook op dat "abc" en "\097\098\099" uitwisselbaar zijn wat betreft resolutie is. 
+U kunt bijvoorbeeld een tekenreeks opgeven als de waarde voor een TXT-record met de uitgebreide ASCII-teken \128. Een voorbeeld is "abcd\128efgh." Azure DNS maakt gebruik van de bytewaarde van dit teken 128 is, in interne weergave. Op het moment van DNS-omzetting, wordt deze bytewaarde in het antwoord geretourneerd. Let ook op dat "abc" en "\097\098\099" uitwisselbaar zijn wat betreft resolutie is. 
 
 We volgen [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone bestand master indeling escape regels voor TXT-records. Bijvoorbeeld, `\` nu eigenlijk verlaat u alles per de RFC. Als u opgeeft `A\B` als de waarde van de TXT-record, is het weergegeven en opgelost als alleen `AB`. Als u echt wilt dat de TXT-record dat `A\B` resolutie, moet u als escape voor de `\` opnieuw. Geef een voorbeeld: `A\\B`.
 
@@ -195,7 +195,7 @@ Als u wilt configureren IDN's in Azure DNS, moet u de naam van zone of recordnaa
 
 Ondersteuning voor persoonlijke domeinen is geïmplementeerd met behulp van de functie voor Privézones. Deze functie is momenteel beschikbaar in openbare preview. Privézones worden beheerd met behulp van dezelfde hulpprogramma's als internetgerichte Azure DNS-zones. Ze zijn omgezet alleen uit in de opgegeven virtuele netwerken. Zie voor meer informatie de [overzicht](private-dns-overview.md).
 
-Op dit moment worden private zones worden niet ondersteund in Azure portal. 
+Op dit moment worden niet private zones ondersteund in Azure portal.
 
 Zie voor informatie over andere interne DNS-opties in Azure, [naamomzetting voor VM's en rolexemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -217,7 +217,7 @@ Ja. Klanten kunnen maximaal 10 Resolution virtual networks koppelen aan een enke
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Een virtueel netwerk dat bij een ander abonnement hoort kan worden toegevoegd als een virtuele resolutienetwerk aan een privézone?
 
-Ja. De gebruiker moet gemachtigd schrijven bewerking op de virtuele netwerken en de privé-DNS-zone. De machtiging schrijven kan worden verleend aan verschillende RBAC-rollen. De klassieke netwerk Inzender RBAC-rol heeft bijvoorbeeld schrijfmachtigingen voor de virtuele netwerken. Zie voor meer informatie over RBAC-rollen [Role-based access control van](../role-based-access-control/overview.md).
+Ja. U moet schrijfmachtiging bewerking op de virtuele netwerken en de privé-DNS-zone. De machtiging schrijven kan worden verleend aan verschillende RBAC-rollen. De klassieke netwerk Inzender RBAC-rol heeft bijvoorbeeld schrijfmachtigingen voor de virtuele netwerken. Zie voor meer informatie over RBAC-rollen [Role-based access control van](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>De DNS-records automatisch worden geregistreerd virtuele machine in een privé-zone worden automatisch verwijderd wanneer de virtuele machines worden verwijderd door de klant?
 
@@ -257,7 +257,7 @@ Ja. Tijdens de openbare preview bestaat de volgende beperkingen.
 * Als een virtueel netwerk van de registratie is opgegeven, kunnen de DNS-records voor de virtuele machines van dit virtuele netwerk die zijn geregistreerd bij de privé-zone worden weergegeven of opgehaald vanuit PowerShell, CLI of API's. De VM-records worden geregistreerd en is opgelost.
 * Omgekeerde DNS-geldt alleen voor privé-IP-adresruimte in het Registration virtual network.
 * Reverse-DNS voor een privé IP-adres dat niet geregistreerd in de privézone retourneert 'internal.cloudapp.net' als het DNS-achtervoegsel. Dit achtervoegsel kan niet worden omgezet. Een voorbeeld is een privé IP-adres voor een virtuele machine in een virtueel netwerk dat gekoppeld als een virtuele resolutienetwerk aan een privézone.
-* Een virtueel netwerk geen virtuele machines met een NIC die is gekoppeld wanneer deze voor de eerste keer aan een privézone als een registratie- of Resolutienetwerken virtueel netwerk koppelingen. Met andere woorden, moet het virtuele netwerk leeg zijn. Het virtuele netwerk vervolgens mag niet leeg zijn voor het toekomstige koppelen als een registratie- of Resolutienetwerken virtueel netwerk naar andere private zones. 
+* Een virtueel netwerk moet leeg zijn als voor de eerste keer aan een privézone als een registratie- of Resolutienetwerken virtueel netwerk worden gekoppeld. Het virtuele netwerk vervolgens mag niet leeg zijn voor het toekomstige koppelen als een registratie- of Resolutienetwerken virtueel netwerk naar andere private zones.
 * Voorwaardelijk doorsturen wordt niet ondersteund, bijvoorbeeld, zodat het probleem zou moeten tussen Azure en on-premises netwerken. Meer informatie over hoe klanten in dit scenario via andere methoden kunnen realiseren. Zie [naamomzetting voor virtuele machines en rollen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Zijn er quota's of limieten voor zones of records voor privézones?

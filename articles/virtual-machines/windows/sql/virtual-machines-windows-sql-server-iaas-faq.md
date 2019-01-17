@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339396"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358980"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -49,13 +49,19 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
    Ja. Azure heeft slechts één afbeelding per primaire versie en editie. Bijvoorbeeld, wanneer een nieuw servicepack van SQL Server wordt uitgebracht, voegt Azure een nieuwe installatiekopie naar de galerie voor die servicepack. De SQL Server-installatiekopie voor de voorafgaande servicepack wordt onmiddellijk verwijderd uit de Azure-portal. Het is echter nog steeds beschikbaar voor het inrichten van PowerShell voor de komende drie maanden. De vorige installatiekopie met service pack is niet meer beschikbaar na drie maanden. Dit verwijderingsbeleid is ook van toepassing als een SQL Server-versie niet ondersteund wordt wanneer het einde van de levenscyclus is bereikt.
 
+
+1. **Is het mogelijk om de installatiekopie van een oudere van SQL Server die wordt niet weergegeven in de Azure Portal implementeren?**
+
+   Ja, met behulp van PowerShell. Zie voor meer informatie over het implementeren van SQL Server-VM's met behulp van PowerShell [over het inrichten van SQL Server-machines met Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 1. **Kan ik een VHD-installatiekopie maken van een SQL Server-VM?**
 
    Ja, maar er zijn enkele overwegingen. Als u deze VHD naar een nieuwe virtuele machine in Azure implementeert, doet u niet ge de sectie configuratie van SQL Server in de portal. U moet dan de SQL Server-configuratie-opties via PowerShell beheren. Ook wordt u gefactureerd voor het tarief van uw installatiekopie oorspronkelijk is gebaseerd op SQL-VM. Dit geldt zelfs als u SQL Server uit de VHD voordat u implementeert verwijderen. 
 
 1. **Is het mogelijk voor het instellen van de configuraties niet weergegeven in de galerie met virtuele machines (voor een voorbeeld van de Windows 2008 R2 en SQL Server 2012)?**
 
-   Nee. Galerie-installatiekopieën voor virtuele machine die SQL Server op te nemen, moet u een van de opgegeven installatiekopieën selecteren.
+   Nee. Galerie-installatiekopieën voor virtuele machine die SQL Server op te nemen, moet u een van de opgegeven installatiekopieën via Azure portal of via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## <a name="creation"></a>Het maken
 
@@ -102,11 +108,11 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
  
    Ja. Alle klanten zich registreren bij de nieuwe SQL-VM-resourceprovider. Echter alleen klanten met Software Assurance-voordeel kunnen activeren de [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (of byol-model) op een virtuele machine van SQL Server. 
 
-1. **Wat gebeurt er met de _\*Microsoft.SqlVirtualMachine_\* resource als de VM-resource is verplaatst of verwijderd?** 
+1. **Wat gebeurt er met de _* Microsoft.SqlVirtualMachine_* resource als de VM-resource is verplaatst of verwijderd?** 
 
    Wanneer de Microsoft.Compute/VirtualMachine-resource is verwijderd of verplaatst, en vervolgens de gekoppelde Microsoft.SqlVirtualMachine-resource is op de hoogte gesteld aan de bewerking asynchroon te repliceren.
 
-1. **Wat gebeurt er met de virtuele machine als de _\*Microsoft.SqlVirtualMachine_\* resource wordt verwijderd?**
+1. **Wat gebeurt er met de virtuele machine als de _* Microsoft.SqlVirtualMachine_* resource wordt verwijderd?**
 
    De resource Microsoft.Compute/VirtualMachine wordt niet negatief beïnvloed wanneer de Microsoft.SqlVirtualMachine-resource is verwijderd. De licentie wijzigingen wordt echter standaard terug naar de oorspronkelijke bron van installatiekopie. 
 
@@ -161,7 +167,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 ## <a name="resources"></a>Resources
 
-**Windows-VM's**:
+**Virtuele Windows-machines**:
 
 * [Overzicht van SQL Server op een Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
 * [Een SQL Server Windows VM inrichten](virtual-machines-windows-portal-sql-server-provision.md)

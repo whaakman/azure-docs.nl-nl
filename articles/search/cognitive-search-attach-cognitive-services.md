@@ -1,5 +1,5 @@
 ---
-title: Een Cognitive Services-resource koppelen aan een set vaardigheden - Azure Search
+title: Een Cognitive Services-resource met een set vaardigheden - Azure Search koppelen
 description: Instructies voor het koppelen van een Cognitive Services All-in-One-abonnement voor een pijplijn cognitieve verrijking in Azure Search.
 manager: cgronlun
 author: LuisCabrer
@@ -7,36 +7,36 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/07/2018
+ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231424"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351455"
 ---
-# <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource koppelen aan een set vaardigheden in Azure Search 
+# <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
 
 De AI-algoritmen te stimuleren [cognitief zoeken pijplijnen](cognitive-search-concept-intro.md) voor de verwerking van niet-gestructureerde gegevens die zijn gebaseerd op [ **Cognitive Services-resources**](https://azure.microsoft.com/services/cognitive-services/). Resources, zoals [ **Computer Vision** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) analyse van de afbeelding en optische tekenherkenning (OCR) opgeven voor het extraheren van tekst en de structuur uit afbeeldingsbestanden, terwijl [ **tekst Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) biedt, zoals entiteit erkenning en de sleutel vindt er sleuteltermextractie plaats, een paar te noemen verwerking van natuurlijke taal.
 
-U kunt een beperkt aantal documenten gratis verrijken of een factureerbare Cognitive Services-resource voor workloads met grotere en meer frequente koppelen. In dit artikel leert u hoe u een Cognitive Services-resource koppelen aan uw cognitieve vaardigheden aan gegevens duidelijker maken tijdens het indexeren.
+U kunt een beperkt aantal documenten gratis verrijken of een factureerbare Cognitive Services-resource voor workloads met grotere en meer frequente koppelen. In dit artikel leert u hoe u een Cognitive Services-resource koppelen aan uw cognitieve vaardigheden uit om gegevens tijdens waardevoller [Azure Search indexeren](search-what-is-an-index.md).
 
 Als uw pijplijn bestaat uitsluitend uit [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), u hoeft niet te koppelen van een resource voor Cognitive Services.
 
 > [!NOTE]
 > U kunt vanaf 21 December 2018, een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Dit kan we kosten in rekening gebracht voor de uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
 >
-> De uitvoering van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) wordt in rekening gebracht tegen de [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/), op dezelfde prijs als u de taak onafhankelijk van Azure Search heeft uitgevoerd. Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
+> De uitvoering van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) wordt in rekening gebracht tegen de [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services), op hetzelfde tarief als u de taak rechtstreeks heeft uitgevoerd. Uitpakken van de installatiekopie is een factureerbare gebeurtenis van Azure Search, momenteel aangeboden tegen een preview-prijzen. Zie voor meer informatie, de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400) of [hoe het factureren werkt](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Gratis resources gebruiken
 
-U kunt een beperkt, gratis verwerkingsoptie waarmee u hebt op 20 document enrichments dagelijks, voldoende is recht voor het voltooien van de zelfstudie en de Snelstartgids oefeningen voor cognitief zoeken. 
+Een beperkte, gratis verwerkingsoptie kunt u de cognitief zoeken zelfstudie en de Snelstartgids oefeningen. 
 
 > [!Important]
-> Vanaf 1 februari 2019, de **gratis (beperkte Enrichments)** is beperkt tot 20 documenten per dag. 
+> Vanaf 1 februari 2019 de **gratis (beperkte Enrichments)** worden beperkt tot 20 documenten per dag. 
 
 1. Open de **gegevens importeren** wizard.
 

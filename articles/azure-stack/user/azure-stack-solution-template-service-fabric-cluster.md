@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087273"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351846"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
@@ -118,7 +118,7 @@ Gebruik het volgende script in de Key Vault maken en toevoegen de *clustercertif
    ``` 
 
 
-Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>De Marketplace-item implementeren
 
@@ -138,9 +138,9 @@ Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https
 
    Voor de *Admin-Client de vingerafdruk van certificaat*, voer de vingerafdruk van het *Admin clientcertificaat*. (Zie de [vereisten](#prerequisites).)
    
-   - Bron Key Vault: Geef hele *Key Vault-id* tekenreeks in de scriptresultaten. 
+   - De Bronsleutelkluis:  Geef het volledige *Key Vault-id* tekenreeks in de scriptresultaten. 
    - Cluster-URL voor certificaat: Geef de volledige URL van de *geheim Id* in de scriptresultaten. 
-   - Cluster van de vingerafdruk van certificaat: Geef de *Cluster de vingerafdruk van certificaat* uit de scriptresultaten.
+   - Cluster de vingerafdruk van certificaat: Geef de *Cluster certificaatvingerafdruk* uit de scriptresultaten.
    - Beheerclient Certificaatvingerafdrukken: Geef de *Admin-Client de vingerafdruk van certificaat* hebt gemaakt in de vereisten. 
 
    ![Scriptuitvoer](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
@@ -155,7 +155,7 @@ Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https
 U kunt toegang tot de Service Fabric-cluster met behulp van de Service Fabric Explorer of de Service Fabric PowerShell.
 
 
-### <a name="use-service-fabric-explorer"></a>Service Fabric Explorer gebruiken
+### <a name="use-service-fabric-explorer"></a>Use Service Fabric Explorer
 1.  Valideren dat de webbrowser toegang tot uw certificaat voor de Beheerclient heeft en kan worden geverifieerd met uw Service Fabric-cluster.  
 
     a. Open Internet Explorer en Ga naar **Internetopties** > **inhoud** > **certificaten**.

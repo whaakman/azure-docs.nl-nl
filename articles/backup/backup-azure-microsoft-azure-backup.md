@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728273"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351608"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installeren en upgraden van Azure Backup Server
 > [!div class="op_single_selector"]
@@ -30,10 +30,10 @@ In dit artikel wordt uitgelegd hoe u uw omgeving voorbereiden op back-up van wor
 >
 >
 
-U kunt ook infrastructuur beveiligen als een Service (IaaS)-werkbelastingen, zoals virtuele machines in Azure.
+MABS geïmplementeerd in een Azure-VM kan back-up van de virtuele machine in Azure, maar ze moeten in hetzelfde domein zodat back-upbewerking. Het proces van een Azure-VM back blijft hetzelfde als de back-ups van virtuele machines on-premises, maar MABS in Azure implementeren kent enkele beperkingen. Zie voor meer informatie over beperking [DPM als een virtuele machine van Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel bevat de informatie en procedures voor het herstellen van virtuele machines die zijn geïmplementeerd met behulp van de Resource Manager-model.
+> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel bevat de informatie en procedures voor het herstellen van virtuele machines die zijn geïmplementeerd met behulp van de Resource Manager-model.
 >
 >
 
@@ -43,7 +43,7 @@ Azure Backup Server neemt veel van de back-functionaliteit van workload van Data
 De eerste stap naar de Azure Backup-Server om aan de slag en actief is voor het instellen van een Windows-Server. Uw server worden in Azure of on-premises.
 
 ### <a name="using-a-server-in-azure"></a>Met behulp van een server in Azure
-Bij het kiezen van een server voor het uitvoeren van Azure Backup Server, verdient het aanbeveling dat u beginnen met een afbeelding van Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter of Windows Server 2019 Datacenter. Het artikel [uw eerste Windows-machine maken in Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), biedt een zelfstudie voor aan de slag met de aanbevolen virtuele machine in Azure, zelfs als u Azure al eerder nog nooit hebt gebruikt. De aanbevolen minimale vereisten voor de server-machine (VM) moeten zijn: Standard A2 met twee kernen en 3,5 GB RAM-geheugen.
+Bij het kiezen van een server voor het uitvoeren van Azure Backup Server, verdient het aanbeveling dat u beginnen met een afbeelding van Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter of Windows Server 2019 Datacenter. Het artikel [uw eerste Windows-machine maken in Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), biedt een zelfstudie voor aan de slag met de aanbevolen virtuele machine in Azure, zelfs als u Azure al eerder nog nooit hebt gebruikt. De aanbevolen minimale vereisten voor de server-machine (VM) moet zijn: Standard a2 met twee kernen en 3,5 GB RAM-geheugen.
 
 Werklasten beveiligen met Azure Backup Server heeft veel aspecten. Het artikel [DPM installeren als een virtuele machine van Azure](https://technet.microsoft.com/library/jj852163.aspx), helpt deze aspecten uitgelegd. Lees dit artikel volledig voordat het implementeren van de machine.
 
@@ -52,7 +52,7 @@ Als u niet uitvoeren van de basis-server in Azure wilt, kunt u de server uitvoer
 
 | Besturingssysteem | Platform | SKU |
 |:--- | --- |:--- |
-| WindowsServer 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 en hoger) |
+| Windows Server 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 en hoger) |
 | Windows Server 2016 en de meest recente SP 's |64 bits |Standard, Datacenter, Essentials (MABS V2 en hoger) |
 | Windows Server 2012 R2 en de meest recente SP's |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 en de meest recente SP's |64 bits |Datacenter, Foundation, Standard |
@@ -186,12 +186,12 @@ Zodra de extractie proces is voltooid, schakel het selectievakje in om te starte
 
 4. Geef een locatie voor de installatie van Microsoft Azure Backup server-bestanden en klikt u op **volgende**.
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     De nieuwe locatie is een vereiste voor back-up naar Azure. Zorg ervoor dat de nieuwe locatie is ten minste 5% van de gegevens die zijn gepland om te worden back-ups op de cloud. Voor bescherming van de schijf moeten afzonderlijke schijven worden geconfigureerd nadat de installatie is voltooid. Zie voor meer informatie over opslaggroepen [configureert u opslaggroepen en schijfopslag](https://technet.microsoft.com/library/hh758075.aspx).
 5. Geef een sterk wachtwoord voor de beperkte lokale gebruikersaccounts en klik op **volgende**.
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 6. Selecteer of u wilt gebruiken *Microsoft Update* om te controleren op updates en klikt u op **volgende**.
 
    > [!NOTE]
@@ -199,10 +199,10 @@ Zodra de extractie proces is voltooid, schakel het selectievakje in om te starte
    >
    >
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Controleer de *samenvatting van instellingen* en klikt u op **installeren**.
 
-    ![Back-up PreReq2 van Microsoft Azure](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
+    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. De installatie gebeurt in fasen. In de eerste fase wordt de Microsoft Azure Recovery Services-Agent geïnstalleerd op de server. De wizard controleert ook of verbinding met Internet. Als er verbinding met Internet beschikbaar is kunt u doorgaan met installatie, zo niet, moet u opgeven de proxygegevens verbinding maken met Internet.
 
     De volgende stap is het configureren van de Microsoft Azure Recovery Services-Agent. Als onderdeel van de configuratie moet u uw kluisreferenties opgeven voor het registreren van de machine naar de recovery services-kluis. U biedt ook een wachtwoordzin op om te versleutelen/ontsleutelen van de gegevens die worden verzonden tussen Azure en uw locatie. U kunt automatisch genereren van een wachtwoordzin of uw eigen minimaal 16 tekens wachtwoordzin opgeven. Ga verder met de wizard totdat de agent is geconfigureerd.
@@ -263,7 +263,7 @@ Hier volgen de stappen als u MABS verplaatst naar een nieuwe server behoudt de o
 9. Herstel de DPMDB van SQL
 10. Installeren vanaf de opdrachtregel admin op cd van de nieuwe server met Microsoft Azure Backup locatie en de bin-map
 
-Voorbeeld van pad: C:\windows\system32 > cd ' c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+Voorbeeld van pad: C:\Windows\System32 > cd ' c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
 naar Azure back-up Voer DPMSYNC-SYNC
 
 10) Voer DPMSYNC-SYNC-Opmerking Als u nieuwe schijven hebt toegevoegd aan de DPM-opslaggroep in plaats van verplaatsen van de oude versie, voer DPMSYNC - reallocatereplica uit

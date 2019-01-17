@@ -1,11 +1,11 @@
 ---
-title: Microsoft Threat Modeling hulpprogramma - Azure | Microsoft Docs
-description: Meer informatie over alle functies die beschikbaar zijn in het hulpprogramma Threat Modeling
+title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: Meer informatie over alle functies die beschikbaar zijn in de Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754742"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359337"
 ---
-# <a name="threat-modeling-tool-feature-overview"></a>Overzicht van Threat Modeling hulpprogramma-functies
+# <a name="threat-modeling-tool-feature-overview"></a>Functieoverzicht van Threat Modeling Tool
 
-Het hulpprogramma Threat Modeling kan u helpen bij uw threat modeling behoeften. Zie voor een algemene inleiding tot voor het hulpprogramma [aan de slag met het hulpprogramma Threat Modeling](./azure-security-threat-modeling-tool-getting-started.md).
+De Threat Modeling Tool kan u helpen bij uw threat modeling behoeften. Zie voor een eenvoudige Inleiding tot het hulpprogramma, [aan de slag met de Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started.md).
 
 > [!NOTE]
->Het hulpprogramma Threat Modeling vaak wordt bijgewerkt, dus deze handleiding vaak als u wilt zien van onze nieuwste functies en verbeteringen.
+>De Threat Modeling Tool regelmatig wordt bijgewerkt, Raadpleeg deze handleiding vaak als u wilt zien van onze nieuwste functies en verbeteringen.
 
-Als u een lege pagina, schakelt **een Model maken**.
+Als u wilt openen op een lege pagina, selecteer **maakt een Model**.
 
 ![Lege pagina](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
-Als de functies die momenteel beschikbaar in het hulpprogramma wilt weergeven, gebruikt u de risicomodel gemaakt door ons team in het [aan de slag](./azure-security-threat-modeling-tool-getting-started.md) voorbeeld.
+Als de functies die momenteel beschikbaar in het hulpprogramma weergeven, gebruikt u de risicomodel die zijn gemaakt door ons team in de [aan de slag](./azure-security-threat-modeling-tool-getting-started.md) voorbeeld.
 
 ![Basic risicomodel](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Navigatie
 
-Voordat we de ingebouwde functies bespreken, gaan we de belangrijkste onderdelen gevonden in het hulpprogramma te bekijken.
+Voordat we de ingebouwde functies bespreken, laten we bekijken de belangrijkste onderdelen die zijn gevonden in het hulpprogramma.
 
 ### <a name="menu-items"></a>Menu-items
 
-De ervaring is vergelijkbaar met andere Microsoft-producten. We bekijken op het hoogste niveau menu-items.
+De ervaring is vergelijkbaar met andere Microsoft-producten. Laten we bekijken de op het hoogste niveau menu-items.
 
 ![Menu-items](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Label                               | Details      |
 | --------------------------------------- | ------------ |
-| **File** | <ul><li>Bestanden openen, opslaan en sluiten</li><li>Aanmelden en afmelden bij OneDrive-accounts.</li><li>Koppelingen (weergeven en bewerken) delen.</li><li>Informatie weergeven.</li><li>Een nieuwe sjabloon toepassen op bestaande modellen.</li></ul> |
-| **Bewerken** | Ongedaan maken en opnieuw uitvoeren van acties zoals kopiëren, plakken, en verwijder. |
-| **Weergave** | <ul><li>Schakelen tussen **Analysis** en **ontwerp** weergaven.</li><li>Open gesloten windows (bijvoorbeeld stencils, eigenschappen van het element en berichten).</li><li>Lay-out standaardinstellingen herstellen.</li></ul> |
-| **Diagram** | Schakelen tussen tabbladen diagrammen toevoegen en verwijderen diagrammen. |
-| **Rapporten** | HTML-rapporten maken om te delen met anderen. |
-| **Help** | Handleidingen voor het gebruik van het hulpprogramma vinden. |
+| **File** | <ul><li>Bestanden openen, opslaan en sluiten</li><li>Aanmelden en afmelden bij OneDrive-accounts.</li><li>Deel koppelingen (weergeven en bewerken).</li><li>Informatie weergeven.</li><li>Een nieuwe sjabloon toepassen op bestaande modellen.</li></ul> |
+| **Edit** | Ongedaan maken en opnieuw uitvoeren van acties zoals kopiëren, plakken en verwijderen. |
+| **Weergave** | <ul><li>Schakelen tussen **Analysis** en **ontwerp** weergaven.</li><li>Open gesloten windows (zo stencils, eigenschappen van het element en berichten).</li><li>Indeling opnieuw instellen op de standaardinstellingen.</li></ul> |
+| **Diagram** | Toevoegen en verwijderen van diagrammen en schakelen tussen tabbladen diagrammen. |
+| **Rapporten** | HTML-rapporten maken om met anderen delen. |
+| **Help** | Gidsen voor het gebruik van het hulpprogramma vinden. |
 
-De symbolen zijn sneltoetsen voor de site op het hoogste menu's:
+De symbolen zijn snelkoppelingen voor de menu's in op het hoogste niveau:
 
 | Symbool                               | Details      |
 | --------------------------------------- | ------------ |
-| **Open** | Hiermee opent u een nieuw bestand. |
+| **openen** | Een nieuw bestand wordt geopend. |
 | **Opslaan** | Hiermee slaat u het huidige bestand. |
 | **Ontwerp** | Hiermee opent u de **ontwerp** weergeven, waarin u modellen kunt maken. |
-| **Analyseren** | Toont gegenereerd bedreigingen en hun eigenschappen. |
+| **Analyseren** | Toont gegenereerd bedreigingen en de bijbehorende eigenschappen. |
 | **Diagram toevoegen** | Voegt een nieuw diagram (vergelijkbaar met de nieuwe tabbladen in Excel). |
 | **Diagram verwijderen** | Hiermee verwijdert u het huidige diagram. |
-| **Knippen/kopiëren/plakken** | Kopieert en plakt elementen knippen. |
+| **Knippen/kopiëren/plakken** | Kopieert, delen en elementen worden geplakt. |
 | **Ongedaan maken/opnieuw uitvoeren** | Hiermee wordt ongedaan gemaakt en opnieuw uitvoeren van acties. |
-| **Inzoomen- / uitzoomen** | Zoomt in en uit het diagram voor een beter beeld. |
+| **Zoom in / uitzoomen** | Zoomt in en uit het diagram voor een betere weergave. |
 | **Feedback** | Hiermee opent u de MSDN-Forum. |
 
 ### <a name="canvas"></a>Canvas
 
-Het canvas is de ruimte waar u slepen en neerzetten van elementen. Slepen en neerzetten is de snelste en meest efficiënte manier om modellen te maken. U kunt ook met de rechtermuisknop op en selecteer de items in het menu toevoegen algemene versies van elementen, zoals wordt weergegeven:
+Het canvas is de ruimte waar u slepen en neerzetten elementen. Slepen en neerzetten is de snelste en meest efficiënte manier om modellen te bouwen. U kunt ook met de rechtermuisknop op en selecteert u items in het menu om toe te voegen algemene versies van elementen, zoals wordt weergegeven:
 
-#### <a name="drop-the-stencil-on-the-canvas"></a>Het stencil op het canvas te verwijderen
+#### <a name="drop-the-stencil-on-the-canvas"></a>Het stencil neerzetten op het canvas
 
 ![Canvas neerzetten](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
@@ -84,74 +84,74 @@ Het canvas is de ruimte waar u slepen en neerzetten van elementen. Slepen en nee
 
 ### <a name="stencils"></a>Stencils
 
-Op basis van de sjabloon die u selecteert, kunt u de beschikbaar voor gebruik stencils vinden. Als u de juiste elementen niet vinden, gebruikt u een andere sjabloon. Of u een sjabloon aanpassen aan uw behoeften kunt wijzigen. In het algemeen kunt u een combinatie van categorieën dergelijke vinden:
+Op basis van de sjabloon die u selecteert, kunt u de beschikbaar voor gebruik stencils vinden. Als u niet de juiste elementen kunt vinden, gebruikt u een andere sjabloon. Of u kunt een sjabloon aanpassen aan uw behoeften aanpassen. U vindt in het algemeen een combinatie van categorieën zoals deze:
 
-| Stencilnaam                               | Details      |
+| Naam van stencil                               | Details      |
 | --------------------------------------- | ------------ |
-| **Proces** | Toepassingen, browserinvoegtoepassingen, threads, virtuele machines |
-| **Externe interactie** | Verificatieproviders, browsers, gebruikers, webtoepassingen |
-| **Gegevensopslag** | Cache, opslag, configuratiebestanden, databases, register |
-| **Gegevensstroom** | Binair ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, benoemde pijp, RPC/DCOM, SMB, UDP |
-| **Lijn grens vertrouwen** | Bedrijfsnetwerken, internet, machine, sandbox, gebruiker/kernelmodus |
+| **Proces** | Toepassingen, browser-invoegtoepassingen, threads, virtuele machines |
+| **Externe interactie** | Verificatieproviders, browsers, gebruikers, web-apps |
+| **Gegevensarchief** | Cache, opslag, configuratiebestanden, databases, register |
+| **Gegevensstroom** | Binaire ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, met de naam van de pipe, RPC/DCOM, SMB, UDP |
+| **Lijnrand/grens vertrouwen** | Bedrijfsnetwerken, internet, machine, sandbox-, gebruiker/kernel-modus |
 
-### <a name="notesmessages"></a>Opmerkingen bij de/messages
+### <a name="notesmessages"></a>Opmerkingen/berichten
 
 | Onderdeel                               | Details      |
 | --------------------------------------- | ------------ |
-| **Berichten** | Interne hulpprogramma logica die gebruikers waarschuwt wanneer er een fout optreedt, zoals geen gegevensoverdrachten tussen elementen. |
-| **Opmerkingen bij de** | Handmatige opmerkingen worden toegevoegd aan het bestand door engineering-teams overal in het ontwerp en evaluatieproces. |
+| **Messages** | Interne hulpprogramma logica waarmee gebruikers een waarschuwing wanneer er een fout is opgetreden, zoals geen gegevensstromen tussen de elementen. |
+| **Opmerkingen** | Opmerkingen bij de handmatige worden toegevoegd aan het bestand door technische teams overal in de ontwerp- en evaluatieprocedure. |
 
 ### <a name="element-properties"></a>Eigenschappen van het element
 
-Eigenschappen van het element is afhankelijk van de elementen die u selecteert. Alle andere elementen bevatten naast de grenzen van vertrouwensrelaties drie algemene selecties:
+Eigenschappen van het element zijn afhankelijk van de elementen die u selecteert. Naast de grenzen van vertrouwensrelaties bevatten alle andere elementen drie algemene instellingen:
 
-| Eigenschap element                               | Details      |
+| De eigenschap element                               | Details      |
 | --------------------------------------- | ------------ |
-| **Naam** | Dit is handig voor de naamgeving van uw processen, archieven, interacties en stromen, zodat ze gemakkelijk wordt herkend. |
-| **Buiten het bereik** | Indien geselecteerd, wordt het element genomen buiten de threat generatie-matrix (niet aanbevolen). |
-| **Reden voor buiten het bereik** | Reden is gebruikers laten weten waarom buiten het bereik ingeschakeld. |
+| **Naam** | Dit is handig voor het benoemen van uw processen, winkels, interacties en stromen, zodat ze eenvoudig worden herkend. |
+| **Buiten het bereik** | Indien geselecteerd, wordt het element uit (niet aanbevolen) in de matrix threat generatie gehaald. |
+| **Reden voor het buiten het bereik** | Reden is om gebruikers te informeren waarom buiten het bereik ingeschakeld. |
 
-Eigenschappen worden onder elke categorie element gewijzigd. Selecteer voor elk element in de beschikbare opties controleren. Of u kunt de sjabloon voor meer informatie. Laten we de functies bekijken.
+Eigenschappen worden gewijzigd in elke categorie element. Selecteer voor elk element in om te controleren van de beschikbare opties. Of u kunt de sjabloon voor meer informatie. Laten we de functies bekijken.
 
-## <a name="welcome-screen"></a>Welkomstscherm
+## <a name="welcome-screen"></a>Welkomstscherm wordt weergegeven
 
 Wanneer u de app opent, ziet u de **Welkom** scherm.
 
 ### <a name="open-a-model"></a>Een model openen
 
-Beweeg de muisaanwijzer over **Open een Model** blijkt dat er twee opties: **openen vanaf deze Computer** en **Open van OneDrive**. De eerste optie, verschijnt de **bestand openen** scherm. De tweede optie gaat u door het proces aanmelden voor OneDrive. Wanneer u bent geverifieerd, kunt u mappen en bestanden.
+Beweeg de muisaanwijzer over **Open een Model** om twee opties weer te geven: **Open vanaf deze Computer** en **openen vanuit OneDrive**. De eerste optie, verschijnt de **bestand openen** scherm. De tweede optie doorloopt u de aanmeldprocedure voor OneDrive. Na een geslaagde authenticatie, kunt u mappen en bestanden.
 
 ![Model openen](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Openen van de computer of OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
+![Openen vanaf de computer of OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Feedback, suggesties en problemen
 
-Wanneer u selecteert **Feedback, suggesties en problemen**, u gaat u naar de MSDN-Forum voor SDL-hulpprogramma's. U kunt lezen wat anderen hierover het hulpprogramma, inclusief tijdelijke oplossingen en nieuwe ideeën.
+Wanneer u selecteert **Feedback, suggesties en problemen**, u gaat u naar de MSDN-Forum voor SDL-hulpprogramma's. U kunt lezen wat anderen zeggen over het hulpprogramma, met inbegrip van oplossingen en nieuwe ideeën.
 
 ![Feedback](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
-## <a name="design-view"></a>Ontwerpweergave
+## <a name="design-view"></a>Weergave voor het ontwerpen
 
-Bij het openen of maken van een nieuw model, de **ontwerp** weergeven wordt geopend.
+Wanneer u opent of een nieuw model maken de **ontwerp** weer wordt geopend.
 
 ### <a name="add-elements"></a>Elementen toevoegen
 
-U kunt de elementen in het raster op twee manieren toevoegen:
+U kunt elementen in het raster op twee manieren toevoegen:
 
 - **Slepen en neerzetten**: Sleep het gewenste element aan het raster. De eigenschappen van het element vervolgens gebruiken om aanvullende informatie te geven.
-- **Met de rechtermuisknop op**: klik met de rechtermuisknop op het raster en selecteren van items uit de vervolgkeuzelijst. Een algemene representatie van het element dat u selecteert weergegeven op het scherm.
+- **Met de rechtermuisknop op**: Klik met de rechtermuisknop op het raster en selecteert u items in de vervolgkeuzelijst. Een algemene weergave van het element dat u selecteert, wordt weergegeven op het scherm.
 
-### <a name="connect-elements"></a>Elementen verbinden
+### <a name="connect-elements"></a>Verbinding maken met elementen
 
-U kunt de verbinding van elementen op twee manieren maken:
+U kunt verbinding maken met elementen op twee manieren:
 
-- **Slepen en neerzetten**: Sleep de gewenste gegevensstroom naar het raster en beide uiteinden verbinding met de juiste elementen.
-- **Klik op + Shift**: klik op het eerste element (het versturen van gegevens), houd de Shift-toets, en selecteer vervolgens het tweede element (ontvangen van gegevens). Met de rechtermuisknop en selecteer **Connect**. Als u een bidirectionele gegevensstroom gebruikt, is de volgorde niet als belangrijk.
+- **Slepen en neerzetten**: Sleep de gewenste gegevensstroom naar het raster en beide kanten verbinden met de juiste elementen.
+- **Klik op + Shift**: Klik op het eerste element (verzenden van gegevens), houd de Shift-toets ingedrukt en selecteer vervolgens het tweede element (ontvangen van gegevens). Met de rechtermuisknop op en selecteer **Connect**. Als u een bidirectionele-gegevensstroom, is de volgorde niet zo belangrijk.
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
- Vult dienovereenkomstig om de eigenschappen die kunnen worden gewijzigd op de stencils, selecteer het stencil en de informatie te bekijken. Het volgende voorbeeld ziet voor en na een **Database** stencil wordt gesleept naar het diagram:
+ Als u wilt zien van de eigenschappen die kunnen worden gewijzigd op de stencils, selecteer het stencil en de informatie wordt dienovereenkomstig wordt uitgevoerd. Het volgende voorbeeld ziet u voor en na een **Database** stencil naar het diagram is gesleept:
 
 #### <a name="before"></a>Voor
 
@@ -163,17 +163,17 @@ U kunt de verbinding van elementen op twee manieren maken:
 
 ### <a name="messages"></a>Berichten
 
-Als u een risicomodel maakt en vergeet gegevensoverdrachten verbinding maken met de elementen, krijgt u een melding. U kunt dit bericht negeren of u kunt de instructies om het probleem te verhelpen. 
+Als u een risicomodel maakt en verbinding maken met gegevensstromen elementen vergeet, ontvangt u een melding. U kunt dit bericht negeren of u kunt de instructies om het probleem te verhelpen. 
 
 ![Berichten](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Opmerkingen
 
-Als u opmerkingen toevoegen aan het diagram, wilt overschakelen van de **berichten** tab naar de **notities** tabblad.
+Notities toevoegen aan uw diagram, overschakelen van de **berichten** tab naar het **opmerkingen bij de** tabblad.
 
 ## <a name="analysis-view"></a>Analyse weergeven
 
-Nadat u het diagram bouwen, selecteert u de **Analysis** symbool (Vergrootglas) op de werkbalk snelkoppelingen overschakelen naar de **Analysis** weergeven.
+Nadat u uw diagram bouwt, selecteert u de **Analysis** symbool (Vergrootglas) op de werkbalk snelkoppelingen overschakelen naar de **Analysis** weergeven.
 
 ![Analyse weergeven](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
@@ -183,29 +183,29 @@ Wanneer u een bedreiging selecteert, kunt u drie afzonderlijke functies:
 
 | Functie                               | Informatie      |
 | --------------------------------------- | ------------ |
-| **Lees indicator** | <p>De bedreiging is gemarkeerd als gelezen, waarmee u de items die u gecontroleerd.</p><p>![Lezen/ongelezen indicator](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Lezen-indicator** | <p>De bedreiging is gemarkeerd als gelezen, waarmee u de items die u bekeken.</p><p>![Lezen/ongelezen indicator](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Interactie focus** | <p>Interactie in het diagram die deel uitmaakt van een bedreiging wordt gemarkeerd.</p><p>![Interactie focus](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Eigenschappen van de Threat** | <p>Meer informatie over de bedreiging wordt weergegeven in de **Threat eigenschappen** venster.</p><p>![Eigenschappen van de Threat](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **Eigenschappen van de bedreiging** | <p>Als u meer informatie over de bedreiging wordt weergegeven in de **Threat eigenschappen** venster.</p><p>![Eigenschappen van de bedreiging](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Prioriteit wijzigen
 
-U kunt het prioriteitsniveau van elke gegenereerde bedreiging wijzigen. Verschillende kleuren maakt het eenvoudig is te hoog, gemiddeld en prioriteit Laag bedreigingen identificeren.
+U kunt de prioriteit van elke gegenereerde bedreiging wijzigen. Verschillende kleuren maken het gemakkelijk te herkennen, hoog, gemiddeld en bedreigingen met lage prioriteit.
 
 ![Prioriteit wijzigen](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Threat eigenschappen bewerkbare velden
 
-Zoals u in de voorgaande afbeelding, kunt u de gegevens die worden gegenereerd door het hulpprogramma. U kunt ook informatie toevoegen aan bepaalde velden, zoals reden. Deze velden zijn gegenereerd door de sjabloon. Als u meer informatie nodig voor elke bedreiging, kunt u wijzigingen kunt aanbrengen.
+Zoals in de voorgaande afbeelding wordt weergegeven, kunt u de informatie die wordt gegenereerd door het hulpprogramma kunt wijzigen. U kunt ook informatie toevoegen aan bepaalde velden, zoals reden. Deze velden worden gegenereerd door de sjabloon. Als u meer informatie voor elke bedreiging nodig hebt, kunt u wijzigingen aanbrengen.
 
-![Eigenschappen van de Threat](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
+![Eigenschappen van de bedreiging](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Rapporten
 
-Nadat u prioriteiten wijzigen en bijwerken van de status van elke gegenereerde bedreiging, u kunt het bestand opslaan en/of afdrukken. Ga naar **rapport** > **volledige rapport maken**. Het rapport een naam en ziet u iets soortgelijks als in de volgende afbeelding:
+Nadat u klaar bent voor veranderende prioriteiten in uw en het bijwerken van de status van elke gegenereerde bedreiging, u kunt het bestand opslaan en/of afdrukken. Ga naar **rapport** > **volledige rapport maken**. Het rapport een naam en u moet er ongeveer uitzien als in de volgende afbeelding:
 
 ![Rapport](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Als u wilt een sjabloon voor de community bijdragen, gaat u naar onze [GitHub](https://github.com/Microsoft/threat-modeling-templates) pagina. 
-* Als u wilt beginnen met het hulpprogramma, gaat u naar de [downloaden](https://aka.ms/tmtpreview) pagina.
+* Om te beginnen met het hulpprogramma, gaat u naar de [downloaden](https://aka.ms/tmtpreview) pagina.

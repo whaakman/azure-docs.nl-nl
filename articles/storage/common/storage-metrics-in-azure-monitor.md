@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4bae38b7596504d8de452e445c05e1c973aba78a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994433"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354580"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -341,6 +341,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 | BlobCapacity | Het totaal van Blob-opslag die wordt gebruikt in de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
 | BlobCount    | Het aantal blob-objecten die zijn opgeslagen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
 | ContainerCount    | Het aantal containers in het opslagaccount. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
+| IndexCapacity     | De hoeveelheid opslag die wordt gebruikt door ADLS Gen2 hiërarchische Index <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
 
@@ -368,7 +369,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ## <a name="transaction-metrics"></a>Metrische gegevens de transactie
 
-Metrische gegevens die transactie worden verzonden naar Azure-opslag naar Azure Monitor elke minuut. Alle metrische gegevens voor de transactie zijn beschikbaar op zowel account- en serviceniveau (Blob storage, Table storage, Azure Files en Queue storage). Het tijdsinterval definieert het tijdsinterval dat metrische waarden worden weergegeven. De ondersteunde tijd korrels voor alle metrische gegevens voor de transactie zijn PT1H en PT1M.
+Metrische gegevens die transactie zijn bij elke aanvraag verzonden naar een opslagaccount van Azure-opslag naar Azure Monitor. In het geval van geen activiteit in uw storage-account worden er geen gegevens over transactie metrische gegevens in de periode. Alle metrische gegevens voor de transactie zijn beschikbaar op zowel account- en serviceniveau (Blob storage, Table storage, Azure Files en Queue storage). Het tijdsinterval definieert het tijdsinterval dat metrische waarden worden weergegeven. De ondersteunde tijd korrels voor alle metrische gegevens voor de transactie zijn PT1H en PT1M.
 
 Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azure Monitor.
 
@@ -379,7 +380,7 @@ Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azur
 | Uitgaand verkeer | De hoeveelheid uitgaande gegevens. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
 | SuccessServerLatency | De gemiddelde tijd die nodig is om een aanvraag door Azure Storage te verwerken. Deze waarde bevat niet de netwerklatentie die is opgegeven in SuccessE2ELatency. <br/><br/> Eenheid: Milliseconden <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
 | SuccessE2ELatency | De gemiddelde end-to-end-latentie van geslaagde aanvragen aan een opslagservice of de opgegeven API-bewerking. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. <br/><br/> Eenheid: Milliseconden <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| Beschikbaarheid | Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door te nemen van de waarde van het totale aantal factureerbare aanvragen en delen door het aantal toepasselijke aanvragen, met inbegrip van aanvragen die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking. <br/><br/> Eenheid: Procent <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 99,99 |
+| Beschikbaarheid | Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door te nemen van de waarde van het totale aantal factureerbare aanvragen en delen door het aantal toepasselijke aanvragen, met inbegrip van aanvragen die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking. <br/><br/> Eenheid: Procent <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens over dimensies
 
@@ -388,7 +389,7 @@ Azure Storage ondersteunt de volgende dimensies voor metrische gegevens in Azure
 | Dimensienaam | Description |
 | ------------------- | ----------------- |
 | BlobType | Het type blob voor alleen Blob-metrische gegevens. De ondersteunde waarden zijn **BlockBlob** en **PageBlob**. Toevoeg-Blob is opgenomen in BlockBlob. |
-| De ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Alle andere serverzijde fouten beschreven die behalve </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. </li> <li> ServerTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot de gegevens of er is een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>    ClientThrottlingError: Client-side beperking-fout. </li> <li> ClientTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. Als de netwerktime-out van de client of de time-out van de aanvraag is ingesteld op een lagere waarde dan verwacht door de storage-service, is een verwachte tijd. Anders wordt dit apparaat gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Alle andere client-side '-fouten met uitzondering van die wordt beschreven. </li> <li> Geslaagd: Succesvolle aanvraag|
+| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Alle andere serverzijde fouten beschreven die behalve </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. </li> <li> ServerTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot de gegevens of er is een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>    ClientThrottlingError: Client-side beperking-fout. </li> <li> ClientTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. Als de netwerktime-out van de client of de time-out van de aanvraag is ingesteld op een lagere waarde dan verwacht door de storage-service, is een verwachte tijd. Anders wordt dit apparaat gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Alle andere client-side '-fouten met uitzondering van die wordt beschreven. </li> <li> Geslaagd: Succesvolle aanvraag|
 | GeoType | De transactie van primaire of secundaire cluster. De beschikbare waarden zijn onder andere primaire en secundaire database. Dit geldt voor Read Access-Geo Redundant Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
 | ApiName | De naam van bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 | Verificatie | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder andere: <br/> <li>AccountKey: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>SAS: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>OAuth: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>Anoniem: De transactie is anoniem aangevraagd. Deze bevat geen voorbereidende aanvragen.</li> <li>AnonymousPreflight: De transactie is voorbereidende aanvraag.</li> |

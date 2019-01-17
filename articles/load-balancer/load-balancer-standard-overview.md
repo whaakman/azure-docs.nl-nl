@@ -5,6 +5,7 @@ description: Overzicht van Azure Standard Load Balancer-functies
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -13,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 15a67bb5d42028f945cc44a75a7210f132a434c3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245157"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352577"
 ---
-# <a name="azure-standard-balancer-overview"></a>Overzicht van Azure Standard-Balancer
+# <a name="azure-standard-load-balancer-overview"></a>Overzicht van Azure Standard Load Balancer
 
 Azure Load Balancer kunt u uw toepassingen schalen en hoge beschikbaarheid voor uw services te maken. Load Balancer kan worden gebruikt voor zowel inkomende als uitgaande scenario's en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen. 
 
 In dit artikel is gericht op Standard Load Balancer.  Voor een meer algemeen overzicht voor Azure Load Balancer, raadpleegt u [overzicht van Load Balancer](load-balancer-overview.md) ook.
 
-## <a name="what-is-standard-load-balancer"></a>Wat is de standaardversie van Load Balancer?
+## <a name="what-is-standard-load-balancer"></a>Wat is een Standard Load Balancer?
 
 Standard Load Balancer is een nieuw product in de Load Balancer voor alle TCP en UDP-toepassingen met een uitgebreide en gedetailleerdere functieset ten opzichte van Basic Load Balancer.  Hoewel er veel overeenkomsten, is het belangrijk om vertrouwd te raken met de verschillen in dit artikel wordt beschreven.
 

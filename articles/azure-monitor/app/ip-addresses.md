@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e2621103e79e201a6f3a9d45350e3b71d15f47c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 24e11f186d9114fab5b21e8cfec6438178839550
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119608"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358538"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adressen die worden gebruikt door Application Insights en Log Analytics
 De [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) service maakt gebruik van een aantal IP-adressen. Mogelijk moet u deze adressen weten als de app die u bewaakt wordt gehost achter een firewall.
@@ -37,8 +37,8 @@ U moet het aantal uitgaande poorten openen in de firewall van uw server om toe t
 
 | Doel | URL | IP | Poorten |
 | --- | --- | --- | --- |
-| Telemetrie |dc.services.visualstudio.com<br/>DC.applicationinsights.Microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22 | 443 |
-| Live Metrics Stream |rt.services.visualstudio.com<br/>RT.applicationinsights.Microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Telemetrie |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233 | 443 |
+| Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Status Monitor
 Status monitorconfiguratie - die nodig zijn alleen als u wijzigingen aanbrengt.
@@ -311,8 +311,8 @@ East US
 ## <a name="application-insights-api"></a>Application Insights-API
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| API |API.applicationinsights.IO<br/>api1.applicationinsights.IO<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.IO<br/>api5.applicationinsights.IO |13.82.26.252<br/>40.76.213.73 |80,443 |
-| API-documenten |dev.applicationinsights.io<br/>dev.applicationinsights.Microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.Microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
+| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
+| API-documenten |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | Interne API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |Dynamische|443 |
 
 ## <a name="log-analytics-api"></a>Log Analytics-API
@@ -326,9 +326,9 @@ East US
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| Analytics-Portal | Analytics.applicationinsights.IO | Dynamische | 80,443 |
+| Analytics-Portal | analytics.applicationinsights.io | Dynamische | 80,443 |
 | CDN | applicationanalytics.azureedge.net | Dynamische | 80,443 |
-| Media CDN | applicationanalyticsmedia.azureedge.NET | Dynamische | 80,443 |
+| Media CDN | applicationanalyticsmedia.azureedge.net | Dynamische | 80,443 |
 
 Opmerking: *. applicationinsights.io domein is eigendom van Application Insights-team.
 

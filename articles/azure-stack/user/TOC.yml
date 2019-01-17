@@ -131,10 +131,13 @@ items:
         href: azure-stack-ethereum.md
       - name: Een Service Fabric-cluster implementeren
         href: azure-stack-solution-template-service-fabric-cluster.md
-      - name: Kubernetes-cluster toevoegen
+      - name: Een Kubernetes-cluster implementeren
+        href: azure-stack-solution-template-kubernetes-deploy.md
         items:
-        - name: Een Kubernetes-cluster implementeren
-          href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: Implementeren van Kubernetes met Azure AD
+          href: azure-stack-solution-template-kubernetes-azuread.md
+        - name: Kubernetes met behulp van AD FS implementeren
+          href: azure-stack-solution-template-kubernetes-adfs.md
         - name: Kubernetes-cluster oplossen
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Cognitive Services implementeren
@@ -220,9 +223,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Training en certificering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 16ad9c79aedad01cf6bd1c83740938f23b592b6a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 256560806e1065ec1ca9cfa9ba1d9f4521755ee8
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189895"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351757"

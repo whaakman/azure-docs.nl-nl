@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 2c4c2982febf1d81aaaa81bb9c894785b860503b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200083"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353955"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -54,7 +54,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 Aanbevolen actie:<br>
 U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virtuele machine en probeer het opnieuw als u wilt opschonen te activeren.
 > [!NOTE]
-    > Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service. De naamgeving indeling van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>` bijvoorbeeld: AzureBackupRG_northeurope_1
+    > Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service. De naamgeving indeling van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Stap 1: [Verwijder de vergrendeling van de resourcegroep van de restore-punt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Stap 2: [Herstelpuntverzameling opschonen](#clean_up_restore_point_collection)**<br>
@@ -122,33 +122,8 @@ De virtuele machine geen toegang tot internet, per de implementatievereiste. Of 
 
 Om correct te functioneren, vereist de Backup-extensie een verbinding met Azure openbare IP-adressen. De extensie verzonden opdrachten naar een Azure storage-eindpunt (HTTPs-URL) voor het beheren van de momentopnamen van de virtuele machine. Als de extensie heeft geen toegang tot het openbare internet, wordt uiteindelijk de back-up mislukt.
 
-Het is mogelijk om een proxyserver om de VM-verkeer te routeren te implementeren.
-##### <a name="create-a-path-for-https-traffic"></a>Maak een pad voor HTTPs-verkeer
-
-1. Hebt u netwerkbeperkingen op locatie (bijvoorbeeld een netwerkbeveiligingsgroep), implementeert u een HTTPs-proxy-server om het verkeer te routeren.
-2. Voor toegang tot het internet van de HTTPs-proxy-server, regels toevoegen aan de netwerkbeveiligingsgroep, indien aanwezig.
-
-Zie voor meer informatie over het instellen van een HTTPs-proxy voor back-ups van virtuele machine, [uw omgeving voorbereiden op back-up van virtuele machines van Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-De back-ups van virtuele machine of de proxy-server waarmee het verkeer wordt doorgestuurd vereist toegang tot Azure openbare IP-adressen
-
 ####  <a name="solution"></a>Oplossing
-Los het probleem, probeert u een van de volgende methoden:
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Toegang tot Azure storage die overeenkomt met de regio
-
-U kunt [servicetags](../virtual-network/security-overview.md#service-tags) om verbindingen naar de opslag van de specifieke regio te staan. Zorg ervoor dat de regel waarmee toegang tot het opslagaccount hogere prioriteit dan de regel die blokken toegang tot internet heeft.
-
-![Netwerkbeveiligingsgroep met opslag-tags voor een regio](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-Bekijk voor meer informatie over de stapsgewijze procedure servicetags configureren, [in deze video](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Opslag servicetags zijn beschikbaar als preview. Ze zijn alleen beschikbaar in bepaalde regio's. Zie voor een lijst met regio's, [servicetags voor opslag](../virtual-network/security-overview.md#service-tags).
-
-Als u Azure Managed Disks gebruikt, moet u mogelijk een extra poort openen (poort 8443) op de firewalls.
-
-Als uw subnet niet beschikt over een route voor uitgaand verkeer van internet, moet u bovendien een service-eindpunt met servicetag "Microsoft.Storage" toevoegen aan uw subnet.
+Raadpleeg voor het oplossen van het netwerkprobleem [netwerkverbinding tot stand brengen](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)
 
@@ -187,7 +162,7 @@ Meest-agents of -extensie-gerelateerde fouten voor Linux-VM's worden veroorzaakt
 
    * /var/lib/waagent/*.XML
    * /var/log/waagent.log
-   * / var/aanmelden/azure / *
+   * /var/log/azure/*
 
 Als we uitgebreide logboekregistratie voor waagent nodig hebt, volgt u deze stappen:
 

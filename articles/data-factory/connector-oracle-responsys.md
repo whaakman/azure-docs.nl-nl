@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9510b26b56d1602787e35006379a40ce1cbd21d9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7440a08bd8ceb85cc569e1bb6d7c4ee1e52178a4
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015165"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352152"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Gegevens kopiëren van Oracle Responsys met Azure Data Factory (Preview)
 
@@ -47,7 +47,7 @@ De volgende eigenschappen worden ondersteund voor Oracle-Responsys gekoppelde se
 | type | De eigenschap type moet worden ingesteld op: **Responsys** | Ja |
 | endpoint | Het eindpunt van de server Respopnsys  | Ja |
 | ClientId | De client-ID die is gekoppeld aan de toepassing Responsys.  | Ja |
-| ClientSecret | Het clientgeheim die zijn gekoppeld aan de toepassing Responsys. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF acitivty pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
+| ClientSecret | Het clientgeheim die zijn gekoppeld aan de toepassing Responsys. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF activiteit pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |

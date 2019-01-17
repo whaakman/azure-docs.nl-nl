@@ -3,9 +3,9 @@ title: Aan de slag - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Dit is een beter overzicht Threat Modeling Tool in actie te markeren.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096771"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359473"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Aan de slag met de Threat Modeling Tool
 
-Het team van Cloud en Enterprise beveiligingsprogramma's de Threat Modeling Tool Preview vrijgegeven eerder dit jaar als een gratis  **[Klik hier om te downloaden](https://aka.ms/tmtpreview)**. De wijziging in een leveringsmechanisme kan we de meest recente verbeteringen en oplossingen voor problemen om naar te pushen klanten telkens wanneer die ze opent u het hulpprogramma, waardoor het gemakkelijker te onderhouden en te gebruiken.
+Microsoft Threat Modeling Tool 2018 is uitgebracht als algemeen beschikbaar in September 2018 als een gratis  **[Klik hier om te downloaden](https://aka.ms/threatmodelingtool)**. De wijziging in een leveringsmechanisme kan we de meest recente verbeteringen en oplossingen voor problemen om naar te pushen klanten telkens wanneer die ze opent u het hulpprogramma, waardoor het gemakkelijker te onderhouden en te gebruiken.
 In dit artikel doorloopt u het proces van het aan de slag met de SDL Microsoft threat modeling benadering en ziet u hoe u het hulpprogramma te gebruiken voor het ontwikkelen van geweldige bedreigingsmodellen als een backbone van de beveiliging wordt uitgevoerd.
 
 In dit artikel is gebaseerd op bestaande kennis van de SDL threat modeling benadering. Raadpleeg voor een kort overzicht **[Threat Modeling webtoepassingen](https://msdn.microsoft.com/library/ms978516.aspx)** en een gearchiveerde versie van **[bloot Security fouten met behulp van de STRIDE-methode](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN-artikel gepubliceerd in 2006.
@@ -67,14 +67,14 @@ In deze sectie volgen we de:
 
 Ze gaan door het proces van het ontwikkelen van hun eerste risicomodel.
 
-> Ricardo: Hallo Cristina, kan ik het model threat diagram gewerkt en willen wij de details van de juiste. Kunt u mij via zoeken?
-> Cristina: absoluut. Laten we eens.
+> Ricardo: Hallo Cristina, ik heb gewerkt aan het model threat diagram en wilde om ervoor te zorgen dat wij de details van de juiste. Kunt u mij via zoeken?
+> Cristina: Absoluut. Laten we eens.
 > Ricardo Hiermee opent u het hulpprogramma en zijn scherm met Cristina deelt.
 
 ![Basic risicomodel](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: OK klikt, ziet er eenvoudig, maar kunt u stapsgewijs mij het?
-> Ricardo: ervoor! Hier volgt de uitsplitsing van de:
+> Cristina: OK, uiterlijk eenvoudig, maar kunt u stapsgewijs mij het?
+> Ricardo: Of! Hier volgt de uitsplitsing van de:
 > - Onze menselijke gebruiker wordt getekend als een externe entiteit, een vierkant
 > - Deze opdrachten op uw webserver verzendt, de cirkel
 > - De webserver is overleg met een database (twee parallelle lijnen)
@@ -111,7 +111,7 @@ De beschrijving die hij het belang van het toevoegen van een verificatiemethode 
 Als Ricardo is een in de bedreigingen onder openbaarmaking van informatie fout, gerealiseerde hij dat de dit plan sommige alleen-lezen-accounts vereist voor controle en rapportage. Hij zich afgevraagd of dit een nieuwe bedreiging moet, maar de oplossingen hetzelfde, zijn zodat hij de bedreiging dienovereenkomstig hebt genoteerd.
 Hij ook iets meer over het vrijgeven van informatie wordt beschouwd en dat de back-uptapes zijn gaan coderen, een taak voor het operationele team moet gerealiseerd.
 
-Niet van toepassing op het ontwerp vanwege bestaande oplossingen of security bedreigingen garandeert kan worden gewijzigd in "Niet van toepassing" in de vervolgkeuzelijst Status. Er zijn drie andere opties: niet gestart: standaardselectie, onderzoek moet – gebruikt moeten worden opgevolgd items en Mitigated – nadat deze volledig wordt gewerkt.
+Niet van toepassing op het ontwerp vanwege bestaande oplossingen of security bedreigingen garandeert kan worden gewijzigd in "Niet van toepassing" in de vervolgkeuzelijst Status. Er zijn drie andere opties: Niet gestart: standaardselectie, onderzoek moet – gebruikt moeten worden opgevolgd items en Mitigated – nadat deze volledig wordt gewerkt.
 
 ## <a name="reports--sharing"></a>Rapporten en delen
 
@@ -143,4 +143,4 @@ De benadering van modellering die we hier hebben weergegeven van de bedreiging i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Stuur uw vragen, opmerkingen en problemen van tmtextsupport@microsoft.com. **[Download](https://aka.ms/tmtpreview)**  Threat Modeling Tool aan de slag.
+Stuur uw vragen, opmerkingen en problemen van tmtextsupport@microsoft.com. **[Download](https://aka.ms/threatmodelingtool)**  Threat Modeling Tool aan de slag.

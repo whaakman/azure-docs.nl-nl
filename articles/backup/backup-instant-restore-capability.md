@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: trinadhk
-ms.openlocfilehash: 64e012b84f863196592133da52b35736e486c9ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a0cbb8650a818c3ae6c839d69bbc9b94f8d080ca
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266908"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351393"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -55,14 +55,19 @@ De incrementele momentopnamen worden opgeslagen in de storage-account van de vir
 
 
 ## <a name="upgrading-to-instant-restore"></a>Een upgrade naar Instant Restore
-Als u de Azure-portal gebruikt, ziet u een melding op het kluisdashboard. Deze melding is gekoppeld aan ondersteuning voor grote schijven en verbeteringen in back-up en herstel snelheid. U kunt ook gaan naar de pagina eigenschappen van de kluis om op te halen van de upgrade-optie.
 
+Als u de Azure-portal gebruikt, ziet u een melding op het kluisdashboard. Deze melding is gekoppeld aan ondersteuning voor grote schijven en verbeteringen in back-up en herstel snelheid.
 
 ![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel--ondersteuning-melding](./media/backup-azure-vms/instant-rp-banner.png)
 
 Als u wilt openen op een scherm voor het upgraden van direct herstellen, selecteert u de banner.
 
 ![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel--upgrade](./media/backup-azure-vms/instant-rp.png)
+
+U kunt ook gaat u naar **eigenschappen** pagina van de kluis om op te halen de **Upgrade** onder de optie **VM-back-upstack**.
+
+![Back-uptaak in VM-back-upstack--pagina eigenschappen](./media/backup-azure-vms/instant-restore-capability-properties.png)
+
 
 ## <a name="upgrade-to-instant-restore-using-powershell"></a>Een upgrade uitvoert naar direct herstellen met behulp van PowerShell
 

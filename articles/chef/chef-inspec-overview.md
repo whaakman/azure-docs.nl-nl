@@ -8,35 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e854b140c32773fc5d64e828e7dd40fab1f6ca8d
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a5de2ca04a193f97a2a65a043f744abb8e0ea758
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332367"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359218"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>InSpec gebruiken voor het automatiseren van de naleving van uw Azure-infrastructuur
-[Inspectie mogelijk](https://www.chef.io/inspec/) is een gratis en open-source framework voor het testen en controleren van uw toepassingen en infrastructuur. InSpec werkt door het vergelijken van de huidige status van uw systeem met de gewenste status die u snelle in gemakkelijk te lezen en eenvoudig te schrijven inspectie mogelijk code. InSpec schendingen detecteert en worden resultaten weergegeven in de vorm van een rapport, maar staat u controle over herstel. U kunt InSpec gebruiken voor het valideren van de status van uw virtuele machines die worden uitgevoerd in Azure. U kunt ook InSpec gebruiken om te scannen en valideren van de status van resources en resourcegroepen binnen een abonnement.
+[Inspectie mogelijk](https://www.chef.io/inspec/) Chef van open source-taal voor het beschrijven van regels voor beveiliging en naleving die kunnen worden gedeeld tussen software-engineers, bewerkingen en beveiliging engineers is. InSpec werkt door het vergelijken van de huidige status van uw infrastructuur met de gewenste status die u snelle in gemakkelijk te lezen en eenvoudig te schrijven inspectie mogelijk code. InSpec schendingen detecteert en worden resultaten weergegeven in de vorm van een rapport, maar staat u controle over herstel.
+
+U kunt InSpec gebruiken voor het valideren van de status van resources en resourcegroepen binnen een abonnement, met inbegrip van virtuele machines, configuraties en instellingen van Azure Active Directory.
 
 Dit artikel beschrijft de voordelen van het gebruik van InSpec beveiliging en naleving om gemakkelijker te maken op Azure.
 
 ## <a name="make-compliance-easy-to-understand-and-assess"></a>Controleer naleving eenvoudig te begrijpen en beoordelen
-Met InSpec, moet u de vereisten in de code is samengesteld, uitvoerbare, leesbare transformeren. Hiermee kunt u uw tests uit om in te ordenen samenstelbare profielen waar u definiëren en aanpassen van uitzonderingen, indien nodig.
+Naleving-documentatie die zijn geschreven in spreadsheets of Word-documenten laat vereisten met interpretatie geopend. Met InSpec, moet u de vereisten in de code is samengesteld, uitvoerbare, leesbare transformeren. Code vervangt gesprekken over wat moet worden beoordeeld en vervangen door concrete tests met de bedoeling duidelijk.
 
 ## <a name="detect-fleet-wide-issues-and-prioritize-their-remediation"></a>Hele vloot problemen detecteren en prioriteren van hun herstel
-De zonder agent InSpec detecteren modus kunt u snel beoordelen - geschaalde - niveau van uw blootstelling. Ingebouwde metagegevens voor het scoren van impact/ernst kunt u bepalen welke gebieden kunnen concentreren op voor herstel.
-
-## <a name="inspect-machines-data-and-new-saas-apis"></a>Machines, gegevens en nieuwe SaaS-APIs controleren
-De mogelijkheden van de naleving van de inspectie mogelijk cloud-API kunnen u grof en verfijnde asserties over uw cloud-naleving en het rapport op het continu.
+InSpec de zonder agent detecteren modus kunt u snel beoordelen - geschaalde - niveau van uw blootstelling. Ingebouwde metagegevens voor het scoren van impact/ernst kunt u bepalen welke gebieden kunnen concentreren op voor herstel. U kunt ook snel regels schrijven in reactie op nieuwe beveiligingsproblemen of regelgeving en ze onmiddellijk uitgerold.
 
 ## <a name="satisfy-audits"></a>Voldoen aan controles
-U kunt reageren met InSpec, om te controleren van vragen op elk gewenst moment - niet alleen met een vooraf vastgestelde intervallen zoals per kwartaal of per jaar. Inspectie mogelijk kunt u een controlecyclus van een weten de exacte naleving kunnen verbeteren, in plaats van door een revisor van de bevindingen wordt verbaasd invoeren.
-
-## <a name="reduce-ambiguity-and-miscommunication-regarding-rules"></a>Verminder de dubbelzinnigheid en communicatiefouten vermindert met betrekking tot regels
-Documenten laat configuraties en processen met interpretatie openen. Uitvoerbare code verwijdert gesprekken over wat moet worden beoordeeld en vervangen door concrete tests met de bedoeling duidelijk.
-
-## <a name="keep-up-with-rapidly-changing-threat-and-compliance-landscapes"></a>Met snel veranderende bedreigingen en naleving landschappen houden
-Inspectie mogelijk kunt u om te schrijven en publiceren van code-detectie dezelfde dag en nieuwe regels schrijven snelle reactie op nieuwe regelgeving. Dit betekent dat wijzigingen in de bedreigingen of voorschriften niet meer gelijk is aan noodgevallen.
+U kunt reageren met InSpec, om te controleren van vragen op elk gewenst moment - niet alleen met een vooraf vastgestelde intervallen zoals per kwartaal of per jaar. Continu inspectie mogelijk tests uitvoert, u een controlecyclus van een weten de exacte naleving kunnen verbeteren en de geschiedenis, in plaats van wordt verbaasd door een revisor van de bevindingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een Windows-machine maken op Azure met Chef](/azure/virtual-machines/windows/chef-automation)
+
+* Probeer inspectie mogelijk in de Azure Cloudshell [ ![Open Cloudshell](https://shell.azure.com/images/launchcloudshell.png "Open Cloudshell")](https://shell.azure.com)

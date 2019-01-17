@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406325"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353138"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Wat is er nieuw in Azure Data Catalog
 Updates voor **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke versie bevat nieuwe functies van de gebruiker gerichte, omdat sommige versies van het gericht zijn op de mogelijkheden van de back-end-service. Deze pagina ziet u nieuwe gebruikersgerichte mogelijkheden toegevoegd aan de service Azure Data Catalog.
@@ -45,7 +45,7 @@ Vanaf augustus 2017, zijn de volgende mogelijkheden toegevoegd aan Azure Data Ca
 
 ## <a name="whats-new-for-july-2017"></a>Wat is er nieuw voor juli 2017 
 Vanaf juli 2017, zijn de volgende mogelijkheden toegevoegd aan Azure Data Catalog:
-*   Ondersteuning voor gedetailleerdere controle over dit bewerkingen voor metagegevens met inbegrip van:
+*   Ondersteuning voor gedetailleerdere controle over de toegestane metagegevensbewerkingen, met inbegrip van:
     - Catalogusbeheerders kunnen gebruikers beperken om bij te dragen van tags en verwante metagegevens om de catalogus, zodat alleen-lezen toegang tot de catalogus.
     - Catalogusbeheerders kunnen gebruikers bedrijfsdocumenten kunnen nieuwe gegevensbronnen registreren in de catalogus beperken.
     - Catalogusbeheerders kunnen gebruikers bedrijfsdocumenten kunnen eigenaar worden van de metagegevens van de asset gegevens in de catalogus beperken.
@@ -138,7 +138,7 @@ Vanaf mei 2016, zijn de volgende mogelijkheden toegevoegd aan Azure Data Catalog
 * Een zakelijke woordenlijst waarmee catalogusbeheerders bedrijfstermen en hiërarchieën maken van een algemeen bedrijfsjargon definiëren. Gebruikers, geregistreerde gegevensassets met termen in de woordenlijst zodat het eenvoudiger te detecteren en begrijpen van de inhoud van de catalogus kunnen labelen. Zie voor meer informatie [De zakelijke woordenlijst instellen voor Governed Tagging](data-catalog-how-to-business-glossary.md)  
 * Verbeteringen in de Data Catalog zakelijke woordenlijst waarmee gebruikers om bij te werken van meerdere termen in de woordenlijst in één bewerking. Gebruikers kunnen meerdere voorwaarden bewerken van de volgende velden selecteren:
   * Bovenliggende Term: De gebruiker kan een nieuwe bovenliggende term selecteren en alle geselecteerde voorwaarden worden bijgewerkt om te worden van onderliggende items van de geselecteerde bovenliggende term. Als de geselecteerde alle voorwaarden dezelfde bovenliggende hebt, wordt dat de bovenliggende wordt weergegeven in het tekstvak, anders wordt de bovenliggende term veld is ingesteld op leeg.   
-  * Tags en belanghebbenden: gebruikers kunnen toevoegen en verwijderen van tags en belanghebbenden voor meerdere termen in de woordenlijst met de dezelfde ervaring als meerdere gegevensassets labelen.
+  * Tags en belanghebbenden: Gebruikers kunnen toevoegen en verwijderen van tags en belanghebbenden voor meerdere termen in de woordenlijst met de dezelfde ervaring als meerdere gegevensassets labelen.
 
 > [!NOTE]
 > De zakelijke woordenlijst is alleen beschikbaar in de Standard-editie van Azure Data Catalog. De Free Edition biedt mogelijkheden voor beheerde-tagging of een zakelijke woordenlijst.
@@ -153,7 +153,7 @@ Vanaf februari 2016, zijn de volgende mogelijkheden toegevoegd aan Azure Data Ca
 
 * Een nieuw vernieuwde gegevens voor de geselecteerde bron-ervaring in het registratiehulpprogramma voor Azure Data Catalog gegevensbronnen. Het registratiehulpprogramma voor gegevensbronnen is bijgewerkt om het gemakkelijker om te zoeken en selecteren van de gegevensbronnen ondersteund door Azure Data Catalog.
 * Ondersteuning voor 10 extra talen in de Azure Data Catalog-portal en het hulpprogramma voor registratie. Naast Engels, zijn de Azure Data Catalog-ervaring is nu beschikbaar in het Duits, Spaans, Frans, Italiaans, Japans, Koreaans, Portugees (Brazilië), Russisch, Chinees vereenvoudigd en traditioneel Chinees. De gebruikerservaring van Azure Data Catalog is gelokaliseerd op basis van de taalvoorkeuren instellen in Windows of in de webbrowser van de gebruiker.
-* Ondersteuning voor geo-replicatie van gegevens van Azure Data Catalog voor zakelijke continuïteit en herstel na noodgevallen. Alle inhoud van de Azure Data Catalog, met inbegrip van data source-metagegevens en via crowdsourcing aantekeningen, worden nu gerepliceerd tussen twee Azure-regio's zonder extra kosten aan klanten. De Azure-regio's zijn vooraf geplaatst ten minste 500 mijl uit elkaar liggen, en volgt u de toewijzing zoals beschreven in [zakelijke continuïteit en herstel na noodgevallen (BCDR): gekoppelde regio's Azure](../best-practices-availability-paired-regions.md).
+* Ondersteuning voor geo-replicatie van gegevens van Azure Data Catalog voor zakelijke continuïteit en herstel na noodgevallen. Alle inhoud van de Azure Data Catalog, met inbegrip van data source-metagegevens en via crowdsourcing aantekeningen, worden nu gerepliceerd tussen twee Azure-regio's zonder extra kosten aan klanten. De Azure-regio's zijn vooraf geplaatst ten minste 500 mijl uit elkaar liggen, en volgt u de toewijzing zoals beschreven in [zakelijke continuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio's](../best-practices-availability-paired-regions.md).
 * Ondersteuning voor het wijzigen van het Azure-abonnement gebruikt door Azure Data Catalog. Azure Data Catalog-beheerders kunnen de pagina instellingen in de Azure Data Catalog-portal gebruiken om te selecteren van een ander Azure-abonnement voor factureringsdoeleinden.
 
 ## <a name="whats-new-for-january-2016"></a>Wat is er nieuw voor januari 2016
@@ -165,7 +165,7 @@ Vanaf januari 2016, zijn de volgende mogelijkheden toegevoegd aan Azure Data Cat
   * File System - bestand
   * SharePoint - lijst
   * FTP - bestanden en mappen
-  * SalesForce.com - Object
+  * Salesforce.com - Object
   * DB2 - tabel, weergave en -Database
   * PostgreSQL - tabel, weergave en -Database
 * Ondersteuning voor 'Openen in SQL Server Data Tools' voor gegevensbronnen van SQL Server (met inbegrip van Azure SQL DB en Azure SQL Data Warehouse).  
@@ -263,6 +263,6 @@ Vanaf augustus 2015 geldt zijn de volgende mogelijkheden toegevoegd aan Azure Da
 * Ondersteuning voor het bieden van toegang tot aanvraag informatie voor geregistreerde gegevensbronnen. Voor alle geregistreerde gegevensasset kunnen gebruikers nu instructies voor het aanvragen van toegang, met inbegrip van koppelingen in e-mailadres of URL's, eenvoudig kunt integreren met bestaande hulpmiddelen en processen opgeven.
 * Knopinfo voor labels en experts, zodat u gemakkelijk om te ontdekken welke gebruikers de metagegevens voor geregistreerde gegevensassets hebt opgegeven.
 * Er is een nieuwe 'Gebruiker'-knop en het menu aan de bovenste navigatiebalk toegevoegd. Dit menu krijgt de gebruiker het account dat wordt gebruikt voor aanmelding bij Azure Data Catalog en u Meld u af als gewenst. Dit menu ook weergegeven de naam van de gegevenscatalogus, wat nuttig is voor ontwikkelaars met behulp van de REST-API van Azure Data Catalog is.
-* Standard-editie alleen: Bij het toevoegen van eigenaren aan gegevensassets, Azure Data Catalog ondersteunt nu de gebruikersaccounts en beveiligingsgroepen als eigenaren. Als u wilt een beveiligingsgroep toevoegen als eigenaar van geselecteerde gegevensassets, kunt u de weergavenaam van de groep of van de groep UPN-e-mailadres invoeren als er een.
+* Standard-editie alleen: Bij het toevoegen van eigenaren aan gegevensassets, ondersteunt Azure Data Catalog nu de gebruikersaccounts en beveiligingsgroepen als eigenaren. Als u wilt een beveiligingsgroep toevoegen als eigenaar van geselecteerde gegevensassets, kunt u de weergavenaam van de groep of van de groep UPN-e-mailadres invoeren als er een.
 * Ondersteuning voor Azure Blob Storage-gegevensbronnen. Gebruikers kunnen nu registreren en detecteren van Azure Storage-blobs en mappen.
 

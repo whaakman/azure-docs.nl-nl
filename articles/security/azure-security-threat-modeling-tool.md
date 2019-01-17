@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
-ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307072"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358657"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -33,20 +33,20 @@ Het hulpprogramma kan iedereen:
 
 Hier volgen enkele mogelijkheden van de hulpprogramma's en de innovaties van slechts een paar te noemen:
 
-* **Automation:** hulp en feedback bij het opstellen van een model
-* **STRIDE per Element:** begeleide analyse van bedreigingen en oplossingen
-* **Rapportage:** beveiligingsactiviteiten en testen in de fase verificatie
-* **De unieke methodologie:** kunnen gebruikers beter visualiseren en inzicht in bedreigingen
+* **Automation:** Hulp en feedback bij het opstellen van een model
+* **STRIDE per Element:** Begeleide analyse van bedreigingen en oplossingen
+* **Rapportage:** Beveiligingsactiviteiten en testen in de fase verificatie
+* **De unieke methodologie:** Hiermee kunnen gebruikers beter visualiseren en inzicht in bedreigingen
 * **Ontworpen voor ontwikkelaars en gecentreerd op Software:** veel methoden zijn gericht op activa of kwaadwillende personen. We zijn gericht op de software. We gebruikmaken van activiteiten die alle software-ontwikkelaars en architecten bekend met bent--zoals het tekenen van afbeeldingen voor hun softwarearchitectuur
-* **Gericht op ontwerp analyse:** de term 'risicomodel"kan verwijzen naar een vereisten of een techniek van de analyse van ontwerp. Soms verwijst naar een complexe combinatie van de twee. De aanpak van Microsoft SDL risicomodel is een techniek van de analyse van gerichte ontwerp
+* **Gericht op ontwerp analyse:** De term 'risicomodel"kunt verwijzen naar een vereisten of een techniek van de analyse van ontwerp. Soms verwijst naar een complexe combinatie van de twee. De aanpak van Microsoft SDL risicomodel is een techniek van de analyse van gerichte ontwerp
 
 ## <a name="next-steps"></a>Volgende stappen
 
 De onderstaande tabel bevat belangrijke koppelingen om u aan de slag met de Threat Modeling Tool:
 
-| Stap  | Beschrijving                                                                                   |
+| Stap  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [De Threat Modeling Tool downloaden](https://aka.ms/tmtpreview)                                |
+| **1** | [De Threat Modeling Tool downloaden](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Lees dat onze introductiehandleiding](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [Vertrouwd raken met de functies](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [Meer informatie over de gegenereerde threat categorieën](./azure-security-threat-modeling-tool-threats.md)   |
@@ -62,4 +62,4 @@ Hier volgen enkele oudere artikelen nog steeds relevant zijn voor threat modelin
 Bekijk wat experts van enkele Threat Modeling Tool hebt gedaan:
 
 * [Bedreigingen Manager](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
-* [Simone Curzi Security-Blog](https://simoneonsecurity.com/)
+* [Simone Curzi Security Blog](https://simoneonsecurity.com/)

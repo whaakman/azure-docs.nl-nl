@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002481"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359541"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -33,7 +33,7 @@ De informatie in dit artikel beschrijft registreren geïntegreerde Azure Stack-s
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet de volgende voldaan voordat u registreert:
+De volgende handelingen uit in plaats moet u voordat u registreert:
 
  - Uw referenties controleren
  - De PowerShell-taalmodus instellen
@@ -52,9 +52,9 @@ Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
 - De gebruikersnaam en wachtwoord voor een account dat eigenaar van het abonnement.
 
-- Het gebruikersaccount moet toegang hebben tot het Azure-abonnement en machtigingen hebben voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement.
+- Het gebruikersaccount moet toegang hebben tot het Azure-abonnement en machtigingen hebben voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement. Wordt u aangeraden dat u Azure Stack registreren bij Azure-beheer met minimale bevoegdheden [het maken van een service-account moet worden gebruikt voor registratie](azure-stack-registration-role.md) in plaats van met de referenties van de globale beheerder.
 
-- De Azure Stack-resourceprovider geregistreerd (Zie de sectie Azure Stack-Resourceprovider registreren hieronder voor meer informatie).
+- De Azure Stack-resourceprovider geregistreerd (Zie de volgende sectie van de Azure Stack-Resourceprovider registreren voor meer informatie).
 
 Na de registratie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk reactiveren van het account algemeen beheerder-bevoegdheden of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.
 
@@ -72,7 +72,7 @@ Zorg ervoor dat de uitvoer geeft als resultaat **FullLanguageMode**. Als een and
 
 ### <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
-U moet de nieuwste versie van PowerShell voor Azure Stack gebruiken om u te registreren bij Azure.
+Gebruik de nieuwste versie van PowerShell voor Azure Stack te registreren bij Azure.
 
 Als u niet de meest recente versie niet al is geïnstalleerd, raadpleegt u [PowerShell voor Azure Stack installeren](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
@@ -101,7 +101,7 @@ Wanneer u Azure Stack met Azure hebt geregistreerd, moet u een unieke registrati
 > [!NOTE]
 > Azure Stack-registraties met behulp van het factureringsmodel op basis van capaciteit, moet de unieke naam wijzigen bij het opnieuw registreren nadat deze jaarlijkse abonnementen zijn verlopen, tenzij u [verwijderen van de registratie van de verlopen](azure-stack-registration.md#change-the-subscription-you-use) en opnieuw te registreren bij Azure.
 
-Om te bepalen van de Cloud-ID voor uw Azure Stack-implementatie, opent u PowerShell als beheerder op een computer dan toegang tot de bevoorrechte eindpunt, voer de volgende opdrachten, en noteer de **CloudID** waarde: 
+Om te bepalen van de Cloud-ID voor uw Azure Stack-implementatie, opent u PowerShell als beheerder op een computer die u kunt toegang tot het eindpunt met bevoegde, voer de volgende opdrachten uit en noteer de **CloudID** waarde: 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
@@ -147,7 +147,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Vervolgens, in dezelfde PowerShell-sessie, zorg ervoor dat u bent aangemeld bij de juiste Context van Azure PowerShell. Dit is het Azure-account dat is gebruikt om de bovenstaande Azure Stack resourceprovider te registreren. Als u PowerShell om uit te voeren:
+6. Vervolgens, in dezelfde PowerShell-sessie, zorg ervoor dat u bent aangemeld bij de juiste Context van Azure PowerShell. Dit is de Azure-account dat is gebruikt voor het eerder de Azure Stack-resourceprovider registreren. Als u PowerShell om uit te voeren:
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -306,9 +306,21 @@ U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie 
 
 2. Selecteer in het Dashboard, **regiobeheer**.
 
+3. Selecteer **eigenschappen**. Deze blade ziet u de status en details van uw omgeving. De status kan zijn **geregistreerde** of **niet geregistreerd**.
+
     [ ![De tegel beheer regio](media/azure-stack-registration/admin1sm.png "regio management tegel") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. Selecteer **eigenschappen**. Deze blade ziet u de status en details van uw omgeving. De status kan zijn **geregistreerde** of **niet geregistreerd**. Als geregistreerd, ook ziet u de ID van de Azure-abonnement dat u gebruikt voor het registreren van uw Azure Stack, samen met de registratie-resourcegroep en de naam.
+    Als u geregistreerd, voegt u de eigenschappen:
+    
+    - **Registratie abonnements-ID**: De Azure-abonnement-ID geregistreerd en die is gekoppeld aan Azure Stack
+    - **Registratie-resourcegroep**: De Azure-resourcegroep in het gekoppelde abonnement met de Azure Stack-resources.
+
+4. De Azure portal gebruiken om de Azure Stack-app-registraties weer te geven. Aanmelden bij de Azure-portal met een account dat is gekoppeld aan het abonnement dat u gebruikt voor het registreren van Azure Stack. Overschakelen naar de tenant die is gekoppeld aan Azure Stack.
+5. Navigeer naar **Azure Active Directory > App-registraties > alle toepassingen weergeven**.
+
+    ![App-registraties](media/azure-stack-registration/app-registrations.png)
+
+    Azure Stack-app-registraties worden voorafgegaan door **Azure Stack**.
 
 U kunt ook kunt u controleren of uw registratie geslaagd is met behulp van de Marketplace-management-functie. Als u een lijst met items voor de marketplace in de Marketplace-beheerblade ziet, is uw registratie is gelukt. Echter in niet-verbonden omgevingen zal u niet mogelijk om te zien van marketplace-items in beheer van Marketplace. Echter, kunt u het hulpprogramma voor offline om te controleren of de registratie.
 
@@ -443,7 +455,7 @@ Als u wilt de cmdlet uitvoert, hebt u het volgende nodig:
 | MarketplaceSyndicationEnabled | Waar/onwaar | Hiermee bepaalt u of de marketplace-management-functie beschikbaar in de portal is. Ingesteld op true als registreren met een internetverbinding. Ingesteld op ONWAAR als registreren in niet-omgeving verbonden. Voor niet-verbonden registraties de [offline syndication hulpprogramma](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) kan worden gebruikt voor het downloaden van items voor de marketplace. |
 | UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: Waar, ONWAAR. |
 | AgreementNumber | Reeks |  |
-| registrationName | Reeks | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, het script mislukken. |
+| registrationName | Reeks | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, mislukt het script. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 

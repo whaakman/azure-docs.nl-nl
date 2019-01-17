@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742305"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54355531"
 ---
 Om in te schakelen fijnmazig wachtwoord opnieuw instellen van uw toepassing, gebruikt u een **wachtwoordherstel** gebruikersstroom. Houd er rekening mee dat de tenant-brede wachtwoordherstel optie is opgegeven [hier](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Deze gebruikersstroom beschrijft de ervaring van de klanten gaan voor wachtwoord opnieuw instellen en de inhoud van tokens die de toepassing bewerking is voltooid ontvangt.
 

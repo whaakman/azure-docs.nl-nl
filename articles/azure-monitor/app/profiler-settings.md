@@ -1,5 +1,5 @@
 ---
-title: Blade instellingen van Azure Application Insights Profiler | Microsoft Docs
+title: Het deelvenster van de instellingen van Azure Application Insights Profiler gebruiken | Microsoft Docs
 description: Profiler-status zien en sessies profileren starten
 services: application-insights
 documentationcenter: ''
@@ -12,109 +12,117 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b656fb521ad72256e91de63e96aa261f1e94bd13
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 16e855d8c9c5863339ec09b48d41d6f011b3e836
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082856"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358674"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler configureren
 
-## <a name="profiler-settings-page"></a>De pagina instellingen Profiler
+## <a name="profiler-settings-pane"></a>Deelvenster Profiler-instellingen
 
-De pagina profiler-instellingen van de prestaties van Application Insights-pagina kan worden geopend door te drukken de **Profiler** knop.
+Als u wilt openen in het deelvenster van de instellingen Azure Application Insights Profiler, gaat u naar het deelvenster Insights de prestaties van toepassingen en selecteer vervolgens de **Profiler** knop.
 
-![profiler deelvenster vermelding configureren][configure-profiler-entry]
+![Het deelvenster Profiler configureren][configure-profiler-entry]
 
-De pagina configureren van Application Insights Profiler bevat vier onderdelen: 
-1. **Profiel nu** -met deze knop zorgt ervoor dat profilering sessies te starten voor alle apps die zijn gekoppeld aan dit exemplaar van Application Insights
-1. **Gekoppelde apps** -lijst met toepassingen profiler te verzenden naar deze Application Insights-resource
-1. **Sessies Bezig** : wanneer u op de toets **profiel nu**, de status van de sessie wordt hier weergegeven)
-1. **Recente sessies profilering** -bevat informatie over de afgelopen profilering sessies.
+De **voor Application Insights Profiler configureren** deelvenster bevat vier onderdelen: 
+* **Profiel nu**: Start-sessies voor alle apps die zijn gekoppeld aan dit exemplaar van Application Insights-profilering.
+* **Gekoppelde apps**: Een lijst met toepassingen die profilering verzendt gegevens naar deze Application Insights-resource.
+* **Sessies Bezig**: Geeft de status van de sessie wanneer u selecteert **profiel nu**. 
+* **Recente sessies profilering**: Geeft informatie weer over de afgelopen profilering sessies.
 
 ![Profiler op aanvraag][profiler-on-demand]
 
-## <a name="app-service-environments-ase"></a>App Service-omgevingen (ASE)
-Afhankelijk van hoe de as-omgeving is geconfigureerd, kan de aanroep om te controleren op de status van de agent worden geblokkeerd. Deze pagina wordt zeggen dat de agent wordt niet uitgevoerd wanneer deze in feite is. U kunt controleren of de webtaak op uw toepassing controleren. Maar als alle appinstellingen juist zijn ingesteld en de App Insights-site-extensie is geïnstalleerd op uw toepassing, de profiler zal worden uitgevoerd en ziet u recente profilering sessies in de lijst als er voldoende verkeer naar uw toepassing.
+## <a name="app-service-environment"></a>App Service-omgeving
+Afhankelijk van hoe uw Azure App Service-omgeving is geconfigureerd, kan de aanroep om te controleren op de agentstatus wordt geblokkeerd. Het deelvenster mogelijk een bericht dat de agent is niet actief, zelfs wanneer deze wordt uitgevoerd weergegeven. Om ervoor te zorgen dat het is, Controleer de webtaak op uw toepassing. Als alle waarden van de app-instellingen juist zijn en de Application Insights-site-extensie is geïnstalleerd op uw toepassing, wordt Profiler uitgevoerd. Als uw toepassing voldoende verkeer ontvangt, moeten in een lijst met recente profilering sessies weergegeven.
 
 ## <a id="profileondemand"></a> Profiler handmatig activeren
 
-Profiler kan handmatig met één klik worden geactiveerd. Stel dat u een test voor de prestaties van webtoepassingen worden uitgevoerd. Moet u traceringen om te begrijpen hoe uw web-app wordt uitgevoerd onder belasting. Controle over wanneer traceringen worden vastgelegd met is cruciaal omdat u weet wanneer belastingstest wordt uitgevoerd, maar het interval van steekproeven mogelijk worden gemist.
-De volgende stappen laten zien hoe dit scenario werkt:
+Met één klik kunt u Profiler handmatig activeren. Stel dat u een webprestatietesten uitvoert. Hebt u traceringen om te begrijpen hoe uw web-app wordt uitgevoerd onder belasting nodig. Controle over wanneer traceringen worden vastgelegd met is cruciaal omdat u weet wanneer de belastingstest wordt uitgevoerd. Maar het interval van steekproeven mogelijk worden gemist.
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Optioneel) Stap 1: Verkeer naar uw web-app genereren op basis van een WebTest voor prestaties
+De volgende secties laten zien hoe dit scenario werkt:
+
+### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Stap 1: (Optioneel) Verkeer naar uw web-app genereren op basis van een WebTest voor prestaties
 
 Als uw web-app is al het inkomende verkeer of als u alleen wilt handmatig genereren verkeer, kunt u deze sectie overslaan en doorgaan naar stap 2.
 
-Ga naar Application Insights-portal **configureren > prestatietests**. Klik op de knop Nieuw om een nieuwe prestatietest te starten.
+1. Selecteer in de Application Insights-webportal **configureren** > **prestatietests**. 
 
-![maken van nieuwe prestatietest][create-performance-test]
+1. Selecteer eerst een nieuwe prestatietest de **nieuw** knop.
 
-In de **nieuwe prestatietest** in het deelvenster voor het configureren van de test doel-URL. Accepteer alle standaardinstellingen en start de load-test uitvoert.
+   ![maken van nieuwe prestatietest][create-performance-test]
 
-![Configureren van load test][configure-performance-test]
+1. In de **nieuwe prestatietest** in het deelvenster voor het configureren van de test doel-URL. Accepteer alle standaardinstellingen, en selecteer vervolgens **uitvoeren test** beginnen met het uitvoeren van de belastingstest.
 
-U ziet dat de nieuwe test staat in de wachtrij eerst, gevolgd door de status wordt uitgevoerd.
+    ![Configureren van load test][configure-performance-test]
 
-![belastingstest wordt verzonden en in de wachtrij geplaatst][load-test-queued]
+    De nieuwe test staat in de wachtrij eerst, gevolgd door de status van *Bezig*.
 
-![belastingstest wordt uitgevoerd in voortgang][load-test-in-progress]
+    ![belastingstest wordt verzonden en in de wachtrij geplaatst][load-test-queued]
 
-### <a name="step-2-start-profiler-on-demand"></a>Stap 2: Profiler op aanvraag starten
+    ![belastingstest wordt uitgevoerd in voortgang][load-test-in-progress]
 
-Zodra de load-test wordt uitgevoerd, kunnen we beginnen profiler voor het vastleggen van traces op de web-app tijdens het laden wordt ontvangen.
-Navigeer naar het deelvenster Profiler configureren:
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Stap 2: Een Profiler-op-verzoek-sessie starten
+
+1. Wanneer de belastingstest wordt uitgevoerd, start u de Profiler voor het vastleggen van traces op de web-app tijdens het laden wordt ontvangen.
+
+1. Ga naar de **Profiler configureren** deelvenster.
 
 
 ### <a name="step-3-view-traces"></a>Stap 3: Weergave traceringen
 
-Nadat de profiler is voltooid, volg de instructies op de melding om naar de pagina en de weergave prestatietraces te gaan.
+Nadat de Profiler is voltooid, volg de instructies op de melding om naar het deelvenster en prestatietraces te gaan.
 
-## <a name="troubleshooting-on-demand-profiler"></a>Profiler voor het oplossen van problemen op aanvraag
+## <a name="troubleshoot-the-profiler-on-demand-session"></a>Oplossen van de Profiler-sessie op aanvraag
 
-U ziet soms Profiler time-out foutbericht weergegeven na een sessie op aanvraag:
+Na een sessie op aanvraag ontvangt u mogelijk een foutbericht van Profiler time-out:
 
 ![Profiler-time-outfout][profiler-timeout]
 
-Er zijn twee redenen waarom u deze fout ziet:
+U kunt dit foutbericht voor een van de volgende redenen:
 
-1. De sessie op aanvraag profiler is voltooid, maar de Application Insights duurde langer om de verzamelde gegevens te verwerken. Als gegevens is niet voltooid binnen 15 minuten wordt verwerkt, weergegeven de portal bericht met een time-out. Hoewel het na enige tijd, worden Profiler-traceringen weergegeven. Als dit gebeurt, moet u alleen het foutbericht voor nu negeren. We werken actief aan een oplossing.
+* De sessie op aanvraag Profiler is voltooid, maar de Application Insights duurde langer dan verwacht om de verzamelde gegevens te verwerken.  
 
-1. Uw web-app heeft een oudere versie van Profiler-agent die beschikt niet over de functie op aanvraag. Als u Application Insights-profiel eerder ingeschakeld, is het waarschijnlijk moet u bijwerken van uw Profiler-agent te starten met de functie op aanvraag.
+  Als de gegevens niet binnen 15 minuten verwerkt, wordt de portal een time-bericht. Na een tijdje worden echter worden Profiler-traceringen weergegeven. Als u een foutbericht ontvangt, kunt u deze voor nu negeren. We werken actief aan een oplossing.
+
+* Uw web-app heeft een oudere versie van Profiler-agent die beschikt niet over de functie op aanvraag.  
+
+  Als u Application Insights Profiler eerder ingeschakeld, moet u mogelijk uw Profiler-agent te starten met de functie op aanvraag bijwerken.
   
-Volg deze stappen om te controleren en installeren van de meest recente Profiler:
+Ga naar de App-Services **App-instellingen** deelvenster en controleer of de volgende instellingen:
+* **APPINSIGHTS_INSTRUMENTATIONKEY**: Vervangen door de juiste instrumentatiesleutel voor Application Insights.
+* **APPINSIGHTS_PORTALINFO**: ASP.NET
+* **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-1. Ga naar App-instellingen voor App-Services en controleer of de volgende instellingen zijn geconfigureerd:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Vervangen door de juiste instrumentatiesleutel voor Application Insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 als een van deze instellingen zijn niet ingesteld, gaat u naar het deelvenster voor het inschakelen van Application Insights voor het installeren van de recentste site-extensie.
+Als een van de bovenstaande waarden niet zijn ingesteld, moet u de meest recente site-extensie installeren door het volgende te doen:
 
-1. Ga naar Application Insights-venster in App Services-portal.
+1. Ga naar de **Application Insights** deelvenster in de portal voor App Services.
 
     ![Application Insights inschakelen vanuit de portal voor App Services][enable-app-insights]
 
-1. Als u een knop 'Update' in de volgende pagina ziet, klikt u erop om bij te werken van Application Insights-extensie voor site waarop de meest recente Profiler-agent wordt geïnstalleerd.
+1. Als de **Application Insights** deelvenster wordt een **bijwerken** knop, selecteert u het bijwerken van de extensie van de Application Insights-site waarop de meest recente Profiler-agent wordt geïnstalleerd.
 
     ![Update-site-uitbreiding][update-site-extension]
 
-1. Klik vervolgens op **wijzigen** om te zorgen dat de Profiler is ingeschakeld en selecteer **OK** de wijzigingen op te slaan.
+1. Om ervoor te zorgen dat de Profiler is ingeschakeld, selecteert u **wijziging**, en selecteer vervolgens **OK** de wijzigingen op te slaan.
 
     ![Wijzigen en opslaan van app insights][change-and-save-appinsights]
 
-1. Ga terug naar **App-instellingen** tabblad voor de App Service om te controleren van de volgende items voor de app-instellingen zijn ingesteld:
+1. Ga terug naar **App-instellingen** deelvenster voor het App Service om ervoor te zorgen dat de volgende waarden zijn ingesteld:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Vervangen door de juiste instrumentatiesleutel voor application insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![App-instellingen voor profiler][app-settings-for-profiler]
+    ![App-instellingen voor Profiler][app-settings-for-profiler]
 
-1. (Optioneel) Controleer de versie van de extensie en ervoor te zorgen dat er is geen update beschikbaar.
+1. Selecteer desgewenst **extensies**, en controleer de versie van de extensie en bepalen of een update beschikbaar is.
 
     ![selectievakje voor het bijwerken van de extensie][check-for-extension-update]
 
 ## <a name="next-steps"></a>Volgende stappen
-[Traceringen Profiler inschakelen en weergeven](profiler-overview.md ?toc=/azure/azure-monitor/toc.json)
+[Profiler inschakelen en weergeven van traceringen](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

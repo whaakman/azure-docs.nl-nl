@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8282901dfcacb7ca0330274d114cd4c2990fdec1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 321f6fc043147c0a1559c93fb5ada3d33d9e3dd9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330447"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359966"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Over het inrichten van SQL Server-machines met Azure PowerShell
 
@@ -101,9 +101,10 @@ $OSDiskName = $VMName + "OSDisk"
 ```
 
 ### <a name="choose-a-sql-server-image"></a>Kies een installatiekopie van SQL Server
-Definieer de SQL Server-installatiekopie moet worden gebruikt voor de virtuele machine.
 
-1. Eerst, overzicht van de SQL Server-installatiekopie-aanbiedingen met de **Get-AzureRmVMImageOffer** opdracht:
+De volgende variabelen gebruiken voor het definiëren van de SQL Server-installatiekopie moet worden gebruikt voor de virtuele machine. 
+
+1. Eerst een lijst met alle van de SQL Server-installatiekopie-aanbiedingen met de `Get-AzureRmVMImageOffer` opdracht. Met deze opdracht worden de huidige installatiekopieën die beschikbaar zijn in de Azure-Portal en ook oudere installatiekopieën die kunnen alleen worden geïnstalleerd met PowerShell:
 
    ```PowerShell
    Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 0ff92ad58cc8b7206b7061c88f8aadbb701870f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044515"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354481"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>De hoogte te brengen patiënten van HL7 FHIR gezondheidszorg record wordt gewijzigd met Logic Apps en Azure Cosmos DB
 
@@ -130,11 +130,11 @@ We gebruiken de [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/l
             /// <param name="maximumItemCount">-1 returns all (default)</param>
             /// <returns></returns>
             [Metadata("Get New or Modified FHIR Documents",
-                "Query for new or modifed FHIR Documents By Resource Type " +
+                "Query for new or modified FHIR Documents By Resource Type " +
                 "from Last Run Date or Beginning of Collection creation"
             )]
             [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
-            [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]
+            [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modified Documents found")]
             [SwaggerOperation("GetNewOrModifiedFHIRDocuments")]
             public async Task<dynamic> GetNewOrModifiedFhirDocuments(
                 [Metadata("Database Id", "Database Id")] string databaseId,
@@ -217,11 +217,11 @@ De volgende afbeelding ziet u alle Azure-Services voor deze oplossing die wordt 
 
 ## <a name="summary"></a>Samenvatting
 
-- U hebt geleerd dat Azure Cosmos DB biedt systeemeigen ondersteuning voor meldingen voor nieuw of gewijzigd documenten en hoe eenvoudig het is om te gebruiken. 
+- U hebt geleerd dat Azure Cosmos DB biedt ingebouwde ondersteuning voor meldingen voor nieuwe of gewijzigde documenten en hoe eenvoudig het is om te gebruiken. 
 - Door gebruik te maken van logische Apps, kunt u werkstromen maken zonder een code te schrijven.
 - Met behulp van Azure Service Bus-wachtrijen voor het afhandelen van de verdeling van de HL7 FHIR-documenten.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over Azure Cosmos DB, de [startpagina van Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Zie voor meer informatie over Logic Apps [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Zie voor meer informatie over Azure Cosmos DB, de [startpagina van Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Zie voor meer informatie over Logic Apps, [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

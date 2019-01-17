@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: bf84ec16d5d13439796b386a8ab4f40840ca4eaa
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 682d1d123d3381a52c9d356cd1bf226d2a847df4
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438408"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352866"
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site-VPN
 
@@ -22,7 +22,7 @@ Met een point-to-site-VPN-gatewayverbinding (P2S) kunt u vanaf een afzonderlijke
 
 Punt-naar-site VPN kunt gebruiken dat een van de volgende protocollen:
 
-* OpenVPN, VPN-protocol op basis van een SSL/TLS. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. OpenVPN kan worden gebruikt om verbinding te maken van Android, iOS-, Linux en Mac-apparaten (OSX-versie 10.11 en hoger).
+* OpenVPN, VPN-protocol op basis van een SSL/TLS. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. OpenVPN kan worden gebruikt om verbinding te maken van Android, iOS (versie 11.0 en hoger), Linux en Mac-apparaten (OSX-versie 10.13 en hoger).
 
 * Secure Socket Tunneling Protocol (SSTP), een eigen VPN op basis van een SSL-protocol. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. SSTP wordt alleen ondersteund op Windows-apparaten. Azure ondersteunt alle versies van Windows die SSTP (Windows 7 en hoger) hebben.
 
@@ -57,7 +57,7 @@ Een RADIUS-server kan ook worden geïntegreerd met andere systemen externe id. H
 >OpenVPN protocol wordt niet ondersteund met RADIUS-verificatie.
 >
 
-![punt-naar-site](./media/point-to-site-about/p2s.png "punt-naar-Site")
+![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Wat zijn de vereisten van de configuratie van client?
 

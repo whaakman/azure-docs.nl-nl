@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d238e5e7c129241fc599e3b656d785d750b330c7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332032"
+ms.locfileid: "54354464"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -2543,7 +2543,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Retourneert een Booleaanse waarde die aangeeft of de matrix de opgegeven waarde bevat. U kunt kiezen tussen een volledige of gedeeltelijke overeenkomst. 
+Retourneert een Booleaanse waarde die aangeeft of de matrix de opgegeven waarde bevat. U kunt een gedeeltelijke of volledige overeenkomst van een object controleren met behulp van een Booleaanse expressie in de opdracht. 
 
  **Syntaxis**  
   
@@ -2563,7 +2563,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     Een Booleaanse expressie is.       
+     Een Booleaanse expressie is. Als deze ingesteld op ' true'and als de opgegeven waarde een object is, de opdracht wordt gecontroleerd voor een gedeeltelijke overeenkomst (de search-object is een subset van een van de objecten). Als deze ingesteld op 'false', controleert de opdracht een volledige overeenkomst van alle objecten in de matrix. De standaardwaarde indien niet opgegeven is ingesteld op false. 
   
  **Typen retourneren**  
   

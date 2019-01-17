@@ -1,6 +1,6 @@
 ---
 title: Problemen oplossen met Azure Application Insights Profiler | Microsoft Docs
-description: Deze pagina bevat de stappen en informatie voor ontwikkelaars die problemen ondervindt inschakelen of met behulp van Application Insights profiler het oplossen van problemen.
+description: In dit artikel geeft stappen en informatie voor ontwikkelaars die problemen ondervindt inschakelen of met behulp van Application Insights Profiler het oplossen van problemen.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,95 +12,105 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d424316cb8287dcf2a9ff04cf8e6889d5bada2cd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 404fe07b5e3c1f4322ec683f37b08942abfd6fcc
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082787"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358844"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
 ## <a id="troubleshooting"></a>Algemene probleemoplossing
 
-### <a name="profiles-are-only-uploaded-if-there-are-requests-to-your-application-while-the-profiler-is-running"></a>Profielen worden alleen geüpload als er aanvragen voor uw toepassing terwijl de profiler wordt uitgevoerd
-Application Insights Profiler profiler worden gegevens verzameld voor elk uur, van twee minuten of wanneer de [ **profiel nu** ](profiler-settings.md ?toc=/azure/azure-monitor/toc.json) wordt geklikt op de **configureren van Application Insights Profiler**pagina. Maar de profileringsgegevens die alleen wordt geüpload wanneer deze kan worden gekoppeld aan een aanvraag die hebben plaatsgevonden terwijl de profiler is uitgevoerd. 
+### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Profielen worden geüpload alleen als er aanvragen worden ingediend om uw toepassing terwijl Profiler wordt uitgevoerd
 
-De profiler schrijft traceringsberichten en aangepaste gebeurtenissen naar uw application insights-resource. U kunt deze gebeurtenissen gebruiken om te zien hoe de profiler is uitgevoerd. Als u denkt dat de profiler moet worden uitgevoerd en traceringen vastleggen, maar u ze op de pagina van de prestaties niet ziet, kunt u controleren hoe de profiler wordt uitgevoerd:
+Azure Application Insights Profiler verzamelt gegevens voor elk uur van twee minuten. De service verzamelt ook gegevens wanneer u selecteert de **profiel nu** knop in de **voor Application Insights Profiler configureren** deelvenster. Maar de profileringsgegevens die is geüpload, alleen wanneer deze kan worden gekoppeld aan een aanvraag die hebben plaatsgevonden terwijl Profiler is uitgevoerd. 
 
-1. Zoeken naar traceringsberichten en aangepaste gebeurtenissen die worden verzonden door de profiler naar uw Application Insights-resource. U kunt deze zoekreeks gebruiken om de relevante gegevens te vinden:
+Profiler schrijft traceringsberichten en aangepaste gebeurtenissen naar uw Application Insights-resource. U kunt deze gebeurtenissen gebruiken om te zien hoe de Profiler is uitgevoerd. Als u denkt dat Profiler moet worden uitgevoerd en traceringen vastleggen, maar ze worden niet weergegeven in de **prestaties** deelvenster kunt u controleren hoe de Profiler wordt uitgevoerd:
+
+1. Zoeken naar traceringsberichten en aangepaste gebeurtenissen die door de Profiler wordt verzonden naar uw Application Insights-resource. U kunt deze zoekreeks gebruiken om de relevante gegevens te vinden:
 
     ```
     stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
     ```
-    Hier volgt een voorbeeld van twee zoekopdrachten uit twee verschillende AI-resources in de onderstaande schermafbeelding. 
+    De volgende afbeelding geeft twee voorbeelden van zoekopdrachten uit twee AI-resources: 
     
-    * De gebeurtenis aan de linkerkant wordt van een toepassing die wordt niet van aanvragen ophalen terwijl de profiler wordt uitgevoerd. Hier ziet u het bericht dat de upload is geannuleerd omdat er geen activiteit. 
+    * Aan de linkerkant is niet de toepassing aanvragen ontvangen terwijl Profiler wordt uitgevoerd. Het bericht wordt uitgelegd dat het uploaden is geannuleerd omdat er geen activiteit. 
 
-    * In het voorbeeld aan de rechterkant ziet u dat de profiler is gestart en verzonden van aangepaste gebeurtenissen gedetecteerd aanvragen die hebben plaatsgevonden terwijl de profiler is uitgevoerd. Als u het aangepaste gebeurtenis ServiceProfilerSample ziet, betekent dit de profiler een tracering gekoppeld aan een aanvraag en kunt u de tracering van de pagina van de prestaties van Application Insights bekijken.
+    * Aan de rechterkant Profiler gestart en aangepaste gebeurtenissen gedetecteerd aanvragen die hebben plaatsgevonden terwijl Profiler werd uitgevoerd verzonden. Als het aangepaste gebeurtenis ServiceProfilerSample wordt weergegeven, betekent dit dat Profiler een tracering gekoppeld aan een aanvraag en vindt u de tracering in de **Insights de prestaties van toepassingen** deelvenster.
 
-    * Als u geen telemetriegegevens helemaal niet ziet, wordt klikt u vervolgens de profiler niet uitgevoerd. U moet mogelijk de secties voor probleemoplossing voor uw specifieke app-type voor dit document hieronder lezen.  
+    Als er geen telemetrie wordt weergegeven, worden Profiler wordt niet uitgevoerd. Zie de secties voor probleemoplossing voor uw specifieke app-type verderop in dit artikel om op te lossen.  
 
-     ![Profiler zoeken in telemetrie][profiler-search-telemetry]
+     ![Profiler telemetrie zoeken][profiler-search-telemetry]
 
-1. Als er aanvragen worden tijdens de periode rond de profiler is uitgevoerd, zorg ervoor dat aanvragen worden verwerkt door het gedeelte van uw toepassing met de profiler is ingeschakeld. Soms toepassingen bestaan uit meerdere onderdelen, maar Profiler is alleen beschikbaar voor sommige, niet alle onderdelen. De pagina configureren van Application Insights Profiler ziet u de onderdelen die traceringen hebt geüpload.
+1. Als er aanvragen zijn het Profiler is uitgevoerd, ervoor zorgen dat de aanvragen worden verwerkt door het gedeelte van uw toepassing met de Profiler is ingeschakeld. Hoewel toepassingen wordt soms bestaan uit meerdere onderdelen, worden Profiler is ingeschakeld voor slechts enkele van de onderdelen. De **voor Application Insights Profiler configureren** in ziet u de onderdelen die traceringen hebt geüpload.
 
-### <a name="other-things-to-check"></a>Andere dingen om te controleren:
-* Uw app wordt uitgevoerd op .NET Framework 4.6.
+### <a name="other-things-to-check"></a>Andere dingen om te controleren
+* Zorg ervoor dat uw app wordt uitgevoerd op .NET Framework 4.6.
 * Als uw web-app een ASP.NET Core-toepassing is, service moet actief zijn ten minste ASP.NET Core 2.0.
-* Als de gegevens die u probeert weer te geven ouder dan een paar weken is, kunt u uw tijdfilter beperken en probeer het opnieuw. Traceringen worden na zeven dagen verwijderd.
-* Zorg ervoor dat proxy's of een firewall niet hebben toegang tot geblokkeerd https://gateway.azureserviceprofiler.net.
+* Als de gegevens die u probeert om weer te geven ouder dan een paar weken is, kunt u uw tijdfilter beperken en probeer het opnieuw. Traceringen worden na zeven dagen verwijderd.
+* Zorg ervoor dat proxy of firewall toegang tot niet geblokkeerd https://gateway.azureserviceprofiler.net.
 
 ### <a id="double-counting"></a>Dubbele parallelle threads tellen
 
 In sommige gevallen kan is de totale tijd metrische gegevens in de stack-viewer hoger dan de duur van de aanvraag.
 
-Deze situatie kan optreden wanneer twee of meer threads gekoppeld aan een aanvraag zijn, en ze parallel worden uitgevoerd. In dat geval wordt is de tijd van de totale thread hoger dan de verstreken tijd. Één thread kan worden wacht op de andere worden uitgevoerd. De viewer probeert deze situatie detecteren en de interesse wachten wordt weggelaten, maar deze oplossen aan de zijkant te veel informatie weergeven in plaats van weglaten wat mogelijk belangrijke informatie.
+Deze situatie kan optreden wanneer twee of meer threads gekoppeld aan een aanvraag zijn en ze parallel worden uitgevoerd. In dat geval wordt is de tijd van de totale thread hoger dan de verstreken tijd. Één thread kan worden wacht op de andere worden uitgevoerd. De viewer probeert deze situatie detecteren en oninteressant wachten wordt weggelaten. In dat geval, het oplossen aan de zijkant te veel informatie weergeven in plaats van weglaten wat mogelijk belangrijke informatie.
 
-Wanneer u parallelle threads in uw traceringen zien, moet u bepalen welke threads wachten, zodat u kunt het kritieke pad voor de aanvraag bekijken. In de meeste gevallen is gewoon de thread die snel een wachtstatus krijgt wacht op de andere threads. Zich concentreren op de andere threads en de tijd in de wachtrij-threads te negeren.
+Wanneer u parallelle threads in uw traceringen zien, moet u bepalen welke threads wachten zodat u kunt het kritieke pad voor de aanvraag bekijken. De thread die snel een wachtstatus krijgt is meestal gewoon wacht op de andere threads. Zich concentreren op de andere threads en de tijd in de wachtrij-threads te negeren.
 
 ### <a name="error-report-in-the-profile-viewer"></a>Foutrapport kan worden opgenomen in de profiel-viewer
 Verzend een ondersteuningsticket in de portal. Moet u de correlatie-ID van het foutbericht opnemen.
 
-## <a name="troubleshooting-profiler-on-app-services"></a>Het oplossen van problemen Profiler in App Services
-### <a name="for-the-profiler-to-work-properly"></a>Voor de profiler goed te laten werken:
+## <a name="troubleshoot-profiler-on-azure-app-service"></a>Profiler in Azure App Service oplossen
+Voor de Profiler goed te laten werken:
 * Uw web-app service-plan moet Basic-laag of hoger.
 * Uw web-app moet Application Insights is ingeschakeld.
 * Uw web-app moet de **APPINSIGHTS_INSTRUMENTATIONKEY** app-instelling is geconfigureerd met de dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
 * Uw web-app moet de **APPINSIGHTS_PROFILERFEATURE_VERSION** app-instelling gedefinieerd en ingesteld op 1.0.0.
-* Uw web-app moet de **DiagnosticServices_EXTENSION_VERSION** app-instelling gedefinieerd en stel de waarde voor ~ 3.
-* De **ApplicationInsightsProfiler3** webtaak moet worden uitgevoerd. U kunt de webtaak controleren door te gaan naar [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), en openen van de **WebJobs-Dashboard** onder het menu Extra. Zoals u in de schermafbeeldingen hieronder ziet door te klikken op de koppeling ApplicationInsightsProfiler2, ziet u details van de webtaak, met inbegrip van het logboek.
+* Uw web-app moet de **DiagnosticServices_EXTENSION_VERSION** appinstelling die is gedefinieerd en de waarde die is ingesteld op ~ 3.
+* De **ApplicationInsightsProfiler3** webtaak moet worden uitgevoerd. Om te controleren of de webtaak:
+   1. Ga naar [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
+   1. In de **extra** in het menu **WebJobs-Dashboard**.  
+      De **WebJobs** deelvenster wordt geopend. 
+   
+      ![profiler-webjob]   
+   
+   1. Selecteer om de details van de webtaak, met inbegrip van het logboek weer te geven de **ApplicationInsightsProfiler2** koppeling.  
+     De **continue WebJob Details** deelvenster wordt geopend.
 
-    Dit is de koppeling die u moet klikken op om de details van de webtaak te zien: 
+      ![profiler-webjob-log]
 
-    ![Profiler-webtaak]
-
-    Hier wordt de pagina met details. U kunt downloaden van het logboek en deze verzenden naar ons team als u weet niet waarom de profiler niet voor u werkt.
+Als u weet niet waarom Profiler niet voor u werkt, kunt u het logboek downloaden en deze verzenden naar ons team voor ondersteuning. 
     
-    ![Profiler-webtaak-logboek]
-
 ### <a name="manual-installation"></a>Handmatige installatie
 
-Als u Profiler configureert, zijn er updates naar de web-app-instellingen. U kunt de updates handmatig toepassen als uw omgeving vereist. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps.
+Als u Profiler configureert, zijn er updates naar de web-app-instellingen. Als uw omgeving nodig is, kunt u de updates handmatig toepassen. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps. Als u wilt toepassen updates handmatig, door het volgende te doen:
 
 1. In de **Web App-beheer** geopend deelvenster **instellingen**.
+
 1. Stel **.Net Framework-versie** naar **v4.6**.
+
 1. Stel **AlwaysOn** naar **op**.
+
 1. Voeg de **APPINSIGHTS_INSTRUMENTATIONKEY** app instellen en stel de waarde in op de dezelfde instrumentatiesleutel die wordt gebruikt door de SDK.
+
 1. Voeg de **APPINSIGHTS_PROFILERFEATURE_VERSION** app-instelling en stel de waarde in op 1.0.0.
+
 1. Voeg de **DiagnosticServices_EXTENSION_VERSION** app-instelling en stel de waarde in op ~ 3.
 
 ### <a name="too-many-active-profiling-sessions"></a>Te veel actieve profilering sessies
 
-U kunt op dit moment Profiler inschakelen op maximaal vier Azure-web-apps en implementatiesites gebruiken die worden uitgevoerd in de dezelfde service-plan. Als u meer web-apps dan die wordt uitgevoerd in een app service-abonnement hebt, ziet u mogelijk een Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException gegenereerd door de profiler. De profiler afzonderlijk voor elke web-app wordt uitgevoerd en probeert een ETW-sessie voor elke app te starten. Maar er zijn een beperkt aantal ETW-sessies die in één keer actief kan zijn. Als de webtaak Profiler te veel actieve profilering sessies rapporteren is, verplaatst u enkele web-apps naar een andere service-plan.
+U kunt op dit moment Profiler inschakelen op maximaal vier Azure-web-apps en implementatiesites gebruiken die worden uitgevoerd in de dezelfde service-plan. Als u meer dan vier web-apps die worden uitgevoerd in een app service-abonnement hebt, Profiler mogelijk genereert een *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*. Profiler afzonderlijk voor elke web-app wordt uitgevoerd en probeert om een sessie Event Tracing voor Windows (ETW) voor elke app te starten. Maar een beperkt aantal ETW-sessies in één keer actief kan zijn. Als de webtaak Profiler-te veel actieve profilering sessies rapporten, verplaatst u enkele web-apps naar een andere service-plan.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Implementatiefout: Map niet leeg ' D:\\home\\site\\wwwroot\\App_Data\\taken
 
-Als u opnieuw wilt uw web-app aan een Web-Apps-resource met de Profiler is ingeschakeld implementeren, ziet u mogelijk het volgende bericht:
+Als u uw web-app aan een Web-Apps-resource opnieuw wilt met de Profiler is ingeschakeld implementeren bent, ziet u mogelijk het volgende bericht:
 
 *Map niet leeg ' D:\\home\\site\\wwwroot\\App_Data\\taken*
 
-Deze fout treedt op als u Web Deploy van scripts of van de pijplijn met Azure DevOps-implementatie uitvoeren. De oplossing is de volgende aanvullende implementatie-parameters toevoegen aan de Web Deploy-taak:
+Deze fout treedt op als u Web Deploy van scripts of van de pijplijn van het Azure DevOps-implementatie uitvoeren. De oplossing is de volgende aanvullende implementatie-parameters toevoegen aan de Web Deploy-taak:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
@@ -110,30 +120,45 @@ Deze parameters Verwijder de map die wordt gebruikt door Application Insights Pr
 
 ### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Hoe bepaal ik of Application Insights Profiler wordt uitgevoerd?
 
-Profiler wordt uitgevoerd als een doorlopende webtaak in de web-app. U kunt openen de resource voor de web-app in de [Azure-portal](https://portal.azure.com). In de **WebJobs** deelvenster, Controleer de status van **ApplicationInsightsProfiler**. Als deze niet wordt uitgevoerd, opent u **logboeken** voor meer informatie.
+Profiler wordt uitgevoerd als een continue webjob in de web-app. U kunt openen de resource voor de web-app in de [Azure-portal](https://portal.azure.com). In de **WebJobs** deelvenster, Controleer de status van **ApplicationInsightsProfiler**. Als deze niet wordt uitgevoerd, opent u **logboeken** voor meer informatie.
 
-## <a name="troubleshooting-problems-with-profiler-and-wad"></a>Oplossen van problemen met de Profiler en WAD
+## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Oplossen van problemen met de Profiler en Azure Diagnostics
 
-Er zijn drie dingen om te controleren of de profiler juist is geconfigureerd met WAD. Eerst moet u controleren of de inhoud van de configuratie van de WAD die zijn geïmplementeerd zijn wat u verwacht. Ten tweede moet u controleren dat WAD geeft de juiste iKey op de profiler-opdrachtregel. Derde, kunt u controleren in het logboekbestand profiler om te zien als profiler is uitgevoerd, maar wordt er een fout optreedt. 
+Als u wilt zien of de Profiler juist is geconfigureerd door Azure Diagnostics, moet u de volgende drie dingen doen: 
+1. Controleer eerst of de inhoud van de Azure Diagnostics-configuratie die zijn geïmplementeerd zijn wat u verwacht. 
 
-Om te controleren of de instellingen die zijn gebruikt voor het configureren van WAD, moet u zich aanmelden bij de virtuele machine en opent u het logboekbestand op deze locatie: 
-```
-c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
-```
-U kunt zoeken naar de tekenreeks "WadCfg" en vindt u de instellingen die zijn doorgegeven aan de virtuele machine configureren WAD in dat bestand. U kunt controleren dat die worden gebruikt door de profiler-sink iKey juist is.
+1. Controleer vervolgens of dat Azure Diagnostics wordt doorgegeven voor de juiste iKey op de Profiler vanaf de opdrachtregel. 
 
-Ten tweede kunt u de opdrachtregel die wordt gebruikt om te beginnen de profiler controleren. Het volgende bestand bevat de argumenten gebruikt voor het starten van de profiler.
-```
-D:\ProgramData\ApplicationInsightsProfiler\config.json
-```
-Controleer of de ikey op de opdrachtregel profiler juist is. 
+1. Derde, Controleer het logboekbestand Profiler om te zien of Profiler is uitgevoerd, maar heeft een fout geretourneerd. 
 
-Derde, met behulp van het pad gevonden in het bovenstaande config.json-bestand, Controleer het logboekbestand profiler. U ziet gegevens voor foutopsporing die de instellingen voor die de profiler wordt gebruikt en de status en foutberichten van de profiler aangeeft. Als de profiler wordt uitgevoerd terwijl de toepassing aanvragen ontvangt, ziet u dit bericht: Activiteit van iKey gedetecteerd. Wanneer de tracering is geüpload, ziet u dit bericht: Start met uploaden van de tracering. 
+Om te controleren of de instellingen die zijn gebruikt voor het configureren van Azure Diagnostics:
+
+1. Meld u aan de virtuele machine (VM) en open vervolgens het logboekbestand op deze locatie: 
+
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    ```
+
+1. In het bestand, kunt u zoeken naar de tekenreeks **WadCfg** te vinden van de instellingen die zijn doorgegeven aan de virtuele machine naar Azure Diagnostics configureren. U kunt controleren of de iKey die worden gebruikt door de sink Profiler juist is.
+
+1. Controleer de opdrachtregel die wordt gebruikt voor het starten van Profiler. De argumenten die worden gebruikt voor het starten van Profiler zijn in het volgende bestand:
+
+    ```
+    D:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+
+1. Zorg ervoor dat de iKey op de opdrachtregel Profiler juist is. 
+
+1. Via het pad gevonden in de voorgaande *config.json* bestand, controleert u het logboekbestand Profiler. De gegevens voor foutopsporing die aangeeft van de instellingen die van Profiler gebruikmaakt wordt weergegeven. Status- en foutberichten van Profiler worden ook weergegeven.  
+
+    Als Profiler wordt uitgevoerd terwijl de toepassing aanvragen ontvangt, wordt het volgende bericht weergegeven: *Activiteit gedetecteerd van de iKey*. 
+
+    Wanneer de tracering is geüpload, wordt het volgende bericht weergegeven: *Start met uploaden van trace*. 
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[Profiler-webtaak]:./media/profiler-troubleshooting/Profiler-webjob.png
-[Profiler-webtaak-logboek]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

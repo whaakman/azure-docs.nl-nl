@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0bdf2d4e9c5ee659666eeb1a6e92c34c181ba805
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331789"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358827"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -24,6 +24,16 @@ Wanneer u een verbinding maakt, moet u een *verbindingstype*. Het verbindingstyp
 
 >[!NOTE]
 >Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze apparaten worden versleuteld en opgeslagen in Azure Automation met behulp van een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in een systeem beheerd Key Vault. Voordat u een beveiligd bedrijfsmiddel opslaat, is de sleutel geladen uit Key Vault en vervolgens worden gebruikt voor het versleutelen van de asset. Dit proces wordt beheerd door Azure Automation.
+
+## <a name="connection-types"></a>Verbindingstypen
+
+Er zijn drie typen van ingebouwde verbindingen beschikbaar in Azure Automation:
+
+* **Azure** -deze verbinding kan worden gebruikt om klassieke resources te beheren.
+* **AzureClassicCertificate** -deze verbinding wordt gebruikt door de **AzureClassicRunAs** account.
+* **AzureServicePrincipal** -deze verbinding wordt gebruikt door de **AzureRunAs** account.
+
+In de meeste gevallen niet hoeft te maken van een verbindingsresource wanneer deze is gemaakt bij het maken van een [RunAs-account](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 542993d803282bbf62e2e401cab1968a656a8971
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435290"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352271"
 ---
 # <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Resourcegroepen en resources voor een Azure-abonnement maken
 
@@ -289,7 +289,7 @@ Het volgende voorbeeld wordt een beleidsdefinitie van een bestaand toegewezen aa
 }
 ```
 
-Als u wilt een ingebouwde beleid toepassen op uw Azure-abonnement, moet u de volgende Azure CLI-opdrachten gebruiken. In dit voorbeeld hebben niet het beleid voor parameters.
+Als u wilt een ingebouwde beleid toepassen op uw Azure-abonnement, moet u de volgende Azure CLI-opdrachten gebruiken:
 
 ```azurecli-interactive
 # Built-in policy that does not accept parameters
@@ -315,7 +315,7 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-Als u wilt een ingebouwde beleid toepassen op uw Azure-abonnement, moet u de volgende Azure CLI-opdrachten gebruiken. In dit voorbeeld heeft het beleid voor parameters.
+Als u wilt een ingebouwde beleid toepassen op uw Azure-abonnement, moet u de volgende Azure CLI-opdrachten gebruiken:
 
 ```azurecli-interactive
 # Built-in policy that accepts parameters
@@ -390,7 +390,7 @@ U kunt [definiëren](../azure-policy/policy-definition.md) en toewijzen van een 
 }
 ```
 
-Het maken van de beleidsdefinitie in uw abonnement, en pas deze toe aan het abonnement, gebruikt u de volgende CLI-opdracht.
+Het maken van de beleidsdefinitie in uw abonnement, en pas deze toe aan het abonnement, gebruikt u de volgende CLI-opdracht:
 
 ```azurecli-interactive
 az deployment create \
@@ -408,9 +408,9 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role"></a>Rol toewijzen
+## <a name="assign-role-at-subscription"></a>Rol op abonnement toewijzen
 
-Het volgende voorbeeld wordt een rol toegewezen aan een gebruiker of groep.
+Het volgende voorbeeld wordt een rol toegewezen aan een gebruiker of groep voor het abonnement. In dit voorbeeld opgeven niet u een bereik voor de toewijzing omdat het bereik is automatisch ingesteld op het abonnement.
 
 ```json
 {
@@ -439,7 +439,7 @@ Het volgende voorbeeld wordt een rol toegewezen aan een gebruiker of groep.
 }
 ```
 
-Als u wilt een Active Directory-groep toewijzen aan een rol voor uw abonnement, moet u de volgende Azure CLI-opdrachten gebruiken.
+Als u wilt een Active Directory-groep toewijzen aan een rol voor uw abonnement, moet u de volgende Azure CLI-opdrachten gebruiken:
 
 ```azurecli-interactive
 # Get ID of the role you want to assign
@@ -468,6 +468,94 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
+```
+
+## <a name="assign-role-at-scope"></a>Rol in het bereik toe te wijzen
+
+De volgende abonnementsniveau sjabloon wijst een rol toe aan een gebruiker of groep die is afgestemd op een resourcegroep binnen het abonnement. Het bereik moet op of onder het niveau van de implementatie. U kunt implementeren voor een abonnement en geef een roltoewijzing binnen het bereik van een resourcegroep in dat abonnement. U kunt geen echter implementeren in een resourcegroep en geef een bereik van de roltoewijzing aan het abonnement.
+
+Als u wilt de rol op een bereik toewijst, kunt u geen geneste implementatie gebruiken. U ziet dat de naam van de resourcegroep is opgegeven in de eigenschappen voor de bron van de implementatie en in de eigenschap voor bereik van de roltoewijzing.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Als u wilt een Active Directory-groep toewijzen aan een rol voor uw abonnement, moet u de volgende Azure CLI-opdrachten gebruiken:
+
+```azurecli-interactive
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  -n demoRole \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

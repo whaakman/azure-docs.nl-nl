@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582912"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359150"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
@@ -68,8 +68,8 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
 1. Kies in de pijplijneditor de agent-pool. 
     
     * Als u maken van de modules in platform amd64 voor Linux-containers wilt, kiest u **Ubuntu 1604 die worden gehost**
-    * Als u maken van de modules in platform amd64 voor Windows-containers wilt, kiest u **VS2017 die worden gehost** 
-    * Als u uw modules in platform arm32v7 voor Linux-containers maken wilt, moet u instellen van uw eigen bouwagent door naar de pagina de **beheren** knop.
+    * Als u uw modules in platform amd64 voor Windows 1809 containers maken wilt, moet u [instellen van de zelf-hostend-agent op Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+    * Als u uw modules in platform arm32v7 voor Linux-containers maken wilt, moet u [instellen van de zelf-hostend-agent op Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
     ![Build-agentpool configureren](./media/how-to-ci-cd/configure-env.png)
 

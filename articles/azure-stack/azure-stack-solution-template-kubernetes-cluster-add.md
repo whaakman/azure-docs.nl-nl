@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264051"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352679"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -28,7 +28,7 @@ ms.locfileid: "54264051"
 > [!note]  
 > Kubernetes in Azure Stack is in preview.
 
-Als een Marketplace-item kunt u Kubernetes aanbieden aan uw gebruikers. Uw gebruikers kunnen Kubernetes implementeren in een enkele, gecoördineerde bewerking.
+Als een Marketplace-item kunt u Kubernetes aanbieden aan uw gebruikers. Uw gebruikers kunnen vervolgens Kubernetes implementeert in een enkele, gecoördineerde bewerking.
 
 Het volgende artikel bekijken met behulp van een Azure Resource Manager-sjabloon te implementeren en de resources voor een zelfstandige Kubernetes-cluster inrichten. De Kubernetes-Cluster Marketplace-item 0.3.0 vereist Azure Stack-versie 1808. Voordat u begint, controleert u uw Azure Stack en de instellingen van de globale Azure-tenant. De vereiste gegevens verzamelen over uw Azure Stack. Benodigde resources toevoegen aan uw tenant en de Azure Stack Marketplace. Het cluster is afhankelijk van een Ubuntu-server, aangepaste scripts en de Kubernetes-items in de marketplace.
 
@@ -48,7 +48,7 @@ Maak een plan, een aanbieding en een abonnement voor het Kubernetes-Marketplace-
 
 1. Selecteer **in een statuswijziging**. Selecteer **Openbaar**.
 
-1. Selecteer **+ een resource maken** > **aanbiedingen en abonnementen** > **abonnement** naar een nieuw abonnement maken.
+1. Selecteer **+ een resource maken** > **aanbiedingen en abonnementen** > **abonnement** om een abonnement te maken.
 
     a. Voer een **weergavenaam**.
 
@@ -59,6 +59,124 @@ Maak een plan, een aanbieding en een abonnement voor het Kubernetes-Marketplace-
     d. Stel de **Directory-tenant** bij Azure AD-tenant voor uw Azure Stack. 
 
     e. Selecteer **bieden**. Selecteer de naam van de aanbieding die u hebt gemaakt. Noteer de abonnement-ID.
+
+## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Maken van een service-principal en de referenties in AD FS
+
+Als u Active Directory Federated Services (AD FS) voor uw identity management-service gebruikt, moet u een service-principal voor gebruikers implementeert een Kubernetes-cluster maken.
+
+1. Maken en exporteren van een certificaat om te worden gebruikt voor het maken van de service-principal. Het volgende codefragment hieronder ziet u hoe u een zelfondertekend certificaat maken. 
+
+    - U hebt de volgende soorten informatie nodig:
+
+       | Waarde | Description |
+       | ---   | ---         |
+       | Wachtwoord | Wachtwoord voor het certificaat. |
+       | Pad naar het lokale certificaat | Het pad en de naam van het certificaat. Bijvoorbeeld: `path\certfilename.pfx` |
+       | Naam van het certificaat | De naam van het certificaat. |
+       | Certificaatarchieflocatie |  Bijvoorbeeld: `Cert:\LocalMachine\My` |
+
+    - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
+
+        ```PowerShell  
+        # Creates a new self signed certificate 
+        $passwordString = "<password>"
+        $certlocation = "<local certificate path>.pfx"
+        $certificateName = "<certificate name>"
+        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certStoreLocation="<certificate store location>"
+        
+        $params = @{
+        CertStoreLocation = $certStoreLocation
+        DnsName = $certificateName
+        FriendlyName = $certificateName
+        KeyLength = 2048
+        KeyUsageProperty = 'All'
+        KeyExportPolicy = 'Exportable'
+        Provider = 'Microsoft Enhanced Cryptographic Provider v1.0'
+        HashAlgorithm = 'SHA256'
+        }
+        
+        $cert = New-SelfSignedCertificate @params -ErrorAction Stop
+        Write-Verbose "Generated new certificate '$($cert.Subject)' ($($cert.Thumbprint))." -Verbose
+        
+        #Exports certificate with password in a .pfx format
+        $pwd = ConvertTo-SecureString -String $passwordString -Force -AsPlainText
+        Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
+        ```
+
+2. Service-principal met behulp van het certificaat maken.
+
+    - U hebt de volgende soorten informatie nodig:
+
+       | Waarde | Description                     |
+       | ---   | ---                             |
+       | ERCS IP | In de ASDK, is het eindpunt van de bevoegde normaal gesproken `AzS-ERCS01`. |
+       | De naam van de toepassing | Een eenvoudige naam voor de service-principal van toepassing. |
+       | Certificaatarchieflocatie | Het pad op de computer waarop u het certificaat hebt opgeslagen. Bijvoorbeeld: `Cert:\LocalMachine\My\<someuid>` |
+
+    - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
+
+        ```PowerShell  
+        #Create service principle using the certificate
+        $privilegedendpoint="<ERCS IP>"
+        $applicationName="<application name>"
+        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certStoreLocation="<certificate store location>"
+        
+        # Get certificate information
+        $cert = Get-Item $certStoreLocation
+        
+        # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+        $creds = Get-Credential
+
+        # Creating a PSSession to the ERCS PrivilegedEndpoint
+        $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+        # Get Service Principle Information
+        $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
+
+        # Get Stamp information
+        $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+
+        # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+
+        # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+
+        # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $TenantID = $AzureStackInfo.AADTenantID
+
+        # Register an AzureRM environment that targets your Azure Stack instance
+        Add-AzureRMEnvironment `
+        -Name "AzureStackUser" `
+        -ArmEndpoint $ArmEndpoint
+
+        # Set the GraphEndpointResourceId value
+        Set-AzureRmEnvironment `
+        -Name "AzureStackUser" `
+        -GraphAudience $GraphAudience `
+        -EnableAdfsAuthentication:$true
+        Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+        -ServicePrincipal `
+        -CertificateThumbprint $ServicePrincipal.Thumbprint `
+        -ApplicationId $ServicePrincipal.ClientId `
+        -TenantId $TenantID
+
+        # Output the SPN details
+        $ServicePrincipal
+        ```
+
+    - De details van de Service-Principal zoeken zoals het onderstaande codefragment
+
+        ```Text  
+        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+        PSComputerName        : azs-ercs01
+        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+        ```
 
 ## <a name="add-an-ubuntu-server-image"></a>De installatiekopie van een Ubuntu-server toevoegen
 
@@ -75,7 +193,7 @@ De volgende Ubuntu-Server-installatiekopie toevoegen aan de Marketplace:
 1. Selecteer de nieuwste versie van de server. De volledige versie controleren en ervoor te zorgen dat u de nieuwste versie hebt:
     - **Publisher**: Canonical
     - **Bieden**: UbuntuServer
-    - **Versie**: 16.04.201806120 (of hoger)
+    - **Versie**: 16.04.201806120 (of meest recente versie)
     - **SKU**: 16.04-LTS
 
 1. Selecteer **downloaden.**
@@ -94,11 +212,11 @@ De Kubernetes uit de Marketplace toevoegen:
 
 1. Het script met het volgende profiel te selecteren:
     - **Bieden**: Aangepast Script voor Linux 2.0
-    - **Versie**: 2.0.6 (of hoger)
+    - **Versie**: 2.0.6 (of de meest recente versie)
     - **Publisher**: Microsoft Corp
 
     > [!Note]  
-    > Meer dan één versie van het aangepaste Script voor Linux kan worden vermeld. U moet de meest recente versie van het item toevoegen.
+    > Meer dan één versie van het aangepaste Script voor Linux kan worden vermeld. U moet de laatste versie van het item toevoegen.
 
 1. Selecteer **downloaden.**
 
@@ -124,7 +242,7 @@ De Kubernetes uit de Marketplace toevoegen:
 
 ## <a name="update-or-remove-the-kubernetes"></a>Bijwerken of verwijderen van de Kubernetes 
 
-Tijdens het bijwerken van het Kubernetes-item, moet u het item dat in de Marketplace te verwijderen. Vervolgens kunt u de instructies in dit artikel voor het toevoegen van de Kubernetes aan de marketplace volgen.
+Tijdens het bijwerken van het Kubernetes-item, verwijdert u het vorige item in de Marketplace. Volg de instructies in dit artikel voor het toevoegen van dat de Kubernetes bijwerken naar de marketplace.
 
 De Kubernetes-item verwijderen:
 

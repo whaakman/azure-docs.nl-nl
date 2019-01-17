@@ -1,18 +1,18 @@
 ---
-title: 'OpenVPN op Azure VPN-Gateway configureren: PowerShell | Microsoft Docs'
+title: 'Het configureren van OpenVPN op Azure VPN-Gateway: PowerShell | Microsoft Docs'
 description: Stappen voor het configureren van OpenVPN voor Azure VPN-Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408273"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357824"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>OpenVPN configureren voor Azure point-to-site VPN-Gateway (Preview)
 
@@ -29,7 +29,7 @@ Klik op de **TryIt** in deze stappen voor het registreren van deze functie eenvo
 >Als u deze functie niet registreert, wordt het niet mogelijk om deze te gebruiken.
 >
 
-Nadat u hebt geklikt **TryIt** om te openen in de Azure Cloud Shell, kopieer en plak de volgende opdrachten:
+Wanneer u op **Proberen** hebt geklikt om Azure Cloud Shell te openen, kopieert en plakt u de volgende opdrachten:
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
@@ -39,7 +39,7 @@ Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureNam
 Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-Zodra de functie wordt weergegeven als ingeschreven, Registreer het abonnement op de Microsoft.Network-naamruimte.
+Zodra wordt weergegeven dat de functie is geregistreerd, registreert u het abonnement opnieuw bij de naamruimte Microsoft.Network.
 
 ```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
@@ -47,7 +47,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1. Een punt-naar-site-VPN maken
 
-Als u nog een werkende punt-naar-site-omgeving hebt, volgt u de instructies voor het maken van een. Zie [maken van een punt-naar-site-VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) maken en configureren van een punt-naar-site VPN-gateway met systeemeigen Azure certificaatverificatie.
+Als u nog een werkende punt-naar-site-omgeving hebt, volgt u de instructies voor het maken van een. Zie [maken van een punt-naar-site-VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) maken en configureren van een punt-naar-site VPN-gateway met systeemeigen Azure certificaatverificatie. Houd er rekening mee dat de basis-SKU wordt niet ondersteund voor IKEv2 point-to-site.
 
 ## <a name="cmdlets"></a>2. PowerShell-cmdlets installeren
 

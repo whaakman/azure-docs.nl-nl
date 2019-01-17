@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051948"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354567"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.locfileid: "54051948"
 
 * Toegevoegd voor diagnostische gegevens direct/TCP-transport, TransportException, het type van een interne uitzondering van de SDK. Wanneer aanwezig is in de uitzondering berichten, dit type af te drukken als u meer informatie voor het oplossen van problemen met de netwerkverbinding van de client.
 
-* Toegevoegde nieuwe constructor beschikken overbelasting waarbij een HttpMessageHandler, een HTTP-handler stack moet worden gebruikt voor het verzenden van aanvragen van httpclient maakt (bijvoorbeeld HttpClientHandler).
+* Toegevoegde nieuwe constructor overbelasting waarbij een HttpMessageHandler, een HTTP-handler stack moet worden gebruikt voor het verzenden van aanvragen van httpclient maakt (bijvoorbeeld HttpClientHandler).
 
 * Los de fout waar-header met null-waarden zijn niet correct worden verwerkt.
 
@@ -265,7 +265,7 @@ ms.locfileid: "54051948"
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * De ondersteuning voor databaseaccounts voor meerdere regio's toegevoegd.
 * Ondersteuning toegevoegd voor nieuwe pogingen op beperkte aanvragen.  Gebruiker kan het aantal nieuwe pogingen en de maximale wachttijd aanpassen door het configureren van de eigenschap ConnectionPolicy.RetryOptions.
-* Een nieuwe IDocumentClient-interface waarmee de handtekeningen van alle DocumenClient eigenschappen en methoden toegevoegd.  Als onderdeel van deze wijziging ook gewijzigd uitbreidingsmethoden IQueryable en IOrderedQueryable methoden voor de DocumentClient-klasse zelf maken.
+* Een nieuwe IDocumentClient-interface waarmee de handtekeningen van alle DocumentClient-eigenschappen en methoden toegevoegd.  Als onderdeel van deze wijziging ook gewijzigd uitbreidingsmethoden IQueryable en IOrderedQueryable methoden voor de DocumentClient-klasse zelf maken.
 * De configuratieoptie om in te stellen de ServicePoint.ConnectionLimit voor een opgegeven Uri van de Azure Cosmos DB-eindpunt is toegevoegd.  Gebruik ConnectionPolicy.MaxConnectionLimit om te wijzigen van de standaardwaarde, die is ingesteld op 50.
 * Afgeschafte IPartitionResolver en de uitvoering ervan.  Ondersteuning voor IPartitionResolver is nu verouderd. Het verdient aanbeveling gebruik te maken van gepartitioneerde verzamelingen voor hogere opslag en doorvoer.
 
@@ -282,7 +282,7 @@ ms.locfileid: "54051948"
 * Geïmplementeerd [gepartitioneerde verzamelingen](partition-data.md) en [niveau van de gebruiker gedefinieerde prestaties](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Vaste]**  Uitvoeren van query's van Azure Cosmos DB-eindpunt genereert: ' System.Net.Http.HttpRequestException: Fout bij het kopiëren van inhoud naar een stream'.
+* **[Vaste]**  Uitvoeren van query's van Azure Cosmos DB-eindpunt genereert: 'System.Net.Http.HttpRequestException: Fout bij het kopiëren van inhoud naar een stream'.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Uitgebreide LINQ ondersteunen met inbegrip van nieuwe operators voor wisselbestand, voorwaardelijke expressies en bereik van de vergelijking.
@@ -300,7 +300,7 @@ ms.locfileid: "54051948"
 * Provider van de LINQ-ondersteuning voor voorwaardelijke, samenvoegen, en CompareTo methoden voor tekenreeksen
 * **[Vaste]**  LINQ-provider--> implementeren bevat de methode die u in de lijst voor het genereren van de dezelfde SQL op IEnumerable en matrix
 * **[Vaste]**  BackoffRetryUtility de dezelfde het HttpRequestMessage opnieuw gebruikt in plaats van het maken van een nieuw wachtwoord opnieuw wordt uitgevoerd
-* **[Verouderd]**  UriFactory.CreateCollection--> moet nu UriFactory.CreateDocumentCollection gebruiken
+* **[Obsolete]** UriFactory.CreateCollection --> should now use UriFactory.CreateDocumentCollection
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 * **[Vaste]**  Lokalisatie problemen bij het gebruik van niet-en cultuur informatie, zoals nl-NL, enzovoort. 

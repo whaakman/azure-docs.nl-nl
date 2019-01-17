@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 1605fdc5e49d2b8e95a2876dea8dff378ee33e2e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232274"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359711"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -51,6 +51,9 @@ De volgende tabel bevat de vereisten die u nodig hebt om te voltooien voordat u 
 
 
 Voordat u met de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Als u deze vereisten zijn al voltooid, kunt u springen naar [Cluster maken](#CreateCluster).
+
+  >[!NOTE]
+  > Veel van de stappen in deze zelfstudie kunnen worden geautomatiseerd met behulp van een Azure-Quickstart-sjabloon. Zie voor meer informatie, [WSFC maken, listener en ILB configureren voor de groep van een Always On-beschikbaarheid op een SQL Server-VM met Azure-Snelstartsjablonen](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -419,7 +422,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 1433 |
    | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1433 |
-   | **Test** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
+   | **Probe** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten dat een TCP-verbinding openen | 4 |
    | **Zwevend IP (direct server return)** | |Ingeschakeld |
@@ -459,7 +462,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | De poort voor de cluster-IP-adres gebruiken. Dit is een beschikbare poort die niet wordt gebruikt voor de test-listener-poort. | 58888 |
    | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 58888 |
-   | **Test** |De naam die u hebt opgegeven voor de test | WSFCEndPointProbe |
+   | **Probe** |De naam die u hebt opgegeven voor de test | WSFCEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten dat een TCP-verbinding openen | 4 |
    | **Zwevend IP (direct server return)** | |Ingeschakeld |

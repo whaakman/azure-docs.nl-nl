@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 148a83cb57675e2e8bda8147041987180df998f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037392"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358725"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Toegang tot Azure Cosmos DB-resources van virtuele netwerken
 
 U kunt de Azure Cosmos-account om toe te staan alleen toegankelijk is vanaf een specifiek subnet van het virtuele netwerk (VNET) configureren. Door in te schakelen [Service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) voor toegang tot Azure Cosmos DB op het subnet binnen een virtueel netwerk, het verkeer op dat subnet wordt verzonden met Azure Cosmos DB met de identiteit van het subnet en het Virtueelnetwerk. Zodra het Azure Cosmos DB-service-eindpunt is ingeschakeld, kunt u toegang tot het subnet beperken door toe te voegen aan uw Azure Cosmos-account.
 
-Een Azure Cosmos-account is standaard toegankelijk is vanaf elke willekeurige bron als de aanvraag wordt vergezeld gaan van een geldige Autorisatietoken. Wanneer u een of meer subnetten binnen VNETs toevoegt, krijgt alleen aanvragen die afkomstig zijn van deze subnetten een geldige reactie. Aanvragen die afkomstig zijn uit andere bronnen worden beantwoord een 404 (niet gevonden). 
+Een Azure Cosmos-account is standaard toegankelijk is vanaf elke willekeurige bron als de aanvraag wordt vergezeld gaan van een geldige Autorisatietoken. Wanneer u een of meer subnetten binnen VNETs toevoegt, krijgt alleen aanvragen die afkomstig zijn van deze subnetten een geldige reactie. Aanvragen die afkomstig zijn uit andere bronnen zullen een 403 (verboden)-reactie ontvangen. 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -34,7 +34,7 @@ Er zijn twee stappen die nodig zijn om toegang te beperken naar Azure Cosmos-acc
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>Virtueel netwerk ACL's en IP-Firewall weigert aanvragen of verbindingen? 
 
-Als IP-firewall of een virtueel netwerk toegang hebben tot worden regels toegevoegd, alleen aanvragen van de geldige antwoorden voor toegestane bronnen ophalen. Andere aanvragen zijn afgewezen met een 404 (niet gevonden). Het is belangrijk om te onderscheiden van Azure Cosmos-account firewall van een firewall voor het niveau van verbindingen. De bron, kunt u wel verbinding maken met de service en de verbindingen zelf niet worden geweigerd.
+Als IP-firewall of een virtueel netwerk toegang hebben tot worden regels toegevoegd, alleen aanvragen van de geldige antwoorden voor toegestane bronnen ophalen. Andere aanvragen zijn afgewezen met een 403 (verboden). Het is belangrijk om te onderscheiden van Azure Cosmos-account firewall van een firewall voor het niveau van verbindingen. De bron, kunt u wel verbinding maken met de service en de verbindingen zelf niet worden geweigerd.
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mijn aanvragen aan de slag geblokkeerd wanneer ik de service-eindpunt voor Azure Cosmos DB op het subnet ingeschakeld. Wat is er gebeurd?
 

@@ -9,18 +9,18 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 34ec22550106f03bc90c95b407af088327b7837f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036168"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352237"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Verbinding maken met een Node.js Mongoose-toepassing met Azure Cosmos DB
 
 In deze zelfstudie ziet u hoe u de [Mongoose-Framework](https://mongoosejs.com/) bij het opslaan van gegevens in Cosmos DB. We gebruiken de Azure Cosmos DB-API voor MongoDB voor dit scenario. Voor wie niet bekend is met Mongoose: dit is een framework voor objectmodellering voor MongoDB in Node.js en biedt een ongecompliceerde, op schema's gebaseerde oplossing voor het modelleren van uw toepassingsgegevens.
 
-Cosmos DB is wereldwijd gedistribueerde multi-modeldatabase-service van Microsoft. U kunt snel maken en query uitvoeren op document-, sleutel/waarde- en graph-databases, die allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag van Cosmos DB.
+Cosmos DB is wereldwijd gedistribueerde multi-modeldatabase-service van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Cosmos DB.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -183,7 +183,7 @@ Standaard maakt Mongoose telkens wanneer u een objectmodel maakt een MongoDB-ver
 
 1. Nu ziet u twee verzamelingen die zijn gemaakt in Cosmos DB in Azure portal gaat.
 
-    ![Node.js-zelfstudie - schermopname van Azure Portal met een Azure Cosmos DB-account met meerdere verzamelingsnamen gemarkeerd - knooppuntdatabase][mutiple-coll]
+    ![Node.js-zelfstudie - schermopname van Azure Portal met een Azure Cosmos DB-account met meerdere verzamelingsnamen gemarkeerd - knooppuntdatabase][multiple-coll]
 
 1. Tot slot lezen we de gegevens van Cosmos DB. Aangezien we gebruikmaken van het standaardmodel van Mongoose, zijn de leesbewerkingen hetzelfde als alle andere leesbewerkingen met Mongoose.
 
@@ -308,9 +308,9 @@ Zoals u ziet, is het eenvoudig om met Mongoose-discriminators te werken. Zo hebt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [Studio 3T gebruiken](mongodb-mongochef.md) met Azure Cosmos DB-API voor MongoDB.
-- Meer informatie over het [Robo 3T gebruiken](mongodb-robomongo.md) met Azure Cosmos DB-API voor MongoDB.
-- Verken MongoDB [voorbeelden](mongodb-samples.md) met Azure Cosmos DB-API voor MongoDB.
+- Meer informatie over het [gebruik van Studio 3T](mongodb-mongochef.md) met de API voor MongoDB van Azure Cosmos DB.
+- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met de API voor MongoDB van Azure Cosmos DB.
+- Verken [voorbeelden](mongodb-samples.md) van MongoDB met de API voor MongoDB van Azure Cosmos DB.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
+[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

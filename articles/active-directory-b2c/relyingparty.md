@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a6e25bdbcec2a99e323ac7f426307dd49e50d76c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835085"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352424"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -74,11 +74,11 @@ Het volgende voorbeeld wordt een **RelyingParty** -element in de *B2C_1A_signup_
 
 De optionele **RelyingParty** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | De gebruikersbeleving standaard voor de RP-toepassing. |
 | UserJourneyBehaviors | 0:1 | Het bereik van de reis gebruikersgedrag. |
-| Technische profiel | 1:1 | Een technisch profiel dat wordt ondersteund door de RP-toepassing. Het technische profiel biedt een contract voor de toepassing RP contact opnemen met Azure AD B2C. |
+| TechnicalProfile | 1:1 | Een technisch profiel dat wordt ondersteund door de RP-toepassing. Het technische profiel biedt een contract voor de toepassing RP contact opnemen met Azure AD B2C. |
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
@@ -102,7 +102,7 @@ De `DefaultUserJourney` element Hiermee geeft u een verwijzing naar de id van de
 
 De **DefaultUserJourney** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van de gebruikersbeleving in het beleid. Zie voor meer informatie, [gebruiker reizen](userjourneys.md) |
 
@@ -110,7 +110,7 @@ De **DefaultUserJourney** element bevat het volgende kenmerk:
 
 De **UserJourneyBehaviors** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Het bereik van de eenmalige aanmelding (SSO) sessiegedrag van een gebruikersbeleving. |
 | SessionExpiryType |0:1 | Het verificatiegedrag van de sessie. Mogelijke waarden: `Rolling` of `Absolute`. De `Rolling` waarde (standaard) geeft aan dat de gebruiker aangemeld blijft zolang de gebruiker voortdurend actief zijn in de toepassing is. De `Absolute` waarde geeft aan dat de gebruiker wordt gedwongen om te verifiëren na de periode die is opgegeven door de toepassingssessie levensduur. |
@@ -122,7 +122,7 @@ De **UserJourneyBehaviors** element bevat de volgende elementen:
 
 De **SingleSignOn** element in het volgende kenmerk bevat:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Bereik | Ja | Het bereik van het gedrag van eenmalige aanmelding. Mogelijke waarden: `Suppressed`, `Tenant`, `Application`, of `Policy`. De `Suppressed` waarde geeft aan dat het probleem wordt onderdrukt. Bijvoorbeeld geen sessie wordt bijgehouden voor de gebruiker in het geval van een sessie voor eenmalige aanmelding en de gebruiker altijd een prompt wordt voor de selectie van een id-provider. De `TrustFramework` waarde geeft aan dat het gedrag voor alle beleidsregels in het kader van de vertrouwensrelatie wordt toegepast. Bijvoorbeeld, navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Tenant` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels in de tenant. Bijvoorbeeld, navigeren door twee trajecten van beleid voor een tenant van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Application` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels voor de toepassing die de aanvraag. Bijvoorbeeld, navigeren door twee beleid trajecten voor een toepassing van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Policy` waarde geeft aan dat het gedrag is alleen van toepassing op een beleid. Bijvoorbeeld, wordt navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker gevraagd een id-provider selecteren bij het schakelen tussen beleid. |
 
@@ -130,7 +130,7 @@ De **SingleSignOn** element in het volgende kenmerk bevat:
 
 De **JourneyInsights** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Ja | De waarde moet `ApplicationInsights`. | 
 | InstrumentationKey | Ja | De tekenreeks is die de instrumentatiesleutel voor de application insights-element bevat. |
@@ -151,32 +151,32 @@ Het volgende voorbeeld wordt een parameter met de naam doorgegeven `campaignId` 
 
 De **ContentDefinitionParameters** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0: n | Een tekenreeks zijn met de sleutel-waardepaar dat wordt toegevoegd aan de querytekenreeks van een inhoudsdefinitie laden URI. |
 
 De **ContentDefinitionParameter** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| Naam | Ja | De naam van de sleutel-waardepaar. |
+| Name | Ja | De naam van de sleutel-waardepaar. |
 
 Zie voor meer informatie, [configureren van de gebruikersinterface met dynamische inhoud met behulp van aangepaste beleidsregels](active-directory-b2c-ui-customization-custom-dynamic.md)
 
-## <a name="technicalprofile"></a>Technische profiel
+## <a name="technicalprofile"></a>TechnicalProfile
 
 De **TechnicalProfile** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- | 
 | Id | Ja | De waarde moet `PolicyProfile`. |
 
 De **TechnicalProfile** bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| Weergavenaam | 0:1 | De tekenreeks zijn met de naam van het technische profiel dat wordt weergegeven aan gebruikers. |
-| Beschrijving | 0:1 | De tekenreeks zijn met de beschrijving van het technische profiel dat wordt weergegeven aan gebruikers. |
+| DisplayName | 0:1 | De tekenreeks zijn met de naam van het technische profiel dat wordt weergegeven aan gebruikers. |
+| Description | 0:1 | De tekenreeks zijn met de beschrijving van het technische profiel dat wordt weergegeven aan gebruikers. |
 | Protocol | 1:1 | Het protocol dat wordt gebruikt voor de Federatie. |
 | Metagegevens | 0:1 | De verzameling van *Item* van sleutel/waarde-paren die door het protocol voor communicatie met het eindpunt in de loop van een transactie worden gebruikt voor het configureren van interactie tussen de relying party's en andere deelnemers aan de community. |
 | OutputClaims | 0:1 | Een lijst met claimtypen die worden uitgevoerd als uitvoer in het technische profiel. Elk van deze elementen bevat een verwijzing naar een **ClaimType** al gedefinieerd in de **ClaimsSchema** sectie of in een beleid dat dit beleidsbestand overneemt. |
@@ -184,21 +184,21 @@ De **TechnicalProfile** bevat de volgende elementen:
 
 De **Protocol** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| Naam | Ja | De naam van een geldig protocol dat wordt ondersteund door Azure AD B2C die wordt gebruikt als onderdeel van het technische profiel. Mogelijke waarden: `OpenIdConnect` of `SAML2`. De `OpenIdConnect` waarde vertegenwoordigt de OpenID Connect 1.0-protocol standaard aan de hand van OpenID foundation-specificatie. De `SAML2` vertegenwoordigt de standaard SAML 2.0-protocol aan de hand van OASIS-specificatie. Gebruik een SAML-token niet in de productieomgeving. |
+| Name | Ja | De naam van een geldig protocol dat wordt ondersteund door Azure AD B2C die wordt gebruikt als onderdeel van het technische profiel. Mogelijke waarden: `OpenIdConnect` of `SAML2`. De `OpenIdConnect` waarde vertegenwoordigt de OpenID Connect 1.0-protocol standaard aan de hand van OpenID foundation-specificatie. De `SAML2` vertegenwoordigt de standaard SAML 2.0-protocol aan de hand van OASIS-specificatie. Gebruik een SAML-token niet in de productieomgeving. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
 De **OutputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| outputClaim | 0: n | De naam van een verwachte claimtype in de lijst met ondersteunde voor het beleid waarnaar de relying party is geabonneerd. Deze claim fungeert als een uitvoer op voor het technische profiel. |
+| OutputClaim | 0: n | De naam van een verwachte claimtype in de lijst met ondersteunde voor het beleid waarnaar de relying party is geabonneerd. Deze claim fungeert als een uitvoer op voor het technische profiel. |
 
 De **OutputClaim** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Een verwijzing naar een **ClaimType** al gedefinieerd in de **ClaimsSchema** sectie in het beleid-bestand. |
 | Standaardwaarde | Nee | Een standaardwaarde die kan worden gebruikt als de claimwaarde leeg is. |
@@ -212,7 +212,7 @@ Met de **SubjectNameingInfo** -element, u de waarde van het onderwerp van de tok
 
 De **SubjectNamingInfo** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ClaimType | Ja | Een verwijzing naar een uitvoerclaim **PartnerClaimType**. De uitvoer claims moeten worden gedefinieerd in het beleid voor relying party **OutputClaims** verzameling. |
 

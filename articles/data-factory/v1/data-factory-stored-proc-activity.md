@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: e1c563f33030795d52cc686bf52497f927ace6bc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3f13cb2626394d16a127b172bb69c4ab88121cdb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017698"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352526"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server opgeslagen Procedureactiviteit
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -43,12 +43,12 @@ U kunt de activiteit opgeslagen Procedure gebruiken om aan te roepen een opgesla
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- SQL Server-Database.  Als u SQL Server gebruikt, installeert u Data Management Gateway op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer die toegang tot de database heeft. Data Management Gateway is een onderdeel waarmee gegevens verbonden gegevensbronnen on-premises/op virtuele Azure-machine met cloudservices op een veilige, beheerde manier. Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie.
+- SQL Server Database.  Als u SQL Server gebruikt, installeert u Data Management Gateway op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer die toegang tot de database heeft. Data Management Gateway is een onderdeel waarmee gegevens verbonden gegevensbronnen on-premises/op virtuele Azure-machine met cloudservices op een veilige, beheerde manier. Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie.
 
 > [!IMPORTANT]
 > Het kopiëren van gegevens in Azure SQL Database of SQL Server, kunt u de **SqlSink** in de kopieeractiviteit om aan te roepen een opgeslagen procedure met behulp van de **sqlWriterStoredProcedureName** eigenschap. Zie voor meer informatie, [aanroepen van de opgeslagen procedure van kopieeractiviteit](data-factory-invoke-stored-procedure-from-copy-activity.md). Voor meer informatie over de eigenschap, naar het volgende connector artikelen: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Aanroepen van een opgeslagen procedure tijdens het kopiëren van gegevens in een Azure SQL Data Warehouse met behulp van een kopieeractiviteit wordt niet ondersteund. Maar u kunt de opgeslagen procedure-activiteit gebruiken voor het aanroepen van een opgeslagen procedure in een SQL Data Warehouse. 
 >  
-> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL datawarehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
 
 De volgende procedure maakt gebruik van de activiteit opgeslagen Procedure in een pijplijn aanroepen van een opgeslagen procedure in een Azure SQL database. 
@@ -76,7 +76,7 @@ De volgende procedure maakt gebruik van de activiteit opgeslagen Procedure in ee
 2. Maak de volgende **opgeslagen procedure** die voegt de gegevens in op de **sampletable**.
 
     ```SQL
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    CREATE PROCEDURE usp_sample @DateTime nvarchar(127)
     AS
 
     BEGIN
@@ -108,7 +108,7 @@ De volgende procedure maakt gebruik van de activiteit opgeslagen Procedure in ee
    ![Data Factory-startpagina](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Een gekoppelde Azure SQL-service maken
-Nadat de gegevensfactory is gemaakt, maakt u een Azure SQL gekoppelde service die is gekoppeld aan uw Azure SQL-database waarin de sampletable tabel en sp_sample opgeslagen procedure, aan uw data factory.
+Nadat de gegevensfactory is gemaakt, maakt u een Azure SQL gekoppelde service die is gekoppeld aan uw Azure SQL-database waarin de sampletable tabel en usp_sample opgeslagen procedure, aan uw data factory.
 
 1. Klik op **auteur en implementeer** op de **Data Factory** blade voor **SProcDF** om te starten van de Data Factory-Editor.
 2. Klik op **nieuw gegevensarchief** op de opdracht en kies **Azure SQL Database**. U ziet het JSON-script voor het maken van een gekoppelde Azure SQL-service in de editor.
@@ -160,7 +160,7 @@ Nu gaan we een pijplijn maken met een opgeslagen procedure-activiteit.
 U ziet de volgende eigenschappen: 
 
 - De **type** eigenschap is ingesteld op **SqlServerStoredProcedure**. 
-- De **storedProcedureName** in het type eigenschappen is ingesteld op **sp_sample** (naam van de opgeslagen procedure).
+- De **storedProcedureName** in het type eigenschappen is ingesteld op **usp_sample** (naam van de opgeslagen procedure).
 - De **storedProcedureParameters** sectie bevat een parameter met de naam **datum-/**. Naam en het hoofdlettergebruik van de parameter in JSON moeten overeenkomen met de naam en het hoofdlettergebruik van de parameter in de definitie van de opgeslagen procedure. Als u null zijn voor een parameter doorgeven moet, gebruikt u de syntaxis: `"param1": null` (zonder hoofdletters).
  
 1. Klik op **... Meer** op de opdrachtbalk en klik op **nieuwe pijplijn**.
@@ -174,7 +174,7 @@ U ziet de volgende eigenschappen:
                 {
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-                        "storedProcedureName": "sp_sample",
+                        "storedProcedureName": "usp_sample",
                         "storedProcedureParameters": {
                             "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                         }
@@ -282,7 +282,7 @@ Op deze manier om te koppelen van de store procedure-activiteit met **downstream
 > [!IMPORTANT]
 > Het kopiëren van gegevens in Azure SQL Database of SQL Server, kunt u de **SqlSink** in de kopieeractiviteit om aan te roepen een opgeslagen procedure met behulp van de **sqlWriterStoredProcedureName** eigenschap. Zie voor meer informatie, [aanroepen van de opgeslagen procedure van kopieeractiviteit](data-factory-invoke-stored-procedure-from-copy-activity.md). Zie voor meer informatie over de eigenschap, de volgende artikelen voor de connector: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
 >  
-> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL datawarehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
 ## <a name="json-format"></a>JSON-indeling
 Dit is de JSON-indeling voor het definiëren van een activiteit opgeslagen Procedure:
@@ -340,7 +340,7 @@ CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
 **Opgeslagen procedure:**
 
 ```SQL
-CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+CREATE PROCEDURE usp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
 AS
 
@@ -355,7 +355,7 @@ Nu geven de **Scenario** parameter en de waarde van de activiteit opgeslagen pro
 ```JSON
 "typeProperties":
 {
-    "storedProcedureName": "sp_sample",
+    "storedProcedureName": "usp_sample",
     "storedProcedureParameters":
     {
         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
@@ -394,7 +394,7 @@ Nu geven de **Scenario** parameter en de waarde van de activiteit opgeslagen pro
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureName": "usp_sample2",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
                         "Scenario": "Document sample"

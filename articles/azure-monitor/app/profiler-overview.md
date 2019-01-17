@@ -12,34 +12,32 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3e72c4af7139bac1cefb81d7b8fc1bbfcddabb6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7f212d7dafb4aaf88fc226f702b068a3711f81b6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082771"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359507"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiel productie-apps in Azure met Application Insights
-## <a name="enable-profiler-for-your-application"></a>Profiler inschakelen voor uw toepassing
+## <a name="enable-application-insights-profiler-for-your-application"></a>Application Insights Profiler inschakelen voor uw toepassing
 
-Application Insights Profiler biedt prestatietraces voor toepassingen die in productie in Azure worden uitgevoerd. De gegevens automatisch op schaal worden vastgelegd zonder negatieve gevolgen voor uw eindgebruikers. Profiler kunt u het 'hot' codepad dat de meeste tijd wanneer het verwerken van een bepaalde website aanvragen vergt identificeren. 
+Azure Application Insights Profiler biedt prestatietraces voor toepassingen die worden uitgevoerd in de productie in Azure. Profiler bevat de gegevens op schaal automatisch zonder negatieve gevolgen voor uw gebruikers. Profiler kunt u het 'hot' codepad dat de meeste tijd wanneer er een bepaalde webaanvraag verwerkt vergt identificeren. 
 
-De profiler werkt met .net-toepassingen die zijn geïmplementeerd op de volgende Azure-services. Specifieke instructies voor het inschakelen van de profiler voor elk servicetype zijn in de onderstaande koppelingen.
+Profiler werkt met .NET-toepassingen die zijn geïmplementeerd op de volgende Azure-services. Specifieke instructies voor het inschakelen van Profiler voor elk servicetype zijn in de onderstaande koppelingen.
 
-* [App Services](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Cloud Services](profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric-toepassingen](profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
-* [Virtuele Machines en virtuele machine Scalesets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Azure virtuele Machines en virtuele-machineschaalsets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Als u Profiler is ingeschakeld, maar traceringen niet ziet, controleert u onze [Troubleshooting Guide.](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json)
-
-Profiler dat on-premises wordt niet officieel ondersteund, maar we hebben enkele [instructies die u kunt proberen.](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)
+Als u Profiler hebt ingeschakeld, maar traceringen niet ziet, controleert u onze [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="view-profiler-data"></a>Profiler-gegevens weergeven
 
-Opdat de profiler voor het uploaden van traceringen, aanvragen uw toepassing actief afhandeling van. Als u een experiment uitvoert, kunt u aanvragen genereren voor uw web-app via [Application Insights-prestatietests](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Als u Profiler zojuist hebt ingeschakeld, kunt u een korte belastingtest uitvoeren. Terwijl de belastingstest wordt uitgevoerd, drukt u op de **profiel nu** knop in de [ **Profiler instellingenpagina**](profiler-settings.md #profiler-settings-page). Zodra profiler wordt uitgevoerd, wordt het willekeurig profiel over één keer per uur en voor een periode van twee minuten. Als uw toepassing een constante stroom van aanvragen afhandelt is, uploadt Profiler traceringen elk uur.
+Voor de Profiler voor het uploaden van traceringen, moet uw toepassing worden actief afhandeling van aanvragen. Als u een experiment uitvoert, kunt u aanvragen naar uw web-app genereren met behulp van [Application Insights-Prestatietesten](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Als u Profiler zojuist hebt ingeschakeld, kunt u een korte belastingtest uitvoeren. Terwijl de belastingstest wordt uitgevoerd, selecteert u de **profiel nu** knop op de [ **Profiler instellingen** deelvenster](profiler-settings.md#profiler-settings-pane). Bij het uitvoeren van Profiler, profilering willekeurig ongeveer één keer per uur en voor een periode van twee minuten. Als uw toepassing een constante stroom van aanvragen afhandelt is, uploads Profiler traceringen elk uur.
 
-Nadat uw toepassing een deel van netwerkverkeer ontvangt en de profiler tijd voor het uploaden van de trances heeft gehad, hebt u traceringen om weer te geven. Dit proces kan 5 tot 10 minuten duren. Als u wilt weergeven traceringen, gaat u naar de **prestaties** venster **acties ondernemen** profiler-traceringen weergeven en selecteer vervolgens de **Profiler-traceringen** knop.
+Nadat uw toepassing een deel van netwerkverkeer ontvangt en de tijd voor het uploaden van de traceringen van Profiler heeft gehad, hebt u traceringen om weer te geven. Dit proces kan 5 tot 10 minuten duren. Om weer te geven traceringen, in de **prestaties** venster **acties ondernemen**, en selecteer vervolgens de **Profiler-traceringen** knop.
 
 ![Application Insights-prestaties deelvenster preview Profiler-traceringen][performance-blade]
 
@@ -50,47 +48,47 @@ Selecteer een voorbeeld om een uitsplitsing van de code-niveau van de tijd beste
 De trace-explorer bevat de volgende informatie:
 
 * **Hot Path tonen**: Wordt geopend de hoogste blad knooppunt of ten minste iets sluiten. In de meeste gevallen is dit knooppunt in de buurt van het prestatieknelpunt.
-* **Label**: De naam van de functie of de gebeurtenis. De structuur wordt een combinatie van code en gebeurtenissen die hebben plaatsgevonden (zoals SQL- en HTTP-gebeurtenissen) weergegeven. De eerste gebeurtenis vertegenwoordigt de totale aanvraagduur.
+* **Label**: De naam van de functie of de gebeurtenis. De structuur van weergeven een combinatie van code en gebeurtenissen die hebben plaatsgevonden, zoals SQL en HTTP-gebeurtenissen De eerste gebeurtenis vertegenwoordigt de totale aanvraagduur.
 * **Verstreken**: Het tijdsinterval tussen het begin van de bewerking en het einde van de bewerking.
 * **Wanneer**: De tijd waarop de functie of het evenement werd uitgevoerd ten opzichte van andere functies.
 
 ## <a name="how-to-read-performance-data"></a>Het lezen van prestatiegegevens
 
-De service-profiler van Microsoft maakt gebruik van een combinatie van steekproeven methoden en instrumentation voor het analyseren van de prestaties van uw toepassing. Wanneer uitgebreide verzameling uitgevoerd wordt, voorbeelden de profiler service de aanwijzer instructie van de CPU van de machine elke milliseconde. Elk voorbeeld bevat de volledige aanroepstack van de thread die momenteel wordt uitgevoerd. Het biedt gedetailleerde informatie over deze thread is uitgevoerd, zowel op hoog niveau en op het niveau van een laag van abstractie. De service profiler verzamelt ook andere gebeurtenissen om correlatie van activiteit en oorzakelijke, inclusief de context schakelen tussen gebeurtenissen, taak parallelle bibliotheek (TPL) gebeurtenissen en thread pool te houden.
+De service-profiler van Microsoft maakt gebruik van een combinatie van steekproeven methoden en instrumentation voor het analyseren van de prestaties van uw toepassing. Wanneer uitgebreide verzameling uitgevoerd wordt, voorbeelden de profiler service de aanwijzer instructie van de CPU van de machine elke milliseconde. Elk voorbeeld bevat de volledige aanroepstack van de thread die momenteel wordt uitgevoerd. Het biedt gedetailleerde informatie over die thread is uitgevoerd, op een hoog niveau en in een laag niveau van abstractie. De service profiler verzamelt ook andere gebeurtenissen om correlatie van activiteit en oorzakelijke, inclusief de context schakelen tussen gebeurtenissen, taak parallelle bibliotheek (TPL) gebeurtenissen en thread pool te houden.
 
-De aanroepstack die wordt weergegeven in de tijdlijnweergave is het resultaat van de lijnen en -instrumentatie. Omdat elk voorbeeld de volledige aanroepstack van de thread bevat, bevat deze code van Microsoft .NET Framework en van andere frameworks waarnaar u verwijst.
+De aanroepstack die wordt weergegeven in de tijdlijnweergave is het resultaat van de lijnen en -instrumentatie. Omdat elk voorbeeld de volledige aanroepstack van de thread bevat, bevat deze code van Microsoft .NET Framework en andere frameworks waarnaar u verwijst.
 
 ### <a id="jitnewobj"></a>Object-toewijzing (clr! JIT\_nieuw of clr! JIT\_Newarr1)
 
-**CLR! JIT\_nieuw** en **clr! JIT\_Newarr1** Help-functies in .NET Framework die geheugen van een beheerde opslagruimte toewijzen zijn. **CLR! JIT\_nieuw** wordt aangeroepen wanneer een object wordt toegewezen. **CLR! JIT\_Newarr1** wordt aangeroepen wanneer een object array wordt toegewezen. Deze twee functies zijn meestal snel en relatief kleine hoeveelheden tijd duren. Als u ziet **clr! JIT\_nieuw** of **clr! JIT\_Newarr1** nemen van een aanzienlijke hoeveelheid tijd in de tijdlijn, betekent dit dat de code kan worden bij het toewijzen van veel objecten en gebruiken van grote hoeveelheden geheugen.
+**CLR! JIT\_nieuw** en **clr! JIT\_Newarr1** Help-functies in .NET Framework die geheugen van een beheerde opslagruimte toewijzen zijn. **CLR! JIT\_nieuw** wordt aangeroepen wanneer een object wordt toegewezen. **CLR! JIT\_Newarr1** wordt aangeroepen wanneer een object array wordt toegewezen. Deze twee functies zijn meestal snel en relatief kleine hoeveelheden tijd duren. Als **clr! JIT\_nieuw** of **clr! JIT\_Newarr1** duurt een veel tijd in de tijdlijn, de code kunnen worden bij het toewijzen van veel objecten en gebruiken van grote hoeveelheden geheugen.
 
 ### <a id="theprestub"></a>Het laden van code (clr! ThePreStub)
 
-**CLR! ThePreStub** is van een Help-functie in .NET Framework dat de code uit te voeren voor de eerste keer wordt voorbereid. Dit meestal bevat, maar is niet beperkt tot de compilatie van just-in-time (JIT). Voor elke C#-methode **clr! ThePreStub** maximaal één keer tijdens de levensduur van een proces moet worden aangeroepen.
+**CLR! ThePreStub** is van een Help-functie in .NET Framework dat de code uit te voeren voor de eerste keer wordt voorbereid. Deze uitvoering meestal bevat, maar is niet beperkt tot de compilatie van just-in-time (JIT). Voor elk C# methode **clr! ThePreStub** maximaal één keer tijdens een proces moet worden aangeroepen.
 
-Als **clr! ThePreStub** neemt veel tijd voor een aanvraag, dit geeft aan de aanvraag is de eerste record die wordt uitgevoerd die methode. De tijd voor de .NET Framework runtime laden van de eerste methode is van belang. Kunt u overwegen een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang tot, of breng Native Image Generator (ngen.exe) uitgevoerd op uw assembly's gebruiken.
+Als **clr! ThePreStub** duurt lang voordat een aanvraag, de aanvraag is het eerste item dat methode uit te voeren. De tijd voor .NET Framework runtime laden van de eerste methode is van belang. Kunt u overwegen een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang tot, of breng Native Image Generator (ngen.exe) uitgevoerd op uw assembly's gebruiken.
 
 ### <a id="lockcontention"></a>Vergrendelingsconflicten (clr! JITutil\_MonContention of clr! JITutil\_MonEnterWorker)
 
-**CLR! JITutil\_MonContention** of **clr! JITutil\_MonEnterWorker** geeft aan dat de huidige thread wordt gewacht tot een vergrendeling worden vrijgegeven. Deze tekst wordt vaak weergegeven wanneer u een C# **vergrendeling** instructie, bij het aanroepen van de **Monitor.Enter** methode, of bij het aanroepen van een methode met de **MethodImplOptions.Synchronized** kenmerk. Vergrendelingsconflicten treedt meestal op wanneer de thread _A_ verkrijgt een vergrendelen op afstand en thread _B_ probeert te verkrijgen van de dezelfde vergrendeling voordat thread _A_ vrijgegeven.
+**CLR! JITutil\_MonContention** of **clr! JITutil\_MonEnterWorker** geeft aan dat de huidige thread wordt gewacht tot een vergrendeling worden vrijgegeven. Deze tekst wordt vaak weergegeven wanneer u een C# **vergrendeling** -instructie, aanroepen van de **Monitor.Enter** methode, of aanroepen van een methode met de **MethodImplOptions.Synchronized**kenmerk. Vergrendelingsconflicten treedt meestal op wanneer de thread _A_ verkrijgt een vergrendeling en thread _B_ probeert te verkrijgen van de dezelfde vergrendeling voordat thread _A_ vrijgegeven.
 
 ### <a id="ngencold"></a>Het laden van code ([KOUD])
 
-Als de methodenaam van de bevat **[koude]**, zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van de .NET Framework runtime is code voor de eerste keer is dat niet is geoptimaliseerd door <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">profiel begeleide optimalisatie</a>. Voor elke methode moet die worden weergegeven maximaal één keer tijdens de levensduur van het proces.
+Als de methodenaam van de bevat **[koude]**, zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van .NET Framework runtime is code voor de eerste keer is dat niet is geoptimaliseerd door [profiel begeleide optimalisatie](https://msdn.microsoft.com/library/e7k32f4k.aspx). Voor elke methode moet die worden weergegeven maximaal één keer tijdens het proces.
 
-Als het laden van code nodig een aanzienlijke hoeveelheid tijd voor een aanvraag heeft, betekent dit dat de aanvraag voor het eerste item voor het uitvoeren van de niet-geoptimaliseerde gedeelte van de methode is. Overweeg het gebruik van een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang krijgen deze tot.
+Als het laden van de code een aanzienlijke hoeveelheid tijd voor een aanvraag duurt, is de aanvraag voor het eerste item voor het uitvoeren van de niet-geoptimaliseerde gedeelte van de methode. Overweeg het gebruik van een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang krijgen deze tot.
 
 ### <a id="httpclientsend"></a>HTTP-aanvraag verzenden
 
--Methoden zoals **HttpClient.Send** aangeven dat de code wordt gewacht tot een HTTP-aanvraag moet worden voltooid.
+Methoden, zoals **HttpClient.Send** aangeven dat de code wordt gewacht tot een HTTP-aanvraag moet worden voltooid.
 
 ### <a id="sqlcommand"></a>Database-bewerking
 
--Methoden zoals **SqlCommand.Execute** aangeven dat de code wordt gewacht tot een database-bewerking te voltooien.
+Methoden, zoals **SqlCommand.Execute** aangeven dat de code wordt gewacht tot een database-bewerking te voltooien.
 
 ### <a id="await"></a>Wachten op (AWAIT\_tijd)
 
-**AWAIT\_tijd** geeft aan dat de code wordt gewacht tot een andere taak te voltooien. Dit gebeurt meestal met de C# **AWAIT** instructie. Wanneer de code doet een C# **AWAIT**, de thread afgewikkeld en retourneert het besturingselement naar de thread-groep, en er is geen thread geblokkeerd wachten op de **AWAIT** om te voltooien. Echter, logisch, de thread die heeft de **AWAIT** 'geblokkeerd', en wacht tot de bewerking is voltooid. De **AWAIT\_tijd** instructie geeft aan dat de geblokkeerde tijd wachten op de taak is voltooid.
+**AWAIT\_tijd** geeft aan dat de code wordt gewacht tot een andere taak te voltooien. Deze vertraging is meestal gebeurt er met de C# **AWAIT** instructie. Wanneer de code doet een C# **AWAIT**, de thread afgewikkeld en retourneert het besturingselement naar de thread-groep, en er is geen thread geblokkeerd wachten op de **AWAIT** om te voltooien. Echter, logisch, de thread die heeft de **AWAIT** 'geblokkeerd,' en er wordt gewacht tot de bewerking is voltooid. De **AWAIT\_tijd** instructie geeft aan dat de geblokkeerde tijd wachten op de taak is voltooid.
 
 ### <a id="block"></a>Geblokkeerde tijd
 
@@ -110,24 +108,24 @@ De toepassing met het uitvoeren van bewerkingen op het netwerk.
 
 ### <a id="when"></a>Als kolom
 
-De **wanneer** kolom is een visualisatie van hoe de inclusief voorbeelden die worden verzameld voor een knooppunt na verloop van tijd variëren. Het totale bereik van de aanvraag is onderverdeeld in 32 tijd buckets. De inclusief voorbeelden voor dat knooppunt zijn verzameld in deze 32 buckets. Elke bucket wordt weergegeven als een balk. De hoogte van de balk met vertegenwoordigt een schaal waarde. Voor de knooppunten die zijn gemarkeerd als **CPU_TIME** of **BLOCKED_TIME**, of wanneer er een duidelijke relatie met het gebruiken van een bron (bijvoorbeeld een CPU, schijf of thread), de balk staat voor het gebruik van een van de resources tijdens de periode van die bucket. Voor deze metrische gegevens is het mogelijk dat een waarde van meer dan 100 procent door meerdere bronnen verbruikt. Als u, Gemiddeld, twee CPU's tijdens een interval gebruikt, krijgt u bijvoorbeeld 200 procent.
+De **wanneer** kolom is een visualisatie van hoe de inclusief voorbeelden die worden verzameld voor een knooppunt na verloop van tijd variëren. Het totale bereik van de aanvraag is onderverdeeld in 32 tijd buckets. De inclusief voorbeelden voor dat knooppunt zijn verzameld in deze 32 buckets. Elke bucket wordt weergegeven als een balk. De hoogte van de balk met vertegenwoordigt een schaal waarde. Voor de knooppunten die zijn gemarkeerd als **CPU_TIME** of **BLOCKED_TIME**, of wanneer er een duidelijke relatie met het gebruiken van een bron (bijvoorbeeld een CPU, schijf of thread), de balk staat voor het gebruik van een van de resources tijdens de bucket. Voor deze metrische gegevens is het mogelijk dat een waarde van meer dan 100 procent door meerdere bronnen verbruikt. Als u, Gemiddeld, twee CPU's tijdens een interval gebruikt, krijgt u bijvoorbeeld 200 procent.
 
 ## <a name="limitations"></a>Beperkingen
 
 De bewaartermijn voor gegevens is vijf dagen. De maximale gegevens die per dag wordt opgenomen, is 10 GB.
 
-Er zijn geen kosten voor het gebruik van de Profiler-service. U kunt de Profiler-service gebruiken, uw web-app moet worden gehost in ten minste de basislaag van de Web-Apps.
+Er zijn geen kosten voor het gebruik van de Profiler-service. U kunt deze gebruiken, uw web-app moet worden gehost in ten minste de basislaag van de functie Web Apps van Azure App Service.
 
 ## <a name="overhead-and-sampling-algorithm"></a>Overhead en densitysampling-algoritme
 
-Profiler wordt willekeurig twee minuten elk uur uitgevoerd op elke virtuele machine die als host fungeert voor de toepassing die ingeschakeld is voor het vastleggen van traces Profiler. Wanneer de Profiler wordt uitgevoerd, wordt deze toegevoegd van 5 procent aan 15 procent CPU-overhead op de server.
+Profiler wordt willekeurig twee minuten elk uur uitgevoerd op elke virtuele machine die als host fungeert voor de toepassing die ingeschakeld is voor het vastleggen van traces Profiler. Wanneer de Profiler wordt uitgevoerd, wordt toegevoegd van 5 naar 15 procent CPU-overhead op de server.
 
 ## <a name="next-steps"></a>Volgende stappen
-Application Insights Profiler inschakelen voor uw Azure-toepassing
-* [App Services](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Cloud Services](profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric-toepassingen](profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
-* [Virtuele Machines en virtuele machine Scalesets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+Application Insights Profiler inschakelen voor uw Azure-toepassing. Zie ook:
+* [App Services](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Azure virtuele Machines en virtuele-machineschaalsets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
 [performance-blade]: ./media/profiler-overview/performance-blade-v2-examples.png
