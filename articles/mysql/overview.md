@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 11/14/2018
-ms.openlocfilehash: 9385ccf61f8cb8de0b3a459ac00c05b32d2630e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536879"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353325"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Wat is Azure Database for MySQL?
 Azure Database voor MySQL is een relationele databaseservice in de Microsoft-cloud op basis van de [MySQL in Communityversie](https://www.mysql.com/products/community/) database-engine, versie 5.6 en 5.7. Azure Database voor MySQL biedt:
@@ -36,7 +36,7 @@ Zie de volgende artikelen voor een reeks Azure CLI-voorbeelden:
 - [Azure CLI-voorbeelden voor Azure Database for MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Binnen een paar seconden prestaties en schaal aanpassen
-De Azure Database for MySQL-service biedt verschillende Servicelagen: Basic, algemeen gebruik en geoptimaliseerd voor geheugen. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie  [Prijscategorieën](concepts-service-tiers.md) voor meer informatie.
+De Azure Database for MySQL-service biedt verschillende Servicelagen: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie  [Prijscategorieën](concepts-service-tiers.md) voor meer informatie.
 
 ## <a name="monitoring-and-alerting"></a>Bewaking en waarschuwingen
 Hoe bepaalt u wanneer u omhoog of omlaag moet schalen? U maakt gebruik van de ingebouwde functies voor prestatiebewaking en waarschuwingen, in combinatie met de prestatiebeoordelingen op basis van vCores. Met behulp van deze tools kunt u snel beoordelen wat de impact is van het aanpassen van de schaal van vCores op basis van uw huidige of verwachte prestatiebehoeften. Zie [Waarschuwingen](howto-alert-on-metric.md) voor meer details.
@@ -47,7 +47,7 @@ De toonaangevende serviceovereenkomst (SLA) van Azure met 99,99% beschikbaarheid
 ## <a name="secure-your-data"></a>Uw gegevens beveiligen
 Azure-databaseservices hebben traditiegetrouw een uitstekende gegevensbeveiliging die Azure Database for MySQL beschermt, met functies voor toegangsbeperking, inactieve gegevens en in-motion beveiligen, en kunnen u activiteiten bekijken. Bezoek het [Vertrouwenscentrum van Azure](https://www.microsoft.com/en-us/trustcenter/security) voor informatie over de beveiliging van het Azure-platform.
 
-De Azure Database for MySQL-service gebruikt opslagversleuteling voor inactieve gegevens. Gegevens met inbegrip van back-ups worden op schijf versleuteld (met uitzondering van tijdelijke bestanden die door de engine tijdens het uitvoeren van query's worden gemaakt). De service maakt gebruikt van AES 256-bits versleuteling die deel uitmaakt van Azure Storage-versleuteling. De sleutels worden door het systeem beheerd. Opslagversleuteling is altijd actief en kan niet worden uitgeschakeld.
+De Azure Database for MySQL-service gebruikt opslagversleuteling voor inactieve gegevens en compatibel is met FIPS 140-2. Gegevens met inbegrip van back-ups worden op schijf versleuteld (met uitzondering van tijdelijke bestanden die door de engine tijdens het uitvoeren van query's worden gemaakt). De service maakt gebruikt van AES 256-bits versleuteling die deel uitmaakt van Azure Storage-versleuteling. De sleutels worden door het systeem beheerd. Opslagversleuteling is altijd actief en kan niet worden uitgeschakeld.
 
 De Azure Database for MySQL-service is standaard geconfigureerd om te vereisen dat [SSL-verbindingsbeveiliging](./concepts-ssl-connection-security.md) voor gegevens in beweging via het netwerk. Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld. Desgewenst kunt u uitschakelen dat SSL is vereist voor het maken van verbinding met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Converteren van tekst naar spraak, Python - spraakservices'
+title: 'Snelstart: Converteren van tekst naar spraak, Python - spraakservices'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Python en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6bc8966113fd1d5ac855ed8c12aa5ad4b387b211
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2828330a0b00bb0695dcf91a84d0099d30c43183
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247233"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360119"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Quickstart: Converteert tekst naar spraak met behulp van Python
 
@@ -162,9 +162,10 @@ Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels,
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie voor de Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [Python-voorbeelden in GitHub bekijken](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>Zie ook
 
+* [Naslaginformatie voor de Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Het maken van aangepaste spraakstijlen](how-to-customize-voice-font.md)
 * [Record stem voorbeelden voor het maken van een aangepaste spraak](record-custom-voice-samples.md)

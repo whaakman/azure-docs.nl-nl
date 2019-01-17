@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d8c4d28d6f5fdcc66e512375448f4b1d5fc9b8ed
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807207"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359167"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registratie
-U kunt de installatie van de Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en het instellen van rapportage terug naar Microsoft commercegegevens. Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Registratie wordt aanbevolen omdat hiermee u voor het testen van belangrijke Azure Stack-functionaliteit, zoals marketplace-syndicatie en rapportage over het gebruik kunt. Nadat u Azure Stack hebt geregistreerd, wordt gebruik gerapporteerd aan Azure commerce. U kunt het zien onder het abonnement dat u voor de registratie gebruikt. Echter ASDK gebruikers niet in rekening gebracht voor het gebruik die ze rapporteren.
+U kunt de installatie van de Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en het instellen van rapportage terug naar Microsoft commercegegevens. Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Registratie is vereist om in te schakelen om te testen van belangrijke Azure Stack-functionaliteit, zoals marketplace-syndicatie en rapportage over het gebruik. Nadat u Azure Stack hebt geregistreerd, wordt gebruik gerapporteerd aan Azure commerce. U kunt het zien onder het abonnement dat u voor de registratie gebruikt. Echter ASDK gebruikers niet in rekening gebracht voor het gebruik die ze rapporteren.
 
 Als u uw ASDK niet registreert, ziet u mogelijk een **activering vereist** waarschuwing die aangeeft voor het registreren van uw Azure Stack Development Kit. Dit gedrag is verwacht.
 
@@ -37,6 +37,8 @@ $ExecutionContext.SessionState.LanguageMode
 
 Zorg ervoor dat de uitvoer geeft als resultaat **FullLanguageMode**. Als een andere taalmodus wordt geretourneerd, registratie moet worden uitgevoerd op een andere computer of de taalmodus worden ingesteld moet op **FullLanguageMode** voordat u doorgaat.
 
+De Azure AD-account gebruikt voor de registratie moet toegang hebben tot het Azure-abonnement en machtigingen voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement. Wordt u aangeraden dat u Azure Stack registreren bij Azure-beheer met minimale bevoegdheden [het maken van een service-account moet worden gebruikt voor registratie](..\azure-stack-registration-role.md) in plaats van met de referenties van de globale beheerder.
+
 ## <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 Volg deze stappen voor het registreren van de ASDK met Azure.
 
@@ -45,7 +47,7 @@ Volg deze stappen voor het registreren van de ASDK met Azure.
 
 1. Open een PowerShell-console als beheerder.  
 
-2. Voer de volgende PowerShell-opdrachten voor het registreren van uw installatie ASDK met Azure. U moet zich aanmelden bij uw Azure-abonnement zowel de lokale ASDK-installatie. Als u een Azure-abonnement hebt hebt, u kunt [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Registreren van Azure Stack maakt geen kosten op uw Azure-abonnement.<br><br>Als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnements-ID, een unieke naam voor de registratie instellen tijdens het uitvoeren van de **Set AzsRegistration** cmdlet. De **RegistrationName** parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, het script mislukken.
+2. Voer de volgende PowerShell-opdrachten voor het registreren van uw installatie ASDK met Azure. U moet zich aanmelden bij uw Azure-abonnement zowel de lokale ASDK-installatie. Als u een Azure-abonnement hebt hebt, u kunt [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Registreren van Azure Stack maakt geen kosten op uw Azure-abonnement.<br><br>Een unieke naam voor de registratie wordt ingesteld tijdens het uitvoeren van de **Set AzsRegistration** cmdlet. De **RegistrationName** parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, het script mislukken.
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 

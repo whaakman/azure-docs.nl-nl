@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: 4e57181b62a6d9070c0b2e4de5008e47b62c56bf
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54301896"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353189"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web application firewall-aanvraaglimieten grootte en uitsluitingslijsten
 
@@ -22,7 +22,7 @@ De Azure Application Gateway web application firewall (WAF) biedt beveiliging vo
 
 ![Maximale grootte aanvragen](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-Web Application Firewall kunnen gebruikers grootte aanvraaglimieten in kleine en bovengrens configureren. De volgende configuraties van de grootte van de twee limieten zijn beschikbaar:
+Web Application Firewall kunt u grootte aanvraaglimieten in kleine en bovengrens configureren. De volgende configuraties van de grootte van de twee limieten zijn beschikbaar:
 
 - Het veld voor maximale aanvraag hoofdtekst van de grootte is opgegeven in kB's en besturingselementen algemene aanvraag grootte, met uitzondering van elk bestand wordt geüpload. Dit veld kan variëren van 1 KB minimum aan de maximumwaarde 128 KB. De standaardwaarde voor de aanvraag hoofdtekst van de grootte is 128 KB.
 - Het veld met bestand uploaden limiet is opgegeven in MB en deze verklaring regelt de maximum toegestane bestandsgrootte voor uploaden. Dit veld kan een minimumwaarde van 1 MB en maximaal 500 MB voor grote SKU exemplaren hebben terwijl gemiddeld SKU een maximum van 100 MB heeft. De standaardwaarde voor bestand uploadlimiet is 100 MB.
@@ -33,7 +33,7 @@ WAF biedt ook een knop kunnen worden geconfigureerd om in te schakelen van de co
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
-WAF-uitsluitingslijsten toestaan dat gebruikers bepaalde kenmerken van een evaluatie WAF weglaten. Een veelvoorkomend voorbeeld is de dat Active Directory-tokens die worden gebruikt voor verificatie of wachtwoordvelden ingevoegd. Deze kenmerken zijn gevoelig zijn voor de speciale tekens bevatten die een fout-positief vanaf de WAF-regels kunnen activeren. Wanneer een kenmerk is toegevoegd aan de uitsluitingslijst WAF, is niet het in aanmerking genomen door alle geconfigureerde en actieve WAF-regel. Uitsluitingslijsten zijn globaal binnen het bereik.
+WAF-uitsluitingslijsten kunnen u bepaalde kenmerken van een evaluatie WAF weglaten. Een veelvoorkomend voorbeeld is de dat Active Directory-tokens die worden gebruikt voor verificatie of wachtwoordvelden ingevoegd. Deze kenmerken zijn gevoelig zijn voor de speciale tekens bevatten die een fout-positief vanaf de WAF-regels kunnen activeren. Wanneer een kenmerk is toegevoegd aan de uitsluitingslijst WAF, niet wordt dit beschouwd als door geen enkele regel van de WAF geconfigureerd en actief. Uitsluitingslijsten zijn globaal binnen het bereik.
 
 De volgende kenmerken kunnen worden toegevoegd aan een lijst met uitgesloten:
 
@@ -55,6 +55,40 @@ Hier volgen de ondersteunde overeenkomst criteria operators:
 - **Bevat**: Deze operator komt overeen met alle velden op aanvraag die de opgegeven selector waarde bevatten.
 
 In alle gevallen wordt onderscheid en reguliere expressies zijn niet toegestaan als het selectoren.
+
+### <a name="examples"></a>Voorbeelden
+
+De volgende Azure PowerShell-codefragment ziet u het gebruik van uitsluitingen:
+
+```azurepowershell
+// exclusion 1: exclude request head start with xyz
+// exclusion 2: exclude request args equals a
+
+$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+
+$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+
+// add exclusion lists to the firewall config
+
+$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+```
+
+De volgende json-fragment ziet u het gebruik van uitsluitingen:
+
+```json
+"webApplicationFirewallConfiguration": {
+          "enabled": "[parameters('wafEnabled')]",
+          "firewallMode": "[parameters('wafMode')]",
+          "ruleSetType": "[parameters('wafRuleSetType')]",
+          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
+          "disabledRuleGroups": [],
+          "exclusions": [
+            {
+                "matchVariable": "RequestArgNames",
+                "selectorMatchOperator": "StartsWith",
+                "selector": "a^bc"
+            }
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -6,16 +6,16 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544580"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354447"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database voor MariaDB Prijscategorieën
 
-U kunt een Azure Database voor MariaDB-server maken in een van drie verschillende Prijscategorieën: Basic, algemeen gebruik en geoptimaliseerd voor geheugen. De Prijscategorieën worden onderscheiden op basis van de hoeveelheid Computing in vCores die kunnen worden ingericht, het geheugen per vCore en de technologie voor gegevensopslag gebruikt voor het opslaan van de gegevens. Alle resources zijn ingericht op het niveau van de MariaDB-server. Een server kan een of meer databases bevatten.
+U kunt een Azure Database voor MariaDB-server maken in een van drie verschillende Prijscategorieën: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. De Prijscategorieën worden onderscheiden op basis van de hoeveelheid Computing in vCores die kunnen worden ingericht, het geheugen per vCore en de technologie voor gegevensopslag gebruikt voor het opslaan van de gegevens. Alle resources zijn ingericht op het niveau van de MariaDB-server. Een server kan een of meer databases bevatten.
 
 |    | **Basic** | **Algemeen gebruik** | **Geoptimaliseerd voor geheugen** |
 |:---|:----------|:--------------------|:---------------------|
@@ -53,8 +53,7 @@ De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar zijn voor
 
 U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server. De Basic-laag biedt geen een garantie IOPS. In het algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën, schalen de IOPS-waarde met de grootte van de ingerichte opslag in een verhouding van 3:1.
 
-U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kunt bewaken. De metrische gegevens die relevant zijn voor het bewaken van zijn-limiet voor opslag, opslagpercentage, opslag die wordt gebruikt en i/o-percentage.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kunt bewaken. De relevante metrische gegevens voor het bewaken van zijn [-limiet voor opslag, opslagpercentage, opslag die wordt gebruikt en i/o-percentage](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 
@@ -64,7 +63,7 @@ Terwijl de service probeert om de server alleen-lezen te maken, worden alle nieu
 
 U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Zie voor meer informatie de documentatie over [over het instellen van een waarschuwing](howto-alert-metric.md).
 
 ## <a name="backup"></a>Backup
 

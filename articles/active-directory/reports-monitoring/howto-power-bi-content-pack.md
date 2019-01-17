@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c2d121106218c0965cd8f4e07776cf8d2578543f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651449"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354158"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Het gebruik van de Azure Active Directory Power BI-inhoudspakket
 
@@ -32,7 +32,7 @@ De Power BI content pack voor Azure Active Directory (Azure AD) bevat vooraf gem
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een Azure AD premium (P1/P2)-licentie voor het gebruik van het inhoudspakket. Zie [aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) upgrade uw versie van Azure Active Directory.
+U moet een Azure AD premium (P1/P2)-licentie voor het gebruik van het inhoudspakket. Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden.
 
 ## <a name="install-the-content-pack"></a>Het inhoudspakket installeren
 
@@ -101,13 +101,45 @@ Als u uw inhoudspakket bijwerken naar een nieuwere versie wilt:
 
 Zodra u hebt gecontroleerd dat de nieuwe versie van het inhoudspakket werkt zoals verwacht, kunt u de oude versie verwijderen als die nodig zijn voor het verwijderen van de onderliggende rapporten en gegevenssets die zijn gekoppeld aan dat inhoudspakket.
 
-## <a name="still-having-issues"></a>Nog steeds problemen? 
+## <a name="troubleshoot-content-pack-errors"></a>Inhoudspakketfouten oplossen
 
-Raadpleeg onze [handleiding voor het oplossen van problemen](troubleshoot-content-pack.md). Voor algemene hulp met Power BI raadpleegt u deze [Help-artikelen](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+Als u werkt met het inhoudspakket, is het mogelijk dat u in de volgende fouten uitvoert: 
+
+- [Vernieuwen is mislukt](#refresh-failed) 
+- [Gegevensbronreferenties bijwerken is mislukt](#failed-to-update-data-source-credentials) 
+- [Het importeren van gegevens is te lang duurt](#data-import-is-too-slow) 
+
+Voor algemene hulp met Power BI raadpleegt u deze [Help-artikelen](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+
+### <a name="refresh-failed"></a>Vernieuwen is mislukt 
+ 
+**Hoe deze fout is opgehaald**: Stuur een e-mail met Power BI of mislukte status in de geschiedenis vernieuwen. 
+
+
+| Oorzaak | Voor het oplossen van |
+| ---   | ---        |
+| Fout bij fouten kunnen worden veroorzaakt wanneer de referenties van de gebruikers die verbinding maken met het inhoudspakket is opnieuw ingesteld, maar niet bijgewerkt in de instellingen van het inhoudspakket vernieuwen. | In Power BI, zoek de gegevensset die overeenkomt met het dashboard activiteitenlogboeken van Azure AD (**Azure Active Directory-activiteitenlogboek registreert**), kies planning vernieuwen en voer vervolgens uw Azure AD-referenties. |
+| Vernieuwen kan mislukken vanwege problemen met de gegevens in het onderliggende inhoudspakket. | [Een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+ 
+### <a name="failed-to-update-data-source-credentials"></a>Gegevensbronreferenties bijwerken is mislukt 
+ 
+**Hoe deze fout is opgehaald**: In Power BI, wanneer u verbinding met het inhoudspakket van Azure AD-activiteit Logboeken maakt. 
+
+| Oorzaak | Voor het oplossen van |
+| ---   | ---        |
+| Gebruiker die de verbinding is niet een globale beheerder of beveiligingslezer of een beveiligingsbeheerder. | Gebruik een account dat een globale beheerder of beveiligingslezer of een beveiligingsbeheerder voor toegang tot de inhoudspakketten. |
+| Uw tenant is niet een Premium-tenant of beschikt niet over ten minste één gebruiker met Premium-licentie bestand. | [Een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+### <a name="data-import-is-too-slow"></a>Het importeren van gegevens is te langzaam verlopen 
+ 
+**Hoe deze fout is opgehaald**: In Power BI, nadat u verbinding maken met uw inhoudspakket het importeren van gegevens wordt gestart op uw dashboard voorbereiden voor Azure AD-activiteit Logboeken. U ziet het bericht: **Gegevens importeren...**  zonder eventuele verdere wordt uitgevoerd.  
+
+| Oorzaak | Voor het oplossen van |
+| ---   | ---        |
+| Afhankelijk van de grootte van uw tenant, kan deze stap tussen een paar minuten duren tot 30 minuten. | Als het bericht wordt niet gewijzigd in het dashboard worden weergegeven binnen een uur [een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+  
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Installeren van Power BI-inhoudspakket](quickstart-install-power-bi-content-pack.md).
-* [Fouten met inhoudspakketten oplossen](troubleshoot-content-pack.md).
 * [Wat zijn Azure AD-rapporten? ](overview-reports.md).

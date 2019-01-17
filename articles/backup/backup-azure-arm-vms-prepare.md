@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: a7a2d8729e1abdafa89eff912faf84d8f247b442
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215436"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354498"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
@@ -39,7 +39,7 @@ In dit artikel wordt beschreven hoe u voorbereiden op back-ups van een virtuele 
 
    **Ondersteuning voor/beperking** | **Details**
    --- | ---
-   **Windows-besturingssysteem** | Windows Server 2008 R2 64-bits of hoger.<br/><br/> Client voor Windows 7, 64-bits of hoger.
+   **Windows OS** | Windows Server 2008 R2 64-bits of hoger.<br/><br/> Client voor Windows 7, 64-bits of hoger.
    **Linux-besturingssysteem** | U kunt back-up van Linux-distributies, 64-bits [ondersteund door Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van CoreOS Linux.<br/><br/> Bekijk de Linux-besturingssystemen die [ondersteuning voor bestanden herstellen](backup-azure-restore-files-from-vm.md#for-linux-os).<br/><br/> Andere Linux-distributies mogelijk werken, als de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python aanwezig. Maar worden niet deze distributies ondersteund.
    **Regio** | U kunt back-up van virtuele Azure-machines in alle [ondersteunde regio's](https://azure.microsoft.com/regions/#services). Als een regio niet ondersteund wordt, kunt u zich niet om deze te selecteren wanneer u de kluis maakt.<br/><br/> U kunt geen back-up en herstellen van Azure-regio's. Alleen binnen één regio.
    **Limiet van schijf** | U kunt geen back-up van virtuele machines met meer dan 16 gegevensschijven.
@@ -61,8 +61,6 @@ In dit artikel wordt beschreven hoe u voorbereiden op back-ups van een virtuele 
     - U hoeft niet te geven van de storage-accounts voor het opslaan van de back-upgegevens. De kluis en de Azure Backup-service worden verwerkt die automatisch.
 - Controleren of de VM-agent is geïnstalleerd op Azure VM's die u back wilt-up.
 
-
-
 ### <a name="install-the-vm-agent"></a>De VM-agent installeren
 
 Om in te schakelen back-up, installeert Azure Backup een Backup-extensie (VM-momentopname of VM-momentopname Linux) voor de VM-agent die wordt uitgevoerd op de virtuele machine van Azure.
@@ -79,12 +77,14 @@ Als u problemen met back-ups van de Azure-VM hebt, gebruikt u de volgende tabel 
 
 ### <a name="establish-network-connectivity"></a>Netwerkverbinding tot stand brengen
 
-De back-up-extensie die wordt uitgevoerd op de virtuele machine moet uitgaande toegang tot Azure openbare IP-adressen hebben. Om toegang te verlenen, kunt u het volgende doen:
+De back-up-extensie die wordt uitgevoerd op de virtuele machine moet uitgaande toegang tot Azure openbare IP-adressen hebben.
 
+> [!NOTE]
+> Er is geen expliciete uitgaande toegang is vereist voor virtuele Azure-machine om te communiceren met Azure Backup-Service. Echter bepaalde oudere virtuele machines mogelijk ervaart mogelijk problemen en mislukt met de fout **ExtensionSnapshotFailedNoNetwork**, zodat deze fout verhelpen, kies een van de volgende opties om toe te staan van de Backup-extensie voor de communicatie met Azure openbare IP-adressen voor een duidelijk pad voor back-upverkeer.
 
-- **NSG-regels**: Toestaan dat de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). U kunt een regel waarmee toegang tot de Azure Backup-service met behulp toevoegen een [servicetag](../virtual-network/security-overview.md#service-tags), in plaats van afzonderlijk zodat elk-adresbereik, en het beheer na verloop van tijd.
+- **NSG-regels**: Toestaan dat de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). U kunt een regel waarmee toegang tot de Azure Backup-service met behulp toevoegen een [servicetag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), in plaats van afzonderlijk zodat elk-adresbereik, en het beheer na verloop van tijd. Zie voor meer informatie over servicetag [artikel](../virtual-network/security-overview.md#service-tags).
 - **Proxy**: Implementeer een HTTP-proxy-server voor het routeren van verkeer.
-- **Firewall van Azure**: Verkeer via de Azure-Firewall op de virtuele machine, met behulp van een FQDN-tag voor de Azure Backup-service toestaan.
+- **Firewall van Azure**: Toestaan van verkeer via de Azure-Firewall op de virtuele machine, met behulp van een FQDN-tag voor de Azure Backup-service
 
 Wanneer u beslist tussen de opties, houd rekening met het gebruik van systeembronnen.
 
@@ -94,22 +94,17 @@ Wanneer u beslist tussen de opties, houd rekening met het gebruik van systeembro
 **HTTP-proxy** | Nauwkeurige controle over de URL's voor opslag is toegestaan.<br/><br/> Toegang tot één punt van internet voor VM's.<br/><br/> Extra kosten voor de proxy.
 **FQDN-tags** | Eenvoudig te gebruiken als u Azure-Firewall instellen in een VNet-subnet | Kan maken van uw eigen labels FQDN-naam, of FQDN-namen wijzigen in een tag.
 
-
-
 Als u Azure Managed Disks gebruikt, moet u mogelijk een extra poort openen (poort 8443) op de firewalls.
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Instellen van een NSG-regel waarmee uitgaande toegang tot Azure
 
 Als uw Azure-VM toegang tot die worden beheerd door een NSG heeft, uitgaande toegang voor de back-upopslag naar het vereiste bereik en de poorten toestaat.
 
-
-
 1. In de virtuele machine > **netwerken**, klikt u op **regel voor uitgaande poort toevoegen**.
-- Hebt u een regel voor weigeren van toegang, toestaan de nieuwe regel moet hoger zijn. Als u hebt bijvoorbeeld een **Deny_All** regel instellen op prioriteit van 1000, de nieuwe regel moet worden ingesteld op minder dan 1000.
+
+  - Hebt u een regel voor weigeren van toegang, toestaan de nieuwe regel moet hoger zijn. Als u hebt bijvoorbeeld een **Deny_All** regel instellen op prioriteit van 1000, de nieuwe regel moet worden ingesteld op minder dan 1000.
 2. In **uitgaande beveiligingsregel toevoegen**, klikt u op **Geavanceerd**.
-3. Selecteer in de bron, **VirtualNetwork**.
+3. In **bron**, selecteer **VirtualNetwork**.
 4. In **poortbereiken van bron**, type in een sterretje (*) zodat uitgaande toegang vanaf een willekeurige poort.
 5. In **bestemming**, selecteer **servicetag**. Selecteer de opslag in de lijst. <region>. De regio is de regio waarin de kluis en de virtuele machines die u back wilt-up moet zich bevinden.
 6. In **poortbereiken van doel**, selecteert u de poort.
@@ -117,9 +112,9 @@ Als uw Azure-VM toegang tot die worden beheerd door een NSG heeft, uitgaande toe
     - Virtuele machine met niet-beheerde schijven en niet-versleuteld opslagaccount: 80
     - Virtuele machine met niet-beheerde schijven en versleutelde storage-account: 443 (standaardinstelling)
     - Beheerde virtuele machine: 8443.
-1. In **Protocol**, selecteer **TCP**.
-2. In **prioriteit**, wijs hieraan een prioriteitswaarde kleiner is dan een hoger weigeren regels.
-3. Geef een naam en beschrijving voor de regel en klikt u op **OK**.
+7. In **Protocol**, selecteer **TCP**.
+8. In **prioriteit**, wijs hieraan een prioriteitswaarde kleiner is dan een hoger weigeren regels.
+9. Geef een naam en beschrijving voor de regel en klikt u op **OK**.
 
 U kunt de NSG-regel toepassen op meerdere virtuele machines waarmee uitgaande toegang tot Azure voor Azure Backup.
 
@@ -127,12 +122,12 @@ Deze video helpt u bij het proces.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> Opslag servicetags zijn beschikbaar als preview. Ze zijn alleen beschikbaar in bepaalde regio's. Zie voor een lijst met regio's, [servicetags voor opslag](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>Back-verkeer routeren via een proxy
 
 U kunt back-verkeer via een proxy omleiden en vervolgens de Proxytoegang geven tot de vereiste Azure bereiken.
-
 U moet uw proxy-VM om toe te staan de volgende configureren:
 
 - De Azure-VM moet alle afhankelijke voor het openbare internet via de proxy HTTP-verkeer routeren.
@@ -146,15 +141,15 @@ Als u een systeemproxy-account hebt, stelt een als volgt:
 
 1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 2. Voer **PsExec.exe -i -s cmd.exe** naar de opdrachtprompt met een systeemaccount worden uitgevoerd.
-3. De browser wordt uitgevoerd in de systeemcontext. Bijvoorbeeld: **ProgramFiles%\Internet Explorer\iexplore.exe** voor Internet Explorer.  
+3. De browser wordt uitgevoerd in de systeemcontext. Bijvoorbeeld: **PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
 4. Definieer de proxyinstellingen.
     - Op Linux-machines:
         - Deze regel toe te voegen de **/etc/omgeving** bestand:
             - **gebruikt =http://proxy IP-adres: proxypoort**
         - Deze Voeg regels toe aan de **/etc/waagent.conf** bestand:
             - **HttpProxy.Host=proxy IP-adres**
-            - **HttpProxy.Port=proxy poort**
-    - Opgeven dat een proxy moet worden gebruikt op Windows-machines in de browserinstellingen. Als u een proxy die momenteel op een gebruikersaccount dat is gebruikt, kunt u dit script gebruiken om toe te passen van de instelling op het niveau van het systeem-account.
+            - **HttpProxy.Port=proxy port**
+    - Opgeven dat een proxy moet worden gebruikt op Windows-machines in de browserinstellingen. Als u momenteel een proxy voor een gebruikersaccount gebruikt, kunt u dit script gebruiken om toe te passen van de instelling op het niveau van het systeem-account.
         ```
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
@@ -167,8 +162,9 @@ Als u een systeemproxy-account hebt, stelt een als volgt:
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>Binnenkomende verbindingen op de proxy toestaan
 
-1. Binnenkomende verbindingen toestaan in de proxy-instellingen.
-2. Open bijvoorbeeld **Windows Firewall met geavanceerde beveiliging**.
+Binnenkomende verbindingen toestaan in de proxy-instellingen.
+
+- Open bijvoorbeeld **Windows Firewall met geavanceerde beveiliging**.
     - Met de rechtermuisknop op **regels voor binnenkomende verbindingen** > **nieuwe regel**.
     - In **regeltype** Selecteer **aangepaste** > **volgende**.
     - In **programma**, selecteer **alle programma's** > **volgende**.
@@ -186,13 +182,13 @@ Op de NSG **NSF-lockdown**, verkeer van een willekeurige poort op 10.0.0.5 naar 
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>Firewalltoegang met FQDN-naam tag toestaan
 
 U kunt de Azure-Firewall instellen waarmee uitgaande toegang voor het netwerkverkeer naar back-up van Azure.
 
 - [Meer informatie over](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) Firewall van Azure implementeren.
 - [Meer informatie over](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
-
 
 ## <a name="create-a-vault"></a>Een kluis maken
 
@@ -227,7 +223,7 @@ Nadat de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Servi
 
 ## <a name="set-up-storage-replication"></a>Storage-replicatie instellen
 
-Uw kluis heeft standaard [geografisch redundante opslag (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). GRS wordt aanbevolen voor uw primaire back-up, maar u kunt[lokaal redundante opslag](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor een goedkopere optie. 
+Uw kluis heeft standaard [geografisch redundante opslag (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). GRS wordt aanbevolen voor uw primaire back-up, maar u kunt[lokaal redundante opslag](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor een goedkopere optie.
 
 Storage-replicatie als volgt wijzigen:
 

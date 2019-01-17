@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6e0904efdb86376688710a94920cdb44c2804ec
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842269"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353121"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Meld u aan met een iOS-toepassing
 
@@ -29,7 +29,7 @@ Op het Microsoft Identity-platform wordt gebruikgemaakt van open standaarden, zo
 Als u geen ervaring hebt met OAuth2 of OpenID Connect, wellicht veel van deze voorbeeldconfiguratie niet verstandig veel aan u. U wordt geadviseerd eerst een beknopt [overzicht van het hier gedocumenteerde protocol te bekijken](active-directory-b2c-reference-protocols.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Een Azure AD B2C-directory maken
-Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken. Een directory is een container voor al uw gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u verdergaat.
+Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken. Een directory is een container voor al uw gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](tutorial-create-tenant.md) voordat u verdergaat.
 
 ## <a name="create-an-application"></a>Een app maken
 Vervolgens maakt u een app in uw B2C-directory. De app-registratie biedt Azure AD-gegevens die nodig is om veilig te communiceren met uw app. Voor het maken van een mobiele app, gaat u als volgt [deze instructies](active-directory-b2c-app-registration.md). Zorg ervoor dat:
@@ -39,13 +39,11 @@ Vervolgens maakt u een app in uw B2C-directory. De app-registratie biedt Azure A
 * Instellen van een **omleidings-URI** met een aangepast schema (bijvoorbeeld com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). U hebt deze URI later nodig.
 
 ## <a name="create-your-user-flows"></a>Uw gebruikersstromen maken
-In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md). Deze app bevat één identity-ervaring: een gecombineerde aanmelding en om te registreren. Deze gebruikersstroom maken zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Wanneer u de gebruikersstroom maakt, moet u naar:
+In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md). Deze toepassing bevat één identity-ervaring: een gecombineerde aanmelding en om te registreren. Wanneer u de gebruikersstroom maakt, moet u naar:
 
 * Onder **registratiekenmerken**, selecteert u het kenmerk **weergavenaam**.  U kunt ook andere kenmerken selecteren.
 * Onder **toepassingsclaims**, selecteert u de claims **weergavenaam** en **Object-ID van gebruiker**. U kunt ook andere claims kiezen.
 * Kopieer de **naam** van elk beleid nadat u dit hebt gemaakt. Uw stroom gebruikersnaam wordt voorafgegaan door `b2c_1_` wanneer u de gebruikersstroom opslaat.  U hebt de userjourney-naam later nodig.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Nadat u uw gebruikersstromen hebt gemaakt, bent u klaar om uw app te bouwen.
 

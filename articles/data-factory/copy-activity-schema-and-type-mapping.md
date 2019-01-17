@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025450"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358708"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in de kopieeractiviteit
 Dit artikel wordt beschreven hoe copy activity in Azure Data Factory biedt schematoewijzing en gegevenstypetoewijzing van de brongegevens met sink-gegevens wanneer het kopiëren van gegevens uitvoert.
@@ -142,7 +142,7 @@ Als u de syntaxis van `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name
 
 ## <a name="schema-mapping"></a>Schematoewijzing
 
-Schematoewijzing is van toepassing wanneer kopiëren van gegevens tussen hiërarchische gevormde gegevens en gegevens in tabelvorm vormgegeven kopieert bijvoorbeeld van MongoDB/REST tekstbestand te kopiëren uit SQL naar Azure Cosmos DB MongoDB-API. De volgende eigenschappen worden ondersteund in de kopieeractiviteit `translator` sectie:
+Schematoewijzing is van toepassing bij het kopiëren van gegevens tussen de hiërarchische gevormde gegevens en in tabelvorm vormgegeven gegevens, bijvoorbeeld kopiëren van MongoDB/REST naar een tekstbestand en het exemplaar van SQL tot Azure Cosmos DB-API voor MongoDB. De volgende eigenschappen worden ondersteund in de kopieeractiviteit `translator` sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |

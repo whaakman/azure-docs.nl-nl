@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 43da5b32fe3ad8891f89544d0f9bdbd1d4d127d0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606179"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354379"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows-desktop-app bouwen
 Met behulp van Azure Active Directory (Azure AD) B2C, kunt u functies voor krachtige Self-service identiteitsbeheer toevoegen aan uw bureaubladapp in slechts enkele korte stappen. Dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst-app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor het registreren en aanmelden met behulp van een gebruikersnaam of e-mailbericht. Het bevat ook ondersteuning voor registratie en aanmelding via sociale accounts zoals Facebook en Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Een Azure AD B2C-directory maken
-Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken. Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u doorgaat in deze handleiding.
+Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken. Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](tutorial-create-tenant.md) voordat u doorgaat in deze handleiding.
 
 ## <a name="create-an-application"></a>Een app maken
 Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door aan Azure AD die nodig is om veilig te communiceren met uw app. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken. Zorg ervoor dat:
@@ -31,16 +31,14 @@ Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door 
 * U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt dit later nodig.
 
 ## <a name="create-your-policies"></a>Het beleid maken
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet een beleid maken voor elk type, zoals wordt beschreven de [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Wanneer u uw drie beleidsregels maakt:
+In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. Wanneer u het beleid maakt, moet u naar:
 
 * Kiest u **Registratie met gebruikers-id** of **Registratie via e-mail** op de blade met identiteitsproviders.
 * Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
 * Kiest u **Weergavenaam**- en **Object-id**-claims als toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
 * Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten. U hebt deze beleidsnamen later nodig.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-Nadat u de drie beleidsregels hebt gemaakt, kunt u uw app maken.
+Nadat u het beleid hebt gemaakt, bent u klaar om uw app te bouwen.
 
 ## <a name="download-the-code"></a>De code downloaden
 De code voor deze zelfstudie [wordt bewaard in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Als u het voorbeeld wilt maken terwijl u aan het werk bent, kunt u [een basisproject downloaden als zip-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). U kunt het basisproject ook klonen:

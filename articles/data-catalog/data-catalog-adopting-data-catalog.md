@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406495"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353257"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Aanpak en proces voor het overstappen op Azure Data Catalog
 Dit artikel helpt u aan de slag te gaan met de overstap op **Azure Data Catalog** in uw organisatie. Als u wilt overstappen op **Azure Data Catalog**, richt u zich op drie essentiële items: het definiëren van uw visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden binnen uw organisatie en het kiezen van een proefproject.
@@ -66,7 +66,7 @@ Hier volgen enkele tips voor het identificeren van gebruiksvoorbeelden:
 * **Definieer de doelstellingen van het team** - hoe bereikt het team hun doelstellingen? Richt u nog niet op Data Catalog, omdat u in deze fase objectief wilt zijn. Vergeet niet dat het om de bedrijfsresultaten en niet om de technologie draait.
 * **Definieer het zakelijke probleem** - wat zijn de problemen van het team met betrekking tot het zoeken en leren over gegevensassets? Bijvoorbeeld, er staat informatie over belangrijke gegevensbronnen in Excel-werkmappen in een netwerkmap, en het team spendeert mogelijk veel tijd aan het vinden van de werkmappen.
 * **Krijg inzicht in de teamcultuur met betrekking tot verandering** - veel uitdagingen met betrekking tot acceptatie hebben te maken met weerstand tegen verandering, in plaats van met de implementatie van een nieuw hulpprogramma. Hoe een team reageert op verandering is belangrijk bij het identificeren van gebruiksvoorbeelden, omdat processen mogelijk bestaan met de redenering "dit hebben we altijd zo hebben gedaan" of "waarom zouden we het veranderen als het niet stuk is?". De overstap op een nieuw hulpprogramma of proces is altijd het gemakkelijkst als de betrokken mensen weten welke meerwaarde ze kunnen realiseren door de verandering, en erkennen dat het belangrijk is dat de problemen worden opgelost. 
-* **Blijf gefocust met betrekking tot gegevensassets** - wanneer u de bedrijfsproblemen van een team bespreekt, moet u "het onkruid wieden" en u richten op wat relevant is voor effectiever gebruik van zakelijke gegevensassets.
+* **Blijf gefocust met betrekking tot gegevensassets** -wanneer u de bedrijfsproblemen die een team bespreekt, moet u 'het onkruid inzichtelijk', en u richten op wat relevant is voor effectiever gebruik te maken van zakelijke gegevensassets.
 
 Hier volgen enkele gebruiksvoorbeelden met betrekking tot Data Catalog:
 

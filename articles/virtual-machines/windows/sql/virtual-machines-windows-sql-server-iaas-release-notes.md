@@ -15,27 +15,39 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e3f44181ca1a5ea64815aadf52aa7ea792a21416
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993141"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358572"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server op de opmerkingen bij de release van de virtuele Machine van Azure
 
 Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server ingebouwde implementeren. In dit artikel bevat de nieuwe functies en verbeteringen die u in de meest recente versie van SQL Server is geïmplementeerd op een virtuele machine van Azure verwachten kunt. 
 
+## <a name="december-2018"></a>December 2018
+
+| **Change** | Details |
+| --- | --- |
+| **Nieuwe SQL-cluster groep-resourceprovider** | Er is een nieuwe resourceprovider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroup) die de metagegevens van de Windows-failovercluster definieert. Lid worden van een SQL Server-VM naar de *SqlVirtualMachineGroup* bootstrapt van de Windows Failover Cluster-service en maakt de virtuele machine lid van het cluster.  |
+|**Instellen van de implementatie van een beschikbaarheid van groep met Azure-Snelstartsjablonen automatiseren** |Het is nu mogelijk te maken van het Windows-failovercluster, SQL Server-VM's toevoegen aan het maken van de listener en de interne Load Balancer configureren met twee Azure Quickstart-sjablonen. Zie voor meer informatie, [WSFC maken, listener en ILB configureren voor de groep van een Always On-beschikbaarheid op een SQL Server-VM met de Azure Quickstart-sjabloon](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
+| **Registratie van de Resourceprovider automatische SQL-VM** | SQL Server-VM's geïmplementeerd nadat deze maand zijn automatisch geregistreerd bij de nieuwe resourceprovider voor SQL Server. SQL Server-VM's geïmplementeerd voordat u deze maand wordt nog steeds moeten handmatig worden geregistreerd. Zie voor meer informatie, [bestaande SQL-VM met nieuwe resourceprovider registreren](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider).|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="november-2018"></a>November 2018
-- **Nieuwe SQL-resourceprovider**: Er is een nieuwe resourceprovider voor SQL-VM's die voor betere beheer van uw virtuele machine zorgen. Zie voor meer informatie over het registreren van uw virtuele machine [bestaande SQL-VM met nieuwe resourceprovider registreren](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
-- **Schakel over licentiemodel**: U kunt nu schakelen tussen het licentiemodel met betalen per gebruik en bring-your-own-van uw SQL-VM met Azure CLI of PowerShell. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md)
 
+| **Change** | Details |
+| --- | --- |
+| **Nieuwe SQL-VM-resourceprovider** |  Er is een nieuwe resourceprovider voor SQL Server-VM's (Microsoft.SqlVirtualMachine) waarmee beter beheer van uw SQL Server-VM. Zie voor meer informatie over het registreren van uw virtuele machine [bestaande SQL-VM met nieuwe resourceprovider registreren](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider). |
+|**Switch-licentiemodel** |U kunt nu schakelen tussen het licentiemodel met betalen per gebruik en bring-your-own-van uw SQL-VM met Azure CLI of Powershell. Zie [Het licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md) voor meer informatie. | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-**Windows-VM's**:
+**Virtuele Windows-machines**:
 
 * [Overzicht van SQL Server op een Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
 * [Een SQL Server Windows VM inrichten](virtual-machines-windows-portal-sql-server-provision.md)

@@ -1,6 +1,6 @@
 ---
 title: Schrijf code voor het volgen van aanvragen met Azure Application Insights | Microsoft Docs
-description: Schrijf code als aanvragen wilt volgen met Application Insights, zodat u kunt profielen voor uw aanvragen ophalen
+description: Schrijf code als aanvragen wilt volgen met Application Insights, zodat u kunt profielen voor uw aanvragen ophalen.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bdbca30d31febe37e6b568894179c88d834d3a83
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266685"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359630"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Code voor het volgen van aanvragen met Application Insights schrijven
 
-Als u wilt zien profielen voor uw toepassing op de pagina van de prestaties, moet Application Insights worden aanvragen voor uw toepassing bijhouden. Application Insights kunnen automatisch bijhouden voor aanvragen voor toepassingen die zijn gebouwd op frameworks die al zijn geïnstrumenteerd, zoals ASP.net en ASP.Net Core. Maar voor andere toepassingen, zoals Azure Cloud Service-werkrollen en Service Fabric stateless API's van uw behoeften code schrijven om te zien van Application Insights, waar uw aanvragen beginnen en eindigen. Nadat u deze code geschreven aanvragen telemetrie wordt verzonden naar Application Insights en ziet u de telemetrie op de pagina van de prestaties en profielen voor deze aanvragen worden verzameld. 
+Als u wilt weergeven van profielen voor uw toepassing op de pagina van de prestaties, moet Azure Application Insights om aanvragen voor uw toepassing te volgen. Application Insights kunnen aanvragen voor toepassingen die zijn gebouwd op al zijn geïnstrumenteerd frameworks automatisch bijhouden. Twee voorbeelden zijn ASP.NET en ASP.NET Core. 
 
-Hier volgen de stappen die u moet ondernemen handmatig om aanvragen te volgen:
+Voor andere toepassingen, zoals Azure Cloud Services-werkrollen en Service Fabric stateless API's, moet u code schrijven om te zien van Application Insights waar uw verzoeken, begin en einde. Nadat u deze code hebt geschreven, worden aanvragen telemetrie wordt verzonden naar Application Insights. U kunt de telemetrie bekijken op de pagina van de prestaties en profielen worden verzameld voor deze aanvragen. 
 
+Handmatig als aanvragen wilt volgen, het volgende doen:
 
   1. Voeg de volgende code al vroeg in de levensduur van de toepassing:  
 
@@ -36,7 +37,7 @@ Hier volgen de stappen die u moet ondernemen handmatig om aanvragen te volgen:
         ```
       Zie voor meer informatie over de configuratie van deze globale instrumentation [met Service Fabric met Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. Voor elk stukje code dat u wilt instrumenteren, voegt u een `StartOperation<RequestTelemetry>` **met** instructie rond het, zoals wordt weergegeven in het volgende voorbeeld:
+  1. Voor elk stukje code dat u wilt instrumenteren, voegt u een `StartOperation<RequestTelemetry>` **met behulp van** instructie rond het, zoals wordt weergegeven in het volgende voorbeeld:
 
         ```csharp
         using Microsoft.ApplicationInsights;

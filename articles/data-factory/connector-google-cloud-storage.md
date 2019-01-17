@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: b829528daeeb49be9b46206d8ae0add88c4441bd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 0ad54a32620a47927707fa3367b3408dbfd31eef
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068989"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352186"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Gegevens kopiëren van Google Cloud Storage met Azure Data Factory
 
@@ -35,7 +35,7 @@ Specifiek,-bestanden kopiëren als biedt ondersteuning voor deze connector Googl
 Om gegevens te kopiëren van Google Cloud Storage, moet dat u de volgende machtigingen zijn verleend:
 
 - **Voor de uitvoering van activiteit kopiëren:**: `s3:GetObject` en `s3:GetObjectVersion` voor Object-bewerkingen.
-- **Voor het ontwerpen van Data Factory-gebruikersinterface**: `s3:ListAllMyBuckets` en `s3:ListBucket` / `s3:GetBucketLocation` voor Bucket bewerkingen machtigingen zijn ook vereist voor bewerkingen, zoals verbinding testen en navigeert u bladeren/bestand paden. Als u niet wilt dat deze machtiging te verlenen, gaat u verder testverbinding in de gekoppelde service-pagina voor het maken en speicify het pad rechtstreeks in de gegevenssetinstellingen.
+- **Voor het ontwerpen van Data Factory-gebruikersinterface**: `s3:ListAllMyBuckets` en `s3:ListBucket` / `s3:GetBucketLocation` voor Bucket bewerkingen machtigingen zijn ook vereist voor bewerkingen, zoals verbinding testen en navigeert u bladeren/bestand paden. Als u niet wilt dat deze machtiging te verlenen, overslaan van de testverbinding in de gekoppelde service-pagina voor het maken en geef het pad rechtstreeks in de gegevenssetinstellingen.
 
 ## <a name="getting-started"></a>Aan de slag
 

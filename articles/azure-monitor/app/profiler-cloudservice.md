@@ -1,6 +1,6 @@
 ---
-title: Profiel live Azure-cloudservices met Application Insights | Microsoft Docs
-description: Schakel Application Insights Profiler voor Cloudservices.
+title: Profiel live Azure Cloud Services met Application Insights | Microsoft Docs
+description: Schakel Application Insights Profiler voor Azure Cloudservices.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,44 +12,42 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6ae662c57c5196ff495edafeee0d6ba5f79e76d1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 01147f19a6a10361609c01bc6b3f1ac07d1ff86b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082841"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358028"
 ---
-# <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiel live Azure-cloudservices met Application Insights
+# <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiel live Azure Cloud Services met Application Insights
 
-U kunt Application Insights profiler voor deze services ook implementeren:
-* [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric-toepassingen](profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
-* [Virtuele machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+U kunt Application Insights Profiler ook implementeren op deze services:
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric-toepassingen](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights Profiler is geïnstalleerd met de extensie voor Windows Azure Diagnostics (WAD). U hoeft alleen het configureren van WAD voor het installeren van de profiler en profielen verzenden naar uw Application Insights-resource.
+Application Insights Profiler wordt geïnstalleerd met de Azure Diagnostics-extensie. U hoeft alleen het configureren van Azure Diagnostics voor het installeren van Profiler en profielen verzenden naar uw Application Insights-resource.
 
-## <a name="enable-profiler-for-your-azure-cloud-service"></a>Inschakelen van profiler voor uw Azure-Cloudservice
-1. Selectievakje om te zien die u met behulp van [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger.  Het is voldoende om te bevestigen dat de *ServiceConfiguration.\*.cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
-1. Voeg [Application Insights-SDK met cloudservice](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+## <a name="enable-profiler-for-azure-cloud-services"></a>Inschakelen van Profiler voor Azure Cloudservices
+1. Selectievakje om ervoor te zorgen dat u [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger. Het is voldoende om te bevestigen dat de *ServiceConfiguration.\*.cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
+
+1. Voeg [Application Insights-SDK voor Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
 1. Aanvragen voor bijhouden met Application Insights:
 
-    Voor ASP.Net-web-rollen bijhouden Application Insights automatisch de-aanvragen.
+    * Voor ASP.NET-web-rollen bijhouden Application Insights automatisch de-aanvragen.
 
-    Voor werkrollen [code toevoegen om te-aanvragen bijhouden.](profiler-trackrequests.md ?toc=/azure/azure-monitor/toc.json)
+    * Voor werkrollen [code toevoegen om te-aanvragen bijhouden](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-    
+1. Configureer de Azure Diagnostics-extensie voor het inschakelen van Profiler door het volgende te doen:
 
-1. Windows Azure Diagnostics (WAD)-extensie voor het inschakelen van profiler configureren.
+    a. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* bestand voor de toepassingsrol van uw, zoals hier wordt weergegeven:  
 
+      ![Locatie van het configuratiebestand van de diagnostische gegevens](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
+      Als u het bestand niet vinden, raadpleegt u [diagnose instellen voor Azure Cloud Services en virtuele Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
-    1. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* bestand voor de toepassingsrol van uw, zoals hier wordt weergegeven:  
-
-       ![Locatie van het configuratiebestand van de diagnostische gegevens](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
-
-        Als u het bestand niet vinden, voor informatie over het inschakelen van de extensie voor diagnostische gegevens in uw Azure Cloud Services-project, Zie [diagnose instellen voor Azure Cloud Services en virtuele machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
-
-    1. Voeg de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`:  
+    b. Voeg de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -63,17 +61,19 @@ Application Insights Profiler is geïnstalleerd met de extensie voor Windows Azu
       </WadCfg>
       ```
 
-    >   **OPMERKING:** Als de *diagnostics.wadcfgx* -bestand bevat ook een andere sink van het type `ApplicationInsights`, alle drie van de volgende instrumentatiesleutels moet overeenkomen met:  
-    >  * De sleutel die wordt gebruikt door uw toepassing.  
-    >  * De sleutel die wordt gebruikt door de `ApplicationInsights` sink.  
-    >  * De sleutel die wordt gebruikt door de `ApplicationInsightsProfiler` sink.  
+    > [!NOTE]
+    > Als de *diagnostics.wadcfgx* -bestand bevat ook een andere sink van het type Application Insights, alle drie van de volgende instrumentatiesleutels moet overeenkomen met:  
+    > * De sleutel die wordt gebruikt door uw toepassing. 
+    > * De sleutel die wordt gebruikt door de Application Insights-sink. 
+    > * De sleutel die wordt gebruikt door de ApplicationInsightsProfiler sink. 
     >
-    > U vindt de daadwerkelijke instrumentation sleutelwaarde die wordt gebruikt door de `ApplicationInsights` sink in de *ServiceConfiguration.\*.cscfg* bestanden.  
-    > Na de release van Visual Studio 15.5 Azure SDK, alleen de instrumentatiesleutels die worden gebruikt door de toepassing en de `ApplicationInsightsProfiler` sink moeten met elkaar overeen.
-1. De service met de nieuwe diagnostische configuratie implementeert en Application Insights Profiler wordt geconfigureerd om uit te voeren op uw service.
+    > U vindt de daadwerkelijke instrumentation sleutelwaarde die wordt gebruikt door de `ApplicationInsights` sink in de *ServiceConfiguration.\*.cscfg* bestanden. 
+    > Na de release van Visual Studio 15.5 Azure SDK moeten de instrumentatiesleutels die worden gebruikt door de toepassing en de sink ApplicationInsightsProfiler met elkaar overeen.
+
+1. Implementeren van uw service met de nieuwe configuratie van diagnostische gegevens en Application Insights Profiler is geconfigureerd om uit te voeren op uw service.
  
 ## <a name="next-steps"></a>Volgende stappen
 
-- Genereren van verkeer naar uw toepassing (bijvoorbeeld: launch een [beschikbaarheidstest](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Wacht 10 tot 15 minuten voor traceringen om te worden verzonden naar de Application Insights-exemplaar.
-- Zie [Profiler-traceringen](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in Azure portal.
-- Hulp bij het oplossen van problemen met de profiler in [Profiler probleemoplossing](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json).
+* Genereren van verkeer naar uw toepassing (bijvoorbeeld: launch een [beschikbaarheidstest](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). Wacht 10 tot 15 minuten voor traceringen om te worden verzonden naar de Application Insights-exemplaar.
+* Zie [Profiler-traceringen](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) in Azure portal.
+* Zie voor het oplossen van problemen met de Profiler [Profiler probleemoplossing](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

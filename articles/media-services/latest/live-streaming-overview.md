@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788205"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354175"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -29,6 +29,22 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 - Onderdelen in Media Services, waarmee u om op te nemen, preview, inpakken, registreren, versleutelen en uitzenden van de live-gebeurtenis aan uw klanten of aan een CDN voor verdere distributie.
 
 In dit artikel biedt een gedetailleerd overzicht, richtlijnen en diagrammen van de belangrijkste onderdelen die betrokken zijn bij het live streamen met Media Services bevat.
+
+## <a name="live-streaming-workflow"></a>Werkstroom voor live streaming
+
+Hier volgen de stappen voor een live streaming-werkstroom:
+
+1. Maak een **Live evenement**.
+2. Maak een nieuwe **Asset** object.
+3. Maak een **uitvoer Live** en gebruikt u de assetnaam van de die u hebt gemaakt.
+4. Maak een **beleid Streaming** en **inhoud sleutel** als u van plan bent voor het versleutelen van uw inhoud met DRM.
+5. Als geen DRM, maakt een **Streaming-Locator gemaakt** met de ingebouwde **beleid Streaming** typen.
+6. Lijst van de paden op de **beleid Streaming** om terug te gaan de URL's te gebruiken (dit zijn deterministische).
+7. Ophalen van de hostnaam voor de **Streaming-eindpunt** u wilt streamen vanaf (Zorg ervoor dat de Streaming-eindpunt wordt uitgevoerd). 
+8. De URL uit stap 6 worden gecombineerd met de hostnaam in stap 7 om de volledige URL te achterhalen.
+9. Als u wilt stoppen met het maken van uw **Live gebeurtenis** zichtbaar, dat u wilt stoppen met het streamen van de gebeurtenis door het verwijderen van de **Streaming-Locator gemaakt**.
+
+Zie voor meer informatie, een [Live streaming zelfstudie](stream-live-tutorial-with-api.md) die is gebaseerd op de [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) voorbeeld.
 
 ## <a name="overview-of-main-components"></a>Overzicht van de belangrijkste onderdelen
 
@@ -89,13 +105,14 @@ Het volgende artikel bevat een tabel met de vergelijking tussen de functies van 
 
 Een [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) kunt u voor het beheren van de eigenschappen van de uitgaande live stream, zoals hoeveel van de stroom is geregistreerd (bijvoorbeeld, de capaciteit van de cloud-DVR) en of viewers bekijken van de live stream kunnen starten. De relatie tussen een **LiveEvent** en de bijbehorende **LiveOutput**s relatie is vergelijkbaar met traditionele televisie broadcast, waarbij een kanaal (**LiveEvent**) Hiermee geeft u een constante stream met video's en een opname (**LiveOutput**) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt met behulp van een Digital Video Recorder (DVR) televisie vastleggen – de vergelijkbare functie in LiveEvents wordt beheerd via de eigenschap ArchiveWindowLength. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
 
-
 > [!NOTE]
-> **LiveOutput**s starten bij het maken en te stoppen wanneer verwijderd. Wanneer u verwijdert de **LiveOutput**, verwijdert u niet de onderliggende **Asset** en de inhoud in de Asset.  
+> **LiveOutput**s starten bij het maken en te stoppen wanneer verwijderd. Wanneer u verwijdert de **LiveOutput**, verwijdert u niet de onderliggende **Asset** en de inhoud in de asset. 
+>
+> Als u hebt gepubliceerd **Streaming-Locator gemaakt**s voor de asset voor de **LiveOutput**, blijft de gebeurtenis (tot de lengte van het DVR-venster) worden weergegeven tot de eindtijd van de **Streaming-Locator gemaakt**  of tot wanneer u de locator verwijdert, afhankelijk van wat het eerste komt.   
 
 Zie voor meer informatie, [werken met cloud-DVR](live-event-cloud-dvr.md).
 
-## <a name="streamingendpoint"></a>Streamingendpoint zo
+## <a name="streamingendpoint"></a>StreamingEndpoint
 
 Zodra u de stroom doorgestuurd hebt naar de **LiveEvent**, kunt u de streaminggebeurtenis starten door het maken van een **Asset**, **LiveOutput**, en **StreamingLocator** . Hiermee wordt de stream gearchiveerd en beschikbaar maken aan kijkers via de [streamingendpoint zo](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
@@ -110,21 +127,6 @@ Zie voor gedetailleerde informatie [Staten en facturering](live-event-states-bil
 ## <a name="latency"></a>Latentie
 
 Zie voor gedetailleerde informatie over LiveEvents latentie, [latentie](live-event-latency.md).
-
-## <a name="live-streaming-workflow"></a>Werkstroom voor live streaming
-
-Hier volgen de stappen voor een live streaming-werkstroom:
-
-1. Maak een LiveEvent.
-2. Maak een nieuwe Asset-object.
-3. Maak een LiveOutput en gebruik van de assetnaam van de die u hebt gemaakt.
-4. Maak een Streaming-beleid en de sleutel van de inhoud als u van plan bent voor het versleutelen van uw inhoud met DRM.
-5. Als dat niet met DRM, maken van een Streaming-Locator gemaakt met de ingebouwde Streaming beleidstypen.
-6. Lijst van de paden op het Streaming-beleid om terug te gaan de URL's te gebruiken (dit zijn deterministische).
-7. De hostnaam voor de Streaming-eindpunt u streamen wilt vanaf ophalen. 
-8. De URL uit stap 6 worden gecombineerd met de hostnaam in stap 7 om de volledige URL te achterhalen.
-
-Zie voor meer informatie, een [Live streaming zelfstudie](stream-live-tutorial-with-api.md) die is gebaseerd op de [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) voorbeeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 1/16/2019
+ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728122"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359847"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL
 
@@ -118,8 +118,9 @@ De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de
 
 - Virtual network-regels gelden alleen voor virtuele netwerken van Azure Resource Manager; en niet op [klassieke implementatiemodel] [ arm-deployment-model-568f] netwerken.
 
-- Inschakelen van service-eindpunten naar Azure SQL Database kunt ook de eindpunten voor de MySQL en PostgreSQL-Azure-services. Echter met eindpunten op verbinding maken tussen de eindpunten en uw MySQL- of PostgreSQL-instanties, mislukken pogingen tot.
-  - De onderliggende reden is dat MySQL en PostgreSQL momenteel geen ACLing ondersteunen.
+- Inschakelen van service-eindpunten naar Azure SQL Database kunt ook de eindpunten voor de MySQL en PostgreSQL-Azure-services. Met eindpunten op kunnen pogingen tot verbinding maken tussen de eindpunten en uw MySQL- of PostgreSQL-instanties echter mislukken.
+  - De onderliggende reden is dat MySQL en PostgreSQL waarschijnlijk geen een regel voor virtuele netwerken geconfigureerd. U moet een regel voor virtuele netwerken configureren voor Azure Database voor MySQL en PostgreSQL en de verbinding slaagt.
+
 - Op de firewall, IP-adresbereiken zijn van toepassing op de volgende items voor netwerken, maar regels voor virtueel netwerk dat niet doen:
   - [Site-naar-Site (S2S) virtueel particulier netwerk (VPN)][vpn-gateway-indexmd-608y]
   - On-premises via [ExpressRoute][expressroute-indexmd-744v]
@@ -167,7 +168,7 @@ Azure SQL-Database heeft de gegevenssynchronisatie-functie die verbinding maakt 
 
 Azure Storage is de dezelfde functie waarmee u verbinding met uw Azure Storage-account beperken geïmplementeerd. Als u ervoor kiest deze functie wilt gebruiken met een Azure Storage-account dat wordt gebruikt door Azure SQL-Server, kunt u problemen ondervindt. Vervolgens wordt een lijst met en een beschrijving van de Azure SQL Database en Azure SQL Data Warehouse-functies die worden beïnvloed door dit.
 
-### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL datawarehouse PolyBase
+### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL Data Warehouse PolyBase
 
 PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse vanuit Azure Storage-accounts. Als de Azure Storage-account dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Voor het inschakelen van beide PolyBase importeren en exporteren van scenario's met Azure SQL Data Warehouse verbinding met Azure Storage die wordt beveiligd met VNet, volgt u de stappen die hieronder worden beschreven:
 
@@ -277,7 +278,7 @@ Een PowerShell-script kunt ook regels voor virtueel netwerk maken. De essentiël
 
 Intern maakt aanroept de PowerShell-cmdlets voor acties van de SQL-VNet REST API's. U kunt de REST API's rechtstreeks aanroepen.
 
-- [Regels voor virtueel netwerk: Bewerkingen][rest-api-virtual-network-rules-operations-862r]
+- [Regels voor virtueel netwerk: Operations][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -322,7 +323,7 @@ U moet al een subnet dat is gemarkeerd met het specifieke service-eindpunt voor 
 > - **Gereed:** Geeft aan dat de bewerking die u hebt gestart is voltooid.
 > - **Is mislukt:** Geeft aan dat de bewerking die u hebt gestart, is mislukt.
 > - **Verwijderd:** Alleen van toepassing op de Delete-bewerking, en geeft aan dat de regel is verwijderd en niet langer van toepassing.
-> - **Wordt uitgevoerd:** Geeft aan dat de bewerking uitgevoerd wordt. De oude regel van toepassing is terwijl de bewerking in deze status is.
+> - **InProgress:** Geeft aan dat de bewerking uitgevoerd wordt. De oude regel van toepassing is terwijl de bewerking in deze status is.
 
 <a name="anchor-how-to-links-60h" />
 

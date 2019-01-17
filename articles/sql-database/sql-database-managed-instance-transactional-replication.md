@@ -12,16 +12,23 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/08/2019
-ms.openlocfilehash: 1839ca0d2495a07f6fc734501540cddcdcb28e18
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d94173f9b1940613c26451658b90c956c71876fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332852"
+ms.locfileid: "54353240"
 ---
 # <a name="transactional-replication-with-azure-sql-logical-server-and-azure-sql-managed-instance"></a>Transactionele replicatie met logische Azure SQL-Server en Azure SQL Managed Instance
 
 Transactionele replicatie is een functie van Azure SQL Database Managed Instance en SQL-Server waarmee u voor het repliceren van gegevens uit een tabel in Azure SQL Database of SQL Server voor de tabellen die voor externe databases wordt geplaatst. Deze functie kunt u meerdere tabellen in verschillende databases synchroniseren.
+
+## <a name="when-to-use-transactional-replication"></a>Wanneer u transactionele replicatie
+
+Transactionele replicatie is handig in de volgende scenario's:
+- Publiceren van wijzigingen die u in een of meer tabellen in een database en deze toewijzen aan een of meer SQL Server of Azure SQL-databases die voor de wijzigingen die zijn geabonneerd.
+- Houd verschillende gedistribueerde databases gesynchroniseerde status.
+- Databases van een SQL Server of Managed Instance migreren naar een andere database door continu de wijzigingen publiceert.
 
 ## <a name="overview"></a>Overzicht 
 De belangrijkste onderdelen van transactionele replicatie worden weergegeven in de volgende afbeelding:  
@@ -81,16 +88,19 @@ In het algemeen de uitgever en de distributor moeten zich in de cloud of on-prem
 
 ![Één exemplaar als de uitgever en de Distributor ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Uitgever en de distributor zijn in één beheerd exemplaar geconfigureerd. 
+Uitgever en de distributor zijn geconfigureerd binnen een enkel Managed Instance en distribueren van wijzigingen naar andere beheerd exemplaar, individuele database of SQL Server on-premises. In deze configuratie, de uitgever/distributor voor het beheerde exemplaar kan niet worden geconfigureerd met [Geo-replicatie en automatische failover-groepen](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Uitgever met externe distributor op een beheerd exemplaar
+
+In deze configuratie is publiceert één Managed Instance wijzigingen met distributeur geplaatst op een andere Managed Instance die kunnen fungeren veel bron beheerde instanties en wijzigingen in een of meer doelen op Managed Instance, individuele Database of SQL Server distribueren.
 
 ![Afzonderlijke exemplaren voor de Publisher en de Distributor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
 Uitgever en de distributor worden geconfigureerd op twee exemplaren die worden beheerd. In deze configuratie
 
 - Beide beheerde instanties zijn op hetzelfde vNet.
-- Beide beheerde instanties zijn op dezelfde locatie. 
+- Beide beheerde instanties zijn op dezelfde locatie.
+- Beheerde exemplaren die als host gepubliceerd en distributor databases kunnen niet worden [geo-replicatie met behulp van automatische failover-groepen](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-managed-instance-or-logical-server"></a>Uitgever en de distributor on-premises met een abonnee op een beheerd exemplaar of de logische Server 
 

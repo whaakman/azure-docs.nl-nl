@@ -9,16 +9,16 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888526"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354326"
 ---
 # <a name="state-management-with-service-fabric"></a>Statusbeheer met Service Fabric
 
-Service Fabric ondersteunt veel verschillende opties voor status-opslag. Zie voor een conceptueel overzicht van de status van beheer van patronen en Service Fabric, [concepten van Service Fabric: status](/azure/service-fabric/service-fabric-concepts-state). Deze dezelfde concepten gelden voor uw services worden uitgevoerd binnen of buiten het net van Service Fabric. 
+Service Fabric ondersteunt veel verschillende opties voor status-opslag. Zie voor een conceptueel overzicht van de status van beheer van patronen en Service Fabric, [Service Fabric-concepten: Status](/azure/service-fabric/service-fabric-concepts-state). Deze dezelfde concepten gelden voor uw services worden uitgevoerd binnen of buiten het net van Service Fabric. 
 
 Met Service Fabric NET, kunt u eenvoudig een nieuwe toepassing implementeren en deze verbinden met een bestaand gegevensarchief die wordt gehost in Azure. Naast het gebruik van een externe database, zijn er verschillende opties voor het opslaan van gegevens, afhankelijk van of de service wenst voor lokale of externe opslag. 
 
@@ -30,7 +30,7 @@ Containers maken vaak gebruik van tijdelijke schijven. Tijdelijke schijven zijn 
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric betrouwbare Volume
 
-Service Fabric betrouwbare Volume is een Docker-volume-stuurprogramma gebruikt voor het koppelen van een lokaal volume naar een container. Lees- en schrijfbewerkingen zijn lokale bewerkingen en fast. Gegevens worden gerepliceerd uit voor secundaire knooppunten, maximaal beschikbaar maken. Failover is ook snel. Wanneer een container vastloopt, failover het-schakeling naar een knooppunt dat al een kopie van uw gegevens. Zie voor een voorbeeld [over het implementeren van een app met Service Fabric betrouwbare Volume.](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)
+Service Fabric betrouwbare Volume is een Docker-volume-stuurprogramma gebruikt voor het koppelen van een lokaal volume naar een container. Lees- en schrijfbewerkingen zijn lokale bewerkingen en fast. Gegevens worden gerepliceerd uit voor secundaire knooppunten, maximaal beschikbaar maken. Failover is ook snel. Wanneer een container vastloopt, failover het-schakeling naar een knooppunt dat al een kopie van uw gegevens. Zie voor een voorbeeld [over het implementeren van een app met Service Fabric betrouwbare Volume](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
 ### <a name="azure-files-volume"></a>Azure Files-Volume
 

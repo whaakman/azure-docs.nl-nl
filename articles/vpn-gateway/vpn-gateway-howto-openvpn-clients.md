@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971263"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352314"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>OpenVPN clients configureren voor Azure VPN-Gateway (Preview)
 
@@ -72,6 +72,10 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 7. Dubbelklik op het bestand van het profiel voor het maken van het profiel in tunnelblik.
 8. Start Tunnelblik uit de toepassingsmap.
 9. Klik op het pictogram Tunnelblik in het systeemvak en kies verbinding maken.
+
+> [!IMPORTANT]
+>Alleen iOS 11.0 en hoger en MacOS 10.13 en hoger worden ondersteund met OpenVPN-protocol.
+>
 
 ## <a name="linux"></a>Linux-clients
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1c8af3e0d3d5d29531a2ba81abc745fcdca5fb08
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 065695f9ce0f0d8dfbb9a43877131c8ab7fada5e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231900"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354311"
 ---
 # <a name="understand-role-definitions"></a>Roldefinities begrijpen
 
@@ -173,7 +173,11 @@ Als u wilt weergeven en werken met gegevensbewerkingen, moet u de juiste versie 
 | [Azure voor Python](/python/azure) | 0.40.0 of hoger |
 | [Azure-SDK voor Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 of hoger |
 
-De Azure-portal ook kan gebruikers bladeren en beheren van de inhoud van wachtrijen en -Blob containers via de Azure AD preview-ervaring. Als u wilt bekijken en beheren van de inhoud van een wachtrij of Blob-container klikt u op de koppeling 'Gegevens verkennen met behulp van Azure AD preview' in het overzicht van de storage-account.
+Als u wilt weergeven en gebruiken van de bewerkingen van de gegevens in de REST-API, moet u instellen de **api-versie** parameter met de volgende versie of hoger:
+
+- 2018-01-01-preview
+
+De Azure-portal ook kan gebruikers bladeren en beheren van de inhoud van wachtrijen en -Blob containers via de Azure AD preview-ervaring. Om te zien en beheren van de inhoud van een wachtrij of Blob-container klikt u op de **verkennen van gegevens met behulp van Azure AD preview** in het overzicht van de storage-account.
 
 ![Wachtrijen verkennen en Blob-containers met behulp van Azure AD-preview](./media/role-definitions/rbac-dataactions-browsing.png)
 
@@ -208,7 +212,7 @@ De `DataActions` machtiging Hiermee geeft u de bewerkingen die de rol kan worden
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Retourneert het bericht. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Retourneert een bericht of het resultaat van schrijven of verwijderen van een bericht. |
 
-## <a name="notdataactions-preview"></a>notDataActions (Preview)
+## <a name="notdataactions-preview"></a>NotDataActions (Preview)
 
 De `NotDataActions` machtiging Hiermee geeft u de bewerkingen voor gegevens die zijn uitgesloten van het toegestane aantal `DataActions`. De toegang wordt verleend door een rol (effectieve machtigingen) wordt berekend door af te trekken van de `NotDataActions` bewerkingen uit de `DataActions` bewerkingen. Elke resourceprovider biedt een bijbehorende set API's om te voldoen aan gegevensbewerkingen.
 
@@ -216,7 +220,7 @@ De `NotDataActions` machtiging Hiermee geeft u de bewerkingen voor gegevens die 
 > Als een gebruiker een rol die niet van toepassing op een gegevensbewerking in toegewezen `NotDataActions`, en een tweede functie die toegang tot de dezelfde gegevensbewerking is uitgevoerd verleent, de gebruiker is toegestaan om uit te voeren die voor deze gegevensbewerking is toegewezen. `NotDataActions` is niet een weigeren regel – het is gewoon een handige manier om u te maken van een set toegestane gegevensbewerkingen wanneer specifieke gegevensbewerkingen moeten worden uitgesloten.
 >
 
-## <a name="assignablescopes"></a>assignableScopes
+## <a name="assignablescopes"></a>AssignableScopes
 
 De `AssignableScopes` -eigenschap geeft de scopes (abonnementen, resourcegroepen of resources) dat de functie beschikbaar voor toewijzing is. U kunt de rol beschikbaar maken voor toewijzing in alleen de abonnementen of resourcegroepen die nodig, en niet de gebruiker overbodige items hebben ervaring voor de rest van de abonnementen of resourcegroepen. Moet u ten minste één abonnement, resourcegroep of resource-ID.
 

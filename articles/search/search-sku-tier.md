@@ -7,32 +7,32 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315550"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354549"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
-In Azure Search, een [service is ingericht](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service is opgelost. -Laag zijn **gratis**, **Basic**, of **Standard**, waarbij **Standard** is beschikbaar in meerdere configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar **Standard** voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken. 
+In Azure Search, een [resource is gemaakt](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service is opgelost. -Laag zijn **gratis**, **Basic**, of **Standard**, waarbij **Standard** is beschikbaar in verschillende configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar **Standard** voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken. 
 
 Lagen bepalen capaciteit, functies, en door elkaar worden onderscheiden:
 
 + Aantal indexen die u kunt maken
 + Grootte en snelheid van de partities (fysieke opslag)
 
-Hoewel alle lagen, inclusief de **gratis** laag, in het algemeen bieden functiepariteit, grotere workloads kunnen dicteren vereisten voor hogere lagen. Bijvoorbeeld, [cognitief zoeken](cognitive-search-concept-intro.md) indexeren is langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset te zijn uitgerust met zeer kleine gebeurt.
+Hoewel alle lagen, inclusief de **gratis** laag, in het algemeen bieden functiepariteit, grotere workloads kunnen dicteren vereisten voor hogere lagen. Bijvoorbeeld, [cognitief zoeken](cognitive-search-concept-intro.md) indexeren is langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset te klein gebeurt.
 
 > [!NOTE] 
 > De uitzondering functiepariteit is [indexeerfuncties](search-indexer-overview.md), die zijn niet beschikbaar op S3HD.
 >
 
-Binnen een laag, kunt u [replica en partitie resources aanpassen](search-capacity-planning.md) voor het afstemmen van prestaties. Dat kunt u met twee of drie van elk starten bijvoorbeeld, kan u tijdelijk de rekenkracht voor een zware indexering werkbelasting verhogen. De mogelijkheid om af te stemmen resource niveaus binnen een laag voegt u flexibiliteit toe, maar ook iets ingewikkelder, uw analyse. Mogelijk hebt om te experimenteren om te zien of een lagere laag met hogere resources/replica's betere waarde en prestaties dan een hogere laag met lagere te biedt. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
+Binnen een laag, kunt u [replica en partitie resources aanpassen](search-capacity-planning.md) voor het afstemmen van prestaties. U kunt beginnen met twee of drie van elk en de rekenkracht voor de workload van een intensief indexering tijdelijk verhogen. De mogelijkheid om af te stemmen resource niveaus binnen een laag voegt u flexibiliteit toe, maar ook iets ingewikkelder, uw analyse. Mogelijk hebt om te experimenteren om te zien of een lagere laag met hogere resources/replica's betere waarde en prestaties dan een hogere laag met lagere te biedt. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -40,23 +40,46 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## <a name="how-billing-works"></a>Werking van facturering
 
-In Azure Search, het belangrijkste facturering concept om te begrijpen is een *zoekeenheid* (SU). Omdat Azure Search, hangt af van de replica's en partities van functie, verstandig niet het om aan te brengen door slechts in één van de andere kosten in rekening. In plaats daarvan is facturering gebaseerd op een samenstelling van beide. 
+Er zijn vier manieren kosten in rekening bij het maken van de resource van een zoekopdracht in de portal in Azure Search:
+
+* Replica's en partities die worden gebruikt voor reguliere indexeren en doorzoeken van taken toe te voegen. U begint met één van elk, maar u kunt een of beide om toe te voegen capaciteit wilt vergroten kiezen en betaalt voor extra niveaus van te. 
+* Kosten voor uitgaande gegevens tijdens het indexeren. Bij het ophalen van gegevens uit een Azure SQL Database of Cosmos DB-gegevensbron, worden er kosten in rekening gebracht voor de transactie in de factuur voor die resources.
+* Voor [cognitief zoeken](cognitive-search-concept-intro.md) alleen installatiekopie extractie tijdens documenten kraken wordt in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis.
+* Voor [cognitief zoeken](cognitive-search-concept-intro.md) alleen enrichments op basis van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) worden in rekening gebracht tegen een Cognitive Services-resource. Enrichments worden gefactureerd tegen hetzelfde tarief als u de taak met Cognitive Services rechtstreeks heeft uitgevoerd.
+
+Als u geen [cognitief zoeken](cognitive-search-concept-intro.md) of [Azure Search-indexeerfuncties](search-indexer-overview.md), de enige kosten hebben betrekking op replica's en actief worden gebruikt, voor workloads met reguliere indexeren en query-partities.
+
+### <a name="billing-for-general-purpose-indexing-and-queries"></a>Facturering voor algemeen gebruik indexeren en query 's
+
+Voor Azure Search-bewerkingen, de belangrijkste facturering concept om te begrijpen is een *zoekeenheid* (SU). Omdat Azure Search, hangt af van de replica's en partities om te indexeren en query's, verstandig niet het om aan te brengen door slechts in één van de andere kosten in rekening. In plaats daarvan is facturering gebaseerd op een samenstelling van beide. 
 
 SU is het product van *replica* en *partities* die worden gebruikt door een service: **`(R X P = SU)`**
 
-Elke service wordt gestart met 1 SU (één replica wordt vermenigvuldigd met één partitie) als het minimum. De maximale waarde voor elke service is 36 su's die op verschillende manieren kunnen worden bereikt: 6 partities x 6 replica's, of 3 partities x 12 replica's, een paar te noemen. 
-
-Het is gebruikelijk is minder dan de totale capaciteit gebruiken. Bijvoorbeeld, een 3-replica, 3-partitie service, kosten in rekening gebracht als 9 su's. 
+Elke service wordt gestart met één SU (één replica wordt vermenigvuldigd met één partitie) als het minimum. De maximale waarde voor elke service is 36 su's die op verschillende manieren kunnen worden bereikt: 6 partities x 6 replica's, of 3 partities x 12 replica's, een paar te noemen. Het is gebruikelijk is minder dan de totale capaciteit gebruiken. Bijvoorbeeld, een 3-replica, 3-partitie service, kosten in rekening gebracht als 9 su's. 
 
 Het tarief is **per uur per SU**, waarbij elke laag met een steeds hogere snelheid. Hogere lagen geleverd met grotere en sneller partities, die bijdragen aan een totale hogere uurtarief voor die laag. Tarieven voor elke laag kan worden gevonden op [prijsinformatie](https://azure.microsoft.com/pricing/details/search/). 
 
 De meeste klanten Breng slechts een deel van de totale capaciteit online, met de rest in reserveren. Wat betreft facturering is het aantal partities en replica's die u levert online, berekend met behulp van de formule SU, waarmee wordt bepaald wat u daadwerkelijk betalen op uurbasis.
 
-### <a name="tips-for-reducing-costs"></a>Tips voor het verminderen van kosten
+### <a name="billing-for-image-extraction-in-cognitive-search"></a>Facturering voor het ophalen van de afbeelding in cognitief zoeken
+
+Als u installatiekopieën van de bestanden in een cognitief zoeken pijplijn indexeren uitpakken wilt, in rekening gebracht voor de bewerking op uw factuur voor Azure Search. De parameter die wordt geactiveerd extractie van de installatiekopie is **imageAction** in een [configuratie van de indexeerfunctie](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Als **imageAction** is ingesteld op none (standaard), er zijn geen kosten voor het ophalen van de installatiekopie.
+
+Prijs is onderhevig aan wijzigingen, maar wordt altijd beschreven op de [prijsinformatie](https://azure.microsoft.com/pricing/details/search/) pagina voor Azure Search. 
+
+### <a name="billing-for-built-in-skills-in-cognitive-search"></a>Facturering voor ingebouwde vaardigheden in cognitief zoeken
+
+Bij het instellen van een pijplijn verrijking eventuele [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) gebruikt in de pijplijn zijn gebaseerd op machine learning-modellen. Deze modellen worden geleverd door de Cognitive Services. Gebruik van deze modellen tijdens het indexeren wordt hetzelfde tarief gefactureerd als wanneer u de resource direct heeft aangevraagd.
+
+Stel bijvoorbeeld een pijplijn die bestaat uit een optische tekenherkenning (OCR) voor de gescande afbeelding JPEG-bestanden, waar de resulterende tekst in een Azure Search-index wordt gepusht voor vrije zoekquery's. Uw pijplijn voor indexering omvat een indexeerfunctie met de [OCR-kwalificatie](cognitive-search-skill-ocr.md), en dat de kwalificatie zou zijn [die is gekoppeld aan een resource voor Cognitive Services](cognitive-search-attach-cognitive-services.md). Wanneer u de indexeerfunctie uitvoert, worden kosten in rekening gebracht op uw factuur cognitieve Resources voor de uitvoering van OCR weergegeven.
+
+## <a name="tips-for-reducing-costs"></a>Tips voor het verminderen van kosten
 
 U kunt de service op de factuur verlagen niet afsluiten. Toegewezen resources zijn operationele 24-7, voor exclusief gebruik gedurende de levensduur van uw service is toegewezen. De enige manier om een factuur verlagen door te verminderen van replica's en partities op een laag niveau waarmee u nog steeds acceptabel is en [SLA-naleving](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Een hendel voor het verminderen van kosten is een laag met een lagere uurtarief kiezen. S1 uurtarieven zijn lager dan S2 of S3-tarieven. U kunt een service die gericht zijn op de laagste waarde van de load-projecties kan inrichten. Als u de service langzamerhand, een tweede grotere lagen service maken, uw indexen op de tweede service opnieuw en verwijder vervolgens het eerste item. Als u hebt plannen van capaciteit voor gedaan op de lokale servers, weet u dat het gebruikelijk is dat 'kopen van' zodat u de verwachte groei kunt verwerken. Maar met een cloudservice, u kunt een meer kosten te besparen doelbewust omdat u niet worden gekoppeld aan een specifieke aankoop. U kunt altijd overschakelen naar een hogere lagen service als het huidige abonnement ontoereikend is.
+Een hendel voor het verminderen van kosten is een laag met een lagere uurtarief kiezen. S1 uurtarieven zijn lager dan S2 of S3-tarieven. Ervan uitgaande dat u een service die is gericht op de laagste waarde van de load-projecties, als u de service langzamerhand inricht, kan u een tweede grotere lagen service maken, uw indexen op de tweede service opnieuw en verwijder vervolgens het eerste item. 
+
+Als u hebt plannen van capaciteit voor gedaan op de lokale servers, weet u dat het gebruikelijk is dat 'kopen van' zodat u de verwachte groei kunt verwerken. Maar met een cloudservice, u kunt een meer kosten te besparen doelbewust omdat u niet worden gekoppeld aan een specifieke aankoop. U kunt altijd overschakelen naar een hogere lagen service als het huidige abonnement ontoereikend is.
 
 ### <a name="capacity-drill-down"></a>Inzoom capaciteit
 
@@ -143,9 +166,9 @@ Index aantal en de grootte zijn net zo relevant voor uw analyse, omdat de maxima
 
 **Overwegingen voor het volume van query**
 
-Query's-per-seconde (QPS) is een meetwaarde die verf laat komen krijgt bij het afstemmen van prestaties, maar is doorgaans niet aanmerking laag, tenzij u zeer hoge queryvolume in het begin verwacht.
+Query's-per-seconde (QPS) is een meetwaarde die verf laat komen krijgt bij het afstemmen van prestaties, maar is doorgaans niet aanmerking laag, tenzij u verwacht hoge queryvolume in het begin dat.
 
-Alle van de standaardlagen kan een saldo van replica's leveren aan partities, sneller query kunt worden geholpen door extra replica's ondersteunen voor het laden van netwerktaakverdeling en extra partities voor parallelle verwerking. U kunt afstemmen van prestaties nadat de service is ingericht.
+De standaard-laag kunnen u een balans tussen de replica's leveren naar partities, sneller query kunt worden geholpen door extra replica's ondersteunen voor het laden van netwerktaakverdeling en extra partities voor parallelle verwerking. U kunt afstemmen van prestaties nadat de service is ingericht.
 
 Klanten die verwachten dat strong aanhoudend query volumes vanaf het begin moeten rekening houden met hogere lagen, ondersteund door krachtigere hardware. U kunt vervolgens partities en replica's offline te halen, of zelfs overschakelen naar een lagere laag-service als de query-volumes niet om te realiseren. Zie voor meer informatie over het berekenen van de query-doorvoer [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
 
@@ -158,7 +181,7 @@ De **gratis** laag en preview-functies worden niet geleverd met [service level a
 
 + Meer informatie over het bouwen van efficiënte indexen en welke methoden vernieuwing zijn de minimale impactful. Het is raadzaam [zoekverkeer](search-traffic-analytics.md) voor de inzichten die op query-activiteiten.
 
-+ Metrische gegevens om te bouwen om query's en verzamelen van gegevens over gebruikspatronen (query's tijdens kantooruren, indexering tijdens daluren) toestaan, en deze gegevens gebruiken om te informeren over toekomstige beslissingen voor de provisioning-service. Tijdens het niet praktisch op het niveau van een uur of per dag, kunt u partities en resources voor geplande wijzigingen in query-volumes, of niet-geplande maar langdurige wijzigingen als niveaus lang genoeg is bevatten voor het ondernemen van actie garandeert dynamisch aanpassen.
++ Metrische gegevens om te bouwen om query's en verzamelen van gegevens over gebruikspatronen (query's tijdens kantooruren, indexering tijdens daluren) toestaan, en deze gegevens gebruiken om te informeren over toekomstige beslissingen voor de provisioning-service. Tijdens het niet praktisch op een per uur of dagelijks uitgebracht, kunt u partities en resources voor geplande wijzigingen in query-volumes, of niet-geplande maar langdurige wijzigingen als niveaus lang genoeg is bevatten voor het ondernemen van actie garandeert dynamisch aanpassen.
 
 + Houd er rekening mee dat het enige nadeel van onder inrichting is dat u wellicht te moeten verbreken van een service als de daadwerkelijke vereisten groter dan u geschat zijn. Als u wilt voorkomen dat de service wordt onderbroken, zou u een nieuwe service maken in hetzelfde abonnement op een hogere laag en deze naast elkaar uitvoeren totdat alle apps en aanvragen gericht op het nieuwe eindpunt.
 

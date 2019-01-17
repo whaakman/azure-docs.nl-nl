@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 4/12/2018
+ms.date: 1/16/2019
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714828"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353053"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
 De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./tutorial-dashboards.md) wordt geleverd aan het einde van het artikel.
@@ -260,7 +260,7 @@ Deze categorie bevat de record van een resource health-gebeurtenissen die hebben
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
 | description |De beschrijving van de statische tekst van de waarschuwing gebeurtenis. |
 | eventDataId |De unieke id van de waarschuwing gebeurtenis. |
-| category | Altijd "ResourceHealth" |
+| category | Always "ResourceHealth" |
 | eventTimestamp |Tijdstip waarop de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag die de gebeurtenis overeenkomt. |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', "Error", 'Waarschuwing', "Informatief" en "Uitgebreide" |
 | operationId |Een GUID die wordt gedeeld tussen de gebeurtenissen die met één bewerking overeenkomen. |
@@ -274,12 +274,12 @@ Deze categorie bevat de record van een resource health-gebeurtenissen die hebben
 | submissionTimestamp |Tijdstip waarop de gebeurtenis is beschikbaar voor het uitvoeren van query's geworden. |
 | subscriptionId |Azure-abonnement-id. |
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis.|
-| Properties.title | Een beschrijvende tekenreeks die de status van de resource beschrijft. |
-| Properties.details | Een beschrijvende tekenreeks die meer details over de gebeurtenis beschrijft. |
+| properties.title | Een beschrijvende tekenreeks die de status van de resource beschrijft. |
+| properties.details | Een beschrijvende tekenreeks die meer details over de gebeurtenis beschrijft. |
 | properties.currentHealthStatus | De huidige status van de resource. Een van de volgende waarden: 'Beschikbaar', 'Niet beschikbaar', 'Verminderde' en 'Onbekend'. |
 | properties.previousHealthStatus | De vorige status van de resource. Een van de volgende waarden: 'Beschikbaar', 'Niet beschikbaar', 'Verminderde' en 'Onbekend'. |
-| Properties.type | Een beschrijving van het type resource health gebeurtenis. |
-| Properties.cause | Een beschrijving van de oorzaak van de resource health-gebeurtenis. "UserInitiated" en 'PlatformInitiated'. |
+| properties.type | Een beschrijving van het type resource health gebeurtenis. |
+| properties.cause | Een beschrijving van de oorzaak van de resource health-gebeurtenis. "UserInitiated" en 'PlatformInitiated'. |
 
 
 ## <a name="alert"></a>Waarschuwing
@@ -349,7 +349,7 @@ Deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | De naam van element | Description |
 | --- | --- |
-| oproepende functie | Altijd Microsoft.Insights/alertRules |
+| oproepende functie | Always Microsoft.Insights/alertRules |
 | kanalen | Altijd 'Admin, bewerking' |
 | claims | JSON-blob met het type SPN (service principal name) of de resource van de waarschuwings-engine. |
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
@@ -385,15 +385,15 @@ Het eigenschappenveld bevat verschillende waarden, afhankelijk van de bron van d
 #### <a name="properties-for-metric-alerts"></a>Eigenschappen van metrische waarschuwingen
 | De naam van element | Description |
 | --- | --- |
-| de eigenschappen. RuleUri | Resource-ID van de waarschuwingsregel voor metrische gegevens zelf. |
+| properties.RuleUri | Resource-ID van de waarschuwingsregel voor metrische gegevens zelf. |
 | properties.RuleName | De naam van de waarschuwingsregel voor metrische gegevens. |
 | de eigenschappen. RuleDescription | De beschrijving van de waarschuwingsregel voor metrische gegevens gebruik (zoals gedefinieerd in de waarschuwingsregel). |
 | de eigenschappen. Drempelwaarde | De drempelwaarde die wordt gebruikt in de evaluatie van de waarschuwingsregel voor metrische gegevens. |
-| de eigenschappen. WindowSizeInMinutes | De grootte van het venster gebruikt in de evaluatie van de waarschuwingsregel voor metrische gegevens. |
-| de eigenschappen. Aggregatie | Het aggregatietype is gedefinieerd in de waarschuwingsregel voor metrische gegevens. |
+| properties.WindowSizeInMinutes | De grootte van het venster gebruikt in de evaluatie van de waarschuwingsregel voor metrische gegevens. |
+| properties.Aggregation | Het aggregatietype is gedefinieerd in de waarschuwingsregel voor metrische gegevens. |
 | properties.Operator | De conditionele operator die wordt gebruikt in de evaluatie van de waarschuwingsregel voor metrische gegevens. |
 | properties.MetricName | De naam van de metrische gegevens van de metrische gegevens die worden gebruikt in de evaluatie van de waarschuwingsregel voor metrische gegevens. |
-| de eigenschappen. MetricUnit | De metrische eenheid voor de metrische gegevens die worden gebruikt in de evaluatie van de waarschuwingsregel voor metrische gegevens. |
+| properties.MetricUnit | De metrische eenheid voor de metrische gegevens die worden gebruikt in de evaluatie van de waarschuwingsregel voor metrische gegevens. |
 
 ## <a name="autoscale"></a>Automatisch schalen
 Deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op de werking van de engine voor automatisch schalen op basis van alle instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Schalen via automatisch schalen van de actie is mislukt". Automatisch schalen gebruik, u kunt automatisch omhoog of omlaag schalen op basis van tijd van de dag en/of load (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde resourcetype. Wanneer de voorwaarden worden voldaan op schaal omhoog of omlaag, het begin en is geslaagd of mislukt gebeurtenissen geregistreerd in deze categorie.
@@ -458,7 +458,7 @@ Deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op 
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | De naam van element | Description |
 | --- | --- |
-| oproepende functie | Altijd Microsoft.Insights/autoscaleSettings |
+| oproepende functie | Always Microsoft.Insights/autoscaleSettings |
 | kanalen | Altijd 'Admin, bewerking' |
 | claims | JSON-blob met het type SPN (service principal name) of de resource van de engine voor automatisch schalen. |
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
@@ -473,8 +473,8 @@ Deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op 
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis. |
 | de eigenschappen. Beschrijving | Gedetailleerde beschrijving van wat de engine voor automatisch schalen die werd uitgevoerd. |
 | properties.ResourceName | Resource-ID van de betrokken resource (de resource waarop de schaalactie werd uitgevoerd) |
-| de eigenschappen. OldInstancesCount | Het aantal exemplaren voordat de actie voor automatisch schalen van kracht. |
-| de eigenschappen. NewInstancesCount | Het aantal exemplaren na de actie voor automatisch schalen van kracht. |
+| properties.OldInstancesCount | Het aantal exemplaren voordat de actie voor automatisch schalen van kracht. |
+| properties.NewInstancesCount | Het aantal exemplaren na de actie voor automatisch schalen van kracht. |
 | properties.LastScaleActionTime | De timestamp van wanneer de actie voor automatisch schalen is opgetreden. |
 | status |De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: Gestart, In uitvoering, voltooid, is mislukt, actieve, opgelost. |
 | subStatus | Meestal null voor automatisch schalen. |
@@ -648,6 +648,123 @@ Deze categorie bevat de record van een nieuwe aanbevelingen die worden gegeneree
 | properties.recommendationCategory | De categorie van de aanbeveling. Mogelijke waarden zijn 'Hoge beschikbaarheid', 'Prestaties', "Beveiliging" en "Kosten" |
 | properties.recommendationImpact| De invloed van de aanbeveling. Mogelijke waarden zijn 'Hoog', 'Gemiddeld', 'Laag' |
 | properties.recommendationRisk| Risico's van de aanbeveling. Mogelijke waarden zijn "Error", 'Waarschuwing', 'None' |
+
+## <a name="policy"></a>Beleid
+
+Deze categorie bevat records voor alle bewerkingen met effect actie uitgevoerd door [Azure Policy](../../governance/policy/overview.md). Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn _Audit_ en _weigeren_. Elke actie op die door het beleid is gemodelleerd als een bewerking op een resource.
+
+### <a name="sample-policy-event"></a>Voorbeeld van beleid voor de gebeurtenis
+
+```json
+{
+    "authorization": {
+        "action": "Microsoft.Resources/checkPolicyCompliance/read",
+        "scope": "/subscriptions/<subscriptionID>"
+    },
+    "caller": "33a68b9d-63ce-484c-a97e-94aef4c89648",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.azure.com/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "description": "",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Policy",
+        "localizedValue": "Policy"
+    },
+    "eventTimestamp": "2019-01-15T13:19:56.1227642Z",
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy/events/13bbf75f-36d5-4e66-b693-725267ff21ce/ticks/636831551961227642",
+    "level": "Warning",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Authorization/policies/audit/action",
+        "localizedValue": "Microsoft.Authorization/policies/audit/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Sql",
+        "localizedValue": "Microsoft SQL"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/checkPolicyCompliance",
+        "localizedValue": "Microsoft.Resources/checkPolicyCompliance"
+    },
+    "resourceId": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-01-15T13:20:17.1077672Z",
+    "subscriptionId": "<subscriptionID>",
+    "properties": {
+        "isComplianceCheck": "True",
+        "resourceLocation": "westus2",
+        "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="policy-event-property-descriptions"></a>Beschrijvingen van beleid voor gebeurtenissen-eigenschap
+
+| De naam van element | Description |
+| --- | --- |
+| Autorisatie | Matrix van RBAC-eigenschappen van de gebeurtenis. Dit is de actie en het bereik van de aanvraag waarmee evaluatie is geactiveerd voor nieuwe resources. Voor bestaande resources is de actie 'Microsoft.Resources/checkPolicyCompliance/read'. |
+| oproepende functie | Voor nieuwe resources, de identiteit die een implementatie wordt gestart. Voor bestaande bronnen, de GUID van de Microsoft Azure Policy Insights RP. |
+| kanalen | Voor Beleidsgebeurtenissen gebruiken alleen het kanaal 'Bewerking'. |
+| claims | De JWT-token die wordt gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing voor deze bewerking in Resource Manager. |
+| correlationId | Meestal een GUID in de indeling van de verbindingsreeks. Gebeurtenissen die delen van een correlationId behoren tot dezelfde uber actie. |
+| description | Dit veld is leeg voor Beleidsgebeurtenissen. |
+| eventDataId | De unieke id van een gebeurtenis. |
+| eventName | "BeginRequest" of 'EndRequest'. 'BeginRequest' wordt gebruikt voor vertraagde auditIfNotExists en deployIfNotExists evaluaties en wanneer de sjabloonimplementatie van een in een deployIfNotExists-effect wordt gestart. Alle andere bewerkingen retourneren 'EndRequest'. |
+| category | Verklaart de activiteit gebeurtenislogboek als behorend tot '-beleid'. |
+| eventTimestamp | Tijdstip waarop de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag die de gebeurtenis overeenkomt. |
+| id | De unieke id van de gebeurtenis op de specifieke resource. |
+| niveau | Niveau van de gebeurtenis. Audit 'Waarschuwing' gebruikt en weigeren maakt gebruik van "Error". Een fout auditIfNotExists of deployIfNotExists kunt genereren "Waarschuwing" of "Error", afhankelijk van ernst. Alle Beleidsgebeurtenissen van andere 'Ter informatie' gebruiken. |
+| operationId | Een GUID die wordt gedeeld tussen de gebeurtenissen die met één bewerking overeenkomen. |
+| operationName | Naam van de bewerking en rechtstreeks correleert met het effect van het beleid. |
+| resourceGroupName | De naam van de resourcegroep voor de geëvalueerde resource. |
+| resourceProviderName | De naam van de resourceprovider voor de geëvalueerde resource. |
+| ResourceType | Voor nieuwe resources is het type dat wordt geëvalueerd. Retourneert 'Microsoft.Resources/checkPolicyCompliance' voor bestaande resources. |
+| resourceId | Resource-ID van de geëvalueerde resource. |
+| status | De tekenreeks met een beschrijving van de status van het resultaat van evaluatie van beleid. De meeste beleid evaluaties 'Geslaagd' retourneren, maar wel een weigeractie geeft als resultaat 'Mislukt'. Fouten in auditIfNotExists of deployIfNotExists ook retourneren 'Mislukt'. |
+| subStatus | Dit veld is leeg voor Beleidsgebeurtenissen. |
+| submissionTimestamp | Tijdstip waarop de gebeurtenis is beschikbaar voor het uitvoeren van query's geworden. |
+| subscriptionId | Azure-abonnement-ID. |
+| properties.isComplianceCheck | Retourneert 'False' wanneer een nieuwe resource wordt geïmplementeerd of een bestaande resource Resource Manager-eigenschappen zijn bijgewerkt. Alle andere [evaluatie triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) leiden tot 'True'. |
+| properties.resourceLocation | De Azure-regio van de resource die wordt geëvalueerd. |
+| properties.ancestors | Een door komma's gescheiden lijst met beheergroepen bovenliggende gerangschikt op de direct bovenliggende naar verst grootvader. |
+| Properties.Policies | Bevat informatie over de beleidsdefinitie, toewijzing, kracht en parameters die deze evaluatie van het beleid een resultaat van is. |
+| relatedEvents | Dit veld is leeg voor Beleidsgebeurtenissen. |
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Toewijzing van schema van de logboeken met diagnostische gegevens
 

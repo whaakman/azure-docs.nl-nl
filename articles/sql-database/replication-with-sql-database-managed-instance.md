@@ -1,59 +1,33 @@
 ---
-title: Replicatie met Azure SQL Database Managed Instance | Microsoft Docs
-description: Meer informatie over het gebruik van SQL Server-replicatie met Azure SQL Database Managed Instance
+title: Replicatie configureren in Azure SQL Database Managed Instance | Microsoft Docs
+description: Meer informatie over het configureren van transactionele replicatie in Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329460"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360085"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Replicatie met SQL Database Managed Instance
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Replicatie in Azure SQL Database Managed Instance configureren
 
-Replicatie is beschikbaar voor openbare preview-versie op [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Een beheerd exemplaar kan uitgever, distributor en subscriber-databases hosten.
-
-## <a name="common-configurations"></a>Algemene configuraties
-
-In het algemeen de uitgever en de distributor als beide zijn in de cloud of on-premises. De volgende configuraties worden ondersteund:
-
-- **Uitgever met lokale distributeur voor beheerd exemplaar**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Uitgever en de distributor databases zijn geconfigureerd op een beheerd exemplaar van één.
-
-- **Uitgever met externe distributor voor beheerd exemplaar**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   Uitgever en de distributor zijn geconfigureerd op twee beheerde exemplaren. In deze configuratie:
-
-  - Beide beheerde exemplaren zijn in hetzelfde vNet.
-
-  - Er zijn zowel beheerde exemplaren op dezelfde locatie.
-
-- **Uitgever en de distributor on-premises met-abonnee in beheerd exemplaar**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   In deze configuratie is een Azure SQL database een abonnee. Deze configuratie biedt ondersteuning voor migratie van on-premises naar Azure. In de rol van de abonnee vereist SQL-database niet beheerd exemplaar, maar u een SQL Database Managed Instance als een stap in de migratie van on-premises naar Azure gebruiken kunt. Zie voor meer informatie over Azure SQL Database-abonnees, [replicatie met SQL-Database](replication-to-sql-database.md).
+Transactionele replicatie kunt u gegevens van de SQL Server of Azure SQL Database Managed Instance-databases repliceren naar het beheerd exemplaar of push wijzigingen in uw databases in het beheerde exemplaar aan andere SQL Server, één Azure-Database of andere Beheerd exemplaar. Replicatie is in de openbare preview op [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Een beheerd exemplaar kan uitgever, distributor en subscriber-databases hosten. Zie [transactionele replicatie configuraties](sql-database-managed-instance-transactional-replication.md#common-configurations) voor beschikbare configuraties.
 
 ## <a name="requirements"></a>Vereisten
 
 Uitgever en de distributor op Azure SQL Database is vereist:
 
-- Beheerd exemplaar voor Azure SQL Database.
+- Azure SQL Database Managed Instance die zich niet in de Geo-DR-configuratie.
 
    >[!NOTE]
    >Azure SQL-Databases die niet zijn geconfigureerd met Managed Instance mag alleen bestaan uit abonnees.
@@ -74,7 +48,13 @@ Ondersteunt:
 
 - Abonnees kunnen worden on-premises, individuele databases in Azure SQL Database of gepoolde databases in Azure SQL Database elastische pools.
 
-- Eenzijdige of replicatie in twee richtingen
+- Eenzijdige of replicatie in twee richtingen.
+
+De volgende functies worden niet ondersteund:
+
+- Bij te werken abonnementen.
+
+- Actieve geo-replicatie.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Voorbeeld van de publicatie en distributie configureren
 
@@ -188,15 +168,7 @@ Ondersteunt:
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Beperkingen
-
-De volgende functies worden niet ondersteund:
-
-- Bij te werken abonnementen
-
-- Actieve geo-replicatie
-
+   
 ## <a name="see-also"></a>Zie ook
 
 - [Transactionele replicatie](sql-database-managed-instance-transactional-replication.md)

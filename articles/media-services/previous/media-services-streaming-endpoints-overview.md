@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240219"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359984"
 ---
 # <a name="streaming-endpoints-overview"></a>Overzicht van streaming eindpunten 
 
@@ -28,22 +27,28 @@ ms.locfileid: "50240219"
 
 In Microsoft Azure Media Services (AMS), een **Streaming-eindpunt** vertegenwoordigt een streamingservice waarmee inhoud kan worden geleverd rechtstreeks naar een clientafspeeltoepassing of aan een Content Delivery Network (CDN) voor verdere distributie. Media Services biedt ook een naadloze integratie van Azure CDN. De uitgaande stroom van een service streamingendpoint zo mag een live stream, een video op aanvraag of progressief downloaden van uw activa in Media Services-account. Elk Azure Media Services-account is inclusief een standaard streamingendpoint zo. Extra door kunnen worden gemaakt onder het account. Er zijn twee versies van door, 1.0 en 2.0. Beginnen met 10 januari-2017, bevatten nieuwe AMS-accounts versie 2.0 **standaard** streamingendpoint zo. Aanvullende streaming-eindpunten die u aan dit account toevoegt worden ook versie 2.0. Deze wijziging heeft geen gevolgen voor de bestaande accounts; bestaande door versie 1.0 zijn en kunnen worden bijgewerkt naar versie 2.0. Met deze wijziging zullen er wijzigingen in gedrag, facturering en -functie (Zie voor meer informatie de **Streaming typen en versies** sectie hieronder beschreven).
 
-Bovendien de volgende eigenschappen beginnen met de versie van het 2.15 (uitgebracht in januari 2017), Azure Media Services toegevoegd aan de entiteit Streaming-eindpunt: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Zie voor een gedetailleerd overzicht van deze eigenschappen [dit](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+De volgende eigenschappen Azure Media Services toegevoegd aan de entiteit Streaming-eindpunt: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Zie voor een gedetailleerd overzicht van deze eigenschappen [dit](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Wanneer u een Azure Media Services-account standaard standard streaming-eindpunt is gemaakt voor u maakt de **gestopt** staat. U kunt het standaardstreaming-eindpunt niet verwijderen. Afhankelijk van de beschikbaarheid van Azure CDN in de betreffende regio, wordt standaard een nieuw gemaakt standaard streaming-eindpunt bevat ook 'StandardVerizon' CDN provider-integratie. 
-
->[!NOTE]
->Integratie van Azure CDN kan worden uitgeschakeld voordat u begint met het streaming-eindpunt.
+                
+> [!NOTE]
+> Integratie van Azure CDN kan worden uitgeschakeld voordat u begint met het streaming-eindpunt. De `hostname` en de streaming-URL blijft hetzelfde, ongeacht of u CDN inschakelt of niet.
 
 In dit onderwerp biedt een overzicht van de belangrijkste functies die worden geleverd door het streaming-eindpunten.
+
+## <a name="naming-conventions"></a>Naamconventies
+
+Voor het standaardeindpunt: `{AccountName}.streaming.mediaservices.windows.net`
+
+Voor elke extra eindpunten: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Streaming-typen en versies
 
 ### <a name="standardpremium-types-version-20"></a>Standard/Premium-typen (versie 2.0)
 
-Beginnen met de release van januari 2017 van Media Services, u hebt twee streaming typen: **Standard** en **Premium**. Deze typen zijn onderdeel van de Streaming-eindpunt versie '2.0'.
+Beginnen met de release van januari 2017 van Media Services, hebt u twee streaming typen: **Standard** en **Premium**. Deze typen zijn onderdeel van de Streaming-eindpunt versie '2.0'.
 
-Type|Beschrijving
+Type|Description
 ---|---
 **Standard**|Dit is de standaardoptie die voor het merendeel van de scenario's werken.<br/>Met deze optie krijgt u vaste/beperkt SLA, eerste 15 dagen na het starten van het streaming-eindpunt is gratis.<br/>Als u meer dan één streaming-eindpunten, maakt alleen de eerste die gratis gedurende de eerste 15 dagen is, worden de andere in rekening gebracht zodra ze worden gestart. <br/>Houd er rekening mee dat gratis proefversie alleen van toepassing op nieuwe media services-accounts en standaardstreaming-eindpunt. Bestaand streaming-eindpunten en daarnaast gemaakte streaming-eindpunten niet gratis proefperiode is afgelopen bevat zelfs ze kunnen worden bijgewerkt naar versie 2.0 of ze worden gemaakt als versie 2.0.
 **Premium**|Deze optie is geschikt voor professionele scenario's waarvoor een hogere schaal of het besturingselement.<br/>Variabele SLA die is gebaseerd op premium streaming-eenheid (SU)-capaciteit hebt aangeschaft, toegewezen streaming-eindpunten bevinden zich in de geïsoleerde omgeving en niet van invloed voor resources.

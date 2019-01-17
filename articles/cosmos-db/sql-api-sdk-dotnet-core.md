@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053548"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354515"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 * Toegevoegd voor diagnostische gegevens direct/TCP-transport, TransportException, het type van een interne uitzondering van de SDK. Wanneer aanwezig is in de uitzondering berichten, dit type af te drukken als u meer informatie voor het oplossen van problemen met de netwerkverbinding van de client.
 
-* Toegevoegde nieuwe constructor beschikken overbelasting waarbij een HttpMessageHandler, een HTTP-handler stack moet worden gebruikt voor het verzenden van aanvragen van httpclient maakt (bijvoorbeeld HttpClientHandler).
+* Toegevoegde nieuwe constructor overbelasting waarbij een HttpMessageHandler, een HTTP-handler stack moet worden gebruikt voor het verzenden van aanvragen van httpclient maakt (bijvoorbeeld HttpClientHandler).
 
 * Los de fout waar-header met null-waarden zijn niet correct worden verwerkt.
 
@@ -121,7 +121,7 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
 * Vaste KeyNotFoundException voor cross-partitie OrderBy-query's in de hoek gevallen.
-* Probleem opgelost waarbij JsonPropery kenmerk in de component select voor LINQ-query's niet is wordt herkend.
+* Probleem opgelost waarbij JsonProperty kenmerk in de component select voor LINQ-query's niet is wordt herkend.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f7c8313e6216f10dccdfbb298bbf02036e21c138
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043002"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351643"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET-change Feed Processor SDK: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -67,11 +67,11 @@ ms.locfileid: "54043002"
 * Diagnostische gegevens van kleine verbeteringen.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
-* Nieuwe API, taak toegevoegd&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Dit kan worden gebruikt om hun werk uit geschatte voor elke partitie.
-* Microsoft.Azure.DocumentDB SDK 2.0 ondersteunt. Microsoft.Azure.DocumentDB 2.0 of hoger vereist.
+* Added new API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Dit kan worden gebruikt om hun werk uit geschatte voor elke partitie.
+* Supports Microsoft.Azure.DocumentDB SDK 2.0. Microsoft.Azure.DocumentDB 2.0 of hoger vereist.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
-* ChangeFeedEventHost.HostName openbare eigenschap toegevoegd voor compativility met v1.
+* ChangeFeedEventHost.HostName openbare eigenschap toegevoegd voor compatibiliteit met v1.
 
 ### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
 * Vaste een zeldzame situatie die wordt uitgevoerd tijdens het splitsen van de partitie. De racevoorwaarde kan leiden tot lease verkrijgen en onmiddellijk het verloren gaan tijdens het splitsen van de partitie en conflicten veroorzaakt. De race voorwaarde probleem is opgelost met deze release.

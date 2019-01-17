@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/05/2018
+ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729336"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334334"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Snelstarts en zelfstudies
 
@@ -48,5 +48,6 @@ Gebruik de volgende snelstarts en zelfstudies voor meer informatie over het ontw
     |[SQL-uitbreidingen niet implementeren](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Taken na de implementatie uitvoeren met behulp van extensies. In de zelfstudie implementeert u een klant-scriptextensie voor het installeren van de webserver op de virtuele machine. |
     |[Artefacten beveiligen](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Beveilig de artefacten die nodig zijn om uit te voeren van de implementaties. In de zelfstudie leert u hoe u voor het beveiligen van het artefact in de zelfstudie implementeren SQL-extensies gebruikt. |
     |[Veilige implementatiemethoden gebruiken](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Azure Deployment Manager gebruiken |
+    |[Zelfstudie: Problemen met sjabloonimplementaties van Resource Manager-oplossen](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|Probleemoplossing voor implementatieproblemen sjabloon.|
 
 Deze zelfstudies kunnen afzonderlijk of als een reeks worden gebruikt voor meer informatie over de belangrijkste concepten van Resource Manager sjabloon ontwikkeling.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: ab9d28212e471a9fe3d59ff30a8225b7440655d7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022492"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352458"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Gegevens kopiëren van SAP ECC met Azure Data Factory
 
@@ -99,7 +99,7 @@ Om gegevens te kopiëren uit SAP ECC, stel de eigenschap type van de gegevensset
     "name": "SapEccDataset",
     "properties": {
         "type": "SapEccResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {
@@ -121,7 +121,7 @@ Om gegevens te kopiëren uit SAP ECC, stelt u het brontype in de kopieeractivite
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SapEccSource** | Ja |
-| query | OData-queryopties om gegevens te filteren. Voorbeeld: "$select = de naam, beschrijving en $top = 10 '.<br/><br/>SAP ECC-connector worden gegevens gekopieerd van de gecombineerde URL: (url opgegeven in de gekoppelde service) / (pad opgegeven in de gegevensset)? (de query is opgegeven in de bron voor kopiëren-activiteit). Raadpleeg [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
+| query | OData-queryopties om gegevens te filteren. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC-connector worden gegevens gekopieerd van de gecombineerde URL: (url opgegeven in de gekoppelde service) / (pad opgegeven in de gegevensset)? (de query is opgegeven in de bron voor kopiëren-activiteit). Raadpleeg [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
 
 **Voorbeeld:**
 

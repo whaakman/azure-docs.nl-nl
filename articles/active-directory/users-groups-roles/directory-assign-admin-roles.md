@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c0575472a4fa480117aaab6904a417746616b7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 50fbafdf714e6071ffac6f9f18d0802ecc1e574d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322126"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360051"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -49,7 +49,8 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Cloud-Apparaatbeheerder](#cloud-device-administrator)**: Gebruikers in deze rol kunnen inschakelen, uitschakelen, en apparaten verwijderen in Azure AD en Windows 10-BitLocker-sleutels (indien aanwezig) in Azure portal lezen. De rol verleent machtigingen voor het beheren van andere eigenschappen op het apparaat.
 
-* **[Beheerder voor naleving](#compliance-administrator)**: Gebruikers met deze rol hebben beheermachtigingen in het Office 365-centrum voor beveiliging en naleving en het Exchange-beheercentrum. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Beheerder voor naleving](#compliance-administrator)**: Gebruikers met deze rol hebben machtigingen voor het beheren van functies met betrekking tot naleving in het compliancecentrum Microsoft 365, Microsoft 365 security center, Microsoft 365-beheercentrum en Azure. Gebruikers kunnen ook alle functies in de Exchange-beheercentrum voor naleving, en Teams en Skype voor bedrijven-beheercentrum beheren en maken van ondersteuningstickets voor Azure en Microsoft 365. Meer informatie vindt u op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). 
+
 
 * **[Beheerder van voorwaardelijke toegang](#conditional-access-administrator)**: Gebruikers met deze rol kunnen Azure Active Directory-instellingen voor voorwaardelijke toegang beheren.
   > [!NOTE]

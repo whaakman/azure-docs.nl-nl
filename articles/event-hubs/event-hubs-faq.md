@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7308b122d878c225aa98a19a303bc9520f3201ef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcbb249c6cb3c886b94f8ad68dd668cb8858ac77
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088222"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354572"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Eventhubs
 
@@ -65,7 +65,7 @@ Voorbeeld:
 
 bootstrap.servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule vereist gebruikersnaam = "$ Password="Endpoint=sb://dummynamespace.servicebus.windows.net/ ConnectionString'; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
 
-Opmerking: Als sasl.jaas.config geen ondersteunde configuratie in uw framework is, vinden de configuraties die worden gebruikt voor het instellen van de SASL-gebruikersnaam en het wachtwoord en deze in plaats daarvan gebruiken. Stel de gebruikersnaam op $ConnectionString en het wachtwoord voor uw Event Hubs-verbindingsreeks.
+Opmerking: Als sasl.jaas.config geen ondersteunde configuratie in uw framework is, vindt u de configuraties die worden gebruikt voor het instellen van de SASL-gebruikersnaam en het wachtwoord en deze in plaats daarvan gebruiken. Stel de gebruikersnaam op $ConnectionString en het wachtwoord voor uw Event Hubs-verbindingsreeks.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Wat is de bericht-/ gebeurtenisgrootte voor Event Hubs waarvoor Kafka is ingeschakeld?
 De maximale berichtgrootte die is toegestaan voor de Event-Hubs voor Kafka-functionaliteit is 1MB.
@@ -181,6 +181,9 @@ Vastleggen maakt gebruik van een opslagaccount dat die u verschaft wanneer dit i
 Zie voor een lijst van alle Event Hubs-quota's, [quota](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
+
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Waarom kan ik geen een naamruimte maken na het verwijderen van een ander abonnement? 
+Wanneer u een naamruimte uit een abonnement verwijdert, te wachten gedurende 4 uur voordat opnieuw worden gemaakt met dezelfde naam in een ander abonnement. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Wat zijn enkele van de uitzonderingen die worden gegenereerd door de Event Hubs en hun voorgestelde acties?
 

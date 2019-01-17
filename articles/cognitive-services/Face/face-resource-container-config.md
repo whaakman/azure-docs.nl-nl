@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725050"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359439"
 ---
 # <a name="configure-containers"></a>Containers configureren
 
@@ -116,7 +116,7 @@ De Face-container slaat blob, cache, metagegevens en wachtrijgegevens, afhankeli
   De Face-container maakt gebruik van Azure Storage en Azure Cosmos DB voor de distributie van deze vier typen gegevens over de permanente opslag. BLOB- en wachtrijservices gegevens worden verwerkt door Azure Storage. Metagegevens en de cache-gegevens worden verwerkt door Azure Cosmos DB. Als de Face-container wordt gestopt of verwijderd, blijft alle gegevens in de opslag voor die container opgeslagen in Azure Storage en Azure Cosmos DB.  
   De resources die worden gebruikt door het Azure storage-scenario gelden de volgende aanvullende vereisten
   * De Azure Storage-resource moet het soort StorageV2-account gebruiken
-  * De Azure Cosmos DB-resource moet de Azure Cosmos DB gebruikt voor MongoDB-API
+  * Gebruik de Azure Cosmos DB-resource van de Azure Cosmos DB API voor MongoDB
 
 De scenario's voor opslag en de bijbehorende configuratie-instellingen worden beheerd door de `Storage` object, onder de `CloudAI` configuratiesectie. De volgende configuratie-instellingen zijn beschikbaar in de `Storage` object:
 

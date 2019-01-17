@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a034e41f5b12ffb8f043f14d90284617316f18d2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e3022296dd1a3e1221bb44c94df787660df2a70
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723039"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359881"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Toegang tot cloud-gegevens in een notitieblok
 
@@ -69,7 +69,7 @@ De notebook voorbeeld ziet u werken met tabellen en -blobs, met inbegrip van het
 Azure Cosmos DB biedt een volledig geïndexeerde NoSQL-archief voor JSON-documenten). De volgende artikelen bieden een aantal verschillende manieren om te werken met Cosmos DB met Python:
 
 - [Bouw een SQL-API-app met Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Een Flask-app ontwikkelen met de Azure Cosmos DB voor MongoDB-API](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Een Flask-app ontwikkelen met de Azure Cosmos DB-API voor MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Een grafiekdatabase met behulp van Python en de Gremlin-API maken](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Een Cassandra-app ontwikkelen met Python en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Een tabel met Python en Azure Cosmos DB API-app bouwen](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
@@ -88,4 +88,4 @@ Azure biedt een aantal andere gegevenstypen van de database die u kunt gebruiken
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Procedures: Werken met gegevens projectbestanden](work-with-project-data-files.md)
+- [Procedure: Werken met gegevens projectbestanden](work-with-project-data-files.md)

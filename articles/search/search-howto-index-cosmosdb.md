@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724849"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359490"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinden met Azure Search met behulp van indexeerfuncties
 
@@ -38,7 +38,7 @@ In de volgende video Azure Cosmos DB Program Manager Andrew Liu ziet u hoe u een
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>Ondersteunde API-typen
 
-Hoewel Azure Cosmos DB een groot aantal gegevensmodellen en API's ondersteunt, breidt de ondersteuning voor productie van Azure Search-indexeerfunctie alleen de SQL-API. Ondersteuning voor de Azure Cosmos DB voor MongoDB-API is momenteel in openbare preview.  
+Hoewel Azure Cosmos DB een groot aantal gegevensmodellen en API's ondersteunt, breidt de ondersteuning voor productie van Azure Search-indexeerfunctie alleen de SQL-API. Ondersteuning voor de Azure Cosmos DB-API voor MongoDB is momenteel in openbare preview.  
 
 Ondersteuning voor aanvullende API's is binnenkort. Om te helpen we prioriteit geven aan welke u moet eerst worden ondersteund, neem uw stem op de website van User Voice cast-conversie:
 
@@ -97,7 +97,7 @@ Voer een bericht voor het maken van een gegevensbron:
 De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder de volgende velden moet:
 
 * **Naam**: Kies een naam voor uw database.
-* **Type**: Moet `documentdb`.
+* **type**: Moet `documentdb`.
 * **referenties**:
   
   * **connectionString**: Vereist. Geef de verbindingsgegevens van de met uw Azure Cosmos DB-database in de volgende indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Voor MongoDB-verzamelingen toevoegen **API-soort MongoDb =** op de verbindingstekenreeks: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`

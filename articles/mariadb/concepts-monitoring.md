@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 476e74a4d167fb3e9158f07cc5c073f129a74daa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545889"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354022"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Bewaking in Azure Database voor MariaDB
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor MariaDB biedt verschillende metrische gegevens inzicht in het gedrag van uw server geven.
@@ -19,7 +19,7 @@ Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren vo
 ## <a name="metrics"></a>Metrische gegevens
 Alle metrische gegevens van Azure hebben een frequentie van één minuut en elke metrische waarde biedt 30 dagen van de geschiedenis. U kunt waarschuwingen configureren op de metrische gegevens. Andere taken omvatten het instellen van geautomatiseerde acties, het uitvoeren van geavanceerde analyses en het archiveren van geschiedenis. Voor meer informatie, Zie de [Azure Metrics Overview] (.. /Monitoring-and-Diagnostics/Monitoring-Overview-metrics.MD).
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+Zie voor stapsgewijze instructies [over het instellen van waarschuwingen](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Overzicht van metrische gegevens
 Deze metrische gegevens zijn beschikbaar voor Azure Database voor MariaDB:
@@ -45,5 +45,4 @@ U kunt langzame query's op uw server logboekregistratie inschakelen. Voor meer i
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over het openen en exporteren van metrische gegevens met behulp van de Azure portal, de REST-API of de CLI de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+ - Zie [over het instellen van waarschuwingen](howto-alert-metric.md) voor hulp bij het maken van een waarschuwing voor metrische gegevens.

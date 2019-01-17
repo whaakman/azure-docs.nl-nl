@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: db853be456dbf893163f53bbc797cf12172d38b7
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261091"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353223"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -264,15 +264,15 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
 
 1. Installeren en het Azure Machine Learning-SDK-pakket te koppelen aan uw cluster.  
 
-    * [Maken van een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) met een van deze instellingen (één van deze opties kiezen):
+    * [Maken van een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) met een van deze instellingen (_slechts één van deze opties kiest_):
     
-        * Azure Machine Learning-SDK installeren zonder geautomatiseerde machine learning-mogelijkheden:
+        * Azure Machine Learning-SDK installeren _zonder_ geautomatiseerde van machine learning-mogelijkheden:
             | Instelling | Waarde |
             |----|---|
             |Bron | Uploaden van Python EI of PyPI
             |De naam van de PyPi | azureml-sdk[databricks]
     
-        * Azure Machine Learning-SDK installeren met geautomatiseerde machine learning:
+        * Azure Machine Learning-SDK installeren _met_ geautomatiseerde van machine learning:
             | Instelling | Waarde |
             |----|---|
             |Bron | Uploaden van Python EI of PyPI
@@ -286,9 +286,11 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
 
     Als u een oude versie van de SDK hebt, deze van de geïnstalleerde bibliotheken van het cluster uit te schakelen en verplaatsen naar de Prullenbak. De nieuwe versie van de SDK installeren en opnieuw starten van het cluster. Als er een probleem na deze is, loskoppelen en opnieuw koppelen van uw cluster.
 
-    Wanneer u klaar bent, wordt de bibliotheek gekoppeld, zoals wordt weergegeven in de volgende afbeelding. Houd rekening met deze [problemen Databricks](resource-known-issues.md#databricks).
+    Wanneer u klaar bent, wordt de bibliotheek gekoppeld, zoals wordt weergegeven in de volgende afbeeldingen. Houd rekening met deze [problemen Databricks](resource-known-issues.md#databricks).
 
-   ![SDK is geïnstalleerd op Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    * Als u Azure Machine Learning-SDK geïnstalleerd _zonder_ automatische leerprocessen ![SDK zonder automatische leerprocessen geïnstalleerd op Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * Als u Azure Machine Learning-SDK geïnstalleerd _met_ automatische leerprocessen ![SDK met automatische leerprocessen geïnstalleerd op Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
    Als deze stap mislukt, start u uw cluster opnieuw door het volgende te doen:
 

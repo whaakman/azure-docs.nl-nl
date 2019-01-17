@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: f60cb79324cad194877402203dbd1706727468d0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330718"
+ms.locfileid: "54352509"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Verzenden, ontvangen en verwerken van berichten in Azure Logic Apps voor batch
 
@@ -60,10 +60,17 @@ Voordat u berichten naar een batch verzenden kunt, moet eerst die partij bestaan
    |----------|-------------|
    | **Batchmodus** | - **Inline**: Voor het definiëren van releasecriteria in de batchtrigger <br>- **Integratieaccount**: Voor het definiëren van configuraties met meerdere release criteria via een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). U kunt deze configuraties allemaal op één locatie in plaats van in afzonderlijke logische apps te onderhouden met een integratieaccount. | 
    | **Batchnaam** | De naam voor uw batch-, die in dit voorbeeld 'TestBatch', en is alleen bedoeld voor **Inline** batchmodus |  
-   | **Releasecriteria** | Is alleen bedoeld voor **Inline** batch-modus en selecteert de criteria om te voldoen aan voordat elke batch wordt verwerkt: <p>- **Bericht op basis van aantal**: Het aantal berichten voor het verzamelen van 10 berichten in de batch, bijvoorbeeld: <br>- **Op basis van grootte**: De maximale batchgrootte in bytes, voor bijvoorbeeld 10 MB <br>- **Op basis van planning**: Het interval en frequentie van verschillende versies van de batch, bijvoorbeeld tien minuten. De minimale terugkeer is 60 seconden of 1 minuut. Fractionele minuten waarden zijn effectief naar boven afgerond op 1 minuut. Als een datum en tijd opgeven, kiest u **geavanceerde opties weergeven**. <br>- **Selecteer alle**: Gebruik de opgegeven criteria. | 
+   | **Releasecriteria** | Is alleen bedoeld voor **Inline** batch-modus en selecteert de criteria om te voldoen aan voordat elke batch wordt verwerkt: <p>- **Bericht op basis van aantal**: Het uitbrengen van de batch op basis van het aantal berichten die worden verzameld door de batch. <br>- **Op basis van grootte**: De batch op basis van de totale grootte in bytes voor alle berichten die worden verzameld door die partij vrijgeven. <br>- **Planning**: Het uitbrengen van de batch op basis van een terugkeerschema, waarmee een interval en frequentie. In de geavanceerde opties, kunt u ook een tijdzone selecteren en geef een begindatum en -tijd. <br>- **Selecteer alle**: Gebruik de opgegeven criteria. | 
+   | **Aantal berichten** | Het aantal berichten voor het verzamelen van in de batch, bijvoorbeeld, 10 berichten. Van een batch-limiet is 8000 berichten. | 
+   | **Batchgrootte** | De totale grootte in bytes verzamelen in de batch, bijvoorbeeld 10 MB. De maximale grootte van een batch is 80 MB. | 
+   | **Planning** | Het interval en frequentie van verschillende versies van de batch, bijvoorbeeld tien minuten. De minimale terugkeer is 60 seconden of 1 minuut. Fractionele minuten worden effectief naar boven afgerond op 1 minuut. Als een tijdzone of een datum en tijd opgeven, kiest u **geavanceerde opties weergeven**. | 
    ||| 
 
-   In dit voorbeeld ziet u alle criteria, maar voor uw eigen tests, selecteert slechts één criterium:
+   > [!NOTE]
+   > 
+   > Als u de releasecriteria wijzigt terwijl de trigger is nog steeds, maar niet-verzonden berichten batchgewijs, de trigger de bijgewerkte releasecriteria gebruikt voor het verwerken van de niet-verzonden berichten. 
+
+   In dit voorbeeld ziet u alle criteria, maar voor uw eigen tests kunt u proberen slechts één criterium:
 
    ![Geef de details van de Batch-trigger](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 

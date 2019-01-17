@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 11/19/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 854ac9d4441170dd3ba180437fcd80b573df9450
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2024c4d8a251ad2066332a403db3d7f8c3dce975
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244559"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354107"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Oplossen van veelvoorkomende problemen met de Azure Stack PKI-certificaten
 
@@ -117,7 +117,7 @@ De volgende vereisten moeten worden voldaan op de computer waarop het hulpprogra
 1. Open een PowerShell-prompt met beheerdersrechten op een computer die voldoet aan de vereisten, en voer de volgende opdracht voor het installeren van de AzsReadinessChecker:
   
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker- Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
 2. Voer de volgende cmdlet om in te stellen van het PFX-wachtwoord van de PowerShell-prompt. Vervang *PFXpassword* met het wachtwoord:
@@ -131,7 +131,7 @@ De volgende vereisten moeten worden voldaan op de computer waarop het hulpprogra
    - Voor `-ExportPFXPath`, geef de locatie en naam van het PFX-bestand voor uitvoer. In het volgende voorbeeld wordt het pad is `.\certificates\ssl_new.pfx`:
 
    ```powershell
-   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`
+   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
 4. Nadat het hulpprogramma is voltooid, bekijkt u de uitvoer voor geslaagd:

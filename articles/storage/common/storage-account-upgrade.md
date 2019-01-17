@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631428"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352135"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Een upgrade uitvoert naar een opslagaccount voor algemeen gebruik v2
 
@@ -21,7 +21,8 @@ Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfun
 Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen gebruik v1- of Blob storage-accounts is eenvoudig. U kunt upgraden met behulp van de Azure portal, PowerShell of Azure CLI. 
 
 > [!NOTE]
-> Aan het wijzigen van de opslaglaag kunnen extra kosten zijn verbonden. Zie [Prijzen en facturering](#pricing-and-billing) voor meer informatie.
+> Uw storage-account upgraden naar een algemeen gebruik v2-account is gratis.
+> Wijzigen van de storage-toegangslaag kan leiden tot wijzigingen op uw factuur. Zie [Prijzen en facturering](#pricing-and-billing) voor meer informatie.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Upgraden met Azure portal
 
@@ -62,8 +63,8 @@ Laag kunnen u de meest rendabele opslag op basis van uw Verwachte gebruikspatron
 
 Standaard een nieuw opslagaccount wordt gemaakt in de hot Storage-toegangslaag en een opslagaccount voor algemeen gebruik v1 is bijgewerkt naar de hot Storage-toegangslaag. Als u welke toegangslaag moet worden gebruikt voor uw na de gegevensupgrade verkennen weet, kunt u uw scenario. Er zijn twee scenario's voor normale gebruiker voor het migreren naar een algemeen gebruik v2-account:
 
-* U beschikt over een bestaand opslagaccount voor algemeen gebruik v1 en wilt een wijziging evalueren in een opslagaccount voor algemeen gebruik v2, met de juiste opslaglaag voor blob-gegevens.
-* U hebt besloten om een algemeen gebruik v2-opslagaccount gebruiken of al hebt en wilt evaluearen of moet u de opslaglaag Hot of Cool voor blob-gegevens.
+* U beschikt over een bestaand opslagaccount voor algemeen gebruik v1 en wilt een upgrade naar een opslagaccount voor algemeen gebruik v2, met de juiste storage-toegangslaag voor blob-gegevens te evalueren.
+* U hebt besloten om een algemeen gebruik v2-opslagaccount gebruiken of al hebt en wilt evaluearen of u de Hot of Cool storage-toegangslaag voor blob-gegevens gebruiken moet.
 
 In beide gevallen is de eerste prioriteit schat de kosten voor opslag, toegang tot en werken met uw gegevens die zijn opgeslagen in een opslagaccount voor algemeen gebruik v2 en vergelijkt die met uw huidige kosten.
 
@@ -71,9 +72,9 @@ In beide gevallen is de eerste prioriteit schat de kosten voor opslag, toegang t
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 Alle opslagaccounts maken gebruik van een prijsmodel voor het opslaan van blobs op basis van laag van elke blob. Als u een opslagaccount gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
 
-* **Kosten voor opslag**: Naast de hoeveelheid gegevens die zijn opgeslagen, wordt de kosten voor opslag van gegevens is afhankelijk van de storage-laag. De kosten per GB nemen af als de laag minder dynamisch ('cooler') wordt.
+* **Kosten voor opslag**: Naast de hoeveelheid gegevens die zijn opgeslagen, wordt de kosten voor opslag van gegevens is afhankelijk van de storage-toegangslaag. De kosten per GB nemen af als de laag minder dynamisch ('cooler') wordt.
 
-* **Kosten van gegevenstoegang**: Kosten voor gegevenstoegang vergroten als de laag cooler. Voor gegevens in de lagen Cool Storage en Archive Storage worden kosten per GB in rekening gebracht aan gegevenstoegang voor leesbewerkingen.
+* **Kosten van gegevenstoegang**: Kosten voor gegevenstoegang vergroten als de laag cooler. U betaalt voor de gegevens in de cool en archive storage-toegangslaag, een post voor toegang tot gegevens per GB voor leesbewerkingen.
 
 * **Transactiekosten**: Er is een kosten per transactie voor alle lagen die wordt verhoogd als de laag cooler.
 
@@ -81,7 +82,7 @@ Alle opslagaccounts maken gebruik van een prijsmodel voor het opslaan van blobs 
 
 * **Kosten voor uitgaande gegevensoverdracht**: Uitgaande gegevensoverdracht (gegevens die buiten een Azure-regio worden overgedragen) worden gefactureerd voor bandbreedtegebruik per GB per, consistent met opslagaccounts voor algemeen gebruik.
 
-* **Als u de opslaglaag wijzigt**: Als u de opslaglaag wijzigt van cool naar hot leidt tot kosten voor het lezen van alle bestaande gegevens in de storage-account. Bij een wijziging van de accountopslaglaag van dynamisch naar statisch, worden echter kosten in rekening gebracht die gelijk zijn aan die voor het schrijven van alle gegevens in de statische laag (alleen GPv2-accounts).
+* **Wijzigen van de storage-toegangslaag**: De account storage-toegangslaag wijzigt van cool naar ' hot ' leidt tot kosten voor het lezen van alle bestaande gegevens in de storage-account. Echter de toegangslaag van hot wijzigen naar ' Cool ' leidt tot kosten voor het schrijven van alle gegevens in de koude laag (alleen GPv2-accounts).
 
 > [!NOTE]
 > Zie de pagina [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over het prijsmodel voor opslagaccounts. Zie de pagina [Prijsinformatie voor bandbreedte](https://azure.microsoft.com/pricing/details/data-transfers/) voor meer informatie over de kosten voor uitgaande gegevensoverdracht.
@@ -156,7 +157,7 @@ Voor het schatten van de kosten voor het openen van gegevens in Blob Storage-acc
 De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan ook worden berekend met behulp van de schatting voor de hoeveelheid gegevens die wordt geschreven bij gebruik van een GRS- of RA-GRS-opslagaccount.
 
 > [!NOTE]
-> Ga voor een uitgebreider voorbeeld over het berekenen van de kosten voor het gebruik van Hot of Cool Storage-lagen naar de veelgestelde vraag *'Wat zijn warme, koude en archieftoegangslagen, en hoe bepaal ik welke laag ik moet gebruiken?'* op de [pagina met prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+> Voor een uitgebreider voorbeeld over het berekenen van de kosten voor het gebruik van de toegangslaag hot of cool storage, bekijk de veelgestelde vraag *'Wat zijn warme en koude toegangslagen en hoe bepaal ik welke computer te gebruiken?'* op de [pagina met prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

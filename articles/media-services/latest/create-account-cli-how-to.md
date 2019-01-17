@@ -10,19 +10,22 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: fc80e2c540279c0a0c8acb575c9e5b1478a46cf8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c026eb9a74cbba2ff188a3f08be625043ede474
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133363"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352050"
 ---
 # <a name="create-an-azure-media-services-account"></a>Een Azure Media Services-account maken
 
-Als u wilt beginnen met coderen, codering, analyseren, beheren en streamen van mediainhoud in Azure, moet u een Media Services-account maken. Op het moment u een Media Services-account create, maakt u ook een gekoppelde storage-account (of gebruik een bestaande resourcegroep) in dezelfde geografische regio als het Media Services-account.
-Azure in dit artikel worden stappen beschreven voor het maken van een nieuwe Azure Media Services-account met de Azure CLI.  
+Als u wilt beginnen met coderen, codering, analyseren, beheren en streamen van mediainhoud in Azure, moet u een Media Services-account maken. Op het moment u een Media Services-account create, maakt u ook een gekoppelde storage-account (of gebruik een bestaande resourcegroep).  
+
+De Media Services-account en het opslagaccount dat is gekoppeld aan deze moeten deel uitmaken van hetzelfde datacenter en dezelfde resourcegroep bevinden.
+
+Dit artikel wordt beschreven stappen voor het maken van een nieuwe Azure Media Services-account met de Azure CLI.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

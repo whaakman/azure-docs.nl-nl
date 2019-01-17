@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1d977631b9975f717d60afff6f1b303fdd4039ff
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328814"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358691"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Key Vault-integratie configureren voor SQL Server op Azure Virtual Machines (Resource Manager)
 
@@ -37,6 +37,10 @@ Als u SQL Server on-premises virtuele machines worden uitgevoerd, zijn er [stapp
 Wanneer deze functie is ingeschakeld, installeert en deze automatisch de SQL Server-Connector, configureert u de EKM-provider voor toegang tot Azure Key Vault, maakt u de referentie zodat u toegang krijgt tot uw kluis. Als u de stappen in de documentatie van de eerder genoemde on-premises hebt bekeken, kunt u zien dat deze functie automatiseert de stappen 2 en 3. Het enige wat dat u moet nog steeds handmatig doen is het maken van de key vault en sleutels. Van daaruit is de volledige installatie van uw SQL-VM geautomatiseerd. Als deze functie kan deze installatie is voltooid, kunt u T-SQL-instructies gebruikt om te beginnen met het versleutelen van uw databases of back-ups zoals u gewend kunt uitvoeren.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+  >[!NOTE]
+  > Versie 1.0.4.0 EKM-Provider is geïnstalleerd op de SQL Server-VM via de [SQL IaaS-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). De provider-versie wordt niet bijgewerkt als u een upgrade van de SQL IaaS-extensie. Neem overweegt handmatig de versie van de EKM-provider een upgrade uitvoert, indien nodig (bijvoorbeeld bij het migreren naar een SQL beheerd exemplaar).
+
 
 ## <a name="enabling-and-configuring-akv-integration"></a>Inschakelen en configureren van Azure Sleutelkluis-integratie
 U kunt tijdens het inrichten van Azure Sleutelkluis-integratie inschakelen of configureren voor bestaande VM's.

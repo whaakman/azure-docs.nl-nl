@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274735"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354345"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Toegang tot Azure-beheer met voorwaardelijke toegang beheren
 
@@ -32,7 +32,7 @@ Voor het maken van een beleid voor het beheer van Azure die u selecteert **Micro
 
 ![Voorwaardelijke toegang voor Azure-beheer](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Het beleid dat u maakt geldt voor alle Azure-beheereindpunten, met inbegrip van de klassieke Azure-portal, Azure-portal, Azure Resource Manager-provider, klassieke Service Management API's en Azure PowerShell. Houd er rekening mee dat het beleid wordt toegepast op Azure PowerShell, waarmee de Azure Resource Manager-API aanroept. Dit geldt niet voor [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), die Microsoft Graph aanroepen.
+Het beleid dat u maakt, is van toepassing op alle Azure-beheereindpunten, met inbegrip van Azure portal, Azure Resource Manager-provider, klassieke Service Management API's, Azure PowerShell en Visual Studio-abonnementen beheerdersportal. Houd er rekening mee dat het beleid wordt toegepast op Azure PowerShell, waarmee de Azure Resource Manager-API aanroept. Dit geldt niet voor [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), die Microsoft Graph aanroepen.
 
 > [!CAUTION]
 > Zorg ervoor dat u begrijpt hoe voorwaardelijke toegang werkt voordat u een beleid instelt voor het beheren van toegang tot Azure-beheer. Zorg ervoor dat u geen voorwaarden die kunnen geblokkeerd door uw eigen toegang tot de portal maakt.
