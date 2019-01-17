@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 72d557ec2fa0e23dafb498d94c86296a3a534f88
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: cc72cd3139a17017a645f749d906fad64603401e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064012"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Zelfstudie: Azure Active Directory-integratie met Snowflake
 
@@ -112,10 +112,10 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Gegevens van domein en URL's voor eenmalige aanmelding van Snowflake](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op het [klantondersteuningsteam van Snowflake](https://support.snowflake.net/s/snowflake-support) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op het [klantondersteuningsteam van Snowflake](https://support.snowflake.net/s/) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 

@@ -1,220 +1,220 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met ADP | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ADP.
+description: Leer hoe u eenmalige aanmelding configureert tussen Azure Active Directory en ADP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: tutorial
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 75b84c2856373126ceba0fc536e41d270f4d2d05
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: MT
+ms.openlocfilehash: 487c9cb145000b92a4aa664ea2bd159026104b6b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048776"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Zelfstudie: Azure Active Directory-integratie met ADP
 
-In deze zelfstudie leert u hoe u ADP integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u ADP kunt integreren met Azure Active Directory (Azure AD).
+ADP integreren met Azure AD biedt de volgende voordelen:
 
-ADP integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot ADP.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij ADP (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot ADP heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij ADP (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ADP, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met ADP hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een abonnement ADP ingeschakeld
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op ADP waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. ADP uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-adp-from-the-gallery"></a>ADP uit de galerie toe te voegen
-Voor het configureren van de integratie van ADP in Azure AD, moet u ADP uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* ADP biedt ondersteuning voor door **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen ADP uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-adp-from-the-gallery"></a>ADP toevoegen vanuit de galerie
 
-1.  Meld u aan uw Microsoft Azure identity provider-omgeving aan als beheerder.
+Om de integratie van ADP te configureren in Azure AD moet u ADP vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-2. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+**Voer de volgende stappen uit om ADP toe te voegen vanuit de galerie:**
 
-    ![De Azure Active Directory-knop][1]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-3. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De blade Enterprise-toepassingen][2]
-    
-4. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De knop nieuwe toepassing][3]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-5. Typ in het zoekvak **ADP**, selecteer **ADP** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![ADP in de lijst met resultaten](./media/adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+4. Typ **ADP** in het zoekvak, selecteer **ADP** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met ADP op basis van een testgebruiker 'Julia steen' genoemd.
+     ![ADP toevoegen vanuit de galerie](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in ADP is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in ADP tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In ADP, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met ADP op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in ADP tot stand is gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met ADP, moet u de volgende bouwstenen voltooien:
+Om eenmalige aanmelding van Azure AD te configureren en testen met ADP, moet u de volgende procedures voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker ADP](#create-an-adp-test-user)**  : als u wilt een equivalent van Britta Simon in ADP die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding bij ADP configureren](#configure-adp-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[ADP-testgebruiker maken](#create-adp-test-user)**: als u een tegenhanger van Britta Simon wilt maken in ADP die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing ADP.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met ADP, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD eenmalige aanmelding met ADP moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **ADP** integratie toepassingspagina, klikt u op **tabblad Eigenschappen** en voer de volgende stappen uit: 
+1. Ga in de Azure-portal naar de overzichtspagina van de integratie **ADP**, klik op het tabblad **Eigenschappen** en voer de volgende stappen uit: 
 
     ![Eigenschappen voor eenmalige aanmelding](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
-    a. Stel de **ingeschakeld voor gebruikers om aan te melden** veld waarde **Ja**.
+    a. Stel het veld **Ingeschakeld zodat gebruikers zich kunnen aanmelden** in op **Ja**.
 
-    b. Kopieer de **URL van gebruikerstoegang** en u hebt te plakken in **sectie configureren aanmeldings-URL**, die later in de zelfstudie wordt uitgelegd.
+    b. Kopieer de waarde van **URL van gebruikerstoegang** om deze verderop in de zelfstudie te plakken in de sectie **Aanmeldings-URL configureren**.
 
-    c. Stel de **Gebruikerstoewijzing vereist** veld waarde **Ja**.
+    c. Stel de waarde van het veld **Gebruikerstoewijzing vereist** in op **Ja**.
 
-    d. Stel de **zichtbaar voor gebruikers** veld de waarde die moet worden **Nee**.
+    d. Stel de waarde van het veld **Zichtbaar voor gebruikers** in op **Nee**.
 
-2. Klik op **eenmalige aanmelding** op **ADP** toepassingspagina integratie.
+2. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie **ADP** en selecteer **Eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-3. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/adpfederatedsso-tutorial/tutorial_adp_samlbase.png)
+3. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-4. Op de **ADP domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![ADP domein en URL's, eenmalige aanmelding informatie](./media/adpfederatedsso-tutorial/tutorial_adp_url.png)
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    In de **id** tekstvak, een URL typen: `https://fed.adp.com` 
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+5. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Gegevens van domein en URL's voor eenmalige aanmelding bij ADP](common/idp-identifier.png)
+
+    Typ een URL in het vak **Id (Entiteits-id)**: `https://fed.adp.com`
+
+6. ADP verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen. De naam van de claim is altijd **PersonImmutableID** en de waarde hiervan wordt zoals u kunt zien toegewezen aan **employeeid**. 
+
+    De gebruikerstoewijzing van Azure AD naar ADP wordt uitgevoerd op basis van de **employeeid**, maar u kunt een andere waarde gebruiken op basis van de toepassingsinstellingen. Overleg eerst met het [ADP-ondersteuningsteam](https://www.adp.com/contact-us/overview.aspx) om de juiste id van een gebruiker te gebruiken en wijs die waarde toe met de claim **PersonImmutableID**.
+
+    ![image](common/edit-attribute.png)
+
+7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
     
-5. De toepassing ADP wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. Naam van de claim is altijd **"PersonImmutableID"** en de waarde van die we hebben toegewezen aan **employeeid**. 
+    | Naam | Bronkenmerk | 
+    | ---------------| --------------- |
+    | PersonImmutableID  | user.employeeid |
 
-    Hier wordt de Gebruikerstoewijzing van Azure AD naar ADP worden uitgevoerd op de **employeeid** , maar kunt u dit toewijzen aan een andere waarde op basis van de toepassingsinstellingen van uw. Dus Geef werk met [ADP ondersteuningsteam](https://www.adp.com/contact-us/overview.aspx) eerst het gebruik van de juiste id van een gebruiker en wijs die waarde met de **"PersonImmutableID"** claim.
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/adpfederatedsso-tutorial/tutorial_adp_attribute.png)
+    ![image](common/new-save-attribute.png)
 
-6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk | Waarde kenmerk |
-    | ------------------- | -------------------- |    
-    | PersonImmutableID | User.EmployeeID |
-    
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    ![image](common/new-attribute-details.png)
 
-    ![Eenmalige aanmelding configureren](./media/adpfederatedsso-tutorial/tutorial_attribute_04.png)
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    ![Eenmalige aanmelding configureren](./media/adpfederatedsso-tutorial/tutorial_attribute_05.png)
+    c. Laat **Naamruimte** leeg.
 
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
+    d. Selecteer Bron bij **Kenmerk**.
 
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
-    
-    d. Klik op **OK**.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
+
+    f. Klik op **OK**.
+
+    g. Klik op **Opslaan**.
 
     > [!NOTE] 
-    > Voordat u de SAML-verklaring configureren kunt, moet u contact op met uw [ADP ondersteuningsteam](https://www.adp.com/contact-us/overview.aspx) en vraagt u de waarde van het kenmerk unieke id voor uw tenant. U moet deze waarde voor het configureren van de aangepaste claim voor uw toepassing. 
+    > Voordat u de SAML-assertie kunt configureren, moet u contact opnemen met het [ADP-ondersteuningsteam](https://www.adp.com/contact-us/overview.aspx) en de waarde opvragen van het kenmerk voor de unieke gebruikers-id voor uw tenant. U hebt deze waarde nodig voor het configureren van de aangepaste claim voor uw toepassing. 
 
-7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+8. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-8. Het configureren van eenmalige aanmelding op **ADP** zijde, moet u de gedownloade uploaden **Metadata XML** op de [ADP website](https://adpfedsso.adp.com/public/login/index.fcc).
+### <a name="configure-adp-single-sign-on"></a>Eenmalige aanmelding bij ADP configureren
+
+Om eenmalige aanmelding te configureren in **ADP**, moet u het gedownloade **XML-bestand met metagegevens** uploaden naar de [ADP-website](https://adpfedsso.adp.com/public/login/index.fcc).
 
 > [!NOTE]  
-> Dit proces kan enkele dagen duren. 
+> Dit proces kan enkele dagen duren.
 
-### <a name="configure-your-adp-services-for-federated-access"></a>Uw ADP service (s) voor federatieve toegang krijgen tot configureren
+### <a name="configure-your-adp-services-for-federated-access"></a>De ADP service(s) configureren voor federatieve toegang
 
 >[!Important]
-> Uw werknemers die behoefte hebben aan federatieve toegang tot uw services ADP moeten worden toegewezen aan de ADP service-app en vervolgens, gebruikers moeten opnieuw worden toegewezen aan de specifieke ADP-service.
-Na ontvangst van de bevestiging van uw vertegenwoordiger ADP door uw ADP service (s) en toewijzen/beheer gebruikers voor het beheren van toegang tot de desbetreffende ADP-service voor gebruikers te configureren.
+> Werknemers die federatieve toegang tot ADP-services nodig hebben, moeten worden toegewezen aan de ADP-service-app en daarna aan de specifieke ADP-service.
+Nadat uw ADP-vertegenwoordiger de toewijzing heeft bevestigd, configureert u de ADP-service(s) en wijst u gebruikers toe of beheert u deze om de toegang van gebruikers tot de desbetreffende ADP-service te bepalen.
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![De knop nieuwe toepassing][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-4. Typ in het zoekvak **ADP**, selecteer **ADP** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![ADP in de lijst met resultaten](./media/adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
+4. Typ **ADP** in het zoekvak, selecteer **ADP** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-5. In de Azure-portal op uw **ADP** integratie toepassingspagina, klikt u op **tabblad Eigenschappen** en voer de volgende stappen uit:  
+     ![ADP toevoegen vanuit de galerie](common/search-new-app.png)
 
-    ![Linkedproperties voor eenmalige aanmelding](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+5. Ga in de Azure-portal naar de overzichtspagina van de integratie **ADP**, klik op het tabblad **Eigenschappen** en voer de volgende stappen uit:  
 
-    a.  Stel de **ingeschakeld voor gebruikers om aan te melden** veld waarde **Ja**.
+    ![Gekoppelde eigenschappen voor eenmalige aanmelding](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
-    b.  Stel de **Gebruikerstoewijzing vereist** veld waarde **Ja**.
+    a.  Stel het veld **Ingeschakeld zodat gebruikers zich kunnen aanmelden** in op **Ja**.
 
-    c.  Stel de **zichtbaar voor gebruikers** veld waarde **Ja**.
+    b.  Stel de waarde van het veld **Gebruikerstoewijzing vereist** in op **Ja**.
 
-6. Klik op **eenmalige aanmelding** op **ADP** toepassingspagina integratie.
+    c.  Stel de waarde van het veld **Zichtbaar voor gebruikers** in op **Ja**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+6. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie **ADP** en selecteer **Eenmalige aanmelding**.
 
-7. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **gekoppelde Sign-on**. om te koppelen van uw toepassing **ADP**.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![Eenmalige aanmelding gekoppeld](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
+7. Selecteer in het dialoogvenster **Selecteer een methode voor eenmalige aanmelding** de **modus** **Gekoppeld** om uw toepassing aan **ADP** te koppelen.
 
-8. Navigeer naar de **configureren aanmeldings-URL** sectie, voert u de volgende stappen uit:
+    ![Eenmalige aanmelding in de modus Gekoppeld](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
-    ![Eenmalige aanmelding prop](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
-                                                              
-    a. Plak de **URL van gebruikerstoegang**, die u hebt gekopieerd hierboven **tabblad Eigenschappen** (van de belangrijkste ADP-app).
+8. Ga naar de sectie **Aanmeldings-URL configureren** en voer de volgende stappen uit:
+
+    ![Aanmeldings-URL voor eenmalige aanmelding configureren](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
+
+    a. Plak de **User access URL**, die u eerder hebt gekopieerd van het **tabblad Properties** van de ADP-app.
                                                              
-    b. Hieronder vindt u de 5 apps die ondersteuning bieden voor verschillende **Relay status URL's**. U moet toevoegen de juiste **Relay status URL** handmatig naar de waarde voor een bepaalde toepassing de **URL van gebruikerstoegang**.
+    b. Hieronder ziet u de vijf apps die ondersteuning bieden voor verschillende **relaystate-URL's**. U moet de juiste **relaystate-URL** voor een bepaalde toepassing handmatig toevoegen aan de **User access URL**.
     
-    * **Nu ADP personeel**
+    * **ADP Workforce Now**
         
         `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-    * **ADP werknemers nu een verbeterde tijd**
+    * **ADP Workforce Now Enhanced Time**
         
         `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
     
@@ -230,107 +230,82 @@ Na ontvangst van de bevestiging van uw vertegenwoordiger ADP door uw ADP service
 
         `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
-9. **Sla** uw wijzigingen.
+9. Kies **Opslaan** om de wijzigingen op te slaan.
 
-10. Beginnen bij ontvangst van de bevestiging van uw vertegenwoordiger ADP test met een of twee gebruikers.
+10. Nadat uw bevestiging heeft ontvangen van de ADP-vertegenwoordiger, begint u te testen met een of twee gebruikers.
 
-    a. Enkele gebruikers toewijzen aan de service ADP App federatieve toegang krijgen tot testen.
+    a. Wijs enkele gebruikers toe aan de ADP-service-app om federatieve toegang te testen.
 
-    b. Test is geslaagd, wanneer gebruikers toegang krijgen de ADP service-app in de galerie tot en toegang hun ADP-service tot krijg.
+    b. De test is geslaagd wanneer gebruikers via de ADP service-app in de galerie toegang krijgen tot hun ADP-service.
  
-11. Toewijzen op de bevestiging van de test is geslaagd, de federatieve service van ADP aan individuele gebruikers of gebruikersgroepen, die later in de zelfstudie wordt uitgelegd en implementeer uw werknemers. 
+11. Als u bericht krijgt dat de test is geslaagd, wijst u de federatieve ADP-service toe aan individuele gebruikers of gebruikersgroepen en implementeert u de service voor uw werknemers. Deze toewijzing wordt later in de zelfstudie uitgelegd.
+ 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/adpfederatedsso-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/adpfederatedsso-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/adpfederatedsso-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/adpfederatedsso-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-an-adp-test-user"></a>Maak een testgebruiker ADP
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in ADP. Werken met [ADP ondersteuningsteam](https://www.adp.com/contact-us/overview.aspx) om toe te voegen de gebruikers in de ADP-account.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan ADP.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot ADP.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **ADP**.
 
-**Als u wilt Britta Simon aan ADP toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Typ en selecteer **ADP** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling ADP in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **ADP**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling ADP in de lijst met toepassingen](./media/adpfederatedsso-tutorial/tutorial_adp_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-adp-test-user"></a>ADP-testgebruiker maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+Het doel van deze sectie is om in ADP een gebruiker met de naam Britta Simon te maken. Neem contact op met het [ADP-ondersteuningsteam](https://www.adp.com/contact-us/overview.aspx) om gebruikers toe te voegen aan het ADP-account. 
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel ADP in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing ADP.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel ADP klikt, wordt u automatisch aangemeld bij de instantie van ADP waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/adpfederatedsso-tutorial/tutorial_general_01.png
-[2]: ./media/adpfederatedsso-tutorial/tutorial_general_02.png
-[3]: ./media/adpfederatedsso-tutorial/tutorial_general_03.png
-[4]: ./media/adpfederatedsso-tutorial/tutorial_general_04.png
-
-[100]: ./media/adpfederatedsso-tutorial/tutorial_general_100.png
-
-[200]: ./media/adpfederatedsso-tutorial/tutorial_general_200.png
-[201]: ./media/adpfederatedsso-tutorial/tutorial_general_201.png
-[202]: ./media/adpfederatedsso-tutorial/tutorial_general_202.png
-[203]: ./media/adpfederatedsso-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

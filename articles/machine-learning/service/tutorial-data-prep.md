@@ -11,18 +11,18 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079235"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321871"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
 In deze zelfstudie leert u hoe u gegevens voorbereidt voor regressiemodellering met de Azure Machine Learning Data Prep SDK. U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.  
 
-Deze zelfstudie is deel één van een serie van twee. Nadat u deze serie met zelfstudies hebt voltooid, kunt u de kosten van een taxirit voorspellen door een model te trainen op gegevenskenmerken. Deze kenmerken zijn onder andere de dag en het tijdstip van ophalen, het aantal passagiers en de vertreklocatie.
+Deze zelfstudie is **deel één van een serie van twee**. Nadat u deze serie met zelfstudies hebt voltooid, kunt u de kosten van een taxirit voorspellen door een model te trainen op gegevenskenmerken. Deze kenmerken zijn onder andere de dag en het tijdstip van ophalen, het aantal passagiers en de vertreklocatie.
 
 In deze zelfstudie hebt u:
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: ef1180a8e8c833648e3b61705abf354cb4dfaed3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d0bc4f5877a09380a2c7053134ae0505b31ae685
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117483"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330939"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Zelfstudie: Computer Vision-API - Java
 
@@ -456,7 +456,7 @@ Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in h
 
 ### <a name="intelligently-generate-a-thumbnail"></a>Intelligent een miniatuur genereren
 
-De Miniatuur-functie in Computer Vision genereert een miniatuur op basis van een afbeelding. De Miniatuur-functie identificeert met behulp van de functie **Slim bijsnijden** het meest interessante gebied in een afbeelding en centreert de miniatuur op dit gebied om een zo fraai mogelijke miniatuurafbeelding te genereren.
+Met de functie Miniatuur van Computer Vision wordt een miniatuur van een afbeelding gegenereerd. De functie Miniatuur identificeert het interessantste gebied in een afbeelding en centreert de miniatuur op dit gebied. Vervolgens wordt de functie **Slim bijsnijden** gebruikt om een zo fraai mogelijke miniatuurafbeelding te genereren.
 
 Gebruik de volgende stappen uit om de functie Miniatuur van de zelfstudietoepassing uit te voeren:
 

@@ -16,12 +16,12 @@ ms.workload: ''
 ms.date: 05/02/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2b8766a5353b015030872176e9032034afb7cb9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a0153cf11c3fe817ce397b4d0c47a786a4334f39
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779532"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214807"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>Voorbeeldsjablonen van Azure Policy voor virtueel netwerk
 
@@ -43,7 +43,7 @@ De volgende tabel bevat links naar voorbeeldsjablonen van [Azure Policy](../azur
 | [Require match pattern](../azure-policy/scripts/enforce-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Match-patroon vereisen) | Resourcenamen moeten overeenkomen met een opgegeven naamgevingspatroon. |
 | [Require tag match pattern](../azure-policy/scripts/enforce-tag-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Tag-match-patroon vereisen) | Een tagwaarde moet overeenkomen met een tekstpatroon. |
 |**Tags**||
-| [Billing Tags Policy Initiative](../azure-policy/scripts/billing-tags-policy-init.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Factureringstagbeleidinitiatief) | Vereist opgegeven tagwaarden voor kostenplaats en productnaam. Er wordt gebruikgemaakt van ingebouwde beleidsregels om vereiste tags toe te passen en af te dwingen. U geeft de vereiste waarden voor de tags op.  |
+| [Billing Tags Policy Initiative](../governance/policy/samples/billing-tags-policy-initiative.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Factureringstagbeleidinitiatief) | Vereist opgegeven tagwaarden voor kostenplaats en productnaam. Er wordt gebruikgemaakt van ingebouwde beleidsregels om vereiste tags toe te passen en af te dwingen. U geeft de vereiste waarden voor de tags op.  |
 | [Enforce tag and its value on resource groups](../azure-policy/scripts/enforce-tag-rg.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Tag met de bijbehorende waarde afdwingen voor resourcegroepen) | Vereist een tag en waarde voor een resourcegroep. U geeft de vereiste naam en waarde voor de tag op.  |
 | [Enforce tag and its value](../azure-policy/scripts/enforce-tag-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Tag en waarde afdwingen) | Vereist een opgegeven naam en waarde voor de tag. U geeft de naam en waarde op voor de tag die moet worden afgedwongen.  |
 | [Apply tag and its default value](../azure-policy/scripts/apply-tag-def-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Tag met standaardwaarde toepassen) | Hiermee voegt u de opgegeven naam en waarde voor een tag toe, als die tag niet is opgegeven. U geeft de naam en waarde op voor de tag die moet worden toegepast.  |

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629880"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188604"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -188,7 +188,7 @@ Een ILB AS-omgeving biedt ondersteuning voor zowel Functions als WebJobs. Als u 
 
 Als u Azure Functions in een ILB AS-omgeving gebruikt, wordt er mogelijk een foutbericht weergegeven waarin staat: Uw functies kunnen momenteel niet worden opgehaald. Probeer het later opnieuw. Deze fout treedt op omdat de gebruikersinterface van Functions gebruikmaakt van de SCM-site via HTTPS en het basiscertificaat geen onderdeel uitmaakt van de vertrouwensketen van de browser. Bij WebJobs treedt een soortgelijk probleem op. U kunt het volgende doen om dit probleem te voorkomen:
 
-- Voeg het certificaat toe aan het vertrouwde certificaatarchief. Hierdoor wordt de blokkering van Edge en Internet Explorer opgeheven.
+- Voeg het certificaat toe aan het vertrouwde certificaatarchief. Hierdoor wordt de blokkering van Microsoft Edge en Internet Explorer opgeheven.
 - Gebruik Chrome en ga eerst naar de SCM-site, accepteer het niet-vertrouwde certificaat en ga vervolgens naar de portal.
 - Gebruik een commercieel certificaat uit de vertrouwensketen van de browser.  Dit is de beste optie.  
 

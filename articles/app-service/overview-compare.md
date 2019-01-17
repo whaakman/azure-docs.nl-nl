@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729690"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322024"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services
 
@@ -53,7 +53,7 @@ In de volgende tabel worden de mogelijkheden van App Service, Cloud Services, Vi
 | Uitschalen naar meerdere exemplaren zonder opnieuw te hoeven implementeren |X |X |X |X |Virtual Machines kan uitschalen naar meerdere exemplaren, maar de services die daarop worden uitgevoerd, moeten zijn geschreven om hiermee om te kunnen gaan. U moet een load balancer configureren voor het routeren van aanvragen voor de machines en ervoor zorgen dat u meer dan één VM-exemplaar hebt in de [beschikbaarheidsset](../virtual-machines/windows/manage-availability.md). |
 | Ondersteuning voor SSL |X |X |X |X |Voor App Service-web-apps wordt SSL voor aangepaste domeinnamen alleen ondersteund voor de Basic en Standard-modus. Zie [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Een SSL-certificaat voor een Azure-website configureren) voor meer informatie over het gebruik van SSL met web-apps. |
 | Integratie met Visual Studio |X |X |X |X | |
-| Foutopsporing op afstand |X |X |X | | |
+| Foutopsporing op afstand |X |X |X |X | |
 | Code implementeren via TFS |X |X |X |X | |
 | Netwerkisolatie met [Azure Virtual Network](/azure/virtual-network/) |X |X |X |X |Zie ook [Integratie van Azure Websites Virtual Network](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Ondersteuning voor [Azure Traffic Manager](/azure/traffic-manager/) |X |X |X |X | |

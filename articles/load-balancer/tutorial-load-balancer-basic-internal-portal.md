@@ -5,6 +5,7 @@ description: In deze zelfstudie ziet u hoe u een interne Basic-load balancer kun
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262347"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232614"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Zelfstudie: Interne-verkeersbelasting verdelen met een Basic-load balancer in Azure Portal
 
@@ -41,9 +42,9 @@ Eerst moet u een virtueel netwerk (VNet) maken. In het VNet maakt u twee virtuel
    
 1. In het deelvenster **Virtueel netwerk maken** typt of selecteert u de volgende waarden:
    
-   - **Naam**: voer *MyVNet* in.
+   - **Naam**: typ *MyVNet*.
    - **Resourcegroep**: selecteer **Nieuwe maken**, voer vervolgens *MyResourceGroupLB* in en selecteer **OK**. 
-   - **Subnet** > **Naam**: voer *MyBackendSubnet* in.
+   - **Subnet** > **Naam**: typ *myBackendSubnet*.
    
 1. Selecteer **Maken**.
 
@@ -54,8 +55,8 @@ Eerst moet u een virtueel netwerk (VNet) maken. In het VNet maakt u twee virtuel
 1. Selecteer **Een resource maken** > **Compute** > **Windows Server 2016 Datacenter** linksboven in de portal. 
    
 1. In **Een virtuele machine maken** typt of selecteert u de volgende waarden op het tabblad **Basisinformatie**:
-   - **Abonnement** > **Resourcegroep**: breid de vervolgkeuzelijst uit en selecteer **MyResourceGroupLB**.
-   - **Instantiedetails** > **Naam van virtuele machine**: voer *MyVM1* in.
+   - **Abonnement** > **Resourcegroep**: selecteer in de vervolgkeuzelijst de optie **MyResourceGroupLB**.
+   - **Instantiedetails** > **Naam van virtuele machine**: typ *MyVM1*.
    - **Instantiedetails** > **Beschikbaarheidsopties**: 
      1. Selecteer **Beschikbaarheidsset** in de vervolgkeuzelijst. 
      2. Selecteer **Nieuwe maken**, typ *MyAvailabilitySet* en selecteer **OK**.
@@ -88,7 +89,7 @@ Maak met behulp van de portal een interne Basic-load balancer. De naam en het IP
    
 1. Typ of selecteer de volgende waarden in het deelvenster **Load balancer maken**:
    
-   - **Naam**: voer *MyLoadBalancer* in.
+   - **Naam**: Typ *MyLoadBalancer*.
    - **Type**: selecteer **Intern**. 
    - **SKU**: Selecteer **Basic**.
    - **Virtueel netwerk**: selecteer **Een virtueel netwerk kiezen** en selecteer vervolgens **MyVNet**.
@@ -146,12 +147,12 @@ U gebruikt een statustest om de load balancer toe te staan de status van uw virt
    
 1. Op de pagina **Een statustest toevoegen** typt of selecteert u de volgende waarden:
    
-   - **Naam**: voer *MyHealthProbe* in.
+   - **Naam**: typ *MyHealthProbe*.
    - **Protocol**: selecteer **HTTP** in de vervolgkeuzelijst. 
-   - **Poort**: voer *80* in. 
+   - **Poort**: typ *80*. 
    - **Pad**: accepteer */* als de standaard-URI. U kunt deze waarde vervangen door een andere URI. 
-   - **Interval**: voer *15* in. Een interval is het aantal seconden tussen tests.
-   - **Drempelwaarde voor onjuiste status**: voer *2* in. Deze waarde duidt het aantal opeenvolgende mislukte tests aan dat moet optreden voordat wordt besloten dat een VM een onjuiste status heeft.
+   - **Interval**: typ *15*. Een interval is het aantal seconden tussen tests.
+   - **Drempelwaarde voor onjuiste status**: typ *2*. Deze waarde duidt het aantal opeenvolgende mislukte tests aan dat moet optreden voordat wordt besloten dat een VM een onjuiste status heeft.
    
 1. Selecteer **OK**.
    
@@ -171,11 +172,11 @@ De load balancer-regel met de naam **myLoadBalancerRuleWeb** luistert op poort 8
    
 1. Op de pagina **Load balancer-regel toevoegen** typt of selecteert u de volgende waarden, als die er nog niet op voorkomen:
    
-   - **Naam**: voer *MyLoadBalancerRule* in.
+   - **Naam**: typ *MyLoadBalancerRule*.
    - **IP-adres voor front-end:** voer *LoadBalancerFrontEnd* in als deze niet aanwezig is.
    - **Protocol**: selecteer **TCP**.
-   - **Poort**: voer *80* in.
-   - **Back-endpoort**: voer *80* in.
+   - **Poort**: typ *80*.
+   - **Back-endpoort**: typ *80*.
    - **Back-end-pool**: selecteer **MyBackEndPool**.
    - **Statustest**: selecteer **MyHealthProbe**. 
    

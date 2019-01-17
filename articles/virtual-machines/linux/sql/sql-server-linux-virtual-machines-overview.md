@@ -3,21 +3,22 @@ title: Overzicht van SQL Server op virtuele Linux-machines in Azure | Microsoft 
 description: Meer informatie over het uitvoeren van volledige SQL Server-edities op virtuele Linux-machines in Azure. U vindt hier rechtstreekse koppelingen naar alle installatiekopieën voor virtuele Linux-machines met SQL Server en gerelateerde inhoud.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
-ms.author: jroth
-ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 18f9dd5318c6aecff8819178168469d9334e5e29
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424117"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332401"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Overzicht van SQL Server op virtuele machines in Azure (Linux)
 
@@ -57,7 +58,7 @@ Wanneer u SQL Server op Linux configureert, installeert u het database-engine-pa
 
 ## <a name="related-products-and-services"></a>Gerelateerde producten en services
 
-### <a name="linux-virtual-machines"></a>Virtuele Linux-machines
+### <a name="linux-virtual-machines"></a>Linux Virtual Machines
 
 * [Overzicht van Virtual Machines](../overview.md)
 

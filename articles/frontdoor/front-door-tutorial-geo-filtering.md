@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988586"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214875"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Beleid voor geofilters instellen voor uw Front Door
 In deze zelfstudie leert u hoe u Azure PowerShell gebruikt om een voorbeeldbeleid voor geofilters te maken en het beleid koppelt aan uw bestaande front-endhost van uw Front Door. In dit voorbeeldbeleid voor geofilters worden aanvragen uit alle andere landen, met uitzondering van de Verenigde Staten, geblokkeerd.
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2. Overeenkomstvoorwaarde(n) voor geofilters definiëren
-Maak eerst een voorbeeld van een overeenkomstvoorwaarde die aanvragen die niet afkomstig zijn van "VS" selecteert. Raadpleeg de [handleiding](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) van PowerShell voor parameters wanneer u een overeenkomstvoorwaarde maakt. De uit twee letters bestaande koppeling tussen landcode en landtoewijzing vindt u [hier](/Protection/GeoFiltering).
+Maak eerst een voorbeeld van een overeenkomstvoorwaarde die aanvragen die niet afkomstig zijn van "VS" selecteert. Raadpleeg de [handleiding](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) van PowerShell voor parameters wanneer u een overeenkomstvoorwaarde maakt. De uit twee letters bestaande koppeling tussen landcode en landtoewijzing vindt u [hier](front-door-geo-filtering.md).
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"

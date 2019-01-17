@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a8ac01850c090b36a5b9d896f6de6c122edfbcaa
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e041d61c628a54b7a55b11fceba0973f3f427b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628422"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214960"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snelstartgids: Een Azure-bestandsshare maken en beheren met Azure PowerShell 
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met PowerShell. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
@@ -51,7 +51,7 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
-U kunt nu uw eerste Azure-bestandsshare maken. U kunt een bestandsshare maken met de cmdlet [New-AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare). In dit voorbeeld wordt een share gemaakt met de naam `myshare`.
+U kunt nu uw eerste Azure-bestandsshare maken. U kunt een bestandsshare maken met de cmdlet [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare). In dit voorbeeld wordt een share gemaakt met de naam `myshare`.
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -81,7 +81,7 @@ In de meeste gevallen gebruikt u uw Azure-bestandsshare via het SMB-protocol, om
 In de volgende voorbeelden ziet u hoe u de Azure PowerShell-module gebruikt voor het bewerken van uw Azure-bestandsshare met het File REST-protocol. 
 
 #### <a name="create-directory"></a>Map maken
-Als u in de hoofdmap van uw Azure-bestandsshare een nieuwe map wilt maken met de naam *myDirectory*, gebruikt u de cmdlet [New-AzStorageDirectory](/powershell/module/azure.storage/new-AzStoragedirectory).
+Als u in de hoofdmap van uw Azure-bestandsshare een nieuwe map wilt maken met de naam *myDirectory*, gebruikt u de cmdlet [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).
 
 ```azurepowershell-interactive
 New-AzStorageDirectory `
@@ -91,7 +91,7 @@ New-AzStorageDirectory `
 ```
 
 #### <a name="upload-a-file"></a>Bestand uploaden
-Om te laten zien hoe u met de cmdlet [Set-AzStorageFileContent](/powershell/module/azure.storage/set-AzStoragefilecontent) een bestand kunt uploaden, moeten we op de scratch-schijf van uw PowerShell Cloud Shell eerst een bestand maken om te uploaden. 
+Om te laten zien hoe u met de cmdlet [Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent) een bestand kunt uploaden, moeten we op de scratch-schijf van uw PowerShell Cloud Shell eerst een bestand maken om te uploaden. 
 
 In dit voorbeeld worden de huidige datum en tijd in een nieuw bestand op uw scratch-schijf geplaatst, waarna het bestand naar de bestandsshare wordt geüpload.
 
@@ -109,14 +109,14 @@ Set-AzStorageFileContent `
 
 Als u PowerShell lokaal uitvoert, vervangt u `C:\Users\ContainerAdministrator\CloudDrive\` door een bestaand pad op uw computer.
 
-Nadat het bestand is geüpload, kunt u de cmdlet [Get-AzStorageFile](/powershell/module/Azure.Storage/Get-AzStorageFile) gebruiken om te controleren of het bestand daadwerkelijk is geüpload naar uw Azure-bestandsshare. 
+Nadat het bestand is geüpload, kunt u de cmdlet [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) gebruiken om te controleren of het bestand daadwerkelijk is geüpload naar uw Azure-bestandsshare. 
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 #### <a name="download-a-file"></a>Bestand downloaden
-U kunt de cmdlet [Get-AzStorageFileContent](/powershell/module/azure.storage/get-AzStoragefilecontent) gebruiken om een kopie te downloaden van het bestand dat u net hebt geüpload naar de scratch-schijf van uw Cloud Shell.
+U kunt de cmdlet [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent) gebruiken om een kopie te downloaden van het bestand dat u net hebt geüpload naar de scratch-schijf van uw Cloud Shell.
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -139,7 +139,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 #### <a name="copy-files"></a>Bestanden kopiëren
-Een veelvoorkomende taak is het kopiëren van bestanden tussen bestandsshares of van of naar een opslagcontainer van Azure Blob. U kunt deze functionaliteit proberen door een nieuwe share te maken en het bestand dat u net hebt geüpload met de cmdlet [Start-AzStorageFileCopy](/powershell/module/azure.storage/start-AzStoragefilecopy) naar deze nieuwe share te kopiëren. 
+Een veelvoorkomende taak is het kopiëren van bestanden tussen bestandsshares of van of naar een opslagcontainer van Azure Blob. U kunt deze functionaliteit proberen door een nieuwe share te maken en het bestand dat u net hebt geüpload met de cmdlet [Start-AzStorageFileCopy](/powershell/module/az.storage/Start-AzStorageFileCopy) naar deze nieuwe share te kopiëren. 
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -173,7 +173,7 @@ Nog een andere handige taak die u kunt doen met een Azure-bestandsshare is het m
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) voor Windows-bestandssystemen zoals NTFS en ReFS
 - Momentopnamen van [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) voor Linux-systemen.
 - Momentopnamen van [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) voor macOS. 
- U kunt een momentopname van een share maken door de methode `Snapshot` uit te voeren op een PowerShell-object voor een bestandsshare, dat u kunt opvragen met de cmdlet [Get-AzStorageShare](/powershell/module/azure.storage/get-AzStorageshare). 
+ U kunt een momentopname van een share maken door de methode `Snapshot` uit te voeren op een PowerShell-object voor een bestandsshare, dat u kunt opvragen met de cmdlet [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare). 
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -213,7 +213,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Een share-momentopname verwijderen
-U kunt een momentopname van een share verwijderen met behulp van de cmdlet [Remove-AzStorageShare](/powershell/module/azure.storage/remove-AzStorageshare), met de variabele met de verwijzing `$snapshot` naar de parameter `-Share`.
+U kunt een momentopname van een share verwijderen met behulp van de cmdlet [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare), met de variabele met de verwijzing `$snapshot` naar de parameter `-Share`.
 
 ```azurepowershell-interactive
 Remove-AzStorageShare -Share $snapshot

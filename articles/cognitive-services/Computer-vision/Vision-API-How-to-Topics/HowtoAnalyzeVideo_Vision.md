@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 140e45270cf29eec48df260efa29b8aacac2d855
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cb8964bdbdfe575630f6e65a79d53aac76a76d45
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580464"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232104"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Handleiding voor realtime video-analyse
 In deze handleiding wordt uitgelegd hoe u bijna in realtime een analyse kunt uitvoeren van frames die afkomstig zijn uit een live-videostream. Dit zijn de basisstappen van een dergelijk systeem:
@@ -195,12 +195,6 @@ Als u met dit voorbeeld aan de slag wilt, volgt u deze stappen:
         
 
 Wanneer u klaar om te gaan integreren, **verwijst u vanuit uw eigen projecten naar de bibliotheek VideoFrameAnalyzer**. 
-
-
-
-## <a name="developer-code-of-conduct"></a>Gedragscode voor ontwikkelaars
-Net als met alle Cognitive Services, moeten ontwikkelaars die ontwikkelen met onze API's en voorbeelden zich houden aan de [gedragscode voor ontwikkelaars van Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/developer-code-of-conduct/). 
-
 
 De voorzieningen voor afbeeldingen, spraak, video of tekstbegrip van VideoFrameAnalyzer maken gebruik van Azure Cognitive Services. Microsoft ontvangt de afbeeldingen, audio, video en andere gegevens die u uploadt (via deze app) en kan deze gebruiken met als doel de service te verbeteren. We vragen uw hulp bij het beschermen van de personen van wie uw app gegevens naar Azure Cognitive Services verzendt. 
 

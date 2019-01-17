@@ -5,6 +5,7 @@ description: In deze snelstart vindt u meer informatie over het maken van een Ba
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 5d76a1ac58606df82fc7e25dc8071d91da8298f5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dfb9db14f37efeb5ad83ef54fcc4613724d28a15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261021"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229737"
 ---
 # <a name="get-started"></a>Snelstart: Een openbare load balancer maken met behulp van Azure PowerShell
 In deze snelstart vindt u meer informatie over het maken van een Basic Load Balancer met behulp Azure PowerShell. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Windows-server wordt uitgevoerd en waarbij de taken van een webapp gelijkelijk over de VM's worden verdeeld.

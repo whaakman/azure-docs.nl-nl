@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 18ca854f1e04127a900c1b753245ed6e2a331d68
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b98b42be170c37710435d1aad61707a4ed01851f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628165"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214417"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Containers verwijderen op basis van het containernaamvoorvoegsel
 
@@ -49,8 +49,8 @@ In dit script worden de volgende opdrachten gebruikt containers te verwijderen o
 | Opdracht | Opmerkingen |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Hiermee haalt u een opgegeven opslagaccount of alle opslagaccounts in een resourcegroep of het abonnement op. |
-| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Hiermee worden de opslagcontainers weergegeven die zijn gekoppeld aan een opslagaccount. |
-| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Hiermee verwijdert u de opgegeven opslagcontainer. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Hiermee worden de opslagcontainers weergegeven die zijn gekoppeld aan een opslagaccount. |
+| [Remove-AzStorageContainer](/powershell/module/az.storage/Remove-AzStorageContainer) | Hiermee verwijdert u de opgegeven opslagcontainer. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

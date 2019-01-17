@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 4b03fc3721d7a2be1e2099bf4878f6abb50e6b76
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7b59ab5da89d7ab99560a777f5a685f8b33e31dc
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044039"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201173"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-zelfstudie: Een SQL-API Java-consoletoepassing maken
 
@@ -90,7 +90,7 @@ Navigeer in Azure Portal naar uw Azure Cosmos DB-account en klik daarna op **Sle
 ![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een Java-consoletoepassing te maken. Schermopname van Azure Portal waarin een Azure Cosmos DB-account wordt weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de Azure Cosmos DB-accountblade en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels][keys]
 
 ## <a name="step-4-create-a-database"></a>Stap 4: Een database maken
-Uw Azure Cosmos DB-[database](databases-containers-items.md#azure-cosmos-databases) kan worden gemaakt met de methode [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) van de klasse **DocumentClient**. Een database is een logische container voor een JSON-documentopslag, gepartitioneerd in verzamelingen.
+Uw Azure Cosmos DB-[database](databases-containers-items.md#azure-cosmos-databases) kan worden gemaakt met de methode [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) van de klasse **DocumentClient**. Een database is een logische container voor een JSON-documentopslag, gepartitioneerd in verzamelingen.
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,7 +102,7 @@ Uw Azure Cosmos DB-[database](databases-containers-items.md#azure-cosmos-databas
 > 
 > 
 
-U kunt een verzameling maken met de methode [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) van de klasse **DocumentClient**. Een verzameling is een container van JSON-documenten en de bijbehorende JavaScript-toepassingslogica.
+U kunt een verzameling maken met de methode [createCollection](/java/api/com.microsoft.azure.documentdb.documentclient.createcollection) van de klasse **DocumentClient**. Een verzameling is een container van JSON-documenten en de bijbehorende JavaScript-toepassingslogica.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -116,7 +116,7 @@ U kunt een verzameling maken met de methode [createCollection](/java/api/com.mic
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Stap 6: JSON-documenten maken
-U kunt een document maken met de methode [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u al gegevens hebt die u in de database wilt opslaan, kunt u het [hulpprogramma voor gegevensmigratie](import-data.md) van Azure Cosmos DB gebruiken voor het importeren van gegevens in een database.
+U kunt een document maken met de methode [createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u al gegevens hebt die u in de database wilt opslaan, kunt u het [hulpprogramma voor gegevensmigratie](import-data.md) van Azure Cosmos DB gebruiken voor het importeren van gegevens in een database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -139,7 +139,7 @@ U kunt een document maken met de methode [createDocument](/java/api/com.microsof
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een Java-consoletoepassing te maken](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Stap 7: Query's uitvoeren op Azure Cosmos DB-resources
-Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](how-to-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode laat zien hoe u query's kunt toepassen op documenten in Azure Cosmos DB met behulp van de SQL-syntaxis met de methode [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
+Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](how-to-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode laat zien hoe u query's kunt toepassen op documenten in Azure Cosmos DB met behulp van de SQL-syntaxis met de methode [queryDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -152,7 +152,7 @@ Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](how-to-sql-query.
     }
 
 ## <a id="ReplaceDocument"></a>Stap 8: JSON-document vervangen
-Azure Cosmos DB ondersteunt het bijwerken van JSON-documenten met behulp van de methode [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument).
+Azure Cosmos DB ondersteunt het bijwerken van JSON-documenten met behulp van de methode [replaceDocument](/java/api/com.microsoft.azure.documentdb.documentclient.replacedocument).
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -163,7 +163,7 @@ Azure Cosmos DB ondersteunt het bijwerken van JSON-documenten met behulp van de 
         null);
 
 ## <a id="DeleteDocument"></a>Stap 9: JSON-document verwijderen
-Azure Cosmos DB ondersteunt ook het verwijderen van JSON-documenten met behulp van de methode [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument).  
+Azure Cosmos DB ondersteunt ook het verwijderen van JSON-documenten met behulp van de methode [deleteDocument](/java/api/com.microsoft.azure.documentdb.documentclient.deletedocument).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 

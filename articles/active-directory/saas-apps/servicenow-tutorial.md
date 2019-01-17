@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b7201f2a5d2e1b3967bd84ddb78797debdf14aeb
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 29d99a6114f1a8dafa2e3a837fe807a1bbee1343
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065695"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260700"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Zelfstudie: Azure Active Directory-integratie met ServiceNow
 
@@ -112,9 +112,9 @@ Voor het configureren van Azure AD-eenmalige aanmelding met ServiceNow moet u de
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij ServiceNow](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<instance-name>.service-now.com/navpage.do`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<instance-name>.service-now.com/navpage.do`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<instance-name>.service-now.com`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<instance-name>.service-now.com`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. U moet deze waarden bijwerken uit de werkelijke URL voor eenmalige aanmelding en de id, zoals later in de zelfstudie wordt uitgelegd. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -308,9 +308,9 @@ Voor het configureren van Azure AD-eenmalige aanmelding met ServiceNow moet u de
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij ServiceNow](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<instance-name>.service-now.com/navpage.do`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<instance-name>.service-now.com/navpage.do`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<instance-name>.service-now.com`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<instance-name>.service-now.com`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. U moet deze waarden bijwerken uit de werkelijke URL voor eenmalige aanmelding en de id, zoals later in de zelfstudie wordt uitgelegd. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

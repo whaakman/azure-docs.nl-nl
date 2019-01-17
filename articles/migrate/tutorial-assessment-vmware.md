@@ -4,15 +4,15 @@ description: Beschrijft hoe u met behulp van de service Azure Migrate on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 186d532f159db7d51ba4f93a250c00c7627280e0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976831"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229521"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -59,7 +59,8 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 **Geografie** | **Opslaglocatie**
 --- | ---
 Azure Government | VS (overheid) - Virginia
-Europa | Noord-Europa of West-Europa
+Azië | Azië - zuidoost
+Europa | Europa - noord of Europa - west
 Verenigde Staten | US - oost of US - west-centraal
 
 ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)

@@ -13,19 +13,19 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4fd7d47313b67a0014919b14546926f5d78972a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3fc09255c38b4bbe8d416b97ea14a77a4b3014a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240321"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305584"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Een Azure data factory en pijplijn maken door de REST-API te gebruiken
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](quickstart-create-data-factory-rest-api.md)
 
-Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken. 
+Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken.
 
 In deze snelstartgids wordt beschreven hoe u REST-API kunt gebruiken om een Azure data factory te maken. Met de pijplijn in deze data factory worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag.
 
@@ -44,10 +44,10 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 1. Start **PowerShell**. Houd Azure PowerShell geopend tot het einde van deze snelstartgids. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
 
     Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
-        
+    
     ```powershell
     Connect-AzureRmAccount
-    ```        
+    ```
     Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
 
     ```powershell
@@ -56,7 +56,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **SubscriptionId** door de id van uw Azure-abonnement:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
 2. Voer de volgende opdrachten uit nadat u de plaatsaanduidingen hebt vervangen door uw eigen waarden, om globale variabelen in te stellen voor gebruik in latere stappen.
 
@@ -82,7 +82,7 @@ $authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
 'Authorization'=$result.CreateAuthorizationHeader()
-} 
+}
 ```
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
@@ -112,17 +112,15 @@ Houd rekening met de volgende punten:
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+* Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 Dit is het voorbeeldantwoord:
 
 ```json
-
 {
-    "name":  "<dataFactoryName>",
+    "name": "<dataFactoryName>",
     "tags": {
-
-            },
+    },
     "properties":  {
         "provisioningState":  "Succeeded",
         "loggingStorageAccountKey":  "**********",
@@ -137,8 +135,7 @@ Dit is het voorbeeldantwoord:
     "id":  "dataFactoryName",
     "type":  "Microsoft.DataFactory/factories",
     "location":  "East US"
-} 
-
+}
 ```
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
@@ -176,11 +173,11 @@ Hier volgt een voorbeeld van uitvoer:
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/linkedservices/AzureStorageLinkedService",
     "name":  "AzureStorageLinkedService",
     "properties":  {
-                       "type":  "AzureStorage",
-                       "typeProperties":  {
-                                              "connectionString":  "@{value=**********; type=SecureString}"
-                                          }
-                   },
+        "type":  "AzureStorage",
+        "typeProperties":  {
+            "connectionString":  "@{value=**********; type=SecureString}"
+        }
+    },
     "etag":  "0000c552-0000-0000-0000-59b1459c0000"
 }
 ```
@@ -225,25 +222,25 @@ Hier volgt een voorbeeld van uitvoer:
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/datasets/BlobDataset",
     "name":  "BlobDataset",
     "properties":  {
-                       "type":  "AzureBlob",
-                       "typeProperties":  {
-                                              "folderPath":  "@{value=@{dataset().path}; type=Expression}"
-                                          },
-                       "linkedServiceName":  {
-                                                 "referenceName":  "AzureStorageLinkedService",
-                                                 "type":  "LinkedServiceReference"
-                                             },
-                       "parameters":  {
-                                          "path":  "@{type=String}"
-                                      }
-                   },
+        "type":  "AzureBlob",
+        "typeProperties":  {
+            "folderPath":  "@{value=@{dataset().path}; type=Expression}"
+        },
+        "linkedServiceName":  {
+            "referenceName":  "AzureStorageLinkedService",
+            "type":  "LinkedServiceReference"
+        },
+        "parameters":  {
+            "path":  "@{type=String}"
+        }
+    },
     "etag":  "0000c752-0000-0000-0000-59b1459d0000"
 }
 ```
 
 ## <a name="create-pipeline"></a>Pijplijn maken
 
-In dit voorbeeld bevat deze pijplijn één activiteit en heeft deze twee parameters: het pad van de invoerblob en het pad van de uitvoerblob. De waarden voor deze parameters worden ingesteld wanneer de pijplijn wordt geactiveerd of uitgevoerd. De kopieeractiviteit verwijst naar dezelfde blobgegevensset die u in de vorige stap heb gemaakt als invoer en uitvoer. Wanneer de dataset wordt gebruikt als invoergegevensset, wordt het invoerpad opgegeven. En wanneer de dataset wordt gebruikt als uitvoergegevensset, wordt het uitvoerpad opgegeven. 
+In dit voorbeeld bevat deze pijplijn één activiteit en heeft deze twee parameters: het pad van de invoerblob en het pad van de uitvoerblob. De waarden voor deze parameters worden ingesteld wanneer de pijplijn wordt geactiveerd of uitgevoerd. De kopieeractiviteit verwijst naar dezelfde blobgegevensset die u in de vorige stap heb gemaakt als invoer en uitvoer. Wanneer de dataset wordt gebruikt als invoergegevensset, wordt het invoerpad opgegeven. En wanneer de dataset wordt gebruikt als uitvoergegevensset, wordt het uitvoerpad opgegeven.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -305,14 +302,14 @@ Hier volgt een voorbeeld van uitvoer:
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/pipelines/Adfv2QuickStartPipeline",
     "name":  "Adfv2QuickStartPipeline",
     "properties":  {
-                       "activities":  [
-                                          "@{name=CopyFromBlobToBlob; type=Copy; inputs=System.Object[]; outputs=System.Object[]; typeProperties=}"
-                                      ],
-                       "parameters":  {
-                                          "inputPath":  "@{type=String}",
-                                          "outputPath":  "@{type=String}"
-                                      }
-                   },
+        "activities":  [
+            "@{name=CopyFromBlobToBlob; type=Copy; inputs=System.Object[]; outputs=System.Object[]; typeProperties=}"
+        ],
+        "parameters":  {
+            "inputPath":  "@{type=String}",
+            "outputPath":  "@{type=String}"
+        }
+    },
     "etag":  "0000c852-0000-0000-0000-59b1459e0000"
 }
 ```
@@ -375,19 +372,19 @@ Hier volgt een voorbeeld van uitvoer:
         "dataFactoryName":  "<dataFactoryName>",
         "pipelineName":  "Adfv2QuickStartPipeline",
         "parameters":  [
-                        "inputPath: <inputBlobPath>",
-                        "outputPath: <outputBlobPath>"
-                    ],
+            "inputPath: <inputBlobPath>",
+            "outputPath: <outputBlobPath>"
+        ],
         "parametersCount":  2,
         "parameterNames":  [
-                            "inputPath",
-                            "outputPath"
-                        ],
+            "inputPath",
+            "outputPath"
+        ],
         "parameterNamesCount":  2,
         "parameterValues":  [
-                                "<inputBlobPath>",
-                                "<outputBlobPath>"
-                            ],
+            "<inputBlobPath>",
+            "<outputBlobPath>"
+        ],
         "parameterValuesCount":  2,
         "runStart":  "2017-09-07T13:12:00.3710792Z",
         "runEnd":  "2017-09-07T13:12:39.5561795Z",
@@ -410,24 +407,24 @@ Hier volgt een voorbeeld van uitvoer:
     ```json
     {
         "value":  [
-                    {
-                        "id":  "000000000-0000-0000-0000-00000000000",
-                        "timestamp":  "2017-09-07T13:12:38.4780542Z",
-                        "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
-                        "pipelineName":  "Adfv2QuickStartPipeline",
-                        "status":  "Succeeded",
-                        "failureType":  "",
-                        "linkedServiceName":  "",
-                        "activityName":  "CopyFromBlobToBlob",
-                        "activityType":  "Copy",
-                        "activityStart":  "2017-09-07T13:12:02.3299261Z",
-                        "activityEnd":  "2017-09-07T13:12:38.4780542Z",
-                        "duration":  36148,
-                        "input":  "@{source=; sink=}",
-                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
-                        "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
-                    }
-                ]
+            {
+                "id":  "000000000-0000-0000-0000-00000000000",
+                "timestamp":  "2017-09-07T13:12:38.4780542Z",
+                "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
+                "pipelineName":  "Adfv2QuickStartPipeline",
+                "status":  "Succeeded",
+                "failureType":  "",
+                "linkedServiceName":  "",
+                "activityName":  "CopyFromBlobToBlob",
+                "activityType":  "Copy",
+                "activityStart":  "2017-09-07T13:12:02.3299261Z",
+                "activityEnd":  "2017-09-07T13:12:38.4780542Z",
+                "duration":  36148,
+                "input":  "@{source=; sink=}",
+                "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
+                "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
+            }
+        ]
     }
     ```
 
@@ -438,16 +435,16 @@ Gebruik Azure Storage Explorer om te controleren of de blob(s) is/zijn gekopieer
 ## <a name="clean-up-resources"></a>Resources opschonen
 De resources die u hebt gemaakt in de Quick Start kunt u op twee manieren opschonen. U kunt de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) verwijderen, met alle resources uit de resourcegroep. Als u de andere resources intact wilt houden, verwijdert u alleen de data factory die u in deze zelfstudie hebt gemaakt.
 
-Voer de volgende opdracht uit om de gehele resourcegroep te verwijderen: 
+Voer de volgende opdracht uit om de gehele resourcegroep te verwijderen:
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-Voer de volgende opdracht uit om alleen de data factory te verwijderen: 
+Voer de volgende opdracht uit om alleen de data factory te verwijderen:
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's. 
+Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's.

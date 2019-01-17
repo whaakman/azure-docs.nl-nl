@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231611"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320085"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -114,16 +114,13 @@ De [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/tree/maste
 ## <a name="device-identity"></a>Apparaat-id
 De apparaat-id is de unieke id die is toegewezen aan elk apparaat dat is geregistreerd in de [id-register](#identity-registry).
 
-## <a name="module-identity"></a>Module-identiteit
-De identiteit van de module is de unieke id die is toegewezen aan elke module die deel uitmaken van een apparaat. Identiteit van de module ook is geregistreerd in de [id-register](#identity-registry).
-
 ## <a name="device-management"></a>Apparaatbeheer
 Beheer van apparaten omvat de volledige levenscyclus die zijn gekoppeld aan het beheren van de apparaten in uw IoT-oplossing met inbegrip van plannen, inrichten, configureren, bewaken en buiten gebruik stellen.
 
 ## <a name="device-management-patterns"></a>Patronen voor apparaatbeheer
 [IoT-hub](#iot-hub) kunnen algemene patronen van Apparaatbeheer met inbegrip van opnieuw opstarten, het uitvoeren van de fabrieksinstellingen herstellen en het uitvoeren van firmware-updates op uw apparaten.
 
-## <a name="device-rest-api"></a>REST-API voor apparaat
+## <a name="device-rest-api"></a>Device REST API
 U kunt de [REST-API voor apparaat](https://docs.microsoft.com/rest/api/iothub/device) vanaf een apparaat aan de apparaat-naar-cloud-berichten naar een IoT-hub te verzenden en ontvangen [cloud-naar-apparaat](#cloud-to-device) berichten van een IoT-hub. Normaal gesproken moet u een van de hogere [apparaat-SDK's](#azure-iot-device-sdks) zoals wordt weergegeven in de IoT Hub-zelfstudies.
 
 ## <a name="device-provisioning"></a>Apparaten inrichten
@@ -131,15 +128,6 @@ Apparaatinrichting is het proces van het toevoegen van de eerste [apparaatgegeve
 
 ## <a name="device-twin"></a>Dubbel apparaat
 Een [apparaatdubbel](iot-hub-devguide-device-twins.md) is JSON-document waarin informatie over de apparaatstatus, zoals metagegevens, configuraties en voorwaarden. [IoT Hub](#iot-hub) een apparaatdubbel voor elk apparaat dat u in uw IoT-hub inrichten. Dubbele apparaten kunnen u om te synchroniseren [apparaat voorwaarden](#device-condition) en configuraties tussen het apparaat en de oplossing back-end. U kunt een query uitvoeren voor apparaatdubbels naar specifieke apparaten en de status van langlopende bewerkingen opvragen.
-
-## <a name="module-twin"></a>Moduledubbel
-Net als bij het dubbele apparaat, is een moduledubbel JSON-document waarin statusinformatie van de module, zoals metagegevens, configuraties en voorwaarden. IoT-Hub zich blijft voordoen een moduledubbel voor elke module-identiteit die u onder een apparaat-id in uw IoT-hub inricht. Moduledubbels kunnen u voorwaarden van de module en configuraties tussen de module en de back-end oplossing te synchroniseren. U kunt een query moduledubbels naar specifieke modules en de status van langlopende bewerkingen opvragen.
-
-## <a name="twin-queries"></a>Apparaatdubbel-query 's
-[Module- en apparaat-query's voor apparaattwins](iot-hub-devguide-query-language.md) gebruikt u de SQL-achtige IoT Hub-querytaal gegevens ophalen uit uw apparaatdubbels of moduledubbels. U kunt de dezelfde IoT Hub-querytaal gebruiken om op te halen van informatie over [](#job) die worden uitgevoerd in uw IoT-hub.
-
-## <a name="twin-synchronization"></a>Dubbele synchronisatie
-Twin synchronisatie gebruikt het [gewenste eigenschappen](#desired-properties) in uw apparaatdubbels of moduledubbels voor uw apparaten te configureren of modules ophalen [gerapporteerde eigenschappen](#reported-properties) uit om op te slaan op het dubbele.
 
 ## <a name="direct-method"></a>Directe methode
 Een [directe methode](iot-hub-devguide-direct-methods.md) is een manier om u voor het activeren van een methode om uit te voeren op een apparaat door een API voor uw IoT-hub aan te roepen.
@@ -190,6 +178,17 @@ Pakket in oplossingen voor Azure IoT-oplossingsversnellers samen meerdere Azure-
 
 ## <a name="job"></a>Taak
 Uw back-end oplossing kunt [taken](iot-hub-devguide-jobs.md) voor het plannen en de activiteiten bijhouden op een set met apparaten die zijn geregistreerd met uw IoT-hub. Activiteiten omvatten bijwerken van de apparaatdubbel [gewenste eigenschappen](#desired-properties), bijwerken apparaatdubbel [tags](#tags), en aan te roepen [directe methoden](#direct-method). [IoT Hub](#iot-hub) gebruikt ook [te importeren en exporteren](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) uit de [id-register](#identity-registry).
+
+## <a name="modules"></a>Modules
+Aan de kant van het apparaat, kunt u maken met de IoT Hub apparaat-SDK's [modules](iot-hub-devguide-module-twins.md) waarbij elk ervan een onafhankelijke verbinding met IoT Hub wordt geopend. Deze functie kunt u afzonderlijke naamruimten voor de verschillende onderdelen op uw apparaat gebruikt.
+
+Module identiteits- en moduledubbel bieden dezelfde mogelijkheden als [apparaat-id](#device-identity) en [apparaatdubbel](#device-twin) , maar op een fijnere granulatie. Deze weer specifieker kunt apparaten, zoals apparaten op basis van het besturingssysteem of de firmware-apparaten beheren van meerdere onderdelen, als u wilt isoleren, configuratie en voorwaarden voor elk van deze onderdelen.
+
+## <a name="module-identity"></a>Module-identiteit
+De identiteit van de module is de unieke id die is toegewezen aan elke module die deel uitmaken van een apparaat. Identiteit van de module ook is geregistreerd in de [id-register](#identity-registry).
+
+## <a name="module-twin"></a>Moduledubbel
+Net als bij het dubbele apparaat, is een moduledubbel JSON-document waarin statusinformatie van de module, zoals metagegevens, configuraties en voorwaarden. IoT-Hub zich blijft voordoen een moduledubbel voor elke module-identiteit die u onder een apparaat-id in uw IoT-hub inricht. Moduledubbels kunnen u voorwaarden van de module en configuraties tussen de module en de back-end oplossing te synchroniseren. U kunt een query moduledubbels naar specifieke modules en de status van langlopende bewerkingen opvragen.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) is een van de berichten die protocollen [IoT-Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub worden ondersteund, [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
@@ -256,6 +255,12 @@ Apparaten telemetriegegevens, zoals windsnelheid of temperatuur, verzamelen en g
 
 ## <a name="token-service"></a>Token-service
 Een token service kunt u een verificatiemechanisme implementeren voor uw apparaten. Het maakt gebruik van een IoT-Hub [gedeeld toegangsbeleid](#shared-access-policy) met **DeviceConnect** machtigingen voor het maken *binnen het bereik van apparaat* tokens. Deze tokens inschakelen voor een apparaat verbinding maakt met uw IoT-hub. Een apparaat maakt gebruik van een aangepaste verificatiemechanisme voor verificatie met de service voor beveiligingstokens. Als het apparaat is geverifieerd, geeft de service voor beveiligingstokens een SAS-token voor het apparaat gebruiken voor toegang tot uw IoT-hub.
+
+## <a name="twin-queries"></a>Apparaatdubbel-query 's
+[Module- en apparaat-query's voor apparaattwins](iot-hub-devguide-query-language.md) gebruikt u de SQL-achtige IoT Hub-querytaal gegevens ophalen uit uw apparaatdubbels of moduledubbels. U kunt de dezelfde IoT Hub-querytaal gebruiken om op te halen van informatie over [](#job) die worden uitgevoerd in uw IoT-hub.
+
+## <a name="twin-synchronization"></a>Dubbele synchronisatie
+Twin synchronisatie gebruikt het [gewenste eigenschappen](#desired-properties) in uw apparaatdubbels of moduledubbels voor uw apparaten te configureren of modules ophalen [gerapporteerde eigenschappen](#reported-properties) uit om op te slaan op het dubbele.
 
 ## <a name="x509-client-certificate"></a>X.509-clientcertificaat
 Een apparaat een X.509-certificaat kunt gebruiken om te verifiëren met [IoT-Hub](#iot-hub). Met behulp van een X.509-certificaat is een alternatief voor het gebruik van een [SAS-token](#shared-access-signature).

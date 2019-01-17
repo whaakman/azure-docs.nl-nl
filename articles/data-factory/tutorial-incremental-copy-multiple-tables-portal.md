@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 65dae64a43fb145f34c6933f0b74f8e798f5e373
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016321"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354209"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -159,7 +159,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 Voer de volgende opdracht uit om een opgeslagen procedure te maken in de SQL-database. Deze opgeslagen procedure werkt de bovengrenswaarde bij elke pijplijnuitvoering bij. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -184,7 +184,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -207,7 +207,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -287,7 +287,7 @@ Als u gegevens uit een gegevensopslag in een particulier netwerk (on-premises) n
    ![Installatie van integratieruntime - voltooien](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
 1. Controleer of u **MySelfHostedIR** in de lijst met integratieruntimes ziet.
 
-       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+    ![Integratieruntimes - lijst](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
 U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in de lokale SQL Server-database en de SQL-database. 
@@ -504,7 +504,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit:
 
-    1. Selecteer `sp_write_watermark` als **Opgeslagen procedurenaam**. 
+    1. Selecteer `usp_write_watermark` als **Opgeslagen procedurenaam**. 
     1. Selecteer **Importparameter**. 
     1. Geef de volgende waarden op voor de parameters: 
 
@@ -535,13 +535,13 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```
@@ -639,13 +639,13 @@ VALUES
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```

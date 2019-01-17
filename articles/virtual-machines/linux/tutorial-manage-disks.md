@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2716838b28bc6dc5155ab7fbb6e1b4966b63f4dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685367"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266107"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Zelfstudie: Azure-schijven beheren met de Azure CLI
 
@@ -126,7 +126,7 @@ Wanneer een schijf is gekoppeld aan de virtuele machine, moet het besturingssyst
 Maak een SSH-verbinding met de virtuele machine. Vervang het voorbeeld van een IP-adres door het openbare IP-adres van de virtuele machine.
 
 ```azurecli-interactive
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 Partitioneer de schijf met `fdisk`.
@@ -196,12 +196,16 @@ Wanneer u een momentopname van de schijf maakt, maakt Azure een alleen-lezen en 
 U hebt de id of naam van de schijf nodig om een momentopname van de schijf van een virtuele machine te kunnen maken. Gebruik de opdracht [az vm show](/cli/azure/vm#az-vm-show) om de schijf-id op te halen. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele, zodat deze in een later stadium kan worden gebruikt.
 
 ```azurecli-interactive
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 Nu u de id van de schijf van de virtuele machine hebt, kunt u met de volgende opdracht een momentopname van de schijf maken.
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -213,7 +217,10 @@ az snapshot create \
 Deze momentopname kan vervolgens worden geconverteerd naar een schijf die kan worden gebruikt om de virtuele machine opnieuw te maken.
 
 ```azurecli-interactive
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Virtuele machine herstellen op basis van een momentopname
@@ -221,7 +228,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 Voor het herstellen van de virtuele machine dient u de bestaande virtuele machine te verwijderen.
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 Maak een nieuwe virtuele machine op basis van de momentopname van de schijf.
@@ -241,13 +250,19 @@ Alle gegevensschijven moeten opnieuw worden gekoppeld aan de virtuele machine.
 Zoek eerst de naam van de gegevensschijf op met de opdracht [az disk list](/cli/azure/disk#az-disk-list). In dit voorbeeld wordt de naam van de schijf in een variabele met de naam *datadisk* geplaatst, die in de volgende stap wordt gebruikt.
 
 ```azurecli-interactive
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 Gebruik de opdracht [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) om de schijf te koppelen.
 
 ```azurecli-interactive
-az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
+az vm disk attach \
+   –g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
