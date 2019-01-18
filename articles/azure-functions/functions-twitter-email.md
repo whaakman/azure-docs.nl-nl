@@ -125,7 +125,7 @@ Functies bieden een handige manier voor de offload van verwerkingstaken in een w
     ```
     Deze functiecode retourneert een kleurcategorie op basis van de gevoelsscore die in de aanvraag is ontvangen. 
 
-4. Klik op **Testen** aan de rechterkant om het tabblad Testen uit te breiden en de functie te testen. Voer een waarde in van `0.2` voor de **Aanvraagtekst** en klik vervolgens op **Uitvoeren**. Er wordt een **RODE** waarde geretourneerd in de hoofdtekst van het antwoord. 
+4. Klik op **Testen** aan de rechterkant om het tabblad Testen uit te breiden en de functie te testen. Voer een waarde in van `0.2` voor de **Aanvraagtekst** en klik vervolgens op **Uitvoeren**. Er wordt een **RED** waarde geretourneerd in de hoofdtekst van het antwoord. 
 
     ![Test de functie in de Azure Portal](./media/functions-twitter-email/07-function-test.png)
 
@@ -211,11 +211,11 @@ Nu de gevoelsdetectie is geconfigureerd, kunt u een verbinding met uw functie to
 
     ![Score](media/functions-twitter-email/17-function-input-score.png)
 
-Uw functie wordt nu geactiveerd wanneer er een gevoelsscore wordt verzonden vanuit de logische app. De functie retourneert een kleurgecodeerde categorie aan de logische app. Vervolgens voegt u een e-mailmelding toe die wordt verzonden wanneer vanuit de functie de gevoelswaarde **ROOD** wordt geretourneerd. 
+Uw functie wordt nu geactiveerd wanneer er een gevoelsscore wordt verzonden vanuit de logische app. De functie retourneert een kleurgecodeerde categorie aan de logische app. Vervolgens voegt u een e-mailmelding toe die wordt verzonden wanneer vanuit de functie de gevoelswaarde **RED** wordt geretourneerd. 
 
 ## <a name="add-email-notifications"></a>E-mailmeldingen toevoegen
 
-Het laatste deel van de werkstroom bestaat uit het activeren van een e-mail wanneer de gevoelsscore _ROOD_ is. In dit onderwerp wordt een Outlook.com-connector gebruikt. U kunt dezelfde stappen uitvoeren als u een Gmail- of Office 365 Outlook-connector wilt gebruiken.   
+Het laatste deel van de werkstroom bestaat uit het activeren van een e-mail wanneer de gevoelsscore _RED_ is. In dit onderwerp wordt een Outlook.com-connector gebruikt. U kunt dezelfde stappen uitvoeren als u een Gmail- of Office 365 Outlook-connector wilt gebruiken.   
 
 1. Klik in de Logic Apps Designer op **Nieuwe stap** > **Een voorwaarde toevoegen**. 
 
@@ -260,7 +260,7 @@ Nu uw werkstroom is voltooid, kunt u de logische app inschakelen en de functie a
  
     ![Functielogboeken bekijken](media/functions-twitter-email/sent.png)
 
-5. Wanneer er een mogelijk negatief gevoel wordt gedetecteerd, ontvangt u een e-mail. Als u geen e-mail hebt ontvangen, kunt u de functiecode aanpassen om elke keer ROOD te retourneren:
+5. Wanneer er een mogelijk negatief gevoel wordt gedetecteerd, ontvangt u een e-mail. Als u geen e-mail hebt ontvangen, kunt u de functiecode aanpassen om elke keer RED te retourneren:
 
     ```csharp
     return (ActionResult)new OkObjectResult("RED");
