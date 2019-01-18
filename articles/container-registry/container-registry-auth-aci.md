@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855830"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390670"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Verifiëren met Azure Container Registry van Azure Container Instances
 
@@ -24,7 +24,7 @@ In dit artikel hebt u meer informatie over het maken en configureren van een ser
 
 U moet een service-principal gebruiken voor verificatie van ACI in **' headless '-scenario's**, zoals toepassingen of services die containerinstanties in een geautomatiseerde of anderszins onbeheerd maken.
 
-Bijvoorbeeld, als er een geautomatiseerd script dat wordt uitgevoerd elke nacht en maakt een [taakgebaseerde containerinstantie](../container-instances/container-instances-restart-policy.md) voor het verwerken van gegevens, kan deze een service-principal gebruiken met alleen pull (lezer) machtigingen om het register te verifiëren. U kunt vervolgens de service-principal roteren of intrekken van de toegang volledig zonder gevolgen voor andere services en toepassingen.
+Bijvoorbeeld, als er een geautomatiseerd script dat wordt uitgevoerd elke nacht en maakt een [taakgebaseerde containerinstantie](../container-instances/container-instances-restart-policy.md) voor het verwerken van gegevens, kan deze een service-principal gebruiken met alleen pull machtigingen om het register te verifiëren. U kunt vervolgens de service-principal roteren of intrekken van de toegang volledig zonder gevolgen voor andere services en toepassingen.
 
 Service-principals moeten ook worden gebruikt wanneer het register [gebruiker met beheerdersrechten](container-registry-authentication.md#admin-account) is uitgeschakeld.
 

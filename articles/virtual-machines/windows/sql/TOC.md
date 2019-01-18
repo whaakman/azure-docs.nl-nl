@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 050eb5e51ec4f589d160ac20322ffc02f77efc61
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358606"
+---
 # Overzicht
 ## [Over SQL Server-VM's in Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Releaseopmerkingen](virtual-machines-windows-sql-server-iaas-release-notes.md) 
@@ -11,6 +19,12 @@
 ### [Aanbevolen procedures voor prestaties](virtual-machines-windows-sql-performance.md)
 ### [Beveiligingsoverwegingen](virtual-machines-windows-sql-security.md)
 ### [Toepassingspatronen](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+## Bedrijfscontinuïteit
+### [Opties voor hoge beschikbaarheid](virtual-machines-windows-sql-high-availability-dr.md) 
+### [AlwaysOn-beschikbaarheidsgroep](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Back-up en herstel](virtual-machines-windows-sql-backup-recovery.md)
+### [Automatische back-up voor SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Automatische back-up voor SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ## Beheer
 ### [Verbinding maken met een VM](virtual-machines-windows-sql-connect.md)
 ### [Opslag configureren](virtual-machines-windows-sql-server-storage-configuration.md)
@@ -18,22 +32,19 @@
 #### [De SQL Server IaaS Agent-extensie gebruiken](virtual-machines-windows-sql-server-agent-extension.md)
 #### [Automatisch patch toepassen](virtual-machines-windows-sql-automated-patching.md)
 #### [Azure Key Vault-integratie configureren](virtual-machines-windows-ps-sql-keyvault.md)
-## Back-ups en herstellen
-### [Back-up en herstel](virtual-machines-windows-sql-backup-recovery.md)
-### [Automatische back-up voor SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
-### [Automatische back-up voor SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
-### [Azure Storage gebruiken voor back-up en herstel](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Handleidingen
 ## Een virtuele SQL-machine maken
 ### [De portal gebruiken](virtual-machines-windows-portal-sql-server-provision.md)
 ### [Azure PowerShell gebruiken](virtual-machines-windows-ps-sql-create.md)
+## [Licentiemodel voor virtuele SQL-machine wijzigen](virtual-machines-windows-sql-ahb.md)
 ## Migreren
 ### [Een SQL Server-database migreren](virtual-machines-windows-migrate-sql.md)
 ## Hoge beschikbaarheid configureren
-### [Opties voor hoge beschikbaarheid](virtual-machines-windows-sql-high-availability-dr.md) 
-### [AlwaysOn-beschikbaarheidsgroep](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [Automatisch - met sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+### [Azure Storage gebruiken voor back-up en herstel](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### AlwaysOn-beschikbaarheidsgroep
+#### [Azure-portalsjabloon gebruiken](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Snelstartsjablonen gebruiken](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Handmatig - vereisten](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Handmatig - zelfstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Load balancer - Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
@@ -41,7 +52,7 @@
 #### [Meerdere regio's](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Failover-clusterexemplaar
 #### [Configureren](virtual-machines-windows-portal-sql-create-failover-cluster.md)
-## [Licentiemodel voor virtuele SQL-machine wijzigen](virtual-machines-windows-sql-ahb.md)
+
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
