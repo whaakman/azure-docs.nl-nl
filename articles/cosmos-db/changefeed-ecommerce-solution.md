@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: b04a31ec46194d68dbbc5e5a4eb2b600968d7be5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3f42e149b88c2405a37366c3c7b886c7a8613e00
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037103"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382538"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
@@ -382,7 +382,7 @@ Nu ziet u hoe u de nieuwe gegevens analysis tool kunt gebruiken om te verbinden 
 
 8. Navigeer naar en open de **afhandeling map** binnen **EcommerceWebApp.sln.** Open vervolgens de **Web.config** bestand in die map.  
 
-9. Binnen de `<appSettings>` blokkeren, voegt de **URI** en **primaire sleutel** dat u eerder hebt opgeslagen waar van toepassing. Voeg uw **database naam** en **verzamelingsnaam** zoals wordt aangegeven. (Deze namen moeten **changefeedlabdatabase** en **changefeedlabcollection** tenzij u ervoor hebt gekozen om de naam van uw anders.)  
+9. Binnen de `<appSettings>` blokkeren, voegt de **URI** en **primaire sleutel** dat u eerder hebt opgeslagen waar van toepassing. Voeg uw **databasenaam** en **verzamelingsnaam** zoals wordt aangegeven. (Deze namen moeten **changefeedlabdatabase** en **changefeedlabcollection** tenzij u ervoor hebt gekozen om de naam van uw anders.)  
 
 10. Druk op **Start** aan de bovenkant van de pagina het programma uit te voeren.  
 

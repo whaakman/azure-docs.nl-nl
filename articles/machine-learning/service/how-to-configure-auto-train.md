@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 981f974450c6761b7e649838abb52acaa9d37067
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438520"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382771"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -219,7 +219,8 @@ Eigenschap |  Description | Standaardwaarde
 `iteration_timeout_minutes` |   Beperkt de hoeveelheid tijd (minuten) een bepaalde iteratie nodig. Als een iteratie hoger is dan de opgegeven hoeveelheid, wordt die iteratie wordt geannuleerd. Als dat niet ingesteld, worden de iteratie blijft actief totdat deze is voltooid. |   Geen
 `n_cross_validations`   |Aantal cross-validatie splitsingen.| Geen
 `validation_size`   |Grootte van de validatie is ingesteld als percentage van alle training-voorbeeld.|  Geen
-`preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: De ontbrekende gegevens-numerieke met gemiddelde, tekst met de meeste exemplaar imputes </li><li>Categorische waarden: Als gegevens van het type Numeriek en het aantal unieke waarden is minder dan 5 procent, omgezet in een hot-codering </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False | 
+`preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: De ontbrekende gegevens-numerieke met gemiddelde, tekst met de meeste exemplaar imputes </li><li>Categorische waarden: Als gegevens van het type Numeriek en het aantal unieke waarden is minder dan 5 procent, omgezet in een hot-codering </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False |
+`enable_cache`  | Waar/onwaar <br/>Instelling die met deze waarde True schakelt voorverwerken slechts een keer en hergebruik van dezelfde voorverwerkte gegevens voor alle herhalingen. | True |
 `blacklist_models`  | Geautomatiseerde machine learning-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureren als u wilt uitsluiten van bepaalde algoritmen van het experiment. Dit is handig als u zich bewust bent verifiëringsalgoritme (s) werken niet goed voor uw gegevensset. Met uitzondering van de algoritmen kunt bespaart u compute-resources en trainingstijd.<br/>Toegestane waarden voor classificatie<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Toegestane waarden voor regressie<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Toegestane waarden voor de prognose<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Geen
 `whitelist_models`  | Geautomatiseerde machine learning-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureren om op te nemen van bepaalde algoritmen voor het experiment. Dit is handig als u zich bewust bent dat verifiëringsalgoritme (s) voor uw gegevensset werken. <br/>Toegestane waarden voor classificatie<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Toegestane waarden voor regressie<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Toegestane waarden voor de prognose<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Geen
 `verbosity` |Hiermee bepaalt u het niveau van logboekregistratie met gegevens wordt de meest uitgebreide en kritieke die de minste. Uitbreidingsniveau heeft dezelfde waarden, zoals gedefinieerd in de python-pakket voor logboekregistratie. Toegestane waarden zijn:<br/><li>logging.INFO</li><li>logboekregistratie. WAARSCHUWING</li><li>logboekregistratie. FOUT</li><li>logboekregistratie. KRITIEKE</li>  | logging.INFO</li> 
@@ -272,7 +273,7 @@ U kunt uw resultaten weergeven in een widget of een inline als u zich in een not
 De volgende metrische gegevens worden opgeslagen in elke iteratie van een classificatietaak.
 
 |Primaire metrische gegevens|Description|Berekening|Extra Parameters
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Macro is het rekenkundige gemiddelde van de AUC voor elke categorie.  | [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "macro"|
 AUC_Micro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Micro wordt globably berekend door het echt positieven en fout-positieven van elke klasse te combineren| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "micro"|
 AUC_Weighted  | AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Gewogen is het rekenkundige gemiddelde van de score van elke klasse, gewogen door het aantal waar elke klasse-instanties| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|gemiddelde = "gewogen"
@@ -298,7 +299,7 @@ weighted_accuracy|Gewogen nauwkeurigheid is nauwkeurigheid waarin het gewicht ge
 De volgende metrische gegevens worden opgeslagen in elke iteratie een regressie of prognoses taak.
 
 |Primaire metrische gegevens|Description|Berekening|Extra Parameters
---|--|--|--|--|
+--|--|--|--|
 explained_variance|Uitgelegd afwijking is de verhouding die een wiskundige model gebruikersaccounts voor de variant van een bepaalde verzameling. Het is dat het percentage variantie van de oorspronkelijke gegevens om de afwijking van de fouten te verlagen. Wanneer het gemiddelde van de fouten 0 is, is het gelijk aan de afwijking van uitgelegd.|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Geen|
 r2_score|R2 is de coëfficiënt bepalen of de procent vermindering in gekwadrateerde fouten ten opzichte van een basislijn-model dat u het gemiddelde weergeeft. Wanneer het gemiddelde van de fouten 0 is, is het gelijk aan de afwijking van uitgelegd.|[Berekening](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Geen|
 spearman_correlation|Spearman correlatie is een nonparametric meting van de monotonicity van de relatie tussen twee gegevenssets. In tegenstelling tot de correlatie Pearson de correlatie Spearman wordt niet vanuit gegaan dat beide gegevenssets normaal gesproken worden gedistribueerd. Dit varieert net als andere coëfficiënten correlatie tussen-1 en + 1 met 0, wat geen correlatie impliceert. Correlaties op basis van -1 of + 1 houdt in dat een exacte monotone relatie. Positieve correlaties impliceren dat x toeneemt, dus y wordt. Negatieve correlaties impliceren dat x toeneemt, y afneemt.|[Berekening](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Geen|

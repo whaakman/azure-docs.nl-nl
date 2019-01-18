@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731056"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382528"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
 
@@ -260,7 +260,7 @@ Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met e
 
 1. Voeg verwijzingen toe aan de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en andere benodigde NuGet-pakketten aan uw toepassing. Het onderstaande voorbeeld gebruikt u ook [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Voeg de volgende code aan uw toepassing, wijzigt u de juiste doelresource. In dit voorbeeld ziet u twee manieren om te werken met Azure Key Vault:
+2. Voeg de volgende code aan uw toepassing, wijzigt u de juiste doelresource. In dit voorbeeld ziet u twee manieren om te werken met Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ Zie voor meer informatie over Microsoft.Azure.Services.AppAuthentication en de b
 ### <a name="using-the-rest-protocol"></a>Met behulp van de REST-protocol
 
 Een app met een beheerde identiteit heeft twee omgevingsvariabelen gedefinieerd:
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u een token voor een resource, moet u een HTTP GET-aanvraag voor dit eindpunt, met inbegrip van de volgende parameters:
 
-> [!div class="mx-tdBreakAll"]
 > |Parameternaam|In|Description|
 > |-----|-----|-----|
 > |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald. Dit wordt mogelijk een van de [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
@@ -290,10 +290,8 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 > |geheim|Header|De waarde van de omgevingsvariabele MSI_SECRET.|
 > |clientid|Query’s uitvoeren|(Optioneel) De ID van de gebruiker toegewezen identiteit moet worden gebruikt. Als u dit weglaat, wordt het systeem toegewezen identiteit wordt gebruikt.|
 
-
 Een geslaagde respons met 200 OK bevat een JSON-hoofdtekst met de volgende eigenschappen:
 
-> [!div class="mx-tdBreakAll"]
 > |Naam van eigenschap|Description|
 > |-------------|----------|
 > |access_token|Het aangevraagde toegangstoken. De aanroepende webservice kan dit token gebruiken om te verifiëren bij de ontvangende webservice.|
@@ -301,24 +299,27 @@ Een geslaagde respons met 200 OK bevat een JSON-hoofdtekst met de volgende eigen
 > |Bron|De App-ID-URI van de ontvangende webservice.|
 > |token_type|Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over het bearer-tokens [autorisatie Framework van de OAuth 2.0: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-
 Deze reactie is hetzelfde als de [antwoord voor de AAD-service-naar-service toegang-tokenaanvraag](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
-> [!NOTE] 
+> [!NOTE]
 > Omgevingsvariabelen worden ingesteld als het proces voor het eerst start, zodat na een beheerde identiteit voor uw toepassing is ingeschakeld, moet u mogelijk uw toepassing opnieuw hebt gestart of voordat de code implementeren `MSI_ENDPOINT` en `MSI_SECRET` beschikbaar zijn voor uw code.
 
 ### <a name="rest-protocol-examples"></a>Voorbeelden van REST-protocol
+
 Een van de voorbeeldaanvraag kan er als volgt uitzien:
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 En een voorbeeldantwoord ziet er als volgt uit:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Voorbeelden van code
+
 <a name="token-csharp"></a>Om in C# maken voor deze aanvraag:
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > Voor .NET-talen, kunt u ook gebruiken [Microsoft.Azure.Services.AppAuthentication](#asal) in plaats van het samenstellen van deze aanvraag zelf.
 
 <a name="token-js"></a>In Node.JS:
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>In PowerShell:
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,13 +376,13 @@ Een systeem toegewezen identiteit kan worden verwijderd door het uitschakelen va
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 Verwijderen van een systeem toegewezen identiteit op deze manier, wordt deze ook verwijderd uit AAD. Het systeem toegewezen identiteit worden ook automatisch verwijderd uit AAD wanneer de app-resource wordt verwijderd.
 
-> [!NOTE] 
-> Er is ook een toepassingsinstelling die kan worden ingesteld, WEBSITE_DISABLE_MSI, waardoor alleen de lokale token-service is uitgeschakeld. Echter, laat u de identiteit in plaats en hulpprogramma's worden nog steeds de beheerde identiteit als 'aan' of 'ingeschakeld'. Als gevolg hiervan is gebruik van deze instelling niet aanbevolen.
+> [!NOTE]
+> Er is ook een toepassingsinstelling die kan worden ingesteld, WEBSITE_DISABLE_MSI, waardoor alleen de lokale token-service is uitgeschakeld. Echter, laat u de identiteit in plaats en hulpprogramma's worden nog steeds de beheerde identiteit als 'aan' of 'ingeschakeld'. Als gevolg hiervan wordt gebruik van deze instelling niet aanbevolen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

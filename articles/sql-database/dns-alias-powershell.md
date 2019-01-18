@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
-ms.date: 02/05/2018
-ms.openlocfilehash: fcba91780f5ef05099feee70cc96eb5aeb667c7a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/17/2019
+ms.openlocfilehash: 115c4a290bc6dfba049e0ce49498877c1a2466b6
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600932"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388788"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell voor DNS-Alias naar Azure SQL Database
 
@@ -25,10 +25,10 @@ Dit artikel bevat een PowerShell-script dat laat zien hoe u een DNS-alias voor A
 
 De cmdlets die in het codevoorbeeld gebruikt zijn de volgende:
 
-- [Nieuwe-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee maakt u een nieuwe DNS-alias in het systeem van de service Azure SQL Database. De alias verwijst naar Azure SQL Database-server 1.
-- [Get-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Ophalen en weergeven van alle DNS-aliassen die zijn toegewezen aan de SQL-database-server 1.
-- [Set-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee wijzigt u de naam van de server die de alias is geconfigureerd om te verwijzen naar, van server 1 naar 2 van de SQL-database-server.
-- [Remove-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Verwijder de DNS-alias van de SQL-database-server 2, met behulp van de naam van de alias.
+- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee maakt u een nieuwe DNS-alias in het systeem van de service Azure SQL Database. De alias verwijst naar Azure SQL Database-server 1.
+- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Ophalen en weergeven van alle DNS-aliassen die zijn toegewezen aan de SQL-database-server 1.
+- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee wijzigt u de naam van de server die de alias is geconfigureerd om te verwijzen naar, van server 1 naar 2 van de SQL-database-server.
+- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Verwijder de DNS-alias van de SQL-database-server 2, met behulp van de naam van de alias.
 
 De voorgaande PowerShell-cmdlets zijn toegevoegd aan de **AzureRm.Sql** module vanaf versie 5.1.1.
 
@@ -160,6 +160,6 @@ Zie voor een volledige uitleg van de functie DNS-Alias voor SQL-Database, [DNS-a
 
 [https://azure.microsoft.com/free/]: https://azure.microsoft.com/free/
 
-[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-az-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249630"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392663"
 ---
 De volgende tabel beschrijft de standaardlimieten voor Azure Storage. De *inkomend* limiet verwijst naar alle gegevens (aanvragen) die worden verzonden naar een opslagaccount. De *uitgaande* limiet verwijst naar alle gegevens (reacties) worden ontvangen van een storage-account.
 
@@ -29,7 +29,7 @@ De volgende tabel beschrijft de standaardlimieten voor Azure Storage. De *inkome
 | Maximum aantal uitgaande voor opslagaccounts voor algemeen gebruik v1 (Amerikaanse regio's) | 20 Gbps als RA-GRS/GRS is ingeschakeld, 30 Gbps voor LRS/ZRS <sup>2</sup> |
 | Maximum aantal uitgaande voor opslagaccounts voor algemeen gebruik v1 (niet-Amerikaanse regio's) | 10 Gbps als RA-GRS/GRS is ingeschakeld, 15 Gbps voor LRS/ZRS <sup>2</sup> |
 
-<sup>1</sup> azure storage-accounts ondersteunen hogere limieten voor inkomend en IOP's op aanvraag. Om aan te vragen een toename van limieten, neem contact op met [ondersteuning voor Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> azure standard storage-accounts ondersteunen hogere limieten voor inkomend verkeer op aanvraag. Om aan te vragen een toename van limieten voor inkomend verkeer, neem contact op met [ondersteuning voor Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [azure Storage-replicatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy) opties zijn onder andere:
 * **RA-GRS**: Geografisch redundante opslag met leestoegang. Als RA-GRS is ingeschakeld, is uitgaand verkeer doelen voor de secundaire locatie zijn identiek aan die voor de primaire locatie.

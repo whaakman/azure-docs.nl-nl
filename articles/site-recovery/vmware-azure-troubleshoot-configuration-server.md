@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a720b264c4283498604d1446283c5a2242fdb8b3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050792"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381799"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Problemen met configuratie-server
 
@@ -22,7 +22,7 @@ In dit artikel helpt u bij het oplossen van problemen wanneer u implementeert en
 
 De bronmachine wordt geregistreerd bij de configuratieserver bij de installatie van de mobility-agent. U kunt fouten opsporen fouten tijdens deze stap door deze richtlijnen te volgen:
 
-1. Open het bestand C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (De map ProgramData mogelijk een verborgen map. Als u de map ProgramData in Windows Verkenner, niet ziet op de **weergave** tabblad, in de **weergeven/verbergen** sectie, selecteer de **verborgen items** selectievakje in.) Fouten kunnen worden veroorzaakt door verschillende problemen.
+1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (De map ProgramData mogelijk een verborgen map. Als u de map ProgramData in Windows Verkenner, niet ziet op de **weergave** tabblad, in de **weergeven/verbergen** sectie, selecteer de **verborgen items** selectievakje in.) Fouten kunnen worden veroorzaakt door verschillende problemen.
 
 2. De zoekreeks **geen geldig IP-adres gevonden**. Als de tekenreeks wordt gevonden:
     1. Controleer of de aangevraagde host-ID is gelijk aan de host-ID van de bronmachine.
@@ -58,9 +58,20 @@ De bronmachine wordt geregistreerd bij de configuratieserver bij de installatie 
 
 Deze fout treedt op wanneer de service kan geen gegevens uit de transportverbinding lezen bij het installeren van de mobility-agent en registreren met de configuratieserver. Het probleem oplossen door ervoor te zorgen dat TLS 1.0 is ingeschakeld op de bronmachine.
 
+## <a name="vcenter-discovery-failures"></a>ontdekkingsfouten vCenter
+
+Als u wilt verhelpen ontdekkingsfouten vCenter, zorg ervoor dat deze vCenter-server wordt toegevoegd aan de proxy-instellingen van de byPass-lijst. Om uit te voeren van deze activiteit
+
+- Download PsExec-hulpprogramma op [hier](https://aka.ms/PsExec) voor toegang tot inhoud voor systeem-gebruiker.
+- Open Internet Explorer in system gebruikersinhoud door het uitvoeren van de volgende opdrachtregel psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Voeg proxy-instellingen in Internet Explorer en tmanssvc-service opnieuw starten.
+- Voor het configureren van proxy-instellingen van DRA cd C:\Program Files\Microsoft Azure Site Recovery Provider uitvoeren
+- Vervolgens DRCONFIGURATOR worden uitgevoerd. EXE / /AddBypassUrls configureren [toevoegen van IP-adres/de FQDN van vCenter-Server die is opgegeven tijdens de **vCenter Server/vSphere ESXi-server configureren** stap van [configuratieserver implementatie](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Het IP-adres van de configuratieserver wijzigen
 
 Het is raadzaam dat u het IP-adres van een configuratieserver niet te wijzigen. Zorg ervoor dat alle IP-adressen die zijn toegewezen aan de configuratieserver statische IP-adressen. Gebruik geen DHCP IP-adressen.
+>>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML-token is ongeldig
 
@@ -84,7 +95,7 @@ Voer de volgende opdracht op de bronmachine:
 Instelling | Details
 --- | ---
 Gebruik | UnifiedAgentConfigurator.exe /CSEndPoint < IP-adres van configuratie\> /PassphraseFilePath < bestandspad wachtwoordzin\>
-Agent-logboeken voor configuratie | Bevindt zich onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+Agent-logboeken voor configuratie | Located under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Verplichte parameter. Hiermee geeft u het IP-adres van de configuratieserver. Gebruik een geldig IP-adres.
 /PassphraseFilePath |  Verplicht. De locatie van de wachtwoordzin. Gebruik een geldig UNC- of lokaal bestandspad.
 

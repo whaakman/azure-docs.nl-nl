@@ -1,29 +1,21 @@
 ---
-title: Meerdere sites op Azure Application Gateway hosten| Microsoft Docs
-description: Op deze pagina wordt de ondersteuning voor meerdere sites in Application Gateway beschreven.
-documentationcenter: na
+title: Meerdere sites op Azure Application Gateway hosten
+description: Dit artikel bevat een overzicht van de Azure Application Gateway-ondersteuning voor meerdere sites.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/17/2019
 ms.author: amsriva
-ms.openlocfilehash: df98559a9476190d683812bf9f63d8ad9c4d3f0e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 5c3fd92b3aa21b749a0c8ff435a1e5c12da4f57d
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160508"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381984"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Meerdere sites in Application Gateway hosten
 
-Door meerdere sites te hosten, kunt u meer dan één webtoepassing configureren op dezelfde instantie van de toepassingsgateway. Met deze functie kunt u een efficiëntere topologie voor uw implementaties configureren door maximaal 20 websites toe te voegen aan één toepassingsgateway. Elke website kan worden omgeleid naar een eigen back-endpool. In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contoso.com en fabrikam.com van twee back-endservepools, ContosoServerPool en FabrikamServerPool genaamd.
+Door meerdere sites te hosten, kunt u meer dan één webtoepassing configureren op dezelfde instantie van de toepassingsgateway. Deze functie kunt u een efficiëntere topologie voor uw implementaties configureren door maximaal 100 websites toe te voegen aan één toepassingsgateway. Elke website kan worden omgeleid naar een eigen back-endpool. In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contoso.com en fabrikam.com van twee back-endservepools, ContosoServerPool en FabrikamServerPool genaamd.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

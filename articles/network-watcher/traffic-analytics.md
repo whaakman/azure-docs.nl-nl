@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d339908b9347843da891dd1c7fa038c45cee1dcb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338580"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382830"
 ---
-# <a name="traffic-analytics"></a>Verkeersanalyse
+# <a name="traffic-analytics"></a>Traffic Analytics
 
-Traffic analytics is een cloud-gebaseerde oplossing waarmee u inzicht in gebruikers en toepassingen in cloudnetwerken. Traffic analytics analyseert Network Watcher network security group (NSG)-stroomlogboeken voor inzicht in de verkeersstroom in uw Azure-cloud. Met traffic analytics, kunt u het volgende doen:
+Traffic Analytics is een cloud-gebaseerde oplossing waarmee u inzicht in gebruikers en toepassingen in cloudnetwerken. Traffic analytics analyseert Network Watcher network security group (NSG)-stroomlogboeken voor inzicht in de verkeersstroom in uw Azure-cloud. Met traffic analytics, kunt u het volgende doen:
 
 - Netwerkactiviteit visualiseren voor uw Azure-abonnementen en hotspots identificeren.
 - Beveiligingsrisico's te identificeren en Beveilig uw netwerk, met informatie zoals open-poorten, toepassingen die toegang tot internet en virtuele machines (VM) maken van verbinding met netwerken rogue proberen.
@@ -99,9 +99,6 @@ Uw account moet lid zijn van een van de volgende Azure [ingebouwde rollen](../ro
 |                   | Inzender            |
 |                   | Lezer                 |
 |                   | Inzender voor netwerken    |
-|Klassiek            | Accountbeheerder  |
-|                   | Servicebeheerder  |
-|                   | Co-beheerder       |
 
 Als uw account niet aan een van de ingebouwde rollen toegewezen is, moet deze worden toegewezen aan een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) die de volgende acties uit, op het abonnementsniveau van het is toegewezen:
 
@@ -274,7 +271,7 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 
 - De geo-kaart toont de distributie van verkeer naar een datacenter uit andere landen en continenten communicatie met deze in het blauw (goedaardig verkeer) en rode (schadelijk verkeer) gekleurd regels:
 
-    ![Geografische kaartweergave distributie van verkeer in landen/regio's en continenten weergeven](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Geografische kaartweergave distributie van verkeer in landen en continenten weergeven](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Stroomgegevens voor de distributie van verkeer in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
@@ -317,7 +314,7 @@ Distributie van verkeer per toepassingsgateway & Load Balancer, topologie, meest
  - Weten welk subnet is bespreken waarvan de Load Balancer of Application gateway. Als u onverwachte gesprekken geobserveerd, kunt u uw configuratie corrigeren.
  - Als een rogue-netwerken zijn discussiëren met een Application gateway of een Load Balancer, bent u kunnen pas dit door het configureren van NSG-regels voor het blokkeren van de rogue-netwerken. 
 
-    ![subnet-Topology-showcasing-Traffic-Distribution-to-a-Application-Gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Poorten en virtuele machines die verkeer ontvangen van de internet bekijken
 

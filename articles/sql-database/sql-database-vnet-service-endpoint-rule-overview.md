@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 1/16/2019
-ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359847"
+ms.locfileid: "54390398"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL
 
@@ -173,7 +173,7 @@ Azure Storage is de dezelfde functie waarmee u verbinding met uw Azure Storage-a
 PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse vanuit Azure Storage-accounts. Als de Azure Storage-account dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Voor het inschakelen van beide PolyBase importeren en exporteren van scenario's met Azure SQL Data Warehouse verbinding met Azure Storage die wordt beveiligd met VNet, volgt u de stappen die hieronder worden beschreven:
 
 #### <a name="prerequisites"></a>Vereisten
-1.  Installeer Azure PowerShell volgens dit [handleiding](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+1.  Installeer Azure PowerShell volgens dit [handleiding](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst upgraden naar algemeen gebruik v2 met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  U moet hebben **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** onder Azure Storage-account ingeschakeld **Firewalls en virtuele netwerken** instellingenmenu. Verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor meer informatie.
  

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 292a9ecd012be030df8cf792f9991591d43c8db9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065491"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383068"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: On-premises workloads evalueren voor migratie naar Azure
 
@@ -31,7 +31,7 @@ Artikel 3: On-premises resources voor migratie naar Azure evalueren | Contoso wo
 [Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep rehost](contoso-migration-rehost-vm-sql-ag.md) | Contoso migreert de SmartHotel360-app met behulp van Site Recovery voor het migreren van virtuele machines van de app en de Database Migration Service voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
 [7-artikel: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso is een lift-and-shift-migratie van de Linux-osTicket-app naar Azure-VM's, met behulp van de Site Recovery-service voltooid. | Beschikbaar
 [8-artikel: Een Linux-app op Azure VM's en Azure Database for MySQL rehost](contoso-migration-rehost-linux-vm-mysql.md) | De Linux-app osTicket migreert Contoso naar Azure-VM's met behulp van Site Recovery. Deze migreert de app-database naar Azure Database for MySQL via MySQL Workbench. | Beschikbaar
-[9-artikel: Een app in een Azure-web-app en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso-migreert de SmartHotel360-app naar een Azure-web-app en de app-database migreert naar een Azure SQL Server-exemplaar met de database Migration Assistant. | Beschikbaar
+[9-artikel: Een app in een Azure-web-app en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso-migreert de SmartHotel360-app naar een Azure-web-app en de app-database migreert naar een Azure SQL Server-exemplaar met de Database Migration Assistant. | Beschikbaar
 [Artikel 10: Een Linux-app in een Azure-web-app en de Azure Database for MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere Azure-regio's met behulp van Azure Traffic Manager, geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar
 [11-artikel: Herstructureren van Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
 [12-artikel: Een app in Azure-containers en Azure SQL Database opnieuw modelleren](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
@@ -186,11 +186,11 @@ Resultaten worden weergegeven zodra ze beschikbaar zijn. Als Contoso problemen o
 
 1. In de **compatibiliteitsproblemen** rapporteren, Contoso wordt gecontroleerd of er problemen zijn op elk compatibiliteitsniveau. Compatibiliteitsniveaus worden als volgt aan SQL Server-versies toegewezen:
 
-    - 100: SQL Server 2008/Azure SQL-Database
-    - 110: SQL Server 2012/Azure SQL-Database
-    - 120: SQL Server 2014/Azure SQL-Database
-    - 130: SQL Server 2016/Azure SQL-Database
-    - 140: SQL Server 2017/Azure SQL-Database
+    - 100: SQL Server 2008/Azure SQL Database
+    - 110: SQL Server 2012/Azure SQL Database
+    - 120: SQL Server 2014/Azure SQL Database
+    - 130: SQL Server 2016/Azure SQL Database
+    - 140: SQL Server 2017/Azure SQL Database
 
     ![Data Migration Assistant - compatibiliteit van rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
 

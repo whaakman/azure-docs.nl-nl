@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993775"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391237"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Logboeken weergeven voor een Service Fabric containerservice
 Azure Service Fabric is een containerorchestrator en ondersteunt zowel [Linux- en Windows-containers](service-fabric-containers-overview.md).  In dit artikel wordt beschreven hoe u Logboeken voor containers van een actieve containerservice of een andere container weergeven, zodat u kunt vaststellen en oplossen van problemen.
@@ -43,6 +43,8 @@ Om gemakkelijker opstartfouten bij containers te analyseren, ondersteunt Service
  ```
 
 De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer de **ContainersRetentionCount** kenmerk is niet opgegeven, wordt er zijn geen containers bewaard. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies dient u plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
+
+De instelling **RunInteractive** komt overeen met de Docker `--interactive` en `tty` [vlaggen](https://docs.docker.com/engine/reference/commandline/run/#options). Wanneer deze instelling is ingesteld op true in het manifestbestand, deze vlaggen worden gebruikt voor het starten van de container.  
 
 ### <a name="rest"></a>REST
 Gebruik de [ophalen Container logboeken geïmplementeerd op knooppunt](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) bewerking voor het verkrijgen van de logboeken voor een container vastgelopen. Geef de naam van het knooppunt waarop de container is uitgevoerd op, toepassingsnaam, servicenaam manifest en de naam van het code-pakket.  Geef `&Previous=true`. Het antwoord bevat de logboeken voor containers voor de andere container van het exemplaar van code-pakket.

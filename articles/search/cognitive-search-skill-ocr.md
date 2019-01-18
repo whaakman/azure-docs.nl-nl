@@ -9,33 +9,35 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 88f7135cea00b3e8c6cf30a1abd2b94297681c4c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075818"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391119"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve vaardigheden
 
+Optische tekenherkenning (OCR) vaardigheid herkent gedrukte en handgeschreven tekst in afbeeldingen. Deze vaardigheid maakt gebruik van de machine learning-modellen die worden geleverd door [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. De **OCR** vaardigheid worden toegewezen aan de volgende functionaliteit:
+
++ Wanneer textExtractionAlgorithm is ingesteld op 'handgeschreven', de ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) functionaliteit wordt gebruikt.
++ Wanneer textExtractionAlgorithm is ingesteld op 'afdrukken', de ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) functionaliteit wordt gebruikt voor andere talen dan Engels. Voor Engels, de nieuwe ['Herkennen tekst'](../cognitive-services/computer-vision/concept-recognizing-text.md) functionaliteit voor gedrukte tekst wordt gebruikt.
+
 De **OCR** vaardigheid haalt tekst op uit de afbeeldingsbestanden. Ondersteunde bestandsindelingen zijn onder andere:
 
-+ . JPEG
-+ . JPG
-+ . PNG
-+ . BMP
-+ . GIF-BESTAND
++ .JPEG
++ .JPG
++ .PNG
++ .BMP
++ .GIF
 
 > [!NOTE]
-> Met ingang van 21 december 2018 kunt u een Cognitive Services-resource koppelen aan een vaardighedenset van Azure Search. Hierdoor kunnen we beginnen met het factureren van kosten voor het uitvoeren van vaardighedensets. Vanaf deze datum gaan we ook kosten in rekening brengen voor het extraheren van afbeeldingen als onderdeel van de fase waarin de documenten kunnen worden gekraakt. Het extraheren van tekst uit documenten blijft gratis.
+> Vanaf December 21 mei 2018, kunt u [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) met een Azure Search-vaardigheden. Dit kan we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
 >
-> Het uitvoeren van ingebouwde vaardigheden wordt in rekening gebracht tegen de huidige [betalen per gebruik-prijs van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Het extraheren van afbeeldingen wordt tegen de prijs voor een preview in rekening gebracht en wordt beschreven op de [pagina met prijzen voor Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
->
->  De kwalificatie OCR wordt toegewezen aan de volgende functionaliteit van cognitive services: Wanneer textExtractionAlgorithm is ingesteld op 'handgeschreven', de ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) functionaliteit wordt gebruikt.
->  Wanneer textExtractionAlgorithm is ingesteld op 'afdrukken', de ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) functionaliteit wordt gebruikt voor andere talen dan Engels. Voor Engels, de nieuwe ['Herkennen tekst'](../cognitive-services/computer-vision/concept-recognizing-text.md) functionaliteit voor gedrukte tekst wordt gebruikt.
+> Uitvoering van de ingebouwde vaardigheden is een Cognitive Services-kosten in rekening gebracht op de bestaande [betaalt u Ga prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen zijn de kosten van een Azure Search, momenteel in rekening gebracht op de preview-prijzen zoals beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
 ## <a name="skill-parameters"></a>Kwalificatie parameters
 
@@ -44,7 +46,7 @@ Parameters zijn hoofdlettergevoelig.
 | Parameternaam     | Description |
 |--------------------|-------------|
 | detectOrientation | Hiermee kunt automatische detectie van de afdrukstand. <br/> Geldige waarden: true / false.|
-|defaultLanguageCode | <p>  De taalcode van de invoertekst. Enkele ondersteunde talen: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tsjechië) <br/>da (Denemarken) <br/>NL (Nederlands) <br/>NL-(Engels) <br/>Fi (Fins)  <br/>FR (Frans) <br/>  de (Duits) <br/>EL (Grieks) <br/> hu (Hongaars) <br/> Deze (Italiaans) <br/>  Japan (Japans) <br/> Ko (Koreaans) <br/> NB (Noors) <br/>   PL (Pools) <br/> PT (Portugees) <br/>  RU (Russisch) <br/>  ES (Spaans) <br/>  SV (Zweeds) <br/>  TR (Turks) <br/> ar (Arabisch) <br/> ro (Roemeens) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Slowakije). <br/>  UNK (onbekend) <br/><br/> Als de taal niet opgegeven of null zijn is, wordt de taal worden ingesteld op Engels. Als de taal is expliciet ingesteld op 'unk', worden de taal automatisch gedetecteerd. </p> |
+|defaultLanguageCode | <p>  De taalcode van de invoertekst. Enkele ondersteunde talen: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tsjechië) <br/>da (Denemarken) <br/>NL (Nederlands) <br/>NL-(Engels) <br/>Fi (Fins)  <br/>FR (Frans) <br/>  de (Duits) <br/>EL (Grieks) <br/> hu (Hongaars) <br/> Deze (Italiaans) <br/>  Japan (Japans) <br/> Ko (Koreaans) <br/> NB (Noors) <br/>   PL (Pools) <br/> PT (Portugees) <br/>  RU (Russisch) <br/>  ES (Spaans) <br/>  SV (Zweeds) <br/>  tr (Turkish) <br/> ar (Arabisch) <br/> ro (Roemeens) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Slowakije). <br/>  UNK (onbekend) <br/><br/> Als de taal niet opgegeven of null zijn is, wordt de taal worden ingesteld op Engels. Als de taal is expliciet ingesteld op 'unk', worden de taal automatisch gedetecteerd. </p> |
 | textExtractionAlgorithm | "afgedrukt" of 'handgeschreven'. De "handgeschreven" tekst herkenning van OCR-algoritme is momenteel in preview en alleen ondersteund in het Engels. |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
@@ -58,7 +60,7 @@ Parameters zijn hoofdlettergevoelig.
 | Naam van de uitvoer     | Description                   |
 |---------------|-------------------------------|
 | tekst          | Tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
-| layoutText    | Complexe type dat beschrijft de geëxtraheerde tekst, evenals de locatie waar de tekst is gevonden.|
+| layoutText    | Complexe type met de beschrijving de geëxtraheerde tekst en de locatie waar de tekst is gevonden.|
 
 
 ## <a name="sample-definition"></a>Van voorbeelddefinitie
@@ -136,7 +138,7 @@ Parameters zijn hoofdlettergevoelig.
 
 Een veelvoorkomende use-case voor tekst samenvoegen is de mogelijkheid om samen te voegen van de tekstweergave van installatiekopieën (tekst uit een OCR-vaardigheden of het bijschrift van een installatiekopie) in het veld inhoud van een document. 
 
-De vaardigheden van het volgende voorbeeld maakt een *merged_text* veld bevat de tekstinhoud van het document, evenals de tekst OCRed van elk van de installatiekopieën die zijn ingesloten in dat document. 
+De vaardigheden van het volgende voorbeeld maakt een *merged_text* veld. Dit veld bevat de tekstinhoud van het document en de tekst OCRed van elk van de afbeeldingen in dit document is ingesloten. 
 
 #### <a name="request-body-syntax"></a>Syntaxis aanvraagbody
 ```json

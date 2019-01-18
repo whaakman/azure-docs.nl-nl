@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4a398342382d21d9261c8f693b78f184876bfed3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025392"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381940"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat is Azure Cognitive Services?
 
@@ -48,7 +48,7 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 |[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "spellingcontrole voor Bing")|Bing spellingcontrole, kunt u voor het uitvoeren van contextuele grammatica en spellingcontrole.|
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding service (LUIS) kunt uw toepassing om te begrijpen wat een persoon wil in hun eigen woorden.|
 |[Taalkundige analyse](https://docs.microsoft.com/azure/cognitive-services/linguisticanalysisapi/home "linguïstische") (Preview)|Taalkundige analyse biedt natuurlijke taal verwerken-hulpprogramma's waarmee de structuur van tekst geïdentificeerd.|
-|[Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Tekstanalyse")|Text Analytics biedt via onbewerkte tekst voor sentimentanalyse, sleuteltermextractie en taaldetectie verwerking van natuurlijke taal.|
+|[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics biedt via onbewerkte tekst voor sentimentanalyse, sleuteltermextractie en taaldetectie verwerking van natuurlijke taal.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator tekst")|Translator tekst biedt voor op basis van machine tekstomzetting in bijna-realtime.||
 |[Webtaalmodel](https://docs.microsoft.com/azure/cognitive-services/web-language-model/home "Webtaalmodel") (Preview)|Natuurlijke taal verwerken voor het voorspellen van word sequentiëren, aanvullingen en woordafbreking van tekenreeksen zonder spaties.|
 
@@ -89,6 +89,14 @@ Alle API's hebben een gratis proefabonnement.  Betaalde aanbiedingen voor elke A
 De API's in Cognitive Services worden gehost op een groeiend netwerk van door Microsoft beheerde datacenters. U vindt de regionale beschikbaarheid voor elke API in [lijst met Azure-regio](https://azure.microsoft.com/regions).
 
 Op zoek naar een regio wordt niet ondersteund nog? Laat het ons weten door het indienen van een functie-aanvraag op onze [UserVoice-forum](https://cognitive.uservoice.com/).
+
+## <a name="supported-cultural-languages"></a>Ondersteunde culturele talen
+
+ Cognitive Services biedt ondersteuning voor een breed scala aan culturele talen op het serviceniveau van de. U vindt de beschikbare talen voor elke API in de [lijst met talen ondersteund](language-support.md).
+
+ ## <a name="container-support"></a>Ondersteuning voor containers
+
+ Cognitive Services biedt containers voor de implementatie in de Azure-cloud of on-premises. Meer informatie over [Cognitive Service Containers](cognitive-services-container-support.md).
 
 ## <a name="support"></a>Ondersteuning
 

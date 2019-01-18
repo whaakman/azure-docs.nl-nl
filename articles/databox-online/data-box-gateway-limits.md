@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164430"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388426"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box-Gateway-limieten (Preview)
 
@@ -33,7 +33,7 @@ Houd rekening met deze limieten bij het implementeren en uw Microsoft Azure Data
 
 De volgende tabel beschrijft de limieten voor de gegevens in het Gateway-apparaat.
 
-| Beschrijving | Waarde |
+| Description | Waarde |
 |---|---|
 |Nee. van bestanden per apparaat |100 miljoen <br> Limiet is ongeveer 25 miljoen bestanden voor elke 2 TB aan schijfruimte met maximale limiet op 100 miljoen |
 |Nee. van shares per apparaat |24 |
@@ -57,9 +57,9 @@ Voor de meest recente informatie over limieten voor Azure storage-service en aan
 Volgende voorbehoud toepassen op gegevens zoals deze is verplaatst naar Azure.
 
 - Het is raadzaam dat meer dan één apparaat niet tot dezelfde container moet schrijven.
-- Hebt u een bestaande Azure-object (zoals een blob of een bestand) in de cloud met dezelfde naam als het object dat wordt gekopieerd, wordt het bestand in de cloud door apparaat overschreven. 
+- Hebt u een bestaande Azure-object (zoals een blob of een bestand) in de cloud met dezelfde naam als het object dat wordt gekopieerd, wordt het bestand in de cloud door apparaat overschreven.
 - Een lege map voor de hiërarchie (zonder bestanden) gemaakt op basis van gedeelde mappen is niet geüpload naar de blob-containers.
-
+- Als u bestanden die groter zijn dan de grootte van het apparaat kopieert, het is raadzaam om te gebruiken *Robocopy* of *rsync* om te controleren of er geen fouten zijn.
 
 ## <a name="azure-storage-account-size-and-object-size-limits"></a>Azure-account grootte en object maximale grootte opslag
 

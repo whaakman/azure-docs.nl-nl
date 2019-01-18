@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359337"
+ms.locfileid: "54389329"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Functieoverzicht van Threat Modeling Tool
 
@@ -207,5 +207,5 @@ Nadat u klaar bent voor veranderende prioriteiten in uw en het bijwerken van de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Als u wilt een sjabloon voor de community bijdragen, gaat u naar onze [GitHub](https://github.com/Microsoft/threat-modeling-templates) pagina. 
-* Om te beginnen met het hulpprogramma, gaat u naar de [downloaden](https://aka.ms/tmtpreview) pagina.
+- Stuur uw vragen, opmerkingen en problemen van tmtextsupport@microsoft.com. **[Download](https://aka.ms/threatmodelingtool)**  Threat Modeling Tool aan de slag.
+- Als u wilt een sjabloon voor de community bijdragen, gaat u naar onze [GitHub](https://github.com/Microsoft/threat-modeling-templates) pagina.

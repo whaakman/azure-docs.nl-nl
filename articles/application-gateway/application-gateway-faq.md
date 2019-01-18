@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247500"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382410"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -213,22 +213,6 @@ Er is geen downtime. Exemplaren worden verdeeld over upgrade-domeinen en domeine
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway ondersteunt verwerkingsstop?
 
 Ja. U kunt configureren als u wilt wijzigen van de leden in een back endpool zonder onderbreking Verwerkingsstop voor verbindingen. Hiermee kunt bestaande verbindingen om door te gaan naar de vorige bestemming worden verzonden totdat de verbinding is gesloten of een configureerbare time-out is verlopen. Wacht alleen Verwerkingsstop voor verbindingen voor de huidige actieve verbindingen om te voltooien. Application Gateway is niet op de hoogte van de sessiestatus van toepassing.
-
-### <a name="what-are-application-gateway-sizes"></a>Wat is application gateway-grootten?
-
-Application Gateway wordt momenteel aangeboden in drie grootten: **Kleine**, **gemiddeld**, en **grote**. Kleine exemplaargrootten zijn bedoeld voor het ontwikkelen en testen van scenario's.
-
-Zie [Servicelimieten voor Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) voor een volledige lijst van toepassingsgateway-limieten.
-
-In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgateway-exemplaar waarvoor SSL-offload is uitgeschakeld:
-
-| Gemiddelde paginalaadtijd van back-end Antwoordgrootte | Klein | Middelgroot | Groot |
-| --- | --- | --- | --- |
-| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
-
-> [!NOTE]
-> Deze waarden zijn geschatte waarden voor de doorvoer van een toepassingsgateway. De werkelijke doorvoer hangt af van verschillende details van de omgeving, zoals de gemiddelde paginagrootte, locatie van back-endexemplaren en de verwerkingstijd voor een pagina. Voor nauwkeurige prestatiecijfers moet u uw eigen tests uitvoeren. Deze waarden worden alleen geboden als richtlijn voor de capaciteitsplanning.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan ik instantiegrootte van middelgrote tot grote zonder onderbreking wijzigen?
 

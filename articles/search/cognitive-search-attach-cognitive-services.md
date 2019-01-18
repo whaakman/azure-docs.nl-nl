@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 776363278352ca3de365760d334e99ab43b14bb5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351455"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389565"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
 
@@ -23,7 +23,7 @@ De AI-algoritmen te stimuleren [cognitief zoeken pijplijnen](cognitive-search-co
 
 U kunt een beperkt aantal documenten gratis verrijken of een factureerbare Cognitive Services-resource voor workloads met grotere en meer frequente koppelen. In dit artikel leert u hoe u een Cognitive Services-resource koppelen aan uw cognitieve vaardigheden uit om gegevens tijdens waardevoller [Azure Search indexeren](search-what-is-an-index.md).
 
-Als uw pijplijn bestaat uitsluitend uit [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), u hoeft niet te koppelen van een resource voor Cognitive Services.
+Als uw pijplijn uit de vaardigheden die geen verband houdt met Cognitive Services-API's bestaat, moet u nog steeds een Cognitive Services-resource koppelen, maar u wordt niet in rekening gebracht voor deze vaardigheden. Dat geen verband houdt vaardigheden opnemen: [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), [tekst samenvoegen](cognitive-search-skill-textmerger.md), [tekst splitsen](cognitive-search-skill-textsplit.md), en [shaper](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > U kunt vanaf 21 December 2018, een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Dit kan we kosten in rekening gebracht voor de uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
@@ -52,7 +52,9 @@ Doorgaan naar de volgende stap **enrichments toevoegen**. Zie voor een beschrijv
 
 ## <a name="use-billable-resources"></a>Factureerbare resources gebruiken
 
-Voor workloads die meer dan 20 documenten dagelijks nummering, moet u een factureerbare Cognitive Services-resource.
+Voor workloads die meer dan 20 enrichments dagelijks nummering, moet u een factureerbare Cognitive Services-resource koppelen. 
+
+U betaalt alleen voor de vaardigheden die de Cognitive Services-API's aanroepen. Niet-API's gebaseerd vaardigheden, zoals [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), [tekst samenvoegen](cognitive-search-skill-textmerger.md), [tekst splitsen](cognitive-search-skill-textsplit.md), en [shaper](cognitive-search-skill-shaper.md) vaardigheden zijn niet in rekening gebracht.
 
 1. In de **gegevens importeren** wizard in **Cognitive Services koppelen**, selecteert u een bestaande resource of klik op **nieuwe Cognitive Services-resource maken**.
 

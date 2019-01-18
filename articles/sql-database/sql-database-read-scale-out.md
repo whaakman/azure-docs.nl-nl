@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: e0a5d6180c7dfa94abf8dd738c8017a3b332dfd8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/17/2019
+ms.openlocfilehash: 9d7131c6ed1808725f59e53488bedb5ef81a77c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598801"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389402"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
@@ -80,7 +80,7 @@ Read Scale-Out is standaard ingeschakeld in [Managed Instance](sql-database-mana
 
 ### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: In- en uitschakelen van Read Scale-Out
 
-De December 2016 beheren Read Scale-Out in Azure PowerShell vereist Azure PowerShell versie of hoger. Zie voor de nieuwste versie van PowerShell, [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+De December 2016 beheren Read Scale-Out in Azure PowerShell vereist Azure PowerShell versie of hoger. Zie voor de nieuwste versie van PowerShell, [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 In- of uitschakelen van lezen scale-out in Azure PowerShell door het aanroepen van de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet en aan te in de gewenste waarde – `Enabled` of `Disabled` --voor de `-ReadScale` parameter. U kunt ook de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet voor het maken van een nieuwe database met lezen scale-out is ingeschakeld.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276244"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391268"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Implementatie van Azure verbroken planningsbeslissingen voor Azure Stack-geïntegreerde systemen
 Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u vervolgens uw beslissingen voor de Azure Stack-implementatie te voltooien.
@@ -49,12 +49,12 @@ Azure Stack is ontworpen om te werken het beste wanneer verbonden met Azure, dus
 |Marketplace, de mogelijkheid om te selecteren en toevoegen van galerie-pakketten rechtstreeks vanuit de Azure Marketplace|Mensen met een handicap: wanneer u Azure Stack in een niet-verbonden modus (zonder een verbinding met Internet) implementeert, kunt u items voor de marketplace niet downloaden met behulp van de Azure Stack-portal. Echter, kunt u de [marketplace syndication hulpprogramma](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) voor de marketplace-items downloaden op een computer die verbinding heeft met internet en deze vervolgens overbrengen naar uw Azure Stack-omgeving.|
 |Met behulp van Azure Active Directory federation-accounts voor het beheren van een Azure Stack-implementatie|Niet beschikbaar: deze functie vereist een verbinding met Azure. AD FS met een lokale Active Directory-exemplaar moet in plaats daarvan worden gebruikt.|
 |App-services|Mensen met een handicap - Web-Apps mogelijk toegang tot Internet voor bijgewerkte inhoud.|
-|Opdrachtregelinterface (CLI)|Mensen met een handicap: CLI heeft beperkte wat betreft verificatie en de inrichting van de principes van de Service.|
+|Opdrachtregelinterface (CLI)|Mensen met een handicap: CLI heeft beperkte wat betreft verificatie en de inrichting van Service-principals.|
 |Visual Studio – Cloud discovery|Cloud Discovery mensen met een handicap: ofwel worden gedetecteerd door verschillende clouds of werkt niet helemaal.|
 |Visual Studio – AD FS|Verminderde – alleen AD FS biedt ondersteuning voor Visual Studio Enterprise.
 Telemetrie|Niet-telemetriegegevens voor Azure Stack als en alle galeriepakketten van derden die afhankelijk van telemetrische gegevens zijn beschikbaar.|
 |Certificaten|Niet beschikbaar: verbinding met Internet is vereist voor het certificaat certificaatintrekkingslijst (CRL) en Online Certificate Status Protocol (OSCP)-services in de context van HTTPS.|
-|Key Vault|Mensen met een handicap: een gebruikelijk voor Key Vault is dat een toepassing lezen van geheimen tijdens runtime. Hiervoor moet de toepassing een service-principal in de map. In Azure Active Directory, wordt normale gebruikers (niet-beheerders) worden standaard toegestaan om toe te voegen, service-principals. In AD (met behulp van AD FS) zijn ze niet. Dit wordt een drempel in de end-to-end-ervaring geplaatst, omdat een moet altijd via een directory-beheerder om toe te voegen elke toepassing.| 
+|Key-Vault|Mensen met een handicap: een gebruikelijk voor Key Vault is dat een toepassing lezen van geheimen tijdens runtime. Hiervoor moet de toepassing een service-principal in de map. In Azure Active Directory, wordt normale gebruikers (niet-beheerders) worden standaard toegestaan om toe te voegen, service-principals. In AD (met behulp van AD FS) zijn ze niet. Dit wordt een drempel in de end-to-end-ervaring geplaatst, omdat een moet altijd via een directory-beheerder om toe te voegen elke toepassing.| 
 
 ## <a name="learn-more"></a>Meer informatie
 - Zie voor informatie over gebruiksvoorbeelden, aanschaffen, partners en leveranciers van OEM-hardware, de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) productpagina.

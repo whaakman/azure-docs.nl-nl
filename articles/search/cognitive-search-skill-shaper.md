@@ -8,32 +8,35 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313825"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391005"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper cognitieve vaardigheden
 
 De **Shaper** vaardigheid maakt een complex type ter ondersteuning van samengestelde velden (ook wel bekend als gedeeltelijk velden). Een veld van het complexe type heeft meerdere onderdelen, maar wordt beschouwd als één item in een Azure Search-index. Voorbeelden van geconsolideerde velden nuttig bij het zoeken in scenario's zijn de naam van een eerste en laatste combineren in een enkel veld, de plaats en de status in een enkel veld of de naam en geboortedatum in één veld tot stand brengen van de unieke id.
 
-De kwalificatie Shaper kunt u in feite een structuur maken, het definiëren van de naam van de leden van die structuur en het waarden toewijzen aan elk lid.
+De **Shaper** vaardigheden kunt u in feite een structuur maken, het definiëren van de naam van de leden van die structuur en het waarden toewijzen aan elk lid.
 
-Standaard ondersteunt deze techniek objecten die een niveau zijn. Voor meer complexe objecten, kunt u verschillende Shaper stappen koppelen.
+Standaard ondersteunt deze techniek objecten die een niveau zijn. Voor meer complexe objecten, kunt u verschillende koppelen **Shaper** stappen.
 
-In het antwoord, is de naam van de uitvoer altijd 'uitvoeren'. Intern, de pijplijn kan een andere naam toewijzen, zoals 'analyzedText' in de onderstaande voorbeelden "uitvoeren", maar de Shaper vaardigheid zelf als resultaat 'uitvoeren' in het antwoord. Dit kan belangrijk zijn als u foutopsporing verrijkt documenten en u ziet de naamgevingsconventie afwijking, of als u een aangepaste vaardigheden ontwikkelen en zijn structureren van het antwoord zelf.
+In het antwoord, is de naam van de uitvoer altijd 'uitvoeren'. Intern, de pijplijn kunt toewijzen voor een andere naam, zoals 'analyzedText' in de voorbeelden hieronder om de "uitvoeren", maar de **Shaper** vaardigheid zelf wordt 'uitvoer' in het antwoord geretourneerd. Dit kan belangrijk zijn als u foutopsporing verrijkt documenten en u ziet de naamgevingsconventie afwijking, of als u een aangepaste vaardigheden ontwikkelen en zijn structureren van het antwoord zelf.
+
+> [!NOTE]
+> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en er zijn geen kosten die zijn gekoppeld aan deze kwalificatie. U moet echter [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) toch voor de onderdrukking van de optie gratis resource die u beperkt tot een klein aantal dagelijkse enrichments.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Voorbeeld 1: complexe typen
 
-U hebt een scenario waarin u wilt maken van een structuur genaamd *analyzedText* waarvoor twee leden: *tekst* en *sentiment*, respectievelijk. In Azure Search, een meerdelige doorzoekbaar veld heet een *complexe type*, en hieraan is nog niet wordt ondersteund. In deze Preview-versie kan een kwalificatie Shaper worden gebruikt voor het genereren van velden van een complex type in uw index. 
+U hebt een scenario waarin u wilt maken van een structuur genaamd *analyzedText* waarvoor twee leden: *tekst* en *sentiment*, respectievelijk. In Azure Search, een meerdelige doorzoekbaar veld heet een *complexe type*, en hieraan is nog niet wordt ondersteund. In deze Preview-versie, een **Shaper** vaardigheid kan worden gebruikt voor het genereren van velden van een complex type in uw index. 
 
 Het volgende voorbeeld bevat het lid namen als invoer. De uitvoer-structuur (uw complexe veld in Azure Search) is opgegeven via *targetName*. 
 
@@ -62,7 +65,7 @@ Het volgende voorbeeld bevat het lid namen als invoer. De uitvoer-structuur (uw 
 ```
 
 ### <a name="sample-input"></a>Van Voorbeeldinvoer
-Een JSON-document bieden van bruikbare invoer voor deze kwalificatie Shaper kan worden:
+Een JSON-document bieden van bruikbare invoer voor deze **Shaper** vaardigheid kan zijn:
 
 ```json
 {
@@ -80,7 +83,7 @@ Een JSON-document bieden van bruikbare invoer voor deze kwalificatie Shaper kan 
 
 
 ### <a name="sample-output"></a>Voorbeelduitvoer
-De kwalificatie Shaper genereert een nieuwe element met de naam *analyzedText* met de combinatie van elementen van *tekst* en *sentiment*. 
+De **Shaper** vaardigheid genereert een nieuwe element met de naam *analyzedText* met de combinatie van elementen van *tekst* en *sentiment*. 
 
 ```json
 {

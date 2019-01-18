@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fa2e834b142d5df4751b46f6dac2db9b3a10a463
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244984"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391313"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL onderhoud resourceproviderbewerkingen
 
-De SQL-resourceprovider wordt uitgevoerd op een vergrendelde virtuele machine. Om in te schakelen onderhoudsbewerkingen, moet u de beveiliging van de virtuele machine bijwerken. Om dit te doen met behulp van het principe van minimale bevoegdheden, kunt u [PowerShell alleen Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) eindpunt *DBAdapterMaintenance*. Het installatiepakket voor de resource-provider bevat een script voor deze bewerking.
+De SQL-resourceprovider wordt uitgevoerd op een vergrendelde virtuele machine. Om in te schakelen onderhoudsbewerkingen, moet u de beveiliging van de virtuele machine bijwerken. Om dit te doen met de principal van minimale bevoegdheden, kunt u [PowerShell alleen Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) eindpunt *DBAdapterMaintenance*. Het installatiepakket voor de resource-provider bevat een script voor deze bewerking.
 
 ## <a name="patching-and-updating"></a>Patches en updates
 

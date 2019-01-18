@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cbd09f141128f9103af88b695baf717eaa3c99d5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038833"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389107"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>Databasetransacties en functionaliteit voor optimistische gelijktijdigheid beheren
 
@@ -49,7 +49,7 @@ De mogelijkheid voor het uitvoeren van JavaScript direct in de database-engine b
 
 ## <a name="optimistic-concurrency-control"></a>Optimistische gelijktijdigheid beheren 
 
-Optimistisch gelijktijdigheidbeheer kunt u voorkomen dat updates verloren gaan en wordt verwijderd. Gelijktijdige, conflicterende bewerkingen worden onderworpen aan de reguliere pessimistische vergrendeling van de database-engine die wordt gehost door de logische partitie die eigenaar is van het item. Wanneer twee gelijktijdige bewerkingen bij het bijwerken van de meest recente versie van een item in een logische partitie, een van deze wordt win en de andere mislukken. Echter, als een of twee bewerkingen bij het gelijktijdig bijwerken van hetzelfde artikel eerder een oudere waarde van het item lezen heeft, de database niet weten als de eerder leeswaarden door een of beide de conflicterende bewerkingen inderdaad de laatste waarde van het item. Gelukkig kan deze situatie worden gedetecteerd met de functionaliteit voor optimistische gelijktijdigheid besturingselement (OCC) voordat u de twee bewerkingen invoeren van de transactiegrens van de in de database-engine. OCC beschermt uw gegevens tegen per ongeluk worden overschreven wijzigingen die zijn aangebracht door anderen. Dit voorkomt ook dat anderen uw eigen wijzigingen per ongeluk wordt overschreven.
+Optimistisch gelijktijdigheidbeheer kunt u voorkomen dat updates verloren gaan en wordt verwijderd. Gelijktijdige, conflicterende bewerkingen worden onderworpen aan de reguliere pessimistische vergrendeling van de database-engine die wordt gehost door de logische partitie die eigenaar is van het item. Wanneer twee gelijktijdige bewerkingen proberen bij te werken van de meest recente versie van een item in een logische partitie, een van deze wordt win en de andere mislukken. Echter, als een of twee bewerkingen bij het gelijktijdig bijwerken van hetzelfde artikel eerder een oudere waarde van het item lezen heeft, de database niet weten als de eerder leeswaarden door een of beide de conflicterende bewerkingen inderdaad de laatste waarde van het item. Gelukkig kan deze situatie worden gedetecteerd met de functionaliteit voor optimistische gelijktijdigheid besturingselement (OCC) voordat u de twee bewerkingen invoeren van de transactiegrens van de in de database-engine. OCC beschermt uw gegevens tegen per ongeluk worden overschreven wijzigingen die zijn aangebracht door anderen. Dit voorkomt ook dat anderen uw eigen wijzigingen per ongeluk wordt overschreven.
 
 De gelijktijdige updates van een item zijn onderworpen aan de OCC door Azure Cosmos DB-communicatielaag-protocol. Azure Cosmos-database zorgt ervoor dat de client-side-versie van het item dat u bijwerken (of verwijderen) gelijk zijn aan de versie van het item in de Azure Cosmos-container. Dit zorgt ervoor dat uw schrijfbewerkingen zijn beschermd tegen het per ongeluk worden overschreven door het schrijven van anderen en vice versa. In een omgeving met meerdere gebruikers voorkomt de Optimistisch gelijktijdigheidbeheer dat u per ongeluk verwijderen of bijwerken van de verkeerde versie van een item. Items zijn zo beschermd tegen de roemruchte "verloren update" of 'verloren verwijderen' problemen.
 

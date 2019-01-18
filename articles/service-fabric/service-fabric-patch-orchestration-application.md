@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 6bd71b7cecfb8a5decd3049152a2293dc7867bde
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754030"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382738"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -141,7 +141,7 @@ Automatische updates voor Windows kunnen leiden tot verlies van beschikbaarheid,
 
 Toepassing echter samen met scripts voor installatie kan worden gedownload vanaf [archief koppeling](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA_v1.2.2.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
+Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>De app configureren
 
@@ -150,14 +150,14 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
 |MaxResultsToCache    |Lang                              | Maximum aantal resultaten van de Windows Update, die moet worden opgeslagen in de cache. <br>Standaardwaarde is 3000 ervan uitgaande dat de: <br> -Het aantal knooppunten is 20. <br> -Het aantal updates dat op een knooppunt per maand gebeurt is vijf. <br> -Het aantal resultaten dat per bewerking is 10. <br> -Resultaten voor de afgelopen drie maanden moeten worden opgeslagen. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service op Windows-updates installeren via de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor Windows Update.)<br> Raadpleeg [Veelgestelde vragen over](#frequently-asked-questions) sectie over het bepalen welke het beste geschikt beleid voor uw cluster.
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service op Windows-updates installeren via de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor Windows Update.)<br> Raadpleeg [Veelgestelde vragen over](#frequently-asked-questions) sectie over het bepalen welke het beste geschikt beleid voor uw cluster.
 |LogsDiskQuotaInMB   |Lang  <br> (Standaard: 1024)               |Maximale grootte van de patch orchestration app registreert in MB, hetgeen kan lokaal worden opgeslagen op de knooppunten.
-| WUQuery               | string<br>(Standaard: "IsInstalled = 0")                | Query voor het ophalen van Windows-updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: De waarde True)                 | Met deze markering kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
+| WUQuery               | string<br>(Standaard: "IsInstalled=0")                | Query voor het ophalen van Windows-updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: true)                 | Gebruik deze eigenschap om te bepalen welke updates moeten worden gedownload en geïnstalleerd. Volgende waarden zijn toegestaan <br>True - installeert alleen de updates van Windows-besturingssysteem.<br>ONWAAR: installeert alle beschikbare updates op de machine.          |
 | WUOperationTimeOutInMinutes | Int <br>(Standaard: 90)                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
 | WURescheduleCount     | Int <br> (Standaard: 5)                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
 | WURescheduleTimeInMinutes | Int <br>(Standaard: 30) | Het interval waarmee de service wordt automatisch opnieuw gepland met de Windows update als fout zich blijft voordoen. |
-| WUFrequency           | Door komma's gescheiden tekenreeks op (standaard: "Wekelijks, woensdag, 7:00:00")     | De frequentie voor het installeren van Windows Update. De indeling en de mogelijke waarden zijn: <br>-Maand, DD uu: mm:, bijvoorbeeld, maandelijks, 5, 12: 22:32. <br> -Wekelijks, dag, uu: mm:, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks, uu: mm:, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan dat Windows Update al dan niet mogen worden uitgevoerd.  <br><br> Houd er rekening mee dat de tijden in UTC zijn.|
+| WUFrequency           | Door komma's gescheiden tekenreeks op (standaard: "Weekly, Wednesday, 7:00:00")     | De frequentie voor het installeren van Windows Update. De indeling en de mogelijke waarden zijn: <br>-Maand, DD uu: mm:, bijvoorbeeld, maandelijks, 5, 12: 22:32.<br>Toegestane waarden voor veld DD (dag) zijn getallen tussen het bereik 1-28 en 'last'. <br> -Wekelijks, dag, uu: mm:, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks, uu: mm:, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan dat Windows Update al dan niet mogen worden uitgevoerd.  <br><br> Houd er rekening mee dat de tijden in UTC zijn.|
 | AcceptWindowsUpdateEula | Booleaans <br>(Standaard: true) | Met deze markering instellen, accepteert de toepassing de eindgebruiker-licentie voor Windows Update namens de eigenaar van de machine.              |
 
 > [!TIP]
@@ -227,7 +227,7 @@ Velden van de JSON worden hieronder beschreven.
 
 Veld | Waarden | Details
 -- | -- | --
-OperationResult | 0 - geslaagd<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft aan dat het resultaat van de algehele bewerking (meestal met betrekking tot installatie van updates voor een of meer).
+OperationResult | 0 - Succeeded<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft aan dat het resultaat van de algehele bewerking (meestal met betrekking tot installatie van updates voor een of meer).
 ResultCode | Kan operationresult niet gelijk | Dit veld wordt resultaat van de installatiebewerking voor individuele update aangegeven.
 OperationType | 1 - installatie<br> 0 - zoeken naar en downloaden.| De installatie is de enige OperationType die standaard wordt weergegeven in de resultaten.
 WindowsUpdateQuery | De standaardwaarde is "IsInstalled = 0" |Windows update-query die is gebruikt om te zoeken naar updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
@@ -397,8 +397,14 @@ Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is 
 
 - Opgelost probleem in cluster omlaag schalen werkstroom. Garbagecollection verzameling logica voor POA herstellen taken die behoren tot niet-bestaande knooppunten geïntroduceerd.
 
-### <a name="version-122-latest"></a>Versie 1.2.2 (recentste)
+### <a name="version-122"></a>Versie 1.2.2
 
 - Diverse oplossingen voor problemen.
 - Binaire bestanden zijn nu aangemeld.
-- downloadkoppeling sfpkg verwijst nu naar een specifieke versie.
+- Sfpkg-koppeling voor de toepassing hebt toegevoegd.
+
+### <a name="version-130"></a>Versie 1.3.0
+
+- InstallWindowsOSOnlyUpdates nu instellen op false, worden alle beschikbare updates geïnstalleerd.
+- De logica van het uitschakelen van automatische updates is gewijzigd. Hiermee een bug opgelost wanneer Automatische updates niet ophalen van uitgeschakeld op Server 2016 en hoger.
+- Plaatsing beperking voor zowel de microservices van POA voor geavanceerde usecases als parameters gebruikt.

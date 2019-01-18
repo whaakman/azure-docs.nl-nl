@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352679"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388477"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -60,11 +60,11 @@ Maak een plan, een aanbieding en een abonnement voor het Kubernetes-Marketplace-
 
     e. Selecteer **bieden**. Selecteer de naam van de aanbieding die u hebt gemaakt. Noteer de abonnement-ID.
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Maken van een service-principal en de referenties in AD FS
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Maken van een service-principal en de referenties in AD FS
 
 Als u Active Directory Federated Services (AD FS) voor uw identity management-service gebruikt, moet u een service-principal voor gebruikers implementeert een Kubernetes-cluster maken.
 
-1. Maken en exporteren van een certificaat om te worden gebruikt voor het maken van de service-principal. Het volgende codefragment hieronder ziet u hoe u een zelfondertekend certificaat maken. 
+1. Maken en exporteren van een certificaat worden gebruikt voor de service-principal maken. Het volgende codefragment hieronder ziet u hoe u een zelfondertekend certificaat maken. 
 
     - U hebt de volgende soorten informatie nodig:
 
@@ -117,7 +117,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
     - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
         $ServicePrincipal
         ```
 
-    - De details van de Service-Principal zoeken zoals het onderstaande codefragment
+    - De details van Service-principal zoeken zoals het onderstaande codefragment
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

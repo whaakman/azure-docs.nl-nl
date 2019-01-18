@@ -1,17 +1,17 @@
 ---
-Titel: NET # Neurale netwerken titleSuffix: Azure Machine Learning Studio description: De syntaxis voor de Net # neurale netwerken specificatietaal, samen met voorbeelden van hoe u een aangepaste neural network-model met Net # met Azure Machine Learning Studio maakt.
+Titel: Maak aangepaste neurale netwerken met Net # titleSuffix: Azure Machine Learning Studio description: Syntaxis van de handleiding voor de Net # neurale netwerken specificatietaal. Informatie over het maken van aangepaste neurale netwerk modellen in Azure Machine Learning Studio.
 Services: machine learning ms.service: machine learning ms.component: studio ms.topic: verwijzing
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 
-NET # is een door Microsoft ontwikkelde taal die wordt gebruikt om netwerkarchitecturen voor neurale te definiëren. Net # definiëren met de structuur van een neural network, maakt het mogelijk voor het definiëren van complexe structuren zoals deep neural networks of convoluties van willekeurige dimensies, waarvan bekend is dat het leren van gegevens, zoals afbeeldingen, audio of video verbeteren.
+NET # is een door Microsoft ontwikkelde taal die wordt gebruikt om complexe neural network-architecturen zoals deep neural networks of convoluties van willekeurige dimensies te definiëren. U kunt complexe structuren gebruiken om te leren op gegevens, zoals afbeeldingen, video of audio verbeteren.
 
 In deze context kunt u een specificatie Net #-architectuur:
 
 + Alle neutrale netwerkmodules in Microsoft Azure Machine Learning Studio: [Multiklassen Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), en [Neural Network regressie](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Neural network-functies in MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) en [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)voor de taal R en [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) voor Python.
++ Neural network-functies in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) en [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)voor de taal R en [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) voor Python.
 
 
 In dit artikel beschrijft de basisconcepten en de syntaxis die nodig zijn voor het ontwikkelen van een aangepaste neural network met Net #: 
@@ -26,17 +26,17 @@ In dit artikel beschrijft de basisconcepten en de syntaxis die nodig zijn voor h
 
 De structuur van een neuraal netwerk bestaat uit knooppunten die zijn ingedeeld in lagen, en gewogen verbindingen (of randen) tussen de knooppunten. De verbindingen zijn gericht en elke verbinding heeft een bronknooppunt en een doelknooppunt.  
 
-Elke trainable laag (een verborgen of een uitvoer-laag) heeft een of meer **verbinding bundels**. Een bundel verbinding bestaat uit een bronlaag en een specificatie van de verbindingen van die bronlaag. Alle verbindingen in een bepaalde bundel delen dezelfde bronlaag en de dezelfde bestemming-laag. In de Net #, wordt beschouwd als een bundel verbinding als behorend tot de doellaag van de bundel.
+Elke trainable laag (een verborgen of een uitvoer-laag) heeft een of meer **verbinding bundels**. Een bundel verbinding bestaat uit een bronlaag en een specificatie van de verbindingen van die bronlaag. Alle verbindingen in een bepaalde bundel delen bron- en lagen. In de Net #, wordt beschouwd als een bundel verbinding als behorend tot de doellaag van de bundel.
 
-NET # biedt ondersteuning voor verschillende soorten verbinding bundels, waarmee u het aanpassen van de invoer van de manier waarop worden toegewezen aan verborgen lagen en toegewezen aan de uitvoer.
+NET # biedt ondersteuning voor verschillende soorten verbinding bundels, die u kunnen aanpassen van de invoer van de manier waarop worden toegewezen aan verborgen lagen en toegewezen aan de uitvoer.
 
 De standaard- of standard-bundel is een **volledige bundel**, in die op elk knooppunt in de bronlaag is verbonden met elk knooppunt in de doellaag.
 
 Daarnaast ondersteunt Net # de volgende vier soorten geavanceerde verbinding bundels:
 
-+ **Gefilterd bundels**. De gebruiker kan een predicaat definiëren met behulp van de locaties van het bronknooppunt laag en het doelknooppunt voor de laag. Knooppunten zijn verbonden wanneer het predikaat True is.
++ **Gefilterd bundels**. U kunt een predicaat definiëren met behulp van de locaties van het bronknooppunt laag en het doelknooppunt voor de laag. Knooppunten zijn verbonden wanneer het predikaat True is.
 
-+ **Convolutional bundels**. De gebruiker kunt kleine groepen van knooppunten in de bronlaag definiëren. Elk knooppunt in de doellaag is verbonden met één groep van knooppunten in de bronlaag.
++ **Convolutional bundels**. U kunt kleine groepen van knooppunten definiëren in de bronlaag. Elk knooppunt in de doellaag is verbonden met één groep van knooppunten in de bronlaag.
 
 + **Groeperen bundels** en **antwoord normalisering bundels**. Dit zijn vergelijkbaar met convolutional bundels in dat de gebruiker gedefinieerd kleine groepen van knooppunten in de bronlaag. Het verschil is dat het gewicht van de randen in deze pakketten niet trainable zijn. In plaats daarvan wordt een vooraf gedefinieerde functie toegepast op de waarden van het knooppunt bron om te bepalen van de waarde van de doel-knooppunt.
 

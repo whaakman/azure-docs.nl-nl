@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607078"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382789"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Automatisch instellen voor het bewaken van query's en verbeteren de prestaties van de werkbelastingen inschakelen
 
@@ -87,6 +87,10 @@ Verbinding maken met de database voor het configureren van afzonderlijke opties 
    ```
    
 De afzonderlijke afstemmingsoptie instellen op ON, overschrijven de instellingen die van de database overgenomen en de afstemmingsoptie inschakelen. Instellen op uitgeschakeld, worden ook alle instellingen die van de database overgenomen onderdrukken en de afstemmingsoptie uitschakelen. Optie voor automatisch afstemmen, waarvoor de STANDAARDWAARDE is opgegeven, wordt de configuratie van het databaseniveau van de automatisch afstemmen van de instelling overnemen.  
+
+> [!IMPORTANT]
+> In geval van [actieve geo-replicatie](sql-database-auto-failover-group.md), automatische afstemming moet worden geconfigureerd op alleen de primaire database. Toegepast automatisch afstemmen van acties, zijn zoals voor het voorbeeld van de index maken of verwijderen moet automatisch worden gerepliceerd naar de secundaire alleen-lezen. Er wordt geprobeerd om in te schakelen automatisch afstemmen via T-SQL op de secundaire alleen-lezen, een fout leidt als met een andere configuratie afstemmen op de secundaire alleen-lezen niet ondersteund wordt.
+>
 
 Zoeken naar onze meer maar T-SQL-opties voor het configureren van automatisch afstemmen, Zie [ALTER DATABASE SET Options (Transact-SQL) voor de logische SQL Database-server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 

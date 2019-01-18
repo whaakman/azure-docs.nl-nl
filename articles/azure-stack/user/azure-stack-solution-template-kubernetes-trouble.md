@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: dc6994cd682997dd00e76b57b4996ebad1f73fbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352390"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390680"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Oplossen van uw implementatie naar Kubernetes met Azure Stack
 
@@ -47,7 +47,7 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
     Voer de waarden die u nodig hebt voor het instellen van het Kubernetes-cluster, met inbegrip van:
     -  **Gebruikersnaam**: De gebruikersnaam voor de virtuele Linux-machines die deel van de Kubernetes-cluster en DVM uitmaken.
     -  **Openbare SSH-sleutel**: De sleutel die wordt gebruikt voor de autorisatie van alle Linux-machines die zijn gemaakt als onderdeel van de Kubernetes-cluster en DVM.
-    -  **Service-Principal**: De ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De client-ID die wordt geïdentificeerd als de toepassings-ID bij het maken van uw service-principal. 
+    -  **Service-principal**: De ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De client-ID die wordt geïdentificeerd als de toepassings-ID bij het maken van uw service-principal. 
     -  **Clientgeheim**: Deze sleutel u hebt gemaakt tijdens het maken van uw service-principal.
 
 2. De implementatie van virtuele machine maken en de extensie voor aangepaste scripts.

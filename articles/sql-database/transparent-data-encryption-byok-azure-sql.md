@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/17/2019
+ms.openlocfilehash: 60c7483e698a07fcf86438798f6bb5013a7417ce
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966769"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391145"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption: Bring Your Own Key-ondersteuning
 
@@ -71,7 +71,7 @@ Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key
  > [!NOTE]
  > Als TDE versleuteld SQL-databases geen toegang meer tot de key vault omdat ze de firewall niet overslaan, de databases binnen 24 uur zijn verwijderd.
 
-- Controle en rapportage van alle versleutelingssleutels inschakelen: Key Vault biedt u logboeken die gemakkelijk zijn te injecteren in andere security information en event management (SIEM) hulpprogramma's. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is een voorbeeld van een service die al is geïntegreerd.
+- Controle en rapportage van alle versleutelingssleutels inschakelen: Key Vault biedt de logboeken die gemakkelijk zijn te injecteren in andere informatie over beveiliging en event management (SIEM)-hulpprogramma's. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is een voorbeeld van een service die al is geïntegreerd.
 - Om hoge beschikbaarheid van de versleutelde databases te garanderen, configureert u elke logische server met twee Sleutelkluizen van Azure die zich in verschillende regio's bevinden.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Richtlijnen voor het configureren van de TDE-beveiliging (asymmetrische sleutel)
@@ -116,11 +116,11 @@ De volgende sectie gaat over de installatie- en configuratiestappen in meer deta
 
 ### <a name="azure-key-vault-configuration-steps"></a>Stappen voor het configureren van Azure Key Vault
 
-- Installeer [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)
+- Installeer [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
 - Maak twee Azure-Sleutelkluizen in twee verschillende regio's met behulp van [PowerShell om in te schakelen van de eigenschap 'voorlopig verwijderen'](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) in de sleutelkluizen (deze optie is niet beschikbaar is via de Portal voor Azure Sleutelkluis nog –, maar vereist voor SQL).
 - Beide Sleutelkluizen van Azure moet zich bevinden in de twee regio's beschikbaar zijn in het hetzelfde geografische gebied voor Azure in volgorde voor back-up en herstel van sleutels om te werken.  Als u de twee sleutelkluizen zich bevinden in verschillende geografische gebieden om te voldoen aan de SQL-Geo-DR-behoeften, volgt u de [BYOK proces](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) die ondersteuning biedt voor sleutels moeten worden geïmporteerd uit een on-premises HSM.
 - Maak een nieuwe sleutel in de eerste key vault:  
-  - RSA/RSA-HSA 2048 sleutel
+  - RSA/RSA-HSA 2048 key
   - Er is geen vervaldatum
   - Sleutel is ingeschakeld en machtigingen heeft voor het uitvoeren van get, sleutel Inpakken en uitpakken sleutelbewerkingen
 - Back-up van de primaire sleutel en de sleutel herstellen naar de tweede key vault.  Zie [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) en [Restore-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
@@ -169,7 +169,7 @@ Zodra een database is versleuteld met TDE met behulp van een sleutel uit Key Vau
 
 Zorg ervoor dat het sleutelmateriaal nog steeds in de oorspronkelijke kluis onder de naam van de oorspronkelijke sleutel is voor het herstellen van een back-up die is versleuteld met een TDE-beveiliging uit Key Vault. Wanneer de TDE-beveiliging voor een database, de oude back-ups van de database wordt gewijzigd **niet** bijgewerkt voor het gebruik van de meest recente TDE-beveiliging. Daarom raden wij aan alle oude versies van de TDE-beveiliging te houden in Key Vault, zodat de databaseback-ups kunnen worden hersteld.
 
-Als een sleutel die nodig zijn voor het herstellen van een back-up niet langer in de oorspronkelijke sleutelkluis is, het volgende foutbericht wordt geretourneerd: ' doelserver `<Servername>` heeft geen toegang tot alle AKV-URI's die zijn gemaakt tussen < tijdstempel #1 > en < tijdstempel #2 >. Probeer opnieuw na het herstellen van alle AKV-URI's."
+Als een sleutel die nodig zijn voor het herstellen van een back-up niet langer in de oorspronkelijke sleutelkluis is, wordt het volgende foutbericht geretourneerd: "Doelserver `<Servername>` heeft geen toegang tot alle AKV URI's die worden gemaakt tussen < tijdstempel #1 > en < tijdstempel #2 >. Probeer opnieuw na het herstellen van alle AKV-URI's."
 
 Als oplossing hiervoor kunt uitvoeren de [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) cmdlet om te retourneren van de lijst met sleutels uit Key Vault die zijn toegevoegd aan de server (tenzij ze zijn verwijderd door een gebruiker). Zorg ervoor dat de doelserver voor de back-up heeft toegang tot alle van deze sleutels, zodat de dat alle back-ups kunnen worden hersteld.
 
@@ -181,4 +181,4 @@ Get-AzureRmSqlServerKeyVaultKey `
 
 Zie voor meer informatie over het herstellen van back-up voor SQL-Database, [herstellen van een Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups). Zie voor meer informatie over het herstellen van back-up voor SQL Data Warehouse, [herstellen van een Azure SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-overview).
 
-Extra aandacht voor back-ups van logboekbestanden: back-ups van logboekbestanden bestanden versleuteld met de oorspronkelijke TDE Encryptor, blijven zelfs als de TDE-beveiliging is gedraaid en de database is nu met behulp van een nieuwe TDE-beveiliging.  Tijdens het terugzetten beide sleutels nodig om de database te herstellen.  Als het logboekbestand opgeslagen in Azure Key Vault TDE-beveiliging gebruikt is, wordt deze sleutel tijdens het terugzetten nodig, zelfs als de database is gewijzigd voor het gebruik van service beheerde TDE in de tussentijd.
+Extra aandacht voor back-ups van logboekbestanden: Back-ups van logboekbestanden bestanden versleuteld met de oorspronkelijke TDE Encryptor, blijven zelfs als de TDE-beveiliging is gedraaid en de database is nu met behulp van een nieuwe TDE-beveiliging.  Tijdens het terugzetten beide sleutels nodig om de database te herstellen.  Als het logboekbestand opgeslagen in Azure Key Vault TDE-beveiliging gebruikt is, wordt deze sleutel tijdens het terugzetten nodig, zelfs als de database is gewijzigd voor het gebruik van service beheerde TDE in de tussentijd.

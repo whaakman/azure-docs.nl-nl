@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
 ms.component: alerts
-ms.openlocfilehash: 9cd745cedd6d870262e412709e4e104c1406558e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c1bcbf1245ef3256ceb1db098d6bcb014c7cd155
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54234080"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382020"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Meld u waarschuwingsquery's in Azure Monitor
 [Waarschuwingsregels op basis van Azure Monitor logboeken](alerts-unified-log.md) met regelmatige tussenpozen uitvoeren, dus moet u ervoor zorgen dat ze worden geschreven naar de overhead en Latentie minimaliseren. In dit artikel bevat aanbevelingen voor het schrijven van efficiënte query's voor waarschuwingen en een proces voor het converteren van bestaande query's. 
@@ -27,7 +27,7 @@ Bijvoorbeeld de volgende query is afgestemd op de _SecurityEvent_ tabel en wordt
 SecurityEvent | where EventID == 4624 
 ```
 
-Query's die met beginnen `search` of `union` kunt u meerdere doorzoeken met meerdere kolommen in een tabel of zelfs meerdere tabellen. De volgende voorbeelden ziet u meerdere methoden voor het zoeken naar de term _geheugen_:
+Query's die met beginnen `search` of `union` kunt u zoeken in meerdere kolommen in een tabel of zelfs meerdere tabellen. De volgende voorbeelden ziet u meerdere methoden voor het zoeken naar de term _geheugen_:
 
 ```Kusto
 search "Memory"

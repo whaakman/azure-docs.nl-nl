@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319457"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382621"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -230,7 +230,7 @@ Wanneer een nieuw beleid wordt toegepast, schema en de retentie van het nieuwe b
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Worden de gegevens die naar Azure worden verzonden, versleuteld?
 
-Ja. Gegevens worden versleuteld op de on-premises virtuele machine met AES256. De gegevens worden verzonden via een beveiligde HTTPS-koppeling.
+Ja. Gegevens worden versleuteld op de on-premises virtuele machine met AES256. De gegevens worden verzonden via een beveiligde HTTPS-koppeling. De gegevens worden verzonden in de cloud wordt beveiligd door HTTPS-koppeling tussen service voor opslag maken en herstellen. iSCSI-protocol voor beveiliging van de gegevens tussen machine voor herstel-service en de gebruiker verzonden. Secure tunneling wordt gebruikt voor het beveiligen van het iSCSI-kanaal.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Worden de back-upgegevens op Azure ook versleuteld?
 

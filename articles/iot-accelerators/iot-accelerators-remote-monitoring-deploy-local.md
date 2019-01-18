@@ -6,14 +6,14 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604768"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382261"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>De bewaking op afstand oplossingsversnellers implementeren lokaal - Visual Studio
 
@@ -48,16 +48,9 @@ Voor het voltooien van de lokale implementatie, moet u de volgende hulpprogramma
 
 In deze sectie maakt uitvoeren u de microservices bewaking op afstand. U hebt de web-UI systeemeigen uitgevoerd, de Apparaatsimulatie-service in Docker en de microservices in Visual Studio.
 
-### <a name="run-the-web-ui"></a>Uitvoeren van de web-UI
-
-In deze stap start u de web-UI. Navigeer naar de **webinterface** map in uw lokale exemplaar van de opslagplaats en voer de volgende opdrachten uit:
-
-```cmd
-npm install
-npm start
-```
-
 ### <a name="run-the-device-simulation-service"></a>Uitvoeren van de service van de simulatie van apparaat
+
+Open een nieuw opdrachtpromptvenster om er zeker van te zijn dat u toegang hebt tot de omgevingsvariabelen ingesteld door de **start.cmd** script in de vorige sectie.
 
 Voer de volgende opdracht voor het starten van de Docker-container voor de service van de simulatie apparaat. De service simuleert apparaten voor de oplossing voor externe controle.
 
@@ -77,9 +70,9 @@ De volgende stappen laten zien hoe u de microservices bewaking op afstand uitvoe
     * WebService (asa-manager\WebService)
     * WebService (auth\WebService)
     * WebService (config\WebService)
-    * WebService (apparaat-telemetry\WebService)
+    * WebService (device-telemetry\WebService)
     * WebService (iothub-manager\WebService)
-    * WebService (opslag-adapter\WebService)
+    * WebService (storage-adapter\WebService)
 1. Klik op **OK** om op te slaan, uw keuzes.
 1. Klik op **fouten opsporen > Foutopsporing starten** wilt bouwen en uitvoeren van de webservices op de lokale computer.
 
@@ -94,11 +87,22 @@ Volg deze stappen voor het starten van de Stream Analytics-taak:
 1. Klik op de **Stream Analytics-taak** in de lijst met resources.
 1. Op de Stream Analytics-taak **overzicht** pagina, klikt u op de **Start** knop. Klik vervolgens op **Start** de taak om nu te starten.
 
+### <a name="run-the-web-ui"></a>Uitvoeren van de web-UI
+
+In deze stap start u de web-UI. Open een nieuw opdrachtpromptvenster om er zeker van te zijn dat u toegang hebt tot de omgevingsvariabelen ingesteld door de **start.cmd** script. Navigeer naar de **webinterface** map in uw lokale exemplaar van de opslagplaats en voer de volgende opdrachten uit:
+
+```cmd
+npm install
+npm start
+```
+
+Wanneer het begin voltooid is, wordt de pagina in uw browser weergegeven **http://localhost:3000/dashboard**. De fouten op deze pagina worden verwacht. Als u de toepassing zonder fouten, voer de volgende stap.
+
 ### <a name="configure-and-run-nginx"></a>Configureren en uitvoeren van NGINX
 
 Instellen van een reverse proxy-server om de web-App en microservices die worden uitgevoerd op uw lokale computer te koppelen:
 
-* Kopieer de **nginx.conf** -bestand uit de **webui\scripts\localhost** map die u wilt de **nginx\conf** directory installeren.
+* Kopieer de **nginx.conf** -bestand uit de **webui\scripts\localhost** map in de lokale kopie van de opslagplaats naar de **nginx\conf** directory installeren.
 * Voer **nginx**.
 
 Voor meer informatie over het uitvoeren **nginx**, Zie [nginx voor Windows](https://nginx.org/en/docs/windows.html).

@@ -8,19 +8,22 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 376a5a2214c5f1d77439923d6a11aaad5e011e73
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 05134ff59f87aaac71588057f1ac50015a769672
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313850"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389839"
 ---
 #   <a name="text-split-cognitive-skill"></a>Tekst splitsen cognitieve vaardigheden
 
 De **tekst splitsen** vaardigheid tekst opgesplitst in segmenten van de tekst. U kunt opgeven of u wilt verbreken van de tekst in zinnen of pagina's van een bepaalde lengte. Deze kwalificatie is vooral handig als er vereisten voor de lengte in andere vaardigheden downstream maximale tekst zijn. 
+
+> [!NOTE]
+> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en er zijn geen kosten die zijn gekoppeld aan deze kwalificatie. U moet echter [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) toch voor de onderdrukking van de optie gratis resource die u beperkt tot een klein aantal dagelijkse enrichments.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -32,7 +35,7 @@ Parameters zijn hoofdlettergevoelig.
 | Parameternaam     | Description |
 |--------------------|-------------|
 | textSplitMode      | 'Pagina's ' of "zinnen" | 
-| maximumPageLength | Als textSplitMode is ingesteld op 'pagina's ', verwijst deze naar de maximale lengte wordt gemeten door `String.Length`. De minimumwaarde is 100.  Als de textSplitMode is ingesteld op 'pagina's ', probeert het algoritme om te splitsen van de tekst in segmenten die in de grootte van maximaal 'maximumPageLenth'. In dit geval wordt het algoritme voor het beste doen verbreken van de zin op een grens van een zin, zodat de grootte van het segment mogelijk iets minder dan 'maximumPageLength'. | 
+| maximumPageLength | Als textSplitMode is ingesteld op 'pagina's ', verwijst deze naar de maximale lengte wordt gemeten door `String.Length`. De minimumwaarde is 100.  Als de textSplitMode is ingesteld op 'pagina's ', probeert het algoritme om te splitsen van de tekst in segmenten die in de grootte van maximaal 'maximumPageLength'. In dit geval wordt het algoritme voor het beste doen verbreken van de zin op een grens van een zin, zodat de grootte van het segment mogelijk iets minder dan 'maximumPageLength'. | 
 | defaultLanguageCode   | (optioneel) Een van de volgende taalcodes: `da, de, en, es, fi, fr, it, ko, pt`. De standaardwaarde is Engels (en). Aantal dingen om te overwegen:<ul><li>Als u een indeling languagecode countrycode doorgeeft, wordt alleen het languagecode deel van de indeling wordt gebruikt.</li><li>De kwalificatie split verbroken als de taal die zich niet in de vorige lijst, de tekst op de grenzen van het teken.</li><li>Biedt een taalcode is handig om te voorkomen dat een woord in de helft voor niet-ruimte talen zoals Chinese, Japans en Koreaanse knippen.</li></ul>  |
 
 

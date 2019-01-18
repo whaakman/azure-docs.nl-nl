@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 8023129bf700793447b63f0686acd22f6ac2b25c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 44801663165b85edc988dab8ae2b668ef0e613b7
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265002"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381586"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -230,6 +230,10 @@ Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, w
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de resourcegroep die de Site Recovery-kluis bevat zonder expliciet uitschakelen van replicatie op de virtuele machine wordt verwijderd.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
+
+>[!NOTE] 
+>
+>Zorg ervoor dat u de module "" AzureRM.Resources"" bijwerken voordat u het onderstaande script. 
 
 U kunt [verwijderen van verouderde ASR-configuratiescript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) en verwijdert de verouderde Site Recovery-configuratie op de virtuele machine van Azure. U zou het mogelijk om te zien van de virtuele machine na het verwijderen van de verouderde configuratie.
 

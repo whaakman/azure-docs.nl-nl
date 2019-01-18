@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synchronisatie: filtering configureren | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Filtering configureren | Microsoft Docs'
 description: Wordt uitgelegd hoe u in Azure AD Connect-synchronisatie-filtering configureren.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ec136b418e78f82486d9d38f361e411c3d00c31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b4cb5975eb5be3236558d0b0b19551c6726f64de
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312282"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391047"
 ---
-# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: filtering configureren
+# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: Filtering configureren
 Met behulp van filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) vanuit uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen is de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven, profiteren van een volledige lijst met algemene adres zodat ze kunnen e-mailbericht verzenden en iedereen. Met de standaardconfiguratie, zouden ze hebben dezelfde ervaring die ze met een on-premises implementatie van Exchange- of Lync hebben zouden.
 
 In sommige gevallen echter, u bent verplicht u enkele wijzigingen in de standaardconfiguratie. Hier volgen enkele voorbeelden:
@@ -77,10 +77,10 @@ Nadat u alle filters gebruiken om wijzigingen hebt voltooid, vergeet dan niet te
 ## <a name="filtering-options"></a>Opties voor het filteren
 U kunt de volgende filters gebruiken om configuratie-typen toepassen op het hulpprogramma directory-synchronisatie:
 
-* [**Op basis van een groep**](#group-based-filtering): filteren op basis van één groep kan alleen worden geconfigureerd op de eerste installatie met behulp van de installatiewizard.
-* [**Op basis van een domein**](#domain-based-filtering): deze optie gebruikt, kunt u selecteren welke domeinen synchroniseren met Azure AD. U kunt ook toevoegen en domeinen verwijderen uit de synchronisatie-engine-configuratie wanneer u wijzigingen in uw on-premises infrastructuur aanbrengen nadat u Azure AD Connect-synchronisatie installeren.
-* [**Organisatie-eenheid (OE) – op basis van**](#organizational-unitbased-filtering): deze optie gebruikt, kunt u selecteren welke OE's gesynchroniseerd met Azure AD. Deze optie is voor alle objecttypen in geselecteerde organisatie-eenheden.
-* [**Op kenmerken gebaseerde**](#attribute-based-filtering): deze optie gebruikt, kunt u filteren op objecten op basis van kenmerkwaarden voor de objecten. U kunt ook verschillende filters voor verschillende objecttypen hebben.
+* [**Op basis van een groep**](#group-based-filtering): Filteren op basis van één groep kan alleen worden geconfigureerd op de eerste installatie met behulp van de installatiewizard.
+* [**Op basis van een domein**](#domain-based-filtering): U kunt met deze optie kunt selecteren welke domeinen synchroniseren met Azure AD. U kunt ook toevoegen en domeinen verwijderen uit de synchronisatie-engine-configuratie wanneer u wijzigingen in uw on-premises infrastructuur aanbrengen nadat u Azure AD Connect-synchronisatie installeren.
+* [**Organisatie-eenheid (OE) – op basis van**](#organizational-unitbased-filtering): Met deze optie, kunt u selecteren welke OE's gesynchroniseerd met Azure AD. Deze optie is voor alle objecttypen in geselecteerde organisatie-eenheden.
+* [**Op kenmerken gebaseerde**](#attribute-based-filtering): Deze optie gebruikt, kunt u objecten op basis van kenmerkwaarden voor de objecten te filteren. U kunt ook verschillende filters voor verschillende objecttypen hebben.
 
 U kunt meerdere opties voor het filteren op hetzelfde moment. U kunt bijvoorbeeld filteren op basis van organisatie-eenheid gebruiken om op te nemen alleen objecten in een organisatie-eenheid. Op hetzelfde moment, kunt u filteren op basis van een kenmerk voor het filteren van de objecten verder. Wanneer u meerdere filtermethoden gebruiken, gebruik de filters een logische 'en' tussen de filters.
 
@@ -186,6 +186,9 @@ Met deze configuratie is niet een nieuwe organisatie-eenheid die is gemaakt onde
 ## <a name="attribute-based-filtering"></a>Filteren op basis van een kenmerk
 Zorg ervoor dat u de November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) of later bouwen voor deze stappen om te werken.
 
+> [!IMPORTANT]
+>Microsoft raadt aan om te wijzigen niet de standaardregels die zijn gemaakt door **Azure AD Connect**. Als u wijzigen van de regel wilt, deze klonen en de oorspronkelijke regel uitschakelen. Breng wijzigingen aan de gekloonde regel. Houd er rekening mee dat op deze manier (oorspronkelijke regel uitschakelen) u mist eventuele oplossingen voor problemen of functies die door deze regel is ingeschakeld.
+
 Filteren op basis van het kenmerk is de meest flexibele manier om filterobjecten. U kunt de kracht van [declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md) voor het beheren van vrijwel elk aspect van wanneer een object wordt gesynchroniseerd met Azure AD.
 
 U kunt toepassen [inkomende](#inbound-filtering) filteren uit Active Directory naar de metaverse en [uitgaande](#outbound-filtering) filteren van metaverse naar Azure AD. Het is raadzaam dat u toepassing inkomende filteren omdat dit het gemakkelijkst te onderhouden. Gebruik alleen uitgaande filteren als dit is vereist voor deelname aan objecten uit meer dan één forest voordat de evaluatie kan plaatsvinden.
@@ -211,7 +214,7 @@ In het volgende voorbeeld u wegfilteren (niet synchroniseren) alle gebruikers wa
 3. Zorg ervoor dat **inkomend** is geselecteerd en klik op **nieuwe regel toevoegen**.
 4. Geef de regel een beschrijvende naam, zoals '*In uit Active Directory-gebruiker DoNotSyncFilter*'. Het juiste forest selecteert, selecteert u **gebruiker** als de **CS objecttype**, en selecteer **persoon** als de **MV-objecttype**. In **koppelingstype**, selecteer **Join**. In **prioriteit**, typ een waarde die momenteel niet wordt gebruikt door andere synchronisatieregels (bijvoorbeeld 50), en klik vervolgens op **volgende**.  
    ![Inkomende 1 Beschrijving](./media/how-to-connect-sync-configure-filtering/inbound1.png)  
-5. In **Scoping filter**, klikt u op **groep toevoegen**, en klikt u op **component toevoegen**. In **kenmerk**, selecteer **ExtensionAttribute15**. Zorg ervoor dat **Operator** is ingesteld op **gelijk**, en typ de waarde **NoSync** in de **waarde** vak. Klik op **Volgende**.  
+5. In **Scoping filter**, klikt u op **groep toevoegen**, en klikt u op **component toevoegen**. In **kenmerk**, selecteer **ExtensionAttribute15**. Zorg ervoor dat **Operator** is ingesteld op **gelijk**, en typ de waarde **NoSync** in de **waarde** vak. Klik op **volgende**.  
    ![Inkomende 2 bereik](./media/how-to-connect-sync-configure-filtering/inbound2.png)  
 6. Laat de **Join** regels leeg en klik vervolgens op **volgende**.
 7. Klik op **transformatie toevoegen**, selecteer de **FlowType** als **constante**, en selecteer **cloudFiltered** als de **doel Kenmerk**. In de **bron** in het tekstvak **waar**. Klik op **toevoegen** op de regel niet opslaan.  
@@ -230,13 +233,13 @@ In het volgende voorbeeld wordt u alleen objecten waarin het kenmerk voor afdeli
 3. Zorg ervoor dat **inkomend** is geselecteerd en klik op **nieuwe regel toevoegen**.
 4. Geef de regel een beschrijvende naam, zoals '*In uit Active Directory-gebruiker verkoop synchroniseren*'. Het juiste forest selecteert, selecteert u **gebruiker** als de **CS objecttype**, en selecteer **persoon** als de **MV-objecttype**. In **koppelingstype**, selecteer **Join**. In **prioriteit**, typ een waarde die momenteel niet wordt gebruikt door andere synchronisatieregels (bijvoorbeeld 51) en klik vervolgens op **volgende**.  
    ![Inkomende 4 beschrijving](./media/how-to-connect-sync-configure-filtering/inbound4.png)  
-5. In **Scoping filter**, klikt u op **groep toevoegen**, en klikt u op **component toevoegen**. In **kenmerk**, selecteer **afdeling**. Zorg ervoor dat de Operator is ingesteld op **gelijk**, en typ de waarde **verkoop** in de **waarde** vak. Klik op **Volgende**.  
+5. In **Scoping filter**, klikt u op **groep toevoegen**, en klikt u op **component toevoegen**. In **kenmerk**, selecteer **afdeling**. Zorg ervoor dat de Operator is ingesteld op **gelijk**, en typ de waarde **verkoop** in de **waarde** vak. Klik op **volgende**.  
    ![Inkomende 5 bereik](./media/how-to-connect-sync-configure-filtering/inbound5.png)  
 6. Laat de **Join** regels leeg en klik vervolgens op **volgende**.
 7. Klik op **transformatie toevoegen**, selecteer **constante** als de **FlowType**, en selecteer de **cloudFiltered** als de **doel Kenmerk**. In de **bron** in het vak **False**. Klik op **toevoegen** op de regel niet opslaan.  
    ![Inkomende 6 transformatie](./media/how-to-connect-sync-configure-filtering/inbound6.png)  
    Dit is een speciaal geval waar u expliciet cloudFiltered instellen op **False**.
-8. We hebben nu de catch-all synchronisatieregel maken. Geef de regel een beschrijvende naam, zoals '*In uit Active Directory-gebruiker Catch-all-filter*'. Het juiste forest selecteert, selecteert u **gebruiker** als de **CS objecttype**, en selecteer **persoon** als de **MV-objecttype**. In **koppelingstype**, selecteer **Join**. In **prioriteit**, typ een waarde die momenteel niet wordt gebruikt door andere synchronisatieregels (bijvoorbeeld 99). U kunt een prioriteitswaarde die hoger (lagere prioriteit) dan de vorige synchronisatieregel hebt geselecteerd. Maar u hebt ook wat ruimte maken zodat u meer synchronisatie-filterregels later toevoegen kunt als u wilt beginnen met het synchroniseren van extra diensten. Klik op **Volgende**.  
+8. We hebben nu de catch-all synchronisatieregel maken. Geef de regel een beschrijvende naam, zoals '*In uit Active Directory-gebruiker Catch-all-filter*'. Het juiste forest selecteert, selecteert u **gebruiker** als de **CS objecttype**, en selecteer **persoon** als de **MV-objecttype**. In **koppelingstype**, selecteer **Join**. In **prioriteit**, typ een waarde die momenteel niet wordt gebruikt door andere synchronisatieregels (bijvoorbeeld 99). U kunt een prioriteitswaarde die hoger (lagere prioriteit) dan de vorige synchronisatieregel hebt geselecteerd. Maar u hebt ook wat ruimte maken zodat u meer synchronisatie-filterregels later toevoegen kunt als u wilt beginnen met het synchroniseren van extra diensten. Klik op **volgende**.  
    ![Inkomende 7 beschrijving](./media/how-to-connect-sync-configure-filtering/inbound7.png)  
 9. Laat **Scoping filter** leeg en klik op **volgende**. Een leeg filter geeft aan dat de regel moet worden toegepast op alle objecten.
 10. Laat de **Join** regels leeg en klik vervolgens op **volgende**.

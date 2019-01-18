@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: acedfab277199c2ada6af17584bab3f222fe1a13
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843203"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390026"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -75,7 +75,7 @@ Beheerd exemplaar is automatische back-ups en waarmee gebruikers volledige datab
   - Tapeopties: `REWIND`, `NOREWIND`, `UNLOAD`, en `NOUNLOAD` worden niet ondersteund
   - Logboek-specifieke opties: `NORECOVERY`, `STANDBY`, en `NO_TRUNCATE` worden niet ondersteund
 
-De volgende beperkingen:  
+Beperkingen:  
 
 - Managed Instance kunt back-up van een database naar een back-up met maximaal 32 striping, wat voldoende is voor de databases van maximaal 4 TB als back-compressie wordt gebruikt.
 - Maximumgrootte van de back-up stripe is 195 GB (maximaal blobgrootte). Verhoog het aantal streepjes in de back-opdracht voor het verkleinen van de afzonderlijke stripe en binnen deze limiet blijven.
@@ -235,7 +235,7 @@ Geen van beide MSDTC noch [elastische transacties](https://docs.microsoft.com/az
 Sommige Windows-specifieke doelen voor XEvents worden niet ondersteund:
 
 - `etw_classic_sync target` wordt niet ondersteund. Store `.xel` bestanden in Azure blob-opslag. Zie [etw_classic_sync doel](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target`wordt niet ondersteund. Store `.xel` bestanden in Azure blob-opslag. Zie [event_file doel](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target`wordt niet ondersteund. Store `.xel` bestanden in Azure blob-opslag. Zie [event_file doel](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Externe bibliotheken
 
@@ -264,7 +264,7 @@ Zie voor meer informatie, [FILESTREAM](https://docs.microsoft.com/sql/relational
 
 Gekoppelde servers in het beheerde exemplaar ondersteuning voor een beperkt aantal doelen:
 
-- Doelen ondersteund: SQL Server en SQL-Database
+- Ondersteunde doelen: SQL Server en SQL-Database
 - Niet ondersteund doelen: bestanden, Analysis Services en andere RDBMS.
 
 Bewerkingen
@@ -318,7 +318,7 @@ De volgende databaseopties zijn ingesteld/genegeerd en kunnen later worden gewij
 - Eventuele bestaande geoptimaliseerd voor geheugen-bestandsgroep is gewijzigd in XTP  
 - `SINGLE_USER` en `RESTRICTED_USER` opties worden geconverteerd naar `MULTI_USER`
 
-De volgende beperkingen:  
+Beperkingen:  
 
 - `.BAK` bestanden met meerdere back-upsets kunnen niet worden hersteld.
 - `.BAK` bestanden met meerdere logboekbestanden kunnen niet worden hersteld.
@@ -354,8 +354,8 @@ Cross-exemplaar van service broker wordt niet ondersteund:
   - `max text repl size`
   - `remote data archive`
   - `remote proc trans`
-- `sp_execute_external_scripts` wordt niet ondersteund. Zie [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
-- `xp_cmdshell` wordt niet ondersteund. Zie [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
+- `sp_execute_external_scripts` wordt niet ondersteund. See [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
+- `xp_cmdshell` wordt niet ondersteund. See [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` worden niet ondersteund, met inbegrip van `sp_addextendedproc`  en `sp_dropextendedproc`. Zie [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, en `sp_detach_db` worden niet ondersteund. Zie [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), en [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` wordt niet ondersteund. Zie [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
@@ -465,7 +465,7 @@ Foutenlogboeken die beschikbaar in het beheerde exemplaar zijn niet permanent en
 
 Beheerd exemplaar plaatst uitgebreide informatie in de foutenlogboeken en veel van deze zijn niet relevant. De hoeveelheid gegevens in foutenlogboeken wordt in de toekomst worden verlaagd.
 
-**Tijdelijke oplossing**: gebruik een aangepaste procedure voor het lezen van foutenlogboeken die bepaalde niet-relevante items filter-out. Zie voor meer informatie, [Azure SQL database Managed Instance-sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Tijdelijke oplossing**: Gebruik een aangepaste procedure voor het lezen van foutenlogboeken die bepaalde niet-relevante items filter-out. Zie voor meer informatie, [Azure SQL database Managed Instance-sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Transactiebereik op twee databases binnen dezelfde instantie wordt niet ondersteund
 
@@ -502,7 +502,7 @@ Hoewel deze code met gegevens in dezelfde instantie werkt vereist het MSDTC.
 
 De IP-adres van het lokale exemplaar kunnen niet worden omgezet in CLR-modules geplaatst in de Managed Instance en gekoppelde servers/gedistribueerde query's die verwijzen naar huidige instantie enige tijd opnieuw uit. Deze fout is een tijdelijk probleem.
 
-**Tijdelijke oplossing**: context-verbindingen indien mogelijk in CLR-module gebruiken.
+**Tijdelijke oplossing**: Context-verbindingen indien mogelijk in CLR-module gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

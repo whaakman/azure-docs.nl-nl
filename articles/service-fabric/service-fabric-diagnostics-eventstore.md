@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b66373b6847b96a4fcbc1a0c9da42d285d089a9d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a23d8c1e72ec453724514e4d1638c5a223d1644
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727882"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389228"
 ---
 # <a name="eventstore-service-overview"></a>Overzicht van EventStore-service
 
@@ -34,6 +34,7 @@ De EventStore-service is geïntroduceerd in versie 6.2, is een optie voor de bew
 * Bevestig dat beheeracties die u op het cluster onderneemt correct worden verwerkt
 * Een 'snapshot' van de manier waarop Service Fabric is interactie met een bepaalde entiteit ophalen
 
+![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 Zie voor een volledige lijst van gebeurtenissen die beschikbaar zijn in de EventStore [Service Fabric-gebeurtenissen](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -53,7 +54,7 @@ De EventStore-service kan worden opgevraagd voor gebeurtenissen die beschikbaar 
 * Partitiereplica's: gebeurtenissen van alle replica's / instanties binnen een specifieke partitie geïdentificeerd door `partitionId`
 * De Replica van de partitie: gebeurtenissen van een specifieke replica / exemplaar geïdentificeerd door `replicaId` en `partitionId`
 
-Voor meer informatie over de API Bekijk [EventStore-API-referentie] ((https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Voor meer informatie over de API Bekijk de [EventStore-API-verwijzing](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
 
 De EventStore-service biedt ook de mogelijkheid te correleren van gebeurtenissen in uw cluster. De EventStore-service is door te kijken op gebeurtenissen die zijn geschreven op hetzelfde moment uit verschillende entiteiten die mogelijk van invloed is elkaar worden verbonden, niet koppelen van deze gebeurtenissen om te helpen bij het identificeren van mogelijke oorzaken voor activiteiten in uw cluster. Bijvoorbeeld, als een van uw toepassingen met een slechte status zonder wijzigingen in de geïnduceerde gebeurt, de EventStore wordt ook een overzicht van andere gebeurtenissen die worden weergegeven door het platform en kan correleren van dit met een `Error` of `Warning` gebeurtenis. Dit helpt met snellere foutdetectie en analyse van hoofdoorzaken.
 

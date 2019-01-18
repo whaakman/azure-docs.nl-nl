@@ -11,15 +11,15 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: e8d6d48461e41353057bd554b9e898d118e68ab0
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/17/2019
+ms.openlocfilehash: 9133f7f4dde080700b2b11a4c09df6d0610869f6
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545294"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388026"
 ---
-# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Quickstart: Een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises configureren
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Snelstart: Een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises configureren
 
 In deze Quick Start ziet u hoe u verbinding maken met een Azure SQL Database Managed Instance via [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) vanuit een on-premises clientcomputer via een punt-naar-site-verbinding. Zie voor meer informatie over punt-naar-site-verbindingen [over punt-naar-Site-VPN](../vpn-gateway/point-to-site-about.md)
 
@@ -28,7 +28,7 @@ In deze Quick Start ziet u hoe u verbinding maken met een Azure SQL Database Man
 Voor deze snelstartgids geldt het volgende:
 
 - Maakt gebruik van de resources die zijn gemaakt [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md) als uitgangspunt.
-- PowerShell 5.1 en Azure PowerShell 5.4.2 vereist of hoger op uw on-premises client-computer. Indien nodig, raadpleegt u de instructies voor [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- PowerShell 5.1 en Azure PowerShell 5.4.2 vereist of hoger op uw on-premises client-computer. Indien nodig, raadpleegt u de instructies voor [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
 - Vereist de nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) op uw on-premises clientcomputer.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Een VPN-gateway met uw beheerde exemplaar van virtueel netwerk koppelen

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 49c043853cede0a20e3d61011ded40e57d7a0303
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385852"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389425"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Controlelijst voor beveiliging van Azure Service Fabric
 Dit artikel bevat een controlelijst met eenvoudig te gebruiken waarmee u uw Azure Service Fabric-omgeving te beveiligen.
@@ -31,7 +31,7 @@ Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkel
 Gebruik de volgende controlelijst om u te helpen u ervoor zorgen dat u eventuele belangrijke problemen in beheer en de configuratie van een beveiligd Azure Service Fabric-oplossing nog niet vergeten.
 
 
-|Controlelijst voor categorie| Beschrijving |
+|Controlelijst voor categorie| Description |
 | ------------ | -------- |
 |[Op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles) | <ul><li>Toegangsbeheer kan de Clusterbeheerder om te beperken van toegang tot bepaalde bewerkingen voor een cluster voor verschillende groepen gebruikers, waardoor het cluster beter te beveiligen.</li><li>Beheerders hebben volledige toegang tot de mogelijkheden voor beheer (met inbegrip van de mogelijkheden voor lezen/schrijven). </li><li> Gebruikers hebben standaard alleen leestoegang tot de mogelijkheden (bijvoorbeeld querymogelijkheden) en de mogelijkheid om op te lossen, toepassingen en services.</li></ul>|
 |[X.509-certificaten en Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>[Certificaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates) gebruikt in clusters actieve werkbelastingen voor productie moeten worden gemaakt met een correct geconfigureerde service voor Windows Server-certificaat of verkregen van een goedgekeurde [certificeringsinstantie (CA)](https://en.wikipedia.org/wiki/Certificate_authority).</li><li>Gebruik nooit een [tijdelijke of voor het testen van certificaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-create-temporary-certificates-for-use-during-development) in productie die zijn gemaakt met hulpprogramma's zoals [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968.aspx). </li><li>U kunt een [zelf-ondertekend certificaat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) , maar moet alleen doen voor testclusters en niet in productie.</li></ul>|
@@ -48,6 +48,8 @@ Gebruik de volgende controlelijst om u te helpen u ervoor zorgen dat u eventuele
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
+- [Aanbevolen beveiligingsprocedures voor service Fabric](azure-service-fabric-security-best-practices.md)
 - [Het upgradeproces service Fabric-Cluster en de verwachtingen van u](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Beheren van uw Service Fabric-toepassingen in Visual Studio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Status van de Fabric service model inleiding](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction).

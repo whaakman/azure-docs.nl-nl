@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856009"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382438"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor zakelijke continuïteit en herstel na noodgevallen in Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Een AKS-cluster wordt geïmplementeerd in een enkele regio. Om uzelf te bescherm
 * [Azure gekoppelde regio 's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Kies voor uw geografische gebied twee regio's die zijn gekoppeld aan elkaar worden verbonden. Deze regio's platform updates coördineren en herstel richten waar nodig.
 * Niveau van beschikbaarheid van de service (' hot ' / ' hot ', ' hot ' / warme, warme/koude)
-  * Wilt u beide regio's worden uitgevoerd op hetzelfde moment, met één regio *gereed* te starten voor verkeer of een regio die tijd moet aan de slag met verkeer fungeren.
+  * Wilt u beide regio's worden uitgevoerd op hetzelfde moment, met één regio *gereed* om te beginnen met het leveren van verkeer of een regio die u moet de tijd om aan de slag met het leveren van verkeer.
 
 Beschikbaarheid in regio's AKS en gekoppelde regio's zijn gezamenlijke overweging. Implementeer uw AKS-clusters in gekoppelde regio's die zijn ontworpen voor het beheren van noodherstel regio tegelijk. Bijvoorbeeld, AKS is beschikbaar in *VS-Oost* en *VS-West*. Deze regio's zijn ook gekoppeld. Deze twee regio's zou worden aanbevolen bij het maken van een AKS-BC/DR-strategie.
 

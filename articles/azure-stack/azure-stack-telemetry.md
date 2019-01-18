@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 471232fee5245426afce89993d9faebccc6a8ea8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265614"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389396"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-telemetrie
 
@@ -40,7 +40,7 @@ Azure Stack-telemetrie is gebaseerd op de verbonden gebruikerservaring van Windo
 
 ## <a name="privacy-considerations"></a>Privacy-overwegingen
 
-De ETW-service stuurt telemetrische gegevens terug naar een beveiligde cloud-opslag. Het principe van minimale bevoegdheden ligt door toegang tot de telemetrische gegevens. Alleen Microsoft-personeel met een geldige zakelijke behoeften toegang krijgen tot de telemetrische gegevens. Microsoft biedt geen persoonlijke klantgegevens met derden, delen, met uitzondering van de klant goeddunken of voor de beperkte toepassing beschreven in de [privacyverklaring van Microsoft](https://privacy.microsoft.com/PrivacyStatement). Zakelijke rapporten die worden gedeeld met OEM's en partners bevatten verzamelde, geanonimiseerde gegevens. Beslissingen voor het delen van gegevens worden gemaakt door een interne Microsoft-team, met inbegrip van privacy, juridische en management belanghebbenden.
+De ETW-service stuurt telemetrische gegevens terug naar een beveiligde cloud-opslag. De principal van minimale bevoegdheden ligt door toegang tot de telemetrische gegevens. Alleen Microsoft-personeel met een geldige zakelijke behoeften toegang krijgen tot de telemetrische gegevens. Microsoft biedt geen persoonlijke klantgegevens met derden, delen, met uitzondering van de klant goeddunken of voor de beperkte toepassing beschreven in de [privacyverklaring van Microsoft](https://privacy.microsoft.com/PrivacyStatement). Zakelijke rapporten die worden gedeeld met OEM's en partners bevatten verzamelde, geanonimiseerde gegevens. Beslissingen voor het delen van gegevens worden gemaakt door een interne Microsoft-team, met inbegrip van privacy, juridische en management belanghebbenden.
 
 Microsoft streeft ernaar en informatie tot procedures. We streven ernaar om het verzamelen van alleen de informatie die nodig, en op te slaan voor alleen zo lang die nodig is voor het leveren van een service of voor analyse. Veel van de informatie over hoe de Azure Stack-systeem en de Azure-services werken binnen zes maanden verwijderd. Samengevatte of geaggregeerde gegevens worden bewaard voor een langere periode.
 

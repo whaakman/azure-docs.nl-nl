@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302677"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388837"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure Stack
 
@@ -154,4 +154,4 @@ Als u wilt de herstelactie uitvoeren, open een verhoogde PowerShell-prompt en vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure Stack-infrastructuur beheerder-module, [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0).
+Zie voor meer informatie over de Azure Stack-infrastructuur beheerder-module, [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

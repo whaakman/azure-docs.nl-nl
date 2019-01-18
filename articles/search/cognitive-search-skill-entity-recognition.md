@@ -8,24 +8,24 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4d37d8b3bb52853885ab406a49154f8e70f54b56
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311861"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388188"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteit herkenning van cognitieve vaardigheden
 
-De **entiteit erkenning** vaardigheid entiteiten van verschillende typen geëxtraheerd uit tekst. 
+De **entiteit erkenning** vaardigheid entiteiten van verschillende typen geëxtraheerd uit tekst. Deze vaardigheid maakt gebruik van de machine learning-modellen die worden geleverd door [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 > [!NOTE]
-> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.
+> Vanaf December 21 mei 2018, kunt u [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) met een Azure Search-vaardigheden. Dit kan we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
 >
-> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).
+> Uitvoering van de ingebouwde vaardigheden is een Cognitive Services-kosten in rekening gebracht op de bestaande [betaalt u Ga prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen zijn de kosten van een Azure Search, momenteel in rekening gebracht op de preview-prijzen zoals beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -55,7 +55,7 @@ Parameters zijn hoofdlettergevoelig en zijn optioneel.
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
-**HOUD ER REKENING MEE**: Niet alle categorieën van de entiteit worden ondersteund voor alle talen.
+**OPMERKING**: Niet alle categorieën van de entiteit worden ondersteund voor alle talen.
 Alleen _en_, _es_ ondersteuning voor extractie van `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` typen.
 
 | Naam van de uitvoer     | Description                   |

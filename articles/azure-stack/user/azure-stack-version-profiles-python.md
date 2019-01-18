@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: cafae6d71401bc44813b2e366f8e72f7b806236b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062772"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389757"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-versieprofielen gebruiken met Python in Azure Stack
 
@@ -29,11 +29,12 @@ ms.locfileid: "54062772"
 
 De Python-SDK biedt ondersteuning voor API-versieprofielen om u te richten op verschillende platforms, zoals Azure Stack en globale Azure. U kunt de API-profielen in het maken van oplossingen voor een hybride cloud. De Python-SDK biedt ondersteuning voor de volgende API-profielen:
 
-1. **meest recente**  
-    Het profiel is bedoeld voor de meest recente API-versies voor alle providers in het Azure-Platform.
-2. **2017-03-09-profiel**  
-   **2017-03-09-profiel**  
-   Het profiel is bedoeld voor de API-versies van de resourceproviders die wordt ondersteund door Azure Stack.
+- **latest**  
+    Dit profiel is bedoeld voor de meest recente API-versies voor alle providers in het Azure-Platform.
+- **2018-03-01-hybrid**     
+    Dit profiel is bedoeld voor de meest recente API-versies voor alle resourceproviders in Azure Stack-platform.
+- **2017-03-09-profile**  
+    Dit profiel is bedoeld voor de meest compatibele API-versies van de resourceproviders die wordt ondersteund door Azure Stack.
 
    Zie voor meer informatie over API-profielen en Azure Stack [beheren API-versieprofielen in Azure Stack](azure-stack-version-profiles.md).
 
@@ -56,10 +57,19 @@ Als u wilt de Azure-SDK voor Python gebruiken met Azure Stack, moet u de volgend
 | Abonnements-id | AZURE_SUBSCRIPTION_ID | De [abonnements-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
 | Clientgeheim | AZURE_CLIENT_SECRET | De service principal toepassingsgeheim opgeslagen wanneer de service-principal is gemaakt. |
 | Resource Manager-eindpunt | ARM_ENDPOINT | Zie de [Azure Stack resource manager-eindpunt](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resourcelocatie | AZURE_RESOURCE_LOCATION | De Resourcelocatie van uw Azure Stack-omgeving.
 
 ## <a name="python-samples-for-azure-stack"></a>Python-voorbeelden voor Azure Stack
 
-De volgende voorbeelden van code kunt u algemene beheertaken uitvoeren voor virtuele machines in uw Azure Stack. De codevoorbeelden die zien u om te:
+Enkele van de codevoorbeelden die beschikbaar zijn voor Azure Stack met behulp van Python SDK zijn:
+
+- [Beheren van Resources en resourcegroepen](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
+- [Storage-Account beheren](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
+- [Virtuele Machines beheren](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
+
+## <a name="python-manage-virtual-machine-sample"></a>Python beheren voorbeeld van de virtuele machine
+
+Het volgende voorbeeld kunt u algemene beheertaken uitvoeren voor virtuele machines in uw Azure Stack. In het voorbeeld ziet u:
 
 - Virtuele machines maken:
   - Een virtuele Linux-machine maken
@@ -76,7 +86,7 @@ De volgende voorbeelden van code kunt u algemene beheertaken uitvoeren voor virt
 - Lijst met virtuele machines
 - Een virtuele machine verwijderen
 
-De code die deze bewerkingen uitvoert, Zie de **run_example()** functie in het Python-script **Hybrid/unmanaged-disks/example.py** in de GitHub-opslagplaats [ virtuele machines-python-beheren](https://github.com/Azure-Samples/virtual-machines-python-manage).
+De code die deze bewerkingen uitvoert, Zie de **run_example()** functie in het Python-script **example.py** in de GitHub-opslagplaats [hybride-Compute-Python-beheer-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
 Elke bewerking wordt duidelijk aangegeven met een opmerking en een functie print. De voorbeelden zijn niet noodzakelijkerwijs in de volgorde die in deze lijst wordt weergegeven.
 
@@ -99,13 +109,13 @@ Elke bewerking wordt duidelijk aangegeven met een opmerking en een functie print
 4. Kloon de opslagplaats:
 
     ```bash
-    git clone https://github.com/Azure-Samples/virtual-machines-python-manage.git
+    git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
 5. Installeer de afhankelijkheden met behulp van pip:
 
     ```bash
-    cd virtual-machines-python-manage\Hybrid
+    cd Hybrid-Compute-Python-Manage-VM
     pip install -r requirements.txt
     ```
 
@@ -119,6 +129,7 @@ Elke bewerking wordt duidelijk aangegeven met een opmerking en een functie print
     export AZURE_CLIENT_SECRET={your client secret}
     export AZURE_SUBSCRIPTION_ID={your subscription id}
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
+    export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
 8. Om uit te voeren in dit voorbeeld, moet Ubuntu 16.04-LTS en WindowsServer 2012 R2 Datacenter afbeeldingen aanwezig zijn in de Azure Stack marketplace. Dit kunnen zijn [gedownload van Azure](../azure-stack-download-azure-marketplace-item.md), of toegevoegd aan de [Platform Image Repository](../azure-stack-add-vm-image.md).
@@ -126,21 +137,13 @@ Elke bewerking wordt duidelijk aangegeven met een opmerking en een functie print
 9. Voer het voorbeeld uit:
 
     ```python
-    python unmanaged-disks\example.py
+    python example.py
     ```
 
-## <a name="notes"></a>Opmerkingen
-
-U kunt mogelijk geneigd om te proberen om op te halen van de besturingssysteemschijf van een virtuele machine met behulp van `virtual_machine.storage_profile.os_disk`. In sommige gevallen kan dit doen wat u wilt hebt, maar er rekening mee dat dit u biedt een **OSDisk** object. Als u wilt bijwerken van de grootte van de OS-schijf, als `example.py` heeft, u een **schijf** object, niet een **OSDisk** object. `example.py` haalt de **schijf** object met de volgende eigenschappen:
-
-```python
-os_disk_name = virtual_machine.storage_profile.os_disk.name
-os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
-```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure Python-ontwikkeling Center](https://azure.microsoft.com/develop/python/)
+- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
 - [Documentatie voor Azure-Machines](https://azure.microsoft.com/services/virtual-machines/)
 - [Leertraject voor virtuele Machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 - Als u geen Microsoft Azure-abonnement hebt, krijgt u een gratis proefaccount [hier](https://go.microsoft.com/fwlink/?LinkId=330212).

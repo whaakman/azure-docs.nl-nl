@@ -1,6 +1,6 @@
 ---
-title: Live streamen met lokale coderingsprogramma's met .NET | Microsoft Docs
-description: Dit onderwerp leest hoe u met .NET live coderen met on-premises coderingsprogramma's.
+title: Live streamen met on-premises coderingsprogramma's met behulp van .NET | Microsoft Docs
+description: Dit onderwerp leest hoe u met .NET live codering met on-premises coderingsprogramma's.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 32d456aee83c6f7c6d5d242a1ce039e7e370c0fd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 493383583513f94689b30b5eca615005137da4a9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788653"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382689"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Live streamen met lokale coderingsprogramma's met .NET
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Live streamen met on-premises coderingsprogramma's met behulp van .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -29,14 +29,14 @@ ms.locfileid: "33788653"
 > 
 > 
 
-Deze zelfstudie leert u de stappen voor het gebruik van Azure Media Services .NET SDK voor het maken van een **kanaal** die is geconfigureerd voor een doorvoerlevering. 
+In deze zelfstudie leidt u door de stappen voor het gebruik van de Azure Media Services .NET SDK te maken van een **kanaal** die is geconfigureerd voor een doorvoerlevering. 
 
 ## <a name="prerequisites"></a>Vereisten
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account.
 * Een Media Services-account.    Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
-* Instellen van uw Developer-omgeving. Zie voor meer informatie [instellen van uw omgeving](media-services-set-up-computer.md).
+* Uw ontwikkelaarsomgeving instellen. Zie voor meer informatie, [instellen van uw omgeving](media-services-set-up-computer.md).
 * Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](http://www.telestream.net/wirecast/overview.htm).
 
 Aanbevolen om te controleren van de volgende artikelen:
@@ -49,17 +49,17 @@ Aanbevolen om te controleren van de volgende artikelen:
 Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Voorbeeld
-De volgende voorbeeldcode laat zien hoe bereiken van de volgende taken:
+Het volgende codevoorbeeld ziet u het bereiken van de volgende taken:
 
 * Verbinding met Media Services maken
 * Een kanaal maken
-* Bijwerken van het kanaal
-* Het kanaal invoereindpunt ophalen. Het invoereindpunt wordt opgegeven voor de on-premises live codering. De live codering converteert signalen van de camera naar stromen die worden verzonden naar het kanaal-invoer opnemen () eindpunt.
+* Het kanaal bijwerken
+* Ophalen van het kanaal invoereindpunt. Het eindpunt van de invoer moet worden opgegeven om de on-premises live coderingsprogramma. Het live coderingsprogramma zet signalen van de camera naar stromen die worden verzonden naar de invoer van het kanaal opnemen () eindpunt.
 * Ophalen van het kanaal preview-eindpunt
-* Maken en een programma te starten
+* Maken en starten van een programma
 * Maak een locator nodig voor toegang tot het programma
-* Maak en start een StreamingEndpoint
-* Bijwerken van het streaming-eindpunt
+* Maak en start een streamingendpoint zo
+* Het streaming-eindpunt bijwerken
 * Resources afsluiten
 
 >[!IMPORTANT]
@@ -149,6 +149,7 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
+        // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -171,6 +172,7 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
+         // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl

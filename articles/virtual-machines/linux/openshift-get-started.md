@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d68215359d50ac153d6df3bbcce5a9b6171698bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085436"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382351"
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -35,12 +35,12 @@ OpenShift bevat Kubernetes voor containerindeling en beheer. Wordt toegevoegd sp
 Er zijn meerdere versies van OpenShift beschikbaar:
 
 - OpenShift Container Platform
-- OpenShift op Azure (volledig beheerde OpenShift in vroege CY2019 binnenkort)
+- OpenShift op Azure (volledig beheerde OpenShift rond eind Q1 CY2019 binnenkort)
 - OKD (voorheen OpenShift Origin)
 - OpenShift Dedicated
 - OpenShift Online
 
-Van de vijf versies in dit artikel besproken, alleen twee nu beschikbaar zijn voor klanten om te implementeren in Azure: OpenShift Container Platform en OKD.
+De vijf versies in dit artikel besproken, zijn slechts twee die momenteel beschikbaar voor klanten om te implementeren in Azure: OpenShift Containerplatform en OKD.
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
@@ -48,9 +48,9 @@ Containerplatform is een bedrijfsklare [commerciële versie](https://www.openshi
 
 Omdat klanten 'eigenaar' van het platform, kunnen ze deze installeren in hun on-premises datacenter of in een openbare cloud (zoals Azure, AWS en Google).
 
-## <a name="openshift-on-azure"></a>OpenShift op Azure
+## <a name="openshift-on-azure"></a>OpenShift On Azure
 
-OpenShift op Azure is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Het cluster implementeert in Azure-abonnement van de klant. De service is momenteel in Private Preview en is gepland voor algemene beschikbaarheid in vroege CY 2019. Meer informatie zal worden opgegeven omdat de aanbieding wordt verkregen dichter bij algemene beschikbaarheid.
+OpenShift op Azure is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Het cluster implementeert in Azure-abonnement van de klant. De service is momenteel in Private Preview en is gepland voor algemene beschikbaarheid rond eind Q1 CY2019. Voor klanten die interesse hebben in die deel uitmaken van de Private Preview, vult u de [Nominatieformulier](http://aka.ms/openshiftazureinterest).  Meer informatie zal worden opgegeven omdat de aanbieding wordt verkregen dichter bij algemene beschikbaarheid.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (voorheen OpenShift Origin)
 

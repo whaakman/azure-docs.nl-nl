@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/17/2019
+ms.openlocfilehash: 8e03aed38f75459d781d90960efc612ab962fa1d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269614"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390833"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database-logische servers en hun beheer
 
@@ -82,7 +82,7 @@ Voor het beheren van een bestaande database, gaat u naar de **SQL-databases** pa
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van PowerShell
 
-Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Zie voor het maken en beheren van elastische pools, [elastische pools](sql-database-elastic-pool.md).
+Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Zie voor het maken en beheren van elastische pools, [elastische pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -113,8 +113,8 @@ Maken en beheren van Azure SQL-server, databases en firewalls met de [Azure CLI]
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Hiermee maakt u een database|
 |[AZ sql db list](/cli/azure/sql/db#az-sql-db-list)|Geeft een lijst van alle databases en datawarehouses in een server of alle databases in een elastische pool|
-|[AZ sql db-edities](/cli/azure/sql/db#az-sql-db-list-editions)|Een lijst met beschikbare service doelstellingen en opslagbeperkingen|
-|[AZ sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Retourneert database het gebruik van|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Een lijst met beschikbare service doelstellingen en opslagbeperkingen|
+|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Retourneert database het gebruik van|
 |[AZ sql db show](/cli/azure/sql/db#az-sql-db-show)|Een database of het datawarehouse opgehaald|
 |[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Een database-updates|
 |[AZ sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Hiermee verwijdert u een database|
@@ -145,9 +145,9 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Tra
 
 | Opdracht | Description |
 | --- | --- |
-|[DATABASE (Azure SQL Database) maken](/sql/t-sql/statements/create-database-azure-sql-database)|Hiermee maakt u een nieuwe database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Hiermee maakt u een nieuwe database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Hiermee wijzigt u een Azure SQL database. |
-|[ALTER DATABASE (Azure SQL datawarehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Hiermee wijzigt u een Azure SQL datawarehouse.|
+|[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Hiermee wijzigt u een Azure SQL datawarehouse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retourneert de edition (servicelaag), de servicedoelstelling (prijscategorie) en de naam van de elastische groep, indien aanwezig, voor een Azure SQL-database of een Azure SQL Data Warehouse. Als u aangemeld bent op de database master in Azure SQL Database-server, retourneert de informatie voor alle databases. Voor Azure SQL Data Warehouse, moet u zijn verbonden met de hoofddatabase.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourneert verbruik van CPU, IO en geheugen voor een Azure SQL Database-database. Er bestaat één rij voor elke 15 seconden, zelfs als er geen activiteit in de database.|

@@ -9,34 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 46ad8beb81f42fa19b832c63355488f31da023f8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a5d6a5c6191b69d554e0a79dc1303faeddecc6c3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259373"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382395"
 ---
 # <a name="convert-data-format-of-utterances"></a>De gegevensindeling van uitingen converteren
 LUIS maakt gebruik van Cognitive Services Speech service uitingen van gesproken uitingen converteren naar tekst uitingen voordat voorspelling. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Spraak naar intentie conversie-concepten
-Conversie van spraak naar tekst in LUIS kunt u een eindpunt gesproken uitingen verzenden en ontvangen van een reactie van LUIS voorspelling. Het proces is een integratie van de [spraak](https://docs.microsoft.com/azure/cognitive-services/Speech) service met LUIS. 
+Conversie van spraak naar tekst in LUIS kunt u een eindpunt gesproken uitingen verzenden en ontvangen van een reactie van LUIS voorspelling. Het proces is een integratie van de [spraak](https://docs.microsoft.com/azure/cognitive-services/Speech) service met LUIS. Meer informatie over spraak naar intentie met een [zelfstudie](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Belangrijke vereisten
-U hoeft niet te maken een **Bing Speech-API** voor deze integratie. Een **Language Understanding** sleutel hebt gemaakt in Azure portal werkt voor deze integratie. Gebruik niet de sleutel van de starter LUIS, dat werkt niet voor deze integratie.
+U hoeft niet te maken een **Bing Speech-API** voor deze integratie. Een **Language Understanding** sleutel hebt gemaakt in Azure portal werkt voor deze integratie. Gebruik niet de LUIS starter-sleutel.
 
-### <a name="new-endpoint"></a>Nieuw eindpunt 
-Deze integratie maakt een nieuw eindpunt en [prijzen](luis-boundaries.md#key-limits) model. Het eindpunt via de [spraak SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk), kan ontvangen beide gesproken en tekst uitingen zodat u kunt gebruiken als één eindpunt. 
+### <a name="pricing-tier"></a>Prijscategorie
+Deze integratie maakt gebruik van een andere [prijzen](luis-boundaries.md#key-limits) model dan de gebruikelijke Language Understanding Prijscategorieën. 
 
 ### <a name="quota-usage"></a>Gebruik van netwerkquota 's
 Zie [sleutel limieten](luis-boundaries.md#key-limits) voor meer informatie. 
-
-### <a name="data-retention"></a>Bewaartijd van gegevens
-De gegevens die worden verzonden naar het eindpunt, via de SDK-spraak, ongeacht of het spraak of tekst, wordt alleen gebruikt voor het verbeteren van uw spraakmodel. Het is niet buiten uw model gebruikt voor het verbeteren van spraak of LUIS in een algemene capaciteit. Wanneer de LUIS-app wordt verwijderd, wordt de bewaarde gegevens ook verwijderd.
-
-<!-- TBD: Machine translation conversion concepts -->
 
 ## <a name="next-steps"></a>Volgende stappen
 

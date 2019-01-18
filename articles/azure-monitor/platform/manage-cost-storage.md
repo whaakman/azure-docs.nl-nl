@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 3dd0605d02732f1a98f6b6516d9f04daf354a489
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332316"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382065"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gebruik en kosten voor Log Analytics beheren
 
@@ -168,7 +168,7 @@ Voor een lijst van computers die verzenden **kosten in rekening gebracht gegeven
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Gebruik deze `union withsource = tt *` spaarzaam zoals scans voor gegevens gegevens typres duur zijn in het uitvoeren van query's. 
+Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's. 
 
 Dit kan worden uitgebreid om terug te keren de telling van computers per uur die verzenden in rekening gebracht gegevenstypen:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240134"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388155"
 ---
 # <a name="deliver-content-to-customers"></a>Lever inhoud aan klanten
 Wanneer u uw inhoud streamen of video on demand aan klanten leveren bent, wordt het doel is om te hoge kwaliteit video leveren aan verschillende apparaten met verschillende netwerkomstandigheden.
@@ -61,7 +61,7 @@ Als u wilt uw gebruiker voorzien van een URL die kan worden gebruikt om te strea
 * OnDemandOrigin-locators. Deze worden gebruikt voor het streamen van media (bijvoorbeeld MPEG-DASH, HLS of Smooth Streaming) of bestanden progressief te downloaden.
 * Shared access signature (SAS)-URL locators. Deze worden gebruikt voor het downloaden van mediabestanden op uw lokale computer.
 
-Een *toegangsbeleid* wordt gebruikt voor het definiëren van de machtigingen (zoals lezen, schrijven en lijst) en de duur waarvoor een client toegang voor een bepaalde asset heeft. Houd er rekening mee dat de machtiging van de lijst (AccessPermissions.List) niet moet worden gebruikt bij het maken van een locator OrDemandOrigin.
+Een *toegangsbeleid* wordt gebruikt voor het definiëren van de machtigingen (zoals lezen, schrijven en lijst) en de duur waarvoor een client toegang voor een bepaalde asset heeft. Houd er rekening mee dat de machtiging van de lijst (AccessPermissions.List) niet moet worden gebruikt bij het maken van een OnDemandOrigin-locator.
 
 Locators hebben een vervaldatum. De Azure-portal een vervaldatum in de toekomst 100 jaar voor locators ingesteld.
 
@@ -107,7 +107,7 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Apple HTTP Live Streaming (HLS)-indeling met alleen audio-filter
 Standaard alleen audio-nummers zijn opgenomen in de HLS manifest. Dit is vereist voor de Apple Store-certificering voor mobiele netwerken. In dit geval, als een client beschikt niet over voldoende bandbreedte of is verbonden via een verbinding 2G, afspelen schakelt over naar alleen audio. Hierdoor blijven inhoudsstreaming zonder buffer, maar er is geen video. In sommige scenario's mogelijk player bufferfuncties voorkeur worden via alleen audio. Als u verwijderen van het spoor alleen audio wilt, voegt u toe **alleen audio = false** naar de URL.
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3alleen audio = false)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 Zie voor meer informatie, [ondersteuning voor dynamische Manifest van de samenstelling en HLS uitvoer extra functies](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 

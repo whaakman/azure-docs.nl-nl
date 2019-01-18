@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 1738f02d28a4eb9ff5cbb51c73bc50ddf3c9a68b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231335"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391280"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Verbinding maken met SAP-systemen in Azure Logic Apps
 
@@ -23,9 +23,9 @@ Dit artikel wordt beschreven hoe u kunt toegang tot uw on-premises SAP-bronnen u
 
 De connector SAP ECC gebruikt de <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .net Connector (NCo)-bibliotheek</a> en biedt deze bewerkingen of acties:
 
-- **Verzenden naar SAP**: IDoc verzenden of aanroep BAPI-functies via tRFC in SAP-systemen.
-- **Ontvangen van SAP**: IDoc ontvangen of BAPI functie aanroepen via tRFC van SAP-systemen.
-- **Schema's genereren**: schema's voor de SAP-artefacten voor IDoc of BAPI of RFC genereren.
+- **Verzenden naar SAP**: IDoc verzenden of BAPI functies aanroepen via tRFC in SAP-systemen.
+- **Ontvangen van SAP**: IDoc of BAPI functieaanroepen ontvangen via tRFC van SAP-systemen.
+- **Schema's genereren**: Schema's voor de SAP-artefacten voor IDoc of BAPI of RFC genereren.
 
 De SAP-connector kan worden geïntegreerd met on-premises SAP-systemen via de [on-premises gegevensgateway](https://www.microsoft.com/download/details.aspx?id=53127). In scenario's verzenden, bijvoorbeeld wanneer een bericht verzenden vanuit logische Apps met een SAP-systeem, de data gateway fungeert als een RFC-client en stuurt de aanvragen van Logic Apps ontvangen naar SAP.
 Ook in scenario's ontvangen fungeert de data gateway als een RFC-server ontvangt verzoeken van SAP en doorgestuurd naar de logische App. 
@@ -38,7 +38,7 @@ Als u wilt volgen, samen met dit artikel, moet u deze items:
 
 * Een Azure-abonnement. Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
 
-* De logische app van waar u toegang tot uw SAP-systeem en een trigger die de werkstroom van uw logische app wordt gestart. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* De logische app van waar u toegang tot uw SAP-systeem en een trigger die de werkstroom van uw logische app wordt gestart. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Uw <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP-toepassingsserver</a> of <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP-berichtenserver</a>
 
@@ -71,7 +71,7 @@ In dit voorbeeld u een logische app maken met een eindpunt in Azure zodat u kunt
 
 1. In de [Azure-portal](https://portal.azure.com), maak een lege logische app, die de ontwerper van logische App wordt geopend. 
 
-2. Typ 'http-aanvraag' als filter in het zoekvak. Selecteer in de lijst met triggers deze trigger: **aanvraag: wanneer een HTTP-aanvraag wordt ontvangen**
+2. Typ 'http-aanvraag' als filter in het zoekvak. Selecteer deze trigger uit de lijst met triggers: **Aanvraag - wanneer er een HTTP-aanvraag wordt ontvangen**
 
    ![HTTP-aanvraag trigger toevoegen](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -92,7 +92,7 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Een actie toevoegen](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. Typ 'sap' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **bericht verzenden voor SAP**
+2. Typ 'sap' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Bericht verzenden naar SAP**
   
    ![Selecteer de actie van de SAP-verzenden](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -159,7 +159,7 @@ Nu een reactie toevoegen aan uw logische app-werkstroom en de uitvoer van de SAP
 
 1. Kies in de Logic App Designer onder de actie SAP **nieuwe stap** > **een actie toevoegen**.
 
-2. Typ 'response' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **aanvraag - reactie**
+2. Typ 'response' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Aanvraag - reactie**
 
 3. Klik in de **hoofdtekst** vak zodat de lijst met dynamische inhoud wordt weergegeven. In deze lijst onder **verzenden naar SAP**, selecteer de **hoofdtekst** veld. 
 
@@ -201,7 +201,7 @@ Dit voorbeeld wordt een logische app die wordt geactiveerd wanneer een bericht o
 
 1. Maak een lege logische app, die de ontwerper van logische App wordt geopend in de Azure-portal. 
 
-2. Typ 'sap' als filter in het zoekvak. Selecteer in de lijst met triggers deze trigger: **wanneer een bericht wordt ontvangen van SAP**
+2. Typ 'sap' als filter in het zoekvak. Selecteer deze trigger uit de lijst met triggers: **Wanneer een bericht wordt ontvangen van SAP**
 
    ![SAP-trigger toevoegen](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -269,7 +269,7 @@ Dit voorbeeld wordt een logische app die u kunt activeren met een HTTP-aanvraag.
 
 1. Maak een lege logische app, die de ontwerper van logische App wordt geopend in de Azure-portal. 
 
-2. Typ 'http-aanvraag' als filter in het zoekvak. Selecteer in de lijst met triggers deze trigger: **aanvraag: wanneer een HTTP-aanvraag wordt ontvangen**
+2. Typ 'http-aanvraag' als filter in het zoekvak. Selecteer deze trigger uit de lijst met triggers: **Aanvraag - wanneer er een HTTP-aanvraag wordt ontvangen**
 
    ![HTTP-aanvraag trigger toevoegen](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -286,7 +286,7 @@ Kies **Opslaan** op de werkbalk van de ontwerper.
 
    ![Een actie toevoegen](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. Typ 'sap' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **schema's genereren**
+2. Typ 'sap' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Schema's genereren**
   
    ![Selecteer de actie van de SAP-verzenden](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -343,7 +343,7 @@ Kies **Opslaan** op de werkbalk van de ontwerper.
 
 Desgewenst kunt u downloaden of de gegenereerde schema's opslaan in opslagplaatsen, zoals een blob-, opslag- of integratie-account. Integratieaccounts bieden een eersteklas ervaring met andere acties XML, zodat dit voorbeeld het schema's uploaden naar een integratieaccount voor dezelfde logische app wordt met behulp van de Azure Resource Manager-connector.
 
-1. In Logic App Designer, onder de trigger kiezen **nieuwe stap** > **een actie toevoegen**. Typ 'resource manager' als filter in het zoekvak. Selecteer deze actie: **maken of bijwerken van een resource**
+1. In Logic App Designer, onder de trigger kiezen **nieuwe stap** > **een actie toevoegen**. Typ 'resource manager' als filter in het zoekvak. Selecteer deze actie: **Maken of bijwerken van een resource**
 
    ![Azure Resource Manager-actie selecteren](media/logic-apps-using-sap-connector/select-arm-action.png) 
 
@@ -379,7 +379,7 @@ Desgewenst kunt u downloaden of de gegenereerde schema's opslaan in opslagplaats
 
 Hier worden de bekende problemen en beperkingen voor de SAP-connector:
 
-* De SAP-trigger does't ondersteuning voor batch idoc's ontvangen van SAP. Deze actie kan leiden tot fout voor RFC-verbinding tussen uw SAP-systeem en de data gateway.
+* De trigger SAP biedt geen ondersteuning voor batch idoc's ontvangen van SAP. Deze actie kan leiden tot fout voor RFC-verbinding tussen uw SAP-systeem en de data gateway.
 
 * De trigger SAP biedt geen ondersteuning voor gatewayclusters met gegevens. In sommige gevallen failover kan op het gegevensknooppunt voor gateway die met de SAP-systeem communiceert verschillen van het actieve knooppunt, wat resulteert in onverwacht gedrag. Voor scenario's verzenden, worden data gatewayclusters ondersteund.
 

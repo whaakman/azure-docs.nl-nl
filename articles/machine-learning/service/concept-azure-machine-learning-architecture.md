@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e5f569d5561050c9993ec48b096f60595d44b1b1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808091"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391183"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -28,7 +28,7 @@ De werkstroom volgt in het algemeen in deze volgorde:
 
 1. Machine learning-scripts in Trainingen ontwikkelen **Python**.
 1. Maken en configureren van een **compute-doel**.
-1. **Verzenden van de scripts** naar de geconfigureerde compute-doel om uit te voeren in die omgeving. Tijdens de training, slaat de compute-doel uitvoeren records die u wilt een **gegevensopslag**. Er records zijn opgeslagen in een **experimenteren**.
+1. **Verzenden van de scripts** naar de geconfigureerde compute-doel om uit te voeren in die omgeving. Tijdens de training, de scripts kunnen lezen of schrijven naar **gegevensopslag**. En de records van de uitvoering van opslaan als **wordt uitgevoerd** in de **werkruimte**, die is gepartitioneerd via **experimenteren**.
 1. **Query uitvoeren op het experiment** geregistreerde voor metrische gegevens van de huidige en eerdere uitvoeringen. Als de metrische gegevens een gewenste resultaat geven, lus terug naar stap 1 en ze opnieuw testen op uw scripts.
 1. Nadat een goede uitvoering wordt gevonden, registreert u het persistente model in de **model register**.
 1. Ontwikkel een scoring-script.
@@ -56,7 +56,7 @@ U kunt meerdere werkruimten maken en elke werkruimte kan worden gedeeld door mee
 Wanneer u een nieuwe werkruimte maakt, wordt automatisch verschillende Azure-resources die worden gebruikt door de werkruimte gemaakt:
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Hiermee registreert u docker-containers die u tijdens de training en wanneer u een model implementeert gebruiken.
-* [Azure storage-account](https://azure.microsoft.com/services/storage/): Wordt gebruikt als de standaard gegevensopslag voor de werkruimte.
+* [Azure-opslagaccount](https://azure.microsoft.com/services/storage/): Wordt gebruikt als de standaard gegevensopslag voor de werkruimte.
 * [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Winkels controlegegevens over uw modellen.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Winkels geheimen die worden gebruikt door compute-doelen en andere gevoelige informatie die nodig is door de werkruimte.
 
@@ -99,7 +99,7 @@ Afbeeldingen bieden een manier om op betrouwbare wijze een model, samen met alle
 
 Azure Machine Learning kunt twee soorten afbeeldingen maken:
 
-* **FPGA-installatiekopie**: Wanneer u op een veld-programmable gate array in Azure implementeert gebruikt.
+* **FPGA image**: Wanneer u op een veld-programmable gate array in Azure implementeert gebruikt.
 * **Docker-installatiekopie**: Wanneer u implementeert voor compute-doelen dan FPGA gebruikt. Voorbeelden zijn Azure Container Instances en Azure Kubernetes Service.
 
 Zie voor een voorbeeld van het maken van een installatiekopie van een [implementeren een installatiekopie classificeringsmodel in Azure Container Instances](tutorial-deploy-models-with-aml.md).
@@ -227,6 +227,6 @@ Activiteiten kunnen meldingen via de SDK of de web-UI bieden, zodat u eenvoudig 
 
 Als u wilt aan de slag met Azure Machine Learning-service, Zie:
 
-* [Wat is Azure Machine Learning-service?](overview-what-is-azure-ml.md)
+* [Wat is Azure Machine Learning Service?](overview-what-is-azure-ml.md)
 * [Snelstart: een werkruimte maken met Python](quickstart-get-started.md)
 * [Zelfstudie: een model trainen](tutorial-train-models-with-aml.md)

@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/17/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 231dd3789a20b649efd99a6b88f6e429e2626bd3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199116"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391330"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -128,6 +128,46 @@ Als u MFA op uw Azure-account hebt, kunt u een Azure Active Directory-gebruiker 
 Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementatie-cmdlets voor model, [maken en toevoegen van een certificaat voor het beheren van Azure-services.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Voor het gebruik van een service-principal met Azure Resource Manager-cmdlets, raadpleegt u [service-principal met behulp van Azure portal maken](../../active-directory/develop/howto-create-service-principal-portal.md) en [verifiëren van een service-principal met Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Veelvoorkomende fouten bij het werken met runbooks
+
+###<a name="child-runbook-object"></a>Onderliggend runbook foutmelding wanneer de uitvoerstroom objecten in plaats van eenvoudige gegevenstypen bevat
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt de volgende fout bij het aanroepen van een childrunbook met de `-Wait` switch en de uitvoerstroom-object bevat:
+
+```
+Object reference not set to an instance of an object
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Er is een bekend probleem waarbij de [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) niet de uitvoerstroom correct verwerkt als deze objecten bevat.
+
+#### <a name="resolution"></a>Oplossing
+
+Om op te lossen dit het is raadzaam dat u in plaats daarvan een polling-logica implementeren en gebruiken de [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet voor het ophalen van de uitvoer. Een voorbeeld van deze logica wordt gedefinieerd in het volgende voorbeeld.
+
+```powershell
+$automationAccountName = "ContosoAutomationAccount"
+$runbookName = "ChildRunbookExample"
+$resourceGroupName = "ContosoRG"
+
+function IsJobTerminalState([string] $status) {
+    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+}
+
+$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$pollingSeconds = 5
+$maxTimeout = 10800
+$waitTime = 0
+while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+   Start-Sleep -Seconds $pollingSeconds
+   $waitTime += $pollingSeconds
+   $job = $job | Get-AzureRmAutomationJob
+}
+
+$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+```
 
 ### <a name="task-was-cancelled"></a>Scenario: Het runbook is mislukt met de fout: Een taak is geannuleerd
 

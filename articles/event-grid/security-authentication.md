@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413476"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382925"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -29,9 +29,9 @@ Webhooks vormen een van de vele manieren voor het ontvangen van gebeurtenissen u
 
 Net als vele andere services die webhooks ondersteunen, moet u eigenaar van de Webhook-eindpunt bewijzen voordat er begonnen wordt met het leveren van gebeurtenissen naar dit eindpunt Event Grid. Deze vereiste voorkomt dat een kwaadwillende gebruiker overbelasting van uw eindpunt met gebeurtenissen. Wanneer u een van de drie Azure-services die hieronder worden vermeld, wordt deze validatie automatisch verwerkt door de Azure-infrastructuur:
 
-* Azure Logic Apps,
-* Azure Automation
-* Azure Functions voor Event Grid-Trigger.
+* Azure Logic Apps met [Event Grid-Connector](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Azure Functions met [Trigger Gebeurtenisraster](../azure-functions/functions-bindings-event-grid.md)
 
 Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger, moet de code van uw eindpunt om deel te nemen in een validatie-handshake met Event Grid. Event Grid ondersteunt twee manieren voor het valideren van het abonnement.
 
@@ -46,7 +46,7 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 ### <a name="validation-details"></a>Validatiedetails
 
 * Event Grid berichten op het moment van gebeurtenis-abonnement maken/bijwerken, een abonnement validatiegebeurtenis naar het doel-eindpunt. 
-* De gebeurtenis bevat de waarde van een header ' aeg gebeurtenistype: SubscriptionValidation'.
+* De gebeurtenis bevat de waarde van een header ' aeg gebeurtenistype: SubscriptionValidation".
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere Event Grid-gebeurtenissen.
 * De eigenschap type gebeurtenis van de gebeurtenis is `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * De eigenschap gegevens van de gebeurtenis bevat een `validationCode` eigenschap met een willekeurige tekenreeks. Bijvoorbeeld, "validationCode: acb13... '.

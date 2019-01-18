@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/17/2019
+ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865876"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388582"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Elastische pools in Azure SQL Database maken en beheren
 
 Met een elastische pool bepaalt u de hoeveelheid resources die de elastische groep is vereist voor het afhandelen van de werkbelasting van de databases en de hoeveelheid resources voor elke gepoolde database.
 
-## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure-portal: elastische pools en gepoolde databases beheren
+## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure Portal: Elastische pools en gepoolde databases beheren
 
 Instellingen voor alle toepassingen vindt u op één plek: de **groep configureren** blade. Als u hier, een elastische pool niet vinden in de portal en klik op **groep configureren** vanaf de bovenkant van de blade of in het resourcemenu aan de linkerkant.
 
@@ -39,13 +39,13 @@ Hier kunt u een combinatie van de volgende wijzigingen en sla ze allemaal op é�
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Elastische pools en gepoolde databases beheren
 
-Als u wilt maken en beheren van SQL Database elastische pools en gepoolde databases met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u wilt maken en beheren van de logische servers voor een elastische pool, Zie [maken en beheerde logische servers](sql-database-logical-servers.md). Als u wilt maken en beheren van firewall-regels, Zie [maken en beheren van firewallregels met behulp van PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Als u wilt maken en beheren van SQL Database elastische pools en gepoolde databases met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u wilt maken en beheren van de logische servers voor een elastische pool, Zie [maken en beheerde logische servers](sql-database-logical-servers.md). Als u wilt maken en beheren van firewall-regels, Zie [maken en beheren van firewallregels met behulp van PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Zie voor PowerShell-voorbeeldscripts, [maken van elastische pools en databases verplaatsen tussen pools en uit een pool met behulp van PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) en [PowerShell gebruiken om te controleren en schalen van een elastische SQL-pool in Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
 >
 
-| Cmdlet | Beschrijving |
+| Cmdlet | Description |
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Hiermee maakt een pool voor elastische database op een logische SQL-server.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Hiermee haalt elastische pools en hun eigenschapswaarden op een logische SQL-server.|
@@ -68,16 +68,16 @@ Maken en beheren van elastische pools voor SQL Database met de [Azure CLI](/cli/
 > Zie voor de Azure CLI-voorbeeldscripts, [CLI gebruiken om te verplaatsen van een Azure SQL database in een elastische SQL-groep](scripts/sql-database-move-database-between-pools-cli.md) en [gebruik Azure CLI voor het schalen van een elastische SQL-pool in Azure SQL Database](scripts/sql-database-scale-pool-cli.md).
 >
 
-| Cmdlet | Beschrijving |
+| Cmdlet | Description |
 | --- | --- |
 |[AZ sql elastic-pool maken](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Hiermee maakt u een elastische pool.|
 |[AZ sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Retourneert een lijst van elastische pools in een server.|
-|[AZ sql elastic-pool list-databases](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Retourneert een lijst met databases in een elastische pool.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Retourneert een lijst met databases in een elastische pool.|
 |[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Ook bevat beschikbare groep DTU-instellingen, de maximale opslag, en per database-instellingen. Om te reduceren uitgebreidheid, extra opslaglimieten en per database instellingen standaard zijn verborgen.|
 |[AZ sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Een elastische pool-updates.|
 |[AZ sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Hiermee verwijdert u de elastische pool.|
 
-## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Databases in pools beheren
+## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Gepoolde databases beheren
 
 Om te maken en verplaatsen van databases binnen de bestaande elastische groepen of haalt u informatie over een elastische pool van de SQL-Database met behulp van Transact-SQL, gebruikt u de volgende T-SQL-opdrachten. U kunt deze opdrachten met de Azure-portal, de opdracht [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), of andere programma's die kan verbinding maken met een Azure SQL Database-server en doorgeven van Transact-SQL de opdrachten. Als u wilt maken en beheren van firewallregels met behulp van T-SQL, Zie [firewallregels beheren met behulp van Transact-SQL](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
 
@@ -85,9 +85,9 @@ Om te maken en verplaatsen van databases binnen de bestaande elastische groepen 
 > U kan maken, bijwerken of verwijderen van een Azure SQL Database elastische pool met behulp van Transact-SQL. U kunt toevoegen of verwijderen van databases in een elastische pool en u kunt de DMV's gebruiken om informatie over bestaande elastische pools te retourneren.
 >
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
-|[DATABASE (Azure SQL Database) maken](/sql/t-sql/statements/create-database-azure-sql-database)|Hiermee maakt een nieuwe database in een bestaande groep of als een individuele database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Hiermee maakt een nieuwe database in een bestaande groep of als een individuele database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Een database verplaatsen naar, uit of tussen elastische pools.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Retourneert de gebruiksstatistieken resource voor alle pools voor elastische databases in een logische server. Voor elke pool voor elastic database moet er één rij voor elke 15 seconden rapportage venster (vier rijen per minuut). Dit omvat CPU, i/o-, Log, gebruik van opslag en gelijktijdige aanvraag/sessie-gebruik door alle databases in de groep.|
@@ -97,7 +97,7 @@ Om te maken en verplaatsen van databases binnen de bestaande elastische groepen 
 
 Als u wilt maken en beheren van SQL Database elastische pools en gepoolde databases, gebruikt u deze REST-API-aanvragen.
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 |[Elastische pools - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Hiermee maakt u een nieuwe elastische pool of een bestaande elastische pool-updates.|
 |[Elastische pools - verwijderen](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Hiermee verwijdert u de elastische pool.|

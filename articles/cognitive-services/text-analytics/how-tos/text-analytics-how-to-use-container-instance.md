@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9f9ae8bb3aa1da51d2a9b81cf7d50d75c5229c11
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248235"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382036"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>De taal detecteren-container implementeren in Azure Kubernetes Service
 
@@ -38,7 +38,7 @@ Deze procedure moet diverse hulpprogramma's die moeten worden geïnstalleerd en 
 
 Deze procedure wordt geladen en wordt het voorbeeld Cognitive Services-Container voor de taaldetectie wordt uitgevoerd. Het voorbeeld bestaat uit twee containers, één voor de clienttoepassing en één voor de Cognitive Services-container. U moet beide deze installatiekopieën pushen naar uw eigen Azure Container Registry. Wanneer ze zich op uw eigen register bevinden, maakt u een Azure Kubernetes Service om deze installatiekopieën en de containers worden uitgevoerd. Wanneer de containers worden uitgevoerd, gebruikt u de **kubectl** CLI om te bekijken van de prestaties van containers. Toegang tot de clienttoepassing met een HTTP-aanvraag en de resultaten bekijken. 
 
-
+![Conceptuele beeld van de voorbeeld-containers uitvoeren](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>De voorbeeld-containers
 
@@ -316,13 +316,13 @@ In deze sectie wordt de **kubectl** CLI om te communiceren met de Azure Kubernet
     Implementatie-instellingen voor taal-frontend|Doel|
     |--|--|
     |Regel 32<br> `image` De eigenschap|Installatiekopie-locatie voor de front-end installatiekopie in uw Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Regel 44<br> `name` De eigenschap|Container Registry geheim voor de installatiekopie, aangeduid als `<client-secret>` in een vorige sectie.|
+    |Line 44<br> `name` De eigenschap|Container Registry geheim voor de installatiekopie, aangeduid als `<client-secret>` in een vorige sectie.|
 
 1. Wijzig de taal implementatie regels van `language.yml` op basis van de volgende tabel om uw eigen namen van containerinstallatiekopieën register, het clientgeheim en de text analytics-instellingen toevoegen.
 
     |Implementatie-instellingen voor taal|Doel|
     |--|--|
-    |Regel 78<br> `image` De eigenschap|Installatiekopie-locatie voor de installatiekopie van de taal in uw Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Line 78<br> `image` De eigenschap|Installatiekopie-locatie voor de installatiekopie van de taal in uw Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Regel 95<br> `name` De eigenschap|Container Registry geheim voor de installatiekopie, aangeduid als `<client-secret>` in een vorige sectie.|
     |Regel 91<br> `apiKey` De eigenschap|Uw tekstsleutel voor de analytics-resource|
     |Regel 92<br> `billing` De eigenschap|De facturering-eindpunt voor de text analytics-resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|

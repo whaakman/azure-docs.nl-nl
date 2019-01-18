@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c35e4253858d6820d86d7d3e0763a3dcc577d09d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311725"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54387949"
 ---
-#    <a name="deprecated-cognitive-search-skills"></a>Afgeschafte Cognitief zoeken vaardigheden
+# <a name="deprecated-cognitive-search-skills"></a>Afgeschafte Cognitief zoeken vaardigheden
 
 Dit document beschrijft cognitieve vaardigheden die worden beschouwd als afgeschaft. Gebruik de volgende handleiding voor de inhoud:
 
@@ -43,7 +43,7 @@ Gebruik [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-en
 
 Om te migreren naar de [entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md), u moet een of meer van de volgende wijzigingen aan de definitie van de kwalificatie uitvoeren. U kunt bijwerken met de kwalificatie definitie met behulp van de [vaardigheden API Update](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Houd er rekening mee_: Betrouwbaarheidsscore als een concept wordt momenteel niet ondersteund. Het wordt in de nabije toekomst worden ondersteund. De `minimumPrecision` parameter bestaat op de `EntityRecognitionSkill` voor toekomstig gebruik en voor achterwaartse compatibiliteit.
+_Opmerking_: Betrouwbaarheidsscore als een concept wordt momenteel niet ondersteund. Het wordt in de nabije toekomst worden ondersteund. De `minimumPrecision` parameter bestaat op de `EntityRecognitionSkill` voor toekomstig gebruik en voor achterwaartse compatibiliteit.
 
 1. *(Vereist)*  Wijzigen de `@odata.type` van `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` naar `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

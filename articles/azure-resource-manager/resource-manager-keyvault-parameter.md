@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351506"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381523"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault gebruiken voor veilige parameterwaarde doorgeven tijdens implementatie
 
@@ -93,7 +93,7 @@ Voor het gebruik van Resource Manager-sjabloon: Zie [zelfstudie: Azure Key Vault
 
 Anders dan instellen `enabledForTemplateDeployment` naar `true`, het implementeren van de sjabloon gebruikers beschikken over de `Microsoft.KeyVault/vaults/deploy/action` machtiging voor het bereik waarin de Key Vault met inbegrip van de resourcegroep en de Key Vault. De [eigenaar](../role-based-access-control/built-in-roles.md#owner) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) beide rollen deze toegang verlenen. Als u de Sleutelkluis maakt, bent u de eigenaar, zodat u de machtiging hebt. Als de Key Vault met een ander abonnement is, moet de eigenaar van de Key Vault de toegang te verlenen.
 
-De volgende procedure beschrijft hoe u een gebruikersrol maakt met de minimale machtigingen en de gebruiker toewijzen
+De volgende procedure laat zien over het maken van een rol met de minimale machtigingen en de gebruiker toewijzen
 1. Maak een aangepaste rol definitie JSON-bestand:
 
     ```json

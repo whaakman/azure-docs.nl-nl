@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582493"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383000"
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic analytics
+# <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic Analytics
 
 In dit artikel verzamelt op één plek veel van de meest gestelde vragen over traffic analytics in Azure Network Watcher.
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Wat zijn de vereisten voor het gebruik van traffic analytics?
 
-Traffic analytics is het volgende vereist:
+Traffic Analytics is het volgende vereist:
 
 - Een abonnement Network Watcher is ingeschakeld.
 - Stroomlogboeken van Netwerkbeveiligingsgroep (NSG) ingeschakeld voor de nsg's die u wilt bewaken.
@@ -35,7 +35,6 @@ Traffic analytics is het volgende vereist:
 
 Uw account moet voldoen aan een van de volgende verkeersanalyse inschakelen:
 
-- Uw account moet worden toegewezen aan een van de volgende rollen op het abonnementsniveau: accountbeheerder, servicebeheerder of CO-beheerder.
 - Uw account moet beschikken over een van de volgende rollen voor toegang op rollen gebaseerd beheer (RBAC) op het abonnementsbereik: eigenaar, bijdrager, lezer of Inzender voor netwerken.
 - Als uw account niet aan een van de eerder vermelde rollen toegewezen is, moet deze worden toegewezen aan een aangepaste rol die de volgende acties uit, op het abonnementsniveau van het is toegewezen.
             
@@ -61,7 +60,7 @@ Om te controleren of de rol is toegewezen aan een gebruiker voor een abonnement:
 Als u geen uitvoer niet ziet, moet u contact op met de beheerder van het betreffende abonnement voor toegang tot de opdrachten worden uitgevoerd. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer met Azure PowerShell beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>In welke Azure regio's zijn verkeersanalyse beschikbaar?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>In welke Azure-regio's is de Verkeersanalyse beschikbaar?
 
 U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteunde regio's:
 - Canada - midden
@@ -133,7 +132,7 @@ De Microsoft.Insights-provider moet worden geregistreerd voor flow logboekregist
 
 Het dashboard kan tot 30 minuten worden weergegeven voor het eerst duren. De oplossing moet voldoende gegevens voor het afleiden van betekenisvolle inzichten eerst samenvoegen. Vervolgens worden rapporten gegenereerd. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Wat gebeurt er als ik dit bericht ontvangt: "Er kan niet geen gegevens vinden in deze werkruimte voor het geselecteerde tijdsinterval. Wijzig het tijdsinterval of Selecteer een andere werkruimte. "?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Wat gebeurt er als ik dit bericht ontvangt: "We kan niet geen gegevens vinden in deze werkruimte voor het geselecteerde tijdsinterval. Wijzig het tijdsinterval of Selecteer een andere werkruimte. "?
 
 Probeer de volgende opties:
 - Het tijdsinterval in de bovenste balk wijzigen.
@@ -142,15 +141,15 @@ Probeer de volgende opties:
     
 Als de problemen zich blijven voordoen, verhoogt u opmerkingen kunnen in de [-gebruikersforum stem](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Wat gebeurt er als ik dit bericht ontvangt: "logboeken analyseren van uw NSG stromen voor de eerste keer. Dit proces kan 20-30 minuten duren. Controleer later opnieuw. 2) als de bovenstaande stap niet werkt en uw werkruimte valt onder de gratis SKU, controleert u uw werkruimte Gebruik hier als u wilt valideren overschreden, Raadpleeg anders de clusterdocumentatie Veelgestelde vragen voor meer informatie. '?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Wat gebeurt er als ik dit bericht ontvangt: "Het analyseren van uw NSG-stroomlogboeken voor de eerste keer. Dit proces kan 20-30 minuten duren. Controleer later opnieuw. 2) als de bovenstaande stap niet werkt en uw werkruimte valt onder de gratis SKU, controleert u uw werkruimte Gebruik hier als u wilt valideren overschreden, Raadpleeg anders de clusterdocumentatie Veelgestelde vragen voor meer informatie. '?
 
 U ziet dit bericht omdat:
-- Verkeersanalyse onlangs is ingeschakeld en kan niet nog samengevoegde hebben voldoende gegevens voor het afleiden van betekenisvolle inzichten.
+- Traffic Analytics onlangs is ingeschakeld en kan niet nog samengevoegde hebben voldoende gegevens voor het afleiden van betekenisvolle inzichten.
 - Gebruik de gratis versie van de Log Analytics-werkruimte en de quotumlimiet is overschreden. Mogelijk moet u een werkruimte gebruiken met een grotere capaciteit.
     
 Als de problemen zich blijven voordoen, verhoogt u opmerkingen kunnen in de [-gebruikersforum stem](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Wat gebeurt er als ik dit bericht ontvangt: "lijkt erop dat er zijn gegevens van resources (topologie) beschikbaar en er is geen informatie stromen. In de tussentijd zorgen, klik hier om te zien van de gegevens van resources en Raadpleeg Veelgestelde vragen voor meer informatie. '?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Wat gebeurt er als ik dit bericht ontvangt: "Het lijkt er zijn gegevens van resources (topologie) beschikbaar en er is geen informatie stromen. In de tussentijd zorgen, klik hier om te zien van de gegevens van resources en Raadpleeg Veelgestelde vragen voor meer informatie. '?
 
 U ziet de gegevens van resources op het dashboard; Er zijn echter geen statistieken met betrekking tot flow aanwezig zijn. Vanwege geen stromen communicatie tussen de bronnen kan geen gegevens aanwezig zijn. Wacht gedurende 60 minuten en de status controleren. Als het probleem zich blijft voordoen, en u zeker weet dat er communicatie stromen tussen bronnen zijn, verhoogt u opmerkingen kunnen in de [-gebruikersforum stem](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -223,9 +222,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 
 
-## <a name="how-is-traffic-analytics-priced"></a>Hoe is de verkeersanalyse geprijsd?
+## <a name="how-is-traffic-analytics-priced"></a>Hoe is de Verkeersanalyse geprijsd?
 
-Traffic analytics wordt gemeten. De meting is gebaseerd op de verwerking van logboekgegevens van de stroom door de service en opslaan van de resulterende uitgebreide Logboeken in Log Analytics-werkruimte. 
+Traffic Analytics wordt gemeten. De meting is gebaseerd op de verwerking van logboekgegevens van de stroom door de service en opslaan van de resulterende uitgebreide Logboeken in Log Analytics-werkruimte. 
 
 Bijvoorbeeld, volgens de [prijsplan](https://azure.microsoft.com/pricing/details/network-watcher/), de regio West-Centraal VS, overwegen als gegevens die zijn opgeslagen in een storage-account dat is verwerkt door Traffic Analytics stroomlogboeken is 10 GB en uitgebreide logboeken die zijn opgenomen in Log Analytics-werkruimte is 1 GB en vervolgens de kosten van toepassing zijn: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
 
@@ -233,8 +232,8 @@ Bijvoorbeeld, volgens de [prijsplan](https://azure.microsoft.com/pricing/details
 
 De pagina van de kaart geo bevat twee hoofdsecties:
     
-- **Banner**: de banner aan de bovenkant van de geografische kaart voorziet in knoppen voor het verkeer distributie-filters (bijvoorbeeld, implementatie, het verkeer uit landen en kwaadaardig) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de kaart. Als u de actieve knop selecteert, wordt de kaart de actieve datacenters in uw implementatie.
-- **Kaart**: onder de banner, de kaart-sectie ziet u de distributie van verkeer tussen Azure-datacenters en landen.
+- **Banner**: De banner aan de bovenkant van de geografische kaart voorziet in knoppen voor het verkeer Distributiefilters (bijvoorbeeld, implementatie, het verkeer uit landen en schadelijke) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de kaart. Als u de actieve knop selecteert, wordt de kaart de actieve datacenters in uw implementatie.
+- **Kaart**: Onder de banner bevat de sectie map distributie van verkeer tussen Azure-datacenters en landen.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Toetsenbordnavigatie op de koptekst
     
@@ -263,8 +262,8 @@ De pagina van de kaart geo bevat twee hoofdsecties:
 
 De pagina met virtuele netwerken topologie bevat twee hoofdsecties:
     
-- **Banner**: de banner aan de bovenkant van de virtuele netwerken-topologie voorziet in knoppen voor het verkeer Distributiefilters (bijvoorbeeld, verbonden virtuele netwerken, niet-verbonden virtuele netwerken en openbare IP-adressen) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de topologie. Als u de actieve knop selecteert, wordt de topologie van de actieve virtuele netwerken in uw implementatie.
-- **Topologie**: onder de banner, ziet u de sectie topologie distributie van verkeer tussen virtuele netwerken.
+- **Banner**: De banner aan de bovenkant van de virtuele netwerken-topologie voorziet in knoppen voor het verkeer Distributiefilters (bijvoorbeeld, verbonden virtuele netwerken, niet-verbonden virtuele netwerken en openbare IP-adressen) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de topologie. Als u de actieve knop selecteert, wordt de topologie van de actieve virtuele netwerken in uw implementatie.
+- **Topologie**: Onder de banner bevat de sectie topologie distributie van verkeer tussen virtuele netwerken.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Toetsenbordnavigatie op de koptekst
     
@@ -285,8 +284,8 @@ De pagina met virtuele netwerken topologie bevat twee hoofdsecties:
 
 De pagina van de topologie virtuele subnetwerken bevat twee hoofdsecties:
     
-- **Banner**: de banner aan de bovenkant van de topologie virtuele subnetwerken voorziet in knoppen voor het verkeer distributie-filters (bijvoorbeeld Active, gemiddeld en Gateway-subnetten) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de topologie. Als u de actieve knop selecteert, wordt de topologie van de actieve virtuele subnet in uw implementatie.
-- **Topologie**: onder de banner, de sectie topologie distributie van verkeer tussen virtuele subnetwerken bevat.
+- **Banner**: De banner aan de bovenkant van de topologie virtuele subnetwerken voorziet in knoppen voor het verkeer distributie-filters (bijvoorbeeld Active, gemiddeld en Gateway-subnetten) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de topologie. Als u de actieve knop selecteert, wordt de topologie van de actieve virtuele subnet in uw implementatie.
+- **Topologie**: Onder de banner wordt in de sectie topologie distributie van verkeer tussen virtuele subnetwerken bevat.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Toetsenbordnavigatie op de koptekst
     

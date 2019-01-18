@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754200"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390922"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry-verificatie met service-principals
 
@@ -47,9 +47,7 @@ U vindt de voorgaande voorbeeldscripts voor Azure-CLI op GitHub, als en versies 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zodra u een service-principal die u toegang hebt verleend aan het containerregister hebt, kunt u de referenties in uw toepassingen en services voor interactie met de registersleutel.
-
-Terwijl afzonderlijke toepassingen configureren voor gebruik van referenties voor service-principal buiten het bereik van dit artikel is vindt u instructies voor sommige specifieke services en hier platforms:
+Zodra u een service-principal die u toegang hebt verleend aan het containerregister hebt, kunt u de referenties in uw toepassingen en services voor interactie met de ' headless ' register. Met een Azure container registry kunt u referenties voor service-principal van Azure services die kunnen worden geverifieerd. Voorbeelden zijn:
 
 * [Verifiëren met Azure Container Registry uit Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
 * [Verifiëren met Azure Container Registry van Azure Container Instances (ACI)](container-registry-auth-aci.md)

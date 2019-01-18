@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1dee53f633d8b5edf893e2f6c83430d7c1a69022
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341589"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382955"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwingenbeheeroplossing in Azure Log Analytics
 
 ![Pictogram voor het beheer van waarschuwing](media/alert-management-solution/icon.png)
+
+> [!NOTE]
+>  Azure Monitor nu ondersteunt verbeterde mogelijkheden voor [uw waarschuwingen op schaal beheren](https://aka.ms/azure-alerts-overview), met inbegrip van die zijn gegenereerd door [controlehulpprogramma's zoals SCOM, Zabbix of Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  
+
 
 De Waarschuwingsbeheer oplossing helpt u bij het analyseren van alle van de waarschuwingen in uw Log Analytics-opslagplaats.  Deze waarschuwingen kunnen afkomstig zijn uit een groot aantal bronnen die bronnen waaronder [die zijn gemaakt door Log Analytics](../../azure-monitor/platform/alerts-overview.md) of [geïmporteerd uit Nagios of Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). De oplossing ook waarschuwingen importeert uit een [System Center Operations Manager-beheergroepen verbonden](../../azure-monitor/platform/om-agents.md).
 

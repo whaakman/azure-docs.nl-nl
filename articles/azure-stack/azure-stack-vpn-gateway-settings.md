@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5538ce94428f189fc83cfa1107c52b9d57a3d13
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807961"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381561"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-gatewayconfiguratie-instellingen voor Azure Stack
 
@@ -51,9 +51,9 @@ Azure Stack biedt de VPN-gateway SKU's die in de volgende tabel worden weergegev
 
 |   | VPN-gateway-doorvoer |Maximum aantal IPsec-tunnels VPN-gateway |
 |-------|-------|-------|
-|**Basis-SKU**  | 100 Mbps  | 10    |
-|**Standaard-SKU**           | 100 Mbps  | 10    |
-|**High Performance SKU** | 200 Mbps    | 5 |
+|**Basis-SKU**  | 100 Mbps  | 20    |
+|**Standaard-SKU**           | 100 Mbps  | 20    |
+|**High Performance SKU** | 200 Mbps    | 10    |
 
 ### <a name="resizing-gateway-skus"></a>Gateway-SKU's vergroten of verkleinen
 
@@ -123,7 +123,7 @@ De volgende tabel bevat de vereisten voor VPN-gateways.
 |--|--|--|--|--|
 | **Site-naar-Site-connectiviteit (S2S-connectiviteit)** | Niet ondersteund | RouteBased VPN-configuratie | RouteBased VPN-configuratie | RouteBased VPN-configuratie |
 | **Verificatiemethode**  | Niet ondersteund | Vooraf gedeelde sleutel voor S2S-connectiviteit  | Vooraf gedeelde sleutel voor S2S-connectiviteit  | Vooraf gedeelde sleutel voor S2S-connectiviteit  |   
-| **Maximumaantal S2S-verbindingen**  | Niet ondersteund | 10 | 10| 5|
+| **Maximumaantal S2S-verbindingen**  | Niet ondersteund | 20 | 20| 10|
 |**Ondersteuning voor actieve routering (BGP)** | Niet ondersteund | Niet ondersteund | Ondersteund | Ondersteund |
 
 ### <a name="gateway-subnet"></a>Gatewaysubnet

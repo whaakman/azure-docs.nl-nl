@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788392"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382749"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Een back-up van een Windows-server of -client maken op Azure met behulp van het Resource Manager-implementatiemodel
 In dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-client) bestanden en mappen in Azure met Azure Backup met behulp van de Resource Manager-implementatiemodel.
@@ -48,9 +48,9 @@ Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunt
 
 6. In het gedeelte **Resourcegroep**:
 
-    * selecteert u **Nieuw** als u een nieuwe resourcegroep wilt maken,
+    * Klik op de **bestaande selecteren...**  de vervolgkeuzelijst om te zien van de lijst met beschikbare van resourcegroepen.
     of
-    * selecteert u **Bestaande gebruiken** en klikt u op de vervolgkeuzelijst om de lijst met beschikbare resourcegroepen te zien.
+    * selecteert u **Nieuw** als u een nieuwe resourcegroep wilt maken,
 
   Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
 
@@ -70,21 +70,21 @@ Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag 
 
 1. Klik op de blade **Recovery Services-kluizen** op de nieuwe kluis.
 
-    ![De nieuwe kluis in de lijst met Recovery Services-kluizen selecteren](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![De nieuwe kluis in de lijst met Recovery Services-kluizen selecteren](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Wanneer u de kluis selecteert, wordt de blade **Recovery Services-kluis** smaller en worden de blade Instellingen (*met bovenaan de kluisnaam*) en de blade met kluisdetails geopend.
+    Wanneer u de kluis selecteert, de Recovery Services-kluis blade kluisdetails, en de **overzicht** blade (*waarvan de naam van de kluis is aan de bovenkant*) de kluis om de blade details.
 
-    ![De opslagconfiguratie voor nieuwe kluis bekijken](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![De opslagconfiguratie voor nieuwe kluis bekijken](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. Schuif op de blade Instellingen van de nieuwe kluis omlaag naar het gedeelte Beheren en klik op **Back-upinfrastructuur**.
+2. In de nieuwe kluis onder de **instellingen** sectie, Ga naar **eigenschappen**.
 
-  De blade Back-up maken van infrastructuur wordt geopend.
+  De **eigenschappen** blade wordt geopend.
 
-3. Klik op de blade Back-up maken van infrastructuur op **Back-up maken van configuratie** om de blade **Back-up maken van configuratie** te openen.
+3. In de **eigenschappen** blade, klikt u op **Update** onder **back-upconfiguratie** blade. De **back-upconfiguratie** blade wordt geopend.
 
-  ![De opslagconfiguratie voor nieuwe kluis instellen](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![De opslagconfiguratie voor nieuwe kluis instellen](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Kies het type opslagreplicatie dat geschikt is voor uw kluis.
+4. Kies de juiste optie voor opslagreplicatie voor uw kluis en klik op **opslaan**.
 
   ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ Het back-upbeleid is het schema voor herstelpunten worden gemaakt en hoe lang di
 
 ### <a name="to-create-a-backup-schedule"></a>Een back-upschema maken
 
-De back-upschema op de computer die u back wilt-up instellen. Houd er rekening mee dat de tijd die is ingesteld voor de back-up verschillen van de tijd van de lokale computer, kan omdat Azure Backup niet zomer-en wintertijd (Zomertijd) worden gehouden. 
+De back-upschema op de computer die u back wilt-up instellen. Houd er rekening mee dat de tijd die is ingesteld voor de back-up verschillen van de tijd van de lokale computer, kan omdat Azure Backup niet zomer-en wintertijd (Zomertijd) worden gehouden.
 1. Open de Microsoft Azure backup-agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
 
     ![De Azure backup-agent starten](./media/backup-configure-vault/snap-in-search.png)
