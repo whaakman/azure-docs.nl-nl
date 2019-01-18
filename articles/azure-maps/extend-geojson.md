@@ -47,7 +47,7 @@ Een `Circle` geometry weergegeven met behulp van de `GeoJSON Feature` object __m
    >Van de cirkel `radius` wordt weergegeven met behulp van `GeoJSON Feature`van eigenschappen. De radiuswaarde heeft _meters_ en moet van het type `double`.
 
 3. SubType
-   >Moet ook de cirkel geometry bevatten het `subType` eigenschap. Deze eigenschap moet een deel van de `GeoJSON Feature`van eigenschappen en de waarde moet _cirkel_
+   >Moet ook de cirkel geometry bevatten het `subType` eigenschap. Deze eigenschap moet een deel van de `GeoJSON Feature`van eigenschappen en de waarde moet _Circle_
 
 
 #### <a name="example"></a>Voorbeeld
