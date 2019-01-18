@@ -18,8 +18,8 @@ ms.locfileid: "34600626"
 # <a name="consumption-model"></a>Verbruiksmodel
 
 Online Routering biedt een set parameters voor een gedetailleerde beschrijving van vehicle-specifieke verbruik Model.
-Afhankelijk van de waarde van **vehicleEngineType**, twee principal verbruik modellen worden ondersteund: _verbranding_ en _elektrische_. Het opgeven van de parameters die deel uitmaken van verschillende modellen in dezelfde aanvraag is een fout.
-Verbruik Model kan niet worden gebruikt met **travelMode** waarden _fiets_ en _personen_.
+Afhankelijk van de waarde van **vehicleEngineType**, twee principal verbruik modellen worden ondersteund: _Combustion_ en _Electric_. Het opgeven van de parameters die deel uitmaken van verschillende modellen in dezelfde aanvraag is een fout.
+Verbruik Model kan niet worden gebruikt met **travelMode** waarden _bicycle_ en _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Beperkingen van de typeparameters voor verbruik model
 
@@ -38,7 +38,7 @@ In beide modellen verbruik sommige parameters expliciet op te geven wilt, moet u
 
 ## <a name="combustion-consumption-model"></a>Verbranding verbruik model
 
-Het Model van de consumptie verbranding wordt gebruikt wanneer **vehicleEngineType** is ingesteld op _verbranding_.
+Het Model van de consumptie verbranding wordt gebruikt wanneer **vehicleEngineType** is ingesteld op _combustion_.
 De lijst met parameters die deel uitmaken van dit model zijn hieronder. Raadpleeg het gedeelte Parameters voor een gedetailleerde beschrijving.
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ De lijst met parameters die deel uitmaken van dit model zijn hieronder. Raadplee
 
 ## <a name="electric-consumption-model"></a>Elektrische verbruik model
 
-Het elektrische verbruik Model wordt gebruikt wanneer **vehicleEngineType** is ingesteld op _elektrische_.
+Het elektrische verbruik Model wordt gebruikt wanneer **vehicleEngineType** is ingesteld op _electric_.
 De lijst met parameters die deel uitmaken van dit model zijn hieronder. Raadpleeg het gedeelte Parameters voor een gedetailleerde beschrijving.
 
 * constantSpeedConsumptionInkWhPerHundredkm
