@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 181797cd8ba193d7200e5ece8b599ffa40f7185b
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867577"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413699"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
-Spraak gesproken aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken: een *spraakstijl.* 
+Spraak gesproken aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken: een *spraakstijl.*
 
-Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze spraakstijl gebruiken om na te bootsen spraak. 
+Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze spraakstijl gebruiken om na te bootsen spraak.
 
 U kunt aan de slag met een kleine hoeveelheid gegevens voor een concepttest. Maar hoe meer gegevens u hebt opgegeven, hoe meer natuurlijke en professional geluiden in uw stem.
 
@@ -49,7 +49,7 @@ Een stem training-gegevensset bestaat uit een verzameling van audio-bestanden, s
 
 U kunt deze bestanden op twee manieren voorbereiden. Ofwel een script schrijven en deze gelezen door spraak talent of openbaar beschikbare audio gebruiken en deze moet transcriberen naar tekst. Als u de laatste, bewerk disfluencies uit de audio-bestanden, zoals 'um' en andere geluiden opvullende, haperen, mumbled woorden of mispronunciations.
 
-Zorg voor een goede spraakstijl produceren, de opnamen in een stille ruimte met een hoge kwaliteit microfoon. Consistente volume, prijs, spreekstijl inspiratie en expressieve gebaren van spraak spreken zijn essentieel voor het bouwen van een geweldige digitale stem. 
+Zorg voor een goede spraakstijl produceren, de opnamen in een stille ruimte met een hoge kwaliteit microfoon. Consistente volume, prijs, spreekstijl inspiratie en expressieve gebaren van spraak spreken zijn essentieel voor het bouwen van een geweldige digitale stem.
 
 Voor het maken van een stem voor gebruik in productieomgevingen, is het raadzaam dat een professionele opname studio en toon talent te gebruiken. Zie voor meer informatie, [vastleggen voice-voorbeelden voor een aangepaste spraak](record-custom-voice-samples.md).
 
@@ -102,30 +102,30 @@ Nadat u uw audio-bestand archiveren en transcripties hebt voorbereid, uploaden v
 
     De **mijn stem** tabel wordt weergegeven. Het is leeg als u dit nog niet hebt nog geen voice-gegevenssets geüpload.
 
-3. Open de pagina voor het uploaden van een nieuwe gegevensset, selecteert u **gegevens importeren**. 
+3. Open de pagina voor het uploaden van een nieuwe gegevensset, selecteert u **gegevens importeren**.
 
     ![Voice-gegevens importeren](media/custom-voice/import-voice-data.png)
 
-4. Voer een naam en beschrijving in de velden die worden geleverd. 
+4. Voer een naam en beschrijving in de velden die worden geleverd.
 
-5. Selecteer de landinstelling voor uw spraakstijlen. Zorg ervoor dat de informatie over landinstellingen overeenkomt met de taal van de gegevens opnemen en de scripts. 
+5. Selecteer de landinstelling voor uw spraakstijlen. Zorg ervoor dat de informatie over landinstellingen overeenkomt met de taal van de gegevens opnemen en de scripts.
 
 6. Selecteer het geslacht van de spreker waarvan u stem.
 
-7. Selecteer de script- en audio-bestanden te uploaden. 
+7. Selecteer de script- en audio-bestanden te uploaden.
 
 8. Selecteer **importeren** om uw gegevens te uploaden. Voor grotere gegevenssets kan importeren enkele minuten duren.
 
 > [!NOTE]
 > Gratis gebruikers kunnen twee gegevenssets tegelijk uploaden. Abonnementsgebruikers van de Standard-kunnen vijf gegevenssets gelijktijdig uploaden. Als u de limiet is bereikt, wacht u totdat ten minste één van uw gegevenssets geïmporteerd is. Probeer het opnieuw.
 
-Wanneer het uploaden voltooid is, de **mijn spraakgegevens** tabel wordt opnieuw weergegeven. Hier ziet u een vermelding die overeenkomt met de gegevensset die u net hebt geüpload. 
+Wanneer het uploaden voltooid is, de **mijn spraakgegevens** tabel wordt opnieuw weergegeven. Hier ziet u een vermelding die overeenkomt met de gegevensset die u net hebt geüpload.
 
 Gegevenssets worden automatisch gevalideerd nadat het uploaden. De gegevensvalidatie bevat een reeks controles op de audio-bestanden om te controleren of de bestandsindeling, de grootte en de samplingfrequentie. Controles op de bestanden transcriptie controleren of de bestandsindeling en sommige normalisering tekst doen. De uitingen worden omgezet met behulp van spraakherkenning. Vervolgens wordt de resulterende tekst vergeleken met het transcript die u hebt opgegeven.
 
 ![Mijn Voice-gegevens](media/custom-voice/my-voice-data.png)
 
-De volgende tabel ziet u de verwerking van statussen voor geïmporteerde gegevenssets: 
+De volgende tabel ziet u de verwerking van statussen voor geïmporteerde gegevenssets:
 
 | Status | Betekenis
 | ----- | -------
@@ -143,19 +143,19 @@ Houd rekening met alle uitingen met lage uitspraak van scores of slechte signaal
 
 ## <a name="build-your-voice-font"></a>Bouw uw spraakstijl
 
-Nadat uw gegevensset is gevalideerd, kunt u deze kunt gebruiken voor het bouwen van uw aangepaste spraakstijl. 
+Nadat uw gegevensset is gevalideerd, kunt u deze kunt gebruiken voor het bouwen van uw aangepaste spraakstijl.
 
 1.  In de **aangepaste spraak** vervolgkeuzelijst, kiest u **modellen**.
- 
+
     De **mijn Spraakstijlen** tabel wordt weergegeven, een aangepaste spraakstijlen aanbieding die u al hebt gemaakt.
 
-1. Selecteer onder de tabeltitel, **stemmen maken**. 
+1. Selecteer onder de tabeltitel, **stemmen maken**.
 
     De pagina voor het maken van een spraakstijl wordt weergegeven. De huidige landinstelling wordt weergegeven in de eerste rij van de tabel. Wijzig de landinstellingen voor het maken van een stem in een andere taal. De landinstelling moet hetzelfde zijn als voor de gegevenssets die worden gebruikt voor het maken van de stem.
 
-1. Zoals u deed toen u uw gegevensset hebt geüpload, voer een naam en beschrijving om te identificeren van dit model. 
+1. Zoals u deed toen u uw gegevensset hebt geüpload, voer een naam en beschrijving om te identificeren van dit model.
 
-    Kies een naam zorgvuldig. De naam die u hier opgeeft, worden de naam die u gebruikt om op te geven van de toon in uw aanvraag voor spraaksynthese als onderdeel van de SSML invoer. Alleen letters, cijfers en enkele leestekens zoals '-', '_' en '(',')' zijn toegestaan.
+    Kies een naam zorgvuldig. De naam die u hier opgeeft, worden de naam die u gebruikt om op te geven van de toon in uw aanvraag voor spraaksynthese als onderdeel van de SSML invoer. Alleen letters, cijfers en enkele leestekens zoals `-`, `_`, en `(', ')` zijn toegestaan.
 
     Een algemene gebruik van de **beschrijving** veld, is het vastleggen van de namen van de gegevenssets die zijn gebruikt voor het maken van het model.
 
@@ -167,7 +167,7 @@ Nadat uw gegevensset is gevalideerd, kunt u deze kunt gebruiken voor het bouwen 
 
     ![Model maken](media/custom-voice/create-model.png)
 
-Het nieuwe model wordt weergegeven in de **mijn Spraakstijlen** tabel. 
+Het nieuwe model wordt weergegeven in de **mijn Spraakstijlen** tabel.
 
 ![Mijn Spraakstijlen](media/custom-voice/my-voice-fonts.png)
 
@@ -212,7 +212,7 @@ Wanneer de status van de implementatie is **geslaagd**, het eindpunt van uw geï
 
 Online testen van het eindpunt is ook beschikbaar via de portal voor aangepaste gesproken. Als u wilt testen op uw eindpunt, kies **eindpunten testen** uit de **aangepaste spraak** vervolgkeuzelijst. Het eindpunt testen van de pagina wordt weergegeven. Kies een geïmplementeerde aangepaste gesproken en voer de tekst die moet worden uitgesproken (in tekst zonder opmaak of SSML-indeling) in het tekstvak in.
 
-> [!NOTE] 
+> [!NOTE]
 > Bij het gebruik van SSML, de `<voice>` tag geeft de naam die u uw aangepaste gesproken hebt gegeven toen u het maakte. Als u tekst zonder opmaak hebt ingediend, wordt de aangepaste gesproken altijd gebruikt.
 
 Als u wilt de tekst die in uw aangepaste spraakstijl gesproken horen, selecteer **afspelen**.
@@ -223,10 +223,18 @@ Het eindpunt van de aangepaste is identiek aan de standard-eindpunt dat wordt ge
 
 ## <a name="language-support"></a>Taalondersteuning
 
-Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US), vasteland Chinees (zh-CN) en Italiaans (it-IT).
+Stem aanpassing is beschikbaar in deze talen:
+
+| Taal | Landinstelling |
+|----------|--------|
+| Chinees (vasteland) | zh-CN |
+| English (US) | en-US |
+| Frans | fr-FR |
+| Duits | de-DE |
+| Italiaans | IT-IT |
 
 > [!NOTE]
-> Trainingen voor de Italiaanse toon begint met een gegevensset van meer dan 2000 uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een gegevensset van meer dan 2000 uitingen.
+> Frans en Duits, Italiaans trainingen voor de toon begint met een gegevensset van meer dan 2000 uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een gegevensset van meer dan 2000 uitingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 08420be7171df78babf62b262fef84fd29fb34ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 37ecb314c5f09a51d9ce9d28534a4664b75069af
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495060"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412747"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Oracle Data Guard implementeren op een virtuele Azure Linux-machine 
 
@@ -48,9 +48,9 @@ az login
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met behulp van de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure resources worden geïmplementeerd en beheerd. 
+Maak een resourcegroep met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure resources worden geïmplementeerd en beheerd. 
 
-Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westus` locatie:
+In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -341,7 +341,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-Data Guard Broker inschakelen:
+Enable Data Guard Broker:
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
@@ -493,7 +493,7 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-Data Guard Broker inschakelen:
+Enable Data Guard Broker:
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
@@ -502,7 +502,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Data Guard Broker configureren op myVM1 (primair)
 
-Data Guard Manager start en zich aanmeldt met behulp van SYS en een wachtwoord. (Gebruik geen OS-verificatie.) Het volgende doen:
+Data Guard Manager start en zich aanmeldt met behulp van SYS en een wachtwoord. (Gebruik geen OS-verificatie.) Voer het volgende uit:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1

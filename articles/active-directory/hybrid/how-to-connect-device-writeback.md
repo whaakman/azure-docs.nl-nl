@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361065"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412815"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Apparaat terugschrijven inschakelen
 > [!NOTE]
@@ -38,10 +38,10 @@ Dit biedt extra beveiliging en zekerheid dat de toegang tot toepassingen te tot 
 > <li>Apparaten moeten zich in hetzelfde forest als de gebruikers. Omdat apparaten moeten worden teruggeschreven naar één forest, ondersteunt deze functie momenteel geen een implementatie met meerdere forests van de gebruiker.</li>
 > <li>Slechts één apparaat registratie configuratieobject kan worden toegevoegd aan de on-premises Active Directory-forest. Deze functie is niet compatibel is met een topologie waarbij de on-premises Active Directory is gesynchroniseerd met meerdere Azure AD-mappen.</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>Deel 1: Installeer Azure AD Connect
+## <a name="part-1-install-azure-ad-connect"></a>Deel 1: Azure AD Connect installeren
 Installeer Azure AD Connect met aangepaste of snelle instellingen. Microsoft raadt aan om te beginnen met alle gebruikers en groepen zijn gesynchroniseerd voordat u Write-back van apparaat inschakelen.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Deel 2: Enable apparaat terugschrijven in Azure AD Connect
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Deel 2: Apparaat terugschrijven van wachtwoorden in Azure AD Connect inschakelen
 1. Voer de installatiewizard opnieuw uit. Selecteer **Apparaatopties configureren** pagina van de aanvullende taken en klik op **volgende**. 
 
     ![Apparaatopties configureren](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -57,10 +57,10 @@ Installeer Azure AD Connect met aangepaste of snelle instellingen. Microsoft raa
 
 4. **Apparaatcontainer** pagina biedt de mogelijkheid van de voorbereiding van de active directory met behulp van een van de twee beschikbare opties:
 
-    a. **Enterprise-beheerdersreferenties opgeven**: als de referenties voor ondernemingsadministrator worden opgegeven voor het forest waarin apparaten moeten worden teruggeschreven, Azure AD Connect bereidt het forest automatisch tijdens de configuratie van Write-back van apparaat.
+    a. **Enterprise-beheerdersreferenties opgeven**: Als de referenties voor ondernemingsadministrator worden opgegeven voor het forest waarin apparaten moeten worden teruggeschreven, wordt Azure AD Connect het forest automatisch voorbereid tijdens de configuratie van Write-back van apparaat.
 
-    b. **PowerShell-script downloaden**: Azure AD Connect auto-genereert een PowerShell-script dat de active directory voor write-back van apparaat voorbereiden kunt. Als de referenties voor ondernemingsadministrator kunnen niet worden opgegeven in de Azure AD Connect, is het nodig om te downloaden van het PowerShell-script. De gedownloade PowerShell-script bieden **CreateDeviceContainer.psq** naar de enterprise-beheerder van het forest waarin apparaten worden teruggeschreven naar.
-    ![Active Directory-forest voorbereiden](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **PowerShell-script downloaden**: Azure AD Connect wordt automatisch gegenereerd een PowerShell-script dat de active directory voor write-back van apparaat voorbereiden kunt. Als de referenties voor ondernemingsadministrator kunnen niet worden opgegeven in de Azure AD Connect, is het nodig om te downloaden van het PowerShell-script. De gedownloade PowerShell-script bieden **CreateDeviceContainer.psq** naar de enterprise-beheerder van het forest waarin apparaten worden teruggeschreven naar.
+    ![Active directory-forest voorbereiden](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     De volgende bewerkingen worden uitgevoerd voor het voorbereiden van de active directory-forest:
     * Als ze niet al bestaan, maakt en configureert u de nieuwe containers en objecten onder CN = registratie apparaatconfiguratie, CN = Services, CN = configuratie, [forest-DN-naam].
@@ -123,7 +123,7 @@ Controleer of de configuratie in Active Directory:
 
 ![Problemen op, Controleer de machtigingen op de configuratie van apparaatregistratie](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Aanvullende gegevens
+## <a name="additional-information"></a>Aanvullende informatie
 * [Risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
 * [Instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127666"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401704"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Richtlijnen voor Spark in HDInsight en Azure Data Lake Storage Gen1 afstemmen van prestaties
 
@@ -47,7 +47,7 @@ Wanneer de Spark-taken uitvoert, moet u hier de belangrijkste instellingen die k
 
 **Executor-cores** Hiermee stelt u het aantal kernen per executor, waarmee wordt bepaald hoe het aantal parallelle threads die kunnen worden uitgevoerd per executor gebruikt.  Bijvoorbeeld, als executor-cores = 2, en vervolgens elke executor 2 parallelle taken in de executor uitvoeren kunt.  De executor-cores nodig zijn afhankelijk van de taak.  Intensief i/o-taken vereisen geen een grote hoeveelheid geheugen per taak, zodat elke executor meer parallelle taken kan worden verwerkt.
 
-Standaard worden twee virtuele kernen voor YARN gedefinieerd voor elke fysieke kern bij het uitvoeren van Spark op HDInsight.  Dit nummer biedt een goede balans tussen concurrecy en hoeveelheid context overschakelen van meerdere threads.  
+Standaard worden twee virtuele kernen voor YARN gedefinieerd voor elke fysieke kern bij het uitvoeren van Spark op HDInsight.  Dit nummer biedt een goede balans tussen gelijktijdigheid en de hoeveelheid context overschakelen van meerdere threads.  
 
 ## <a name="guidance"></a>Richtlijnen
 
@@ -55,11 +55,11 @@ Tijdens het uitvoeren van Spark analytische workloads om te werken met gegevens 
 
 Er zijn een paar algemene manieren om te vergroten van de waarde voor concurrency voor i/o-intensieve taken.
 
-**Stap 1: Bepaal hoeveel apps worden uitgevoerd op uw cluster** : U moet weten hoeveel apps worden uitgevoerd op het cluster met inbegrip van het huidige abonnement.  De standaardwaarden voor elke Spark instelling wordt ervan uitgegaan dat er 4 apps die gelijktijdig worden uitgevoerd.  Daarom hebt u alleen 25% van het cluster beschikbaar is voor elke app.  Voor betere prestaties, kunt u de standaardinstellingen onderdrukken door het aantal Executor te wijzigen.  
+**Stap 1: Bepalen hoeveel apps worden uitgevoerd op uw cluster** : U moet weten hoeveel apps worden uitgevoerd op het cluster met inbegrip van het huidige abonnement.  De standaardwaarden voor elke Spark instelling wordt ervan uitgegaan dat er 4 apps die gelijktijdig worden uitgevoerd.  Daarom hebt u alleen 25% van het cluster beschikbaar is voor elke app.  Voor betere prestaties, kunt u de standaardinstellingen onderdrukken door het aantal Executor te wijzigen.  
 
-**Stap 2: De executor-geheugen instellen** : het eerste wat om in te stellen, is het executor-geheugen.  Het geheugen zijn afhankelijk van de taak die u wilt uitvoeren.  U kunt de gelijktijdigheid verhogen door toe te wijzen minder geheugen per executor.  Als u buiten het geheugen uitzonderingen ziet wanneer u uw taak uitvoert, moet u de waarde voor deze parameter verhogen.  Een alternatief is om op te halen van meer geheugen met behulp van een cluster met grotere hoeveelheden geheugen of het vergroten van uw cluster.  Meer geheugen kunnen meer Executor moet worden gebruikt, wat betekent dat meer gelijktijdigheid.
+**Stap 2: Instellen van executor-geheugen** : het eerste wat om in te stellen, is het executor-geheugen.  Het geheugen zijn afhankelijk van de taak die u wilt uitvoeren.  U kunt de gelijktijdigheid verhogen door toe te wijzen minder geheugen per executor.  Als u buiten het geheugen uitzonderingen ziet wanneer u uw taak uitvoert, moet u de waarde voor deze parameter verhogen.  Een alternatief is om op te halen van meer geheugen met behulp van een cluster met grotere hoeveelheden geheugen of het vergroten van uw cluster.  Meer geheugen kunnen meer Executor moet worden gebruikt, wat betekent dat meer gelijktijdigheid.
 
-**Stap 3: De executor-cores instellen** – voor i/o-intensieve workloads waarvoor geen complexe bewerkingen, is het handig om te beginnen met een groot aantal executor-cores om het aantal parallelle taken per executor te vergroten.  Instellen van executor-cores 4 is een goede start.   
+**Stap 3: Instellen van executor-cores** – voor i/o-intensieve workloads waarvoor geen complexe bewerkingen, is het handig om te beginnen met een groot aantal executor-cores om het aantal parallelle taken per executor te vergroten.  Instellen van executor-cores 4 is een goede start.   
 
     executor-cores = 4
 Het aantal executor-cores verhoogt, krijgt u meer parallelle uitvoering, zodat u met verschillende executor-cores experimenteren kunt.  Voor taken die u meer gecompliceerde bewerkingen hebt, moet u het aantal kernen per executor verminderen.  Als executor-cores is kan groter zijn dan 4, klikt u vervolgens garbagecollection inefficiënt en de prestaties nadelig beïnvloeden.
@@ -86,19 +86,19 @@ Hoe hoger de waarde van num Executor verhoogt niet per se de prestaties.  U moet
 
 Stel dat u hebt momenteel een cluster bestaat uit 8 D4v2 knooppunten met 2 apps, inclusief de functie die u wilt uitvoeren.  
 
-**Stap 1: Bepaal hoeveel apps worden uitgevoerd op uw cluster** : u weet dat u 2 hebt apps op uw cluster, inclusief de functie die u wilt uitvoeren.  
+**Stap 1: Bepalen hoeveel apps worden uitgevoerd op uw cluster** : u weet dat u 2 hebt apps op uw cluster, inclusief de functie die u wilt uitvoeren.  
 
-**Stap 2: De executor-geheugen instellen** : in dit voorbeeld we bepalen 6 GB executor-geheugen is voldoende voor i/o-intensieve taak.  
+**Stap 2: Instellen van executor-geheugen** : in dit voorbeeld we bepalen 6 GB executor-geheugen is voldoende voor i/o-intensieve taak.  
 
     executor-memory = 6GB
-**Stap 3: De executor-cores instellen** : omdat dit een i/o-intensieve taak, kunnen we het aantal kernen instellen voor elke executor tot en met 4.  Kernen per executor wordt ingesteld op groter is dan 4 garbagecollection verzameling problemen kunnen veroorzaken.  
+**Stap 3: Instellen van executor-cores** – omdat dit een i/o-intensieve taak, kunnen we het aantal kernen instellen voor elke executor tot en met 4.  Kernen per executor wordt ingesteld op groter is dan 4 garbagecollection verzameling problemen kunnen veroorzaken.  
 
     executor-cores = 4
 **Stap 4: YARN-geheugen van de cluster bepalen** – navigeren We naar Ambari om erachter te komen dat elke D4v2 25 GB van de YARN-geheugen heeft.  Aangezien er 8 knooppunten, wordt het beschikbare geheugen van de YARN vermenigvuldigd met 8.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Stap 5: Bereken de num Executor** : de parameter num Executor wordt bepaald door het minimum van de beperking van het geheugen en de CPU-beperking gedeeld door het aantal apps die worden uitgevoerd op Spark.    
+**Stap 5: Num Executor berekenen** : de parameter num Executor wordt bepaald door het minimum van de beperking van het geheugen en de CPU-beperking gedeeld door het aantal apps die worden uitgevoerd op Spark.    
 
 **Geheugen-beperking berekenen** : de beperking van het geheugen wordt berekend als het totale YARN-geheugen van de hoeveelheid geheugen per executor verdeeld.
 

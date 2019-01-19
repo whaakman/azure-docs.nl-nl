@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287469"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402248"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resourceklassen in Azure SQL Data Warehouse
 Richtlijnen voor het gebruik van resource-klassen voor het beheren van geheugen en gelijktijdigheid voor query's in uw Azure SQL Data Warehouse.  
@@ -90,7 +90,7 @@ Op **Gen2 alleen**, dynamische resourceklassen worden echt dynamische adressen v
 ### <a name="default-resource-class"></a>Standaard resourceklasse
 Standaard is elke gebruiker lid is van de dynamische resourceklasse **smallrc**. 
 
-De resourceklasse van de servicebeheerder is vast en kan niet worden gewijzigd.  De servicebeheerder is de gebruiker heeft gemaakt tijdens het inrichtingsproces.
+De resourceklasse van de service-beheerder is vastgesteld op smallrc en kan niet worden gewijzigd.  De servicebeheerder is de gebruiker heeft gemaakt tijdens het inrichtingsproces.  De servicebeheerder in deze context is de aanmelding die is opgegeven voor 'serverbeheerder' wanneer een nieuw exemplaar van SQL Data Warehouse maken met een nieuwe server.
 
 > [!NOTE]
 > Gebruikers of groepen die zijn gedefinieerd als Active Directory-beheerder zijn ook servicebeheerders.
@@ -105,13 +105,13 @@ Resource-klassen zijn ontworpen voor betere prestaties voor activiteiten voor he
 
 Deze bewerkingen zijn onderworpen aan resource-klassen:
 
-* INSERT-SELECT-, UPDATE, DELETE
+* INSERT-SELECT, UPDATE, DELETE
 * Selecteer (bij het opvragen van gebruikerstabellen)
 * ALTER INDEX - opnieuw samenstellen of REORGANIZE
 * ALTER TABLE OPNIEUW MAKEN
 * INDEX MAKEN
 * GECLUSTERDE COLUMNSTORE-INDEX MAKEN
-* TABLE AS SELECT (CTAS) MAKEN
+* CREATE TABLE AS SELECT (CTAS)
 * Gegevens laden
 * Bewerkingen voor gegevensverplaatsing die wordt uitgevoerd door de Data Movement Service (DMS)
 
@@ -130,7 +130,7 @@ De volgende instructies zijn vrijgesteld van resource-klassen en altijd in small
 * ALTER INDEX UITSCHAKELEN
 * INDEX VERWIJDEREN
 * MAKEN, bijwerken of DROP STATISTICS
-* TABEL AFKAPPEN
+* TRUNCATE TABLE
 * ALTER AUTORISATIE
 * AANMELDING MAKEN
 * CREATE, ALTER of DROP USER
@@ -138,7 +138,7 @@ De volgende instructies zijn vrijgesteld van resource-klassen en altijd in small
 * MAKEN of de weergave niet verwijderen
 * WAARDEN INVOEGEN
 * Selecteer in systeemweergaven en DMV 's
-* LEG UIT
+* EXPLAIN
 * DBCC
 
 <!--

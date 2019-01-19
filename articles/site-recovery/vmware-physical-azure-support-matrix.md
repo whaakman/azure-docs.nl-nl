@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107494"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413410"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -88,9 +88,9 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.1
 --- | --- | --- |
 Debian 7 | [9.18][9.18 UR],[9.19][9.19 UR],[9.20][9.20 UR],[9.21][9.21 UR] | 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR] | 3.16.0-4-AMD64 naar 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.8-amd64 |
-Debian 8 | [9.19][9.19 UR] | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.7-amd64 |
-Debian 8 | [9.18][9.18 UR] | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
+Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR] | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.19][9.19 UR] | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.7-amd64 |
+Debian 8 | [9.18][9.18 UR] | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 ondersteunde versies van de kernel
@@ -111,8 +111,9 @@ Volume manager | Voordat u [9.20 versie](https://support.microsoft.com/en-in/hel
 Geparavirtualiseerde opslagapparaten | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
-Apparaat/koppelpunt punt naamconventie | De naam van apparaat of de naam van koppelpunt moet uniek zijn. Zorg ervoor dat er geen twee apparaten/koppelpunten hoofdlettergevoelig namen hebben. </br> Voorbeeld: Naamgeving van de twee apparaten van dezelfde virtuele machine als *device1* en *Device1* is niet toegestaan.
-Mappen | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. De volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) alle moeten op dezelfde schijf als besturingssysteem op de bronserver: / (hoofd), bevinden, / usr, / usr/local, /var, / etc.</br>2. bevinden moet zich op een partitie op schijf en niet een LVM-volume.<br/><br/> Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) bovenstaande beperkingen zijn en hoger, niet van toepassing.
+Apparaat/koppelpunt punt naamconventie | De naam van apparaat of de naam van koppelpunt moet uniek zijn. Zorg ervoor dat twee apparaten/koppelpunten nooit dezelfde naam hebben (niet hoofdlettergevoelig). </br> Voorbeeld: Naamgeving van de twee apparaten van dezelfde virtuele machine als *device1* en *Device1* is niet toegestaan.
+Mappen | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. De volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) alle moeten op dezelfde schijf als besturingssysteem op de bronserver: / (hoofd), bevinden, / usr, / usr/local, /var, / etc.</br>2. bevinden moet zich op een partitie op schijf en niet een LVM-volume.<br/><br/> Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) bovenstaande beperkingen zijn en hoger, niet van toepassing. bevinden op LVM-volume op meer dan één schijven wordt niet ondersteund.
+Opstartmap | Meerdere opstartschijven op een virtuele machine wordt niet ondersteund. <br/><br/> Een virtuele machine zonder opstartschijf kan niet worden beveiligd.
 
 Vrije schijfruimte | 2 GB op de/root-partitie <br/><br/> 250 MB op de installatiemap XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom worden van Mobility Service versie 9.10 stationstoewijzingen ondersteund. Gebruik het hulpprogramma xfs_info om te controleren of de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
 
@@ -157,9 +158,10 @@ Versneld netwerken | Nee
 ## <a name="storage"></a>Storage
 **Onderdeel** | **Ondersteund**
 --- | ---
+Dynamische schijf | Bewerking schijf moet een standaardschijf. <br/><br/>Gegevensschijven mogen dynamische schijven
 Host NFS | Ja voor VMware<br/><br/> Nee voor fysieke servers
 Host (iSCSI/FC) SAN | Ja
-Host virtueel SAN | Ja voor VMware<br/><br/> N.V.T. voor fysieke servers
+Host vSAN | Ja voor VMware<br/><br/> N.V.T. voor fysieke servers
 Host-MPIO (Multipath I/O) | Ja, getest met Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
 Virtuele Hostvolumes (VVols) | Ja voor VMware<br/><br/> N.V.T. voor fysieke servers
 VMDK-Gast/server | Ja
@@ -216,7 +218,7 @@ On-premises machines die u naar Azure repliceren, moeten voldoen aan de virtuele
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
 Gast-besturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated-machines) voor gerepliceerde machines. | Controle mislukt als niet-ondersteund.
-Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als niet-ondersteund.
+Architectuur van de Gast-besturingssysteem | 64-bit. | Controle mislukt als niet-ondersteund.
 Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als niet-ondersteund.
 Aantal besturingssysteemschijven | 1 | Controle mislukt als niet-ondersteund.
 Aantal gegevensschijven | 64 of minder. | Controle mislukt als niet-ondersteund.

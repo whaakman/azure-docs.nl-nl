@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0d58a384a6ca7c249a3b0e8b690095202fe373a2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526324"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413614"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Herstel van diagnostische gegevens en de fout voor Azure Import/Export-taken
 Voor elk station dat is verwerkt, wordt in de Azure Import/Export-service een foutenlogboek maakt in het bijbehorende opslagaccount. U kunt ook uitgebreide logboekregistratie inschakelen door in te stellen de `LogLevel` eigenschap `Verbose` bij het aanroepen van de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) bewerkingen.
 
  Standaard logboeken worden geschreven naar een container met de naam `waimportexport`. U kunt een andere naam opgeven door in te stellen de `DiagnosticsPath` eigenschap bij het aanroepen van de `Put Job` of `Update Job Properties` bewerkingen. De logboeken worden opgeslagen als blok-blobs met de volgende naamconventie gebruikt: `waies/jobname_driveid_timestamp_logtype.xml`.
 
- U kunt de URI van de logboeken voor een taak ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking. De URI voor het uitgebreide logboek wordt geretourneerd in de `VerboseLogUri` eigenschap voor elke schijf, terwijl de URI voor het foutenlogboek wordt geretourneerd in de `ErrorLogUri` eigenschap.
+ U kunt de URI van de logboeken voor een taak ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs) bewerking. De URI voor het uitgebreide logboek wordt geretourneerd in de `VerboseLogUri` eigenschap voor elke schijf, terwijl de URI voor het foutenlogboek wordt geretourneerd in de `ErrorLogUri` eigenschap.
 
 De gegevens voor logboekregistratie kunt u de volgende problemen identificeren.
 

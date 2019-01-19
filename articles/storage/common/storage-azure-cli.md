@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984371"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413631"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>De Azure CLI gebruiken met Azure Storage
 
@@ -30,8 +30,8 @@ De voorbeelden in deze handleiding wordt ervan uitgegaan dat het gebruik van de 
 Deze handleiding wordt ervan uitgegaan dat u inzicht in de basisbeginselen van Azure Storage. Ook wordt ervan uitgegaan dat u voldoet aan de vereisten voor het maken van account die hieronder zijn opgegeven voor Azure en de Storage-service.
 
 ### <a name="accounts"></a>Accounts
-* **Azure-account**: als u nog een Azure-abonnement hebt [maken van een gratis Azure-account](https://azure.microsoft.com/free/).
-* **Opslagaccount**: zie [Een opslagaccount maken](storage-quickstart-create-account.md) in [Over Azure-opslagaccounts](storage-create-storage-account.md).
+* **Azure-account**: Als u nog een Azure-abonnement hebt [maken van een gratis Azure-account](https://azure.microsoft.com/free/).
+* **Storage-account**: Zie [een opslagaccount maken](storage-quickstart-create-account.md) in [over Azure storage-accounts](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Azure-CLI installeren
 
@@ -183,10 +183,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` (Vereist): locatie. Bijvoorbeeld 'VS-West'.
-* `--name` (Vereist): naam van het opslagaccount. De naam moet 3 tot 24 tekens bestaan en gebruik alleen kleine letters alfanumerieke tekens.
-* `--resource-group` (Vereist): naam van resourcegroep.
-* `--sku` (Vereist): de opslagaccount-SKU. Toegestane waarden:
+* `--location` (Vereist): De locatie. Bijvoorbeeld 'VS-West'.
+* `--name` (Vereist): De naam van het opslagaccount. De naam moet 3 tot 24 tekens bestaan en gebruik alleen kleine letters alfanumerieke tekens.
+* `--resource-group` (Vereist): De naam van de resourcegroep.
+* `--sku` (Vereist): Het opslagaccount SKU. Toegestane waarden:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -197,7 +197,7 @@ az storage account create \
 
 U kunt meerdere opslagaccounts in uw Azure-abonnement hebben. Als u wilt een van deze moet worden gebruikt voor alle daaropvolgende opslagopdrachten selecteert, kunt u deze omgevingsvariabelen instellen:
 
-Geef eerst uw opslagaccountsleutels weer met behulp van de opdracht [az storage account keys list](/cli/azure/storage/account/keys#list):
+Geef eerst uw opslagaccountsleutels weer met behulp van de opdracht [az storage account keys list](/cli/azure/storage/account/keys):
 
 ```azurecli-interactive
 az storage account keys list \
@@ -242,7 +242,7 @@ az storage container create --name <container_name>
 
 U kunt een van drie niveaus van leestoegang voor een nieuwe container instellen door op te geven de optionele `--public-access` argument:
 
-* `off` (standaard): containergegevens is gebonden aan de eigenaar van het account.
+* `off` (standaard): Containergegevens is gebonden aan de eigenaar van het account.
 * `blob`: Openbare leestoegang voor blobs.
 * `container`: Openbare lees- en toegang tot de volledige container.
 

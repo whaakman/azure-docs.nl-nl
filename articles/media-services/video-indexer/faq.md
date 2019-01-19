@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306999"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402044"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -28,18 +28,17 @@ Video Indexer is een kunstmatige intelligentie-service die deel uitmaakt van Mic
 
 ### <a name="what-can-i-do-with-video-indexer"></a>Wat kan ik doen met Video Indexer
 
-Video Indexer kunt de volgende typen bewerkingen op media-bestanden uitvoeren:
+Enkele van de bewerkingen die Video Indexer op de media-bestanden uitvoeren kunt zijn:
 
-* Identificeren en extraheren van spraak en identificeren van luidsprekers.
-* Identificeren en op het scherm uit te pakken tekst in een video.
-* Identificeren en labelen van objecten in een videobestand.
-* Identificeer merken zoals Microsoft inhuren van audionummers en op het scherm tekst in een video.
-* Detecteren en te herkennen gezichten in een database van beroemdheden en een gebruiker gedefinieerde database van gezichten wordt uitgevoerd.
-* Trefwoorden extraheren uit video en audio-inhoud op basis van gesproken en visuele tekst.
-* Onderwerpen besproken, maar niet per se expliciet wordt vermeld in de audio en video-inhoud op basis van gesproken en visuele tekst extraheren.
-* Ondertitels maken vanuit de audiotrack.
+* Identificeren van en het ophalen van spraak en identificeren van luidsprekers.
+* Identificeren en op het scherm extraheren tekst in een video.
+* Detecteren van objecten in een videobestand.
+* Identificeren van merken (bijvoorbeeld: Microsoft) van audionummers en op het scherm de tekst in een video.
+* Detecteren van en het herkennen van gezichten in een database van beroemdheden en een gebruiker gedefinieerde database van gezichten wordt uitgevoerd.
+* Uitpakken van onderwerpen besproken, maar niet noodzakelijkerwijs die worden vermeld in de audio en video-inhoud.
+* Het maken van ondertitels uit de audiotrack.
 
-Zie [Overzicht](video-indexer-overview.md) voor meer informatie.
+Zie voor meer informatie en meer Video Indexer-functies, [overzicht](video-indexer-overview.md).
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Hoe ga ik aan de slag met Video Indexer?
 

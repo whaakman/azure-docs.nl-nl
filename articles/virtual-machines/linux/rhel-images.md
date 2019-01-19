@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229571"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402146"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux-installatiekopieën in Azure
 Dit artikel beschrijft de beschikbare installatiekopieën van Red Hat Enterprise Linux (RHEL) in de Azure Marketplace, samen met beleid voor hun namen en retentie.
 
 Informatie over het beleid voor Red Hat-ondersteuning voor alle versies van RHEL vindt u op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.
+
+>[!Important]
+> RHEL-installatiekopieën die momenteel beschikbaar zijn in de Azure marketplace ondersteuning voor Bring-Your-Own-abonnement (BYOS) of betalen per gebruik (betalen per gebruik) modellen-licentieverlening. De [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) en dynamische schakelen tussen BYOS en betalen per gebruik wordt niet ondersteund. Switch licentiemodus vereist de virtuele machine uit de bijbehorende installatiekopie opnieuw te implementeren.
+
+>[!Note]
+> Vul een ondersteuningsticket met Microsoft voor problemen met betrekking tot de RHEL-installatiekopieën in de Azure marketplace-galerie.
 
 ## <a name="images-available-in-the-ui"></a>Installatiekopieën die beschikbaar zijn in de gebruikersinterface
 Wanneer u een voor 'Red Hat"in de Marketplace, of zoekopdracht wanneer u een resource in de gebruikersinterface van Azure portal maakt, ziet u een subset van de RHEL-installatiekopieën beschikbaar en gerelateerde Red Hat-producten. U kunt altijd de volledige set beschikbare VM-installatiekopieën met de Azure CLI/PowerShell/API verkrijgen.
@@ -70,23 +76,23 @@ De beperking is in het feit dat wanneer een niet-selectieve `yum update` wordt u
 De volgende aanbiedingen zijn dat SKU 's zijn momenteel beschikbaar voor algemeen gebruik:
 Aanbieding| SKU | Partitionering | Inrichten | Opmerkingen
 :----|:----|:-------------|:-------------|:-----
-RHEL | 7-ONBEWERKTE | ONBEWERKTE | Linux-agent | RHEL 7-familie van afbeeldingen
+RHEL | 7-ONBEWERKTE | RAW | Linux-agent | RHEL 7-familie van afbeeldingen
 | | 7-LVM | LVM | Linux-agent | RHEL 7-familie van afbeeldingen
-| | 7-RAW-CI | ONBEWERKTE CI | Cloud-init | RHEL 7-familie van afbeeldingen
-| | 6.7 | ONBEWERKTE | Linux-agent | RHEL 6.7 afbeeldingen, oude naamgevingsconventie
-| | 6.8 | ONBEWERKTE | Linux-agent | Hetzelfde als hierboven voor RHEL 6,8
-| | 6.9 | ONBEWERKTE | Linux-agent | Hetzelfde als hierboven voor RHEL 6,9
-| | 6.10 | ONBEWERKTE | Linux-agent | Hetzelfde als hierboven voor RHEL 6.10
-| | 7.2 | ONBEWERKTE | Linux-agent | Hetzelfde als hierboven voor RHEL 7.2
-| | 7.3 | ONBEWERKTE | Linux-agent | Hetzelfde als hierboven voor RHEL 7.3
-| | 7.4 | ONBEWERKTE | Linux-agent | Hetzelfde als hierboven voor RHEL 7.4
-| | 7.5 | ONBEWERKTE | Linux-agent | Hetzelfde als hierboven voor RHEL 7.5
+| | 7-RAW-CI | RAW-CI | Cloud-init | RHEL 7-familie van afbeeldingen
+| | 6.7 | RAW | Linux-agent | RHEL 6.7 afbeeldingen, oude naamgevingsconventie
+| | 6.8 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 6,8
+| | 6.9 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 6,9
+| | 6.10 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 6.10
+| | 7.2 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.2
+| | 7.3 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.3
+| | 7.4 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.4
+| | 7.5 | RAW | Linux-agent | Hetzelfde als hierboven voor RHEL 7.5
 RHEL-SAP | 7.4 | LVM | Linux-agent | RHEL 7.4 voor SAP HANA- en Business-Apps
 | | 7.5 | LVM | Linux-agent | RHEL 7.5 voor SAP HANA- en Business-Apps
-RHEL-SAP-HANA | 6.7 | ONBEWERKTE | Linux-agent | RHEL 6.7 voor SAP HANA
+RHEL-SAP-HANA | 6.7 | RAW | Linux-agent | RHEL 6.7 voor SAP HANA
 | | 7.2 | LVM | Linux-agent | RHEL 7.2 voor SAP HANA
 | | 7.3 | LVM | Linux-agent | 7.3 RHEL for SAP HANA
-RHEL-SAP-APPS | 6.8 | ONBEWERKTE | Linux-agent | 6,8 RHEL for SAP Business Applications
+RHEL-SAP-APPS | 6.8 | RAW | Linux-agent | 6,8 RHEL for SAP Business Applications
 | | 7.3 | LVM | Linux-agent | 7.3 RHEL for SAP Business Applications
 
 ### <a name="old-naming-convention"></a>Oude naamgeving

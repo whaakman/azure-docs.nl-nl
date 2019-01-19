@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021030"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412866"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -52,7 +52,12 @@ U kunt de volgende hulpprogramma's gebruiken om te maken of een VNet configurere
 * Een netwerkconfiguratiebestand (netcfg - voor alleen klassieke VNets). Zie de [een VNet configureren met een netwerkconfiguratiebestand](virtual-networks-using-network-configuration-file.md) artikel.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Welke adresbereiken kan ik gebruiken in mijn VNets?
-Elk IP-adresbereik is gedefinieerd in [RFC 1918](http://tools.ietf.org/html/rfc1918). Bijvoorbeeld: 10.0.0.0/16.
+Elk IP-adresbereik is gedefinieerd in [RFC 1918](http://tools.ietf.org/html/rfc1918). Bijvoorbeeld: 10.0.0.0/16. U kunt de volgende adresbereiken niet toevoegen:
+* 224.0.0.0/4 (Multicast)
+* 255.255.255.255/32 (Broadcast)
+* 127.0.0.0/8 (Loopback)
+* 169.254.0.0/16 (Link-local)
+* 168.63.129.16/32 (interne DNS)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Kan ik openbare IP-adressen hebben in mijn VNets?
 Ja. Zie voor meer informatie over het openbare IP-adresbereiken [maken van een virtueel netwerk](manage-virtual-network.md#create-a-virtual-network). Openbare IP-adressen zijn niet rechtstreeks toegankelijk via internet.
@@ -367,7 +372,7 @@ Er is geen limiet voor het totale aantal VNet-service-eindpunten in een virtueel
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
-|Met Azure Key Vault|    127|
+|Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Azure Event Hub|   128|
 |Azure Service Bus| 128|

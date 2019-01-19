@@ -1,23 +1,18 @@
 ---
-title: Azure DNS integreren met uw Azure-resources | Microsoft Docs
+title: Azure DNS integreren met uw Azure-resources
 description: Informatie over het gebruik van Azure DNS langs voor DNS voor uw Azure-resources.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727145"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401415"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS gebruiken om aangepaste domein-instellingen voor een Azure-service te geven
 
@@ -33,7 +28,7 @@ U kunt een vanity of een aangepast domein voor [Azure functie-Apps](#azure-funct
 
 Een CNAME-record is gemaakt voor het configureren van een aangepast domein voor Azure-functie-apps, en de configuratie op de functie-app zelf.
  
-Navigeer naar **andere** > **functie-App** en selecteer uw functie-App. Klik op **platformfuncties** en klikt u onder **netwerken** klikt u op **aangepaste domeinen**.
+Navigeer naar **functie-App** en selecteer uw functie-app. Klik op **platformfuncties** en klikt u onder **netwerken** klikt u op **aangepaste domeinen**.
 
 ![functie-app-blade](./media/dns-custom-domain/functionapp.png)
 
@@ -51,9 +46,9 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |
 |Alias     | adatumfunction.azurewebsites.net        | De DNS-naam maakt u de alias voor, in dit voorbeeld is de DNS-naam van het adatumfunction.azurewebsites.net geboden door standaard aan de functie-app.        |
 
-Ga terug naar uw functie-app, klikt u op **platformfuncties**, en klikt u onder **netwerken** klikt u op **aangepaste domeinen**, klikt u vervolgens onder **hostnamen**klikt u op **+ hostnaam toevoegen**.
+Ga terug naar uw functie-app, klikt u op **platformfuncties**, en klikt u onder **netwerken** klikt u op **aangepaste domeinen**, klikt u vervolgens onder **aangepaste hostnamen** klikt u op **+ hostnaam toevoegen**.
 
-Op de **hostnaam toevoegen** blade, voer de CNAME-record in de **hostnaam** tekstveld en klikt u op **valideren**. Als de record kan worden gevonden, de **hostnaam toevoegen** knop wordt weergegeven. Klik op **hostnaam toevoegen** om toe te voegen van de alias.
+Op de **hostnaam toevoegen** blade, voer de CNAME-record in de **hostnaam** tekstveld en klikt u op **valideren**. Als de record wordt gevonden, de **hostnaam toevoegen** knop wordt weergegeven. Klik op **hostnaam toevoegen** om toe te voegen van de alias.
 
 ![functie-apps toevoegen host naam blade](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -82,11 +77,11 @@ Nadat de A-record is gemaakt, voert `nslookup` voor het valideren van de record 
 
 ![openbare IP-dns-zoekactie](./media/dns-custom-domain/publicipnslookup.png)
 
-## <a name="app-service-web-apps"></a>App Service (Web-Apps)
+## <a name="app-service-web-apps"></a>App Service (Web Apps)
 
 De volgende stappen gaat u door het configureren van een aangepast domein voor een app service web-app.
 
-Navigeer naar **Web en mobiel** > **App Service** en selecteer de resource die u configureert een aangepaste domeinnaam en klik op **aangepaste domeinen**.
+Navigeer naar **App Service** en selecteer de resource die u configureert een aangepaste domeinnaam en klik op **aangepaste domeinen**.
 
 Houd er rekening mee de url voor de huidige op de **aangepaste domeinen** blade dit adres wordt gebruikt als de alias voor de DNS-record gemaakt.
 
@@ -135,7 +130,7 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |
-|Alias     | asverify.adatumfunctiona9ed.BLOB.Core.Windows.NET        | De DNS-naam maakt u de alias voor, in dit voorbeeld is de DNS-naam van het asverify.adatumfunctiona9ed.blob.core.windows.net standaard naar het opslagaccount dat is opgegeven.        |
+|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | De DNS-naam maakt u de alias voor, in dit voorbeeld is de DNS-naam van het asverify.adatumfunctiona9ed.blob.core.windows.net standaard naar het opslagaccount dat is opgegeven.        |
 
 Ga terug naar uw storage-account door te klikken op **opslag** > **Opslagaccounts**, selecteert u uw storage-account en klikt u op **aangepast domein**. Typ de alias die u hebt gemaakt zonder het voorvoegsel asverify in het tekstvak, selectievakje ** indirecte CNAME-validatie gebruiken en op **opslaan**. Nadat deze stap voltooid is, gaat u terug naar de DNS-zone en maak een CNAME-record zonder het voorvoegsel asverify.  Nadat verwijzen, bent u veilig verwijderen van het CNAME-record met het voorvoegsel cdnverify.
 
@@ -149,7 +144,7 @@ Voor meer informatie over een aangepast domein toewijzen aan een eindpunt van bl
 
 De volgende stappen gaat u door het configureren van een CNAME-record voor een CDN-eindpunt met behulp van het cdnverify-methode. Deze methode zorgt ervoor dat er is geen downtime.
 
-Navigeer naar **netwerken** > **CDN-profielen**, selecteer uw CDN-profiel en klikt u op **eindpunten** onder **algemene**.
+Navigeer naar **netwerken** > **CDN-profielen**, selecteert u uw CDN-profiel.
 
 Selecteer het eindpunt dat u werkt met en klikt u op **+ aangepast domein**. Houd er rekening mee de **hostnaam van eindpunt** als deze waarde de record die de CNAME-record verwijst is naar.
 

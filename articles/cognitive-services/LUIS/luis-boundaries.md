@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 716c6b67676bb3421fd5dbd0274ed41c7705c676
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b71b62d50f209c033597799dd26f579fcb200cc9
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133516"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413362"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen voor uw LUIS-model en de sleutels
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -60,14 +60,21 @@ Gebruik de volgende tekens niet in de namen van intentie en entiteit:
 |`]`|Haakje sluiten|
 |`\`|Backslash|
 
+## <a name="key-usage"></a>Sleutelgebruik
+
+Taal begrijpen heeft afzonderlijke sleutels, één type voor het ontwerpen en één type voor het uitvoeren van query's het eindpunt van de voorspelling. Zie voor meer informatie over de verschillen tussen sleuteltypen [ontwerpen en query voorspelling endpoint-sleutels in LUIS](luis-concept-keys.md).
+
 ## <a name="key-limits"></a>Limieten
+
 De ontwerphandleiding sleutel heeft verschillende beperkingen bij het ontwerpen en -eindpunt. De sleutel van LUIS-service-eindpunt is alleen geldig voor eindpunt query's.
+
 
 |Sleutel|Ontwerpen|Eindpunt|Doel|
 |--|--|--|--|
-|Ontwerpen/Starter|1 miljoen/maand, 5 per seconde|1-1000/maand, 5 per seconde|Uw LUIS-app ontwerpen|
-|[Abonnement] [ pricing] - F0 - gratis-laag |ongeldig|10 duizend/maand, 5 per seconde|Uitvoeren van query's uw LUIS-eindpunt|
-|[Abonnement] [ pricing] - S0 - Basic-laag|ongeldig|50 per seconde|Uitvoeren van query's uw LUIS-eindpunt|
+|Language Understanding ontwerpen/Starter|1 miljoen/maand, 5 per seconde|1-1000/maand, 5 per seconde|Uw LUIS-app ontwerpen|
+|Language Understanding [abonnement] [ pricing] - F0 - gratis-laag |ongeldig|10 duizend/maand, 5 per seconde|Uitvoeren van query's uw LUIS-eindpunt|
+|Language Understanding [abonnement] [ pricing] - S0 - Basic-laag|ongeldig|50 per seconde|Uitvoeren van query's uw LUIS-eindpunt|
+|Cognitive Service [abonnement] [ pricing] - S0 - Standard-laag|ongeldig|50 per seconde|Uitvoeren van query's uw LUIS-eindpunt|
 |[Integratie van sentiment-analyse](luis-how-to-publish-app.md#enable-sentiment-analysis)|ongeldig|Er zijn geen kosten in rekening gebracht|Sentiment informatie, inclusief gegevens sleuteltermextractie toe te voegen |
 |Spraak-integratie|ongeldig|$5,50 USD/1 duizend eindpunt aanvragen|Gesproken utterance converteren naar tekst utterance en LUIS resultaten geretourneerd|
 
@@ -79,7 +86,7 @@ De ontwerphandleiding sleutel heeft verschillende beperkingen bij het ontwerpen 
 
 ## <a name="website-sign-in-time-period"></a>Website zich in een tijdsperiode
 
-Uw aanmelding toegang wordt toegestaan voor **60 minuten**. Na deze periode ontvangt u deze fout. U moet zich opnieuw aanmeldt.
+Uw aanmelding toegang wordt toegestaan voor **60 minuten**. Na deze periode ontvangt u deze fout. U moet zich opnieuw aanmelden.
 
 [luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
 [batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing

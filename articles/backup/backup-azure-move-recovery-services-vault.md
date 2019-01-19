@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: ee61381eabed9dd7ead7deb23bc6f27c94031d3b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382320"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401925"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Een Recovery Services-kluis verplaatsen tussen Azure-abonnementen en resourcegroepen (beperkte openbare preview-versie)
 
@@ -42,9 +42,9 @@ Recovery Services-kluizen geconfigureerd voor gebruik met **Azure Site Recovery*
 >
 >
 
-## <a name="register-the-subscription-to-move-your-recovery-services-vault"></a>Registratie van het abonnement voor het verplaatsen van uw Recovery Services-kluis
+## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registratie van het bronabonnement voor het verplaatsen van uw Recovery Services-kluis
 
-Voor het registreren van het abonnement op **verplaatsen** uw Recovery Services-kluis, de volgende cmdlets uitvoeren vanuit de PowerShell-terminal:
+Voor het registreren van het abonnement van bron naar **verplaatsen** uw Recovery Services-kluis, de volgende cmdlets uitvoeren vanuit de PowerShell-terminal:
 
 1. Aanmelden bij uw Azure-account
 

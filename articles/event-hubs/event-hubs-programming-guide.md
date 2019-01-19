@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138072"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401398"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmeerhandleiding voor Azure Event Hubs
 Dit artikel worden enkele algemene scenario's bij het schrijven van code met Azure Event Hubs. Er wordt uitgegaan van een basisbegrip van Event Hubs. Zie het [Overzicht van Event Hubs](event-hubs-what-is-event-hubs.md) voor een conceptueel overzicht van Event Hubs.
@@ -92,7 +92,7 @@ Zie voor meer informatie en een discussie over de wisselwerking tussen beschikba
 
 Verzenden van gebeurtenissen in batches kan helpen betere doorvoer. U kunt de [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API voor het maken van een batch tot welke gegevens kunnen objecten later worden toegevoegd voor een [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) aanroepen.
 
-Één batch mag niet groter zijn dan de limiet van 256 KB van een gebeurtenis. Daarnaast maakt elk bericht in de batch gebruik van dezelfde uitgever-id. Het is de verantwoordelijkheid van de afzender om ervoor te zorgen dat de batch de maximale gebeurtenisgrootte niet overschrijdt. Als dit wel gebeurt, wordt aan clientzijde een **Verzendfout** gegenereerd. U kunt de Help-methode [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) om ervoor te zorgen dat de batch niet groter zijn dan 256 KB. U krijgt een lege [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) uit de [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API en gebruik vervolgens [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) om toe te voegen gebeurtenissen om te maken van de batch. 
+Één batch mag niet groter zijn dan de limiet van 1 MB van een gebeurtenis. Daarnaast maakt elk bericht in de batch gebruik van dezelfde uitgever-id. Het is de verantwoordelijkheid van de afzender om ervoor te zorgen dat de batch de maximale gebeurtenisgrootte niet overschrijdt. Als dit wel gebeurt, wordt aan clientzijde een **Verzendfout** gegenereerd. U kunt de Help-methode [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) om ervoor te zorgen dat de batch niet groter zijn dan 1 MB. U krijgt een lege [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) uit de [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API en gebruik vervolgens [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) om toe te voegen gebeurtenissen om te maken van de batch. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Asynchroon verzenden en op schaal verzenden
 

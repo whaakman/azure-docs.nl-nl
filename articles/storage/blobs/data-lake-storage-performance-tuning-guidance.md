@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 43cec400a21671d47d1a6c390833a5e4c6517709
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 403d60232f6b22161031dd4eb1af062336c370ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975240"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401755"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake Storage Gen2 voor prestaties afstemmen
 
@@ -45,7 +45,7 @@ Nadat u de bron-hardware hebt opgelost en network connectivity knelpunten hierbo
 
 | Hulpprogramma               | Instellingen     | Meer informatie                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| DistCp            | -m (toewijzen)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| DistCp            | -m (mapper)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | FS.Azure.Block.Size, -m (toewijzen)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
@@ -133,9 +133,9 @@ Naast de algemene richtlijnen die hierboven heeft elke toepassing andere paramet
 
 | Workload               | Parameter om taken te stellen                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [Spark in gekoppelde HDInisight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>NUM Executor</li><li>Executor-geheugen</li><li>Executor-cores</li></ul> |
-| [Hive in HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.Size</li></ul>         |
-| [MapReduce in HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.Memory</li><li>Mapreduce.job.Maps</li><li>Mapreduce.reduce.Memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Spark in HDInsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>NUM Executor</li><li>Executor-geheugen</li><li>Executor-cores</li></ul> |
+| [Hive in HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
+| [MapReduce in HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.Memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm op HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Aantal werkprocessen</li><li>Aantal spout executor-exemplaren</li><li>Aantal bolt executor-exemplaren </li><li>Aantal spout-taken</li><li>Bolt-taken</li></ul>|
 
 ## <a name="see-also"></a>Zie ook

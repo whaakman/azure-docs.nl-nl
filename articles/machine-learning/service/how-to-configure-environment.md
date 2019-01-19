@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 91323ac904ee7a806283673a1f98c46c1c211f7f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353223"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413121"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -68,13 +68,15 @@ Om te beginnen met ontwikkelen met Azure-laptops, Zie [aan de slag met Azure Mac
 
 De DSVM wordt de installatiekopie van een aangepaste virtuele machine (VM). Het ontworpen voor data science werk dat vooraf geconfigureerd met:
 
-  - Pakketten, zoals TensorFlow, PyTorch, Scikit-informatie, XGBoost en de Azure Machine Learning-SDK.
-  - Populaire hulpprogramma, zoals Spark zelfstandige en inzoomen.
-  - Azure-hulpprogramma's zoals de Azure CLI, AzCopy en Storage Explorer.
-  - Geïntegreerde ontwikkelingsomgevingen (IDE's), zoals Visual Studio Code, PyCharm en RStudio.
-  - Jupyter-Notebook-Server. 
+  - Pakketten, zoals TensorFlow, PyTorch, Scikit-informatie, XGBoost en de Azure Machine Learning-SDK
+  - Populaire data science-hulpprogramma's zoals Spark zelfstandige en inzoomen
+  - Azure-hulpprogramma's zoals de Azure CLI, AzCopy en Storage Explorer
+  - Geïntegreerde ontwikkelingsomgevingen (IDE's), zoals Visual Studio Code en PyCharm
+  - Jupyter Notebook-Server
 
-De Azure Machine Learning-SDK werkt op de Ubuntu- of Windows-versie van de DSVM. Voor het gebruik van de DSVM als een ontwikkelomgeving, het volgende doen:
+De Azure Machine Learning-SDK werkt op de Ubuntu- of Windows-versie van de DSVM. Maar als u van plan bent de DSVM gebruiken als een compute-doel, alleen Ubuntu wordt ondersteund.
+
+Voor het gebruik van de DSVM als een ontwikkelomgeving, het volgende doen:
 
 1. Maak een DSVM in een van de volgende omgevingen:
 

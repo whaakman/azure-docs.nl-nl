@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932391"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413223"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hoe u Linux-installatiekopieën voor virtuele machines maken in Azure met Packer
 Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u met het open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
@@ -74,7 +74,7 @@ Maak een bestand met de naam *ubuntu.json* en plak de volgende inhoud. Voer uw e
 | *client_id*                         | Eerste regel van de uitvoer van `az ad sp` maakopdracht - *appId* |
 | *client_secret*                     | Line-of uitvoer van tweede `az ad sp` maakopdracht - *wachtwoord* |
 | *tenant_id*                         | Derde regel van uitvoer van `az ad sp` maakopdracht - *tenant* |
-| *abonnements-id*                   | Uitvoer van `az account show` opdracht |
+| *subscription_id*                   | Uitvoer van `az account show` opdracht |
 | *managed_image_resource_group_name* | Naam van de resourcegroep die u hebt gemaakt in de eerste stap |
 | *managed_image_name*                | Naam voor de installatiekopie van het beheerde schijf die is gemaakt |
 
@@ -201,7 +201,7 @@ Het duurt een paar minuten voor Packer bouwen van de virtuele machine, het uitvo
 
 
 ## <a name="create-vm-from-azure-image"></a>Virtuele machine maken van installatiekopieën van Azure
-U kunt nu een virtuele machine maken door uw installatiekopie met [az vm maken](/cli/azure/vm#az_vm_create). Geef de afbeelding die u hebt gemaakt met de `--image` parameter. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage* en worden SSH-sleutels gegenereerd als deze nog niet bestaan:
+U kunt nu een virtuele machine maken door uw installatiekopie met [az vm maken](/cli/azure/vm). Geef de afbeelding die u hebt gemaakt met de `--image` parameter. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage* en worden SSH-sleutels gegenereerd als deze nog niet bestaan:
 
 ```azurecli
 az vm create \

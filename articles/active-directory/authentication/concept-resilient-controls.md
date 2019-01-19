@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 34d60d82ff70ecf683b955b8b796b5d3269df53c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101918"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401908"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
 
@@ -119,30 +119,48 @@ Beleid voor onvoorziene gebeurtenissen voorwaardelijke toegang is een **uitgesch
 * Gebruik van beleid dat de toegang in de apps beperken als een bepaalde mate van verificatie in plaats van gewoon terug te vallen voor volledige toegang niet wordt bereikt. Bijvoorbeeld:
   * Configureer een back-upbeleid waarmee de claim sessie met beperkte toegang tot Exchange en SharePoint worden verzonden.
   * Als uw organisatie Microsoft Cloud App Security gebruikt, kunt u overwegen terug te vallen op een beleid dat alleen mogelijk maakt tussen MCAS en vervolgens MCAS geeft alleen-lezen toegang, maar niet worden geüpload.
+* Naam van uw beleid om ervoor te zorgen dat het is eenvoudig te vinden tijdens een onderbreking. De volgende elementen in de naam van het beleid zijn:
+  * Een *label nummer* voor het beleid.
+  * Tekst om weer te geven, dit beleid is alleen urgente gevallen. Bijvoorbeeld: **SCHAKEL IN NOODGEVALLEN**
+  * De *onderbreking* is van toepassing op. Bijvoorbeeld: **During MFA Disruption**
+  * Een *volgnummer* om de volgorde weer te geven u het beleid moet activeren.
+  * De *apps* is van toepassing op.
+  * De *besturingselementen* wordt toegepast.
+  * De *voorwaarden* vereist is.
+  
+Deze naamgevingsnorm voor het beleid voor onvoorziene gebeurtenissen zijn als volgt: 
 
-Het volgende voorbeeld: **Voorbeeld van de A - Contingency CA-beleid toegang herstellen naar bedrijfskritische Apps voor samenwerking**, is een typische zakelijke onvoorziene gebeurtenissen. In dit scenario, de organisatie doorgaans MFA is vereist voor alle toegang tot Exchange Online en SharePoint Online en de onderbreking van de in dit geval is dat de MFA-provider voor de klant heeft een onderbreking (of Azure MFA, on-premises MFA-provider, of externe MFA). Dit beleid beperkt deze onderbreking door gebruikers in staat specifieke gerichte toegang tot deze apps uit de vertrouwde Windows-apparaten alleen wanneer ze de app vanuit het vertrouwde bedrijfsnetwerk openen. Dit wordt ook noodgevallen accounts en core beheerders uitsluiten van deze beperkingen. In dit voorbeeld moet een benoemde netwerklocatie **CorpNetwork** en een beveiligingsgroep **ContingencyAccess** met de doelgebruikers, een groep met de naam **CoreAdmins** met de Core-beheerders en een groep met de naam **EmergencyAccess** met de accounts voor toegang in noodgevallen. De gebeurtenis moet vier beleidsregels om de gewenste toegang te bieden.
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
+`
+
+Het volgende voorbeeld: **Voorbeeld van de A - Contingency CA-beleid toegang herstellen naar bedrijfskritische Apps voor samenwerking**, is een typische zakelijke onvoorziene gebeurtenissen. In dit scenario, de organisatie doorgaans MFA is vereist voor alle toegang tot Exchange Online en SharePoint Online en de onderbreking van de in dit geval is dat de MFA-provider voor de klant heeft een onderbreking (of Azure MFA, on-premises MFA-provider, of externe MFA). Dit beleid beperkt deze onderbreking door gebruikers in staat specifieke gerichte toegang tot deze apps uit de vertrouwde Windows-apparaten alleen wanneer ze de app vanuit het vertrouwde bedrijfsnetwerk openen. Dit wordt ook noodgevallen accounts en core beheerders uitsluiten van deze beperkingen. De beoogde gebruikers wordt vervolgens toegang krijgen tot Exchange Online en SharePoint Online, terwijl andere gebruikers nog steeds geen toegang tot de apps die vanwege de onderbreking. In dit voorbeeld moet een benoemde netwerklocatie **CorpNetwork** en een beveiligingsgroep **ContingencyAccess** met de doelgebruikers, een groep met de naam **CoreAdmins** met de Core-beheerders en een groep met de naam **EmergencyAccess** met de accounts voor toegang in noodgevallen. De gebeurtenis moet vier beleidsregels om de gewenste toegang te bieden. 
 
 **Voorbeeld van de A - Contingency CA-beleid toegang herstellen naar essentiële samenwerkings-Apps:**
 
 * Beleid 1: Vereisen dat apparaten aan een domein voor Exchange en SharePoint
+  * Naam: EM001 - INSCHAKELEN IN NOODGEVALLEN: Onderbreking van de MFA [1/4] - Exchange, SharePoint - vereisen Hybrid Azure AD Join
   * Gebruikers en groepen: ContingencyAccess bevatten. CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Exchange Online en SharePoint Online
   * Voorwaarden: Alle
   * Controle van verlenen: Vereisen van een domein
   * Status: Uitgeschakeld
 * Beleid 2: Blok-platforms dan Windows
+  * Naam: EM002 - INSCHAKELEN IN NOODGEVALLEN: MFA wordt onderbroken toegang van de [2/4] - Exchange SharePoint - blokkeren met uitzondering van Windows
   * Gebruikers en groepen: Alle gebruikers bevat. CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Exchange Online en SharePoint Online
   * Voorwaarden: Platform omvatten alle platformen voor apparaten, uitsluiten Windows
   * Controle van verlenen: Blok
   * Status: Uitgeschakeld
 * 3-beleid: Netwerken dan CorpNetwork blokkeren
+  * Naam: EM003 - INSCHAKELEN IN NOODGEVALLEN: MFA wordt onderbroken toegang van de [3/4] - Exchange SharePoint - blokkeren met uitzondering van het netwerk van bedrijf
   * Gebruikers en groepen: Alle gebruikers bevat. CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Exchange Online en SharePoint Online
   * Voorwaarden: Locaties zijn onder andere een willekeurige locatie, CorpNetwork uitsluiten
   * Controle van verlenen: Blok
   * Status: Uitgeschakeld
 * 4-beleid: EAS expliciet blokkeren
+  * Naam: EM004 - INSCHAKELEN IN NOODGEVALLEN: Onderbreking van de MFA [4/4] - Exchange - blok EAS voor alle gebruikers
   * Gebruikers en groepen: Alle gebruikers bevat
   * Cloud-Apps: Exchange Online opnemen
   * Voorwaarden: Client-apps: Exchange Active Sync
@@ -163,12 +181,14 @@ In dit voorbeeld volgende **voorbeeld B - noodplan voor CA-beleid voor mobiele t
 **Voorbeeld van de B - Contingency CA-beleid:**
 
 * Beleid 1: Iedereen in het team SalesContingency niet blokkeren
+  * Naam: EM001 - INSCHAKELEN IN NOODGEVALLEN: Apparaat naleving onderbreking [1/2] - Salesforce - blok alle gebruikers behalve SalesforceContingency
   * Gebruikers en groepen: Alle gebruikers bevat. SalesAdmins en SalesforceContingency uitsluiten
   * Cloud-Apps: SalesForce.
   * Voorwaarden: Geen
   * Controle van verlenen: Blok
   * Status: Uitgeschakeld
 * Beleid 2: Het verkoopteam vanaf elk platform dan mobile (voor surface area van aanvallen verkleinen) blokkeren
+  * Naam: EM002 - INSCHAKELEN IN NOODGEVALLEN: Apparaat naleving onderbreking [2/2] - Salesforce - blok alle platforms met uitzondering van iOS en Android
   * Gebruikers en groepen: SalesforceContingency bevatten. SalesAdmins uitsluiten
   * Cloud-Apps: SalesForce
   * Voorwaarden: Platform omvatten alle Apparaatplatformen, uitsluiten iOS en Android
@@ -215,14 +235,14 @@ Afhankelijk van welke oplossingen of onvoorziene gebeurtenissen worden gebruikt 
 
 ## <a name="after-a-disruption"></a>Na een onderbreking
 
-U moet u de wijzigingen die u hebt gemaakt als onderdeel van de geactiveerde plan voor onvoorziene gebeurtenissen zodra de service is hersteld en waardoor de onderbreking. 
+Wijzigingen ongedaan maken het u als onderdeel van de geactiveerde plan voor onvoorziene gebeurtenissen zodra de service is hersteld, waardoor de wordt onderbroken. 
 
 1. Het normale beleid inschakelen
 2. Uw beleidsregels voor onvoorziene gebeurtenissen uitschakelen. 
 3. Eventuele andere wijzigingen die u tijdens de onderbreking van de beschreven en wordt teruggedraaid.
 4. Als u een account voor toegang in noodgevallen gebruikt, moet u referenties opnieuw wilt genereren en de details van de nieuwe referenties een fysiek beveiligde als onderdeel van uw account voor toegang in noodgevallen procedures.
 5. Blijven [sorteren alle risicogebeurtenissen gerapporteerd](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) na de onderbreking voor verdachte activiteiten.
-6. Alle vernieuwingstokens die zijn uitgegeven intrekken [met behulp van PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) doel een groep gebruikers. Alle vernieuwingstokens intrekken is bijzonder belangrijk voor bevoegde accounts die worden gebruikt tijdens de onderbreking en hierbij wordt hen dwingen zich te verifiëren en te voldoen aan het besturingselement van de herstelde beleidsregels.
+6. Alle vernieuwingstokens die zijn uitgegeven intrekken [met behulp van PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) doel een groep gebruikers. Alle vernieuwingstokens intrekken is belangrijk voor bevoegde accounts die worden gebruikt tijdens de onderbreking en hierbij wordt hen dwingen zich te verifiëren en te voldoen aan het besturingselement van de herstelde beleidsregels.
 
 ## <a name="emergency-options"></a>Opties voor noodgevallen
 

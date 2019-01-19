@@ -17,14 +17,14 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424949"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401874"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Hoe: in het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
 
 Vandaag nog Azure Active Directory (Azure AD) biedt ondersteuning voor eenmalige aanmelding op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen vooraf geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker zich bij een toepassing via Azure AD met behulp van het SAML 2.0-protocol verifieert, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze tokens SAML bevatten informatie over de gebruiker bekend als 'claims'.
 
@@ -58,12 +58,12 @@ Voor het probleem waarbij de toepassing is geïmplementeerd met behulp van een a
 
 Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt kiezen uit de volgende opties.
 
-| Naam | Beschrijving |
+| Name | Description |
 |------|-------------|
 | Email | Het e-mailadres van de gebruiker |
 | userprincipalName | De user principal name (UPN) van de gebruiker |
 | onpremisessamaccount | SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD |
-| Object-id | De object-id van de gebruiker in Azure AD |
+| objectID | De object-id van de gebruiker in Azure AD |
 | Werknemer-id | De werknemer-id van de gebruiker |
 | Uitbreidingen van de directory | Mapextensies [vanuit on-premises Active Directory met behulp van Azure AD Connect Sync gesynchroniseerd](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Extensiekenmerken 1-15 | On-premises extensiekenmerken gebruikt de Azure AD-schema uit te breiden |
@@ -72,7 +72,7 @@ Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt ki
 
 U kunt ook de speciale claims transformaties-functies gebruiken.
 
-| Functie | Beschrijving |
+| Function | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Hiermee verwijdert u het domeinachtervoegsel van het e-mailadres, SAM-accountnaam of de user principal name. Alleen het eerste deel van de naam van de gebruiker wordt doorgegeven via geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com). |
 | **join()** | Lid wordt van een kenmerk met een geverifieerd domein. Als de geselecteerde gebruiker-id-waarde een domein heeft, wordt deze de gebruikersnaam voor het toevoegen van het geverifieerde domein voor geselecteerde extraheren. Bijvoorbeeld, als u het e-mailbericht (joe_smith@contoso.com) als de waarde van de gebruiker-id en selecteer contoso.onmicrosoft.com als het geverifieerde domein voor, resulteert dit in joe_smith@contoso.onmicrosoft.com. |
@@ -81,7 +81,7 @@ U kunt ook de speciale claims transformaties-functies gebruiken.
 
 ## <a name="adding-claims"></a>Claims toevoegen
 
-Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die strikt hoeft niet te volgen een patroon URI aan de hand van de SAML-specificatie) opgeven. Stel de waarde op elk gebruikerskenmerk die zijn opgeslagen in de map.
+Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die strikt hoeft niet te volgen een patroon URI aan de hand van de SAML-specificatie) opgeven. Stel de waarde voor elk gebruikerskenmerk die zijn opgeslagen in de map of gebruik de waarde van een constante geretourneerd als een statische vermelding voor alle gebruikers in uw organisatie.
 
 ![Gebruikerskenmerk toevoegen][7]
 

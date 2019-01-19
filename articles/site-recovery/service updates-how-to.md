@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
 ms.author: rajanaki
-ms.openlocfilehash: c267fc8a3a40d5e1a4f34b607762e1f79e5940b3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: eecd409c0256c42646edfc99208e180a42f1cb5b
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383435"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401483"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Service-updates in de Azure Site Recovery
 Als een organisatie, moet u bepalen hoe u van plan bent voor uw gegevens veilig en apps/workloads kunt uitvoeren wanneer geplande en ongeplande uitval optreedt. Azure Site Recovery draagt bij aan uw BCDR-strategie door uw apps uitgevoerd op virtuele machines en fysieke servers beschikbaar als een site uitvalt. Met Site Recovery repliceert u workloads die worden uitgevoerd op virtuele machines en fysieke servers, zodat deze beschikbaar blijven op een secundaire locatie als de primaire site niet beschikbaar is. Hiermee herstelt u werkbelastingen op de primaire site wanneer deze weer actief is.
@@ -48,7 +48,7 @@ Azure Site Recovery publiceert service-updates regelmatig - waaronder het toevoe
 2. Raadpleeg onze [Service-Updates](https://azure.microsoft.com/updates/?product=site-recovery) om erachter te komen welke versie van Site Recovery-onderdelen ondersteunen de specifieke versionn die u overstappen wilt op.
 3. Eerst een upgrade uitvoert naar de nieuwste versie van Site worden hersteld.
 4. Nu de OS/Kernel upgraden naar de gewenste versies.
-5. Voer een opnieuw opstarten.
+5. Opnieuw opstarten.
 6. Dit zorgt ervoor dat de versie van de OS/Kernel op uw virtuele machines worden bijgewerkt naar de nieuwste versie, en ook dat ook de meest recente wijzigingen voor de Site Recovery die vereist zijn ter ondersteuning van de nieuwe versie worden geladen op de bronmachine.
 
 

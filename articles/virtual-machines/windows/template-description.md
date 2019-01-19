@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: efd645faf3bf85f181b086fea8e55b0ab78be412
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023835"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412849"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuele machines in een Azure Resource Manager-sjabloon
 
@@ -162,7 +162,7 @@ De versie van de API die u in de sjabloon opgeeft is van invloed op de eigenscha
 
 Gebruik deze mogelijkheden voor het ophalen van de meest recente API-versies:
 
-- REST-API - [alle resourceproviders vermelden](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
+- REST-API - [alle resourceproviders vermelden](https://docs.microsoft.com/rest/api/resources/providers)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
 - Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
@@ -279,7 +279,7 @@ Deze eigenschap wilt instellen, moet de netwerkinterface bestaat. Daarom moet u 
 
 Verschillende elementen van het profiel worden gebruikt bij het definiëren van de bron van een virtuele machine. Sommige zijn vereist en sommige zijn optioneel. Bijvoorbeeld, de hardwareProfile, osProfile storageProfile en networkProfile elementen zijn vereist, maar de diagnosticsProfile is optioneel. Deze profielen definiëren de instellingen zoals:
    
-- [Grootte](sizes.md)
+- [size](sizes.md)
 - [naam](/azure/architecture/best-practices/naming-conventions) en referenties
 - schijf en [instellingen van besturingssysteem](cli-ps-findimage.md)
 - [Netwerkinterface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387426"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413546"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Zoeken naar een adres met behulp van de search-service van Azure Maps
 
@@ -105,7 +105,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
     |------------------|-------------------------|
     | API-versie | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
-    | query | 400 brede St, Seattle, WA 98109 |
+    | query | 400 Broad St, Seattle, WA 98109 |
   
 4. Klik op **verzenden** en bekijk de antwoordtekst.
   
@@ -158,7 +158,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
     |-----|------------|
     | getal | true |
 
-    Als de [getal](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter met de aanvraag is verzonden, moet het antwoord kan de kant van de straat (links/rechts) en ook de positie van een offset voor dat getal bevatten.
+    Als de [getal](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) queryparameter met de aanvraag is verzonden, moet het antwoord kan de kant van de straat (links/rechts) en ook de positie van een offset voor dat getal bevatten.
   
 6. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
@@ -166,7 +166,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
     |-----|------------|
     | returnSpeedLimit | true |
   
-    Wanneer de [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, het antwoord geretourneerd van de limiet voor geboekte snelheid.
+    Wanneer de [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) queryparameter is ingesteld, het antwoord geretourneerd van de limiet voor geboekte snelheid.
 
 7. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
@@ -174,7 +174,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
     |-----|------------|
     | returnRoadUse | true |
 
-    Wanneer de [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord retourneert de matrix voor het gebruik van weg voor omgekeerde geocodes op straat niveau.
+    Wanneer de [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) queryparameter is ingesteld, wordt het antwoord retourneert de matrix voor het gebruik van weg voor omgekeerde geocodes op straat niveau.
 
 8. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
@@ -182,7 +182,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
     |-----|------------|
     | roadUse | true |
 
-    U kunt de geocode omgekeerde query beperken tot een specifiek type weg gebruiken met behulp van de [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter.
+    U kunt de geocode omgekeerde query beperken tot een specifiek type weg gebruiken met behulp van de [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) queryparameter.
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Zoek de cross straat met omgekeerde adres Cross straat zoeken
 

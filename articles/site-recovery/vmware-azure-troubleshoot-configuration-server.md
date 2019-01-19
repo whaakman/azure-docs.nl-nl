@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: a720b264c4283498604d1446283c5a2242fdb8b3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb965313fda90da3fb0ec0cd418f87795a4e2722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381799"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413461"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Problemen met configuratie-server
 
@@ -71,7 +71,6 @@ Als u wilt verhelpen ontdekkingsfouten vCenter, zorg ervoor dat deze vCenter-ser
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Het IP-adres van de configuratieserver wijzigen
 
 Het is raadzaam dat u het IP-adres van een configuratieserver niet te wijzigen. Zorg ervoor dat alle IP-adressen die zijn toegewezen aan de configuratieserver statische IP-adressen. Gebruik geen DHCP IP-adressen.
->>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML-token is ongeldig
 

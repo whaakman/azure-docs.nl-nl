@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cede896e9a2a4c92a495a502fb6cf69805d755ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160043"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402129"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraties van SAP HANA-infrastructuur en bewerkingen op Azure
 Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en SAP HANA besturingssystemen die zijn geïmplementeerd op virtuele machines van Azure (VM's). Het document bevat ook informatie over de configuratie voor SAP HANA scale-out voor de M128s VM-SKU. Dit document is niet bedoeld als vervanging van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -70,7 +70,7 @@ U kunt een volledige SAP HANA-platform is geïnstalleerd op de virtuele machine 
 ### <a name="choose-azure-storage-type"></a>Kies Azure Storage-type
 Azure biedt twee typen opslag die geschikt zijn voor Azure-VM's waarop SAP HANA:
 
-- [Azure Standard-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
 - [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
 
 Azure biedt twee methoden voor het implementeren van VHD's op Azure Standard en Premium-opslag. Als de algehele scenario toestaat, profiteren van [Azure beheerde schijf](https://azure.microsoft.com/services/managed-disks/) implementaties.
@@ -127,9 +127,9 @@ Azure Write Accelerator is een functie die wordt ophalen uitgerold voor M-serie 
 
 De aanbevolen configuraties er als volgt uitzien:
 
-| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | / hana/gegevens | / hana/log | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | /hana/data | / hana/log | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 giB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
 | M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
@@ -161,12 +161,12 @@ De volgende tabel toont een configuratie van VM-typen die klanten vaak gebruikt 
 
 | VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | / hana/gegevens en/hana/log<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| E64v3 | 432 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M32ts | 192 giB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 |1 x S30 |
 | M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
@@ -271,7 +271,7 @@ De basisconfiguratie van een VM-knooppunt voor SAP HANA scale-out ziet eruit zoa
 
 Grootte van de volumes voor de knooppunten is dezelfde als scale-up, met uitzondering van **/hana/gedeelde**. Voor de SKU van de virtuele machine M128s de voorgestelde grootte en de typen er als volgt uitzien:
 
-| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | / hana/gegevens | / hana/log | / Root-volume | / usr/sap | Hana/back-up |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | /hana/data | / hana/log | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
 
@@ -403,7 +403,7 @@ Meer informatie over Azure-versnelde netwerken [hier](https://docs.microsoft.com
 
 Op basis van DT 2.0 richtlijnen voor best practices moet de schijf-i/o-doorvoer ten minste 50 MB per seconde per fysieke kern. De specificaties voor de twee typen Azure VM's, die worden ondersteund voor DT 2.0 een bekijkt, ziet de maximale schijf-i/o-doorvoerlimiet voor de virtuele machine:
 
-- E32sv3:   768 MB per seconde (zonder caching) wat betekent een ratio van 48 MB per seconde per fysieke kern dat
+- E32sv3    :   768 MB per seconde (zonder caching) wat betekent een ratio van 48 MB per seconde per fysieke kern dat
 - M64-32MS:  1000 MB per seconde (zonder caching) wat betekent een ratio van 62,5 MB per seconde per fysieke kern dat
 
 Dit is vereist voor meerdere Azure-schijven koppelen aan de DT 2.0 virtuele machine en het maken van een software-raid (gesegmenteerd te verdelen) op besturingssysteemniveau te bereiken van het maximum aantal schijfdoorvoer per virtuele machine. Een enkel Azure-schijf opgeven niet de doorvoer voor het bereiken van de maximale limiet voor de virtuele machine in dit opzicht. Azure Premium storage is verplicht om uit te voeren DT 2.0. 
@@ -418,8 +418,8 @@ Als de VM M64 32ms veel geheugen heeft, kan de i/o-belasting de limiet voor lees
 
 | VM-SKU | Configuratie van de schijf 1 | Configuratie van de schijf 2 | Schijf-configuratie 3 | Schijf Config 4 | Schijf Config 5 | 
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| M64-32ms | 16 TB-4 x P50 > | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3,5 TB | 8 x P15 -> 2 TB | 
-| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB opslagruimte | 4 x P30 -> 4 TB | 5 x P20 -> 2,5 TB | 6 x P15 -> 1,5 TB | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3.5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
 
 
 Met name als de werkbelasting Lees-intensieve kan het i/o-prestaties om in te schakelen op Azure-host cache 'alleen-lezen-zoals aanbevolen voor de gegevensvolumes van database-software te verbeteren. Dat voor de transactie log schijfcache voor Azure-host moet 'none'. 
@@ -431,8 +431,8 @@ Hier volgen enkele voorbeelden over het formaat van het logboekvolume:
 
 | het volume grootte en de schijf-gegevenstype | Typ config 1 logboekvolume en schijf | Typ configuratie 2 logboekvolume en schijf |
 | --- | --- | --- |
-| 16 TB-4 x P50 > | 5 x P20 -> 2,5 TB | 3 x P30 -> 3 TB |
-| 6 x P15 -> 1,5 TB | 4 x P6 -> 256 GB | 1 x-P15 -> 256 GB |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2.5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
 
 
 Net als voor SAP HANA-scale-out heeft de map /hana/shared om te worden gedeeld tussen de SAP HANA en de DT 2.0 VM's. De architectuur van dezelfde als voor SAP HANA met behulp van scale-out toegewezen virtuele machines die fungeren als een maximaal beschikbare NFS-server wordt aanbevolen. Om te voorzien van een gedeeld volume back-up, kan het ontwerp van de identieke worden gebruikt. Maar het is aan de klant als HA nodig zou zijn of alleen een specifieke virtuele machine met voldoende opslagcapaciteit gebruiken om te fungeren als een back-upserver voldoende is.
@@ -443,7 +443,7 @@ Net als voor SAP HANA-scale-out heeft de map /hana/shared om te worden gedeeld t
 
 - [Dynamische Opslaglagen voor SAP HANA-installatie- en update voor](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
 - [SAP HANA dynamische lagen zelfstudies en bronnen](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
-- [SAP HANA dynamische Cloudlagen PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
 - [SAP HANA 2.0 SP's 02 dynamische cloudlagen verbeteringen](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
 
 

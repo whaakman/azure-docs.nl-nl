@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100511"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401313"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problemen met Azure Machine Learning-service AKS en ACI-implementaties oplossen
 
@@ -93,10 +93,10 @@ Als systeem kan niet aan het bouwen van de Docker-installatiekopie, is de `image
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 De uri van de installatiekopie-logboek is een SAS-URL die verwijst naar een logboekbestand die zijn opgeslagen in de Azure blob-opslag. Alleen kopiëren en plakken de uri in een browservenster en u kunnen downloaden en weergeven van het logboekbestand.
@@ -115,7 +115,7 @@ U kunt gedetailleerde berichten voor Docker-engine van het serviceobject afdrukk
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Fouten opsporen in lokaal de Docker-installatiekopie
@@ -218,7 +218,7 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Houd er rekening mee**: retourneren foutmeldingen vanuit de `run(input_data)` aanroep moet worden gedaan voor het opsporen van fouten in doel alleen. Een goed idee om dit te doen in een productieomgeving om beveiligingsredenen niet mogelijk.
+**Opmerking**: Retourneren van foutberichten van de `run(input_data)` aanroep moet worden gedaan voor het opsporen van fouten in doel alleen. Een goed idee om dit te doen in een productieomgeving om beveiligingsredenen niet mogelijk.
 
 
 ## <a name="next-steps"></a>Volgende stappen

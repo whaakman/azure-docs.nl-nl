@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 39cb9f606e6829fe8265a40216de5312c3e7e60b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4278ec65dd21e998fa2f498435d7df143ea07d0a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075189"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412883"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -87,7 +87,7 @@ Voordat u een peering, Maak uzelf vertrouwd met de [vereisten en beperkingen](#r
 
 **Opdrachten**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering#az_network_vnet_peering_list) aan lijst peerings voor een virtueel netwerk, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) om instellingen voor een specifieke peering weer te geven en [az-netwerk vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) peering-instellingen te wijzigen. |
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) aan lijst peerings voor een virtueel netwerk, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) om instellingen voor een specifieke peering weer te geven en [az-netwerk vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) peering-instellingen te wijzigen. |
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) peering weergave-instellingen op te halen en [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) om instellingen te wijzigen.
 
 ## <a name="delete-a-peering"></a>Een peering verwijderen

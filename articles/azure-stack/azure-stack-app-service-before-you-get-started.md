@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275666"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413019"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -71,7 +71,7 @@ Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 scriptparameters
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
@@ -96,12 +96,12 @@ Volg deze stappen voor het maken van de certificaten:
 3. Voer de *maken AppServiceCerts.ps1* script uit de map waar u de helperscripts hebt uitgepakt. Dit script maakt vier certificaten in dezelfde map als het script dat een App Service nodig zijn voor het maken van certificaten.
 4. Een wachtwoord invoeren voor het beveiligen van het pfx-bestanden en noteer deze. Hebt u deze invoeren in de App Service op Azure Stack-installatieprogramma.
 
-#### <a name="create-appservicecertsps1-script-parameters"></a>Scriptparameters maken AppServiceCerts.ps1
+#### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 script parameters
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | pfxPassword | Vereist | Null | Wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen |
-| Domeinnaam | Vereist | Local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
+| Domeinnaam | Vereist | local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
 
 ### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certificaten die vereist zijn voor Azure Stack-productie-implementatie van Azure App Service
 
@@ -120,7 +120,7 @@ Het certificaat in PFX-indeling moet worden en moet een certificaat met jokertek
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| \*.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | \*.appservice.redmond.azurestack.external |
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
 | \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
@@ -130,7 +130,7 @@ De API-certificaat is op de beheerrol geplaatst. De resourceprovider gebruikt om
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| API.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | api.appservice.redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Publicatiecertificaat
 
@@ -138,7 +138,7 @@ Het certificaat voor de rol van de uitgever beveiligt het FTPS-verkeer voor toep
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| FTP.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | ftp.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Identiteitscertificaat
 
@@ -151,7 +151,7 @@ Het certificaat voor de id moet een onderwerpnaam die overeenkomt met de volgend
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| SSO.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | sso.appservice.redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 
 ### <a name="validate-certificates"></a>Certificaten valideren
@@ -166,7 +166,7 @@ Als een best practice, als u werkt met een van de benodigde [Azure Stack PKI-cer
 
 Azure App Service in Azure Stack kunt u de resourceprovider implementeren op een bestaand virtueel netwerk of kunt u een virtueel netwerk maken als onderdeel van de implementatie. Met behulp van een bestaand virtueel netwerk, kunt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server vereist voor Azure App Service in Azure Stack. Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service in Azure Stack:
 
-Virtueel netwerk - /16
+Virtual Network - /16
 
 Subnetten
 
@@ -327,7 +327,7 @@ Beheerders moeten eenmalige aanmelding te configureren:
 Volg deze stappen:
 
 1. Open een PowerShell-sessie als azurestack\AzureStackAdmin.
-2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 4. Voer de **maken AADIdentityApp.ps1** script. Wanneer u wordt gevraagd, typt u de Azure AD-tenant-ID die u voor uw Azure Stack-implementatie. Voer bijvoorbeeld **myazurestack.onmicrosoft.com**.
 5. In de **referentie** venster, Voer uw Azure AD-service admin-account en wachtwoord. Selecteer **OK**.
@@ -371,7 +371,7 @@ Beheerders moeten eenmalige aanmelding te configureren:
 Volg deze stappen:
 
 1. Open een PowerShell-sessie als azurestack\AzureStackAdmin.
-2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 4. Voer de **maken ADFSIdentityApp.ps1** script.
 5. In de **referentie** venster, Geef uw AD FS cloud-beheerdersaccount en het wachtwoord. Selecteer **OK**.
